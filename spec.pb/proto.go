@@ -2,4 +2,9 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package qingcloud
+// go get github.com/dsymonds/gotoc
+// go get github.com/golang/protobuf/protoc-gen-go
+
+//go:generate gotoc base.proto
+
+package spec
