@@ -33,14 +33,14 @@ https://api.qingcloud.com/iaas/?access_key_id=QYACCESSKEYIDEXAMPLE
 // ----------------------------------------------------------------------------
 
 message CommonRequest {
-    string action = 1;           // 用来标识所请求指令
-    string zone = 2;             // 区域 ID, enum: {pek1, pek2, pek3a, pek3b, sh1a, gd1, gp1}
-    string time_stamp = 3;       // 格式 YYYY-MM-DDThh:mm:ssZ, 参见 ISO8601.
-    string access_key_id = 4;    // 申请的 API密钥ID
-    int32 version = 5;           // API的版本号, 目前只支持版本号为 1
-    string signature_method = 6; // 签名所用哈希算法. enum: {HmacSHA256, HmacSHA1}
-    int32 signature_version = 7; // 签名函数的版本号, 目前只支持版本号为 1
-    string signature = 8;        // 请求消息的签名
+    string action = 1;                        // 用来标识所请求指令
+    string zone = 2;                          // 区域 ID, enum: {pek1, pek2, pek3a, pek3b, sh1a, gd1, gp1}
+    google.protobuf.Timestamp time_stamp = 3; // 格式 YYYY-MM-DDThh:mm:ssZ, 参见 ISO8601.
+    string access_key_id = 4;                 // 申请的 API密钥ID
+    int32 version = 5;                        // API的版本号, 目前只支持版本号为 1
+    string signature_method = 6;              // 签名所用哈希算法. enum: {HmacSHA256, HmacSHA1}
+    int32 signature_version = 7;              // 签名函数的版本号, 目前只支持版本号为 1
+    string signature = 8;                     // 请求消息的签名
 }
 
 // ----------------------------------------------------------------------------
