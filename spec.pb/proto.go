@@ -5,6 +5,6 @@
 // https://github.com/google/protobuf/releases
 // go get github.com/golang/protobuf/protoc-gen-go
 
-//go:generate protoc --go_out=. base.proto instances.proto
+//go:generate protoc --go_out=. base.proto instances.proto nic.proto snapshot.proto zone.proto cache.proto             job.proto               rdb.proto               tag.proto dns.proto               key_pair.proto          router.proto            user_data.proto eip.proto               load_balancer.proto     security_group.proto    volume.proto image.proto             mongo.proto             shared_storage.proto    vxnet.proto
 
 package spec

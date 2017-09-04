@@ -7,6 +7,25 @@ Package spec is a generated protocol buffer package.
 It is generated from these files:
 	base.proto
 	instances.proto
+	nic.proto
+	snapshot.proto
+	zone.proto
+	cache.proto
+	job.proto
+	rdb.proto
+	tag.proto
+	dns.proto
+	key_pair.proto
+	router.proto
+	user_data.proto
+	eip.proto
+	load_balancer.proto
+	security_group.proto
+	volume.proto
+	image.proto
+	mongo.proto
+	shared_storage.proto
+	vxnet.proto
 
 It has these top-level messages:
 	CommonRequest
