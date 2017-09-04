@@ -1,5 +1,9 @@
 # qingcloud 自用 SDK
 
+官方文档:
+
+- https://docs.qingcloud.com
+
 基本思路:
 
 - 基于 Protobuf3 语法对应的 json 格式文件定义 api 元数据
