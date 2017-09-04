@@ -1,0 +1,24 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto3";
+
+package spec;
+message Message {
+	string msg = 1;
+}
+service InstancesService {
+	rpc DescribeInstances(Message) returns (Message);
+	rpc RunInstances(Message) returns (Message);
+	rpc TerminateInstances(Message) returns (Message);
+	rpc StartInstances(Message) returns (Message);
+	rpc StopInstances(Message) returns (Message);
+	rpc RestartInstances(Message) returns (Message);
+	rpc ResetInstances(Message) returns (Message);
+	rpc ResizeInstances(Message) returns (Message);
+	rpc ModifyInstanceAttributes(Message) returns (Message);
+	rpc DescribeInstanceTypes(Message) returns (Message);
+	rpc CreateBrokers(Message) returns (Message);
+	rpc DeleteBrokers(Message) returns (Message);
+}

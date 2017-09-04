@@ -6,10 +6,10 @@ syntax = "proto3";
 
 package spec;
 
-message Message {
+message Message2 {
 	string msg = 1;
 }
 
 service EchoService {
-	rpc Echo(Message) returns (Message);
+	rpc Echo(Message2) returns (Message2);
 }

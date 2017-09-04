@@ -2,9 +2,9 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-// go get github.com/dsymonds/gotoc
+// https://github.com/google/protobuf/releases
 // go get github.com/golang/protobuf/protoc-gen-go
 
-//go:generate gotoc base.proto
+//go:generate protoc --go_out=. base.proto instances.proto
 
 package spec
