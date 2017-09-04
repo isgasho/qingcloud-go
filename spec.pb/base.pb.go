@@ -10,7 +10,6 @@ It is generated from these files:
 
 It has these top-level messages:
 	Message2
-	Message
 	DescribeInstanceTypes_Request
 	DescribeInstanceTypes_Reponse
 	InstanceTypeSetElem

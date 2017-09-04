@@ -5,33 +5,37 @@
 syntax = "proto3";
 
 package spec;
-message Message {
-	string msg = 1;
-}
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/instance/index.html
 // ----------------------------------------------------------------------------
 
 service InstancesService {
-	rpc DescribeInstances(Message) returns (Message);
-	rpc RunInstances(Message) returns (Message);
-	rpc TerminateInstances(Message) returns (Message);
-	rpc StartInstances(Message) returns (Message);
-	rpc StopInstances(Message) returns (Message);
-	rpc RestartInstances(Message) returns (Message);
-	rpc ResetInstances(Message) returns (Message);
-	rpc ResizeInstances(Message) returns (Message);
-	rpc ModifyInstanceAttributes(Message) returns (Message);
+	rpc DescribeInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RunInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc TerminateInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StartInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StopInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RestartInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResetInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResizeInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyInstanceAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DescribeInstanceTypes(DescribeInstanceTypes_Request) returns (DescribeInstanceTypes_Reponse);
-	rpc CreateBrokers(Message) returns (Message);
-	rpc DeleteBrokers(Message) returns (Message);
+	rpc CreateBrokers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteBrokers(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 
 // ----------------------------------------------------------------------------
 //
 // DescribeInstanceTypes
 // https://docs.qingcloud.com/api/instance/describe_instance_types.html
+//
+// ----------------------------------------------------------------------------
 //
 // Example Request:
 //
