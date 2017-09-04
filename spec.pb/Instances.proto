@@ -18,7 +18,37 @@ service InstancesService {
 	rpc ResetInstances(Message) returns (Message);
 	rpc ResizeInstances(Message) returns (Message);
 	rpc ModifyInstanceAttributes(Message) returns (Message);
-	rpc DescribeInstanceTypes(Message) returns (Message);
+	rpc DescribeInstanceTypes(DescribeInstanceTypes_Request) returns (DescribeInstanceTypes_Reponse);
 	rpc CreateBrokers(Message) returns (Message);
 	rpc DeleteBrokers(Message) returns (Message);
+}
+
+// DescribeInstanceTypes
+// https://docs.qingcloud.com/api/instance/describe_instance_types.html
+message DescribeInstanceTypes_Request {
+    string action = 1;                            // 响应动作
+    repeated InstanceTypes instance_type_set = 2; // 主机类型列表
+    int32 total_count = 3;                        // 根据过滤条件得到的主机类型总数
+
+    string zone = 4;                              // 区域 ID, 注意要小写; required
+    repeated string instance_types = 5;           // 指定查询的主机类型
+}
+
+message DescribeInstanceTypes_Reponse {
+    string instance_type_id = 1;   // 主机类型ID
+    string instance_type_name = 2; // 主机类型名称
+    string description = 3;        // 主机类型描述
+    int32 vcpus_current = 4;       // 主机类型CPU核心数目
+    int32 memory_current = 5;      // 主机类型内存大小, 单位为MB
+    string status = 6;             // 主机类型状态. enum: {available, deprecated}
+}
+
+message InstanceTypes {
+    int32 vcpus_current = 1;       // 1
+    string status = 2;             // available
+    string description = 3;        //
+    string instance_type_name = 4; // 1核1G
+    string instance_type_id = 5;   // c1m1
+    string zone_id = 6;            // pek2
+    int32 memory_current = 7;      // 1024
 }
