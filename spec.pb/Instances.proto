@@ -72,8 +72,8 @@ message DescribeInstanceTypes_Request {
 }
 
 message DescribeInstanceTypes_Reponse {
-    string action = 1;  // 响应动作
-    int32 ret_code = 2; // 状态码
+    string action = 1;                                  // 响应动作
+    int32 ret_code = 2;                                 // 状态码
 
     repeated InstanceTypeSetElem instance_type_set = 3; // 主机类型列表
     int32 total_count = 4;                              // 根据过滤条件得到的主机类型总数
