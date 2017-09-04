@@ -17,28 +17,30 @@
 package utils
 
 import (
-	"testing"
+	"time"
 )
 
-func TestURLQueryEscape(t *testing.T) {
-	tAssertEQ(t, "/", URLQueryEscape("/"))
-	tAssertEQ(t, "%20", URLQueryEscape(" "))
-	tAssertEQ(t,
-		"%21%40%23%24%25%5E%26%2A%28%29_%2B%7B%7D%7C",
-		URLQueryEscape("!@#$%^&*()_+{}|"),
-	)
+var layoutMap = map[string]string{
+	"RFC 822":  "Mon, 02 Jan 2006 15:04:05 GMT",
+	"ISO 8601": "2006-01-02T15:04:05Z",
 }
 
-func TestURLQueryUnescape(t *testing.T) {
-	x, err := URLQueryUnescape("/")
-	tAssertNil(t, err)
-	tAssertEQ(t, "/", x)
+// TimeToString transforms given time to string.
+func TimeToString(timeValue time.Time, format string) string {
+	return timeValue.UTC().Format(layoutMap[format])
+}
 
-	x, err = URLQueryUnescape("%20")
-	tAssertNil(t, err)
-	tAssertEQ(t, " ", x)
+// StringToTime transforms given string to time.
+func StringToTime(timeString, format string) (time.Time, error) {
+	return time.Parse(layoutMap[format], timeString)
+}
 
-	x, err = URLQueryUnescape("%21%40%23%24%25%5E%26%2A%28%29_%2B%7B%7D%7C")
-	tAssertNil(t, err)
-	tAssertEQ(t, "!@#$%^&*()_+{}|", x)
+// StringToUnixInt transforms given string to unix time int.
+func StringToUnixInt(timeString, format string) int {
+	t, err := StringToTime(timeString, format)
+	if err != nil {
+		return 0
+	}
+
+	return int(t.Unix())
 }
