@@ -12,6 +12,6 @@
 - 生成的请求和响应结构体保持和 Proto3 生成的结构一致, Proto3 本身支持多种语言
 - Go 标准库的模板语法太难用, [Mustache](http://mustache.github.io) 语言无关
 - 更多的单元测试代码
-- 没有外部依赖!
+- 最小化外部依赖!
 
 基于现有的 proto3 和 Mustache 构造语言无关的格式.
