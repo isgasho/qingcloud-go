@@ -13,7 +13,7 @@ It has these top-level messages:
 	Message
 	DescribeInstanceTypes_Request
 	DescribeInstanceTypes_Reponse
-	InstanceTypes
+	InstanceTypeSetElem
 */
 package spec
 
