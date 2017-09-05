@@ -19,3 +19,11 @@
 - 最小化外部依赖!
 
 基于现有的 proto3 和 Mustache 构造语言无关的格式.
+
+接口预览:
+
+- [base.proto](./spec.pb/base.proto)
+- [base.pb.go](./spec.pb/base.pb.go)
+- [instances.proto](./spec.pb/instances.proto)
+- [instances.pb.go](./spec.pb/instances.pb.go)
+
