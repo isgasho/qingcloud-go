@@ -81,7 +81,7 @@ type {{.ServiceName}} interface {
 }
 `
 	const callMethodTmpl = `
-{{.MethodName}}(ctx context.Context, in *{{.ArgsType}}, out *{{.ReplyType}}) error`
+{{.MethodName}}(ctx context.Context, in *{{.ArgsType}}) (out *{{.ReplyType}}, err error)`
 
 	// gen call method list
 	var callMethodList string
@@ -140,14 +140,14 @@ type {{.ServiceName}}Client struct {}
 
 // New{{.ServiceName}}Client returns a {{.ServiceName}} stub to handle
 // requests to the set of {{.ServiceName}} at the other end of the connection.
-func New{{.ServiceName}}Client(options *Options) (*{{.ServiceName}}Client) {
+func New{{.ServiceName}}Client(opt *Options) (*{{.ServiceName}}Client) {
 	return &{{.ServiceName}}Client{}
 }
 
 {{.MethodList}}
 `
 	const clientMethodTmpl = `
-func (c *{{.ServiceName}}Client) {{.MethodName}}(ctx context.Context, in *{{.ArgsType}}) (out *{{.ReplyType}}, err error) {
+func (c *{{.ServiceName}}Client) {{.MethodName}}(ctx context.Context, in *{{.ArgsType}}, opt ...*Options) (out *{{.ReplyType}}, err error) {
 	panic("TODO")
 }`
 
