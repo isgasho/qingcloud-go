@@ -1,7 +1,9 @@
 # qingcloud 自用 SDK
 
-官方文档:
+在线文档:
 
+- https://github.com/chai2010/qingcloud-go
+- https://github.com/chai2010/qingcloud-go/spec.pb
 - https://docs.qingcloud.com
 
 基本思路:
