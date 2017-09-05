@@ -1,0 +1,32 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto3";
+
+package spec;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+/*
+DescribeAlarmPolicies
+CreateAlarmPolicy
+ModifyAlarmPolicyAttributes
+DeleteAlarmPolicies
+DescribeAlarmPolicyRules
+AddAlarmPolicyRules
+ModifyAlarmPolicyRuleAttributes
+DeleteAlarmPolicyRules
+DescribeAlarmPolicyActions
+AddAlarmPolicyActions
+ModifyAlarmPolicyActionAttributes
+DeleteAlarmPolicyActions
+AssociateAlarmPolicy
+DissociateAlarmPolicy
+ApplyAlarmPolicy
+DescribeAlarms
+DescribeAlarmHistory
+*/

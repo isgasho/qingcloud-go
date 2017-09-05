@@ -10,3 +10,36 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+/*
+CreateLoadBalancer
+DescribeLoadBalancers
+DeleteLoadBalancers
+ModifyLoadBalancerAttributes
+StartLoadBalancers
+StopLoadBalancers
+UpdateLoadBalancers
+ResizeLoadBalancers
+AssociateEipsToLoadBalancer
+DissociateEipsFromLoadBalancer
+AddLoadBalancerListeners
+DescribeLoadBalancerListeners
+DeleteLoadBalancerListeners
+ModifyLoadBalancerListenerAttributes
+AddLoadBalancerBackends
+DescribeLoadBalancerBackends
+DeleteLoadBalancerBackends
+ModifyLoadBalancerBackendAttributes
+CreateLoadBalancerPolicy
+DescribeLoadBalancerPolicies
+ModifyLoadBalancerPolicyAttributes
+ApplyLoadBalancerPolicy
+DeleteLoadBalancerPolicies
+AddLoadBalancerPolicyRules
+DescribeLoadBalancerPolicyRules
+ModifyLoadBalancerPolicyRuleAttributes
+DeleteLoadBalancerPolicyRules
+CreateServerCertificate
+DescribeServerCertificates
+ModifyServerCertificateAttributes
+DeleteServerCertificates
+*/

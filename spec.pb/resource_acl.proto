@@ -1,0 +1,44 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto3";
+
+package spec;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+/*
+DescribeSharedResourceGroups
+DescribeResourceGroups
+CreateResourceGroups
+ModifyResourceGroupAttributes
+DeleteResourceGroups
+DescribeResourceGroupItems
+AddResourceGroupItems
+DeleteResourceGroupItems
+DescribeUserGroups
+CreateUserGroups
+ModifyUserGroupAttributes
+DeleteUserGroups
+DescribeUserGroupMembers
+AddUserGroupMembers
+ModifyUserGroupMemberAttributes
+DeleteUserGroupMembers
+DescribeGroupRoles
+CreateGroupRoles
+ModifyGroupRoleAttributes
+DeleteGroupRoles
+DescribeGroupRoleRules
+AddGroupRoleRules
+ModifyGroupRoleRuleAttributes
+DeleteGroupRoleRules
+GrantResourceGroupsToUserGroups
+RevokeResourceGroupsFromUserGroups
+DescribeResourceUserGroups
+
+
+*/

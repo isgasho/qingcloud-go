@@ -12,23 +12,13 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 /*
-CreateRDB
-DescribeRDBs
-DeleteRDBs
-StartRDBs
-StopRDBs
-ResizeRDBs
-RDBsLeaveVxnet
-RDBsJoinVxnet
-CreateRDBFromSnapshot
-CreateTempRDBInstanceFromSnapshot
-GetRDBInstanceFiles
-CopyRDBInstanceFilesToFTP
-PurgeRDBLogs
-CeaseRDBInstance
-GetRDBMonitor
-ModifyRDBParameters
-ApplyRDBParameterGroup
-DescribeRDBParameters
+CreateSpark
+DescribeSparks
+AddSparkNodes
+DeleteSparkNodes
+StartSparks
+StopSparks
+DeleteSparks
+
 
 */

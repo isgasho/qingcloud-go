@@ -10,3 +10,14 @@ import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+
+service VolumesService {
+    rpc DescribeVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AttachVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DetachVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ResizeVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyVolumeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
