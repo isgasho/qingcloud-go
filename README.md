@@ -13,7 +13,8 @@
 
 - 基于 Protobuf3 语法对应的 json 格式文件定义 api 元数据
 - 基于 Protobuf3 语法定义 rest 接口的请求和响应结构体, 只是用于结构体, 请求时转 json 处理(proto库自带)
-- 基于 [Mustache](http://mustache.github.io) 模板定义最终要渲染的生成代码
+- 外部模板基于 [Mustache](http://mustache.github.io) 模板定义最终要渲染的生成代码
+- 内置 Go 语言代码模板基于标准库语法
 
 小目标:
 
