@@ -11,10 +11,10 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-GrantQuotaIndep
-RevokeQuotaIndep
-GetQuotaLeft
+// https://docs.qingcloud.com/api/misc/index.html
 
-
-*/
+service MiscService {
+    rpc GrantQuotaIndep(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RevokeQuotaIndep(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetQuotaLeft(google.protobuf.Empty) returns (google.protobuf.Empty);    
+}

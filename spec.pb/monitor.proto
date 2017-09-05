@@ -11,12 +11,13 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-GetMonitor
-GetLoadBalancerMonitor
-GetRDBMonitor
-GetCacheMonitor
-GetZooKeeperMonitor
-GetQueueMonitor
+// https://docs.qingcloud.com/api/monitor/index.html
 
-*/
+service MonitorService {
+    rpc GetMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetLoadBalancerMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetRDBMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetCacheMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetZooKeeperMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetQueueMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
