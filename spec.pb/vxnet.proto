@@ -11,12 +11,14 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeVxnets
-CreateVxnets
-DeleteVxnets
-JoinVxnet
-LeaveVxnet
-ModifyVxnetAttributes
-DescribeVxnetInstances
-*/
+// https://docs.qingcloud.com/api/vxnet/index.html
+
+service VxnetService {
+    rpc DescribeVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc JoinVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc LeaveVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyVxnetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeVxnetInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

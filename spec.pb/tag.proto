@@ -11,12 +11,13 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeTags
-CreateTag
-DeleteTags
-ModifyTagAttributes
-AttachTags
-DetachTags
+// https://docs.qingcloud.com/api/tag/index.html
 
-*/
+service TagService {
+    rpc DescribeTags(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateTag(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteTags(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyTagAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AttachTags(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DetachTags(google.protobuf.Empty) returns (google.protobuf.Empty);    
+}
