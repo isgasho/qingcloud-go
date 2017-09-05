@@ -11,13 +11,14 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeSnapshots
-CreateSnapshots
-DeleteSnapshots
-ApplySnapshots
-ModifySnapshotAttributes
-CaptureInstanceFromSnapshot
-CreateVolumeFromSnapshot
+// https://docs.qingcloud.com/api/snapshot/index.html
 
-*/
+service SnapshotService {
+    rpc DescribeSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ApplySnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifySnapshotAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CaptureInstanceFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateVolumeFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

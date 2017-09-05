@@ -11,14 +11,14 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-CreateSpark
-DescribeSparks
-AddSparkNodes
-DeleteSparkNodes
-StartSparks
-StopSparks
-DeleteSparks
+// https://docs.qingcloud.com/api/spark/index.html
 
-
-*/
+service SparkService {
+    rpc CreateSpark(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc StartSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc StopSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

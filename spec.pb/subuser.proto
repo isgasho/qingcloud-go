@@ -11,12 +11,12 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeSubUsers
-CreateSubUser
-ModifySubUserAttributes
-DeleteSubUsers
-RestoreSubUsers
+// https://docs.qingcloud.com/api/subuser/index.html
 
-
-*/
+service SubuserService {
+    rpc DescribeSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateSubUser(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifySubUserAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RestoreSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

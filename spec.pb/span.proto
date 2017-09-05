@@ -11,14 +11,14 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-CreateSpan
-DescribeSpans
-DeleteSpans
-AddSpanMembers
-RemoveSpanMembers
-ModifySpanAttributes
-UpdateSpan
+// https://docs.qingcloud.com/api/span/index.html
 
-
-*/
+service SpanService {
+    rpc CreateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RemoveSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifySpanAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc UpdateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
