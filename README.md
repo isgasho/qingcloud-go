@@ -1,3 +1,6 @@
+
+<p align="center"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></p>
+
 # qingcloud 自用 SDK
 
 在线文档:
