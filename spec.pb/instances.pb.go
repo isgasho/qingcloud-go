@@ -27,7 +27,7 @@ type DescribeInstanceTypes_Request struct {
 func (m *DescribeInstanceTypes_Request) Reset()                    { *m = DescribeInstanceTypes_Request{} }
 func (m *DescribeInstanceTypes_Request) String() string            { return proto.CompactTextString(m) }
 func (*DescribeInstanceTypes_Request) ProtoMessage()               {}
-func (*DescribeInstanceTypes_Request) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (*DescribeInstanceTypes_Request) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 func (m *DescribeInstanceTypes_Request) GetAction() string {
 	if m != nil {
@@ -60,7 +60,7 @@ type DescribeInstanceTypes_Reponse struct {
 func (m *DescribeInstanceTypes_Reponse) Reset()                    { *m = DescribeInstanceTypes_Reponse{} }
 func (m *DescribeInstanceTypes_Reponse) String() string            { return proto.CompactTextString(m) }
 func (*DescribeInstanceTypes_Reponse) ProtoMessage()               {}
-func (*DescribeInstanceTypes_Reponse) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
+func (*DescribeInstanceTypes_Reponse) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
 func (m *DescribeInstanceTypes_Reponse) GetAction() string {
 	if m != nil {
@@ -102,7 +102,7 @@ type InstanceTypeSetElem struct {
 func (m *InstanceTypeSetElem) Reset()                    { *m = InstanceTypeSetElem{} }
 func (m *InstanceTypeSetElem) String() string            { return proto.CompactTextString(m) }
 func (*InstanceTypeSetElem) ProtoMessage()               {}
-func (*InstanceTypeSetElem) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
+func (*InstanceTypeSetElem) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
 
 func (m *InstanceTypeSetElem) GetInstanceTypeId() string {
 	if m != nil {
@@ -212,9 +212,9 @@ func (c *InstancesServiceClient) DeleteBrokers(ctx context.Context, in *google_p
 	panic("TODO")
 }
 
-func init() { proto.RegisterFile("instances.proto", fileDescriptor7) }
+func init() { proto.RegisterFile("instances.proto", fileDescriptor8) }
 
-var fileDescriptor7 = []byte{
+var fileDescriptor8 = []byte{
 	// 519 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0x5d, 0x6f, 0xda, 0x30,
 	0x14, 0x15, 0x83, 0xb2, 0xf5, 0x52, 0x3e, 0xea, 0x69, 0x28, 0x30, 0x6d, 0x45, 0x54, 0x93, 0x78,

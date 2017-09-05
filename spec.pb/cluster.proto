@@ -1,0 +1,37 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto3";
+
+package spec;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+service ClusterService {
+    rpc CreateCluster(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+
+    rpc DescribeClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc StopClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc StartClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc lease(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ResizeCluster(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ChangeClusterVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc SuspendClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc UpdateClusterEnvironment(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyClusterAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyClusterNodeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetClustersStats(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeClusterUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RestartClusterService(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc UpgradeClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AuthorizeClustersBrokerToDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RevokeClustersBrokerFromDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

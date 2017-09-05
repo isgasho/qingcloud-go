@@ -8,6 +8,7 @@ It is generated from these files:
 	alarm.proto
 	base.proto
 	cache.proto
+	cluster.proto
 	dns.proto
 	eip.proto
 	hadoop.proto
