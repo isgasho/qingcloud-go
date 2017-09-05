@@ -4,6 +4,8 @@
 /*
 Package spec is a generated protocol buffer package.
 
+接口规范文档
+
 It is generated from these files:
 	base.proto
 	instances.proto

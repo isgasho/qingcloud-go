@@ -4,6 +4,7 @@
 
 syntax = "proto3";
 
+// 接口规范文档
 package spec;
 
 import "google/protobuf/any.proto";
