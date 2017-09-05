@@ -11,25 +11,26 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeRouters
-CreateRouters
-DeleteRouters
-UpdateRouters
-PowerOffRouters
-PowerOnRouters
-JoinRouter
-LeaveRouter
-ModifyRouterAttributes
-DescribeRouterStatics
-AddRouterStatics
-ModifyRouterStaticAttributes
-DeleteRouterStatics
-CopyRouterStatics
-DescribeRouterVxnets
-AddRouterStaticEntries
-DeleteRouterStaticEntries
-ModifyRouterStaticEntryAttributes
-DescribeRouterStaticEntries
+// https://docs.qingcloud.com/api/router/index.html
 
-*/
+service RouterService {
+    rpc DescribeRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc UpdateRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc PowerOffRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc PowerOnRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc JoinRouter(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc LeaveRouter(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyRouterAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyRouterStaticAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CopyRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeRouterVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddRouterStaticEntries(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteRouterStaticEntries(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyRouterStaticEntryAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeRouterStaticEntries(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

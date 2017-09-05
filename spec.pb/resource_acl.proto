@@ -11,34 +11,34 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeSharedResourceGroups
-DescribeResourceGroups
-CreateResourceGroups
-ModifyResourceGroupAttributes
-DeleteResourceGroups
-DescribeResourceGroupItems
-AddResourceGroupItems
-DeleteResourceGroupItems
-DescribeUserGroups
-CreateUserGroups
-ModifyUserGroupAttributes
-DeleteUserGroups
-DescribeUserGroupMembers
-AddUserGroupMembers
-ModifyUserGroupMemberAttributes
-DeleteUserGroupMembers
-DescribeGroupRoles
-CreateGroupRoles
-ModifyGroupRoleAttributes
-DeleteGroupRoles
-DescribeGroupRoleRules
-AddGroupRoleRules
-ModifyGroupRoleRuleAttributes
-DeleteGroupRoleRules
-GrantResourceGroupsToUserGroups
-RevokeResourceGroupsFromUserGroups
-DescribeResourceUserGroups
+// https://docs.qingcloud.com/api/resource_acl/index.html
 
-
-*/
+service ResourceACLService {
+    rpc DescribeSharedResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyResourceGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeResourceGroupItems(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddResourceGroupItems(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteResourceGroupItems(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyUserGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeUserGroupMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddUserGroupMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyUserGroupMemberAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteUserGroupMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeGroupRoles(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateGroupRoles(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyGroupRoleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteGroupRoles(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeGroupRoleRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddGroupRoleRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyGroupRoleRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteGroupRoleRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GrantResourceGroupsToUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RevokeResourceGroupsFromUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeResourceUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

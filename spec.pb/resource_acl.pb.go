@@ -7,24 +7,164 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/golang/protobuf/ptypes/any"
-import _ "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
 import _ "github.com/golang/protobuf/ptypes/timestamp"
 import _ "github.com/golang/protobuf/ptypes/wrappers"
+
+import "context"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+type ResourceACLService interface {
+	DescribeSharedResourceGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeResourceGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateResourceGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyResourceGroupAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteResourceGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeResourceGroupItems(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddResourceGroupItems(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteResourceGroupItems(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeUserGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateUserGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyUserGroupAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteUserGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeUserGroupMembers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddUserGroupMembers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyUserGroupMemberAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteUserGroupMembers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeGroupRoles(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateGroupRoles(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyGroupRoleAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteGroupRoles(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeGroupRoleRules(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddGroupRoleRules(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyGroupRoleRuleAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteGroupRoleRules(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	GrantResourceGroupsToUserGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	RevokeResourceGroupsFromUserGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeResourceUserGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+}
+
+type ResourceACLServiceClient struct{}
+
+// NewResourceACLServiceClient returns a ResourceACLService stub to handle
+// requests to the set of ResourceACLService at the other end of the connection.
+func NewResourceACLServiceClient(opt *Options) *ResourceACLServiceClient {
+	return &ResourceACLServiceClient{}
+}
+
+func (c *ResourceACLServiceClient) DescribeSharedResourceGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DescribeResourceGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) CreateResourceGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) ModifyResourceGroupAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DeleteResourceGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DescribeResourceGroupItems(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) AddResourceGroupItems(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DeleteResourceGroupItems(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DescribeUserGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) CreateUserGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) ModifyUserGroupAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DeleteUserGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DescribeUserGroupMembers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) AddUserGroupMembers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) ModifyUserGroupMemberAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DeleteUserGroupMembers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DescribeGroupRoles(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) CreateGroupRoles(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) ModifyGroupRoleAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DeleteGroupRoles(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DescribeGroupRoleRules(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) AddGroupRoleRules(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) ModifyGroupRoleRuleAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DeleteGroupRoleRules(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) GrantResourceGroupsToUserGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) RevokeResourceGroupsFromUserGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *ResourceACLServiceClient) DescribeResourceUserGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+
 func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor17) }
 
 var fileDescriptor17 = []byte{
-	// 111 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2a, 0x4a, 0x2d, 0xce,
-	0x2f, 0x2d, 0x4a, 0x4e, 0x8d, 0x4f, 0x4c, 0xce, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62,
-	0x29, 0x2e, 0x48, 0x4d, 0x96, 0x92, 0x4c, 0xcf, 0xcf, 0x4f, 0xcf, 0x49, 0xd5, 0x07, 0x8b, 0x25,
-	0x95, 0xa6, 0xe9, 0x27, 0xe6, 0x55, 0x42, 0x14, 0x48, 0x49, 0xa3, 0x4b, 0xa5, 0xe6, 0x16, 0x94,
-	0xc0, 0x24, 0xe5, 0xd1, 0x25, 0x4b, 0x32, 0x73, 0x53, 0x8b, 0x4b, 0x12, 0x73, 0x0b, 0xa0, 0x0a,
-	0xe4, 0xd0, 0x15, 0x94, 0x17, 0x25, 0x16, 0x14, 0xa4, 0x16, 0x15, 0x43, 0xe4, 0x93, 0xd8, 0xc0,
-	0x94, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0xe7, 0x44, 0xc2, 0x22, 0x9b, 0x00, 0x00, 0x00,
+	// 389 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0x4f, 0x6f, 0xaa, 0x40,
+	0x14, 0xc5, 0x37, 0x2f, 0x6f, 0x71, 0x37, 0xcf, 0x47, 0x5b, 0x53, 0xe9, 0x1f, 0x93, 0x7e, 0x00,
+	0x4c, 0xda, 0x4f, 0x80, 0x7f, 0xfb, 0x47, 0xdb, 0x88, 0x76, 0xdd, 0x00, 0x73, 0xb5, 0xa4, 0xe0,
+	0x90, 0xcb, 0x60, 0xe3, 0x27, 0xef, 0xb6, 0x29, 0x23, 0x44, 0x88, 0x5d, 0xc8, 0x75, 0xc9, 0xdc,
+	0x9b, 0x5f, 0xce, 0x9c, 0x1c, 0xce, 0x80, 0x41, 0x98, 0xc8, 0x94, 0x7c, 0x7c, 0x73, 0xfd, 0xd0,
+	0x8a, 0x49, 0x2a, 0x69, 0xfc, 0x49, 0x62, 0xf4, 0xcd, 0xd6, 0x52, 0xca, 0x65, 0x88, 0x9d, 0xec,
+	0xcc, 0x4b, 0x17, 0x1d, 0x77, 0xb5, 0xd1, 0x0b, 0xe6, 0x45, 0x75, 0x84, 0x51, 0xac, 0xf2, 0x61,
+	0xbb, 0x3a, 0x54, 0x41, 0x84, 0x89, 0x72, 0xa3, 0x78, 0xbb, 0x70, 0x5d, 0x5d, 0xf8, 0x24, 0x37,
+	0x8e, 0x91, 0x12, 0x3d, 0xbf, 0xfd, 0xfa, 0x07, 0x86, 0xb3, 0x55, 0x65, 0xf7, 0xc6, 0x33, 0xa4,
+	0x75, 0xe0, 0xa3, 0xf1, 0x0c, 0x97, 0x7d, 0x4c, 0x7c, 0x0a, 0x3c, 0x9c, 0xbd, 0xbb, 0x84, 0x22,
+	0xdf, 0x19, 0x91, 0x4c, 0xe3, 0xc4, 0x68, 0x5a, 0x9a, 0x6b, 0xe5, 0x5c, 0x6b, 0xf0, 0xa3, 0xca,
+	0xfc, 0xe5, 0xdc, 0xb8, 0x87, 0x66, 0xce, 0x63, 0x92, 0x86, 0x70, 0xda, 0x23, 0x74, 0x15, 0x97,
+	0xf3, 0x02, 0x57, 0x13, 0x29, 0x82, 0xc5, 0xa6, 0xc4, 0xb1, 0x95, 0xa2, 0xc0, 0x4b, 0x15, 0xd6,
+	0x12, 0xd6, 0xc7, 0x10, 0xd9, 0xc2, 0xc6, 0x60, 0xee, 0xb5, 0xea, 0x41, 0x61, 0x74, 0x38, 0x6d,
+	0x04, 0x67, 0xb6, 0x10, 0x47, 0x00, 0x3d, 0xc2, 0xf9, 0x9e, 0xeb, 0xd5, 0x63, 0xf5, 0xc1, 0xc8,
+	0xaf, 0xf8, 0x9a, 0x20, 0xd5, 0x34, 0xaa, 0x0b, 0x0d, 0x9d, 0x04, 0x06, 0xe3, 0x09, 0x5a, 0x3a,
+	0x05, 0x05, 0x83, 0x91, 0x80, 0x2e, 0x34, 0xb4, 0x45, 0x0c, 0x41, 0x99, 0xcd, 0x15, 0x6b, 0x26,
+	0x18, 0x79, 0x48, 0x87, 0xb3, 0x06, 0x70, 0x62, 0x0b, 0xc1, 0xc6, 0x4c, 0xa1, 0x5d, 0xf1, 0x48,
+	0x93, 0x18, 0x4e, 0x65, 0x75, 0x50, 0x72, 0xaa, 0xae, 0xb8, 0x9d, 0x28, 0x65, 0x1c, 0x47, 0x86,
+	0xc8, 0x88, 0x12, 0x83, 0x51, 0x44, 0xa9, 0x60, 0x1c, 0x23, 0x4a, 0x0c, 0x41, 0x3b, 0x9d, 0x5b,
+	0x50, 0x9c, 0xb4, 0x0e, 0xa9, 0x07, 0xff, 0x6d, 0x21, 0x98, 0x90, 0xa2, 0x70, 0x4b, 0x9c, 0x63,
+	0x14, 0x2e, 0x53, 0xd8, 0x14, 0xda, 0x23, 0x72, 0x57, 0xaa, 0xdc, 0xdb, 0x73, 0xc9, 0xf8, 0x8b,
+	0xe7, 0x70, 0xe3, 0xe0, 0x5a, 0x7e, 0x54, 0xde, 0x82, 0x21, 0xc9, 0x88, 0x41, 0xdd, 0xf3, 0x32,
+	0xd4, 0xa7, 0x79, 0x7f, 0xb3, 0xef, 0xbb, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0x9e, 0x94, 0x11,
+	0x4f, 0x95, 0x08, 0x00, 0x00,
 }
