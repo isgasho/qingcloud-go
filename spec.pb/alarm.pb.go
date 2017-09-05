@@ -26,7 +26,6 @@ It is generated from these files:
 	router.proto
 	s2.proto
 	security_group.proto
-	shared_storage.proto
 	snapshot.proto
 	span.proto
 	spark.proto

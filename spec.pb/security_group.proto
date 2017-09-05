@@ -11,22 +11,25 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*DescribeSecurityGroups
-CreateSecurityGroup
-DeleteSecurityGroups
-ApplySecurityGroup
-ModifySecurityGroupAttributes
-DescribeSecurityGroupRules
-AddSecurityGroupRules
-DeleteSecurityGroupRules
-ModifySecurityGroupRuleAttributes
-CreateSecurityGroupSnapshot
-DescribeSecurityGroupSnapshots
-DeleteSecurityGroupSnapshots
-RollbackSecurityGroup
-DescribeSecurityGroupIPSets
-CreateSecurityGroupIPSet
-DeleteSecurityGroupIPSets
-ModifySecurityGroupIPSetAttributes
-CopySecurityGroupIPSets
-*/
+// https://docs.qingcloud.com/api/sg/index.html
+
+service SecurityGroupsService {
+    rpc DescribeSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateSecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ApplySecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifySecurityGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeSecurityGroupRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AddSecurityGroupRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSecurityGroupRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifySecurityGroupRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateSecurityGroupSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeSecurityGroupSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSecurityGroupSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RollbackSecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeSecurityGroupIPSets(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateSecurityGroupIPSet(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteSecurityGroupIPSets(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifySecurityGroupIPSetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CopySecurityGroupIPSets(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
