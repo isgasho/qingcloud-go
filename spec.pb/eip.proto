@@ -11,14 +11,15 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeEips
-AllocateEips
-ReleaseEips
-AssociateEip
-DissociateEips
-ChangeEipsBandwidth
-ChangeEipsBillingMode
-ModifyEipAttributes
+// https://docs.qingcloud.com/api/eip/index.html
 
-*/
+service EipService {
+    rpc DescribeEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AllocateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ReleaseEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AssociateEip(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DissociateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ChangeEipsBandwidth(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ChangeEipsBillingMode(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyEipAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

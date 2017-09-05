@@ -11,14 +11,15 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeImages
-CaptureInstance
-DeleteImages
-ModifyImageAttributes
-GrantImageToUsers
-RevokeImageFromUsers
-DescribeImageUsers
-CloneImages
+// https://docs.qingcloud.com/api/image/index.html
 
-*/
+service ImageService {
+    rpc DescribeImages(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CaptureInstance(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteImages(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyImageAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GrantImageToUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RevokeImageFromUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeImageUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CloneImages(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

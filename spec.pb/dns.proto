@@ -11,9 +11,11 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeDNSAliases
-AssociateDNSAlias
-DissociateDNSAliases
-GetDNSLabel
-*/
+// https://docs.qingcloud.com/api/dns_alias/index.html
+
+service DNSAliasesService {
+    rpc DescribeDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc AssociateDNSAlias(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DissociateDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetDNSLabel(google.protobuf.Empty) returns (google.protobuf.Empty);    
+}
