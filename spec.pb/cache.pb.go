@@ -7,24 +7,151 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/golang/protobuf/ptypes/any"
-import _ "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
 import _ "github.com/golang/protobuf/ptypes/timestamp"
 import _ "github.com/golang/protobuf/ptypes/wrappers"
+
+import "context"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+type CacheService interface {
+	DescribeCaches(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateCache(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	StopCaches(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	StartCaches(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	RestartCaches(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteCaches(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ResizeCaches(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	UpdateCache(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ChangeCacheVxnet(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyCacheAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeCacheNodes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddCacheNodes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteCacheNodes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	RestartCacheNodes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyCacheNodeAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateCacheFromSnapshot(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeCacheParameterGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateCacheParameterGroup(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ApplyCacheParameterGroup(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteCacheParameterGroups(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyCacheParameterGroupAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeCacheParameters(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	UpdateCacheParameters(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ResetCacheParameters(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+}
+
+type CacheServiceClient struct{}
+
+// NewCacheServiceClient returns a CacheService stub to handle
+// requests to the set of CacheService at the other end of the connection.
+func NewCacheServiceClient(opt *Options) *CacheServiceClient {
+	return &CacheServiceClient{}
+}
+
+func (c *CacheServiceClient) DescribeCaches(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) CreateCache(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) StopCaches(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) StartCaches(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) RestartCaches(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) DeleteCaches(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) ResizeCaches(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) UpdateCache(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) ChangeCacheVxnet(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) ModifyCacheAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) DescribeCacheNodes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) AddCacheNodes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) DeleteCacheNodes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) RestartCacheNodes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) ModifyCacheNodeAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) CreateCacheFromSnapshot(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) DescribeCacheParameterGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) CreateCacheParameterGroup(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) ApplyCacheParameterGroup(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) DeleteCacheParameterGroups(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) ModifyCacheParameterGroupAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) DescribeCacheParameters(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) UpdateCacheParameters(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *CacheServiceClient) ResetCacheParameters(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+
 func init() { proto.RegisterFile("cache.proto", fileDescriptor2) }
 
 var fileDescriptor2 = []byte{
-	// 104 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4e, 0x4e, 0x4c, 0xce,
-	0x48, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d, 0x96, 0x92, 0x4c,
-	0xcf, 0xcf, 0x4f, 0xcf, 0x49, 0xd5, 0x07, 0x8b, 0x25, 0x95, 0xa6, 0xe9, 0x27, 0xe6, 0x55, 0x42,
-	0x14, 0x48, 0x49, 0xa3, 0x4b, 0xa5, 0xe6, 0x16, 0x94, 0xc0, 0x24, 0xe5, 0xd1, 0x25, 0x4b, 0x32,
-	0x73, 0x53, 0x8b, 0x4b, 0x12, 0x73, 0x0b, 0xa0, 0x0a, 0xe4, 0xd0, 0x15, 0x94, 0x17, 0x25, 0x16,
-	0x14, 0xa4, 0x16, 0x15, 0x43, 0xe4, 0x93, 0xd8, 0xc0, 0x94, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff,
-	0x86, 0x2d, 0x62, 0xe8, 0x94, 0x00, 0x00, 0x00,
+	// 373 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0x4b, 0x4f, 0xea, 0x40,
+	0x14, 0xc7, 0x37, 0x37, 0x77, 0x71, 0x80, 0x1b, 0x6e, 0x73, 0xaf, 0x4a, 0x35, 0xba, 0x70, 0x5f,
+	0x12, 0xdd, 0xfa, 0x82, 0x22, 0xc4, 0x17, 0x31, 0x34, 0xb8, 0x9f, 0xb6, 0x07, 0x68, 0x42, 0x3b,
+	0x93, 0x99, 0x83, 0x8a, 0x5f, 0xc9, 0x2f, 0x69, 0xda, 0x4a, 0x32, 0x25, 0xba, 0xe8, 0x8c, 0x4b,
+	0xce, 0xe3, 0xc7, 0x39, 0xff, 0xff, 0x99, 0x42, 0x23, 0x62, 0xd1, 0x02, 0x3d, 0x21, 0x39, 0x71,
+	0xe7, 0x97, 0x12, 0x18, 0xb9, 0x9d, 0x39, 0xe7, 0xf3, 0x25, 0x76, 0x8b, 0x58, 0xb8, 0x9a, 0x75,
+	0x59, 0xb6, 0x2e, 0x0b, 0xdc, 0xfd, 0xed, 0x14, 0xa6, 0x82, 0x36, 0xc9, 0xa3, 0xed, 0x24, 0x25,
+	0x29, 0x2a, 0x62, 0xa9, 0xf8, 0x2c, 0x38, 0xdc, 0x2e, 0x78, 0x91, 0x4c, 0x08, 0x94, 0xaa, 0xcc,
+	0x9f, 0xbc, 0xb7, 0xa0, 0xe9, 0xe7, 0xe3, 0x04, 0x28, 0x9f, 0x93, 0x08, 0x9d, 0x2b, 0xf8, 0x33,
+	0x40, 0x15, 0xc9, 0x24, 0xc4, 0x22, 0xae, 0x9c, 0x1d, 0xaf, 0x64, 0x78, 0x1b, 0x86, 0x77, 0x9d,
+	0x4f, 0xe0, 0x7e, 0x13, 0x77, 0xce, 0xa1, 0xe1, 0x4b, 0x64, 0x54, 0xf6, 0xd7, 0x6e, 0x3f, 0x03,
+	0x08, 0x88, 0x0b, 0xf3, 0x3f, 0x0f, 0x88, 0x49, 0x32, 0x6c, 0xbf, 0x84, 0xd6, 0x24, 0xd7, 0xcf,
+	0x18, 0x70, 0x01, 0xcd, 0x01, 0x2e, 0x91, 0xd0, 0xbc, 0x7f, 0x82, 0x2a, 0x79, 0xb3, 0x10, 0x7f,
+	0x2a, 0x62, 0x63, 0xf1, 0xfb, 0xd0, 0xf6, 0x17, 0x2c, 0x9b, 0x97, 0xed, 0x4f, 0xaf, 0x19, 0x52,
+	0x6d, 0xc6, 0x08, 0xfe, 0x3f, 0xf0, 0x38, 0x99, 0xad, 0x0b, 0x46, 0x8f, 0x48, 0x26, 0xe1, 0x8a,
+	0x0c, 0x76, 0x19, 0x80, 0x53, 0x39, 0xc5, 0x31, 0x8f, 0xcd, 0x2c, 0xed, 0xc5, 0xb1, 0x05, 0xa0,
+	0x0f, 0x6d, 0xcd, 0x52, 0x33, 0x86, 0x0f, 0x7f, 0xf5, 0xbb, 0x32, 0x83, 0xdc, 0x41, 0x47, 0x13,
+	0x36, 0x67, 0x58, 0x88, 0x7b, 0x03, 0xbb, 0xda, 0x2b, 0x1d, 0x4a, 0x9e, 0x06, 0x19, 0x13, 0x6a,
+	0xc1, 0xeb, 0x1b, 0x3e, 0x86, 0x83, 0x8a, 0x4f, 0x8f, 0x4c, 0xb2, 0x14, 0x09, 0xe5, 0x48, 0xf2,
+	0x95, 0x30, 0xda, 0x53, 0x1b, 0xad, 0x4a, 0xab, 0x0d, 0xbb, 0x85, 0xbd, 0x9e, 0x10, 0xcb, 0xf5,
+	0x4f, 0xb0, 0xee, 0xc1, 0xd5, 0x2e, 0xc1, 0x76, 0xcd, 0x29, 0x1c, 0x6b, 0x76, 0x56, 0x69, 0x76,
+	0xc6, 0x7e, 0xed, 0x86, 0x32, 0x79, 0xc9, 0xda, 0xc7, 0xc4, 0x02, 0x34, 0x84, 0x7f, 0x13, 0x54,
+	0x48, 0x96, 0x9c, 0xf0, 0x77, 0xf1, 0xfb, 0xf4, 0x23, 0x00, 0x00, 0xff, 0xff, 0x57, 0xc7, 0x19,
+	0x5a, 0x42, 0x07, 0x00, 0x00,
 }
