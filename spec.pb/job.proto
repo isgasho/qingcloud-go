@@ -11,7 +11,8 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-DescribeJobs
+// https://docs.qingcloud.com/api/job/index.html
 
-*/
+service JobService {
+    rpc DescribeJobs(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

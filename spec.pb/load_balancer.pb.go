@@ -7,24 +7,184 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/golang/protobuf/ptypes/any"
-import _ "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
 import _ "github.com/golang/protobuf/ptypes/timestamp"
 import _ "github.com/golang/protobuf/ptypes/wrappers"
+
+import "context"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+type LoadBalancerService interface {
+	CreateLoadBalancer(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeLoadBalancers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteLoadBalancers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyLoadBalancerAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	StartLoadBalancers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	StopLoadBalancers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	UpdateLoadBalancers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ResizeLoadBalancers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AssociateEipsToLoadBalancer(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DissociateEipsFromLoadBalancer(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddLoadBalancerListeners(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeLoadBalancerListeners(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteLoadBalancerListeners(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyLoadBalancerListenerAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddLoadBalancerBackends(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeLoadBalancerBackends(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteLoadBalancerBackends(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyLoadBalancerBackendAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateLoadBalancerPolicy(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeLoadBalancerPolicies(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyLoadBalancerPolicyAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ApplyLoadBalancerPolicy(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteLoadBalancerPolicies(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddLoadBalancerPolicyRules(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeLoadBalancerPolicyRules(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyLoadBalancerPolicyRuleAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteLoadBalancerPolicyRules(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateServerCertificate(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeServerCertificates(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyServerCertificateAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteServerCertificates(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+}
+
+type LoadBalancerServiceClient struct{}
+
+// NewLoadBalancerServiceClient returns a LoadBalancerService stub to handle
+// requests to the set of LoadBalancerService at the other end of the connection.
+func NewLoadBalancerServiceClient(opt *Options) *LoadBalancerServiceClient {
+	return &LoadBalancerServiceClient{}
+}
+
+func (c *LoadBalancerServiceClient) CreateLoadBalancer(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DescribeLoadBalancers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DeleteLoadBalancers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ModifyLoadBalancerAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) StartLoadBalancers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) StopLoadBalancers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) UpdateLoadBalancers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ResizeLoadBalancers(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) AssociateEipsToLoadBalancer(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DissociateEipsFromLoadBalancer(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) AddLoadBalancerListeners(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DescribeLoadBalancerListeners(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DeleteLoadBalancerListeners(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ModifyLoadBalancerListenerAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) AddLoadBalancerBackends(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DescribeLoadBalancerBackends(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DeleteLoadBalancerBackends(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ModifyLoadBalancerBackendAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) CreateLoadBalancerPolicy(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DescribeLoadBalancerPolicies(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ModifyLoadBalancerPolicyAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ApplyLoadBalancerPolicy(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DeleteLoadBalancerPolicies(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) AddLoadBalancerPolicyRules(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DescribeLoadBalancerPolicyRules(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ModifyLoadBalancerPolicyRuleAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DeleteLoadBalancerPolicyRules(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) CreateServerCertificate(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DescribeServerCertificates(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) ModifyServerCertificateAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *LoadBalancerServiceClient) DeleteServerCertificates(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+
 func init() { proto.RegisterFile("load_balancer.proto", fileDescriptor10) }
 
 var fileDescriptor10 = []byte{
-	// 112 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0xce, 0xc9, 0x4f, 0x4c,
-	0x89, 0x4f, 0x4a, 0xcc, 0x49, 0xcc, 0x4b, 0x4e, 0x2d, 0xd2, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17,
-	0x62, 0x29, 0x2e, 0x48, 0x4d, 0x96, 0x92, 0x4c, 0xcf, 0xcf, 0x4f, 0xcf, 0x49, 0xd5, 0x07, 0x8b,
-	0x25, 0x95, 0xa6, 0xe9, 0x27, 0xe6, 0x55, 0x42, 0x14, 0x48, 0x49, 0xa3, 0x4b, 0xa5, 0xe6, 0x16,
-	0x94, 0xc0, 0x24, 0xe5, 0xd1, 0x25, 0x4b, 0x32, 0x73, 0x53, 0x8b, 0x4b, 0x12, 0x73, 0x0b, 0xa0,
-	0x0a, 0xe4, 0xd0, 0x15, 0x94, 0x17, 0x25, 0x16, 0x14, 0xa4, 0x16, 0x15, 0x43, 0xe4, 0x93, 0xd8,
-	0xc0, 0x94, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0xa5, 0x26, 0x62, 0xf3, 0x9c, 0x00, 0x00, 0x00,
+	// 451 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x96, 0xcf, 0x8e, 0xd3, 0x30,
+	0x10, 0xc6, 0x2f, 0x88, 0xc3, 0xdc, 0x48, 0x05, 0xbb, 0xa4, 0xb0, 0x2b, 0xfe, 0x88, 0x63, 0x56,
+	0x82, 0x27, 0xe8, 0x36, 0x05, 0xed, 0x2a, 0x85, 0x65, 0xb3, 0x8b, 0xb8, 0x21, 0xc7, 0x99, 0xae,
+	0x2c, 0x92, 0xd8, 0xb2, 0xa7, 0xa0, 0xf0, 0x08, 0x3c, 0x35, 0x6a, 0xdc, 0x4a, 0x21, 0x4e, 0x0f,
+	0xb5, 0x7b, 0x8c, 0x67, 0xf4, 0xd3, 0x37, 0xdf, 0x7c, 0xb6, 0x02, 0x93, 0x4a, 0xb2, 0xf2, 0x47,
+	0xc1, 0x2a, 0xd6, 0x70, 0xd4, 0x89, 0xd2, 0x92, 0x64, 0xf4, 0xc8, 0x28, 0xe4, 0xf1, 0xf3, 0x07,
+	0x29, 0x1f, 0x2a, 0xbc, 0xe8, 0xce, 0x8a, 0xf5, 0xea, 0x82, 0x35, 0xad, 0x6d, 0x88, 0xa7, 0xc3,
+	0x12, 0xd6, 0x8a, 0x76, 0xc5, 0xf3, 0x61, 0x91, 0x44, 0x8d, 0x86, 0x58, 0xad, 0xb6, 0x0d, 0x67,
+	0xc3, 0x86, 0xdf, 0x9a, 0x29, 0x85, 0xda, 0xd8, 0xfa, 0xfb, 0xbf, 0x13, 0x98, 0x64, 0x92, 0x95,
+	0x97, 0x5b, 0x55, 0x39, 0xea, 0x5f, 0x82, 0x63, 0x94, 0x42, 0x34, 0xd7, 0xc8, 0x08, 0xfb, 0xc5,
+	0xe8, 0x59, 0x62, 0x71, 0xc9, 0x0e, 0x97, 0x2c, 0x36, 0x62, 0xe2, 0x3d, 0xe7, 0xd1, 0x27, 0x78,
+	0x9a, 0xa2, 0xe1, 0x5a, 0x14, 0xff, 0x71, 0xcc, 0xc1, 0xa0, 0x05, 0x4c, 0x52, 0xac, 0x90, 0x02,
+	0x31, 0x9f, 0xe1, 0xc5, 0x52, 0x96, 0x62, 0xd5, 0xf6, 0x31, 0x33, 0x22, 0x2d, 0x8a, 0x35, 0xe1,
+	0xe1, 0xbc, 0x14, 0xa2, 0x9c, 0x98, 0xa6, 0x30, 0x55, 0x73, 0x78, 0x92, 0x93, 0x54, 0xc1, 0x0e,
+	0xdd, 0xab, 0x92, 0x51, 0xb8, 0xd1, 0xb7, 0x68, 0xc4, 0x9f, 0x40, 0xcc, 0x12, 0xa6, 0x33, 0x63,
+	0x24, 0x17, 0x8c, 0x70, 0x21, 0x94, 0xb9, 0x93, 0x41, 0x39, 0xba, 0x81, 0xb3, 0x54, 0xf4, 0x79,
+	0x1f, 0xb5, 0xac, 0x83, 0x88, 0xd7, 0x70, 0x3a, 0x2b, 0xcb, 0x3e, 0x22, 0x13, 0x86, 0xb0, 0xf1,
+	0x19, 0xf6, 0x0b, 0xbc, 0x1c, 0x4b, 0xb9, 0x3f, 0x70, 0x09, 0x53, 0x37, 0xed, 0xfe, 0xb8, 0x6f,
+	0xf0, 0xd6, 0x4d, 0xfd, 0x0e, 0x17, 0x90, 0xfe, 0x2b, 0x38, 0x19, 0x78, 0x78, 0xc9, 0xf8, 0x4f,
+	0x6c, 0x4a, 0xaf, 0x8b, 0x39, 0x66, 0xa1, 0x37, 0x2f, 0x83, 0xd8, 0x75, 0xd0, 0x9b, 0x76, 0x0f,
+	0x6f, 0x5c, 0x03, 0xb7, 0xb4, 0x00, 0xff, 0xae, 0xe1, 0xd4, 0x7d, 0x63, 0x6f, 0x64, 0x25, 0x78,
+	0x7b, 0x2c, 0x03, 0x3b, 0x9a, 0xf0, 0xd0, 0x76, 0x07, 0xaf, 0xdd, 0x91, 0xad, 0xb6, 0xc0, 0xc4,
+	0x28, 0x55, 0xb5, 0x47, 0x18, 0x78, 0x74, 0xc3, 0xde, 0xe3, 0x66, 0x10, 0x0f, 0xa2, 0x6c, 0x65,
+	0xdd, 0xae, 0x2b, 0x0f, 0xda, 0x57, 0x38, 0xdf, 0xbb, 0x0c, 0x4f, 0xe4, 0x77, 0x78, 0xb7, 0x6f,
+	0x1f, 0x1b, 0x60, 0xc0, 0x4e, 0xba, 0xd7, 0x6b, 0xd4, 0x48, 0x4f, 0xa9, 0x57, 0x70, 0x62, 0x63,
+	0xbd, 0xf9, 0x97, 0x40, 0x3d, 0x47, 0x4d, 0x62, 0x25, 0x38, 0x23, 0xf4, 0x5b, 0xb2, 0x35, 0xd2,
+	0x81, 0x1d, 0x2e, 0x2c, 0x87, 0x57, 0xd6, 0x43, 0x87, 0x15, 0x76, 0x89, 0xad, 0x7d, 0xe1, 0x02,
+	0x8b, 0xc7, 0xdd, 0xf7, 0x87, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x75, 0xa3, 0x77, 0x10, 0x29,
+	0x0a, 0x00, 0x00,
 }
