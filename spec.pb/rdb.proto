@@ -11,24 +11,25 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-/*
-CreateRDB
-DescribeRDBs
-DeleteRDBs
-StartRDBs
-StopRDBs
-ResizeRDBs
-RDBsLeaveVxnet
-RDBsJoinVxnet
-CreateRDBFromSnapshot
-CreateTempRDBInstanceFromSnapshot
-GetRDBInstanceFiles
-CopyRDBInstanceFilesToFTP
-PurgeRDBLogs
-CeaseRDBInstance
-GetRDBMonitor
-ModifyRDBParameters
-ApplyRDBParameterGroup
-DescribeRDBParameters
+// https://docs.qingcloud.com/api/rdb/index.html
 
-*/
+service RDBService {
+    rpc CreateRDB(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DeleteRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc StartRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc StopRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ResizeRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RDBsLeaveVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc RDBsJoinVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateRDBFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CreateTempRDBInstanceFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetRDBInstanceFiles(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CopyRDBInstanceFilesToFTP(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc PurgeRDBLogs(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc CeaseRDBInstance(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetRDBMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ModifyRDBParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc ApplyRDBParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeRDBParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
