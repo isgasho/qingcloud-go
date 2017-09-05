@@ -35,11 +35,6 @@ func (p *qingcloudPlugin) GenerateImports(file *generator.FileDescriptor) {
 	}
 	if len(file.Service) > 0 {
 		p.P(`import "context"`)
-		p.P(`import "io"`)
-		p.P(`import "log"`)
-		p.P(`import "net"`)
-		p.P(`import "net/rpc"`)
-		p.P(`import "time"`)
 	}
 }
 
