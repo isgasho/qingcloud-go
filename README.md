@@ -27,3 +27,66 @@
 - [instances.proto](./spec.pb/instances.proto)
 - [instances.pb.go](./spec.pb/instances.pb.go)
 
+主机服务代码:
+
+```go
+type InstancesService interface {
+	DescribeInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	RunInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	TerminateInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	StartInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	StopInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	RestartInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	ResetInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	ResizeInstances(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	ModifyInstanceAttributes(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	DescribeInstanceTypes(ctx context.Context, in *DescribeInstanceTypes_Request, out *DescribeInstanceTypes_Reponse) error
+	CreateBrokers(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+	DeleteBrokers(ctx context.Context, in *google_protobuf1.Empty, out *google_protobuf1.Empty) error
+}
+
+type InstancesServiceClient struct{}
+
+// NewInstancesServiceClient returns a InstancesService stub to handle
+// requests to the set of InstancesService at the other end of the connection.
+func NewInstancesServiceClient(options *Options) *InstancesServiceClient {
+	return &InstancesServiceClient{}
+}
+
+func (c *InstancesServiceClient) DescribeInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) RunInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) TerminateInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) StartInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) StopInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) RestartInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) ResetInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) ResizeInstances(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) ModifyInstanceAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) DescribeInstanceTypes(ctx context.Context, in *DescribeInstanceTypes_Request) (out *DescribeInstanceTypes_Reponse, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) CreateBrokers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+func (c *InstancesServiceClient) DeleteBrokers(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+	panic("TODO")
+}
+```
