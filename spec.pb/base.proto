@@ -12,6 +12,12 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 // ----------------------------------------------------------------------------
+
+message Options {
+    //
+}
+
+// ----------------------------------------------------------------------------
 //
 // https://docs.qingcloud.com/api/common/parameters.html#api-common-parameters
 // https://docs.qingcloud.com/api/common/signature.html#common-signature
