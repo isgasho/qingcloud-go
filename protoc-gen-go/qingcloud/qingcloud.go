@@ -34,7 +34,15 @@ func (p *qingcloudPlugin) GenerateImports(file *generator.FileDescriptor) {
 		return
 	}
 	if len(file.Service) > 0 {
-		p.P(`import "context"`)
+		p.P(`import "github.com/chai2010/qingcloud-go/config"`)
+		p.P(`import "github.com/chai2010/qingcloud-go/request"`)
+		p.P(`import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"`)
+		p.P(`import "github.com/chai2010/qingcloud-go/request/errors"`)
+		p.P(``)
+		p.P(`var _ = config.Config{}`)
+		p.P(`var _ = request.Request{}`)
+		p.P(`var _ = request_data_pkg.Operation{}`)
+		p.P(`var _ = errors.ParameterRequiredError{}`)
 	}
 }
 
@@ -76,12 +84,12 @@ func (p *qingcloudPlugin) genServiceInterface(
 	svc *descriptor.ServiceDescriptorProto,
 ) {
 	const serviceInterfaceTmpl = `
-type {{.ServiceName}} interface {
+type {{.ServiceName}}Interface interface {
 	{{.CallMethodList}}
 }
 `
 	const callMethodTmpl = `
-{{.MethodName}}(ctx context.Context, in *{{.ArgsType}}) (out *{{.ReplyType}}, err error)`
+{{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType}}, err error)`
 
 	// gen call method list
 	var callMethodList string
@@ -136,18 +144,22 @@ func (p *qingcloudPlugin) genServiceClient(
 	svc *descriptor.ServiceDescriptorProto,
 ) {
 	const clientHelperFuncTmpl = `
-type {{.ServiceName}}Client struct {}
+type {{.ServiceName}} struct {
+	Config     *config.Config
+	Properties *{{.ServiceName}}Properties
+}
 
-// New{{.ServiceName}}Client returns a {{.ServiceName}} stub to handle
-// requests to the set of {{.ServiceName}} at the other end of the connection.
-func New{{.ServiceName}}Client(opt *Options) (*{{.ServiceName}}Client) {
-	return &{{.ServiceName}}Client{}
+func New{{.ServiceName}}(conf *config.Config, zone string) (p *{{.ServiceName}}, err error) {
+	return &{{.ServiceName}}{
+		Config:     conf,
+		Properties: &{{.ServiceName}}Properties{Zone: zone},
+	}, nil
 }
 
 {{.MethodList}}
 `
 	const clientMethodTmpl = `
-func (c *{{.ServiceName}}Client) {{.MethodName}}(ctx context.Context, in *{{.ArgsType}}, opt ...*Options) (out *{{.ReplyType}}, err error) {
+func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType}}, err error) {
 	panic("TODO")
 }`
 
