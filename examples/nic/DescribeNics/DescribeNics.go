@@ -19,7 +19,7 @@ func main() {
 	flag.Parse()
 
 	conf := loadUserConfig()
-	conf.LogLevel = "debug"
+	conf.SetLogLevel("debug")
 
 	nicService, err := pb.NewNicService(conf, "pek3a")
 	if err != nil {

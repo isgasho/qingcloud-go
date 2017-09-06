@@ -149,3 +149,8 @@ func (c *Config) LoadConfigFromContent(content []byte) error {
 
 	return nil
 }
+
+func (c *Config) SetLogLevel(level string) {
+	c.LogLevel = level
+	Glog_SetStderrThreshold(ParseGlogLevel(c.LogLevel))
+}
