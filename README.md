@@ -11,6 +11,36 @@
 - https://godoc.org/github.com/chai2010/qingcloud-go/spec.pb
 - https://docs.qingcloud.com
 
+## 运行流程
+
+当前用户的默认配置文件在 `${HOME}/.qingcloud/config.yaml`, 内容如下:
+
+```yaml
+# QingCloud services configuration
+
+qy_access_key_id: 'ACCESS_KEY_ID'
+qy_secret_access_key: 'SECRET_ACCESS_KEY'
+
+host: 'api.qingcloud.com'
+port: 443
+protocol: 'https'
+uri: '/iaas'
+connection_retries: 3
+
+# Valid log levels are "debug", "info", "warn", "error", and "fatal".
+log_level: 'warn'
+```
+
+将 `qy_access_key_id` 和 `qy_secret_access_key` 字段替换为 API密钥 中的内容.
+
+运行例子 [examples/nic/DescribeNics/DescribeNics.go](./examples/nic/DescribeNics/DescribeNics.go):
+
+	go run ./examples/nic/DescribeNics/DescribeNics.go
+
+接口规范文件在 [spec.pb/nic.proto](./spec.pb/nic.proto).
+
+*注: 目前只实现了该接口*
+
 ## 设计思路
 
 - 基于 Protobuf3 语法对应的 json 格式文件定义 api 元数据
