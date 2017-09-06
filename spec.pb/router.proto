@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/router/index.html
 
+message RouterServiceProperties {
+    string zone = 1;
+}
+
 service RouterService {
     rpc DescribeRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc CreateRouters(google.protobuf.Empty) returns (google.protobuf.Empty);

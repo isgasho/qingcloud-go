@@ -13,8 +13,12 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/misc/index.html
 
+message MiscServiceProperties {
+    string zone = 1;
+}
+
 service MiscService {
     rpc GrantQuotaIndep(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc RevokeQuotaIndep(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc GetQuotaLeft(google.protobuf.Empty) returns (google.protobuf.Empty);    
+    rpc GetQuotaLeft(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

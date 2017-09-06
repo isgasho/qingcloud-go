@@ -13,7 +13,11 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/sg/index.html
 
-service SecurityGroupsService {
+message SecurityGroupServiceProperties {
+    string zone = 1;
+}
+
+service SecurityGroupService {
     rpc DescribeSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc CreateSecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DeleteSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);

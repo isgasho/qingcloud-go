@@ -16,7 +16,7 @@ import "google/protobuf/wrappers.proto";
 // ----------------------------------------------------------------------------
 
 message NicServiceProperties {
-    google.protobuf.Timestamp zone = 1;
+    string zone = 1;
 }
 
 service NicService {

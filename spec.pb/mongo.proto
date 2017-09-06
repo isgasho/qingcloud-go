@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/mongo/index.html
 
+message MongoServiceProperties {
+    string zone = 1;
+}
+
 service MongoService {
     rpc DescribeMongoNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeMongoParameters(google.protobuf.Empty) returns (google.protobuf.Empty);

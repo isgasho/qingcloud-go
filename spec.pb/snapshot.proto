@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/snapshot/index.html
 
+message SnapshotServiceProperties {
+    string zone = 1;
+}
+
 service SnapshotService {
     rpc DescribeSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc CreateSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);

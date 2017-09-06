@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/spark/index.html
 
+message SparkServiceProperties {
+    string zone = 1;
+}
+
 service SparkService {
     rpc CreateSpark(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeSparks(google.protobuf.Empty) returns (google.protobuf.Empty);

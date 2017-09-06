@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/s2/index.html
 
+message S2ServiceProperties {
+    string zone = 1;
+}
+
 service S2Service {
     rpc CreateS2Server(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);

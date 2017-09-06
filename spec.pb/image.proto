@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/image/index.html
 
+message ImageServiceProperties {
+    string zone = 1;
+}
+
 service ImageService {
     rpc DescribeImages(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc CaptureInstance(google.protobuf.Empty) returns (google.protobuf.Empty);

@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/eip/index.html
 
+message EipServiceProperties {
+    string zone = 1;
+}
+
 service EipService {
     rpc DescribeEips(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc AllocateEips(google.protobuf.Empty) returns (google.protobuf.Empty);

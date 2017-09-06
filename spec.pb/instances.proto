@@ -15,7 +15,11 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/instance/index.html
 // ----------------------------------------------------------------------------
 
-service InstancesService {
+message InstanceServiceProperties {
+    string zone = 1;
+}
+
+service InstanceService {
 	rpc DescribeInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc RunInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc TerminateInstances(google.protobuf.Empty) returns (google.protobuf.Empty);

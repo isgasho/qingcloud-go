@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/cache/index.html
 
+message CacheServiceProperties {
+    string zone = 1;
+}
+
 service CacheService {
     rpc DescribeCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc CreateCache(google.protobuf.Empty) returns (google.protobuf.Empty);
@@ -37,6 +41,6 @@ service CacheService {
     rpc ModifyCacheParameterGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc UpdateCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ResetCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);   
+    rpc ResetCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 

@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/lb/index.html
 
+message LoadBalancerServiceProperties {
+    string zone = 1;
+}
+
 service LoadBalancerService {
     rpc CreateLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
@@ -44,5 +48,5 @@ service LoadBalancerService {
     rpc CreateServerCertificate(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc ModifyServerCertificateAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);    
+    rpc DeleteServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

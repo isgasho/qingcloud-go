@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/volume/index.html
 
+message VolumesServiceProperties {
+    string zone = 1;
+}
+
 service VolumesService {
     rpc DescribeVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc CreateVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);

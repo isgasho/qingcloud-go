@@ -11,122 +11,156 @@ import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
 import _ "github.com/golang/protobuf/ptypes/timestamp"
 import _ "github.com/golang/protobuf/ptypes/wrappers"
 
-import "context"
+import "github.com/chai2010/qingcloud-go/config"
+import "github.com/chai2010/qingcloud-go/request"
+import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
+import "github.com/chai2010/qingcloud-go/request/errors"
+
+var _ = config.Config{}
+var _ = request.Request{}
+var _ = request_data_pkg.Operation{}
+var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-type RDBService interface {
-	CreateRDB(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeRDBs(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteRDBs(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StartRDBs(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StopRDBs(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ResizeRDBs(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RDBsLeaveVxnet(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RDBsJoinVxnet(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateRDBFromSnapshot(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateTempRDBInstanceFromSnapshot(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GetRDBInstanceFiles(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CopyRDBInstanceFilesToFTP(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	PurgeRDBLogs(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CeaseRDBInstance(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GetRDBMonitor(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyRDBParameters(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ApplyRDBParameterGroup(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeRDBParameters(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+type RDBServiceProperties struct {
+	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
 }
 
-type RDBServiceClient struct{}
+func (m *RDBServiceProperties) Reset()                    { *m = RDBServiceProperties{} }
+func (m *RDBServiceProperties) String() string            { return proto.CompactTextString(m) }
+func (*RDBServiceProperties) ProtoMessage()               {}
+func (*RDBServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{0} }
 
-// NewRDBServiceClient returns a RDBService stub to handle
-// requests to the set of RDBService at the other end of the connection.
-func NewRDBServiceClient(opt *Options) *RDBServiceClient {
-	return &RDBServiceClient{}
+func (m *RDBServiceProperties) GetZone() string {
+	if m != nil {
+		return m.Zone
+	}
+	return ""
 }
 
-func (c *RDBServiceClient) CreateRDB(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func init() {
+	proto.RegisterType((*RDBServiceProperties)(nil), "spec.RDBServiceProperties")
+}
+
+type RDBServiceInterface interface {
+	CreateRDB(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	StartRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	StopRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ResizeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	RDBsLeaveVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	RDBsJoinVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateRDBFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateTempRDBInstanceFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	GetRDBInstanceFiles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CopyRDBInstanceFilesToFTP(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	PurgeRDBLogs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CeaseRDBInstance(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	GetRDBMonitor(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ModifyRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	ApplyRDBParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+}
+
+type RDBService struct {
+	Config     *config.Config
+	Properties *RDBServiceProperties
+}
+
+func NewRDBService(conf *config.Config, zone string) (p *RDBService, err error) {
+	return &RDBService{
+		Config:     conf,
+		Properties: &RDBServiceProperties{Zone: zone},
+	}, nil
+}
+
+func (p *RDBService) CreateRDB(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) DescribeRDBs(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) DescribeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) DeleteRDBs(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) DeleteRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) StartRDBs(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) StartRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) StopRDBs(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) StopRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) ResizeRDBs(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) ResizeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) RDBsLeaveVxnet(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) RDBsJoinVxnet(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) RDBsJoinVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) CreateRDBFromSnapshot(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) CreateTempRDBInstanceFromSnapshot(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) GetRDBInstanceFiles(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) CopyRDBInstanceFilesToFTP(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) PurgeRDBLogs(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) PurgeRDBLogs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) CeaseRDBInstance(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CeaseRDBInstance(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) GetRDBMonitor(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) GetRDBMonitor(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) ModifyRDBParameters(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) ModifyRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) ApplyRDBParameterGroup(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
-func (c *RDBServiceClient) DescribeRDBParameters(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) DescribeRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
 	panic("TODO")
 }
 
 func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }
 
 var fileDescriptor17 = []byte{
-	// 354 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x5f, 0x4b, 0xe3, 0x40,
-	0x14, 0xc5, 0x5f, 0x96, 0x65, 0x73, 0xd9, 0x5d, 0x24, 0x62, 0xa1, 0x15, 0x14, 0xbf, 0x40, 0x0a,
-	0xfa, 0x66, 0xc5, 0x3f, 0x6d, 0xda, 0xfa, 0xa7, 0x85, 0xd2, 0x14, 0xdf, 0x27, 0xe9, 0x6d, 0x1c,
-	0x48, 0x72, 0x87, 0x99, 0xdb, 0x6a, 0xfd, 0x98, 0x7e, 0x22, 0x99, 0xc6, 0x4a, 0x0d, 0xf8, 0x90,
-	0xf1, 0x31, 0x73, 0xee, 0xf9, 0xe5, 0xe4, 0xcc, 0x25, 0xe0, 0xe9, 0x79, 0x1c, 0x28, 0x4d, 0x4c,
-	0xfe, 0x2f, 0xa3, 0x30, 0x69, 0x35, 0x53, 0xa2, 0x34, 0xc3, 0xf6, 0xe6, 0x2c, 0x5e, 0x2e, 0xda,
-	0xa2, 0x58, 0x97, 0x03, 0xad, 0xc3, 0xaa, 0x84, 0xb9, 0xe2, 0xad, 0x78, 0x5c, 0x15, 0x59, 0xe6,
-	0x68, 0x58, 0xe4, 0xea, 0x63, 0xe0, 0xa8, 0x3a, 0xf0, 0xac, 0x85, 0x52, 0xa8, 0x4d, 0xa9, 0x9f,
-	0xbe, 0x79, 0x00, 0xd3, 0xb0, 0x1b, 0xa1, 0x5e, 0xc9, 0x04, 0xfd, 0x0e, 0x78, 0x3d, 0x8d, 0x82,
-	0x71, 0x1a, 0x76, 0xfd, 0x46, 0x50, 0x9a, 0x83, 0xad, 0x39, 0xe8, 0xdb, 0x57, 0xb7, 0xbe, 0x39,
-	0xf7, 0x2f, 0xe1, 0x6f, 0x88, 0x26, 0xd1, 0x32, 0xb6, 0x76, 0x53, 0xdb, 0x7f, 0x01, 0x10, 0x62,
-	0x86, 0xec, 0xe6, 0xee, 0x80, 0x17, 0xb1, 0xd0, 0xec, 0x64, 0x3e, 0x87, 0x3f, 0x11, 0x93, 0x72,
-	0x8d, 0x3d, 0x45, 0x23, 0x5f, 0xdd, 0x62, 0x5f, 0xc3, 0x7f, 0xeb, 0x1b, 0xa1, 0x58, 0xe1, 0xe3,
-	0x4b, 0x81, 0x5c, 0x9b, 0x70, 0x05, 0xff, 0x2c, 0xe1, 0x9e, 0x64, 0xe1, 0x06, 0x18, 0xc2, 0xc1,
-	0xe7, 0xa5, 0x0f, 0x34, 0xe5, 0x51, 0x21, 0x94, 0x79, 0xa2, 0xfa, 0xa0, 0x08, 0x4e, 0x4a, 0xd0,
-	0x0c, 0x73, 0xdb, 0xe5, 0x5d, 0x61, 0x58, 0x14, 0x09, 0xfe, 0x08, 0xda, 0x87, 0xfd, 0x21, 0xf2,
-	0x2e, 0x4d, 0x66, 0x58, 0xbf, 0xe7, 0x07, 0x68, 0xf6, 0x48, 0xad, 0xab, 0x9c, 0x19, 0x0d, 0x66,
-	0x13, 0x97, 0x4d, 0x9f, 0x2c, 0x75, 0x6a, 0x0b, 0x1b, 0x51, 0x5a, 0x3f, 0x4c, 0x17, 0xf6, 0x7a,
-	0x28, 0x0c, 0xee, 0xa4, 0x71, 0xb9, 0xf6, 0xb2, 0x97, 0x31, 0x15, 0x92, 0x49, 0xbb, 0x14, 0x3b,
-	0xa6, 0xb9, 0x5c, 0xd8, 0x4e, 0x26, 0x42, 0x8b, 0x1c, 0x19, 0x75, 0xfd, 0x6f, 0xb9, 0x85, 0xc6,
-	0x8d, 0x52, 0xd9, 0x17, 0xca, 0x50, 0xd3, 0x52, 0xb9, 0xec, 0xe1, 0xce, 0xff, 0xc3, 0x3d, 0x52,
-	0xfc, 0x7b, 0xf3, 0x7c, 0xf6, 0x1e, 0x00, 0x00, 0xff, 0xff, 0x96, 0xb9, 0x4e, 0xcf, 0x67, 0x05,
-	0x00, 0x00,
+	// 385 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0xcd, 0xab, 0xd3, 0x40,
+	0x14, 0xc5, 0x29, 0x14, 0x31, 0x17, 0x15, 0x89, 0x5a, 0x6c, 0x05, 0xbf, 0x56, 0xe2, 0x22, 0x05,
+	0xdd, 0x59, 0xf1, 0xa3, 0x4d, 0x5b, 0x3f, 0x5a, 0x08, 0x49, 0x71, 0x3f, 0x49, 0x6f, 0xe3, 0x40,
+	0x32, 0x77, 0xb8, 0x33, 0xad, 0xb6, 0x7f, 0xa6, 0x7f, 0x91, 0xa4, 0x79, 0x7d, 0xaf, 0x2f, 0xf0,
+	0x16, 0x99, 0xb7, 0x4b, 0xe6, 0x9e, 0xf3, 0x9b, 0x93, 0x33, 0x43, 0xc0, 0xe3, 0x75, 0x1a, 0x68,
+	0x26, 0x4b, 0x7e, 0xd7, 0x68, 0xcc, 0x06, 0xfd, 0x9c, 0x28, 0x2f, 0x70, 0x78, 0x5c, 0x4b, 0xb7,
+	0x9b, 0xa1, 0x50, 0xfb, 0x5a, 0x30, 0x78, 0xd6, 0x1c, 0x61, 0xa9, 0xed, 0x69, 0xf8, 0xa2, 0x39,
+	0xb4, 0xb2, 0x44, 0x63, 0x45, 0xa9, 0x2f, 0x04, 0xcf, 0x9b, 0x82, 0x3f, 0x2c, 0xb4, 0x46, 0x36,
+	0xf5, 0xfc, 0xf5, 0x5b, 0x78, 0x1c, 0x87, 0xe3, 0x04, 0x79, 0x27, 0x33, 0x8c, 0x98, 0x34, 0xb2,
+	0x95, 0x68, 0x7c, 0x1f, 0xba, 0x07, 0x52, 0xf8, 0xb4, 0xf3, 0xb2, 0xf3, 0xc6, 0x8b, 0x8f, 0xcf,
+	0xef, 0xfe, 0x79, 0x00, 0x57, 0x62, 0x7f, 0x04, 0xde, 0x84, 0x51, 0x58, 0x8c, 0xc3, 0xb1, 0xdf,
+	0x0b, 0xea, 0x8d, 0x82, 0xd3, 0x46, 0xc1, 0xb4, 0x8a, 0x39, 0xb8, 0x61, 0xdd, 0xff, 0x04, 0xf7,
+	0x42, 0x34, 0x19, 0xcb, 0xb4, 0xb2, 0x9b, 0xd6, 0xfe, 0x8f, 0x00, 0x21, 0x16, 0x68, 0xdd, 0xdc,
+	0x23, 0xf0, 0x12, 0x2b, 0xd8, 0x3a, 0x99, 0x3f, 0xc0, 0xdd, 0xc4, 0x92, 0x76, 0x8d, 0x1d, 0xa3,
+	0x91, 0x07, 0xb7, 0xd8, 0x5f, 0xe0, 0x41, 0xe5, 0x5b, 0xa0, 0xd8, 0xe1, 0xaf, 0xbf, 0x0a, 0x6d,
+	0x6b, 0xc2, 0x67, 0xb8, 0x5f, 0x11, 0x7e, 0x90, 0x54, 0x6e, 0x80, 0x39, 0x3c, 0xb9, 0x3c, 0xf4,
+	0x19, 0x53, 0x99, 0x28, 0xa1, 0xcd, 0x6f, 0x6a, 0x0f, 0x4a, 0xe0, 0x55, 0x0d, 0x5a, 0x61, 0x59,
+	0x75, 0xf9, 0x5d, 0x19, 0x2b, 0x54, 0x86, 0xb7, 0x82, 0x4e, 0xe1, 0xd1, 0x1c, 0xed, 0x39, 0x4d,
+	0x16, 0xd8, 0xbe, 0xe7, 0x9f, 0xd0, 0x9f, 0x90, 0xde, 0x37, 0x39, 0x2b, 0x9a, 0xad, 0x22, 0x97,
+	0x9b, 0x1e, 0x6d, 0x39, 0xaf, 0x0a, 0x5b, 0x50, 0xde, 0x3e, 0xcc, 0x18, 0x1e, 0x4e, 0x50, 0x18,
+	0x3c, 0x4b, 0xe3, 0x72, 0xec, 0x75, 0x2f, 0x4b, 0x52, 0xd2, 0x12, 0xbb, 0x14, 0xbb, 0xa4, 0xb5,
+	0xdc, 0x54, 0x9d, 0x44, 0x82, 0x45, 0x89, 0x16, 0xb9, 0xfd, 0xb7, 0x7c, 0x83, 0xde, 0x57, 0xad,
+	0x8b, 0x6b, 0x94, 0x39, 0xd3, 0x56, 0xbb, 0xdc, 0xc3, 0xb3, 0xff, 0x87, 0x7b, 0xa4, 0xf4, 0xce,
+	0xf1, 0xfd, 0xfd, 0xff, 0x00, 0x00, 0x00, 0xff, 0xff, 0xb5, 0xdd, 0xe1, 0xfc, 0x93, 0x05, 0x00,
+	0x00,
 }

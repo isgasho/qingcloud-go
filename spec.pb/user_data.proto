@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/userdata/index.html
 
+message UserDataServiceProperties {
+    string zone = 1;
+}
+
 service UserDataService {
     rpc UploadUserDataAttachment(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

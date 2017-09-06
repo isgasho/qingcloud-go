@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/resource_acl/index.html
 
+message ResourceACLServiceProperties {
+    string zone = 1;
+}
+
 service ResourceACLService {
     rpc DescribeSharedResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);

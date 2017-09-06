@@ -13,6 +13,10 @@ import "google/protobuf/wrappers.proto";
 
 // https://docs.qingcloud.com/api/span/index.html
 
+message SpanServiceProperties {
+    string zone = 1;
+}
+
 service SpanService {
     rpc CreateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DescribeSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
