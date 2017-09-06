@@ -150,6 +150,8 @@ type {{.ServiceName}} struct {
 }
 
 func New{{.ServiceName}}(conf *config.Config, zone string) (p *{{.ServiceName}}, err error) {
+	config.Glog_SetStderrThreshold(config.ParseGlogLevel(conf.LogLevel))
+
 	return &{{.ServiceName}}{
 		Config:     conf,
 		Properties: &{{.ServiceName}}Properties{Zone: zone},
