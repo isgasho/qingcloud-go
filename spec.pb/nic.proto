@@ -11,13 +11,135 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/nic/index.html
+// ----------------------------------------------------------------------------
+
+message NicServiceProperties {
+    google.protobuf.Timestamp zone = 1;
+}
 
 service NicService {
-    rpc CreateNics(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeNics(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AttachNics(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DetachNics(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyNicAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteNics(google.protobuf.Empty) returns (google.protobuf.Empty);    
+    rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
+    rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput);
+    rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);
+    rpc DetachNics(DetachNicsInput) returns (DetachNicsOutput);
+    rpc ModifyNicAttributes(ModifyNicAttributesInput) returns (ModifyNicAttributesOutput);
+    rpc DeleteNics(DeleteNicsInput) returns (DeleteNicsOutput);
 }
+
+// ----------------------------------------------------------------------------
+
+message CreateNicsInput {
+    //
+}
+message CreateNicsOutput {
+	//
+}
+
+// ----------------------------------------------------------------------------
+// https://docs.qingcloud.com/api/nic/describe_nics.html
+// ----------------------------------------------------------------------------
+
+message DescribeNicsInput {
+	repeated string instances = 1;
+	int32 limit = 2;
+	string nic_name = 3;
+	repeated string nics = 4;
+	int32 offset = 5;
+	string status = 6;
+	int32 vxnet_type = 7;
+	repeated string vxnets = 8;
+}
+message DescribeNicsOutput {
+	string message = 1;
+	string action = 2;
+	repeated int32 nic_set = 3;
+	int32 ret_code = 4;
+	int32 total_count = 5;
+}
+
+message NIC {
+    google.protobuf.Timestamp create_time = 1;
+	string instance_id = 2;
+	string nic_id = 3;
+	string nic_name = 4;
+	string owner = 5;
+	string private_ip = 6;
+	int32 role = 7;
+	string root_user_id = 8;
+	string security_group = 9;
+	int32 sequence = 10;
+	string status = 11;
+	google.protobuf.Timestamp status_time = 12;
+	repeated Tag tags = 13;
+	string vxnet_id = 14;
+}
+
+message Tag {
+	string color = 1;
+	google.protobuf.Timestamp create_time = 2;
+	string description = 3;
+	string owner = 4;
+	int32 resource_count = 5;
+	repeated ResourceTagPair resource_tag_pairs = 6;
+	repeated ResourceTypeCount resource_type_count = 7;
+	string tag_id = 8;
+	string tag_key = 9;
+	string tag_name = 10;
+}
+
+message ResourceTagPair {
+	string resource_id = 1;
+	string resource_type = 2;
+	string status = 3;
+	google.protobuf.Timestamp status_time = 4;
+	string tag_id = 5;
+}
+
+message ResourceTypeCount {
+	int32 count = 1;
+	string resource_type = 2;
+}
+
+// ----------------------------------------------------------------------------
+
+message AttachNicsInput {
+    //
+}
+
+message AttachNicsOutput {
+    //
+}
+
+// ----------------------------------------------------------------------------
+
+message DetachNicsInput {
+    //
+}
+message DetachNicsOutput {
+    //
+}
+
+// ----------------------------------------------------------------------------
+
+message ModifyNicAttributesInput {
+    //
+}
+message ModifyNicAttributesOutput {
+    //
+}
+
+// ----------------------------------------------------------------------------
+
+message DeleteNicsInput {
+	//
+}
+
+message DeleteNicsOutput {
+	//
+}
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

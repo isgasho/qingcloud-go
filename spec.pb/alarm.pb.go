@@ -44,6 +44,23 @@ It has these top-level messages:
 	DescribeInstanceTypes_Request
 	DescribeInstanceTypes_Reponse
 	InstanceTypeSetElem
+	NicServiceProperties
+	CreateNicsInput
+	CreateNicsOutput
+	DescribeNicsInput
+	DescribeNicsOutput
+	NIC
+	Tag
+	ResourceTagPair
+	ResourceTypeCount
+	AttachNicsInput
+	AttachNicsOutput
+	DetachNicsInput
+	DetachNicsOutput
+	ModifyNicAttributesInput
+	ModifyNicAttributesOutput
+	DeleteNicsInput
+	DeleteNicsOutput
 */
 package spec
 

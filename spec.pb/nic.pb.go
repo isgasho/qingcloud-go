@@ -7,8 +7,8 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/golang/protobuf/ptypes/any"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
-import _ "github.com/golang/protobuf/ptypes/timestamp"
+import _ "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/timestamp"
 import _ "github.com/golang/protobuf/ptypes/wrappers"
 
 import "context"
@@ -18,13 +18,529 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+type NicServiceProperties struct {
+	Zone *google_protobuf2.Timestamp `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+}
+
+func (m *NicServiceProperties) Reset()                    { *m = NicServiceProperties{} }
+func (m *NicServiceProperties) String() string            { return proto.CompactTextString(m) }
+func (*NicServiceProperties) ProtoMessage()               {}
+func (*NicServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{0} }
+
+func (m *NicServiceProperties) GetZone() *google_protobuf2.Timestamp {
+	if m != nil {
+		return m.Zone
+	}
+	return nil
+}
+
+type CreateNicsInput struct {
+}
+
+func (m *CreateNicsInput) Reset()                    { *m = CreateNicsInput{} }
+func (m *CreateNicsInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateNicsInput) ProtoMessage()               {}
+func (*CreateNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{1} }
+
+type CreateNicsOutput struct {
+}
+
+func (m *CreateNicsOutput) Reset()                    { *m = CreateNicsOutput{} }
+func (m *CreateNicsOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateNicsOutput) ProtoMessage()               {}
+func (*CreateNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{2} }
+
+type DescribeNicsInput struct {
+	Instances []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	Limit     int32    `protobuf:"varint,2,opt,name=limit" json:"limit,omitempty"`
+	NicName   string   `protobuf:"bytes,3,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
+	Nics      []string `protobuf:"bytes,4,rep,name=nics" json:"nics,omitempty"`
+	Offset    int32    `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Status    string   `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
+	VxnetType int32    `protobuf:"varint,7,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	Vxnets    []string `protobuf:"bytes,8,rep,name=vxnets" json:"vxnets,omitempty"`
+}
+
+func (m *DescribeNicsInput) Reset()                    { *m = DescribeNicsInput{} }
+func (m *DescribeNicsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeNicsInput) ProtoMessage()               {}
+func (*DescribeNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{3} }
+
+func (m *DescribeNicsInput) GetInstances() []string {
+	if m != nil {
+		return m.Instances
+	}
+	return nil
+}
+
+func (m *DescribeNicsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
+func (m *DescribeNicsInput) GetNicName() string {
+	if m != nil {
+		return m.NicName
+	}
+	return ""
+}
+
+func (m *DescribeNicsInput) GetNics() []string {
+	if m != nil {
+		return m.Nics
+	}
+	return nil
+}
+
+func (m *DescribeNicsInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeNicsInput) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *DescribeNicsInput) GetVxnetType() int32 {
+	if m != nil {
+		return m.VxnetType
+	}
+	return 0
+}
+
+func (m *DescribeNicsInput) GetVxnets() []string {
+	if m != nil {
+		return m.Vxnets
+	}
+	return nil
+}
+
+type DescribeNicsOutput struct {
+	Message    string  `protobuf:"bytes,1,opt,name=message" json:"message,omitempty"`
+	Action     string  `protobuf:"bytes,2,opt,name=action" json:"action,omitempty"`
+	NicSet     []int32 `protobuf:"varint,3,rep,packed,name=nic_set,json=nicSet" json:"nic_set,omitempty"`
+	RetCode    int32   `protobuf:"varint,4,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	TotalCount int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+}
+
+func (m *DescribeNicsOutput) Reset()                    { *m = DescribeNicsOutput{} }
+func (m *DescribeNicsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeNicsOutput) ProtoMessage()               {}
+func (*DescribeNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{4} }
+
+func (m *DescribeNicsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *DescribeNicsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeNicsOutput) GetNicSet() []int32 {
+	if m != nil {
+		return m.NicSet
+	}
+	return nil
+}
+
+func (m *DescribeNicsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeNicsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type NIC struct {
+	CreateTime    *google_protobuf2.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	InstanceId    string                      `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	NicId         string                      `protobuf:"bytes,3,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
+	NicName       string                      `protobuf:"bytes,4,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
+	Owner         string                      `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
+	PrivateIp     string                      `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Role          int32                       `protobuf:"varint,7,opt,name=role" json:"role,omitempty"`
+	RootUserId    string                      `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	SecurityGroup string                      `protobuf:"bytes,9,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Sequence      int32                       `protobuf:"varint,10,opt,name=sequence" json:"sequence,omitempty"`
+	Status        string                      `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
+	StatusTime    *google_protobuf2.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Tags          []*Tag                      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
+	VxnetId       string                      `protobuf:"bytes,14,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+}
+
+func (m *NIC) Reset()                    { *m = NIC{} }
+func (m *NIC) String() string            { return proto.CompactTextString(m) }
+func (*NIC) ProtoMessage()               {}
+func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{5} }
+
+func (m *NIC) GetCreateTime() *google_protobuf2.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *NIC) GetInstanceId() string {
+	if m != nil {
+		return m.InstanceId
+	}
+	return ""
+}
+
+func (m *NIC) GetNicId() string {
+	if m != nil {
+		return m.NicId
+	}
+	return ""
+}
+
+func (m *NIC) GetNicName() string {
+	if m != nil {
+		return m.NicName
+	}
+	return ""
+}
+
+func (m *NIC) GetOwner() string {
+	if m != nil {
+		return m.Owner
+	}
+	return ""
+}
+
+func (m *NIC) GetPrivateIp() string {
+	if m != nil {
+		return m.PrivateIp
+	}
+	return ""
+}
+
+func (m *NIC) GetRole() int32 {
+	if m != nil {
+		return m.Role
+	}
+	return 0
+}
+
+func (m *NIC) GetRootUserId() string {
+	if m != nil {
+		return m.RootUserId
+	}
+	return ""
+}
+
+func (m *NIC) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *NIC) GetSequence() int32 {
+	if m != nil {
+		return m.Sequence
+	}
+	return 0
+}
+
+func (m *NIC) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *NIC) GetStatusTime() *google_protobuf2.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
+func (m *NIC) GetTags() []*Tag {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *NIC) GetVxnetId() string {
+	if m != nil {
+		return m.VxnetId
+	}
+	return ""
+}
+
+type Tag struct {
+	Color             string                      `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
+	CreateTime        *google_protobuf2.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description       string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Owner             string                      `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
+	ResourceCount     int32                       `protobuf:"varint,5,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
+	ResourceTagPairs  []*ResourceTagPair          `protobuf:"bytes,6,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
+	ResourceTypeCount []*ResourceTypeCount        `protobuf:"bytes,7,rep,name=resource_type_count,json=resourceTypeCount" json:"resource_type_count,omitempty"`
+	TagId             string                      `protobuf:"bytes,8,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	TagKey            string                      `protobuf:"bytes,9,opt,name=tag_key,json=tagKey" json:"tag_key,omitempty"`
+	TagName           string                      `protobuf:"bytes,10,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+}
+
+func (m *Tag) Reset()                    { *m = Tag{} }
+func (m *Tag) String() string            { return proto.CompactTextString(m) }
+func (*Tag) ProtoMessage()               {}
+func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{6} }
+
+func (m *Tag) GetColor() string {
+	if m != nil {
+		return m.Color
+	}
+	return ""
+}
+
+func (m *Tag) GetCreateTime() *google_protobuf2.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *Tag) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *Tag) GetOwner() string {
+	if m != nil {
+		return m.Owner
+	}
+	return ""
+}
+
+func (m *Tag) GetResourceCount() int32 {
+	if m != nil {
+		return m.ResourceCount
+	}
+	return 0
+}
+
+func (m *Tag) GetResourceTagPairs() []*ResourceTagPair {
+	if m != nil {
+		return m.ResourceTagPairs
+	}
+	return nil
+}
+
+func (m *Tag) GetResourceTypeCount() []*ResourceTypeCount {
+	if m != nil {
+		return m.ResourceTypeCount
+	}
+	return nil
+}
+
+func (m *Tag) GetTagId() string {
+	if m != nil {
+		return m.TagId
+	}
+	return ""
+}
+
+func (m *Tag) GetTagKey() string {
+	if m != nil {
+		return m.TagKey
+	}
+	return ""
+}
+
+func (m *Tag) GetTagName() string {
+	if m != nil {
+		return m.TagName
+	}
+	return ""
+}
+
+type ResourceTagPair struct {
+	ResourceId   string                      `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceType string                      `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	Status       string                      `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	StatusTime   *google_protobuf2.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	TagId        string                      `protobuf:"bytes,5,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+}
+
+func (m *ResourceTagPair) Reset()                    { *m = ResourceTagPair{} }
+func (m *ResourceTagPair) String() string            { return proto.CompactTextString(m) }
+func (*ResourceTagPair) ProtoMessage()               {}
+func (*ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{7} }
+
+func (m *ResourceTagPair) GetResourceId() string {
+	if m != nil {
+		return m.ResourceId
+	}
+	return ""
+}
+
+func (m *ResourceTagPair) GetResourceType() string {
+	if m != nil {
+		return m.ResourceType
+	}
+	return ""
+}
+
+func (m *ResourceTagPair) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *ResourceTagPair) GetStatusTime() *google_protobuf2.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
+func (m *ResourceTagPair) GetTagId() string {
+	if m != nil {
+		return m.TagId
+	}
+	return ""
+}
+
+type ResourceTypeCount struct {
+	Count        int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
+	ResourceType string `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+}
+
+func (m *ResourceTypeCount) Reset()                    { *m = ResourceTypeCount{} }
+func (m *ResourceTypeCount) String() string            { return proto.CompactTextString(m) }
+func (*ResourceTypeCount) ProtoMessage()               {}
+func (*ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{8} }
+
+func (m *ResourceTypeCount) GetCount() int32 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
+}
+
+func (m *ResourceTypeCount) GetResourceType() string {
+	if m != nil {
+		return m.ResourceType
+	}
+	return ""
+}
+
+type AttachNicsInput struct {
+}
+
+func (m *AttachNicsInput) Reset()                    { *m = AttachNicsInput{} }
+func (m *AttachNicsInput) String() string            { return proto.CompactTextString(m) }
+func (*AttachNicsInput) ProtoMessage()               {}
+func (*AttachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{9} }
+
+type AttachNicsOutput struct {
+}
+
+func (m *AttachNicsOutput) Reset()                    { *m = AttachNicsOutput{} }
+func (m *AttachNicsOutput) String() string            { return proto.CompactTextString(m) }
+func (*AttachNicsOutput) ProtoMessage()               {}
+func (*AttachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{10} }
+
+type DetachNicsInput struct {
+}
+
+func (m *DetachNicsInput) Reset()                    { *m = DetachNicsInput{} }
+func (m *DetachNicsInput) String() string            { return proto.CompactTextString(m) }
+func (*DetachNicsInput) ProtoMessage()               {}
+func (*DetachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{11} }
+
+type DetachNicsOutput struct {
+}
+
+func (m *DetachNicsOutput) Reset()                    { *m = DetachNicsOutput{} }
+func (m *DetachNicsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DetachNicsOutput) ProtoMessage()               {}
+func (*DetachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{12} }
+
+type ModifyNicAttributesInput struct {
+}
+
+func (m *ModifyNicAttributesInput) Reset()                    { *m = ModifyNicAttributesInput{} }
+func (m *ModifyNicAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyNicAttributesInput) ProtoMessage()               {}
+func (*ModifyNicAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{13} }
+
+type ModifyNicAttributesOutput struct {
+}
+
+func (m *ModifyNicAttributesOutput) Reset()                    { *m = ModifyNicAttributesOutput{} }
+func (m *ModifyNicAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyNicAttributesOutput) ProtoMessage()               {}
+func (*ModifyNicAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{14} }
+
+type DeleteNicsInput struct {
+}
+
+func (m *DeleteNicsInput) Reset()                    { *m = DeleteNicsInput{} }
+func (m *DeleteNicsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteNicsInput) ProtoMessage()               {}
+func (*DeleteNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{15} }
+
+type DeleteNicsOutput struct {
+}
+
+func (m *DeleteNicsOutput) Reset()                    { *m = DeleteNicsOutput{} }
+func (m *DeleteNicsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteNicsOutput) ProtoMessage()               {}
+func (*DeleteNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{16} }
+
+func init() {
+	proto.RegisterType((*NicServiceProperties)(nil), "spec.NicServiceProperties")
+	proto.RegisterType((*CreateNicsInput)(nil), "spec.CreateNicsInput")
+	proto.RegisterType((*CreateNicsOutput)(nil), "spec.CreateNicsOutput")
+	proto.RegisterType((*DescribeNicsInput)(nil), "spec.DescribeNicsInput")
+	proto.RegisterType((*DescribeNicsOutput)(nil), "spec.DescribeNicsOutput")
+	proto.RegisterType((*NIC)(nil), "spec.NIC")
+	proto.RegisterType((*Tag)(nil), "spec.Tag")
+	proto.RegisterType((*ResourceTagPair)(nil), "spec.ResourceTagPair")
+	proto.RegisterType((*ResourceTypeCount)(nil), "spec.ResourceTypeCount")
+	proto.RegisterType((*AttachNicsInput)(nil), "spec.AttachNicsInput")
+	proto.RegisterType((*AttachNicsOutput)(nil), "spec.AttachNicsOutput")
+	proto.RegisterType((*DetachNicsInput)(nil), "spec.DetachNicsInput")
+	proto.RegisterType((*DetachNicsOutput)(nil), "spec.DetachNicsOutput")
+	proto.RegisterType((*ModifyNicAttributesInput)(nil), "spec.ModifyNicAttributesInput")
+	proto.RegisterType((*ModifyNicAttributesOutput)(nil), "spec.ModifyNicAttributesOutput")
+	proto.RegisterType((*DeleteNicsInput)(nil), "spec.DeleteNicsInput")
+	proto.RegisterType((*DeleteNicsOutput)(nil), "spec.DeleteNicsOutput")
+}
+
 type NicService interface {
-	CreateNics(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeNics(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AttachNics(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DetachNics(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyNicAttributes(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteNics(ctx context.Context, in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateNics(ctx context.Context, in *CreateNicsInput) (out *CreateNicsOutput, err error)
+	DescribeNics(ctx context.Context, in *DescribeNicsInput) (out *DescribeNicsOutput, err error)
+	AttachNics(ctx context.Context, in *AttachNicsInput) (out *AttachNicsOutput, err error)
+	DetachNics(ctx context.Context, in *DetachNicsInput) (out *DetachNicsOutput, err error)
+	ModifyNicAttributes(ctx context.Context, in *ModifyNicAttributesInput) (out *ModifyNicAttributesOutput, err error)
+	DeleteNics(ctx context.Context, in *DeleteNicsInput) (out *DeleteNicsOutput, err error)
 }
 
 type NicServiceClient struct{}
@@ -35,40 +551,87 @@ func NewNicServiceClient(opt *Options) *NicServiceClient {
 	return &NicServiceClient{}
 }
 
-func (c *NicServiceClient) CreateNics(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (c *NicServiceClient) CreateNics(ctx context.Context, in *CreateNicsInput, opt ...*Options) (out *CreateNicsOutput, err error) {
 	panic("TODO")
 }
-func (c *NicServiceClient) DescribeNics(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (c *NicServiceClient) DescribeNics(ctx context.Context, in *DescribeNicsInput, opt ...*Options) (out *DescribeNicsOutput, err error) {
 	panic("TODO")
 }
-func (c *NicServiceClient) AttachNics(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (c *NicServiceClient) AttachNics(ctx context.Context, in *AttachNicsInput, opt ...*Options) (out *AttachNicsOutput, err error) {
 	panic("TODO")
 }
-func (c *NicServiceClient) DetachNics(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (c *NicServiceClient) DetachNics(ctx context.Context, in *DetachNicsInput, opt ...*Options) (out *DetachNicsOutput, err error) {
 	panic("TODO")
 }
-func (c *NicServiceClient) ModifyNicAttributes(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (c *NicServiceClient) ModifyNicAttributes(ctx context.Context, in *ModifyNicAttributesInput, opt ...*Options) (out *ModifyNicAttributesOutput, err error) {
 	panic("TODO")
 }
-func (c *NicServiceClient) DeleteNics(ctx context.Context, in *google_protobuf1.Empty, opt ...*Options) (out *google_protobuf1.Empty, err error) {
+func (c *NicServiceClient) DeleteNics(ctx context.Context, in *DeleteNicsInput, opt ...*Options) (out *DeleteNicsOutput, err error) {
 	panic("TODO")
 }
 
 func init() { proto.RegisterFile("nic.proto", fileDescriptor15) }
 
 var fileDescriptor15 = []byte{
-	// 202 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x90, 0xc1, 0x4a, 0xc4, 0x30,
-	0x10, 0x86, 0x0f, 0x8a, 0xe0, 0xe0, 0x29, 0x82, 0x60, 0x05, 0x7d, 0x83, 0x14, 0xf4, 0x5a, 0x84,
-	0x62, 0x7b, 0xb4, 0x17, 0x9f, 0x20, 0x19, 0xa7, 0x75, 0xa0, 0x6d, 0x42, 0x32, 0x75, 0xe9, 0x33,
-	0xec, 0x4b, 0x2f, 0xdb, 0x6e, 0x2f, 0x85, 0xbd, 0xe4, 0x38, 0xff, 0xf7, 0x7f, 0xcc, 0x30, 0x70,
-	0x3f, 0x32, 0x6a, 0x1f, 0x9c, 0x38, 0x75, 0x1b, 0x3d, 0x61, 0xf6, 0xdc, 0x39, 0xd7, 0xf5, 0x94,
-	0x2f, 0x99, 0x9d, 0xda, 0xdc, 0x8c, 0xf3, 0x5a, 0xc8, 0x5e, 0xf6, 0x88, 0x06, 0x2f, 0x1b, 0x7c,
-	0xdb, 0x43, 0xe1, 0x81, 0xa2, 0x98, 0xc1, 0x5f, 0x0a, 0xaf, 0xfb, 0xc2, 0x21, 0x18, 0xef, 0x29,
-	0xc4, 0x95, 0xbf, 0x1f, 0x6f, 0x00, 0x1a, 0xc6, 0x1f, 0x0a, 0xff, 0x8c, 0xa4, 0x0a, 0x80, 0xaf,
-	0x40, 0x46, 0xa8, 0x61, 0x8c, 0xea, 0x49, 0xaf, 0xb6, 0xde, 0x6c, 0x5d, 0x9f, 0x77, 0x67, 0x57,
-	0x72, 0xf5, 0x09, 0x0f, 0x15, 0x45, 0x0c, 0x6c, 0xd3, 0xfc, 0x02, 0xa0, 0x14, 0x31, 0xf8, 0x97,
-	0x6a, 0x57, 0x94, 0x6c, 0xd7, 0xf0, 0xf8, 0xed, 0x7e, 0xb9, 0x9d, 0x1b, 0xc6, 0x52, 0x24, 0xb0,
-	0x9d, 0x84, 0x12, 0x8f, 0xe8, 0x29, 0xed, 0x81, 0xf6, 0x6e, 0x99, 0x3f, 0x4e, 0x01, 0x00, 0x00,
-	0xff, 0xff, 0xe7, 0x9e, 0xc6, 0xda, 0x20, 0x02, 0x00, 0x00,
+	// 953 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x55, 0xcd, 0x6e, 0xdb, 0x46,
+	0x10, 0x86, 0x42, 0x29, 0x32, 0x47, 0xfe, 0x89, 0x36, 0x4e, 0x42, 0x2b, 0x4d, 0x2c, 0xa8, 0x08,
+	0xa0, 0x93, 0x02, 0xb8, 0x47, 0x9f, 0x0c, 0x05, 0x0d, 0x84, 0xa2, 0x6a, 0xc0, 0xaa, 0xbd, 0x12,
+	0xeb, 0xe5, 0x98, 0x5d, 0x54, 0xe2, 0xb2, 0xbb, 0x4b, 0xa7, 0xea, 0x53, 0xf4, 0x9e, 0xc7, 0xe9,
+	0x1b, 0xf4, 0xde, 0x77, 0x29, 0xf6, 0x87, 0xe6, 0x8f, 0x93, 0x36, 0xb9, 0x71, 0xbe, 0x19, 0xce,
+	0xce, 0x7e, 0xdf, 0x47, 0x0e, 0x84, 0x39, 0x67, 0x8b, 0x42, 0x0a, 0x2d, 0x48, 0x5f, 0x15, 0xc8,
+	0x26, 0x67, 0x99, 0x10, 0xd9, 0x16, 0x5f, 0x5b, 0xec, 0xba, 0xbc, 0x79, 0x4d, 0xf3, 0xbd, 0x2b,
+	0x98, 0x3c, 0xef, 0xa6, 0x70, 0x57, 0xe8, 0x2a, 0x79, 0xde, 0x4d, 0x6a, 0xbe, 0x43, 0xa5, 0xe9,
+	0xae, 0xf0, 0x05, 0x2f, 0xbb, 0x05, 0xef, 0x25, 0x2d, 0x0a, 0x94, 0xca, 0xe5, 0x67, 0xdf, 0xc2,
+	0xe9, 0x9a, 0xb3, 0x1f, 0x51, 0xde, 0x72, 0x86, 0xef, 0xa4, 0x28, 0x50, 0x6a, 0x8e, 0x8a, 0x2c,
+	0xa0, 0xff, 0x87, 0xc8, 0x31, 0xea, 0x4d, 0x7b, 0xf3, 0xd1, 0xc5, 0x64, 0xe1, 0xda, 0x2c, 0xaa,
+	0x36, 0x8b, 0x4d, 0x75, 0x4e, 0x6c, 0xeb, 0x66, 0x63, 0x38, 0x59, 0x4a, 0xa4, 0x1a, 0xd7, 0x9c,
+	0xa9, 0x55, 0x5e, 0x94, 0x7a, 0x46, 0xe0, 0x51, 0x0d, 0xfd, 0x50, 0x6a, 0x83, 0xfd, 0xd3, 0x83,
+	0xf1, 0x1b, 0x54, 0x4c, 0xf2, 0xeb, 0xba, 0x92, 0x7c, 0x05, 0x21, 0xcf, 0x95, 0xa6, 0x39, 0x43,
+	0x15, 0xf5, 0xa6, 0xc1, 0x3c, 0x8c, 0x6b, 0x80, 0x9c, 0xc2, 0x60, 0xcb, 0x77, 0x5c, 0x47, 0x0f,
+	0xa6, 0xbd, 0xf9, 0x20, 0x76, 0x01, 0x39, 0x83, 0x83, 0x9c, 0xb3, 0x24, 0xa7, 0x3b, 0x8c, 0x82,
+	0x69, 0x6f, 0x1e, 0xc6, 0xc3, 0x9c, 0xb3, 0x35, 0xdd, 0x21, 0x21, 0xd0, 0xcf, 0x39, 0x53, 0x51,
+	0xdf, 0x76, 0xb2, 0xcf, 0xe4, 0x29, 0x3c, 0x14, 0x37, 0x37, 0x0a, 0x75, 0x34, 0xb0, 0x5d, 0x7c,
+	0x64, 0x70, 0xa5, 0xa9, 0x2e, 0x55, 0xf4, 0xd0, 0x36, 0xf1, 0x11, 0x79, 0x01, 0x70, 0xfb, 0x7b,
+	0x8e, 0x3a, 0xd1, 0xfb, 0x02, 0xa3, 0xa1, 0x7d, 0x27, 0xb4, 0xc8, 0x66, 0x5f, 0xa0, 0x79, 0xcd,
+	0x06, 0x2a, 0x3a, 0xb0, 0x87, 0xf8, 0x68, 0xf6, 0xa1, 0x07, 0xa4, 0x79, 0x3f, 0x77, 0x6d, 0x12,
+	0xc1, 0x70, 0x87, 0x4a, 0xd1, 0xcc, 0x11, 0x1a, 0xc6, 0x55, 0x68, 0x1a, 0x51, 0xa6, 0xb9, 0xc8,
+	0xed, 0xed, 0xc2, 0xd8, 0x47, 0xe4, 0x19, 0x98, 0xeb, 0x24, 0x66, 0xe0, 0x60, 0x1a, 0x98, 0x81,
+	0x73, 0x23, 0x93, 0xbd, 0xb7, 0x44, 0x9d, 0x30, 0x91, 0x62, 0xd4, 0xb7, 0x63, 0x0d, 0x25, 0xea,
+	0xa5, 0x48, 0x91, 0x9c, 0xc3, 0x48, 0x0b, 0x4d, 0xb7, 0x09, 0x13, 0x65, 0x5e, 0x5d, 0x14, 0x2c,
+	0xb4, 0x34, 0xc8, 0xec, 0xef, 0x00, 0x82, 0xf5, 0x6a, 0x49, 0x2e, 0x61, 0xc4, 0xac, 0x32, 0x89,
+	0xb1, 0xcb, 0x67, 0x68, 0x0c, 0xae, 0xdc, 0x00, 0xe6, 0x94, 0x4a, 0x9b, 0x84, 0xa7, 0x7e, 0x6c,
+	0xa8, 0xa0, 0x55, 0x4a, 0x9e, 0x80, 0x99, 0xd5, 0xe4, 0x9c, 0x2e, 0x83, 0x9c, 0xb3, 0x55, 0xda,
+	0x12, 0xac, 0xdf, 0x16, 0xec, 0x14, 0x06, 0xe2, 0x7d, 0x8e, 0xd2, 0x8e, 0x1c, 0xc6, 0x2e, 0x30,
+	0x12, 0x14, 0x92, 0xdf, 0x9a, 0x31, 0x79, 0xe1, 0xe5, 0x09, 0x3d, 0xb2, 0x2a, 0x8c, 0xca, 0x52,
+	0x6c, 0x2b, 0x6d, 0xec, 0x33, 0x99, 0xc2, 0xa1, 0x14, 0x42, 0x27, 0xa5, 0x42, 0x69, 0x06, 0x38,
+	0x70, 0xc3, 0x19, 0xec, 0x27, 0x85, 0x72, 0x95, 0x92, 0x57, 0x70, 0xac, 0x90, 0x95, 0x92, 0xeb,
+	0x7d, 0x92, 0x49, 0x51, 0x16, 0x51, 0x68, 0x6b, 0x8e, 0x2a, 0xf4, 0xad, 0x01, 0xc9, 0x04, 0x0e,
+	0x14, 0xfe, 0x56, 0x62, 0xce, 0x30, 0x02, 0x7b, 0xc0, 0x5d, 0xdc, 0xb0, 0xcc, 0xa8, 0x65, 0x99,
+	0x4b, 0x18, 0xb9, 0x27, 0xc7, 0xea, 0xe1, 0xff, 0xb3, 0xea, 0xca, 0x2d, 0xab, 0x2f, 0xa0, 0xaf,
+	0x69, 0xa6, 0xa2, 0xa3, 0x69, 0x30, 0x1f, 0x5d, 0x84, 0x0b, 0xf3, 0x57, 0x58, 0x6c, 0x68, 0x16,
+	0x5b, 0xd8, 0x90, 0xe7, 0xec, 0xc8, 0xd3, 0xe8, 0xd8, 0x91, 0x67, 0xe3, 0x55, 0x3a, 0xfb, 0x33,
+	0x80, 0x60, 0x43, 0x33, 0x43, 0x22, 0x13, 0x5b, 0x21, 0xbd, 0xc3, 0x5c, 0xd0, 0x95, 0xfa, 0xc1,
+	0x17, 0x49, 0x3d, 0x85, 0x51, 0x6a, 0xcd, 0x5c, 0x58, 0x87, 0x3a, 0x39, 0x9b, 0x50, 0xad, 0x5c,
+	0xbf, 0xa9, 0xdc, 0x2b, 0x38, 0x96, 0xa8, 0x44, 0x29, 0x19, 0xb6, 0xbc, 0x78, 0x54, 0xa1, 0xd6,
+	0x8e, 0x64, 0x09, 0xe4, 0xae, 0x4c, 0xd3, 0x2c, 0x29, 0x28, 0x97, 0xe6, 0x3b, 0x34, 0x0c, 0x3c,
+	0x71, 0x0c, 0xc4, 0x3e, 0xbf, 0xa1, 0xd9, 0x3b, 0xca, 0x65, 0xfc, 0x48, 0xb6, 0x01, 0x45, 0xde,
+	0xc2, 0xe3, 0xba, 0xc9, 0xbe, 0xa8, 0x0e, 0x1c, 0xda, 0x2e, 0xcf, 0x3a, 0x5d, 0xf6, 0x85, 0x3b,
+	0x3a, 0x1e, 0xcb, 0x2e, 0x64, 0x6c, 0x6b, 0x86, 0xb8, 0x73, 0xcd, 0x40, 0xd3, 0x6c, 0x95, 0x9a,
+	0x0f, 0xd1, 0xc0, 0xbf, 0xe2, 0xde, 0x3b, 0xc5, 0x54, 0x7d, 0x87, 0x7b, 0x23, 0x89, 0x49, 0x58,
+	0x3f, 0x83, 0x93, 0x44, 0xd3, 0xcc, 0xf8, 0x79, 0xf6, 0x57, 0x0f, 0x4e, 0x3a, 0x93, 0x9b, 0xcf,
+	0xe6, 0x6e, 0x4e, 0x9e, 0x7a, 0x91, 0xa0, 0x82, 0x56, 0x29, 0xf9, 0x1a, 0x8e, 0x5a, 0x17, 0xf1,
+	0x5f, 0xd6, 0x61, 0x73, 0xd2, 0x86, 0xf7, 0x82, 0xff, 0xf2, 0x5e, 0xff, 0x8b, 0xbc, 0x57, 0xdf,
+	0x7c, 0xd0, 0xb8, 0xf9, 0x6c, 0x0d, 0xe3, 0x7b, 0xc4, 0x39, 0x97, 0x19, 0x82, 0x7b, 0xee, 0x67,
+	0x6c, 0x83, 0xcf, 0x9a, 0xdd, 0xac, 0x88, 0x2b, 0xad, 0x29, 0xfb, 0xa5, 0xb5, 0x22, 0x6a, 0xc8,
+	0xaf, 0x88, 0x31, 0x9c, 0xbc, 0xc1, 0x7b, 0x65, 0x35, 0xe4, 0xcb, 0x26, 0x10, 0x7d, 0x2f, 0x52,
+	0x7e, 0xb3, 0x5f, 0x73, 0x76, 0xa5, 0xb5, 0xe4, 0xd7, 0xa5, 0x46, 0x5f, 0xff, 0x1c, 0xce, 0x3e,
+	0x92, 0x6b, 0xf6, 0xdf, 0x62, 0x67, 0x53, 0xd5, 0x90, 0x2b, 0xbb, 0xf8, 0x10, 0x00, 0xd4, 0x9b,
+	0x91, 0x5c, 0x02, 0xd4, 0xcb, 0x8c, 0x78, 0x77, 0x76, 0x36, 0xde, 0xe4, 0x69, 0x17, 0xf6, 0xbf,
+	0xff, 0x2b, 0x38, 0x6c, 0x2e, 0x05, 0xe2, 0x6d, 0x79, 0x6f, 0x11, 0x4e, 0xa2, 0xfb, 0x09, 0xdf,
+	0xe2, 0x12, 0xa0, 0x66, 0xaa, 0x3a, 0xbf, 0x43, 0x67, 0x75, 0x7e, 0x97, 0x52, 0xf3, 0x72, 0xcd,
+	0x5f, 0xf5, 0x72, 0x87, 0xe4, 0xea, 0xe5, 0x2e, 0xd1, 0xe4, 0x67, 0x78, 0xfc, 0x11, 0x32, 0xc9,
+	0x4b, 0x57, 0xfe, 0x29, 0x0d, 0x26, 0xe7, 0x9f, 0xcc, 0x37, 0x87, 0xaa, 0x48, 0xaf, 0x87, 0x6a,
+	0x29, 0x53, 0x0f, 0xd5, 0x56, 0xe7, 0xfa, 0xa1, 0xb5, 0xf4, 0x37, 0xff, 0x06, 0x00, 0x00, 0xff,
+	0xff, 0xbf, 0x8d, 0xb9, 0xfd, 0x49, 0x09, 0x00, 0x00,
 }
