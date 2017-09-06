@@ -39,6 +39,8 @@ log_level: 'warn'
 
 接口规范文件在 [spec.pb/nic.proto](./spec.pb/nic.proto).
 
+生成器代码在 [rotoc-gen-go/qingcloud/qingcloud.go](protoc-gen-go/qingcloud/qingcloud.go).
+
 *注: 目前只实现了该接口*
 
 ## 设计思路
