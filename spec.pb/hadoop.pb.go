@@ -66,16 +66,100 @@ func NewHadoopService(conf *config.Config, zone string) (p *HadoopService, err e
 }
 
 func (p *HadoopService) AddHadoopNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "AddHadoopNodes",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteHadoopNodes",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *HadoopService) StartHadoops(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "StartHadoops",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *HadoopService) StopHadoops(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "StopHadoops",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 
 func init() { proto.RegisterFile("hadoop.proto", fileDescriptor6) }

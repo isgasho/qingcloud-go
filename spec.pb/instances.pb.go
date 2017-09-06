@@ -205,40 +205,292 @@ func NewInstanceService(conf *config.Config, zone string) (p *InstanceService, e
 }
 
 func (p *InstanceService) DescribeInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) RunInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "RunInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) TerminateInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "TerminateInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) StartInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "StartInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) StopInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "StopInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) RestartInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "RestartInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) ResetInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ResetInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) ResizeInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ResizeInstances",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) ModifyInstanceAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ModifyInstanceAttributes",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypes_Request) (out *DescribeInstanceTypes_Reponse, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &DescribeInstanceTypes_Request{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeInstanceTypes",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &DescribeInstanceTypes_Reponse{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) CreateBrokers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "CreateBrokers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *InstanceService) DeleteBrokers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteBrokers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 
 func init() { proto.RegisterFile("instances.proto", fileDescriptor8) }

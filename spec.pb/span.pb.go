@@ -69,25 +69,172 @@ func NewSpanService(conf *config.Config, zone string) (p *SpanService, err error
 }
 
 func (p *SpanService) CreateSpan(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "CreateSpan",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *SpanService) DescribeSpans(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeSpans",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *SpanService) DeleteSpans(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteSpans",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *SpanService) AddSpanMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "AddSpanMembers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *SpanService) RemoveSpanMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "RemoveSpanMembers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *SpanService) ModifySpanAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ModifySpanAttributes",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *SpanService) UpdateSpan(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "UpdateSpan",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 
 func init() { proto.RegisterFile("span.proto", fileDescriptor23) }

@@ -90,88 +90,676 @@ func NewS2Service(conf *config.Config, zone string) (p *S2Service, err error) {
 }
 
 func (p *S2Service) CreateS2Server(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "CreateS2Server",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DescribeS2Servers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeS2Servers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) ModifyS2Server(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ModifyS2Server",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) ResizeS2Servers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ResizeS2Servers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DeleteS2Servers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteS2Servers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) PowerOnS2Servers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "PowerOnS2Servers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) PowerOffS2Servers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "PowerOffS2Servers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) UpdateS2Servers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "UpdateS2Servers",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ChangeS2ServerVxnet",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) CreateS2SharedTarget(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "CreateS2SharedTarget",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeS2SharedTargets",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteS2SharedTargets",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) EnableS2SharedTargets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "EnableS2SharedTargets",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DisableS2SharedTargets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DisableS2SharedTargets",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ModifyS2SharedTargetAttributes",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "AttachToS2SharedTarget",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DetachFromS2SharedTarget",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeS2DefaultParameters",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) CreateS2Group(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "CreateS2Group",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DescribeS2Groups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeS2Groups",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) ModifyS2Group(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ModifyS2Group",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DeleteS2Groups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteS2Groups",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) CreateS2Account(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "CreateS2Account",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DescribeS2Accounts(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeS2Accounts",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) ModifyS2Account(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ModifyS2Account",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DeleteS2Accounts(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteS2Accounts",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "AssociateS2AccountGroup",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DissociateS2AccountGroup",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 
 func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }

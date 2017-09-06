@@ -63,7 +63,28 @@ func NewZoneService(conf *config.Config, zone string) (p *ZoneService, err error
 }
 
 func (p *ZoneService) DescribeZones(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &google_protobuf1.Empty{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeZones",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &google_protobuf1.Empty{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 
 func init() { proto.RegisterFile("zone.proto", fileDescriptor30) }

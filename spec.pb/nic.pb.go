@@ -564,22 +564,148 @@ func NewNicService(conf *config.Config, zone string) (p *NicService, err error) 
 }
 
 func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &CreateNicsInput{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "CreateNics",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &CreateNicsOutput{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutput, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &DescribeNicsInput{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DescribeNics",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &DescribeNicsOutput{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &AttachNicsInput{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "AttachNics",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &AttachNicsOutput{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &DetachNicsInput{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DetachNics",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &DetachNicsOutput{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *ModifyNicAttributesOutput, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &ModifyNicAttributesInput{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "ModifyNicAttributes",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &ModifyNicAttributesOutput{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &DeleteNicsInput{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "DeleteNics",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &DeleteNicsOutput{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }
 
 func init() { proto.RegisterFile("nic.proto", fileDescriptor15) }
