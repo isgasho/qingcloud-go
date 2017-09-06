@@ -64,6 +64,7 @@ It has these top-level messages:
 	DescribeNicsInput
 	DescribeNicsOutput
 	NIC
+	Eip
 	Tag
 	ResourceTagPair
 	ResourceTypeCount

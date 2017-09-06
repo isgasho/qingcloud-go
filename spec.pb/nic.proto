@@ -54,7 +54,7 @@ message DescribeNicsInput {
 message DescribeNicsOutput {
 	string message = 1;
 	string action = 2;
-	repeated int32 nic_set = 3;
+	repeated NIC nic_set = 3;
 	int32 ret_code = 4;
 	int32 total_count = 5;
 }
@@ -74,6 +74,13 @@ message NIC {
 	google.protobuf.Timestamp status_time = 12;
 	repeated Tag tags = 13;
 	string vxnet_id = 14;
+	Eip eip = 15;
+}
+
+message Eip {
+	string eip_id = 1;
+	string eip_addr = 2;
+	int32 bandwidth = 3;
 }
 
 message Tag {

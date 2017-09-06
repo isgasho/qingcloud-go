@@ -20,6 +20,11 @@ import (
 	"fmt"
 )
 
+type QingCloudErrorInterface interface {
+	GetRetCode() int32
+	GetMessage() string
+}
+
 // QingCloudError stores information of a QingCloud error response.
 type QingCloudError struct {
 	RetCode int    `json:"ret_code"`

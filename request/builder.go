@@ -17,17 +17,18 @@
 package request
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
-	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/chai2010/qingcloud-go/request/data"
 	"github.com/golang/glog"
+	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
 )
 
 // Builder is the request builder for QingCloud service.
@@ -37,11 +38,11 @@ type Builder struct {
 	parsedParams     *map[string]string
 
 	operation *data.Operation
-	input     *reflect.Value
+	input     proto.Message
 }
 
 // BuildHTTPRequest builds http request with an operation and an input.
-func (b *Builder) BuildHTTPRequest(o *data.Operation, i *reflect.Value) (*http.Request, error) {
+func (b *Builder) BuildHTTPRequest(o *data.Operation, i proto.Message) (*http.Request, error) {
 	b.operation = o
 	b.input = i
 
@@ -86,126 +87,24 @@ func (b *Builder) parse() error {
 }
 
 func (b *Builder) parseRequestProperties() error {
-	propertiesMap := map[string]string{}
-
-	fields := reflect.ValueOf(b.operation.Properties).Elem()
-	for i := 0; i < fields.NumField(); i++ {
-		switch value := fields.Field(i).Interface().(type) {
-		case *string:
-			if value != nil {
-				propertiesMap[fields.Type().Field(i).Tag.Get("name")] = *value
-			}
-		case *int:
-			if value != nil {
-				propertiesMap[fields.Type().Field(i).Tag.Get("name")] = strconv.Itoa(int(*value))
-			}
-		}
+	propertiesMap, err := protoMessageToMap(b.operation.Properties)
+	if err != nil {
+		return err
 	}
 
 	b.parsedProperties = &propertiesMap
-
 	return nil
 }
 
 func (b *Builder) parseRequestParams() error {
-	var requestParams map[string]string
-
-	if b.parsedParams != nil {
-		requestParams = *b.parsedParams
-	} else {
-		requestParams = map[string]string{}
+	requestParams, err := protoMessageToMap(b.input)
+	if err != nil {
+		return err
 	}
-
-	b.parsedParams = &requestParams
 
 	requestParams["action"] = b.operation.APIName
 
-	if !b.input.Elem().IsValid() {
-		return nil
-	}
-
-	for i := 0; i < b.input.Elem().NumField(); i++ {
-		tagName := b.input.Elem().Type().Field(i).Tag.Get("name")
-		tagLocation := b.input.Elem().Type().Field(i).Tag.Get("location")
-		tagDefault := b.input.Elem().Type().Field(i).Tag.Get("default")
-		if tagName != "" && tagLocation != "" && requestParams != nil {
-			switch value := b.input.Elem().Field(i).Interface().(type) {
-			case *string:
-				if tagDefault != "" {
-					requestParams[tagName] = tagDefault
-				}
-				if value != nil {
-					requestParams[tagName] = *value
-				}
-			case *int:
-				if tagDefault != "" {
-					requestParams[tagName] = tagDefault
-				}
-				if value != nil {
-					requestParams[tagName] = strconv.Itoa(int(*value))
-				}
-			case *bool:
-			case *time.Time:
-				if tagDefault != "" {
-					requestParams[tagName] = tagDefault
-				}
-				if value != nil {
-					format := b.input.Elem().Type().Field(i).Tag.Get("format")
-					requestParams[tagName] = TimeToString(*value, format)
-				}
-			case []*string:
-				for index, item := range value {
-					key := tagName + "." + strconv.Itoa(index+1)
-					if tagDefault != "" {
-						requestParams[tagName] = tagDefault
-					}
-					if item != nil {
-						requestParams[key] = *item
-					}
-				}
-			case []*int:
-				for index, item := range value {
-					key := tagName + "." + strconv.Itoa(index+1)
-					if tagDefault != "" {
-						requestParams[tagName] = tagDefault
-					}
-					if item != nil {
-						requestParams[key] = strconv.Itoa(int(*item))
-					}
-				}
-			default:
-				if value != nil {
-					value = value.(interface{})
-					typeName := reflect.TypeOf(value.(interface{})).String()
-
-					if strings.HasPrefix(typeName, "[]*") {
-						valueArray := reflect.ValueOf(value)
-
-						for i := 0; i < valueArray.Len(); i++ {
-							item := valueArray.Index(i).Elem()
-
-							for j := 0; j < item.NumField(); j++ {
-								fieldTagName := item.Type().Field(j).Tag.Get("name")
-								tagKey := tagName + "." + strconv.Itoa(i+1) + "." + fieldTagName
-
-								switch fieldValue := item.Field(j).Interface().(type) {
-								case *int:
-									if fieldValue != nil {
-										requestParams[tagKey] = strconv.Itoa(int(*fieldValue))
-									}
-								case *string:
-									if fieldValue != nil {
-										requestParams[tagKey] = *fieldValue
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
+	b.parsedParams = &requestParams
 	return nil
 }
 
@@ -234,4 +133,48 @@ func (b *Builder) parseRequestURL() error {
 	}
 
 	return nil
+}
+
+func protoMessageToMap(msg proto.Message) (map[string]string, error) {
+	jsonMarshaler := &jsonpb.Marshaler{
+		OrigName: true,
+		Indent:   "",
+	}
+
+	jsonString, err := jsonMarshaler.MarshalToString(msg)
+	if err != nil {
+		return nil, err
+	}
+
+	var mapx map[string]interface{}
+	if err := json.Unmarshal([]byte(jsonString), &mapx); err != nil {
+		return nil, err
+	}
+
+	var m = map[string]string{}
+	for k, v := range mapx {
+		switch v := v.(type) {
+		case string:
+			m[k] = v
+		case float64:
+			m[k] = fmt.Sprintf("%v", v)
+		case []interface{}:
+			for i := 0; i < len(v); i++ {
+				ki := k + "." + strconv.Itoa(i+1)
+
+				switch vi := v[i].(type) {
+				case string:
+					m[ki] = vi
+				case float64:
+					m[ki] = fmt.Sprintf("%v", vi)
+				default:
+					// unreachable
+				}
+			}
+		default:
+			// unreachable
+		}
+	}
+
+	return m, nil
 }

@@ -20,18 +20,18 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"reflect"
 	"time"
 
 	"github.com/chai2010/qingcloud-go/request/data"
 	"github.com/golang/glog"
+	"github.com/golang/protobuf/proto"
 )
 
 // A Request can build, sign, send and unpack API request.
 type Request struct {
 	Operation *data.Operation
-	Input     *reflect.Value
-	Output    *reflect.Value
+	Input     proto.Message
+	Output    proto.Message
 
 	HTTPRequest  *http.Request
 	HTTPResponse *http.Response
@@ -39,20 +39,11 @@ type Request struct {
 
 // New create a Request from given Operation, Input and Output.
 // It returns a Request.
-func New(o *data.Operation, i data.Input, x interface{}) (*Request, error) {
-	input := reflect.ValueOf(i)
-	if input.Elem().IsValid() {
-		//err := i.Validate()
-		//if err != nil {
-		//	return nil, err
-		//}
-	}
-	output := reflect.ValueOf(x)
-
+func New(o *data.Operation, i, x proto.Message) (*Request, error) {
 	return &Request{
 		Operation: o,
-		Input:     &input,
-		Output:    &output,
+		Input:     i,
+		Output:    x,
 	}, nil
 }
 
@@ -161,6 +152,7 @@ func (r *Request) send() error {
 
 func (r *Request) unpack() error {
 	u := &Unpacker{}
+
 	err := u.UnpackHTTPRequest(r.Operation, r.HTTPResponse, r.Output)
 	if err != nil {
 		return err

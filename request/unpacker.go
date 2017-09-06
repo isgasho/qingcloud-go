@@ -20,11 +20,12 @@ import (
 	"bytes"
 	"fmt"
 	"net/http"
-	"reflect"
 
 	"github.com/chai2010/qingcloud-go/request/data"
 	"github.com/chai2010/qingcloud-go/request/errors"
 	"github.com/golang/glog"
+	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
 )
 
 // Unpacker is the response unpacker.
@@ -32,11 +33,11 @@ type Unpacker struct {
 	operation *data.Operation
 
 	httpResponse *http.Response
-	output       *reflect.Value
+	output       proto.Message
 }
 
 // UnpackHTTPRequest unpack the http response with an operation, http response and an output.
-func (u *Unpacker) UnpackHTTPRequest(o *data.Operation, r *http.Response, x *reflect.Value) error {
+func (u *Unpacker) UnpackHTTPRequest(o *data.Operation, r *http.Response, x proto.Message) error {
 	u.operation = o
 	u.httpResponse = r
 	u.output = x
@@ -66,7 +67,7 @@ func (u *Unpacker) parseResponse() error {
 				StringToUnixInt(u.httpResponse.Header.Get("Date"), "RFC 822"),
 				string(buffer.Bytes())))
 
-			_, err := JSONDecode(buffer.Bytes(), u.output.Interface())
+			err := jsonpb.UnmarshalString(string(buffer.Bytes()), u.output)
 			if err != nil {
 				return err
 			}
@@ -77,16 +78,12 @@ func (u *Unpacker) parseResponse() error {
 }
 
 func (u *Unpacker) parseError() error {
-	retCodeValue := u.output.Elem().FieldByName("RetCode")
-	messageValue := u.output.Elem().FieldByName("Message")
-
-	if retCodeValue.IsValid() && retCodeValue.Type().String() == "*int" &&
-		messageValue.IsValid() && messageValue.Type().String() == "*string" &&
-		retCodeValue.Elem().Int() != 0 {
-
-		return &errors.QingCloudError{
-			RetCode: int(retCodeValue.Elem().Int()),
-			Message: messageValue.Elem().String(),
+	if x, ok := u.output.(errors.QingCloudErrorInterface); ok {
+		if x.GetRetCode() != 0 {
+			return &errors.QingCloudError{
+				RetCode: int(x.GetRetCode()),
+				Message: x.GetMessage(),
+			}
 		}
 	}
 
