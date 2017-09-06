@@ -11,9 +11,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"strconv"
 
 	pb "github.com/chai2010/qingcloud-go/spec.pb"
 	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
 )
 
 // 以前成员全部是定义为指针类型
@@ -73,6 +75,12 @@ func main() {
 
 	fmt.Println("vxnets[0]:", dat["vxnets"].([]interface{})[0].(string))
 	fmt.Println("vxnets[1]:", dat["vxnets"].([]interface{})[1].(string))
+
+	mx, err := protoMessageToMap(reqInput)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("mx: %#v\n", mx)
 }
 
 func main2() {
@@ -90,4 +98,48 @@ func main2() {
 	strs := dat["strs"].([]interface{})
 	str1 := strs[0].(string)
 	fmt.Println(str1)
+}
+
+func protoMessageToMap(msg proto.Message) (map[string]string, error) {
+	jsonMarshaler := &jsonpb.Marshaler{
+		OrigName: true,
+		Indent:   "",
+	}
+
+	jsonString, err := jsonMarshaler.MarshalToString(msg)
+	if err != nil {
+		return nil, err
+	}
+
+	var mapx map[string]interface{}
+	if err := json.Unmarshal([]byte(jsonString), &mapx); err != nil {
+		return nil, err
+	}
+
+	var m = map[string]string{}
+	for k, v := range mapx {
+		switch v := v.(type) {
+		case string:
+			m[k] = v
+		case float64:
+			m[k] = fmt.Sprintf("%v", v)
+		case []interface{}:
+			for i := 0; i < len(v); i++ {
+				ki := k + "." + strconv.Itoa(i+1)
+
+				switch vi := v[i].(type) {
+				case string:
+					m[ki] = vi
+				case float64:
+					m[ki] = fmt.Sprintf("%v", vi)
+				default:
+					// unreachable
+				}
+			}
+		default:
+			// unreachable
+		}
+	}
+
+	return m, nil
 }
