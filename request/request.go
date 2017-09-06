@@ -42,10 +42,10 @@ type Request struct {
 func New(o *data.Operation, i data.Input, x interface{}) (*Request, error) {
 	input := reflect.ValueOf(i)
 	if input.Elem().IsValid() {
-		err := i.Validate()
-		if err != nil {
-			return nil, err
-		}
+		//err := i.Validate()
+		//if err != nil {
+		//	return nil, err
+		//}
 	}
 	output := reflect.ValueOf(x)
 

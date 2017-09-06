@@ -18,5 +18,5 @@ package data
 
 // Input defines the interfaces that input should implement.
 type Input interface {
-	Validation
+	// Validation
 }
