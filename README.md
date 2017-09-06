@@ -6,6 +6,8 @@
 在线文档:
 
 - https://godoc.org/github.com/chai2010/qingcloud-go
+- https://godoc.org/github.com/chai2010/qingcloud-go/config
+- https://godoc.org/github.com/chai2010/qingcloud-go/request
 - https://godoc.org/github.com/chai2010/qingcloud-go/spec.pb
 - https://docs.qingcloud.com
 
