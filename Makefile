@@ -6,6 +6,10 @@ default:
 	go fmt ./...
 	go test ./...
 
+hello:
+	go fmt ./...
+	go run hello.go
+
 demo:
 	go run examples/nic/DescribeNics/DescribeNics.go
 
