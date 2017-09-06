@@ -160,7 +160,28 @@ func New{{.ServiceName}}(conf *config.Config, zone string) (p *{{.ServiceName}},
 `
 	const clientMethodTmpl = `
 func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType}}, err error) {
-	panic("TODO")
+	if in == nil {
+		in = &{{.ArgsType}}{}
+	}
+	o := &request_data_pkg.Operation{
+		Config:        p.Config,
+		Properties:    p.Properties,
+		APIName:       "{{.MethodName}}",
+		RequestMethod: "GET", // GET or POST
+	}
+
+	x := &{{.ReplyType}}{}
+	r, err := request.New(o, in, x)
+	if err != nil {
+		return nil, err
+	}
+
+	err = r.Send()
+	if err != nil {
+		return nil, err
+	}
+
+	return x, err
 }`
 
 	// gen client method list
