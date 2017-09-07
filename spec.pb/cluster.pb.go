@@ -6,7 +6,7 @@ package spec
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import google_protobuf "github.com/golang/protobuf/ptypes/empty"
+import _ "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -39,6 +39,22 @@ func (m *ClusterServiceProperties) GetZone() string {
 	return ""
 }
 
+type CreateClusterInput struct {
+}
+
+func (m *CreateClusterInput) Reset()                    { *m = CreateClusterInput{} }
+func (m *CreateClusterInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateClusterInput) ProtoMessage()               {}
+func (*CreateClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
+
+type CreateClusterOutput struct {
+}
+
+func (m *CreateClusterOutput) Reset()                    { *m = CreateClusterOutput{} }
+func (m *CreateClusterOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateClusterOutput) ProtoMessage()               {}
+func (*CreateClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
+
 type DescribeClustersInput struct {
 	AppId      []string `protobuf:"bytes,1,rep,name=app_id,json=appId" json:"app_id,omitempty"`
 	AppVersion []string `protobuf:"bytes,2,rep,name=app_version,json=appVersion" json:"app_version,omitempty"`
@@ -50,7 +66,7 @@ type DescribeClustersInput struct {
 func (m *DescribeClustersInput) Reset()                    { *m = DescribeClustersInput{} }
 func (m *DescribeClustersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClustersInput) ProtoMessage()               {}
-func (*DescribeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
+func (*DescribeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
 
 func (m *DescribeClustersInput) GetAppId() []string {
 	if m != nil {
@@ -98,7 +114,7 @@ type DescribeClustersOutput struct {
 func (m *DescribeClustersOutput) Reset()                    { *m = DescribeClustersOutput{} }
 func (m *DescribeClustersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClustersOutput) ProtoMessage()               {}
-func (*DescribeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
+func (*DescribeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{4} }
 
 func (m *DescribeClustersOutput) GetAction() string {
 	if m != nil {
@@ -142,7 +158,7 @@ type Cluster struct {
 func (m *Cluster) Reset()                    { *m = Cluster{} }
 func (m *Cluster) String() string            { return proto.CompactTextString(m) }
 func (*Cluster) ProtoMessage()               {}
-func (*Cluster) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
+func (*Cluster) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{5} }
 
 func (m *Cluster) GetGlobalUuid() string {
 	if m != nil {
@@ -151,35 +167,399 @@ func (m *Cluster) GetGlobalUuid() string {
 	return ""
 }
 
+type DescribeClusterNodesInput struct {
+}
+
+func (m *DescribeClusterNodesInput) Reset()                    { *m = DescribeClusterNodesInput{} }
+func (m *DescribeClusterNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeClusterNodesInput) ProtoMessage()               {}
+func (*DescribeClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{6} }
+
+type DescribeClusterNodesOutput struct {
+}
+
+func (m *DescribeClusterNodesOutput) Reset()                    { *m = DescribeClusterNodesOutput{} }
+func (m *DescribeClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeClusterNodesOutput) ProtoMessage()               {}
+func (*DescribeClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{7} }
+
+type StopClustersInput struct {
+}
+
+func (m *StopClustersInput) Reset()                    { *m = StopClustersInput{} }
+func (m *StopClustersInput) String() string            { return proto.CompactTextString(m) }
+func (*StopClustersInput) ProtoMessage()               {}
+func (*StopClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{8} }
+
+type StopClustersOutput struct {
+}
+
+func (m *StopClustersOutput) Reset()                    { *m = StopClustersOutput{} }
+func (m *StopClustersOutput) String() string            { return proto.CompactTextString(m) }
+func (*StopClustersOutput) ProtoMessage()               {}
+func (*StopClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{9} }
+
+type StartClustersInput struct {
+}
+
+func (m *StartClustersInput) Reset()                    { *m = StartClustersInput{} }
+func (m *StartClustersInput) String() string            { return proto.CompactTextString(m) }
+func (*StartClustersInput) ProtoMessage()               {}
+func (*StartClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{10} }
+
+type StartClustersOutput struct {
+}
+
+func (m *StartClustersOutput) Reset()                    { *m = StartClustersOutput{} }
+func (m *StartClustersOutput) String() string            { return proto.CompactTextString(m) }
+func (*StartClustersOutput) ProtoMessage()               {}
+func (*StartClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{11} }
+
+type DeleteClustersInput struct {
+}
+
+func (m *DeleteClustersInput) Reset()                    { *m = DeleteClustersInput{} }
+func (m *DeleteClustersInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteClustersInput) ProtoMessage()               {}
+func (*DeleteClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{12} }
+
+type DeleteClustersOutput struct {
+}
+
+func (m *DeleteClustersOutput) Reset()                    { *m = DeleteClustersOutput{} }
+func (m *DeleteClustersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteClustersOutput) ProtoMessage()               {}
+func (*DeleteClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{13} }
+
+type LeaseInput struct {
+}
+
+func (m *LeaseInput) Reset()                    { *m = LeaseInput{} }
+func (m *LeaseInput) String() string            { return proto.CompactTextString(m) }
+func (*LeaseInput) ProtoMessage()               {}
+func (*LeaseInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{14} }
+
+type LeaseOutput struct {
+}
+
+func (m *LeaseOutput) Reset()                    { *m = LeaseOutput{} }
+func (m *LeaseOutput) String() string            { return proto.CompactTextString(m) }
+func (*LeaseOutput) ProtoMessage()               {}
+func (*LeaseOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{15} }
+
+type AddClusterNodesInput struct {
+}
+
+func (m *AddClusterNodesInput) Reset()                    { *m = AddClusterNodesInput{} }
+func (m *AddClusterNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*AddClusterNodesInput) ProtoMessage()               {}
+func (*AddClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{16} }
+
+type AddClusterNodesOutput struct {
+}
+
+func (m *AddClusterNodesOutput) Reset()                    { *m = AddClusterNodesOutput{} }
+func (m *AddClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddClusterNodesOutput) ProtoMessage()               {}
+func (*AddClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{17} }
+
+type DeleteClusterNodesInput struct {
+}
+
+func (m *DeleteClusterNodesInput) Reset()                    { *m = DeleteClusterNodesInput{} }
+func (m *DeleteClusterNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteClusterNodesInput) ProtoMessage()               {}
+func (*DeleteClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{18} }
+
+type DeleteClusterNodesOutput struct {
+}
+
+func (m *DeleteClusterNodesOutput) Reset()                    { *m = DeleteClusterNodesOutput{} }
+func (m *DeleteClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteClusterNodesOutput) ProtoMessage()               {}
+func (*DeleteClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{19} }
+
+type ResizeClusterInput struct {
+}
+
+func (m *ResizeClusterInput) Reset()                    { *m = ResizeClusterInput{} }
+func (m *ResizeClusterInput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeClusterInput) ProtoMessage()               {}
+func (*ResizeClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{20} }
+
+type ResizeClusterOutput struct {
+}
+
+func (m *ResizeClusterOutput) Reset()                    { *m = ResizeClusterOutput{} }
+func (m *ResizeClusterOutput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeClusterOutput) ProtoMessage()               {}
+func (*ResizeClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{21} }
+
+type ChangeClusterVxnetInput struct {
+}
+
+func (m *ChangeClusterVxnetInput) Reset()                    { *m = ChangeClusterVxnetInput{} }
+func (m *ChangeClusterVxnetInput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeClusterVxnetInput) ProtoMessage()               {}
+func (*ChangeClusterVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{22} }
+
+type ChangeClusterVxnetOutput struct {
+}
+
+func (m *ChangeClusterVxnetOutput) Reset()                    { *m = ChangeClusterVxnetOutput{} }
+func (m *ChangeClusterVxnetOutput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeClusterVxnetOutput) ProtoMessage()               {}
+func (*ChangeClusterVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{23} }
+
+type SuspendClustersInput struct {
+}
+
+func (m *SuspendClustersInput) Reset()                    { *m = SuspendClustersInput{} }
+func (m *SuspendClustersInput) String() string            { return proto.CompactTextString(m) }
+func (*SuspendClustersInput) ProtoMessage()               {}
+func (*SuspendClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{24} }
+
+type SuspendClustersOutput struct {
+}
+
+func (m *SuspendClustersOutput) Reset()                    { *m = SuspendClustersOutput{} }
+func (m *SuspendClustersOutput) String() string            { return proto.CompactTextString(m) }
+func (*SuspendClustersOutput) ProtoMessage()               {}
+func (*SuspendClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{25} }
+
+type UpdateClusterEnvironmentInput struct {
+}
+
+func (m *UpdateClusterEnvironmentInput) Reset()                    { *m = UpdateClusterEnvironmentInput{} }
+func (m *UpdateClusterEnvironmentInput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateClusterEnvironmentInput) ProtoMessage()               {}
+func (*UpdateClusterEnvironmentInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{26} }
+
+type UpdateClusterEnvironmentOutput struct {
+}
+
+func (m *UpdateClusterEnvironmentOutput) Reset()                    { *m = UpdateClusterEnvironmentOutput{} }
+func (m *UpdateClusterEnvironmentOutput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateClusterEnvironmentOutput) ProtoMessage()               {}
+func (*UpdateClusterEnvironmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{27} }
+
+type ModifyClusterAttributesInput struct {
+}
+
+func (m *ModifyClusterAttributesInput) Reset()                    { *m = ModifyClusterAttributesInput{} }
+func (m *ModifyClusterAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyClusterAttributesInput) ProtoMessage()               {}
+func (*ModifyClusterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{28} }
+
+type ModifyClusterAttributesOutput struct {
+}
+
+func (m *ModifyClusterAttributesOutput) Reset()                    { *m = ModifyClusterAttributesOutput{} }
+func (m *ModifyClusterAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyClusterAttributesOutput) ProtoMessage()               {}
+func (*ModifyClusterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{29} }
+
+type ModifyClusterNodeAttributesInput struct {
+}
+
+func (m *ModifyClusterNodeAttributesInput) Reset()         { *m = ModifyClusterNodeAttributesInput{} }
+func (m *ModifyClusterNodeAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyClusterNodeAttributesInput) ProtoMessage()    {}
+func (*ModifyClusterNodeAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor3, []int{30}
+}
+
+type ModifyClusterNodeAttributesOutput struct {
+}
+
+func (m *ModifyClusterNodeAttributesOutput) Reset()         { *m = ModifyClusterNodeAttributesOutput{} }
+func (m *ModifyClusterNodeAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyClusterNodeAttributesOutput) ProtoMessage()    {}
+func (*ModifyClusterNodeAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor3, []int{31}
+}
+
+type GetClustersStatsInput struct {
+}
+
+func (m *GetClustersStatsInput) Reset()                    { *m = GetClustersStatsInput{} }
+func (m *GetClustersStatsInput) String() string            { return proto.CompactTextString(m) }
+func (*GetClustersStatsInput) ProtoMessage()               {}
+func (*GetClustersStatsInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{32} }
+
+type GetClustersStatsOutput struct {
+}
+
+func (m *GetClustersStatsOutput) Reset()                    { *m = GetClustersStatsOutput{} }
+func (m *GetClustersStatsOutput) String() string            { return proto.CompactTextString(m) }
+func (*GetClustersStatsOutput) ProtoMessage()               {}
+func (*GetClustersStatsOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{33} }
+
+type DescribeClusterUsersInput struct {
+}
+
+func (m *DescribeClusterUsersInput) Reset()                    { *m = DescribeClusterUsersInput{} }
+func (m *DescribeClusterUsersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeClusterUsersInput) ProtoMessage()               {}
+func (*DescribeClusterUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{34} }
+
+type DescribeClusterUsersOutput struct {
+}
+
+func (m *DescribeClusterUsersOutput) Reset()                    { *m = DescribeClusterUsersOutput{} }
+func (m *DescribeClusterUsersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeClusterUsersOutput) ProtoMessage()               {}
+func (*DescribeClusterUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{35} }
+
+type RestartClusterServiceInput struct {
+}
+
+func (m *RestartClusterServiceInput) Reset()                    { *m = RestartClusterServiceInput{} }
+func (m *RestartClusterServiceInput) String() string            { return proto.CompactTextString(m) }
+func (*RestartClusterServiceInput) ProtoMessage()               {}
+func (*RestartClusterServiceInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{36} }
+
+type RestartClusterServiceOutput struct {
+}
+
+func (m *RestartClusterServiceOutput) Reset()                    { *m = RestartClusterServiceOutput{} }
+func (m *RestartClusterServiceOutput) String() string            { return proto.CompactTextString(m) }
+func (*RestartClusterServiceOutput) ProtoMessage()               {}
+func (*RestartClusterServiceOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{37} }
+
+type UpgradeClustersInput struct {
+}
+
+func (m *UpgradeClustersInput) Reset()                    { *m = UpgradeClustersInput{} }
+func (m *UpgradeClustersInput) String() string            { return proto.CompactTextString(m) }
+func (*UpgradeClustersInput) ProtoMessage()               {}
+func (*UpgradeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{38} }
+
+type UpgradeClustersOutput struct {
+}
+
+func (m *UpgradeClustersOutput) Reset()                    { *m = UpgradeClustersOutput{} }
+func (m *UpgradeClustersOutput) String() string            { return proto.CompactTextString(m) }
+func (*UpgradeClustersOutput) ProtoMessage()               {}
+func (*UpgradeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{39} }
+
+type AuthorizeClustersBrokerToDeveloperInput struct {
+}
+
+func (m *AuthorizeClustersBrokerToDeveloperInput) Reset() {
+	*m = AuthorizeClustersBrokerToDeveloperInput{}
+}
+func (m *AuthorizeClustersBrokerToDeveloperInput) String() string { return proto.CompactTextString(m) }
+func (*AuthorizeClustersBrokerToDeveloperInput) ProtoMessage()    {}
+func (*AuthorizeClustersBrokerToDeveloperInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor3, []int{40}
+}
+
+type AuthorizeClustersBrokerToDeveloperOutput struct {
+}
+
+func (m *AuthorizeClustersBrokerToDeveloperOutput) Reset() {
+	*m = AuthorizeClustersBrokerToDeveloperOutput{}
+}
+func (m *AuthorizeClustersBrokerToDeveloperOutput) String() string { return proto.CompactTextString(m) }
+func (*AuthorizeClustersBrokerToDeveloperOutput) ProtoMessage()    {}
+func (*AuthorizeClustersBrokerToDeveloperOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor3, []int{41}
+}
+
+type RevokeClustersBrokerFromDeveloperInput struct {
+}
+
+func (m *RevokeClustersBrokerFromDeveloperInput) Reset() {
+	*m = RevokeClustersBrokerFromDeveloperInput{}
+}
+func (m *RevokeClustersBrokerFromDeveloperInput) String() string { return proto.CompactTextString(m) }
+func (*RevokeClustersBrokerFromDeveloperInput) ProtoMessage()    {}
+func (*RevokeClustersBrokerFromDeveloperInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor3, []int{42}
+}
+
+type RevokeClustersBrokerFromDeveloperOutput struct {
+}
+
+func (m *RevokeClustersBrokerFromDeveloperOutput) Reset() {
+	*m = RevokeClustersBrokerFromDeveloperOutput{}
+}
+func (m *RevokeClustersBrokerFromDeveloperOutput) String() string { return proto.CompactTextString(m) }
+func (*RevokeClustersBrokerFromDeveloperOutput) ProtoMessage()    {}
+func (*RevokeClustersBrokerFromDeveloperOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor3, []int{43}
+}
+
 func init() {
 	proto.RegisterType((*ClusterServiceProperties)(nil), "spec.ClusterServiceProperties")
+	proto.RegisterType((*CreateClusterInput)(nil), "spec.CreateClusterInput")
+	proto.RegisterType((*CreateClusterOutput)(nil), "spec.CreateClusterOutput")
 	proto.RegisterType((*DescribeClustersInput)(nil), "spec.DescribeClustersInput")
 	proto.RegisterType((*DescribeClustersOutput)(nil), "spec.DescribeClustersOutput")
 	proto.RegisterType((*Cluster)(nil), "spec.Cluster")
+	proto.RegisterType((*DescribeClusterNodesInput)(nil), "spec.DescribeClusterNodesInput")
+	proto.RegisterType((*DescribeClusterNodesOutput)(nil), "spec.DescribeClusterNodesOutput")
+	proto.RegisterType((*StopClustersInput)(nil), "spec.StopClustersInput")
+	proto.RegisterType((*StopClustersOutput)(nil), "spec.StopClustersOutput")
+	proto.RegisterType((*StartClustersInput)(nil), "spec.StartClustersInput")
+	proto.RegisterType((*StartClustersOutput)(nil), "spec.StartClustersOutput")
+	proto.RegisterType((*DeleteClustersInput)(nil), "spec.DeleteClustersInput")
+	proto.RegisterType((*DeleteClustersOutput)(nil), "spec.DeleteClustersOutput")
+	proto.RegisterType((*LeaseInput)(nil), "spec.leaseInput")
+	proto.RegisterType((*LeaseOutput)(nil), "spec.leaseOutput")
+	proto.RegisterType((*AddClusterNodesInput)(nil), "spec.AddClusterNodesInput")
+	proto.RegisterType((*AddClusterNodesOutput)(nil), "spec.AddClusterNodesOutput")
+	proto.RegisterType((*DeleteClusterNodesInput)(nil), "spec.DeleteClusterNodesInput")
+	proto.RegisterType((*DeleteClusterNodesOutput)(nil), "spec.DeleteClusterNodesOutput")
+	proto.RegisterType((*ResizeClusterInput)(nil), "spec.ResizeClusterInput")
+	proto.RegisterType((*ResizeClusterOutput)(nil), "spec.ResizeClusterOutput")
+	proto.RegisterType((*ChangeClusterVxnetInput)(nil), "spec.ChangeClusterVxnetInput")
+	proto.RegisterType((*ChangeClusterVxnetOutput)(nil), "spec.ChangeClusterVxnetOutput")
+	proto.RegisterType((*SuspendClustersInput)(nil), "spec.SuspendClustersInput")
+	proto.RegisterType((*SuspendClustersOutput)(nil), "spec.SuspendClustersOutput")
+	proto.RegisterType((*UpdateClusterEnvironmentInput)(nil), "spec.UpdateClusterEnvironmentInput")
+	proto.RegisterType((*UpdateClusterEnvironmentOutput)(nil), "spec.UpdateClusterEnvironmentOutput")
+	proto.RegisterType((*ModifyClusterAttributesInput)(nil), "spec.ModifyClusterAttributesInput")
+	proto.RegisterType((*ModifyClusterAttributesOutput)(nil), "spec.ModifyClusterAttributesOutput")
+	proto.RegisterType((*ModifyClusterNodeAttributesInput)(nil), "spec.ModifyClusterNodeAttributesInput")
+	proto.RegisterType((*ModifyClusterNodeAttributesOutput)(nil), "spec.ModifyClusterNodeAttributesOutput")
+	proto.RegisterType((*GetClustersStatsInput)(nil), "spec.GetClustersStatsInput")
+	proto.RegisterType((*GetClustersStatsOutput)(nil), "spec.GetClustersStatsOutput")
+	proto.RegisterType((*DescribeClusterUsersInput)(nil), "spec.DescribeClusterUsersInput")
+	proto.RegisterType((*DescribeClusterUsersOutput)(nil), "spec.DescribeClusterUsersOutput")
+	proto.RegisterType((*RestartClusterServiceInput)(nil), "spec.RestartClusterServiceInput")
+	proto.RegisterType((*RestartClusterServiceOutput)(nil), "spec.RestartClusterServiceOutput")
+	proto.RegisterType((*UpgradeClustersInput)(nil), "spec.UpgradeClustersInput")
+	proto.RegisterType((*UpgradeClustersOutput)(nil), "spec.UpgradeClustersOutput")
+	proto.RegisterType((*AuthorizeClustersBrokerToDeveloperInput)(nil), "spec.AuthorizeClustersBrokerToDeveloperInput")
+	proto.RegisterType((*AuthorizeClustersBrokerToDeveloperOutput)(nil), "spec.AuthorizeClustersBrokerToDeveloperOutput")
+	proto.RegisterType((*RevokeClustersBrokerFromDeveloperInput)(nil), "spec.RevokeClustersBrokerFromDeveloperInput")
+	proto.RegisterType((*RevokeClustersBrokerFromDeveloperOutput)(nil), "spec.RevokeClustersBrokerFromDeveloperOutput")
 }
 
 type ClusterServiceInterface interface {
-	CreateCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error)
 	DescribeClusters(in *DescribeClustersInput) (out *DescribeClustersOutput, err error)
-	DescribeClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	StopClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	StartClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	DeleteClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	Lease(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	AddClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	DeleteClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	ResizeCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	ChangeClusterVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	SuspendClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	UpdateClusterEnvironment(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	ModifyClusterAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	ModifyClusterNodeAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	GetClustersStats(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	DescribeClusterUsers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	RestartClusterService(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	UpgradeClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	AuthorizeClustersBrokerToDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	RevokeClustersBrokerFromDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	DescribeClusterNodes(in *DescribeClusterNodesInput) (out *DescribeClusterNodesOutput, err error)
+	StopClusters(in *StopClustersInput) (out *StopClustersOutput, err error)
+	StartClusters(in *StartClustersInput) (out *StartClustersOutput, err error)
+	DeleteClusters(in *DeleteClustersInput) (out *DeleteClustersOutput, err error)
+	Lease(in *LeaseInput) (out *LeaseOutput, err error)
+	AddClusterNodes(in *AddClusterNodesInput) (out *AddClusterNodesOutput, err error)
+	DeleteClusterNodes(in *DeleteClusterNodesInput) (out *DeleteClusterNodesOutput, err error)
+	ResizeCluster(in *ResizeClusterInput) (out *ResizeClusterOutput, err error)
+	ChangeClusterVxnet(in *ChangeClusterVxnetInput) (out *ChangeClusterVxnetOutput, err error)
+	SuspendClusters(in *SuspendClustersInput) (out *SuspendClustersOutput, err error)
+	UpdateClusterEnvironment(in *UpdateClusterEnvironmentInput) (out *UpdateClusterEnvironmentOutput, err error)
+	ModifyClusterAttributes(in *ModifyClusterAttributesInput) (out *ModifyClusterAttributesOutput, err error)
+	ModifyClusterNodeAttributes(in *ModifyClusterNodeAttributesInput) (out *ModifyClusterNodeAttributesOutput, err error)
+	GetClustersStats(in *GetClustersStatsInput) (out *GetClustersStatsOutput, err error)
+	DescribeClusterUsers(in *DescribeClusterUsersInput) (out *DescribeClusterUsersOutput, err error)
+	RestartClusterService(in *RestartClusterServiceInput) (out *RestartClusterServiceOutput, err error)
+	UpgradeClusters(in *UpgradeClustersInput) (out *UpgradeClustersOutput, err error)
+	AuthorizeClustersBrokerToDeveloper(in *AuthorizeClustersBrokerToDeveloperInput) (out *AuthorizeClustersBrokerToDeveloperOutput, err error)
+	RevokeClustersBrokerFromDeveloper(in *RevokeClustersBrokerFromDeveloperInput) (out *RevokeClustersBrokerFromDeveloperOutput, err error)
 }
 
 type ClusterService struct {
@@ -194,9 +574,9 @@ func NewClusterService(conf *config.Config, zone string) (p *ClusterService, err
 	}, nil
 }
 
-func (p *ClusterService) CreateCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &CreateClusterInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -205,7 +585,7 @@ func (p *ClusterService) CreateCluster(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &CreateClusterOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -242,9 +622,9 @@ func (p *ClusterService) DescribeClusters(in *DescribeClustersInput) (out *Descr
 
 	return x, err
 }
-func (p *ClusterService) DescribeClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) DescribeClusterNodes(in *DescribeClusterNodesInput) (out *DescribeClusterNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &DescribeClusterNodesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -253,7 +633,7 @@ func (p *ClusterService) DescribeClusterNodes(in *google_protobuf.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &DescribeClusterNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -266,9 +646,9 @@ func (p *ClusterService) DescribeClusterNodes(in *google_protobuf.Empty) (out *g
 
 	return x, err
 }
-func (p *ClusterService) StopClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) StopClusters(in *StopClustersInput) (out *StopClustersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &StopClustersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -277,7 +657,7 @@ func (p *ClusterService) StopClusters(in *google_protobuf.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &StopClustersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -290,9 +670,9 @@ func (p *ClusterService) StopClusters(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
-func (p *ClusterService) StartClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) StartClusters(in *StartClustersInput) (out *StartClustersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &StartClustersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -301,7 +681,7 @@ func (p *ClusterService) StartClusters(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &StartClustersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -314,9 +694,9 @@ func (p *ClusterService) StartClusters(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
-func (p *ClusterService) DeleteClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) DeleteClusters(in *DeleteClustersInput) (out *DeleteClustersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &DeleteClustersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -325,7 +705,7 @@ func (p *ClusterService) DeleteClusters(in *google_protobuf.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &DeleteClustersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -338,9 +718,9 @@ func (p *ClusterService) DeleteClusters(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
-func (p *ClusterService) Lease(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) Lease(in *LeaseInput) (out *LeaseOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &LeaseInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -349,7 +729,7 @@ func (p *ClusterService) Lease(in *google_protobuf.Empty) (out *google_protobuf.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &LeaseOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -362,9 +742,9 @@ func (p *ClusterService) Lease(in *google_protobuf.Empty) (out *google_protobuf.
 
 	return x, err
 }
-func (p *ClusterService) AddClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) AddClusterNodes(in *AddClusterNodesInput) (out *AddClusterNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &AddClusterNodesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -373,7 +753,7 @@ func (p *ClusterService) AddClusterNodes(in *google_protobuf.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &AddClusterNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -386,9 +766,9 @@ func (p *ClusterService) AddClusterNodes(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
-func (p *ClusterService) DeleteClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) DeleteClusterNodes(in *DeleteClusterNodesInput) (out *DeleteClusterNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &DeleteClusterNodesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -397,7 +777,7 @@ func (p *ClusterService) DeleteClusterNodes(in *google_protobuf.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &DeleteClusterNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -410,9 +790,9 @@ func (p *ClusterService) DeleteClusterNodes(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
-func (p *ClusterService) ResizeCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) ResizeCluster(in *ResizeClusterInput) (out *ResizeClusterOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &ResizeClusterInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -421,7 +801,7 @@ func (p *ClusterService) ResizeCluster(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &ResizeClusterOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -434,9 +814,9 @@ func (p *ClusterService) ResizeCluster(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
-func (p *ClusterService) ChangeClusterVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) ChangeClusterVxnet(in *ChangeClusterVxnetInput) (out *ChangeClusterVxnetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &ChangeClusterVxnetInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -445,7 +825,7 @@ func (p *ClusterService) ChangeClusterVxnet(in *google_protobuf.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &ChangeClusterVxnetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -458,9 +838,9 @@ func (p *ClusterService) ChangeClusterVxnet(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
-func (p *ClusterService) SuspendClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) SuspendClusters(in *SuspendClustersInput) (out *SuspendClustersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &SuspendClustersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -469,7 +849,7 @@ func (p *ClusterService) SuspendClusters(in *google_protobuf.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &SuspendClustersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -482,9 +862,9 @@ func (p *ClusterService) SuspendClusters(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
-func (p *ClusterService) UpdateClusterEnvironment(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) UpdateClusterEnvironment(in *UpdateClusterEnvironmentInput) (out *UpdateClusterEnvironmentOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &UpdateClusterEnvironmentInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -493,7 +873,7 @@ func (p *ClusterService) UpdateClusterEnvironment(in *google_protobuf.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &UpdateClusterEnvironmentOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -506,9 +886,9 @@ func (p *ClusterService) UpdateClusterEnvironment(in *google_protobuf.Empty) (ou
 
 	return x, err
 }
-func (p *ClusterService) ModifyClusterAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) ModifyClusterAttributes(in *ModifyClusterAttributesInput) (out *ModifyClusterAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &ModifyClusterAttributesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -517,7 +897,7 @@ func (p *ClusterService) ModifyClusterAttributes(in *google_protobuf.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &ModifyClusterAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -530,9 +910,9 @@ func (p *ClusterService) ModifyClusterAttributes(in *google_protobuf.Empty) (out
 
 	return x, err
 }
-func (p *ClusterService) ModifyClusterNodeAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) ModifyClusterNodeAttributes(in *ModifyClusterNodeAttributesInput) (out *ModifyClusterNodeAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &ModifyClusterNodeAttributesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -541,7 +921,7 @@ func (p *ClusterService) ModifyClusterNodeAttributes(in *google_protobuf.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &ModifyClusterNodeAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -554,9 +934,9 @@ func (p *ClusterService) ModifyClusterNodeAttributes(in *google_protobuf.Empty) 
 
 	return x, err
 }
-func (p *ClusterService) GetClustersStats(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) GetClustersStats(in *GetClustersStatsInput) (out *GetClustersStatsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &GetClustersStatsInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -565,7 +945,7 @@ func (p *ClusterService) GetClustersStats(in *google_protobuf.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &GetClustersStatsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -578,9 +958,9 @@ func (p *ClusterService) GetClustersStats(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
-func (p *ClusterService) DescribeClusterUsers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) DescribeClusterUsers(in *DescribeClusterUsersInput) (out *DescribeClusterUsersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &DescribeClusterUsersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -589,7 +969,7 @@ func (p *ClusterService) DescribeClusterUsers(in *google_protobuf.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &DescribeClusterUsersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -602,9 +982,9 @@ func (p *ClusterService) DescribeClusterUsers(in *google_protobuf.Empty) (out *g
 
 	return x, err
 }
-func (p *ClusterService) RestartClusterService(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) RestartClusterService(in *RestartClusterServiceInput) (out *RestartClusterServiceOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &RestartClusterServiceInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -613,7 +993,7 @@ func (p *ClusterService) RestartClusterService(in *google_protobuf.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &RestartClusterServiceOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -626,9 +1006,9 @@ func (p *ClusterService) RestartClusterService(in *google_protobuf.Empty) (out *
 
 	return x, err
 }
-func (p *ClusterService) UpgradeClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) UpgradeClusters(in *UpgradeClustersInput) (out *UpgradeClustersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &UpgradeClustersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -637,7 +1017,7 @@ func (p *ClusterService) UpgradeClusters(in *google_protobuf.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &UpgradeClustersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -650,9 +1030,9 @@ func (p *ClusterService) UpgradeClusters(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
-func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *AuthorizeClustersBrokerToDeveloperInput) (out *AuthorizeClustersBrokerToDeveloperOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &AuthorizeClustersBrokerToDeveloperInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -661,7 +1041,7 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *google_protobuf.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &AuthorizeClustersBrokerToDeveloperOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -674,9 +1054,9 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *google_protobuf.
 
 	return x, err
 }
-func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBrokerFromDeveloperInput) (out *RevokeClustersBrokerFromDeveloperOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &RevokeClustersBrokerFromDeveloperInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -685,7 +1065,7 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *google_protobuf.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &RevokeClustersBrokerFromDeveloperOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -702,43 +1082,69 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *google_protobuf.E
 func init() { proto.RegisterFile("cluster.proto", fileDescriptor3) }
 
 var fileDescriptor3 = []byte{
-	// 605 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x55, 0x4d, 0x4f, 0x1b, 0x31,
-	0x10, 0x55, 0x80, 0xf0, 0x31, 0x69, 0x28, 0xb2, 0x80, 0x6e, 0x43, 0xa5, 0xd2, 0x9c, 0x50, 0x0f,
-	0x8b, 0x44, 0x0f, 0xbd, 0x95, 0x86, 0x04, 0x10, 0x95, 0x68, 0xab, 0x0d, 0xe1, 0x1a, 0x39, 0xeb,
-	0x21, 0xac, 0xd8, 0xac, 0x2d, 0x7b, 0x1c, 0x15, 0xfe, 0x48, 0xff, 0x49, 0x7f, 0x4f, 0x7f, 0x4a,
-	0x65, 0xef, 0x06, 0x4a, 0x4a, 0x0f, 0xbb, 0xdc, 0x32, 0xcf, 0x9e, 0xe7, 0xe7, 0xf7, 0x3c, 0x59,
-	0x68, 0xc6, 0xa9, 0x35, 0x84, 0x3a, 0x54, 0x5a, 0x92, 0x64, 0x4b, 0x46, 0x61, 0xdc, 0xda, 0x19,
-	0x4b, 0x39, 0x4e, 0x71, 0xdf, 0x63, 0x23, 0x7b, 0xb5, 0x8f, 0x13, 0x45, 0xb7, 0xf9, 0x96, 0x76,
-	0x08, 0x41, 0x37, 0xef, 0xe9, 0xa3, 0x9e, 0x26, 0x31, 0x7e, 0xd7, 0x52, 0xa1, 0xa6, 0x04, 0x0d,
-	0x63, 0xb0, 0x74, 0x27, 0x33, 0x0c, 0x6a, 0xbb, 0xb5, 0xbd, 0xb5, 0xc8, 0xff, 0x6e, 0xff, 0xac,
-	0xc1, 0x56, 0x0f, 0x4d, 0xac, 0x93, 0x11, 0x16, 0x8d, 0xe6, 0x2c, 0x53, 0x96, 0xd8, 0x16, 0x2c,
-	0x73, 0xa5, 0x86, 0x89, 0x08, 0x6a, 0xbb, 0x8b, 0x7b, 0x6b, 0x51, 0x9d, 0x2b, 0x75, 0x26, 0xd8,
-	0x5b, 0x68, 0x38, 0x78, 0x8a, 0xda, 0x24, 0x32, 0x0b, 0x16, 0xfc, 0x1a, 0x70, 0xa5, 0x2e, 0x73,
-	0x84, 0xb5, 0x60, 0xb5, 0x50, 0x6d, 0x82, 0x45, 0xbf, 0x7a, 0x5f, 0xb3, 0x4d, 0xa8, 0x9b, 0x58,
-	0x2a, 0x0c, 0x96, 0xbc, 0x84, 0xbc, 0x70, 0xa8, 0x35, 0x6e, 0x7b, 0x3d, 0x3f, 0xc8, 0x17, 0xed,
-	0x5f, 0x35, 0xd8, 0x9e, 0x57, 0xf6, 0xcd, 0x92, 0x93, 0xb6, 0x0d, 0xcb, 0x3c, 0x26, 0x77, 0x7c,
-	0x7e, 0x95, 0xa2, 0x62, 0xaf, 0x61, 0x55, 0x23, 0x0d, 0x63, 0x29, 0x30, 0x58, 0xd8, 0xad, 0xed,
-	0xd5, 0xa3, 0x15, 0x8d, 0xd4, 0x95, 0x02, 0x59, 0x00, 0x2b, 0x13, 0x34, 0x86, 0x8f, 0x31, 0x58,
-	0xf4, 0x3d, 0xb3, 0xd2, 0x5d, 0x88, 0x24, 0xf1, 0x74, 0x18, 0x4b, 0x9b, 0x91, 0x57, 0x56, 0x8f,
-	0xc0, 0x43, 0x5d, 0x87, 0xb0, 0x10, 0x1a, 0xc5, 0x05, 0x86, 0x06, 0xc9, 0x8b, 0x6c, 0x1c, 0x34,
-	0x43, 0x97, 0x45, 0x58, 0x08, 0x8b, 0x20, 0x9e, 0x99, 0x4e, 0xed, 0xf7, 0xb0, 0x52, 0xc0, 0x8e,
-	0x7b, 0x9c, 0xca, 0x11, 0x4f, 0x87, 0xd6, 0x7a, 0x23, 0xdd, 0xc9, 0x90, 0x43, 0x03, 0x9b, 0x88,
-	0x83, 0xdf, 0x0d, 0x58, 0x7f, 0x9c, 0x17, 0x3b, 0x84, 0x66, 0x57, 0x23, 0xa7, 0xd9, 0xa5, 0xd9,
-	0x76, 0x98, 0x07, 0x1e, 0xce, 0x02, 0x0f, 0x8f, 0x5d, 0xe0, 0xad, 0xff, 0xe0, 0xec, 0x1c, 0x36,
-	0xe6, 0x7d, 0x63, 0x3b, 0xb9, 0xdc, 0x27, 0x93, 0x6e, 0xbd, 0x79, 0x7a, 0xb1, 0x30, 0xfb, 0x04,
-	0x36, 0xe7, 0x56, 0xbe, 0x4a, 0x81, 0xa6, 0xb4, 0xac, 0x4f, 0xf0, 0xa2, 0x4f, 0x52, 0xdd, 0x4b,
-	0x2a, 0xdb, 0x7f, 0x08, 0xcd, 0x3e, 0x71, 0x4d, 0x95, 0x09, 0x3e, 0xc3, 0x7a, 0x0f, 0x53, 0x24,
-	0xac, 0xcc, 0xf0, 0x11, 0xea, 0x29, 0x72, 0x83, 0xa5, 0x1b, 0x3b, 0xf0, 0xb2, 0x23, 0xc4, 0xb3,
-	0xec, 0xeb, 0x01, 0x7b, 0xa4, 0xbe, 0x1a, 0xcb, 0x21, 0x34, 0x23, 0x34, 0xc9, 0x5d, 0xe5, 0xc7,
-	0xd5, 0x03, 0xd6, 0xbd, 0xe6, 0xd9, 0x78, 0x46, 0x70, 0xf9, 0x23, 0x43, 0xaa, 0xe2, 0x47, 0xdf,
-	0x1a, 0x85, 0x99, 0xa8, 0x9c, 0xc5, 0x17, 0x08, 0x06, 0x4a, 0x3c, 0x8c, 0xc9, 0x71, 0x36, 0x4d,
-	0xb4, 0xcc, 0x26, 0x98, 0x95, 0x97, 0x73, 0x06, 0xaf, 0xce, 0xa5, 0x48, 0xae, 0x6e, 0x0b, 0xae,
-	0x0e, 0x91, 0x4e, 0x46, 0x96, 0x2a, 0x18, 0x7c, 0x0e, 0x3b, 0x8f, 0xa8, 0x5c, 0x4c, 0xcf, 0xa0,
-	0x3b, 0x82, 0x8d, 0x53, 0xbc, 0x7f, 0xf2, 0x7d, 0xe2, 0x54, 0x9e, 0xe3, 0xdf, 0x01, 0x1e, 0x98,
-	0x2a, 0x8e, 0x9f, 0xc2, 0x56, 0x84, 0xe6, 0xaf, 0x11, 0x9c, 0xfd, 0x63, 0x55, 0x48, 0x7f, 0xa0,
-	0xc6, 0x9a, 0x8b, 0xea, 0x93, 0x78, 0x01, 0xed, 0x8e, 0xa5, 0x6b, 0xa9, 0x1f, 0x9e, 0xb2, 0x39,
-	0xd2, 0xf2, 0x06, 0xf5, 0x85, 0xec, 0xe1, 0x14, 0x53, 0xf7, 0xd1, 0x2b, 0xcd, 0xda, 0x87, 0x77,
-	0x11, 0x4e, 0xe5, 0xcd, 0x1c, 0xe5, 0x89, 0x96, 0x93, 0xca, 0xa4, 0xa3, 0x65, 0x5f, 0x7f, 0xf8,
-	0x13, 0x00, 0x00, 0xff, 0xff, 0x8a, 0x93, 0x01, 0xa1, 0xcc, 0x07, 0x00, 0x00,
+	// 1017 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x57, 0x6d, 0x6e, 0xdb, 0x46,
+	0x10, 0x85, 0x62, 0xcb, 0x4e, 0xc6, 0xb1, 0x9b, 0xac, 0x2d, 0x89, 0x5a, 0xf9, 0x43, 0xa6, 0x8b,
+	0x58, 0x09, 0x12, 0x05, 0x48, 0x4f, 0xe0, 0x4a, 0x6d, 0x90, 0x02, 0x69, 0x0b, 0xa9, 0x0e, 0x50,
+	0xa0, 0x80, 0x40, 0x89, 0x13, 0x85, 0x88, 0xcc, 0x25, 0xc8, 0xa5, 0xd0, 0xe4, 0x57, 0x81, 0x1e,
+	0xa2, 0x7f, 0x7b, 0x8a, 0x9e, 0xaf, 0x20, 0x77, 0x56, 0x14, 0xc9, 0xa5, 0xe4, 0x7f, 0xe6, 0x9b,
+	0x37, 0xb3, 0xb3, 0xb3, 0xa3, 0xf7, 0x60, 0x38, 0x9c, 0x2d, 0xe2, 0x48, 0x62, 0xd8, 0x0f, 0x42,
+	0x21, 0x05, 0xdb, 0x8d, 0x02, 0x9c, 0xf1, 0xce, 0x5c, 0x88, 0xf9, 0x02, 0x5f, 0xa7, 0xd8, 0x34,
+	0xfe, 0xf8, 0x1a, 0xef, 0x02, 0xf9, 0x45, 0x51, 0xec, 0x3e, 0x58, 0x03, 0x95, 0x33, 0xc6, 0x70,
+	0xe9, 0xcd, 0xf0, 0xd7, 0x50, 0x04, 0x18, 0x4a, 0x0f, 0x23, 0xc6, 0x60, 0xf7, 0xab, 0xf0, 0xd1,
+	0xaa, 0x75, 0x6b, 0xbd, 0x47, 0xa3, 0xf4, 0x6f, 0xfb, 0x04, 0xd8, 0x20, 0x44, 0x47, 0x22, 0x65,
+	0xbd, 0xf3, 0x83, 0x58, 0xda, 0x0d, 0x38, 0xce, 0xa1, 0xbf, 0xc4, 0x32, 0x81, 0xff, 0xa9, 0x41,
+	0x63, 0x88, 0xd1, 0x2c, 0xf4, 0xa6, 0x3a, 0x12, 0xa5, 0x09, 0xac, 0x01, 0x7b, 0x4e, 0x10, 0x4c,
+	0x3c, 0xd7, 0xaa, 0x75, 0x77, 0x7a, 0x8f, 0x46, 0x75, 0x27, 0x08, 0xde, 0xb9, 0xec, 0x02, 0x0e,
+	0x12, 0x78, 0x89, 0x61, 0xe4, 0x09, 0xdf, 0x7a, 0x90, 0xc6, 0xc0, 0x09, 0x82, 0x0f, 0x0a, 0x61,
+	0x1c, 0x1e, 0xd2, 0x15, 0x23, 0x6b, 0x27, 0x8d, 0xae, 0xbe, 0xd9, 0x09, 0xd4, 0xa3, 0x99, 0x08,
+	0xd0, 0xda, 0x4d, 0xfb, 0x55, 0x1f, 0x09, 0x1a, 0x47, 0x09, 0xbd, 0xae, 0x0e, 0x4a, 0x3f, 0xec,
+	0xff, 0x6a, 0xd0, 0x2c, 0x76, 0xa6, 0x9a, 0x66, 0x4d, 0xd8, 0x73, 0x66, 0x32, 0x39, 0x5e, 0xdd,
+	0x9b, 0xbe, 0x58, 0x1b, 0x1e, 0x86, 0x28, 0x27, 0x33, 0xe1, 0xa2, 0xf5, 0xa0, 0x5b, 0xeb, 0xd5,
+	0x47, 0xfb, 0x21, 0xca, 0x81, 0x70, 0x91, 0x59, 0xb0, 0x7f, 0x87, 0x51, 0xe4, 0xcc, 0xd1, 0xda,
+	0x49, 0x73, 0xf4, 0x67, 0x72, 0x21, 0x29, 0xa4, 0xb3, 0x98, 0xcc, 0x44, 0xec, 0xcb, 0xb4, 0xb3,
+	0xfa, 0x08, 0x52, 0x68, 0x90, 0x20, 0xac, 0x0f, 0x07, 0x74, 0x81, 0x49, 0x84, 0x32, 0x6d, 0xf2,
+	0xe0, 0xcd, 0x61, 0x3f, 0x79, 0xb8, 0x3e, 0x35, 0x36, 0x82, 0x99, 0x7e, 0x21, 0x69, 0xbf, 0x80,
+	0x7d, 0x82, 0x93, 0xda, 0xf3, 0x85, 0x98, 0x3a, 0x8b, 0x49, 0x1c, 0xa7, 0x83, 0x4c, 0x4e, 0x06,
+	0x05, 0xdd, 0xc6, 0x9e, 0x6b, 0x77, 0xa0, 0x5d, 0xb8, 0xe3, 0xcf, 0xc2, 0x45, 0xf5, 0x02, 0xf6,
+	0x29, 0x70, 0x53, 0x90, 0x5e, 0xee, 0x18, 0x9e, 0x8e, 0xa5, 0x08, 0x72, 0x8f, 0x96, 0xbc, 0xfd,
+	0x3a, 0x48, 0xd4, 0x14, 0x75, 0x42, 0x99, 0xe7, 0x36, 0xe0, 0x38, 0x87, 0x12, 0xb9, 0x01, 0xc7,
+	0x43, 0x5c, 0xa0, 0xcc, 0xaf, 0x83, 0xdd, 0x84, 0x93, 0x3c, 0x4c, 0xf4, 0xc7, 0x00, 0x0b, 0x74,
+	0x22, 0x54, 0xac, 0x43, 0x38, 0x48, 0xbf, 0x28, 0xd8, 0x84, 0x93, 0x1b, 0xd7, 0x2d, 0xdf, 0xac,
+	0x05, 0x8d, 0x02, 0x4e, 0x09, 0x6d, 0x68, 0xe5, 0x4e, 0x59, 0xcb, 0xe1, 0x60, 0x95, 0x43, 0xd9,
+	0x05, 0x47, 0x18, 0x79, 0x5f, 0x4b, 0x2b, 0x9f, 0x43, 0xb3, 0x33, 0x06, 0x9f, 0x1c, 0x7f, 0xae,
+	0xe1, 0x0f, 0x7f, 0xfa, 0x28, 0x57, 0x67, 0x94, 0x43, 0xd9, 0x5d, 0xc6, 0x71, 0x14, 0xa0, 0xef,
+	0xe6, 0x07, 0xd3, 0x82, 0x46, 0x01, 0xa7, 0x84, 0x0b, 0x38, 0xbb, 0x0d, 0xdc, 0xec, 0x17, 0xf7,
+	0x83, 0xbf, 0xf4, 0x42, 0xe1, 0xdf, 0xa1, 0x4f, 0xa7, 0x75, 0xe1, 0xbc, 0x8a, 0x40, 0x25, 0xce,
+	0xe1, 0xf4, 0xbd, 0x70, 0xbd, 0x8f, 0x5f, 0x88, 0x71, 0x23, 0x65, 0xe8, 0x4d, 0x63, 0xa9, 0x67,
+	0x72, 0x01, 0x67, 0x15, 0x71, 0x2a, 0x60, 0x43, 0x37, 0x47, 0x48, 0x86, 0x56, 0x2c, 0x72, 0x05,
+	0x97, 0x1b, 0x38, 0x54, 0xa8, 0x05, 0x8d, 0xb7, 0xb8, 0x5a, 0x95, 0xb1, 0x74, 0x24, 0x65, 0x5b,
+	0xd0, 0x2c, 0x06, 0x28, 0xa5, 0xbc, 0xdb, 0xb7, 0xd1, 0x6a, 0x6a, 0xe5, 0xdd, 0x4e, 0x83, 0x94,
+	0x7a, 0x0a, 0x7c, 0x84, 0xd1, 0xda, 0x72, 0x92, 0xf2, 0xa9, 0xdc, 0x33, 0xe8, 0x18, 0xa3, 0xd9,
+	0x43, 0xdd, 0x06, 0xf3, 0xd0, 0x71, 0xb1, 0xf4, 0x50, 0x05, 0x9c, 0x12, 0x9e, 0xc3, 0xf5, 0x4d,
+	0x2c, 0x3f, 0x89, 0x30, 0x5b, 0x95, 0xe8, 0xfb, 0x50, 0x7c, 0xc6, 0xf0, 0x37, 0x31, 0xc4, 0x25,
+	0x2e, 0x12, 0xb9, 0x55, 0x35, 0x5e, 0x40, 0x6f, 0x3b, 0x95, 0xca, 0xf6, 0xe0, 0xd9, 0x08, 0x97,
+	0xe2, 0x73, 0x81, 0xf8, 0x63, 0x28, 0xee, 0x0a, 0x55, 0x9f, 0xc3, 0xf5, 0x56, 0xa6, 0x2a, 0xfa,
+	0xe6, 0xdf, 0x23, 0x38, 0xca, 0xdf, 0x9a, 0x0d, 0xe1, 0x30, 0xa7, 0xec, 0xcc, 0x22, 0x6d, 0x2a,
+	0x99, 0x00, 0x6f, 0x1b, 0x22, 0xa4, 0xa9, 0xef, 0xe1, 0x49, 0x51, 0x6d, 0x59, 0x47, 0xd1, 0x8d,
+	0xfe, 0xc0, 0x4f, 0xcd, 0x41, 0x2a, 0xf7, 0x7b, 0x22, 0x17, 0x65, 0xed, 0x62, 0x17, 0xc6, 0xac,
+	0xec, 0x67, 0xce, 0xbb, 0xd5, 0x04, 0x2a, 0x7d, 0x03, 0x8f, 0xd7, 0x35, 0x8e, 0xb5, 0x54, 0x46,
+	0x49, 0x0c, 0xb9, 0x55, 0x0e, 0x50, 0x89, 0x21, 0x1c, 0xe6, 0xa4, 0x8f, 0xad, 0xa8, 0x45, 0x95,
+	0xd4, 0x23, 0x33, 0x28, 0x25, 0x7b, 0x0b, 0x47, 0x79, 0x49, 0x64, 0x6d, 0xdd, 0x7c, 0x49, 0x3f,
+	0x39, 0x37, 0x85, 0xa8, 0xd0, 0x4b, 0xa8, 0xa7, 0xaa, 0xc9, 0x9e, 0x28, 0x52, 0x26, 0xa8, 0xfc,
+	0xe9, 0x1a, 0x42, 0xec, 0x9f, 0xe0, 0x9b, 0x82, 0x78, 0x32, 0x2a, 0x6e, 0xd2, 0x5a, 0xde, 0x31,
+	0xc6, 0xa8, 0xd6, 0x18, 0x58, 0x59, 0x54, 0xd9, 0x99, 0xa1, 0xd7, 0xb5, 0x8a, 0xe7, 0x55, 0xe1,
+	0x6c, 0xba, 0x39, 0xdd, 0xd5, 0xd3, 0x2d, 0x4b, 0xb4, 0x9e, 0xae, 0x41, 0xa6, 0x93, 0xd6, 0xca,
+	0x5a, 0xac, 0x5b, 0xab, 0x10, 0x70, 0xdd, 0x5a, 0x95, 0x88, 0x27, 0xb3, 0x2b, 0x88, 0xb5, 0x9e,
+	0x9d, 0x49, 0xdb, 0xf5, 0xec, 0x8c, 0xfa, 0xce, 0x10, 0xac, 0x2a, 0xf9, 0x66, 0x57, 0x2a, 0x71,
+	0xa3, 0xfe, 0xf3, 0x6f, 0x37, 0x93, 0xe8, 0x98, 0x29, 0xb4, 0x2a, 0x34, 0x9e, 0xd9, 0xaa, 0xc0,
+	0x26, 0x8b, 0xe0, 0x57, 0x1b, 0x39, 0x74, 0x86, 0x0f, 0x9d, 0x0d, 0x16, 0xc0, 0x9e, 0x19, 0x6a,
+	0x18, 0x9c, 0x84, 0x5f, 0x6f, 0xe5, 0x65, 0x62, 0x53, 0x34, 0x0d, 0x2d, 0x36, 0x46, 0x97, 0xd1,
+	0x62, 0x63, 0x76, 0x1a, 0x83, 0xd8, 0xa4, 0x66, 0x52, 0x21, 0x36, 0x99, 0x0b, 0x55, 0x88, 0xcd,
+	0x9a, 0x13, 0xb1, 0x3f, 0xa0, 0x61, 0xf4, 0x1a, 0xd6, 0x5d, 0x6d, 0x6e, 0x85, 0x4d, 0xf1, 0xcb,
+	0x0d, 0x8c, 0x6c, 0x1d, 0x0b, 0x96, 0xa4, 0xd7, 0xd1, 0xe4, 0x60, 0x7a, 0x1d, 0x8d, 0x2e, 0xc6,
+	0xfe, 0xae, 0x81, 0xbd, 0xdd, 0x9b, 0xd8, 0x2b, 0x92, 0x83, 0xfb, 0x19, 0x1e, 0xef, 0xdf, 0x97,
+	0x4e, 0x5d, 0xfc, 0x55, 0x83, 0xcb, 0xad, 0x5e, 0xc6, 0x5e, 0xea, 0xd1, 0xdc, 0xc7, 0x1e, 0xf9,
+	0xab, 0x7b, 0xb2, 0x55, 0x0b, 0xd3, 0xbd, 0xf4, 0xdf, 0xa6, 0xef, 0xfe, 0x0f, 0x00, 0x00, 0xff,
+	0xff, 0x02, 0x09, 0x65, 0x0f, 0x6a, 0x0d, 0x00, 0x00,
 }

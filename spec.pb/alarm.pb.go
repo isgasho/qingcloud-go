@@ -44,9 +44,49 @@ It has these top-level messages:
 	Error
 	CacheServiceProperties
 	ClusterServiceProperties
+	CreateClusterInput
+	CreateClusterOutput
 	DescribeClustersInput
 	DescribeClustersOutput
 	Cluster
+	DescribeClusterNodesInput
+	DescribeClusterNodesOutput
+	StopClustersInput
+	StopClustersOutput
+	StartClustersInput
+	StartClustersOutput
+	DeleteClustersInput
+	DeleteClustersOutput
+	LeaseInput
+	LeaseOutput
+	AddClusterNodesInput
+	AddClusterNodesOutput
+	DeleteClusterNodesInput
+	DeleteClusterNodesOutput
+	ResizeClusterInput
+	ResizeClusterOutput
+	ChangeClusterVxnetInput
+	ChangeClusterVxnetOutput
+	SuspendClustersInput
+	SuspendClustersOutput
+	UpdateClusterEnvironmentInput
+	UpdateClusterEnvironmentOutput
+	ModifyClusterAttributesInput
+	ModifyClusterAttributesOutput
+	ModifyClusterNodeAttributesInput
+	ModifyClusterNodeAttributesOutput
+	GetClustersStatsInput
+	GetClustersStatsOutput
+	DescribeClusterUsersInput
+	DescribeClusterUsersOutput
+	RestartClusterServiceInput
+	RestartClusterServiceOutput
+	UpgradeClustersInput
+	UpgradeClustersOutput
+	AuthorizeClustersBrokerToDeveloperInput
+	AuthorizeClustersBrokerToDeveloperOutput
+	RevokeClustersBrokerFromDeveloperInput
+	RevokeClustersBrokerFromDeveloperOutput
 	DNSAliasServiceProperties
 	DescribeDNSAliasesInput
 	DescribeDNSAliasesOutput
