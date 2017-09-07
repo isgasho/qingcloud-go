@@ -59,6 +59,13 @@ It has these top-level messages:
 	KeyPairServiceProperties
 	LoadBalancerServiceProperties
 	MiscServiceProperties
+	GrantQuotaIndepInput
+	GrantQuotaIndepOutput
+	RevokeQuotaIndepInput
+	RevokeQuotaIndepOutput
+	GetQuotaLeftInput
+	GetQuotaLeftOutput
+	QuotaLeft
 	MongoServiceProperties
 	DescribeMongosInput
 	DescribeMongosOutput
