@@ -6,7 +6,7 @@ package spec
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -136,13 +136,13 @@ func (m *DescribeJobsOutput) GetTotalCount() int32 {
 }
 
 type DescribeJobsOutput_Job struct {
-	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	CreateTime  *google_protobuf2.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
 	JobAction   string                      `protobuf:"bytes,2,opt,name=job_action,json=jobAction" json:"job_action,omitempty"`
 	JobId       string                      `protobuf:"bytes,3,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 	Owner       string                      `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
 	ResourceIds string                      `protobuf:"bytes,5,opt,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
 	Status      string                      `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
-	StatusTime  *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StatusTime  *google_protobuf2.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 }
 
 func (m *DescribeJobsOutput_Job) Reset()                    { *m = DescribeJobsOutput_Job{} }
@@ -150,7 +150,7 @@ func (m *DescribeJobsOutput_Job) String() string            { return proto.Compa
 func (*DescribeJobsOutput_Job) ProtoMessage()               {}
 func (*DescribeJobsOutput_Job) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2, 0} }
 
-func (m *DescribeJobsOutput_Job) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeJobsOutput_Job) GetCreateTime() *google_protobuf2.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -192,7 +192,7 @@ func (m *DescribeJobsOutput_Job) GetStatus() string {
 	return ""
 }
 
-func (m *DescribeJobsOutput_Job) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeJobsOutput_Job) GetStatusTime() *google_protobuf2.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}

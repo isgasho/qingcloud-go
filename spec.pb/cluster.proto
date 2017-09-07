@@ -6,6 +6,9 @@ syntax = "proto3";
 
 package spec;
 
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+
 message ClusterServiceProperties {
 	string zone = 1;
 }
@@ -96,11 +99,88 @@ message DescribeClustersOutput {
 
 	int32 total_count = 4;
 	repeated Cluster cluster_set = 5;
-}
 
-message Cluster {
-	string global_uuid = 1;
-	// TODO
+	message Cluster {
+		string global_uuid = 1;
+		int32 auto_backup_time = 2;
+		HealthCheckEnablement health_check_enablement = 3;
+		string cfgmgmt_id = 4;
+		CustomService custom_service = 5;
+		string app_id = 6;
+		AdvancedActions advanced_actions = 7;
+		string console_id = 8;
+		google.protobuf.Timestamp create_time = 9;
+		string cluster_id = 10;
+		string owner = 11;
+		google.protobuf.Timestamp upgrade_time = 12;
+		google.protobuf.Any children = 13;
+		bool incremental_backup_supported = 14;
+		int32 cluster_type = 15;
+		int32 sub_code = 16;
+		bool metadata_root_access = 17;
+		google.protobuf.Any add_links = 18;
+		string upgrade_status = 19;
+		google.protobuf.Timestamp status_time = 20;
+		int32 node_count = 21;
+		string app_version = 22;
+		VxNet vxnet = 23;
+		string status = 24;
+		string description = 25;
+		google.protobuf.Any parent = 26;
+		repeated google.protobuf.Any tags = 27;
+		AppInfo app_info = 28;
+		string transition_status = 29;
+		bool reuse_hyper = 30;
+		string controller = 31;
+		repeated google.protobuf.Any upgrade_policy = 32;
+		bool partner_access = 33;
+		string name = 34;
+		repeated string roles = 35;
+		google.protobuf.Timestamp lastest_snapshot_time = 36;
+		string root_user_id = 37;
+		bool debug = 38;
+		repeated google.protobuf.Any backup_policy = 39;
+		repeated google.protobuf.Any endpoints = 40;
+		HealthCheckEnablement backup = 41;
+		AppVersionInfo app_version_info = 42;
+
+		message HealthCheckEnablement {
+			bool ca = 1;
+			bool orderer = 2;
+			bool peer_node = 3;
+		}
+
+		message CustomService {
+			//
+		}
+
+		message AdvancedActions {
+			google.protobuf.Any ca = 1;
+			google.protobuf.Any orderer = 2;
+			google.protobuf.Any peer_node = 3;
+		}
+
+		message VxNet {
+			string vxnet_name = 1;
+			int32 vxnet_type = 2;
+			string vxnet_id = 3;
+			string vpc_router_id = 4;
+		}
+
+		message AppInfo {
+			string icon = 1;
+			string app_id = 2;
+			string app_name = 3;
+		}
+
+		message AppVersionInfo {
+			google.protobuf.Timestamp status_time = 1;
+			string resource_kit = 2;
+			string name = 3;
+			string version_id = 4;
+			repeated google.protobuf.Any upgrade_policy = 5;
+		}
+	}
 }
 
 message DescribeClusterNodesInput {

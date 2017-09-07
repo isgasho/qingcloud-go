@@ -46,7 +46,6 @@ It has these top-level messages:
 	CreateClusterOutput
 	DescribeClustersInput
 	DescribeClustersOutput
-	Cluster
 	DescribeClusterNodesInput
 	DescribeClusterNodesOutput
 	StopClustersInput
