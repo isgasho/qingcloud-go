@@ -11,8 +11,6 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-import "google/api/annotations.proto";
-
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/nic/index.html
 // ----------------------------------------------------------------------------
@@ -23,11 +21,7 @@ message NicServiceProperties {
 
 service NicService {
     rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
-    rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput) {
-		option (google.api.http) = {
-			custom { kind: "GET" }
-		};
-	}
+	rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput);
     rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);
     rpc DetachNics(DetachNicsInput) returns (DetachNicsOutput);
     rpc ModifyNicAttributes(ModifyNicAttributesInput) returns (ModifyNicAttributesOutput);
@@ -65,6 +59,8 @@ message DescribeNicsOutput {
 	int32 total_count = 5;
 }
 
+// 忽略 不支持的 成员
+
 message NIC {
     google.protobuf.Timestamp create_time = 1;
 	string instance_id = 2;
@@ -81,6 +77,11 @@ message NIC {
 	repeated Tag tags = 13;
 	string vxnet_id = 14;
 	Eip eip = 15;
+	string transition_status = 16;
+	string controller = 17;
+	int32 vxnet_type = 18;
+	string console_id = 19;
+	string resource_id = 20;
 }
 
 message Eip {
