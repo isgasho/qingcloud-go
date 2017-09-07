@@ -163,7 +163,7 @@ message DescribeClustersOutput {
 
 		message VxNet {
 			string vxnet_name = 1;
-			//int32 vxnet_type = 2;
+			//int32 vxnet_type = 2; // "vxnet_type":"", 服务器有BUG, 存在返回 空字符串的问题
 			string vxnet_id = 3;
 			string vpc_router_id = 4;
 		}

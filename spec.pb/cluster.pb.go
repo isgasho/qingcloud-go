@@ -558,7 +558,7 @@ func (*DescribeClustersOutput_Cluster_AdvancedActions) Descriptor() ([]byte, []i
 
 type DescribeClustersOutput_Cluster_VxNet struct {
 	VxnetName string `protobuf:"bytes,1,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	// int32 vxnet_type = 2;
+	// int32 vxnet_type = 2; // "vxnet_type":"", 服务器有BUG, 存在返回 空字符串的问题
 	VxnetId     string `protobuf:"bytes,3,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
 	VpcRouterId string `protobuf:"bytes,4,opt,name=vpc_router_id,json=vpcRouterId" json:"vpc_router_id,omitempty"`
 }
