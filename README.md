@@ -3,6 +3,9 @@
 
 # qingcloud 自用 SDK
 
+[![Build Status](https://travis-ci.org/chai2010/qingcloud-go.svg)](https://travis-ci.org/chai2010/qingcloud-go)
+[![GoDoc](https://godoc.org/github.com/chai2010/qingcloud-go?status.svg)](https://godoc.org/github.com/chai2010/qingcloud-go)
+
 在线文档:
 
 - https://godoc.org/github.com/chai2010/qingcloud-go
