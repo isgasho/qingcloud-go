@@ -11,6 +11,12 @@
 - https://godoc.org/github.com/chai2010/qingcloud-go/spec.pb
 - https://docs.qingcloud.com
 
+可运行的例子:
+
+- [examples/nic/DescribeNics/DescribeNics.go](./examples/nic/DescribeNics/DescribeNics.go):
+- [examples/mongo/DescribeMongos/DescribeMongos.go](./examples/nic/DescribeNics/DescribeNics.go):
+
+
 ## 运行流程
 
 当前用户的默认配置文件在 `${HOME}/.qingcloud/config.yaml`, 内容如下:

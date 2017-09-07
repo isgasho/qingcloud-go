@@ -24,7 +24,7 @@ service MongoService {
     rpc CreateMongo(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc StopMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc StartMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DescribeMongos(DescribeMongosInput) returns (DescribeMongosOutput);
     rpc DeleteMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc CreateMongoFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc ChangeMongoVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
@@ -33,4 +33,31 @@ service MongoService {
     rpc ModifyMongoAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc ModifyMongoInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc GetMongoMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message DescribeMongosInput {
+	int32 limit = 1;
+	string mongo_name = 2;
+	repeated string mongos = 3;
+	int32 offset = 4;
+	repeated string status = 5;
+	repeated string tags = 6;
+	int32 verbose = 7;
+}
+
+message DescribeMongosOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	int32 total_count = 4;
+	repeated Mongo mongo_set = 5;
+}
+
+message Mongo {
+	string alarm_status = 1;
+	int32 auto_backup_time = 2;
+	int32 auto_minor_ver_upgrade = 3;
+
+	// TODO
 }

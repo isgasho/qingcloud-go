@@ -7,33 +7,32 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 
-	qcConfig "github.com/yunify/qingcloud-sdk-go/config"
-	qcSservice "github.com/yunify/qingcloud-sdk-go/service"
+	qcConfig "github.com/chai2010/qingcloud-go/config"
+	pb "github.com/chai2010/qingcloud-go/spec.pb"
 )
 
 func main() {
+	flag.Parse()
+
 	conf := loadUserConfig()
-	conf.LogLevel = "debug"
+	conf.SetLogLevel("warn") // debug/warn
+	conf.JSONAllowUnknownFields = true
 
-	service, err := qcSservice.Init(conf)
+	mgoService, err := pb.NewMongoService(conf, "pek3a")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	mgoService, err := service.Mongo("pek3a")
+	reply, err := mgoService.DescribeMongos(nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	reply, err := mgoService.DescribeMongos(&qcSservice.DescribeMongosInput{})
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Printf(string(encodeJSON(reply)))
+	fmt.Println(string(encodeJSON(reply)))
 }
 
 func loadUserConfig() *qcConfig.Config {

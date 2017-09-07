@@ -10,6 +10,9 @@ hello:
 	go fmt ./...
 	go run hello.go
 
+demo_mgo:
+	go run examples/mongo/DescribeMongos/DescribeMongos.go
+
 demo:
 	go run examples/nic/DescribeNics/DescribeNics.go
 

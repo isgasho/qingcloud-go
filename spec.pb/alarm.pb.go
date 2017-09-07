@@ -57,6 +57,9 @@ It has these top-level messages:
 	LoadBalancerServiceProperties
 	MiscServiceProperties
 	MongoServiceProperties
+	DescribeMongosInput
+	DescribeMongosOutput
+	Mongo
 	MonitorServiceProperties
 	NicServiceProperties
 	CreateNicsInput
