@@ -44,6 +44,9 @@ It has these top-level messages:
 	Error
 	CacheServiceProperties
 	ClusterServiceProperties
+	DescribeClustersInput
+	DescribeClustersOutput
+	Cluster
 	DNSAliasServiceProperties
 	EipServiceProperties
 	HadoopServiceProperties

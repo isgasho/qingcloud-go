@@ -13,8 +13,9 @@
 
 可运行的例子:
 
-- [examples/nic/DescribeNics/DescribeNics.go](./examples/nic/DescribeNics/DescribeNics.go):
-- [examples/mongo/DescribeMongos/DescribeMongos.go](./examples/nic/DescribeNics/DescribeNics.go):
+- [examples/nic/DescribeNics/DescribeNics.go](./examples/nic/DescribeNics/DescribeNics.go)
+- [examples/mongo/DescribeMongos/DescribeMongos.go](./examples/mongo/DescribeMongos/DescribeMongos.go)
+- [examples/cluster/DescribeClusters/DescribeClusters.go](./examples/cluster/DescribeClusters/DescribeClusters.go)
 
 
 ## 运行流程

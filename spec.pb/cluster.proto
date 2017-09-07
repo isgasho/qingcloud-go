@@ -17,8 +17,7 @@ message ClusterServiceProperties {
 
 service ClusterService {
     rpc CreateCluster(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
-
+    rpc DescribeClusters(DescribeClustersInput) returns (DescribeClustersOutput);
     rpc DescribeClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc StopClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc StartClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
@@ -38,4 +37,26 @@ service ClusterService {
     rpc UpgradeClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc AuthorizeClustersBrokerToDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc RevokeClustersBrokerFromDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message DescribeClustersInput {
+	repeated string app_id = 1;
+	repeated string app_version = 2;
+	repeated string clusters = 3;
+	string scope = 4;
+	repeated string users = 5;
+}
+
+message DescribeClustersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	int32 total_count = 4;
+	repeated Cluster cluster_set = 5;
+}
+
+message Cluster {
+	string global_uuid = 1;
+	// TODO
 }

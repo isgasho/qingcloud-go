@@ -7,23 +7,22 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 
-	qcConfig "github.com/yunify/qingcloud-sdk-go/config"
-	qcSservice "github.com/yunify/qingcloud-sdk-go/service"
+	qcConfig "github.com/chai2010/qingcloud-go/config"
+	pb "github.com/chai2010/qingcloud-go/spec.pb"
 )
 
 func main() {
+	flag.Parse()
+
 	conf := loadUserConfig()
-	conf.LogLevel = "debug"
+	conf.SetLogLevel("debug") // debug/warn
+	conf.JSONAllowUnknownFields = true
 
-	service, err := qcSservice.Init(conf)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	clusterService, err := service.Cluster("pek3a")
+	clusterService, err := pb.NewClusterService(conf, "pek3a")
 	if err != nil {
 		log.Fatal(err)
 	}
