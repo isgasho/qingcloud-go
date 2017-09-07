@@ -78,9 +78,9 @@ message GetQuotaLeftOutput {
 	string message = 3;
 
 	repeated QuotaLeft quota_left_set = 4;
-}
 
-message QuotaLeft {
-	string resource_type = 1;
-	int32 left = 2;
+	message QuotaLeft {
+		string resource_type = 1;
+		int32 left = 2;
+	}
 }

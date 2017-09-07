@@ -112,11 +112,9 @@ It has these top-level messages:
 	RevokeQuotaIndepOutput
 	GetQuotaLeftInput
 	GetQuotaLeftOutput
-	QuotaLeft
 	MongoServiceProperties
 	DescribeMongosInput
 	DescribeMongosOutput
-	Mongo
 	MonitorServiceProperties
 	NicServiceProperties
 	CreateNicsInput

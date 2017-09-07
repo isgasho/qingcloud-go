@@ -49,12 +49,12 @@ message DescribeMongosOutput {
 
 	int32 total_count = 4;
 	repeated Mongo mongo_set = 5;
-}
 
-message Mongo {
-	string alarm_status = 1;
-	int32 auto_backup_time = 2;
-	int32 auto_minor_ver_upgrade = 3;
+	message Mongo {
+		string alarm_status = 1;
+		int32 auto_backup_time = 2;
+		int32 auto_minor_ver_upgrade = 3;
 
-	// TODO
+		// TODO
+	}
 }
