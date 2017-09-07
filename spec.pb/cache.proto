@@ -11,7 +11,7 @@ import "google/protobuf/empty.proto";
 // https://docs.qingcloud.com/api/cache/index.html
 
 message CacheServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service CacheService {

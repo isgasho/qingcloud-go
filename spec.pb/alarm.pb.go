@@ -39,8 +39,6 @@ It is generated from these files:
 
 It has these top-level messages:
 	AlarmServiceProperties
-	Options
-	CommonRequest
 	Error
 	CacheServiceProperties
 	ClusterServiceProperties

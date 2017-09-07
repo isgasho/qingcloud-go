@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package spec;
 
+import "google/protobuf/timestamp.proto";
+
 // https://docs.qingcloud.com/api/job/index.html
 
 message JobServiceProperties {
@@ -17,8 +19,27 @@ service JobService {
 }
 
 message DescribeJobsInput {
-	//
+	repeated string jobs = 1;
+	int32 limit = 2;
+	int32 offset = 3;
+	repeated string status = 4;
+	int32 verbose = 5;
 }
 message DescribeJobsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	repeated Job job_set = 4;
+	int32 total_count = 5;
+
+	message Job {
+		google.protobuf.Timestamp create_time = 1;
+		string job_action = 2;
+		string job_id = 3;
+		string owner = 4;
+		string resource_ids = 5;
+		string status = 6;
+		google.protobuf.Timestamp status_time = 7;
+	}
 }

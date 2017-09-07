@@ -6,8 +6,6 @@ syntax = "proto3";
 
 package spec;
 
-import "google/protobuf/empty.proto";
-
 message ClusterServiceProperties {
 	string zone = 1;
 }
