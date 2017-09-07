@@ -11,6 +11,8 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
+import "google/api/annotations.proto";
+
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/nic/index.html
 // ----------------------------------------------------------------------------
@@ -21,7 +23,11 @@ message NicServiceProperties {
 
 service NicService {
     rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
-    rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput);
+    rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput) {
+		option (google.api.http) = {
+			custom { kind: "GET" }
+		};
+	}
     rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);
     rpc DetachNics(DetachNicsInput) returns (DetachNicsOutput);
     rpc ModifyNicAttributes(ModifyNicAttributesInput) returns (ModifyNicAttributesOutput);
