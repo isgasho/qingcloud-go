@@ -100,9 +100,8 @@ It has these top-level messages:
 	HadoopServiceProperties
 	ImageServiceProperties
 	InstanceServiceProperties
-	DescribeInstanceTypes_Request
-	DescribeInstanceTypes_Reponse
-	InstanceTypeSetElem
+	DescribeInstanceTypesInput
+	DescribeInstanceTypesOutput
 	JobServiceProperties
 	DescribeJobsInput
 	DescribeJobsOutput
