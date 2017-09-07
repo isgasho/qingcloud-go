@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/golang/protobuf/ptypes/any"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import _ "github.com/golang/protobuf/ptypes/empty"
 import _ "github.com/golang/protobuf/ptypes/timestamp"
 import _ "github.com/golang/protobuf/ptypes/wrappers"
 
@@ -42,15 +42,87 @@ func (m *DNSAliasServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeDNSAliasesInput struct {
+}
+
+func (m *DescribeDNSAliasesInput) Reset()                    { *m = DescribeDNSAliasesInput{} }
+func (m *DescribeDNSAliasesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeDNSAliasesInput) ProtoMessage()               {}
+func (*DescribeDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
+
+type DescribeDNSAliasesOutput struct {
+}
+
+func (m *DescribeDNSAliasesOutput) Reset()                    { *m = DescribeDNSAliasesOutput{} }
+func (m *DescribeDNSAliasesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeDNSAliasesOutput) ProtoMessage()               {}
+func (*DescribeDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
+
+type AssociateDNSAliasInput struct {
+}
+
+func (m *AssociateDNSAliasInput) Reset()                    { *m = AssociateDNSAliasInput{} }
+func (m *AssociateDNSAliasInput) String() string            { return proto.CompactTextString(m) }
+func (*AssociateDNSAliasInput) ProtoMessage()               {}
+func (*AssociateDNSAliasInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
+
+type AssociateDNSAliasOutput struct {
+}
+
+func (m *AssociateDNSAliasOutput) Reset()                    { *m = AssociateDNSAliasOutput{} }
+func (m *AssociateDNSAliasOutput) String() string            { return proto.CompactTextString(m) }
+func (*AssociateDNSAliasOutput) ProtoMessage()               {}
+func (*AssociateDNSAliasOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
+
+type DissociateDNSAliasesInput struct {
+}
+
+func (m *DissociateDNSAliasesInput) Reset()                    { *m = DissociateDNSAliasesInput{} }
+func (m *DissociateDNSAliasesInput) String() string            { return proto.CompactTextString(m) }
+func (*DissociateDNSAliasesInput) ProtoMessage()               {}
+func (*DissociateDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{5} }
+
+type DissociateDNSAliasesOutput struct {
+}
+
+func (m *DissociateDNSAliasesOutput) Reset()                    { *m = DissociateDNSAliasesOutput{} }
+func (m *DissociateDNSAliasesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DissociateDNSAliasesOutput) ProtoMessage()               {}
+func (*DissociateDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{6} }
+
+type GetDNSLabelInput struct {
+}
+
+func (m *GetDNSLabelInput) Reset()                    { *m = GetDNSLabelInput{} }
+func (m *GetDNSLabelInput) String() string            { return proto.CompactTextString(m) }
+func (*GetDNSLabelInput) ProtoMessage()               {}
+func (*GetDNSLabelInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{7} }
+
+type GetDNSLabelOutput struct {
+}
+
+func (m *GetDNSLabelOutput) Reset()                    { *m = GetDNSLabelOutput{} }
+func (m *GetDNSLabelOutput) String() string            { return proto.CompactTextString(m) }
+func (*GetDNSLabelOutput) ProtoMessage()               {}
+func (*GetDNSLabelOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{8} }
+
 func init() {
 	proto.RegisterType((*DNSAliasServiceProperties)(nil), "spec.DNSAliasServiceProperties")
+	proto.RegisterType((*DescribeDNSAliasesInput)(nil), "spec.DescribeDNSAliasesInput")
+	proto.RegisterType((*DescribeDNSAliasesOutput)(nil), "spec.DescribeDNSAliasesOutput")
+	proto.RegisterType((*AssociateDNSAliasInput)(nil), "spec.AssociateDNSAliasInput")
+	proto.RegisterType((*AssociateDNSAliasOutput)(nil), "spec.AssociateDNSAliasOutput")
+	proto.RegisterType((*DissociateDNSAliasesInput)(nil), "spec.DissociateDNSAliasesInput")
+	proto.RegisterType((*DissociateDNSAliasesOutput)(nil), "spec.DissociateDNSAliasesOutput")
+	proto.RegisterType((*GetDNSLabelInput)(nil), "spec.GetDNSLabelInput")
+	proto.RegisterType((*GetDNSLabelOutput)(nil), "spec.GetDNSLabelOutput")
 }
 
 type DNSAliasServiceInterface interface {
-	DescribeDNSAliases(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AssociateDNSAlias(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DissociateDNSAliases(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GetDNSLabel(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error)
+	AssociateDNSAlias(in *AssociateDNSAliasInput) (out *AssociateDNSAliasOutput, err error)
+	DissociateDNSAliases(in *DissociateDNSAliasesInput) (out *DissociateDNSAliasesOutput, err error)
+	GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOutput, err error)
 }
 
 type DNSAliasService struct {
@@ -65,9 +137,9 @@ func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService, e
 	}, nil
 }
 
-func (p *DNSAliasService) DescribeDNSAliases(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DescribeDNSAliasesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -76,7 +148,7 @@ func (p *DNSAliasService) DescribeDNSAliases(in *google_protobuf1.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DescribeDNSAliasesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -89,9 +161,9 @@ func (p *DNSAliasService) DescribeDNSAliases(in *google_protobuf1.Empty) (out *g
 
 	return x, err
 }
-func (p *DNSAliasService) AssociateDNSAlias(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *AssociateDNSAliasOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &AssociateDNSAliasInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -100,7 +172,7 @@ func (p *DNSAliasService) AssociateDNSAlias(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &AssociateDNSAliasOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -113,9 +185,9 @@ func (p *DNSAliasService) AssociateDNSAlias(in *google_protobuf1.Empty) (out *go
 
 	return x, err
 }
-func (p *DNSAliasService) DissociateDNSAliases(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (out *DissociateDNSAliasesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DissociateDNSAliasesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -124,7 +196,7 @@ func (p *DNSAliasService) DissociateDNSAliases(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DissociateDNSAliasesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -137,9 +209,9 @@ func (p *DNSAliasService) DissociateDNSAliases(in *google_protobuf1.Empty) (out 
 
 	return x, err
 }
-func (p *DNSAliasService) GetDNSLabel(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &GetDNSLabelInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -148,7 +220,7 @@ func (p *DNSAliasService) GetDNSLabel(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &GetDNSLabelOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -165,20 +237,25 @@ func (p *DNSAliasService) GetDNSLabel(in *google_protobuf1.Empty) (out *google_p
 func init() { proto.RegisterFile("dns.proto", fileDescriptor4) }
 
 var fileDescriptor4 = []byte{
-	// 226 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x8e, 0xbd, 0x4a, 0xc5, 0x30,
-	0x14, 0xc7, 0xa9, 0x14, 0xa1, 0xc7, 0x41, 0x0c, 0x22, 0xb6, 0x82, 0x8a, 0x93, 0x53, 0x0a, 0x3a,
-	0x3b, 0x14, 0xa3, 0x2e, 0x52, 0xc4, 0x3e, 0x41, 0x12, 0x8f, 0x25, 0xd0, 0x36, 0x21, 0x27, 0x2a,
-	0xfa, 0x3a, 0xbe, 0xa8, 0xd8, 0x8f, 0x3b, 0x04, 0xee, 0xd0, 0xbb, 0x25, 0xe7, 0xf7, 0xff, 0x82,
-	0xec, 0x6d, 0x20, 0xee, 0xbc, 0x0d, 0x96, 0xa5, 0xe4, 0x50, 0x17, 0x79, 0x6b, 0x6d, 0xdb, 0x61,
-	0x39, 0xde, 0xd4, 0xc7, 0x7b, 0x29, 0x87, 0xef, 0x49, 0x50, 0x9c, 0xc5, 0x08, 0x7b, 0x17, 0x16,
-	0x78, 0x11, 0xc3, 0x60, 0x7a, 0xa4, 0x20, 0x7b, 0x37, 0x0b, 0xce, 0x63, 0xc1, 0x97, 0x97, 0xce,
-	0xa1, 0x9f, 0xeb, 0xaf, 0x4a, 0xc8, 0x45, 0xdd, 0x54, 0x9d, 0x91, 0xd4, 0xa0, 0xff, 0x34, 0x1a,
-	0x5f, 0xbc, 0x75, 0xe8, 0x83, 0x41, 0x62, 0x0c, 0xd2, 0x1f, 0x3b, 0xe0, 0x69, 0x72, 0x99, 0x5c,
-	0x67, 0xaf, 0xe3, 0xfb, 0xe6, 0x77, 0x0f, 0x0e, 0x23, 0x07, 0x13, 0xc0, 0x04, 0x92, 0xf6, 0x46,
-	0xe1, 0x82, 0x90, 0xd8, 0x09, 0x9f, 0xba, 0xf9, 0xd2, 0xcd, 0x1f, 0xfe, 0x97, 0x17, 0x5b, 0xee,
-	0xec, 0x1e, 0x8e, 0x2a, 0x22, 0xab, 0x8d, 0x0c, 0x9b, 0x98, 0xd5, 0x21, 0x8f, 0x70, 0x2c, 0x4c,
-	0x9c, 0xb2, 0xc3, 0x98, 0x3b, 0x38, 0x78, 0xc2, 0x20, 0xea, 0xe6, 0x59, 0x2a, 0xec, 0xd6, 0xda,
-	0xd5, 0xfe, 0xf8, 0xbf, 0xfd, 0x0b, 0x00, 0x00, 0xff, 0xff, 0x6d, 0x91, 0x09, 0x41, 0xe9, 0x01,
-	0x00, 0x00,
+	// 309 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x92, 0x5f, 0x4b, 0xc3, 0x30,
+	0x14, 0xc5, 0x99, 0x0c, 0x61, 0xd7, 0x07, 0x5d, 0x94, 0x6d, 0xcd, 0xfe, 0xb2, 0x27, 0x9f, 0x56,
+	0xd0, 0x77, 0x61, 0x50, 0x10, 0x41, 0xe6, 0xb0, 0x4f, 0x3e, 0xa6, 0xf5, 0x3a, 0x02, 0x6d, 0x13,
+	0x92, 0x54, 0xd1, 0xaf, 0xe9, 0x17, 0x92, 0x35, 0xa9, 0x8c, 0xb4, 0x7d, 0x0b, 0xf7, 0x77, 0xce,
+	0xbd, 0xb9, 0x27, 0x81, 0xc1, 0x7b, 0xa1, 0x37, 0x52, 0x09, 0x23, 0x48, 0x5f, 0x4b, 0x4c, 0x69,
+	0x70, 0x10, 0xe2, 0x90, 0x61, 0x58, 0xd5, 0x92, 0xf2, 0x23, 0x64, 0xc5, 0xb7, 0x15, 0xd0, 0xa9,
+	0x8f, 0x30, 0x97, 0xa6, 0x86, 0x4b, 0x1f, 0x1a, 0x9e, 0xa3, 0x36, 0x2c, 0x97, 0x4e, 0xb0, 0xf0,
+	0x05, 0x5f, 0x8a, 0x49, 0x89, 0xca, 0x8d, 0x5f, 0x87, 0x10, 0x44, 0xbb, 0x78, 0x9b, 0x71, 0xa6,
+	0x63, 0x54, 0x9f, 0x3c, 0xc5, 0xbd, 0x12, 0x12, 0x95, 0xe1, 0xa8, 0x09, 0x81, 0xfe, 0x8f, 0x28,
+	0x70, 0xd2, 0x5b, 0xf5, 0x6e, 0x07, 0xaf, 0xd5, 0x79, 0x1d, 0xc0, 0x38, 0x42, 0x9d, 0x2a, 0x9e,
+	0x60, 0x6d, 0x44, 0xfd, 0x54, 0xc8, 0xd2, 0xac, 0x29, 0x4c, 0x9a, 0xe8, 0xa5, 0x34, 0x47, 0x36,
+	0x81, 0xd1, 0x56, 0x6b, 0x91, 0x72, 0x66, 0xfe, 0xa1, 0x75, 0x05, 0x30, 0x6e, 0x10, 0x67, 0x9a,
+	0x42, 0x10, 0x71, 0x9f, 0xd5, 0xd3, 0x66, 0x40, 0xdb, 0xa0, 0xb3, 0x12, 0xb8, 0x7a, 0x44, 0x13,
+	0xed, 0xe2, 0x67, 0x96, 0x60, 0x66, 0x1d, 0xd7, 0x30, 0x3c, 0xa9, 0x59, 0xe1, 0xdd, 0xef, 0x19,
+	0x5c, 0x7a, 0x09, 0x90, 0x18, 0x48, 0x73, 0x11, 0x32, 0xdf, 0x1c, 0x9f, 0x6a, 0xd3, 0xb1, 0x3d,
+	0x5d, 0x74, 0x61, 0x3b, 0x88, 0xec, 0x61, 0xd8, 0xd8, 0x93, 0xcc, 0xac, 0xa9, 0x3d, 0x1a, 0x3a,
+	0xef, 0xa0, 0xae, 0xe3, 0x1b, 0xdc, 0xb4, 0x25, 0x40, 0x96, 0xee, 0x26, 0x5d, 0xd1, 0xd1, 0x55,
+	0xb7, 0xc0, 0xb5, 0x7e, 0x80, 0x8b, 0x93, 0xa8, 0xc8, 0xc8, 0x1a, 0xfc, 0x44, 0xe9, 0xb8, 0x51,
+	0xb7, 0xfe, 0xe4, 0xbc, 0xfa, 0x5d, 0xf7, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x3e, 0x31, 0xd1,
+	0xa1, 0xe9, 0x02, 0x00, 0x00,
 }

@@ -18,8 +18,36 @@ message DNSAliasServiceProperties {
 }
 
 service DNSAliasService {
-	rpc DescribeDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AssociateDNSAlias(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DissociateDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetDNSLabel(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeDNSAliases(DescribeDNSAliasesInput) returns (DescribeDNSAliasesOutput);
+	rpc AssociateDNSAlias(AssociateDNSAliasInput) returns (AssociateDNSAliasOutput);
+	rpc DissociateDNSAliases(DissociateDNSAliasesInput) returns (DissociateDNSAliasesOutput);
+	rpc GetDNSLabel(GetDNSLabelInput) returns (GetDNSLabelOutput);
+}
+
+message DescribeDNSAliasesInput {
+	//
+}
+message DescribeDNSAliasesOutput {
+	//
+}
+
+message AssociateDNSAliasInput {
+	//
+}
+message AssociateDNSAliasOutput {
+	//
+}
+
+message DissociateDNSAliasesInput {
+	//
+}
+message DissociateDNSAliasesOutput {
+	//
+}
+
+message GetDNSLabelInput {
+	//
+}
+message GetDNSLabelOutput {
+	//
 }

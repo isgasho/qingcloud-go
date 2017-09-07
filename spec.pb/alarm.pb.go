@@ -48,6 +48,14 @@ It has these top-level messages:
 	DescribeClustersOutput
 	Cluster
 	DNSAliasServiceProperties
+	DescribeDNSAliasesInput
+	DescribeDNSAliasesOutput
+	AssociateDNSAliasInput
+	AssociateDNSAliasOutput
+	DissociateDNSAliasesInput
+	DissociateDNSAliasesOutput
+	GetDNSLabelInput
+	GetDNSLabelOutput
 	EipServiceProperties
 	HadoopServiceProperties
 	ImageServiceProperties
@@ -56,6 +64,8 @@ It has these top-level messages:
 	DescribeInstanceTypes_Reponse
 	InstanceTypeSetElem
 	JobServiceProperties
+	DescribeJobsInput
+	DescribeJobsOutput
 	KeyPairServiceProperties
 	LoadBalancerServiceProperties
 	MiscServiceProperties
@@ -90,6 +100,8 @@ It has these top-level messages:
 	DeleteNicsInput
 	DeleteNicsOutput
 	NotificationCenterServiceProperties
+	DescribeNotificationCenterUserPostsInput
+	DescribeNotificationCenterUserPostsOutput
 	RDBServiceProperties
 	ResourceACLServiceProperties
 	RouterServiceProperties
@@ -106,6 +118,8 @@ It has these top-level messages:
 	VolumesServiceProperties
 	VxnetServiceProperties
 	ZoneServiceProperties
+	DescribeZonesInput
+	DescribeZonesOutput
 */
 package spec
 

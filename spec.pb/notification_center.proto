@@ -18,5 +18,12 @@ message NotificationCenterServiceProperties {
 }
 
 service NotificationCenterService {
-	rpc DescribeNotificationCenterUserPosts(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeNotificationCenterUserPosts(DescribeNotificationCenterUserPostsInput) returns (DescribeNotificationCenterUserPostsOutput);
+}
+
+message DescribeNotificationCenterUserPostsInput {
+	//
+}
+message DescribeNotificationCenterUserPostsOutput {
+	//
 }

@@ -18,5 +18,12 @@ message ZoneServiceProperties {
 }
 
 service ZoneService {
-	rpc DescribeZones(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeZones(DescribeZonesInput) returns (DescribeZonesOutput);
+}
+
+message DescribeZonesInput {
+	//
+}
+message DescribeZonesOutput {
+	//
 }
