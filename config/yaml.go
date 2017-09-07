@@ -17,7 +17,7 @@
 package config
 
 import (
-	"github.com/chai2010/qingcloud-go/internal/yaml.v2"
+	"gopkg.in/yaml.v2"
 )
 
 // YAMLEncode encode given interface to yaml byte slice.
