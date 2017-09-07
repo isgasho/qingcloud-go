@@ -10,8 +10,10 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
+	options "google.golang.org/genproto/googleapis/api/annotations"
 )
 
 // qingcloudPlugin produce the Service interface.
@@ -167,7 +169,7 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "{{.MethodName}}",
-		RequestMethod: "GET", // GET or POST
+		RequestMethod: "{{.RequestMethod}}", // GET or POST
 	}
 
 	x := &{{.ReplyType}}{}
@@ -187,14 +189,26 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 	// gen client method list
 	var methodList string
 	for _, m := range svc.Method {
+		var RequestMethod = "GET" // default is GET
+		if m.Options != nil && proto.HasExtension(m.Options, options.E_Http) {
+			if ext, _ := proto.GetExtension(m.Options, options.E_Http); ext != nil {
+				if extHttp, _ := ext.(*options.HttpRule); extHttp != nil {
+					if kind := extHttp.GetCustom().GetKind(); kind != "" {
+						RequestMethod = kind
+					}
+				}
+			}
+		}
+
 		out := bytes.NewBuffer([]byte{})
 		t := template.Must(template.New("").Parse(clientMethodTmpl))
-		t.Execute(out, &struct{ ServiceName, ServiceRegisterName, MethodName, ArgsType, ReplyType string }{
+		t.Execute(out, &struct{ ServiceName, ServiceRegisterName, MethodName, ArgsType, ReplyType, RequestMethod string }{
 			ServiceName:         generator.CamelCase(svc.GetName()),
 			ServiceRegisterName: generator.CamelCase(svc.GetName()),
 			MethodName:          generator.CamelCase(m.GetName()),
 			ArgsType:            p.TypeName(p.ObjectNamed(m.GetInputType())),
 			ReplyType:           p.TypeName(p.ObjectNamed(m.GetOutputType())),
+			RequestMethod:       RequestMethod,
 		})
 		methodList += out.String()
 	}
