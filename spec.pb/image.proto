@@ -14,16 +14,16 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/image/index.html
 
 message ImageServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service ImageService {
-    rpc DescribeImages(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CaptureInstance(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteImages(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyImageAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc GrantImageToUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc RevokeImageFromUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeImageUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CloneImages(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeImages(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CaptureInstance(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteImages(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyImageAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc GrantImageToUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RevokeImageFromUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeImageUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CloneImages(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

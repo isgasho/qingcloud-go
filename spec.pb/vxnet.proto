@@ -14,15 +14,15 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/vxnet/index.html
 
 message VxnetServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service VxnetService {
-    rpc DescribeVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc JoinVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc LeaveVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyVxnetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeVxnetInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc JoinVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc LeaveVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyVxnetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeVxnetInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

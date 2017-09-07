@@ -18,29 +18,29 @@ message CacheServiceProperties {
 }
 
 service CacheService {
-    rpc DescribeCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateCache(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StopCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StartCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc RestartCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ResizeCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc UpdateCache(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ChangeCacheVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyCacheAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc RestartCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyCacheNodeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateCacheFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeCacheParameterGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateCacheParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ApplyCacheParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteCacheParameterGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyCacheParameterGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc UpdateCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ResetCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateCache(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StopCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StartCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RestartCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResizeCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc UpdateCache(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ChangeCacheVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyCacheAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RestartCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyCacheNodeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateCacheFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeCacheParameterGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateCacheParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ApplyCacheParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteCacheParameterGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyCacheParameterGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc UpdateCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResetCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 

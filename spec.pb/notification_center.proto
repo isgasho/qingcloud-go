@@ -14,9 +14,9 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/notification_center/index.html
 
 message NotificationCenterServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service NotificationCenterService {
-    rpc DescribeNotificationCenterUserPosts(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeNotificationCenterUserPosts(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

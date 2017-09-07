@@ -15,7 +15,7 @@ import "google/protobuf/wrappers.proto";
 // ----------------------------------------------------------------------------
 
 message Options {
-    int32 foo = 1;
+	int32 foo = 1;
 }
 
 // ----------------------------------------------------------------------------
@@ -40,14 +40,14 @@ https://api.qingcloud.com/iaas/?access_key_id=QYACCESSKEYIDEXAMPLE
 // ----------------------------------------------------------------------------
 
 message CommonRequest {
-    string action = 1;                        // 用来标识所请求指令
-    string zone = 2;                          // 区域 ID, enum: {pek1, pek2, pek3a, pek3b, sh1a, gd1, gp1}
-    google.protobuf.Timestamp time_stamp = 3; // 格式 YYYY-MM-DDThh:mm:ssZ, 参见 ISO8601.
-    string access_key_id = 4;                 // 申请的 API密钥ID
-    int32 version = 5;                        // API的版本号, 目前只支持版本号为 1
-    string signature_method = 6;              // 签名所用哈希算法. enum: {HmacSHA256, HmacSHA1}
-    int32 signature_version = 7;              // 签名函数的版本号, 目前只支持版本号为 1
-    string signature = 8;                     // 请求消息的签名
+	string action = 1;                        // 用来标识所请求指令
+	string zone = 2;                          // 区域 ID, enum: {pek1, pek2, pek3a, pek3b, sh1a, gd1, gp1}
+	google.protobuf.Timestamp time_stamp = 3; // 格式 YYYY-MM-DDThh:mm:ssZ, 参见 ISO8601.
+	string access_key_id = 4;                 // 申请的 API密钥ID
+	int32 version = 5;                        // API的版本号, 目前只支持版本号为 1
+	string signature_method = 6;              // 签名所用哈希算法. enum: {HmacSHA256, HmacSHA1}
+	int32 signature_version = 7;              // 签名函数的版本号, 目前只支持版本号为 1
+	string signature = 8;                     // 请求消息的签名
 }
 
 // ----------------------------------------------------------------------------
@@ -57,28 +57,28 @@ message CommonRequest {
 // ----------------------------------------------------------------------------
 
 message Error {
-    int32 ret_code = 1;
-    string message = 2;
+	int32 ret_code = 1;
+	string message = 2;
 }
 
 enum ErrorCode {
-    E_NULL = 0;
+	ErrorCode_NULL = 0;
 
-    // Client
-    E_1100 = 1100;
-    E_1200 = 1200;
-    E_1300 = 1300;
-    E_1400 = 1400;
+	// Client
+	ErrorCode_1100 = 1100;
+	ErrorCode_1200 = 1200;
+	ErrorCode_1300 = 1300;
+	ErrorCode_1400 = 1400;
 
-    E_2100 = 2100;
-    E_2400 = 2400;
-    E_2500 = 2500;
+	ErrorCode_2100 = 2100;
+	ErrorCode_2400 = 2400;
+	ErrorCode_2500 = 2500;
 
-    // Server
-    E_5000 = 5000;
-    E_5100 = 5100;
-    E_5200 = 5200;
-    E_5300 = 5300; 
+	// Server
+	ErrorCode_5000 = 5000;
+	ErrorCode_5100 = 5100;
+	ErrorCode_5200 = 5200;
+	ErrorCode_5300 = 5300;
 }
 
 // ----------------------------------------------------------------------------

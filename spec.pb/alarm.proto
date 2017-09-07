@@ -18,21 +18,21 @@ message AlarmServiceProperties {
 }
 
 service AlarmService {
-    rpc DescribeAlarmPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyAlarmPolicyAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteAlarmPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyAlarmPolicyRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyAlarmPolicyActionAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AssociateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DissociateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ApplyAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeAlarms(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeAlarmHistory(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeAlarmPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyAlarmPolicyAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteAlarmPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyAlarmPolicyRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyAlarmPolicyActionAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AssociateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DissociateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ApplyAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeAlarms(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeAlarmHistory(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

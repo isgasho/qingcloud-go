@@ -14,13 +14,13 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/subuser/index.html
 
 message SubuserServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service SubuserService {
-    rpc DescribeSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateSubUser(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifySubUserAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc RestoreSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateSubUser(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifySubUserAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RestoreSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

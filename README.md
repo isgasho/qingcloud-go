@@ -72,7 +72,7 @@ log_level: 'warn'
 
 ```proto
 service UserDataService {
-    rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
+	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
 		option (google.api.http) = {
 			custom { kind: "POST" }
 		};

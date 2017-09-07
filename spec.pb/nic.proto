@@ -16,22 +16,22 @@ import "google/protobuf/wrappers.proto";
 // ----------------------------------------------------------------------------
 
 message NicServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service NicService {
-    rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
+	rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
 	rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput);
-    rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);
-    rpc DetachNics(DetachNicsInput) returns (DetachNicsOutput);
-    rpc ModifyNicAttributes(ModifyNicAttributesInput) returns (ModifyNicAttributesOutput);
-    rpc DeleteNics(DeleteNicsInput) returns (DeleteNicsOutput);
+	rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);
+	rpc DetachNics(DetachNicsInput) returns (DetachNicsOutput);
+	rpc ModifyNicAttributes(ModifyNicAttributesInput) returns (ModifyNicAttributesOutput);
+	rpc DeleteNics(DeleteNicsInput) returns (DeleteNicsOutput);
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateNicsInput {
-    //
+	//
 }
 message CreateNicsOutput {
 	//
@@ -62,7 +62,7 @@ message DescribeNicsOutput {
 // 忽略 不支持的 成员
 
 message NIC {
-    google.protobuf.Timestamp create_time = 1;
+	google.protobuf.Timestamp create_time = 1;
 	string instance_id = 2;
 	string nic_id = 3;
 	string nic_name = 4;
@@ -119,29 +119,29 @@ message ResourceTypeCount {
 // ----------------------------------------------------------------------------
 
 message AttachNicsInput {
-    //
+	//
 }
 
 message AttachNicsOutput {
-    //
+	//
 }
 
 // ----------------------------------------------------------------------------
 
 message DetachNicsInput {
-    //
+	//
 }
 message DetachNicsOutput {
-    //
+	//
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyNicAttributesInput {
-    //
+	//
 }
 message ModifyNicAttributesOutput {
-    //
+	//
 }
 
 // ----------------------------------------------------------------------------

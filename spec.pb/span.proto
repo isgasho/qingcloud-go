@@ -14,15 +14,15 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/span/index.html
 
 message SpanServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service SpanService {
-    rpc CreateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc RemoveSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifySpanAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc UpdateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RemoveSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifySpanAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc UpdateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

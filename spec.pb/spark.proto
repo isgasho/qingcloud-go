@@ -14,15 +14,15 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/spark/index.html
 
 message SparkServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service SparkService {
-    rpc CreateSpark(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StartSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StopSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateSpark(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StartSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StopSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

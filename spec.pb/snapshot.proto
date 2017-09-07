@@ -14,15 +14,15 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/snapshot/index.html
 
 message SnapshotServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service SnapshotService {
-    rpc DescribeSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ApplySnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifySnapshotAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CaptureInstanceFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateVolumeFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ApplySnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifySnapshotAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CaptureInstanceFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateVolumeFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

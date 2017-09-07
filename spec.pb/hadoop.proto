@@ -14,12 +14,12 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/hadoop/index.html
 
 message HadoopServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service HadoopService {
-    rpc AddHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StartHadoops(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StopHadoops(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StartHadoops(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StopHadoops(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

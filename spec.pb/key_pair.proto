@@ -14,14 +14,14 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/keypair/index.html
 
 message KeyPairServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service KeyPairService {
-    rpc DescribeKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateKeyPair(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AttachKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DetachKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyKeyPairAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateKeyPair(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AttachKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DetachKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyKeyPairAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

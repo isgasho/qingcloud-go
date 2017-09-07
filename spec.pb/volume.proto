@@ -14,16 +14,16 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/volume/index.html
 
 message VolumesServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service VolumesService {
-    rpc DescribeVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AttachVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DetachVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ResizeVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyVolumeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AttachVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DetachVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResizeVolumes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyVolumeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 

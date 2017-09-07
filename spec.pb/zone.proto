@@ -14,9 +14,9 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/zone/index.html
 
 message ZoneServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service ZoneService {
-    rpc DescribeZones(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeZones(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

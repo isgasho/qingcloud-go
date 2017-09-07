@@ -16,11 +16,11 @@ import "google/api/annotations.proto";
 // https://docs.qingcloud.com/api/userdata/index.html
 
 message UserDataServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service UserDataService {
-    rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
+	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
 		option (google.api.http) = {
 			custom { kind: "POST" }
 		};

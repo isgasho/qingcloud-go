@@ -70,26 +70,26 @@ service InstanceService {
 // ----------------------------------------------------------------------------
 
 message DescribeInstanceTypes_Request {
-    string action = 1;                  // 用来标识所请求指令
-    string zone = 2;                    // 区域 ID, 例如 pek3a
-    repeated string instance_types = 3; // 指定查询的主机类型
+	string action = 1;                  // 用来标识所请求指令
+	string zone = 2;                    // 区域 ID, 例如 pek3a
+	repeated string instance_types = 3; // 指定查询的主机类型
 }
 
 message DescribeInstanceTypes_Reponse {
-    string action = 1;                                  // 响应动作
-    int32 ret_code = 2;                                 // 状态码
+	string action = 1;                                  // 响应动作
+	int32 ret_code = 2;                                 // 状态码
 
-    repeated InstanceTypeSetElem instance_type_set = 3; // 主机类型列表
-    int32 total_count = 4;                              // 根据过滤条件得到的主机类型总数
+	repeated InstanceTypeSetElem instance_type_set = 3; // 主机类型列表
+	int32 total_count = 4;                              // 根据过滤条件得到的主机类型总数
 }
 
 message InstanceTypeSetElem {
-    string instance_type_id = 1;   // 主机类型ID
-    string instance_type_name = 2; // 主机类型名称
-    string description = 3;        // 主机类型描述
-    int32 vcpus_current = 4;       // 主机类型CPU核心数目
-    int32 memory_current = 5;      // 主机类型内存大小, 单位为MB
-    string status = 6;             // 主机类型状态. enum: {available, deprecated}
+	string instance_type_id = 1;   // 主机类型ID
+	string instance_type_name = 2; // 主机类型名称
+	string description = 3;        // 主机类型描述
+	int32 vcpus_current = 4;       // 主机类型CPU核心数目
+	int32 memory_current = 5;      // 主机类型内存大小, 单位为MB
+	string status = 6;             // 主机类型状态. enum: {available, deprecated}
 }
 
 // ----------------------------------------------------------------------------

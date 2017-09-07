@@ -14,9 +14,9 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/job/index.html
 
 message JobServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service JobService {
-    rpc DescribeJobs(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeJobs(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

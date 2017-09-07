@@ -14,39 +14,39 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/lb/index.html
 
 message LoadBalancerServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service LoadBalancerService {
-    rpc CreateLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyLoadBalancerAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StartLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StopLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc UpdateLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ResizeLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AssociateEipsToLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DissociateEipsFromLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyLoadBalancerListenerAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyLoadBalancerBackendAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateLoadBalancerPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeLoadBalancerPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyLoadBalancerPolicyAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ApplyLoadBalancerPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteLoadBalancerPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyLoadBalancerPolicyRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateServerCertificate(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyServerCertificateAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyLoadBalancerAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StartLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StopLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc UpdateLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResizeLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AssociateEipsToLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DissociateEipsFromLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyLoadBalancerListenerAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyLoadBalancerBackendAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateLoadBalancerPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeLoadBalancerPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyLoadBalancerPolicyAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ApplyLoadBalancerPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteLoadBalancerPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyLoadBalancerPolicyRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateServerCertificate(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyServerCertificateAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

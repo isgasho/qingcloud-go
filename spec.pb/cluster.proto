@@ -12,31 +12,31 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 message ClusterServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service ClusterService {
-    rpc CreateCluster(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeClusters(DescribeClustersInput) returns (DescribeClustersOutput);
-    rpc DescribeClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StopClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc StartClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc lease(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AddClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ResizeCluster(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ChangeClusterVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc SuspendClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc UpdateClusterEnvironment(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyClusterAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyClusterNodeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc GetClustersStats(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeClusterUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc RestartClusterService(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc UpgradeClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AuthorizeClustersBrokerToDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc RevokeClustersBrokerFromDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateCluster(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeClusters(DescribeClustersInput) returns (DescribeClustersOutput);
+	rpc DescribeClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StopClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc StartClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc lease(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteClusterNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResizeCluster(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ChangeClusterVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc SuspendClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc UpdateClusterEnvironment(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyClusterAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyClusterNodeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc GetClustersStats(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeClusterUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RestartClusterService(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc UpgradeClusters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AuthorizeClustersBrokerToDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc RevokeClustersBrokerFromDeveloper(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 
 message DescribeClustersInput {

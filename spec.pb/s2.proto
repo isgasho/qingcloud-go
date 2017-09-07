@@ -14,36 +14,36 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/s2/index.html
 
 message S2ServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service S2Service {
-    rpc CreateS2Server(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyS2Server(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ResizeS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc PowerOnS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc PowerOffS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc UpdateS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ChangeS2ServerVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc EnableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DisableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyS2SharedTargetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AttachToS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DetachFromS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeS2DefaultParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateS2Group(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeS2Groups(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyS2Group(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteS2Groups(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc CreateS2Account(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DescribeS2Accounts(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyS2Account(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DeleteS2Accounts(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AssociateS2AccountGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DissociateS2AccountGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateS2Server(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyS2Server(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ResizeS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc PowerOnS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc PowerOffS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc UpdateS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ChangeS2ServerVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc EnableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DisableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyS2SharedTargetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AttachToS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DetachFromS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeS2DefaultParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateS2Group(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeS2Groups(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyS2Group(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteS2Groups(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateS2Account(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeS2Accounts(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyS2Account(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteS2Accounts(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AssociateS2AccountGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DissociateS2AccountGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

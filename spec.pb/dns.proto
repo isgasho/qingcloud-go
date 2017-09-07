@@ -14,12 +14,12 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/dns_alias/index.html
 
 message DNSAliasServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service DNSAliasService {
-    rpc DescribeDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AssociateDNSAlias(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DissociateDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc GetDNSLabel(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AssociateDNSAlias(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DissociateDNSAliases(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc GetDNSLabel(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

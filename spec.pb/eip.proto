@@ -14,16 +14,16 @@ import "google/protobuf/wrappers.proto";
 // https://docs.qingcloud.com/api/eip/index.html
 
 message EipServiceProperties {
-    string zone = 1;
+	string zone = 1;
 }
 
 service EipService {
-    rpc DescribeEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AllocateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ReleaseEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc AssociateEip(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc DissociateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ChangeEipsBandwidth(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ChangeEipsBillingMode(google.protobuf.Empty) returns (google.protobuf.Empty);
-    rpc ModifyEipAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AllocateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ReleaseEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AssociateEip(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DissociateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ChangeEipsBandwidth(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ChangeEipsBillingMode(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc ModifyEipAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
