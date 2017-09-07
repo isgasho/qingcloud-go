@@ -66,20 +66,15 @@ log_level: 'warn'
 
 ## protobuf 扩展信息
 
-- [spec.pb/nic.proto](./spec.pb/nic.proto):
+- [spec.pb/user_data.proto](./spec.pb/user_data.proto):
 
 ```proto
-service NicService {
-    rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
-    rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput) {
+service UserDataService {
+    rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
 		option (google.api.http) = {
-			custom { kind: "GET" }
+			custom { kind: "POST" }
 		};
 	}
-    rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);
-    rpc DetachNics(DetachNicsInput) returns (DetachNicsOutput);
-    rpc ModifyNicAttributes(ModifyNicAttributesInput) returns (ModifyNicAttributesOutput);
-    rpc DeleteNics(DeleteNicsInput) returns (DeleteNicsOutput);
 }
 ```
 

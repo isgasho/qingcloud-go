@@ -88,6 +88,8 @@ It has these top-level messages:
 	SubuserServiceProperties
 	TagServiceProperties
 	UserDataServiceProperties
+	UploadUserDataAttachmentInput
+	UploadUserDataAttachmentOutput
 	VolumesServiceProperties
 	VxnetServiceProperties
 	ZoneServiceProperties
