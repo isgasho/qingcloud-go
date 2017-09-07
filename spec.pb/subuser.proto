@@ -6,11 +6,6 @@ syntax = "proto3";
 
 package spec;
 
-import "google/protobuf/any.proto";
-import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/wrappers.proto";
-
 // https://docs.qingcloud.com/api/subuser/index.html
 
 message SubuserServiceProperties {
@@ -18,9 +13,44 @@ message SubuserServiceProperties {
 }
 
 service SubuserService {
-	rpc DescribeSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateSubUser(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifySubUserAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RestoreSubUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSubUsers(DescribeSubUsersInput) returns (DescribeSubUsersOutput);
+	rpc CreateSubUser(CreateSubUserInput) returns (CreateSubUserOutput);
+	rpc ModifySubUserAttributes(ModifySubUserAttributesInput) returns (ModifySubUserAttributesOutput);
+	rpc DeleteSubUsers(DeleteSubUsersInput) returns (DeleteSubUsersOutput);
+	rpc RestoreSubUsers(RestoreSubUsersInput) returns (RestoreSubUsersOutput);
+}
+
+message DescribeSubUsersInput {
+	//
+}
+message DescribeSubUsersOutput {
+	//
+}
+
+message CreateSubUserInput {
+	//
+}
+message CreateSubUserOutput {
+	//
+}
+
+message ModifySubUserAttributesInput {
+	//
+}
+message ModifySubUserAttributesOutput {
+	//
+}
+
+message DeleteSubUsersInput {
+	//
+}
+message DeleteSubUsersOutput {
+	//
+}
+
+message RestoreSubUsersInput {
+	//
+}
+message RestoreSubUsersOutput {
+	//
 }

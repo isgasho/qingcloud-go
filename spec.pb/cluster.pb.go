@@ -6,10 +6,7 @@ package spec
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/golang/protobuf/ptypes/any"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
-import _ "github.com/golang/protobuf/ptypes/timestamp"
-import _ "github.com/golang/protobuf/ptypes/wrappers"
+import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -162,27 +159,27 @@ func init() {
 }
 
 type ClusterServiceInterface interface {
-	CreateCluster(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
 	DescribeClusters(in *DescribeClustersInput) (out *DescribeClustersOutput, err error)
-	DescribeClusterNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StopClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StartClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	Lease(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddClusterNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteClusterNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ResizeCluster(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ChangeClusterVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	SuspendClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	UpdateClusterEnvironment(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyClusterAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyClusterNodeAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GetClustersStats(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeClusterUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RestartClusterService(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	UpgradeClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AuthorizeClustersBrokerToDeveloper(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RevokeClustersBrokerFromDeveloper(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	StopClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	StartClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	DeleteClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	Lease(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	AddClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	DeleteClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	ResizeCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	ChangeClusterVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	SuspendClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	UpdateClusterEnvironment(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	ModifyClusterAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	ModifyClusterNodeAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	GetClustersStats(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	DescribeClusterUsers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	RestartClusterService(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	UpgradeClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	AuthorizeClustersBrokerToDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	RevokeClustersBrokerFromDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
 }
 
 type ClusterService struct {
@@ -197,9 +194,9 @@ func NewClusterService(conf *config.Config, zone string) (p *ClusterService, err
 	}, nil
 }
 
-func (p *ClusterService) CreateCluster(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) CreateCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -208,7 +205,7 @@ func (p *ClusterService) CreateCluster(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -245,9 +242,9 @@ func (p *ClusterService) DescribeClusters(in *DescribeClustersInput) (out *Descr
 
 	return x, err
 }
-func (p *ClusterService) DescribeClusterNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) DescribeClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -256,7 +253,7 @@ func (p *ClusterService) DescribeClusterNodes(in *google_protobuf1.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -269,9 +266,9 @@ func (p *ClusterService) DescribeClusterNodes(in *google_protobuf1.Empty) (out *
 
 	return x, err
 }
-func (p *ClusterService) StopClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) StopClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -280,7 +277,7 @@ func (p *ClusterService) StopClusters(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -293,9 +290,9 @@ func (p *ClusterService) StopClusters(in *google_protobuf1.Empty) (out *google_p
 
 	return x, err
 }
-func (p *ClusterService) StartClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) StartClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -304,7 +301,7 @@ func (p *ClusterService) StartClusters(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -317,9 +314,9 @@ func (p *ClusterService) StartClusters(in *google_protobuf1.Empty) (out *google_
 
 	return x, err
 }
-func (p *ClusterService) DeleteClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) DeleteClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -328,7 +325,7 @@ func (p *ClusterService) DeleteClusters(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -341,9 +338,9 @@ func (p *ClusterService) DeleteClusters(in *google_protobuf1.Empty) (out *google
 
 	return x, err
 }
-func (p *ClusterService) Lease(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) Lease(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -352,7 +349,7 @@ func (p *ClusterService) Lease(in *google_protobuf1.Empty) (out *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -365,9 +362,9 @@ func (p *ClusterService) Lease(in *google_protobuf1.Empty) (out *google_protobuf
 
 	return x, err
 }
-func (p *ClusterService) AddClusterNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) AddClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -376,7 +373,7 @@ func (p *ClusterService) AddClusterNodes(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -389,9 +386,9 @@ func (p *ClusterService) AddClusterNodes(in *google_protobuf1.Empty) (out *googl
 
 	return x, err
 }
-func (p *ClusterService) DeleteClusterNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) DeleteClusterNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -400,7 +397,7 @@ func (p *ClusterService) DeleteClusterNodes(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -413,9 +410,9 @@ func (p *ClusterService) DeleteClusterNodes(in *google_protobuf1.Empty) (out *go
 
 	return x, err
 }
-func (p *ClusterService) ResizeCluster(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) ResizeCluster(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -424,7 +421,7 @@ func (p *ClusterService) ResizeCluster(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -437,9 +434,9 @@ func (p *ClusterService) ResizeCluster(in *google_protobuf1.Empty) (out *google_
 
 	return x, err
 }
-func (p *ClusterService) ChangeClusterVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) ChangeClusterVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -448,7 +445,7 @@ func (p *ClusterService) ChangeClusterVxnet(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -461,9 +458,9 @@ func (p *ClusterService) ChangeClusterVxnet(in *google_protobuf1.Empty) (out *go
 
 	return x, err
 }
-func (p *ClusterService) SuspendClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) SuspendClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -472,7 +469,7 @@ func (p *ClusterService) SuspendClusters(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -485,9 +482,9 @@ func (p *ClusterService) SuspendClusters(in *google_protobuf1.Empty) (out *googl
 
 	return x, err
 }
-func (p *ClusterService) UpdateClusterEnvironment(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) UpdateClusterEnvironment(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -496,7 +493,7 @@ func (p *ClusterService) UpdateClusterEnvironment(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -509,9 +506,9 @@ func (p *ClusterService) UpdateClusterEnvironment(in *google_protobuf1.Empty) (o
 
 	return x, err
 }
-func (p *ClusterService) ModifyClusterAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) ModifyClusterAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -520,7 +517,7 @@ func (p *ClusterService) ModifyClusterAttributes(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -533,9 +530,9 @@ func (p *ClusterService) ModifyClusterAttributes(in *google_protobuf1.Empty) (ou
 
 	return x, err
 }
-func (p *ClusterService) ModifyClusterNodeAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) ModifyClusterNodeAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -544,7 +541,7 @@ func (p *ClusterService) ModifyClusterNodeAttributes(in *google_protobuf1.Empty)
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -557,9 +554,9 @@ func (p *ClusterService) ModifyClusterNodeAttributes(in *google_protobuf1.Empty)
 
 	return x, err
 }
-func (p *ClusterService) GetClustersStats(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) GetClustersStats(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -568,7 +565,7 @@ func (p *ClusterService) GetClustersStats(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -581,9 +578,9 @@ func (p *ClusterService) GetClustersStats(in *google_protobuf1.Empty) (out *goog
 
 	return x, err
 }
-func (p *ClusterService) DescribeClusterUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) DescribeClusterUsers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -592,7 +589,7 @@ func (p *ClusterService) DescribeClusterUsers(in *google_protobuf1.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -605,9 +602,9 @@ func (p *ClusterService) DescribeClusterUsers(in *google_protobuf1.Empty) (out *
 
 	return x, err
 }
-func (p *ClusterService) RestartClusterService(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) RestartClusterService(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -616,7 +613,7 @@ func (p *ClusterService) RestartClusterService(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -629,9 +626,9 @@ func (p *ClusterService) RestartClusterService(in *google_protobuf1.Empty) (out 
 
 	return x, err
 }
-func (p *ClusterService) UpgradeClusters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) UpgradeClusters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -640,7 +637,7 @@ func (p *ClusterService) UpgradeClusters(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -653,9 +650,9 @@ func (p *ClusterService) UpgradeClusters(in *google_protobuf1.Empty) (out *googl
 
 	return x, err
 }
-func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -664,7 +661,7 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *google_protobuf1
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -677,9 +674,9 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *google_protobuf1
 
 	return x, err
 }
-func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf.Empty{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -688,7 +685,7 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -705,45 +702,43 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *google_protobuf1.
 func init() { proto.RegisterFile("cluster.proto", fileDescriptor3) }
 
 var fileDescriptor3 = []byte{
-	// 636 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x55, 0x5f, 0x4f, 0xdb, 0x3e,
-	0x14, 0x55, 0x81, 0xf2, 0xe7, 0xf6, 0x57, 0x7e, 0xc8, 0x02, 0x16, 0xca, 0x34, 0x58, 0x9f, 0xd0,
-	0x1e, 0x82, 0xc4, 0x1e, 0xf6, 0x36, 0x56, 0x5a, 0x40, 0x4c, 0x62, 0x9b, 0x52, 0xca, 0x6b, 0xe5,
-	0x26, 0x97, 0x12, 0x91, 0xc6, 0x96, 0x7d, 0xdd, 0x0d, 0xbe, 0xc8, 0xbe, 0xc9, 0x3e, 0xcf, 0x3e,
-	0xca, 0x64, 0x27, 0x29, 0x22, 0x63, 0x0f, 0x0d, 0x6f, 0xbd, 0xe7, 0xda, 0xc7, 0xc7, 0xe7, 0xf8,
-	0x36, 0xd0, 0x0c, 0x13, 0xa3, 0x09, 0x95, 0x2f, 0x95, 0x20, 0xc1, 0x96, 0xb4, 0xc4, 0xb0, 0xb5,
-	0x33, 0x16, 0x62, 0x9c, 0xe0, 0xa1, 0xc3, 0x46, 0xe6, 0xe6, 0x90, 0xa7, 0xf7, 0xd9, 0x82, 0xd6,
-	0x6e, 0xb9, 0x85, 0x13, 0x49, 0x45, 0x73, 0xaf, 0xdc, 0xa4, 0x78, 0x82, 0x9a, 0xf8, 0x44, 0xe6,
-	0x0b, 0xde, 0x94, 0x17, 0x7c, 0x57, 0x5c, 0x4a, 0x54, 0x3a, 0xeb, 0xb7, 0x7d, 0xf0, 0xba, 0x99,
-	0x9e, 0x3e, 0xaa, 0x69, 0x1c, 0xe2, 0x37, 0x25, 0x24, 0x2a, 0x8a, 0x51, 0x33, 0x06, 0x4b, 0x0f,
-	0x22, 0x45, 0xaf, 0xb6, 0x5f, 0x3b, 0x58, 0x0b, 0xdc, 0xef, 0xf6, 0xcf, 0x1a, 0x6c, 0xf5, 0x50,
-	0x87, 0x2a, 0x1e, 0x61, 0xbe, 0x51, 0x5f, 0xa4, 0xd2, 0x10, 0xdb, 0x82, 0x65, 0x2e, 0xe5, 0x30,
-	0x8e, 0xbc, 0xda, 0xfe, 0xe2, 0xc1, 0x5a, 0x50, 0xe7, 0x52, 0x5e, 0x44, 0x6c, 0x0f, 0x1a, 0x16,
-	0x9e, 0xa2, 0xd2, 0xb1, 0x48, 0xbd, 0x05, 0xd7, 0x03, 0x2e, 0xe5, 0x75, 0x86, 0xb0, 0x16, 0xac,
-	0xe6, 0x8e, 0x68, 0x6f, 0xd1, 0x75, 0x67, 0x35, 0xdb, 0x84, 0xba, 0x0e, 0x85, 0x44, 0x6f, 0xc9,
-	0x49, 0xc8, 0x0a, 0x8b, 0x1a, 0x6d, 0x97, 0xd7, 0xb3, 0x83, 0x5c, 0xd1, 0xfe, 0x55, 0x83, 0xed,
-	0xb2, 0xb2, 0xaf, 0x86, 0xac, 0xb4, 0x6d, 0x58, 0xe6, 0x21, 0xd9, 0xe3, 0xb3, 0xab, 0xe4, 0x15,
-	0xdb, 0x81, 0x55, 0x85, 0x34, 0x0c, 0x45, 0x84, 0xde, 0xc2, 0x7e, 0xed, 0xa0, 0x1e, 0xac, 0x28,
-	0xa4, 0xae, 0x88, 0x90, 0x79, 0xb0, 0x32, 0x41, 0xad, 0xf9, 0x18, 0xbd, 0x45, 0xb7, 0xa7, 0x28,
-	0xed, 0x85, 0x48, 0x10, 0x4f, 0x86, 0xa1, 0x30, 0x29, 0x39, 0x65, 0xf5, 0x00, 0x1c, 0xd4, 0xb5,
-	0x08, 0xf3, 0xa1, 0x91, 0x5f, 0x60, 0xa8, 0x91, 0x9c, 0xc8, 0xc6, 0x51, 0xd3, 0xb7, 0x39, 0xfb,
-	0xb9, 0xb0, 0x00, 0xc2, 0xc2, 0x74, 0x6a, 0xbf, 0x83, 0x95, 0x1c, 0xb6, 0xdc, 0xe3, 0x44, 0x8c,
-	0x78, 0x32, 0x34, 0xc6, 0x19, 0x69, 0x4f, 0x86, 0x0c, 0x1a, 0x98, 0x38, 0x3a, 0xfa, 0xdd, 0x80,
-	0xf5, 0xa7, 0x79, 0xb1, 0x63, 0x68, 0x76, 0x15, 0x72, 0x2a, 0x2e, 0xcd, 0xb6, 0xfd, 0x2c, 0x73,
-	0xbf, 0xc8, 0xdc, 0x3f, 0xb5, 0x2f, 0xa6, 0xf5, 0x0f, 0x9c, 0x5d, 0xc2, 0x46, 0xd9, 0x37, 0xb6,
-	0x9b, 0xc9, 0x7d, 0x36, 0xe9, 0xd6, 0xeb, 0xe7, 0x9b, 0xb9, 0xd9, 0x67, 0xb0, 0x59, 0xea, 0x7c,
-	0x11, 0x11, 0xea, 0xb9, 0x65, 0x7d, 0x84, 0xff, 0xfa, 0x24, 0xe4, 0x4c, 0xd2, 0xbc, 0xfb, 0x8f,
-	0xa1, 0xd9, 0x27, 0xae, 0xa8, 0x32, 0xc1, 0x27, 0x58, 0xef, 0x61, 0x82, 0x84, 0x95, 0x19, 0x3e,
-	0x40, 0x3d, 0x41, 0xae, 0x71, 0xee, 0x8d, 0x1d, 0xf8, 0xbf, 0x13, 0x45, 0x2f, 0xb2, 0xaf, 0x07,
-	0xec, 0x89, 0xfa, 0x6a, 0x2c, 0xc7, 0xd0, 0x0c, 0x50, 0xc7, 0x0f, 0x95, 0x1f, 0x57, 0x0f, 0x58,
-	0xf7, 0x96, 0xa7, 0xe3, 0x82, 0xe0, 0xfa, 0x47, 0x8a, 0x54, 0xc5, 0x8f, 0xbe, 0xd1, 0x12, 0xd3,
-	0xa8, 0x72, 0x16, 0x9f, 0xc1, 0x1b, 0xc8, 0xe8, 0x71, 0x4c, 0x4e, 0xd3, 0x69, 0xac, 0x44, 0x3a,
-	0xc1, 0x74, 0x7e, 0x39, 0x17, 0xf0, 0xea, 0x52, 0x44, 0xf1, 0xcd, 0x7d, 0xce, 0xd5, 0x21, 0x52,
-	0xf1, 0xc8, 0x50, 0x05, 0x83, 0x2f, 0x61, 0xf7, 0x09, 0x95, 0x8d, 0xe9, 0x05, 0x74, 0x27, 0xb0,
-	0x71, 0x8e, 0xb3, 0x27, 0xdf, 0x27, 0x4e, 0xf3, 0x73, 0xfc, 0x3d, 0xc0, 0x03, 0x5d, 0xc5, 0xf1,
-	0x73, 0xd8, 0x0a, 0xec, 0xb7, 0x68, 0x36, 0x82, 0xc5, 0x3f, 0x56, 0x85, 0xf4, 0x07, 0x72, 0xac,
-	0x78, 0x54, 0x7d, 0x12, 0xaf, 0xa0, 0xdd, 0x31, 0x74, 0x2b, 0xd4, 0xe3, 0x53, 0xd6, 0x27, 0x4a,
-	0xdc, 0xa1, 0xba, 0x12, 0x3d, 0x9c, 0x62, 0x62, 0x3f, 0x7a, 0x73, 0xb3, 0xf6, 0xe1, 0x6d, 0x80,
-	0x53, 0x71, 0x57, 0xa2, 0x3c, 0x53, 0x62, 0x52, 0x99, 0x74, 0xb4, 0xec, 0xea, 0xf7, 0x7f, 0x02,
-	0x00, 0x00, 0xff, 0xff, 0x2d, 0xc0, 0x2c, 0xdf, 0x28, 0x08, 0x00, 0x00,
+	// 605 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x55, 0x4d, 0x4f, 0x1b, 0x31,
+	0x10, 0x55, 0x80, 0xf0, 0x31, 0x69, 0x28, 0xb2, 0x80, 0x6e, 0x43, 0xa5, 0xd2, 0x9c, 0x50, 0x0f,
+	0x8b, 0x44, 0x0f, 0xbd, 0x95, 0x86, 0x04, 0x10, 0x95, 0x68, 0xab, 0x0d, 0xe1, 0x1a, 0x39, 0xeb,
+	0x21, 0xac, 0xd8, 0xac, 0x2d, 0x7b, 0x1c, 0x15, 0xfe, 0x48, 0xff, 0x49, 0x7f, 0x4f, 0x7f, 0x4a,
+	0x65, 0xef, 0x06, 0x4a, 0x4a, 0x0f, 0xbb, 0xdc, 0x32, 0xcf, 0x9e, 0xe7, 0xe7, 0xf7, 0x3c, 0x59,
+	0x68, 0xc6, 0xa9, 0x35, 0x84, 0x3a, 0x54, 0x5a, 0x92, 0x64, 0x4b, 0x46, 0x61, 0xdc, 0xda, 0x19,
+	0x4b, 0x39, 0x4e, 0x71, 0xdf, 0x63, 0x23, 0x7b, 0xb5, 0x8f, 0x13, 0x45, 0xb7, 0xf9, 0x96, 0x76,
+	0x08, 0x41, 0x37, 0xef, 0xe9, 0xa3, 0x9e, 0x26, 0x31, 0x7e, 0xd7, 0x52, 0xa1, 0xa6, 0x04, 0x0d,
+	0x63, 0xb0, 0x74, 0x27, 0x33, 0x0c, 0x6a, 0xbb, 0xb5, 0xbd, 0xb5, 0xc8, 0xff, 0x6e, 0xff, 0xac,
+	0xc1, 0x56, 0x0f, 0x4d, 0xac, 0x93, 0x11, 0x16, 0x8d, 0xe6, 0x2c, 0x53, 0x96, 0xd8, 0x16, 0x2c,
+	0x73, 0xa5, 0x86, 0x89, 0x08, 0x6a, 0xbb, 0x8b, 0x7b, 0x6b, 0x51, 0x9d, 0x2b, 0x75, 0x26, 0xd8,
+	0x5b, 0x68, 0x38, 0x78, 0x8a, 0xda, 0x24, 0x32, 0x0b, 0x16, 0xfc, 0x1a, 0x70, 0xa5, 0x2e, 0x73,
+	0x84, 0xb5, 0x60, 0xb5, 0x50, 0x6d, 0x82, 0x45, 0xbf, 0x7a, 0x5f, 0xb3, 0x4d, 0xa8, 0x9b, 0x58,
+	0x2a, 0x0c, 0x96, 0xbc, 0x84, 0xbc, 0x70, 0xa8, 0x35, 0x6e, 0x7b, 0x3d, 0x3f, 0xc8, 0x17, 0xed,
+	0x5f, 0x35, 0xd8, 0x9e, 0x57, 0xf6, 0xcd, 0x92, 0x93, 0xb6, 0x0d, 0xcb, 0x3c, 0x26, 0x77, 0x7c,
+	0x7e, 0x95, 0xa2, 0x62, 0xaf, 0x61, 0x55, 0x23, 0x0d, 0x63, 0x29, 0x30, 0x58, 0xd8, 0xad, 0xed,
+	0xd5, 0xa3, 0x15, 0x8d, 0xd4, 0x95, 0x02, 0x59, 0x00, 0x2b, 0x13, 0x34, 0x86, 0x8f, 0x31, 0x58,
+	0xf4, 0x3d, 0xb3, 0xd2, 0x5d, 0x88, 0x24, 0xf1, 0x74, 0x18, 0x4b, 0x9b, 0x91, 0x57, 0x56, 0x8f,
+	0xc0, 0x43, 0x5d, 0x87, 0xb0, 0x10, 0x1a, 0xc5, 0x05, 0x86, 0x06, 0xc9, 0x8b, 0x6c, 0x1c, 0x34,
+	0x43, 0x97, 0x45, 0x58, 0x08, 0x8b, 0x20, 0x9e, 0x99, 0x4e, 0xed, 0xf7, 0xb0, 0x52, 0xc0, 0x8e,
+	0x7b, 0x9c, 0xca, 0x11, 0x4f, 0x87, 0xd6, 0x7a, 0x23, 0xdd, 0xc9, 0x90, 0x43, 0x03, 0x9b, 0x88,
+	0x83, 0xdf, 0x0d, 0x58, 0x7f, 0x9c, 0x17, 0x3b, 0x84, 0x66, 0x57, 0x23, 0xa7, 0xd9, 0xa5, 0xd9,
+	0x76, 0x98, 0x07, 0x1e, 0xce, 0x02, 0x0f, 0x8f, 0x5d, 0xe0, 0xad, 0xff, 0xe0, 0xec, 0x1c, 0x36,
+	0xe6, 0x7d, 0x63, 0x3b, 0xb9, 0xdc, 0x27, 0x93, 0x6e, 0xbd, 0x79, 0x7a, 0xb1, 0x30, 0xfb, 0x04,
+	0x36, 0xe7, 0x56, 0xbe, 0x4a, 0x81, 0xa6, 0xb4, 0xac, 0x4f, 0xf0, 0xa2, 0x4f, 0x52, 0xdd, 0x4b,
+	0x2a, 0xdb, 0x7f, 0x08, 0xcd, 0x3e, 0x71, 0x4d, 0x95, 0x09, 0x3e, 0xc3, 0x7a, 0x0f, 0x53, 0x24,
+	0xac, 0xcc, 0xf0, 0x11, 0xea, 0x29, 0x72, 0x83, 0xa5, 0x1b, 0x3b, 0xf0, 0xb2, 0x23, 0xc4, 0xb3,
+	0xec, 0xeb, 0x01, 0x7b, 0xa4, 0xbe, 0x1a, 0xcb, 0x21, 0x34, 0x23, 0x34, 0xc9, 0x5d, 0xe5, 0xc7,
+	0xd5, 0x03, 0xd6, 0xbd, 0xe6, 0xd9, 0x78, 0x46, 0x70, 0xf9, 0x23, 0x43, 0xaa, 0xe2, 0x47, 0xdf,
+	0x1a, 0x85, 0x99, 0xa8, 0x9c, 0xc5, 0x17, 0x08, 0x06, 0x4a, 0x3c, 0x8c, 0xc9, 0x71, 0x36, 0x4d,
+	0xb4, 0xcc, 0x26, 0x98, 0x95, 0x97, 0x73, 0x06, 0xaf, 0xce, 0xa5, 0x48, 0xae, 0x6e, 0x0b, 0xae,
+	0x0e, 0x91, 0x4e, 0x46, 0x96, 0x2a, 0x18, 0x7c, 0x0e, 0x3b, 0x8f, 0xa8, 0x5c, 0x4c, 0xcf, 0xa0,
+	0x3b, 0x82, 0x8d, 0x53, 0xbc, 0x7f, 0xf2, 0x7d, 0xe2, 0x54, 0x9e, 0xe3, 0xdf, 0x01, 0x1e, 0x98,
+	0x2a, 0x8e, 0x9f, 0xc2, 0x56, 0x84, 0xe6, 0xaf, 0x11, 0x9c, 0xfd, 0x63, 0x55, 0x48, 0x7f, 0xa0,
+	0xc6, 0x9a, 0x8b, 0xea, 0x93, 0x78, 0x01, 0xed, 0x8e, 0xa5, 0x6b, 0xa9, 0x1f, 0x9e, 0xb2, 0x39,
+	0xd2, 0xf2, 0x06, 0xf5, 0x85, 0xec, 0xe1, 0x14, 0x53, 0xf7, 0xd1, 0x2b, 0xcd, 0xda, 0x87, 0x77,
+	0x11, 0x4e, 0xe5, 0xcd, 0x1c, 0xe5, 0x89, 0x96, 0x93, 0xca, 0xa4, 0xa3, 0x65, 0x5f, 0x7f, 0xf8,
+	0x13, 0x00, 0x00, 0xff, 0xff, 0x8a, 0x93, 0x01, 0xa1, 0xcc, 0x07, 0x00, 0x00,
 }

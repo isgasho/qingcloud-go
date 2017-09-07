@@ -6,10 +6,7 @@ syntax = "proto3";
 
 package spec;
 
-import "google/protobuf/any.proto";
 import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/wrappers.proto";
 
 message ClusterServiceProperties {
 	string zone = 1;

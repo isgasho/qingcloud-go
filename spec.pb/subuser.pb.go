@@ -6,10 +6,6 @@ package spec
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/golang/protobuf/ptypes/any"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
-import _ "github.com/golang/protobuf/ptypes/timestamp"
-import _ "github.com/golang/protobuf/ptypes/wrappers"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -42,16 +38,106 @@ func (m *SubuserServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeSubUsersInput struct {
+}
+
+func (m *DescribeSubUsersInput) Reset()                    { *m = DescribeSubUsersInput{} }
+func (m *DescribeSubUsersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeSubUsersInput) ProtoMessage()               {}
+func (*DescribeSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{1} }
+
+type DescribeSubUsersOutput struct {
+}
+
+func (m *DescribeSubUsersOutput) Reset()                    { *m = DescribeSubUsersOutput{} }
+func (m *DescribeSubUsersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeSubUsersOutput) ProtoMessage()               {}
+func (*DescribeSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{2} }
+
+type CreateSubUserInput struct {
+}
+
+func (m *CreateSubUserInput) Reset()                    { *m = CreateSubUserInput{} }
+func (m *CreateSubUserInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateSubUserInput) ProtoMessage()               {}
+func (*CreateSubUserInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{3} }
+
+type CreateSubUserOutput struct {
+}
+
+func (m *CreateSubUserOutput) Reset()                    { *m = CreateSubUserOutput{} }
+func (m *CreateSubUserOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateSubUserOutput) ProtoMessage()               {}
+func (*CreateSubUserOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{4} }
+
+type ModifySubUserAttributesInput struct {
+}
+
+func (m *ModifySubUserAttributesInput) Reset()                    { *m = ModifySubUserAttributesInput{} }
+func (m *ModifySubUserAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifySubUserAttributesInput) ProtoMessage()               {}
+func (*ModifySubUserAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{5} }
+
+type ModifySubUserAttributesOutput struct {
+}
+
+func (m *ModifySubUserAttributesOutput) Reset()                    { *m = ModifySubUserAttributesOutput{} }
+func (m *ModifySubUserAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifySubUserAttributesOutput) ProtoMessage()               {}
+func (*ModifySubUserAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{6} }
+
+type DeleteSubUsersInput struct {
+}
+
+func (m *DeleteSubUsersInput) Reset()                    { *m = DeleteSubUsersInput{} }
+func (m *DeleteSubUsersInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSubUsersInput) ProtoMessage()               {}
+func (*DeleteSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{7} }
+
+type DeleteSubUsersOutput struct {
+}
+
+func (m *DeleteSubUsersOutput) Reset()                    { *m = DeleteSubUsersOutput{} }
+func (m *DeleteSubUsersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSubUsersOutput) ProtoMessage()               {}
+func (*DeleteSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{8} }
+
+type RestoreSubUsersInput struct {
+}
+
+func (m *RestoreSubUsersInput) Reset()                    { *m = RestoreSubUsersInput{} }
+func (m *RestoreSubUsersInput) String() string            { return proto.CompactTextString(m) }
+func (*RestoreSubUsersInput) ProtoMessage()               {}
+func (*RestoreSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{9} }
+
+type RestoreSubUsersOutput struct {
+}
+
+func (m *RestoreSubUsersOutput) Reset()                    { *m = RestoreSubUsersOutput{} }
+func (m *RestoreSubUsersOutput) String() string            { return proto.CompactTextString(m) }
+func (*RestoreSubUsersOutput) ProtoMessage()               {}
+func (*RestoreSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{10} }
+
 func init() {
 	proto.RegisterType((*SubuserServiceProperties)(nil), "spec.SubuserServiceProperties")
+	proto.RegisterType((*DescribeSubUsersInput)(nil), "spec.DescribeSubUsersInput")
+	proto.RegisterType((*DescribeSubUsersOutput)(nil), "spec.DescribeSubUsersOutput")
+	proto.RegisterType((*CreateSubUserInput)(nil), "spec.CreateSubUserInput")
+	proto.RegisterType((*CreateSubUserOutput)(nil), "spec.CreateSubUserOutput")
+	proto.RegisterType((*ModifySubUserAttributesInput)(nil), "spec.ModifySubUserAttributesInput")
+	proto.RegisterType((*ModifySubUserAttributesOutput)(nil), "spec.ModifySubUserAttributesOutput")
+	proto.RegisterType((*DeleteSubUsersInput)(nil), "spec.DeleteSubUsersInput")
+	proto.RegisterType((*DeleteSubUsersOutput)(nil), "spec.DeleteSubUsersOutput")
+	proto.RegisterType((*RestoreSubUsersInput)(nil), "spec.RestoreSubUsersInput")
+	proto.RegisterType((*RestoreSubUsersOutput)(nil), "spec.RestoreSubUsersOutput")
 }
 
 type SubuserServiceInterface interface {
-	DescribeSubUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateSubUser(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifySubUserAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteSubUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RestoreSubUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error)
+	CreateSubUser(in *CreateSubUserInput) (out *CreateSubUserOutput, err error)
+	ModifySubUserAttributes(in *ModifySubUserAttributesInput) (out *ModifySubUserAttributesOutput, err error)
+	DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSubUsersOutput, err error)
+	RestoreSubUsers(in *RestoreSubUsersInput) (out *RestoreSubUsersOutput, err error)
 }
 
 type SubuserService struct {
@@ -66,9 +152,9 @@ func NewSubuserService(conf *config.Config, zone string) (p *SubuserService, err
 	}, nil
 }
 
-func (p *SubuserService) DescribeSubUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DescribeSubUsersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -77,7 +163,7 @@ func (p *SubuserService) DescribeSubUsers(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DescribeSubUsersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -90,9 +176,9 @@ func (p *SubuserService) DescribeSubUsers(in *google_protobuf1.Empty) (out *goog
 
 	return x, err
 }
-func (p *SubuserService) CreateSubUser(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUserOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &CreateSubUserInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -101,7 +187,7 @@ func (p *SubuserService) CreateSubUser(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &CreateSubUserOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -114,9 +200,9 @@ func (p *SubuserService) CreateSubUser(in *google_protobuf1.Empty) (out *google_
 
 	return x, err
 }
-func (p *SubuserService) ModifySubUserAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInput) (out *ModifySubUserAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ModifySubUserAttributesInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -125,7 +211,7 @@ func (p *SubuserService) ModifySubUserAttributes(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ModifySubUserAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -138,9 +224,9 @@ func (p *SubuserService) ModifySubUserAttributes(in *google_protobuf1.Empty) (ou
 
 	return x, err
 }
-func (p *SubuserService) DeleteSubUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSubUsersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DeleteSubUsersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -149,7 +235,7 @@ func (p *SubuserService) DeleteSubUsers(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DeleteSubUsersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -162,9 +248,9 @@ func (p *SubuserService) DeleteSubUsers(in *google_protobuf1.Empty) (out *google
 
 	return x, err
 }
-func (p *SubuserService) RestoreSubUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *RestoreSubUsersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &RestoreSubUsersInput{}
 	}
 	o := &request_data_pkg.Operation{
 		Config:        p.Config,
@@ -173,7 +259,7 @@ func (p *SubuserService) RestoreSubUsers(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &RestoreSubUsersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -190,21 +276,24 @@ func (p *SubuserService) RestoreSubUsers(in *google_protobuf1.Empty) (out *googl
 func init() { proto.RegisterFile("subuser.proto", fileDescriptor25) }
 
 var fileDescriptor25 = []byte{
-	// 243 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x8f, 0xc1, 0x4a, 0x03, 0x31,
-	0x10, 0x86, 0xa9, 0x14, 0xc1, 0x81, 0x56, 0xc9, 0x41, 0xeb, 0x0a, 0x2a, 0x9e, 0x3c, 0xa5, 0xa0,
-	0x0f, 0xa0, 0xd5, 0x7a, 0xf0, 0x20, 0x48, 0x17, 0x1f, 0x60, 0xb3, 0xfe, 0x2d, 0x81, 0x6e, 0x13,
-	0x66, 0x26, 0x4a, 0x7d, 0x5f, 0xdf, 0x43, 0xdc, 0xed, 0x1e, 0x5c, 0xf0, 0xd0, 0xde, 0x92, 0xf9,
-	0xfe, 0x7c, 0xf3, 0x87, 0x06, 0x92, 0x5c, 0x12, 0xb0, 0x8d, 0x1c, 0x34, 0x98, 0xbe, 0x44, 0x94,
-	0xd9, 0xe9, 0x22, 0x84, 0xc5, 0x12, 0xe3, 0x7a, 0xe6, 0xd2, 0x7c, 0x5c, 0xac, 0xd6, 0x4d, 0x20,
-	0x3b, 0xeb, 0x22, 0x54, 0x51, 0x5b, 0x78, 0xd1, 0x85, 0xea, 0x2b, 0x88, 0x16, 0x55, 0xdc, 0x04,
-	0xce, 0xbb, 0x81, 0x4f, 0x2e, 0x62, 0x04, 0x4b, 0xc3, 0xaf, 0x2c, 0x8d, 0xf2, 0xa6, 0x4f, 0x0e,
-	0xfe, 0xf0, 0x25, 0x5e, 0x39, 0x44, 0xb0, 0x7a, 0x88, 0x31, 0xd4, 0xff, 0x0a, 0x2b, 0x8c, 0x7a,
-	0x97, 0xbd, 0xeb, 0x83, 0x59, 0x7d, 0xbe, 0xf9, 0xde, 0xa3, 0xe1, 0xdf, 0x07, 0xe6, 0x81, 0x8e,
-	0xa6, 0x90, 0x92, 0xbd, 0x43, 0x9e, 0xdc, 0x9b, 0x80, 0xc5, 0x1c, 0xdb, 0x66, 0xaf, 0x6d, 0xf7,
-	0xda, 0xa7, 0xdf, 0xd6, 0xd9, 0x3f, 0x73, 0x73, 0x47, 0x83, 0x47, 0x46, 0xa1, 0xad, 0x61, 0x6b,
-	0xc1, 0x33, 0x9d, 0xbc, 0x84, 0x77, 0x3f, 0x5f, 0x6f, 0x04, 0x13, 0x55, 0xf6, 0x2e, 0x29, 0xb6,
-	0xef, 0x72, 0x4f, 0xc3, 0x29, 0x96, 0xd0, 0xdd, 0x7f, 0x33, 0xa1, 0xc3, 0x19, 0x44, 0x03, 0xef,
-	0xac, 0x70, 0xfb, 0xf5, 0xfd, 0xf6, 0x27, 0x00, 0x00, 0xff, 0xff, 0xb7, 0x50, 0x3a, 0xdc, 0x2e,
-	0x02, 0x00, 0x00,
+	// 297 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0xcd, 0x4a, 0x03, 0x31,
+	0x14, 0x85, 0x29, 0x16, 0xc1, 0x0b, 0xad, 0x72, 0x3b, 0x7f, 0x4d, 0xeb, 0x0f, 0xe3, 0xc6, 0xd5,
+	0x2c, 0xf4, 0x09, 0xc4, 0x01, 0x51, 0x28, 0x4a, 0x07, 0x1f, 0xc0, 0x8c, 0x57, 0x18, 0x90, 0x66,
+	0xc8, 0x8f, 0xa0, 0x0f, 0xe3, 0xb3, 0x4a, 0x9b, 0x74, 0x91, 0x34, 0xed, 0x6e, 0x38, 0xe7, 0xe4,
+	0xdc, 0xc9, 0x77, 0x03, 0x23, 0x65, 0xb8, 0x51, 0x24, 0xab, 0x5e, 0x0a, 0x2d, 0x70, 0xa8, 0x7a,
+	0x6a, 0xcb, 0x0a, 0x8a, 0xc6, 0xca, 0x0d, 0xc9, 0xef, 0xae, 0xa5, 0x57, 0x29, 0x7a, 0x92, 0xba,
+	0x23, 0x85, 0x08, 0xc3, 0x5f, 0xb1, 0xa2, 0x62, 0x70, 0x35, 0xb8, 0x39, 0x59, 0x6e, 0xbe, 0xcb,
+	0x1c, 0xd2, 0x9a, 0x54, 0x2b, 0x3b, 0x4e, 0x8d, 0xe1, 0x6f, 0x8a, 0xa4, 0x7a, 0x5a, 0xf5, 0x46,
+	0x97, 0x05, 0x64, 0xa1, 0xf1, 0x62, 0xf4, 0xda, 0x49, 0x00, 0x1f, 0x24, 0xbd, 0xeb, 0xad, 0x6e,
+	0xf3, 0x29, 0x4c, 0x3c, 0xd5, 0x85, 0x2f, 0x60, 0xbe, 0x10, 0x1f, 0xdd, 0xe7, 0x8f, 0x93, 0xef,
+	0xb5, 0x96, 0x1d, 0x37, 0x9a, 0xdc, 0x98, 0x4b, 0x38, 0xdf, 0xe3, 0xbb, 0x82, 0x14, 0x26, 0x35,
+	0x7d, 0x91, 0x0e, 0x7e, 0x2f, 0x83, 0xc4, 0x97, 0x5d, 0x3c, 0x83, 0x64, 0x49, 0x4a, 0x0b, 0x19,
+	0xe4, 0x73, 0x48, 0x03, 0xdd, 0x1e, 0xb8, 0xfd, 0x3b, 0x82, 0xb1, 0x4f, 0x0c, 0x17, 0x70, 0x16,
+	0x5e, 0x1d, 0x67, 0xd5, 0x1a, 0x6f, 0x15, 0x65, 0xc5, 0xe6, 0x71, 0xd3, 0x4e, 0xc0, 0x1a, 0x46,
+	0x1e, 0x19, 0x2c, 0x6c, 0x7c, 0x17, 0x22, 0x9b, 0x46, 0x1c, 0xd7, 0xc2, 0x21, 0xdf, 0x03, 0x0a,
+	0x4b, 0x7b, 0xea, 0x10, 0x67, 0x76, 0x7d, 0x30, 0xe3, 0x66, 0x3c, 0xc2, 0xd8, 0x87, 0x8a, 0xd3,
+	0xed, 0xcd, 0x76, 0x36, 0xc0, 0x58, 0xcc, 0x72, 0x45, 0xcf, 0x70, 0x1a, 0xd0, 0x46, 0x17, 0x8f,
+	0x2d, 0x87, 0xcd, 0xa2, 0x9e, 0xed, 0xe2, 0xc7, 0x9b, 0xe7, 0x7d, 0xf7, 0x1f, 0x00, 0x00, 0xff,
+	0xff, 0xf5, 0x1c, 0xf0, 0x4f, 0xef, 0x02, 0x00, 0x00,
 }
