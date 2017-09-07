@@ -64,6 +64,25 @@ log_level: 'warn'
 
 其中 glog 是全局的日志包, SDK 不能放到 vendor 目录(可能导致多个glog冲突).
 
-## 最新预览
+## protobuf 扩展信息
 
-- [DescribeNics](./spec.pb/nic.proto)
+- [spec.pb/nic.proto](./spec.pb/nic.proto):
+
+```proto
+service NicService {
+    rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
+    rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput) {
+		option (google.api.http) = {
+			custom { kind: "GET" }
+		};
+	}
+    rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);
+    rpc DetachNics(DetachNicsInput) returns (DetachNicsOutput);
+    rpc ModifyNicAttributes(ModifyNicAttributesInput) returns (ModifyNicAttributesOutput);
+    rpc DeleteNics(DeleteNicsInput) returns (DeleteNicsOutput);
+}
+```
+
+扩展信息中的 `custom.kind` 用于表示 HTTP 方法, 默认是 GET, 极少数的API是 POST ([UploadUserDataAttachment](https://docs.qingcloud.com/api/userdata/upload_userdata_attachment.html)).
+
+当采用 POST 方法时, 需要明确指定 `custom.kind`.
