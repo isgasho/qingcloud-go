@@ -14,7 +14,9 @@ demo_mgo:
 	go run examples/mongo/DescribeMongos/DescribeMongos.go
 
 demo_cluster:
-	go run examples/cluster/DescribeClusters/DescribeClusters.go
+	go run examples/cluster/DescribeClusterNodes/DescribeClusterNodes.go
+
+# go run examples/cluster/DescribeClusters/DescribeClusters.go
 
 demo:
 	go run examples/nic/DescribeNics/DescribeNics.go

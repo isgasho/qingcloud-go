@@ -6,8 +6,10 @@ syntax = "proto3";
 
 package spec;
 
-import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
+
+// ----------------------------------------------------------------------------
 
 message ClusterServiceProperties {
 	string zone = 1;
@@ -36,6 +38,8 @@ service ClusterService {
 	rpc AuthorizeClustersBrokerToDeveloper(AuthorizeClustersBrokerToDeveloperInput) returns (AuthorizeClustersBrokerToDeveloperOutput);
 	rpc RevokeClustersBrokerFromDeveloper(RevokeClustersBrokerFromDeveloperInput) returns (RevokeClustersBrokerFromDeveloperOutput);
 }
+
+// ----------------------------------------------------------------------------
 
 /*
 CreateCluster
@@ -82,6 +86,8 @@ message CreateClusterOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeClustersInput {
 	repeated string clusters = 1;
@@ -184,6 +190,8 @@ message DescribeClustersOutput {
 	}
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeClusterNodesInput {
 	string cluster = 1;
 	repeated string cluster_nodes = 2;
@@ -193,7 +201,74 @@ message DescribeClusterNodesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
+
+	int32 total_count = 4;
+	repeated NodeSet node_set = 5;
+
+	message NodeSet {
+		// "passphraseless":null,
+		string vertical_scaling_policy = 2;
+		string vxnet_id = 3;
+		//"destroy_service":null,
+		string custom_service = 5;
+		string app_id = 6;
+		//"advanced_actions":null,
+		string console_id = 8;
+		string stop_service = 9;
+		int32 user_access = 10;
+		google.protobuf.Timestamp create_time = 11;
+		string cluster_id = 12;
+		string private_ip = 13;
+		//"upgrade_service":null,
+		string owner = 15;
+		string alarm_status = 16;
+		bool incremental_backup_supported = 17;
+		//"restore_service":null,
+		int32 server_id = 19;
+		string monitor = 20;
+		string health_status = 21;
+		int32 is_backup = 22;
+		string root_user_id = 23;
+		string role = 24;
+		int32 memory = 25;
+		google.protobuf.Timestamp status_time = 26;
+		string restart_service = 27;
+		string app_version = 28;
+		string status = 29;
+		int32 global_server_id = 30;
+		string scale_in_service = 31;
+		int32 auto_backup = 32;
+		string transition_status = 33;
+		//"custom_metadata":null,
+		int32 storage_size = 35;
+		//"server_id_upper_bound":null,
+		string image_id = 37;
+		string controller = 38;
+		string node_id = 39;
+		bool agent_installed = 40;
+		//"reserved_ips":null,
+		//"backup_policy":null,
+		string start_service = 43;
+		string volume_ids = 44;
+		string name = 45;
+		string hypervisor = 46;
+		//"delete_snapshot_service":null,
+		string init_service = 48;
+		string instance_id = 49;
+		string scale_out_service = 50;
+		string repl = 51;
+		//"custom_metadata_script":null,
+		string health_check = 52;
+		bool debug = 53;
+		string single_node_repl = 54;
+		//"pub_key":null,
+		int32 group_id = 56;
+		//"backup_service":null,
+		int32 cpu = 58;
+	}
 }
+
+// ----------------------------------------------------------------------------
 
 message StopClustersInput {
 	repeated string clusters = 1;
@@ -205,6 +280,8 @@ message StopClustersOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message StartClustersInput {
 	repeated string clusters = 1;
 }
@@ -213,6 +290,8 @@ message StartClustersOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message DeleteClustersInput {
 	repeated string clusters = 1;
@@ -223,6 +302,8 @@ message DeleteClustersOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message leaseInput {
 	repeated string clusters = 1;
 }
@@ -231,6 +312,8 @@ message leaseOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message AddClusterNodesInput {
 	string cluster = 1;
@@ -245,6 +328,8 @@ message AddClusterNodesOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteClusterNodesInput {
 	string cluster = 1;
 	repeated string nodes = 2;
@@ -255,6 +340,8 @@ message DeleteClusterNodesOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message ResizeClusterInput {
 	string cluster = 1;
@@ -269,6 +356,8 @@ message ResizeClusterOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message ChangeClusterVxnetInput {
 	string cluster = 1;
 	string vxnet = 2;
@@ -281,6 +370,8 @@ message ChangeClusterVxnetOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message SuspendClustersInput {
 	repeated string clusters = 1;
 }
@@ -289,6 +380,8 @@ message SuspendClustersOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message UpdateClusterEnvironmentInput {
 	string cluster = 1;
@@ -301,6 +394,8 @@ message UpdateClusterEnvironmentOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifyClusterAttributesInput {
 	string cluster = 1;
 	string name = 2;
@@ -311,6 +406,8 @@ message ModifyClusterAttributesOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyClusterNodeAttributesInput {
 	string cluster = 1;
@@ -323,6 +420,8 @@ message ModifyClusterNodeAttributesOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message GetClustersStatsInput {
 	repeated string zones = 1;
 }
@@ -331,6 +430,8 @@ message GetClustersStatsOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeClusterUsersInput {
 	repeated string zones = 1;
@@ -345,6 +446,8 @@ message DescribeClusterUsersOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message RestartClusterServiceInput {
 	string cluster = 1;
 	string role = 2;
@@ -354,6 +457,8 @@ message RestartClusterServiceOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
 
 message UpgradeClustersInput {
 	repeated string clusters = 1;
@@ -365,6 +470,8 @@ message UpgradeClustersOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message AuthorizeClustersBrokerToDeveloperInput {
 	repeated string clusters = 1;
 }
@@ -374,6 +481,8 @@ message AuthorizeClustersBrokerToDeveloperOutput {
 	string message = 3;
 }
 
+// ----------------------------------------------------------------------------
+
 message RevokeClustersBrokerFromDeveloperInput {
 	repeated string clusters = 1;
 }
@@ -382,3 +491,7 @@ message RevokeClustersBrokerFromDeveloperOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

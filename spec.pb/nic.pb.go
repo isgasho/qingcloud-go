@@ -6,7 +6,7 @@ package spec
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/timestamp"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -176,7 +176,7 @@ func (m *DescribeNicsOutput) GetTotalCount() int32 {
 }
 
 type NIC struct {
-	CreateTime       *google_protobuf2.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
 	InstanceId       string                      `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
 	NicId            string                      `protobuf:"bytes,3,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
 	NicName          string                      `protobuf:"bytes,4,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
@@ -187,7 +187,7 @@ type NIC struct {
 	SecurityGroup    string                      `protobuf:"bytes,9,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
 	Sequence         int32                       `protobuf:"varint,10,opt,name=sequence" json:"sequence,omitempty"`
 	Status           string                      `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf2.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
 	VxnetId          string                      `protobuf:"bytes,14,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
 	Eip              *Eip                        `protobuf:"bytes,15,opt,name=eip" json:"eip,omitempty"`
@@ -203,7 +203,7 @@ func (m *NIC) String() string            { return proto.CompactTextString(m) }
 func (*NIC) ProtoMessage()               {}
 func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{5} }
 
-func (m *NIC) GetCreateTime() *google_protobuf2.Timestamp {
+func (m *NIC) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -280,7 +280,7 @@ func (m *NIC) GetStatus() string {
 	return ""
 }
 
-func (m *NIC) GetStatusTime() *google_protobuf2.Timestamp {
+func (m *NIC) GetStatusTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -377,7 +377,7 @@ func (m *Eip) GetBandwidth() int32 {
 
 type Tag struct {
 	Color             string                      `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
-	CreateTime        *google_protobuf2.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
 	Description       string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
 	Owner             string                      `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
 	ResourceCount     int32                       `protobuf:"varint,5,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
@@ -400,7 +400,7 @@ func (m *Tag) GetColor() string {
 	return ""
 }
 
-func (m *Tag) GetCreateTime() *google_protobuf2.Timestamp {
+func (m *Tag) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -467,7 +467,7 @@ type ResourceTagPair struct {
 	ResourceId   string                      `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
 	ResourceType string                      `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
 	Status       string                      `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
-	StatusTime   *google_protobuf2.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StatusTime   *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	TagId        string                      `protobuf:"bytes,5,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
 }
 
@@ -497,7 +497,7 @@ func (m *ResourceTagPair) GetStatus() string {
 	return ""
 }
 
-func (m *ResourceTagPair) GetStatusTime() *google_protobuf2.Timestamp {
+func (m *ResourceTagPair) GetStatusTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
