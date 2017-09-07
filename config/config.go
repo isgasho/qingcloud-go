@@ -39,9 +39,9 @@ type Config struct {
 	ConnectionRetries int    `yaml:"connection_retries"`
 	ConnectionTimeout int    `yaml:"connection_timeout"`
 
-	LogLevel string `yaml:"log_level"`
-
-	Zone string `yaml:"zone"`
+	JSONAllowUnknownFields bool   `yaml:"json_allow_unknown_fields"`
+	LogLevel               string `yaml:"log_level"`
+	Zone                   string `yaml:"zone"`
 
 	Connection *http.Client
 }

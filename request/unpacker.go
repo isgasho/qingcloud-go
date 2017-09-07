@@ -67,7 +67,11 @@ func (u *Unpacker) parseResponse() error {
 				StringToUnixInt(u.httpResponse.Header.Get("Date"), "RFC 822"),
 				string(buffer.Bytes())))
 
-			err := jsonpb.UnmarshalString(string(buffer.Bytes()), u.output)
+			decoder := &jsonpb.Unmarshaler{
+				AllowUnknownFields: u.operation.Config.JSONAllowUnknownFields,
+			}
+
+			err := decoder.Unmarshal(buffer, u.output)
 			if err != nil {
 				return err
 			}

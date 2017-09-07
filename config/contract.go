@@ -37,6 +37,8 @@ uri: '/iaas'
 connection_retries: 3
 connection_timeout: 30
 
+json_allow_unknown_fields: false
+
 # Valid log levels are "debug", "info", "warn", "error", and "fatal".
 log_level: 'warn'
 

@@ -20,6 +20,7 @@ func main() {
 
 	conf := loadUserConfig()
 	conf.SetLogLevel("debug")
+	conf.JSONAllowUnknownFields = true
 
 	nicService, err := pb.NewNicService(conf, "pek3a")
 	if err != nil {
