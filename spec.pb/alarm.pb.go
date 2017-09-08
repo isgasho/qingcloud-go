@@ -168,6 +168,9 @@ It has these top-level messages:
 	Volume
 	Instance
 	NIC
+	KeyPair
+	VxNet
+	Router
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput

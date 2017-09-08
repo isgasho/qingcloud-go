@@ -118,8 +118,53 @@ message NIC {
 	string resource_id = 20;
 }
 
-/*
+message KeyPair {
+	string description = 1;
+	string encrypt_method = 2;
+	repeated string instance_ids = 3;
+	string keypair_id = 4;
+	string keypair_name = 5;
+	string pub_key = 6;
+	repeated Tag tags = 7;
+}
 
+message VxNet {
+	int32 available_ip_count = 1;
+	google.protobuf.Timestamp create_time = 2;
+	string description = 3;
+	repeated string instance_ids = 4;
+	string owner = 5;
+	Router router = 6;
+	repeated Tag tags = 7;
+	string vpc_router_id = 8;
+	string vxnet_id = 9;
+	string vxnet_name = 10;
+	int32 vxnet_type = 11;
+}
+
+message Router {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	string dyn_ip_end = 3;
+	string dyn_ip_start = 4;
+	EIP eip = 5;
+	string ip_network = 6;
+	int32 is_applied = 7;
+	string manager_ip = 8;
+	int32 mode = 9;
+	string private_ip = 10;
+	string router_id = 11;
+	string router_name = 12;
+	int32 router_type = 13;
+	string security_group_id = 14;
+	string status = 15;
+	google.protobuf.Timestamp status_time = 16;
+	repeated Tag tags = 17;
+	string transition_status = 18;
+	repeated VxNet vxnets = 19;
+}
+
+/*
 
 */
 
@@ -358,17 +403,6 @@ type InstanceVxNet struct {
 	VxNetType *int `json:"vxnet_type" name:"vxnet_type"`
 }
 
-
-type KeyPair struct {
-	Description *string `json:"description" name:"description"`
-	// EncryptMethod's available values: ssh-rsa, ssh-dss
-	EncryptMethod *string   `json:"encrypt_method" name:"encrypt_method"`
-	InstanceIDs   []*string `json:"instance_ids" name:"instance_ids"`
-	KeyPairID     *string   `json:"keypair_id" name:"keypair_id"`
-	KeyPairName   *string   `json:"keypair_name" name:"keypair_name"`
-	PubKey        *string   `json:"pub_key" name:"pub_key"`
-	Tags          []*Tag    `json:"tags" name:"tags"`
-}
 
 type LoadBalancer struct {
 	Cluster     []*EIP     `json:"cluster" name:"cluster"`
@@ -635,31 +669,6 @@ type ResourceTypeCount struct {
 	ResourceType *string `json:"resource_type" name:"resource_type"`
 }
 
-type Router struct {
-	CreateTime  *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description *string    `json:"description" name:"description"`
-	DYNIPEnd    *string    `json:"dyn_ip_end" name:"dyn_ip_end"`
-	DYNIPStart  *string    `json:"dyn_ip_start" name:"dyn_ip_start"`
-	EIP         *EIP       `json:"eip" name:"eip"`
-	IPNetwork   *string    `json:"ip_network" name:"ip_network"`
-	// IsApplied's available values: 0, 1
-	IsApplied  *int    `json:"is_applied" name:"is_applied"`
-	ManagerIP  *string `json:"manager_ip" name:"manager_ip"`
-	Mode       *int    `json:"mode" name:"mode"`
-	PrivateIP  *string `json:"private_ip" name:"private_ip"`
-	RouterID   *string `json:"router_id" name:"router_id"`
-	RouterName *string `json:"router_name" name:"router_name"`
-	// RouterType's available values: 1
-	RouterType      *int    `json:"router_type" name:"router_type"`
-	SecurityGroupID *string `json:"security_group_id" name:"security_group_id"`
-	// Status's available values: pending, active, poweroffed, suspended, deleted, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, updating, suspending, resuming, poweroffing, poweroning, deleting
-	TransitionStatus *string  `json:"transition_status" name:"transition_status"`
-	VxNets           []*VxNet `json:"vxnets" name:"vxnets"`
-}
 
 type RouterStatic struct {
 	CreateTime       *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
@@ -826,21 +835,6 @@ type User struct {
 	UserID *string `json:"user_id" name:"user_id"`
 }
 
-
-type VxNet struct {
-	AvailableIPCount *int       `json:"available_ip_count" name:"available_ip_count"`
-	CreateTime       *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description      *string    `json:"description" name:"description"`
-	InstanceIDs      []*string  `json:"instance_ids" name:"instance_ids"`
-	Owner            *string    `json:"owner" name:"owner"`
-	Router           *Router    `json:"router" name:"router"`
-	Tags             []*Tag     `json:"tags" name:"tags"`
-	VpcRouterID      *string    `json:"vpc_router_id" name:"vpc_router_id"`
-	VxNetID          *string    `json:"vxnet_id" name:"vxnet_id"`
-	VxNetName        *string    `json:"vxnet_name" name:"vxnet_name"`
-	// VxNetType's available values: 0, 1
-	VxNetType *int `json:"vxnet_type" name:"vxnet_type"`
-}
 
 type Zone struct {
 	// Status's available values: active, faulty, defunct
