@@ -44,16 +44,34 @@ func glogParseLevel(level string) glogLevelType {
 	return _GLOG_NULL
 }
 
-func SetLogDir(dir string) {
-	flag.CommandLine.Set("log_dir", dir)
+// Logs are written to standard error instead of to files.
+func SetLogToStderr(s bool) {
+	flag.CommandLine.Set("logtostderr", strconv.FormatBool(s))
 }
 
+// Logs are written to standard error as well as to files.
 func SetLogAlsoToStderr(s bool) {
 	flag.CommandLine.Set("alsologtostderr", strconv.FormatBool(s))
 }
 
+// ame as SetLogLevel, ;og events at or above this severity are logged to standard
+// error as well as to files.
 func SetLogLevel(s string) {
 	if level := glogParseLevel(s); level.isValid() {
 		flag.CommandLine.Set("stderrthreshold", string(s))
 	}
+}
+
+// Log events at or above this severity are logged to standard
+// error as well as to files.
+func SetLogStderrLevel(s string) {
+	if level := glogParseLevel(s); level.isValid() {
+		flag.CommandLine.Set("stderrthreshold", string(s))
+	}
+}
+
+// Log files will be written to this directory instead of the
+// default temporary directory.
+func SetLogDir(dir string) {
+	flag.CommandLine.Set("log_dir", dir)
 }
