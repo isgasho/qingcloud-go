@@ -186,11 +186,9 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
