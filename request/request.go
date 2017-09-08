@@ -14,6 +14,7 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
+// Package request contains everything for build a http request and unpack a http response.
 package request
 
 import (
