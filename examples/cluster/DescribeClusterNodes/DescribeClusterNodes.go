@@ -11,7 +11,7 @@ import (
 
 	"github.com/chai2010/qingcloud-go/config"
 	"github.com/chai2010/qingcloud-go/logger"
-	pb "github.com/chai2010/qingcloud-go/spec.pb"
+	pb "github.com/chai2010/qingcloud-go/service"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )

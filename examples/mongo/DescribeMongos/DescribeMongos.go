@@ -13,7 +13,7 @@ import (
 
 	"github.com/chai2010/qingcloud-go/config"
 	"github.com/chai2010/qingcloud-go/logger"
-	pb "github.com/chai2010/qingcloud-go/spec.pb"
+	pb "github.com/chai2010/qingcloud-go/service"
 )
 
 func main() {
