@@ -57,11 +57,19 @@ type ImageService struct {
 	Properties *ImageServiceProperties
 }
 
-func NewImageService(conf *config.Config, zone string) (p *ImageService, err error) {
+func NewImageService(conf *config.Config, zone string) (p *ImageService) {
 	return &ImageService{
 		Config:     conf,
 		Properties: &ImageServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Image(zone string) (*ImageService, error) {
+	properties := &ImageServiceProperties{
+		Zone: zone,
+	}
+
+	return &ImageService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *ImageService) DescribeImages(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

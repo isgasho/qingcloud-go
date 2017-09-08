@@ -28,7 +28,7 @@ type VxnetServiceProperties struct {
 func (m *VxnetServiceProperties) Reset()                    { *m = VxnetServiceProperties{} }
 func (m *VxnetServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*VxnetServiceProperties) ProtoMessage()               {}
-func (*VxnetServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
+func (*VxnetServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{0} }
 
 func (m *VxnetServiceProperties) GetZone() string {
 	if m != nil {
@@ -56,11 +56,19 @@ type VxnetService struct {
 	Properties *VxnetServiceProperties
 }
 
-func NewVxnetService(conf *config.Config, zone string) (p *VxnetService, err error) {
+func NewVxnetService(conf *config.Config, zone string) (p *VxnetService) {
 	return &VxnetService{
 		Config:     conf,
 		Properties: &VxnetServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Vxnet(zone string) (*VxnetService, error) {
+	properties := &VxnetServiceProperties{
+		Zone: zone,
+	}
+
+	return &VxnetService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *VxnetService) DescribeVxnets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -238,9 +246,9 @@ func (p *VxnetService) DescribeVxnetInstances(in *google_protobuf.Empty) (out *g
 	return x, err
 }
 
-func init() { proto.RegisterFile("vxnet.proto", fileDescriptor29) }
+func init() { proto.RegisterFile("vxnet.proto", fileDescriptor30) }
 
-var fileDescriptor29 = []byte{
+var fileDescriptor30 = []byte{
 	// 224 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0xab, 0xc8, 0x4b,
 	0x2d, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e,

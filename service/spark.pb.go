@@ -28,7 +28,7 @@ type SparkServiceProperties struct {
 func (m *SparkServiceProperties) Reset()                    { *m = SparkServiceProperties{} }
 func (m *SparkServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SparkServiceProperties) ProtoMessage()               {}
-func (*SparkServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{0} }
+func (*SparkServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{0} }
 
 func (m *SparkServiceProperties) GetZone() string {
 	if m != nil {
@@ -56,11 +56,19 @@ type SparkService struct {
 	Properties *SparkServiceProperties
 }
 
-func NewSparkService(conf *config.Config, zone string) (p *SparkService, err error) {
+func NewSparkService(conf *config.Config, zone string) (p *SparkService) {
 	return &SparkService{
 		Config:     conf,
 		Properties: &SparkServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Spark(zone string) (*SparkService, error) {
+	properties := &SparkServiceProperties{
+		Zone: zone,
+	}
+
+	return &SparkService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *SparkService) CreateSpark(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -238,9 +246,9 @@ func (p *SparkService) DeleteSparks(in *google_protobuf.Empty) (out *google_prot
 	return x, err
 }
 
-func init() { proto.RegisterFile("spark.proto", fileDescriptor23) }
+func init() { proto.RegisterFile("spark.proto", fileDescriptor24) }
 
-var fileDescriptor23 = []byte{
+var fileDescriptor24 = []byte{
 	// 215 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0x2e, 0x48, 0x2c,
 	0xca, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e,

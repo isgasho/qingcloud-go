@@ -28,7 +28,7 @@ type SnapshotServiceProperties struct {
 func (m *SnapshotServiceProperties) Reset()                    { *m = SnapshotServiceProperties{} }
 func (m *SnapshotServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotServiceProperties) ProtoMessage()               {}
-func (*SnapshotServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{0} }
+func (*SnapshotServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{0} }
 
 func (m *SnapshotServiceProperties) GetZone() string {
 	if m != nil {
@@ -56,11 +56,19 @@ type SnapshotService struct {
 	Properties *SnapshotServiceProperties
 }
 
-func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService, err error) {
+func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService) {
 	return &SnapshotService{
 		Config:     conf,
 		Properties: &SnapshotServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Snapshot(zone string) (*SnapshotService, error) {
+	properties := &SnapshotServiceProperties{
+		Zone: zone,
+	}
+
+	return &SnapshotService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *SnapshotService) DescribeSnapshots(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -238,9 +246,9 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf.Empty) (o
 	return x, err
 }
 
-func init() { proto.RegisterFile("snapshot.proto", fileDescriptor21) }
+func init() { proto.RegisterFile("snapshot.proto", fileDescriptor22) }
 
-var fileDescriptor21 = []byte{
+var fileDescriptor22 = []byte{
 	// 235 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x90, 0x41, 0x4b, 0x03, 0x31,
 	0x10, 0x85, 0x29, 0x14, 0xc5, 0x39, 0xb4, 0x98, 0x83, 0xd4, 0xf6, 0x22, 0x9e, 0x3c, 0xed, 0x82,

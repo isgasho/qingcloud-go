@@ -28,7 +28,7 @@ type RDBServiceProperties struct {
 func (m *RDBServiceProperties) Reset()                    { *m = RDBServiceProperties{} }
 func (m *RDBServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*RDBServiceProperties) ProtoMessage()               {}
-func (*RDBServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{0} }
+func (*RDBServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{0} }
 
 func (m *RDBServiceProperties) GetZone() string {
 	if m != nil {
@@ -67,11 +67,19 @@ type RDBService struct {
 	Properties *RDBServiceProperties
 }
 
-func NewRDBService(conf *config.Config, zone string) (p *RDBService, err error) {
+func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
 	return &RDBService{
 		Config:     conf,
 		Properties: &RDBServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) RDB(zone string) (*RDBService, error) {
+	properties := &RDBServiceProperties{
+		Zone: zone,
+	}
+
+	return &RDBService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *RDBService) CreateRDB(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -524,9 +532,9 @@ func (p *RDBService) DescribeRDBParameters(in *google_protobuf.Empty) (out *goog
 	return x, err
 }
 
-func init() { proto.RegisterFile("rdb.proto", fileDescriptor16) }
+func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }
 
-var fileDescriptor16 = []byte{
+var fileDescriptor17 = []byte{
 	// 355 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x4f, 0x4b, 0xeb, 0x50,
 	0x10, 0xc5, 0x29, 0x3c, 0xde, 0x7b, 0x19, 0xde, 0x13, 0x89, 0x5a, 0xb4, 0x6e, 0xd4, 0x95, 0xb8,

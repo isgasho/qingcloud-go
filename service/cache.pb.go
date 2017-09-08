@@ -73,11 +73,19 @@ type CacheService struct {
 	Properties *CacheServiceProperties
 }
 
-func NewCacheService(conf *config.Config, zone string) (p *CacheService, err error) {
+func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
 	return &CacheService{
 		Config:     conf,
 		Properties: &CacheServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Cache(zone string) (*CacheService, error) {
+	properties := &CacheServiceProperties{
+		Zone: zone,
+	}
+
+	return &CacheService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *CacheService) DescribeCaches(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

@@ -28,7 +28,7 @@ type SecurityGroupServiceProperties struct {
 func (m *SecurityGroupServiceProperties) Reset()                    { *m = SecurityGroupServiceProperties{} }
 func (m *SecurityGroupServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SecurityGroupServiceProperties) ProtoMessage()               {}
-func (*SecurityGroupServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
+func (*SecurityGroupServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{0} }
 
 func (m *SecurityGroupServiceProperties) GetZone() string {
 	if m != nil {
@@ -67,11 +67,19 @@ type SecurityGroupService struct {
 	Properties *SecurityGroupServiceProperties
 }
 
-func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroupService, err error) {
+func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroupService) {
 	return &SecurityGroupService{
 		Config:     conf,
 		Properties: &SecurityGroupServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) SecurityGroup(zone string) (*SecurityGroupService, error) {
+	properties := &SecurityGroupServiceProperties{
+		Zone: zone,
+	}
+
+	return &SecurityGroupService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -524,9 +532,9 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf.Empty
 	return x, err
 }
 
-func init() { proto.RegisterFile("security_group.proto", fileDescriptor20) }
+func init() { proto.RegisterFile("security_group.proto", fileDescriptor21) }
 
-var fileDescriptor20 = []byte{
+var fileDescriptor21 = []byte{
 	// 334 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0xcf, 0x4f, 0x83, 0x30,
 	0x14, 0xc7, 0xb3, 0xc4, 0x68, 0x7c, 0xde, 0xea, 0x36, 0xe7, 0xa6, 0x8b, 0xee, 0xe4, 0x89, 0x25,

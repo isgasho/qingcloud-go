@@ -198,11 +198,19 @@ type InstanceService struct {
 	Properties *InstanceServiceProperties
 }
 
-func NewInstanceService(conf *config.Config, zone string) (p *InstanceService, err error) {
+func NewInstanceService(conf *config.Config, zone string) (p *InstanceService) {
 	return &InstanceService{
 		Config:     conf,
 		Properties: &InstanceServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Instance(zone string) (*InstanceService, error) {
+	properties := &InstanceServiceProperties{
+		Zone: zone,
+	}
+
+	return &InstanceService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *InstanceService) DescribeInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

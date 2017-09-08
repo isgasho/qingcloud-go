@@ -28,7 +28,7 @@ type RouterServiceProperties struct {
 func (m *RouterServiceProperties) Reset()                    { *m = RouterServiceProperties{} }
 func (m *RouterServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*RouterServiceProperties) ProtoMessage()               {}
-func (*RouterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
+func (*RouterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{0} }
 
 func (m *RouterServiceProperties) GetZone() string {
 	if m != nil {
@@ -68,11 +68,19 @@ type RouterService struct {
 	Properties *RouterServiceProperties
 }
 
-func NewRouterService(conf *config.Config, zone string) (p *RouterService, err error) {
+func NewRouterService(conf *config.Config, zone string) (p *RouterService) {
 	return &RouterService{
 		Config:     conf,
 		Properties: &RouterServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Router(zone string) (*RouterService, error) {
+	properties := &RouterServiceProperties{
+		Zone: zone,
+	}
+
+	return &RouterService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *RouterService) DescribeRouters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -550,9 +558,9 @@ func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf.Empty) (
 	return x, err
 }
 
-func init() { proto.RegisterFile("router.proto", fileDescriptor18) }
+func init() { proto.RegisterFile("router.proto", fileDescriptor19) }
 
-var fileDescriptor18 = []byte{
+var fileDescriptor19 = []byte{
 	// 329 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0x4f, 0x4f, 0xf2, 0x40,
 	0x10, 0xc6, 0x43, 0xf2, 0xe6, 0x35, 0x8e, 0x22, 0xba, 0x2a, 0x2a, 0x78, 0x50, 0x4f, 0x5e, 0x2c,

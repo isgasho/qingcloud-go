@@ -21,6 +21,7 @@ It is generated from these files:
 	monitor.proto
 	nic.proto
 	notification_center.proto
+	qingcloud.proto
 	rdb.proto
 	resource_acl.proto
 	router.proto
@@ -130,6 +131,7 @@ It has these top-level messages:
 	NotificationCenterServiceProperties
 	DescribeNotificationCenterUserPostsInput
 	DescribeNotificationCenterUserPostsOutput
+	QingCloudServiceProperties
 	RDBServiceProperties
 	ResourceACLServiceProperties
 	RouterServiceProperties
@@ -268,11 +270,19 @@ type AlarmService struct {
 	Properties *AlarmServiceProperties
 }
 
-func NewAlarmService(conf *config.Config, zone string) (p *AlarmService, err error) {
+func NewAlarmService(conf *config.Config, zone string) (p *AlarmService) {
 	return &AlarmService{
 		Config:     conf,
 		Properties: &AlarmServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Alarm(zone string) (*AlarmService, error) {
+	properties := &AlarmServiceProperties{
+		Zone: zone,
+	}
+
+	return &AlarmService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *AlarmService) DescribeAlarmPolicies(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

@@ -80,11 +80,19 @@ type LoadBalancerService struct {
 	Properties *LoadBalancerServiceProperties
 }
 
-func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerService, err error) {
+func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerService) {
 	return &LoadBalancerService{
 		Config:     conf,
 		Properties: &LoadBalancerServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) LoadBalancer(zone string) (*LoadBalancerService, error) {
+	properties := &LoadBalancerServiceProperties{
+		Zone: zone,
+	}
+
+	return &LoadBalancerService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *LoadBalancerService) CreateLoadBalancer(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

@@ -266,11 +266,19 @@ type NicService struct {
 	Properties *NicServiceProperties
 }
 
-func NewNicService(conf *config.Config, zone string) (p *NicService, err error) {
+func NewNicService(conf *config.Config, zone string) (p *NicService) {
 	return &NicService{
 		Config:     conf,
 		Properties: &NicServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Nic(zone string) (*NicService, error) {
+	properties := &NicServiceProperties{
+		Zone: zone,
+	}
+
+	return &NicService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error) {

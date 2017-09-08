@@ -124,11 +124,19 @@ type DNSAliasService struct {
 	Properties *DNSAliasServiceProperties
 }
 
-func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService, err error) {
+func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
 	return &DNSAliasService{
 		Config:     conf,
 		Properties: &DNSAliasServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) DNSAlias(zone string) (*DNSAliasService, error) {
+	properties := &DNSAliasServiceProperties{
+		Zone: zone,
+	}
+
+	return &DNSAliasService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error) {

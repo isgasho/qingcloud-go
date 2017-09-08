@@ -55,11 +55,19 @@ type MonitorService struct {
 	Properties *MonitorServiceProperties
 }
 
-func NewMonitorService(conf *config.Config, zone string) (p *MonitorService, err error) {
+func NewMonitorService(conf *config.Config, zone string) (p *MonitorService) {
 	return &MonitorService{
 		Config:     conf,
 		Properties: &MonitorServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Monitor(zone string) (*MonitorService, error) {
+	properties := &MonitorServiceProperties{
+		Zone: zone,
+	}
+
+	return &MonitorService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *MonitorService) GetMonitor(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

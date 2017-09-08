@@ -28,7 +28,7 @@ type S2ServiceProperties struct {
 func (m *S2ServiceProperties) Reset()                    { *m = S2ServiceProperties{} }
 func (m *S2ServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*S2ServiceProperties) ProtoMessage()               {}
-func (*S2ServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{0} }
+func (*S2ServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
 
 func (m *S2ServiceProperties) GetZone() string {
 	if m != nil {
@@ -77,11 +77,19 @@ type S2Service struct {
 	Properties *S2ServiceProperties
 }
 
-func NewS2Service(conf *config.Config, zone string) (p *S2Service, err error) {
+func NewS2Service(conf *config.Config, zone string) (p *S2Service) {
 	return &S2Service{
 		Config:     conf,
 		Properties: &S2ServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) S2(zone string) (*S2Service, error) {
+	properties := &S2ServiceProperties{
+		Zone: zone,
+	}
+
+	return &S2Service{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *S2Service) CreateS2Server(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -784,9 +792,9 @@ func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf.Empty) (out *go
 	return x, err
 }
 
-func init() { proto.RegisterFile("s2.proto", fileDescriptor19) }
+func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }
 
-var fileDescriptor19 = []byte{
+var fileDescriptor20 = []byte{
 	// 414 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x93, 0x51, 0x8f, 0x9a, 0x40,
 	0x10, 0xc7, 0x63, 0xd2, 0xb4, 0x75, 0x92, 0x4a, 0xc5, 0x56, 0x8d, 0x26, 0x4d, 0xd3, 0xa7, 0xf6,

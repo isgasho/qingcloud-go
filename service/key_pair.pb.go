@@ -55,11 +55,19 @@ type KeyPairService struct {
 	Properties *KeyPairServiceProperties
 }
 
-func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService, err error) {
+func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService) {
 	return &KeyPairService{
 		Config:     conf,
 		Properties: &KeyPairServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) KeyPair(zone string) (*KeyPairService, error) {
+	properties := &KeyPairServiceProperties{
+		Zone: zone,
+	}
+
+	return &KeyPairService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

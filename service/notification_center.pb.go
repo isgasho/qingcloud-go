@@ -77,11 +77,19 @@ type NotificationCenterService struct {
 	Properties *NotificationCenterServiceProperties
 }
 
-func NewNotificationCenterService(conf *config.Config, zone string) (p *NotificationCenterService, err error) {
+func NewNotificationCenterService(conf *config.Config, zone string) (p *NotificationCenterService) {
 	return &NotificationCenterService{
 		Config:     conf,
 		Properties: &NotificationCenterServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) NotificationCenter(zone string) (*NotificationCenterService, error) {
+	properties := &NotificationCenterServiceProperties{
+		Zone: zone,
+	}
+
+	return &NotificationCenterService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *DescribeNotificationCenterUserPostsInput) (out *DescribeNotificationCenterUserPostsOutput, err error) {

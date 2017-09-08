@@ -30,7 +30,7 @@ type Tag struct {
 func (m *Tag) Reset()                    { *m = Tag{} }
 func (m *Tag) String() string            { return proto.CompactTextString(m) }
 func (*Tag) ProtoMessage()               {}
-func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0} }
+func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0} }
 
 func (m *Tag) GetColor() string {
 	if m != nil {
@@ -113,7 +113,7 @@ type Tag_ResourceTagPair struct {
 func (m *Tag_ResourceTagPair) Reset()                    { *m = Tag_ResourceTagPair{} }
 func (m *Tag_ResourceTagPair) String() string            { return proto.CompactTextString(m) }
 func (*Tag_ResourceTagPair) ProtoMessage()               {}
-func (*Tag_ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0, 0} }
+func (*Tag_ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0, 0} }
 
 func (m *Tag_ResourceTagPair) GetResourceId() string {
 	if m != nil {
@@ -158,7 +158,7 @@ type Tag_ResourceTypeCount struct {
 func (m *Tag_ResourceTypeCount) Reset()                    { *m = Tag_ResourceTypeCount{} }
 func (m *Tag_ResourceTypeCount) String() string            { return proto.CompactTextString(m) }
 func (*Tag_ResourceTypeCount) ProtoMessage()               {}
-func (*Tag_ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0, 1} }
+func (*Tag_ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0, 1} }
 
 func (m *Tag_ResourceTypeCount) GetCount() int32 {
 	if m != nil {
@@ -198,7 +198,7 @@ type EIP struct {
 func (m *EIP) Reset()                    { *m = EIP{} }
 func (m *EIP) String() string            { return proto.CompactTextString(m) }
 func (*EIP) ProtoMessage()               {}
-func (*EIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1} }
+func (*EIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1} }
 
 func (m *EIP) GetAlarmStatus() string {
 	if m != nil {
@@ -335,7 +335,7 @@ type EIP_Resource struct {
 func (m *EIP_Resource) Reset()                    { *m = EIP_Resource{} }
 func (m *EIP_Resource) String() string            { return proto.CompactTextString(m) }
 func (*EIP_Resource) ProtoMessage()               {}
-func (*EIP_Resource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1, 0} }
+func (*EIP_Resource) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1, 0} }
 
 func (m *EIP_Resource) GetResourceId() string {
 	if m != nil {
@@ -371,7 +371,7 @@ type Job struct {
 func (m *Job) Reset()                    { *m = Job{} }
 func (m *Job) String() string            { return proto.CompactTextString(m) }
 func (*Job) ProtoMessage()               {}
-func (*Job) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{2} }
+func (*Job) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{2} }
 
 func (m *Job) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -445,7 +445,7 @@ type Volume struct {
 func (m *Volume) Reset()                    { *m = Volume{} }
 func (m *Volume) String() string            { return proto.CompactTextString(m) }
 func (*Volume) ProtoMessage()               {}
-func (*Volume) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{3} }
+func (*Volume) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{3} }
 
 func (m *Volume) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -592,7 +592,7 @@ type NIC struct {
 func (m *NIC) Reset()                    { *m = NIC{} }
 func (m *NIC) String() string            { return proto.CompactTextString(m) }
 func (*NIC) ProtoMessage()               {}
-func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{4} }
+func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{4} }
 
 func (m *NIC) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -747,7 +747,7 @@ type KeyPair struct {
 func (m *KeyPair) Reset()                    { *m = KeyPair{} }
 func (m *KeyPair) String() string            { return proto.CompactTextString(m) }
 func (*KeyPair) ProtoMessage()               {}
-func (*KeyPair) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{5} }
+func (*KeyPair) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{5} }
 
 func (m *KeyPair) GetDescription() string {
 	if m != nil {
@@ -815,7 +815,7 @@ type VxNet struct {
 func (m *VxNet) Reset()                    { *m = VxNet{} }
 func (m *VxNet) String() string            { return proto.CompactTextString(m) }
 func (*VxNet) ProtoMessage()               {}
-func (*VxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{6} }
+func (*VxNet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{6} }
 
 func (m *VxNet) GetAvailableIpCount() int32 {
 	if m != nil {
@@ -919,7 +919,7 @@ type Router struct {
 func (m *Router) Reset()                    { *m = Router{} }
 func (m *Router) String() string            { return proto.CompactTextString(m) }
 func (*Router) ProtoMessage()               {}
-func (*Router) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{7} }
+func (*Router) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{7} }
 
 func (m *Router) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -1090,7 +1090,7 @@ type Instance struct {
 func (m *Instance) Reset()                    { *m = Instance{} }
 func (m *Instance) String() string            { return proto.CompactTextString(m) }
 func (*Instance) ProtoMessage()               {}
-func (*Instance) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{8} }
+func (*Instance) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{8} }
 
 func (m *Instance) GetAlarmStatus() string {
 	if m != nil {
@@ -1286,7 +1286,7 @@ type Instance_InstanceVxNet struct {
 func (m *Instance_InstanceVxNet) Reset()                    { *m = Instance_InstanceVxNet{} }
 func (m *Instance_InstanceVxNet) String() string            { return proto.CompactTextString(m) }
 func (*Instance_InstanceVxNet) ProtoMessage()               {}
-func (*Instance_InstanceVxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{8, 0} }
+func (*Instance_InstanceVxNet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{8, 0} }
 
 func (m *Instance_InstanceVxNet) GetNicId() string {
 	if m != nil {
@@ -1364,7 +1364,7 @@ type Image struct {
 func (m *Image) Reset()                    { *m = Image{} }
 func (m *Image) String() string            { return proto.CompactTextString(m) }
 func (*Image) ProtoMessage()               {}
-func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{9} }
+func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{9} }
 
 func (m *Image) GetAppBillingId() string {
 	if m != nil {
@@ -1584,7 +1584,7 @@ type Mongo struct {
 func (m *Mongo) Reset()                    { *m = Mongo{} }
 func (m *Mongo) String() string            { return proto.CompactTextString(m) }
 func (*Mongo) ProtoMessage()               {}
-func (*Mongo) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{10} }
+func (*Mongo) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{10} }
 
 func (m *Mongo) GetAlarmStatus() string {
 	if m != nil {
@@ -1710,7 +1710,7 @@ type MongoNode struct {
 func (m *MongoNode) Reset()                    { *m = MongoNode{} }
 func (m *MongoNode) String() string            { return proto.CompactTextString(m) }
 func (*MongoNode) ProtoMessage()               {}
-func (*MongoNode) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{11} }
+func (*MongoNode) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{11} }
 
 func (m *MongoNode) GetIp() string {
 	if m != nil {
@@ -1773,9 +1773,9 @@ func init() {
 	proto.RegisterType((*MongoNode)(nil), "service.MongoNode")
 }
 
-func init() { proto.RegisterFile("types.proto", fileDescriptor26) }
+func init() { proto.RegisterFile("types.proto", fileDescriptor27) }
 
-var fileDescriptor26 = []byte{
+var fileDescriptor27 = []byte{
 	// 2357 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x58, 0x4b, 0x73, 0xdc, 0xb8,
 	0x11, 0xae, 0xd1, 0x88, 0xf3, 0xe8, 0x79, 0x48, 0xa2, 0x1f, 0xa2, 0x64, 0xcb, 0x96, 0xc7, 0x76,

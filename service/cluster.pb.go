@@ -2316,11 +2316,19 @@ type ClusterService struct {
 	Properties *ClusterServiceProperties
 }
 
-func NewClusterService(conf *config.Config, zone string) (p *ClusterService, err error) {
+func NewClusterService(conf *config.Config, zone string) (p *ClusterService) {
 	return &ClusterService{
 		Config:     conf,
 		Properties: &ClusterServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Cluster(zone string) (*ClusterService, error) {
+	properties := &ClusterServiceProperties{
+		Zone: zone,
+	}
+
+	return &ClusterService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *ClusterService) CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error) {

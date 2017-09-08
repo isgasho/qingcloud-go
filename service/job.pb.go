@@ -147,11 +147,19 @@ type JobService struct {
 	Properties *JobServiceProperties
 }
 
-func NewJobService(conf *config.Config, zone string) (p *JobService, err error) {
+func NewJobService(conf *config.Config, zone string) (p *JobService) {
 	return &JobService{
 		Config:     conf,
 		Properties: &JobServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Job(zone string) (*JobService, error) {
+	properties := &JobServiceProperties{
+		Zone: zone,
+	}
+
+	return &JobService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *JobService) DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutput, err error) {

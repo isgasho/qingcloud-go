@@ -53,11 +53,19 @@ type HadoopService struct {
 	Properties *HadoopServiceProperties
 }
 
-func NewHadoopService(conf *config.Config, zone string) (p *HadoopService, err error) {
+func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
 	return &HadoopService{
 		Config:     conf,
 		Properties: &HadoopServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Hadoop(zone string) (*HadoopService, error) {
+	properties := &HadoopServiceProperties{
+		Zone: zone,
+	}
+
+	return &HadoopService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *HadoopService) AddHadoopNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

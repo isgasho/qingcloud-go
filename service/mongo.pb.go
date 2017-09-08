@@ -211,11 +211,19 @@ type MongoService struct {
 	Properties *MongoServiceProperties
 }
 
-func NewMongoService(conf *config.Config, zone string) (p *MongoService, err error) {
+func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
 	return &MongoService{
 		Config:     conf,
 		Properties: &MongoServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Mongo(zone string) (*MongoService, error) {
+	properties := &MongoServiceProperties{
+		Zone: zone,
+	}
+
+	return &MongoService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *MongoService) DescribeMongoNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

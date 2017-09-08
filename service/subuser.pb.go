@@ -27,7 +27,7 @@ type SubuserServiceProperties struct {
 func (m *SubuserServiceProperties) Reset()                    { *m = SubuserServiceProperties{} }
 func (m *SubuserServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SubuserServiceProperties) ProtoMessage()               {}
-func (*SubuserServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{0} }
+func (*SubuserServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{0} }
 
 func (m *SubuserServiceProperties) GetZone() string {
 	if m != nil {
@@ -42,7 +42,7 @@ type DescribeSubUsersInput struct {
 func (m *DescribeSubUsersInput) Reset()                    { *m = DescribeSubUsersInput{} }
 func (m *DescribeSubUsersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSubUsersInput) ProtoMessage()               {}
-func (*DescribeSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{1} }
+func (*DescribeSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{1} }
 
 type DescribeSubUsersOutput struct {
 }
@@ -50,7 +50,7 @@ type DescribeSubUsersOutput struct {
 func (m *DescribeSubUsersOutput) Reset()                    { *m = DescribeSubUsersOutput{} }
 func (m *DescribeSubUsersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSubUsersOutput) ProtoMessage()               {}
-func (*DescribeSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{2} }
+func (*DescribeSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{2} }
 
 type CreateSubUserInput struct {
 }
@@ -58,7 +58,7 @@ type CreateSubUserInput struct {
 func (m *CreateSubUserInput) Reset()                    { *m = CreateSubUserInput{} }
 func (m *CreateSubUserInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSubUserInput) ProtoMessage()               {}
-func (*CreateSubUserInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{3} }
+func (*CreateSubUserInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{3} }
 
 type CreateSubUserOutput struct {
 }
@@ -66,7 +66,7 @@ type CreateSubUserOutput struct {
 func (m *CreateSubUserOutput) Reset()                    { *m = CreateSubUserOutput{} }
 func (m *CreateSubUserOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSubUserOutput) ProtoMessage()               {}
-func (*CreateSubUserOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{4} }
+func (*CreateSubUserOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{4} }
 
 type ModifySubUserAttributesInput struct {
 }
@@ -74,7 +74,7 @@ type ModifySubUserAttributesInput struct {
 func (m *ModifySubUserAttributesInput) Reset()                    { *m = ModifySubUserAttributesInput{} }
 func (m *ModifySubUserAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifySubUserAttributesInput) ProtoMessage()               {}
-func (*ModifySubUserAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{5} }
+func (*ModifySubUserAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{5} }
 
 type ModifySubUserAttributesOutput struct {
 }
@@ -82,7 +82,7 @@ type ModifySubUserAttributesOutput struct {
 func (m *ModifySubUserAttributesOutput) Reset()                    { *m = ModifySubUserAttributesOutput{} }
 func (m *ModifySubUserAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifySubUserAttributesOutput) ProtoMessage()               {}
-func (*ModifySubUserAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{6} }
+func (*ModifySubUserAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{6} }
 
 type DeleteSubUsersInput struct {
 }
@@ -90,7 +90,7 @@ type DeleteSubUsersInput struct {
 func (m *DeleteSubUsersInput) Reset()                    { *m = DeleteSubUsersInput{} }
 func (m *DeleteSubUsersInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSubUsersInput) ProtoMessage()               {}
-func (*DeleteSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{7} }
+func (*DeleteSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{7} }
 
 type DeleteSubUsersOutput struct {
 }
@@ -98,7 +98,7 @@ type DeleteSubUsersOutput struct {
 func (m *DeleteSubUsersOutput) Reset()                    { *m = DeleteSubUsersOutput{} }
 func (m *DeleteSubUsersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSubUsersOutput) ProtoMessage()               {}
-func (*DeleteSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{8} }
+func (*DeleteSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{8} }
 
 type RestoreSubUsersInput struct {
 }
@@ -106,7 +106,7 @@ type RestoreSubUsersInput struct {
 func (m *RestoreSubUsersInput) Reset()                    { *m = RestoreSubUsersInput{} }
 func (m *RestoreSubUsersInput) String() string            { return proto.CompactTextString(m) }
 func (*RestoreSubUsersInput) ProtoMessage()               {}
-func (*RestoreSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{9} }
+func (*RestoreSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{9} }
 
 type RestoreSubUsersOutput struct {
 }
@@ -114,7 +114,7 @@ type RestoreSubUsersOutput struct {
 func (m *RestoreSubUsersOutput) Reset()                    { *m = RestoreSubUsersOutput{} }
 func (m *RestoreSubUsersOutput) String() string            { return proto.CompactTextString(m) }
 func (*RestoreSubUsersOutput) ProtoMessage()               {}
-func (*RestoreSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{10} }
+func (*RestoreSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{10} }
 
 func init() {
 	proto.RegisterType((*SubuserServiceProperties)(nil), "service.SubuserServiceProperties")
@@ -143,11 +143,19 @@ type SubuserService struct {
 	Properties *SubuserServiceProperties
 }
 
-func NewSubuserService(conf *config.Config, zone string) (p *SubuserService, err error) {
+func NewSubuserService(conf *config.Config, zone string) (p *SubuserService) {
 	return &SubuserService{
 		Config:     conf,
 		Properties: &SubuserServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Subuser(zone string) (*SubuserService, error) {
+	properties := &SubuserServiceProperties{
+		Zone: zone,
+	}
+
+	return &SubuserService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error) {
@@ -295,9 +303,9 @@ func (p *RestoreSubUsersInput) Validate() error {
 	return nil
 }
 
-func init() { proto.RegisterFile("subuser.proto", fileDescriptor24) }
+func init() { proto.RegisterFile("subuser.proto", fileDescriptor25) }
 
-var fileDescriptor24 = []byte{
+var fileDescriptor25 = []byte{
 	// 300 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x92, 0xdd, 0x4a, 0xc3, 0x40,
 	0x10, 0x85, 0x29, 0x8a, 0xe2, 0x40, 0xab, 0x4c, 0x9b, 0x1f, 0x62, 0x9a, 0x4a, 0x40, 0xf1, 0x2a,

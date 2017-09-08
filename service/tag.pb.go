@@ -27,7 +27,7 @@ type TagServiceProperties struct {
 func (m *TagServiceProperties) Reset()                    { *m = TagServiceProperties{} }
 func (m *TagServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*TagServiceProperties) ProtoMessage()               {}
-func (*TagServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{0} }
+func (*TagServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0} }
 
 func (m *TagServiceProperties) GetZone() string {
 	if m != nil {
@@ -42,7 +42,7 @@ type DescribeTagsInput struct {
 func (m *DescribeTagsInput) Reset()                    { *m = DescribeTagsInput{} }
 func (m *DescribeTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeTagsInput) ProtoMessage()               {}
-func (*DescribeTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{1} }
+func (*DescribeTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1} }
 
 type DescribeTagsOutput struct {
 }
@@ -50,7 +50,7 @@ type DescribeTagsOutput struct {
 func (m *DescribeTagsOutput) Reset()                    { *m = DescribeTagsOutput{} }
 func (m *DescribeTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeTagsOutput) ProtoMessage()               {}
-func (*DescribeTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{2} }
+func (*DescribeTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{2} }
 
 type CreateTagInput struct {
 }
@@ -58,7 +58,7 @@ type CreateTagInput struct {
 func (m *CreateTagInput) Reset()                    { *m = CreateTagInput{} }
 func (m *CreateTagInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateTagInput) ProtoMessage()               {}
-func (*CreateTagInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{3} }
+func (*CreateTagInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{3} }
 
 type CreateTagOutput struct {
 }
@@ -66,7 +66,7 @@ type CreateTagOutput struct {
 func (m *CreateTagOutput) Reset()                    { *m = CreateTagOutput{} }
 func (m *CreateTagOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateTagOutput) ProtoMessage()               {}
-func (*CreateTagOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{4} }
+func (*CreateTagOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{4} }
 
 type DeleteTagsInput struct {
 }
@@ -74,7 +74,7 @@ type DeleteTagsInput struct {
 func (m *DeleteTagsInput) Reset()                    { *m = DeleteTagsInput{} }
 func (m *DeleteTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteTagsInput) ProtoMessage()               {}
-func (*DeleteTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{5} }
+func (*DeleteTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{5} }
 
 type DeleteTagsOutput struct {
 }
@@ -82,7 +82,7 @@ type DeleteTagsOutput struct {
 func (m *DeleteTagsOutput) Reset()                    { *m = DeleteTagsOutput{} }
 func (m *DeleteTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteTagsOutput) ProtoMessage()               {}
-func (*DeleteTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{6} }
+func (*DeleteTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{6} }
 
 type ModifyTagAttributesInput struct {
 }
@@ -90,7 +90,7 @@ type ModifyTagAttributesInput struct {
 func (m *ModifyTagAttributesInput) Reset()                    { *m = ModifyTagAttributesInput{} }
 func (m *ModifyTagAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyTagAttributesInput) ProtoMessage()               {}
-func (*ModifyTagAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{7} }
+func (*ModifyTagAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{7} }
 
 type ModifyTagAttributesOutput struct {
 }
@@ -98,7 +98,7 @@ type ModifyTagAttributesOutput struct {
 func (m *ModifyTagAttributesOutput) Reset()                    { *m = ModifyTagAttributesOutput{} }
 func (m *ModifyTagAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyTagAttributesOutput) ProtoMessage()               {}
-func (*ModifyTagAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{8} }
+func (*ModifyTagAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{8} }
 
 type AttachTagsInput struct {
 }
@@ -106,7 +106,7 @@ type AttachTagsInput struct {
 func (m *AttachTagsInput) Reset()                    { *m = AttachTagsInput{} }
 func (m *AttachTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*AttachTagsInput) ProtoMessage()               {}
-func (*AttachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{9} }
+func (*AttachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{9} }
 
 type AttachTagsOutput struct {
 }
@@ -114,7 +114,7 @@ type AttachTagsOutput struct {
 func (m *AttachTagsOutput) Reset()                    { *m = AttachTagsOutput{} }
 func (m *AttachTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*AttachTagsOutput) ProtoMessage()               {}
-func (*AttachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{10} }
+func (*AttachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{10} }
 
 type DetachTagsInput struct {
 }
@@ -122,7 +122,7 @@ type DetachTagsInput struct {
 func (m *DetachTagsInput) Reset()                    { *m = DetachTagsInput{} }
 func (m *DetachTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*DetachTagsInput) ProtoMessage()               {}
-func (*DetachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{11} }
+func (*DetachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{11} }
 
 type DetachTagsOutput struct {
 }
@@ -130,7 +130,7 @@ type DetachTagsOutput struct {
 func (m *DetachTagsOutput) Reset()                    { *m = DetachTagsOutput{} }
 func (m *DetachTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DetachTagsOutput) ProtoMessage()               {}
-func (*DetachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{12} }
+func (*DetachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{12} }
 
 func init() {
 	proto.RegisterType((*TagServiceProperties)(nil), "service.TagServiceProperties")
@@ -162,11 +162,19 @@ type TagService struct {
 	Properties *TagServiceProperties
 }
 
-func NewTagService(conf *config.Config, zone string) (p *TagService, err error) {
+func NewTagService(conf *config.Config, zone string) (p *TagService) {
 	return &TagService{
 		Config:     conf,
 		Properties: &TagServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Tag(zone string) (*TagService, error) {
+	properties := &TagServiceProperties{
+		Zone: zone,
+	}
+
+	return &TagService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error) {
@@ -343,9 +351,9 @@ func (p *DetachTagsInput) Validate() error {
 	return nil
 }
 
-func init() { proto.RegisterFile("tag.proto", fileDescriptor25) }
+func init() { proto.RegisterFile("tag.proto", fileDescriptor26) }
 
-var fileDescriptor25 = []byte{
+var fileDescriptor26 = []byte{
 	// 301 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0xc1, 0x4b, 0x84, 0x50,
 	0x10, 0xc6, 0x59, 0x8a, 0xc2, 0x21, 0xda, 0x75, 0x76, 0x21, 0xf7, 0xed, 0xa5, 0x3c, 0x45, 0x07,

@@ -57,11 +57,19 @@ type EipService struct {
 	Properties *EipServiceProperties
 }
 
-func NewEipService(conf *config.Config, zone string) (p *EipService, err error) {
+func NewEipService(conf *config.Config, zone string) (p *EipService) {
 	return &EipService{
 		Config:     conf,
 		Properties: &EipServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Eip(zone string) (*EipService, error) {
+	properties := &EipServiceProperties{
+		Zone: zone,
+	}
+
+	return &EipService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *EipService) DescribeEips(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {

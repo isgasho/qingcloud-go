@@ -468,11 +468,19 @@ type MiscService struct {
 	Properties *MiscServiceProperties
 }
 
-func NewMiscService(conf *config.Config, zone string) (p *MiscService, err error) {
+func NewMiscService(conf *config.Config, zone string) (p *MiscService) {
 	return &MiscService{
 		Config:     conf,
 		Properties: &MiscServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Misc(zone string) (*MiscService, error) {
+	properties := &MiscServiceProperties{
+		Zone: zone,
+	}
+
+	return &MiscService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error) {

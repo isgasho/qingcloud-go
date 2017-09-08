@@ -28,7 +28,7 @@ type UserDataServiceProperties struct {
 func (m *UserDataServiceProperties) Reset()                    { *m = UserDataServiceProperties{} }
 func (m *UserDataServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*UserDataServiceProperties) ProtoMessage()               {}
-func (*UserDataServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0} }
+func (*UserDataServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{0} }
 
 func (m *UserDataServiceProperties) GetZone() string {
 	if m != nil {
@@ -45,7 +45,7 @@ type UploadUserDataAttachmentInput struct {
 func (m *UploadUserDataAttachmentInput) Reset()                    { *m = UploadUserDataAttachmentInput{} }
 func (m *UploadUserDataAttachmentInput) String() string            { return proto.CompactTextString(m) }
 func (*UploadUserDataAttachmentInput) ProtoMessage()               {}
-func (*UploadUserDataAttachmentInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1} }
+func (*UploadUserDataAttachmentInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{1} }
 
 func (m *UploadUserDataAttachmentInput) GetAttachmentContent() []byte {
 	if m != nil {
@@ -71,7 +71,7 @@ type UploadUserDataAttachmentOutput struct {
 func (m *UploadUserDataAttachmentOutput) Reset()                    { *m = UploadUserDataAttachmentOutput{} }
 func (m *UploadUserDataAttachmentOutput) String() string            { return proto.CompactTextString(m) }
 func (*UploadUserDataAttachmentOutput) ProtoMessage()               {}
-func (*UploadUserDataAttachmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{2} }
+func (*UploadUserDataAttachmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{2} }
 
 func (m *UploadUserDataAttachmentOutput) GetAction() string {
 	if m != nil {
@@ -116,11 +116,19 @@ type UserDataService struct {
 	Properties *UserDataServiceProperties
 }
 
-func NewUserDataService(conf *config.Config, zone string) (p *UserDataService, err error) {
+func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
 	return &UserDataService{
 		Config:     conf,
 		Properties: &UserDataServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) UserData(zone string) (*UserDataService, error) {
+	properties := &UserDataServiceProperties{
+		Zone: zone,
+	}
+
+	return &UserDataService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error) {
@@ -152,9 +160,9 @@ func (p *UploadUserDataAttachmentInput) Validate() error {
 	return nil
 }
 
-func init() { proto.RegisterFile("user_data.proto", fileDescriptor27) }
+func init() { proto.RegisterFile("user_data.proto", fileDescriptor28) }
 
-var fileDescriptor27 = []byte{
+var fileDescriptor28 = []byte{
 	// 316 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x51, 0xcf, 0x4e, 0x32, 0x31,
 	0x10, 0x4f, 0xbf, 0x6f, 0x05, 0x9d, 0xa0, 0xc4, 0xc6, 0x98, 0x42, 0x82, 0x21, 0x6b, 0x22, 0x5c,

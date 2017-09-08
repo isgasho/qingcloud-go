@@ -28,7 +28,7 @@ type SpanServiceProperties struct {
 func (m *SpanServiceProperties) Reset()                    { *m = SpanServiceProperties{} }
 func (m *SpanServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SpanServiceProperties) ProtoMessage()               {}
-func (*SpanServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{0} }
+func (*SpanServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{0} }
 
 func (m *SpanServiceProperties) GetZone() string {
 	if m != nil {
@@ -56,11 +56,19 @@ type SpanService struct {
 	Properties *SpanServiceProperties
 }
 
-func NewSpanService(conf *config.Config, zone string) (p *SpanService, err error) {
+func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
 	return &SpanService{
 		Config:     conf,
 		Properties: &SpanServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) Span(zone string) (*SpanService, error) {
+	properties := &SpanServiceProperties{
+		Zone: zone,
+	}
+
+	return &SpanService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *SpanService) CreateSpan(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -238,9 +246,9 @@ func (p *SpanService) UpdateSpan(in *google_protobuf.Empty) (out *google_protobu
 	return x, err
 }
 
-func init() { proto.RegisterFile("span.proto", fileDescriptor22) }
+func init() { proto.RegisterFile("span.proto", fileDescriptor23) }
 
-var fileDescriptor22 = []byte{
+var fileDescriptor23 = []byte{
 	// 230 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2a, 0x2e, 0x48, 0xcc,
 	0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e, 0x95,

@@ -28,7 +28,7 @@ type ResourceACLServiceProperties struct {
 func (m *ResourceACLServiceProperties) Reset()                    { *m = ResourceACLServiceProperties{} }
 func (m *ResourceACLServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ResourceACLServiceProperties) ProtoMessage()               {}
-func (*ResourceACLServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{0} }
+func (*ResourceACLServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
 
 func (m *ResourceACLServiceProperties) GetZone() string {
 	if m != nil {
@@ -76,11 +76,19 @@ type ResourceACLService struct {
 	Properties *ResourceACLServiceProperties
 }
 
-func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLService, err error) {
+func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLService) {
 	return &ResourceACLService{
 		Config:     conf,
 		Properties: &ResourceACLServiceProperties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) ResourceACL(zone string) (*ResourceACLService, error) {
+	properties := &ResourceACLServiceProperties{
+		Zone: zone,
+	}
+
+	return &ResourceACLService{Config: s.Config, Properties: properties}, nil
 }
 
 func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
@@ -758,9 +766,9 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf.Empt
 	return x, err
 }
 
-func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor17) }
+func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor18) }
 
-var fileDescriptor17 = []byte{
+var fileDescriptor18 = []byte{
 	// 392 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0x4f, 0x6f, 0xda, 0x40,
 	0x10, 0xc5, 0x85, 0x54, 0xb5, 0xea, 0x5c, 0x4a, 0xb7, 0x2d, 0xa2, 0x94, 0x8a, 0x8a, 0x53, 0x4f,
