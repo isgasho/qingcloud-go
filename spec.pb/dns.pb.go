@@ -9,9 +9,11 @@ import math "math"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -133,7 +135,7 @@ func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *
 	if in == nil {
 		in = &DescribeDNSAliasesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeDNSAliases",
@@ -162,7 +164,7 @@ func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *As
 	if in == nil {
 		in = &AssociateDNSAliasInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateDNSAlias",
@@ -191,7 +193,7 @@ func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (o
 	if in == nil {
 		in = &DissociateDNSAliasesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateDNSAliases",
@@ -220,7 +222,7 @@ func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOut
 	if in == nil {
 		in = &GetDNSLabelInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetDNSLabel",

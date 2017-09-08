@@ -10,9 +10,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -86,7 +88,7 @@ func (p *S2Service) CreateS2Server(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2Server",
@@ -111,7 +113,7 @@ func (p *S2Service) DescribeS2Servers(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2Servers",
@@ -136,7 +138,7 @@ func (p *S2Service) ModifyS2Server(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2Server",
@@ -161,7 +163,7 @@ func (p *S2Service) ResizeS2Servers(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeS2Servers",
@@ -186,7 +188,7 @@ func (p *S2Service) DeleteS2Servers(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2Servers",
@@ -211,7 +213,7 @@ func (p *S2Service) PowerOnS2Servers(in *google_protobuf.Empty) (out *google_pro
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOnS2Servers",
@@ -236,7 +238,7 @@ func (p *S2Service) PowerOffS2Servers(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOffS2Servers",
@@ -261,7 +263,7 @@ func (p *S2Service) UpdateS2Servers(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateS2Servers",
@@ -286,7 +288,7 @@ func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeS2ServerVxnet",
@@ -311,7 +313,7 @@ func (p *S2Service) CreateS2SharedTarget(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2SharedTarget",
@@ -336,7 +338,7 @@ func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2SharedTargets",
@@ -361,7 +363,7 @@ func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2SharedTargets",
@@ -386,7 +388,7 @@ func (p *S2Service) EnableS2SharedTargets(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "EnableS2SharedTargets",
@@ -411,7 +413,7 @@ func (p *S2Service) DisableS2SharedTargets(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DisableS2SharedTargets",
@@ -436,7 +438,7 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf.Empty) (o
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2SharedTargetAttributes",
@@ -461,7 +463,7 @@ func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachToS2SharedTarget",
@@ -486,7 +488,7 @@ func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachFromS2SharedTarget",
@@ -511,7 +513,7 @@ func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2DefaultParameters",
@@ -536,7 +538,7 @@ func (p *S2Service) CreateS2Group(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2Group",
@@ -561,7 +563,7 @@ func (p *S2Service) DescribeS2Groups(in *google_protobuf.Empty) (out *google_pro
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2Groups",
@@ -586,7 +588,7 @@ func (p *S2Service) ModifyS2Group(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2Group",
@@ -611,7 +613,7 @@ func (p *S2Service) DeleteS2Groups(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2Groups",
@@ -636,7 +638,7 @@ func (p *S2Service) CreateS2Account(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2Account",
@@ -661,7 +663,7 @@ func (p *S2Service) DescribeS2Accounts(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2Accounts",
@@ -686,7 +688,7 @@ func (p *S2Service) ModifyS2Account(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2Account",
@@ -711,7 +713,7 @@ func (p *S2Service) DeleteS2Accounts(in *google_protobuf.Empty) (out *google_pro
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2Accounts",
@@ -736,7 +738,7 @@ func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateS2AccountGroup",
@@ -761,7 +763,7 @@ func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateS2AccountGroup",

@@ -9,9 +9,11 @@ import math "math"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -477,7 +479,7 @@ func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuota
 	if in == nil {
 		in = &GrantQuotaIndepInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GrantQuotaIndep",
@@ -506,7 +508,7 @@ func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQu
 	if in == nil {
 		in = &RevokeQuotaIndepInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RevokeQuotaIndep",
@@ -535,7 +537,7 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 	if in == nil {
 		in = &GetQuotaLeftInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetQuotaLeft",

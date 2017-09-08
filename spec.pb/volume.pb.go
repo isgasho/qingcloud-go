@@ -9,9 +9,11 @@ import math "math"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -598,7 +600,7 @@ func (p *VolumesService) DescribeVolumes(in *DescribeVolumesInput) (out *Describ
 	if in == nil {
 		in = &DescribeVolumesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeVolumes",
@@ -627,7 +629,7 @@ func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolum
 	if in == nil {
 		in = &CreateVolumesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateVolumes",
@@ -656,7 +658,7 @@ func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolum
 	if in == nil {
 		in = &DeleteVolumesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteVolumes",
@@ -685,7 +687,7 @@ func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolum
 	if in == nil {
 		in = &AttachVolumesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachVolumes",
@@ -714,7 +716,7 @@ func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolum
 	if in == nil {
 		in = &DetachVolumesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachVolumes",
@@ -743,7 +745,7 @@ func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolum
 	if in == nil {
 		in = &ResizeVolumesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeVolumes",
@@ -772,7 +774,7 @@ func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput)
 	if in == nil {
 		in = &ModifyVolumeAttributesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyVolumeAttributes",

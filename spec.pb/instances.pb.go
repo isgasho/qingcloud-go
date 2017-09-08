@@ -10,9 +10,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -207,7 +209,7 @@ func (p *InstanceService) DescribeInstances(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeInstances",
@@ -232,7 +234,7 @@ func (p *InstanceService) RunInstances(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RunInstances",
@@ -257,7 +259,7 @@ func (p *InstanceService) TerminateInstances(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "TerminateInstances",
@@ -282,7 +284,7 @@ func (p *InstanceService) StartInstances(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartInstances",
@@ -307,7 +309,7 @@ func (p *InstanceService) StopInstances(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopInstances",
@@ -332,7 +334,7 @@ func (p *InstanceService) RestartInstances(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestartInstances",
@@ -357,7 +359,7 @@ func (p *InstanceService) ResetInstances(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResetInstances",
@@ -382,7 +384,7 @@ func (p *InstanceService) ResizeInstances(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeInstances",
@@ -407,7 +409,7 @@ func (p *InstanceService) ModifyInstanceAttributes(in *google_protobuf.Empty) (o
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyInstanceAttributes",
@@ -432,7 +434,7 @@ func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) 
 	if in == nil {
 		in = &DescribeInstanceTypesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeInstanceTypes",
@@ -461,7 +463,7 @@ func (p *InstanceService) CreateBrokers(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateBrokers",
@@ -486,7 +488,7 @@ func (p *InstanceService) DeleteBrokers(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteBrokers",

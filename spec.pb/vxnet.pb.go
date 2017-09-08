@@ -10,9 +10,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -65,7 +67,7 @@ func (p *VxnetService) DescribeVxnets(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeVxnets",
@@ -90,7 +92,7 @@ func (p *VxnetService) CreateVxnets(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateVxnets",
@@ -115,7 +117,7 @@ func (p *VxnetService) DeleteVxnets(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteVxnets",
@@ -140,7 +142,7 @@ func (p *VxnetService) JoinVxnet(in *google_protobuf.Empty) (out *google_protobu
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "JoinVxnet",
@@ -165,7 +167,7 @@ func (p *VxnetService) LeaveVxnet(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "LeaveVxnet",
@@ -190,7 +192,7 @@ func (p *VxnetService) ModifyVxnetAttributes(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyVxnetAttributes",
@@ -215,7 +217,7 @@ func (p *VxnetService) DescribeVxnetInstances(in *google_protobuf.Empty) (out *g
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeVxnetInstances",

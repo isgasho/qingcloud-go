@@ -9,9 +9,11 @@ import math "math"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -171,7 +173,7 @@ func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutpu
 	if in == nil {
 		in = &DescribeTagsInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeTags",
@@ -200,7 +202,7 @@ func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err er
 	if in == nil {
 		in = &CreateTagInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateTag",
@@ -229,7 +231,7 @@ func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err
 	if in == nil {
 		in = &DeleteTagsInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteTags",
@@ -258,7 +260,7 @@ func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *Mod
 	if in == nil {
 		in = &ModifyTagAttributesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyTagAttributes",
@@ -287,7 +289,7 @@ func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err
 	if in == nil {
 		in = &AttachTagsInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachTags",
@@ -316,7 +318,7 @@ func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err
 	if in == nil {
 		in = &DetachTagsInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachTags",

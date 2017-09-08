@@ -10,9 +10,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -66,7 +68,7 @@ func (p *EipService) DescribeEips(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeEips",
@@ -91,7 +93,7 @@ func (p *EipService) AllocateEips(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AllocateEips",
@@ -116,7 +118,7 @@ func (p *EipService) ReleaseEips(in *google_protobuf.Empty) (out *google_protobu
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ReleaseEips",
@@ -141,7 +143,7 @@ func (p *EipService) AssociateEip(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateEip",
@@ -166,7 +168,7 @@ func (p *EipService) DissociateEips(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateEips",
@@ -191,7 +193,7 @@ func (p *EipService) ChangeEipsBandwidth(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeEipsBandwidth",
@@ -216,7 +218,7 @@ func (p *EipService) ChangeEipsBillingMode(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeEipsBillingMode",
@@ -241,7 +243,7 @@ func (p *EipService) ModifyEipAttributes(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyEipAttributes",

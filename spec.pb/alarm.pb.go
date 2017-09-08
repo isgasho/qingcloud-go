@@ -206,9 +206,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -277,7 +279,7 @@ func (p *AlarmService) DescribeAlarmPolicies(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmPolicies",
@@ -302,7 +304,7 @@ func (p *AlarmService) CreateAlarmPolicy(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateAlarmPolicy",
@@ -327,7 +329,7 @@ func (p *AlarmService) ModifyAlarmPolicyAttributes(in *google_protobuf.Empty) (o
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyAlarmPolicyAttributes",
@@ -352,7 +354,7 @@ func (p *AlarmService) DeleteAlarmPolicies(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteAlarmPolicies",
@@ -377,7 +379,7 @@ func (p *AlarmService) DescribeAlarmPolicyRules(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmPolicyRules",
@@ -402,7 +404,7 @@ func (p *AlarmService) AddAlarmPolicyRules(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddAlarmPolicyRules",
@@ -427,7 +429,7 @@ func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyAlarmPolicyRuleAttributes",
@@ -452,7 +454,7 @@ func (p *AlarmService) DeleteAlarmPolicyRules(in *google_protobuf.Empty) (out *g
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteAlarmPolicyRules",
@@ -477,7 +479,7 @@ func (p *AlarmService) DescribeAlarmPolicyActions(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmPolicyActions",
@@ -502,7 +504,7 @@ func (p *AlarmService) AddAlarmPolicyActions(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddAlarmPolicyActions",
@@ -527,7 +529,7 @@ func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *google_protobuf.Emp
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyAlarmPolicyActionAttributes",
@@ -552,7 +554,7 @@ func (p *AlarmService) DeleteAlarmPolicyActions(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteAlarmPolicyActions",
@@ -577,7 +579,7 @@ func (p *AlarmService) AssociateAlarmPolicy(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateAlarmPolicy",
@@ -602,7 +604,7 @@ func (p *AlarmService) DissociateAlarmPolicy(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateAlarmPolicy",
@@ -627,7 +629,7 @@ func (p *AlarmService) ApplyAlarmPolicy(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyAlarmPolicy",
@@ -652,7 +654,7 @@ func (p *AlarmService) DescribeAlarms(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarms",
@@ -677,7 +679,7 @@ func (p *AlarmService) DescribeAlarmHistory(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmHistory",

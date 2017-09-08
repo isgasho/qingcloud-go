@@ -9,9 +9,11 @@ import math "math"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -152,7 +154,7 @@ func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *Descr
 	if in == nil {
 		in = &DescribeSubUsersInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSubUsers",
@@ -181,7 +183,7 @@ func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUs
 	if in == nil {
 		in = &CreateSubUserInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSubUser",
@@ -210,7 +212,7 @@ func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInpu
 	if in == nil {
 		in = &ModifySubUserAttributesInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySubUserAttributes",
@@ -239,7 +241,7 @@ func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSub
 	if in == nil {
 		in = &DeleteSubUsersInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSubUsers",
@@ -268,7 +270,7 @@ func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *Restore
 	if in == nil {
 		in = &RestoreSubUsersInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestoreSubUsers",

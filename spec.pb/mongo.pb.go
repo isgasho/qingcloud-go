@@ -10,9 +10,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -220,7 +222,7 @@ func (p *MongoService) DescribeMongoNodes(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeMongoNodes",
@@ -245,7 +247,7 @@ func (p *MongoService) DescribeMongoParameters(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeMongoParameters",
@@ -270,7 +272,7 @@ func (p *MongoService) ResizeMongos(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeMongos",
@@ -295,7 +297,7 @@ func (p *MongoService) CreateMongo(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateMongo",
@@ -320,7 +322,7 @@ func (p *MongoService) StopMongos(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopMongos",
@@ -345,7 +347,7 @@ func (p *MongoService) StartMongos(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartMongos",
@@ -370,7 +372,7 @@ func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMon
 	if in == nil {
 		in = &DescribeMongosInput{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeMongos",
@@ -399,7 +401,7 @@ func (p *MongoService) DeleteMongos(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteMongos",
@@ -424,7 +426,7 @@ func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateMongoFromSnapshot",
@@ -449,7 +451,7 @@ func (p *MongoService) ChangeMongoVxnet(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeMongoVxnet",
@@ -474,7 +476,7 @@ func (p *MongoService) AddMongoInstances(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddMongoInstances",
@@ -499,7 +501,7 @@ func (p *MongoService) RemoveMongoInstances(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RemoveMongoInstances",
@@ -524,7 +526,7 @@ func (p *MongoService) ModifyMongoAttributes(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyMongoAttributes",
@@ -549,7 +551,7 @@ func (p *MongoService) ModifyMongoInstances(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyMongoInstances",
@@ -574,7 +576,7 @@ func (p *MongoService) GetMongoMonitor(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetMongoMonitor",

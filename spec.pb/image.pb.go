@@ -10,9 +10,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -66,7 +68,7 @@ func (p *ImageService) DescribeImages(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeImages",
@@ -91,7 +93,7 @@ func (p *ImageService) CaptureInstance(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CaptureInstance",
@@ -116,7 +118,7 @@ func (p *ImageService) DeleteImages(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteImages",
@@ -141,7 +143,7 @@ func (p *ImageService) ModifyImageAttributes(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyImageAttributes",
@@ -166,7 +168,7 @@ func (p *ImageService) GrantImageToUsers(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GrantImageToUsers",
@@ -191,7 +193,7 @@ func (p *ImageService) RevokeImageFromUsers(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RevokeImageFromUsers",
@@ -216,7 +218,7 @@ func (p *ImageService) DescribeImageUsers(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeImageUsers",
@@ -241,7 +243,7 @@ func (p *ImageService) CloneImages(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CloneImages",

@@ -10,9 +10,11 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
 var _ = request.Request{}
+var _ = data.Operation{}
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -64,7 +66,7 @@ func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeKeyPairs",
@@ -89,7 +91,7 @@ func (p *KeyPairService) CreateKeyPair(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateKeyPair",
@@ -114,7 +116,7 @@ func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteKeyPairs",
@@ -139,7 +141,7 @@ func (p *KeyPairService) AttachKeyPairs(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachKeyPairs",
@@ -164,7 +166,7 @@ func (p *KeyPairService) DetachKeyPairs(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachKeyPairs",
@@ -189,7 +191,7 @@ func (p *KeyPairService) ModifyKeyPairAttributes(in *google_protobuf.Empty) (out
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request.Operation{
+	o := &data.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyKeyPairAttributes",
