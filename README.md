@@ -12,6 +12,8 @@
 
 - https://godoc.org/github.com/chai2010/qingcloud-go
 - https://godoc.org/github.com/chai2010/qingcloud-go/config
+- https://godoc.org/github.com/chai2010/qingcloud-go/client
+- https://godoc.org/github.com/chai2010/qingcloud-go/logger
 - https://godoc.org/github.com/chai2010/qingcloud-go/request
 - https://godoc.org/github.com/chai2010/qingcloud-go/service
 - https://docs.qingcloud.com
