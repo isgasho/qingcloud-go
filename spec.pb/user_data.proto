@@ -7,6 +7,7 @@ syntax = "proto3";
 package spec;
 
 import "google/api/annotations.proto";
+import "types.proto";
 
 // https://docs.qingcloud.com/api/userdata/index.html
 
@@ -25,6 +26,12 @@ service UserDataService {
 message UploadUserDataAttachmentInput {
 	bytes attachment_content = 2;
 	string attachment_name = 1;
+
+	option (qingcloud_sdk_rule) = {
+		required_fileds: "attachment_content"
+		default_value: ""
+		enum_value: ""
+	};
 }
 
 message UploadUserDataAttachmentOutput {
