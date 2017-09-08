@@ -19,7 +19,7 @@ package config
 import (
 	"testing"
 
-	. "github.com/chai2010/qingcloud-go/internal/assert"
+	. "github.com/chai2010/assert"
 )
 
 func TestConfig(t *testing.T) {

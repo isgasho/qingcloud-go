@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	. "github.com/chai2010/qingcloud-go/internal/assert"
+	. "github.com/chai2010/assert"
 )
 
 func TestSigner0(t *testing.T) {
