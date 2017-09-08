@@ -166,11 +166,14 @@ It has these top-level messages:
 	EIP
 	Job
 	Volume
-	Instance
 	NIC
 	KeyPair
 	VxNet
 	Router
+	Instance
+	Image
+	Mongo
+	MongoNode
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput

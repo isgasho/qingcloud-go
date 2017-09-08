@@ -91,10 +91,6 @@ message Volume {
 	int32 volume_type = 17;
 }
 
-message Instance {
-	// TODO
-}
-
 message NIC {
 	google.protobuf.Timestamp create_time = 1;
 	string instance_id = 2;
@@ -162,6 +158,107 @@ message Router {
 	repeated Tag tags = 17;
 	string transition_status = 18;
 	repeated VxNet vxnets = 19;
+}
+
+message Instance {
+	string alarm_status = 1;
+	string cpu_topology = 2;
+	google.protobuf.Timestamp create_time = 3;
+	string description = 4;
+	string device = 5;
+	//DHCPOptions      *DHCPOption    `json:"dhcp_options" name:"dhcp_options"`
+	//DNSAliases       []*DNSAlias    `json:"dns_aliases" name:"dns_aliases"`
+	EIP eip = 8;
+	//Extra            *Extra         `json:"extra" name:"extra"`
+	string graphics_passwd = 10;
+	string graphics_protocol = 11;
+	Image image = 12;
+	string image_id = 13;
+	int32 instance_class = 14;
+	string instance_id = 15;
+	string instance_name = 16;
+	string instance_type = 17;
+	repeated string keypair_ids = 18;
+	int32 memory_current = 19;
+	string private_ip = 20;
+	//SecurityGroup    *SecurityGroup `json:"security_group" name:"security_group"`
+	string status = 22;
+	google.protobuf.Timestamp status_time = 23;
+	int32 sub_code = 24;
+	repeated Tag tags = 25;
+	string transition_status = 26;
+	int32 vcpus_current = 27;
+	repeated string volume_ids = 28;
+	repeated Volume volumes = 29;
+	repeated InstanceVxNet vxnets = 30;
+
+	message InstanceVxNet {
+		string nic_id = 1;
+		string private_ip = 2;
+		int32 role = 3;
+		string vxnet_id = 4;
+		string vxnet_name = 5;
+		int32 vxnet_type = 6;
+	}
+}
+
+message Image {
+	string app_billing_id = 1;
+	string architecture = 2;
+	string billing_id = 3;
+	google.protobuf.Timestamp create_time = 4;
+	string default_passwd = 5;
+	string default_user = 6;
+	string description = 7;
+	int32 f_resetpwd = 8;
+	int32 feature = 9;
+	int32 features = 10;
+	string hypervisor = 11;
+	string image_id = 12;
+	string image_name = 13;
+	repeated string instance_ids = 14;
+	string os_family = 15;
+	string owner = 16;
+	string platform = 17;
+	string processor_type = 18;
+	string provider = 19;
+	string recommended_type = 20;
+	string root_id = 21;
+	int32 size = 22;
+	string status = 23;
+	google.protobuf.Timestamp status_time = 24;
+	int32 sub_code = 25;
+	string transition_status = 26;
+	string ui_type = 27;
+	string visibility = 28;
+}
+
+message Mongo {
+	string alarm_status = 1;
+	int32 auto_backup_time = 2;
+	int32 auto_minor_ver_upgrade = 3;
+	google.protobuf.Timestamp create_time = 4;
+	string description = 5;
+	google.protobuf.Timestamp latest_snapshot_time = 6;
+	string mongo_id = 7;
+	string mongo_name = 8;
+	int32 mongo_type = 9;
+	string mongo_version = 10;
+	string status = 11;
+	google.protobuf.Timestamp status_time = 12;
+	int32 storage_size = 13;
+	repeated Tag tags = 14;
+	string transition_status = 15;
+	VxNet vxnet = 16;
+}
+
+message MongoNode {
+	string ip = 1;
+	string mongo_id = 2;
+	string mongo_node_id = 3;
+	int32 primary = 4;
+	string status = 5;
+	string vxnet_id = 6;
 }
 
 /*
@@ -304,83 +401,6 @@ type File struct {
 	Size       *int    `json:"size" name:"size"`
 }
 
-type Image struct {
-	AppBillingID  *string    `json:"app_billing_id" name:"app_billing_id"`
-	Architecture  *string    `json:"architecture" name:"architecture"`
-	BillingID     *string    `json:"billing_id" name:"billing_id"`
-	CreateTime    *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	DefaultPasswd *string    `json:"default_passwd" name:"default_passwd"`
-	DefaultUser   *string    `json:"default_user" name:"default_user"`
-	Description   *string    `json:"description" name:"description"`
-	FResetpwd     *int       `json:"f_resetpwd" name:"f_resetpwd"`
-	Feature       *int       `json:"feature" name:"feature"`
-	Features      *int       `json:"features" name:"features"`
-	Hypervisor    *string    `json:"hypervisor" name:"hypervisor"`
-	ImageID       *string    `json:"image_id" name:"image_id"`
-	ImageName     *string    `json:"image_name" name:"image_name"`
-	InstanceIDs   []*string  `json:"instance_ids" name:"instance_ids"`
-	OSFamily      *string    `json:"os_family" name:"os_family"`
-	Owner         *string    `json:"owner" name:"owner"`
-	// Platform's available values: linux, windows
-	Platform *string `json:"platform" name:"platform"`
-	// ProcessorType's available values: 64bit, 32bit
-	ProcessorType *string `json:"processor_type" name:"processor_type"`
-	// Provider's available values: system, self
-	Provider        *string `json:"provider" name:"provider"`
-	RecommendedType *string `json:"recommended_type" name:"recommended_type"`
-	RootID          *string `json:"root_id" name:"root_id"`
-	Size            *int    `json:"size" name:"size"`
-	// Status's available values: pending, available, deprecated, suspended, deleted, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	SubCode    *int       `json:"sub_code" name:"sub_code"`
-	// TransitionStatus's available values: creating, suspending, resuming, deleting, recovering
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	UIType           *string `json:"ui_type" name:"ui_type"`
-	// Visibility's available values: public, private
-	Visibility *string `json:"visibility" name:"visibility"`
-}
-
-type ImageUser struct {
-	CreateTime *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	ImageID    *string    `json:"image_id" name:"image_id"`
-	User       *User      `json:"user" name:"user"`
-}
-
-type Instance struct {
-	AlarmStatus      *string        `json:"alarm_status" name:"alarm_status"`
-	CPUTopology      *string        `json:"cpu_topology" name:"cpu_topology"`
-	CreateTime       *time.Time     `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description      *string        `json:"description" name:"description"`
-	Device           *string        `json:"device" name:"device"`
-	DHCPOptions      *DHCPOption    `json:"dhcp_options" name:"dhcp_options"`
-	DNSAliases       []*DNSAlias    `json:"dns_aliases" name:"dns_aliases"`
-	EIP              *EIP           `json:"eip" name:"eip"`
-	Extra            *Extra         `json:"extra" name:"extra"`
-	GraphicsPasswd   *string        `json:"graphics_passwd" name:"graphics_passwd"`
-	GraphicsProtocol *string        `json:"graphics_protocol" name:"graphics_protocol"`
-	Image            *Image         `json:"image" name:"image"`
-	ImageID          *string        `json:"image_id" name:"image_id"`
-	InstanceClass    *int           `json:"instance_class" name:"instance_class"`
-	InstanceID       *string        `json:"instance_id" name:"instance_id"`
-	InstanceName     *string        `json:"instance_name" name:"instance_name"`
-	InstanceType     *string        `json:"instance_type" name:"instance_type"`
-	KeyPairIDs       []*string      `json:"keypair_ids" name:"keypair_ids"`
-	MemoryCurrent    *int           `json:"memory_current" name:"memory_current"`
-	PrivateIP        *string        `json:"private_ip" name:"private_ip"`
-	SecurityGroup    *SecurityGroup `json:"security_group" name:"security_group"`
-	// Status's available values: pending, running, stopped, suspended, terminated, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	SubCode    *int       `json:"sub_code" name:"sub_code"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, starting, stopping, restarting, suspending, resuming, terminating, recovering, resetting
-	TransitionStatus *string          `json:"transition_status" name:"transition_status"`
-	VCPUsCurrent     *int             `json:"vcpus_current" name:"vcpus_current"`
-	VolumeIDs        []*string        `json:"volume_ids" name:"volume_ids"`
-	Volumes          []*Volume        `json:"volumes" name:"volumes"`
-	VxNets           []*InstanceVxNet `json:"vxnets" name:"vxnets"`
-}
 
 type InstanceType struct {
 	Description      *string `json:"description" name:"description"`
@@ -393,15 +413,6 @@ type InstanceType struct {
 	ZoneID       *string `json:"zone_id" name:"zone_id"`
 }
 
-type InstanceVxNet struct {
-	NICID     *string `json:"nic_id" name:"nic_id"`
-	PrivateIP *string `json:"private_ip" name:"private_ip"`
-	Role      *int    `json:"role" name:"role"`
-	VxNetID   *string `json:"vxnet_id" name:"vxnet_id"`
-	VxNetName *string `json:"vxnet_name" name:"vxnet_name"`
-	// VxNetType's available values: 0, 1
-	VxNetType *int `json:"vxnet_type" name:"vxnet_type"`
-}
 
 
 type LoadBalancer struct {
@@ -487,36 +498,6 @@ func (v *Meter) Validate() error {
 	return nil
 }
 
-type Mongo struct {
-	// AlarmStatus's available values: ok, alarm, insufficient
-	AlarmStatus         *string    `json:"alarm_status" name:"alarm_status"`
-	AutoBackupTime      *int       `json:"auto_backup_time" name:"auto_backup_time"`
-	AutoMinorVerUpgrade *int       `json:"auto_minor_ver_upgrade" name:"auto_minor_ver_upgrade"`
-	CreateTime          *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description         *string    `json:"description" name:"description"`
-	LatestSnapshotTime  *time.Time `json:"latest_snapshot_time" name:"latest_snapshot_time" format:"ISO 8601"`
-	MongoID             *string    `json:"mongo_id" name:"mongo_id"`
-	MongoName           *string    `json:"mongo_name" name:"mongo_name"`
-	MongoType           *int       `json:"mongo_type" name:"mongo_type"`
-	MongoVersion        *string    `json:"mongo_version" name:"mongo_version"`
-	// Status's available values: pending, active, stopped, deleted, suspended, ceased
-	Status      *string    `json:"status" name:"status"`
-	StatusTime  *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	StorageSize *int       `json:"storage_size" name:"storage_size"`
-	Tags        []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, stopping, starting, deleting, resizing, suspending, vxnet-changing, snapshot-creating, instances-adding, instances-removing, pg-applying
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	VxNet            *VxNet  `json:"vxnet" name:"vxnet"`
-}
-
-type MongoNode struct {
-	IP          *string `json:"ip" name:"ip"`
-	MongoID     *string `json:"mongo_id" name:"mongo_id"`
-	MongoNodeID *string `json:"mongo_node_id" name:"mongo_node_id"`
-	Primary     *int    `json:"primary" name:"primary"`
-	Status      *string `json:"status" name:"status"`
-	VxNetID     *string `json:"vxnet_id" name:"vxnet_id"`
-}
 
 type MongoParameter struct {
 	// IsReadonly's available values: 0, 1
