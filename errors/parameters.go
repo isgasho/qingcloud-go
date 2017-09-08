@@ -47,7 +47,7 @@ func (e ParameterValueNotAllowedError) Error() string {
 	}
 	return fmt.Sprintf(
 		`"%s" value "%s" is not allowed, should be one of %s`,
-		e.ParameterName,
-		e.ParameterValue,
-		strings.Join(allowedValues, ", "))
+		e.ParameterName, e.ParameterValue,
+		strings.Join(allowedValues, ", "),
+	)
 }
