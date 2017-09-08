@@ -11,16 +11,19 @@ import (
 	"fmt"
 	"log"
 
-	qcConfig "github.com/chai2010/qingcloud-go/config"
+	qc "github.com/chai2010/qingcloud-go"
+	"github.com/chai2010/qingcloud-go/config"
 	pb "github.com/chai2010/qingcloud-go/spec.pb"
 )
 
 func main() {
 	flag.Parse()
 
-	conf := loadUserConfig()
-	conf.SetLogLevel("warn") // debug/warn
+	conf := config.MustLoadUserConfig()
 	conf.JSONAllowUnknownFields = true
+	conf.LogLevel = "debug" // debug/warn
+
+	qc.SetLogLevel(conf.LogLevel)
 
 	mgoService, err := pb.NewMongoService(conf, "pek3a")
 	if err != nil {
@@ -33,18 +36,6 @@ func main() {
 	}
 
 	fmt.Println(string(encodeJSON(reply)))
-}
-
-func loadUserConfig() *qcConfig.Config {
-	conf, err := qcConfig.NewDefault()
-	if err != nil {
-		log.Fatal(err)
-	}
-	err = conf.LoadUserConfig()
-	if err != nil {
-		log.Fatal(err)
-	}
-	return conf
 }
 
 func encodeJSON(m interface{}) []byte {

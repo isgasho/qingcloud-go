@@ -46,96 +46,14 @@ type Config struct {
 	Connection *http.Client
 }
 
-// New create a Config with given AccessKeyID and SecretAccessKey.
-func New(accessKeyID, secretAccessKey string) (*Config, error) {
-	config, err := NewDefault()
-	if err != nil {
-		return nil, err
-	}
+// NewDefault loads the default configuration for Config.
+func NewDefault() *Config {
+	c := &Config{}
 
-	config.AccessKeyID = accessKeyID
-	config.SecretAccessKey = secretAccessKey
-
-	config.Connection = &http.Client{}
-
-	return config, nil
-}
-
-// NewDefault create a Config with default configuration.
-func NewDefault() (*Config, error) {
-	config := &Config{}
-	err := config.LoadDefaultConfig()
-	if err != nil {
-		return nil, err
-	}
-
-	timeout := time.Duration(config.ConnectionTimeout) * time.Second
-	transport := &http.Transport{
-		Dial: func(network, addr string) (net.Conn, error) {
-			return net.DialTimeout(network, addr, timeout)
-		},
-	}
-	config.Connection = &http.Client{
-		Transport: transport,
-	}
-
-	return config, nil
-}
-
-// LoadDefaultConfig loads the default configuration for Config.
-// It returns error if yaml decode failed.
-func (c *Config) LoadDefaultConfig() error {
 	_, err := yamlDecode([]byte(DefaultConfigFileContent), c)
 	if err != nil {
-		glog.Error("Config parse error: " + err.Error())
-		return err
+		glog.Fatal("Config parse error: ", err)
 	}
-
-	Glog_SetStderrThreshold(ParseGlogLevel(c.LogLevel))
-
-	return nil
-}
-
-// LoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
-// It returns error if file not found.
-func (c *Config) LoadUserConfig() error {
-	_, err := os.Stat(GetUserConfigFilePath())
-	if err != nil {
-		glog.Warning("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
-		InstallDefaultUserConfig()
-	}
-
-	return c.LoadConfigFromFilepath(GetUserConfigFilePath())
-}
-
-// LoadConfigFromFilepath loads configuration from a specified local path.
-// It returns error if file not found or yaml decode failed.
-func (c *Config) LoadConfigFromFilepath(filepath string) error {
-	if strings.Index(filepath, "~/") == 0 {
-		filepath = strings.Replace(filepath, "~/", getHome()+"/", 1)
-	}
-
-	configYAML, err := ioutil.ReadFile(filepath)
-	if err != nil {
-		glog.Error("File not found: " + filepath)
-		return err
-	}
-
-	return c.LoadConfigFromContent(configYAML)
-}
-
-// LoadConfigFromContent loads configuration from a given byte slice.
-// It returns error if yaml decode failed.
-func (c *Config) LoadConfigFromContent(content []byte) error {
-	c.LoadDefaultConfig()
-
-	_, err := yamlDecode(content, c)
-	if err != nil {
-		glog.Error("Config parse error: " + err.Error())
-		return err
-	}
-
-	Glog_SetStderrThreshold(ParseGlogLevel(c.LogLevel))
 
 	timeout := time.Duration(c.ConnectionTimeout) * time.Second
 	transport := &http.Transport{
@@ -147,10 +65,65 @@ func (c *Config) LoadConfigFromContent(content []byte) error {
 		Transport: transport,
 	}
 
-	return nil
+	return c
 }
 
-func (c *Config) SetLogLevel(level string) {
-	c.LogLevel = level
-	Glog_SetStderrThreshold(ParseGlogLevel(c.LogLevel))
+// LoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
+// It returns error if file not found.
+func LoadUserConfig() (*Config, error) {
+	_, err := os.Stat(GetUserConfigFilePath())
+	if err != nil {
+		glog.Warning("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
+		InstallDefaultUserConfig()
+	}
+
+	return LoadConfigFromFilepath(GetUserConfigFilePath())
+}
+
+func MustLoadUserConfig() *Config {
+	c, err := LoadUserConfig()
+	if err != nil {
+		panic(err)
+	}
+	return c
+}
+
+// LoadConfigFromFilepath loads configuration from a specified local path.
+// It returns error if file not found or yaml decode failed.
+func LoadConfigFromFilepath(filepath string) (*Config, error) {
+	if strings.Index(filepath, "~/") == 0 {
+		filepath = strings.Replace(filepath, "~/", getHome()+"/", 1)
+	}
+
+	configYAML, err := ioutil.ReadFile(filepath)
+	if err != nil {
+		glog.Error("File not found: " + filepath)
+		return nil, err
+	}
+
+	return LoadConfigFromContent(configYAML)
+}
+
+// LoadConfigFromContent loads configuration from a given byte slice.
+// It returns error if yaml decode failed.
+func LoadConfigFromContent(content []byte) (*Config, error) {
+	c := NewDefault()
+
+	_, err := yamlDecode(content, c)
+	if err != nil {
+		glog.Error("Config parse error: " + err.Error())
+		return nil, err
+	}
+
+	timeout := time.Duration(c.ConnectionTimeout) * time.Second
+	transport := &http.Transport{
+		Dial: func(network, addr string) (net.Conn, error) {
+			return net.DialTimeout(network, addr, timeout)
+		},
+	}
+	c.Connection = &http.Client{
+		Transport: transport,
+	}
+
+	return c, nil
 }

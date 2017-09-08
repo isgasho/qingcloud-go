@@ -39,8 +39,7 @@ func TestConfig(t *testing.T) {
 }
 
 func TestConfig_LoadDefaultConfig(t *testing.T) {
-	config := Config{}
-	config.LoadDefaultConfig()
+	config := NewDefault()
 
 	AssertEqual(t, "", config.AccessKeyID)
 	AssertEqual(t, "", config.SecretAccessKey)
@@ -48,8 +47,8 @@ func TestConfig_LoadDefaultConfig(t *testing.T) {
 }
 
 func TestConfig_LoadUserConfig(t *testing.T) {
-	config := Config{}
-	config.LoadUserConfig()
+	config, err := LoadUserConfig()
+	AssertNil(t, err)
 
 	AssertEqual(t, "https", config.Protocol)
 }
@@ -62,8 +61,8 @@ qy_secret_access_key: 'secret_access_key'
 log_level: 'debug'
 `
 
-	config := Config{}
-	config.LoadConfigFromContent([]byte(fileContent))
+	config, err := LoadConfigFromContent([]byte(fileContent))
+	AssertNil(t, err)
 
 	AssertEqual(t, "access_key_id", config.AccessKeyID)
 	AssertEqual(t, "secret_access_key", config.SecretAccessKey)
@@ -71,20 +70,10 @@ log_level: 'debug'
 }
 
 func TestNewDefault(t *testing.T) {
-	config, err := NewDefault()
-	AssertNil(t, err)
+	config := NewDefault()
 
 	AssertEqual(t, "", config.AccessKeyID)
 	AssertEqual(t, "", config.SecretAccessKey)
 	AssertEqual(t, "https", config.Protocol)
 	AssertEqual(t, 3, config.ConnectionRetries)
-}
-
-func TestNew(t *testing.T) {
-	config, err := New("AccessKeyID", "SecretAccessKey")
-	AssertNil(t, err)
-
-	AssertEqual(t, "AccessKeyID", config.AccessKeyID)
-	AssertEqual(t, "SecretAccessKey", config.SecretAccessKey)
-	AssertEqual(t, "https", config.Protocol)
 }
