@@ -180,7 +180,14 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 	}
 
 	return x, err
-}`
+}
+
+{{if .NeedValidate}}
+func (p *{{.ArgsType}}) Validate() error {
+	return nil
+}
+{{end}}
+`
 
 	// gen client method list
 	var methodList string
@@ -208,13 +215,22 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 
 		out := bytes.NewBuffer([]byte{})
 		t := template.Must(template.New("").Parse(clientMethodTmpl))
-		t.Execute(out, &struct{ ServiceName, ServiceRegisterName, MethodName, ArgsType, ReplyType, RequestMethod string }{
+		t.Execute(out, &struct {
+			ServiceName         string
+			ServiceRegisterName string
+			MethodName          string
+			ArgsType            string
+			ReplyType           string
+			RequestMethod       string
+			NeedValidate        bool
+		}{
 			ServiceName:         generator.CamelCase(svc.GetName()),
 			ServiceRegisterName: generator.CamelCase(svc.GetName()),
 			MethodName:          generator.CamelCase(m.GetName()),
 			ArgsType:            p.TypeName(p.ObjectNamed(m.GetInputType())),
 			ReplyType:           p.TypeName(p.ObjectNamed(m.GetOutputType())),
 			RequestMethod:       RequestMethod,
+			NeedValidate:        !strings.Contains(p.TypeName(p.ObjectNamed(m.GetOutputType())), "."),
 		})
 		methodList += out.String()
 	}
