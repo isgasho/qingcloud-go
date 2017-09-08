@@ -11,8 +11,8 @@ import (
 	"fmt"
 	"log"
 
-	qc "github.com/chai2010/qingcloud-go"
 	"github.com/chai2010/qingcloud-go/config"
+	"github.com/chai2010/qingcloud-go/logger"
 	pb "github.com/chai2010/qingcloud-go/spec.pb"
 )
 
@@ -23,7 +23,7 @@ func main() {
 	conf.JSONDisableUnknownFields = false
 	conf.LogLevel = "debug" // debug/warn
 
-	qc.SetLogLevel(conf.LogLevel)
+	logger.SetLevel(conf.LogLevel)
 
 	nicService, err := pb.NewNicService(conf, "pek3a")
 	if err != nil {

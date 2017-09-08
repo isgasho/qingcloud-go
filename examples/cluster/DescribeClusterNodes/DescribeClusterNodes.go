@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"log"
 
-	qc "github.com/chai2010/qingcloud-go"
 	"github.com/chai2010/qingcloud-go/config"
+	"github.com/chai2010/qingcloud-go/logger"
 	pb "github.com/chai2010/qingcloud-go/spec.pb"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -23,7 +23,7 @@ func main() {
 	conf.JSONDisableUnknownFields = false
 	conf.LogLevel = "debug" // debug/warn
 
-	qc.SetLogLevel(conf.LogLevel)
+	logger.SetLevel(conf.LogLevel)
 
 	clusterService, err := pb.NewClusterService(conf, "pek3a")
 	if err != nil {

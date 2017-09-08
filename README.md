@@ -125,10 +125,9 @@ message UploadUserDataAttachmentInput {
 
 ## 外部依赖
 
-- [github.com/golang/glog](https://github.com/golang/glog)
 - [github.com/golang/protobuf](https://github.com/golang/protobuf)
 
-其中 glog 是全局的日志包, SDK 不能放到 vendor 目录(可能导致多个glog冲突).
+稍后会放到 vendor 目录
 
 -------
 
