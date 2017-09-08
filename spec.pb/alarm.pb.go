@@ -119,7 +119,6 @@ It has these top-level messages:
 	CreateNicsOutput
 	DescribeNicsInput
 	DescribeNicsOutput
-	NIC
 	AttachNicsInput
 	AttachNicsOutput
 	DetachNicsInput
@@ -165,6 +164,10 @@ It has these top-level messages:
 	DetachTagsOutput
 	Tag
 	EIP
+	Job
+	Volume
+	Instance
+	NIC
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput

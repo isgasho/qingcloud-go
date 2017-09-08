@@ -6,8 +6,6 @@ syntax = "proto3";
 
 package spec;
 
-import "google/protobuf/timestamp.proto";
-
 import "types.proto";
 
 // ----------------------------------------------------------------------------
@@ -56,31 +54,6 @@ message DescribeNicsOutput {
 	repeated NIC nic_set = 3;
 	int32 ret_code = 4;
 	int32 total_count = 5;
-}
-
-// 忽略 不支持的 成员
-
-message NIC {
-	google.protobuf.Timestamp create_time = 1;
-	string instance_id = 2;
-	string nic_id = 3;
-	string nic_name = 4;
-	string owner = 5;
-	string private_ip = 6;
-	int32 role = 7;
-	string root_user_id = 8;
-	string security_group = 9;
-	int32 sequence = 10;
-	string status = 11;
-	google.protobuf.Timestamp status_time = 12;
-	repeated Tag tags = 13;
-	string vxnet_id = 14;
-	EIP eip = 15;
-	string transition_status = 16;
-	string controller = 17;
-	int32 vxnet_type = 18;
-	string console_id = 19;
-	string resource_id = 20;
 }
 
 // ----------------------------------------------------------------------------

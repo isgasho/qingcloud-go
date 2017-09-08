@@ -61,7 +61,65 @@ message EIP {
 	}
 }
 
+message Job {
+	google.protobuf.Timestamp create_time = 1;
+	string job_action = 2;
+	string job_id = 3;
+	string owner = 4;
+	string resource_ids = 5;
+	string status = 6;
+	google.protobuf.Timestamp status_time = 7;
+}
+
+message Volume {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	string device = 3;
+	Instance instance = 4;
+	repeated Instance instances = 5;
+	google.protobuf.Timestamp latest_snapshot_time = 6;
+	string owner = 7;
+	string place_group_id = 8;
+	int32 size = 9;
+	string status = 10;
+	google.protobuf.Timestamp status_time = 11;
+	int32 sub_code = 12;
+	repeated Tag tags = 13;
+	string transition_status = 14;
+	string volume_id = 15;
+	string volume_name = 16;
+	int32 volume_type = 17;
+}
+
+message Instance {
+	// TODO
+}
+
+message NIC {
+	google.protobuf.Timestamp create_time = 1;
+	string instance_id = 2;
+	string nic_id = 3;
+	string nic_name = 4;
+	string owner = 5;
+	string private_ip = 6;
+	int32 role = 7;
+	string root_user_id = 8;
+	string security_group = 9;
+	int32 sequence = 10;
+	string status = 11;
+	google.protobuf.Timestamp status_time = 12;
+	repeated Tag tags = 13;
+	string vxnet_id = 14;
+	EIP eip = 15;
+	string transition_status = 16;
+	string controller = 17;
+	int32 vxnet_type = 18;
+	string console_id = 19;
+	string resource_id = 20;
+}
+
 /*
+
 
 */
 
@@ -300,16 +358,6 @@ type InstanceVxNet struct {
 	VxNetType *int `json:"vxnet_type" name:"vxnet_type"`
 }
 
-type Job struct {
-	CreateTime  *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	JobAction   *string    `json:"job_action" name:"job_action"`
-	JobID       *string    `json:"job_id" name:"job_id"`
-	Owner       *string    `json:"owner" name:"owner"`
-	ResourceIDs *string    `json:"resource_ids" name:"resource_ids"`
-	// Status's available values: pending, working, failed, successful, done with failure
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-}
 
 type KeyPair struct {
 	Description *string `json:"description" name:"description"`
@@ -454,23 +502,6 @@ type MongoPrivateIP struct {
 	Replica   *string `json:"replica" name:"replica"`
 }
 
-type NIC struct {
-	CreateTime    *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	InstanceID    *string    `json:"instance_id" name:"instance_id"`
-	NICID         *string    `json:"nic_id" name:"nic_id"`
-	NICName       *string    `json:"nic_name" name:"nic_name"`
-	Owner         *string    `json:"owner" name:"owner"`
-	PrivateIP     *string    `json:"private_ip" name:"private_ip"`
-	Role          *int       `json:"role" name:"role"`
-	RootUserID    *string    `json:"root_user_id" name:"root_user_id"`
-	SecurityGroup *string    `json:"security_group" name:"security_group"`
-	Sequence      *int       `json:"sequence" name:"sequence"`
-	// Status's available values: available, in-use
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	VxNetID    *string    `json:"vxnet_id" name:"vxnet_id"`
-}
 
 type NICIP struct {
 	NICID     *string `json:"nic_id" name:"nic_id"`
@@ -795,28 +826,6 @@ type User struct {
 	UserID *string `json:"user_id" name:"user_id"`
 }
 
-type Volume struct {
-	CreateTime         *time.Time  `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description        *string     `json:"description" name:"description"`
-	Device             *string     `json:"device" name:"device"`
-	Instance           *Instance   `json:"instance" name:"instance"`
-	Instances          []*Instance `json:"instances" name:"instances"`
-	LatestSnapshotTime *time.Time  `json:"latest_snapshot_time" name:"latest_snapshot_time" format:"ISO 8601"`
-	Owner              *string     `json:"owner" name:"owner"`
-	PlaceGroupID       *string     `json:"place_group_id" name:"place_group_id"`
-	Size               *int        `json:"size" name:"size"`
-	// Status's available values: pending, available, in-use, suspended, deleted, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	SubCode    *int       `json:"sub_code" name:"sub_code"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, attaching, detaching, suspending, resuming, deleting, recovering
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	VolumeID         *string `json:"volume_id" name:"volume_id"`
-	VolumeName       *string `json:"volume_name" name:"volume_name"`
-	// VolumeType's available values: 0, 1, 2, 3
-	VolumeType *int `json:"volume_type" name:"volume_type"`
-}
 
 type VxNet struct {
 	AvailableIPCount *int       `json:"available_ip_count" name:"available_ip_count"`
