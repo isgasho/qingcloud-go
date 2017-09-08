@@ -20,7 +20,7 @@ func main() {
 	flag.Parse()
 
 	conf := config.MustLoadUserConfig()
-	conf.JSONAllowUnknownFields = true
+	conf.JSONDisableUnknownFields = false
 	conf.LogLevel = "debug" // debug/warn
 
 	qc.SetLogLevel(conf.LogLevel)

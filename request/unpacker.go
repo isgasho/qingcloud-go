@@ -66,7 +66,7 @@ func (u *Unpacker) parseResponse() error {
 				string(buffer.Bytes())))
 
 			decoder := &jsonpb.Unmarshaler{
-				AllowUnknownFields: u.operation.Config.JSONAllowUnknownFields,
+				AllowUnknownFields: !u.operation.Config.JSONDisableUnknownFields,
 			}
 
 			err := decoder.Unmarshal(buffer, u.output)

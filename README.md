@@ -39,7 +39,7 @@ protocol: 'https'
 uri: '/iaas'
 connection_retries: 3
 
-json_allow_unknown_fields: false
+json_disable_unknown_fields: false
 
 # Valid log levels are "debug", "info", "warn", "error", and "fatal".
 log_level: 'warn'
