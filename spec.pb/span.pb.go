@@ -26,7 +26,7 @@ type SpanServiceProperties struct {
 func (m *SpanServiceProperties) Reset()                    { *m = SpanServiceProperties{} }
 func (m *SpanServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SpanServiceProperties) ProtoMessage()               {}
-func (*SpanServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{0} }
+func (*SpanServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{0} }
 
 func (m *SpanServiceProperties) GetZone() string {
 	if m != nil {
@@ -230,9 +230,9 @@ func (p *SpanService) UpdateSpan(in *google_protobuf.Empty) (out *google_protobu
 	return x, err
 }
 
-func init() { proto.RegisterFile("span.proto", fileDescriptor23) }
+func init() { proto.RegisterFile("span.proto", fileDescriptor22) }
 
-var fileDescriptor23 = []byte{
+var fileDescriptor22 = []byte{
 	// 230 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x91, 0x41, 0x4b, 0x42, 0x41,
 	0x14, 0x85, 0x91, 0x24, 0xe8, 0x4a, 0x41, 0x43, 0x45, 0xd8, 0x26, 0x5a, 0x05, 0xc1, 0x13, 0x6a,

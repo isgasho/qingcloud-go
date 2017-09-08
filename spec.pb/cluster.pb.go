@@ -27,7 +27,7 @@ type ClusterServiceProperties struct {
 func (m *ClusterServiceProperties) Reset()                    { *m = ClusterServiceProperties{} }
 func (m *ClusterServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ClusterServiceProperties) ProtoMessage()               {}
-func (*ClusterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
+func (*ClusterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *ClusterServiceProperties) GetZone() string {
 	if m != nil {
@@ -43,7 +43,7 @@ type CreateClusterInput struct {
 func (m *CreateClusterInput) Reset()                    { *m = CreateClusterInput{} }
 func (m *CreateClusterInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateClusterInput) ProtoMessage()               {}
-func (*CreateClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
+func (*CreateClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *CreateClusterInput) GetConf() string {
 	if m != nil {
@@ -61,7 +61,7 @@ type CreateClusterOutput struct {
 func (m *CreateClusterOutput) Reset()                    { *m = CreateClusterOutput{} }
 func (m *CreateClusterOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateClusterOutput) ProtoMessage()               {}
-func (*CreateClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
+func (*CreateClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *CreateClusterOutput) GetAction() string {
 	if m != nil {
@@ -96,7 +96,7 @@ type DescribeClustersInput struct {
 func (m *DescribeClustersInput) Reset()                    { *m = DescribeClustersInput{} }
 func (m *DescribeClustersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClustersInput) ProtoMessage()               {}
-func (*DescribeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
+func (*DescribeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *DescribeClustersInput) GetClusters() []string {
 	if m != nil {
@@ -151,7 +151,7 @@ type DescribeClustersOutput struct {
 func (m *DescribeClustersOutput) Reset()                    { *m = DescribeClustersOutput{} }
 func (m *DescribeClustersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClustersOutput) ProtoMessage()               {}
-func (*DescribeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{4} }
+func (*DescribeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 func (m *DescribeClustersOutput) GetAction() string {
 	if m != nil {
@@ -238,7 +238,7 @@ func (m *DescribeClustersOutput_Cluster) Reset()         { *m = DescribeClusters
 func (m *DescribeClustersOutput_Cluster) String() string { return proto.CompactTextString(m) }
 func (*DescribeClustersOutput_Cluster) ProtoMessage()    {}
 func (*DescribeClustersOutput_Cluster) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{4, 0}
+	return fileDescriptor2, []int{4, 0}
 }
 
 func (m *DescribeClustersOutput_Cluster) GetGlobalUuid() string {
@@ -500,7 +500,7 @@ func (m *DescribeClustersOutput_Cluster_HealthCheckEnablement) String() string {
 }
 func (*DescribeClustersOutput_Cluster_HealthCheckEnablement) ProtoMessage() {}
 func (*DescribeClustersOutput_Cluster_HealthCheckEnablement) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{4, 0, 0}
+	return fileDescriptor2, []int{4, 0, 0}
 }
 
 func (m *DescribeClustersOutput_Cluster_HealthCheckEnablement) GetCa() bool {
@@ -535,7 +535,7 @@ func (m *DescribeClustersOutput_Cluster_CustomService) String() string {
 }
 func (*DescribeClustersOutput_Cluster_CustomService) ProtoMessage() {}
 func (*DescribeClustersOutput_Cluster_CustomService) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{4, 0, 1}
+	return fileDescriptor2, []int{4, 0, 1}
 }
 
 type DescribeClustersOutput_Cluster_AdvancedActions struct {
@@ -549,7 +549,7 @@ func (m *DescribeClustersOutput_Cluster_AdvancedActions) String() string {
 }
 func (*DescribeClustersOutput_Cluster_AdvancedActions) ProtoMessage() {}
 func (*DescribeClustersOutput_Cluster_AdvancedActions) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{4, 0, 2}
+	return fileDescriptor2, []int{4, 0, 2}
 }
 
 type DescribeClustersOutput_Cluster_VxNet struct {
@@ -563,7 +563,7 @@ func (m *DescribeClustersOutput_Cluster_VxNet) Reset()         { *m = DescribeCl
 func (m *DescribeClustersOutput_Cluster_VxNet) String() string { return proto.CompactTextString(m) }
 func (*DescribeClustersOutput_Cluster_VxNet) ProtoMessage()    {}
 func (*DescribeClustersOutput_Cluster_VxNet) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{4, 0, 3}
+	return fileDescriptor2, []int{4, 0, 3}
 }
 
 func (m *DescribeClustersOutput_Cluster_VxNet) GetVxnetName() string {
@@ -599,7 +599,7 @@ func (m *DescribeClustersOutput_Cluster_AppInfo) Reset() {
 func (m *DescribeClustersOutput_Cluster_AppInfo) String() string { return proto.CompactTextString(m) }
 func (*DescribeClustersOutput_Cluster_AppInfo) ProtoMessage()    {}
 func (*DescribeClustersOutput_Cluster_AppInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{4, 0, 4}
+	return fileDescriptor2, []int{4, 0, 4}
 }
 
 func (m *DescribeClustersOutput_Cluster_AppInfo) GetIcon() string {
@@ -638,7 +638,7 @@ func (m *DescribeClustersOutput_Cluster_AppVersionInfo) String() string {
 }
 func (*DescribeClustersOutput_Cluster_AppVersionInfo) ProtoMessage() {}
 func (*DescribeClustersOutput_Cluster_AppVersionInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{4, 0, 5}
+	return fileDescriptor2, []int{4, 0, 5}
 }
 
 func (m *DescribeClustersOutput_Cluster_AppVersionInfo) GetStatusTime() *google_protobuf1.Timestamp {
@@ -678,7 +678,7 @@ type DescribeClusterNodesInput struct {
 func (m *DescribeClusterNodesInput) Reset()                    { *m = DescribeClusterNodesInput{} }
 func (m *DescribeClusterNodesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClusterNodesInput) ProtoMessage()               {}
-func (*DescribeClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{5} }
+func (*DescribeClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 func (m *DescribeClusterNodesInput) GetCluster() string {
 	if m != nil {
@@ -712,7 +712,7 @@ type DescribeClusterNodesOutput struct {
 func (m *DescribeClusterNodesOutput) Reset()                    { *m = DescribeClusterNodesOutput{} }
 func (m *DescribeClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClusterNodesOutput) ProtoMessage()               {}
-func (*DescribeClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{6} }
+func (*DescribeClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 func (m *DescribeClusterNodesOutput) GetAction() string {
 	if m != nil {
@@ -815,7 +815,7 @@ func (m *DescribeClusterNodesOutput_NodeSet) Reset()         { *m = DescribeClus
 func (m *DescribeClusterNodesOutput_NodeSet) String() string { return proto.CompactTextString(m) }
 func (*DescribeClusterNodesOutput_NodeSet) ProtoMessage()    {}
 func (*DescribeClusterNodesOutput_NodeSet) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{6, 0}
+	return fileDescriptor2, []int{6, 0}
 }
 
 func (m *DescribeClusterNodesOutput_NodeSet) GetVerticalScalingPolicy() string {
@@ -1148,7 +1148,7 @@ type StopClustersInput struct {
 func (m *StopClustersInput) Reset()                    { *m = StopClustersInput{} }
 func (m *StopClustersInput) String() string            { return proto.CompactTextString(m) }
 func (*StopClustersInput) ProtoMessage()               {}
-func (*StopClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{7} }
+func (*StopClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 func (m *StopClustersInput) GetClusters() []string {
 	if m != nil {
@@ -1173,7 +1173,7 @@ type StopClustersOutput struct {
 func (m *StopClustersOutput) Reset()                    { *m = StopClustersOutput{} }
 func (m *StopClustersOutput) String() string            { return proto.CompactTextString(m) }
 func (*StopClustersOutput) ProtoMessage()               {}
-func (*StopClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{8} }
+func (*StopClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
 func (m *StopClustersOutput) GetAction() string {
 	if m != nil {
@@ -1203,7 +1203,7 @@ type StartClustersInput struct {
 func (m *StartClustersInput) Reset()                    { *m = StartClustersInput{} }
 func (m *StartClustersInput) String() string            { return proto.CompactTextString(m) }
 func (*StartClustersInput) ProtoMessage()               {}
-func (*StartClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{9} }
+func (*StartClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 func (m *StartClustersInput) GetClusters() []string {
 	if m != nil {
@@ -1221,7 +1221,7 @@ type StartClustersOutput struct {
 func (m *StartClustersOutput) Reset()                    { *m = StartClustersOutput{} }
 func (m *StartClustersOutput) String() string            { return proto.CompactTextString(m) }
 func (*StartClustersOutput) ProtoMessage()               {}
-func (*StartClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{10} }
+func (*StartClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
 
 func (m *StartClustersOutput) GetAction() string {
 	if m != nil {
@@ -1251,7 +1251,7 @@ type DeleteClustersInput struct {
 func (m *DeleteClustersInput) Reset()                    { *m = DeleteClustersInput{} }
 func (m *DeleteClustersInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteClustersInput) ProtoMessage()               {}
-func (*DeleteClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{11} }
+func (*DeleteClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 func (m *DeleteClustersInput) GetClusters() []string {
 	if m != nil {
@@ -1269,7 +1269,7 @@ type DeleteClustersOutput struct {
 func (m *DeleteClustersOutput) Reset()                    { *m = DeleteClustersOutput{} }
 func (m *DeleteClustersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteClustersOutput) ProtoMessage()               {}
-func (*DeleteClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{12} }
+func (*DeleteClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
 
 func (m *DeleteClustersOutput) GetAction() string {
 	if m != nil {
@@ -1299,7 +1299,7 @@ type LeaseInput struct {
 func (m *LeaseInput) Reset()                    { *m = LeaseInput{} }
 func (m *LeaseInput) String() string            { return proto.CompactTextString(m) }
 func (*LeaseInput) ProtoMessage()               {}
-func (*LeaseInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{13} }
+func (*LeaseInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
 
 func (m *LeaseInput) GetClusters() []string {
 	if m != nil {
@@ -1317,7 +1317,7 @@ type LeaseOutput struct {
 func (m *LeaseOutput) Reset()                    { *m = LeaseOutput{} }
 func (m *LeaseOutput) String() string            { return proto.CompactTextString(m) }
 func (*LeaseOutput) ProtoMessage()               {}
-func (*LeaseOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{14} }
+func (*LeaseOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{14} }
 
 func (m *LeaseOutput) GetAction() string {
 	if m != nil {
@@ -1351,7 +1351,7 @@ type AddClusterNodesInput struct {
 func (m *AddClusterNodesInput) Reset()                    { *m = AddClusterNodesInput{} }
 func (m *AddClusterNodesInput) String() string            { return proto.CompactTextString(m) }
 func (*AddClusterNodesInput) ProtoMessage()               {}
-func (*AddClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{15} }
+func (*AddClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{15} }
 
 func (m *AddClusterNodesInput) GetCluster() string {
 	if m != nil {
@@ -1397,7 +1397,7 @@ type AddClusterNodesOutput struct {
 func (m *AddClusterNodesOutput) Reset()                    { *m = AddClusterNodesOutput{} }
 func (m *AddClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddClusterNodesOutput) ProtoMessage()               {}
-func (*AddClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{16} }
+func (*AddClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
 
 func (m *AddClusterNodesOutput) GetAction() string {
 	if m != nil {
@@ -1429,7 +1429,7 @@ type DeleteClusterNodesInput struct {
 func (m *DeleteClusterNodesInput) Reset()                    { *m = DeleteClusterNodesInput{} }
 func (m *DeleteClusterNodesInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteClusterNodesInput) ProtoMessage()               {}
-func (*DeleteClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{17} }
+func (*DeleteClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
 
 func (m *DeleteClusterNodesInput) GetCluster() string {
 	if m != nil {
@@ -1461,7 +1461,7 @@ type DeleteClusterNodesOutput struct {
 func (m *DeleteClusterNodesOutput) Reset()                    { *m = DeleteClusterNodesOutput{} }
 func (m *DeleteClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteClusterNodesOutput) ProtoMessage()               {}
-func (*DeleteClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{18} }
+func (*DeleteClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{18} }
 
 func (m *DeleteClusterNodesOutput) GetAction() string {
 	if m != nil {
@@ -1495,7 +1495,7 @@ type ResizeClusterInput struct {
 func (m *ResizeClusterInput) Reset()                    { *m = ResizeClusterInput{} }
 func (m *ResizeClusterInput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeClusterInput) ProtoMessage()               {}
-func (*ResizeClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{19} }
+func (*ResizeClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{19} }
 
 func (m *ResizeClusterInput) GetCluster() string {
 	if m != nil {
@@ -1541,7 +1541,7 @@ type ResizeClusterOutput struct {
 func (m *ResizeClusterOutput) Reset()                    { *m = ResizeClusterOutput{} }
 func (m *ResizeClusterOutput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeClusterOutput) ProtoMessage()               {}
-func (*ResizeClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{20} }
+func (*ResizeClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{20} }
 
 func (m *ResizeClusterOutput) GetAction() string {
 	if m != nil {
@@ -1574,7 +1574,7 @@ type ChangeClusterVxnetInput struct {
 func (m *ChangeClusterVxnetInput) Reset()                    { *m = ChangeClusterVxnetInput{} }
 func (m *ChangeClusterVxnetInput) String() string            { return proto.CompactTextString(m) }
 func (*ChangeClusterVxnetInput) ProtoMessage()               {}
-func (*ChangeClusterVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{21} }
+func (*ChangeClusterVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{21} }
 
 func (m *ChangeClusterVxnetInput) GetCluster() string {
 	if m != nil {
@@ -1613,7 +1613,7 @@ type ChangeClusterVxnetOutput struct {
 func (m *ChangeClusterVxnetOutput) Reset()                    { *m = ChangeClusterVxnetOutput{} }
 func (m *ChangeClusterVxnetOutput) String() string            { return proto.CompactTextString(m) }
 func (*ChangeClusterVxnetOutput) ProtoMessage()               {}
-func (*ChangeClusterVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{22} }
+func (*ChangeClusterVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{22} }
 
 func (m *ChangeClusterVxnetOutput) GetAction() string {
 	if m != nil {
@@ -1643,7 +1643,7 @@ type SuspendClustersInput struct {
 func (m *SuspendClustersInput) Reset()                    { *m = SuspendClustersInput{} }
 func (m *SuspendClustersInput) String() string            { return proto.CompactTextString(m) }
 func (*SuspendClustersInput) ProtoMessage()               {}
-func (*SuspendClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{23} }
+func (*SuspendClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{23} }
 
 func (m *SuspendClustersInput) GetClusters() []string {
 	if m != nil {
@@ -1661,7 +1661,7 @@ type SuspendClustersOutput struct {
 func (m *SuspendClustersOutput) Reset()                    { *m = SuspendClustersOutput{} }
 func (m *SuspendClustersOutput) String() string            { return proto.CompactTextString(m) }
 func (*SuspendClustersOutput) ProtoMessage()               {}
-func (*SuspendClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{24} }
+func (*SuspendClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{24} }
 
 func (m *SuspendClustersOutput) GetAction() string {
 	if m != nil {
@@ -1693,7 +1693,7 @@ type UpdateClusterEnvironmentInput struct {
 func (m *UpdateClusterEnvironmentInput) Reset()                    { *m = UpdateClusterEnvironmentInput{} }
 func (m *UpdateClusterEnvironmentInput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateClusterEnvironmentInput) ProtoMessage()               {}
-func (*UpdateClusterEnvironmentInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{25} }
+func (*UpdateClusterEnvironmentInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{25} }
 
 func (m *UpdateClusterEnvironmentInput) GetCluster() string {
 	if m != nil {
@@ -1725,7 +1725,7 @@ type UpdateClusterEnvironmentOutput struct {
 func (m *UpdateClusterEnvironmentOutput) Reset()                    { *m = UpdateClusterEnvironmentOutput{} }
 func (m *UpdateClusterEnvironmentOutput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateClusterEnvironmentOutput) ProtoMessage()               {}
-func (*UpdateClusterEnvironmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{26} }
+func (*UpdateClusterEnvironmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{26} }
 
 func (m *UpdateClusterEnvironmentOutput) GetAction() string {
 	if m != nil {
@@ -1757,7 +1757,7 @@ type ModifyClusterAttributesInput struct {
 func (m *ModifyClusterAttributesInput) Reset()                    { *m = ModifyClusterAttributesInput{} }
 func (m *ModifyClusterAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyClusterAttributesInput) ProtoMessage()               {}
-func (*ModifyClusterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{27} }
+func (*ModifyClusterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{27} }
 
 func (m *ModifyClusterAttributesInput) GetCluster() string {
 	if m != nil {
@@ -1789,7 +1789,7 @@ type ModifyClusterAttributesOutput struct {
 func (m *ModifyClusterAttributesOutput) Reset()                    { *m = ModifyClusterAttributesOutput{} }
 func (m *ModifyClusterAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyClusterAttributesOutput) ProtoMessage()               {}
-func (*ModifyClusterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{28} }
+func (*ModifyClusterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{28} }
 
 func (m *ModifyClusterAttributesOutput) GetAction() string {
 	if m != nil {
@@ -1822,7 +1822,7 @@ func (m *ModifyClusterNodeAttributesInput) Reset()         { *m = ModifyClusterN
 func (m *ModifyClusterNodeAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyClusterNodeAttributesInput) ProtoMessage()    {}
 func (*ModifyClusterNodeAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{29}
+	return fileDescriptor2, []int{29}
 }
 
 func (m *ModifyClusterNodeAttributesInput) GetCluster() string {
@@ -1856,7 +1856,7 @@ func (m *ModifyClusterNodeAttributesOutput) Reset()         { *m = ModifyCluster
 func (m *ModifyClusterNodeAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyClusterNodeAttributesOutput) ProtoMessage()    {}
 func (*ModifyClusterNodeAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{30}
+	return fileDescriptor2, []int{30}
 }
 
 func (m *ModifyClusterNodeAttributesOutput) GetAction() string {
@@ -1887,7 +1887,7 @@ type GetClustersStatsInput struct {
 func (m *GetClustersStatsInput) Reset()                    { *m = GetClustersStatsInput{} }
 func (m *GetClustersStatsInput) String() string            { return proto.CompactTextString(m) }
 func (*GetClustersStatsInput) ProtoMessage()               {}
-func (*GetClustersStatsInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{31} }
+func (*GetClustersStatsInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{31} }
 
 func (m *GetClustersStatsInput) GetZones() []string {
 	if m != nil {
@@ -1905,7 +1905,7 @@ type GetClustersStatsOutput struct {
 func (m *GetClustersStatsOutput) Reset()                    { *m = GetClustersStatsOutput{} }
 func (m *GetClustersStatsOutput) String() string            { return proto.CompactTextString(m) }
 func (*GetClustersStatsOutput) ProtoMessage()               {}
-func (*GetClustersStatsOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{32} }
+func (*GetClustersStatsOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{32} }
 
 func (m *GetClustersStatsOutput) GetAction() string {
 	if m != nil {
@@ -1939,7 +1939,7 @@ type DescribeClusterUsersInput struct {
 func (m *DescribeClusterUsersInput) Reset()                    { *m = DescribeClusterUsersInput{} }
 func (m *DescribeClusterUsersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClusterUsersInput) ProtoMessage()               {}
-func (*DescribeClusterUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{33} }
+func (*DescribeClusterUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{33} }
 
 func (m *DescribeClusterUsersInput) GetZones() []string {
 	if m != nil {
@@ -1985,7 +1985,7 @@ type DescribeClusterUsersOutput struct {
 func (m *DescribeClusterUsersOutput) Reset()                    { *m = DescribeClusterUsersOutput{} }
 func (m *DescribeClusterUsersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeClusterUsersOutput) ProtoMessage()               {}
-func (*DescribeClusterUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{34} }
+func (*DescribeClusterUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{34} }
 
 func (m *DescribeClusterUsersOutput) GetAction() string {
 	if m != nil {
@@ -2016,7 +2016,7 @@ type RestartClusterServiceInput struct {
 func (m *RestartClusterServiceInput) Reset()                    { *m = RestartClusterServiceInput{} }
 func (m *RestartClusterServiceInput) String() string            { return proto.CompactTextString(m) }
 func (*RestartClusterServiceInput) ProtoMessage()               {}
-func (*RestartClusterServiceInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{35} }
+func (*RestartClusterServiceInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{35} }
 
 func (m *RestartClusterServiceInput) GetCluster() string {
 	if m != nil {
@@ -2041,7 +2041,7 @@ type RestartClusterServiceOutput struct {
 func (m *RestartClusterServiceOutput) Reset()                    { *m = RestartClusterServiceOutput{} }
 func (m *RestartClusterServiceOutput) String() string            { return proto.CompactTextString(m) }
 func (*RestartClusterServiceOutput) ProtoMessage()               {}
-func (*RestartClusterServiceOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{36} }
+func (*RestartClusterServiceOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{36} }
 
 func (m *RestartClusterServiceOutput) GetAction() string {
 	if m != nil {
@@ -2072,7 +2072,7 @@ type UpgradeClustersInput struct {
 func (m *UpgradeClustersInput) Reset()                    { *m = UpgradeClustersInput{} }
 func (m *UpgradeClustersInput) String() string            { return proto.CompactTextString(m) }
 func (*UpgradeClustersInput) ProtoMessage()               {}
-func (*UpgradeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{37} }
+func (*UpgradeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{37} }
 
 func (m *UpgradeClustersInput) GetClusters() []string {
 	if m != nil {
@@ -2097,7 +2097,7 @@ type UpgradeClustersOutput struct {
 func (m *UpgradeClustersOutput) Reset()                    { *m = UpgradeClustersOutput{} }
 func (m *UpgradeClustersOutput) String() string            { return proto.CompactTextString(m) }
 func (*UpgradeClustersOutput) ProtoMessage()               {}
-func (*UpgradeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{38} }
+func (*UpgradeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{38} }
 
 func (m *UpgradeClustersOutput) GetAction() string {
 	if m != nil {
@@ -2130,7 +2130,7 @@ func (m *AuthorizeClustersBrokerToDeveloperInput) Reset() {
 func (m *AuthorizeClustersBrokerToDeveloperInput) String() string { return proto.CompactTextString(m) }
 func (*AuthorizeClustersBrokerToDeveloperInput) ProtoMessage()    {}
 func (*AuthorizeClustersBrokerToDeveloperInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{39}
+	return fileDescriptor2, []int{39}
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperInput) GetClusters() []string {
@@ -2152,7 +2152,7 @@ func (m *AuthorizeClustersBrokerToDeveloperOutput) Reset() {
 func (m *AuthorizeClustersBrokerToDeveloperOutput) String() string { return proto.CompactTextString(m) }
 func (*AuthorizeClustersBrokerToDeveloperOutput) ProtoMessage()    {}
 func (*AuthorizeClustersBrokerToDeveloperOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{40}
+	return fileDescriptor2, []int{40}
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperOutput) GetAction() string {
@@ -2186,7 +2186,7 @@ func (m *RevokeClustersBrokerFromDeveloperInput) Reset() {
 func (m *RevokeClustersBrokerFromDeveloperInput) String() string { return proto.CompactTextString(m) }
 func (*RevokeClustersBrokerFromDeveloperInput) ProtoMessage()    {}
 func (*RevokeClustersBrokerFromDeveloperInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{41}
+	return fileDescriptor2, []int{41}
 }
 
 func (m *RevokeClustersBrokerFromDeveloperInput) GetClusters() []string {
@@ -2208,7 +2208,7 @@ func (m *RevokeClustersBrokerFromDeveloperOutput) Reset() {
 func (m *RevokeClustersBrokerFromDeveloperOutput) String() string { return proto.CompactTextString(m) }
 func (*RevokeClustersBrokerFromDeveloperOutput) ProtoMessage()    {}
 func (*RevokeClustersBrokerFromDeveloperOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{42}
+	return fileDescriptor2, []int{42}
 }
 
 func (m *RevokeClustersBrokerFromDeveloperOutput) GetAction() string {
@@ -2827,9 +2827,9 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBro
 	return x, err
 }
 
-func init() { proto.RegisterFile("cluster.proto", fileDescriptor3) }
+func init() { proto.RegisterFile("cluster.proto", fileDescriptor2) }
 
-var fileDescriptor3 = []byte{
+var fileDescriptor2 = []byte{
 	// 2802 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x5a, 0xdf, 0x6f, 0xe3, 0xc6,
 	0xf1, 0x87, 0x6c, 0xcb, 0x96, 0x46, 0xb6, 0x6c, 0xef, 0xd9, 0x67, 0x9a, 0x3e, 0x9f, 0x6d, 0x5d,

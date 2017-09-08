@@ -26,7 +26,7 @@ type ImageServiceProperties struct {
 func (m *ImageServiceProperties) Reset()                    { *m = ImageServiceProperties{} }
 func (m *ImageServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ImageServiceProperties) ProtoMessage()               {}
-func (*ImageServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (*ImageServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
 
 func (m *ImageServiceProperties) GetZone() string {
 	if m != nil {
@@ -255,9 +255,9 @@ func (p *ImageService) CloneImages(in *google_protobuf.Empty) (out *google_proto
 	return x, err
 }
 
-func init() { proto.RegisterFile("image.proto", fileDescriptor7) }
+func init() { proto.RegisterFile("image.proto", fileDescriptor6) }
 
-var fileDescriptor7 = []byte{
+var fileDescriptor6 = []byte{
 	// 251 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x91, 0x41, 0x4b, 0xc3, 0x40,
 	0x10, 0x85, 0x29, 0x04, 0xc1, 0x69, 0x51, 0x5c, 0xb4, 0x48, 0xbd, 0x88, 0x27, 0x0f, 0x92, 0x82,

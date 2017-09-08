@@ -26,7 +26,7 @@ type InstanceServiceProperties struct {
 func (m *InstanceServiceProperties) Reset()                    { *m = InstanceServiceProperties{} }
 func (m *InstanceServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*InstanceServiceProperties) ProtoMessage()               {}
-func (*InstanceServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
+func (*InstanceServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 func (m *InstanceServiceProperties) GetZone() string {
 	if m != nil {
@@ -44,7 +44,7 @@ type DescribeInstanceTypesInput struct {
 func (m *DescribeInstanceTypesInput) Reset()                    { *m = DescribeInstanceTypesInput{} }
 func (m *DescribeInstanceTypesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeInstanceTypesInput) ProtoMessage()               {}
-func (*DescribeInstanceTypesInput) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
+func (*DescribeInstanceTypesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
 
 func (m *DescribeInstanceTypesInput) GetAction() string {
 	if m != nil {
@@ -77,7 +77,7 @@ type DescribeInstanceTypesOutput struct {
 func (m *DescribeInstanceTypesOutput) Reset()                    { *m = DescribeInstanceTypesOutput{} }
 func (m *DescribeInstanceTypesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeInstanceTypesOutput) ProtoMessage()               {}
-func (*DescribeInstanceTypesOutput) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
+func (*DescribeInstanceTypesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
 
 func (m *DescribeInstanceTypesOutput) GetAction() string {
 	if m != nil {
@@ -124,7 +124,7 @@ func (m *DescribeInstanceTypesOutput_InstanceTypeSetElem) String() string {
 }
 func (*DescribeInstanceTypesOutput_InstanceTypeSetElem) ProtoMessage() {}
 func (*DescribeInstanceTypesOutput_InstanceTypeSetElem) Descriptor() ([]byte, []int) {
-	return fileDescriptor8, []int{2, 0}
+	return fileDescriptor7, []int{2, 0}
 }
 
 func (m *DescribeInstanceTypesOutput_InstanceTypeSetElem) GetInstanceTypeId() string {
@@ -492,9 +492,9 @@ func (p *InstanceService) DeleteBrokers(in *google_protobuf.Empty) (out *google_
 	return x, err
 }
 
-func init() { proto.RegisterFile("instances.proto", fileDescriptor8) }
+func init() { proto.RegisterFile("instances.proto", fileDescriptor7) }
 
-var fileDescriptor8 = []byte{
+var fileDescriptor7 = []byte{
 	// 508 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0x4d, 0x6b, 0xdb, 0x40,
 	0x10, 0x25, 0xb5, 0xa3, 0x36, 0xe3, 0xf8, 0x23, 0x5b, 0x6a, 0x14, 0xe5, 0x50, 0xd7, 0xa5, 0xe0,

@@ -25,7 +25,7 @@ type ZoneServiceProperties struct {
 func (m *ZoneServiceProperties) Reset()                    { *m = ZoneServiceProperties{} }
 func (m *ZoneServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ZoneServiceProperties) ProtoMessage()               {}
-func (*ZoneServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{0} }
+func (*ZoneServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
 
 func (m *ZoneServiceProperties) GetZone() string {
 	if m != nil {
@@ -40,7 +40,7 @@ type DescribeZonesInput struct {
 func (m *DescribeZonesInput) Reset()                    { *m = DescribeZonesInput{} }
 func (m *DescribeZonesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeZonesInput) ProtoMessage()               {}
-func (*DescribeZonesInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{1} }
+func (*DescribeZonesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{1} }
 
 type DescribeZonesOutput struct {
 }
@@ -48,7 +48,7 @@ type DescribeZonesOutput struct {
 func (m *DescribeZonesOutput) Reset()                    { *m = DescribeZonesOutput{} }
 func (m *DescribeZonesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeZonesOutput) ProtoMessage()               {}
-func (*DescribeZonesOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{2} }
+func (*DescribeZonesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{2} }
 
 func init() {
 	proto.RegisterType((*ZoneServiceProperties)(nil), "spec.ZoneServiceProperties")
@@ -97,9 +97,9 @@ func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesO
 	return x, err
 }
 
-func init() { proto.RegisterFile("zone.proto", fileDescriptor30) }
+func init() { proto.RegisterFile("zone.proto", fileDescriptor29) }
 
-var fileDescriptor30 = []byte{
+var fileDescriptor29 = []byte{
 	// 146 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xaa, 0xca, 0xcf, 0x4b,
 	0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d, 0x56, 0xd2, 0xe6, 0x12,

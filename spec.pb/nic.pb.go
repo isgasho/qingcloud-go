@@ -26,7 +26,7 @@ type NicServiceProperties struct {
 func (m *NicServiceProperties) Reset()                    { *m = NicServiceProperties{} }
 func (m *NicServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*NicServiceProperties) ProtoMessage()               {}
-func (*NicServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{0} }
+func (*NicServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{0} }
 
 func (m *NicServiceProperties) GetZone() string {
 	if m != nil {
@@ -41,7 +41,7 @@ type CreateNicsInput struct {
 func (m *CreateNicsInput) Reset()                    { *m = CreateNicsInput{} }
 func (m *CreateNicsInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateNicsInput) ProtoMessage()               {}
-func (*CreateNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{1} }
+func (*CreateNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{1} }
 
 type CreateNicsOutput struct {
 }
@@ -49,7 +49,7 @@ type CreateNicsOutput struct {
 func (m *CreateNicsOutput) Reset()                    { *m = CreateNicsOutput{} }
 func (m *CreateNicsOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateNicsOutput) ProtoMessage()               {}
-func (*CreateNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{2} }
+func (*CreateNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{2} }
 
 type DescribeNicsInput struct {
 	Instances []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
@@ -65,7 +65,7 @@ type DescribeNicsInput struct {
 func (m *DescribeNicsInput) Reset()                    { *m = DescribeNicsInput{} }
 func (m *DescribeNicsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeNicsInput) ProtoMessage()               {}
-func (*DescribeNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{3} }
+func (*DescribeNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{3} }
 
 func (m *DescribeNicsInput) GetInstances() []string {
 	if m != nil {
@@ -134,7 +134,7 @@ type DescribeNicsOutput struct {
 func (m *DescribeNicsOutput) Reset()                    { *m = DescribeNicsOutput{} }
 func (m *DescribeNicsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeNicsOutput) ProtoMessage()               {}
-func (*DescribeNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{4} }
+func (*DescribeNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{4} }
 
 func (m *DescribeNicsOutput) GetMessage() string {
 	if m != nil {
@@ -197,7 +197,7 @@ type NIC struct {
 func (m *NIC) Reset()                    { *m = NIC{} }
 func (m *NIC) String() string            { return proto.CompactTextString(m) }
 func (*NIC) ProtoMessage()               {}
-func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{5} }
+func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{5} }
 
 func (m *NIC) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -348,7 +348,7 @@ type Eip struct {
 func (m *Eip) Reset()                    { *m = Eip{} }
 func (m *Eip) String() string            { return proto.CompactTextString(m) }
 func (*Eip) ProtoMessage()               {}
-func (*Eip) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{6} }
+func (*Eip) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{6} }
 
 func (m *Eip) GetEipId() string {
 	if m != nil {
@@ -387,7 +387,7 @@ type Tag struct {
 func (m *Tag) Reset()                    { *m = Tag{} }
 func (m *Tag) String() string            { return proto.CompactTextString(m) }
 func (*Tag) ProtoMessage()               {}
-func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{7} }
+func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{7} }
 
 func (m *Tag) GetColor() string {
 	if m != nil {
@@ -470,7 +470,7 @@ type ResourceTagPair struct {
 func (m *ResourceTagPair) Reset()                    { *m = ResourceTagPair{} }
 func (m *ResourceTagPair) String() string            { return proto.CompactTextString(m) }
 func (*ResourceTagPair) ProtoMessage()               {}
-func (*ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{8} }
+func (*ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{8} }
 
 func (m *ResourceTagPair) GetResourceId() string {
 	if m != nil {
@@ -515,7 +515,7 @@ type ResourceTypeCount struct {
 func (m *ResourceTypeCount) Reset()                    { *m = ResourceTypeCount{} }
 func (m *ResourceTypeCount) String() string            { return proto.CompactTextString(m) }
 func (*ResourceTypeCount) ProtoMessage()               {}
-func (*ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{9} }
+func (*ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{9} }
 
 func (m *ResourceTypeCount) GetCount() int32 {
 	if m != nil {
@@ -537,7 +537,7 @@ type AttachNicsInput struct {
 func (m *AttachNicsInput) Reset()                    { *m = AttachNicsInput{} }
 func (m *AttachNicsInput) String() string            { return proto.CompactTextString(m) }
 func (*AttachNicsInput) ProtoMessage()               {}
-func (*AttachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{10} }
+func (*AttachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{10} }
 
 type AttachNicsOutput struct {
 }
@@ -545,7 +545,7 @@ type AttachNicsOutput struct {
 func (m *AttachNicsOutput) Reset()                    { *m = AttachNicsOutput{} }
 func (m *AttachNicsOutput) String() string            { return proto.CompactTextString(m) }
 func (*AttachNicsOutput) ProtoMessage()               {}
-func (*AttachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{11} }
+func (*AttachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{11} }
 
 type DetachNicsInput struct {
 }
@@ -553,7 +553,7 @@ type DetachNicsInput struct {
 func (m *DetachNicsInput) Reset()                    { *m = DetachNicsInput{} }
 func (m *DetachNicsInput) String() string            { return proto.CompactTextString(m) }
 func (*DetachNicsInput) ProtoMessage()               {}
-func (*DetachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{12} }
+func (*DetachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{12} }
 
 type DetachNicsOutput struct {
 }
@@ -561,7 +561,7 @@ type DetachNicsOutput struct {
 func (m *DetachNicsOutput) Reset()                    { *m = DetachNicsOutput{} }
 func (m *DetachNicsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DetachNicsOutput) ProtoMessage()               {}
-func (*DetachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{13} }
+func (*DetachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{13} }
 
 type ModifyNicAttributesInput struct {
 }
@@ -569,7 +569,7 @@ type ModifyNicAttributesInput struct {
 func (m *ModifyNicAttributesInput) Reset()                    { *m = ModifyNicAttributesInput{} }
 func (m *ModifyNicAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyNicAttributesInput) ProtoMessage()               {}
-func (*ModifyNicAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{14} }
+func (*ModifyNicAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{14} }
 
 type ModifyNicAttributesOutput struct {
 }
@@ -577,7 +577,7 @@ type ModifyNicAttributesOutput struct {
 func (m *ModifyNicAttributesOutput) Reset()                    { *m = ModifyNicAttributesOutput{} }
 func (m *ModifyNicAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyNicAttributesOutput) ProtoMessage()               {}
-func (*ModifyNicAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{15} }
+func (*ModifyNicAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{15} }
 
 type DeleteNicsInput struct {
 }
@@ -585,7 +585,7 @@ type DeleteNicsInput struct {
 func (m *DeleteNicsInput) Reset()                    { *m = DeleteNicsInput{} }
 func (m *DeleteNicsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteNicsInput) ProtoMessage()               {}
-func (*DeleteNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{16} }
+func (*DeleteNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{16} }
 
 type DeleteNicsOutput struct {
 }
@@ -593,7 +593,7 @@ type DeleteNicsOutput struct {
 func (m *DeleteNicsOutput) Reset()                    { *m = DeleteNicsOutput{} }
 func (m *DeleteNicsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteNicsOutput) ProtoMessage()               {}
-func (*DeleteNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor15, []int{17} }
+func (*DeleteNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{17} }
 
 func init() {
 	proto.RegisterType((*NicServiceProperties)(nil), "spec.NicServiceProperties")
@@ -782,9 +782,9 @@ func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err
 	return x, err
 }
 
-func init() { proto.RegisterFile("nic.proto", fileDescriptor15) }
+func init() { proto.RegisterFile("nic.proto", fileDescriptor14) }
 
-var fileDescriptor15 = []byte{
+var fileDescriptor14 = []byte{
 	// 1051 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x56, 0xdd, 0x6e, 0xdb, 0x36,
 	0x14, 0x86, 0x2b, 0x3b, 0x8e, 0x8f, 0xf3, 0x67, 0x26, 0x6d, 0x55, 0x77, 0x69, 0x0c, 0x0f, 0x05,

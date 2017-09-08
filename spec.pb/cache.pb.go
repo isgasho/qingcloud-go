@@ -26,7 +26,7 @@ type CacheServiceProperties struct {
 func (m *CacheServiceProperties) Reset()                    { *m = CacheServiceProperties{} }
 func (m *CacheServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*CacheServiceProperties) ProtoMessage()               {}
-func (*CacheServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+func (*CacheServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 func (m *CacheServiceProperties) GetZone() string {
 	if m != nil {
@@ -655,9 +655,9 @@ func (p *CacheService) ResetCacheParameters(in *google_protobuf.Empty) (out *goo
 	return x, err
 }
 
-func init() { proto.RegisterFile("cache.proto", fileDescriptor2) }
+func init() { proto.RegisterFile("cache.proto", fileDescriptor1) }
 
-var fileDescriptor2 = []byte{
+var fileDescriptor1 = []byte{
 	// 374 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0x4f, 0x6b, 0xea, 0x40,
 	0x14, 0xc5, 0x11, 0xe4, 0xc1, 0xbb, 0xea, 0xc3, 0x17, 0xde, 0xb3, 0xd6, 0x76, 0x51, 0xda, 0x4d,

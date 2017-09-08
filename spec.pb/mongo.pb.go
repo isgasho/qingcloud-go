@@ -26,7 +26,7 @@ type MongoServiceProperties struct {
 func (m *MongoServiceProperties) Reset()                    { *m = MongoServiceProperties{} }
 func (m *MongoServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*MongoServiceProperties) ProtoMessage()               {}
-func (*MongoServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{0} }
+func (*MongoServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{0} }
 
 func (m *MongoServiceProperties) GetZone() string {
 	if m != nil {
@@ -48,7 +48,7 @@ type DescribeMongosInput struct {
 func (m *DescribeMongosInput) Reset()                    { *m = DescribeMongosInput{} }
 func (m *DescribeMongosInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeMongosInput) ProtoMessage()               {}
-func (*DescribeMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{1} }
+func (*DescribeMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
 
 func (m *DescribeMongosInput) GetLimit() int32 {
 	if m != nil {
@@ -110,7 +110,7 @@ type DescribeMongosOutput struct {
 func (m *DescribeMongosOutput) Reset()                    { *m = DescribeMongosOutput{} }
 func (m *DescribeMongosOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeMongosOutput) ProtoMessage()               {}
-func (*DescribeMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{2} }
+func (*DescribeMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2} }
 
 func (m *DescribeMongosOutput) GetAction() string {
 	if m != nil {
@@ -156,7 +156,7 @@ type DescribeMongosOutput_Mongo struct {
 func (m *DescribeMongosOutput_Mongo) Reset()                    { *m = DescribeMongosOutput_Mongo{} }
 func (m *DescribeMongosOutput_Mongo) String() string            { return proto.CompactTextString(m) }
 func (*DescribeMongosOutput_Mongo) ProtoMessage()               {}
-func (*DescribeMongosOutput_Mongo) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{2, 0} }
+func (*DescribeMongosOutput_Mongo) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2, 0} }
 
 func (m *DescribeMongosOutput_Mongo) GetAlarmStatus() string {
 	if m != nil {
@@ -577,9 +577,9 @@ func (p *MongoService) GetMongoMonitor(in *google_protobuf.Empty) (out *google_p
 	return x, err
 }
 
-func init() { proto.RegisterFile("mongo.proto", fileDescriptor13) }
+func init() { proto.RegisterFile("mongo.proto", fileDescriptor12) }
 
-var fileDescriptor13 = []byte{
+var fileDescriptor12 = []byte{
 	// 601 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x53, 0xc1, 0x4e, 0x1b, 0x31,
 	0x10, 0x55, 0x80, 0x04, 0x98, 0x20, 0x4a, 0x0d, 0x0d, 0x4b, 0xaa, 0xaa, 0x94, 0x13, 0x87, 0x6a,

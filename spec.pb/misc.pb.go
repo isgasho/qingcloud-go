@@ -25,7 +25,7 @@ type MiscServiceProperties struct {
 func (m *MiscServiceProperties) Reset()                    { *m = MiscServiceProperties{} }
 func (m *MiscServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*MiscServiceProperties) ProtoMessage()               {}
-func (*MiscServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{0} }
+func (*MiscServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{0} }
 
 func (m *MiscServiceProperties) GetZone() string {
 	if m != nil {
@@ -67,7 +67,7 @@ type GrantQuotaIndepInput struct {
 func (m *GrantQuotaIndepInput) Reset()                    { *m = GrantQuotaIndepInput{} }
 func (m *GrantQuotaIndepInput) String() string            { return proto.CompactTextString(m) }
 func (*GrantQuotaIndepInput) ProtoMessage()               {}
-func (*GrantQuotaIndepInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
+func (*GrantQuotaIndepInput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{1} }
 
 func (m *GrantQuotaIndepInput) GetUser() string {
 	if m != nil {
@@ -269,7 +269,7 @@ type GrantQuotaIndepOutput struct {
 func (m *GrantQuotaIndepOutput) Reset()                    { *m = GrantQuotaIndepOutput{} }
 func (m *GrantQuotaIndepOutput) String() string            { return proto.CompactTextString(m) }
 func (*GrantQuotaIndepOutput) ProtoMessage()               {}
-func (*GrantQuotaIndepOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2} }
+func (*GrantQuotaIndepOutput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{2} }
 
 func (m *GrantQuotaIndepOutput) GetAction() string {
 	if m != nil {
@@ -314,7 +314,7 @@ type RevokeQuotaIndepInput struct {
 func (m *RevokeQuotaIndepInput) Reset()                    { *m = RevokeQuotaIndepInput{} }
 func (m *RevokeQuotaIndepInput) String() string            { return proto.CompactTextString(m) }
 func (*RevokeQuotaIndepInput) ProtoMessage()               {}
-func (*RevokeQuotaIndepInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{3} }
+func (*RevokeQuotaIndepInput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{3} }
 
 func (m *RevokeQuotaIndepInput) GetUser() string {
 	if m != nil {
@@ -339,7 +339,7 @@ type RevokeQuotaIndepOutput struct {
 func (m *RevokeQuotaIndepOutput) Reset()                    { *m = RevokeQuotaIndepOutput{} }
 func (m *RevokeQuotaIndepOutput) String() string            { return proto.CompactTextString(m) }
 func (*RevokeQuotaIndepOutput) ProtoMessage()               {}
-func (*RevokeQuotaIndepOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{4} }
+func (*RevokeQuotaIndepOutput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{4} }
 
 func (m *RevokeQuotaIndepOutput) GetAction() string {
 	if m != nil {
@@ -369,7 +369,7 @@ type GetQuotaLeftInput struct {
 func (m *GetQuotaLeftInput) Reset()                    { *m = GetQuotaLeftInput{} }
 func (m *GetQuotaLeftInput) String() string            { return proto.CompactTextString(m) }
 func (*GetQuotaLeftInput) ProtoMessage()               {}
-func (*GetQuotaLeftInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{5} }
+func (*GetQuotaLeftInput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{5} }
 
 func (m *GetQuotaLeftInput) GetResourceTypes() []string {
 	if m != nil {
@@ -388,7 +388,7 @@ type GetQuotaLeftOutput struct {
 func (m *GetQuotaLeftOutput) Reset()                    { *m = GetQuotaLeftOutput{} }
 func (m *GetQuotaLeftOutput) String() string            { return proto.CompactTextString(m) }
 func (*GetQuotaLeftOutput) ProtoMessage()               {}
-func (*GetQuotaLeftOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{6} }
+func (*GetQuotaLeftOutput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{6} }
 
 func (m *GetQuotaLeftOutput) GetAction() string {
 	if m != nil {
@@ -427,7 +427,7 @@ func (m *GetQuotaLeftOutput_QuotaLeft) Reset()         { *m = GetQuotaLeftOutput
 func (m *GetQuotaLeftOutput_QuotaLeft) String() string { return proto.CompactTextString(m) }
 func (*GetQuotaLeftOutput_QuotaLeft) ProtoMessage()    {}
 func (*GetQuotaLeftOutput_QuotaLeft) Descriptor() ([]byte, []int) {
-	return fileDescriptor12, []int{6, 0}
+	return fileDescriptor11, []int{6, 0}
 }
 
 func (m *GetQuotaLeftOutput_QuotaLeft) GetResourceType() string {
@@ -546,9 +546,9 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 	return x, err
 }
 
-func init() { proto.RegisterFile("misc.proto", fileDescriptor12) }
+func init() { proto.RegisterFile("misc.proto", fileDescriptor11) }
 
-var fileDescriptor12 = []byte{
+var fileDescriptor11 = []byte{
 	// 730 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x55, 0x4d, 0x6f, 0xd3, 0x40,
 	0x10, 0x55, 0x48, 0x9c, 0x34, 0x93, 0x8f, 0xb6, 0xdb, 0x24, 0xdd, 0xa6, 0x20, 0x22, 0xf3, 0xa1,

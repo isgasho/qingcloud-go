@@ -26,7 +26,7 @@ type RouterServiceProperties struct {
 func (m *RouterServiceProperties) Reset()                    { *m = RouterServiceProperties{} }
 func (m *RouterServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*RouterServiceProperties) ProtoMessage()               {}
-func (*RouterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{0} }
+func (*RouterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
 
 func (m *RouterServiceProperties) GetZone() string {
 	if m != nil {
@@ -530,9 +530,9 @@ func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf.Empty) (
 	return x, err
 }
 
-func init() { proto.RegisterFile("router.proto", fileDescriptor19) }
+func init() { proto.RegisterFile("router.proto", fileDescriptor18) }
 
-var fileDescriptor19 = []byte{
+var fileDescriptor18 = []byte{
 	// 329 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0x4f, 0x4f, 0xf2, 0x40,
 	0x10, 0xc6, 0x43, 0x42, 0xde, 0xe4, 0x1d, 0x45, 0x74, 0x55, 0x54, 0xf0, 0xa0, 0x9e, 0xbc, 0x58,

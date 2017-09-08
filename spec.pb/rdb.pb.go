@@ -26,7 +26,7 @@ type RDBServiceProperties struct {
 func (m *RDBServiceProperties) Reset()                    { *m = RDBServiceProperties{} }
 func (m *RDBServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*RDBServiceProperties) ProtoMessage()               {}
-func (*RDBServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{0} }
+func (*RDBServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{0} }
 
 func (m *RDBServiceProperties) GetZone() string {
 	if m != nil {
@@ -505,9 +505,9 @@ func (p *RDBService) DescribeRDBParameters(in *google_protobuf.Empty) (out *goog
 	return x, err
 }
 
-func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }
+func init() { proto.RegisterFile("rdb.proto", fileDescriptor16) }
 
-var fileDescriptor17 = []byte{
+var fileDescriptor16 = []byte{
 	// 353 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x4d, 0x4b, 0xfb, 0x40,
 	0x10, 0xc6, 0x29, 0x94, 0x3f, 0xff, 0x0c, 0x2a, 0x12, 0xb5, 0x68, 0xbd, 0xa8, 0x27, 0xf1, 0x90,

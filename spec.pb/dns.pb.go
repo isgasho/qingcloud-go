@@ -25,7 +25,7 @@ type DNSAliasServiceProperties struct {
 func (m *DNSAliasServiceProperties) Reset()                    { *m = DNSAliasServiceProperties{} }
 func (m *DNSAliasServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*DNSAliasServiceProperties) ProtoMessage()               {}
-func (*DNSAliasServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
+func (*DNSAliasServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *DNSAliasServiceProperties) GetZone() string {
 	if m != nil {
@@ -40,7 +40,7 @@ type DescribeDNSAliasesInput struct {
 func (m *DescribeDNSAliasesInput) Reset()                    { *m = DescribeDNSAliasesInput{} }
 func (m *DescribeDNSAliasesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeDNSAliasesInput) ProtoMessage()               {}
-func (*DescribeDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
+func (*DescribeDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 type DescribeDNSAliasesOutput struct {
 }
@@ -48,7 +48,7 @@ type DescribeDNSAliasesOutput struct {
 func (m *DescribeDNSAliasesOutput) Reset()                    { *m = DescribeDNSAliasesOutput{} }
 func (m *DescribeDNSAliasesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeDNSAliasesOutput) ProtoMessage()               {}
-func (*DescribeDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
+func (*DescribeDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
 
 type AssociateDNSAliasInput struct {
 }
@@ -56,7 +56,7 @@ type AssociateDNSAliasInput struct {
 func (m *AssociateDNSAliasInput) Reset()                    { *m = AssociateDNSAliasInput{} }
 func (m *AssociateDNSAliasInput) String() string            { return proto.CompactTextString(m) }
 func (*AssociateDNSAliasInput) ProtoMessage()               {}
-func (*AssociateDNSAliasInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
+func (*AssociateDNSAliasInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
 
 type AssociateDNSAliasOutput struct {
 }
@@ -64,7 +64,7 @@ type AssociateDNSAliasOutput struct {
 func (m *AssociateDNSAliasOutput) Reset()                    { *m = AssociateDNSAliasOutput{} }
 func (m *AssociateDNSAliasOutput) String() string            { return proto.CompactTextString(m) }
 func (*AssociateDNSAliasOutput) ProtoMessage()               {}
-func (*AssociateDNSAliasOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
+func (*AssociateDNSAliasOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{4} }
 
 type DissociateDNSAliasesInput struct {
 }
@@ -72,7 +72,7 @@ type DissociateDNSAliasesInput struct {
 func (m *DissociateDNSAliasesInput) Reset()                    { *m = DissociateDNSAliasesInput{} }
 func (m *DissociateDNSAliasesInput) String() string            { return proto.CompactTextString(m) }
 func (*DissociateDNSAliasesInput) ProtoMessage()               {}
-func (*DissociateDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{5} }
+func (*DissociateDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{5} }
 
 type DissociateDNSAliasesOutput struct {
 }
@@ -80,7 +80,7 @@ type DissociateDNSAliasesOutput struct {
 func (m *DissociateDNSAliasesOutput) Reset()                    { *m = DissociateDNSAliasesOutput{} }
 func (m *DissociateDNSAliasesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DissociateDNSAliasesOutput) ProtoMessage()               {}
-func (*DissociateDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{6} }
+func (*DissociateDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{6} }
 
 type GetDNSLabelInput struct {
 }
@@ -88,7 +88,7 @@ type GetDNSLabelInput struct {
 func (m *GetDNSLabelInput) Reset()                    { *m = GetDNSLabelInput{} }
 func (m *GetDNSLabelInput) String() string            { return proto.CompactTextString(m) }
 func (*GetDNSLabelInput) ProtoMessage()               {}
-func (*GetDNSLabelInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{7} }
+func (*GetDNSLabelInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{7} }
 
 type GetDNSLabelOutput struct {
 }
@@ -96,7 +96,7 @@ type GetDNSLabelOutput struct {
 func (m *GetDNSLabelOutput) Reset()                    { *m = GetDNSLabelOutput{} }
 func (m *GetDNSLabelOutput) String() string            { return proto.CompactTextString(m) }
 func (*GetDNSLabelOutput) ProtoMessage()               {}
-func (*GetDNSLabelOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{8} }
+func (*GetDNSLabelOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{8} }
 
 func init() {
 	proto.RegisterType((*DNSAliasServiceProperties)(nil), "spec.DNSAliasServiceProperties")
@@ -226,9 +226,9 @@ func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOut
 	return x, err
 }
 
-func init() { proto.RegisterFile("dns.proto", fileDescriptor4) }
+func init() { proto.RegisterFile("dns.proto", fileDescriptor3) }
 
-var fileDescriptor4 = []byte{
+var fileDescriptor3 = []byte{
 	// 265 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x92, 0xc1, 0x4a, 0xc3, 0x40,
 	0x10, 0x86, 0xa9, 0x14, 0xa1, 0xe3, 0x41, 0x3b, 0x4a, 0x93, 0xac, 0xad, 0x96, 0x9c, 0x3c, 0x45,

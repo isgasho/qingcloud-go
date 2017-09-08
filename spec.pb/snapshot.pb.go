@@ -26,7 +26,7 @@ type SnapshotServiceProperties struct {
 func (m *SnapshotServiceProperties) Reset()                    { *m = SnapshotServiceProperties{} }
 func (m *SnapshotServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotServiceProperties) ProtoMessage()               {}
-func (*SnapshotServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{0} }
+func (*SnapshotServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{0} }
 
 func (m *SnapshotServiceProperties) GetZone() string {
 	if m != nil {
@@ -230,9 +230,9 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf.Empty) (o
 	return x, err
 }
 
-func init() { proto.RegisterFile("snapshot.proto", fileDescriptor22) }
+func init() { proto.RegisterFile("snapshot.proto", fileDescriptor21) }
 
-var fileDescriptor22 = []byte{
+var fileDescriptor21 = []byte{
 	// 234 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x90, 0xc1, 0x4b, 0xc3, 0x60,
 	0x0c, 0xc5, 0x19, 0x14, 0xc1, 0x1c, 0x36, 0xfc, 0x0e, 0x32, 0xb7, 0x8b, 0x78, 0xf2, 0xd4, 0x82,

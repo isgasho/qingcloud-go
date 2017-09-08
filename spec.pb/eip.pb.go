@@ -26,7 +26,7 @@ type EipServiceProperties struct {
 func (m *EipServiceProperties) Reset()                    { *m = EipServiceProperties{} }
 func (m *EipServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*EipServiceProperties) ProtoMessage()               {}
-func (*EipServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
+func (*EipServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 func (m *EipServiceProperties) GetZone() string {
 	if m != nil {
@@ -255,9 +255,9 @@ func (p *EipService) ModifyEipAttributes(in *google_protobuf.Empty) (out *google
 	return x, err
 }
 
-func init() { proto.RegisterFile("eip.proto", fileDescriptor5) }
+func init() { proto.RegisterFile("eip.proto", fileDescriptor4) }
 
-var fileDescriptor5 = []byte{
+var fileDescriptor4 = []byte{
 	// 243 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x8f, 0xcf, 0x4a, 0xc3, 0x40,
 	0x10, 0xc6, 0x29, 0x04, 0xa1, 0xa3, 0x78, 0x58, 0xff, 0x20, 0xf5, 0x22, 0x9e, 0xc4, 0x43, 0x0a,

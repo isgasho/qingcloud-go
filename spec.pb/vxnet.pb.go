@@ -26,7 +26,7 @@ type VxnetServiceProperties struct {
 func (m *VxnetServiceProperties) Reset()                    { *m = VxnetServiceProperties{} }
 func (m *VxnetServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*VxnetServiceProperties) ProtoMessage()               {}
-func (*VxnetServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
+func (*VxnetServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{0} }
 
 func (m *VxnetServiceProperties) GetZone() string {
 	if m != nil {
@@ -230,9 +230,9 @@ func (p *VxnetService) DescribeVxnetInstances(in *google_protobuf.Empty) (out *g
 	return x, err
 }
 
-func init() { proto.RegisterFile("vxnet.proto", fileDescriptor29) }
+func init() { proto.RegisterFile("vxnet.proto", fileDescriptor28) }
 
-var fileDescriptor29 = []byte{
+var fileDescriptor28 = []byte{
 	// 225 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0xab, 0xc8, 0x4b,
 	0x2d, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d, 0x96, 0x92, 0x4e,

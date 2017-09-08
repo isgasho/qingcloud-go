@@ -26,7 +26,7 @@ type ResourceACLServiceProperties struct {
 func (m *ResourceACLServiceProperties) Reset()                    { *m = ResourceACLServiceProperties{} }
 func (m *ResourceACLServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ResourceACLServiceProperties) ProtoMessage()               {}
-func (*ResourceACLServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
+func (*ResourceACLServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{0} }
 
 func (m *ResourceACLServiceProperties) GetZone() string {
 	if m != nil {
@@ -730,9 +730,9 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf.Empt
 	return x, err
 }
 
-func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor18) }
+func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor17) }
 
-var fileDescriptor18 = []byte{
+var fileDescriptor17 = []byte{
 	// 391 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0x4f, 0x6f, 0xda, 0x40,
 	0x10, 0xc5, 0x85, 0x84, 0x2a, 0x75, 0x2e, 0xa5, 0xdb, 0x16, 0x51, 0x4a, 0x45, 0xc5, 0xa9, 0x27,

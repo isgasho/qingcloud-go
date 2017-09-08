@@ -26,7 +26,7 @@ func (m *NotificationCenterServiceProperties) Reset()         { *m = Notificatio
 func (m *NotificationCenterServiceProperties) String() string { return proto.CompactTextString(m) }
 func (*NotificationCenterServiceProperties) ProtoMessage()    {}
 func (*NotificationCenterServiceProperties) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{0}
+	return fileDescriptor15, []int{0}
 }
 
 func (m *NotificationCenterServiceProperties) GetZone() string {
@@ -45,7 +45,7 @@ func (m *DescribeNotificationCenterUserPostsInput) Reset() {
 func (m *DescribeNotificationCenterUserPostsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeNotificationCenterUserPostsInput) ProtoMessage()    {}
 func (*DescribeNotificationCenterUserPostsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{1}
+	return fileDescriptor15, []int{1}
 }
 
 type DescribeNotificationCenterUserPostsOutput struct {
@@ -57,7 +57,7 @@ func (m *DescribeNotificationCenterUserPostsOutput) Reset() {
 func (m *DescribeNotificationCenterUserPostsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeNotificationCenterUserPostsOutput) ProtoMessage()    {}
 func (*DescribeNotificationCenterUserPostsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{2}
+	return fileDescriptor15, []int{2}
 }
 
 func init() {
@@ -107,9 +107,9 @@ func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *Desc
 	return x, err
 }
 
-func init() { proto.RegisterFile("notification_center.proto", fileDescriptor16) }
+func init() { proto.RegisterFile("notification_center.proto", fileDescriptor15) }
 
-var fileDescriptor16 = []byte{
+var fileDescriptor15 = []byte{
 	// 178 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0xcc, 0xcb, 0x2f, 0xc9,
 	0x4c, 0xcb, 0x4c, 0x4e, 0x2c, 0xc9, 0xcc, 0xcf, 0x8b, 0x4f, 0x4e, 0xcd, 0x2b, 0x49, 0x2d, 0xd2,

@@ -26,7 +26,7 @@ type S2ServiceProperties struct {
 func (m *S2ServiceProperties) Reset()                    { *m = S2ServiceProperties{} }
 func (m *S2ServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*S2ServiceProperties) ProtoMessage()               {}
-func (*S2ServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
+func (*S2ServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{0} }
 
 func (m *S2ServiceProperties) GetZone() string {
 	if m != nil {
@@ -755,9 +755,9 @@ func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf.Empty) (out *go
 	return x, err
 }
 
-func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }
+func init() { proto.RegisterFile("s2.proto", fileDescriptor19) }
 
-var fileDescriptor20 = []byte{
+var fileDescriptor19 = []byte{
 	// 413 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x93, 0x41, 0xab, 0xda, 0x40,
 	0x14, 0x85, 0x11, 0xa4, 0xd4, 0x0b, 0x35, 0x35, 0xb6, 0x2a, 0x0a, 0xa5, 0x74, 0xd5, 0x6e, 0x22,

@@ -26,7 +26,7 @@ type KeyPairServiceProperties struct {
 func (m *KeyPairServiceProperties) Reset()                    { *m = KeyPairServiceProperties{} }
 func (m *KeyPairServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*KeyPairServiceProperties) ProtoMessage()               {}
-func (*KeyPairServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
+func (*KeyPairServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
 
 func (m *KeyPairServiceProperties) GetZone() string {
 	if m != nil {
@@ -205,9 +205,9 @@ func (p *KeyPairService) ModifyKeyPairAttributes(in *google_protobuf.Empty) (out
 	return x, err
 }
 
-func init() { proto.RegisterFile("key_pair.proto", fileDescriptor10) }
+func init() { proto.RegisterFile("key_pair.proto", fileDescriptor9) }
 
-var fileDescriptor10 = []byte{
+var fileDescriptor9 = []byte{
 	// 218 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xcb, 0x4e, 0xad, 0x8c,
 	0x2f, 0x48, 0xcc, 0x2c, 0xd2, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d,

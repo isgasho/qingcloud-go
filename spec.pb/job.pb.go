@@ -26,7 +26,7 @@ type JobServiceProperties struct {
 func (m *JobServiceProperties) Reset()                    { *m = JobServiceProperties{} }
 func (m *JobServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*JobServiceProperties) ProtoMessage()               {}
-func (*JobServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
+func (*JobServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 func (m *JobServiceProperties) GetZone() string {
 	if m != nil {
@@ -46,7 +46,7 @@ type DescribeJobsInput struct {
 func (m *DescribeJobsInput) Reset()                    { *m = DescribeJobsInput{} }
 func (m *DescribeJobsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeJobsInput) ProtoMessage()               {}
-func (*DescribeJobsInput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{1} }
+func (*DescribeJobsInput) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
 func (m *DescribeJobsInput) GetJobs() []string {
 	if m != nil {
@@ -94,7 +94,7 @@ type DescribeJobsOutput struct {
 func (m *DescribeJobsOutput) Reset()                    { *m = DescribeJobsOutput{} }
 func (m *DescribeJobsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeJobsOutput) ProtoMessage()               {}
-func (*DescribeJobsOutput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2} }
+func (*DescribeJobsOutput) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
 
 func (m *DescribeJobsOutput) GetAction() string {
 	if m != nil {
@@ -144,7 +144,7 @@ type DescribeJobsOutput_Job struct {
 func (m *DescribeJobsOutput_Job) Reset()                    { *m = DescribeJobsOutput_Job{} }
 func (m *DescribeJobsOutput_Job) String() string            { return proto.CompactTextString(m) }
 func (*DescribeJobsOutput_Job) ProtoMessage()               {}
-func (*DescribeJobsOutput_Job) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2, 0} }
+func (*DescribeJobsOutput_Job) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2, 0} }
 
 func (m *DescribeJobsOutput_Job) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -243,9 +243,9 @@ func (p *JobService) DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutpu
 	return x, err
 }
 
-func init() { proto.RegisterFile("job.proto", fileDescriptor9) }
+func init() { proto.RegisterFile("job.proto", fileDescriptor8) }
 
-var fileDescriptor9 = []byte{
+var fileDescriptor8 = []byte{
 	// 438 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x92, 0xcf, 0x6e, 0xd3, 0x40,
 	0x10, 0xc6, 0x95, 0x7f, 0x0e, 0x19, 0xf7, 0xc2, 0xaa, 0x14, 0x13, 0x81, 0x1a, 0x72, 0xaa, 0x38,

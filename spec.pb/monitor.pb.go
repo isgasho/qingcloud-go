@@ -26,7 +26,7 @@ type MonitorServiceProperties struct {
 func (m *MonitorServiceProperties) Reset()                    { *m = MonitorServiceProperties{} }
 func (m *MonitorServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*MonitorServiceProperties) ProtoMessage()               {}
-func (*MonitorServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{0} }
+func (*MonitorServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{0} }
 
 func (m *MonitorServiceProperties) GetZone() string {
 	if m != nil {
@@ -205,9 +205,9 @@ func (p *MonitorService) GetQueueMonitor(in *google_protobuf.Empty) (out *google
 	return x, err
 }
 
-func init() { proto.RegisterFile("monitor.proto", fileDescriptor14) }
+func init() { proto.RegisterFile("monitor.proto", fileDescriptor13) }
 
-var fileDescriptor14 = []byte{
+var fileDescriptor13 = []byte{
 	// 215 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xcd, 0xcd, 0xcf, 0xcb,
 	0x2c, 0xc9, 0x2f, 0xd2, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d, 0x96,

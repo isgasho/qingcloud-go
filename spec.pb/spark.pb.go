@@ -26,7 +26,7 @@ type SparkServiceProperties struct {
 func (m *SparkServiceProperties) Reset()                    { *m = SparkServiceProperties{} }
 func (m *SparkServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SparkServiceProperties) ProtoMessage()               {}
-func (*SparkServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{0} }
+func (*SparkServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{0} }
 
 func (m *SparkServiceProperties) GetZone() string {
 	if m != nil {
@@ -230,9 +230,9 @@ func (p *SparkService) DeleteSparks(in *google_protobuf.Empty) (out *google_prot
 	return x, err
 }
 
-func init() { proto.RegisterFile("spark.proto", fileDescriptor24) }
+func init() { proto.RegisterFile("spark.proto", fileDescriptor23) }
 
-var fileDescriptor24 = []byte{
+var fileDescriptor23 = []byte{
 	// 216 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0x2e, 0x48, 0x2c,
 	0xca, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d, 0x96, 0x92, 0x4e,

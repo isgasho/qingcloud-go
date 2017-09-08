@@ -26,7 +26,7 @@ type LoadBalancerServiceProperties struct {
 func (m *LoadBalancerServiceProperties) Reset()                    { *m = LoadBalancerServiceProperties{} }
 func (m *LoadBalancerServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*LoadBalancerServiceProperties) ProtoMessage()               {}
-func (*LoadBalancerServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{0} }
+func (*LoadBalancerServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
 
 func (m *LoadBalancerServiceProperties) GetZone() string {
 	if m != nil {
@@ -830,9 +830,9 @@ func (p *LoadBalancerService) DeleteServerCertificates(in *google_protobuf.Empty
 	return x, err
 }
 
-func init() { proto.RegisterFile("load_balancer.proto", fileDescriptor11) }
+func init() { proto.RegisterFile("load_balancer.proto", fileDescriptor10) }
 
-var fileDescriptor11 = []byte{
+var fileDescriptor10 = []byte{
 	// 453 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x96, 0xdf, 0x6a, 0xdb, 0x30,
 	0x14, 0xc6, 0x29, 0x94, 0xc1, 0xce, 0xdd, 0x64, 0xb6, 0x06, 0x67, 0xdd, 0x9f, 0x6e, 0x8c, 0x5d,

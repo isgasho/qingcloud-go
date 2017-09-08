@@ -26,7 +26,7 @@ type SecurityGroupServiceProperties struct {
 func (m *SecurityGroupServiceProperties) Reset()                    { *m = SecurityGroupServiceProperties{} }
 func (m *SecurityGroupServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SecurityGroupServiceProperties) ProtoMessage()               {}
-func (*SecurityGroupServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{0} }
+func (*SecurityGroupServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
 
 func (m *SecurityGroupServiceProperties) GetZone() string {
 	if m != nil {
@@ -505,9 +505,9 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf.Empty
 	return x, err
 }
 
-func init() { proto.RegisterFile("security_group.proto", fileDescriptor21) }
+func init() { proto.RegisterFile("security_group.proto", fileDescriptor20) }
 
-var fileDescriptor21 = []byte{
+var fileDescriptor20 = []byte{
 	// 334 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x92, 0xcf, 0x4f, 0x83, 0x30,
 	0x14, 0xc7, 0xb3, 0x64, 0x31, 0xf1, 0x79, 0xab, 0xdb, 0x9c, 0x9b, 0x2e, 0xba, 0x93, 0x27, 0x96,

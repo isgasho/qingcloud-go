@@ -6,7 +6,6 @@ Package spec is a generated protocol buffer package.
 
 It is generated from these files:
 	alarm.proto
-	base.proto
 	cache.proto
 	cluster.proto
 	dns.proto
@@ -39,7 +38,6 @@ It is generated from these files:
 
 It has these top-level messages:
 	AlarmServiceProperties
-	Error
 	CacheServiceProperties
 	ClusterServiceProperties
 	CreateClusterInput
