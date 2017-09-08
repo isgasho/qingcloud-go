@@ -14,6 +14,7 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
+// Package errors provides detailed error types for api field validation.
 package errors
 
 import (
