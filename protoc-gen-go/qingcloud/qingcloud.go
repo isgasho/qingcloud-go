@@ -38,12 +38,10 @@ func (p *qingcloudPlugin) GenerateImports(file *generator.FileDescriptor) {
 	if len(file.Service) > 0 {
 		p.P(`import "github.com/chai2010/qingcloud-go/config"`)
 		p.P(`import "github.com/chai2010/qingcloud-go/request"`)
-		p.P(`import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"`)
 		p.P(`import "github.com/chai2010/qingcloud-go/request/errors"`)
 		p.P(``)
 		p.P(`var _ = config.Config{}`)
 		p.P(`var _ = request.Request{}`)
-		p.P(`var _ = request_data_pkg.Operation{}`)
 		p.P(`var _ = errors.ParameterRequiredError{}`)
 	}
 }
@@ -165,7 +163,7 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 	if in == nil {
 		in = &{{.ArgsType}}{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "{{.MethodName}}",

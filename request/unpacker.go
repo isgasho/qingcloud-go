@@ -21,7 +21,6 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/chai2010/qingcloud-go/request/data"
 	"github.com/chai2010/qingcloud-go/request/errors"
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/jsonpb"
@@ -30,14 +29,13 @@ import (
 
 // Unpacker is the response unpacker.
 type Unpacker struct {
-	operation *data.Operation
-
+	operation *Operation
 	httpResponse *http.Response
 	output       proto.Message
 }
 
 // UnpackHTTPRequest unpack the http response with an operation, http response and an output.
-func (u *Unpacker) UnpackHTTPRequest(o *data.Operation, r *http.Response, x proto.Message) error {
+func (u *Unpacker) UnpackHTTPRequest(o *Operation, r *http.Response, x proto.Message) error {
 	u.operation = o
 	u.httpResponse = r
 	u.output = x
