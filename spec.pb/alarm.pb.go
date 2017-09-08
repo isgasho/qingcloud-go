@@ -170,6 +170,20 @@ It has these top-level messages:
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput
 	VolumesServiceProperties
+	DescribeVolumesInput
+	DescribeVolumesOutput
+	CreateVolumesInput
+	CreateVolumesOutput
+	DeleteVolumesInput
+	DeleteVolumesOutput
+	AttachVolumesInput
+	AttachVolumesOutput
+	DetachVolumesInput
+	DetachVolumesOutput
+	ResizeVolumesInput
+	ResizeVolumesOutput
+	ModifyVolumeAttributesInput
+	ModifyVolumeAttributesOutput
 	VxnetServiceProperties
 	ZoneServiceProperties
 	DescribeZonesInput

@@ -6,7 +6,8 @@ package spec
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import google_protobuf "github.com/golang/protobuf/ptypes/empty"
+import _ "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -35,18 +36,719 @@ func (m *VolumesServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeVolumesInput struct {
+	Limit      int32    `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	Offset     int32    `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	SearchWord string   `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Status     []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
+	Tags       []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose    int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	VolumeType int32    `protobuf:"varint,7,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	Volumes    []string `protobuf:"bytes,8,rep,name=volumes" json:"volumes,omitempty"`
+}
+
+func (m *DescribeVolumesInput) Reset()                    { *m = DescribeVolumesInput{} }
+func (m *DescribeVolumesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeVolumesInput) ProtoMessage()               {}
+func (*DescribeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1} }
+
+func (m *DescribeVolumesInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
+func (m *DescribeVolumesInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeVolumesInput) GetSearchWord() string {
+	if m != nil {
+		return m.SearchWord
+	}
+	return ""
+}
+
+func (m *DescribeVolumesInput) GetStatus() []string {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *DescribeVolumesInput) GetTags() []string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *DescribeVolumesInput) GetVerbose() int32 {
+	if m != nil {
+		return m.Verbose
+	}
+	return 0
+}
+
+func (m *DescribeVolumesInput) GetVolumeType() int32 {
+	if m != nil {
+		return m.VolumeType
+	}
+	return 0
+}
+
+func (m *DescribeVolumesInput) GetVolumes() []string {
+	if m != nil {
+		return m.Volumes
+	}
+	return nil
+}
+
+type DescribeVolumesOutput struct {
+	Action     string                          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode    int32                           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message    string                          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount int32                           `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	VolumeSet  []*DescribeVolumesOutput_Volume `protobuf:"bytes,6,rep,name=volume_set,json=volumeSet" json:"volume_set,omitempty"`
+}
+
+func (m *DescribeVolumesOutput) Reset()                    { *m = DescribeVolumesOutput{} }
+func (m *DescribeVolumesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeVolumesOutput) ProtoMessage()               {}
+func (*DescribeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{2} }
+
+func (m *DescribeVolumesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeVolumesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+func (m *DescribeVolumesOutput) GetVolumeSet() []*DescribeVolumesOutput_Volume {
+	if m != nil {
+		return m.VolumeSet
+	}
+	return nil
+}
+
+type DescribeVolumesOutput_Volume struct {
+	CreateTime         *google_protobuf1.Timestamp       `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description        string                            `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Device             string                            `protobuf:"bytes,3,opt,name=device" json:"device,omitempty"`
+	Instance           *DescribeVolumesOutput_Instance   `protobuf:"bytes,4,opt,name=instance" json:"instance,omitempty"`
+	Instances          []*DescribeVolumesOutput_Instance `protobuf:"bytes,5,rep,name=instances" json:"instances,omitempty"`
+	LatestSnapshotTime *google_protobuf1.Timestamp       `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
+	Owner              string                            `protobuf:"bytes,7,opt,name=owner" json:"owner,omitempty"`
+	PlaceGroupId       string                            `protobuf:"bytes,8,opt,name=place_group_id,json=placeGroupId" json:"place_group_id,omitempty"`
+	Size               int32                             `protobuf:"varint,9,opt,name=size" json:"size,omitempty"`
+	Status             string                            `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
+	StatusTime         *google_protobuf1.Timestamp       `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode            int32                             `protobuf:"varint,12,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	Tags               []*DescribeVolumesOutput_Tag      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus   string                            `protobuf:"bytes,14,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VolumeId           string                            `protobuf:"bytes,15,opt,name=volume_id,json=volumeId" json:"volume_id,omitempty"`
+	VolumeName         string                            `protobuf:"bytes,16,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	VolumeType         int32                             `protobuf:"varint,17,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+}
+
+func (m *DescribeVolumesOutput_Volume) Reset()         { *m = DescribeVolumesOutput_Volume{} }
+func (m *DescribeVolumesOutput_Volume) String() string { return proto.CompactTextString(m) }
+func (*DescribeVolumesOutput_Volume) ProtoMessage()    {}
+func (*DescribeVolumesOutput_Volume) Descriptor() ([]byte, []int) {
+	return fileDescriptor27, []int{2, 0}
+}
+
+func (m *DescribeVolumesOutput_Volume) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *DescribeVolumesOutput_Volume) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetDevice() string {
+	if m != nil {
+		return m.Device
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetInstance() *DescribeVolumesOutput_Instance {
+	if m != nil {
+		return m.Instance
+	}
+	return nil
+}
+
+func (m *DescribeVolumesOutput_Volume) GetInstances() []*DescribeVolumesOutput_Instance {
+	if m != nil {
+		return m.Instances
+	}
+	return nil
+}
+
+func (m *DescribeVolumesOutput_Volume) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.LatestSnapshotTime
+	}
+	return nil
+}
+
+func (m *DescribeVolumesOutput_Volume) GetOwner() string {
+	if m != nil {
+		return m.Owner
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetPlaceGroupId() string {
+	if m != nil {
+		return m.PlaceGroupId
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetSize() int32 {
+	if m != nil {
+		return m.Size
+	}
+	return 0
+}
+
+func (m *DescribeVolumesOutput_Volume) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetStatusTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
+func (m *DescribeVolumesOutput_Volume) GetSubCode() int32 {
+	if m != nil {
+		return m.SubCode
+	}
+	return 0
+}
+
+func (m *DescribeVolumesOutput_Volume) GetTags() []*DescribeVolumesOutput_Tag {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *DescribeVolumesOutput_Volume) GetTransitionStatus() string {
+	if m != nil {
+		return m.TransitionStatus
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetVolumeId() string {
+	if m != nil {
+		return m.VolumeId
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetVolumeName() string {
+	if m != nil {
+		return m.VolumeName
+	}
+	return ""
+}
+
+func (m *DescribeVolumesOutput_Volume) GetVolumeType() int32 {
+	if m != nil {
+		return m.VolumeType
+	}
+	return 0
+}
+
+type DescribeVolumesOutput_Instance struct {
+}
+
+func (m *DescribeVolumesOutput_Instance) Reset()         { *m = DescribeVolumesOutput_Instance{} }
+func (m *DescribeVolumesOutput_Instance) String() string { return proto.CompactTextString(m) }
+func (*DescribeVolumesOutput_Instance) ProtoMessage()    {}
+func (*DescribeVolumesOutput_Instance) Descriptor() ([]byte, []int) {
+	return fileDescriptor27, []int{2, 1}
+}
+
+type DescribeVolumesOutput_Tag struct {
+}
+
+func (m *DescribeVolumesOutput_Tag) Reset()                    { *m = DescribeVolumesOutput_Tag{} }
+func (m *DescribeVolumesOutput_Tag) String() string            { return proto.CompactTextString(m) }
+func (*DescribeVolumesOutput_Tag) ProtoMessage()               {}
+func (*DescribeVolumesOutput_Tag) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{2, 2} }
+
+type CreateVolumesInput struct {
+	Count      int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
+	Size       int32  `protobuf:"varint,2,opt,name=size" json:"size,omitempty"`
+	VolumeName string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	VolumeType int32  `protobuf:"varint,4,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+}
+
+func (m *CreateVolumesInput) Reset()                    { *m = CreateVolumesInput{} }
+func (m *CreateVolumesInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateVolumesInput) ProtoMessage()               {}
+func (*CreateVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{3} }
+
+func (m *CreateVolumesInput) GetCount() int32 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
+}
+
+func (m *CreateVolumesInput) GetSize() int32 {
+	if m != nil {
+		return m.Size
+	}
+	return 0
+}
+
+func (m *CreateVolumesInput) GetVolumeName() string {
+	if m != nil {
+		return m.VolumeName
+	}
+	return ""
+}
+
+func (m *CreateVolumesInput) GetVolumeType() int32 {
+	if m != nil {
+		return m.VolumeType
+	}
+	return 0
+}
+
+type CreateVolumesOutput struct {
+	Action  string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string   `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Volumes []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
+}
+
+func (m *CreateVolumesOutput) Reset()                    { *m = CreateVolumesOutput{} }
+func (m *CreateVolumesOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateVolumesOutput) ProtoMessage()               {}
+func (*CreateVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{4} }
+
+func (m *CreateVolumesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateVolumesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateVolumesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *CreateVolumesOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
+func (m *CreateVolumesOutput) GetVolumes() []string {
+	if m != nil {
+		return m.Volumes
+	}
+	return nil
+}
+
+type DeleteVolumesInput struct {
+	Volumes []string `protobuf:"bytes,1,rep,name=volumes" json:"volumes,omitempty"`
+}
+
+func (m *DeleteVolumesInput) Reset()                    { *m = DeleteVolumesInput{} }
+func (m *DeleteVolumesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteVolumesInput) ProtoMessage()               {}
+func (*DeleteVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{5} }
+
+func (m *DeleteVolumesInput) GetVolumes() []string {
+	if m != nil {
+		return m.Volumes
+	}
+	return nil
+}
+
+type DeleteVolumesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+}
+
+func (m *DeleteVolumesOutput) Reset()                    { *m = DeleteVolumesOutput{} }
+func (m *DeleteVolumesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteVolumesOutput) ProtoMessage()               {}
+func (*DeleteVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{6} }
+
+func (m *DeleteVolumesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteVolumesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteVolumesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *DeleteVolumesOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
+type AttachVolumesInput struct {
+	Instance string   `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	Volumes  []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+}
+
+func (m *AttachVolumesInput) Reset()                    { *m = AttachVolumesInput{} }
+func (m *AttachVolumesInput) String() string            { return proto.CompactTextString(m) }
+func (*AttachVolumesInput) ProtoMessage()               {}
+func (*AttachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{7} }
+
+func (m *AttachVolumesInput) GetInstance() string {
+	if m != nil {
+		return m.Instance
+	}
+	return ""
+}
+
+func (m *AttachVolumesInput) GetVolumes() []string {
+	if m != nil {
+		return m.Volumes
+	}
+	return nil
+}
+
+type AttachVolumesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+}
+
+func (m *AttachVolumesOutput) Reset()                    { *m = AttachVolumesOutput{} }
+func (m *AttachVolumesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AttachVolumesOutput) ProtoMessage()               {}
+func (*AttachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{8} }
+
+func (m *AttachVolumesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AttachVolumesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AttachVolumesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *AttachVolumesOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
+type DetachVolumesInput struct {
+	Instance string   `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	Volumes  []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+}
+
+func (m *DetachVolumesInput) Reset()                    { *m = DetachVolumesInput{} }
+func (m *DetachVolumesInput) String() string            { return proto.CompactTextString(m) }
+func (*DetachVolumesInput) ProtoMessage()               {}
+func (*DetachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{9} }
+
+func (m *DetachVolumesInput) GetInstance() string {
+	if m != nil {
+		return m.Instance
+	}
+	return ""
+}
+
+func (m *DetachVolumesInput) GetVolumes() []string {
+	if m != nil {
+		return m.Volumes
+	}
+	return nil
+}
+
+type DetachVolumesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+}
+
+func (m *DetachVolumesOutput) Reset()                    { *m = DetachVolumesOutput{} }
+func (m *DetachVolumesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DetachVolumesOutput) ProtoMessage()               {}
+func (*DetachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{10} }
+
+func (m *DetachVolumesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DetachVolumesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DetachVolumesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *DetachVolumesOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
+type ResizeVolumesInput struct {
+	Size    int32    `protobuf:"varint,1,opt,name=size" json:"size,omitempty"`
+	Volumes []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+}
+
+func (m *ResizeVolumesInput) Reset()                    { *m = ResizeVolumesInput{} }
+func (m *ResizeVolumesInput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeVolumesInput) ProtoMessage()               {}
+func (*ResizeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{11} }
+
+func (m *ResizeVolumesInput) GetSize() int32 {
+	if m != nil {
+		return m.Size
+	}
+	return 0
+}
+
+func (m *ResizeVolumesInput) GetVolumes() []string {
+	if m != nil {
+		return m.Volumes
+	}
+	return nil
+}
+
+type ResizeVolumesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+}
+
+func (m *ResizeVolumesOutput) Reset()                    { *m = ResizeVolumesOutput{} }
+func (m *ResizeVolumesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeVolumesOutput) ProtoMessage()               {}
+func (*ResizeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{12} }
+
+func (m *ResizeVolumesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ResizeVolumesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ResizeVolumesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *ResizeVolumesOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
+type ModifyVolumeAttributesInput struct {
+	Description string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	Volume      string `protobuf:"bytes,2,opt,name=volume" json:"volume,omitempty"`
+	VolumeName  string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+}
+
+func (m *ModifyVolumeAttributesInput) Reset()                    { *m = ModifyVolumeAttributesInput{} }
+func (m *ModifyVolumeAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyVolumeAttributesInput) ProtoMessage()               {}
+func (*ModifyVolumeAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{13} }
+
+func (m *ModifyVolumeAttributesInput) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *ModifyVolumeAttributesInput) GetVolume() string {
+	if m != nil {
+		return m.Volume
+	}
+	return ""
+}
+
+func (m *ModifyVolumeAttributesInput) GetVolumeName() string {
+	if m != nil {
+		return m.VolumeName
+	}
+	return ""
+}
+
+type ModifyVolumeAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyVolumeAttributesOutput) Reset()                    { *m = ModifyVolumeAttributesOutput{} }
+func (m *ModifyVolumeAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyVolumeAttributesOutput) ProtoMessage()               {}
+func (*ModifyVolumeAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{14} }
+
+func (m *ModifyVolumeAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyVolumeAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyVolumeAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*VolumesServiceProperties)(nil), "spec.VolumesServiceProperties")
+	proto.RegisterType((*DescribeVolumesInput)(nil), "spec.DescribeVolumesInput")
+	proto.RegisterType((*DescribeVolumesOutput)(nil), "spec.DescribeVolumesOutput")
+	proto.RegisterType((*DescribeVolumesOutput_Volume)(nil), "spec.DescribeVolumesOutput.Volume")
+	proto.RegisterType((*DescribeVolumesOutput_Instance)(nil), "spec.DescribeVolumesOutput.Instance")
+	proto.RegisterType((*DescribeVolumesOutput_Tag)(nil), "spec.DescribeVolumesOutput.Tag")
+	proto.RegisterType((*CreateVolumesInput)(nil), "spec.CreateVolumesInput")
+	proto.RegisterType((*CreateVolumesOutput)(nil), "spec.CreateVolumesOutput")
+	proto.RegisterType((*DeleteVolumesInput)(nil), "spec.DeleteVolumesInput")
+	proto.RegisterType((*DeleteVolumesOutput)(nil), "spec.DeleteVolumesOutput")
+	proto.RegisterType((*AttachVolumesInput)(nil), "spec.AttachVolumesInput")
+	proto.RegisterType((*AttachVolumesOutput)(nil), "spec.AttachVolumesOutput")
+	proto.RegisterType((*DetachVolumesInput)(nil), "spec.DetachVolumesInput")
+	proto.RegisterType((*DetachVolumesOutput)(nil), "spec.DetachVolumesOutput")
+	proto.RegisterType((*ResizeVolumesInput)(nil), "spec.ResizeVolumesInput")
+	proto.RegisterType((*ResizeVolumesOutput)(nil), "spec.ResizeVolumesOutput")
+	proto.RegisterType((*ModifyVolumeAttributesInput)(nil), "spec.ModifyVolumeAttributesInput")
+	proto.RegisterType((*ModifyVolumeAttributesOutput)(nil), "spec.ModifyVolumeAttributesOutput")
 }
 
 type VolumesServiceInterface interface {
-	DescribeVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	CreateVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	DeleteVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	AttachVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	DetachVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	ResizeVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
-	ModifyVolumeAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error)
+	DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error)
+	CreateVolumes(in *CreateVolumesInput) (out *CreateVolumesOutput, err error)
+	DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolumesOutput, err error)
+	AttachVolumes(in *AttachVolumesInput) (out *AttachVolumesOutput, err error)
+	DetachVolumes(in *DetachVolumesInput) (out *DetachVolumesOutput, err error)
+	ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolumesOutput, err error)
+	ModifyVolumeAttributes(in *ModifyVolumeAttributesInput) (out *ModifyVolumeAttributesOutput, err error)
 }
 
 type VolumesService struct {
@@ -61,9 +763,9 @@ func NewVolumesService(conf *config.Config, zone string) (p *VolumesService, err
 	}, nil
 }
 
-func (p *VolumesService) DescribeVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *VolumesService) DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &DescribeVolumesInput{}
 	}
 	o := &request.Operation{
 		Config:        p.Config,
@@ -72,7 +774,7 @@ func (p *VolumesService) DescribeVolumes(in *google_protobuf.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &DescribeVolumesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -85,9 +787,9 @@ func (p *VolumesService) DescribeVolumes(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
-func (p *VolumesService) CreateVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolumesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &CreateVolumesInput{}
 	}
 	o := &request.Operation{
 		Config:        p.Config,
@@ -96,7 +798,7 @@ func (p *VolumesService) CreateVolumes(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &CreateVolumesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -109,9 +811,9 @@ func (p *VolumesService) CreateVolumes(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
-func (p *VolumesService) DeleteVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolumesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &DeleteVolumesInput{}
 	}
 	o := &request.Operation{
 		Config:        p.Config,
@@ -120,7 +822,7 @@ func (p *VolumesService) DeleteVolumes(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &DeleteVolumesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -133,9 +835,9 @@ func (p *VolumesService) DeleteVolumes(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
-func (p *VolumesService) AttachVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolumesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &AttachVolumesInput{}
 	}
 	o := &request.Operation{
 		Config:        p.Config,
@@ -144,7 +846,7 @@ func (p *VolumesService) AttachVolumes(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &AttachVolumesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -157,9 +859,9 @@ func (p *VolumesService) AttachVolumes(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
-func (p *VolumesService) DetachVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolumesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &DetachVolumesInput{}
 	}
 	o := &request.Operation{
 		Config:        p.Config,
@@ -168,7 +870,7 @@ func (p *VolumesService) DetachVolumes(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &DetachVolumesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -181,9 +883,9 @@ func (p *VolumesService) DetachVolumes(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
-func (p *VolumesService) ResizeVolumes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolumesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &ResizeVolumesInput{}
 	}
 	o := &request.Operation{
 		Config:        p.Config,
@@ -192,7 +894,7 @@ func (p *VolumesService) ResizeVolumes(in *google_protobuf.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &ResizeVolumesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -205,9 +907,9 @@ func (p *VolumesService) ResizeVolumes(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
-func (p *VolumesService) ModifyVolumeAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
+func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput) (out *ModifyVolumeAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf.Empty{}
+		in = &ModifyVolumeAttributesInput{}
 	}
 	o := &request.Operation{
 		Config:        p.Config,
@@ -216,7 +918,7 @@ func (p *VolumesService) ModifyVolumeAttributes(in *google_protobuf.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf.Empty{}
+	x := &ModifyVolumeAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -233,18 +935,64 @@ func (p *VolumesService) ModifyVolumeAttributes(in *google_protobuf.Empty) (out 
 func init() { proto.RegisterFile("volume.proto", fileDescriptor27) }
 
 var fileDescriptor27 = []byte{
-	// 207 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x29, 0xcb, 0xcf, 0x29,
-	0xcd, 0x4d, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d, 0x96, 0x92,
-	0x4e, 0xcf, 0xcf, 0x4f, 0xcf, 0x49, 0xd5, 0x07, 0x8b, 0x25, 0x95, 0xa6, 0xe9, 0xa7, 0xe6, 0x16,
-	0x94, 0x54, 0x42, 0x94, 0x28, 0xe9, 0x71, 0x49, 0x84, 0x81, 0xb5, 0x14, 0x07, 0xa7, 0x16, 0x95,
-	0x65, 0x26, 0xa7, 0x06, 0x14, 0xe5, 0x17, 0xa4, 0x16, 0x95, 0x64, 0xa6, 0x16, 0x0b, 0x09, 0x71,
-	0xb1, 0x54, 0xe5, 0xe7, 0xa5, 0x4a, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x81, 0xd9, 0x46, 0x8f,
-	0x98, 0xb9, 0xf8, 0x50, 0x35, 0x08, 0x39, 0x72, 0xf1, 0xbb, 0xa4, 0x16, 0x27, 0x17, 0x65, 0x26,
-	0xa5, 0x42, 0x65, 0x84, 0xc4, 0xf4, 0x20, 0x76, 0xea, 0xc1, 0xec, 0xd4, 0x73, 0x05, 0xd9, 0x29,
-	0x85, 0x43, 0x5c, 0xc8, 0x9e, 0x8b, 0xd7, 0xb9, 0x28, 0x35, 0xb1, 0x84, 0x12, 0x03, 0x5c, 0x52,
-	0x73, 0x52, 0x29, 0x32, 0xc0, 0xb1, 0xa4, 0x24, 0x31, 0x39, 0x83, 0x22, 0x17, 0x50, 0x68, 0x40,
-	0x50, 0x6a, 0x71, 0x66, 0x15, 0xd9, 0x5e, 0xf0, 0xe0, 0x12, 0xf3, 0xcd, 0x4f, 0xc9, 0x4c, 0xab,
-	0x84, 0x18, 0xe0, 0x58, 0x52, 0x52, 0x94, 0x99, 0x54, 0x5a, 0x42, 0xba, 0x49, 0x49, 0x6c, 0x60,
-	0xbe, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0x56, 0xa6, 0x0b, 0x7b, 0x4e, 0x02, 0x00, 0x00,
+	// 935 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xcd, 0x6e, 0xdb, 0x46,
+	0x10, 0x86, 0xac, 0x1f, 0x4b, 0x23, 0xdb, 0x49, 0x36, 0x8e, 0x41, 0xd3, 0x05, 0xec, 0x12, 0x39,
+	0x18, 0x28, 0xc0, 0x00, 0xce, 0x31, 0x97, 0x3a, 0x16, 0x50, 0x28, 0xe8, 0x1f, 0x64, 0xa3, 0x3d,
+	0x12, 0x4b, 0x72, 0x2c, 0x33, 0x95, 0xb8, 0x04, 0x77, 0xe9, 0x54, 0x39, 0xf5, 0x1d, 0x7a, 0xec,
+	0x5b, 0xf4, 0x59, 0xfa, 0x0c, 0x7d, 0x8e, 0x62, 0x77, 0x96, 0x11, 0x49, 0x11, 0x72, 0x0f, 0x89,
+	0x6f, 0x3b, 0xb3, 0xb3, 0xb3, 0xdf, 0x37, 0x3b, 0xf3, 0x91, 0xb0, 0x77, 0x2f, 0x16, 0xc5, 0x12,
+	0xfd, 0x2c, 0x17, 0x4a, 0xb0, 0x9e, 0xcc, 0x30, 0x72, 0x4f, 0xe6, 0x42, 0xcc, 0x17, 0xf8, 0xca,
+	0xf8, 0xc2, 0xe2, 0xf6, 0x15, 0x2e, 0x33, 0xb5, 0xa2, 0x10, 0xf7, 0xb4, 0xb9, 0xa9, 0x92, 0x25,
+	0x4a, 0xc5, 0x97, 0x19, 0x05, 0x78, 0x3e, 0x38, 0xbf, 0x98, 0x9c, 0xf2, 0x1a, 0xf3, 0xfb, 0x24,
+	0xc2, 0x9f, 0x73, 0x91, 0x61, 0xae, 0x12, 0x94, 0x8c, 0x41, 0xef, 0xa3, 0x48, 0xd1, 0xe9, 0x9c,
+	0x75, 0xce, 0x47, 0x33, 0xb3, 0xf6, 0xfe, 0xed, 0xc0, 0xe1, 0x04, 0x65, 0x94, 0x27, 0x21, 0xda,
+	0x83, 0xd3, 0x34, 0x2b, 0x14, 0x3b, 0x84, 0xfe, 0x22, 0x59, 0x26, 0xca, 0x44, 0xf7, 0x67, 0x64,
+	0xb0, 0x23, 0x18, 0x88, 0xdb, 0x5b, 0x89, 0xca, 0xd9, 0x31, 0x6e, 0x6b, 0xb1, 0x53, 0x18, 0x4b,
+	0xe4, 0x79, 0x74, 0x17, 0x7c, 0x10, 0x79, 0xec, 0x74, 0xcd, 0x0d, 0x40, 0xae, 0x5f, 0x45, 0x1e,
+	0xeb, 0x83, 0x52, 0x71, 0x55, 0x48, 0xa7, 0x77, 0xd6, 0x3d, 0x1f, 0xcd, 0xac, 0xa5, 0x31, 0x29,
+	0x3e, 0x97, 0x4e, 0xdf, 0x78, 0xcd, 0x9a, 0x39, 0xb0, 0x7b, 0x8f, 0x79, 0x28, 0x24, 0x3a, 0x03,
+	0x73, 0x4b, 0x69, 0xea, 0x6b, 0xa8, 0x62, 0x81, 0x5a, 0x65, 0xe8, 0xec, 0x9a, 0x5d, 0x20, 0xd7,
+	0xcd, 0x2a, 0x43, 0x73, 0x94, 0x58, 0x38, 0x43, 0x93, 0xb1, 0x34, 0xbd, 0xbf, 0x77, 0xe1, 0x45,
+	0x83, 0xe8, 0x4f, 0x85, 0xd2, 0x4c, 0x8f, 0x60, 0xc0, 0x23, 0x95, 0x88, 0xd4, 0x16, 0xc6, 0x5a,
+	0xec, 0x18, 0x86, 0x39, 0xaa, 0x20, 0x12, 0x31, 0x5a, 0xb6, 0xbb, 0x39, 0xaa, 0x2b, 0x11, 0x9b,
+	0x6b, 0x96, 0x28, 0x25, 0x9f, 0xa3, 0xa5, 0x5a, 0x9a, 0x1a, 0xa1, 0x12, 0x8a, 0x2f, 0x82, 0x48,
+	0x14, 0xa9, 0x72, 0x7a, 0x84, 0xd0, 0xb8, 0xae, 0xb4, 0x87, 0x5d, 0x82, 0xc5, 0x1b, 0xe8, 0x2a,
+	0x0e, 0xce, 0xba, 0xe7, 0xe3, 0x0b, 0xcf, 0xd7, 0x2f, 0xef, 0xb7, 0xc2, 0xf3, 0xc9, 0x9a, 0x8d,
+	0xe8, 0xd4, 0x35, 0x2a, 0xf7, 0x9f, 0x3e, 0x0c, 0xc8, 0xcb, 0xde, 0xc0, 0x38, 0xca, 0x91, 0x2b,
+	0x0c, 0x74, 0x23, 0x18, 0x02, 0xe3, 0x0b, 0xd7, 0xa7, 0x2e, 0xf1, 0xcb, 0x2e, 0xf1, 0x6f, 0xca,
+	0x2e, 0x99, 0x01, 0x85, 0x6b, 0x07, 0x3b, 0x83, 0x71, 0x6c, 0xae, 0xcc, 0x0c, 0xfb, 0x1d, 0xc3,
+	0xa4, 0xea, 0xd2, 0xa5, 0x89, 0x51, 0x77, 0x91, 0xa5, 0x69, 0x2d, 0xf6, 0x2d, 0x0c, 0x93, 0x54,
+	0x2a, 0x9e, 0x46, 0x68, 0x28, 0x8e, 0x2f, 0x5e, 0x6e, 0xa3, 0x30, 0xb5, 0xb1, 0xb3, 0x4f, 0xa7,
+	0xd8, 0x5b, 0x18, 0x95, 0x6b, 0x7a, 0xfc, 0xff, 0x9b, 0x62, 0x7d, 0x8c, 0x7d, 0x0f, 0x87, 0x0b,
+	0xae, 0x50, 0xaa, 0x40, 0xa6, 0x3c, 0x93, 0x77, 0x42, 0x51, 0x15, 0x06, 0x0f, 0x56, 0x81, 0xd1,
+	0xb9, 0x6b, 0x7b, 0xcc, 0x54, 0xe3, 0x10, 0xfa, 0xe2, 0x43, 0x8a, 0xb9, 0xe9, 0xaa, 0xd1, 0x8c,
+	0x0c, 0xf6, 0x12, 0x0e, 0xb2, 0x05, 0x8f, 0x30, 0x98, 0xe7, 0xa2, 0xc8, 0x82, 0x24, 0x76, 0x86,
+	0x66, 0x7b, 0xcf, 0x78, 0xbf, 0xd3, 0xce, 0x69, 0xac, 0xbb, 0x58, 0x26, 0x1f, 0xd1, 0x19, 0x99,
+	0xe7, 0x36, 0xeb, 0x4a, 0xc7, 0x03, 0xd5, 0xce, 0x76, 0xfc, 0x1b, 0x18, 0xd3, 0x8a, 0xc0, 0x8e,
+	0x1f, 0x7e, 0x32, 0x0a, 0x37, 0x20, 0x8f, 0x61, 0x28, 0x8b, 0x90, 0x7a, 0x72, 0x8f, 0x7a, 0x52,
+	0x16, 0xa1, 0xe9, 0xc9, 0xd7, 0x76, 0x92, 0xf6, 0x4d, 0x31, 0x4f, 0xb7, 0x15, 0xf3, 0x86, 0xcf,
+	0xed, 0xa8, 0x7d, 0x03, 0xcf, 0x54, 0xce, 0x53, 0x99, 0xe8, 0xe7, 0x0e, 0x2c, 0xde, 0x03, 0x83,
+	0xf7, 0xe9, 0x7a, 0xe3, 0x9a, 0x90, 0x9f, 0x80, 0x6d, 0x42, 0x5d, 0x86, 0x27, 0x26, 0x68, 0x48,
+	0x8e, 0x69, 0x5c, 0x19, 0xcd, 0x94, 0x2f, 0xd1, 0x79, 0x4a, 0x0a, 0x40, 0xae, 0x1f, 0xf9, 0x72,
+	0x63, 0x76, 0x9f, 0x35, 0x67, 0xd7, 0x05, 0x18, 0x96, 0xaf, 0xec, 0xf6, 0xa1, 0x7b, 0xc3, 0xe7,
+	0xde, 0x1f, 0x1d, 0x60, 0x57, 0xa6, 0x61, 0x9b, 0xda, 0x44, 0xe3, 0x65, 0xb5, 0xc9, 0x18, 0x9f,
+	0x1e, 0x61, 0xa7, 0xf2, 0x08, 0x0d, 0x54, 0xdd, 0x87, 0x50, 0xf5, 0x9a, 0xa8, 0xbc, 0x3f, 0x3b,
+	0xf0, 0xbc, 0x06, 0xe1, 0x4b, 0xa8, 0xc6, 0x0b, 0x18, 0xbc, 0x17, 0xa1, 0x2e, 0x6b, 0x8f, 0x9a,
+	0xef, 0xbd, 0x08, 0xa7, 0x71, 0x55, 0xcd, 0xfa, 0x75, 0x35, 0xf3, 0x81, 0x4d, 0x70, 0x81, 0x8d,
+	0xba, 0x54, 0xe2, 0x3b, 0xf5, 0xf8, 0x15, 0x3c, 0xaf, 0xc5, 0x3f, 0x1e, 0x09, 0xef, 0x1d, 0xb0,
+	0x4b, 0xa5, 0x78, 0x74, 0x57, 0x83, 0xea, 0x56, 0x14, 0x84, 0xee, 0x5e, 0x6b, 0x43, 0x85, 0xc6,
+	0xce, 0x06, 0x8d, 0x5a, 0xae, 0xc7, 0xa5, 0x31, 0xc1, 0xcf, 0x47, 0xa3, 0x96, 0xeb, 0x11, 0x69,
+	0xbc, 0x05, 0x36, 0x43, 0x3d, 0x1a, 0x35, 0x1a, 0xe5, 0xe8, 0x74, 0x2a, 0xa3, 0xb3, 0x15, 0x7e,
+	0x2d, 0xc7, 0x23, 0xc2, 0xff, 0x1d, 0x4e, 0x7e, 0x10, 0x71, 0x72, 0xbb, 0xa2, 0xab, 0x2f, 0x95,
+	0xca, 0x93, 0xb0, 0x50, 0x25, 0x8f, 0xc6, 0x17, 0xad, 0xd3, 0xfa, 0x45, 0x23, 0x1a, 0xf6, 0x73,
+	0x67, 0xad, 0x07, 0x85, 0xc2, 0xfb, 0x0d, 0xbe, 0x6a, 0xbf, 0xf9, 0x0b, 0xb0, 0xbf, 0xf8, 0xab,
+	0x07, 0x07, 0xf5, 0xdf, 0x38, 0xf6, 0x0e, 0x9e, 0x34, 0xc4, 0x9c, 0xb9, 0xad, 0x1a, 0x6f, 0x2a,
+	0xe1, 0x9e, 0x6c, 0xd1, 0x7f, 0x36, 0x81, 0xfd, 0x9a, 0xa4, 0x31, 0x87, 0xa2, 0x37, 0xa5, 0xd6,
+	0x3d, 0x6e, 0xd9, 0x59, 0x67, 0xa9, 0x69, 0x4a, 0x99, 0x65, 0x53, 0x98, 0xca, 0x2c, 0x6d, 0x12,
+	0x34, 0x81, 0xfd, 0xda, 0x48, 0x97, 0x59, 0x36, 0x35, 0xa3, 0xcc, 0xd2, 0xa6, 0x00, 0x06, 0x4b,
+	0x4b, 0x96, 0xcd, 0x91, 0x5d, 0x63, 0x69, 0xcd, 0x52, 0x6b, 0xec, 0x32, 0xcb, 0xe6, 0xc4, 0x94,
+	0x59, 0xda, 0xe6, 0x20, 0x80, 0xa3, 0xf6, 0x4e, 0x61, 0x5f, 0xd3, 0xa1, 0x2d, 0x1d, 0xec, 0x7a,
+	0xdb, 0x42, 0xe8, 0x82, 0x70, 0x60, 0x7e, 0x12, 0x5e, 0xff, 0x17, 0x00, 0x00, 0xff, 0xff, 0x83,
+	0x5b, 0xd4, 0x6e, 0x3e, 0x0c, 0x00, 0x00,
 }

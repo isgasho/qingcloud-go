@@ -119,13 +119,13 @@ service UserDataService {
 
 ### 硬盘
 
-- [ ] DescribeVolumes
-- [ ] CreateVolumes
-- [ ] DeleteVolumes
-- [ ] AttachVolumes
-- [ ] DetachVolumes
-- [ ] ResizeVolumes
-- [ ] ModifyVolumeAttributes
+- [x] [DescribeVolumes](spec.pb/volume.proto)
+- [x] [CreateVolumes](spec.pb/volume.proto)
+- [x] [DeleteVolumes](spec.pb/volume.proto)
+- [x] [AttachVolumes](spec.pb/volume.proto)
+- [x] [DetachVolumes](spec.pb/volume.proto)
+- [x] [ResizeVolumes](spec.pb/volume.proto)
+- [x] [ModifyVolumeAttributes](spec.pb/volume.proto)
 
 ## 网卡
 
