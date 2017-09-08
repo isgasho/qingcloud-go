@@ -396,6 +396,31 @@ service UserDataService {
 - [ ] StartHadoops
 - [ ] StopHadoops
 
+### 集群服务
+
+- [x] [CreateCluster](spec.pb/cluster)
+- [x] [DescribeClusters](spec.pb/cluster)
+- [x] [DescribeClusterNodes](spec.pb/cluster)
+- [ ] StopClusters
+- [ ] StartClusters
+- [ ] DeleteClusters
+- [ ] lease
+- [ ] AddClusterNodes
+- [ ] DeleteClusterNodes
+- [ ] ResizeCluster
+- [ ] ChangeClusterVxnet
+- [ ] SuspendClusters
+- [ ] UpdateClusterEnvironment
+- [ ] ModifyClusterAttributes
+- [ ] ModifyClusterNodeAttributes
+- [ ] GetClustersStats
+- [ ] DescribeClusterUsers
+- [ ] RestartClusterService
+- [ ] UpgradeClusters
+- [ ] AuthorizeClustersBrokerToDeveloper
+- [ ] RevokeClustersBrokerFromDeveloper
+
+
 ### 资源协作中心
 
 - [ ] DescribeSharedResourceGroups
