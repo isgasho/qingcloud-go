@@ -84,6 +84,7 @@ func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *KeyPairService) CreateKeyPair(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -108,6 +109,7 @@ func (p *KeyPairService) CreateKeyPair(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
+
 func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -132,6 +134,7 @@ func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *KeyPairService) AttachKeyPairs(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -156,6 +159,7 @@ func (p *KeyPairService) AttachKeyPairs(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *KeyPairService) DetachKeyPairs(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -180,6 +184,7 @@ func (p *KeyPairService) DetachKeyPairs(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *KeyPairService) ModifyKeyPairAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

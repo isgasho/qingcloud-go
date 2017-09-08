@@ -297,6 +297,7 @@ func (p *AlarmService) DescribeAlarmPolicies(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *AlarmService) CreateAlarmPolicy(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -321,6 +322,7 @@ func (p *AlarmService) CreateAlarmPolicy(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *AlarmService) ModifyAlarmPolicyAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -345,6 +347,7 @@ func (p *AlarmService) ModifyAlarmPolicyAttributes(in *google_protobuf.Empty) (o
 
 	return x, err
 }
+
 func (p *AlarmService) DeleteAlarmPolicies(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -369,6 +372,7 @@ func (p *AlarmService) DeleteAlarmPolicies(in *google_protobuf.Empty) (out *goog
 
 	return x, err
 }
+
 func (p *AlarmService) DescribeAlarmPolicyRules(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -393,6 +397,7 @@ func (p *AlarmService) DescribeAlarmPolicyRules(in *google_protobuf.Empty) (out 
 
 	return x, err
 }
+
 func (p *AlarmService) AddAlarmPolicyRules(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -417,6 +422,7 @@ func (p *AlarmService) AddAlarmPolicyRules(in *google_protobuf.Empty) (out *goog
 
 	return x, err
 }
+
 func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -441,6 +447,7 @@ func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *google_protobuf.Empty
 
 	return x, err
 }
+
 func (p *AlarmService) DeleteAlarmPolicyRules(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -465,6 +472,7 @@ func (p *AlarmService) DeleteAlarmPolicyRules(in *google_protobuf.Empty) (out *g
 
 	return x, err
 }
+
 func (p *AlarmService) DescribeAlarmPolicyActions(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -489,6 +497,7 @@ func (p *AlarmService) DescribeAlarmPolicyActions(in *google_protobuf.Empty) (ou
 
 	return x, err
 }
+
 func (p *AlarmService) AddAlarmPolicyActions(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -513,6 +522,7 @@ func (p *AlarmService) AddAlarmPolicyActions(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -537,6 +547,7 @@ func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *google_protobuf.Emp
 
 	return x, err
 }
+
 func (p *AlarmService) DeleteAlarmPolicyActions(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -561,6 +572,7 @@ func (p *AlarmService) DeleteAlarmPolicyActions(in *google_protobuf.Empty) (out 
 
 	return x, err
 }
+
 func (p *AlarmService) AssociateAlarmPolicy(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -585,6 +597,7 @@ func (p *AlarmService) AssociateAlarmPolicy(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *AlarmService) DissociateAlarmPolicy(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -609,6 +622,7 @@ func (p *AlarmService) DissociateAlarmPolicy(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *AlarmService) ApplyAlarmPolicy(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -633,6 +647,7 @@ func (p *AlarmService) ApplyAlarmPolicy(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *AlarmService) DescribeAlarms(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -657,6 +672,7 @@ func (p *AlarmService) DescribeAlarms(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
+
 func (p *AlarmService) DescribeAlarmHistory(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

@@ -172,6 +172,11 @@ func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *Descr
 
 	return x, err
 }
+
+func (p *DescribeSubUsersInput) Validate() error {
+	return nil
+}
+
 func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUserOutput, err error) {
 	if in == nil {
 		in = &CreateSubUserInput{}
@@ -196,6 +201,11 @@ func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUs
 
 	return x, err
 }
+
+func (p *CreateSubUserInput) Validate() error {
+	return nil
+}
+
 func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInput) (out *ModifySubUserAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifySubUserAttributesInput{}
@@ -220,6 +230,11 @@ func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInpu
 
 	return x, err
 }
+
+func (p *ModifySubUserAttributesInput) Validate() error {
+	return nil
+}
+
 func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSubUsersOutput, err error) {
 	if in == nil {
 		in = &DeleteSubUsersInput{}
@@ -244,6 +259,11 @@ func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSub
 
 	return x, err
 }
+
+func (p *DeleteSubUsersInput) Validate() error {
+	return nil
+}
+
 func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *RestoreSubUsersOutput, err error) {
 	if in == nil {
 		in = &RestoreSubUsersInput{}
@@ -267,6 +287,10 @@ func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *Restore
 	}
 
 	return x, err
+}
+
+func (p *RestoreSubUsersInput) Validate() error {
+	return nil
 }
 
 func init() { proto.RegisterFile("subuser.proto", fileDescriptor24) }

@@ -497,6 +497,11 @@ func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuota
 
 	return x, err
 }
+
+func (p *GrantQuotaIndepInput) Validate() error {
+	return nil
+}
+
 func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQuotaIndepOutput, err error) {
 	if in == nil {
 		in = &RevokeQuotaIndepInput{}
@@ -521,6 +526,11 @@ func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQu
 
 	return x, err
 }
+
+func (p *RevokeQuotaIndepInput) Validate() error {
+	return nil
+}
+
 func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutput, err error) {
 	if in == nil {
 		in = &GetQuotaLeftInput{}
@@ -544,6 +554,10 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 	}
 
 	return x, err
+}
+
+func (p *GetQuotaLeftInput) Validate() error {
+	return nil
 }
 
 func init() { proto.RegisterFile("misc.proto", fileDescriptor11) }

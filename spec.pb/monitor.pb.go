@@ -84,6 +84,7 @@ func (p *MonitorService) GetMonitor(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *MonitorService) GetLoadBalancerMonitor(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -108,6 +109,7 @@ func (p *MonitorService) GetLoadBalancerMonitor(in *google_protobuf.Empty) (out 
 
 	return x, err
 }
+
 func (p *MonitorService) GetRDBMonitor(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -132,6 +134,7 @@ func (p *MonitorService) GetRDBMonitor(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
+
 func (p *MonitorService) GetCacheMonitor(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -156,6 +159,7 @@ func (p *MonitorService) GetCacheMonitor(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *MonitorService) GetZooKeeperMonitor(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -180,6 +184,7 @@ func (p *MonitorService) GetZooKeeperMonitor(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *MonitorService) GetQueueMonitor(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

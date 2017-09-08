@@ -107,6 +107,10 @@ func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *Desc
 	return x, err
 }
 
+func (p *DescribeNotificationCenterUserPostsInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("notification_center.proto", fileDescriptor15) }
 
 var fileDescriptor15 = []byte{

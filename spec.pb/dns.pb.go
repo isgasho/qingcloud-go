@@ -153,6 +153,11 @@ func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *
 
 	return x, err
 }
+
+func (p *DescribeDNSAliasesInput) Validate() error {
+	return nil
+}
+
 func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *AssociateDNSAliasOutput, err error) {
 	if in == nil {
 		in = &AssociateDNSAliasInput{}
@@ -177,6 +182,11 @@ func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *As
 
 	return x, err
 }
+
+func (p *AssociateDNSAliasInput) Validate() error {
+	return nil
+}
+
 func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (out *DissociateDNSAliasesOutput, err error) {
 	if in == nil {
 		in = &DissociateDNSAliasesInput{}
@@ -201,6 +211,11 @@ func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (o
 
 	return x, err
 }
+
+func (p *DissociateDNSAliasesInput) Validate() error {
+	return nil
+}
+
 func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOutput, err error) {
 	if in == nil {
 		in = &GetDNSLabelInput{}
@@ -224,6 +239,10 @@ func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOut
 	}
 
 	return x, err
+}
+
+func (p *GetDNSLabelInput) Validate() error {
+	return nil
 }
 
 func init() { proto.RegisterFile("dns.proto", fileDescriptor3) }

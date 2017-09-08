@@ -86,6 +86,7 @@ func (p *EipService) DescribeEips(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *EipService) AllocateEips(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -110,6 +111,7 @@ func (p *EipService) AllocateEips(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *EipService) ReleaseEips(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -134,6 +136,7 @@ func (p *EipService) ReleaseEips(in *google_protobuf.Empty) (out *google_protobu
 
 	return x, err
 }
+
 func (p *EipService) AssociateEip(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -158,6 +161,7 @@ func (p *EipService) AssociateEip(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *EipService) DissociateEips(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -182,6 +186,7 @@ func (p *EipService) DissociateEips(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *EipService) ChangeEipsBandwidth(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -206,6 +211,7 @@ func (p *EipService) ChangeEipsBandwidth(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *EipService) ChangeEipsBillingMode(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -230,6 +236,7 @@ func (p *EipService) ChangeEipsBillingMode(in *google_protobuf.Empty) (out *goog
 
 	return x, err
 }
+
 func (p *EipService) ModifyEipAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

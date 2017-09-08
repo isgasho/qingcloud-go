@@ -180,6 +180,10 @@ func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesO
 	return x, err
 }
 
+func (p *DescribeZonesInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("zone.proto", fileDescriptor30) }
 
 var fileDescriptor30 = []byte{

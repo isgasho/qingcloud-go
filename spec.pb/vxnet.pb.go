@@ -85,6 +85,7 @@ func (p *VxnetService) DescribeVxnets(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
+
 func (p *VxnetService) CreateVxnets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -109,6 +110,7 @@ func (p *VxnetService) CreateVxnets(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *VxnetService) DeleteVxnets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -133,6 +135,7 @@ func (p *VxnetService) DeleteVxnets(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *VxnetService) JoinVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -157,6 +160,7 @@ func (p *VxnetService) JoinVxnet(in *google_protobuf.Empty) (out *google_protobu
 
 	return x, err
 }
+
 func (p *VxnetService) LeaveVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -181,6 +185,7 @@ func (p *VxnetService) LeaveVxnet(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *VxnetService) ModifyVxnetAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -205,6 +210,7 @@ func (p *VxnetService) ModifyVxnetAttributes(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *VxnetService) DescribeVxnetInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

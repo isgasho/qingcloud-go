@@ -240,6 +240,7 @@ func (p *MongoService) DescribeMongoNodes(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *MongoService) DescribeMongoParameters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -264,6 +265,7 @@ func (p *MongoService) DescribeMongoParameters(in *google_protobuf.Empty) (out *
 
 	return x, err
 }
+
 func (p *MongoService) ResizeMongos(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -288,6 +290,7 @@ func (p *MongoService) ResizeMongos(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *MongoService) CreateMongo(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -312,6 +315,7 @@ func (p *MongoService) CreateMongo(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *MongoService) StopMongos(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -336,6 +340,7 @@ func (p *MongoService) StopMongos(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *MongoService) StartMongos(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -360,6 +365,7 @@ func (p *MongoService) StartMongos(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMongosOutput, err error) {
 	if in == nil {
 		in = &DescribeMongosInput{}
@@ -384,6 +390,11 @@ func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMon
 
 	return x, err
 }
+
+func (p *DescribeMongosInput) Validate() error {
+	return nil
+}
+
 func (p *MongoService) DeleteMongos(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -408,6 +419,7 @@ func (p *MongoService) DeleteMongos(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -432,6 +444,7 @@ func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf.Empty) (out *
 
 	return x, err
 }
+
 func (p *MongoService) ChangeMongoVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -456,6 +469,7 @@ func (p *MongoService) ChangeMongoVxnet(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *MongoService) AddMongoInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -480,6 +494,7 @@ func (p *MongoService) AddMongoInstances(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *MongoService) RemoveMongoInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -504,6 +519,7 @@ func (p *MongoService) RemoveMongoInstances(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *MongoService) ModifyMongoAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -528,6 +544,7 @@ func (p *MongoService) ModifyMongoAttributes(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *MongoService) ModifyMongoInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -552,6 +569,7 @@ func (p *MongoService) ModifyMongoInstances(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *MongoService) GetMongoMonitor(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

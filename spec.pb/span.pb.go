@@ -85,6 +85,7 @@ func (p *SpanService) CreateSpan(in *google_protobuf.Empty) (out *google_protobu
 
 	return x, err
 }
+
 func (p *SpanService) DescribeSpans(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -109,6 +110,7 @@ func (p *SpanService) DescribeSpans(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *SpanService) DeleteSpans(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -133,6 +135,7 @@ func (p *SpanService) DeleteSpans(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *SpanService) AddSpanMembers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -157,6 +160,7 @@ func (p *SpanService) AddSpanMembers(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *SpanService) RemoveSpanMembers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -181,6 +185,7 @@ func (p *SpanService) RemoveSpanMembers(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *SpanService) ModifySpanAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -205,6 +210,7 @@ func (p *SpanService) ModifySpanAttributes(in *google_protobuf.Empty) (out *goog
 
 	return x, err
 }
+
 func (p *SpanService) UpdateSpan(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

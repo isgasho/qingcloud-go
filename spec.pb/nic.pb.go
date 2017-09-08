@@ -295,6 +295,11 @@ func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err
 
 	return x, err
 }
+
+func (p *CreateNicsInput) Validate() error {
+	return nil
+}
+
 func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutput, err error) {
 	if in == nil {
 		in = &DescribeNicsInput{}
@@ -319,6 +324,11 @@ func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutpu
 
 	return x, err
 }
+
+func (p *DescribeNicsInput) Validate() error {
+	return nil
+}
+
 func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err error) {
 	if in == nil {
 		in = &AttachNicsInput{}
@@ -343,6 +353,11 @@ func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err
 
 	return x, err
 }
+
+func (p *AttachNicsInput) Validate() error {
+	return nil
+}
+
 func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err error) {
 	if in == nil {
 		in = &DetachNicsInput{}
@@ -367,6 +382,11 @@ func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err
 
 	return x, err
 }
+
+func (p *DetachNicsInput) Validate() error {
+	return nil
+}
+
 func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *ModifyNicAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyNicAttributesInput{}
@@ -391,6 +411,11 @@ func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *Mod
 
 	return x, err
 }
+
+func (p *ModifyNicAttributesInput) Validate() error {
+	return nil
+}
+
 func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err error) {
 	if in == nil {
 		in = &DeleteNicsInput{}
@@ -414,6 +439,10 @@ func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err
 	}
 
 	return x, err
+}
+
+func (p *DeleteNicsInput) Validate() error {
+	return nil
 }
 
 func init() { proto.RegisterFile("nic.proto", fileDescriptor14) }

@@ -82,6 +82,7 @@ func (p *HadoopService) AddHadoopNodes(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
+
 func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -106,6 +107,7 @@ func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *HadoopService) StartHadoops(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -130,6 +132,7 @@ func (p *HadoopService) StartHadoops(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *HadoopService) StopHadoops(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

@@ -106,6 +106,7 @@ func (p *S2Service) CreateS2Server(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *S2Service) DescribeS2Servers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -130,6 +131,7 @@ func (p *S2Service) DescribeS2Servers(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
+
 func (p *S2Service) ModifyS2Server(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -154,6 +156,7 @@ func (p *S2Service) ModifyS2Server(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *S2Service) ResizeS2Servers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -178,6 +181,7 @@ func (p *S2Service) ResizeS2Servers(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *S2Service) DeleteS2Servers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -202,6 +206,7 @@ func (p *S2Service) DeleteS2Servers(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *S2Service) PowerOnS2Servers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -226,6 +231,7 @@ func (p *S2Service) PowerOnS2Servers(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *S2Service) PowerOffS2Servers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -250,6 +256,7 @@ func (p *S2Service) PowerOffS2Servers(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
+
 func (p *S2Service) UpdateS2Servers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -274,6 +281,7 @@ func (p *S2Service) UpdateS2Servers(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -298,6 +306,7 @@ func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *S2Service) CreateS2SharedTarget(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -322,6 +331,7 @@ func (p *S2Service) CreateS2SharedTarget(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -346,6 +356,7 @@ func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -370,6 +381,7 @@ func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *S2Service) EnableS2SharedTargets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -394,6 +406,7 @@ func (p *S2Service) EnableS2SharedTargets(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *S2Service) DisableS2SharedTargets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -418,6 +431,7 @@ func (p *S2Service) DisableS2SharedTargets(in *google_protobuf.Empty) (out *goog
 
 	return x, err
 }
+
 func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -442,6 +456,7 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf.Empty) (o
 
 	return x, err
 }
+
 func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -466,6 +481,7 @@ func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf.Empty) (out *goog
 
 	return x, err
 }
+
 func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -490,6 +506,7 @@ func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -514,6 +531,7 @@ func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf.Empty) (out 
 
 	return x, err
 }
+
 func (p *S2Service) CreateS2Group(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -538,6 +556,7 @@ func (p *S2Service) CreateS2Group(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *S2Service) DescribeS2Groups(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -562,6 +581,7 @@ func (p *S2Service) DescribeS2Groups(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *S2Service) ModifyS2Group(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -586,6 +606,7 @@ func (p *S2Service) ModifyS2Group(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *S2Service) DeleteS2Groups(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -610,6 +631,7 @@ func (p *S2Service) DeleteS2Groups(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *S2Service) CreateS2Account(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -634,6 +656,7 @@ func (p *S2Service) CreateS2Account(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *S2Service) DescribeS2Accounts(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -658,6 +681,7 @@ func (p *S2Service) DescribeS2Accounts(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
+
 func (p *S2Service) ModifyS2Account(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -682,6 +706,7 @@ func (p *S2Service) ModifyS2Account(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *S2Service) DeleteS2Accounts(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -706,6 +731,7 @@ func (p *S2Service) DeleteS2Accounts(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -730,6 +756,7 @@ func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

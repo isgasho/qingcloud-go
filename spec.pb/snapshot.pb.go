@@ -85,6 +85,7 @@ func (p *SnapshotService) DescribeSnapshots(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *SnapshotService) CreateSnapshots(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -109,6 +110,7 @@ func (p *SnapshotService) CreateSnapshots(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *SnapshotService) DeleteSnapshots(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -133,6 +135,7 @@ func (p *SnapshotService) DeleteSnapshots(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *SnapshotService) ApplySnapshots(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -157,6 +160,7 @@ func (p *SnapshotService) ApplySnapshots(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -181,6 +185,7 @@ func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf.Empty) (o
 
 	return x, err
 }
+
 func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -205,6 +210,7 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf.Empty)
 
 	return x, err
 }
+
 func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

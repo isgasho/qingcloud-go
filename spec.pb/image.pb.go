@@ -86,6 +86,7 @@ func (p *ImageService) DescribeImages(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
+
 func (p *ImageService) CaptureInstance(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -110,6 +111,7 @@ func (p *ImageService) CaptureInstance(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
+
 func (p *ImageService) DeleteImages(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -134,6 +136,7 @@ func (p *ImageService) DeleteImages(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *ImageService) ModifyImageAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -158,6 +161,7 @@ func (p *ImageService) ModifyImageAttributes(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *ImageService) GrantImageToUsers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -182,6 +186,7 @@ func (p *ImageService) GrantImageToUsers(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *ImageService) RevokeImageFromUsers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -206,6 +211,7 @@ func (p *ImageService) RevokeImageFromUsers(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *ImageService) DescribeImageUsers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -230,6 +236,7 @@ func (p *ImageService) DescribeImageUsers(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *ImageService) CloneImages(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

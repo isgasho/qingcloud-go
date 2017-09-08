@@ -177,6 +177,10 @@ func (p *JobService) DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutpu
 	return x, err
 }
 
+func (p *DescribeJobsInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("job.proto", fileDescriptor8) }
 
 var fileDescriptor8 = []byte{

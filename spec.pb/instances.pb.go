@@ -227,6 +227,7 @@ func (p *InstanceService) DescribeInstances(in *google_protobuf.Empty) (out *goo
 
 	return x, err
 }
+
 func (p *InstanceService) RunInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -251,6 +252,7 @@ func (p *InstanceService) RunInstances(in *google_protobuf.Empty) (out *google_p
 
 	return x, err
 }
+
 func (p *InstanceService) TerminateInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -275,6 +277,7 @@ func (p *InstanceService) TerminateInstances(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *InstanceService) StartInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -299,6 +302,7 @@ func (p *InstanceService) StartInstances(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *InstanceService) StopInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -323,6 +327,7 @@ func (p *InstanceService) StopInstances(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *InstanceService) RestartInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -347,6 +352,7 @@ func (p *InstanceService) RestartInstances(in *google_protobuf.Empty) (out *goog
 
 	return x, err
 }
+
 func (p *InstanceService) ResetInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -371,6 +377,7 @@ func (p *InstanceService) ResetInstances(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *InstanceService) ResizeInstances(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -395,6 +402,7 @@ func (p *InstanceService) ResizeInstances(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *InstanceService) ModifyInstanceAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -419,6 +427,7 @@ func (p *InstanceService) ModifyInstanceAttributes(in *google_protobuf.Empty) (o
 
 	return x, err
 }
+
 func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) (out *DescribeInstanceTypesOutput, err error) {
 	if in == nil {
 		in = &DescribeInstanceTypesInput{}
@@ -443,6 +452,11 @@ func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) 
 
 	return x, err
 }
+
+func (p *DescribeInstanceTypesInput) Validate() error {
+	return nil
+}
+
 func (p *InstanceService) CreateBrokers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -467,6 +481,7 @@ func (p *InstanceService) CreateBrokers(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *InstanceService) DeleteBrokers(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

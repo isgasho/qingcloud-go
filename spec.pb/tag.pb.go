@@ -191,6 +191,11 @@ func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutpu
 
 	return x, err
 }
+
+func (p *DescribeTagsInput) Validate() error {
+	return nil
+}
+
 func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err error) {
 	if in == nil {
 		in = &CreateTagInput{}
@@ -215,6 +220,11 @@ func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err er
 
 	return x, err
 }
+
+func (p *CreateTagInput) Validate() error {
+	return nil
+}
+
 func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err error) {
 	if in == nil {
 		in = &DeleteTagsInput{}
@@ -239,6 +249,11 @@ func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err
 
 	return x, err
 }
+
+func (p *DeleteTagsInput) Validate() error {
+	return nil
+}
+
 func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *ModifyTagAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyTagAttributesInput{}
@@ -263,6 +278,11 @@ func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *Mod
 
 	return x, err
 }
+
+func (p *ModifyTagAttributesInput) Validate() error {
+	return nil
+}
+
 func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err error) {
 	if in == nil {
 		in = &AttachTagsInput{}
@@ -287,6 +307,11 @@ func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err
 
 	return x, err
 }
+
+func (p *AttachTagsInput) Validate() error {
+	return nil
+}
+
 func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err error) {
 	if in == nil {
 		in = &DetachTagsInput{}
@@ -310,6 +335,10 @@ func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err
 	}
 
 	return x, err
+}
+
+func (p *DetachTagsInput) Validate() error {
+	return nil
 }
 
 func init() { proto.RegisterFile("tag.proto", fileDescriptor25) }

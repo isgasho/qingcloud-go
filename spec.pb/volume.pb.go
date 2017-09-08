@@ -618,6 +618,11 @@ func (p *VolumesService) DescribeVolumes(in *DescribeVolumesInput) (out *Describ
 
 	return x, err
 }
+
+func (p *DescribeVolumesInput) Validate() error {
+	return nil
+}
+
 func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolumesOutput, err error) {
 	if in == nil {
 		in = &CreateVolumesInput{}
@@ -642,6 +647,11 @@ func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolum
 
 	return x, err
 }
+
+func (p *CreateVolumesInput) Validate() error {
+	return nil
+}
+
 func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolumesOutput, err error) {
 	if in == nil {
 		in = &DeleteVolumesInput{}
@@ -666,6 +676,11 @@ func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolum
 
 	return x, err
 }
+
+func (p *DeleteVolumesInput) Validate() error {
+	return nil
+}
+
 func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolumesOutput, err error) {
 	if in == nil {
 		in = &AttachVolumesInput{}
@@ -690,6 +705,11 @@ func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolum
 
 	return x, err
 }
+
+func (p *AttachVolumesInput) Validate() error {
+	return nil
+}
+
 func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolumesOutput, err error) {
 	if in == nil {
 		in = &DetachVolumesInput{}
@@ -714,6 +734,11 @@ func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolum
 
 	return x, err
 }
+
+func (p *DetachVolumesInput) Validate() error {
+	return nil
+}
+
 func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolumesOutput, err error) {
 	if in == nil {
 		in = &ResizeVolumesInput{}
@@ -738,6 +763,11 @@ func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolum
 
 	return x, err
 }
+
+func (p *ResizeVolumesInput) Validate() error {
+	return nil
+}
+
 func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput) (out *ModifyVolumeAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyVolumeAttributesInput{}
@@ -761,6 +791,10 @@ func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput)
 	}
 
 	return x, err
+}
+
+func (p *ModifyVolumeAttributesInput) Validate() error {
+	return nil
 }
 
 func init() { proto.RegisterFile("volume.proto", fileDescriptor28) }

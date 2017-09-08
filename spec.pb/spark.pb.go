@@ -85,6 +85,7 @@ func (p *SparkService) CreateSpark(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *SparkService) DescribeSparks(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -109,6 +110,7 @@ func (p *SparkService) DescribeSparks(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
+
 func (p *SparkService) AddSparkNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -133,6 +135,7 @@ func (p *SparkService) AddSparkNodes(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *SparkService) DeleteSparkNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -157,6 +160,7 @@ func (p *SparkService) DeleteSparkNodes(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *SparkService) StartSparks(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -181,6 +185,7 @@ func (p *SparkService) StartSparks(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *SparkService) StopSparks(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -205,6 +210,7 @@ func (p *SparkService) StopSparks(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *SparkService) DeleteSparks(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

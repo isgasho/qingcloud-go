@@ -146,6 +146,10 @@ func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentI
 	return x, err
 }
 
+func (p *UploadUserDataAttachmentInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("user_data.proto", fileDescriptor27) }
 
 var fileDescriptor27 = []byte{

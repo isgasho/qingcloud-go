@@ -2345,6 +2345,11 @@ func (p *ClusterService) CreateCluster(in *CreateClusterInput) (out *CreateClust
 
 	return x, err
 }
+
+func (p *CreateClusterInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) DescribeClusters(in *DescribeClustersInput) (out *DescribeClustersOutput, err error) {
 	if in == nil {
 		in = &DescribeClustersInput{}
@@ -2369,6 +2374,11 @@ func (p *ClusterService) DescribeClusters(in *DescribeClustersInput) (out *Descr
 
 	return x, err
 }
+
+func (p *DescribeClustersInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) DescribeClusterNodes(in *DescribeClusterNodesInput) (out *DescribeClusterNodesOutput, err error) {
 	if in == nil {
 		in = &DescribeClusterNodesInput{}
@@ -2393,6 +2403,11 @@ func (p *ClusterService) DescribeClusterNodes(in *DescribeClusterNodesInput) (ou
 
 	return x, err
 }
+
+func (p *DescribeClusterNodesInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) StopClusters(in *StopClustersInput) (out *StopClustersOutput, err error) {
 	if in == nil {
 		in = &StopClustersInput{}
@@ -2417,6 +2432,11 @@ func (p *ClusterService) StopClusters(in *StopClustersInput) (out *StopClustersO
 
 	return x, err
 }
+
+func (p *StopClustersInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) StartClusters(in *StartClustersInput) (out *StartClustersOutput, err error) {
 	if in == nil {
 		in = &StartClustersInput{}
@@ -2441,6 +2461,11 @@ func (p *ClusterService) StartClusters(in *StartClustersInput) (out *StartCluste
 
 	return x, err
 }
+
+func (p *StartClustersInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) DeleteClusters(in *DeleteClustersInput) (out *DeleteClustersOutput, err error) {
 	if in == nil {
 		in = &DeleteClustersInput{}
@@ -2465,6 +2490,11 @@ func (p *ClusterService) DeleteClusters(in *DeleteClustersInput) (out *DeleteClu
 
 	return x, err
 }
+
+func (p *DeleteClustersInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) Lease(in *LeaseInput) (out *LeaseOutput, err error) {
 	if in == nil {
 		in = &LeaseInput{}
@@ -2489,6 +2519,11 @@ func (p *ClusterService) Lease(in *LeaseInput) (out *LeaseOutput, err error) {
 
 	return x, err
 }
+
+func (p *LeaseInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) AddClusterNodes(in *AddClusterNodesInput) (out *AddClusterNodesOutput, err error) {
 	if in == nil {
 		in = &AddClusterNodesInput{}
@@ -2513,6 +2548,11 @@ func (p *ClusterService) AddClusterNodes(in *AddClusterNodesInput) (out *AddClus
 
 	return x, err
 }
+
+func (p *AddClusterNodesInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) DeleteClusterNodes(in *DeleteClusterNodesInput) (out *DeleteClusterNodesOutput, err error) {
 	if in == nil {
 		in = &DeleteClusterNodesInput{}
@@ -2537,6 +2577,11 @@ func (p *ClusterService) DeleteClusterNodes(in *DeleteClusterNodesInput) (out *D
 
 	return x, err
 }
+
+func (p *DeleteClusterNodesInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) ResizeCluster(in *ResizeClusterInput) (out *ResizeClusterOutput, err error) {
 	if in == nil {
 		in = &ResizeClusterInput{}
@@ -2561,6 +2606,11 @@ func (p *ClusterService) ResizeCluster(in *ResizeClusterInput) (out *ResizeClust
 
 	return x, err
 }
+
+func (p *ResizeClusterInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) ChangeClusterVxnet(in *ChangeClusterVxnetInput) (out *ChangeClusterVxnetOutput, err error) {
 	if in == nil {
 		in = &ChangeClusterVxnetInput{}
@@ -2585,6 +2635,11 @@ func (p *ClusterService) ChangeClusterVxnet(in *ChangeClusterVxnetInput) (out *C
 
 	return x, err
 }
+
+func (p *ChangeClusterVxnetInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) SuspendClusters(in *SuspendClustersInput) (out *SuspendClustersOutput, err error) {
 	if in == nil {
 		in = &SuspendClustersInput{}
@@ -2609,6 +2664,11 @@ func (p *ClusterService) SuspendClusters(in *SuspendClustersInput) (out *Suspend
 
 	return x, err
 }
+
+func (p *SuspendClustersInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) UpdateClusterEnvironment(in *UpdateClusterEnvironmentInput) (out *UpdateClusterEnvironmentOutput, err error) {
 	if in == nil {
 		in = &UpdateClusterEnvironmentInput{}
@@ -2633,6 +2693,11 @@ func (p *ClusterService) UpdateClusterEnvironment(in *UpdateClusterEnvironmentIn
 
 	return x, err
 }
+
+func (p *UpdateClusterEnvironmentInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) ModifyClusterAttributes(in *ModifyClusterAttributesInput) (out *ModifyClusterAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyClusterAttributesInput{}
@@ -2657,6 +2722,11 @@ func (p *ClusterService) ModifyClusterAttributes(in *ModifyClusterAttributesInpu
 
 	return x, err
 }
+
+func (p *ModifyClusterAttributesInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) ModifyClusterNodeAttributes(in *ModifyClusterNodeAttributesInput) (out *ModifyClusterNodeAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyClusterNodeAttributesInput{}
@@ -2681,6 +2751,11 @@ func (p *ClusterService) ModifyClusterNodeAttributes(in *ModifyClusterNodeAttrib
 
 	return x, err
 }
+
+func (p *ModifyClusterNodeAttributesInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) GetClustersStats(in *GetClustersStatsInput) (out *GetClustersStatsOutput, err error) {
 	if in == nil {
 		in = &GetClustersStatsInput{}
@@ -2705,6 +2780,11 @@ func (p *ClusterService) GetClustersStats(in *GetClustersStatsInput) (out *GetCl
 
 	return x, err
 }
+
+func (p *GetClustersStatsInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) DescribeClusterUsers(in *DescribeClusterUsersInput) (out *DescribeClusterUsersOutput, err error) {
 	if in == nil {
 		in = &DescribeClusterUsersInput{}
@@ -2729,6 +2809,11 @@ func (p *ClusterService) DescribeClusterUsers(in *DescribeClusterUsersInput) (ou
 
 	return x, err
 }
+
+func (p *DescribeClusterUsersInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) RestartClusterService(in *RestartClusterServiceInput) (out *RestartClusterServiceOutput, err error) {
 	if in == nil {
 		in = &RestartClusterServiceInput{}
@@ -2753,6 +2838,11 @@ func (p *ClusterService) RestartClusterService(in *RestartClusterServiceInput) (
 
 	return x, err
 }
+
+func (p *RestartClusterServiceInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) UpgradeClusters(in *UpgradeClustersInput) (out *UpgradeClustersOutput, err error) {
 	if in == nil {
 		in = &UpgradeClustersInput{}
@@ -2777,6 +2867,11 @@ func (p *ClusterService) UpgradeClusters(in *UpgradeClustersInput) (out *Upgrade
 
 	return x, err
 }
+
+func (p *UpgradeClustersInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *AuthorizeClustersBrokerToDeveloperInput) (out *AuthorizeClustersBrokerToDeveloperOutput, err error) {
 	if in == nil {
 		in = &AuthorizeClustersBrokerToDeveloperInput{}
@@ -2801,6 +2896,11 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *AuthorizeCluster
 
 	return x, err
 }
+
+func (p *AuthorizeClustersBrokerToDeveloperInput) Validate() error {
+	return nil
+}
+
 func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBrokerFromDeveloperInput) (out *RevokeClustersBrokerFromDeveloperOutput, err error) {
 	if in == nil {
 		in = &RevokeClustersBrokerFromDeveloperInput{}
@@ -2824,6 +2924,10 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBro
 	}
 
 	return x, err
+}
+
+func (p *RevokeClustersBrokerFromDeveloperInput) Validate() error {
+	return nil
 }
 
 func init() { proto.RegisterFile("cluster.proto", fileDescriptor2) }

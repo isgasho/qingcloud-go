@@ -102,6 +102,7 @@ func (p *CacheService) DescribeCaches(in *google_protobuf.Empty) (out *google_pr
 
 	return x, err
 }
+
 func (p *CacheService) CreateCache(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -126,6 +127,7 @@ func (p *CacheService) CreateCache(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *CacheService) StopCaches(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -150,6 +152,7 @@ func (p *CacheService) StopCaches(in *google_protobuf.Empty) (out *google_protob
 
 	return x, err
 }
+
 func (p *CacheService) StartCaches(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -174,6 +177,7 @@ func (p *CacheService) StartCaches(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *CacheService) RestartCaches(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -198,6 +202,7 @@ func (p *CacheService) RestartCaches(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *CacheService) DeleteCaches(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -222,6 +227,7 @@ func (p *CacheService) DeleteCaches(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *CacheService) ResizeCaches(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -246,6 +252,7 @@ func (p *CacheService) ResizeCaches(in *google_protobuf.Empty) (out *google_prot
 
 	return x, err
 }
+
 func (p *CacheService) UpdateCache(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -270,6 +277,7 @@ func (p *CacheService) UpdateCache(in *google_protobuf.Empty) (out *google_proto
 
 	return x, err
 }
+
 func (p *CacheService) ChangeCacheVxnet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -294,6 +302,7 @@ func (p *CacheService) ChangeCacheVxnet(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *CacheService) ModifyCacheAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -318,6 +327,7 @@ func (p *CacheService) ModifyCacheAttributes(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *CacheService) DescribeCacheNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -342,6 +352,7 @@ func (p *CacheService) DescribeCacheNodes(in *google_protobuf.Empty) (out *googl
 
 	return x, err
 }
+
 func (p *CacheService) AddCacheNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -366,6 +377,7 @@ func (p *CacheService) AddCacheNodes(in *google_protobuf.Empty) (out *google_pro
 
 	return x, err
 }
+
 func (p *CacheService) DeleteCacheNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -390,6 +402,7 @@ func (p *CacheService) DeleteCacheNodes(in *google_protobuf.Empty) (out *google_
 
 	return x, err
 }
+
 func (p *CacheService) RestartCacheNodes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -414,6 +427,7 @@ func (p *CacheService) RestartCacheNodes(in *google_protobuf.Empty) (out *google
 
 	return x, err
 }
+
 func (p *CacheService) ModifyCacheNodeAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -438,6 +452,7 @@ func (p *CacheService) ModifyCacheNodeAttributes(in *google_protobuf.Empty) (out
 
 	return x, err
 }
+
 func (p *CacheService) CreateCacheFromSnapshot(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -462,6 +477,7 @@ func (p *CacheService) CreateCacheFromSnapshot(in *google_protobuf.Empty) (out *
 
 	return x, err
 }
+
 func (p *CacheService) DescribeCacheParameterGroups(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -486,6 +502,7 @@ func (p *CacheService) DescribeCacheParameterGroups(in *google_protobuf.Empty) (
 
 	return x, err
 }
+
 func (p *CacheService) CreateCacheParameterGroup(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -510,6 +527,7 @@ func (p *CacheService) CreateCacheParameterGroup(in *google_protobuf.Empty) (out
 
 	return x, err
 }
+
 func (p *CacheService) ApplyCacheParameterGroup(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -534,6 +552,7 @@ func (p *CacheService) ApplyCacheParameterGroup(in *google_protobuf.Empty) (out 
 
 	return x, err
 }
+
 func (p *CacheService) DeleteCacheParameterGroups(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -558,6 +577,7 @@ func (p *CacheService) DeleteCacheParameterGroups(in *google_protobuf.Empty) (ou
 
 	return x, err
 }
+
 func (p *CacheService) ModifyCacheParameterGroupAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -582,6 +602,7 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(in *google_protobuf.E
 
 	return x, err
 }
+
 func (p *CacheService) DescribeCacheParameters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -606,6 +627,7 @@ func (p *CacheService) DescribeCacheParameters(in *google_protobuf.Empty) (out *
 
 	return x, err
 }
+
 func (p *CacheService) UpdateCacheParameters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -630,6 +652,7 @@ func (p *CacheService) UpdateCacheParameters(in *google_protobuf.Empty) (out *go
 
 	return x, err
 }
+
 func (p *CacheService) ResetCacheParameters(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}

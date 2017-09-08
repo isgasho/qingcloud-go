@@ -96,6 +96,7 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf.Empty)
 
 	return x, err
 }
+
 func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -120,6 +121,7 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf.Empty) (o
 
 	return x, err
 }
+
 func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -144,6 +146,7 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf.Empty) (
 
 	return x, err
 }
+
 func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -168,6 +171,7 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf.Empty) (ou
 
 	return x, err
 }
+
 func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -192,6 +196,7 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf
 
 	return x, err
 }
+
 func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -216,6 +221,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf.Em
 
 	return x, err
 }
+
 func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -240,6 +246,7 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf.Empty) 
 
 	return x, err
 }
+
 func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -264,6 +271,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf.Empt
 
 	return x, err
 }
+
 func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -288,6 +296,7 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_prot
 
 	return x, err
 }
+
 func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -312,6 +321,7 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf.E
 
 	return x, err
 }
+
 func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -336,6 +346,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobu
 
 	return x, err
 }
+
 func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -360,6 +371,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf.
 
 	return x, err
 }
+
 func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -384,6 +396,7 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf.Empty) 
 
 	return x, err
 }
+
 func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -408,6 +421,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf.E
 
 	return x, err
 }
+
 func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -432,6 +446,7 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf.Empt
 
 	return x, err
 }
+
 func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -456,6 +471,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf.Emp
 
 	return x, err
 }
+
 func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
@@ -480,6 +496,7 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_pro
 
 	return x, err
 }
+
 func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf.Empty) (out *google_protobuf.Empty, err error) {
 	if in == nil {
 		in = &google_protobuf.Empty{}
