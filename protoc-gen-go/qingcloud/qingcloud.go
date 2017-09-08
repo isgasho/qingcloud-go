@@ -10,10 +10,10 @@ import (
 	"strings"
 	"text/template"
 
+	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
-	options "google.golang.org/genproto/googleapis/api/annotations"
 )
 
 // qingcloudPlugin produce the Service interface.
@@ -186,10 +186,20 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 	var methodList string
 	for _, m := range svc.Method {
 		var RequestMethod = "GET" // default is GET
-		if m.Options != nil && proto.HasExtension(m.Options, options.E_Http) {
-			if ext, _ := proto.GetExtension(m.Options, options.E_Http); ext != nil {
-				if extHttp, _ := ext.(*options.HttpRule); extHttp != nil {
-					if kind := extHttp.GetCustom().GetKind(); kind != "" {
+
+		methodRule, inputRule := p.getMethodExtension(m)
+		if methodRule != nil {
+			if kind := methodRule.GetHttpAction(); kind != "" {
+				RequestMethod = kind
+			}
+		}
+		if inputRule != nil {
+			//
+		}
+		if m.Options != nil && proto.HasExtension(m.Options, rule_pb.E_MethodRule) {
+			if ext, _ := proto.GetExtension(m.Options, rule_pb.E_MethodRule); ext != nil {
+				if extHttp, _ := ext.(*rule_pb.MethodRule); extHttp != nil {
+					if kind := extHttp.GetHttpAction(); kind != "" {
 						RequestMethod = kind
 					}
 				}
@@ -220,6 +230,25 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 		})
 		p.P(out.String())
 	}
+}
+
+func (p *qingcloudPlugin) getMethodExtension(m *descriptor.MethodDescriptorProto) (method *rule_pb.MethodRule, input *rule_pb.MethodInputRule) {
+	if m.Options != nil && proto.HasExtension(m.Options, rule_pb.E_MethodRule) {
+		if ext, _ := proto.GetExtension(m.Options, rule_pb.E_MethodRule); ext != nil {
+			if x, _ := ext.(*rule_pb.MethodRule); x != nil {
+				method = x
+			}
+		}
+	}
+	inpDesc := p.ObjectNamed(m.GetInputType()).(*generator.Descriptor).DescriptorProto
+	if inpDesc.Options != nil && proto.HasExtension(inpDesc.Options, rule_pb.E_MethodInputRule) {
+		if ext, _ := proto.GetExtension(inpDesc.Options, rule_pb.E_MethodInputRule); ext != nil {
+			if x, _ := ext.(*rule_pb.MethodInputRule); x != nil {
+				input = x
+			}
+		}
+	}
+	return
 }
 
 func init() {
