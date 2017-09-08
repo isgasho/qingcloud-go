@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -69,7 +67,7 @@ func (p *VolumesService) DescribeVolumes(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeVolumes",
@@ -93,7 +91,7 @@ func (p *VolumesService) CreateVolumes(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateVolumes",
@@ -117,7 +115,7 @@ func (p *VolumesService) DeleteVolumes(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteVolumes",
@@ -141,7 +139,7 @@ func (p *VolumesService) AttachVolumes(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachVolumes",
@@ -165,7 +163,7 @@ func (p *VolumesService) DetachVolumes(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachVolumes",
@@ -189,7 +187,7 @@ func (p *VolumesService) ResizeVolumes(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeVolumes",
@@ -213,7 +211,7 @@ func (p *VolumesService) ModifyVolumeAttributes(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyVolumeAttributes",

@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -89,7 +87,7 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf.Em
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSharedResourceGroups",
@@ -113,7 +111,7 @@ func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf.Empty) (
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeResourceGroups",
@@ -137,7 +135,7 @@ func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateResourceGroups",
@@ -161,7 +159,7 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyResourceGroupAttributes",
@@ -185,7 +183,7 @@ func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteResourceGroups",
@@ -209,7 +207,7 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf.Empt
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeResourceGroupItems",
@@ -233,7 +231,7 @@ func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf.Empty) (o
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddResourceGroupItems",
@@ -257,7 +255,7 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf.Empty)
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteResourceGroupItems",
@@ -281,7 +279,7 @@ func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeUserGroups",
@@ -305,7 +303,7 @@ func (p *ResourceACLService) CreateUserGroups(in *google_protobuf.Empty) (out *g
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateUserGroups",
@@ -329,7 +327,7 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyUserGroupAttributes",
@@ -353,7 +351,7 @@ func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf.Empty) (out *g
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteUserGroups",
@@ -377,7 +375,7 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf.Empty)
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeUserGroupMembers",
@@ -401,7 +399,7 @@ func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf.Empty) (out
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddUserGroupMembers",
@@ -425,7 +423,7 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyUserGroupMemberAttributes",
@@ -449,7 +447,7 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf.Empty) (
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteUserGroupMembers",
@@ -473,7 +471,7 @@ func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeGroupRoles",
@@ -497,7 +495,7 @@ func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf.Empty) (out *g
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateGroupRoles",
@@ -521,7 +519,7 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyGroupRoleAttributes",
@@ -545,7 +543,7 @@ func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf.Empty) (out *g
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteGroupRoles",
@@ -569,7 +567,7 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf.Empty) (
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeGroupRoleRules",
@@ -593,7 +591,7 @@ func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddGroupRoleRules",
@@ -617,7 +615,7 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyGroupRoleRuleAttributes",
@@ -641,7 +639,7 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteGroupRoleRules",
@@ -665,7 +663,7 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GrantResourceGroupsToUserGroups",
@@ -689,7 +687,7 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RevokeResourceGroupsFromUserGroups",
@@ -713,7 +711,7 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf.Empt
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeResourceUserGroups",

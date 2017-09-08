@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -86,7 +84,7 @@ func (p *CacheService) DescribeCaches(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCaches",
@@ -110,7 +108,7 @@ func (p *CacheService) CreateCache(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateCache",
@@ -134,7 +132,7 @@ func (p *CacheService) StopCaches(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopCaches",
@@ -158,7 +156,7 @@ func (p *CacheService) StartCaches(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartCaches",
@@ -182,7 +180,7 @@ func (p *CacheService) RestartCaches(in *google_protobuf.Empty) (out *google_pro
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestartCaches",
@@ -206,7 +204,7 @@ func (p *CacheService) DeleteCaches(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteCaches",
@@ -230,7 +228,7 @@ func (p *CacheService) ResizeCaches(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeCaches",
@@ -254,7 +252,7 @@ func (p *CacheService) UpdateCache(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateCache",
@@ -278,7 +276,7 @@ func (p *CacheService) ChangeCacheVxnet(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeCacheVxnet",
@@ -302,7 +300,7 @@ func (p *CacheService) ModifyCacheAttributes(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyCacheAttributes",
@@ -326,7 +324,7 @@ func (p *CacheService) DescribeCacheNodes(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCacheNodes",
@@ -350,7 +348,7 @@ func (p *CacheService) AddCacheNodes(in *google_protobuf.Empty) (out *google_pro
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddCacheNodes",
@@ -374,7 +372,7 @@ func (p *CacheService) DeleteCacheNodes(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteCacheNodes",
@@ -398,7 +396,7 @@ func (p *CacheService) RestartCacheNodes(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestartCacheNodes",
@@ -422,7 +420,7 @@ func (p *CacheService) ModifyCacheNodeAttributes(in *google_protobuf.Empty) (out
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyCacheNodeAttributes",
@@ -446,7 +444,7 @@ func (p *CacheService) CreateCacheFromSnapshot(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateCacheFromSnapshot",
@@ -470,7 +468,7 @@ func (p *CacheService) DescribeCacheParameterGroups(in *google_protobuf.Empty) (
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCacheParameterGroups",
@@ -494,7 +492,7 @@ func (p *CacheService) CreateCacheParameterGroup(in *google_protobuf.Empty) (out
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateCacheParameterGroup",
@@ -518,7 +516,7 @@ func (p *CacheService) ApplyCacheParameterGroup(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyCacheParameterGroup",
@@ -542,7 +540,7 @@ func (p *CacheService) DeleteCacheParameterGroups(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteCacheParameterGroups",
@@ -566,7 +564,7 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyCacheParameterGroupAttributes",
@@ -590,7 +588,7 @@ func (p *CacheService) DescribeCacheParameters(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCacheParameters",
@@ -614,7 +612,7 @@ func (p *CacheService) UpdateCacheParameters(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateCacheParameters",
@@ -638,7 +636,7 @@ func (p *CacheService) ResetCacheParameters(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResetCacheParameters",

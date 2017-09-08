@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -69,7 +67,7 @@ func (p *SnapshotService) DescribeSnapshots(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSnapshots",
@@ -93,7 +91,7 @@ func (p *SnapshotService) CreateSnapshots(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSnapshots",
@@ -117,7 +115,7 @@ func (p *SnapshotService) DeleteSnapshots(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSnapshots",
@@ -141,7 +139,7 @@ func (p *SnapshotService) ApplySnapshots(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplySnapshots",
@@ -165,7 +163,7 @@ func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf.Empty) (o
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySnapshotAttributes",
@@ -189,7 +187,7 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf.Empty)
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CaptureInstanceFromSnapshot",
@@ -213,7 +211,7 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf.Empty) (o
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateVolumeFromSnapshot",

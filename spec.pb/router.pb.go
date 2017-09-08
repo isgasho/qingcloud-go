@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -81,7 +79,7 @@ func (p *RouterService) DescribeRouters(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouters",
@@ -105,7 +103,7 @@ func (p *RouterService) CreateRouters(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateRouters",
@@ -129,7 +127,7 @@ func (p *RouterService) DeleteRouters(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRouters",
@@ -153,7 +151,7 @@ func (p *RouterService) UpdateRouters(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateRouters",
@@ -177,7 +175,7 @@ func (p *RouterService) PowerOffRouters(in *google_protobuf.Empty) (out *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOffRouters",
@@ -201,7 +199,7 @@ func (p *RouterService) PowerOnRouters(in *google_protobuf.Empty) (out *google_p
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOnRouters",
@@ -225,7 +223,7 @@ func (p *RouterService) JoinRouter(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "JoinRouter",
@@ -249,7 +247,7 @@ func (p *RouterService) LeaveRouter(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "LeaveRouter",
@@ -273,7 +271,7 @@ func (p *RouterService) ModifyRouterAttributes(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRouterAttributes",
@@ -297,7 +295,7 @@ func (p *RouterService) DescribeRouterStatics(in *google_protobuf.Empty) (out *g
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouterStatics",
@@ -321,7 +319,7 @@ func (p *RouterService) AddRouterStatics(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddRouterStatics",
@@ -345,7 +343,7 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf.Empty) 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRouterStaticAttributes",
@@ -369,7 +367,7 @@ func (p *RouterService) DeleteRouterStatics(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRouterStatics",
@@ -393,7 +391,7 @@ func (p *RouterService) CopyRouterStatics(in *google_protobuf.Empty) (out *googl
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CopyRouterStatics",
@@ -417,7 +415,7 @@ func (p *RouterService) DescribeRouterVxnets(in *google_protobuf.Empty) (out *go
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouterVxnets",
@@ -441,7 +439,7 @@ func (p *RouterService) AddRouterStaticEntries(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddRouterStaticEntries",
@@ -465,7 +463,7 @@ func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRouterStaticEntries",
@@ -489,7 +487,7 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf.Em
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRouterStaticEntryAttributes",
@@ -513,7 +511,7 @@ func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf.Empty) (
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouterStaticEntries",

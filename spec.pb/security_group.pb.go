@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -80,7 +78,7 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf.Empty)
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroups",
@@ -104,7 +102,7 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf.Empty) (o
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSecurityGroup",
@@ -128,7 +126,7 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf.Empty) (
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroups",
@@ -152,7 +150,7 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplySecurityGroup",
@@ -176,7 +174,7 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySecurityGroupAttributes",
@@ -200,7 +198,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf.Em
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroupRules",
@@ -224,7 +222,7 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf.Empty) 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddSecurityGroupRules",
@@ -248,7 +246,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf.Empt
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroupRules",
@@ -272,7 +270,7 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySecurityGroupRuleAttributes",
@@ -296,7 +294,7 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSecurityGroupSnapshot",
@@ -320,7 +318,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobu
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroupSnapshots",
@@ -344,7 +342,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf.
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroupSnapshots",
@@ -368,7 +366,7 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf.Empty) 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RollbackSecurityGroup",
@@ -392,7 +390,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroupIPSets",
@@ -416,7 +414,7 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf.Empt
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSecurityGroupIPSet",
@@ -440,7 +438,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf.Emp
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroupIPSets",
@@ -464,7 +462,7 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_pro
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySecurityGroupIPSetAttributes",
@@ -488,7 +486,7 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CopySecurityGroupIPSets",

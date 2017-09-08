@@ -29,7 +29,7 @@ import (
 
 // Unpacker is the response unpacker.
 type Unpacker struct {
-	operation *Operation
+	operation    *Operation
 	httpResponse *http.Response
 	output       proto.Message
 }

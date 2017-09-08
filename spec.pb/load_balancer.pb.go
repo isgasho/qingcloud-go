@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -93,7 +91,7 @@ func (p *LoadBalancerService) CreateLoadBalancer(in *google_protobuf.Empty) (out
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateLoadBalancer",
@@ -117,7 +115,7 @@ func (p *LoadBalancerService) DescribeLoadBalancers(in *google_protobuf.Empty) (
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancers",
@@ -141,7 +139,7 @@ func (p *LoadBalancerService) DeleteLoadBalancers(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancers",
@@ -165,7 +163,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerAttributes",
@@ -189,7 +187,7 @@ func (p *LoadBalancerService) StartLoadBalancers(in *google_protobuf.Empty) (out
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartLoadBalancers",
@@ -213,7 +211,7 @@ func (p *LoadBalancerService) StopLoadBalancers(in *google_protobuf.Empty) (out 
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopLoadBalancers",
@@ -237,7 +235,7 @@ func (p *LoadBalancerService) UpdateLoadBalancers(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateLoadBalancers",
@@ -261,7 +259,7 @@ func (p *LoadBalancerService) ResizeLoadBalancers(in *google_protobuf.Empty) (ou
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeLoadBalancers",
@@ -285,7 +283,7 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *google_protobuf.Em
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateEipsToLoadBalancer",
@@ -309,7 +307,7 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *google_protobuf
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateEipsFromLoadBalancer",
@@ -333,7 +331,7 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddLoadBalancerListeners",
@@ -357,7 +355,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *google_protobuf.
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerListeners",
@@ -381,7 +379,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *google_protobuf.Em
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerListeners",
@@ -405,7 +403,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerListenerAttributes",
@@ -429,7 +427,7 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(in *google_protobuf.Empty)
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddLoadBalancerBackends",
@@ -453,7 +451,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerBackends",
@@ -477,7 +475,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *google_protobuf.Emp
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerBackends",
@@ -501,7 +499,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *google_pro
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerBackendAttributes",
@@ -525,7 +523,7 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateLoadBalancerPolicy",
@@ -549,7 +547,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerPolicies",
@@ -573,7 +571,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerPolicyAttributes",
@@ -597,7 +595,7 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *google_protobuf.Empty)
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyLoadBalancerPolicy",
@@ -621,7 +619,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *google_protobuf.Emp
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerPolicies",
@@ -645,7 +643,7 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *google_protobuf.Emp
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddLoadBalancerPolicyRules",
@@ -669,7 +667,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *google_protobu
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerPolicyRules",
@@ -693,7 +691,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *google_
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerPolicyRuleAttributes",
@@ -717,7 +715,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *google_protobuf.
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerPolicyRules",
@@ -741,7 +739,7 @@ func (p *LoadBalancerService) CreateServerCertificate(in *google_protobuf.Empty)
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateServerCertificate",
@@ -765,7 +763,7 @@ func (p *LoadBalancerService) DescribeServerCertificates(in *google_protobuf.Emp
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeServerCertificates",
@@ -789,7 +787,7 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyServerCertificateAttributes",
@@ -813,7 +811,7 @@ func (p *LoadBalancerService) DeleteServerCertificates(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteServerCertificates",

@@ -10,12 +10,10 @@ import google_protobuf "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -80,7 +78,7 @@ func (p *RDBService) CreateRDB(in *google_protobuf.Empty) (out *google_protobuf.
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateRDB",
@@ -104,7 +102,7 @@ func (p *RDBService) DescribeRDBs(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRDBs",
@@ -128,7 +126,7 @@ func (p *RDBService) DeleteRDBs(in *google_protobuf.Empty) (out *google_protobuf
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRDBs",
@@ -152,7 +150,7 @@ func (p *RDBService) StartRDBs(in *google_protobuf.Empty) (out *google_protobuf.
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartRDBs",
@@ -176,7 +174,7 @@ func (p *RDBService) StopRDBs(in *google_protobuf.Empty) (out *google_protobuf.E
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopRDBs",
@@ -200,7 +198,7 @@ func (p *RDBService) ResizeRDBs(in *google_protobuf.Empty) (out *google_protobuf
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeRDBs",
@@ -224,7 +222,7 @@ func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf.Empty) (out *google_prot
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RDBsLeaveVxnet",
@@ -248,7 +246,7 @@ func (p *RDBService) RDBsJoinVxnet(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RDBsJoinVxnet",
@@ -272,7 +270,7 @@ func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateRDBFromSnapshot",
@@ -296,7 +294,7 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf.Empty
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateTempRDBInstanceFromSnapshot",
@@ -320,7 +318,7 @@ func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetRDBInstanceFiles",
@@ -344,7 +342,7 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf.Empty) (out *
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CopyRDBInstanceFilesToFTP",
@@ -368,7 +366,7 @@ func (p *RDBService) PurgeRDBLogs(in *google_protobuf.Empty) (out *google_protob
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PurgeRDBLogs",
@@ -392,7 +390,7 @@ func (p *RDBService) CeaseRDBInstance(in *google_protobuf.Empty) (out *google_pr
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CeaseRDBInstance",
@@ -416,7 +414,7 @@ func (p *RDBService) GetRDBMonitor(in *google_protobuf.Empty) (out *google_proto
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetRDBMonitor",
@@ -440,7 +438,7 @@ func (p *RDBService) ModifyRDBParameters(in *google_protobuf.Empty) (out *google
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRDBParameters",
@@ -464,7 +462,7 @@ func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf.Empty) (out *goo
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyRDBParameterGroup",
@@ -488,7 +486,7 @@ func (p *RDBService) DescribeRDBParameters(in *google_protobuf.Empty) (out *goog
 	if in == nil {
 		in = &google_protobuf.Empty{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRDBParameters",

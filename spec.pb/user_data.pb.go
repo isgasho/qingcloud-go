@@ -10,12 +10,10 @@ import _ "google.golang.org/genproto/googleapis/api/annotations"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
-import request_data_pkg "github.com/chai2010/qingcloud-go/request/data"
 import "github.com/chai2010/qingcloud-go/request/errors"
 
 var _ = config.Config{}
 var _ = request.Request{}
-var _ = request_data_pkg.Operation{}
 var _ = errors.ParameterRequiredError{}
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -129,7 +127,7 @@ func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentI
 	if in == nil {
 		in = &UploadUserDataAttachmentInput{}
 	}
-	o := &request_data_pkg.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UploadUserDataAttachment",
