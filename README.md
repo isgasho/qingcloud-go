@@ -1,7 +1,7 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></p>
 
-# qingcloud 自用 SDK
+# 青云 SDK Go Version
 
 [![Build Status](https://travis-ci.org/chai2010/qingcloud-go.svg)](https://travis-ci.org/chai2010/qingcloud-go)
 [![GoDoc](https://godoc.org/github.com/chai2010/qingcloud-go?status.svg)](https://godoc.org/github.com/chai2010/qingcloud-go)
@@ -256,7 +256,7 @@ service UserDataService {
 
 ### User Data
 
-- [ ] UploadUserDataAttachment
+- [x] [UploadUserDataAttachment](spec.pb/user_data.proto)
 
 ### 内网域名别名
 
