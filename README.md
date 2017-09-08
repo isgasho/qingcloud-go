@@ -16,7 +16,16 @@
 - https://godoc.org/github.com/chai2010/qingcloud-go/spec.pb
 - https://docs.qingcloud.com
 
-可运行的例子:
+
+## 设计思路
+
+- 基于 Protobuf3 语法对应的 json 格式文件定义 api 元数据
+- 基于 Protobuf3 语法定义 rest 接口的请求和响应结构体, 只是用于结构体, 请求时转 json 处理(proto库自带)
+- 基于 Protobuf3 的扩展特性, 增加自定义的元数据
+- 内置 Go 语言代码模板基于标准库语法
+
+
+## 可运行的例子
 
 - [examples/nic/DescribeNics/DescribeNics.go](./examples/nic/DescribeNics/DescribeNics.go)
 - [examples/mongo/DescribeMongos/DescribeMongos.go](./examples/mongo/DescribeMongos/DescribeMongos.go)
@@ -57,23 +66,34 @@ log_level: 'warn'
 
 *注: 目前只实现了该接口*
 
-## 设计思路
-
-- 基于 Protobuf3 语法对应的 json 格式文件定义 api 元数据
-- 基于 Protobuf3 语法定义 rest 接口的请求和响应结构体, 只是用于结构体, 请求时转 json 处理(proto库自带)
-- 内置 Go 语言代码模板基于标准库语法
-
-小目标:
-
-- api 元数据采用语言无关的 Proto3 语法定义, 文件采用 proto3 对应的 json 格式
-- 生成的请求和响应结构体保持和 Proto3 生成的结构一致, Proto3 本身支持多种语言
-- 更多的单元测试代码
-- 更多的示例代码
-- 最小化外部依赖
 
 ## protobuf 扩展信息
 
-- [spec.pb/user_data.proto](./spec.pb/user_data.proto):
+扩展类型在 [spec.pb/qingcloud_sdk_rule/rule.proto](spec.pb/qingcloud_sdk_rule/rule.proto) 文件中定义:
+
+```proto
+message MethodRule {
+	string http_action = 1;
+}
+
+message MethodInputRule {
+	string required_fileds = 1; // 格式: "a, b, ..."
+	string default_value = 2;   // 格式: "a:v, b:v, ..."
+	string enum_value = 3;      // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+}
+
+// 通过扩展信息给 method 增加约束
+extend google.protobuf.MethodOptions {
+	MethodRule method_rule = 10001;
+}
+
+// 通过扩展信息给 message 增加约束
+extend google.protobuf.MessageOptions {
+	MethodInputRule method_input_rule = 10002;
+}
+```
+
+通过扩展数据可以改变方法的行为, [spec.pb/user_data.proto](./spec.pb/user_data.proto) 指定了 POST 方法:
 
 ```proto
 service UserDataService {
@@ -100,32 +120,7 @@ message UploadUserDataAttachmentInput {
 需要明确指定 `http_action`.
 
 输入的参数可以通过 `option (qingcloud.sdk.rule.method_input_rule)` 扩展来定义额外的约束, 主要是针对 必须成员/默认值/枚举字符串 几种类型.
-
-该类型在 [spec.pb/qingcloud_sdk_rule/rule.proto](spec.pb/qingcloud_sdk_rule/rule.proto) 文件中定义:
-
-```proto
-message MethodRule {
-	string http_action = 1;
-}
-
-message MethodInputRule {
-	string required_fileds = 1; // 格式: "a, b, ..."
-	string default_value = 2;   // 格式: "a:v, b:v, ..."
-	string enum_value = 3;      // 格式: "a:a1,a2,a3; b:b1,b2; ..."
-}
-
-// 通过扩展信息给 method 增加约束
-extend google.protobuf.MethodOptions {
-	MethodRule method_rule = 10001;
-}
-
-// 通过扩展信息给 message 增加约束
-extend google.protobuf.MessageOptions {
-	MethodInputRule method_input_rule = 10002;
-}
-```
-
-不过目前并没有使用该信息.
+不过目前还没有使用该信息.
 
 
 ## 外部依赖
