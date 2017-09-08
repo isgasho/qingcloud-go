@@ -6,17 +6,409 @@ package spec
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+type Tag struct {
+	Color             string                      `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
+	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description       string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Owner             string                      `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
+	ResourceCount     int32                       `protobuf:"varint,5,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
+	ResourceTagPairs  []*Tag_ResourceTagPair      `protobuf:"bytes,6,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
+	ResourceTypeCount []*Tag_ResourceTypeCount    `protobuf:"bytes,7,rep,name=resource_type_count,json=resourceTypeCount" json:"resource_type_count,omitempty"`
+	TagId             string                      `protobuf:"bytes,8,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	TagKey            string                      `protobuf:"bytes,9,opt,name=tag_key,json=tagKey" json:"tag_key,omitempty"`
+	TagName           string                      `protobuf:"bytes,10,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+}
+
+func (m *Tag) Reset()                    { *m = Tag{} }
+func (m *Tag) String() string            { return proto.CompactTextString(m) }
+func (*Tag) ProtoMessage()               {}
+func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0} }
+
+func (m *Tag) GetColor() string {
+	if m != nil {
+		return m.Color
+	}
+	return ""
+}
+
+func (m *Tag) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *Tag) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *Tag) GetOwner() string {
+	if m != nil {
+		return m.Owner
+	}
+	return ""
+}
+
+func (m *Tag) GetResourceCount() int32 {
+	if m != nil {
+		return m.ResourceCount
+	}
+	return 0
+}
+
+func (m *Tag) GetResourceTagPairs() []*Tag_ResourceTagPair {
+	if m != nil {
+		return m.ResourceTagPairs
+	}
+	return nil
+}
+
+func (m *Tag) GetResourceTypeCount() []*Tag_ResourceTypeCount {
+	if m != nil {
+		return m.ResourceTypeCount
+	}
+	return nil
+}
+
+func (m *Tag) GetTagId() string {
+	if m != nil {
+		return m.TagId
+	}
+	return ""
+}
+
+func (m *Tag) GetTagKey() string {
+	if m != nil {
+		return m.TagKey
+	}
+	return ""
+}
+
+func (m *Tag) GetTagName() string {
+	if m != nil {
+		return m.TagName
+	}
+	return ""
+}
+
+type Tag_ResourceTagPair struct {
+	ResourceId   string                      `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceType string                      `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	Status       string                      `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	StatusTime   *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	TagId        string                      `protobuf:"bytes,5,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+}
+
+func (m *Tag_ResourceTagPair) Reset()                    { *m = Tag_ResourceTagPair{} }
+func (m *Tag_ResourceTagPair) String() string            { return proto.CompactTextString(m) }
+func (*Tag_ResourceTagPair) ProtoMessage()               {}
+func (*Tag_ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0, 0} }
+
+func (m *Tag_ResourceTagPair) GetResourceId() string {
+	if m != nil {
+		return m.ResourceId
+	}
+	return ""
+}
+
+func (m *Tag_ResourceTagPair) GetResourceType() string {
+	if m != nil {
+		return m.ResourceType
+	}
+	return ""
+}
+
+func (m *Tag_ResourceTagPair) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *Tag_ResourceTagPair) GetStatusTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
+func (m *Tag_ResourceTagPair) GetTagId() string {
+	if m != nil {
+		return m.TagId
+	}
+	return ""
+}
+
+type Tag_ResourceTypeCount struct {
+	Count        int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
+	ResourceType string `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+}
+
+func (m *Tag_ResourceTypeCount) Reset()                    { *m = Tag_ResourceTypeCount{} }
+func (m *Tag_ResourceTypeCount) String() string            { return proto.CompactTextString(m) }
+func (*Tag_ResourceTypeCount) ProtoMessage()               {}
+func (*Tag_ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0, 1} }
+
+func (m *Tag_ResourceTypeCount) GetCount() int32 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
+}
+
+func (m *Tag_ResourceTypeCount) GetResourceType() string {
+	if m != nil {
+		return m.ResourceType
+	}
+	return ""
+}
+
+type EIP struct {
+	AlarmStatus      string                      `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	AssociateMode    int32                       `protobuf:"varint,2,opt,name=associate_mode,json=associateMode" json:"associate_mode,omitempty"`
+	Bandwidth        int32                       `protobuf:"varint,3,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	BillingMode      string                      `protobuf:"bytes,4,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description      string                      `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	EipAddr          string                      `protobuf:"bytes,7,opt,name=eip_addr,json=eipAddr" json:"eip_addr,omitempty"`
+	EipGroup         string                      `protobuf:"bytes,8,opt,name=eip_group,json=eipGroup" json:"eip_group,omitempty"`
+	EipId            string                      `protobuf:"bytes,9,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
+	EipName          string                      `protobuf:"bytes,10,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	IcpCodes         string                      `protobuf:"bytes,11,opt,name=icp_codes,json=icpCodes" json:"icp_codes,omitempty"`
+	NeedIcp          int32                       `protobuf:"varint,12,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
+	Resource         *EIP_Resource               `protobuf:"bytes,13,opt,name=resource" json:"resource,omitempty"`
+	Status           string                      `protobuf:"bytes,14,opt,name=status" json:"status,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode          int32                       `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	Tags             []*Tag                      `protobuf:"bytes,17,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus string                      `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+}
+
+func (m *EIP) Reset()                    { *m = EIP{} }
+func (m *EIP) String() string            { return proto.CompactTextString(m) }
+func (*EIP) ProtoMessage()               {}
+func (*EIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1} }
+
+func (m *EIP) GetAlarmStatus() string {
+	if m != nil {
+		return m.AlarmStatus
+	}
+	return ""
+}
+
+func (m *EIP) GetAssociateMode() int32 {
+	if m != nil {
+		return m.AssociateMode
+	}
+	return 0
+}
+
+func (m *EIP) GetBandwidth() int32 {
+	if m != nil {
+		return m.Bandwidth
+	}
+	return 0
+}
+
+func (m *EIP) GetBillingMode() string {
+	if m != nil {
+		return m.BillingMode
+	}
+	return ""
+}
+
+func (m *EIP) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *EIP) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *EIP) GetEipAddr() string {
+	if m != nil {
+		return m.EipAddr
+	}
+	return ""
+}
+
+func (m *EIP) GetEipGroup() string {
+	if m != nil {
+		return m.EipGroup
+	}
+	return ""
+}
+
+func (m *EIP) GetEipId() string {
+	if m != nil {
+		return m.EipId
+	}
+	return ""
+}
+
+func (m *EIP) GetEipName() string {
+	if m != nil {
+		return m.EipName
+	}
+	return ""
+}
+
+func (m *EIP) GetIcpCodes() string {
+	if m != nil {
+		return m.IcpCodes
+	}
+	return ""
+}
+
+func (m *EIP) GetNeedIcp() int32 {
+	if m != nil {
+		return m.NeedIcp
+	}
+	return 0
+}
+
+func (m *EIP) GetResource() *EIP_Resource {
+	if m != nil {
+		return m.Resource
+	}
+	return nil
+}
+
+func (m *EIP) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *EIP) GetStatusTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
+func (m *EIP) GetSubCode() int32 {
+	if m != nil {
+		return m.SubCode
+	}
+	return 0
+}
+
+func (m *EIP) GetTags() []*Tag {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *EIP) GetTransitionStatus() string {
+	if m != nil {
+		return m.TransitionStatus
+	}
+	return ""
+}
+
+type EIP_Resource struct {
+	ResourceId   string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceName string `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
+	ResourceType string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+}
+
+func (m *EIP_Resource) Reset()                    { *m = EIP_Resource{} }
+func (m *EIP_Resource) String() string            { return proto.CompactTextString(m) }
+func (*EIP_Resource) ProtoMessage()               {}
+func (*EIP_Resource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1, 0} }
+
+func (m *EIP_Resource) GetResourceId() string {
+	if m != nil {
+		return m.ResourceId
+	}
+	return ""
+}
+
+func (m *EIP_Resource) GetResourceName() string {
+	if m != nil {
+		return m.ResourceName
+	}
+	return ""
+}
+
+func (m *EIP_Resource) GetResourceType() string {
+	if m != nil {
+		return m.ResourceType
+	}
+	return ""
+}
+
+func init() {
+	proto.RegisterType((*Tag)(nil), "spec.Tag")
+	proto.RegisterType((*Tag_ResourceTagPair)(nil), "spec.Tag.ResourceTagPair")
+	proto.RegisterType((*Tag_ResourceTypeCount)(nil), "spec.Tag.ResourceTypeCount")
+	proto.RegisterType((*EIP)(nil), "spec.EIP")
+	proto.RegisterType((*EIP_Resource)(nil), "spec.EIP.Resource")
+}
+
 func init() { proto.RegisterFile("types.proto", fileDescriptor26) }
 
 var fileDescriptor26 = []byte{
-	// 48 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0xa9, 0x2c, 0x48,
-	0x2d, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x29, 0x2e, 0x48, 0x4d, 0x4e, 0x62, 0x03,
-	0x73, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x48, 0x61, 0xcd, 0x11, 0x1b, 0x00, 0x00, 0x00,
+	// 658 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x53, 0x6d, 0x6b, 0xdb, 0x30,
+	0x10, 0x26, 0x4b, 0x9c, 0x97, 0x73, 0xd3, 0x36, 0xda, 0x9b, 0x92, 0x6e, 0x34, 0xeb, 0x28, 0x04,
+	0x06, 0x2e, 0x74, 0x1f, 0xf7, 0x69, 0x94, 0x52, 0x42, 0x59, 0x09, 0x5e, 0xbe, 0x1b, 0xc5, 0xd2,
+	0x3c, 0xb1, 0xc4, 0x12, 0x92, 0x4c, 0xc9, 0x9f, 0xda, 0x9f, 0xd8, 0x5f, 0xda, 0x0f, 0x18, 0x92,
+	0x6c, 0x27, 0x4d, 0xc6, 0xb6, 0xb2, 0x6f, 0xbe, 0xe7, 0xce, 0x8f, 0xee, 0xee, 0x79, 0x0e, 0x42,
+	0xb3, 0x96, 0x4c, 0x47, 0x52, 0x09, 0x23, 0x50, 0x4b, 0x4b, 0x96, 0x8e, 0x4e, 0x33, 0x21, 0xb2,
+	0x25, 0xbb, 0x70, 0xd8, 0xa2, 0xf8, 0x72, 0x61, 0xf8, 0x8a, 0x69, 0x43, 0x56, 0xd2, 0x97, 0x9d,
+	0x7d, 0x0f, 0xa0, 0x39, 0x27, 0x19, 0x7a, 0x06, 0x41, 0x2a, 0x96, 0x42, 0xe1, 0xc6, 0xb8, 0x31,
+	0xe9, 0xc5, 0x3e, 0x40, 0x1f, 0x20, 0x4c, 0x15, 0x23, 0x86, 0x25, 0xf6, 0x3f, 0xfc, 0x64, 0xdc,
+	0x98, 0x84, 0x97, 0xa3, 0xc8, 0x93, 0x46, 0x15, 0x69, 0x34, 0xaf, 0x48, 0x63, 0xf0, 0xe5, 0x16,
+	0x40, 0x63, 0x08, 0x29, 0xd3, 0xa9, 0xe2, 0xd2, 0x70, 0x91, 0xe3, 0xa6, 0x23, 0xde, 0x86, 0xec,
+	0xa3, 0xe2, 0x3e, 0x67, 0x0a, 0xb7, 0xfc, 0xa3, 0x2e, 0x40, 0xe7, 0x70, 0xa8, 0x98, 0x16, 0x85,
+	0x4a, 0x59, 0x92, 0x8a, 0x22, 0x37, 0x38, 0x18, 0x37, 0x26, 0x41, 0xdc, 0xaf, 0xd0, 0x2b, 0x0b,
+	0xa2, 0x1b, 0x40, 0x75, 0x99, 0x21, 0x59, 0x22, 0x09, 0x57, 0x1a, 0xb7, 0xc7, 0xcd, 0x49, 0x78,
+	0x39, 0x8c, 0xec, 0xf4, 0xd1, 0x9c, 0x64, 0x51, 0x5c, 0xd6, 0xcc, 0x49, 0x36, 0x23, 0x5c, 0xc5,
+	0xc7, 0xea, 0x21, 0xa0, 0xd1, 0x2d, 0x3c, 0xdd, 0x10, 0xad, 0x65, 0xf5, 0x68, 0xc7, 0x31, 0x9d,
+	0xfc, 0x86, 0x69, 0x2d, 0x7d, 0x0b, 0xf1, 0x40, 0xed, 0x42, 0xe8, 0x39, 0xb4, 0x6d, 0x33, 0x9c,
+	0xe2, 0xae, 0x9f, 0xc9, 0x90, 0x6c, 0x4a, 0xd1, 0x4b, 0xe8, 0x58, 0xf8, 0x1b, 0x5b, 0xe3, 0x9e,
+	0xc3, 0x6d, 0xd5, 0x2d, 0x5b, 0xa3, 0x21, 0x74, 0x6d, 0x22, 0x27, 0x2b, 0x86, 0xc1, 0x65, 0x6c,
+	0xe1, 0x1d, 0x59, 0xb1, 0xd1, 0x8f, 0x06, 0x1c, 0xed, 0x74, 0x8f, 0x4e, 0x21, 0xac, 0x7b, 0xe5,
+	0xb4, 0x14, 0x0b, 0x2a, 0x68, 0x4a, 0xd1, 0x5b, 0xe8, 0x3f, 0x18, 0xc6, 0x69, 0xd6, 0x8b, 0x0f,
+	0xb6, 0x3b, 0x45, 0x2f, 0xa0, 0xad, 0x0d, 0x31, 0x85, 0x2e, 0x45, 0x29, 0x23, 0x2b, 0xb7, 0xff,
+	0xf2, 0x72, 0xb7, 0xfe, 0x2e, 0xb7, 0x2f, 0x77, 0x72, 0x6f, 0x26, 0x0f, 0xb6, 0x26, 0x1f, 0xdd,
+	0xc1, 0x60, 0x6f, 0x71, 0xde, 0x6d, 0x76, 0xc9, 0x0d, 0xa7, 0xac, 0x0f, 0xfe, 0xa9, 0xf7, 0xb3,
+	0x9f, 0x01, 0x34, 0xaf, 0xa7, 0x33, 0xf4, 0x06, 0x0e, 0xc8, 0x92, 0xa8, 0x55, 0x52, 0x4e, 0xe2,
+	0x57, 0x11, 0x3a, 0xec, 0xb3, 0x1f, 0xe7, 0x1c, 0x0e, 0x89, 0xd6, 0x22, 0xe5, 0xd6, 0xc0, 0x2b,
+	0x41, 0x3d, 0x61, 0x10, 0xf7, 0x6b, 0xf4, 0x93, 0xa0, 0x0c, 0xbd, 0x82, 0xde, 0x82, 0xe4, 0xf4,
+	0x9e, 0x53, 0xf3, 0xd5, 0x2d, 0x24, 0x88, 0x37, 0x80, 0x7d, 0x67, 0xc1, 0x97, 0x4b, 0x9e, 0x67,
+	0x9e, 0xc2, 0x5b, 0x35, 0x2c, 0x31, 0x47, 0xb0, 0x73, 0x25, 0xc1, 0xff, 0x5c, 0x49, 0x7b, 0xff,
+	0x4a, 0x86, 0xd0, 0x65, 0x5c, 0x26, 0x84, 0x52, 0x85, 0x3b, 0xde, 0x22, 0x8c, 0xcb, 0x8f, 0x94,
+	0x2a, 0x74, 0x02, 0x3d, 0x9b, 0xca, 0x94, 0x28, 0x64, 0x69, 0x38, 0x5b, 0x7b, 0x63, 0x63, 0x2b,
+	0x88, 0x4d, 0x72, 0x5a, 0x5a, 0x2e, 0x60, 0x5c, 0x4e, 0x69, 0x45, 0xb7, 0xed, 0x38, 0xc6, 0xa5,
+	0x75, 0x9c, 0xa5, 0xe3, 0xa9, 0x4c, 0x52, 0x41, 0x99, 0xc6, 0xa1, 0xa7, 0xe3, 0xa9, 0xbc, 0xb2,
+	0xb1, 0xfd, 0x2f, 0x67, 0x8c, 0x26, 0x3c, 0x95, 0xf8, 0xc0, 0x6d, 0xa9, 0x63, 0xe3, 0x69, 0x2a,
+	0x51, 0x04, 0xdd, 0x4a, 0x23, 0xdc, 0x77, 0xd3, 0x23, 0x7f, 0x36, 0xd7, 0xd3, 0x59, 0x7d, 0x36,
+	0x71, 0x5d, 0xb3, 0xe5, 0xbf, 0xc3, 0x3f, 0xf9, 0xef, 0xe8, 0x51, 0xfe, 0x1b, 0x42, 0x57, 0x17,
+	0x0b, 0xd7, 0x3c, 0x3e, 0xf6, 0xfd, 0xe9, 0x62, 0x61, 0x7b, 0x47, 0xaf, 0xa1, 0x65, 0x48, 0xa6,
+	0xf1, 0xc0, 0x9d, 0x74, 0xaf, 0x3e, 0xe9, 0xd8, 0xc1, 0xe8, 0x1d, 0x0c, 0x8c, 0x22, 0xb9, 0xe6,
+	0x76, 0xdd, 0x95, 0x9f, 0x90, 0xeb, 0xec, 0x78, 0x93, 0xf0, 0xa6, 0x1a, 0x15, 0xd0, 0xad, 0x26,
+	0x7a, 0xdc, 0x35, 0xba, 0x85, 0xef, 0x38, 0xda, 0x6d, 0x7d, 0xcf, 0xf6, 0xcd, 0x7d, 0xdb, 0x2f,
+	0xda, 0x6e, 0xfa, 0xf7, 0xbf, 0x02, 0x00, 0x00, 0xff, 0xff, 0xc9, 0xee, 0x06, 0xd2, 0xe4, 0x05,
+	0x00, 0x00,
 }

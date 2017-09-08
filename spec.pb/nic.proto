@@ -8,6 +8,8 @@ package spec;
 
 import "google/protobuf/timestamp.proto";
 
+import "types.proto";
+
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/nic/index.html
 // ----------------------------------------------------------------------------
@@ -73,44 +75,12 @@ message NIC {
 	google.protobuf.Timestamp status_time = 12;
 	repeated Tag tags = 13;
 	string vxnet_id = 14;
-	Eip eip = 15;
+	EIP eip = 15;
 	string transition_status = 16;
 	string controller = 17;
 	int32 vxnet_type = 18;
 	string console_id = 19;
 	string resource_id = 20;
-}
-
-message Eip {
-	string eip_id = 1;
-	string eip_addr = 2;
-	int32 bandwidth = 3;
-}
-
-message Tag {
-	string color = 1;
-	google.protobuf.Timestamp create_time = 2;
-	string description = 3;
-	string owner = 4;
-	int32 resource_count = 5;
-	repeated ResourceTagPair resource_tag_pairs = 6;
-	repeated ResourceTypeCount resource_type_count = 7;
-	string tag_id = 8;
-	string tag_key = 9;
-	string tag_name = 10;
-}
-
-message ResourceTagPair {
-	string resource_id = 1;
-	string resource_type = 2;
-	string status = 3;
-	google.protobuf.Timestamp status_time = 4;
-	string tag_id = 5;
-}
-
-message ResourceTypeCount {
-	int32 count = 1;
-	string resource_type = 2;
 }
 
 // ----------------------------------------------------------------------------

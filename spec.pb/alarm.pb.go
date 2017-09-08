@@ -120,10 +120,6 @@ It has these top-level messages:
 	DescribeNicsInput
 	DescribeNicsOutput
 	NIC
-	Eip
-	Tag
-	ResourceTagPair
-	ResourceTypeCount
 	AttachNicsInput
 	AttachNicsOutput
 	DetachNicsInput
@@ -167,6 +163,8 @@ It has these top-level messages:
 	AttachTagsOutput
 	DetachTagsInput
 	DetachTagsOutput
+	Tag
+	EIP
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput

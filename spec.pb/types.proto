@@ -6,6 +6,65 @@ syntax = "proto3";
 
 package spec;
 
+import "google/protobuf/timestamp.proto";
+
+message Tag {
+	string color = 1;
+	google.protobuf.Timestamp create_time = 2;
+	string description = 3;
+	string owner = 4;
+	int32 resource_count = 5;
+	repeated ResourceTagPair resource_tag_pairs = 6;
+	repeated ResourceTypeCount resource_type_count = 7;
+	string tag_id = 8;
+	string tag_key = 9;
+	string tag_name = 10;
+
+	message ResourceTagPair {
+		string resource_id = 1;
+		string resource_type = 2;
+		string status = 3;
+		google.protobuf.Timestamp status_time = 4;
+		string tag_id = 5;
+	}
+
+	message ResourceTypeCount {
+		int32 count = 1;
+		string resource_type = 2;
+	}
+}
+
+message EIP {
+	string alarm_status = 1;
+	int32 associate_mode = 2;
+	int32 bandwidth = 3;
+	string billing_mode = 4;
+	google.protobuf.Timestamp create_time = 5;
+	string description = 6;
+	string eip_addr = 7;
+	string eip_group = 8;
+	string eip_id = 9;
+	string eip_name = 10;
+	string icp_codes = 11;
+	int32 need_icp = 12;
+	Resource resource = 13;
+	string status = 14;
+	google.protobuf.Timestamp status_time = 15;
+	int32 sub_code = 16;
+	repeated Tag tags = 17;
+	string transition_status = 18;
+
+	message Resource {
+		string resource_id = 1;
+		string resource_name = 2;
+		string resource_type = 3;
+	}
+}
+
+/*
+
+*/
+
 /*
 
 
@@ -114,40 +173,12 @@ type DNSAlias struct {
 	Status       *string    `json:"status" name:"status"`
 }
 
-type EIP struct {
-	AlarmStatus   *string `json:"alarm_status" name:"alarm_status"`
-	AssociateMode *int    `json:"associate_mode" name:"associate_mode"`
-	Bandwidth     *int    `json:"bandwidth" name:"bandwidth"`
-	// BillingMode's available values: bandwidth, traffic
-	BillingMode *string      `json:"billing_mode" name:"billing_mode"`
-	CreateTime  *time.Time   `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description *string      `json:"description" name:"description"`
-	EIPAddr     *string      `json:"eip_addr" name:"eip_addr"`
-	EIPGroup    *EIPGroup    `json:"eip_group" name:"eip_group"`
-	EIPID       *string      `json:"eip_id" name:"eip_id"`
-	EIPName     *string      `json:"eip_name" name:"eip_name"`
-	ICPCodes    *string      `json:"icp_codes" name:"icp_codes"`
-	NeedICP     *int         `json:"need_icp" name:"need_icp"`
-	Resource    *EIPResource `json:"resource" name:"resource"`
-	// Status's available values: pending, available, associated, suspended, released, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	SubCode    *int       `json:"sub_code" name:"sub_code"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: associating, dissociating, suspending, resuming, releasing
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-}
 
 type EIPGroup struct {
 	EIPGroupID   *string `json:"eip_group_id" name:"eip_group_id"`
 	EIPGroupName *string `json:"eip_group_name" name:"eip_group_name"`
 }
 
-type EIPResource struct {
-	ResourceID   *string `json:"resource_id" name:"resource_id"`
-	ResourceName *string `json:"resource_name" name:"resource_name"`
-	ResourceType *string `json:"resource_type" name:"resource_type"`
-}
 
 type Extra struct {
 	BlockBus   *string `json:"block_bus" name:"block_bus"`
@@ -758,18 +789,6 @@ type SnapshotResource struct {
 	Platform *string `json:"platform" name:"platform"`
 }
 
-type Tag struct {
-	Color             *string              `json:"color" name:"color"`
-	CreateTime        *time.Time           `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description       *string              `json:"description" name:"description"`
-	Owner             *string              `json:"owner" name:"owner"`
-	ResourceCount     *int                 `json:"resource_count" name:"resource_count"`
-	ResourceTagPairs  []*ResourceTagPair   `json:"resource_tag_pairs" name:"resource_tag_pairs"`
-	ResourceTypeCount []*ResourceTypeCount `json:"resource_type_count" name:"resource_type_count"`
-	TagID             *string              `json:"tag_id" name:"tag_id"`
-	TagKey            *string              `json:"tag_key" name:"tag_key"`
-	TagName           *string              `json:"tag_name" name:"tag_name"`
-}
 
 type User struct {
 	Email  *string `json:"email" name:"email"`
