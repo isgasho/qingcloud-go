@@ -78,8 +78,8 @@ log_level: 'warn'
 ```proto
 service UserDataService {
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
-		option (google.api.http) = {
-			custom { kind: "POST" }
+		option (qingcloud.sdk.rule.method_rule) = {
+			http_action: "POST"
 		};
 	}
 }
@@ -88,7 +88,7 @@ message UploadUserDataAttachmentInput {
 	bytes attachment_content = 2;
 	string attachment_name = 1;
 
-	option (qingcloud_sdk_rule) = {
+	option (qingcloud.sdk.rule.method_input_rule) = {
 		required_fileds: "attachment_content"
 		default_value: ""
 		enum_value: ""
@@ -96,18 +96,32 @@ message UploadUserDataAttachmentInput {
 }
 ```
 
-扩展信息中的 `custom.kind` 用于表示 HTTP 方法, 默认是 GET, 极少数的API是 POST ([UploadUserDataAttachment](https://docs.qingcloud.com/api/userdata/upload_userdata_attachment.html)). 当采用 POST 方法时,
-需要明确指定 `custom.kind`.
+扩展信息中的 `http_action` 用于表示 HTTP 方法, 默认是 GET, 极少数的API是 POST ([UploadUserDataAttachment](https://docs.qingcloud.com/api/userdata/upload_userdata_attachment.html)). 当采用 POST 方法时,
+需要明确指定 `http_action`.
 
-输入的参数可以通过 `option (qingcloud_sdk_rule)` 扩展来定义额外的约束, 主要是针对 必须成员/默认值/枚举字符串 几种类型.
+输入的参数可以通过 `option (qingcloud.sdk.rule.method_input_rule)` 扩展来定义额外的约束, 主要是针对 必须成员/默认值/枚举字符串 几种类型.
 
-该类型在 [types.proto](spec.pb/types.proto) 文件中定义:
+该类型在 [spec.pb/qingcloud_sdk_rule/rule.proto](spec.pb/qingcloud_sdk_rule/rule.proto) 文件中定义:
 
 ```proto
-message QingCloudSDKRule {
+message MethodRule {
+	string http_action = 1;
+}
+
+message MethodInputRule {
 	string required_fileds = 1; // 格式: "a, b, ..."
 	string default_value = 2;   // 格式: "a:v, b:v, ..."
 	string enum_value = 3;      // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+}
+
+// 通过扩展信息给 method 增加约束
+extend google.protobuf.MethodOptions {
+	MethodRule method_rule = 10001;
+}
+
+// 通过扩展信息给 message 增加约束
+extend google.protobuf.MessageOptions {
+	MethodInputRule method_input_rule = 10002;
 }
 ```
 
