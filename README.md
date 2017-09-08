@@ -267,7 +267,7 @@ service UserDataService {
 
 ### 操作日志
 
-- [ ] DescribeJobs
+- [x] [DescribeJobs](spec.pb/job.proto)
 
 ### 标签
 
