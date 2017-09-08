@@ -113,6 +113,9 @@ service UserDataService {
 - [ ] ResetInstances
 - [ ] ResizeInstances
 - [ ] ModifyInstanceAttributes
+- [ ] [DescribeInstanceTypes](spec.pb/instances.proto)
+- [ ] CreateBrokers
+- [ ] DeleteBrokers
 
 ### 硬盘
 
