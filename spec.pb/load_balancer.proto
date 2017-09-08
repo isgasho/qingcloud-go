@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
+
 import "google/protobuf/empty.proto";
 
 // https://docs.qingcloud.com/api/lb/index.html
@@ -14,9 +16,11 @@ message LoadBalancerServiceProperties {
 	string zone = 1;
 }
 
+//LoadBalancer
+
 service LoadBalancerService {
 	rpc CreateLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeLoadBalancers(DescribeLoadBalancersInput) returns (DescribeLoadBalancersOutput);
 	rpc DeleteLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc ModifyLoadBalancerAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc StartLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
@@ -46,4 +50,22 @@ service LoadBalancerService {
 	rpc DescribeServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc ModifyServerCertificateAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DeleteServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message DescribeLoadBalancersInput {
+	int32 limit = 1;
+	repeated string loadbalancers = 2;
+	int32 offset = 3;
+	string search_word = 4;
+	repeated string status = 5;
+	repeated string tags = 6;
+	int32 verbose = 7;
+}
+
+message DescribeLoadBalancersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	repeated LoadBalancer loadbalancer_set = 4;
 }

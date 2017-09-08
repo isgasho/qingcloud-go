@@ -97,13 +97,37 @@ It has these top-level messages:
 	HadoopServiceProperties
 	ImageServiceProperties
 	InstanceServiceProperties
+	DescribeInstancesInput
+	DescribeInstancesOutput
+	RunInstancesInput
+	RunInstancesOutput
+	TerminateInstancesInput
+	TerminateInstancesOutput
+	StartInstancesInput
+	StartInstancesOutput
+	StopInstancesInput
+	StopInstancesOutput
+	RestartInstancesInput
+	RestartInstancesOutput
+	ResetInstancesInput
+	ResetInstancesOutput
+	ResizeInstancesInput
+	ResizeInstancesOutput
+	ModifyInstanceAttributesInput
+	ModifyInstanceAttributesOutput
 	DescribeInstanceTypesInput
 	DescribeInstanceTypesOutput
+	CreateBrokersInput
+	CreateBrokersOutput
+	DeleteBrokersInput
+	DeleteBrokersOutput
 	JobServiceProperties
 	DescribeJobsInput
 	DescribeJobsOutput
 	KeyPairServiceProperties
 	LoadBalancerServiceProperties
+	DescribeLoadBalancersInput
+	DescribeLoadBalancersOutput
 	MiscServiceProperties
 	GrantQuotaIndepInput
 	GrantQuotaIndepOutput
@@ -176,6 +200,9 @@ It has these top-level messages:
 	Image
 	Mongo
 	MongoNode
+	LoadBalancer
+	LoadBalancerListener
+	LoadBalancerBackend
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput

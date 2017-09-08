@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
+
 import "google/protobuf/empty.proto";
 
 // ----------------------------------------------------------------------------
@@ -17,19 +19,146 @@ message InstanceServiceProperties {
 }
 
 service InstanceService {
-	rpc DescribeInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RunInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc TerminateInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StartInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StopInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RestartInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResetInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResizeInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyInstanceAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeInstances(DescribeInstancesInput) returns (DescribeInstancesOutput);
+	rpc RunInstances(RunInstancesInput) returns (RunInstancesOutput);
+	rpc TerminateInstances(TerminateInstancesInput) returns (TerminateInstancesOutput);
+	rpc StartInstances(StartInstancesInput) returns (StartInstancesOutput);
+	rpc StopInstances(StopInstancesInput) returns (StopInstancesOutput);
+	rpc RestartInstances(RestartInstancesInput) returns (RestartInstancesOutput);
+	rpc ResetInstances(ResetInstancesInput) returns (ResetInstancesOutput);
+	rpc ResizeInstances(ResizeInstancesInput) returns (ResizeInstancesOutput);
+	rpc ModifyInstanceAttributes(ModifyInstanceAttributesInput) returns (ModifyInstanceAttributesOutput);
 	rpc DescribeInstanceTypes(DescribeInstanceTypesInput) returns (DescribeInstanceTypesOutput);
-	rpc CreateBrokers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteBrokers(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateBrokers(CreateBrokersInput) returns (CreateBrokersOutput);
+	rpc DeleteBrokers(DeleteBrokersInput) returns (DeleteBrokersOutput);
 }
+
+message DescribeInstancesInput {
+	repeated string image_id = 1;
+	int32 instance_class = 2;
+	repeated string instance_type = 3;
+	repeated string instances = 4;
+	int32 is_cluster_node = 5;
+	int32 limit = 6;
+	int32 offset = 7;
+	string search_word = 8;
+	repeated string status = 9;
+	repeated string tags = 10;
+	int32 verbose = 11;
+}
+message DescribeInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	repeated Instance instance_set = 4;
+	int32 total_count = 5;
+}
+
+message RunInstancesInput {
+	string billing_id = 1;
+	int32 count = 2;
+	int32 cpu = 3;
+	string hostname = 4;
+	string image_id = 5;
+	int32 instance_class = 6;
+	string instance_name = 7;
+	string instance_type = 8;
+	string login_keypair = 9;
+	string login_mode = 10;
+	string login_passwd = 11;
+	int32 memory = 12;
+	int32 need_newsid = 13;
+	int32 need_userdata = 14;
+	string security_group = 15;
+	string ui_type = 16;
+	string userdata_file = 17;
+	string userdata_path = 18;
+	string userdata_type = 19;
+	string userdata_value = 20;
+	repeated string volumes = 21;
+	repeated string vxnets = 22;
+}
+
+message RunInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	repeated string instances = 4;
+	string job_id = 5;
+}
+
+message TerminateInstancesInput {
+	repeated string instances = 1;
+}
+message TerminateInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	string job_id = 4;
+}
+
+message StartInstancesInput {
+	repeated string instances = 1;
+}
+message StartInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	string job_id = 4;
+}
+
+message StopInstancesInput {
+	int32 force = 1;
+	repeated string instances = 2;
+}
+message StopInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	string job_id = 4;
+}
+
+message RestartInstancesInput {
+	repeated string instances = 1;
+}
+
+message RestartInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	string job_id = 4;
+}
+
+message ResetInstancesInput {}
+message ResetInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ResizeInstancesInput {}
+message ResizeInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyInstanceAttributesInput {}
+message ModifyInstanceAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
 
 // ----------------------------------------------------------------------------
 //
@@ -87,6 +216,21 @@ message DescribeInstanceTypesOutput {
 		int32 memory_current = 5;      // 主机类型内存大小, 单位为MB
 		string status = 6;             // 主机类型状态. enum: {available, deprecated}
 	}
+}
+
+message CreateBrokersInput {}
+message CreateBrokersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteBrokersInput {}
+message DeleteBrokersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
 }
 
 // ----------------------------------------------------------------------------

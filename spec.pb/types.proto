@@ -262,7 +262,58 @@ message MongoNode {
 	string vxnet_id = 6;
 }
 
+message LoadBalancer {
+	repeated EIP cluster = 1;
+	google.protobuf.Timestamp create_time = 2;
+	string description = 3;
+	int32 is_applied = 4;
+	repeated LoadBalancerListener listeners = 5;
+	string loadbalancer_id = 6;
+	string loadbalancer_name = 7;
+	int32 loadbalancer_type = 8;
+	repeated string private_ips = 9;
+	string security_group_id = 10;
+	string status = 11;
+	google.protobuf.Timestamp status_time = 12;
+	repeated Tag tags = 13;
+	string transition_status = 14;
+	string vxnet_id = 15;
+}
+
+message LoadBalancerListener {
+	string backend_protocol = 1;
+	repeated LoadBalancerBackend backends = 2;
+	string balance_mode = 3;
+	google.protobuf.Timestamp create_time = 4;
+	int32 forwardfor = 5;
+	string healthy_check_method = 6;
+	string healthy_check_option = 7;
+	int32 listener_option = 8;
+	int32 listener_port = 9;
+	string listener_protocol = 10;
+	string loadbalancer_id = 11;
+	string loadbalancer_listener_id = 12;
+	string loadbalancer_listener_name = 13;
+	string server_certificate_id = 14;
+	string session_sticky = 15;
+}
+
+message LoadBalancerBackend {
+	google.protobuf.Timestamp create_time = 1;
+	string loadbalancer_backend_id = 2;
+	string loadbalancer_backend_name = 3;
+	string loadbalancer_id = 4;
+	string loadbalancer_listener_id = 5;
+	string loadbalancer_policy_id = 6;
+	int32 port = 7;
+	string resource_id = 8;
+	string status = 9;
+	int32 weight = 10;
+}
+
 /*
+
+
 
 */
 
@@ -414,61 +465,6 @@ type InstanceType struct {
 	ZoneID       *string `json:"zone_id" name:"zone_id"`
 }
 
-
-
-type LoadBalancer struct {
-	Cluster     []*EIP     `json:"cluster" name:"cluster"`
-	CreateTime  *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description *string    `json:"description" name:"description"`
-	// IsApplied's available values: 0, 1
-	IsApplied        *int                    `json:"is_applied" name:"is_applied"`
-	Listeners        []*LoadBalancerListener `json:"listeners" name:"listeners"`
-	LoadBalancerID   *string                 `json:"loadbalancer_id" name:"loadbalancer_id"`
-	LoadBalancerName *string                 `json:"loadbalancer_name" name:"loadbalancer_name"`
-	// LoadBalancerType's available values: 0, 1, 2, 3, 4, 5
-	LoadBalancerType *int      `json:"loadbalancer_type" name:"loadbalancer_type"`
-	PrivateIPs       []*string `json:"private_ips" name:"private_ips"`
-	SecurityGroupID  *string   `json:"security_group_id" name:"security_group_id"`
-	// Status's available values: pending, active, stopped, suspended, deleted, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, starting, stopping, updating, suspending, resuming, deleting
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	VxNetID          *string `json:"vxnet_id" name:"vxnet_id"`
-}
-
-type LoadBalancerBackend struct {
-	CreateTime              *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	LoadBalancerBackendID   *string    `json:"loadbalancer_backend_id" name:"loadbalancer_backend_id"`
-	LoadBalancerBackendName *string    `json:"loadbalancer_backend_name" name:"loadbalancer_backend_name"`
-	LoadBalancerID          *string    `json:"loadbalancer_id" name:"loadbalancer_id"`
-	LoadBalancerListenerID  *string    `json:"loadbalancer_listener_id" name:"loadbalancer_listener_id"`
-	LoadBalancerPolicyID    *string    `json:"loadbalancer_policy_id" name:"loadbalancer_policy_id"`
-	Port                    *int       `json:"port" name:"port"`
-	ResourceID              *string    `json:"resource_id" name:"resource_id"`
-	Status                  *string    `json:"status" name:"status"`
-	Weight                  *int       `json:"weight" name:"weight"`
-}
-
-type LoadBalancerListener struct {
-	BackendProtocol *string                `json:"backend_protocol" name:"backend_protocol"`
-	Backends        []*LoadBalancerBackend `json:"backends" name:"backends"`
-	// BalanceMode's available values: roundrobin, leastconn, source
-	BalanceMode              *string    `json:"balance_mode" name:"balance_mode"`
-	CreateTime               *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Forwardfor               *int       `json:"forwardfor" name:"forwardfor"`
-	HealthyCheckMethod       *string    `json:"healthy_check_method" name:"healthy_check_method"`
-	HealthyCheckOption       *string    `json:"healthy_check_option" name:"healthy_check_option" default:"10|5|2|5"`
-	ListenerOption           *int       `json:"listener_option" name:"listener_option"`
-	ListenerPort             *int       `json:"listener_port" name:"listener_port"`
-	ListenerProtocol         *string    `json:"listener_protocol" name:"listener_protocol"`
-	LoadBalancerID           *string    `json:"loadbalancer_id" name:"loadbalancer_id"`
-	LoadBalancerListenerID   *string    `json:"loadbalancer_listener_id" name:"loadbalancer_listener_id"`
-	LoadBalancerListenerName *string    `json:"loadbalancer_listener_name" name:"loadbalancer_listener_name"`
-	ServerCertificateID      *string    `json:"server_certificate_id" name:"server_certificate_id"`
-	SessionSticky            *string    `json:"session_sticky" name:"session_sticky"`
-}
 
 type LoadBalancerPolicy struct {
 	CreateTime *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
