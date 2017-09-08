@@ -81,6 +81,8 @@ func LoadUserConfig() (*Config, error) {
 	return LoadConfigFromFilepath(GetUserConfigFilePath())
 }
 
+// MustLoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
+// It panic if failed.
 func MustLoadUserConfig() *Config {
 	c, err := LoadUserConfig()
 	if err != nil {

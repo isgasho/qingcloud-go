@@ -20,16 +20,6 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// YAMLEncode encode given interface to yaml byte slice.
-func yamlEncode(source interface{}) ([]byte, error) {
-	bytesResult, err := yaml.Marshal(source)
-	if err != nil {
-		return []byte{}, err
-	}
-
-	return bytesResult, nil
-}
-
 // YAMLDecode decode given yaml byte slice to corresponding struct.
 func yamlDecode(content []byte, destinations ...interface{}) (interface{}, error) {
 	var destination interface{}

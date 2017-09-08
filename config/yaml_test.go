@@ -61,15 +61,3 @@ func TestYAMLDecode_Empty(t *testing.T) {
 	AssertNil(t, err)
 	AssertNil(t, anyData)
 }
-
-func TestYAMLEncode(t *testing.T) {
-	type SampleYAML struct {
-		Name        string `yaml:"name"`
-		Description string `yaml:"description"`
-	}
-	sample := SampleYAML{Name: "NaMe", Description: "DeScRiPtIoN"}
-
-	yamlBytes, err := yamlEncode(sample)
-	AssertNil(t, err)
-	AssertEqual(t, "name: NaMe\ndescription: DeScRiPtIoN\n", string(yamlBytes))
-}
