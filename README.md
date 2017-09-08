@@ -95,3 +95,325 @@ service UserDataService {
 - [github.com/golang/protobuf](https://github.com/golang/protobuf)
 
 其中 glog 是全局的日志包, SDK 不能放到 vendor 目录(可能导致多个glog冲突).
+
+-------
+
+## API 状态
+
+如下是请求的 API 列表，目前的状态：
+
+### 主机
+
+- [ ] DescribeInstances
+- [ ] RunInstances
+- [ ] TerminateInstances
+- [ ] StartInstances
+- [ ] StopInstances
+- [ ] RestartInstances
+- [ ] ResetInstances
+- [ ] ResizeInstances
+- [ ] ModifyInstanceAttributes
+
+### 硬盘
+
+- [ ] DescribeVolumes
+- [ ] CreateVolumes
+- [ ] DeleteVolumes
+- [ ] AttachVolumes
+- [ ] DetachVolumes
+- [ ] ResizeVolumes
+- [ ] ModifyVolumeAttributes
+
+### 私有网络
+
+- [ ] DescribeVxnets
+- [ ] CreateVxnets
+- [ ] DeleteVxnets
+- [ ] JoinVxnet
+- [ ] LeaveVxnet
+- [ ] ModifyVxnetAttributes
+- [ ] DescribeVxnetInstances
+
+### 路由器
+
+- [ ] DescribeRouters
+- [ ] CreateRouters
+- [ ] DeleteRouters
+- [ ] UpdateRouters
+- [ ] PowerOffRouters
+- [ ] PowerOnRouters
+- [ ] JoinRouter
+- [ ] LeaveRouter
+- [ ] ModifyRouterAttributes
+- [ ] DescribeRouterStatics
+- [ ] AddRouterStatics
+- [ ] ModifyRouterStaticAttributes
+- [ ] DeleteRouterStatics
+- [ ] DescribeRouterVxnets
+- [ ] AddRouterStaticEntries
+- [ ] DeleteRouterStaticEntries
+- [ ] ModifyRouterStaticEntryAttributes
+- [ ] DescribeRouterStaticEntries
+
+### 公网IP
+
+- [ ] DescribeEips
+- [ ] AllocateEips
+- [ ] ReleaseEips
+- [ ] AssociateEip
+- [ ] DissociateEips
+- [ ] ChangeEipsBandwidth
+- [ ] ChangeEipsBillingMode
+- [ ] ModifyEipAttributes
+
+### 防火墙
+
+- [ ] DescribeSecurityGroups
+- [ ] CreateSecurityGroup
+- [ ] DeleteSecurityGroups
+- [ ] ApplySecurityGroup
+- [ ] ModifySecurityGroupAttributes
+- [ ] DescribeSecurityGroupRules
+- [ ] AddSecurityGroupRules
+- [ ] DeleteSecurityGroupRules
+- [ ] ModifySecurityGroupRuleAttributes
+- [ ] CreateSecurityGroupSnapshot
+- [ ] DescribeSecurityGroupSnapshots
+- [ ] DeleteSecurityGroupSnapshots
+- [ ] RollbackSecurityGroup
+
+### SSH 密钥
+
+- [ ] DescribeKeyPairs
+- [ ] CreateKeyPair
+- [ ] DeleteKeyPairs
+- [ ] AttachKeyPairs
+- [ ] DetachKeyPairs
+- [ ] ModifyKeyPairAttributes
+
+### 映像
+
+- [ ] DescribeImages
+- [ ] CaptureInstance
+- [ ] DeleteImages
+- [ ] ModifyImageAttributes
+- [ ] GrantImageToUsers
+- [ ] RevokeImageFromUsers
+- [ ] DescribeImageUsers
+
+### 负载均衡
+
+- [ ] CreateLoadBalancer
+- [ ] DescribeLoadBalancers
+- [ ] DeleteLoadBalancers
+- [ ] ModifyLoadBalancerAttributes
+- [ ] StartLoadBalancers
+- [ ] StopLoadBalancers
+- [ ] UpdateLoadBalancers
+- [ ] ResizeLoadBalancers
+- [ ] AssociateEipsToLoadBalancer
+- [ ] DissociateEipsFromLoadBalancer
+- [ ] AddLoadBalancerListeners
+- [ ] DescribeLoadBalancerListeners
+- [ ] DeleteLoadBalancerListeners
+- [ ] ModifyLoadBalancerListenerAttributes
+- [ ] AddLoadBalancerBackends
+- [ ] DescribeLoadBalancerBackends
+- [ ] DeleteLoadBalancerBackends
+- [ ] ModifyLoadBalancerBackendAttributes
+- [ ] CreateLoadBalancerPolicy
+- [ ] DescribeLoadBalancerPolicies
+- [ ] ModifyLoadBalancerPolicyAttributes
+- [ ] ApplyLoadBalancerPolicy
+- [ ] DeleteLoadBalancerPolicies
+- [ ] AddLoadBalancerPolicyRules
+- [ ] DescribeLoadBalancerPolicyRules
+- [ ] ModifyLoadBalancerPolicyRuleAttributes
+- [ ] DeleteLoadBalancerPolicyRules
+- [ ] CreateServerCertificate
+- [ ] DescribeServerCertificates
+- [ ] ModifyServerCertificateAttributes
+- [ ] DeleteServerCertificates
+
+### 资源监控
+
+- [ ] GetMonitor
+- [ ] GetLoadBalancerMonitor
+- [ ] GetRDBMonitor
+- [ ] GetCacheMonitor
+- [ ] GetZooKeeperMonitor
+- [ ] GetQueueMonitor
+
+### 备份
+
+- [ ] DescribeSnapshots
+- [ ] CreateSnapshots
+- [ ] DeleteSnapshots
+- [ ] ApplySnapshots
+- [ ] ModifySnapshotAttributes
+- [ ] CaptureInstanceFromSnapshot
+- [ ] CreateVolumeFromSnapshot
+
+### User Data
+
+- [ ] UploadUserDataAttachment
+
+### 内网域名别名
+
+- [ ] DescribeDNSAliases
+- [ ] AssociateDNSAlias
+- [ ] DissociateDNSAliases
+- [ ] GetDNSLabel
+
+### 操作日志
+
+- [ ] DescribeJobs
+
+### 标签
+
+- [ ] DescribeTags
+- [ ] CreateTag
+- [ ] DeleteTags
+- [ ] ModifyTagAttributes
+- [ ] AttachTags
+- [ ] DetachTags
+
+### 区域
+
+- [ ] DescribeZones
+
+### 数据库
+
+- [ ] CreateRDB
+- [ ] DescribeRDBs
+- [ ] DeleteRDBs
+- [ ] StartRDBs
+- [ ] StopRDBs
+- [ ] ResizeRDBs
+- [ ] RDBsLeaveVxnet
+- [ ] RDBsJoinVxnet
+- [ ] CreateRDBFromSnapshot
+- [ ] CreateTempRDBInstanceFromSnapshot
+- [ ] GetRDBInstanceFiles
+- [ ] CopyRDBInstanceFilesToFTP
+- [ ] CeaseRDBInstance
+- [ ] CreateTempRDBInstanceFromSnapshot
+- [ ] GetRDBMonitor
+- [ ] ModifyRDBParameters
+- [ ] ApplyRDBParameterGroup
+- [ ] DescribeRDBParameters
+
+### Mongo 集群
+
+- [ ] DescribeMongoNodes
+- [ ] DescribeMongoParameters
+- [ ] ResizeMongos
+- [ ] CreateMongo
+- [ ] StopMongos
+- [ ] StartMongos
+- [ ] DescribeMongos
+- [ ] DeleteMongos
+- [ ] CreateMongoFromSnapshot
+- [ ] ChangeMongoVxnet
+- [ ] AddMongoInstances
+- [ ] RemoveMongoInstances
+- [ ] ModifyMongoAttributes
+- [ ] ModifyMongoInstances
+- [ ] GetMongoMonitor
+
+### 缓存服务
+
+- [ ] DescribeCaches
+- [ ] CreateCache
+- [ ] StopCaches
+- [ ] StartCaches
+- [ ] RestartCaches
+- [ ] DeleteCaches
+- [ ] ResizeCaches
+- [ ] UpdateCache
+- [ ] ChangeCacheVxnet
+- [ ] ModifyCacheAttributes
+- [ ] DescribeCacheNodes
+- [ ] AddCacheNodes
+- [ ] DeleteCacheNodes
+- [ ] RestartCacheNodes
+- [ ] ModifyCacheNodeAttributes
+- [ ] CreateCacheFromSnapshot
+- [ ] DescribeCacheParameterGroups
+- [ ] CreateCacheParameterGroup
+- [ ] ApplyCacheParameterGroup
+- [ ] DeleteCacheParameterGroups
+- [ ] ModifyCacheParameterGroupAttributes
+- [ ] DescribeCacheParameters
+- [ ] UpdateCacheParameters
+- [ ] ResetCacheParameters
+
+### Virtual SAN
+
+- [ ] CreateS2Server
+- [ ] DescribeS2Servers
+- [ ] ModifyS2Server
+- [ ] ResizeS2Servers
+- [ ] DeleteS2Servers
+- [ ] PowerOnS2Servers
+- [ ] PowerOffS2Servers
+- [ ] UpdateS2Servers
+- [ ] ChangeS2ServerVxnet
+- [ ] CreateS2SharedTarget
+- [ ] DescribeS2SharedTargets
+- [ ] DeleteS2SharedTargets
+- [ ] EnableS2SharedTargets
+- [ ] DisableS2SharedTargets
+- [ ] ModifyS2SharedTargets
+- [ ] AttachToS2SharedTarget
+- [ ] DetachFromS2SharedTarget
+- [ ] DescribeS2DefaultParameters
+
+### Spark
+
+- [ ] AddSparkNodes
+- [ ] DeleteSparkNodes
+- [ ] StartSparks
+- [ ] StopSparks
+
+### Hadoop 服务
+
+- [ ] AddHadoopNodes
+- [ ] DeleteHadoopNodes
+- [ ] StartHadoops
+- [ ] StopHadoops
+
+### 资源协作中心
+
+- [ ] DescribeSharedResourceGroups
+- [ ] DescribeResourceGroups
+- [ ] CreateResourceGroups
+- [ ] ModifyResourceGroupAttributes
+- [ ] DeleteResourceGroups
+- [ ] DescribeResourceGroupItems
+- [ ] AddResourceGroupItems
+- [ ] DeleteResourceGroupItems
+- [ ] DescribeUserGroups
+- [ ] CreateUserGroups
+- [ ] ModifyUserGroupAttributes
+- [ ] DeleteUserGroups
+- [ ] DescribeUserGroupMembers
+- [ ] AddUserGroupMembers
+- [ ] ModifyUserGroupMemberAttributes
+- [ ] DeleteUserGroupMembers
+- [ ] DescribeGroupRoles
+- [ ] CreateGroupRoles
+- [ ] ModifyGroupRoleAttributes
+- [ ] DeleteGroupRoles
+- [ ] DescribeGroupRoleRules
+- [ ] AddGroupRoleRules
+- [ ] ModifyGroupRoleRuleAttributes
+- [ ] DeleteGroupRoleRules
+- [ ] GrantResourceGroupsToUserGroups
+- [ ] RevokeResourceGroupsFromUserGroups
+- [ ] DescribeResourceUserGroups
+
+### 消息中心
+
+- [ ] DescribeNotificationCenterUserPosts
+
