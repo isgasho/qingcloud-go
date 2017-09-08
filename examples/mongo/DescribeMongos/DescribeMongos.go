@@ -12,7 +12,6 @@ import (
 	"log"
 
 	"github.com/chai2010/qingcloud-go/config"
-	"github.com/chai2010/qingcloud-go/logger"
 	pb "github.com/chai2010/qingcloud-go/service"
 )
 
@@ -23,9 +22,12 @@ func main() {
 	conf.JSONDisableUnknownFields = false
 	conf.LogLevel = "debug" // debug/warn
 
-	logger.SetLevel(conf.LogLevel)
+	qcService, err := pb.Init(conf)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	mgoService, err := pb.NewMongoService(conf, "pek3a")
+	mgoService, err := qcService.Mongo("pek3a")
 	if err != nil {
 		log.Fatal(err)
 	}

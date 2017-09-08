@@ -18,20 +18,16 @@
 package service
 
 import (
-	"github.com/yunify/qingcloud-sdk-go/config"
-	"github.com/yunify/qingcloud-sdk-go/logger"
-	"github.com/yunify/qingcloud-sdk-go/request"
-	"github.com/yunify/qingcloud-sdk-go/request/data"
+	"github.com/chai2010/qingcloud-go/config"
+	"github.com/chai2010/qingcloud-go/logger"
+	"github.com/chai2010/qingcloud-go/request"
+	"github.com/chai2010/qingcloud-go/request/data"
 )
 
 // QingCloudService: QingCloud provides a platform which can make the delivery of computing resources more simple, efficient and reliable, even more environmental.
 type QingCloudService struct {
 	Config     *config.Config
 	Properties *QingCloudServiceProperties
-}
-
-type QingCloudServiceProperties struct {
-	//
 }
 
 func Init(c *config.Config) (*QingCloudService, error) {
