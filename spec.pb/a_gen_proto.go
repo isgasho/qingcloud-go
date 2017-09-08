@@ -5,8 +5,6 @@
 // https://github.com/google/protobuf/releases
 // go install github.com/chai2010/qingcloud-go/protoc-gen-go
 
-// +build !windows
-
 //go:generate make
 
 package spec
