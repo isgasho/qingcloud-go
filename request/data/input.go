@@ -16,7 +16,12 @@
 
 package data
 
+import (
+	"github.com/golang/protobuf/proto"
+)
+
 // Input defines the interfaces that input should implement.
 type Input interface {
+	proto.Message
 	Validation
 }
