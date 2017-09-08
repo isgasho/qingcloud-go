@@ -162,8 +162,6 @@ It has these top-level messages:
 	AttachTagsOutput
 	DetachTagsInput
 	DetachTagsOutput
-	QingCloudSDKRule
-	QingCloudSDKRule_Example
 	Tag
 	EIP
 	Job

@@ -6,8 +6,7 @@ syntax = "proto3";
 
 package spec;
 
-import "google/api/annotations.proto";
-import "types.proto";
+import "qingcloud_sdk_rule/rule.proto";
 
 // https://docs.qingcloud.com/api/userdata/index.html
 
@@ -17,8 +16,8 @@ message UserDataServiceProperties {
 
 service UserDataService {
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
-		option (google.api.http) = {
-			custom { kind: "POST" }
+		option (qingcloud.sdk.rule.method_rule) = {
+			http_action: "POST"
 		};
 	}
 }
@@ -27,7 +26,7 @@ message UploadUserDataAttachmentInput {
 	bytes attachment_content = 2;
 	string attachment_name = 1;
 
-	option (qingcloud_sdk_rule) = {
+	option (qingcloud.sdk.rule.method_input_rule) = {
 		required_fileds: "attachment_content"
 		default_value: ""
 		enum_value: ""

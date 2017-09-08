@@ -9,29 +9,6 @@ package spec;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/descriptor.proto";
 
-// 可用于 QingCloudSDK 检查合法性
-message QingCloudSDKRule {
-	string required_fileds = 1; // 格式: "a, b, ..."
-	string default_value = 2;   // 格式: "a:v, b:v, ..."
-	string enum_value = 3;      // 格式: "a:a1,a2,a3; b:b1,b2; ..."
-}
-
-// 通过扩展信息给 message 增加约束
-extend google.protobuf.MessageOptions {
-	QingCloudSDKRule qingcloud_sdk_rule = 10000;
-}
-
-message QingCloudSDKRule_Example {
-	string zone = 1;
-	int32 limit = 2;
-
-	option (qingcloud_sdk_rule) = {
-		required_fileds: "zone, ..."
-		default_value: "limit:0, ..."
-		enum_value: "zone:pek3a,gd1; ..."
-	};
-}
-
 message Tag {
 	string color = 1;
 	google.protobuf.Timestamp create_time = 2;
