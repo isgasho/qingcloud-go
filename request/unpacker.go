@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/chai2010/qingcloud-go/errors"
 	"github.com/chai2010/qingcloud-go/request/data"
+	"github.com/chai2010/qingcloud-go/request/errors"
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
