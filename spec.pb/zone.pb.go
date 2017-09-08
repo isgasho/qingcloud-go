@@ -25,7 +25,7 @@ type ZoneServiceProperties struct {
 func (m *ZoneServiceProperties) Reset()                    { *m = ZoneServiceProperties{} }
 func (m *ZoneServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ZoneServiceProperties) ProtoMessage()               {}
-func (*ZoneServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
+func (*ZoneServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{0} }
 
 func (m *ZoneServiceProperties) GetZone() string {
 	if m != nil {
@@ -42,7 +42,7 @@ type DescribeZonesInput struct {
 func (m *DescribeZonesInput) Reset()                    { *m = DescribeZonesInput{} }
 func (m *DescribeZonesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeZonesInput) ProtoMessage()               {}
-func (*DescribeZonesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{1} }
+func (*DescribeZonesInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{1} }
 
 func (m *DescribeZonesInput) GetZones() []string {
 	if m != nil {
@@ -69,7 +69,7 @@ type DescribeZonesOutput struct {
 func (m *DescribeZonesOutput) Reset()                    { *m = DescribeZonesOutput{} }
 func (m *DescribeZonesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeZonesOutput) ProtoMessage()               {}
-func (*DescribeZonesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{2} }
+func (*DescribeZonesOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{2} }
 
 func (m *DescribeZonesOutput) GetAction() string {
 	if m != nil {
@@ -115,7 +115,7 @@ func (m *DescribeZonesOutput_ZoneSetElem) Reset()         { *m = DescribeZonesOu
 func (m *DescribeZonesOutput_ZoneSetElem) String() string { return proto.CompactTextString(m) }
 func (*DescribeZonesOutput_ZoneSetElem) ProtoMessage()    {}
 func (*DescribeZonesOutput_ZoneSetElem) Descriptor() ([]byte, []int) {
-	return fileDescriptor29, []int{2, 0}
+	return fileDescriptor30, []int{2, 0}
 }
 
 func (m *DescribeZonesOutput_ZoneSetElem) GetZoneId() string {
@@ -180,9 +180,9 @@ func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesO
 	return x, err
 }
 
-func init() { proto.RegisterFile("zone.proto", fileDescriptor29) }
+func init() { proto.RegisterFile("zone.proto", fileDescriptor30) }
 
-var fileDescriptor29 = []byte{
+var fileDescriptor30 = []byte{
 	// 300 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x91, 0xbf, 0x6b, 0xfb, 0x30,
 	0x10, 0xc5, 0x71, 0x7e, 0xe7, 0xcc, 0x77, 0xb9, 0x6f, 0x9b, 0x2a, 0x59, 0x6a, 0x0c, 0x05, 0x43,

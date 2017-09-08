@@ -26,7 +26,7 @@ type UserDataServiceProperties struct {
 func (m *UserDataServiceProperties) Reset()                    { *m = UserDataServiceProperties{} }
 func (m *UserDataServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*UserDataServiceProperties) ProtoMessage()               {}
-func (*UserDataServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0} }
+func (*UserDataServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0} }
 
 func (m *UserDataServiceProperties) GetZone() string {
 	if m != nil {
@@ -43,7 +43,7 @@ type UploadUserDataAttachmentInput struct {
 func (m *UploadUserDataAttachmentInput) Reset()                    { *m = UploadUserDataAttachmentInput{} }
 func (m *UploadUserDataAttachmentInput) String() string            { return proto.CompactTextString(m) }
 func (*UploadUserDataAttachmentInput) ProtoMessage()               {}
-func (*UploadUserDataAttachmentInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1} }
+func (*UploadUserDataAttachmentInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1} }
 
 func (m *UploadUserDataAttachmentInput) GetAttachmentContent() []byte {
 	if m != nil {
@@ -69,7 +69,7 @@ type UploadUserDataAttachmentOutput struct {
 func (m *UploadUserDataAttachmentOutput) Reset()                    { *m = UploadUserDataAttachmentOutput{} }
 func (m *UploadUserDataAttachmentOutput) String() string            { return proto.CompactTextString(m) }
 func (*UploadUserDataAttachmentOutput) ProtoMessage()               {}
-func (*UploadUserDataAttachmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{2} }
+func (*UploadUserDataAttachmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{2} }
 
 func (m *UploadUserDataAttachmentOutput) GetAction() string {
 	if m != nil {
@@ -146,9 +146,9 @@ func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentI
 	return x, err
 }
 
-func init() { proto.RegisterFile("user_data.proto", fileDescriptor26) }
+func init() { proto.RegisterFile("user_data.proto", fileDescriptor27) }
 
-var fileDescriptor26 = []byte{
+var fileDescriptor27 = []byte{
 	// 312 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x51, 0x41, 0x4f, 0xf2, 0x40,
 	0x10, 0x4d, 0xf9, 0xfa, 0x01, 0x4e, 0x10, 0xe2, 0x1e, 0x4c, 0x21, 0x6a, 0x48, 0x31, 0x91, 0x8b,

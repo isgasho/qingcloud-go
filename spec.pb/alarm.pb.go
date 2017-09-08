@@ -31,6 +31,7 @@ It is generated from these files:
 	spark.proto
 	subuser.proto
 	tag.proto
+	types.proto
 	user_data.proto
 	volume.proto
 	vxnet.proto
