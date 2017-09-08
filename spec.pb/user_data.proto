@@ -4,7 +4,7 @@
 
 syntax = "proto3";
 
-package spec;
+package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
