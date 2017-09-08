@@ -17,8 +17,19 @@ service ZoneService {
 }
 
 message DescribeZonesInput {
-	//
+	repeated string zones = 1;
+	repeated string status = 2;
 }
 message DescribeZonesOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	repeated ZoneSetElem zone_set = 4;
+	int32 total_count = 5;
+
+	message ZoneSetElem {
+		string zone_id = 1;
+		string status = 2;
+	}
 }

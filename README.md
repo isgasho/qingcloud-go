@@ -280,7 +280,7 @@ service UserDataService {
 
 ### 区域
 
-- [ ] DescribeZones
+- [x] [DescribeZones](spec.pb/zone.proto)
 
 ### 数据库
 
