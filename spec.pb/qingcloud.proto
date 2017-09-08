@@ -1,0 +1,16 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto3";
+
+package service;
+
+message QingCloudServiceProperties {
+	//
+}
+
+// 暂时手工处理, 稍后转为 proto 自动生成
+
+// 1. 基于 ServiceOptions 增加扩展信息, 标明是主服务
+// 2. 子服务, 隶属于哪个主服务

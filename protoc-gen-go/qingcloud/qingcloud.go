@@ -149,11 +149,19 @@ type {{.ServiceName}} struct {
 	Properties *{{.ServiceName}}Properties
 }
 
-func New{{.ServiceName}}(conf *config.Config, zone string) (p *{{.ServiceName}}, err error) {
+func New{{.ServiceName}}(conf *config.Config, zone string) (p *{{.ServiceName}}) {
 	return &{{.ServiceName}}{
 		Config:     conf,
 		Properties: &{{.ServiceName}}Properties{Zone: zone},
-	}, nil
+	}
+}
+
+func (s *QingCloudService) {{.ServiceBaseName}}(zone string) (*{{.ServiceName}}, error) {
+	properties := &{{.ServiceName}}Properties{
+		Zone: zone,
+	}
+
+	return &{{.ServiceName}}{Config: s.Config, Properties: properties}, nil
 }
 
 {{.MethodList}}
@@ -205,15 +213,6 @@ func (p *{{.ArgsType}}) Validate() error {
 		if inputRule != nil {
 			//
 		}
-		if m.Options != nil && proto.HasExtension(m.Options, rule_pb.E_MethodRule) {
-			if ext, _ := proto.GetExtension(m.Options, rule_pb.E_MethodRule); ext != nil {
-				if extHttp, _ := ext.(*rule_pb.MethodRule); extHttp != nil {
-					if kind := extHttp.GetHttpAction(); kind != "" {
-						RequestMethod = kind
-					}
-				}
-			}
-		}
 
 		out := bytes.NewBuffer([]byte{})
 		t := template.Must(template.New("").Parse(clientMethodTmpl))
@@ -241,10 +240,16 @@ func (p *{{.ArgsType}}) Validate() error {
 	{
 		out := bytes.NewBuffer([]byte{})
 		t := template.Must(template.New("").Parse(clientHelperFuncTmpl))
-		t.Execute(out, &struct{ PackageName, ServiceName, MethodList string }{
-			PackageName: file.GetPackage(),
-			ServiceName: generator.CamelCase(svc.GetName()),
-			MethodList:  methodList,
+		t.Execute(out, &struct {
+			PackageName     string
+			ServiceName     string
+			ServiceBaseName string
+			MethodList      string
+		}{
+			PackageName:     file.GetPackage(),
+			ServiceName:     generator.CamelCase(svc.GetName()),
+			ServiceBaseName: strings.TrimSuffix(generator.CamelCase(svc.GetName()), "Service"),
+			MethodList:      methodList,
 		})
 		p.P(out.String())
 	}
