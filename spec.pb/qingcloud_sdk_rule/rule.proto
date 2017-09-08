@@ -1,0 +1,31 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto3";
+
+package qingcloud.sdk.rule;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule;qingcloud_sdk_rule";
+
+message MethodRule {
+	string http_action = 1;
+}
+
+message MethodInputRule {
+	string required_fileds = 1; // 格式: "a, b, ..."
+	string default_value = 2;   // 格式: "a:v, b:v, ..."
+	string enum_value = 3;      // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+}
+
+// 通过扩展信息给 method 增加约束
+extend google.protobuf.MethodOptions {
+	MethodRule method_rule = 10001;
+}
+
+// 通过扩展信息给 message 增加约束
+extend google.protobuf.MessageOptions {
+	MethodInputRule method_input_rule = 10002;
+}
