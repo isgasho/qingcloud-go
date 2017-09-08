@@ -14,6 +14,7 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
+// Package config contains a Config struct for QingCloud SDK.
 package config
 
 import (
