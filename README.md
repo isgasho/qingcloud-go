@@ -1,5 +1,5 @@
 
-<p align="center"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></p>
+<p align="center"><a href="http://qingcloud.com"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></a></p>
 
 # 青云 SDK Go Version
 
