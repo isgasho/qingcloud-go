@@ -113,7 +113,7 @@ service UserDataService {
 - [ ] ResetInstances
 - [ ] ResizeInstances
 - [ ] ModifyInstanceAttributes
-- [ ] [DescribeInstanceTypes](spec.pb/instances.proto)
+- [x] [DescribeInstanceTypes](spec.pb/instances.proto)
 - [ ] CreateBrokers
 - [ ] DeleteBrokers
 
@@ -126,6 +126,16 @@ service UserDataService {
 - [ ] DetachVolumes
 - [ ] ResizeVolumes
 - [ ] ModifyVolumeAttributes
+
+## 网卡
+
+- [ ] CreateNics
+- [x] [DescribeNics](spec.pb/nic.proto)
+- [ ] AttachNics
+- [ ] DetachNics
+- [ ] ModifyNicAttributes
+- [ ] DeleteNics
+
 
 ### 私有网络
 
