@@ -211,12 +211,14 @@ func (p *{{.ArgsType}}) Validate() error {
 	for _, m := range svc.Method {
 		var RequestMethod = "GET" // default is GET
 
-		methodRule, inputRule := p.getMethodExtension(m)
+		methodRule := p.getMethodExtension(m)
 		if methodRule != nil {
 			if kind := methodRule.GetHttpAction(); kind != "" {
 				RequestMethod = kind
 			}
 		}
+
+		inputRule := p.getMethodInputExtension(m)
 		if inputRule != nil {
 			//
 		}
@@ -262,6 +264,29 @@ func (p *{{.ArgsType}}) Validate() error {
 	}
 }
 
+func (p *qingcloudPlugin) genMethodInputValidate(m *descriptor.MethodDescriptorProto) string {
+	inputTypeName := p.TypeName(p.ObjectNamed(m.GetInputType()))
+	if strings.Contains(inputTypeName, ".") {
+		return ""
+	}
+
+	desc := p.ObjectNamed(m.GetInputType()).(*generator.Descriptor).DescriptorProto
+	rule := p.getMethodInputExtension(m)
+
+	for i, field := range desc.Field {
+		_ = field.Name
+		_ = field.Type
+
+		_ = i
+		_ = field
+	}
+
+	_ = desc
+	_ = rule
+
+	return ""
+}
+
 func (p *qingcloudPlugin) getServiceExtension(svc *descriptor.ServiceDescriptorProto) (svcRule *rule_pb.ServiceRule) {
 	if svc.Options != nil && proto.HasExtension(svc.Options, rule_pb.E_ServiceRule) {
 		if ext, _ := proto.GetExtension(svc.Options, rule_pb.E_ServiceRule); ext != nil {
@@ -273,23 +298,27 @@ func (p *qingcloudPlugin) getServiceExtension(svc *descriptor.ServiceDescriptorP
 	return
 }
 
-func (p *qingcloudPlugin) getMethodExtension(m *descriptor.MethodDescriptorProto) (method *rule_pb.MethodRule, input *rule_pb.MethodInputRule) {
+func (p *qingcloudPlugin) getMethodExtension(m *descriptor.MethodDescriptorProto) *rule_pb.MethodRule {
 	if m.Options != nil && proto.HasExtension(m.Options, rule_pb.E_MethodRule) {
 		if ext, _ := proto.GetExtension(m.Options, rule_pb.E_MethodRule); ext != nil {
 			if x, _ := ext.(*rule_pb.MethodRule); x != nil {
-				method = x
+				return x
 			}
 		}
 	}
-	inpDesc := p.ObjectNamed(m.GetInputType()).(*generator.Descriptor).DescriptorProto
-	if inpDesc.Options != nil && proto.HasExtension(inpDesc.Options, rule_pb.E_MethodInputRule) {
-		if ext, _ := proto.GetExtension(inpDesc.Options, rule_pb.E_MethodInputRule); ext != nil {
+	return nil
+}
+
+func (p *qingcloudPlugin) getMethodInputExtension(m *descriptor.MethodDescriptorProto) *rule_pb.MethodInputRule {
+	desc := p.ObjectNamed(m.GetInputType()).(*generator.Descriptor).DescriptorProto
+	if desc.Options != nil && proto.HasExtension(desc.Options, rule_pb.E_MethodInputRule) {
+		if ext, _ := proto.GetExtension(desc.Options, rule_pb.E_MethodInputRule); ext != nil {
 			if x, _ := ext.(*rule_pb.MethodInputRule); x != nil {
-				input = x
+				return x
 			}
 		}
 	}
-	return
+	return nil
 }
 
 func init() {
