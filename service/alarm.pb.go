@@ -426,6 +426,60 @@ It has these top-level messages:
 	DescribeRDBParametersInput
 	DescribeRDBParametersOutput
 	ResourceACLServiceProperties
+	DescribeSharedResourceGroupsInput
+	DescribeSharedResourceGroupsOutput
+	DescribeResourceGroupsInput
+	DescribeResourceGroupsOutput
+	CreateResourceGroupsInput
+	CreateResourceGroupsOutput
+	ModifyResourceGroupAttributesInput
+	ModifyResourceGroupAttributesOutput
+	DeleteResourceGroupsInput
+	DeleteResourceGroupsOutput
+	DescribeResourceGroupItemsInput
+	DescribeResourceGroupItemsOutput
+	AddResourceGroupItemsInput
+	AddResourceGroupItemsOutput
+	DeleteResourceGroupItemsInput
+	DeleteResourceGroupItemsOutput
+	DescribeUserGroupsInput
+	DescribeUserGroupsOutput
+	CreateUserGroupsInput
+	CreateUserGroupsOutput
+	ModifyUserGroupAttributesInput
+	ModifyUserGroupAttributesOutput
+	DeleteUserGroupsInput
+	DeleteUserGroupsOutput
+	DescribeUserGroupMembersInput
+	DescribeUserGroupMembersOutput
+	AddUserGroupMembersInput
+	AddUserGroupMembersOutput
+	ModifyUserGroupMemberAttributesInput
+	ModifyUserGroupMemberAttributesOutput
+	DeleteUserGroupMembersInput
+	DeleteUserGroupMembersOutput
+	DescribeGroupRolesInput
+	DescribeGroupRolesOutput
+	CreateGroupRolesInput
+	CreateGroupRolesOutput
+	ModifyGroupRoleAttributesInput
+	ModifyGroupRoleAttributesOutput
+	DeleteGroupRolesInput
+	DeleteGroupRolesOutput
+	DescribeGroupRoleRulesInput
+	DescribeGroupRoleRulesOutput
+	AddGroupRoleRulesInput
+	AddGroupRoleRulesOutput
+	ModifyGroupRoleRuleAttributesInput
+	ModifyGroupRoleRuleAttributesOutput
+	DeleteGroupRoleRulesInput
+	DeleteGroupRoleRulesOutput
+	GrantResourceGroupsToUserGroupsInput
+	GrantResourceGroupsToUserGroupsOutput
+	RevokeResourceGroupsFromUserGroupsInput
+	RevokeResourceGroupsFromUserGroupsOutput
+	DescribeResourceUserGroupsInput
+	DescribeResourceUserGroupsOutput
 	RouterServiceProperties
 	DescribeRoutersInput
 	DescribeRoutersOutput

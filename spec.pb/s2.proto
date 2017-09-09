@@ -51,46 +51,116 @@ service S2Service {
 }
 
 message CreateS2ServerInput {}
-message CreateS2ServerOutput {}
+message CreateS2ServerOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message DescribeS2ServersInput {}
-message DescribeS2ServersOutput {}
+message DescribeS2ServersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message ModifyS2ServerInput {}
-message ModifyS2ServerOutput {}
+message ModifyS2ServerOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message ResizeS2ServersInput {}
-message ResizeS2ServersOutput {}
+message ResizeS2ServersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message DeleteS2ServersInput {}
-message DeleteS2ServersOutput {}
+message DeleteS2ServersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message PowerOnS2ServersInput {}
-message PowerOnS2ServersOutput {}
+message PowerOnS2ServersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message PowerOffS2ServersInput {}
-message PowerOffS2ServersOutput {}
+message PowerOffS2ServersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message UpdateS2ServersInput {}
-message UpdateS2ServersOutput {}
+message UpdateS2ServersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message ChangeS2ServerVxnetInput {}
-message ChangeS2ServerVxnetOutput {}
+message ChangeS2ServerVxnetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message CreateS2SharedTargetInput {}
-message CreateS2SharedTargetOutput {}
+message CreateS2SharedTargetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message DescribeS2SharedTargetsInput {}
-message DescribeS2SharedTargetsOutput {}
+message DescribeS2SharedTargetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message DeleteS2SharedTargetsInput {}
-message DeleteS2SharedTargetsOutput {}
+message DeleteS2SharedTargetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message EnableS2SharedTargetsInput {}
-message EnableS2SharedTargetsOutput {}
+message EnableS2SharedTargetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message DisableS2SharedTargetsInput {}
-message DisableS2SharedTargetsOutput {}
+message DisableS2SharedTargetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
 
 message ModifyS2SharedTargetAttributesInput {}
 message ModifyS2SharedTargetAttributesOutput {

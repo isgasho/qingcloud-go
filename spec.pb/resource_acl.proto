@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/resource_acl/index.html
 
 message ResourceACLServiceProperties {
@@ -22,31 +20,248 @@ service ResourceACLService {
 		sub_service_name: "ResourceACL"
 	};
 
-	rpc DescribeSharedResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyResourceGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteResourceGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeResourceGroupItems(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddResourceGroupItems(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteResourceGroupItems(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyUserGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeUserGroupMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddUserGroupMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyUserGroupMemberAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteUserGroupMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeGroupRoles(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateGroupRoles(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyGroupRoleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteGroupRoles(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeGroupRoleRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddGroupRoleRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyGroupRoleRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteGroupRoleRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GrantResourceGroupsToUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RevokeResourceGroupsFromUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeResourceUserGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSharedResourceGroups(DescribeSharedResourceGroupsInput) returns (DescribeSharedResourceGroupsOutput);
+	rpc DescribeResourceGroups(DescribeResourceGroupsInput) returns (DescribeResourceGroupsOutput);
+	rpc CreateResourceGroups(CreateResourceGroupsInput) returns (CreateResourceGroupsOutput);
+	rpc ModifyResourceGroupAttributes(ModifyResourceGroupAttributesInput) returns (ModifyResourceGroupAttributesOutput);
+	rpc DeleteResourceGroups(DeleteResourceGroupsInput) returns (DeleteResourceGroupsOutput);
+	rpc DescribeResourceGroupItems(DescribeResourceGroupItemsInput) returns (DescribeResourceGroupItemsOutput);
+	rpc AddResourceGroupItems(AddResourceGroupItemsInput) returns (AddResourceGroupItemsOutput);
+	rpc DeleteResourceGroupItems(DeleteResourceGroupItemsInput) returns (DeleteResourceGroupItemsOutput);
+	rpc DescribeUserGroups(DescribeUserGroupsInput) returns (DescribeUserGroupsOutput);
+	rpc CreateUserGroups(CreateUserGroupsInput) returns (CreateUserGroupsOutput);
+	rpc ModifyUserGroupAttributes(ModifyUserGroupAttributesInput) returns (ModifyUserGroupAttributesOutput);
+	rpc DeleteUserGroups(DeleteUserGroupsInput) returns (DeleteUserGroupsOutput);
+	rpc DescribeUserGroupMembers(DescribeUserGroupMembersInput) returns (DescribeUserGroupMembersOutput);
+	rpc AddUserGroupMembers(AddUserGroupMembersInput) returns (AddUserGroupMembersOutput);
+	rpc ModifyUserGroupMemberAttributes(ModifyUserGroupMemberAttributesInput) returns (ModifyUserGroupMemberAttributesOutput);
+	rpc DeleteUserGroupMembers(DeleteUserGroupMembersInput) returns (DeleteUserGroupMembersOutput);
+	rpc DescribeGroupRoles(DescribeGroupRolesInput) returns (DescribeGroupRolesOutput);
+	rpc CreateGroupRoles(CreateGroupRolesInput) returns (CreateGroupRolesOutput);
+	rpc ModifyGroupRoleAttributes(ModifyGroupRoleAttributesInput) returns (ModifyGroupRoleAttributesOutput);
+	rpc DeleteGroupRoles(DeleteGroupRolesInput) returns (DeleteGroupRolesOutput);
+	rpc DescribeGroupRoleRules(DescribeGroupRoleRulesInput) returns (DescribeGroupRoleRulesOutput);
+	rpc AddGroupRoleRules(AddGroupRoleRulesInput) returns (AddGroupRoleRulesOutput);
+	rpc ModifyGroupRoleRuleAttributes(ModifyGroupRoleRuleAttributesInput) returns (ModifyGroupRoleRuleAttributesOutput);
+	rpc DeleteGroupRoleRules(DeleteGroupRoleRulesInput) returns (DeleteGroupRoleRulesOutput);
+	rpc GrantResourceGroupsToUserGroups(GrantResourceGroupsToUserGroupsInput) returns (GrantResourceGroupsToUserGroupsOutput);
+	rpc RevokeResourceGroupsFromUserGroups(RevokeResourceGroupsFromUserGroupsInput) returns (RevokeResourceGroupsFromUserGroupsOutput);
+	rpc DescribeResourceUserGroups(DescribeResourceUserGroupsInput) returns (DescribeResourceUserGroupsOutput);
 }
+
+message DescribeSharedResourceGroupsInput {}
+message DescribeSharedResourceGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeResourceGroupsInput {}
+message DescribeResourceGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateResourceGroupsInput {}
+message CreateResourceGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyResourceGroupAttributesInput {}
+message ModifyResourceGroupAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteResourceGroupsInput {}
+message DeleteResourceGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeResourceGroupItemsInput {}
+message DescribeResourceGroupItemsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddResourceGroupItemsInput {}
+message AddResourceGroupItemsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteResourceGroupItemsInput {}
+message DeleteResourceGroupItemsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeUserGroupsInput {}
+message DescribeUserGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateUserGroupsInput {}
+message CreateUserGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyUserGroupAttributesInput {}
+message ModifyUserGroupAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteUserGroupsInput {}
+message DeleteUserGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeUserGroupMembersInput {}
+message DescribeUserGroupMembersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddUserGroupMembersInput {}
+message AddUserGroupMembersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyUserGroupMemberAttributesInput {}
+message ModifyUserGroupMemberAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteUserGroupMembersInput {}
+message DeleteUserGroupMembersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeGroupRolesInput {}
+message DescribeGroupRolesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateGroupRolesInput {}
+message CreateGroupRolesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyGroupRoleAttributesInput {}
+message ModifyGroupRoleAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteGroupRolesInput {}
+message DeleteGroupRolesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeGroupRoleRulesInput {}
+message DescribeGroupRoleRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddGroupRoleRulesInput {}
+message AddGroupRoleRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyGroupRoleRuleAttributesInput {}
+message ModifyGroupRoleRuleAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteGroupRoleRulesInput {}
+message DeleteGroupRoleRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GrantResourceGroupsToUserGroupsInput {}
+message GrantResourceGroupsToUserGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RevokeResourceGroupsFromUserGroupsInput {}
+message RevokeResourceGroupsFromUserGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeResourceUserGroupsInput {}
+message DescribeResourceUserGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+

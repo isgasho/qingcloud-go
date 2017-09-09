@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,38 +37,1220 @@ func (m *ResourceACLServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeSharedResourceGroupsInput struct {
+}
+
+func (m *DescribeSharedResourceGroupsInput) Reset()         { *m = DescribeSharedResourceGroupsInput{} }
+func (m *DescribeSharedResourceGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSharedResourceGroupsInput) ProtoMessage()    {}
+func (*DescribeSharedResourceGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{1}
+}
+
+type DescribeSharedResourceGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeSharedResourceGroupsOutput) Reset()         { *m = DescribeSharedResourceGroupsOutput{} }
+func (m *DescribeSharedResourceGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSharedResourceGroupsOutput) ProtoMessage()    {}
+func (*DescribeSharedResourceGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{2}
+}
+
+func (m *DescribeSharedResourceGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeSharedResourceGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeSharedResourceGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeResourceGroupsInput struct {
+}
+
+func (m *DescribeResourceGroupsInput) Reset()                    { *m = DescribeResourceGroupsInput{} }
+func (m *DescribeResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeResourceGroupsInput) ProtoMessage()               {}
+func (*DescribeResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{3} }
+
+type DescribeResourceGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeResourceGroupsOutput) Reset()                    { *m = DescribeResourceGroupsOutput{} }
+func (m *DescribeResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeResourceGroupsOutput) ProtoMessage()               {}
+func (*DescribeResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{4} }
+
+func (m *DescribeResourceGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeResourceGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeResourceGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateResourceGroupsInput struct {
+}
+
+func (m *CreateResourceGroupsInput) Reset()                    { *m = CreateResourceGroupsInput{} }
+func (m *CreateResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateResourceGroupsInput) ProtoMessage()               {}
+func (*CreateResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{5} }
+
+type CreateResourceGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateResourceGroupsOutput) Reset()                    { *m = CreateResourceGroupsOutput{} }
+func (m *CreateResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateResourceGroupsOutput) ProtoMessage()               {}
+func (*CreateResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{6} }
+
+func (m *CreateResourceGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateResourceGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateResourceGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyResourceGroupAttributesInput struct {
+}
+
+func (m *ModifyResourceGroupAttributesInput) Reset()         { *m = ModifyResourceGroupAttributesInput{} }
+func (m *ModifyResourceGroupAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyResourceGroupAttributesInput) ProtoMessage()    {}
+func (*ModifyResourceGroupAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{7}
+}
+
+type ModifyResourceGroupAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyResourceGroupAttributesOutput) Reset()         { *m = ModifyResourceGroupAttributesOutput{} }
+func (m *ModifyResourceGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyResourceGroupAttributesOutput) ProtoMessage()    {}
+func (*ModifyResourceGroupAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{8}
+}
+
+func (m *ModifyResourceGroupAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyResourceGroupAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyResourceGroupAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteResourceGroupsInput struct {
+}
+
+func (m *DeleteResourceGroupsInput) Reset()                    { *m = DeleteResourceGroupsInput{} }
+func (m *DeleteResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteResourceGroupsInput) ProtoMessage()               {}
+func (*DeleteResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{9} }
+
+type DeleteResourceGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteResourceGroupsOutput) Reset()                    { *m = DeleteResourceGroupsOutput{} }
+func (m *DeleteResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteResourceGroupsOutput) ProtoMessage()               {}
+func (*DeleteResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{10} }
+
+func (m *DeleteResourceGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteResourceGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteResourceGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeResourceGroupItemsInput struct {
+}
+
+func (m *DescribeResourceGroupItemsInput) Reset()         { *m = DescribeResourceGroupItemsInput{} }
+func (m *DescribeResourceGroupItemsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeResourceGroupItemsInput) ProtoMessage()    {}
+func (*DescribeResourceGroupItemsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{11}
+}
+
+type DescribeResourceGroupItemsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeResourceGroupItemsOutput) Reset()         { *m = DescribeResourceGroupItemsOutput{} }
+func (m *DescribeResourceGroupItemsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeResourceGroupItemsOutput) ProtoMessage()    {}
+func (*DescribeResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{12}
+}
+
+func (m *DescribeResourceGroupItemsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeResourceGroupItemsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeResourceGroupItemsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddResourceGroupItemsInput struct {
+}
+
+func (m *AddResourceGroupItemsInput) Reset()                    { *m = AddResourceGroupItemsInput{} }
+func (m *AddResourceGroupItemsInput) String() string            { return proto.CompactTextString(m) }
+func (*AddResourceGroupItemsInput) ProtoMessage()               {}
+func (*AddResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{13} }
+
+type AddResourceGroupItemsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddResourceGroupItemsOutput) Reset()                    { *m = AddResourceGroupItemsOutput{} }
+func (m *AddResourceGroupItemsOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddResourceGroupItemsOutput) ProtoMessage()               {}
+func (*AddResourceGroupItemsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{14} }
+
+func (m *AddResourceGroupItemsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddResourceGroupItemsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddResourceGroupItemsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteResourceGroupItemsInput struct {
+}
+
+func (m *DeleteResourceGroupItemsInput) Reset()                    { *m = DeleteResourceGroupItemsInput{} }
+func (m *DeleteResourceGroupItemsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteResourceGroupItemsInput) ProtoMessage()               {}
+func (*DeleteResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{15} }
+
+type DeleteResourceGroupItemsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteResourceGroupItemsOutput) Reset()         { *m = DeleteResourceGroupItemsOutput{} }
+func (m *DeleteResourceGroupItemsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteResourceGroupItemsOutput) ProtoMessage()    {}
+func (*DeleteResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{16}
+}
+
+func (m *DeleteResourceGroupItemsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteResourceGroupItemsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteResourceGroupItemsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeUserGroupsInput struct {
+}
+
+func (m *DescribeUserGroupsInput) Reset()                    { *m = DescribeUserGroupsInput{} }
+func (m *DescribeUserGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeUserGroupsInput) ProtoMessage()               {}
+func (*DescribeUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{17} }
+
+type DescribeUserGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeUserGroupsOutput) Reset()                    { *m = DescribeUserGroupsOutput{} }
+func (m *DescribeUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeUserGroupsOutput) ProtoMessage()               {}
+func (*DescribeUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{18} }
+
+func (m *DescribeUserGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeUserGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeUserGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateUserGroupsInput struct {
+}
+
+func (m *CreateUserGroupsInput) Reset()                    { *m = CreateUserGroupsInput{} }
+func (m *CreateUserGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateUserGroupsInput) ProtoMessage()               {}
+func (*CreateUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{19} }
+
+type CreateUserGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateUserGroupsOutput) Reset()                    { *m = CreateUserGroupsOutput{} }
+func (m *CreateUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateUserGroupsOutput) ProtoMessage()               {}
+func (*CreateUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{20} }
+
+func (m *CreateUserGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateUserGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateUserGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyUserGroupAttributesInput struct {
+}
+
+func (m *ModifyUserGroupAttributesInput) Reset()         { *m = ModifyUserGroupAttributesInput{} }
+func (m *ModifyUserGroupAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyUserGroupAttributesInput) ProtoMessage()    {}
+func (*ModifyUserGroupAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{21}
+}
+
+type ModifyUserGroupAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyUserGroupAttributesOutput) Reset()         { *m = ModifyUserGroupAttributesOutput{} }
+func (m *ModifyUserGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyUserGroupAttributesOutput) ProtoMessage()    {}
+func (*ModifyUserGroupAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{22}
+}
+
+func (m *ModifyUserGroupAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyUserGroupAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyUserGroupAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteUserGroupsInput struct {
+}
+
+func (m *DeleteUserGroupsInput) Reset()                    { *m = DeleteUserGroupsInput{} }
+func (m *DeleteUserGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteUserGroupsInput) ProtoMessage()               {}
+func (*DeleteUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{23} }
+
+type DeleteUserGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteUserGroupsOutput) Reset()                    { *m = DeleteUserGroupsOutput{} }
+func (m *DeleteUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteUserGroupsOutput) ProtoMessage()               {}
+func (*DeleteUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{24} }
+
+func (m *DeleteUserGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteUserGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteUserGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeUserGroupMembersInput struct {
+}
+
+func (m *DescribeUserGroupMembersInput) Reset()                    { *m = DescribeUserGroupMembersInput{} }
+func (m *DescribeUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeUserGroupMembersInput) ProtoMessage()               {}
+func (*DescribeUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{25} }
+
+type DescribeUserGroupMembersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeUserGroupMembersOutput) Reset()         { *m = DescribeUserGroupMembersOutput{} }
+func (m *DescribeUserGroupMembersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeUserGroupMembersOutput) ProtoMessage()    {}
+func (*DescribeUserGroupMembersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{26}
+}
+
+func (m *DescribeUserGroupMembersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeUserGroupMembersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeUserGroupMembersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddUserGroupMembersInput struct {
+}
+
+func (m *AddUserGroupMembersInput) Reset()                    { *m = AddUserGroupMembersInput{} }
+func (m *AddUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
+func (*AddUserGroupMembersInput) ProtoMessage()               {}
+func (*AddUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{27} }
+
+type AddUserGroupMembersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddUserGroupMembersOutput) Reset()                    { *m = AddUserGroupMembersOutput{} }
+func (m *AddUserGroupMembersOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddUserGroupMembersOutput) ProtoMessage()               {}
+func (*AddUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{28} }
+
+func (m *AddUserGroupMembersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddUserGroupMembersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddUserGroupMembersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyUserGroupMemberAttributesInput struct {
+}
+
+func (m *ModifyUserGroupMemberAttributesInput) Reset()         { *m = ModifyUserGroupMemberAttributesInput{} }
+func (m *ModifyUserGroupMemberAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyUserGroupMemberAttributesInput) ProtoMessage()    {}
+func (*ModifyUserGroupMemberAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{29}
+}
+
+type ModifyUserGroupMemberAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyUserGroupMemberAttributesOutput) Reset()         { *m = ModifyUserGroupMemberAttributesOutput{} }
+func (m *ModifyUserGroupMemberAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyUserGroupMemberAttributesOutput) ProtoMessage()    {}
+func (*ModifyUserGroupMemberAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{30}
+}
+
+func (m *ModifyUserGroupMemberAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyUserGroupMemberAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyUserGroupMemberAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteUserGroupMembersInput struct {
+}
+
+func (m *DeleteUserGroupMembersInput) Reset()                    { *m = DeleteUserGroupMembersInput{} }
+func (m *DeleteUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteUserGroupMembersInput) ProtoMessage()               {}
+func (*DeleteUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{31} }
+
+type DeleteUserGroupMembersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteUserGroupMembersOutput) Reset()                    { *m = DeleteUserGroupMembersOutput{} }
+func (m *DeleteUserGroupMembersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteUserGroupMembersOutput) ProtoMessage()               {}
+func (*DeleteUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{32} }
+
+func (m *DeleteUserGroupMembersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteUserGroupMembersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteUserGroupMembersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeGroupRolesInput struct {
+}
+
+func (m *DescribeGroupRolesInput) Reset()                    { *m = DescribeGroupRolesInput{} }
+func (m *DescribeGroupRolesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeGroupRolesInput) ProtoMessage()               {}
+func (*DescribeGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{33} }
+
+type DescribeGroupRolesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeGroupRolesOutput) Reset()                    { *m = DescribeGroupRolesOutput{} }
+func (m *DescribeGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeGroupRolesOutput) ProtoMessage()               {}
+func (*DescribeGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{34} }
+
+func (m *DescribeGroupRolesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeGroupRolesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeGroupRolesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateGroupRolesInput struct {
+}
+
+func (m *CreateGroupRolesInput) Reset()                    { *m = CreateGroupRolesInput{} }
+func (m *CreateGroupRolesInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateGroupRolesInput) ProtoMessage()               {}
+func (*CreateGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{35} }
+
+type CreateGroupRolesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateGroupRolesOutput) Reset()                    { *m = CreateGroupRolesOutput{} }
+func (m *CreateGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateGroupRolesOutput) ProtoMessage()               {}
+func (*CreateGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{36} }
+
+func (m *CreateGroupRolesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateGroupRolesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateGroupRolesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyGroupRoleAttributesInput struct {
+}
+
+func (m *ModifyGroupRoleAttributesInput) Reset()         { *m = ModifyGroupRoleAttributesInput{} }
+func (m *ModifyGroupRoleAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyGroupRoleAttributesInput) ProtoMessage()    {}
+func (*ModifyGroupRoleAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{37}
+}
+
+type ModifyGroupRoleAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyGroupRoleAttributesOutput) Reset()         { *m = ModifyGroupRoleAttributesOutput{} }
+func (m *ModifyGroupRoleAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyGroupRoleAttributesOutput) ProtoMessage()    {}
+func (*ModifyGroupRoleAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{38}
+}
+
+func (m *ModifyGroupRoleAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyGroupRoleAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyGroupRoleAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteGroupRolesInput struct {
+}
+
+func (m *DeleteGroupRolesInput) Reset()                    { *m = DeleteGroupRolesInput{} }
+func (m *DeleteGroupRolesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteGroupRolesInput) ProtoMessage()               {}
+func (*DeleteGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{39} }
+
+type DeleteGroupRolesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteGroupRolesOutput) Reset()                    { *m = DeleteGroupRolesOutput{} }
+func (m *DeleteGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteGroupRolesOutput) ProtoMessage()               {}
+func (*DeleteGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{40} }
+
+func (m *DeleteGroupRolesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteGroupRolesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteGroupRolesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeGroupRoleRulesInput struct {
+}
+
+func (m *DescribeGroupRoleRulesInput) Reset()                    { *m = DescribeGroupRoleRulesInput{} }
+func (m *DescribeGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeGroupRoleRulesInput) ProtoMessage()               {}
+func (*DescribeGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{41} }
+
+type DescribeGroupRoleRulesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeGroupRoleRulesOutput) Reset()                    { *m = DescribeGroupRoleRulesOutput{} }
+func (m *DescribeGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeGroupRoleRulesOutput) ProtoMessage()               {}
+func (*DescribeGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{42} }
+
+func (m *DescribeGroupRoleRulesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeGroupRoleRulesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeGroupRoleRulesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddGroupRoleRulesInput struct {
+}
+
+func (m *AddGroupRoleRulesInput) Reset()                    { *m = AddGroupRoleRulesInput{} }
+func (m *AddGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
+func (*AddGroupRoleRulesInput) ProtoMessage()               {}
+func (*AddGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{43} }
+
+type AddGroupRoleRulesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddGroupRoleRulesOutput) Reset()                    { *m = AddGroupRoleRulesOutput{} }
+func (m *AddGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddGroupRoleRulesOutput) ProtoMessage()               {}
+func (*AddGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{44} }
+
+func (m *AddGroupRoleRulesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddGroupRoleRulesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddGroupRoleRulesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyGroupRoleRuleAttributesInput struct {
+}
+
+func (m *ModifyGroupRoleRuleAttributesInput) Reset()         { *m = ModifyGroupRoleRuleAttributesInput{} }
+func (m *ModifyGroupRoleRuleAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyGroupRoleRuleAttributesInput) ProtoMessage()    {}
+func (*ModifyGroupRoleRuleAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{45}
+}
+
+type ModifyGroupRoleRuleAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyGroupRoleRuleAttributesOutput) Reset()         { *m = ModifyGroupRoleRuleAttributesOutput{} }
+func (m *ModifyGroupRoleRuleAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyGroupRoleRuleAttributesOutput) ProtoMessage()    {}
+func (*ModifyGroupRoleRuleAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{46}
+}
+
+func (m *ModifyGroupRoleRuleAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyGroupRoleRuleAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyGroupRoleRuleAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteGroupRoleRulesInput struct {
+}
+
+func (m *DeleteGroupRoleRulesInput) Reset()                    { *m = DeleteGroupRoleRulesInput{} }
+func (m *DeleteGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteGroupRoleRulesInput) ProtoMessage()               {}
+func (*DeleteGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{47} }
+
+type DeleteGroupRoleRulesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteGroupRoleRulesOutput) Reset()                    { *m = DeleteGroupRoleRulesOutput{} }
+func (m *DeleteGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteGroupRoleRulesOutput) ProtoMessage()               {}
+func (*DeleteGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{48} }
+
+func (m *DeleteGroupRoleRulesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteGroupRoleRulesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteGroupRoleRulesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type GrantResourceGroupsToUserGroupsInput struct {
+}
+
+func (m *GrantResourceGroupsToUserGroupsInput) Reset()         { *m = GrantResourceGroupsToUserGroupsInput{} }
+func (m *GrantResourceGroupsToUserGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*GrantResourceGroupsToUserGroupsInput) ProtoMessage()    {}
+func (*GrantResourceGroupsToUserGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{49}
+}
+
+type GrantResourceGroupsToUserGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *GrantResourceGroupsToUserGroupsOutput) Reset()         { *m = GrantResourceGroupsToUserGroupsOutput{} }
+func (m *GrantResourceGroupsToUserGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*GrantResourceGroupsToUserGroupsOutput) ProtoMessage()    {}
+func (*GrantResourceGroupsToUserGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{50}
+}
+
+func (m *GrantResourceGroupsToUserGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *GrantResourceGroupsToUserGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *GrantResourceGroupsToUserGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RevokeResourceGroupsFromUserGroupsInput struct {
+}
+
+func (m *RevokeResourceGroupsFromUserGroupsInput) Reset() {
+	*m = RevokeResourceGroupsFromUserGroupsInput{}
+}
+func (m *RevokeResourceGroupsFromUserGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*RevokeResourceGroupsFromUserGroupsInput) ProtoMessage()    {}
+func (*RevokeResourceGroupsFromUserGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{51}
+}
+
+type RevokeResourceGroupsFromUserGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RevokeResourceGroupsFromUserGroupsOutput) Reset() {
+	*m = RevokeResourceGroupsFromUserGroupsOutput{}
+}
+func (m *RevokeResourceGroupsFromUserGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*RevokeResourceGroupsFromUserGroupsOutput) ProtoMessage()    {}
+func (*RevokeResourceGroupsFromUserGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{52}
+}
+
+func (m *RevokeResourceGroupsFromUserGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RevokeResourceGroupsFromUserGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RevokeResourceGroupsFromUserGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeResourceUserGroupsInput struct {
+}
+
+func (m *DescribeResourceUserGroupsInput) Reset()         { *m = DescribeResourceUserGroupsInput{} }
+func (m *DescribeResourceUserGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeResourceUserGroupsInput) ProtoMessage()    {}
+func (*DescribeResourceUserGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{53}
+}
+
+type DescribeResourceUserGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeResourceUserGroupsOutput) Reset()         { *m = DescribeResourceUserGroupsOutput{} }
+func (m *DescribeResourceUserGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeResourceUserGroupsOutput) ProtoMessage()    {}
+func (*DescribeResourceUserGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor18, []int{54}
+}
+
+func (m *DescribeResourceUserGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeResourceUserGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeResourceUserGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*ResourceACLServiceProperties)(nil), "service.ResourceACLServiceProperties")
+	proto.RegisterType((*DescribeSharedResourceGroupsInput)(nil), "service.DescribeSharedResourceGroupsInput")
+	proto.RegisterType((*DescribeSharedResourceGroupsOutput)(nil), "service.DescribeSharedResourceGroupsOutput")
+	proto.RegisterType((*DescribeResourceGroupsInput)(nil), "service.DescribeResourceGroupsInput")
+	proto.RegisterType((*DescribeResourceGroupsOutput)(nil), "service.DescribeResourceGroupsOutput")
+	proto.RegisterType((*CreateResourceGroupsInput)(nil), "service.CreateResourceGroupsInput")
+	proto.RegisterType((*CreateResourceGroupsOutput)(nil), "service.CreateResourceGroupsOutput")
+	proto.RegisterType((*ModifyResourceGroupAttributesInput)(nil), "service.ModifyResourceGroupAttributesInput")
+	proto.RegisterType((*ModifyResourceGroupAttributesOutput)(nil), "service.ModifyResourceGroupAttributesOutput")
+	proto.RegisterType((*DeleteResourceGroupsInput)(nil), "service.DeleteResourceGroupsInput")
+	proto.RegisterType((*DeleteResourceGroupsOutput)(nil), "service.DeleteResourceGroupsOutput")
+	proto.RegisterType((*DescribeResourceGroupItemsInput)(nil), "service.DescribeResourceGroupItemsInput")
+	proto.RegisterType((*DescribeResourceGroupItemsOutput)(nil), "service.DescribeResourceGroupItemsOutput")
+	proto.RegisterType((*AddResourceGroupItemsInput)(nil), "service.AddResourceGroupItemsInput")
+	proto.RegisterType((*AddResourceGroupItemsOutput)(nil), "service.AddResourceGroupItemsOutput")
+	proto.RegisterType((*DeleteResourceGroupItemsInput)(nil), "service.DeleteResourceGroupItemsInput")
+	proto.RegisterType((*DeleteResourceGroupItemsOutput)(nil), "service.DeleteResourceGroupItemsOutput")
+	proto.RegisterType((*DescribeUserGroupsInput)(nil), "service.DescribeUserGroupsInput")
+	proto.RegisterType((*DescribeUserGroupsOutput)(nil), "service.DescribeUserGroupsOutput")
+	proto.RegisterType((*CreateUserGroupsInput)(nil), "service.CreateUserGroupsInput")
+	proto.RegisterType((*CreateUserGroupsOutput)(nil), "service.CreateUserGroupsOutput")
+	proto.RegisterType((*ModifyUserGroupAttributesInput)(nil), "service.ModifyUserGroupAttributesInput")
+	proto.RegisterType((*ModifyUserGroupAttributesOutput)(nil), "service.ModifyUserGroupAttributesOutput")
+	proto.RegisterType((*DeleteUserGroupsInput)(nil), "service.DeleteUserGroupsInput")
+	proto.RegisterType((*DeleteUserGroupsOutput)(nil), "service.DeleteUserGroupsOutput")
+	proto.RegisterType((*DescribeUserGroupMembersInput)(nil), "service.DescribeUserGroupMembersInput")
+	proto.RegisterType((*DescribeUserGroupMembersOutput)(nil), "service.DescribeUserGroupMembersOutput")
+	proto.RegisterType((*AddUserGroupMembersInput)(nil), "service.AddUserGroupMembersInput")
+	proto.RegisterType((*AddUserGroupMembersOutput)(nil), "service.AddUserGroupMembersOutput")
+	proto.RegisterType((*ModifyUserGroupMemberAttributesInput)(nil), "service.ModifyUserGroupMemberAttributesInput")
+	proto.RegisterType((*ModifyUserGroupMemberAttributesOutput)(nil), "service.ModifyUserGroupMemberAttributesOutput")
+	proto.RegisterType((*DeleteUserGroupMembersInput)(nil), "service.DeleteUserGroupMembersInput")
+	proto.RegisterType((*DeleteUserGroupMembersOutput)(nil), "service.DeleteUserGroupMembersOutput")
+	proto.RegisterType((*DescribeGroupRolesInput)(nil), "service.DescribeGroupRolesInput")
+	proto.RegisterType((*DescribeGroupRolesOutput)(nil), "service.DescribeGroupRolesOutput")
+	proto.RegisterType((*CreateGroupRolesInput)(nil), "service.CreateGroupRolesInput")
+	proto.RegisterType((*CreateGroupRolesOutput)(nil), "service.CreateGroupRolesOutput")
+	proto.RegisterType((*ModifyGroupRoleAttributesInput)(nil), "service.ModifyGroupRoleAttributesInput")
+	proto.RegisterType((*ModifyGroupRoleAttributesOutput)(nil), "service.ModifyGroupRoleAttributesOutput")
+	proto.RegisterType((*DeleteGroupRolesInput)(nil), "service.DeleteGroupRolesInput")
+	proto.RegisterType((*DeleteGroupRolesOutput)(nil), "service.DeleteGroupRolesOutput")
+	proto.RegisterType((*DescribeGroupRoleRulesInput)(nil), "service.DescribeGroupRoleRulesInput")
+	proto.RegisterType((*DescribeGroupRoleRulesOutput)(nil), "service.DescribeGroupRoleRulesOutput")
+	proto.RegisterType((*AddGroupRoleRulesInput)(nil), "service.AddGroupRoleRulesInput")
+	proto.RegisterType((*AddGroupRoleRulesOutput)(nil), "service.AddGroupRoleRulesOutput")
+	proto.RegisterType((*ModifyGroupRoleRuleAttributesInput)(nil), "service.ModifyGroupRoleRuleAttributesInput")
+	proto.RegisterType((*ModifyGroupRoleRuleAttributesOutput)(nil), "service.ModifyGroupRoleRuleAttributesOutput")
+	proto.RegisterType((*DeleteGroupRoleRulesInput)(nil), "service.DeleteGroupRoleRulesInput")
+	proto.RegisterType((*DeleteGroupRoleRulesOutput)(nil), "service.DeleteGroupRoleRulesOutput")
+	proto.RegisterType((*GrantResourceGroupsToUserGroupsInput)(nil), "service.GrantResourceGroupsToUserGroupsInput")
+	proto.RegisterType((*GrantResourceGroupsToUserGroupsOutput)(nil), "service.GrantResourceGroupsToUserGroupsOutput")
+	proto.RegisterType((*RevokeResourceGroupsFromUserGroupsInput)(nil), "service.RevokeResourceGroupsFromUserGroupsInput")
+	proto.RegisterType((*RevokeResourceGroupsFromUserGroupsOutput)(nil), "service.RevokeResourceGroupsFromUserGroupsOutput")
+	proto.RegisterType((*DescribeResourceUserGroupsInput)(nil), "service.DescribeResourceUserGroupsInput")
+	proto.RegisterType((*DescribeResourceUserGroupsOutput)(nil), "service.DescribeResourceUserGroupsOutput")
 }
 
 type ResourceACLServiceInterface interface {
-	DescribeSharedResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyResourceGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyUserGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyUserGroupMemberAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyGroupRoleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyGroupRoleRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	GrantResourceGroupsToUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	RevokeResourceGroupsFromUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeResourceUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error)
+	DescribeResourceGroups(in *DescribeResourceGroupsInput) (out *DescribeResourceGroupsOutput, err error)
+	CreateResourceGroups(in *CreateResourceGroupsInput) (out *CreateResourceGroupsOutput, err error)
+	ModifyResourceGroupAttributes(in *ModifyResourceGroupAttributesInput) (out *ModifyResourceGroupAttributesOutput, err error)
+	DeleteResourceGroups(in *DeleteResourceGroupsInput) (out *DeleteResourceGroupsOutput, err error)
+	DescribeResourceGroupItems(in *DescribeResourceGroupItemsInput) (out *DescribeResourceGroupItemsOutput, err error)
+	AddResourceGroupItems(in *AddResourceGroupItemsInput) (out *AddResourceGroupItemsOutput, err error)
+	DeleteResourceGroupItems(in *DeleteResourceGroupItemsInput) (out *DeleteResourceGroupItemsOutput, err error)
+	DescribeUserGroups(in *DescribeUserGroupsInput) (out *DescribeUserGroupsOutput, err error)
+	CreateUserGroups(in *CreateUserGroupsInput) (out *CreateUserGroupsOutput, err error)
+	ModifyUserGroupAttributes(in *ModifyUserGroupAttributesInput) (out *ModifyUserGroupAttributesOutput, err error)
+	DeleteUserGroups(in *DeleteUserGroupsInput) (out *DeleteUserGroupsOutput, err error)
+	DescribeUserGroupMembers(in *DescribeUserGroupMembersInput) (out *DescribeUserGroupMembersOutput, err error)
+	AddUserGroupMembers(in *AddUserGroupMembersInput) (out *AddUserGroupMembersOutput, err error)
+	ModifyUserGroupMemberAttributes(in *ModifyUserGroupMemberAttributesInput) (out *ModifyUserGroupMemberAttributesOutput, err error)
+	DeleteUserGroupMembers(in *DeleteUserGroupMembersInput) (out *DeleteUserGroupMembersOutput, err error)
+	DescribeGroupRoles(in *DescribeGroupRolesInput) (out *DescribeGroupRolesOutput, err error)
+	CreateGroupRoles(in *CreateGroupRolesInput) (out *CreateGroupRolesOutput, err error)
+	ModifyGroupRoleAttributes(in *ModifyGroupRoleAttributesInput) (out *ModifyGroupRoleAttributesOutput, err error)
+	DeleteGroupRoles(in *DeleteGroupRolesInput) (out *DeleteGroupRolesOutput, err error)
+	DescribeGroupRoleRules(in *DescribeGroupRoleRulesInput) (out *DescribeGroupRoleRulesOutput, err error)
+	AddGroupRoleRules(in *AddGroupRoleRulesInput) (out *AddGroupRoleRulesOutput, err error)
+	ModifyGroupRoleRuleAttributes(in *ModifyGroupRoleRuleAttributesInput) (out *ModifyGroupRoleRuleAttributesOutput, err error)
+	DeleteGroupRoleRules(in *DeleteGroupRoleRulesInput) (out *DeleteGroupRoleRulesOutput, err error)
+	GrantResourceGroupsToUserGroups(in *GrantResourceGroupsToUserGroupsInput) (out *GrantResourceGroupsToUserGroupsOutput, err error)
+	RevokeResourceGroupsFromUserGroups(in *RevokeResourceGroupsFromUserGroupsInput) (out *RevokeResourceGroupsFromUserGroupsOutput, err error)
+	DescribeResourceUserGroups(in *DescribeResourceUserGroupsInput) (out *DescribeResourceUserGroupsOutput, err error)
 }
 
 type ResourceACLService struct {
@@ -93,9 +1274,9 @@ func (s *QingCloudService) ResourceACL(zone string) (*ResourceACLService, error)
 	return &ResourceACLService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ResourceACLService) DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeSharedResourceGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -104,7 +1285,7 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf2.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeSharedResourceGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -120,9 +1301,13 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf2.E
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeSharedResourceGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DescribeResourceGroups(in *DescribeResourceGroupsInput) (out *DescribeResourceGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeResourceGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -131,7 +1316,7 @@ func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf2.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeResourceGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -147,9 +1332,13 @@ func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf2.Empty) 
 	return x, err
 }
 
-func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeResourceGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) CreateResourceGroups(in *CreateResourceGroupsInput) (out *CreateResourceGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateResourceGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -158,7 +1347,7 @@ func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf2.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateResourceGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -174,9 +1363,13 @@ func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf2.Empty) (o
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateResourceGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) ModifyResourceGroupAttributes(in *ModifyResourceGroupAttributesInput) (out *ModifyResourceGroupAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyResourceGroupAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -185,7 +1378,7 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf2.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyResourceGroupAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -201,9 +1394,13 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf2.
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyResourceGroupAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DeleteResourceGroups(in *DeleteResourceGroupsInput) (out *DeleteResourceGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteResourceGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -212,7 +1409,7 @@ func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf2.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteResourceGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -228,9 +1425,13 @@ func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf2.Empty) (o
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteResourceGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DescribeResourceGroupItems(in *DescribeResourceGroupItemsInput) (out *DescribeResourceGroupItemsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeResourceGroupItemsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -239,7 +1440,7 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf2.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeResourceGroupItemsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -255,9 +1456,13 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf2.Emp
 	return x, err
 }
 
-func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeResourceGroupItemsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) AddResourceGroupItems(in *AddResourceGroupItemsInput) (out *AddResourceGroupItemsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddResourceGroupItemsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -266,7 +1471,7 @@ func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf2.Empty) (
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddResourceGroupItemsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -282,9 +1487,13 @@ func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf2.Empty) (
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddResourceGroupItemsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DeleteResourceGroupItems(in *DeleteResourceGroupItemsInput) (out *DeleteResourceGroupItemsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteResourceGroupItemsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -293,7 +1502,7 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf2.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteResourceGroupItemsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -309,9 +1518,13 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf2.Empty
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteResourceGroupItemsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DescribeUserGroups(in *DescribeUserGroupsInput) (out *DescribeUserGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeUserGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -320,7 +1533,7 @@ func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf2.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeUserGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -336,9 +1549,13 @@ func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf2.Empty) (out
 	return x, err
 }
 
-func (p *ResourceACLService) CreateUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeUserGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) CreateUserGroups(in *CreateUserGroupsInput) (out *CreateUserGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateUserGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -347,7 +1564,7 @@ func (p *ResourceACLService) CreateUserGroups(in *google_protobuf2.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateUserGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -363,9 +1580,13 @@ func (p *ResourceACLService) CreateUserGroups(in *google_protobuf2.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateUserGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) ModifyUserGroupAttributes(in *ModifyUserGroupAttributesInput) (out *ModifyUserGroupAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyUserGroupAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -374,7 +1595,7 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf2.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyUserGroupAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -390,9 +1611,13 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf2.Empt
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyUserGroupAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DeleteUserGroups(in *DeleteUserGroupsInput) (out *DeleteUserGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteUserGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -401,7 +1626,7 @@ func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf2.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteUserGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -417,9 +1642,13 @@ func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf2.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteUserGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DescribeUserGroupMembers(in *DescribeUserGroupMembersInput) (out *DescribeUserGroupMembersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeUserGroupMembersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -428,7 +1657,7 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf2.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeUserGroupMembersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -444,9 +1673,13 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf2.Empty
 	return x, err
 }
 
-func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeUserGroupMembersInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) AddUserGroupMembers(in *AddUserGroupMembersInput) (out *AddUserGroupMembersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddUserGroupMembersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -455,7 +1688,7 @@ func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf2.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddUserGroupMembersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -471,9 +1704,13 @@ func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf2.Empty) (ou
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddUserGroupMembersInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *ModifyUserGroupMemberAttributesInput) (out *ModifyUserGroupMemberAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyUserGroupMemberAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -482,7 +1719,7 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyUserGroupMemberAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -498,9 +1735,13 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyUserGroupMemberAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DeleteUserGroupMembers(in *DeleteUserGroupMembersInput) (out *DeleteUserGroupMembersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteUserGroupMembersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -509,7 +1750,7 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf2.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteUserGroupMembersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -525,9 +1766,13 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf2.Empty) 
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteUserGroupMembersInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DescribeGroupRoles(in *DescribeGroupRolesInput) (out *DescribeGroupRolesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeGroupRolesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -536,7 +1781,7 @@ func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf2.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeGroupRolesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -552,9 +1797,13 @@ func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf2.Empty) (out
 	return x, err
 }
 
-func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeGroupRolesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) CreateGroupRoles(in *CreateGroupRolesInput) (out *CreateGroupRolesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateGroupRolesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -563,7 +1812,7 @@ func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf2.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateGroupRolesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -579,9 +1828,13 @@ func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf2.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateGroupRolesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) ModifyGroupRoleAttributes(in *ModifyGroupRoleAttributesInput) (out *ModifyGroupRoleAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyGroupRoleAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -590,7 +1843,7 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf2.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyGroupRoleAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -606,9 +1859,13 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf2.Empt
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyGroupRoleAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DeleteGroupRoles(in *DeleteGroupRolesInput) (out *DeleteGroupRolesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteGroupRolesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -617,7 +1874,7 @@ func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf2.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteGroupRolesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -633,9 +1890,13 @@ func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf2.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteGroupRolesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DescribeGroupRoleRules(in *DescribeGroupRoleRulesInput) (out *DescribeGroupRoleRulesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeGroupRoleRulesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -644,7 +1905,7 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf2.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeGroupRoleRulesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -660,9 +1921,13 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf2.Empty) 
 	return x, err
 }
 
-func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeGroupRoleRulesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) AddGroupRoleRules(in *AddGroupRoleRulesInput) (out *AddGroupRoleRulesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddGroupRoleRulesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -671,7 +1936,7 @@ func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf2.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddGroupRoleRulesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -687,9 +1952,13 @@ func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf2.Empty) (out 
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddGroupRoleRulesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *ModifyGroupRoleRuleAttributesInput) (out *ModifyGroupRoleRuleAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyGroupRoleRuleAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -698,7 +1967,7 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf2.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyGroupRoleRuleAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -714,9 +1983,13 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf2.
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyGroupRoleRuleAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DeleteGroupRoleRules(in *DeleteGroupRoleRulesInput) (out *DeleteGroupRoleRulesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteGroupRoleRulesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -725,7 +1998,7 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf2.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteGroupRoleRulesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -741,9 +2014,13 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf2.Empty) (o
 	return x, err
 }
 
-func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteGroupRoleRulesInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *GrantResourceGroupsToUserGroupsInput) (out *GrantResourceGroupsToUserGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &GrantResourceGroupsToUserGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -752,7 +2029,7 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &GrantResourceGroupsToUserGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -768,9 +2045,13 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf
 	return x, err
 }
 
-func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *GrantResourceGroupsToUserGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *RevokeResourceGroupsFromUserGroupsInput) (out *RevokeResourceGroupsFromUserGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &RevokeResourceGroupsFromUserGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -779,7 +2060,7 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &RevokeResourceGroupsFromUserGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -795,9 +2076,13 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_proto
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RevokeResourceGroupsFromUserGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *ResourceACLService) DescribeResourceUserGroups(in *DescribeResourceUserGroupsInput) (out *DescribeResourceUserGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeResourceUserGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -806,7 +2091,7 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf2.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeResourceUserGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -822,36 +2107,77 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf2.Emp
 	return x, err
 }
 
+func (p *DescribeResourceUserGroupsInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor18) }
 
 var fileDescriptor18 = []byte{
-	// 435 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x96, 0xcf, 0xae, 0xd2, 0x40,
-	0x14, 0xc6, 0x73, 0x93, 0x1b, 0xcd, 0x3d, 0x6e, 0x70, 0xd4, 0x1b, 0xac, 0xdc, 0x60, 0x58, 0xb9,
-	0x2a, 0x09, 0x3e, 0x41, 0x29, 0x7f, 0xfc, 0x03, 0x2a, 0x05, 0xd7, 0xa4, 0xed, 0x1c, 0x6a, 0x43,
-	0xdb, 0xa9, 0xa7, 0x53, 0x12, 0x7c, 0x04, 0xf7, 0x3e, 0xa8, 0x6f, 0x60, 0xe8, 0xd8, 0x86, 0x22,
-	0x2e, 0xe8, 0xb0, 0x21, 0xb4, 0x3d, 0xfd, 0xe5, 0x9b, 0x2f, 0x5f, 0xbf, 0x19, 0x60, 0x84, 0x99,
-	0xc8, 0xc9, 0xc7, 0xb5, 0xeb, 0x47, 0x66, 0x4a, 0x42, 0x0a, 0xf6, 0x38, 0x43, 0xda, 0x85, 0x3e,
-	0x1a, 0x0f, 0xdf, 0xc3, 0x24, 0xf0, 0x23, 0x91, 0xf3, 0x75, 0xc6, 0xb7, 0x6b, 0xca, 0x23, 0xec,
-	0x1f, 0x7e, 0xd4, 0x9c, 0xf1, 0x2a, 0x10, 0x22, 0x88, 0xb0, 0x5f, 0x5c, 0x79, 0xf9, 0xa6, 0x8f,
-	0x71, 0x2a, 0xf7, 0xea, 0x61, 0x6f, 0x00, 0x1d, 0xe7, 0x2f, 0xda, 0xb2, 0x67, 0x4b, 0x45, 0xfc,
-	0x42, 0x22, 0x45, 0x92, 0x21, 0x66, 0x8c, 0xc1, 0xed, 0x0f, 0x91, 0x60, 0xfb, 0xe6, 0xf5, 0xcd,
-	0x9b, 0x3b, 0xa7, 0xf8, 0x3f, 0xf8, 0xd5, 0x02, 0xf6, 0xef, 0x4b, 0xec, 0x13, 0x74, 0x46, 0x98,
-	0xf9, 0x14, 0x7a, 0xb8, 0xfc, 0xe6, 0x12, 0xf2, 0x72, 0x66, 0x4a, 0x22, 0x4f, 0x33, 0x76, 0x6f,
-	0x2a, 0x21, 0x66, 0x29, 0xc4, 0x1c, 0x1f, 0x84, 0x18, 0xff, 0xb9, 0xcf, 0xde, 0xc1, 0x7d, 0xc9,
-	0xd3, 0x24, 0x4d, 0xe0, 0xb9, 0x4d, 0xe8, 0x4a, 0x5d, 0xce, 0x67, 0x78, 0x98, 0x0b, 0x1e, 0x6e,
-	0xf6, 0x35, 0x8e, 0x25, 0x25, 0x85, 0x5e, 0x2e, 0xb1, 0x91, 0xb0, 0x11, 0x46, 0xa8, 0x2d, 0x6c,
-	0x06, 0xc6, 0x59, 0xab, 0xde, 0x4b, 0x8c, 0x2f, 0xa7, 0x4d, 0xe1, 0x85, 0xc5, 0xf9, 0x15, 0x40,
-	0x1f, 0xa0, 0x7d, 0x66, 0x79, 0xcd, 0x58, 0x23, 0x60, 0xe5, 0x12, 0xbf, 0x66, 0x48, 0x0d, 0x8d,
-	0x1a, 0x42, 0x4b, 0x25, 0x41, 0x83, 0xf1, 0x11, 0x5e, 0xaa, 0x14, 0x54, 0x0c, 0x8d, 0x04, 0x0c,
-	0xa1, 0xa5, 0x2c, 0xd2, 0x10, 0x54, 0xd8, 0x7c, 0x62, 0xcd, 0x1c, 0x63, 0x0f, 0xe9, 0x72, 0xd6,
-	0x18, 0x9e, 0x59, 0x9c, 0x6b, 0x63, 0x16, 0xd0, 0x3d, 0xf1, 0x48, 0x91, 0x34, 0x9c, 0x2a, 0xea,
-	0xa0, 0xe6, 0x54, 0x53, 0x71, 0x47, 0x51, 0x2a, 0x38, 0x8e, 0x88, 0x50, 0x23, 0x4a, 0x1a, 0x8c,
-	0x2a, 0x4a, 0x15, 0xe3, 0x1a, 0x51, 0xd2, 0x10, 0x74, 0xd4, 0xb9, 0x15, 0xc5, 0xc9, 0x9b, 0x90,
-	0x6c, 0x78, 0x6a, 0x71, 0xae, 0x09, 0xa9, 0x0a, 0xb7, 0xc6, 0xb9, 0x46, 0xe1, 0x6a, 0x0a, 0x5b,
-	0x40, 0x77, 0x4a, 0x6e, 0x22, 0xeb, 0xbd, 0xbd, 0x12, 0x1a, 0x5f, 0xf1, 0x0a, 0x7a, 0x0e, 0xee,
-	0xc4, 0xf6, 0x64, 0x2f, 0x98, 0x90, 0x88, 0x35, 0xa8, 0x67, 0x76, 0x86, 0xe6, 0x34, 0xa3, 0xf3,
-	0xf3, 0xf7, 0x6d, 0x1b, 0xee, 0x16, 0x61, 0x12, 0xd8, 0x87, 0xf3, 0x06, 0x7b, 0x72, 0x74, 0x0e,
-	0xf0, 0x1e, 0x15, 0xd3, 0x6f, 0xff, 0x04, 0x00, 0x00, 0xff, 0xff, 0x8a, 0xcd, 0x5c, 0x47, 0xad,
-	0x08, 0x00, 0x00,
+	// 1034 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x59, 0xdd, 0x8e, 0x1b, 0x35,
+	0x14, 0x56, 0xa0, 0x74, 0xe9, 0xe1, 0x06, 0x0c, 0xdd, 0x9d, 0xcc, 0xfe, 0x24, 0x3b, 0x9b, 0xdd,
+	0xcd, 0xf2, 0xb3, 0x40, 0x79, 0x82, 0x28, 0x15, 0x55, 0x25, 0x2a, 0x20, 0x0b, 0x48, 0x48, 0x48,
+	0x51, 0x92, 0x71, 0xd3, 0x21, 0xc9, 0x38, 0xeb, 0xf1, 0xb4, 0x62, 0xaf, 0xb8, 0x85, 0xb7, 0xe3,
+	0x51, 0x78, 0x03, 0xb4, 0x89, 0x33, 0xe3, 0xb1, 0x8f, 0x3d, 0xc3, 0x85, 0x7b, 0x53, 0x35, 0x3a,
+	0xdf, 0xf8, 0x7c, 0x3e, 0xf6, 0x39, 0xfe, 0x3e, 0x2d, 0x10, 0x4e, 0x33, 0x96, 0xf3, 0x19, 0x1d,
+	0x4f, 0x66, 0xcb, 0xeb, 0x35, 0x67, 0x82, 0x91, 0xbd, 0x8c, 0xf2, 0xd7, 0xc9, 0x8c, 0x86, 0xc7,
+	0xb7, 0x49, 0x3a, 0x9f, 0x2d, 0x59, 0x1e, 0x8f, 0xb3, 0x78, 0x31, 0xe6, 0xf9, 0x92, 0x7e, 0x79,
+	0xff, 0xcf, 0x16, 0x17, 0x3d, 0x81, 0xa3, 0x91, 0xfc, 0x7a, 0x30, 0xfc, 0xee, 0x66, 0xfb, 0xd1,
+	0x0f, 0x9c, 0xad, 0x29, 0x17, 0x09, 0xcd, 0x08, 0x81, 0x07, 0x77, 0x2c, 0xa5, 0x41, 0xab, 0xdb,
+	0xea, 0x3f, 0x1a, 0x6d, 0xfe, 0x1f, 0x9d, 0xc1, 0xe9, 0x53, 0x9a, 0xcd, 0x78, 0x32, 0xa5, 0x37,
+	0xaf, 0x26, 0x9c, 0xc6, 0xbb, 0x15, 0x9e, 0x71, 0x96, 0xaf, 0xb3, 0xe7, 0xe9, 0x3a, 0x17, 0xd1,
+	0x2d, 0x44, 0x2e, 0xd0, 0xf7, 0xb9, 0x58, 0xe7, 0x82, 0xec, 0xc3, 0xc3, 0xc9, 0x4c, 0x24, 0x2c,
+	0x95, 0x09, 0xe4, 0x2f, 0xd2, 0x86, 0xf7, 0x39, 0x15, 0xe3, 0x19, 0x8b, 0x69, 0xf0, 0x4e, 0xb7,
+	0xd5, 0x7f, 0x6f, 0xb4, 0xc7, 0xa9, 0x18, 0xb2, 0x98, 0x92, 0x00, 0xf6, 0x56, 0x34, 0xcb, 0x26,
+	0x73, 0x1a, 0xbc, 0xbb, 0xf9, 0x66, 0xf7, 0x33, 0x3a, 0x86, 0xc3, 0x5d, 0x4a, 0x8c, 0xd1, 0x02,
+	0x8e, 0xf0, 0xb0, 0x0f, 0x2e, 0x87, 0xd0, 0x1e, 0x72, 0x3a, 0x11, 0x28, 0x93, 0x04, 0x42, 0x2c,
+	0xe8, 0x83, 0x47, 0x0f, 0xa2, 0x17, 0x2c, 0x4e, 0x5e, 0xfe, 0x51, 0x49, 0x35, 0x10, 0x82, 0x27,
+	0xd3, 0x5c, 0x50, 0x49, 0x88, 0xc3, 0x99, 0x13, 0xe5, 0xa9, 0x42, 0x4f, 0xe9, 0x92, 0x5a, 0x2b,
+	0x84, 0x05, 0x7d, 0xf0, 0x38, 0x85, 0x0e, 0x7a, 0x2d, 0x9e, 0x0b, 0xba, 0x92, 0x6c, 0x18, 0x74,
+	0xed, 0x10, 0x1f, 0x9c, 0x8e, 0x20, 0x1c, 0xc4, 0xb1, 0x8d, 0xce, 0xef, 0x70, 0x88, 0x46, 0x7d,
+	0x30, 0xe9, 0xc0, 0x31, 0x72, 0x10, 0x0a, 0x99, 0x15, 0x9c, 0xd8, 0x00, 0x3e, 0xf8, 0xb4, 0xe1,
+	0x60, 0x77, 0x14, 0x3f, 0x67, 0x94, 0xab, 0x77, 0x66, 0x0e, 0x81, 0x19, 0xf2, 0xc1, 0xe1, 0x00,
+	0x1e, 0x6f, 0xdb, 0x57, 0x67, 0x40, 0x61, 0x5f, 0x0f, 0xf8, 0xc8, 0xdf, 0x85, 0x93, 0x6d, 0xb7,
+	0x16, 0x69, 0xf4, 0x7e, 0x4e, 0xa1, 0x63, 0x45, 0x78, 0xaa, 0xc8, 0xf6, 0x12, 0x20, 0x15, 0xd1,
+	0x03, 0xde, 0x6e, 0xa9, 0x76, 0xf4, 0x2f, 0xe8, 0x6a, 0x4a, 0xb9, 0x7a, 0x4b, 0x71, 0x80, 0x0f,
+	0x3e, 0x21, 0x04, 0x83, 0x38, 0xc6, 0xa9, 0xbc, 0x82, 0x36, 0x12, 0xf3, 0xc1, 0xe2, 0x02, 0x7a,
+	0xda, 0x2d, 0xd8, 0x26, 0xd3, 0x6f, 0x8b, 0x80, 0xf3, 0x1a, 0x9c, 0xb7, 0xd7, 0xba, 0x72, 0x35,
+	0x2a, 0x65, 0xda, 0xbc, 0xd6, 0x58, 0xd8, 0xf3, 0x54, 0xd9, 0xa4, 0x1a, 0xb1, 0x25, 0x35, 0xa7,
+	0x4a, 0x19, 0xf2, 0x3a, 0x55, 0x74, 0x06, 0xc5, 0x54, 0xf1, 0x9b, 0xbf, 0x98, 0x2a, 0x45, 0x1a,
+	0xeb, 0x54, 0x41, 0x10, 0x5e, 0xa7, 0x0a, 0x52, 0x11, 0x3d, 0xe0, 0x59, 0x4f, 0x16, 0x89, 0x46,
+	0x79, 0xc1, 0x42, 0xd1, 0x93, 0xd5, 0xb0, 0x0f, 0x2e, 0x01, 0xec, 0x0f, 0xe2, 0x18, 0xa3, 0xf1,
+	0x12, 0x0e, 0x8c, 0x88, 0x57, 0x25, 0x59, 0x49, 0x65, 0x55, 0x92, 0x16, 0x94, 0x57, 0x25, 0x89,
+	0x95, 0xa7, 0x50, 0x92, 0xfe, 0x2b, 0x74, 0x01, 0xbd, 0x67, 0x7c, 0x92, 0x8a, 0xaa, 0x66, 0xfd,
+	0x89, 0xe9, 0x8f, 0xa2, 0x80, 0xf3, 0x1a, 0x9c, 0x0f, 0x76, 0x57, 0x70, 0x39, 0xa2, 0xaf, 0xd9,
+	0x42, 0x93, 0xd4, 0xdf, 0x72, 0xb6, 0xd2, 0x09, 0xbe, 0x81, 0x7e, 0x3d, 0xf4, 0x2d, 0x69, 0x71,
+	0x9d, 0x1b, 0xa2, 0xc5, 0xbd, 0x72, 0x7a, 0xf2, 0xcf, 0x3e, 0x10, 0xd3, 0x22, 0x93, 0x37, 0x65,
+	0xf7, 0x63, 0xfe, 0x96, 0x7c, 0x7a, 0x2d, 0x1d, 0xf8, 0x75, 0xad, 0x57, 0x0e, 0x3f, 0x6b, 0x84,
+	0x95, 0x9b, 0xdb, 0x0c, 0x3f, 0xcc, 0xc6, 0x92, 0x9e, 0xb1, 0x0c, 0x96, 0xec, 0xbc, 0x06, 0x25,
+	0xd3, 0x8c, 0xe1, 0x13, 0xcc, 0xa3, 0x92, 0xa8, 0xf8, 0xdc, 0xea, 0x6f, 0xc3, 0x33, 0x27, 0x46,
+	0x26, 0xb8, 0x83, 0x63, 0xa7, 0xe7, 0x24, 0x65, 0x55, 0xea, 0x1d, 0x6c, 0xf8, 0x79, 0x33, 0x70,
+	0xb9, 0x39, 0xcc, 0x5e, 0x2a, 0x9b, 0xb3, 0x5a, 0x53, 0x65, 0x73, 0x0e, 0x87, 0x7a, 0x7b, 0x3f,
+	0x75, 0x6c, 0x8e, 0x91, 0xf4, 0xdd, 0x47, 0x50, 0xba, 0xab, 0xf0, 0xaa, 0x01, 0x52, 0xa6, 0x9c,
+	0xc2, 0x63, 0xd4, 0x15, 0x92, 0x92, 0xb0, 0xdd, 0x53, 0x86, 0x3d, 0x37, 0x48, 0xe6, 0x58, 0xdc,
+	0x8b, 0x21, 0xdc, 0xec, 0x91, 0x0b, 0x57, 0x5d, 0x94, 0x4c, 0x97, 0xb5, 0x38, 0x99, 0xec, 0x57,
+	0x20, 0xa6, 0x9f, 0x23, 0x5d, 0xa3, 0x22, 0xda, 0x84, 0x08, 0x4f, 0x1d, 0x08, 0xb9, 0xf4, 0x0d,
+	0x7c, 0xa8, 0x1b, 0x35, 0x72, 0xa2, 0x5d, 0x5a, 0x7d, 0xd9, 0x8e, 0x35, 0x2e, 0x17, 0x4d, 0xa1,
+	0x6d, 0x35, 0x5d, 0xe4, 0x52, 0xbb, 0x9f, 0x36, 0xeb, 0x16, 0xf6, 0xeb, 0x81, 0xe5, 0x26, 0x74,
+	0x6f, 0xa5, 0x6c, 0x02, 0xf5, 0x63, 0xca, 0x26, 0x2c, 0xb6, 0x6c, 0x81, 0x98, 0x68, 0x29, 0xbc,
+	0x2b, 0x27, 0xec, 0x30, 0x5b, 0x95, 0x13, 0x76, 0x7a, 0xae, 0xdf, 0xe0, 0x63, 0xc4, 0x0a, 0x91,
+	0x53, 0xf5, 0x2e, 0xe2, 0x29, 0x22, 0x17, 0x44, 0xae, 0xfe, 0x67, 0xcb, 0x70, 0xc1, 0xba, 0xaf,
+	0x21, 0x5f, 0xd8, 0xaa, 0x8d, 0x3a, 0xa5, 0xf0, 0xba, 0x29, 0x5c, 0x9d, 0xd5, 0x98, 0x89, 0xa9,
+	0xcc, 0x6a, 0xab, 0x09, 0xaa, 0xcc, 0x6a, 0x87, 0x17, 0x52, 0x3a, 0xa5, 0x54, 0xc4, 0x48, 0xa7,
+	0x68, 0x3a, 0x1a, 0xe9, 0x14, 0x43, 0x50, 0x17, 0x9d, 0xa2, 0x2c, 0xac, 0x77, 0x8a, 0xbe, 0x6c,
+	0xc7, 0x1a, 0xd7, 0x3b, 0x05, 0x31, 0x12, 0x46, 0xa7, 0xd8, 0xec, 0x88, 0xd1, 0x29, 0x76, 0x57,
+	0x52, 0x74, 0x0a, 0xba, 0x09, 0xd4, 0x63, 0x18, 0x9d, 0x62, 0x6c, 0x42, 0x79, 0x87, 0xab, 0xd2,
+	0x12, 0x79, 0x87, 0x11, 0x61, 0x8a, 0xbc, 0xc3, 0xa8, 0x42, 0xfd, 0x05, 0x3e, 0x32, 0xe4, 0x3d,
+	0xe9, 0xa8, 0xd7, 0x1f, 0x5b, 0xbc, 0x6b, 0x07, 0xe8, 0xcf, 0xaf, 0x45, 0xa8, 0x1b, 0xcf, 0xaf,
+	0x4b, 0xf6, 0x1b, 0xcf, 0xaf, 0x5b, 0xfd, 0x17, 0xcf, 0xaf, 0xb6, 0xad, 0xc8, 0x56, 0x73, 0x65,
+	0x67, 0x67, 0x4e, 0x8c, 0xd2, 0xfa, 0x35, 0x12, 0x5b, 0x69, 0xfd, 0x26, 0xa2, 0x5d, 0x69, 0xfd,
+	0x66, 0xda, 0xfd, 0xaf, 0x16, 0x44, 0xf5, 0x22, 0x9a, 0x7c, 0x55, 0x2c, 0xdb, 0x50, 0x9c, 0x87,
+	0x5f, 0xff, 0x8f, 0x2f, 0xec, 0x6a, 0x44, 0xa1, 0x60, 0x57, 0x23, 0x7a, 0xea, 0xab, 0x06, 0xc8,
+	0x6d, 0xca, 0xf0, 0xe8, 0xef, 0x7f, 0x1f, 0x04, 0xf0, 0xe8, 0xc7, 0x24, 0x9d, 0x0f, 0x97, 0x2c,
+	0x8f, 0xc9, 0x07, 0x8a, 0x86, 0x9e, 0x3e, 0xdc, 0xfc, 0xf1, 0xe9, 0x9b, 0xff, 0x02, 0x00, 0x00,
+	0xff, 0xff, 0x2e, 0x7a, 0xff, 0xf4, 0xba, 0x1a, 0x00, 0x00,
 }
