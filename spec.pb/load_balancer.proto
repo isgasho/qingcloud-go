@@ -15,8 +15,6 @@ message LoadBalancerServiceProperties {
 	string zone = 1;
 }
 
-//LoadBalancer
-
 service LoadBalancerService {
 	option (qingcloud.sdk.rule.service_rule) = {
 		service_name:     "QingCloud"

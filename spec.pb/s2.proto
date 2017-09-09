@@ -36,18 +36,135 @@ service S2Service {
 	rpc DeleteS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc EnableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DisableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyS2SharedTargetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AttachToS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DetachFromS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeS2DefaultParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateS2Group(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeS2Groups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyS2Group(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteS2Groups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateS2Account(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeS2Accounts(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyS2Account(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteS2Accounts(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AssociateS2AccountGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DissociateS2AccountGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
+
+
+
+
+	rpc ModifyS2SharedTargetAttributes(ModifyS2SharedTargetAttributesInput) returns (ModifyS2SharedTargetAttributesOutput);
+	rpc AttachToS2SharedTarget(AttachToS2SharedTargetInput) returns (AttachToS2SharedTargetOutput);
+	rpc DetachFromS2SharedTarget(DetachFromS2SharedTargetInput) returns (DetachFromS2SharedTargetOutput);
+	rpc DescribeS2DefaultParameters(DescribeS2DefaultParametersInput) returns (DescribeS2DefaultParametersOutput);
+	rpc CreateS2Group(CreateS2GroupInput) returns (CreateS2GroupOutput);
+	rpc DescribeS2Groups(DescribeS2GroupsInput) returns (DescribeS2GroupsOutput);
+	rpc ModifyS2Group(ModifyS2GroupInput) returns (ModifyS2GroupOutput);
+	rpc DeleteS2Groups(DeleteS2GroupsInput) returns (DeleteS2GroupsOutput);
+	rpc CreateS2Account(CreateS2AccountInput) returns (CreateS2AccountOutput);
+	rpc DescribeS2Accounts(DescribeS2AccountsInput) returns (DescribeS2AccountsOutput);
+	rpc ModifyS2Account(ModifyS2AccountInput) returns (ModifyS2AccountOutput);
+	rpc DeleteS2Accounts(DeleteS2AccountsInput) returns (DeleteS2AccountsOutput);
+	rpc AssociateS2AccountGroup(AssociateS2AccountGroupInput) returns (AssociateS2AccountGroupOutput);
+	rpc DissociateS2AccountGroup(DissociateS2AccountGroupInput) returns (DissociateS2AccountGroupOutput);
 }
+
+message ModifyS2SharedTargetAttributesInput {}
+message ModifyS2SharedTargetAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AttachToS2SharedTargetInput {}
+message AttachToS2SharedTargetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DetachFromS2SharedTargetInput {}
+message DetachFromS2SharedTargetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeS2DefaultParametersInput {}
+message DescribeS2DefaultParametersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateS2GroupInput {}
+message CreateS2GroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeS2GroupsInput {}
+message DescribeS2GroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyS2GroupInput {}
+message ModifyS2GroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteS2GroupsInput {}
+message DeleteS2GroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateS2AccountInput {}
+message CreateS2AccountOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeS2AccountsInput {}
+message DescribeS2AccountsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyS2AccountInput {}
+message ModifyS2AccountOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteS2AccountsInput {}
+message DeleteS2AccountsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AssociateS2AccountGroupInput {}
+message AssociateS2AccountGroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DissociateS2AccountGroupInput {}
+message DissociateS2AccountGroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+

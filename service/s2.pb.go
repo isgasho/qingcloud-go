@@ -38,8 +38,606 @@ func (m *S2ServiceProperties) GetZone() string {
 	return ""
 }
 
+type ModifyS2SharedTargetAttributesInput struct {
+}
+
+func (m *ModifyS2SharedTargetAttributesInput) Reset()         { *m = ModifyS2SharedTargetAttributesInput{} }
+func (m *ModifyS2SharedTargetAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2SharedTargetAttributesInput) ProtoMessage()    {}
+func (*ModifyS2SharedTargetAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor20, []int{1}
+}
+
+type ModifyS2SharedTargetAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyS2SharedTargetAttributesOutput) Reset()         { *m = ModifyS2SharedTargetAttributesOutput{} }
+func (m *ModifyS2SharedTargetAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2SharedTargetAttributesOutput) ProtoMessage()    {}
+func (*ModifyS2SharedTargetAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor20, []int{2}
+}
+
+func (m *ModifyS2SharedTargetAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyS2SharedTargetAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyS2SharedTargetAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AttachToS2SharedTargetInput struct {
+}
+
+func (m *AttachToS2SharedTargetInput) Reset()                    { *m = AttachToS2SharedTargetInput{} }
+func (m *AttachToS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
+func (*AttachToS2SharedTargetInput) ProtoMessage()               {}
+func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{3} }
+
+type AttachToS2SharedTargetOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AttachToS2SharedTargetOutput) Reset()                    { *m = AttachToS2SharedTargetOutput{} }
+func (m *AttachToS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
+func (*AttachToS2SharedTargetOutput) ProtoMessage()               {}
+func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{4} }
+
+func (m *AttachToS2SharedTargetOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AttachToS2SharedTargetOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AttachToS2SharedTargetOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DetachFromS2SharedTargetInput struct {
+}
+
+func (m *DetachFromS2SharedTargetInput) Reset()                    { *m = DetachFromS2SharedTargetInput{} }
+func (m *DetachFromS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
+func (*DetachFromS2SharedTargetInput) ProtoMessage()               {}
+func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{5} }
+
+type DetachFromS2SharedTargetOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DetachFromS2SharedTargetOutput) Reset()                    { *m = DetachFromS2SharedTargetOutput{} }
+func (m *DetachFromS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
+func (*DetachFromS2SharedTargetOutput) ProtoMessage()               {}
+func (*DetachFromS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{6} }
+
+func (m *DetachFromS2SharedTargetOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DetachFromS2SharedTargetOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DetachFromS2SharedTargetOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeS2DefaultParametersInput struct {
+}
+
+func (m *DescribeS2DefaultParametersInput) Reset()         { *m = DescribeS2DefaultParametersInput{} }
+func (m *DescribeS2DefaultParametersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2DefaultParametersInput) ProtoMessage()    {}
+func (*DescribeS2DefaultParametersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor20, []int{7}
+}
+
+type DescribeS2DefaultParametersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeS2DefaultParametersOutput) Reset()         { *m = DescribeS2DefaultParametersOutput{} }
+func (m *DescribeS2DefaultParametersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2DefaultParametersOutput) ProtoMessage()    {}
+func (*DescribeS2DefaultParametersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor20, []int{8}
+}
+
+func (m *DescribeS2DefaultParametersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeS2DefaultParametersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeS2DefaultParametersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateS2GroupInput struct {
+}
+
+func (m *CreateS2GroupInput) Reset()                    { *m = CreateS2GroupInput{} }
+func (m *CreateS2GroupInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2GroupInput) ProtoMessage()               {}
+func (*CreateS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{9} }
+
+type CreateS2GroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateS2GroupOutput) Reset()                    { *m = CreateS2GroupOutput{} }
+func (m *CreateS2GroupOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2GroupOutput) ProtoMessage()               {}
+func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{10} }
+
+func (m *CreateS2GroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateS2GroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateS2GroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeS2GroupsInput struct {
+}
+
+func (m *DescribeS2GroupsInput) Reset()                    { *m = DescribeS2GroupsInput{} }
+func (m *DescribeS2GroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2GroupsInput) ProtoMessage()               {}
+func (*DescribeS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{11} }
+
+type DescribeS2GroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeS2GroupsOutput) Reset()                    { *m = DescribeS2GroupsOutput{} }
+func (m *DescribeS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2GroupsOutput) ProtoMessage()               {}
+func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{12} }
+
+func (m *DescribeS2GroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeS2GroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeS2GroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyS2GroupInput struct {
+}
+
+func (m *ModifyS2GroupInput) Reset()                    { *m = ModifyS2GroupInput{} }
+func (m *ModifyS2GroupInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyS2GroupInput) ProtoMessage()               {}
+func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{13} }
+
+type ModifyS2GroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyS2GroupOutput) Reset()                    { *m = ModifyS2GroupOutput{} }
+func (m *ModifyS2GroupOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyS2GroupOutput) ProtoMessage()               {}
+func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{14} }
+
+func (m *ModifyS2GroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyS2GroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyS2GroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteS2GroupsInput struct {
+}
+
+func (m *DeleteS2GroupsInput) Reset()                    { *m = DeleteS2GroupsInput{} }
+func (m *DeleteS2GroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2GroupsInput) ProtoMessage()               {}
+func (*DeleteS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{15} }
+
+type DeleteS2GroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteS2GroupsOutput) Reset()                    { *m = DeleteS2GroupsOutput{} }
+func (m *DeleteS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2GroupsOutput) ProtoMessage()               {}
+func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{16} }
+
+func (m *DeleteS2GroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteS2GroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteS2GroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateS2AccountInput struct {
+}
+
+func (m *CreateS2AccountInput) Reset()                    { *m = CreateS2AccountInput{} }
+func (m *CreateS2AccountInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2AccountInput) ProtoMessage()               {}
+func (*CreateS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{17} }
+
+type CreateS2AccountOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateS2AccountOutput) Reset()                    { *m = CreateS2AccountOutput{} }
+func (m *CreateS2AccountOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2AccountOutput) ProtoMessage()               {}
+func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{18} }
+
+func (m *CreateS2AccountOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateS2AccountOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateS2AccountOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeS2AccountsInput struct {
+}
+
+func (m *DescribeS2AccountsInput) Reset()                    { *m = DescribeS2AccountsInput{} }
+func (m *DescribeS2AccountsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2AccountsInput) ProtoMessage()               {}
+func (*DescribeS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{19} }
+
+type DescribeS2AccountsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeS2AccountsOutput) Reset()                    { *m = DescribeS2AccountsOutput{} }
+func (m *DescribeS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2AccountsOutput) ProtoMessage()               {}
+func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{20} }
+
+func (m *DescribeS2AccountsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeS2AccountsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeS2AccountsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyS2AccountInput struct {
+}
+
+func (m *ModifyS2AccountInput) Reset()                    { *m = ModifyS2AccountInput{} }
+func (m *ModifyS2AccountInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyS2AccountInput) ProtoMessage()               {}
+func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{21} }
+
+type ModifyS2AccountOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyS2AccountOutput) Reset()                    { *m = ModifyS2AccountOutput{} }
+func (m *ModifyS2AccountOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyS2AccountOutput) ProtoMessage()               {}
+func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{22} }
+
+func (m *ModifyS2AccountOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyS2AccountOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyS2AccountOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteS2AccountsInput struct {
+}
+
+func (m *DeleteS2AccountsInput) Reset()                    { *m = DeleteS2AccountsInput{} }
+func (m *DeleteS2AccountsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2AccountsInput) ProtoMessage()               {}
+func (*DeleteS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{23} }
+
+type DeleteS2AccountsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteS2AccountsOutput) Reset()                    { *m = DeleteS2AccountsOutput{} }
+func (m *DeleteS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2AccountsOutput) ProtoMessage()               {}
+func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{24} }
+
+func (m *DeleteS2AccountsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteS2AccountsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteS2AccountsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AssociateS2AccountGroupInput struct {
+}
+
+func (m *AssociateS2AccountGroupInput) Reset()                    { *m = AssociateS2AccountGroupInput{} }
+func (m *AssociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*AssociateS2AccountGroupInput) ProtoMessage()               {}
+func (*AssociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{25} }
+
+type AssociateS2AccountGroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AssociateS2AccountGroupOutput) Reset()                    { *m = AssociateS2AccountGroupOutput{} }
+func (m *AssociateS2AccountGroupOutput) String() string            { return proto.CompactTextString(m) }
+func (*AssociateS2AccountGroupOutput) ProtoMessage()               {}
+func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{26} }
+
+func (m *AssociateS2AccountGroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AssociateS2AccountGroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AssociateS2AccountGroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DissociateS2AccountGroupInput struct {
+}
+
+func (m *DissociateS2AccountGroupInput) Reset()                    { *m = DissociateS2AccountGroupInput{} }
+func (m *DissociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*DissociateS2AccountGroupInput) ProtoMessage()               {}
+func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{27} }
+
+type DissociateS2AccountGroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DissociateS2AccountGroupOutput) Reset()         { *m = DissociateS2AccountGroupOutput{} }
+func (m *DissociateS2AccountGroupOutput) String() string { return proto.CompactTextString(m) }
+func (*DissociateS2AccountGroupOutput) ProtoMessage()    {}
+func (*DissociateS2AccountGroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor20, []int{28}
+}
+
+func (m *DissociateS2AccountGroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DissociateS2AccountGroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DissociateS2AccountGroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*S2ServiceProperties)(nil), "service.S2ServiceProperties")
+	proto.RegisterType((*ModifyS2SharedTargetAttributesInput)(nil), "service.ModifyS2SharedTargetAttributesInput")
+	proto.RegisterType((*ModifyS2SharedTargetAttributesOutput)(nil), "service.ModifyS2SharedTargetAttributesOutput")
+	proto.RegisterType((*AttachToS2SharedTargetInput)(nil), "service.AttachToS2SharedTargetInput")
+	proto.RegisterType((*AttachToS2SharedTargetOutput)(nil), "service.AttachToS2SharedTargetOutput")
+	proto.RegisterType((*DetachFromS2SharedTargetInput)(nil), "service.DetachFromS2SharedTargetInput")
+	proto.RegisterType((*DetachFromS2SharedTargetOutput)(nil), "service.DetachFromS2SharedTargetOutput")
+	proto.RegisterType((*DescribeS2DefaultParametersInput)(nil), "service.DescribeS2DefaultParametersInput")
+	proto.RegisterType((*DescribeS2DefaultParametersOutput)(nil), "service.DescribeS2DefaultParametersOutput")
+	proto.RegisterType((*CreateS2GroupInput)(nil), "service.CreateS2GroupInput")
+	proto.RegisterType((*CreateS2GroupOutput)(nil), "service.CreateS2GroupOutput")
+	proto.RegisterType((*DescribeS2GroupsInput)(nil), "service.DescribeS2GroupsInput")
+	proto.RegisterType((*DescribeS2GroupsOutput)(nil), "service.DescribeS2GroupsOutput")
+	proto.RegisterType((*ModifyS2GroupInput)(nil), "service.ModifyS2GroupInput")
+	proto.RegisterType((*ModifyS2GroupOutput)(nil), "service.ModifyS2GroupOutput")
+	proto.RegisterType((*DeleteS2GroupsInput)(nil), "service.DeleteS2GroupsInput")
+	proto.RegisterType((*DeleteS2GroupsOutput)(nil), "service.DeleteS2GroupsOutput")
+	proto.RegisterType((*CreateS2AccountInput)(nil), "service.CreateS2AccountInput")
+	proto.RegisterType((*CreateS2AccountOutput)(nil), "service.CreateS2AccountOutput")
+	proto.RegisterType((*DescribeS2AccountsInput)(nil), "service.DescribeS2AccountsInput")
+	proto.RegisterType((*DescribeS2AccountsOutput)(nil), "service.DescribeS2AccountsOutput")
+	proto.RegisterType((*ModifyS2AccountInput)(nil), "service.ModifyS2AccountInput")
+	proto.RegisterType((*ModifyS2AccountOutput)(nil), "service.ModifyS2AccountOutput")
+	proto.RegisterType((*DeleteS2AccountsInput)(nil), "service.DeleteS2AccountsInput")
+	proto.RegisterType((*DeleteS2AccountsOutput)(nil), "service.DeleteS2AccountsOutput")
+	proto.RegisterType((*AssociateS2AccountGroupInput)(nil), "service.AssociateS2AccountGroupInput")
+	proto.RegisterType((*AssociateS2AccountGroupOutput)(nil), "service.AssociateS2AccountGroupOutput")
+	proto.RegisterType((*DissociateS2AccountGroupInput)(nil), "service.DissociateS2AccountGroupInput")
+	proto.RegisterType((*DissociateS2AccountGroupOutput)(nil), "service.DissociateS2AccountGroupOutput")
 }
 
 type S2ServiceInterface interface {
@@ -57,20 +655,20 @@ type S2ServiceInterface interface {
 	DeleteS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 	EnableS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 	DisableS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyS2SharedTargetAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AttachToS2SharedTarget(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DetachFromS2SharedTarget(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeS2DefaultParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateS2Group(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeS2Groups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyS2Group(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteS2Groups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateS2Account(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeS2Accounts(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyS2Account(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteS2Accounts(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AssociateS2AccountGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DissociateS2AccountGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttributesInput) (out *ModifyS2SharedTargetAttributesOutput, err error)
+	AttachToS2SharedTarget(in *AttachToS2SharedTargetInput) (out *AttachToS2SharedTargetOutput, err error)
+	DetachFromS2SharedTarget(in *DetachFromS2SharedTargetInput) (out *DetachFromS2SharedTargetOutput, err error)
+	DescribeS2DefaultParameters(in *DescribeS2DefaultParametersInput) (out *DescribeS2DefaultParametersOutput, err error)
+	CreateS2Group(in *CreateS2GroupInput) (out *CreateS2GroupOutput, err error)
+	DescribeS2Groups(in *DescribeS2GroupsInput) (out *DescribeS2GroupsOutput, err error)
+	ModifyS2Group(in *ModifyS2GroupInput) (out *ModifyS2GroupOutput, err error)
+	DeleteS2Groups(in *DeleteS2GroupsInput) (out *DeleteS2GroupsOutput, err error)
+	CreateS2Account(in *CreateS2AccountInput) (out *CreateS2AccountOutput, err error)
+	DescribeS2Accounts(in *DescribeS2AccountsInput) (out *DescribeS2AccountsOutput, err error)
+	ModifyS2Account(in *ModifyS2AccountInput) (out *ModifyS2AccountOutput, err error)
+	DeleteS2Accounts(in *DeleteS2AccountsInput) (out *DeleteS2AccountsOutput, err error)
+	AssociateS2AccountGroup(in *AssociateS2AccountGroupInput) (out *AssociateS2AccountGroupOutput, err error)
+	DissociateS2AccountGroup(in *DissociateS2AccountGroupInput) (out *DissociateS2AccountGroupOutput, err error)
 }
 
 type S2Service struct {
@@ -472,9 +1070,9 @@ func (p *S2Service) DisableS2SharedTargets(in *google_protobuf2.Empty) (out *goo
 	return x, err
 }
 
-func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *S2Service) ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttributesInput) (out *ModifyS2SharedTargetAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyS2SharedTargetAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -483,7 +1081,7 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf2.Empty) (
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyS2SharedTargetAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -499,9 +1097,13 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf2.Empty) (
 	return x, err
 }
 
-func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyS2SharedTargetAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) AttachToS2SharedTarget(in *AttachToS2SharedTargetInput) (out *AttachToS2SharedTargetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AttachToS2SharedTargetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -510,7 +1112,7 @@ func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf2.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AttachToS2SharedTargetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -526,9 +1128,13 @@ func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf2.Empty) (out *goo
 	return x, err
 }
 
-func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AttachToS2SharedTargetInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DetachFromS2SharedTarget(in *DetachFromS2SharedTargetInput) (out *DetachFromS2SharedTargetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DetachFromS2SharedTargetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -537,7 +1143,7 @@ func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf2.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DetachFromS2SharedTargetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -553,9 +1159,13 @@ func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf2.Empty) (out *g
 	return x, err
 }
 
-func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DetachFromS2SharedTargetInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DescribeS2DefaultParameters(in *DescribeS2DefaultParametersInput) (out *DescribeS2DefaultParametersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeS2DefaultParametersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -564,7 +1174,7 @@ func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf2.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeS2DefaultParametersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -580,9 +1190,13 @@ func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf2.Empty) (out
 	return x, err
 }
 
-func (p *S2Service) CreateS2Group(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeS2DefaultParametersInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) CreateS2Group(in *CreateS2GroupInput) (out *CreateS2GroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateS2GroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -591,7 +1205,7 @@ func (p *S2Service) CreateS2Group(in *google_protobuf2.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateS2GroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -607,9 +1221,13 @@ func (p *S2Service) CreateS2Group(in *google_protobuf2.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *S2Service) DescribeS2Groups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateS2GroupInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DescribeS2Groups(in *DescribeS2GroupsInput) (out *DescribeS2GroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeS2GroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -618,7 +1236,7 @@ func (p *S2Service) DescribeS2Groups(in *google_protobuf2.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeS2GroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -634,9 +1252,13 @@ func (p *S2Service) DescribeS2Groups(in *google_protobuf2.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *S2Service) ModifyS2Group(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeS2GroupsInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) ModifyS2Group(in *ModifyS2GroupInput) (out *ModifyS2GroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyS2GroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -645,7 +1267,7 @@ func (p *S2Service) ModifyS2Group(in *google_protobuf2.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyS2GroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -661,9 +1283,13 @@ func (p *S2Service) ModifyS2Group(in *google_protobuf2.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *S2Service) DeleteS2Groups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyS2GroupInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DeleteS2Groups(in *DeleteS2GroupsInput) (out *DeleteS2GroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteS2GroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -672,7 +1298,7 @@ func (p *S2Service) DeleteS2Groups(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteS2GroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -688,9 +1314,13 @@ func (p *S2Service) DeleteS2Groups(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *S2Service) CreateS2Account(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteS2GroupsInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) CreateS2Account(in *CreateS2AccountInput) (out *CreateS2AccountOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateS2AccountInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -699,7 +1329,7 @@ func (p *S2Service) CreateS2Account(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateS2AccountOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -715,9 +1345,13 @@ func (p *S2Service) CreateS2Account(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *S2Service) DescribeS2Accounts(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateS2AccountInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DescribeS2Accounts(in *DescribeS2AccountsInput) (out *DescribeS2AccountsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeS2AccountsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -726,7 +1360,7 @@ func (p *S2Service) DescribeS2Accounts(in *google_protobuf2.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeS2AccountsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -742,9 +1376,13 @@ func (p *S2Service) DescribeS2Accounts(in *google_protobuf2.Empty) (out *google_
 	return x, err
 }
 
-func (p *S2Service) ModifyS2Account(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeS2AccountsInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) ModifyS2Account(in *ModifyS2AccountInput) (out *ModifyS2AccountOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyS2AccountInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -753,7 +1391,7 @@ func (p *S2Service) ModifyS2Account(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyS2AccountOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -769,9 +1407,13 @@ func (p *S2Service) ModifyS2Account(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *S2Service) DeleteS2Accounts(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyS2AccountInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DeleteS2Accounts(in *DeleteS2AccountsInput) (out *DeleteS2AccountsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteS2AccountsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -780,7 +1422,7 @@ func (p *S2Service) DeleteS2Accounts(in *google_protobuf2.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteS2AccountsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -796,9 +1438,13 @@ func (p *S2Service) DeleteS2Accounts(in *google_protobuf2.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteS2AccountsInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) AssociateS2AccountGroup(in *AssociateS2AccountGroupInput) (out *AssociateS2AccountGroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AssociateS2AccountGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -807,7 +1453,7 @@ func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf2.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AssociateS2AccountGroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -823,9 +1469,13 @@ func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf2.Empty) (out *go
 	return x, err
 }
 
-func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AssociateS2AccountGroupInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DissociateS2AccountGroup(in *DissociateS2AccountGroupInput) (out *DissociateS2AccountGroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DissociateS2AccountGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -834,7 +1484,7 @@ func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf2.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DissociateS2AccountGroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -850,37 +1500,66 @@ func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf2.Empty) (out *g
 	return x, err
 }
 
+func (p *DissociateS2AccountGroupInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }
 
 var fileDescriptor20 = []byte{
-	// 460 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x96, 0xd1, 0x6e, 0x94, 0x40,
-	0x14, 0x86, 0x53, 0xd3, 0xa8, 0x7b, 0x12, 0x17, 0x3b, 0xab, 0x6d, 0xb3, 0x8d, 0xc6, 0x78, 0xa5,
-	0x37, 0x6c, 0x82, 0x0f, 0xe0, 0x22, 0x6c, 0x6b, 0x4d, 0x1a, 0xb1, 0x5b, 0xbd, 0x6d, 0x06, 0x38,
-	0xb0, 0x13, 0xd9, 0x19, 0x9c, 0x19, 0xd4, 0xf6, 0x11, 0x7c, 0x41, 0x9f, 0xc3, 0x37, 0x30, 0x80,
-	0xb0, 0xdc, 0x78, 0xc1, 0x4c, 0x6f, 0x36, 0xcb, 0x70, 0xf2, 0x9d, 0xff, 0x9c, 0xff, 0x9f, 0x04,
-	0x78, 0xa8, 0x3c, 0xb7, 0x94, 0x42, 0x0b, 0xf2, 0x40, 0xa1, 0xfc, 0xce, 0x12, 0x9c, 0x3f, 0xfb,
-	0xc6, 0x78, 0x9e, 0x14, 0xa2, 0x4a, 0xaf, 0x55, 0xfa, 0xf5, 0x5a, 0x56, 0x05, 0x2e, 0xea, 0x9f,
-	0xb6, 0x6e, 0x7e, 0x92, 0x0b, 0x91, 0x17, 0xb8, 0x68, 0x9e, 0xe2, 0x2a, 0x5b, 0xe0, 0xb6, 0xd4,
-	0x37, 0xed, 0xcb, 0x97, 0xaf, 0x61, 0xb6, 0xf6, 0xd6, 0x2d, 0x28, 0x92, 0xa2, 0x44, 0xa9, 0x19,
-	0x2a, 0x42, 0x60, 0xff, 0x56, 0x70, 0x3c, 0xde, 0x7b, 0xb1, 0xf7, 0x6a, 0x72, 0xd9, 0xfc, 0xf7,
-	0x7e, 0x3b, 0x30, 0xe9, 0x6b, 0xc9, 0x12, 0xa6, 0x81, 0x44, 0xaa, 0xb1, 0x3d, 0x42, 0x49, 0x0e,
-	0xdd, 0xb6, 0x91, 0xdb, 0x35, 0x72, 0x57, 0x75, 0xa3, 0xf9, 0x7f, 0xce, 0x49, 0x00, 0x07, 0x21,
-	0xaa, 0x44, 0xb2, 0xb8, 0x67, 0xa8, 0xd1, 0x90, 0x25, 0x4c, 0x2f, 0x44, 0xca, 0xb2, 0x1b, 0x63,
-	0x19, 0x3e, 0x38, 0x97, 0xa8, 0xd8, 0xad, 0x85, 0x08, 0x1f, 0x9c, 0x10, 0x0b, 0xd4, 0x16, 0x88,
-	0x77, 0xf0, 0x38, 0x12, 0x3f, 0x50, 0x7e, 0xe4, 0xe6, 0x8c, 0x00, 0x0e, 0x5a, 0x46, 0x96, 0x59,
-	0xcd, 0xf2, 0xb9, 0x4c, 0xa9, 0xcd, 0x2c, 0x2b, 0x98, 0x05, 0x1b, 0xca, 0xf3, 0x1e, 0xf1, 0xe5,
-	0x27, 0x47, 0x3d, 0x1a, 0x73, 0x0a, 0x4f, 0xfa, 0x84, 0x6d, 0xa8, 0xc4, 0xf4, 0x8a, 0xca, 0xdc,
-	0x80, 0x73, 0x0e, 0x47, 0x83, 0x9c, 0x0d, 0x48, 0xe3, 0x27, 0x3b, 0x83, 0xa7, 0xbd, 0xd1, 0xb6,
-	0xa0, 0x15, 0xa7, 0x71, 0x61, 0x0d, 0x7a, 0x0f, 0x87, 0x21, 0x53, 0x77, 0x41, 0x8a, 0xe0, 0x79,
-	0x7f, 0x93, 0x06, 0x20, 0x5f, 0x6b, 0xc9, 0xe2, 0x4a, 0xa3, 0x91, 0x36, 0x5f, 0x6b, 0x9a, 0x6c,
-	0xae, 0x84, 0xa5, 0x85, 0x1f, 0xe0, 0x38, 0xc4, 0x9a, 0x74, 0x2a, 0xc5, 0xd6, 0x92, 0x75, 0x01,
-	0x27, 0xbb, 0x38, 0x84, 0x98, 0xd1, 0xaa, 0xd0, 0x11, 0x95, 0x74, 0x8b, 0xda, 0x24, 0xec, 0x6f,
-	0xe1, 0x51, 0x97, 0xd2, 0x33, 0x29, 0xaa, 0xd2, 0xe4, 0xe6, 0xef, 0xf4, 0x34, 0x08, 0x23, 0x11,
-	0x9d, 0x77, 0x66, 0x22, 0x96, 0x30, 0xed, 0x82, 0x6d, 0x28, 0xc1, 0x07, 0xa7, 0xdb, 0x83, 0x9f,
-	0x24, 0xa2, 0xe2, 0xe3, 0x9d, 0x09, 0x81, 0xec, 0x36, 0xf1, 0x0f, 0x62, 0x24, 0xa4, 0xdb, 0x85,
-	0xa9, 0x90, 0xc6, 0x92, 0x76, 0x1b, 0xc6, 0x32, 0xce, 0xe1, 0xc8, 0x57, 0x4a, 0x24, 0x6c, 0xb8,
-	0x12, 0x33, 0x73, 0xea, 0xf4, 0xb3, 0xbb, 0x61, 0xcd, 0x67, 0xbf, 0xfe, 0xec, 0x3b, 0x30, 0xf9,
-	0xc4, 0x78, 0x1e, 0xd4, 0x5f, 0x0c, 0xe4, 0xde, 0xda, 0x8b, 0xef, 0x37, 0x45, 0x6f, 0xfe, 0x06,
-	0x00, 0x00, 0xff, 0xff, 0x4b, 0x8f, 0x41, 0x5b, 0x5c, 0x08, 0x00, 0x00,
+	// 855 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x96, 0xeb, 0x4e, 0xe3, 0x46,
+	0x14, 0xc7, 0x05, 0xa5, 0x5c, 0x8e, 0x54, 0x02, 0x13, 0x08, 0xc1, 0xb9, 0x10, 0x52, 0xa0, 0x50,
+	0xb5, 0x41, 0x4a, 0x5f, 0x80, 0x34, 0x01, 0x4a, 0x25, 0x44, 0x8a, 0xe9, 0x4a, 0xfb, 0x09, 0x39,
+	0xf6, 0x89, 0x63, 0xe1, 0x78, 0xbc, 0xe3, 0xf1, 0xee, 0x82, 0xb4, 0x2f, 0xb0, 0x6f, 0xb1, 0x8f,
+	0xb8, 0x6f, 0xb0, 0x4a, 0xec, 0x24, 0x63, 0xc7, 0x36, 0x84, 0xac, 0xf7, 0x0b, 0xc2, 0x73, 0x4e,
+	0xfe, 0xe7, 0x3f, 0x73, 0xe6, 0xf2, 0x83, 0x55, 0xa7, 0x5e, 0xb3, 0x19, 0xe5, 0x94, 0xac, 0x38,
+	0xc8, 0xde, 0x1b, 0x2a, 0x4a, 0xa5, 0x77, 0x86, 0xa5, 0xab, 0x26, 0x75, 0xb5, 0x7b, 0x47, 0x7b,
+	0xb8, 0x67, 0xae, 0x89, 0xa7, 0x83, 0x3f, 0x5e, 0x9e, 0x54, 0xd0, 0x29, 0xd5, 0x4d, 0x3c, 0x1d,
+	0x7e, 0x75, 0xdc, 0xee, 0x29, 0xf6, 0x6d, 0xfe, 0xe8, 0x05, 0xab, 0x27, 0x90, 0x95, 0xeb, 0xb2,
+	0x27, 0xd4, 0x66, 0xd4, 0x46, 0xc6, 0x0d, 0x74, 0x08, 0x81, 0xa5, 0x27, 0x6a, 0x61, 0x7e, 0xa1,
+	0xb2, 0x70, 0xbc, 0x76, 0x3b, 0xfc, 0xbf, 0x7a, 0x08, 0xbf, 0x5e, 0x53, 0xcd, 0xe8, 0x3e, 0xca,
+	0x75, 0xb9, 0xa7, 0x30, 0xd4, 0xee, 0x14, 0xa6, 0x23, 0x6f, 0x70, 0xce, 0x8c, 0x8e, 0xcb, 0xd1,
+	0xb9, 0xb2, 0x6c, 0x97, 0x57, 0x1d, 0x38, 0x48, 0x4e, 0xbb, 0x71, 0xb9, 0xed, 0x72, 0x92, 0x83,
+	0x65, 0x45, 0xe5, 0x06, 0xb5, 0xfc, 0x22, 0xfe, 0x17, 0xd9, 0x85, 0x55, 0x86, 0xfc, 0x5e, 0xa5,
+	0x1a, 0xe6, 0x17, 0x2b, 0x0b, 0xc7, 0x3f, 0xdf, 0xae, 0x30, 0xe4, 0x4d, 0xaa, 0x21, 0xc9, 0xc3,
+	0x4a, 0x1f, 0x1d, 0x47, 0xd1, 0x31, 0xff, 0xd3, 0xf0, 0x37, 0xa3, 0xcf, 0x6a, 0x09, 0x0a, 0x0d,
+	0xce, 0x15, 0xb5, 0x77, 0x47, 0x83, 0x65, 0x3d, 0x4f, 0x0f, 0x50, 0x8c, 0x0e, 0xa7, 0xe1, 0x65,
+	0x0f, 0x4a, 0x2d, 0x1c, 0x14, 0xbb, 0x60, 0xb4, 0x1f, 0xe5, 0xa6, 0x0f, 0xe5, 0xb8, 0x84, 0x34,
+	0xfc, 0x54, 0xa1, 0xd2, 0x42, 0x47, 0x65, 0x46, 0x07, 0xe5, 0x7a, 0x0b, 0xbb, 0x8a, 0x6b, 0xf2,
+	0xb6, 0xc2, 0x94, 0x3e, 0x72, 0x64, 0x7e, 0xd3, 0x6c, 0xd8, 0x4f, 0xc8, 0x49, 0xc3, 0xd5, 0x16,
+	0x90, 0x26, 0x43, 0x85, 0xa3, 0x5c, 0xbf, 0x64, 0xd4, 0xb5, 0x3d, 0x1f, 0x1d, 0xc8, 0x06, 0x46,
+	0xd3, 0xa8, 0xbc, 0x03, 0xdb, 0x93, 0xb9, 0x0e, 0xab, 0xf8, 0x8b, 0x80, 0x90, 0x0b, 0x07, 0x52,
+	0x9a, 0xf9, 0xe8, 0x80, 0x04, 0x67, 0x1e, 0x18, 0x4d, 0xa3, 0xf2, 0x36, 0x64, 0x5b, 0x68, 0x22,
+	0x0f, 0xcd, 0x5b, 0x85, 0xad, 0xe0, 0x70, 0x1a, 0xb5, 0x73, 0xb0, 0x35, 0xea, 0x6c, 0x43, 0x55,
+	0xa9, 0x6b, 0xf9, 0x87, 0x41, 0x83, 0xed, 0xd0, 0x78, 0x1a, 0xd5, 0x77, 0x61, 0x67, 0xd2, 0x5a,
+	0xbf, 0x8e, 0x3f, 0x7b, 0x1d, 0xf2, 0xd3, 0xa1, 0x94, 0x56, 0x60, 0xd4, 0xe1, 0xf0, 0x0a, 0x84,
+	0xc6, 0x53, 0xdb, 0xf5, 0x5e, 0x93, 0x83, 0xf3, 0x1f, 0xee, 0xfa, 0x60, 0x20, 0x8d, 0xfa, 0x65,
+	0x28, 0x36, 0x1c, 0x87, 0xaa, 0x86, 0xd8, 0x6a, 0x61, 0xff, 0x9b, 0x50, 0x8a, 0x89, 0xa7, 0x75,
+	0x47, 0x1b, 0x49, 0x76, 0x06, 0x77, 0xb4, 0xf1, 0xc3, 0xfc, 0xd4, 0xbf, 0x10, 0x58, 0x1b, 0xbf,
+	0xc3, 0xe4, 0x0c, 0xd6, 0x47, 0x67, 0x62, 0x30, 0x84, 0x8c, 0xe4, 0x6a, 0xde, 0x23, 0x5e, 0x1b,
+	0x3d, 0xe2, 0xb5, 0xf3, 0xc1, 0x23, 0x2e, 0xc5, 0x8c, 0x93, 0x26, 0x6c, 0x4e, 0x36, 0xb5, 0xa7,
+	0xe1, 0xcc, 0x2c, 0x72, 0x06, 0xeb, 0xe3, 0x97, 0xfc, 0x75, 0x36, 0x1a, 0x90, 0xb9, 0x45, 0xc7,
+	0x78, 0x9a, 0xc3, 0x44, 0x03, 0x32, 0xa3, 0xed, 0xf9, 0x5a, 0x89, 0xbf, 0x61, 0xa3, 0x4d, 0x3f,
+	0x20, 0xbb, 0xb1, 0x5e, 0xaf, 0xd1, 0x84, 0x4d, 0x4f, 0xa3, 0xdb, 0x9d, 0x6b, 0x2e, 0xff, 0xdb,
+	0x9a, 0x32, 0xcf, 0x5c, 0xce, 0x21, 0xdb, 0xec, 0x29, 0x96, 0x3e, 0x96, 0x78, 0xf3, 0xd1, 0x42,
+	0x3e, 0xb3, 0xcc, 0xc5, 0xe4, 0x36, 0x16, 0xf1, 0x63, 0x66, 0x9d, 0x2b, 0xf1, 0x5e, 0x15, 0x95,
+	0x66, 0x9f, 0xd9, 0xe5, 0xe4, 0x82, 0x9a, 0x5b, 0xe8, 0xdc, 0x52, 0x3a, 0xe6, 0xdc, 0x42, 0xff,
+	0x40, 0xae, 0x65, 0x38, 0xdf, 0x43, 0xe9, 0x13, 0x94, 0x93, 0x99, 0x98, 0xfc, 0x51, 0xf3, 0x69,
+	0xbe, 0xf6, 0x02, 0xc6, 0x96, 0xfe, 0x7c, 0x61, 0xb6, 0x7f, 0x55, 0x21, 0xe4, 0xa2, 0xf1, 0x97,
+	0x1c, 0x8c, 0x85, 0x12, 0xf0, 0x59, 0x3a, 0x7c, 0x26, 0xcb, 0x2f, 0xf3, 0x30, 0x78, 0x49, 0xa3,
+	0xb9, 0x96, 0x1c, 0x8d, 0x25, 0x12, 0xd9, 0x58, 0xfa, 0xed, 0xd9, 0x3c, 0xbf, 0x18, 0x87, 0x42,
+	0x02, 0xb1, 0x92, 0x13, 0x41, 0x27, 0x99, 0x7d, 0xa5, 0xdf, 0x5f, 0x92, 0xea, 0x57, 0xfd, 0x17,
+	0x7e, 0x09, 0xf0, 0x29, 0x29, 0x8c, 0x7f, 0x3c, 0x4d, 0xb3, 0x52, 0x31, 0x3a, 0xe8, 0x6b, 0xc9,
+	0xb0, 0x11, 0xc6, 0x4d, 0x52, 0x8e, 0xf0, 0x22, 0xa0, 0x9a, 0xb4, 0x17, 0x1b, 0x9f, 0x18, 0x0c,
+	0x60, 0xa4, 0x60, 0x70, 0x1a, 0x3a, 0x05, 0x83, 0x51, 0xec, 0x79, 0x0d, 0xeb, 0x41, 0x2e, 0x24,
+	0x45, 0xa1, 0xfc, 0x14, 0x47, 0x4a, 0xa5, 0x98, 0xa8, 0x2f, 0xd7, 0x86, 0x4c, 0x88, 0xf4, 0x48,
+	0x69, 0x6a, 0x81, 0x44, 0x32, 0x92, 0xca, 0x71, 0x61, 0x5f, 0xf1, 0x2d, 0x90, 0x69, 0x74, 0x23,
+	0x95, 0x88, 0x35, 0x0a, 0x20, 0x8f, 0xb4, 0x9f, 0x90, 0x31, 0x31, 0x1b, 0x82, 0x32, 0xc1, 0x6c,
+	0x14, 0xc6, 0x09, 0x66, 0xa3, 0x69, 0x6e, 0xd8, 0xee, 0x20, 0x67, 0x05, 0xda, 0x1d, 0xc1, 0x66,
+	0x81, 0x76, 0x47, 0x22, 0x5a, 0x0f, 0x76, 0x62, 0xa8, 0x89, 0x08, 0x87, 0x36, 0x01, 0x74, 0xa4,
+	0xa3, 0xe7, 0xd2, 0x84, 0xc3, 0x1d, 0x03, 0x44, 0xe2, 0xe1, 0x4e, 0x82, 0x2a, 0xf1, 0x70, 0x27,
+	0xb2, 0x95, 0x94, 0xfd, 0xfc, 0x75, 0x29, 0x03, 0x6b, 0xff, 0x19, 0x96, 0xde, 0x34, 0xa9, 0xab,
+	0x91, 0x45, 0xb9, 0xde, 0x59, 0x1e, 0x5e, 0xaa, 0x7f, 0x7d, 0x0b, 0x00, 0x00, 0xff, 0xff, 0xb8,
+	0xf4, 0xa6, 0x9b, 0x02, 0x11, 0x00, 0x00,
 }

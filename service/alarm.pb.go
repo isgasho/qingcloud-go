@@ -466,6 +466,34 @@ It has these top-level messages:
 	DescribeRouterStaticEntriesInput
 	DescribeRouterStaticEntriesOutput
 	S2ServiceProperties
+	ModifyS2SharedTargetAttributesInput
+	ModifyS2SharedTargetAttributesOutput
+	AttachToS2SharedTargetInput
+	AttachToS2SharedTargetOutput
+	DetachFromS2SharedTargetInput
+	DetachFromS2SharedTargetOutput
+	DescribeS2DefaultParametersInput
+	DescribeS2DefaultParametersOutput
+	CreateS2GroupInput
+	CreateS2GroupOutput
+	DescribeS2GroupsInput
+	DescribeS2GroupsOutput
+	ModifyS2GroupInput
+	ModifyS2GroupOutput
+	DeleteS2GroupsInput
+	DeleteS2GroupsOutput
+	CreateS2AccountInput
+	CreateS2AccountOutput
+	DescribeS2AccountsInput
+	DescribeS2AccountsOutput
+	ModifyS2AccountInput
+	ModifyS2AccountOutput
+	DeleteS2AccountsInput
+	DeleteS2AccountsOutput
+	AssociateS2AccountGroupInput
+	AssociateS2AccountGroupOutput
+	DissociateS2AccountGroupInput
+	DissociateS2AccountGroupOutput
 	SecurityGroupServiceProperties
 	DescribeSecurityGroupsInput
 	DescribeSecurityGroupsOutput
