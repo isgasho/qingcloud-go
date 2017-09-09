@@ -196,7 +196,7 @@ type XXXInput struct {
 
 ## 为何不用官方SDK, 为何要重新做一个? 自己造轮子很爽吗?
 
-自己看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 看看哪个更好维护:
+自己看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 看看哪个更好维护 (官方SDK已经落后于当前服务, 手工维护json规范极其困难):
 
 - proto3 格式(我们的): [chai2010/qingcloud-go/spec.pb/volume.proto](./spec.pb/volume.proto)
 - snips 格式(官方的): [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
