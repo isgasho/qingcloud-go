@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,29 +37,833 @@ func (m *SecurityGroupServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeSecurityGroupsInput struct {
+}
+
+func (m *DescribeSecurityGroupsInput) Reset()                    { *m = DescribeSecurityGroupsInput{} }
+func (m *DescribeSecurityGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupsInput) ProtoMessage()               {}
+func (*DescribeSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{1} }
+
+type DescribeSecurityGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeSecurityGroupsOutput) Reset()                    { *m = DescribeSecurityGroupsOutput{} }
+func (m *DescribeSecurityGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupsOutput) ProtoMessage()               {}
+func (*DescribeSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{2} }
+
+func (m *DescribeSecurityGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateSecurityGroupInput struct {
+}
+
+func (m *CreateSecurityGroupInput) Reset()                    { *m = CreateSecurityGroupInput{} }
+func (m *CreateSecurityGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupInput) ProtoMessage()               {}
+func (*CreateSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{3} }
+
+type CreateSecurityGroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateSecurityGroupOutput) Reset()                    { *m = CreateSecurityGroupOutput{} }
+func (m *CreateSecurityGroupOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupOutput) ProtoMessage()               {}
+func (*CreateSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{4} }
+
+func (m *CreateSecurityGroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateSecurityGroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateSecurityGroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteSecurityGroupsInput struct {
+}
+
+func (m *DeleteSecurityGroupsInput) Reset()                    { *m = DeleteSecurityGroupsInput{} }
+func (m *DeleteSecurityGroupsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupsInput) ProtoMessage()               {}
+func (*DeleteSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{5} }
+
+type DeleteSecurityGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteSecurityGroupsOutput) Reset()                    { *m = DeleteSecurityGroupsOutput{} }
+func (m *DeleteSecurityGroupsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupsOutput) ProtoMessage()               {}
+func (*DeleteSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{6} }
+
+func (m *DeleteSecurityGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteSecurityGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteSecurityGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ApplySecurityGroupInput struct {
+}
+
+func (m *ApplySecurityGroupInput) Reset()                    { *m = ApplySecurityGroupInput{} }
+func (m *ApplySecurityGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*ApplySecurityGroupInput) ProtoMessage()               {}
+func (*ApplySecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{7} }
+
+type ApplySecurityGroupOutpu struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ApplySecurityGroupOutpu) Reset()                    { *m = ApplySecurityGroupOutpu{} }
+func (m *ApplySecurityGroupOutpu) String() string            { return proto.CompactTextString(m) }
+func (*ApplySecurityGroupOutpu) ProtoMessage()               {}
+func (*ApplySecurityGroupOutpu) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{8} }
+
+func (m *ApplySecurityGroupOutpu) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ApplySecurityGroupOutpu) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ApplySecurityGroupOutpu) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifySecurityGroupAttributesInput struct {
+}
+
+func (m *ModifySecurityGroupAttributesInput) Reset()         { *m = ModifySecurityGroupAttributesInput{} }
+func (m *ModifySecurityGroupAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifySecurityGroupAttributesInput) ProtoMessage()    {}
+func (*ModifySecurityGroupAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{9}
+}
+
+type ModifySecurityGroupAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifySecurityGroupAttributesOutput) Reset()         { *m = ModifySecurityGroupAttributesOutput{} }
+func (m *ModifySecurityGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifySecurityGroupAttributesOutput) ProtoMessage()    {}
+func (*ModifySecurityGroupAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{10}
+}
+
+func (m *ModifySecurityGroupAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifySecurityGroupAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeSecurityGroupRulesInput struct {
+}
+
+func (m *DescribeSecurityGroupRulesInput) Reset()         { *m = DescribeSecurityGroupRulesInput{} }
+func (m *DescribeSecurityGroupRulesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupRulesInput) ProtoMessage()    {}
+func (*DescribeSecurityGroupRulesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{11}
+}
+
+type DescribeSecurityGroupRulesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeSecurityGroupRulesOutput) Reset()         { *m = DescribeSecurityGroupRulesOutput{} }
+func (m *DescribeSecurityGroupRulesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupRulesOutput) ProtoMessage()    {}
+func (*DescribeSecurityGroupRulesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{12}
+}
+
+func (m *DescribeSecurityGroupRulesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupRulesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupRulesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddSecurityGroupRulesInput struct {
+}
+
+func (m *AddSecurityGroupRulesInput) Reset()                    { *m = AddSecurityGroupRulesInput{} }
+func (m *AddSecurityGroupRulesInput) String() string            { return proto.CompactTextString(m) }
+func (*AddSecurityGroupRulesInput) ProtoMessage()               {}
+func (*AddSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{13} }
+
+type AddSecurityGroupRulesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddSecurityGroupRulesOutput) Reset()                    { *m = AddSecurityGroupRulesOutput{} }
+func (m *AddSecurityGroupRulesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddSecurityGroupRulesOutput) ProtoMessage()               {}
+func (*AddSecurityGroupRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{14} }
+
+func (m *AddSecurityGroupRulesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddSecurityGroupRulesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddSecurityGroupRulesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteSecurityGroupRulesInput struct {
+}
+
+func (m *DeleteSecurityGroupRulesInput) Reset()                    { *m = DeleteSecurityGroupRulesInput{} }
+func (m *DeleteSecurityGroupRulesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupRulesInput) ProtoMessage()               {}
+func (*DeleteSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{15} }
+
+type DeleteSecurityGroupRulesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteSecurityGroupRulesOutput) Reset()         { *m = DeleteSecurityGroupRulesOutput{} }
+func (m *DeleteSecurityGroupRulesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupRulesOutput) ProtoMessage()    {}
+func (*DeleteSecurityGroupRulesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{16}
+}
+
+func (m *DeleteSecurityGroupRulesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteSecurityGroupRulesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteSecurityGroupRulesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifySecurityGroupRuleAttributesInput struct {
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) Reset() {
+	*m = ModifySecurityGroupRuleAttributesInput{}
+}
+func (m *ModifySecurityGroupRuleAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifySecurityGroupRuleAttributesInput) ProtoMessage()    {}
+func (*ModifySecurityGroupRuleAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{17}
+}
+
+type ModifySecurityGroupRuleAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifySecurityGroupRuleAttributesOutput) Reset() {
+	*m = ModifySecurityGroupRuleAttributesOutput{}
+}
+func (m *ModifySecurityGroupRuleAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifySecurityGroupRuleAttributesOutput) ProtoMessage()    {}
+func (*ModifySecurityGroupRuleAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{18}
+}
+
+func (m *ModifySecurityGroupRuleAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupRuleAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifySecurityGroupRuleAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateSecurityGroupSnapshotInput struct {
+}
+
+func (m *CreateSecurityGroupSnapshotInput) Reset()         { *m = CreateSecurityGroupSnapshotInput{} }
+func (m *CreateSecurityGroupSnapshotInput) String() string { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupSnapshotInput) ProtoMessage()    {}
+func (*CreateSecurityGroupSnapshotInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{19}
+}
+
+type CreateSecurityGroupSnapshotOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateSecurityGroupSnapshotOutput) Reset()         { *m = CreateSecurityGroupSnapshotOutput{} }
+func (m *CreateSecurityGroupSnapshotOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupSnapshotOutput) ProtoMessage()    {}
+func (*CreateSecurityGroupSnapshotOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{20}
+}
+
+func (m *CreateSecurityGroupSnapshotOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateSecurityGroupSnapshotOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateSecurityGroupSnapshotOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeSecurityGroupSnapshotsInput struct {
+}
+
+func (m *DescribeSecurityGroupSnapshotsInput) Reset()         { *m = DescribeSecurityGroupSnapshotsInput{} }
+func (m *DescribeSecurityGroupSnapshotsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupSnapshotsInput) ProtoMessage()    {}
+func (*DescribeSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{21}
+}
+
+type DescribeSecurityGroupSnapshotsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput) Reset()         { *m = DescribeSecurityGroupSnapshotsOutput{} }
+func (m *DescribeSecurityGroupSnapshotsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupSnapshotsOutput) ProtoMessage()    {}
+func (*DescribeSecurityGroupSnapshotsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{22}
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteSecurityGroupSnapshotsInput struct {
+}
+
+func (m *DeleteSecurityGroupSnapshotsInput) Reset()         { *m = DeleteSecurityGroupSnapshotsInput{} }
+func (m *DeleteSecurityGroupSnapshotsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupSnapshotsInput) ProtoMessage()    {}
+func (*DeleteSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{23}
+}
+
+type DeleteSecurityGroupSnapshotsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteSecurityGroupSnapshotsOutput) Reset()         { *m = DeleteSecurityGroupSnapshotsOutput{} }
+func (m *DeleteSecurityGroupSnapshotsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupSnapshotsOutput) ProtoMessage()    {}
+func (*DeleteSecurityGroupSnapshotsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{24}
+}
+
+func (m *DeleteSecurityGroupSnapshotsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteSecurityGroupSnapshotsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteSecurityGroupSnapshotsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RollbackSecurityGroupInput struct {
+}
+
+func (m *RollbackSecurityGroupInput) Reset()                    { *m = RollbackSecurityGroupInput{} }
+func (m *RollbackSecurityGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*RollbackSecurityGroupInput) ProtoMessage()               {}
+func (*RollbackSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{25} }
+
+type RollbackSecurityGroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RollbackSecurityGroupOutput) Reset()                    { *m = RollbackSecurityGroupOutput{} }
+func (m *RollbackSecurityGroupOutput) String() string            { return proto.CompactTextString(m) }
+func (*RollbackSecurityGroupOutput) ProtoMessage()               {}
+func (*RollbackSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{26} }
+
+func (m *RollbackSecurityGroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RollbackSecurityGroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RollbackSecurityGroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeSecurityGroupIPSetsInput struct {
+}
+
+func (m *DescribeSecurityGroupIPSetsInput) Reset()         { *m = DescribeSecurityGroupIPSetsInput{} }
+func (m *DescribeSecurityGroupIPSetsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupIPSetsInput) ProtoMessage()    {}
+func (*DescribeSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{27}
+}
+
+type DescribeSecurityGroupIPSetsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeSecurityGroupIPSetsOutput) Reset()         { *m = DescribeSecurityGroupIPSetsOutput{} }
+func (m *DescribeSecurityGroupIPSetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupIPSetsOutput) ProtoMessage()    {}
+func (*DescribeSecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{28}
+}
+
+func (m *DescribeSecurityGroupIPSetsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupIPSetsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupIPSetsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateSecurityGroupIPSetInput struct {
+}
+
+func (m *CreateSecurityGroupIPSetInput) Reset()                    { *m = CreateSecurityGroupIPSetInput{} }
+func (m *CreateSecurityGroupIPSetInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupIPSetInput) ProtoMessage()               {}
+func (*CreateSecurityGroupIPSetInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{29} }
+
+type CreateSecurityGroupIPSetOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateSecurityGroupIPSetOutput) Reset()         { *m = CreateSecurityGroupIPSetOutput{} }
+func (m *CreateSecurityGroupIPSetOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupIPSetOutput) ProtoMessage()    {}
+func (*CreateSecurityGroupIPSetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{30}
+}
+
+func (m *CreateSecurityGroupIPSetOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateSecurityGroupIPSetOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateSecurityGroupIPSetOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteSecurityGroupIPSetsInput struct {
+}
+
+func (m *DeleteSecurityGroupIPSetsInput) Reset()         { *m = DeleteSecurityGroupIPSetsInput{} }
+func (m *DeleteSecurityGroupIPSetsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupIPSetsInput) ProtoMessage()    {}
+func (*DeleteSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{31}
+}
+
+type DeleteSecurityGroupIPSetsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteSecurityGroupIPSetsOutput) Reset()         { *m = DeleteSecurityGroupIPSetsOutput{} }
+func (m *DeleteSecurityGroupIPSetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupIPSetsOutput) ProtoMessage()    {}
+func (*DeleteSecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{32}
+}
+
+func (m *DeleteSecurityGroupIPSetsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteSecurityGroupIPSetsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteSecurityGroupIPSetsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifySecurityGroupIPSetAttributesInput struct {
+}
+
+func (m *ModifySecurityGroupIPSetAttributesInput) Reset() {
+	*m = ModifySecurityGroupIPSetAttributesInput{}
+}
+func (m *ModifySecurityGroupIPSetAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifySecurityGroupIPSetAttributesInput) ProtoMessage()    {}
+func (*ModifySecurityGroupIPSetAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{33}
+}
+
+type ModifySecurityGroupIPSetAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifySecurityGroupIPSetAttributesOutput) Reset() {
+	*m = ModifySecurityGroupIPSetAttributesOutput{}
+}
+func (m *ModifySecurityGroupIPSetAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifySecurityGroupIPSetAttributesOutput) ProtoMessage()    {}
+func (*ModifySecurityGroupIPSetAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{34}
+}
+
+func (m *ModifySecurityGroupIPSetAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupIPSetAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifySecurityGroupIPSetAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CopySecurityGroupIPSetsInput struct {
+}
+
+func (m *CopySecurityGroupIPSetsInput) Reset()                    { *m = CopySecurityGroupIPSetsInput{} }
+func (m *CopySecurityGroupIPSetsInput) String() string            { return proto.CompactTextString(m) }
+func (*CopySecurityGroupIPSetsInput) ProtoMessage()               {}
+func (*CopySecurityGroupIPSetsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{35} }
+
+type CopySecurityGroupIPSetsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CopySecurityGroupIPSetsOutput) Reset()                    { *m = CopySecurityGroupIPSetsOutput{} }
+func (m *CopySecurityGroupIPSetsOutput) String() string            { return proto.CompactTextString(m) }
+func (*CopySecurityGroupIPSetsOutput) ProtoMessage()               {}
+func (*CopySecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{36} }
+
+func (m *CopySecurityGroupIPSetsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CopySecurityGroupIPSetsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CopySecurityGroupIPSetsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*SecurityGroupServiceProperties)(nil), "service.SecurityGroupServiceProperties")
+	proto.RegisterType((*DescribeSecurityGroupsInput)(nil), "service.DescribeSecurityGroupsInput")
+	proto.RegisterType((*DescribeSecurityGroupsOutput)(nil), "service.DescribeSecurityGroupsOutput")
+	proto.RegisterType((*CreateSecurityGroupInput)(nil), "service.CreateSecurityGroupInput")
+	proto.RegisterType((*CreateSecurityGroupOutput)(nil), "service.CreateSecurityGroupOutput")
+	proto.RegisterType((*DeleteSecurityGroupsInput)(nil), "service.DeleteSecurityGroupsInput")
+	proto.RegisterType((*DeleteSecurityGroupsOutput)(nil), "service.DeleteSecurityGroupsOutput")
+	proto.RegisterType((*ApplySecurityGroupInput)(nil), "service.ApplySecurityGroupInput")
+	proto.RegisterType((*ApplySecurityGroupOutpu)(nil), "service.ApplySecurityGroupOutpu")
+	proto.RegisterType((*ModifySecurityGroupAttributesInput)(nil), "service.ModifySecurityGroupAttributesInput")
+	proto.RegisterType((*ModifySecurityGroupAttributesOutput)(nil), "service.ModifySecurityGroupAttributesOutput")
+	proto.RegisterType((*DescribeSecurityGroupRulesInput)(nil), "service.DescribeSecurityGroupRulesInput")
+	proto.RegisterType((*DescribeSecurityGroupRulesOutput)(nil), "service.DescribeSecurityGroupRulesOutput")
+	proto.RegisterType((*AddSecurityGroupRulesInput)(nil), "service.AddSecurityGroupRulesInput")
+	proto.RegisterType((*AddSecurityGroupRulesOutput)(nil), "service.AddSecurityGroupRulesOutput")
+	proto.RegisterType((*DeleteSecurityGroupRulesInput)(nil), "service.DeleteSecurityGroupRulesInput")
+	proto.RegisterType((*DeleteSecurityGroupRulesOutput)(nil), "service.DeleteSecurityGroupRulesOutput")
+	proto.RegisterType((*ModifySecurityGroupRuleAttributesInput)(nil), "service.ModifySecurityGroupRuleAttributesInput")
+	proto.RegisterType((*ModifySecurityGroupRuleAttributesOutput)(nil), "service.ModifySecurityGroupRuleAttributesOutput")
+	proto.RegisterType((*CreateSecurityGroupSnapshotInput)(nil), "service.CreateSecurityGroupSnapshotInput")
+	proto.RegisterType((*CreateSecurityGroupSnapshotOutput)(nil), "service.CreateSecurityGroupSnapshotOutput")
+	proto.RegisterType((*DescribeSecurityGroupSnapshotsInput)(nil), "service.DescribeSecurityGroupSnapshotsInput")
+	proto.RegisterType((*DescribeSecurityGroupSnapshotsOutput)(nil), "service.DescribeSecurityGroupSnapshotsOutput")
+	proto.RegisterType((*DeleteSecurityGroupSnapshotsInput)(nil), "service.DeleteSecurityGroupSnapshotsInput")
+	proto.RegisterType((*DeleteSecurityGroupSnapshotsOutput)(nil), "service.DeleteSecurityGroupSnapshotsOutput")
+	proto.RegisterType((*RollbackSecurityGroupInput)(nil), "service.RollbackSecurityGroupInput")
+	proto.RegisterType((*RollbackSecurityGroupOutput)(nil), "service.RollbackSecurityGroupOutput")
+	proto.RegisterType((*DescribeSecurityGroupIPSetsInput)(nil), "service.DescribeSecurityGroupIPSetsInput")
+	proto.RegisterType((*DescribeSecurityGroupIPSetsOutput)(nil), "service.DescribeSecurityGroupIPSetsOutput")
+	proto.RegisterType((*CreateSecurityGroupIPSetInput)(nil), "service.CreateSecurityGroupIPSetInput")
+	proto.RegisterType((*CreateSecurityGroupIPSetOutput)(nil), "service.CreateSecurityGroupIPSetOutput")
+	proto.RegisterType((*DeleteSecurityGroupIPSetsInput)(nil), "service.DeleteSecurityGroupIPSetsInput")
+	proto.RegisterType((*DeleteSecurityGroupIPSetsOutput)(nil), "service.DeleteSecurityGroupIPSetsOutput")
+	proto.RegisterType((*ModifySecurityGroupIPSetAttributesInput)(nil), "service.ModifySecurityGroupIPSetAttributesInput")
+	proto.RegisterType((*ModifySecurityGroupIPSetAttributesOutput)(nil), "service.ModifySecurityGroupIPSetAttributesOutput")
+	proto.RegisterType((*CopySecurityGroupIPSetsInput)(nil), "service.CopySecurityGroupIPSetsInput")
+	proto.RegisterType((*CopySecurityGroupIPSetsOutput)(nil), "service.CopySecurityGroupIPSetsOutput")
 }
 
 type SecurityGroupServiceInterface interface {
-	DescribeSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ApplySecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifySecurityGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifySecurityGroupRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateSecurityGroupSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	RollbackSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateSecurityGroupIPSet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifySecurityGroupIPSetAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CopySecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error)
+	CreateSecurityGroup(in *CreateSecurityGroupInput) (out *CreateSecurityGroupOutput, err error)
+	DeleteSecurityGroups(in *DeleteSecurityGroupsInput) (out *DeleteSecurityGroupsOutput, err error)
+	ApplySecurityGroup(in *ApplySecurityGroupInput) (out *ApplySecurityGroupOutpu, err error)
+	ModifySecurityGroupAttributes(in *ModifySecurityGroupAttributesInput) (out *ModifySecurityGroupAttributesOutput, err error)
+	DescribeSecurityGroupRules(in *DescribeSecurityGroupRulesInput) (out *DescribeSecurityGroupRulesOutput, err error)
+	AddSecurityGroupRules(in *AddSecurityGroupRulesInput) (out *AddSecurityGroupRulesOutput, err error)
+	DeleteSecurityGroupRules(in *DeleteSecurityGroupRulesInput) (out *DeleteSecurityGroupRulesOutput, err error)
+	ModifySecurityGroupRuleAttributes(in *ModifySecurityGroupRuleAttributesInput) (out *ModifySecurityGroupRuleAttributesOutput, err error)
+	CreateSecurityGroupSnapshot(in *CreateSecurityGroupSnapshotInput) (out *CreateSecurityGroupSnapshotOutput, err error)
+	DescribeSecurityGroupSnapshots(in *DescribeSecurityGroupSnapshotsInput) (out *DescribeSecurityGroupSnapshotsOutput, err error)
+	DeleteSecurityGroupSnapshots(in *DeleteSecurityGroupSnapshotsInput) (out *DeleteSecurityGroupSnapshotsOutput, err error)
+	RollbackSecurityGroup(in *RollbackSecurityGroupInput) (out *RollbackSecurityGroupOutput, err error)
+	DescribeSecurityGroupIPSets(in *DescribeSecurityGroupIPSetsInput) (out *DescribeSecurityGroupIPSetsOutput, err error)
+	CreateSecurityGroupIPSet(in *CreateSecurityGroupIPSetInput) (out *CreateSecurityGroupIPSetOutput, err error)
+	DeleteSecurityGroupIPSets(in *DeleteSecurityGroupIPSetsInput) (out *DeleteSecurityGroupIPSetsOutput, err error)
+	ModifySecurityGroupIPSetAttributes(in *ModifySecurityGroupIPSetAttributesInput) (out *ModifySecurityGroupIPSetAttributesOutput, err error)
+	CopySecurityGroupIPSets(in *CopySecurityGroupIPSetsInput) (out *CopySecurityGroupIPSetsOutput, err error)
 }
 
 type SecurityGroupService struct {
@@ -84,9 +887,9 @@ func (s *QingCloudService) SecurityGroup(zone string) (*SecurityGroupService, er
 	return &SecurityGroupService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *SecurityGroupService) DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeSecurityGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -95,7 +898,7 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf2.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeSecurityGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -111,9 +914,13 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf2.Empty
 	return x, err
 }
 
-func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeSecurityGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) CreateSecurityGroup(in *CreateSecurityGroupInput) (out *CreateSecurityGroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateSecurityGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -122,7 +929,7 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf2.Empty) (
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateSecurityGroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -138,9 +945,13 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf2.Empty) (
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateSecurityGroupInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) DeleteSecurityGroups(in *DeleteSecurityGroupsInput) (out *DeleteSecurityGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteSecurityGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -149,7 +960,7 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf2.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteSecurityGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -165,9 +976,13 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf2.Empty) 
 	return x, err
 }
 
-func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteSecurityGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) ApplySecurityGroup(in *ApplySecurityGroupInput) (out *ApplySecurityGroupOutpu, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ApplySecurityGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -176,7 +991,7 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf2.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ApplySecurityGroupOutpu{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -192,9 +1007,13 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf2.Empty) (o
 	return x, err
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ApplySecurityGroupInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *ModifySecurityGroupAttributesInput) (out *ModifySecurityGroupAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifySecurityGroupAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -203,7 +1022,7 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifySecurityGroupAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -219,9 +1038,13 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf
 	return x, err
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifySecurityGroupAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) DescribeSecurityGroupRules(in *DescribeSecurityGroupRulesInput) (out *DescribeSecurityGroupRulesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeSecurityGroupRulesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -230,7 +1053,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf2.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeSecurityGroupRulesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -246,9 +1069,13 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf2.E
 	return x, err
 }
 
-func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeSecurityGroupRulesInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) AddSecurityGroupRules(in *AddSecurityGroupRulesInput) (out *AddSecurityGroupRulesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddSecurityGroupRulesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -257,7 +1084,7 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf2.Empty)
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddSecurityGroupRulesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -273,9 +1100,13 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf2.Empty)
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddSecurityGroupRulesInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) DeleteSecurityGroupRules(in *DeleteSecurityGroupRulesInput) (out *DeleteSecurityGroupRulesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteSecurityGroupRulesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -284,7 +1115,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf2.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteSecurityGroupRulesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -300,9 +1131,13 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf2.Emp
 	return x, err
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteSecurityGroupRulesInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *ModifySecurityGroupRuleAttributesInput) (out *ModifySecurityGroupRuleAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifySecurityGroupRuleAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -311,7 +1146,7 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifySecurityGroupRuleAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -327,9 +1162,13 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_prot
 	return x, err
 }
 
-func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifySecurityGroupRuleAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *CreateSecurityGroupSnapshotInput) (out *CreateSecurityGroupSnapshotOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateSecurityGroupSnapshotInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -338,7 +1177,7 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf2.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateSecurityGroupSnapshotOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -354,9 +1193,13 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf2.
 	return x, err
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateSecurityGroupSnapshotInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *DescribeSecurityGroupSnapshotsInput) (out *DescribeSecurityGroupSnapshotsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeSecurityGroupSnapshotsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -365,7 +1208,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobu
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeSecurityGroupSnapshotsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -381,9 +1224,13 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobu
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeSecurityGroupSnapshotsInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *DeleteSecurityGroupSnapshotsInput) (out *DeleteSecurityGroupSnapshotsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteSecurityGroupSnapshotsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -392,7 +1239,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf2
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteSecurityGroupSnapshotsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -408,9 +1255,13 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf2
 	return x, err
 }
 
-func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteSecurityGroupSnapshotsInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) RollbackSecurityGroup(in *RollbackSecurityGroupInput) (out *RollbackSecurityGroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &RollbackSecurityGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -419,7 +1270,7 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf2.Empty)
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &RollbackSecurityGroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -435,9 +1286,13 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf2.Empty)
 	return x, err
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RollbackSecurityGroupInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *DescribeSecurityGroupIPSetsInput) (out *DescribeSecurityGroupIPSetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeSecurityGroupIPSetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -446,7 +1301,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf2.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeSecurityGroupIPSetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -462,9 +1317,13 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf2.
 	return x, err
 }
 
-func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeSecurityGroupIPSetsInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *CreateSecurityGroupIPSetInput) (out *CreateSecurityGroupIPSetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateSecurityGroupIPSetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -473,7 +1332,7 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf2.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateSecurityGroupIPSetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -489,9 +1348,13 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf2.Emp
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateSecurityGroupIPSetInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *DeleteSecurityGroupIPSetsInput) (out *DeleteSecurityGroupIPSetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteSecurityGroupIPSetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -500,7 +1363,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf2.Em
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteSecurityGroupIPSetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -516,9 +1379,13 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf2.Em
 	return x, err
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteSecurityGroupIPSetsInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *ModifySecurityGroupIPSetAttributesInput) (out *ModifySecurityGroupIPSetAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifySecurityGroupIPSetAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -527,7 +1394,7 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifySecurityGroupIPSetAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -543,9 +1410,13 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_pro
 	return x, err
 }
 
-func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifySecurityGroupIPSetAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *SecurityGroupService) CopySecurityGroupIPSets(in *CopySecurityGroupIPSetsInput) (out *CopySecurityGroupIPSetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CopySecurityGroupIPSetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -554,7 +1425,7 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf2.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CopySecurityGroupIPSetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -570,32 +1441,64 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf2.Empt
 	return x, err
 }
 
+func (p *CopySecurityGroupIPSetsInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("security_group.proto", fileDescriptor21) }
 
 var fileDescriptor21 = []byte{
-	// 377 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0x41, 0x4e, 0xc2, 0x40,
-	0x14, 0x86, 0x43, 0x42, 0x34, 0x3c, 0xe3, 0x66, 0x04, 0xc4, 0x22, 0x44, 0x59, 0xb9, 0x2a, 0x89,
-	0x7a, 0x01, 0x02, 0x88, 0xa8, 0x28, 0x52, 0xf7, 0x84, 0xb6, 0x8f, 0x3a, 0x61, 0xec, 0x8c, 0xd3,
-	0xa9, 0x49, 0x3d, 0x82, 0xb7, 0xf0, 0x88, 0xde, 0xc0, 0xb4, 0x95, 0x45, 0x93, 0x71, 0xd1, 0x96,
-	0x4d, 0xd3, 0x76, 0xa6, 0x5f, 0xbe, 0xfe, 0xef, 0xcf, 0x40, 0x3d, 0x40, 0x27, 0x94, 0x54, 0x45,
-	0x4b, 0x4f, 0xf2, 0x50, 0x98, 0x42, 0x72, 0xc5, 0xc9, 0x7e, 0x80, 0xf2, 0x83, 0x3a, 0x68, 0x74,
-	0xde, 0xa9, 0xef, 0x39, 0x8c, 0x87, 0xee, 0x32, 0x70, 0x37, 0x4b, 0x19, 0x32, 0xec, 0xc7, 0x97,
-	0x74, 0x9f, 0xd1, 0xf6, 0x38, 0xf7, 0x18, 0xf6, 0x93, 0x27, 0x3b, 0x5c, 0xf7, 0xf1, 0x4d, 0xa8,
-	0x28, 0x5d, 0xec, 0x5d, 0x43, 0xd7, 0xfa, 0x83, 0x4f, 0x62, 0xb6, 0x95, 0x32, 0xe7, 0x92, 0x0b,
-	0x94, 0x8a, 0x62, 0x40, 0x08, 0x54, 0x3f, 0xb9, 0x8f, 0xad, 0xca, 0x59, 0xe5, 0xa2, 0xb6, 0x48,
-	0xee, 0x2f, 0xbf, 0x0f, 0xa0, 0xae, 0xfb, 0x8c, 0xdc, 0x42, 0x73, 0x84, 0x81, 0x23, 0xa9, 0x8d,
-	0x99, 0xf5, 0x80, 0x34, 0xcd, 0x54, 0xc3, 0xdc, 0x6a, 0x98, 0xe3, 0x58, 0xc3, 0xf8, 0xe7, 0x3d,
-	0x19, 0xc3, 0xd1, 0x50, 0xe2, 0x4a, 0x65, 0x39, 0xb9, 0x31, 0x37, 0x50, 0x1f, 0x21, 0x43, 0x55,
-	0x56, 0x67, 0x04, 0x64, 0x20, 0x04, 0x8b, 0xca, 0xd9, 0x3c, 0x41, 0x67, 0xc6, 0x5d, 0xba, 0xce,
-	0x62, 0x06, 0x4a, 0x49, 0x6a, 0x87, 0x0a, 0xf3, 0x6b, 0x3d, 0x80, 0xa1, 0xcd, 0x7b, 0x11, 0xb2,
-	0x02, 0xb4, 0x09, 0x34, 0x06, 0xae, 0xbb, 0x03, 0xd0, 0x1d, 0xb4, 0x34, 0xa9, 0x17, 0x63, 0x59,
-	0x70, 0xae, 0xc9, 0x2c, 0x66, 0x95, 0xc8, 0x6d, 0x06, 0x6d, 0x4d, 0xbb, 0x2c, 0x7f, 0x25, 0x82,
-	0x57, 0xae, 0x72, 0xe3, 0xe6, 0xd0, 0xd5, 0x8e, 0x61, 0x0b, 0xcc, 0x2f, 0xf8, 0x08, 0xa7, 0x9a,
-	0x04, 0x8b, 0xf3, 0x26, 0xd0, 0x58, 0x70, 0xc6, 0xec, 0x95, 0xb3, 0x29, 0x57, 0xe1, 0x19, 0xb4,
-	0xb5, 0xbf, 0x3a, 0x9d, 0x5b, 0xa8, 0x0a, 0x35, 0x45, 0x33, 0x88, 0x04, 0x96, 0x9b, 0x75, 0x0f,
-	0x27, 0x9a, 0xcc, 0x0a, 0x8a, 0xbd, 0x40, 0x4f, 0x53, 0xbb, 0x04, 0x56, 0xa2, 0x77, 0x53, 0x38,
-	0x1e, 0x72, 0x11, 0xed, 0x40, 0xd0, 0xe8, 0x7e, 0xfd, 0x54, 0x0d, 0xa8, 0x3d, 0x53, 0xdf, 0x1b,
-	0xc6, 0x67, 0x3f, 0x39, 0xcc, 0x50, 0xed, 0xbd, 0x64, 0xff, 0xd5, 0x6f, 0x00, 0x00, 0x00, 0xff,
-	0xff, 0xc2, 0x7c, 0x23, 0x0d, 0x3d, 0x06, 0x00, 0x00,
+	// 829 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x98, 0xdd, 0x4e, 0xdb, 0x30,
+	0x14, 0xc7, 0xd5, 0x8d, 0xc1, 0x38, 0xd2, 0xa4, 0xc9, 0x63, 0xd0, 0xba, 0xb4, 0xb4, 0x69, 0x81,
+	0xf2, 0x31, 0xd8, 0xd7, 0x0b, 0xa0, 0x22, 0x4d, 0x5c, 0x4c, 0x63, 0xed, 0xcd, 0x2e, 0x26, 0x55,
+	0x6d, 0x63, 0x4a, 0x68, 0x88, 0x43, 0xe2, 0x80, 0x40, 0xda, 0xed, 0xa4, 0xed, 0x11, 0xf6, 0x96,
+	0x7b, 0x83, 0x29, 0xad, 0xdb, 0xa6, 0xdd, 0xb1, 0x93, 0x49, 0xf3, 0x0d, 0x22, 0xf2, 0xff, 0xe4,
+	0xfc, 0x73, 0x7c, 0x6c, 0xff, 0x5c, 0x58, 0x0b, 0x59, 0x3f, 0x0a, 0x1c, 0x71, 0xdf, 0x19, 0x04,
+	0x3c, 0xf2, 0x8f, 0xfc, 0x80, 0x0b, 0x4e, 0x56, 0x42, 0x16, 0xdc, 0x3a, 0x7d, 0x46, 0x4b, 0x37,
+	0x8e, 0x37, 0xe8, 0xbb, 0x3c, 0xb2, 0x3b, 0xa1, 0x3d, 0xec, 0x04, 0x91, 0xcb, 0x8e, 0xe3, 0x3f,
+	0x63, 0x9d, 0xf5, 0x1e, 0xca, 0x6d, 0x19, 0xff, 0x21, 0x0e, 0x6f, 0x8f, 0xc3, 0xce, 0x03, 0xee,
+	0xb3, 0x40, 0x38, 0x2c, 0x24, 0x04, 0x96, 0x1e, 0xb8, 0xc7, 0xf2, 0xb9, 0x4a, 0xae, 0xb1, 0xda,
+	0x1a, 0xfd, 0x6f, 0x95, 0xa0, 0x78, 0xca, 0xc2, 0x7e, 0xe0, 0xf4, 0xd8, 0x5c, 0x74, 0x78, 0xe6,
+	0xf9, 0x91, 0xb0, 0x86, 0xb0, 0x89, 0x0f, 0x7f, 0x8a, 0x84, 0x1f, 0x09, 0xb2, 0x0e, 0xcb, 0xdd,
+	0xbe, 0x70, 0xb8, 0x27, 0x5f, 0x2a, 0x9f, 0x48, 0x01, 0x9e, 0x06, 0x4c, 0x74, 0xfa, 0xdc, 0x66,
+	0xf9, 0x47, 0x95, 0x5c, 0xe3, 0x49, 0x6b, 0x25, 0x60, 0xa2, 0xc9, 0x6d, 0x46, 0xf2, 0xb0, 0x72,
+	0xcd, 0xc2, 0xb0, 0x3b, 0x60, 0xf9, 0xc7, 0xa3, 0x98, 0xc9, 0xa3, 0x45, 0x21, 0xdf, 0x0c, 0x58,
+	0x57, 0xcc, 0xa7, 0x1a, 0x1b, 0xb9, 0x84, 0x02, 0x32, 0x66, 0xc2, 0x45, 0x11, 0x0a, 0xa7, 0xcc,
+	0x65, 0x02, 0xad, 0x87, 0x03, 0x14, 0x1b, 0x34, 0xe1, 0xa3, 0x00, 0x1b, 0x27, 0xbe, 0xef, 0xde,
+	0x23, 0xc5, 0xb8, 0xc0, 0x86, 0x46, 0x1e, 0xfe, 0xaf, 0x85, 0x3a, 0x58, 0x1f, 0xb9, 0xed, 0x5c,
+	0xcc, 0x27, 0x3a, 0x11, 0x22, 0x70, 0x7a, 0x91, 0x60, 0xb2, 0x26, 0x01, 0xd4, 0xb4, 0x2a, 0x13,
+	0xc5, 0xa9, 0xc2, 0x16, 0xda, 0x97, 0xad, 0xc8, 0x9d, 0xd8, 0xe2, 0x50, 0x51, 0x4b, 0x4c, 0x78,
+	0xda, 0x04, 0x7a, 0x62, 0xdb, 0x2a, 0x3b, 0x57, 0x50, 0x44, 0x47, 0x4d, 0x38, 0xd9, 0x82, 0x12,
+	0xd2, 0xa5, 0x09, 0x33, 0xd7, 0x50, 0x56, 0x09, 0x4c, 0xf8, 0x69, 0xc0, 0x0e, 0xd2, 0x21, 0x71,
+	0xba, 0xc5, 0x5e, 0xba, 0x85, 0xdd, 0x54, 0xa5, 0x09, 0x87, 0x16, 0x54, 0x90, 0xed, 0xa5, 0xed,
+	0x75, 0xfd, 0xf0, 0x92, 0x8b, 0xb1, 0x37, 0x1f, 0xaa, 0x1a, 0x8d, 0x09, 0x57, 0xdb, 0x50, 0x43,
+	0x5b, 0x78, 0x92, 0x53, 0x16, 0x2d, 0x84, 0xba, 0x5e, 0x66, 0xc2, 0x5b, 0x0d, 0xaa, 0x48, 0x0b,
+	0x2d, 0x38, 0xbb, 0x01, 0x4b, 0x27, 0x32, 0xb4, 0x0a, 0x5b, 0xdc, 0x75, 0x7b, 0xdd, 0xfe, 0x10,
+	0xd9, 0x39, 0xaf, 0xa0, 0x88, 0x8e, 0x1a, 0xea, 0x29, 0x74, 0x5a, 0xce, 0xce, 0xdb, 0x6c, 0x52,
+	0x20, 0x3f, 0xae, 0xa2, 0x52, 0x63, 0x68, 0x6f, 0xc0, 0x0e, 0xd9, 0x38, 0xdf, 0x74, 0x6f, 0x50,
+	0x09, 0x4c, 0xf8, 0xa9, 0xa0, 0x5b, 0x51, 0xb2, 0x46, 0x5e, 0xbc, 0xd7, 0x2b, 0x14, 0x26, 0x1c,
+	0xed, 0xa1, 0x7b, 0xd0, 0x28, 0xdf, 0xe2, 0x76, 0x75, 0x07, 0x8d, 0x74, 0xa9, 0x09, 0x8f, 0x65,
+	0xd8, 0x6c, 0x72, 0xff, 0x5e, 0x59, 0x33, 0x17, 0x4a, 0x8a, 0x71, 0x03, 0x6e, 0xde, 0xfe, 0x7a,
+	0x0e, 0x6b, 0x18, 0x7b, 0x12, 0x06, 0xeb, 0x38, 0x3e, 0x92, 0xfa, 0x91, 0xc4, 0xda, 0x23, 0x0d,
+	0x7e, 0xd2, 0xed, 0x14, 0x95, 0xfc, 0x98, 0xaf, 0xf0, 0x02, 0x69, 0x59, 0x52, 0x9d, 0x46, 0xab,
+	0xb0, 0x92, 0x5a, 0x3a, 0x89, 0x7c, 0x7b, 0x07, 0xd6, 0x30, 0xe6, 0x23, 0x56, 0xc2, 0x9c, 0x82,
+	0x17, 0x69, 0x4d, 0xab, 0x91, 0x09, 0xbe, 0x00, 0xf9, 0x1b, 0xe7, 0x48, 0x65, 0x1a, 0xaa, 0xc0,
+	0x40, 0xaa, 0x53, 0x8c, 0x69, 0xf0, 0x01, 0x4a, 0x5a, 0x34, 0x23, 0x07, 0xd3, 0x57, 0xa4, 0x83,
+	0x1e, 0x3d, 0xcc, 0x26, 0x96, 0x5f, 0x75, 0x13, 0xa3, 0xb2, 0x8a, 0xbf, 0x48, 0x43, 0x3f, 0xb3,
+	0x33, 0x56, 0xa1, 0x7b, 0x19, 0x94, 0x32, 0x65, 0x0f, 0x5e, 0xa2, 0x8c, 0x45, 0x66, 0xd3, 0xa0,
+	0x26, 0x34, 0x5a, 0xd7, 0x8b, 0x64, 0x8e, 0x21, 0xe4, 0x55, 0xe8, 0x44, 0x76, 0x74, 0xb3, 0x9d,
+	0xc8, 0xb4, 0x9b, 0xaa, 0x93, 0xc9, 0xbe, 0xe7, 0xa0, 0x9a, 0xca, 0x43, 0xe4, 0x58, 0x37, 0x2f,
+	0x08, 0x65, 0xd1, 0xd7, 0xd9, 0x03, 0xa4, 0x11, 0x01, 0x45, 0x0d, 0xfb, 0x90, 0x3d, 0xdd, 0x32,
+	0x9a, 0xa3, 0x28, 0xba, 0x9f, 0x45, 0x2a, 0xb3, 0x7e, 0x8b, 0xcf, 0x06, 0x1d, 0xd8, 0x90, 0x43,
+	0x7d, 0x73, 0xcc, 0xe3, 0x08, 0x7d, 0x95, 0x51, 0x2d, 0xd3, 0xdf, 0xc5, 0x97, 0x5f, 0x35, 0xbd,
+	0x90, 0x7d, 0xdd, 0x34, 0x2e, 0xa4, 0x3e, 0xc8, 0xa4, 0x9d, 0xf5, 0x31, 0x4a, 0x29, 0x89, 0x3e,
+	0x56, 0x33, 0x4e, 0xa2, 0x8f, 0x75, 0xa8, 0x23, 0x14, 0x17, 0xff, 0xf1, 0x29, 0x41, 0x52, 0x56,
+	0x5d, 0xe2, 0xac, 0xa1, 0xfb, 0x59, 0xa4, 0xb3, 0xd5, 0xa3, 0x82, 0x8b, 0xc4, 0xea, 0xd1, 0x02,
+	0x4a, 0x62, 0xf5, 0xa4, 0x70, 0x8a, 0x87, 0xde, 0xe4, 0xe5, 0x07, 0x6a, 0xd7, 0x60, 0xf2, 0xf3,
+	0x1a, 0xe9, 0x42, 0x99, 0xef, 0x47, 0x0e, 0xbd, 0x2f, 0x2f, 0xe0, 0x00, 0xd1, 0xae, 0x3e, 0x0c,
+	0x33, 0xe8, 0x9b, 0x7f, 0x88, 0x90, 0x5e, 0x2e, 0x61, 0x43, 0x01, 0x00, 0x64, 0x76, 0xa8, 0xea,
+	0x10, 0x82, 0xee, 0xa4, 0xc9, 0xc6, 0x99, 0x68, 0xf9, 0xe7, 0xef, 0x25, 0x0a, 0xab, 0x9f, 0x1d,
+	0x6f, 0xd0, 0x74, 0x79, 0x64, 0x93, 0x67, 0x73, 0xda, 0xde, 0xf2, 0xe8, 0xe7, 0xa9, 0x77, 0x7f,
+	0x02, 0x00, 0x00, 0xff, 0xff, 0x0a, 0x61, 0xc0, 0xc7, 0xde, 0x12, 0x00, 0x00,
 }

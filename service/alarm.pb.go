@@ -369,6 +369,42 @@ It has these top-level messages:
 	RouterServiceProperties
 	S2ServiceProperties
 	SecurityGroupServiceProperties
+	DescribeSecurityGroupsInput
+	DescribeSecurityGroupsOutput
+	CreateSecurityGroupInput
+	CreateSecurityGroupOutput
+	DeleteSecurityGroupsInput
+	DeleteSecurityGroupsOutput
+	ApplySecurityGroupInput
+	ApplySecurityGroupOutpu
+	ModifySecurityGroupAttributesInput
+	ModifySecurityGroupAttributesOutput
+	DescribeSecurityGroupRulesInput
+	DescribeSecurityGroupRulesOutput
+	AddSecurityGroupRulesInput
+	AddSecurityGroupRulesOutput
+	DeleteSecurityGroupRulesInput
+	DeleteSecurityGroupRulesOutput
+	ModifySecurityGroupRuleAttributesInput
+	ModifySecurityGroupRuleAttributesOutput
+	CreateSecurityGroupSnapshotInput
+	CreateSecurityGroupSnapshotOutput
+	DescribeSecurityGroupSnapshotsInput
+	DescribeSecurityGroupSnapshotsOutput
+	DeleteSecurityGroupSnapshotsInput
+	DeleteSecurityGroupSnapshotsOutput
+	RollbackSecurityGroupInput
+	RollbackSecurityGroupOutput
+	DescribeSecurityGroupIPSetsInput
+	DescribeSecurityGroupIPSetsOutput
+	CreateSecurityGroupIPSetInput
+	CreateSecurityGroupIPSetOutput
+	DeleteSecurityGroupIPSetsInput
+	DeleteSecurityGroupIPSetsOutput
+	ModifySecurityGroupIPSetAttributesInput
+	ModifySecurityGroupIPSetAttributesOutput
+	CopySecurityGroupIPSetsInput
+	CopySecurityGroupIPSetsOutput
 	SnapshotServiceProperties
 	DescribeSnapshotsInput
 	DescribeSnapshotsOutput

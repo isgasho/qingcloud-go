@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/sg/index.html
 
 message SecurityGroupServiceProperties {
@@ -22,22 +20,167 @@ service SecurityGroupService {
 		sub_service_name: "SecurityGroup"
 	};
 
-	rpc DescribeSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateSecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ApplySecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifySecurityGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeSecurityGroupRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddSecurityGroupRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSecurityGroupRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifySecurityGroupRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateSecurityGroupSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeSecurityGroupSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSecurityGroupSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RollbackSecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeSecurityGroupIPSets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateSecurityGroupIPSet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSecurityGroupIPSets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifySecurityGroupIPSetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CopySecurityGroupIPSets(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSecurityGroups(DescribeSecurityGroupsInput) returns (DescribeSecurityGroupsOutput);
+	rpc CreateSecurityGroup(CreateSecurityGroupInput) returns (CreateSecurityGroupOutput);
+	rpc DeleteSecurityGroups(DeleteSecurityGroupsInput) returns (DeleteSecurityGroupsOutput);
+	rpc ApplySecurityGroup(ApplySecurityGroupInput) returns (ApplySecurityGroupOutpu);
+	rpc ModifySecurityGroupAttributes(ModifySecurityGroupAttributesInput) returns (ModifySecurityGroupAttributesOutput);
+	rpc DescribeSecurityGroupRules(DescribeSecurityGroupRulesInput) returns (DescribeSecurityGroupRulesOutput);
+	rpc AddSecurityGroupRules(AddSecurityGroupRulesInput) returns (AddSecurityGroupRulesOutput);
+	rpc DeleteSecurityGroupRules(DeleteSecurityGroupRulesInput) returns (DeleteSecurityGroupRulesOutput);
+	rpc ModifySecurityGroupRuleAttributes(ModifySecurityGroupRuleAttributesInput) returns (ModifySecurityGroupRuleAttributesOutput);
+	rpc CreateSecurityGroupSnapshot(CreateSecurityGroupSnapshotInput) returns (CreateSecurityGroupSnapshotOutput);
+	rpc DescribeSecurityGroupSnapshots(DescribeSecurityGroupSnapshotsInput) returns (DescribeSecurityGroupSnapshotsOutput);
+	rpc DeleteSecurityGroupSnapshots(DeleteSecurityGroupSnapshotsInput) returns (DeleteSecurityGroupSnapshotsOutput);
+	rpc RollbackSecurityGroup(RollbackSecurityGroupInput) returns (RollbackSecurityGroupOutput);
+	rpc DescribeSecurityGroupIPSets(DescribeSecurityGroupIPSetsInput) returns (DescribeSecurityGroupIPSetsOutput);
+	rpc CreateSecurityGroupIPSet(CreateSecurityGroupIPSetInput) returns (CreateSecurityGroupIPSetOutput);
+	rpc DeleteSecurityGroupIPSets(DeleteSecurityGroupIPSetsInput) returns (DeleteSecurityGroupIPSetsOutput);
+	rpc ModifySecurityGroupIPSetAttributes(ModifySecurityGroupIPSetAttributesInput) returns (ModifySecurityGroupIPSetAttributesOutput);
+	rpc CopySecurityGroupIPSets(CopySecurityGroupIPSetsInput) returns (CopySecurityGroupIPSetsOutput);
 }
+
+message DescribeSecurityGroupsInput {}
+message DescribeSecurityGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateSecurityGroupInput {}
+message CreateSecurityGroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSecurityGroupsInput {}
+message DeleteSecurityGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ApplySecurityGroupInput {}
+message ApplySecurityGroupOutpu {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifySecurityGroupAttributesInput {}
+message ModifySecurityGroupAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeSecurityGroupRulesInput {}
+message DescribeSecurityGroupRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddSecurityGroupRulesInput {}
+message AddSecurityGroupRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSecurityGroupRulesInput {}
+message DeleteSecurityGroupRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifySecurityGroupRuleAttributesInput {}
+message ModifySecurityGroupRuleAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateSecurityGroupSnapshotInput {}
+message CreateSecurityGroupSnapshotOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeSecurityGroupSnapshotsInput {}
+message DescribeSecurityGroupSnapshotsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSecurityGroupSnapshotsInput {}
+message DeleteSecurityGroupSnapshotsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RollbackSecurityGroupInput {}
+message RollbackSecurityGroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeSecurityGroupIPSetsInput {}
+message DescribeSecurityGroupIPSetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateSecurityGroupIPSetInput {}
+message CreateSecurityGroupIPSetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSecurityGroupIPSetsInput {}
+message DeleteSecurityGroupIPSetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifySecurityGroupIPSetAttributesInput {}
+message ModifySecurityGroupIPSetAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CopySecurityGroupIPSetsInput {}
+message CopySecurityGroupIPSetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
