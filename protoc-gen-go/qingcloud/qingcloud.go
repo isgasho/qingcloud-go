@@ -199,6 +199,13 @@ func (p *{{.ArgsType}}) Validate() error {
 {{end}}
 `
 
+	svcRule := p.getServiceExtension(svc)
+	if svcRule != nil {
+		if svcRule.ServiceName != "" || svcRule.SubServiceName != "" {
+			// println("svc:", svcRule.ServiceName+"."+svcRule.SubServiceName)
+		}
+	}
+
 	// gen client method list
 	var methodList string
 	for _, m := range svc.Method {
@@ -253,6 +260,17 @@ func (p *{{.ArgsType}}) Validate() error {
 		})
 		p.P(out.String())
 	}
+}
+
+func (p *qingcloudPlugin) getServiceExtension(svc *descriptor.ServiceDescriptorProto) (svcRule *rule_pb.ServiceRule) {
+	if svc.Options != nil && proto.HasExtension(svc.Options, rule_pb.E_ServiceRule) {
+		if ext, _ := proto.GetExtension(svc.Options, rule_pb.E_ServiceRule); ext != nil {
+			if x, _ := ext.(*rule_pb.ServiceRule); x != nil {
+				svcRule = x
+			}
+		}
+	}
+	return
 }
 
 func (p *qingcloudPlugin) getMethodExtension(m *descriptor.MethodDescriptorProto) (method *rule_pb.MethodRule, input *rule_pb.MethodInputRule) {
