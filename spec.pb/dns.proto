@@ -30,26 +30,38 @@ message DescribeDNSAliasesInput {
 	//
 }
 message DescribeDNSAliasesOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message AssociateDNSAliasInput {
 	//
 }
 message AssociateDNSAliasOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message DissociateDNSAliasesInput {
 	//
 }
 message DissociateDNSAliasesOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message GetDNSLabelInput {
 	//
 }
 message GetDNSLabelOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
