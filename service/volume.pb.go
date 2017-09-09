@@ -586,8 +586,9 @@ type VolumesServiceInterface interface {
 }
 
 type VolumesService struct {
-	Config     *config.Config
-	Properties *VolumesServiceProperties
+	Config           *config.Config
+	Properties       *VolumesServiceProperties
+	LastResponseBody string
 }
 
 func NewVolumesService(conf *config.Config, zone string) (p *VolumesService) {
@@ -623,6 +624,8 @@ func (p *VolumesService) DescribeVolumes(in *DescribeVolumesInput) (out *Describ
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -652,6 +655,8 @@ func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolum
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -681,6 +686,8 @@ func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolum
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -710,6 +717,8 @@ func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolum
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -739,6 +748,8 @@ func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolum
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -768,6 +779,8 @@ func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolum
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -797,6 +810,8 @@ func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput)
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

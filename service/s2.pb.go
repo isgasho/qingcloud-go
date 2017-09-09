@@ -74,8 +74,9 @@ type S2ServiceInterface interface {
 }
 
 type S2Service struct {
-	Config     *config.Config
-	Properties *S2ServiceProperties
+	Config           *config.Config
+	Properties       *S2ServiceProperties
+	LastResponseBody string
 }
 
 func NewS2Service(conf *config.Config, zone string) (p *S2Service) {
@@ -111,6 +112,8 @@ func (p *S2Service) CreateS2Server(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -136,6 +139,8 @@ func (p *S2Service) DescribeS2Servers(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -161,6 +166,8 @@ func (p *S2Service) ModifyS2Server(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -186,6 +193,8 @@ func (p *S2Service) ResizeS2Servers(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -211,6 +220,8 @@ func (p *S2Service) DeleteS2Servers(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -236,6 +247,8 @@ func (p *S2Service) PowerOnS2Servers(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -261,6 +274,8 @@ func (p *S2Service) PowerOffS2Servers(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -286,6 +301,8 @@ func (p *S2Service) UpdateS2Servers(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -311,6 +328,8 @@ func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -336,6 +355,8 @@ func (p *S2Service) CreateS2SharedTarget(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -361,6 +382,8 @@ func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -386,6 +409,8 @@ func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -411,6 +436,8 @@ func (p *S2Service) EnableS2SharedTargets(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -436,6 +463,8 @@ func (p *S2Service) DisableS2SharedTargets(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -461,6 +490,8 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(in *google_protobuf1.Empty) (
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -486,6 +517,8 @@ func (p *S2Service) AttachToS2SharedTarget(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -511,6 +544,8 @@ func (p *S2Service) DetachFromS2SharedTarget(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -536,6 +571,8 @@ func (p *S2Service) DescribeS2DefaultParameters(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -561,6 +598,8 @@ func (p *S2Service) CreateS2Group(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -586,6 +625,8 @@ func (p *S2Service) DescribeS2Groups(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -611,6 +652,8 @@ func (p *S2Service) ModifyS2Group(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -636,6 +679,8 @@ func (p *S2Service) DeleteS2Groups(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -661,6 +706,8 @@ func (p *S2Service) CreateS2Account(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -686,6 +733,8 @@ func (p *S2Service) DescribeS2Accounts(in *google_protobuf1.Empty) (out *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -711,6 +760,8 @@ func (p *S2Service) ModifyS2Account(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -736,6 +787,8 @@ func (p *S2Service) DeleteS2Accounts(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -761,6 +814,8 @@ func (p *S2Service) AssociateS2AccountGroup(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -786,6 +841,8 @@ func (p *S2Service) DissociateS2AccountGroup(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

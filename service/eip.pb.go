@@ -54,8 +54,9 @@ type EipServiceInterface interface {
 }
 
 type EipService struct {
-	Config     *config.Config
-	Properties *EipServiceProperties
+	Config           *config.Config
+	Properties       *EipServiceProperties
+	LastResponseBody string
 }
 
 func NewEipService(conf *config.Config, zone string) (p *EipService) {
@@ -91,6 +92,8 @@ func (p *EipService) DescribeEips(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -116,6 +119,8 @@ func (p *EipService) AllocateEips(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -141,6 +146,8 @@ func (p *EipService) ReleaseEips(in *google_protobuf1.Empty) (out *google_protob
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -166,6 +173,8 @@ func (p *EipService) AssociateEip(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -191,6 +200,8 @@ func (p *EipService) DissociateEips(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -216,6 +227,8 @@ func (p *EipService) ChangeEipsBandwidth(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -241,6 +254,8 @@ func (p *EipService) ChangeEipsBillingMode(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -266,6 +281,8 @@ func (p *EipService) ModifyEipAttributes(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -73,8 +73,9 @@ type ResourceACLServiceInterface interface {
 }
 
 type ResourceACLService struct {
-	Config     *config.Config
-	Properties *ResourceACLServiceProperties
+	Config           *config.Config
+	Properties       *ResourceACLServiceProperties
+	LastResponseBody string
 }
 
 func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLService) {
@@ -110,6 +111,8 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf1.E
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -135,6 +138,8 @@ func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf1.Empty) 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -160,6 +165,8 @@ func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -185,6 +192,8 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -210,6 +219,8 @@ func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -235,6 +246,8 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf1.Emp
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -260,6 +273,8 @@ func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf1.Empty) (
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -285,6 +300,8 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf1.Empty
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -310,6 +327,8 @@ func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -335,6 +354,8 @@ func (p *ResourceACLService) CreateUserGroups(in *google_protobuf1.Empty) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -360,6 +381,8 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -385,6 +408,8 @@ func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf1.Empty) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -410,6 +435,8 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf1.Empty
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -435,6 +462,8 @@ func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf1.Empty) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -460,6 +489,8 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -485,6 +516,8 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf1.Empty) 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -510,6 +543,8 @@ func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -535,6 +570,8 @@ func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf1.Empty) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -560,6 +597,8 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -585,6 +624,8 @@ func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf1.Empty) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -610,6 +651,8 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf1.Empty) 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -635,6 +678,8 @@ func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -660,6 +705,8 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -685,6 +732,8 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -710,6 +759,8 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -735,6 +786,8 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -760,6 +813,8 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf1.Emp
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

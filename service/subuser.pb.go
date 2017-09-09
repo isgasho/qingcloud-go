@@ -140,8 +140,9 @@ type SubuserServiceInterface interface {
 }
 
 type SubuserService struct {
-	Config     *config.Config
-	Properties *SubuserServiceProperties
+	Config           *config.Config
+	Properties       *SubuserServiceProperties
+	LastResponseBody string
 }
 
 func NewSubuserService(conf *config.Config, zone string) (p *SubuserService) {
@@ -177,6 +178,8 @@ func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *Descr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -206,6 +209,8 @@ func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUs
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -235,6 +240,8 @@ func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInpu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -264,6 +271,8 @@ func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSub
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -293,6 +302,8 @@ func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *Restore
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

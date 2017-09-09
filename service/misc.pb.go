@@ -465,8 +465,9 @@ type MiscServiceInterface interface {
 }
 
 type MiscService struct {
-	Config     *config.Config
-	Properties *MiscServiceProperties
+	Config           *config.Config
+	Properties       *MiscServiceProperties
+	LastResponseBody string
 }
 
 func NewMiscService(conf *config.Config, zone string) (p *MiscService) {
@@ -502,6 +503,8 @@ func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuota
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -531,6 +534,8 @@ func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -560,6 +565,8 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

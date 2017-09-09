@@ -208,8 +208,9 @@ type MongoServiceInterface interface {
 }
 
 type MongoService struct {
-	Config     *config.Config
-	Properties *MongoServiceProperties
+	Config           *config.Config
+	Properties       *MongoServiceProperties
+	LastResponseBody string
 }
 
 func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
@@ -245,6 +246,8 @@ func (p *MongoService) DescribeMongoNodes(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -270,6 +273,8 @@ func (p *MongoService) DescribeMongoParameters(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -295,6 +300,8 @@ func (p *MongoService) ResizeMongos(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -320,6 +327,8 @@ func (p *MongoService) CreateMongo(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -345,6 +354,8 @@ func (p *MongoService) StopMongos(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -370,6 +381,8 @@ func (p *MongoService) StartMongos(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -395,6 +408,8 @@ func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMon
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -424,6 +439,8 @@ func (p *MongoService) DeleteMongos(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -449,6 +466,8 @@ func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -474,6 +493,8 @@ func (p *MongoService) ChangeMongoVxnet(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -499,6 +520,8 @@ func (p *MongoService) AddMongoInstances(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -524,6 +547,8 @@ func (p *MongoService) RemoveMongoInstances(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -549,6 +574,8 @@ func (p *MongoService) ModifyMongoAttributes(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -574,6 +601,8 @@ func (p *MongoService) ModifyMongoInstances(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -599,6 +628,8 @@ func (p *MongoService) GetMongoMonitor(in *google_protobuf1.Empty) (out *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -52,8 +52,9 @@ type KeyPairServiceInterface interface {
 }
 
 type KeyPairService struct {
-	Config     *config.Config
-	Properties *KeyPairServiceProperties
+	Config           *config.Config
+	Properties       *KeyPairServiceProperties
+	LastResponseBody string
 }
 
 func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService) {
@@ -89,6 +90,8 @@ func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -114,6 +117,8 @@ func (p *KeyPairService) CreateKeyPair(in *google_protobuf1.Empty) (out *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -139,6 +144,8 @@ func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -164,6 +171,8 @@ func (p *KeyPairService) AttachKeyPairs(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -189,6 +198,8 @@ func (p *KeyPairService) DetachKeyPairs(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -214,6 +225,8 @@ func (p *KeyPairService) ModifyKeyPairAttributes(in *google_protobuf1.Empty) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

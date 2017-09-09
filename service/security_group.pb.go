@@ -64,8 +64,9 @@ type SecurityGroupServiceInterface interface {
 }
 
 type SecurityGroupService struct {
-	Config     *config.Config
-	Properties *SecurityGroupServiceProperties
+	Config           *config.Config
+	Properties       *SecurityGroupServiceProperties
+	LastResponseBody string
 }
 
 func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroupService) {
@@ -101,6 +102,8 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf1.Empty
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -126,6 +129,8 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf1.Empty) (
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -151,6 +156,8 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf1.Empty) 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -176,6 +183,8 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -201,6 +210,8 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -226,6 +237,8 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf1.E
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -251,6 +264,8 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf1.Empty)
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -276,6 +291,8 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf1.Emp
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -301,6 +318,8 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -326,6 +345,8 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -351,6 +372,8 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -376,6 +399,8 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf1
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -401,6 +426,8 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf1.Empty)
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -426,6 +453,8 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -451,6 +480,8 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf1.Emp
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -476,6 +507,8 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf1.Em
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -501,6 +534,8 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -526,6 +561,8 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

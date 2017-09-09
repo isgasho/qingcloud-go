@@ -53,8 +53,9 @@ type SnapshotServiceInterface interface {
 }
 
 type SnapshotService struct {
-	Config     *config.Config
-	Properties *SnapshotServiceProperties
+	Config           *config.Config
+	Properties       *SnapshotServiceProperties
+	LastResponseBody string
 }
 
 func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService) {
@@ -90,6 +91,8 @@ func (p *SnapshotService) DescribeSnapshots(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -115,6 +118,8 @@ func (p *SnapshotService) CreateSnapshots(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -140,6 +145,8 @@ func (p *SnapshotService) DeleteSnapshots(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -165,6 +172,8 @@ func (p *SnapshotService) ApplySnapshots(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -190,6 +199,8 @@ func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf1.Empty) (
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -215,6 +226,8 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf1.Empty
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -240,6 +253,8 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf1.Empty) (
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

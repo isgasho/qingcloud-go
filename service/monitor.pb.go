@@ -52,8 +52,9 @@ type MonitorServiceInterface interface {
 }
 
 type MonitorService struct {
-	Config     *config.Config
-	Properties *MonitorServiceProperties
+	Config           *config.Config
+	Properties       *MonitorServiceProperties
+	LastResponseBody string
 }
 
 func NewMonitorService(conf *config.Config, zone string) (p *MonitorService) {
@@ -89,6 +90,8 @@ func (p *MonitorService) GetMonitor(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -114,6 +117,8 @@ func (p *MonitorService) GetLoadBalancerMonitor(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -139,6 +144,8 @@ func (p *MonitorService) GetRDBMonitor(in *google_protobuf1.Empty) (out *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -164,6 +171,8 @@ func (p *MonitorService) GetCacheMonitor(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -189,6 +198,8 @@ func (p *MonitorService) GetZooKeeperMonitor(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -214,6 +225,8 @@ func (p *MonitorService) GetQueueMonitor(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

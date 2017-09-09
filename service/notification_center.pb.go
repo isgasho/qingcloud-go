@@ -74,8 +74,9 @@ type NotificationCenterServiceInterface interface {
 }
 
 type NotificationCenterService struct {
-	Config     *config.Config
-	Properties *NotificationCenterServiceProperties
+	Config           *config.Config
+	Properties       *NotificationCenterServiceProperties
+	LastResponseBody string
 }
 
 func NewNotificationCenterService(conf *config.Config, zone string) (p *NotificationCenterService) {
@@ -111,6 +112,8 @@ func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *Desc
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

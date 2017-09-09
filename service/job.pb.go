@@ -144,8 +144,9 @@ type JobServiceInterface interface {
 }
 
 type JobService struct {
-	Config     *config.Config
-	Properties *JobServiceProperties
+	Config           *config.Config
+	Properties       *JobServiceProperties
+	LastResponseBody string
 }
 
 func NewJobService(conf *config.Config, zone string) (p *JobService) {
@@ -181,6 +182,8 @@ func (p *JobService) DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutpu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -70,8 +70,9 @@ type CacheServiceInterface interface {
 }
 
 type CacheService struct {
-	Config     *config.Config
-	Properties *CacheServiceProperties
+	Config           *config.Config
+	Properties       *CacheServiceProperties
+	LastResponseBody string
 }
 
 func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
@@ -107,6 +108,8 @@ func (p *CacheService) DescribeCaches(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -132,6 +135,8 @@ func (p *CacheService) CreateCache(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -157,6 +162,8 @@ func (p *CacheService) StopCaches(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -182,6 +189,8 @@ func (p *CacheService) StartCaches(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -207,6 +216,8 @@ func (p *CacheService) RestartCaches(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -232,6 +243,8 @@ func (p *CacheService) DeleteCaches(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -257,6 +270,8 @@ func (p *CacheService) ResizeCaches(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -282,6 +297,8 @@ func (p *CacheService) UpdateCache(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -307,6 +324,8 @@ func (p *CacheService) ChangeCacheVxnet(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -332,6 +351,8 @@ func (p *CacheService) ModifyCacheAttributes(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -357,6 +378,8 @@ func (p *CacheService) DescribeCacheNodes(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -382,6 +405,8 @@ func (p *CacheService) AddCacheNodes(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -407,6 +432,8 @@ func (p *CacheService) DeleteCacheNodes(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -432,6 +459,8 @@ func (p *CacheService) RestartCacheNodes(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -457,6 +486,8 @@ func (p *CacheService) ModifyCacheNodeAttributes(in *google_protobuf1.Empty) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -482,6 +513,8 @@ func (p *CacheService) CreateCacheFromSnapshot(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -507,6 +540,8 @@ func (p *CacheService) DescribeCacheParameterGroups(in *google_protobuf1.Empty) 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -532,6 +567,8 @@ func (p *CacheService) CreateCacheParameterGroup(in *google_protobuf1.Empty) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -557,6 +594,8 @@ func (p *CacheService) ApplyCacheParameterGroup(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -582,6 +621,8 @@ func (p *CacheService) DeleteCacheParameterGroups(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -607,6 +648,8 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -632,6 +675,8 @@ func (p *CacheService) DescribeCacheParameters(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -657,6 +702,8 @@ func (p *CacheService) UpdateCacheParameters(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -682,6 +729,8 @@ func (p *CacheService) ResetCacheParameters(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

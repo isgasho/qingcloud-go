@@ -50,8 +50,9 @@ type HadoopServiceInterface interface {
 }
 
 type HadoopService struct {
-	Config     *config.Config
-	Properties *HadoopServiceProperties
+	Config           *config.Config
+	Properties       *HadoopServiceProperties
+	LastResponseBody string
 }
 
 func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
@@ -87,6 +88,8 @@ func (p *HadoopService) AddHadoopNodes(in *google_protobuf1.Empty) (out *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -112,6 +115,8 @@ func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -137,6 +142,8 @@ func (p *HadoopService) StartHadoops(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -162,6 +169,8 @@ func (p *HadoopService) StopHadoops(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -53,8 +53,9 @@ type SparkServiceInterface interface {
 }
 
 type SparkService struct {
-	Config     *config.Config
-	Properties *SparkServiceProperties
+	Config           *config.Config
+	Properties       *SparkServiceProperties
+	LastResponseBody string
 }
 
 func NewSparkService(conf *config.Config, zone string) (p *SparkService) {
@@ -90,6 +91,8 @@ func (p *SparkService) CreateSpark(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -115,6 +118,8 @@ func (p *SparkService) DescribeSparks(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -140,6 +145,8 @@ func (p *SparkService) AddSparkNodes(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -165,6 +172,8 @@ func (p *SparkService) DeleteSparkNodes(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -190,6 +199,8 @@ func (p *SparkService) StartSparks(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -215,6 +226,8 @@ func (p *SparkService) StopSparks(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -240,6 +253,8 @@ func (p *SparkService) DeleteSparks(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

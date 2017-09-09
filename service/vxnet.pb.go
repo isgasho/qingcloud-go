@@ -53,8 +53,9 @@ type VxnetServiceInterface interface {
 }
 
 type VxnetService struct {
-	Config     *config.Config
-	Properties *VxnetServiceProperties
+	Config           *config.Config
+	Properties       *VxnetServiceProperties
+	LastResponseBody string
 }
 
 func NewVxnetService(conf *config.Config, zone string) (p *VxnetService) {
@@ -90,6 +91,8 @@ func (p *VxnetService) DescribeVxnets(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -115,6 +118,8 @@ func (p *VxnetService) CreateVxnets(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -140,6 +145,8 @@ func (p *VxnetService) DeleteVxnets(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -165,6 +172,8 @@ func (p *VxnetService) JoinVxnet(in *google_protobuf1.Empty) (out *google_protob
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -190,6 +199,8 @@ func (p *VxnetService) LeaveVxnet(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -215,6 +226,8 @@ func (p *VxnetService) ModifyVxnetAttributes(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -240,6 +253,8 @@ func (p *VxnetService) DescribeVxnetInstances(in *google_protobuf1.Empty) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

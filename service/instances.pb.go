@@ -1025,8 +1025,9 @@ type InstanceServiceInterface interface {
 }
 
 type InstanceService struct {
-	Config     *config.Config
-	Properties *InstanceServiceProperties
+	Config           *config.Config
+	Properties       *InstanceServiceProperties
+	LastResponseBody string
 }
 
 func NewInstanceService(conf *config.Config, zone string) (p *InstanceService) {
@@ -1062,6 +1063,8 @@ func (p *InstanceService) DescribeInstances(in *DescribeInstancesInput) (out *De
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1091,6 +1094,8 @@ func (p *InstanceService) RunInstances(in *RunInstancesInput) (out *RunInstances
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1120,6 +1125,8 @@ func (p *InstanceService) TerminateInstances(in *TerminateInstancesInput) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1149,6 +1156,8 @@ func (p *InstanceService) StartInstances(in *StartInstancesInput) (out *StartIns
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1178,6 +1187,8 @@ func (p *InstanceService) StopInstances(in *StopInstancesInput) (out *StopInstan
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1207,6 +1218,8 @@ func (p *InstanceService) RestartInstances(in *RestartInstancesInput) (out *Rest
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1236,6 +1249,8 @@ func (p *InstanceService) ResetInstances(in *ResetInstancesInput) (out *ResetIns
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1265,6 +1280,8 @@ func (p *InstanceService) ResizeInstances(in *ResizeInstancesInput) (out *Resize
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1294,6 +1311,8 @@ func (p *InstanceService) ModifyInstanceAttributes(in *ModifyInstanceAttributesI
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1323,6 +1342,8 @@ func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1352,6 +1373,8 @@ func (p *InstanceService) CreateBrokers(in *CreateBrokersInput) (out *CreateBrok
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -1381,6 +1404,8 @@ func (p *InstanceService) DeleteBrokers(in *DeleteBrokersInput) (out *DeleteBrok
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

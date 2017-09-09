@@ -54,8 +54,9 @@ type ImageServiceInterface interface {
 }
 
 type ImageService struct {
-	Config     *config.Config
-	Properties *ImageServiceProperties
+	Config           *config.Config
+	Properties       *ImageServiceProperties
+	LastResponseBody string
 }
 
 func NewImageService(conf *config.Config, zone string) (p *ImageService) {
@@ -91,6 +92,8 @@ func (p *ImageService) DescribeImages(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -116,6 +119,8 @@ func (p *ImageService) CaptureInstance(in *google_protobuf1.Empty) (out *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -141,6 +146,8 @@ func (p *ImageService) DeleteImages(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -166,6 +173,8 @@ func (p *ImageService) ModifyImageAttributes(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -191,6 +200,8 @@ func (p *ImageService) GrantImageToUsers(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -216,6 +227,8 @@ func (p *ImageService) RevokeImageFromUsers(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -241,6 +254,8 @@ func (p *ImageService) DescribeImageUsers(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -266,6 +281,8 @@ func (p *ImageService) CloneImages(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -64,8 +64,9 @@ type RDBServiceInterface interface {
 }
 
 type RDBService struct {
-	Config     *config.Config
-	Properties *RDBServiceProperties
+	Config           *config.Config
+	Properties       *RDBServiceProperties
+	LastResponseBody string
 }
 
 func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
@@ -101,6 +102,8 @@ func (p *RDBService) CreateRDB(in *google_protobuf1.Empty) (out *google_protobuf
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -126,6 +129,8 @@ func (p *RDBService) DescribeRDBs(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -151,6 +156,8 @@ func (p *RDBService) DeleteRDBs(in *google_protobuf1.Empty) (out *google_protobu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -176,6 +183,8 @@ func (p *RDBService) StartRDBs(in *google_protobuf1.Empty) (out *google_protobuf
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -201,6 +210,8 @@ func (p *RDBService) StopRDBs(in *google_protobuf1.Empty) (out *google_protobuf1
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -226,6 +237,8 @@ func (p *RDBService) ResizeRDBs(in *google_protobuf1.Empty) (out *google_protobu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -251,6 +264,8 @@ func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -276,6 +291,8 @@ func (p *RDBService) RDBsJoinVxnet(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -301,6 +318,8 @@ func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -326,6 +345,8 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -351,6 +372,8 @@ func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -376,6 +399,8 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -401,6 +426,8 @@ func (p *RDBService) PurgeRDBLogs(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -426,6 +453,8 @@ func (p *RDBService) CeaseRDBInstance(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -451,6 +480,8 @@ func (p *RDBService) GetRDBMonitor(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -476,6 +507,8 @@ func (p *RDBService) ModifyRDBParameters(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -501,6 +534,8 @@ func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -526,6 +561,8 @@ func (p *RDBService) DescribeRDBParameters(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -263,8 +263,9 @@ type NicServiceInterface interface {
 }
 
 type NicService struct {
-	Config     *config.Config
-	Properties *NicServiceProperties
+	Config           *config.Config
+	Properties       *NicServiceProperties
+	LastResponseBody string
 }
 
 func NewNicService(conf *config.Config, zone string) (p *NicService) {
@@ -300,6 +301,8 @@ func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -329,6 +332,8 @@ func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutpu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -358,6 +363,8 @@ func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -387,6 +394,8 @@ func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -416,6 +425,8 @@ func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *Mod
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -445,6 +456,8 @@ func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

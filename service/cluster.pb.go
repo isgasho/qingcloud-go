@@ -2313,8 +2313,9 @@ type ClusterServiceInterface interface {
 }
 
 type ClusterService struct {
-	Config     *config.Config
-	Properties *ClusterServiceProperties
+	Config           *config.Config
+	Properties       *ClusterServiceProperties
+	LastResponseBody string
 }
 
 func NewClusterService(conf *config.Config, zone string) (p *ClusterService) {
@@ -2350,6 +2351,8 @@ func (p *ClusterService) CreateCluster(in *CreateClusterInput) (out *CreateClust
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2379,6 +2382,8 @@ func (p *ClusterService) DescribeClusters(in *DescribeClustersInput) (out *Descr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2408,6 +2413,8 @@ func (p *ClusterService) DescribeClusterNodes(in *DescribeClusterNodesInput) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2437,6 +2444,8 @@ func (p *ClusterService) StopClusters(in *StopClustersInput) (out *StopClustersO
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2466,6 +2475,8 @@ func (p *ClusterService) StartClusters(in *StartClustersInput) (out *StartCluste
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2495,6 +2506,8 @@ func (p *ClusterService) DeleteClusters(in *DeleteClustersInput) (out *DeleteClu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2524,6 +2537,8 @@ func (p *ClusterService) Lease(in *LeaseInput) (out *LeaseOutput, err error) {
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2553,6 +2568,8 @@ func (p *ClusterService) AddClusterNodes(in *AddClusterNodesInput) (out *AddClus
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2582,6 +2599,8 @@ func (p *ClusterService) DeleteClusterNodes(in *DeleteClusterNodesInput) (out *D
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2611,6 +2630,8 @@ func (p *ClusterService) ResizeCluster(in *ResizeClusterInput) (out *ResizeClust
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2640,6 +2661,8 @@ func (p *ClusterService) ChangeClusterVxnet(in *ChangeClusterVxnetInput) (out *C
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2669,6 +2692,8 @@ func (p *ClusterService) SuspendClusters(in *SuspendClustersInput) (out *Suspend
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2698,6 +2723,8 @@ func (p *ClusterService) UpdateClusterEnvironment(in *UpdateClusterEnvironmentIn
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2727,6 +2754,8 @@ func (p *ClusterService) ModifyClusterAttributes(in *ModifyClusterAttributesInpu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2756,6 +2785,8 @@ func (p *ClusterService) ModifyClusterNodeAttributes(in *ModifyClusterNodeAttrib
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2785,6 +2816,8 @@ func (p *ClusterService) GetClustersStats(in *GetClustersStatsInput) (out *GetCl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2814,6 +2847,8 @@ func (p *ClusterService) DescribeClusterUsers(in *DescribeClusterUsersInput) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2843,6 +2878,8 @@ func (p *ClusterService) RestartClusterService(in *RestartClusterServiceInput) (
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2872,6 +2909,8 @@ func (p *ClusterService) UpgradeClusters(in *UpgradeClustersInput) (out *Upgrade
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2901,6 +2940,8 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *AuthorizeCluster
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -2930,6 +2971,8 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -65,8 +65,9 @@ type RouterServiceInterface interface {
 }
 
 type RouterService struct {
-	Config     *config.Config
-	Properties *RouterServiceProperties
+	Config           *config.Config
+	Properties       *RouterServiceProperties
+	LastResponseBody string
 }
 
 func NewRouterService(conf *config.Config, zone string) (p *RouterService) {
@@ -102,6 +103,8 @@ func (p *RouterService) DescribeRouters(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -127,6 +130,8 @@ func (p *RouterService) CreateRouters(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -152,6 +157,8 @@ func (p *RouterService) DeleteRouters(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -177,6 +184,8 @@ func (p *RouterService) UpdateRouters(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -202,6 +211,8 @@ func (p *RouterService) PowerOffRouters(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -227,6 +238,8 @@ func (p *RouterService) PowerOnRouters(in *google_protobuf1.Empty) (out *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -252,6 +265,8 @@ func (p *RouterService) JoinRouter(in *google_protobuf1.Empty) (out *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -277,6 +292,8 @@ func (p *RouterService) LeaveRouter(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -302,6 +319,8 @@ func (p *RouterService) ModifyRouterAttributes(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -327,6 +346,8 @@ func (p *RouterService) DescribeRouterStatics(in *google_protobuf1.Empty) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -352,6 +373,8 @@ func (p *RouterService) AddRouterStatics(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -377,6 +400,8 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf1.Empty)
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -402,6 +427,8 @@ func (p *RouterService) DeleteRouterStatics(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -427,6 +454,8 @@ func (p *RouterService) CopyRouterStatics(in *google_protobuf1.Empty) (out *goog
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -452,6 +481,8 @@ func (p *RouterService) DescribeRouterVxnets(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -477,6 +508,8 @@ func (p *RouterService) AddRouterStaticEntries(in *google_protobuf1.Empty) (out 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -502,6 +535,8 @@ func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -527,6 +562,8 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf1.E
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -552,6 +589,8 @@ func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf1.Empty) 
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

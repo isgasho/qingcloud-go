@@ -159,8 +159,9 @@ type TagServiceInterface interface {
 }
 
 type TagService struct {
-	Config     *config.Config
-	Properties *TagServiceProperties
+	Config           *config.Config
+	Properties       *TagServiceProperties
+	LastResponseBody string
 }
 
 func NewTagService(conf *config.Config, zone string) (p *TagService) {
@@ -196,6 +197,8 @@ func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutpu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -225,6 +228,8 @@ func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err er
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -254,6 +259,8 @@ func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -283,6 +290,8 @@ func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *Mod
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -312,6 +321,8 @@ func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -341,6 +352,8 @@ func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -121,8 +121,9 @@ type DNSAliasServiceInterface interface {
 }
 
 type DNSAliasService struct {
-	Config     *config.Config
-	Properties *DNSAliasServiceProperties
+	Config           *config.Config
+	Properties       *DNSAliasServiceProperties
+	LastResponseBody string
 }
 
 func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
@@ -158,6 +159,8 @@ func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -187,6 +190,8 @@ func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *As
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -216,6 +221,8 @@ func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -245,6 +252,8 @@ func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOut
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

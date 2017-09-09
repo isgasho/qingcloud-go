@@ -183,8 +183,9 @@ type LoadBalancerServiceInterface interface {
 }
 
 type LoadBalancerService struct {
-	Config     *config.Config
-	Properties *LoadBalancerServiceProperties
+	Config           *config.Config
+	Properties       *LoadBalancerServiceProperties
+	LastResponseBody string
 }
 
 func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerService) {
@@ -220,6 +221,8 @@ func (p *LoadBalancerService) CreateLoadBalancer(in *google_protobuf1.Empty) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -245,6 +248,8 @@ func (p *LoadBalancerService) DescribeLoadBalancers(in *DescribeLoadBalancersInp
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -274,6 +279,8 @@ func (p *LoadBalancerService) DeleteLoadBalancers(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -299,6 +306,8 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -324,6 +333,8 @@ func (p *LoadBalancerService) StartLoadBalancers(in *google_protobuf1.Empty) (ou
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -349,6 +360,8 @@ func (p *LoadBalancerService) StopLoadBalancers(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -374,6 +387,8 @@ func (p *LoadBalancerService) UpdateLoadBalancers(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -399,6 +414,8 @@ func (p *LoadBalancerService) ResizeLoadBalancers(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -424,6 +441,8 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *google_protobuf1.E
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -449,6 +468,8 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *google_protobuf
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -474,6 +495,8 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -499,6 +522,8 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *google_protobuf1
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -524,6 +549,8 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *google_protobuf1.E
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -549,6 +576,8 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -574,6 +603,8 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(in *google_protobuf1.Empty
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -599,6 +630,8 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -624,6 +657,8 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *google_protobuf1.Em
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -649,6 +684,8 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -674,6 +711,8 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -699,6 +738,8 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *google_protobuf1.
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -724,6 +765,8 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *google_prot
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -749,6 +792,8 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *google_protobuf1.Empty
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -774,6 +819,8 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *google_protobuf1.Em
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -799,6 +846,8 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *google_protobuf1.Em
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -824,6 +873,8 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *google_protobu
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -849,6 +900,8 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *google_
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -874,6 +927,8 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *google_protobuf1
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -899,6 +954,8 @@ func (p *LoadBalancerService) CreateServerCertificate(in *google_protobuf1.Empty
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -924,6 +981,8 @@ func (p *LoadBalancerService) DescribeServerCertificates(in *google_protobuf1.Em
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -949,6 +1008,8 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -974,6 +1035,8 @@ func (p *LoadBalancerService) DeleteServerCertificates(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

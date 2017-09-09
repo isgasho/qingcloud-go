@@ -53,8 +53,9 @@ type SpanServiceInterface interface {
 }
 
 type SpanService struct {
-	Config     *config.Config
-	Properties *SpanServiceProperties
+	Config           *config.Config
+	Properties       *SpanServiceProperties
+	LastResponseBody string
 }
 
 func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
@@ -90,6 +91,8 @@ func (p *SpanService) CreateSpan(in *google_protobuf1.Empty) (out *google_protob
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -115,6 +118,8 @@ func (p *SpanService) DescribeSpans(in *google_protobuf1.Empty) (out *google_pro
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -140,6 +145,8 @@ func (p *SpanService) DeleteSpans(in *google_protobuf1.Empty) (out *google_proto
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -165,6 +172,8 @@ func (p *SpanService) AddSpanMembers(in *google_protobuf1.Empty) (out *google_pr
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -190,6 +199,8 @@ func (p *SpanService) RemoveSpanMembers(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -215,6 +226,8 @@ func (p *SpanService) ModifySpanAttributes(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -240,6 +253,8 @@ func (p *SpanService) UpdateSpan(in *google_protobuf1.Empty) (out *google_protob
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -294,8 +294,9 @@ type AlarmServiceInterface interface {
 }
 
 type AlarmService struct {
-	Config     *config.Config
-	Properties *AlarmServiceProperties
+	Config           *config.Config
+	Properties       *AlarmServiceProperties
+	LastResponseBody string
 }
 
 func NewAlarmService(conf *config.Config, zone string) (p *AlarmService) {
@@ -331,6 +332,8 @@ func (p *AlarmService) DescribeAlarmPolicies(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -356,6 +359,8 @@ func (p *AlarmService) CreateAlarmPolicy(in *google_protobuf1.Empty) (out *googl
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -381,6 +386,8 @@ func (p *AlarmService) ModifyAlarmPolicyAttributes(in *google_protobuf1.Empty) (
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -406,6 +413,8 @@ func (p *AlarmService) DeleteAlarmPolicies(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -431,6 +440,8 @@ func (p *AlarmService) DescribeAlarmPolicyRules(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -456,6 +467,8 @@ func (p *AlarmService) AddAlarmPolicyRules(in *google_protobuf1.Empty) (out *goo
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -481,6 +494,8 @@ func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *google_protobuf1.Empt
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -506,6 +521,8 @@ func (p *AlarmService) DeleteAlarmPolicyRules(in *google_protobuf1.Empty) (out *
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -531,6 +548,8 @@ func (p *AlarmService) DescribeAlarmPolicyActions(in *google_protobuf1.Empty) (o
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -556,6 +575,8 @@ func (p *AlarmService) AddAlarmPolicyActions(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -581,6 +602,8 @@ func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *google_protobuf1.Em
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -606,6 +629,8 @@ func (p *AlarmService) DeleteAlarmPolicyActions(in *google_protobuf1.Empty) (out
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -631,6 +656,8 @@ func (p *AlarmService) AssociateAlarmPolicy(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -656,6 +683,8 @@ func (p *AlarmService) DissociateAlarmPolicy(in *google_protobuf1.Empty) (out *g
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -681,6 +710,8 @@ func (p *AlarmService) ApplyAlarmPolicy(in *google_protobuf1.Empty) (out *google
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -706,6 +737,8 @@ func (p *AlarmService) DescribeAlarms(in *google_protobuf1.Empty) (out *google_p
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
@@ -731,6 +764,8 @@ func (p *AlarmService) DescribeAlarmHistory(in *google_protobuf1.Empty) (out *go
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

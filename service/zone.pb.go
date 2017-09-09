@@ -147,8 +147,9 @@ type ZoneServiceInterface interface {
 }
 
 type ZoneService struct {
-	Config     *config.Config
-	Properties *ZoneServiceProperties
+	Config           *config.Config
+	Properties       *ZoneServiceProperties
+	LastResponseBody string
 }
 
 func NewZoneService(conf *config.Config, zone string) (p *ZoneService) {
@@ -184,6 +185,8 @@ func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesO
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}

@@ -112,8 +112,9 @@ type UserDataServiceInterface interface {
 }
 
 type UserDataService struct {
-	Config     *config.Config
-	Properties *UserDataServiceProperties
+	Config           *config.Config
+	Properties       *UserDataServiceProperties
+	LastResponseBody string
 }
 
 func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
@@ -149,6 +150,8 @@ func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentI
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
