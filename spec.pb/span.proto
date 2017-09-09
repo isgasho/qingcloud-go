@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/span/index.html
 
 message SpanServiceProperties {
@@ -22,11 +20,72 @@ service SpanService {
 		sub_service_name: "Span"
 	};
 
-	rpc CreateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSpans(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RemoveSpanMembers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifySpanAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc UpdateSpan(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateSpan(CreateSpanInput) returns (CreateSpanOutput);
+	rpc DescribeSpans(DescribeSpansInput) returns (DescribeSpansOutput);
+	rpc DeleteSpans(DeleteSpansInput) returns (DeleteSpansOutput);
+	rpc AddSpanMembers(AddSpanMembersInput) returns (AddSpanMembersOutput);
+	rpc RemoveSpanMembers(RemoveSpanMembersInput) returns (RemoveSpanMembersOutput);
+	rpc ModifySpanAttributes(ModifySpanAttributesInput) returns (ModifySpanAttributesOutput);
+	rpc UpdateSpan(UpdateSpanInput) returns (UpdateSpanOutput);
+}
+
+message CreateSpanInput {}
+message CreateSpanOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeSpansInput {}
+message DescribeSpansOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSpansInput {}
+message DeleteSpansOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddSpanMembersInput {}
+message AddSpanMembersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RemoveSpanMembersInput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+message RemoveSpanMembersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifySpanAttributesInput {}
+message ModifySpanAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message UpdateSpanInput {}
+message UpdateSpanOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

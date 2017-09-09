@@ -309,6 +309,20 @@ It has these top-level messages:
 	SecurityGroupServiceProperties
 	SnapshotServiceProperties
 	SpanServiceProperties
+	CreateSpanInput
+	CreateSpanOutput
+	DescribeSpansInput
+	DescribeSpansOutput
+	DeleteSpansInput
+	DeleteSpansOutput
+	AddSpanMembersInput
+	AddSpanMembersOutput
+	RemoveSpanMembersInput
+	RemoveSpanMembersOutput
+	ModifySpanAttributesInput
+	ModifySpanAttributesOutput
+	UpdateSpanInput
+	UpdateSpanOutput
 	SparkServiceProperties
 	SubuserServiceProperties
 	DescribeSubUsersInput
