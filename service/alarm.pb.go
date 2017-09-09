@@ -273,6 +273,18 @@ It has these top-level messages:
 	DescribeMongosInput
 	DescribeMongosOutput
 	MonitorServiceProperties
+	GetMonitorInput
+	GetMonitorOutput
+	GetLoadBalancerMonitorInput
+	GetLoadBalancerMonitorOutput
+	GetRDBMonitorInput
+	GetRDBMonitorOutput
+	GetCacheMonitorInput
+	GetCacheMonitorOutput
+	GetZooKeeperMonitorInput
+	GetZooKeeperMonitorOutput
+	GetQueueMonitorInput
+	GetQueueMonitorOutput
 	NicServiceProperties
 	CreateNicsInput
 	CreateNicsOutput

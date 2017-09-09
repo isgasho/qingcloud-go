@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/monitor/index.html
 
 message MonitorServiceProperties {
@@ -22,10 +20,58 @@ service MonitorService {
 		sub_service_name: "Monitor"
 	};
 
-	rpc GetMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetLoadBalancerMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetRDBMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetCacheMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetZooKeeperMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetQueueMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc GetMonitor(GetMonitorInput) returns (GetMonitorOutput);
+	rpc GetLoadBalancerMonitor(GetLoadBalancerMonitorInput) returns (GetLoadBalancerMonitorOutput);
+	rpc GetRDBMonitor(GetRDBMonitorInput) returns (GetRDBMonitorOutput);
+	rpc GetCacheMonitor(GetCacheMonitorInput) returns (GetCacheMonitorOutput);
+	rpc GetZooKeeperMonitor(GetZooKeeperMonitorInput) returns (GetZooKeeperMonitorOutput);
+	rpc GetQueueMonitor(GetQueueMonitorInput) returns (GetQueueMonitorOutput);
+}
+
+message GetMonitorInput {}
+message GetMonitorOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GetLoadBalancerMonitorInput {}
+message GetLoadBalancerMonitorOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GetRDBMonitorInput {}
+message GetRDBMonitorOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GetCacheMonitorInput {}
+message GetCacheMonitorOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GetZooKeeperMonitorInput {}
+message GetZooKeeperMonitorOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GetQueueMonitorInput {}
+message GetQueueMonitorOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
