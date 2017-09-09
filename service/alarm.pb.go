@@ -702,6 +702,20 @@ It has these top-level messages:
 	CacheNode
 	CacheParameter
 	CacheParameterGroup
+	CachePrivateIP
+	Data
+	DHCPOption
+	DNSAlias
+	EIPGroup
+	Extra
+	File
+	InstanceType
+	LoadBalancerPolicy
+	LoadBalancerPolicyRule
+	Meter
+	MongoParameter
+	MongoPrivateIP
+	NICIP
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput
