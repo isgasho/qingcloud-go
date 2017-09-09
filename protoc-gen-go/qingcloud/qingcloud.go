@@ -145,8 +145,9 @@ func (p *qingcloudPlugin) genServiceClient(
 ) {
 	const clientHelperFuncTmpl = `
 type {{.ServiceName}} struct {
-	Config     *config.Config
-	Properties *{{.ServiceName}}Properties
+	Config           *config.Config
+	Properties       *{{.ServiceName}}Properties
+	LastResponseBody string
 }
 
 func New{{.ServiceName}}(conf *config.Config, zone string) (p *{{.ServiceName}}) {
@@ -185,6 +186,8 @@ func (p *{{.ServiceName}}) {{.MethodName}}(in *{{.ArgsType}}) (out *{{.ReplyType
 	}
 
 	err = r.Send()
+	p.LastResponseBody = o.ResponseBody
+
 	if err != nil {
 		return nil, err
 	}
