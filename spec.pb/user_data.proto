@@ -15,6 +15,11 @@ message UserDataServiceProperties {
 }
 
 service UserDataService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "UserData"
+	};
+
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
 		option (qingcloud.sdk.rule.method_rule) = {
 			http_action: "POST"
