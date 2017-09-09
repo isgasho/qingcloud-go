@@ -77,7 +77,8 @@ func (r *Request) Send() error {
 		return err
 	}
 
-	err = r.unpack()
+	respBody, err := r.unpack()
+	r.Operation.ResponseBody = respBody
 	if err != nil {
 		return err
 	}
@@ -157,13 +158,13 @@ func (r *Request) send() error {
 	return nil
 }
 
-func (r *Request) unpack() error {
+func (r *Request) unpack() (respBody string, err error) {
 	u := &Unpacker{}
 
-	err := u.UnpackHTTPRequest(r.Operation, r.HTTPResponse, r.Output)
+	respBody, err = u.UnpackHTTPRequest(r.Operation, r.HTTPResponse, r.Output)
 	if err != nil {
-		return err
+		return respBody, err
 	}
 
-	return nil
+	return respBody, nil
 }

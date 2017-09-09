@@ -36,35 +36,36 @@ type Unpacker struct {
 }
 
 // UnpackHTTPRequest unpack the http response with an operation, http response and an output.
-func (u *Unpacker) UnpackHTTPRequest(o *data.Operation, r *http.Response, x proto.Message) error {
+func (u *Unpacker) UnpackHTTPRequest(o *data.Operation, r *http.Response, x proto.Message) (respBody string, err error) {
 	u.operation = o
 	u.httpResponse = r
 	u.output = x
 
-	err := u.parseResponse()
+	respBody, err = u.parseResponse()
 	if err != nil {
-		return err
+		return respBody, err
 	}
 
 	err = u.parseError()
 	if err != nil {
-		return err
+		return respBody, err
 	}
 
-	return nil
+	return respBody, nil
 }
 
-func (u *Unpacker) parseResponse() error {
+func (u *Unpacker) parseResponse() (respBody string, err error) {
 	if u.httpResponse.StatusCode == 200 {
 		if u.httpResponse.Header.Get("Content-Type") == "application/json" {
 			buffer := &bytes.Buffer{}
 			buffer.ReadFrom(u.httpResponse.Body)
 			u.httpResponse.Body.Close()
 
+			respBody = string(buffer.Bytes())
 			logger.Info(fmt.Sprintf(
 				"Response json string: [%d] %s",
 				StringToUnixInt(u.httpResponse.Header.Get("Date"), "RFC 822"),
-				string(buffer.Bytes())))
+				respBody))
 
 			decoder := &jsonpb.Unmarshaler{
 				AllowUnknownFields: !u.operation.Config.JSONDisableUnknownFields,
@@ -72,12 +73,12 @@ func (u *Unpacker) parseResponse() error {
 
 			err := decoder.Unmarshal(buffer, u.output)
 			if err != nil {
-				return err
+				return respBody, err
 			}
 		}
 	}
 
-	return nil
+	return respBody, nil
 }
 
 func (u *Unpacker) parseError() error {

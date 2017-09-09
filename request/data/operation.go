@@ -31,6 +31,7 @@ type Operation struct {
 
 	RequestMethod string
 	RequestURI    string
+	ResponseBody  string
 
 	StatusCodes []int
 }
