@@ -466,6 +466,34 @@ It has these top-level messages:
 	DescribeRouterStaticEntriesInput
 	DescribeRouterStaticEntriesOutput
 	S2ServiceProperties
+	CreateS2ServerInput
+	CreateS2ServerOutput
+	DescribeS2ServersInput
+	DescribeS2ServersOutput
+	ModifyS2ServerInput
+	ModifyS2ServerOutput
+	ResizeS2ServersInput
+	ResizeS2ServersOutput
+	DeleteS2ServersInput
+	DeleteS2ServersOutput
+	PowerOnS2ServersInput
+	PowerOnS2ServersOutput
+	PowerOffS2ServersInput
+	PowerOffS2ServersOutput
+	UpdateS2ServersInput
+	UpdateS2ServersOutput
+	ChangeS2ServerVxnetInput
+	ChangeS2ServerVxnetOutput
+	CreateS2SharedTargetInput
+	CreateS2SharedTargetOutput
+	DescribeS2SharedTargetsInput
+	DescribeS2SharedTargetsOutput
+	DeleteS2SharedTargetsInput
+	DeleteS2SharedTargetsOutput
+	EnableS2SharedTargetsInput
+	EnableS2SharedTargetsOutput
+	DisableS2SharedTargetsInput
+	DisableS2SharedTargetsOutput
 	ModifyS2SharedTargetAttributesInput
 	ModifyS2SharedTargetAttributesOutput
 	AttachToS2SharedTargetInput

@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/s2/index.html
 
 message S2ServiceProperties {
@@ -22,24 +20,20 @@ service S2Service {
 		sub_service_name: "S2"
 	};
 
-	rpc CreateS2Server(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyS2Server(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResizeS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc PowerOnS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc PowerOffS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc UpdateS2Servers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ChangeS2ServerVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateS2SharedTarget(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc EnableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DisableS2SharedTargets(google.protobuf.Empty) returns (google.protobuf.Empty);
-
-
-
-
+	rpc CreateS2Server(CreateS2ServerInput) returns (CreateS2ServerOutput);
+	rpc DescribeS2Servers(DescribeS2ServersInput) returns (DescribeS2ServersOutput);
+	rpc ModifyS2Server(ModifyS2ServerInput) returns (ModifyS2ServerOutput);
+	rpc ResizeS2Servers(ResizeS2ServersInput) returns (ResizeS2ServersOutput);
+	rpc DeleteS2Servers(DeleteS2ServersInput) returns (DeleteS2ServersOutput);
+	rpc PowerOnS2Servers(PowerOnS2ServersInput) returns (PowerOnS2ServersOutput);
+	rpc PowerOffS2Servers(PowerOffS2ServersInput) returns (PowerOffS2ServersOutput);
+	rpc UpdateS2Servers(UpdateS2ServersInput) returns (UpdateS2ServersOutput);
+	rpc ChangeS2ServerVxnet(ChangeS2ServerVxnetInput) returns (ChangeS2ServerVxnetOutput);
+	rpc CreateS2SharedTarget(CreateS2SharedTargetInput) returns (CreateS2SharedTargetOutput);
+	rpc DescribeS2SharedTargets(DescribeS2SharedTargetsInput) returns (DescribeS2SharedTargetsOutput);
+	rpc DeleteS2SharedTargets(DeleteS2SharedTargetsInput) returns (DeleteS2SharedTargetsOutput);
+	rpc EnableS2SharedTargets(EnableS2SharedTargetsInput) returns (EnableS2SharedTargetsOutput);
+	rpc DisableS2SharedTargets(DisableS2SharedTargetsInput) returns (DisableS2SharedTargetsOutput);
 	rpc ModifyS2SharedTargetAttributes(ModifyS2SharedTargetAttributesInput) returns (ModifyS2SharedTargetAttributesOutput);
 	rpc AttachToS2SharedTarget(AttachToS2SharedTargetInput) returns (AttachToS2SharedTargetOutput);
 	rpc DetachFromS2SharedTarget(DetachFromS2SharedTargetInput) returns (DetachFromS2SharedTargetOutput);
@@ -55,6 +49,48 @@ service S2Service {
 	rpc AssociateS2AccountGroup(AssociateS2AccountGroupInput) returns (AssociateS2AccountGroupOutput);
 	rpc DissociateS2AccountGroup(DissociateS2AccountGroupInput) returns (DissociateS2AccountGroupOutput);
 }
+
+message CreateS2ServerInput {}
+message CreateS2ServerOutput {}
+
+message DescribeS2ServersInput {}
+message DescribeS2ServersOutput {}
+
+message ModifyS2ServerInput {}
+message ModifyS2ServerOutput {}
+
+message ResizeS2ServersInput {}
+message ResizeS2ServersOutput {}
+
+message DeleteS2ServersInput {}
+message DeleteS2ServersOutput {}
+
+message PowerOnS2ServersInput {}
+message PowerOnS2ServersOutput {}
+
+message PowerOffS2ServersInput {}
+message PowerOffS2ServersOutput {}
+
+message UpdateS2ServersInput {}
+message UpdateS2ServersOutput {}
+
+message ChangeS2ServerVxnetInput {}
+message ChangeS2ServerVxnetOutput {}
+
+message CreateS2SharedTargetInput {}
+message CreateS2SharedTargetOutput {}
+
+message DescribeS2SharedTargetsInput {}
+message DescribeS2SharedTargetsOutput {}
+
+message DeleteS2SharedTargetsInput {}
+message DeleteS2SharedTargetsOutput {}
+
+message EnableS2SharedTargetsInput {}
+message EnableS2SharedTargetsOutput {}
+
+message DisableS2SharedTargetsInput {}
+message DisableS2SharedTargetsOutput {}
 
 message ModifyS2SharedTargetAttributesInput {}
 message ModifyS2SharedTargetAttributesOutput {

@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,6 +37,230 @@ func (m *S2ServiceProperties) GetZone() string {
 	return ""
 }
 
+type CreateS2ServerInput struct {
+}
+
+func (m *CreateS2ServerInput) Reset()                    { *m = CreateS2ServerInput{} }
+func (m *CreateS2ServerInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2ServerInput) ProtoMessage()               {}
+func (*CreateS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{1} }
+
+type CreateS2ServerOutput struct {
+}
+
+func (m *CreateS2ServerOutput) Reset()                    { *m = CreateS2ServerOutput{} }
+func (m *CreateS2ServerOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2ServerOutput) ProtoMessage()               {}
+func (*CreateS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{2} }
+
+type DescribeS2ServersInput struct {
+}
+
+func (m *DescribeS2ServersInput) Reset()                    { *m = DescribeS2ServersInput{} }
+func (m *DescribeS2ServersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2ServersInput) ProtoMessage()               {}
+func (*DescribeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{3} }
+
+type DescribeS2ServersOutput struct {
+}
+
+func (m *DescribeS2ServersOutput) Reset()                    { *m = DescribeS2ServersOutput{} }
+func (m *DescribeS2ServersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2ServersOutput) ProtoMessage()               {}
+func (*DescribeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{4} }
+
+type ModifyS2ServerInput struct {
+}
+
+func (m *ModifyS2ServerInput) Reset()                    { *m = ModifyS2ServerInput{} }
+func (m *ModifyS2ServerInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyS2ServerInput) ProtoMessage()               {}
+func (*ModifyS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{5} }
+
+type ModifyS2ServerOutput struct {
+}
+
+func (m *ModifyS2ServerOutput) Reset()                    { *m = ModifyS2ServerOutput{} }
+func (m *ModifyS2ServerOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyS2ServerOutput) ProtoMessage()               {}
+func (*ModifyS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{6} }
+
+type ResizeS2ServersInput struct {
+}
+
+func (m *ResizeS2ServersInput) Reset()                    { *m = ResizeS2ServersInput{} }
+func (m *ResizeS2ServersInput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeS2ServersInput) ProtoMessage()               {}
+func (*ResizeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{7} }
+
+type ResizeS2ServersOutput struct {
+}
+
+func (m *ResizeS2ServersOutput) Reset()                    { *m = ResizeS2ServersOutput{} }
+func (m *ResizeS2ServersOutput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeS2ServersOutput) ProtoMessage()               {}
+func (*ResizeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{8} }
+
+type DeleteS2ServersInput struct {
+}
+
+func (m *DeleteS2ServersInput) Reset()                    { *m = DeleteS2ServersInput{} }
+func (m *DeleteS2ServersInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2ServersInput) ProtoMessage()               {}
+func (*DeleteS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{9} }
+
+type DeleteS2ServersOutput struct {
+}
+
+func (m *DeleteS2ServersOutput) Reset()                    { *m = DeleteS2ServersOutput{} }
+func (m *DeleteS2ServersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2ServersOutput) ProtoMessage()               {}
+func (*DeleteS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{10} }
+
+type PowerOnS2ServersInput struct {
+}
+
+func (m *PowerOnS2ServersInput) Reset()                    { *m = PowerOnS2ServersInput{} }
+func (m *PowerOnS2ServersInput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOnS2ServersInput) ProtoMessage()               {}
+func (*PowerOnS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{11} }
+
+type PowerOnS2ServersOutput struct {
+}
+
+func (m *PowerOnS2ServersOutput) Reset()                    { *m = PowerOnS2ServersOutput{} }
+func (m *PowerOnS2ServersOutput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOnS2ServersOutput) ProtoMessage()               {}
+func (*PowerOnS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{12} }
+
+type PowerOffS2ServersInput struct {
+}
+
+func (m *PowerOffS2ServersInput) Reset()                    { *m = PowerOffS2ServersInput{} }
+func (m *PowerOffS2ServersInput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOffS2ServersInput) ProtoMessage()               {}
+func (*PowerOffS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{13} }
+
+type PowerOffS2ServersOutput struct {
+}
+
+func (m *PowerOffS2ServersOutput) Reset()                    { *m = PowerOffS2ServersOutput{} }
+func (m *PowerOffS2ServersOutput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOffS2ServersOutput) ProtoMessage()               {}
+func (*PowerOffS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{14} }
+
+type UpdateS2ServersInput struct {
+}
+
+func (m *UpdateS2ServersInput) Reset()                    { *m = UpdateS2ServersInput{} }
+func (m *UpdateS2ServersInput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateS2ServersInput) ProtoMessage()               {}
+func (*UpdateS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{15} }
+
+type UpdateS2ServersOutput struct {
+}
+
+func (m *UpdateS2ServersOutput) Reset()                    { *m = UpdateS2ServersOutput{} }
+func (m *UpdateS2ServersOutput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateS2ServersOutput) ProtoMessage()               {}
+func (*UpdateS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{16} }
+
+type ChangeS2ServerVxnetInput struct {
+}
+
+func (m *ChangeS2ServerVxnetInput) Reset()                    { *m = ChangeS2ServerVxnetInput{} }
+func (m *ChangeS2ServerVxnetInput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeS2ServerVxnetInput) ProtoMessage()               {}
+func (*ChangeS2ServerVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{17} }
+
+type ChangeS2ServerVxnetOutput struct {
+}
+
+func (m *ChangeS2ServerVxnetOutput) Reset()                    { *m = ChangeS2ServerVxnetOutput{} }
+func (m *ChangeS2ServerVxnetOutput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeS2ServerVxnetOutput) ProtoMessage()               {}
+func (*ChangeS2ServerVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{18} }
+
+type CreateS2SharedTargetInput struct {
+}
+
+func (m *CreateS2SharedTargetInput) Reset()                    { *m = CreateS2SharedTargetInput{} }
+func (m *CreateS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2SharedTargetInput) ProtoMessage()               {}
+func (*CreateS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{19} }
+
+type CreateS2SharedTargetOutput struct {
+}
+
+func (m *CreateS2SharedTargetOutput) Reset()                    { *m = CreateS2SharedTargetOutput{} }
+func (m *CreateS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateS2SharedTargetOutput) ProtoMessage()               {}
+func (*CreateS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{20} }
+
+type DescribeS2SharedTargetsInput struct {
+}
+
+func (m *DescribeS2SharedTargetsInput) Reset()                    { *m = DescribeS2SharedTargetsInput{} }
+func (m *DescribeS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2SharedTargetsInput) ProtoMessage()               {}
+func (*DescribeS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{21} }
+
+type DescribeS2SharedTargetsOutput struct {
+}
+
+func (m *DescribeS2SharedTargetsOutput) Reset()                    { *m = DescribeS2SharedTargetsOutput{} }
+func (m *DescribeS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeS2SharedTargetsOutput) ProtoMessage()               {}
+func (*DescribeS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{22} }
+
+type DeleteS2SharedTargetsInput struct {
+}
+
+func (m *DeleteS2SharedTargetsInput) Reset()                    { *m = DeleteS2SharedTargetsInput{} }
+func (m *DeleteS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2SharedTargetsInput) ProtoMessage()               {}
+func (*DeleteS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{23} }
+
+type DeleteS2SharedTargetsOutput struct {
+}
+
+func (m *DeleteS2SharedTargetsOutput) Reset()                    { *m = DeleteS2SharedTargetsOutput{} }
+func (m *DeleteS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteS2SharedTargetsOutput) ProtoMessage()               {}
+func (*DeleteS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{24} }
+
+type EnableS2SharedTargetsInput struct {
+}
+
+func (m *EnableS2SharedTargetsInput) Reset()                    { *m = EnableS2SharedTargetsInput{} }
+func (m *EnableS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
+func (*EnableS2SharedTargetsInput) ProtoMessage()               {}
+func (*EnableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{25} }
+
+type EnableS2SharedTargetsOutput struct {
+}
+
+func (m *EnableS2SharedTargetsOutput) Reset()                    { *m = EnableS2SharedTargetsOutput{} }
+func (m *EnableS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
+func (*EnableS2SharedTargetsOutput) ProtoMessage()               {}
+func (*EnableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{26} }
+
+type DisableS2SharedTargetsInput struct {
+}
+
+func (m *DisableS2SharedTargetsInput) Reset()                    { *m = DisableS2SharedTargetsInput{} }
+func (m *DisableS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
+func (*DisableS2SharedTargetsInput) ProtoMessage()               {}
+func (*DisableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{27} }
+
+type DisableS2SharedTargetsOutput struct {
+}
+
+func (m *DisableS2SharedTargetsOutput) Reset()                    { *m = DisableS2SharedTargetsOutput{} }
+func (m *DisableS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DisableS2SharedTargetsOutput) ProtoMessage()               {}
+func (*DisableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{28} }
+
 type ModifyS2SharedTargetAttributesInput struct {
 }
 
@@ -45,7 +268,7 @@ func (m *ModifyS2SharedTargetAttributesInput) Reset()         { *m = ModifyS2Sha
 func (m *ModifyS2SharedTargetAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyS2SharedTargetAttributesInput) ProtoMessage()    {}
 func (*ModifyS2SharedTargetAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{1}
+	return fileDescriptor20, []int{29}
 }
 
 type ModifyS2SharedTargetAttributesOutput struct {
@@ -58,7 +281,7 @@ func (m *ModifyS2SharedTargetAttributesOutput) Reset()         { *m = ModifyS2Sh
 func (m *ModifyS2SharedTargetAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyS2SharedTargetAttributesOutput) ProtoMessage()    {}
 func (*ModifyS2SharedTargetAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{2}
+	return fileDescriptor20, []int{30}
 }
 
 func (m *ModifyS2SharedTargetAttributesOutput) GetAction() string {
@@ -88,7 +311,7 @@ type AttachToS2SharedTargetInput struct {
 func (m *AttachToS2SharedTargetInput) Reset()                    { *m = AttachToS2SharedTargetInput{} }
 func (m *AttachToS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
 func (*AttachToS2SharedTargetInput) ProtoMessage()               {}
-func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{3} }
+func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{31} }
 
 type AttachToS2SharedTargetOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -99,7 +322,7 @@ type AttachToS2SharedTargetOutput struct {
 func (m *AttachToS2SharedTargetOutput) Reset()                    { *m = AttachToS2SharedTargetOutput{} }
 func (m *AttachToS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
 func (*AttachToS2SharedTargetOutput) ProtoMessage()               {}
-func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{4} }
+func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{32} }
 
 func (m *AttachToS2SharedTargetOutput) GetAction() string {
 	if m != nil {
@@ -128,7 +351,7 @@ type DetachFromS2SharedTargetInput struct {
 func (m *DetachFromS2SharedTargetInput) Reset()                    { *m = DetachFromS2SharedTargetInput{} }
 func (m *DetachFromS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
 func (*DetachFromS2SharedTargetInput) ProtoMessage()               {}
-func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{5} }
+func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{33} }
 
 type DetachFromS2SharedTargetOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -136,10 +359,12 @@ type DetachFromS2SharedTargetOutput struct {
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 }
 
-func (m *DetachFromS2SharedTargetOutput) Reset()                    { *m = DetachFromS2SharedTargetOutput{} }
-func (m *DetachFromS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
-func (*DetachFromS2SharedTargetOutput) ProtoMessage()               {}
-func (*DetachFromS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{6} }
+func (m *DetachFromS2SharedTargetOutput) Reset()         { *m = DetachFromS2SharedTargetOutput{} }
+func (m *DetachFromS2SharedTargetOutput) String() string { return proto.CompactTextString(m) }
+func (*DetachFromS2SharedTargetOutput) ProtoMessage()    {}
+func (*DetachFromS2SharedTargetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor20, []int{34}
+}
 
 func (m *DetachFromS2SharedTargetOutput) GetAction() string {
 	if m != nil {
@@ -169,7 +394,7 @@ func (m *DescribeS2DefaultParametersInput) Reset()         { *m = DescribeS2Defa
 func (m *DescribeS2DefaultParametersInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2DefaultParametersInput) ProtoMessage()    {}
 func (*DescribeS2DefaultParametersInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{7}
+	return fileDescriptor20, []int{35}
 }
 
 type DescribeS2DefaultParametersOutput struct {
@@ -182,7 +407,7 @@ func (m *DescribeS2DefaultParametersOutput) Reset()         { *m = DescribeS2Def
 func (m *DescribeS2DefaultParametersOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2DefaultParametersOutput) ProtoMessage()    {}
 func (*DescribeS2DefaultParametersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{8}
+	return fileDescriptor20, []int{36}
 }
 
 func (m *DescribeS2DefaultParametersOutput) GetAction() string {
@@ -212,7 +437,7 @@ type CreateS2GroupInput struct {
 func (m *CreateS2GroupInput) Reset()                    { *m = CreateS2GroupInput{} }
 func (m *CreateS2GroupInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2GroupInput) ProtoMessage()               {}
-func (*CreateS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{9} }
+func (*CreateS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{37} }
 
 type CreateS2GroupOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -223,7 +448,7 @@ type CreateS2GroupOutput struct {
 func (m *CreateS2GroupOutput) Reset()                    { *m = CreateS2GroupOutput{} }
 func (m *CreateS2GroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2GroupOutput) ProtoMessage()               {}
-func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{10} }
+func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{38} }
 
 func (m *CreateS2GroupOutput) GetAction() string {
 	if m != nil {
@@ -252,7 +477,7 @@ type DescribeS2GroupsInput struct {
 func (m *DescribeS2GroupsInput) Reset()                    { *m = DescribeS2GroupsInput{} }
 func (m *DescribeS2GroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2GroupsInput) ProtoMessage()               {}
-func (*DescribeS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{11} }
+func (*DescribeS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{39} }
 
 type DescribeS2GroupsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -263,7 +488,7 @@ type DescribeS2GroupsOutput struct {
 func (m *DescribeS2GroupsOutput) Reset()                    { *m = DescribeS2GroupsOutput{} }
 func (m *DescribeS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2GroupsOutput) ProtoMessage()               {}
-func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{12} }
+func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{40} }
 
 func (m *DescribeS2GroupsOutput) GetAction() string {
 	if m != nil {
@@ -292,7 +517,7 @@ type ModifyS2GroupInput struct {
 func (m *ModifyS2GroupInput) Reset()                    { *m = ModifyS2GroupInput{} }
 func (m *ModifyS2GroupInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2GroupInput) ProtoMessage()               {}
-func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{13} }
+func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{41} }
 
 type ModifyS2GroupOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -303,7 +528,7 @@ type ModifyS2GroupOutput struct {
 func (m *ModifyS2GroupOutput) Reset()                    { *m = ModifyS2GroupOutput{} }
 func (m *ModifyS2GroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2GroupOutput) ProtoMessage()               {}
-func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{14} }
+func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{42} }
 
 func (m *ModifyS2GroupOutput) GetAction() string {
 	if m != nil {
@@ -332,7 +557,7 @@ type DeleteS2GroupsInput struct {
 func (m *DeleteS2GroupsInput) Reset()                    { *m = DeleteS2GroupsInput{} }
 func (m *DeleteS2GroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2GroupsInput) ProtoMessage()               {}
-func (*DeleteS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{15} }
+func (*DeleteS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{43} }
 
 type DeleteS2GroupsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -343,7 +568,7 @@ type DeleteS2GroupsOutput struct {
 func (m *DeleteS2GroupsOutput) Reset()                    { *m = DeleteS2GroupsOutput{} }
 func (m *DeleteS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2GroupsOutput) ProtoMessage()               {}
-func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{16} }
+func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{44} }
 
 func (m *DeleteS2GroupsOutput) GetAction() string {
 	if m != nil {
@@ -372,7 +597,7 @@ type CreateS2AccountInput struct {
 func (m *CreateS2AccountInput) Reset()                    { *m = CreateS2AccountInput{} }
 func (m *CreateS2AccountInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2AccountInput) ProtoMessage()               {}
-func (*CreateS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{17} }
+func (*CreateS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{45} }
 
 type CreateS2AccountOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -383,7 +608,7 @@ type CreateS2AccountOutput struct {
 func (m *CreateS2AccountOutput) Reset()                    { *m = CreateS2AccountOutput{} }
 func (m *CreateS2AccountOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2AccountOutput) ProtoMessage()               {}
-func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{18} }
+func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{46} }
 
 func (m *CreateS2AccountOutput) GetAction() string {
 	if m != nil {
@@ -412,7 +637,7 @@ type DescribeS2AccountsInput struct {
 func (m *DescribeS2AccountsInput) Reset()                    { *m = DescribeS2AccountsInput{} }
 func (m *DescribeS2AccountsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2AccountsInput) ProtoMessage()               {}
-func (*DescribeS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{19} }
+func (*DescribeS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{47} }
 
 type DescribeS2AccountsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -423,7 +648,7 @@ type DescribeS2AccountsOutput struct {
 func (m *DescribeS2AccountsOutput) Reset()                    { *m = DescribeS2AccountsOutput{} }
 func (m *DescribeS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2AccountsOutput) ProtoMessage()               {}
-func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{20} }
+func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{48} }
 
 func (m *DescribeS2AccountsOutput) GetAction() string {
 	if m != nil {
@@ -452,7 +677,7 @@ type ModifyS2AccountInput struct {
 func (m *ModifyS2AccountInput) Reset()                    { *m = ModifyS2AccountInput{} }
 func (m *ModifyS2AccountInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2AccountInput) ProtoMessage()               {}
-func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{21} }
+func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{49} }
 
 type ModifyS2AccountOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -463,7 +688,7 @@ type ModifyS2AccountOutput struct {
 func (m *ModifyS2AccountOutput) Reset()                    { *m = ModifyS2AccountOutput{} }
 func (m *ModifyS2AccountOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2AccountOutput) ProtoMessage()               {}
-func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{22} }
+func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{50} }
 
 func (m *ModifyS2AccountOutput) GetAction() string {
 	if m != nil {
@@ -492,7 +717,7 @@ type DeleteS2AccountsInput struct {
 func (m *DeleteS2AccountsInput) Reset()                    { *m = DeleteS2AccountsInput{} }
 func (m *DeleteS2AccountsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2AccountsInput) ProtoMessage()               {}
-func (*DeleteS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{23} }
+func (*DeleteS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{51} }
 
 type DeleteS2AccountsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -503,7 +728,7 @@ type DeleteS2AccountsOutput struct {
 func (m *DeleteS2AccountsOutput) Reset()                    { *m = DeleteS2AccountsOutput{} }
 func (m *DeleteS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2AccountsOutput) ProtoMessage()               {}
-func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{24} }
+func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{52} }
 
 func (m *DeleteS2AccountsOutput) GetAction() string {
 	if m != nil {
@@ -532,7 +757,7 @@ type AssociateS2AccountGroupInput struct {
 func (m *AssociateS2AccountGroupInput) Reset()                    { *m = AssociateS2AccountGroupInput{} }
 func (m *AssociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*AssociateS2AccountGroupInput) ProtoMessage()               {}
-func (*AssociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{25} }
+func (*AssociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{53} }
 
 type AssociateS2AccountGroupOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -543,7 +768,7 @@ type AssociateS2AccountGroupOutput struct {
 func (m *AssociateS2AccountGroupOutput) Reset()                    { *m = AssociateS2AccountGroupOutput{} }
 func (m *AssociateS2AccountGroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*AssociateS2AccountGroupOutput) ProtoMessage()               {}
-func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{26} }
+func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{54} }
 
 func (m *AssociateS2AccountGroupOutput) GetAction() string {
 	if m != nil {
@@ -572,7 +797,7 @@ type DissociateS2AccountGroupInput struct {
 func (m *DissociateS2AccountGroupInput) Reset()                    { *m = DissociateS2AccountGroupInput{} }
 func (m *DissociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*DissociateS2AccountGroupInput) ProtoMessage()               {}
-func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{27} }
+func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{55} }
 
 type DissociateS2AccountGroupOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -584,7 +809,7 @@ func (m *DissociateS2AccountGroupOutput) Reset()         { *m = DissociateS2Acco
 func (m *DissociateS2AccountGroupOutput) String() string { return proto.CompactTextString(m) }
 func (*DissociateS2AccountGroupOutput) ProtoMessage()    {}
 func (*DissociateS2AccountGroupOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{28}
+	return fileDescriptor20, []int{56}
 }
 
 func (m *DissociateS2AccountGroupOutput) GetAction() string {
@@ -610,6 +835,34 @@ func (m *DissociateS2AccountGroupOutput) GetMessage() string {
 
 func init() {
 	proto.RegisterType((*S2ServiceProperties)(nil), "service.S2ServiceProperties")
+	proto.RegisterType((*CreateS2ServerInput)(nil), "service.CreateS2ServerInput")
+	proto.RegisterType((*CreateS2ServerOutput)(nil), "service.CreateS2ServerOutput")
+	proto.RegisterType((*DescribeS2ServersInput)(nil), "service.DescribeS2ServersInput")
+	proto.RegisterType((*DescribeS2ServersOutput)(nil), "service.DescribeS2ServersOutput")
+	proto.RegisterType((*ModifyS2ServerInput)(nil), "service.ModifyS2ServerInput")
+	proto.RegisterType((*ModifyS2ServerOutput)(nil), "service.ModifyS2ServerOutput")
+	proto.RegisterType((*ResizeS2ServersInput)(nil), "service.ResizeS2ServersInput")
+	proto.RegisterType((*ResizeS2ServersOutput)(nil), "service.ResizeS2ServersOutput")
+	proto.RegisterType((*DeleteS2ServersInput)(nil), "service.DeleteS2ServersInput")
+	proto.RegisterType((*DeleteS2ServersOutput)(nil), "service.DeleteS2ServersOutput")
+	proto.RegisterType((*PowerOnS2ServersInput)(nil), "service.PowerOnS2ServersInput")
+	proto.RegisterType((*PowerOnS2ServersOutput)(nil), "service.PowerOnS2ServersOutput")
+	proto.RegisterType((*PowerOffS2ServersInput)(nil), "service.PowerOffS2ServersInput")
+	proto.RegisterType((*PowerOffS2ServersOutput)(nil), "service.PowerOffS2ServersOutput")
+	proto.RegisterType((*UpdateS2ServersInput)(nil), "service.UpdateS2ServersInput")
+	proto.RegisterType((*UpdateS2ServersOutput)(nil), "service.UpdateS2ServersOutput")
+	proto.RegisterType((*ChangeS2ServerVxnetInput)(nil), "service.ChangeS2ServerVxnetInput")
+	proto.RegisterType((*ChangeS2ServerVxnetOutput)(nil), "service.ChangeS2ServerVxnetOutput")
+	proto.RegisterType((*CreateS2SharedTargetInput)(nil), "service.CreateS2SharedTargetInput")
+	proto.RegisterType((*CreateS2SharedTargetOutput)(nil), "service.CreateS2SharedTargetOutput")
+	proto.RegisterType((*DescribeS2SharedTargetsInput)(nil), "service.DescribeS2SharedTargetsInput")
+	proto.RegisterType((*DescribeS2SharedTargetsOutput)(nil), "service.DescribeS2SharedTargetsOutput")
+	proto.RegisterType((*DeleteS2SharedTargetsInput)(nil), "service.DeleteS2SharedTargetsInput")
+	proto.RegisterType((*DeleteS2SharedTargetsOutput)(nil), "service.DeleteS2SharedTargetsOutput")
+	proto.RegisterType((*EnableS2SharedTargetsInput)(nil), "service.EnableS2SharedTargetsInput")
+	proto.RegisterType((*EnableS2SharedTargetsOutput)(nil), "service.EnableS2SharedTargetsOutput")
+	proto.RegisterType((*DisableS2SharedTargetsInput)(nil), "service.DisableS2SharedTargetsInput")
+	proto.RegisterType((*DisableS2SharedTargetsOutput)(nil), "service.DisableS2SharedTargetsOutput")
 	proto.RegisterType((*ModifyS2SharedTargetAttributesInput)(nil), "service.ModifyS2SharedTargetAttributesInput")
 	proto.RegisterType((*ModifyS2SharedTargetAttributesOutput)(nil), "service.ModifyS2SharedTargetAttributesOutput")
 	proto.RegisterType((*AttachToS2SharedTargetInput)(nil), "service.AttachToS2SharedTargetInput")
@@ -641,20 +894,20 @@ func init() {
 }
 
 type S2ServiceInterface interface {
-	CreateS2Server(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyS2Server(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ResizeS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	PowerOnS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	PowerOffS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	UpdateS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ChangeS2ServerVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateS2SharedTarget(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	EnableS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DisableS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error)
+	DescribeS2Servers(in *DescribeS2ServersInput) (out *DescribeS2ServersOutput, err error)
+	ModifyS2Server(in *ModifyS2ServerInput) (out *ModifyS2ServerOutput, err error)
+	ResizeS2Servers(in *ResizeS2ServersInput) (out *ResizeS2ServersOutput, err error)
+	DeleteS2Servers(in *DeleteS2ServersInput) (out *DeleteS2ServersOutput, err error)
+	PowerOnS2Servers(in *PowerOnS2ServersInput) (out *PowerOnS2ServersOutput, err error)
+	PowerOffS2Servers(in *PowerOffS2ServersInput) (out *PowerOffS2ServersOutput, err error)
+	UpdateS2Servers(in *UpdateS2ServersInput) (out *UpdateS2ServersOutput, err error)
+	ChangeS2ServerVxnet(in *ChangeS2ServerVxnetInput) (out *ChangeS2ServerVxnetOutput, err error)
+	CreateS2SharedTarget(in *CreateS2SharedTargetInput) (out *CreateS2SharedTargetOutput, err error)
+	DescribeS2SharedTargets(in *DescribeS2SharedTargetsInput) (out *DescribeS2SharedTargetsOutput, err error)
+	DeleteS2SharedTargets(in *DeleteS2SharedTargetsInput) (out *DeleteS2SharedTargetsOutput, err error)
+	EnableS2SharedTargets(in *EnableS2SharedTargetsInput) (out *EnableS2SharedTargetsOutput, err error)
+	DisableS2SharedTargets(in *DisableS2SharedTargetsInput) (out *DisableS2SharedTargetsOutput, err error)
 	ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttributesInput) (out *ModifyS2SharedTargetAttributesOutput, err error)
 	AttachToS2SharedTarget(in *AttachToS2SharedTargetInput) (out *AttachToS2SharedTargetOutput, err error)
 	DetachFromS2SharedTarget(in *DetachFromS2SharedTargetInput) (out *DetachFromS2SharedTargetOutput, err error)
@@ -692,9 +945,9 @@ func (s *QingCloudService) S2(zone string) (*S2Service, error) {
 	return &S2Service{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *S2Service) CreateS2Server(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *S2Service) CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateS2ServerInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -703,7 +956,7 @@ func (p *S2Service) CreateS2Server(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateS2ServerOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -719,9 +972,13 @@ func (p *S2Service) CreateS2Server(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *S2Service) DescribeS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateS2ServerInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DescribeS2Servers(in *DescribeS2ServersInput) (out *DescribeS2ServersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeS2ServersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -730,7 +987,7 @@ func (p *S2Service) DescribeS2Servers(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeS2ServersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -746,9 +1003,13 @@ func (p *S2Service) DescribeS2Servers(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *S2Service) ModifyS2Server(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeS2ServersInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) ModifyS2Server(in *ModifyS2ServerInput) (out *ModifyS2ServerOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyS2ServerInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -757,7 +1018,7 @@ func (p *S2Service) ModifyS2Server(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyS2ServerOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -773,9 +1034,13 @@ func (p *S2Service) ModifyS2Server(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *S2Service) ResizeS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyS2ServerInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) ResizeS2Servers(in *ResizeS2ServersInput) (out *ResizeS2ServersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ResizeS2ServersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -784,7 +1049,7 @@ func (p *S2Service) ResizeS2Servers(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ResizeS2ServersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -800,9 +1065,13 @@ func (p *S2Service) ResizeS2Servers(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *S2Service) DeleteS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ResizeS2ServersInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DeleteS2Servers(in *DeleteS2ServersInput) (out *DeleteS2ServersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteS2ServersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -811,7 +1080,7 @@ func (p *S2Service) DeleteS2Servers(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteS2ServersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -827,9 +1096,13 @@ func (p *S2Service) DeleteS2Servers(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *S2Service) PowerOnS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteS2ServersInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) PowerOnS2Servers(in *PowerOnS2ServersInput) (out *PowerOnS2ServersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &PowerOnS2ServersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -838,7 +1111,7 @@ func (p *S2Service) PowerOnS2Servers(in *google_protobuf2.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &PowerOnS2ServersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -854,9 +1127,13 @@ func (p *S2Service) PowerOnS2Servers(in *google_protobuf2.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *S2Service) PowerOffS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *PowerOnS2ServersInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) PowerOffS2Servers(in *PowerOffS2ServersInput) (out *PowerOffS2ServersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &PowerOffS2ServersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -865,7 +1142,7 @@ func (p *S2Service) PowerOffS2Servers(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &PowerOffS2ServersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -881,9 +1158,13 @@ func (p *S2Service) PowerOffS2Servers(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *S2Service) UpdateS2Servers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *PowerOffS2ServersInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) UpdateS2Servers(in *UpdateS2ServersInput) (out *UpdateS2ServersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &UpdateS2ServersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -892,7 +1173,7 @@ func (p *S2Service) UpdateS2Servers(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &UpdateS2ServersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -908,9 +1189,13 @@ func (p *S2Service) UpdateS2Servers(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *UpdateS2ServersInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) ChangeS2ServerVxnet(in *ChangeS2ServerVxnetInput) (out *ChangeS2ServerVxnetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ChangeS2ServerVxnetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -919,7 +1204,7 @@ func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf2.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ChangeS2ServerVxnetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -935,9 +1220,13 @@ func (p *S2Service) ChangeS2ServerVxnet(in *google_protobuf2.Empty) (out *google
 	return x, err
 }
 
-func (p *S2Service) CreateS2SharedTarget(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ChangeS2ServerVxnetInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) CreateS2SharedTarget(in *CreateS2SharedTargetInput) (out *CreateS2SharedTargetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateS2SharedTargetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -946,7 +1235,7 @@ func (p *S2Service) CreateS2SharedTarget(in *google_protobuf2.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateS2SharedTargetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -962,9 +1251,13 @@ func (p *S2Service) CreateS2SharedTarget(in *google_protobuf2.Empty) (out *googl
 	return x, err
 }
 
-func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateS2SharedTargetInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DescribeS2SharedTargets(in *DescribeS2SharedTargetsInput) (out *DescribeS2SharedTargetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeS2SharedTargetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -973,7 +1266,7 @@ func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf2.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeS2SharedTargetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -989,9 +1282,13 @@ func (p *S2Service) DescribeS2SharedTargets(in *google_protobuf2.Empty) (out *go
 	return x, err
 }
 
-func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeS2SharedTargetsInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DeleteS2SharedTargets(in *DeleteS2SharedTargetsInput) (out *DeleteS2SharedTargetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteS2SharedTargetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -1000,7 +1297,7 @@ func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf2.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteS2SharedTargetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -1016,9 +1313,13 @@ func (p *S2Service) DeleteS2SharedTargets(in *google_protobuf2.Empty) (out *goog
 	return x, err
 }
 
-func (p *S2Service) EnableS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteS2SharedTargetsInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) EnableS2SharedTargets(in *EnableS2SharedTargetsInput) (out *EnableS2SharedTargetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &EnableS2SharedTargetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -1027,7 +1328,7 @@ func (p *S2Service) EnableS2SharedTargets(in *google_protobuf2.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &EnableS2SharedTargetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -1043,9 +1344,13 @@ func (p *S2Service) EnableS2SharedTargets(in *google_protobuf2.Empty) (out *goog
 	return x, err
 }
 
-func (p *S2Service) DisableS2SharedTargets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *EnableS2SharedTargetsInput) Validate() error {
+	return nil
+}
+
+func (p *S2Service) DisableS2SharedTargets(in *DisableS2SharedTargetsInput) (out *DisableS2SharedTargetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DisableS2SharedTargetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -1054,7 +1359,7 @@ func (p *S2Service) DisableS2SharedTargets(in *google_protobuf2.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DisableS2SharedTargetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -1068,6 +1373,10 @@ func (p *S2Service) DisableS2SharedTargets(in *google_protobuf2.Empty) (out *goo
 	}
 
 	return x, err
+}
+
+func (p *DisableS2SharedTargetsInput) Validate() error {
+	return nil
 }
 
 func (p *S2Service) ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttributesInput) (out *ModifyS2SharedTargetAttributesOutput, err error) {
@@ -1507,59 +1816,72 @@ func (p *DissociateS2AccountGroupInput) Validate() error {
 func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }
 
 var fileDescriptor20 = []byte{
-	// 855 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x96, 0xeb, 0x4e, 0xe3, 0x46,
-	0x14, 0xc7, 0x05, 0xa5, 0x5c, 0x8e, 0x54, 0x02, 0x13, 0x08, 0xc1, 0xb9, 0x10, 0x52, 0xa0, 0x50,
-	0xb5, 0x41, 0x4a, 0x5f, 0x80, 0x34, 0x01, 0x4a, 0x25, 0x44, 0x8a, 0xe9, 0x4a, 0xfb, 0x09, 0x39,
-	0xf6, 0x89, 0x63, 0xe1, 0x78, 0xbc, 0xe3, 0xf1, 0xee, 0x82, 0xb4, 0x2f, 0xb0, 0x6f, 0xb1, 0x8f,
-	0xb8, 0x6f, 0xb0, 0x4a, 0xec, 0x24, 0x63, 0xc7, 0x36, 0x84, 0xac, 0xf7, 0x0b, 0xc2, 0x73, 0x4e,
-	0xfe, 0xe7, 0x3f, 0x73, 0xe6, 0xf2, 0x83, 0x55, 0xa7, 0x5e, 0xb3, 0x19, 0xe5, 0x94, 0xac, 0x38,
-	0xc8, 0xde, 0x1b, 0x2a, 0x4a, 0xa5, 0x77, 0x86, 0xa5, 0xab, 0x26, 0x75, 0xb5, 0x7b, 0x47, 0x7b,
-	0xb8, 0x67, 0xae, 0x89, 0xa7, 0x83, 0x3f, 0x5e, 0x9e, 0x54, 0xd0, 0x29, 0xd5, 0x4d, 0x3c, 0x1d,
-	0x7e, 0x75, 0xdc, 0xee, 0x29, 0xf6, 0x6d, 0xfe, 0xe8, 0x05, 0xab, 0x27, 0x90, 0x95, 0xeb, 0xb2,
-	0x27, 0xd4, 0x66, 0xd4, 0x46, 0xc6, 0x0d, 0x74, 0x08, 0x81, 0xa5, 0x27, 0x6a, 0x61, 0x7e, 0xa1,
-	0xb2, 0x70, 0xbc, 0x76, 0x3b, 0xfc, 0xbf, 0x7a, 0x08, 0xbf, 0x5e, 0x53, 0xcd, 0xe8, 0x3e, 0xca,
-	0x75, 0xb9, 0xa7, 0x30, 0xd4, 0xee, 0x14, 0xa6, 0x23, 0x6f, 0x70, 0xce, 0x8c, 0x8e, 0xcb, 0xd1,
-	0xb9, 0xb2, 0x6c, 0x97, 0x57, 0x1d, 0x38, 0x48, 0x4e, 0xbb, 0x71, 0xb9, 0xed, 0x72, 0x92, 0x83,
-	0x65, 0x45, 0xe5, 0x06, 0xb5, 0xfc, 0x22, 0xfe, 0x17, 0xd9, 0x85, 0x55, 0x86, 0xfc, 0x5e, 0xa5,
-	0x1a, 0xe6, 0x17, 0x2b, 0x0b, 0xc7, 0x3f, 0xdf, 0xae, 0x30, 0xe4, 0x4d, 0xaa, 0x21, 0xc9, 0xc3,
-	0x4a, 0x1f, 0x1d, 0x47, 0xd1, 0x31, 0xff, 0xd3, 0xf0, 0x37, 0xa3, 0xcf, 0x6a, 0x09, 0x0a, 0x0d,
-	0xce, 0x15, 0xb5, 0x77, 0x47, 0x83, 0x65, 0x3d, 0x4f, 0x0f, 0x50, 0x8c, 0x0e, 0xa7, 0xe1, 0x65,
-	0x0f, 0x4a, 0x2d, 0x1c, 0x14, 0xbb, 0x60, 0xb4, 0x1f, 0xe5, 0xa6, 0x0f, 0xe5, 0xb8, 0x84, 0x34,
-	0xfc, 0x54, 0xa1, 0xd2, 0x42, 0x47, 0x65, 0x46, 0x07, 0xe5, 0x7a, 0x0b, 0xbb, 0x8a, 0x6b, 0xf2,
-	0xb6, 0xc2, 0x94, 0x3e, 0x72, 0x64, 0x7e, 0xd3, 0x6c, 0xd8, 0x4f, 0xc8, 0x49, 0xc3, 0xd5, 0x16,
-	0x90, 0x26, 0x43, 0x85, 0xa3, 0x5c, 0xbf, 0x64, 0xd4, 0xb5, 0x3d, 0x1f, 0x1d, 0xc8, 0x06, 0x46,
-	0xd3, 0xa8, 0xbc, 0x03, 0xdb, 0x93, 0xb9, 0x0e, 0xab, 0xf8, 0x8b, 0x80, 0x90, 0x0b, 0x07, 0x52,
-	0x9a, 0xf9, 0xe8, 0x80, 0x04, 0x67, 0x1e, 0x18, 0x4d, 0xa3, 0xf2, 0x36, 0x64, 0x5b, 0x68, 0x22,
-	0x0f, 0xcd, 0x5b, 0x85, 0xad, 0xe0, 0x70, 0x1a, 0xb5, 0x73, 0xb0, 0x35, 0xea, 0x6c, 0x43, 0x55,
-	0xa9, 0x6b, 0xf9, 0x87, 0x41, 0x83, 0xed, 0xd0, 0x78, 0x1a, 0xd5, 0x77, 0x61, 0x67, 0xd2, 0x5a,
-	0xbf, 0x8e, 0x3f, 0x7b, 0x1d, 0xf2, 0xd3, 0xa1, 0x94, 0x56, 0x60, 0xd4, 0xe1, 0xf0, 0x0a, 0x84,
-	0xc6, 0x53, 0xdb, 0xf5, 0x5e, 0x93, 0x83, 0xf3, 0x1f, 0xee, 0xfa, 0x60, 0x20, 0x8d, 0xfa, 0x65,
-	0x28, 0x36, 0x1c, 0x87, 0xaa, 0x86, 0xd8, 0x6a, 0x61, 0xff, 0x9b, 0x50, 0x8a, 0x89, 0xa7, 0x75,
-	0x47, 0x1b, 0x49, 0x76, 0x06, 0x77, 0xb4, 0xf1, 0xc3, 0xfc, 0xd4, 0xbf, 0x10, 0x58, 0x1b, 0xbf,
-	0xc3, 0xe4, 0x0c, 0xd6, 0x47, 0x67, 0x62, 0x30, 0x84, 0x8c, 0xe4, 0x6a, 0xde, 0x23, 0x5e, 0x1b,
-	0x3d, 0xe2, 0xb5, 0xf3, 0xc1, 0x23, 0x2e, 0xc5, 0x8c, 0x93, 0x26, 0x6c, 0x4e, 0x36, 0xb5, 0xa7,
-	0xe1, 0xcc, 0x2c, 0x72, 0x06, 0xeb, 0xe3, 0x97, 0xfc, 0x75, 0x36, 0x1a, 0x90, 0xb9, 0x45, 0xc7,
-	0x78, 0x9a, 0xc3, 0x44, 0x03, 0x32, 0xa3, 0xed, 0xf9, 0x5a, 0x89, 0xbf, 0x61, 0xa3, 0x4d, 0x3f,
-	0x20, 0xbb, 0xb1, 0x5e, 0xaf, 0xd1, 0x84, 0x4d, 0x4f, 0xa3, 0xdb, 0x9d, 0x6b, 0x2e, 0xff, 0xdb,
-	0x9a, 0x32, 0xcf, 0x5c, 0xce, 0x21, 0xdb, 0xec, 0x29, 0x96, 0x3e, 0x96, 0x78, 0xf3, 0xd1, 0x42,
-	0x3e, 0xb3, 0xcc, 0xc5, 0xe4, 0x36, 0x16, 0xf1, 0x63, 0x66, 0x9d, 0x2b, 0xf1, 0x5e, 0x15, 0x95,
-	0x66, 0x9f, 0xd9, 0xe5, 0xe4, 0x82, 0x9a, 0x5b, 0xe8, 0xdc, 0x52, 0x3a, 0xe6, 0xdc, 0x42, 0xff,
-	0x40, 0xae, 0x65, 0x38, 0xdf, 0x43, 0xe9, 0x13, 0x94, 0x93, 0x99, 0x98, 0xfc, 0x51, 0xf3, 0x69,
-	0xbe, 0xf6, 0x02, 0xc6, 0x96, 0xfe, 0x7c, 0x61, 0xb6, 0x7f, 0x55, 0x21, 0xe4, 0xa2, 0xf1, 0x97,
-	0x1c, 0x8c, 0x85, 0x12, 0xf0, 0x59, 0x3a, 0x7c, 0x26, 0xcb, 0x2f, 0xf3, 0x30, 0x78, 0x49, 0xa3,
-	0xb9, 0x96, 0x1c, 0x8d, 0x25, 0x12, 0xd9, 0x58, 0xfa, 0xed, 0xd9, 0x3c, 0xbf, 0x18, 0x87, 0x42,
-	0x02, 0xb1, 0x92, 0x13, 0x41, 0x27, 0x99, 0x7d, 0xa5, 0xdf, 0x5f, 0x92, 0xea, 0x57, 0xfd, 0x17,
-	0x7e, 0x09, 0xf0, 0x29, 0x29, 0x8c, 0x7f, 0x3c, 0x4d, 0xb3, 0x52, 0x31, 0x3a, 0xe8, 0x6b, 0xc9,
-	0xb0, 0x11, 0xc6, 0x4d, 0x52, 0x8e, 0xf0, 0x22, 0xa0, 0x9a, 0xb4, 0x17, 0x1b, 0x9f, 0x18, 0x0c,
-	0x60, 0xa4, 0x60, 0x70, 0x1a, 0x3a, 0x05, 0x83, 0x51, 0xec, 0x79, 0x0d, 0xeb, 0x41, 0x2e, 0x24,
-	0x45, 0xa1, 0xfc, 0x14, 0x47, 0x4a, 0xa5, 0x98, 0xa8, 0x2f, 0xd7, 0x86, 0x4c, 0x88, 0xf4, 0x48,
-	0x69, 0x6a, 0x81, 0x44, 0x32, 0x92, 0xca, 0x71, 0x61, 0x5f, 0xf1, 0x2d, 0x90, 0x69, 0x74, 0x23,
-	0x95, 0x88, 0x35, 0x0a, 0x20, 0x8f, 0xb4, 0x9f, 0x90, 0x31, 0x31, 0x1b, 0x82, 0x32, 0xc1, 0x6c,
-	0x14, 0xc6, 0x09, 0x66, 0xa3, 0x69, 0x6e, 0xd8, 0xee, 0x20, 0x67, 0x05, 0xda, 0x1d, 0xc1, 0x66,
-	0x81, 0x76, 0x47, 0x22, 0x5a, 0x0f, 0x76, 0x62, 0xa8, 0x89, 0x08, 0x87, 0x36, 0x01, 0x74, 0xa4,
-	0xa3, 0xe7, 0xd2, 0x84, 0xc3, 0x1d, 0x03, 0x44, 0xe2, 0xe1, 0x4e, 0x82, 0x2a, 0xf1, 0x70, 0x27,
-	0xb2, 0x95, 0x94, 0xfd, 0xfc, 0x75, 0x29, 0x03, 0x6b, 0xff, 0x19, 0x96, 0xde, 0x34, 0xa9, 0xab,
-	0x91, 0x45, 0xb9, 0xde, 0x59, 0x1e, 0x5e, 0xaa, 0x7f, 0x7d, 0x0b, 0x00, 0x00, 0xff, 0xff, 0xb8,
-	0xf4, 0xa6, 0x9b, 0x02, 0x11, 0x00, 0x00,
+	// 1062 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x98, 0xff, 0x6e, 0xdc, 0x44,
+	0x10, 0xc7, 0x95, 0x52, 0x9a, 0x66, 0x24, 0x5a, 0xd8, 0xcb, 0x5d, 0x2e, 0x9b, 0xfb, 0x91, 0x5c,
+	0x1a, 0x68, 0x11, 0x04, 0x29, 0x3c, 0x41, 0x94, 0x00, 0x02, 0x29, 0x6a, 0x48, 0x4a, 0x25, 0x24,
+	0xa4, 0xc8, 0x67, 0x6f, 0x2e, 0x56, 0xee, 0xec, 0xc3, 0x5e, 0xf3, 0xa3, 0x12, 0x2f, 0xc0, 0x5b,
+	0xf1, 0x48, 0xbc, 0x01, 0xb2, 0xbd, 0x77, 0x3b, 0xbb, 0x3b, 0xeb, 0xf4, 0x1f, 0xf3, 0x4f, 0xd5,
+	0xdb, 0xef, 0xcc, 0xce, 0x8c, 0xf7, 0xd7, 0x67, 0x02, 0x4f, 0xf3, 0x93, 0xe3, 0x65, 0x96, 0xca,
+	0x94, 0x6d, 0xe6, 0x22, 0xfb, 0x2d, 0x0e, 0x05, 0x1f, 0xfe, 0x1a, 0x27, 0xb3, 0x70, 0x9e, 0x16,
+	0xd1, 0x4d, 0x1e, 0xdd, 0xdf, 0x64, 0xc5, 0x5c, 0x7c, 0x55, 0xfe, 0x53, 0xdb, 0x4d, 0x5e, 0x41,
+	0xe7, 0xfa, 0xe4, 0xba, 0xb6, 0xbd, 0xcc, 0xd2, 0xa5, 0xc8, 0x64, 0x2c, 0x72, 0xc6, 0xe0, 0xf1,
+	0xbb, 0x34, 0x11, 0xfd, 0x8d, 0xfd, 0x8d, 0x97, 0x5b, 0x57, 0xd5, 0xff, 0x27, 0x5d, 0xe8, 0x9c,
+	0x65, 0x22, 0x90, 0xa2, 0x76, 0x10, 0xd9, 0xf7, 0xc9, 0xb2, 0x90, 0x93, 0x1e, 0x6c, 0x9b, 0xc3,
+	0xaf, 0x0b, 0x59, 0x8e, 0xf7, 0xa1, 0x77, 0x2e, 0xf2, 0x30, 0x8b, 0xa7, 0x6b, 0x25, 0xaf, 0x3d,
+	0x76, 0x61, 0xc7, 0x51, 0x94, 0x53, 0x17, 0x3a, 0x17, 0x69, 0x14, 0xdf, 0xfe, 0xe9, 0xc4, 0x30,
+	0x87, 0x95, 0x79, 0x0f, 0xb6, 0xaf, 0x44, 0x1e, 0xbf, 0xb3, 0x23, 0xec, 0x40, 0xd7, 0x1a, 0xd7,
+	0x0e, 0xe7, 0x62, 0x2e, 0x24, 0xe1, 0x60, 0x8d, 0x2b, 0x87, 0x1d, 0xe8, 0x5e, 0xa6, 0xbf, 0x8b,
+	0xec, 0x75, 0x62, 0x79, 0xf4, 0xa1, 0x67, 0x0b, 0xba, 0xf0, 0x5a, 0xb9, 0xbd, 0x75, 0x0b, 0x77,
+	0x14, 0x9d, 0xd8, 0x4f, 0xcb, 0x28, 0xa0, 0x12, 0xb3, 0xc6, 0x95, 0x03, 0x87, 0xfe, 0xd9, 0x5d,
+	0x90, 0xcc, 0xd6, 0xc2, 0xdb, 0x3f, 0x12, 0x21, 0x6b, 0xa7, 0x3d, 0xd8, 0x25, 0x34, 0xe5, 0x58,
+	0x8a, 0xab, 0xf5, 0xba, 0x0b, 0x32, 0x11, 0xbd, 0x09, 0xb2, 0xd9, 0xca, 0x73, 0x00, 0x9c, 0x12,
+	0x95, 0xeb, 0x08, 0x06, 0x68, 0xe1, 0x90, 0xae, 0x92, 0x1d, 0xc3, 0xd0, 0xa3, 0xab, 0x09, 0x06,
+	0xc0, 0xd7, 0x9f, 0xd9, 0x75, 0x1f, 0xc2, 0x1e, 0xa9, 0x6a, 0xe7, 0x6f, 0x92, 0x60, 0x3a, 0xf7,
+	0x3a, 0x93, 0xaa, 0x72, 0x2e, 0xe7, 0x8e, 0x73, 0xaf, 0x77, 0x59, 0x19, 0x29, 0x2b, 0xf7, 0x23,
+	0x38, 0x5c, 0x6f, 0x40, 0x24, 0x9f, 0x4a, 0x99, 0xc5, 0xd3, 0x42, 0x0a, 0x35, 0x4d, 0x0e, 0x2f,
+	0x9a, 0xcd, 0xea, 0xe9, 0x58, 0x0f, 0x9e, 0x04, 0xa1, 0x8c, 0xd3, 0x44, 0x1d, 0x30, 0xf5, 0x8b,
+	0xed, 0xc2, 0xd3, 0x4c, 0xc8, 0x9b, 0x30, 0x8d, 0x44, 0xff, 0xd1, 0xfe, 0xc6, 0xcb, 0x0f, 0xaf,
+	0x36, 0x33, 0x21, 0xcf, 0xd2, 0x48, 0xb0, 0x3e, 0x6c, 0x2e, 0x44, 0x9e, 0x07, 0x33, 0xd1, 0xff,
+	0xa0, 0xf2, 0x59, 0xfd, 0x2c, 0x4b, 0x3b, 0x95, 0x32, 0x08, 0xef, 0xde, 0xa4, 0xd4, 0x92, 0xde,
+	0xc3, 0x80, 0x96, 0xdb, 0xc8, 0xa5, 0xda, 0x01, 0x65, 0xb0, 0x6f, 0xb3, 0x74, 0x41, 0x65, 0xb3,
+	0x80, 0x91, 0xcf, 0xa0, 0x8d, 0x7c, 0x26, 0xb0, 0xaf, 0x77, 0xe4, 0xb9, 0xb8, 0x0d, 0x8a, 0xb9,
+	0xbc, 0x0c, 0xb2, 0x60, 0x21, 0xe4, 0xfa, 0x88, 0x2d, 0xe1, 0xa0, 0xc1, 0xa6, 0x8d, 0xac, 0xb6,
+	0x81, 0xad, 0x4e, 0xd9, 0x77, 0x59, 0x5a, 0x2c, 0xeb, 0x3c, 0xa6, 0xfa, 0x7e, 0xad, 0x46, 0xdb,
+	0x88, 0x5c, 0xdd, 0x73, 0xab, 0x5a, 0xab, 0x28, 0xea, 0x23, 0x08, 0x7c, 0x5b, 0xd7, 0x42, 0x4b,
+	0x95, 0xaf, 0x0e, 0x88, 0x59, 0xb9, 0x31, 0xda, 0x46, 0xe4, 0x2e, 0x74, 0x56, 0x97, 0x0b, 0xae,
+	0x3b, 0xd4, 0x0f, 0x42, 0x7b, 0x55, 0xa3, 0x27, 0xf2, 0x34, 0x0c, 0xd3, 0x22, 0x51, 0x87, 0x21,
+	0x82, 0xae, 0x35, 0xde, 0x46, 0x74, 0xe3, 0xb9, 0x55, 0x71, 0x54, 0xf5, 0x33, 0xe8, 0xbb, 0x52,
+	0x4b, 0x5f, 0x60, 0xb5, 0xc2, 0xf6, 0x17, 0xb0, 0xc6, 0x5b, 0xdb, 0xf5, 0xf5, 0x22, 0x9b, 0xf5,
+	0x57, 0xbb, 0xde, 0x14, 0xda, 0x88, 0x3f, 0x82, 0xc1, 0x69, 0x9e, 0xa7, 0x61, 0x8c, 0x97, 0x1a,
+	0xed, 0xff, 0x39, 0x0c, 0x3d, 0x7a, 0x5b, 0x77, 0x74, 0xdc, 0x94, 0x4e, 0x79, 0x47, 0xc7, 0xff,
+	0x5b, 0x3e, 0x27, 0xff, 0x6c, 0xc3, 0xd6, 0x9a, 0x41, 0xd9, 0x05, 0x3c, 0x33, 0x71, 0x92, 0x0d,
+	0x8e, 0x15, 0xcb, 0x1e, 0x13, 0xf8, 0xc9, 0x87, 0x1e, 0x55, 0x65, 0xfa, 0x16, 0x3e, 0x71, 0x58,
+	0x93, 0x8d, 0xd7, 0x3e, 0x34, 0xa1, 0xf2, 0x7d, 0xbf, 0x81, 0x9a, 0xf7, 0x02, 0x9e, 0x99, 0x44,
+	0x8a, 0xd2, 0x24, 0x08, 0x16, 0xa5, 0x49, 0x81, 0x2c, 0xbb, 0x84, 0xe7, 0x16, 0xb0, 0x32, 0xed,
+	0x41, 0x21, 0x2e, 0x1f, 0xf9, 0x64, 0x3d, 0xa3, 0x45, 0xb4, 0x68, 0x46, 0x8a, 0x81, 0xd1, 0x8c,
+	0x24, 0x0a, 0xb3, 0x6b, 0xf8, 0xd8, 0x26, 0x5e, 0xa6, 0x7d, 0x48, 0x4a, 0xe6, 0x63, 0xaf, 0xae,
+	0xd7, 0xc7, 0x41, 0x62, 0x66, 0x7b, 0xd9, 0x20, 0x8d, 0xd6, 0xc7, 0xc3, 0xd3, 0x65, 0xf9, 0x16,
+	0x37, 0xa3, 0xf2, 0x29, 0xd2, 0x46, 0xe5, 0x93, 0xc0, 0xcd, 0x7e, 0x81, 0x0e, 0x01, 0xd5, 0xec,
+	0x40, 0xef, 0x3f, 0x0f, 0x8e, 0xf3, 0x49, 0x93, 0x89, 0x9a, 0xfd, 0x06, 0x75, 0x51, 0x88, 0x89,
+	0xd8, 0xc4, 0xdd, 0xde, 0x36, 0x53, 0xf1, 0xc3, 0x46, 0x1b, 0x15, 0xe0, 0xce, 0x68, 0xba, 0x30,
+	0xe2, 0xb2, 0x23, 0x6a, 0xb7, 0x3b, 0x8c, 0xcc, 0x3f, 0x7d, 0xc8, 0x4c, 0x45, 0x9a, 0xa2, 0x5e,
+	0xca, 0x88, 0x73, 0xe8, 0x6e, 0x30, 0x37, 0xca, 0x8b, 0x66, 0x23, 0x1d, 0x83, 0xa4, 0x7d, 0x14,
+	0xc3, 0xdf, 0x2b, 0xa0, 0x18, 0x0d, 0x2d, 0x03, 0x2b, 0x1f, 0x07, 0xb2, 0x27, 0x60, 0x28, 0x47,
+	0x7f, 0x4f, 0xc1, 0x8f, 0x1e, 0xb0, 0x52, 0x61, 0xfe, 0x82, 0x51, 0x73, 0xcf, 0xc0, 0xbe, 0x70,
+	0xef, 0x0e, 0x7f, 0x0f, 0xc2, 0xbf, 0x7c, 0x4f, 0x6b, 0x5d, 0x25, 0xdd, 0x1e, 0xa0, 0x2a, 0x1b,
+	0xda, 0x0b, 0x54, 0x65, 0x63, 0x97, 0x71, 0x5f, 0x92, 0x06, 0xcd, 0xfd, 0x0c, 0x6f, 0xac, 0x86,
+	0xde, 0x81, 0x7f, 0xf6, 0xa0, 0x9d, 0x0a, 0x26, 0xcb, 0x46, 0xd2, 0x4b, 0xf4, 0xec, 0x15, 0xb1,
+	0x91, 0xe9, 0xde, 0x80, 0x7f, 0xfe, 0x3e, 0xa6, 0x2a, 0xea, 0x0f, 0xf0, 0x91, 0xc1, 0xef, 0x6c,
+	0xcf, 0x39, 0x97, 0xfa, 0x91, 0xe5, 0x03, 0x5a, 0xd4, 0x77, 0xad, 0x8d, 0xe3, 0x6c, 0x44, 0xe4,
+	0x82, 0x50, 0x96, 0x8f, 0xbd, 0xba, 0x4e, 0xd0, 0xc0, 0x6c, 0x94, 0xa0, 0x0b, 0xe5, 0x7c, 0x40,
+	0x8b, 0xfa, 0xfd, 0x33, 0xb9, 0x19, 0xbd, 0x7f, 0x04, 0x67, 0xf3, 0xa1, 0x47, 0xd5, 0xd7, 0xb5,
+	0x45, 0xc2, 0xcc, 0x7d, 0xd8, 0x31, 0x39, 0xa2, 0xeb, 0x9a, 0x46, 0xe8, 0x9f, 0x81, 0xb9, 0x68,
+	0xcb, 0xa8, 0x87, 0xdd, 0x40, 0x42, 0x7e, 0xd0, 0x60, 0xa1, 0x93, 0xb5, 0xa0, 0x95, 0xb9, 0xcf,
+	0xbb, 0x27, 0x59, 0x9a, 0x76, 0xab, 0xe5, 0x36, 0x39, 0x94, 0xb9, 0xcf, 0xb1, 0x99, 0xe8, 0xd8,
+	0xab, 0xeb, 0x1b, 0xdf, 0x43, 0x95, 0xe8, 0xc6, 0x6f, 0xe2, 0x52, 0x74, 0xe3, 0x37, 0xe3, 0x69,
+	0x79, 0xb8, 0x3d, 0xc0, 0x88, 0x0f, 0x77, 0x13, 0x74, 0xe2, 0xc3, 0xdd, 0xc8, 0x9e, 0xbc, 0xf3,
+	0xf7, 0xbf, 0x8f, 0x9f, 0xc3, 0xd6, 0x8f, 0x71, 0x32, 0x3b, 0x9b, 0xa7, 0x45, 0xc4, 0x1e, 0x5d,
+	0x9f, 0x4c, 0x9f, 0x54, 0x7f, 0xcd, 0xfc, 0xfa, 0xbf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x7b, 0x84,
+	0x4e, 0xcf, 0x01, 0x15, 0x00, 0x00,
 }
