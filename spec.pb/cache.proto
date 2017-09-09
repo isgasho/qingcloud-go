@@ -22,29 +22,221 @@ service CacheService {
 		sub_service_name: "Cache"
 	};
 
-	rpc DescribeCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateCache(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StopCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StartCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RestartCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResizeCaches(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc UpdateCache(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ChangeCacheVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyCacheAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RestartCacheNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyCacheNodeAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateCacheFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeCacheParameterGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateCacheParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ApplyCacheParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteCacheParameterGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyCacheParameterGroupAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc UpdateCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResetCacheParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeCaches(DescribeCachesInput) returns (DescribeCachesOutput);
+	rpc CreateCache(CreateCacheInput) returns (CreateCacheOutput);
+	rpc StopCaches(StopCachesInput) returns (StopCachesOutput);
+	rpc StartCaches(StartCachesInput) returns (StartCachesOutput);
+	rpc RestartCaches(RestartCachesInput) returns (RestartCachesOutput);
+	rpc DeleteCaches(DeleteCachesInput) returns (DeleteCachesOutput);
+	rpc ResizeCaches(ResizeCachesInput) returns (ResizeCachesOutput);
+	rpc UpdateCache(UpdateCacheInput) returns (UpdateCacheOutput);
+	rpc ChangeCacheVxnet(ChangeCacheVxnetInput) returns (ChangeCacheVxnetOutput);
+	rpc ModifyCacheAttributes(ModifyCacheAttributesInput) returns (ModifyCacheAttributesOutput);
+	rpc DescribeCacheNodes(DescribeCacheNodesInput) returns (DescribeCacheNodesOutput);
+	rpc AddCacheNodes(AddCacheNodesInput) returns (AddCacheNodesOutput);
+	rpc DeleteCacheNodes(DeleteCacheNodesInput) returns (DeleteCacheNodesOutput);
+	rpc RestartCacheNodes(RestartCacheNodesInput) returns (RestartCacheNodesOutput);
+	rpc ModifyCacheNodeAttributes(ModifyCacheNodeAttributesInput) returns (ModifyCacheNodeAttributesOutput);
+	rpc CreateCacheFromSnapshot(CreateCacheFromSnapshotInput) returns (CreateCacheFromSnapshotOutput);
+	rpc DescribeCacheParameterGroups(DescribeCacheParameterGroupsInput) returns (DescribeCacheParameterGroupsOutput);
+	rpc CreateCacheParameterGroup(CreateCacheParameterGroupInput) returns (CreateCacheParameterGroupOutput);
+	rpc ApplyCacheParameterGroup(ApplyCacheParameterGroupInput) returns (ApplyCacheParameterGroupOutput);
+	rpc DeleteCacheParameterGroups(DeleteCacheParameterGroupsInput) returns (DeleteCacheParameterGroupsOutput);
+	rpc ModifyCacheParameterGroupAttributes(ModifyCacheParameterGroupAttributesInput) returns (ModifyCacheParameterGroupAttributesOutput);
+	rpc DescribeCacheParameters(DescribeCacheParametersInput) returns (DescribeCacheParametersOutput);
+	rpc UpdateCacheParameters(UpdateCacheParametersInput) returns (UpdateCacheParametersOutput);
+	rpc ResetCacheParameters(ResetCacheParametersInput) returns (ResetCacheParametersOutput);
+}
+
+message DescribeCachesInput {}
+message DescribeCachesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateCacheInput {}
+message CreateCacheOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StopCachesInput {}
+message StopCachesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StartCachesInput {}
+message StartCachesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RestartCachesInput {}
+message RestartCachesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteCachesInput {}
+message DeleteCachesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ResizeCachesInput {}
+message ResizeCachesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message UpdateCacheInput {}
+message UpdateCacheOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ChangeCacheVxnetInput {}
+message ChangeCacheVxnetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyCacheAttributesInput {}
+message ModifyCacheAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeCacheNodesInput {}
+message DescribeCacheNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddCacheNodesInput {}
+message AddCacheNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteCacheNodesInput {}
+message DeleteCacheNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RestartCacheNodesInput {}
+message RestartCacheNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyCacheNodeAttributesInput {}
+message ModifyCacheNodeAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateCacheFromSnapshotInput {}
+message CreateCacheFromSnapshotOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeCacheParameterGroupsInput {}
+message DescribeCacheParameterGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateCacheParameterGroupInput {}
+message CreateCacheParameterGroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ApplyCacheParameterGroupInput {}
+message ApplyCacheParameterGroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteCacheParameterGroupsInput {}
+message DeleteCacheParameterGroupsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyCacheParameterGroupAttributesInput {}
+message ModifyCacheParameterGroupAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeCacheParametersInput {}
+message DescribeCacheParametersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message UpdateCacheParametersInput {}
+message UpdateCacheParametersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ResetCacheParametersInput {}
+message ResetCacheParametersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 

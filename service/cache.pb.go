@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import _ "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,35 +38,1063 @@ func (m *CacheServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeCachesInput struct {
+}
+
+func (m *DescribeCachesInput) Reset()                    { *m = DescribeCachesInput{} }
+func (m *DescribeCachesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeCachesInput) ProtoMessage()               {}
+func (*DescribeCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
+
+type DescribeCachesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeCachesOutput) Reset()                    { *m = DescribeCachesOutput{} }
+func (m *DescribeCachesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeCachesOutput) ProtoMessage()               {}
+func (*DescribeCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
+
+func (m *DescribeCachesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeCachesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeCachesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateCacheInput struct {
+}
+
+func (m *CreateCacheInput) Reset()                    { *m = CreateCacheInput{} }
+func (m *CreateCacheInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateCacheInput) ProtoMessage()               {}
+func (*CreateCacheInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
+
+type CreateCacheOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateCacheOutput) Reset()                    { *m = CreateCacheOutput{} }
+func (m *CreateCacheOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateCacheOutput) ProtoMessage()               {}
+func (*CreateCacheOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{4} }
+
+func (m *CreateCacheOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateCacheOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateCacheOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StopCachesInput struct {
+}
+
+func (m *StopCachesInput) Reset()                    { *m = StopCachesInput{} }
+func (m *StopCachesInput) String() string            { return proto.CompactTextString(m) }
+func (*StopCachesInput) ProtoMessage()               {}
+func (*StopCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{5} }
+
+type StopCachesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StopCachesOutput) Reset()                    { *m = StopCachesOutput{} }
+func (m *StopCachesOutput) String() string            { return proto.CompactTextString(m) }
+func (*StopCachesOutput) ProtoMessage()               {}
+func (*StopCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{6} }
+
+func (m *StopCachesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StopCachesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StopCachesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StartCachesInput struct {
+}
+
+func (m *StartCachesInput) Reset()                    { *m = StartCachesInput{} }
+func (m *StartCachesInput) String() string            { return proto.CompactTextString(m) }
+func (*StartCachesInput) ProtoMessage()               {}
+func (*StartCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{7} }
+
+type StartCachesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StartCachesOutput) Reset()                    { *m = StartCachesOutput{} }
+func (m *StartCachesOutput) String() string            { return proto.CompactTextString(m) }
+func (*StartCachesOutput) ProtoMessage()               {}
+func (*StartCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{8} }
+
+func (m *StartCachesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StartCachesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StartCachesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RestartCachesInput struct {
+}
+
+func (m *RestartCachesInput) Reset()                    { *m = RestartCachesInput{} }
+func (m *RestartCachesInput) String() string            { return proto.CompactTextString(m) }
+func (*RestartCachesInput) ProtoMessage()               {}
+func (*RestartCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{9} }
+
+type RestartCachesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RestartCachesOutput) Reset()                    { *m = RestartCachesOutput{} }
+func (m *RestartCachesOutput) String() string            { return proto.CompactTextString(m) }
+func (*RestartCachesOutput) ProtoMessage()               {}
+func (*RestartCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{10} }
+
+func (m *RestartCachesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RestartCachesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RestartCachesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteCachesInput struct {
+}
+
+func (m *DeleteCachesInput) Reset()                    { *m = DeleteCachesInput{} }
+func (m *DeleteCachesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteCachesInput) ProtoMessage()               {}
+func (*DeleteCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{11} }
+
+type DeleteCachesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteCachesOutput) Reset()                    { *m = DeleteCachesOutput{} }
+func (m *DeleteCachesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteCachesOutput) ProtoMessage()               {}
+func (*DeleteCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{12} }
+
+func (m *DeleteCachesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteCachesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteCachesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ResizeCachesInput struct {
+}
+
+func (m *ResizeCachesInput) Reset()                    { *m = ResizeCachesInput{} }
+func (m *ResizeCachesInput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeCachesInput) ProtoMessage()               {}
+func (*ResizeCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{13} }
+
+type ResizeCachesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ResizeCachesOutput) Reset()                    { *m = ResizeCachesOutput{} }
+func (m *ResizeCachesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeCachesOutput) ProtoMessage()               {}
+func (*ResizeCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{14} }
+
+func (m *ResizeCachesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ResizeCachesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ResizeCachesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type UpdateCacheInput struct {
+}
+
+func (m *UpdateCacheInput) Reset()                    { *m = UpdateCacheInput{} }
+func (m *UpdateCacheInput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateCacheInput) ProtoMessage()               {}
+func (*UpdateCacheInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{15} }
+
+type UpdateCacheOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *UpdateCacheOutput) Reset()                    { *m = UpdateCacheOutput{} }
+func (m *UpdateCacheOutput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateCacheOutput) ProtoMessage()               {}
+func (*UpdateCacheOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{16} }
+
+func (m *UpdateCacheOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *UpdateCacheOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *UpdateCacheOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ChangeCacheVxnetInput struct {
+}
+
+func (m *ChangeCacheVxnetInput) Reset()                    { *m = ChangeCacheVxnetInput{} }
+func (m *ChangeCacheVxnetInput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeCacheVxnetInput) ProtoMessage()               {}
+func (*ChangeCacheVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{17} }
+
+type ChangeCacheVxnetOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ChangeCacheVxnetOutput) Reset()                    { *m = ChangeCacheVxnetOutput{} }
+func (m *ChangeCacheVxnetOutput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeCacheVxnetOutput) ProtoMessage()               {}
+func (*ChangeCacheVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{18} }
+
+func (m *ChangeCacheVxnetOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ChangeCacheVxnetOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ChangeCacheVxnetOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyCacheAttributesInput struct {
+}
+
+func (m *ModifyCacheAttributesInput) Reset()                    { *m = ModifyCacheAttributesInput{} }
+func (m *ModifyCacheAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyCacheAttributesInput) ProtoMessage()               {}
+func (*ModifyCacheAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{19} }
+
+type ModifyCacheAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyCacheAttributesOutput) Reset()                    { *m = ModifyCacheAttributesOutput{} }
+func (m *ModifyCacheAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyCacheAttributesOutput) ProtoMessage()               {}
+func (*ModifyCacheAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{20} }
+
+func (m *ModifyCacheAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyCacheAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyCacheAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeCacheNodesInput struct {
+}
+
+func (m *DescribeCacheNodesInput) Reset()                    { *m = DescribeCacheNodesInput{} }
+func (m *DescribeCacheNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeCacheNodesInput) ProtoMessage()               {}
+func (*DescribeCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{21} }
+
+type DescribeCacheNodesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeCacheNodesOutput) Reset()                    { *m = DescribeCacheNodesOutput{} }
+func (m *DescribeCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeCacheNodesOutput) ProtoMessage()               {}
+func (*DescribeCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{22} }
+
+func (m *DescribeCacheNodesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeCacheNodesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeCacheNodesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddCacheNodesInput struct {
+}
+
+func (m *AddCacheNodesInput) Reset()                    { *m = AddCacheNodesInput{} }
+func (m *AddCacheNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*AddCacheNodesInput) ProtoMessage()               {}
+func (*AddCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{23} }
+
+type AddCacheNodesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddCacheNodesOutput) Reset()                    { *m = AddCacheNodesOutput{} }
+func (m *AddCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddCacheNodesOutput) ProtoMessage()               {}
+func (*AddCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{24} }
+
+func (m *AddCacheNodesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddCacheNodesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddCacheNodesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteCacheNodesInput struct {
+}
+
+func (m *DeleteCacheNodesInput) Reset()                    { *m = DeleteCacheNodesInput{} }
+func (m *DeleteCacheNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteCacheNodesInput) ProtoMessage()               {}
+func (*DeleteCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{25} }
+
+type DeleteCacheNodesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteCacheNodesOutput) Reset()                    { *m = DeleteCacheNodesOutput{} }
+func (m *DeleteCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteCacheNodesOutput) ProtoMessage()               {}
+func (*DeleteCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{26} }
+
+func (m *DeleteCacheNodesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteCacheNodesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteCacheNodesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RestartCacheNodesInput struct {
+}
+
+func (m *RestartCacheNodesInput) Reset()                    { *m = RestartCacheNodesInput{} }
+func (m *RestartCacheNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*RestartCacheNodesInput) ProtoMessage()               {}
+func (*RestartCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{27} }
+
+type RestartCacheNodesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RestartCacheNodesOutput) Reset()                    { *m = RestartCacheNodesOutput{} }
+func (m *RestartCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*RestartCacheNodesOutput) ProtoMessage()               {}
+func (*RestartCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{28} }
+
+func (m *RestartCacheNodesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RestartCacheNodesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RestartCacheNodesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyCacheNodeAttributesInput struct {
+}
+
+func (m *ModifyCacheNodeAttributesInput) Reset()                    { *m = ModifyCacheNodeAttributesInput{} }
+func (m *ModifyCacheNodeAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyCacheNodeAttributesInput) ProtoMessage()               {}
+func (*ModifyCacheNodeAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{29} }
+
+type ModifyCacheNodeAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyCacheNodeAttributesOutput) Reset()         { *m = ModifyCacheNodeAttributesOutput{} }
+func (m *ModifyCacheNodeAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyCacheNodeAttributesOutput) ProtoMessage()    {}
+func (*ModifyCacheNodeAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{30}
+}
+
+func (m *ModifyCacheNodeAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyCacheNodeAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyCacheNodeAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateCacheFromSnapshotInput struct {
+}
+
+func (m *CreateCacheFromSnapshotInput) Reset()                    { *m = CreateCacheFromSnapshotInput{} }
+func (m *CreateCacheFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateCacheFromSnapshotInput) ProtoMessage()               {}
+func (*CreateCacheFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{31} }
+
+type CreateCacheFromSnapshotOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateCacheFromSnapshotOutput) Reset()                    { *m = CreateCacheFromSnapshotOutput{} }
+func (m *CreateCacheFromSnapshotOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateCacheFromSnapshotOutput) ProtoMessage()               {}
+func (*CreateCacheFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{32} }
+
+func (m *CreateCacheFromSnapshotOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateCacheFromSnapshotOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateCacheFromSnapshotOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeCacheParameterGroupsInput struct {
+}
+
+func (m *DescribeCacheParameterGroupsInput) Reset()         { *m = DescribeCacheParameterGroupsInput{} }
+func (m *DescribeCacheParameterGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCacheParameterGroupsInput) ProtoMessage()    {}
+func (*DescribeCacheParameterGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{33}
+}
+
+type DescribeCacheParameterGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeCacheParameterGroupsOutput) Reset()         { *m = DescribeCacheParameterGroupsOutput{} }
+func (m *DescribeCacheParameterGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCacheParameterGroupsOutput) ProtoMessage()    {}
+func (*DescribeCacheParameterGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{34}
+}
+
+func (m *DescribeCacheParameterGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeCacheParameterGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeCacheParameterGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateCacheParameterGroupInput struct {
+}
+
+func (m *CreateCacheParameterGroupInput) Reset()                    { *m = CreateCacheParameterGroupInput{} }
+func (m *CreateCacheParameterGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateCacheParameterGroupInput) ProtoMessage()               {}
+func (*CreateCacheParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{35} }
+
+type CreateCacheParameterGroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateCacheParameterGroupOutput) Reset()         { *m = CreateCacheParameterGroupOutput{} }
+func (m *CreateCacheParameterGroupOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateCacheParameterGroupOutput) ProtoMessage()    {}
+func (*CreateCacheParameterGroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{36}
+}
+
+func (m *CreateCacheParameterGroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateCacheParameterGroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateCacheParameterGroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ApplyCacheParameterGroupInput struct {
+}
+
+func (m *ApplyCacheParameterGroupInput) Reset()                    { *m = ApplyCacheParameterGroupInput{} }
+func (m *ApplyCacheParameterGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*ApplyCacheParameterGroupInput) ProtoMessage()               {}
+func (*ApplyCacheParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{37} }
+
+type ApplyCacheParameterGroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ApplyCacheParameterGroupOutput) Reset()                    { *m = ApplyCacheParameterGroupOutput{} }
+func (m *ApplyCacheParameterGroupOutput) String() string            { return proto.CompactTextString(m) }
+func (*ApplyCacheParameterGroupOutput) ProtoMessage()               {}
+func (*ApplyCacheParameterGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{38} }
+
+func (m *ApplyCacheParameterGroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ApplyCacheParameterGroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ApplyCacheParameterGroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteCacheParameterGroupsInput struct {
+}
+
+func (m *DeleteCacheParameterGroupsInput) Reset()         { *m = DeleteCacheParameterGroupsInput{} }
+func (m *DeleteCacheParameterGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteCacheParameterGroupsInput) ProtoMessage()    {}
+func (*DeleteCacheParameterGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{39}
+}
+
+type DeleteCacheParameterGroupsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteCacheParameterGroupsOutput) Reset()         { *m = DeleteCacheParameterGroupsOutput{} }
+func (m *DeleteCacheParameterGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteCacheParameterGroupsOutput) ProtoMessage()    {}
+func (*DeleteCacheParameterGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{40}
+}
+
+func (m *DeleteCacheParameterGroupsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteCacheParameterGroupsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteCacheParameterGroupsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyCacheParameterGroupAttributesInput struct {
+}
+
+func (m *ModifyCacheParameterGroupAttributesInput) Reset() {
+	*m = ModifyCacheParameterGroupAttributesInput{}
+}
+func (m *ModifyCacheParameterGroupAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyCacheParameterGroupAttributesInput) ProtoMessage()    {}
+func (*ModifyCacheParameterGroupAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{41}
+}
+
+type ModifyCacheParameterGroupAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyCacheParameterGroupAttributesOutput) Reset() {
+	*m = ModifyCacheParameterGroupAttributesOutput{}
+}
+func (m *ModifyCacheParameterGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyCacheParameterGroupAttributesOutput) ProtoMessage()    {}
+func (*ModifyCacheParameterGroupAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor1, []int{42}
+}
+
+func (m *ModifyCacheParameterGroupAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyCacheParameterGroupAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyCacheParameterGroupAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeCacheParametersInput struct {
+}
+
+func (m *DescribeCacheParametersInput) Reset()                    { *m = DescribeCacheParametersInput{} }
+func (m *DescribeCacheParametersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeCacheParametersInput) ProtoMessage()               {}
+func (*DescribeCacheParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{43} }
+
+type DescribeCacheParametersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeCacheParametersOutput) Reset()                    { *m = DescribeCacheParametersOutput{} }
+func (m *DescribeCacheParametersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeCacheParametersOutput) ProtoMessage()               {}
+func (*DescribeCacheParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{44} }
+
+func (m *DescribeCacheParametersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeCacheParametersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeCacheParametersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type UpdateCacheParametersInput struct {
+}
+
+func (m *UpdateCacheParametersInput) Reset()                    { *m = UpdateCacheParametersInput{} }
+func (m *UpdateCacheParametersInput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateCacheParametersInput) ProtoMessage()               {}
+func (*UpdateCacheParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{45} }
+
+type UpdateCacheParametersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *UpdateCacheParametersOutput) Reset()                    { *m = UpdateCacheParametersOutput{} }
+func (m *UpdateCacheParametersOutput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateCacheParametersOutput) ProtoMessage()               {}
+func (*UpdateCacheParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{46} }
+
+func (m *UpdateCacheParametersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *UpdateCacheParametersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *UpdateCacheParametersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ResetCacheParametersInput struct {
+}
+
+func (m *ResetCacheParametersInput) Reset()                    { *m = ResetCacheParametersInput{} }
+func (m *ResetCacheParametersInput) String() string            { return proto.CompactTextString(m) }
+func (*ResetCacheParametersInput) ProtoMessage()               {}
+func (*ResetCacheParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{47} }
+
+type ResetCacheParametersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ResetCacheParametersOutput) Reset()                    { *m = ResetCacheParametersOutput{} }
+func (m *ResetCacheParametersOutput) String() string            { return proto.CompactTextString(m) }
+func (*ResetCacheParametersOutput) ProtoMessage()               {}
+func (*ResetCacheParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{48} }
+
+func (m *ResetCacheParametersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ResetCacheParametersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ResetCacheParametersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*CacheServiceProperties)(nil), "service.CacheServiceProperties")
+	proto.RegisterType((*DescribeCachesInput)(nil), "service.DescribeCachesInput")
+	proto.RegisterType((*DescribeCachesOutput)(nil), "service.DescribeCachesOutput")
+	proto.RegisterType((*CreateCacheInput)(nil), "service.CreateCacheInput")
+	proto.RegisterType((*CreateCacheOutput)(nil), "service.CreateCacheOutput")
+	proto.RegisterType((*StopCachesInput)(nil), "service.StopCachesInput")
+	proto.RegisterType((*StopCachesOutput)(nil), "service.StopCachesOutput")
+	proto.RegisterType((*StartCachesInput)(nil), "service.StartCachesInput")
+	proto.RegisterType((*StartCachesOutput)(nil), "service.StartCachesOutput")
+	proto.RegisterType((*RestartCachesInput)(nil), "service.RestartCachesInput")
+	proto.RegisterType((*RestartCachesOutput)(nil), "service.RestartCachesOutput")
+	proto.RegisterType((*DeleteCachesInput)(nil), "service.DeleteCachesInput")
+	proto.RegisterType((*DeleteCachesOutput)(nil), "service.DeleteCachesOutput")
+	proto.RegisterType((*ResizeCachesInput)(nil), "service.ResizeCachesInput")
+	proto.RegisterType((*ResizeCachesOutput)(nil), "service.ResizeCachesOutput")
+	proto.RegisterType((*UpdateCacheInput)(nil), "service.UpdateCacheInput")
+	proto.RegisterType((*UpdateCacheOutput)(nil), "service.UpdateCacheOutput")
+	proto.RegisterType((*ChangeCacheVxnetInput)(nil), "service.ChangeCacheVxnetInput")
+	proto.RegisterType((*ChangeCacheVxnetOutput)(nil), "service.ChangeCacheVxnetOutput")
+	proto.RegisterType((*ModifyCacheAttributesInput)(nil), "service.ModifyCacheAttributesInput")
+	proto.RegisterType((*ModifyCacheAttributesOutput)(nil), "service.ModifyCacheAttributesOutput")
+	proto.RegisterType((*DescribeCacheNodesInput)(nil), "service.DescribeCacheNodesInput")
+	proto.RegisterType((*DescribeCacheNodesOutput)(nil), "service.DescribeCacheNodesOutput")
+	proto.RegisterType((*AddCacheNodesInput)(nil), "service.AddCacheNodesInput")
+	proto.RegisterType((*AddCacheNodesOutput)(nil), "service.AddCacheNodesOutput")
+	proto.RegisterType((*DeleteCacheNodesInput)(nil), "service.DeleteCacheNodesInput")
+	proto.RegisterType((*DeleteCacheNodesOutput)(nil), "service.DeleteCacheNodesOutput")
+	proto.RegisterType((*RestartCacheNodesInput)(nil), "service.RestartCacheNodesInput")
+	proto.RegisterType((*RestartCacheNodesOutput)(nil), "service.RestartCacheNodesOutput")
+	proto.RegisterType((*ModifyCacheNodeAttributesInput)(nil), "service.ModifyCacheNodeAttributesInput")
+	proto.RegisterType((*ModifyCacheNodeAttributesOutput)(nil), "service.ModifyCacheNodeAttributesOutput")
+	proto.RegisterType((*CreateCacheFromSnapshotInput)(nil), "service.CreateCacheFromSnapshotInput")
+	proto.RegisterType((*CreateCacheFromSnapshotOutput)(nil), "service.CreateCacheFromSnapshotOutput")
+	proto.RegisterType((*DescribeCacheParameterGroupsInput)(nil), "service.DescribeCacheParameterGroupsInput")
+	proto.RegisterType((*DescribeCacheParameterGroupsOutput)(nil), "service.DescribeCacheParameterGroupsOutput")
+	proto.RegisterType((*CreateCacheParameterGroupInput)(nil), "service.CreateCacheParameterGroupInput")
+	proto.RegisterType((*CreateCacheParameterGroupOutput)(nil), "service.CreateCacheParameterGroupOutput")
+	proto.RegisterType((*ApplyCacheParameterGroupInput)(nil), "service.ApplyCacheParameterGroupInput")
+	proto.RegisterType((*ApplyCacheParameterGroupOutput)(nil), "service.ApplyCacheParameterGroupOutput")
+	proto.RegisterType((*DeleteCacheParameterGroupsInput)(nil), "service.DeleteCacheParameterGroupsInput")
+	proto.RegisterType((*DeleteCacheParameterGroupsOutput)(nil), "service.DeleteCacheParameterGroupsOutput")
+	proto.RegisterType((*ModifyCacheParameterGroupAttributesInput)(nil), "service.ModifyCacheParameterGroupAttributesInput")
+	proto.RegisterType((*ModifyCacheParameterGroupAttributesOutput)(nil), "service.ModifyCacheParameterGroupAttributesOutput")
+	proto.RegisterType((*DescribeCacheParametersInput)(nil), "service.DescribeCacheParametersInput")
+	proto.RegisterType((*DescribeCacheParametersOutput)(nil), "service.DescribeCacheParametersOutput")
+	proto.RegisterType((*UpdateCacheParametersInput)(nil), "service.UpdateCacheParametersInput")
+	proto.RegisterType((*UpdateCacheParametersOutput)(nil), "service.UpdateCacheParametersOutput")
+	proto.RegisterType((*ResetCacheParametersInput)(nil), "service.ResetCacheParametersInput")
+	proto.RegisterType((*ResetCacheParametersOutput)(nil), "service.ResetCacheParametersOutput")
 }
 
 type CacheServiceInterface interface {
-	DescribeCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateCache(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StopCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StartCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RestartCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ResizeCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	UpdateCache(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ChangeCacheVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyCacheAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RestartCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyCacheNodeAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateCacheFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeCacheParameterGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateCacheParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ApplyCacheParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteCacheParameterGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyCacheParameterGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeCacheParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	UpdateCacheParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ResetCacheParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error)
+	CreateCache(in *CreateCacheInput) (out *CreateCacheOutput, err error)
+	StopCaches(in *StopCachesInput) (out *StopCachesOutput, err error)
+	StartCaches(in *StartCachesInput) (out *StartCachesOutput, err error)
+	RestartCaches(in *RestartCachesInput) (out *RestartCachesOutput, err error)
+	DeleteCaches(in *DeleteCachesInput) (out *DeleteCachesOutput, err error)
+	ResizeCaches(in *ResizeCachesInput) (out *ResizeCachesOutput, err error)
+	UpdateCache(in *UpdateCacheInput) (out *UpdateCacheOutput, err error)
+	ChangeCacheVxnet(in *ChangeCacheVxnetInput) (out *ChangeCacheVxnetOutput, err error)
+	ModifyCacheAttributes(in *ModifyCacheAttributesInput) (out *ModifyCacheAttributesOutput, err error)
+	DescribeCacheNodes(in *DescribeCacheNodesInput) (out *DescribeCacheNodesOutput, err error)
+	AddCacheNodes(in *AddCacheNodesInput) (out *AddCacheNodesOutput, err error)
+	DeleteCacheNodes(in *DeleteCacheNodesInput) (out *DeleteCacheNodesOutput, err error)
+	RestartCacheNodes(in *RestartCacheNodesInput) (out *RestartCacheNodesOutput, err error)
+	ModifyCacheNodeAttributes(in *ModifyCacheNodeAttributesInput) (out *ModifyCacheNodeAttributesOutput, err error)
+	CreateCacheFromSnapshot(in *CreateCacheFromSnapshotInput) (out *CreateCacheFromSnapshotOutput, err error)
+	DescribeCacheParameterGroups(in *DescribeCacheParameterGroupsInput) (out *DescribeCacheParameterGroupsOutput, err error)
+	CreateCacheParameterGroup(in *CreateCacheParameterGroupInput) (out *CreateCacheParameterGroupOutput, err error)
+	ApplyCacheParameterGroup(in *ApplyCacheParameterGroupInput) (out *ApplyCacheParameterGroupOutput, err error)
+	DeleteCacheParameterGroups(in *DeleteCacheParameterGroupsInput) (out *DeleteCacheParameterGroupsOutput, err error)
+	ModifyCacheParameterGroupAttributes(in *ModifyCacheParameterGroupAttributesInput) (out *ModifyCacheParameterGroupAttributesOutput, err error)
+	DescribeCacheParameters(in *DescribeCacheParametersInput) (out *DescribeCacheParametersOutput, err error)
+	UpdateCacheParameters(in *UpdateCacheParametersInput) (out *UpdateCacheParametersOutput, err error)
+	ResetCacheParameters(in *ResetCacheParametersInput) (out *ResetCacheParametersOutput, err error)
 }
 
 type CacheService struct {
@@ -90,9 +1118,9 @@ func (s *QingCloudService) Cache(zone string) (*CacheService, error) {
 	return &CacheService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *CacheService) DescribeCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *CacheService) DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DescribeCachesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -101,7 +1129,7 @@ func (p *CacheService) DescribeCaches(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DescribeCachesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -117,9 +1145,13 @@ func (p *CacheService) DescribeCaches(in *google_protobuf1.Empty) (out *google_p
 	return x, err
 }
 
-func (p *CacheService) CreateCache(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DescribeCachesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) CreateCache(in *CreateCacheInput) (out *CreateCacheOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &CreateCacheInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -128,7 +1160,7 @@ func (p *CacheService) CreateCache(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &CreateCacheOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -144,9 +1176,13 @@ func (p *CacheService) CreateCache(in *google_protobuf1.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *CacheService) StopCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *CreateCacheInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) StopCaches(in *StopCachesInput) (out *StopCachesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &StopCachesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -155,7 +1191,7 @@ func (p *CacheService) StopCaches(in *google_protobuf1.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &StopCachesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -171,9 +1207,13 @@ func (p *CacheService) StopCaches(in *google_protobuf1.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *CacheService) StartCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *StopCachesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) StartCaches(in *StartCachesInput) (out *StartCachesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &StartCachesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -182,7 +1222,7 @@ func (p *CacheService) StartCaches(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &StartCachesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -198,9 +1238,13 @@ func (p *CacheService) StartCaches(in *google_protobuf1.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *CacheService) RestartCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *StartCachesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) RestartCaches(in *RestartCachesInput) (out *RestartCachesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &RestartCachesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -209,7 +1253,7 @@ func (p *CacheService) RestartCaches(in *google_protobuf1.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &RestartCachesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -225,9 +1269,13 @@ func (p *CacheService) RestartCaches(in *google_protobuf1.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *CacheService) DeleteCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RestartCachesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) DeleteCaches(in *DeleteCachesInput) (out *DeleteCachesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DeleteCachesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -236,7 +1284,7 @@ func (p *CacheService) DeleteCaches(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DeleteCachesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -252,9 +1300,13 @@ func (p *CacheService) DeleteCaches(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *CacheService) ResizeCaches(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DeleteCachesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) ResizeCaches(in *ResizeCachesInput) (out *ResizeCachesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ResizeCachesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -263,7 +1315,7 @@ func (p *CacheService) ResizeCaches(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ResizeCachesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -279,9 +1331,13 @@ func (p *CacheService) ResizeCaches(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *CacheService) UpdateCache(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResizeCachesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) UpdateCache(in *UpdateCacheInput) (out *UpdateCacheOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &UpdateCacheInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -290,7 +1346,7 @@ func (p *CacheService) UpdateCache(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &UpdateCacheOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -306,9 +1362,13 @@ func (p *CacheService) UpdateCache(in *google_protobuf1.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *CacheService) ChangeCacheVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *UpdateCacheInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) ChangeCacheVxnet(in *ChangeCacheVxnetInput) (out *ChangeCacheVxnetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ChangeCacheVxnetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -317,7 +1377,7 @@ func (p *CacheService) ChangeCacheVxnet(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ChangeCacheVxnetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -333,9 +1393,13 @@ func (p *CacheService) ChangeCacheVxnet(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *CacheService) ModifyCacheAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ChangeCacheVxnetInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) ModifyCacheAttributes(in *ModifyCacheAttributesInput) (out *ModifyCacheAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ModifyCacheAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -344,7 +1408,7 @@ func (p *CacheService) ModifyCacheAttributes(in *google_protobuf1.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ModifyCacheAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -360,9 +1424,13 @@ func (p *CacheService) ModifyCacheAttributes(in *google_protobuf1.Empty) (out *g
 	return x, err
 }
 
-func (p *CacheService) DescribeCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ModifyCacheAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) DescribeCacheNodes(in *DescribeCacheNodesInput) (out *DescribeCacheNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DescribeCacheNodesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -371,7 +1439,7 @@ func (p *CacheService) DescribeCacheNodes(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DescribeCacheNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -387,9 +1455,13 @@ func (p *CacheService) DescribeCacheNodes(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *CacheService) AddCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DescribeCacheNodesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) AddCacheNodes(in *AddCacheNodesInput) (out *AddCacheNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &AddCacheNodesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -398,7 +1470,7 @@ func (p *CacheService) AddCacheNodes(in *google_protobuf1.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &AddCacheNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -414,9 +1486,13 @@ func (p *CacheService) AddCacheNodes(in *google_protobuf1.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *CacheService) DeleteCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *AddCacheNodesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) DeleteCacheNodes(in *DeleteCacheNodesInput) (out *DeleteCacheNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DeleteCacheNodesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -425,7 +1501,7 @@ func (p *CacheService) DeleteCacheNodes(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DeleteCacheNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -441,9 +1517,13 @@ func (p *CacheService) DeleteCacheNodes(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *CacheService) RestartCacheNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DeleteCacheNodesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) RestartCacheNodes(in *RestartCacheNodesInput) (out *RestartCacheNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &RestartCacheNodesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -452,7 +1532,7 @@ func (p *CacheService) RestartCacheNodes(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &RestartCacheNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -468,9 +1548,13 @@ func (p *CacheService) RestartCacheNodes(in *google_protobuf1.Empty) (out *googl
 	return x, err
 }
 
-func (p *CacheService) ModifyCacheNodeAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RestartCacheNodesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) ModifyCacheNodeAttributes(in *ModifyCacheNodeAttributesInput) (out *ModifyCacheNodeAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ModifyCacheNodeAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -479,7 +1563,7 @@ func (p *CacheService) ModifyCacheNodeAttributes(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ModifyCacheNodeAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -495,9 +1579,13 @@ func (p *CacheService) ModifyCacheNodeAttributes(in *google_protobuf1.Empty) (ou
 	return x, err
 }
 
-func (p *CacheService) CreateCacheFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ModifyCacheNodeAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) CreateCacheFromSnapshot(in *CreateCacheFromSnapshotInput) (out *CreateCacheFromSnapshotOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &CreateCacheFromSnapshotInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -506,7 +1594,7 @@ func (p *CacheService) CreateCacheFromSnapshot(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &CreateCacheFromSnapshotOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -522,9 +1610,13 @@ func (p *CacheService) CreateCacheFromSnapshot(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *CacheService) DescribeCacheParameterGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *CreateCacheFromSnapshotInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) DescribeCacheParameterGroups(in *DescribeCacheParameterGroupsInput) (out *DescribeCacheParameterGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DescribeCacheParameterGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -533,7 +1625,7 @@ func (p *CacheService) DescribeCacheParameterGroups(in *google_protobuf1.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DescribeCacheParameterGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -549,9 +1641,13 @@ func (p *CacheService) DescribeCacheParameterGroups(in *google_protobuf1.Empty) 
 	return x, err
 }
 
-func (p *CacheService) CreateCacheParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DescribeCacheParameterGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) CreateCacheParameterGroup(in *CreateCacheParameterGroupInput) (out *CreateCacheParameterGroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &CreateCacheParameterGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -560,7 +1656,7 @@ func (p *CacheService) CreateCacheParameterGroup(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &CreateCacheParameterGroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -576,9 +1672,13 @@ func (p *CacheService) CreateCacheParameterGroup(in *google_protobuf1.Empty) (ou
 	return x, err
 }
 
-func (p *CacheService) ApplyCacheParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *CreateCacheParameterGroupInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) ApplyCacheParameterGroup(in *ApplyCacheParameterGroupInput) (out *ApplyCacheParameterGroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ApplyCacheParameterGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -587,7 +1687,7 @@ func (p *CacheService) ApplyCacheParameterGroup(in *google_protobuf1.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ApplyCacheParameterGroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -603,9 +1703,13 @@ func (p *CacheService) ApplyCacheParameterGroup(in *google_protobuf1.Empty) (out
 	return x, err
 }
 
-func (p *CacheService) DeleteCacheParameterGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ApplyCacheParameterGroupInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) DeleteCacheParameterGroups(in *DeleteCacheParameterGroupsInput) (out *DeleteCacheParameterGroupsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DeleteCacheParameterGroupsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -614,7 +1718,7 @@ func (p *CacheService) DeleteCacheParameterGroups(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DeleteCacheParameterGroupsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -630,9 +1734,13 @@ func (p *CacheService) DeleteCacheParameterGroups(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *CacheService) ModifyCacheParameterGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DeleteCacheParameterGroupsInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) ModifyCacheParameterGroupAttributes(in *ModifyCacheParameterGroupAttributesInput) (out *ModifyCacheParameterGroupAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ModifyCacheParameterGroupAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -641,7 +1749,7 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ModifyCacheParameterGroupAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -657,9 +1765,13 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(in *google_protobuf1.
 	return x, err
 }
 
-func (p *CacheService) DescribeCacheParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ModifyCacheParameterGroupAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) DescribeCacheParameters(in *DescribeCacheParametersInput) (out *DescribeCacheParametersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &DescribeCacheParametersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -668,7 +1780,7 @@ func (p *CacheService) DescribeCacheParameters(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &DescribeCacheParametersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -684,9 +1796,13 @@ func (p *CacheService) DescribeCacheParameters(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *CacheService) UpdateCacheParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *DescribeCacheParametersInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) UpdateCacheParameters(in *UpdateCacheParametersInput) (out *UpdateCacheParametersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &UpdateCacheParametersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -695,7 +1811,7 @@ func (p *CacheService) UpdateCacheParameters(in *google_protobuf1.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &UpdateCacheParametersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -711,9 +1827,13 @@ func (p *CacheService) UpdateCacheParameters(in *google_protobuf1.Empty) (out *g
 	return x, err
 }
 
-func (p *CacheService) ResetCacheParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *UpdateCacheParametersInput) Validate() error {
+	return nil
+}
+
+func (p *CacheService) ResetCacheParameters(in *ResetCacheParametersInput) (out *ResetCacheParametersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &ResetCacheParametersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -722,7 +1842,7 @@ func (p *CacheService) ResetCacheParameters(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &ResetCacheParametersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -738,35 +1858,75 @@ func (p *CacheService) ResetCacheParameters(in *google_protobuf1.Empty) (out *go
 	return x, err
 }
 
+func (p *ResetCacheParametersInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("cache.proto", fileDescriptor1) }
 
 var fileDescriptor1 = []byte{
-	// 418 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0xdd, 0xaa, 0xd3, 0x40,
-	0x10, 0xc7, 0x29, 0x54, 0xa5, 0xd3, 0x56, 0xea, 0xa2, 0xb5, 0x46, 0x05, 0xd1, 0x1b, 0x2f, 0x24,
-	0x05, 0xbd, 0xf5, 0xab, 0x4d, 0x6d, 0xf1, 0xab, 0xd4, 0x84, 0x7a, 0x5b, 0xf2, 0x31, 0x4d, 0x17,
-	0xd3, 0xec, 0xba, 0xbb, 0x11, 0xdb, 0x47, 0xf0, 0xb5, 0x7c, 0x22, 0xdf, 0x40, 0x92, 0x70, 0x60,
-	0x03, 0xe7, 0x5c, 0x64, 0xf7, 0xdc, 0x84, 0x64, 0x33, 0xff, 0xdf, 0x64, 0xe6, 0x3f, 0x9b, 0x85,
-	0x7e, 0x1c, 0xc6, 0x07, 0x74, 0xb9, 0x60, 0x8a, 0x91, 0x5b, 0x12, 0xc5, 0x2f, 0x1a, 0xa3, 0xf3,
-	0xf8, 0x27, 0xcd, 0xd3, 0x38, 0x63, 0x45, 0xb2, 0x93, 0xc9, 0x8f, 0x9d, 0x28, 0x32, 0x9c, 0x96,
-	0x97, 0x3a, 0xce, 0x79, 0x98, 0x32, 0x96, 0x66, 0x38, 0xad, 0x9e, 0xa2, 0x62, 0x3f, 0xc5, 0x23,
-	0x57, 0xa7, 0xfa, 0xe5, 0xd3, 0x17, 0x30, 0xf6, 0x4a, 0x66, 0x50, 0xb3, 0x36, 0x82, 0x71, 0x14,
-	0x8a, 0xa2, 0x24, 0x04, 0xba, 0x67, 0x96, 0xe3, 0xa4, 0xf3, 0xa4, 0xf3, 0xbc, 0xe7, 0x57, 0xf7,
-	0x2f, 0xff, 0x0e, 0x61, 0xa0, 0x87, 0x93, 0xf7, 0x70, 0x7b, 0x81, 0x32, 0x16, 0x34, 0xc2, 0x6a,
-	0x5d, 0x92, 0xb1, 0x5b, 0xa7, 0x73, 0x2f, 0xd2, 0xb9, 0x1f, 0xca, 0x74, 0xce, 0x15, 0xeb, 0xe4,
-	0x0d, 0xf4, 0x3d, 0x81, 0xa1, 0xaa, 0xf5, 0xad, 0xe5, 0xaf, 0x01, 0x02, 0xc5, 0xb8, 0x79, 0xf2,
-	0x40, 0x85, 0x42, 0x19, 0xca, 0xdf, 0xc1, 0xd0, 0x47, 0x69, 0x01, 0x78, 0x0b, 0x83, 0x05, 0x66,
-	0xa8, 0xd0, 0x5c, 0xef, 0xa3, 0xa4, 0x67, 0x8b, 0xe6, 0x6f, 0x79, 0x62, 0xdc, 0xfc, 0x39, 0x8c,
-	0xbc, 0x43, 0x98, 0xa7, 0xb5, 0xfc, 0xfb, 0xef, 0x1c, 0x55, 0x6b, 0xc6, 0x0a, 0xee, 0x7d, 0x65,
-	0x09, 0xdd, 0x9f, 0x2a, 0xc6, 0x4c, 0x29, 0x41, 0xa3, 0x42, 0x19, 0xd4, 0xb2, 0x00, 0xd2, 0x18,
-	0xc5, 0x35, 0x4b, 0xcc, 0x2c, 0x9d, 0x25, 0x89, 0x05, 0x60, 0x0e, 0x23, 0xcd, 0x52, 0x33, 0x86,
-	0x07, 0x77, 0xf4, 0xb9, 0x32, 0x83, 0x7c, 0x86, 0x07, 0x5a, 0x63, 0x4b, 0x86, 0x45, 0x73, 0x3f,
-	0xc2, 0x7d, 0x6d, 0x97, 0x2e, 0x05, 0x3b, 0x06, 0x79, 0xc8, 0xe5, 0x81, 0xb5, 0x37, 0x7c, 0x0d,
-	0x8f, 0x1a, 0x3e, 0x6d, 0x42, 0x11, 0x1e, 0x51, 0xa1, 0x58, 0x09, 0x56, 0x70, 0xa3, 0x3a, 0xb5,
-	0x4f, 0x6b, 0xd2, 0x5a, 0xc3, 0x3e, 0xc1, 0x64, 0xc6, 0x79, 0x76, 0xba, 0x0e, 0xd6, 0x17, 0x70,
-	0xb4, 0x49, 0xb0, 0x2d, 0x73, 0x0b, 0xcf, 0x34, 0x3b, 0x9b, 0x34, 0x3b, 0x63, 0x2f, 0x77, 0x43,
-	0x9a, 0xec, 0x64, 0xed, 0x67, 0x62, 0x01, 0x5a, 0xc2, 0x5d, 0x1f, 0x25, 0x2a, 0x4b, 0x8e, 0x33,
-	0xfe, 0xf3, 0xaf, 0x4b, 0xa0, 0xf7, 0x8d, 0xe6, 0xa9, 0x57, 0x9e, 0x8e, 0xe4, 0x46, 0x45, 0x8c,
-	0x6e, 0x56, 0x71, 0xaf, 0xfe, 0x07, 0x00, 0x00, 0xff, 0xff, 0xb1, 0x32, 0xaf, 0xef, 0x4e, 0x07,
+	// 994 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x98, 0xdd, 0x72, 0xdb, 0x44,
+	0x14, 0xc7, 0x27, 0xd0, 0x36, 0xf4, 0xb4, 0x40, 0xbc, 0x89, 0x6d, 0x79, 0xfd, 0x19, 0x1b, 0xa8,
+	0x5b, 0x98, 0x64, 0x28, 0x4f, 0xe0, 0x71, 0x86, 0x0e, 0xcc, 0x14, 0x8a, 0x3d, 0x74, 0x86, 0x2b,
+	0x57, 0x1f, 0x1b, 0x5b, 0xad, 0xad, 0x55, 0xa4, 0x15, 0x34, 0x7d, 0x04, 0x86, 0xe7, 0xe3, 0x3d,
+	0x78, 0x03, 0xc6, 0x92, 0x62, 0x1d, 0x49, 0xbb, 0xb2, 0x7b, 0xb1, 0x37, 0x9d, 0x6a, 0xcf, 0x5f,
+	0xfb, 0x3f, 0x3e, 0x7b, 0x76, 0xf5, 0xdb, 0xc0, 0x23, 0xdb, 0xb4, 0x57, 0xec, 0xc2, 0x0f, 0xb8,
+	0xe0, 0xe4, 0x38, 0x64, 0xc1, 0x9f, 0xae, 0xcd, 0x68, 0xf7, 0xc6, 0xf5, 0x96, 0xf6, 0x9a, 0x47,
+	0xce, 0x22, 0x74, 0xde, 0x2d, 0x82, 0x68, 0xcd, 0x2e, 0xb7, 0xff, 0x24, 0x3a, 0xda, 0x5e, 0x72,
+	0xbe, 0x5c, 0xb3, 0xcb, 0xf8, 0xc9, 0x8a, 0xae, 0x2f, 0xd9, 0xc6, 0x17, 0xb7, 0x49, 0x70, 0xf8,
+	0x1d, 0x34, 0xa6, 0xdb, 0x39, 0xe7, 0xc9, 0x5c, 0xaf, 0x02, 0xee, 0xb3, 0x40, 0xb8, 0x2c, 0x24,
+	0x04, 0xee, 0x7d, 0xe0, 0x1e, 0x33, 0x8e, 0x06, 0x47, 0xe3, 0x87, 0xb3, 0xf8, 0xff, 0xc3, 0x3a,
+	0x9c, 0x5e, 0xb1, 0xd0, 0x0e, 0x5c, 0x8b, 0xc5, 0x6f, 0x85, 0x3f, 0x79, 0x7e, 0x24, 0x86, 0x36,
+	0x9c, 0xe5, 0x87, 0x7f, 0x8d, 0x84, 0x1f, 0x09, 0xd2, 0x80, 0x07, 0xa6, 0x2d, 0x5c, 0xee, 0xa5,
+	0x93, 0xa4, 0x4f, 0xa4, 0x05, 0x9f, 0x05, 0x4c, 0x2c, 0x6c, 0xee, 0x30, 0xe3, 0x93, 0xc1, 0xd1,
+	0xf8, 0xfe, 0xec, 0x38, 0x60, 0x62, 0xca, 0x1d, 0x46, 0x0c, 0x38, 0xde, 0xb0, 0x30, 0x34, 0x97,
+	0xcc, 0xf8, 0x34, 0x7e, 0xe7, 0xee, 0x71, 0x48, 0xe0, 0x64, 0x1a, 0x30, 0x53, 0x24, 0x16, 0x89,
+	0xf1, 0x1b, 0xa8, 0xa1, 0x31, 0x1d, 0xae, 0x35, 0xf8, 0x72, 0x2e, 0xb8, 0x8f, 0x7f, 0xed, 0x02,
+	0x4e, 0xb2, 0x21, 0x4d, 0xbf, 0x74, 0x2e, 0xcc, 0x40, 0x60, 0xd3, 0x37, 0x50, 0x43, 0x63, 0x3a,
+	0x5c, 0xcf, 0x80, 0xcc, 0x58, 0x58, 0xf4, 0xb5, 0xe0, 0x34, 0x37, 0xaa, 0xc3, 0xf9, 0x14, 0x6a,
+	0x57, 0x6c, 0xcd, 0x44, 0xae, 0xa7, 0x4c, 0x20, 0x78, 0x50, 0x93, 0xef, 0x8c, 0x85, 0xee, 0x87,
+	0xa2, 0x2f, 0x1e, 0xd4, 0xb4, 0xbe, 0xbf, 0xfb, 0x4e, 0xa9, 0x93, 0xd1, 0x98, 0x0e, 0xd7, 0x26,
+	0xd4, 0xa7, 0x2b, 0xd3, 0x5b, 0x26, 0x0e, 0xaf, 0xdf, 0x7b, 0x4c, 0x24, 0xd6, 0x0c, 0x1a, 0xc5,
+	0x80, 0x0e, 0xff, 0x0e, 0xd0, 0x97, 0xdc, 0x71, 0xaf, 0x6f, 0x63, 0x9b, 0x89, 0x10, 0x81, 0x6b,
+	0x45, 0xe2, 0xae, 0xec, 0x6f, 0xa1, 0x2d, 0x8d, 0xea, 0xc8, 0xa4, 0x05, 0xcd, 0xdc, 0x71, 0xf5,
+	0x0b, 0x77, 0xee, 0xd2, 0x58, 0x82, 0x51, 0x0e, 0x69, 0xda, 0x6d, 0x13, 0xc7, 0x29, 0xda, 0x5b,
+	0x70, 0x9a, 0x1b, 0xd5, 0xd4, 0x07, 0x68, 0x63, 0x21, 0x73, 0x06, 0x8d, 0x62, 0x40, 0x87, 0xbf,
+	0x01, 0x0d, 0x7c, 0xa2, 0xa0, 0x04, 0xae, 0xa1, 0x59, 0x8a, 0xe8, 0xc8, 0x60, 0x00, 0x3d, 0xd4,
+	0x6b, 0x5b, 0x9b, 0x62, 0x37, 0x7a, 0xd0, 0x57, 0x2a, 0x74, 0x64, 0xd4, 0x83, 0x0e, 0xfa, 0x8e,
+	0xfd, 0x18, 0xf0, 0xcd, 0xdc, 0x33, 0xfd, 0x70, 0xc5, 0xd3, 0x2d, 0xba, 0x86, 0xae, 0x22, 0xae,
+	0x23, 0x9b, 0x11, 0x9c, 0xe7, 0x36, 0xc1, 0x2b, 0x33, 0x30, 0x37, 0x4c, 0xb0, 0xe0, 0x45, 0xc0,
+	0x23, 0x3f, 0x2d, 0xd1, 0x0d, 0x0c, 0xab, 0x44, 0x9a, 0xd6, 0x0d, 0x55, 0x21, 0x6f, 0xb8, 0x5b,
+	0x37, 0xa5, 0x42, 0x47, 0x46, 0x7d, 0xe8, 0x4e, 0x7c, 0x7f, 0x7d, 0xab, 0x4c, 0x68, 0x03, 0x3d,
+	0x95, 0x40, 0x47, 0x3e, 0xe7, 0xd0, 0x47, 0x5b, 0x58, 0xba, 0x6e, 0x1c, 0x06, 0x6a, 0x89, 0x8e,
+	0x9c, 0x9e, 0xc1, 0x18, 0xed, 0xa5, 0xbc, 0x61, 0x71, 0xdf, 0xbd, 0x87, 0xa7, 0x07, 0x68, 0x35,
+	0xed, 0x40, 0x79, 0x3b, 0x87, 0xbb, 0x1d, 0xa8, 0x88, 0x6b, 0xfa, 0x56, 0x22, 0x1a, 0x28, 0xe6,
+	0xf2, 0x16, 0xda, 0xd2, 0xa8, 0x8e, 0x4c, 0xda, 0xd0, 0x9a, 0xb1, 0x90, 0x09, 0x69, 0x22, 0x2e,
+	0x50, 0x59, 0x50, 0x43, 0x1e, 0xcf, 0xff, 0xad, 0xc1, 0x63, 0x7c, 0x51, 0x21, 0x2f, 0xe1, 0x8b,
+	0xfc, 0x9d, 0x83, 0x74, 0x2e, 0xd2, 0x0b, 0xd1, 0x85, 0xe4, 0x8e, 0x42, 0xbb, 0x8a, 0x68, 0x9a,
+	0xec, 0x15, 0x3c, 0x42, 0x27, 0x07, 0x69, 0xed, 0xd4, 0xc5, 0x3b, 0x07, 0xa5, 0xb2, 0x50, 0x3a,
+	0xcb, 0x04, 0x20, 0xbb, 0x1a, 0x10, 0x63, 0xa7, 0x2c, 0x5c, 0x21, 0x68, 0x4b, 0x12, 0xc9, 0x12,
+	0x41, 0xa0, 0x4f, 0xb0, 0x32, 0x8f, 0xe6, 0x28, 0x91, 0xf2, 0xcd, 0xe0, 0x67, 0xf8, 0x3c, 0x87,
+	0xed, 0xa4, 0xbd, 0x13, 0x97, 0x21, 0x9f, 0x76, 0xe4, 0xc1, 0x74, 0xae, 0x17, 0xf0, 0x18, 0x93,
+	0x38, 0xa1, 0xa8, 0x92, 0x05, 0x6a, 0xa7, 0x6d, 0x69, 0x2c, 0x9b, 0x08, 0xa3, 0x35, 0x9a, 0xa8,
+	0x84, 0xe1, 0xb4, 0x2d, 0x8d, 0x65, 0x35, 0x42, 0x1b, 0x00, 0xd5, 0xa8, 0x88, 0xd5, 0xa8, 0x46,
+	0x65, 0xba, 0x9e, 0xc3, 0x49, 0x91, 0x7b, 0x49, 0x2f, 0x5b, 0x5c, 0x19, 0x2b, 0xd3, 0xbe, 0x32,
+	0x9e, 0x4e, 0x6a, 0x41, 0x5d, 0xca, 0xb1, 0x64, 0xb4, 0x7b, 0x53, 0x4d, 0xc1, 0xf4, 0xab, 0x6a,
+	0x51, 0xea, 0xf1, 0xc7, 0xf6, 0x6a, 0x54, 0x84, 0x54, 0x32, 0x90, 0x37, 0x78, 0xc6, 0x57, 0xf4,
+	0xbc, 0x42, 0x91, 0xf5, 0x4d, 0x0e, 0x40, 0x51, 0xdf, 0x94, 0x71, 0x15, 0xf5, 0x8d, 0x8c, 0x5a,
+	0xe7, 0x70, 0x52, 0xe4, 0x49, 0x54, 0x5f, 0x29, 0x83, 0xa2, 0xfa, 0x2a, 0x50, 0xf4, 0x75, 0x7c,
+	0x67, 0xcb, 0x33, 0x22, 0xe9, 0x4b, 0xfb, 0x17, 0x4d, 0x3b, 0x50, 0x0b, 0xd2, 0x79, 0x3d, 0x68,
+	0x29, 0x89, 0x8f, 0x3c, 0x91, 0x2d, 0x8b, 0x84, 0x1b, 0xe9, 0x78, 0xbf, 0x30, 0xf5, 0x5b, 0x41,
+	0x53, 0x41, 0x74, 0xe4, 0x6b, 0xd9, 0x01, 0x53, 0x62, 0x42, 0xfa, 0xcd, 0x3e, 0x59, 0xea, 0xf4,
+	0x97, 0xea, 0xcb, 0x96, 0x7c, 0xf2, 0xc9, 0x33, 0x79, 0x57, 0xc8, 0xe0, 0x81, 0x7e, 0x7b, 0x90,
+	0x36, 0x2b, 0xa9, 0x12, 0xc6, 0x50, 0x49, 0xab, 0x91, 0x0e, 0x95, 0x74, 0x1f, 0xd9, 0xbd, 0x03,
+	0x43, 0xc5, 0x5a, 0x24, 0x2b, 0x56, 0x25, 0xaf, 0xd1, 0x27, 0x7b, 0x75, 0xa9, 0xd9, 0x0d, 0x50,
+	0x35, 0x46, 0x91, 0xb1, 0xac, 0x8d, 0xa5, 0x15, 0x7d, 0x7a, 0x80, 0x32, 0xb5, 0xfc, 0xe7, 0x08,
+	0x46, 0x07, 0xd0, 0x11, 0xf9, 0x5e, 0xd6, 0x84, 0x95, 0xdc, 0x45, 0x9f, 0x7f, 0xcc, 0x2b, 0x59,
+	0x07, 0x2b, 0x88, 0x08, 0x75, 0x70, 0x15, 0x53, 0xa1, 0x0e, 0xae, 0x46, 0x2b, 0x0b, 0xea, 0x52,
+	0xde, 0x41, 0x67, 0xaa, 0x9a, 0x96, 0xd0, 0x99, 0x5a, 0x05, 0x4d, 0x0b, 0x38, 0x93, 0xa1, 0x0c,
+	0x19, 0xe2, 0x93, 0x43, 0x8e, 0x41, 0x74, 0x54, 0xa9, 0x49, 0x0c, 0x68, 0xe3, 0xef, 0xff, 0xee,
+	0x11, 0x78, 0xf8, 0x9b, 0xeb, 0x2d, 0xa7, 0x6b, 0x1e, 0x39, 0xe4, 0x7e, 0xac, 0xb3, 0x1e, 0xc4,
+	0x7f, 0x87, 0xfd, 0xe1, 0xff, 0x00, 0x00, 0x00, 0xff, 0xff, 0xc0, 0x6f, 0x56, 0x1b, 0xdb, 0x15,
 	0x00, 0x00,
 }

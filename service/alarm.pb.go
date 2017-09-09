@@ -75,6 +75,54 @@ It has these top-level messages:
 	DescribeAlarmHistoryInput
 	DescribeAlarmHistoryOutput
 	CacheServiceProperties
+	DescribeCachesInput
+	DescribeCachesOutput
+	CreateCacheInput
+	CreateCacheOutput
+	StopCachesInput
+	StopCachesOutput
+	StartCachesInput
+	StartCachesOutput
+	RestartCachesInput
+	RestartCachesOutput
+	DeleteCachesInput
+	DeleteCachesOutput
+	ResizeCachesInput
+	ResizeCachesOutput
+	UpdateCacheInput
+	UpdateCacheOutput
+	ChangeCacheVxnetInput
+	ChangeCacheVxnetOutput
+	ModifyCacheAttributesInput
+	ModifyCacheAttributesOutput
+	DescribeCacheNodesInput
+	DescribeCacheNodesOutput
+	AddCacheNodesInput
+	AddCacheNodesOutput
+	DeleteCacheNodesInput
+	DeleteCacheNodesOutput
+	RestartCacheNodesInput
+	RestartCacheNodesOutput
+	ModifyCacheNodeAttributesInput
+	ModifyCacheNodeAttributesOutput
+	CreateCacheFromSnapshotInput
+	CreateCacheFromSnapshotOutput
+	DescribeCacheParameterGroupsInput
+	DescribeCacheParameterGroupsOutput
+	CreateCacheParameterGroupInput
+	CreateCacheParameterGroupOutput
+	ApplyCacheParameterGroupInput
+	ApplyCacheParameterGroupOutput
+	DeleteCacheParameterGroupsInput
+	DeleteCacheParameterGroupsOutput
+	ModifyCacheParameterGroupAttributesInput
+	ModifyCacheParameterGroupAttributesOutput
+	DescribeCacheParametersInput
+	DescribeCacheParametersOutput
+	UpdateCacheParametersInput
+	UpdateCacheParametersOutput
+	ResetCacheParametersInput
+	ResetCacheParametersOutput
 	ClusterServiceProperties
 	CreateClusterInput
 	CreateClusterOutput
