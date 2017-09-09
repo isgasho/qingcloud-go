@@ -193,6 +193,14 @@ It has these top-level messages:
 	ModifyEipAttributesInput
 	ModifyEipAttributesOutput
 	HadoopServiceProperties
+	AddHadoopNodesInput
+	AddHadoopNodesOutput
+	DeleteHadoopNodesInput
+	DeleteHadoopNodesOutput
+	StartHadoopsInput
+	StartHadoopsOutput
+	StopHadoopsInput
+	StopHadoopsOutput
 	ImageServiceProperties
 	InstanceServiceProperties
 	DescribeInstancesInput

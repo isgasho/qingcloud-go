@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/hadoop/index.html
 
 message HadoopServiceProperties {
@@ -22,8 +20,40 @@ service HadoopService {
 		sub_service_name: "Hadoop"
 	};
 
-	rpc AddHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StartHadoops(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StopHadoops(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc AddHadoopNodes(AddHadoopNodesInput) returns (AddHadoopNodesOutput);
+	rpc DeleteHadoopNodes(DeleteHadoopNodesInput) returns (DeleteHadoopNodesOutput);
+	rpc StartHadoops(StartHadoopsInput) returns (StartHadoopsOutput);
+	rpc StopHadoops(StopHadoopsInput) returns (StopHadoopsOutput);
+}
+
+message AddHadoopNodesInput {}
+message AddHadoopNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteHadoopNodesInput {}
+message DeleteHadoopNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StartHadoopsInput {}
+message StartHadoopsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StopHadoopsInput {}
+message StopHadoopsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
