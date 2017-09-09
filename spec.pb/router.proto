@@ -19,7 +19,7 @@ message RouterServiceProperties {
 service RouterService {
 	option (qingcloud.sdk.rule.service_rule) = {
 		service_name:     "QingCloud"
-		sub_service_name: "ResourceACL"
+		sub_service_name: "Router"
 	};
 
 	rpc DescribeRouters(google.protobuf.Empty) returns (google.protobuf.Empty);

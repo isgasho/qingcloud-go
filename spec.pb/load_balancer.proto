@@ -22,7 +22,7 @@ message LoadBalancerServiceProperties {
 service LoadBalancerService {
 	option (qingcloud.sdk.rule.service_rule) = {
 		service_name:     "QingCloud"
-		sub_service_name: "KeyPair"
+		sub_service_name: "LoadBalancer"
 	};
 
 	rpc CreateLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
