@@ -9,8 +9,6 @@ package service;
 import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/lb/index.html
 
 message LoadBalancerServiceProperties {
@@ -25,38 +23,47 @@ service LoadBalancerService {
 		sub_service_name: "LoadBalancer"
 	};
 
-	rpc CreateLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateLoadBalancer(CreateLoadBalancerInput) returns (CreateLoadBalancerOutput);
 	rpc DescribeLoadBalancers(DescribeLoadBalancersInput) returns (DescribeLoadBalancersOutput);
-	rpc DeleteLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyLoadBalancerAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StartLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StopLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc UpdateLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResizeLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AssociateEipsToLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DissociateEipsFromLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteLoadBalancerListeners(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyLoadBalancerListenerAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteLoadBalancerBackends(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyLoadBalancerBackendAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateLoadBalancerPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeLoadBalancerPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyLoadBalancerPolicyAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ApplyLoadBalancerPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteLoadBalancerPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyLoadBalancerPolicyRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteLoadBalancerPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateServerCertificate(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyServerCertificateAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteServerCertificates(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteLoadBalancers(DeleteLoadBalancersInput) returns (DeleteLoadBalancersOutput);
+	rpc ModifyLoadBalancerAttributes(ModifyLoadBalancerAttributesInput) returns (ModifyLoadBalancerAttributesOutput);
+	rpc StartLoadBalancers(StartLoadBalancersInput) returns (StartLoadBalancersOutput);
+	rpc StopLoadBalancers(StopLoadBalancersInput) returns (StopLoadBalancersOutput);
+	rpc UpdateLoadBalancers(UpdateLoadBalancersInput) returns (UpdateLoadBalancersOutput);
+	rpc ResizeLoadBalancers(ResizeLoadBalancersInput) returns (ResizeLoadBalancersOutput);
+	rpc AssociateEipsToLoadBalancer(AssociateEipsToLoadBalancerInput) returns (AssociateEipsToLoadBalancerOutput);
+	rpc DissociateEipsFromLoadBalancer(DissociateEipsFromLoadBalancerInput) returns (DissociateEipsFromLoadBalancerOutput);
+	rpc AddLoadBalancerListeners(AddLoadBalancerListenersInput) returns (AddLoadBalancerListenersOutput);
+	rpc DescribeLoadBalancerListeners(DescribeLoadBalancerListenersInput) returns (DescribeLoadBalancerListenersOutput);
+	rpc DeleteLoadBalancerListeners(DeleteLoadBalancerListenersInput) returns (DeleteLoadBalancerListenersOutput);
+	rpc ModifyLoadBalancerListenerAttributes(ModifyLoadBalancerListenerAttributesInput) returns (ModifyLoadBalancerListenerAttributesOutput);
+	rpc AddLoadBalancerBackends(AddLoadBalancerBackendsInput) returns (AddLoadBalancerBackendsOutput);
+	rpc DescribeLoadBalancerBackends(DescribeLoadBalancerBackendsInput) returns (DescribeLoadBalancerBackendsOutput);
+	rpc DeleteLoadBalancerBackends(DeleteLoadBalancerBackendsInput) returns (DeleteLoadBalancerBackendsOutput);
+	rpc ModifyLoadBalancerBackendAttributes(ModifyLoadBalancerBackendAttributesInput) returns (ModifyLoadBalancerBackendAttributesOutput);
+	rpc CreateLoadBalancerPolicy(CreateLoadBalancerPolicyInput) returns (CreateLoadBalancerPolicyOutput);
+	rpc DescribeLoadBalancerPolicies(DescribeLoadBalancerPoliciesInput) returns (DescribeLoadBalancerPoliciesOutput);
+	rpc ModifyLoadBalancerPolicyAttributes(ModifyLoadBalancerPolicyAttributesInput) returns (ModifyLoadBalancerPolicyAttributesOutput);
+	rpc ApplyLoadBalancerPolicy(ApplyLoadBalancerPolicyInput) returns (ApplyLoadBalancerPolicyOutput);
+	rpc DeleteLoadBalancerPolicies(DeleteLoadBalancerPoliciesInput) returns (DeleteLoadBalancerPoliciesOutput);
+	rpc AddLoadBalancerPolicyRules(AddLoadBalancerPolicyRulesInput) returns (AddLoadBalancerPolicyRulesOutput);
+	rpc DescribeLoadBalancerPolicyRules(DescribeLoadBalancerPolicyRulesInput) returns (DescribeLoadBalancerPolicyRulesOutput);
+	rpc ModifyLoadBalancerPolicyRuleAttributes(ModifyLoadBalancerPolicyRuleAttributesInput) returns (ModifyLoadBalancerPolicyRuleAttributesOutput);
+	rpc DeleteLoadBalancerPolicyRules(DeleteLoadBalancerPolicyRulesInput) returns (DeleteLoadBalancerPolicyRulesOutput);
+	rpc CreateServerCertificate(CreateServerCertificateInput) returns (CreateServerCertificateOutput);
+	rpc DescribeServerCertificates(DescribeServerCertificatesInput) returns (DescribeServerCertificatesOutput);
+	rpc ModifyServerCertificateAttributes(ModifyServerCertificateAttributesInput) returns (ModifyServerCertificateAttributesOutput);
+	rpc DeleteServerCertificates(DeleteServerCertificatesInput) returns (DeleteServerCertificatesOutput);
 }
+
+message CreateLoadBalancerInput {}
+message CreateLoadBalancerOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
 
 message DescribeLoadBalancersInput {
 	int32 limit = 1;
@@ -75,3 +82,238 @@ message DescribeLoadBalancersOutput {
 
 	repeated LoadBalancer loadbalancer_set = 4;
 }
+
+message DeleteLoadBalancersInput {}
+message DeleteLoadBalancersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyLoadBalancerAttributesInput {}
+message ModifyLoadBalancerAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StartLoadBalancersInput {}
+message StartLoadBalancersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StopLoadBalancersInput {}
+message StopLoadBalancersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message UpdateLoadBalancersInput {}
+message UpdateLoadBalancersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ResizeLoadBalancersInput {}
+message ResizeLoadBalancersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AssociateEipsToLoadBalancerInput {}
+message AssociateEipsToLoadBalancerOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+
+message DissociateEipsFromLoadBalancerInput {}
+message DissociateEipsFromLoadBalancerOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddLoadBalancerListenersInput {}
+message AddLoadBalancerListenersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeLoadBalancerListenersInput {}
+message DescribeLoadBalancerListenersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteLoadBalancerListenersInput {}
+message DeleteLoadBalancerListenersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyLoadBalancerListenerAttributesInput {}
+message ModifyLoadBalancerListenerAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddLoadBalancerBackendsInput {}
+message AddLoadBalancerBackendsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeLoadBalancerBackendsInput {}
+message DescribeLoadBalancerBackendsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteLoadBalancerBackendsInput {}
+message DeleteLoadBalancerBackendsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyLoadBalancerBackendAttributesInput {}
+message ModifyLoadBalancerBackendAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateLoadBalancerPolicyInput {}
+message CreateLoadBalancerPolicyOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeLoadBalancerPoliciesInput {}
+message DescribeLoadBalancerPoliciesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyLoadBalancerPolicyAttributesInput {}
+message ModifyLoadBalancerPolicyAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ApplyLoadBalancerPolicyInput {}
+message ApplyLoadBalancerPolicyOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteLoadBalancerPoliciesInput {}
+message DeleteLoadBalancerPoliciesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddLoadBalancerPolicyRulesInput {}
+message AddLoadBalancerPolicyRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeLoadBalancerPolicyRulesInput {}
+message DescribeLoadBalancerPolicyRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyLoadBalancerPolicyRuleAttributesInput {}
+message ModifyLoadBalancerPolicyRuleAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteLoadBalancerPolicyRulesInput {}
+message DeleteLoadBalancerPolicyRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateServerCertificateInput {}
+message CreateServerCertificateOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeServerCertificatesInput {}
+message DescribeServerCertificatesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyServerCertificateAttributesInput {}
+message ModifyServerCertificateAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteServerCertificatesInput {}
+message DeleteServerCertificatesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+
