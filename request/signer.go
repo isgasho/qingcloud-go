@@ -27,7 +27,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang/glog"
+	"github.com/chai2010/qingcloud-go/logger"
 )
 
 // Signer is the http request signer for IaaS service.
@@ -52,7 +52,7 @@ func (is *Signer) WriteSignature(request *http.Request) error {
 	}
 	request.URL = newRequest.URL
 
-	glog.Info(fmt.Sprintf(
+	logger.Info(fmt.Sprintf(
 		"Signed QingCloud request: [%d] %s",
 		StringToUnixInt(request.Header.Get("Date"), "RFC 822"),
 		request.URL.String()))
@@ -74,7 +74,7 @@ func (is *Signer) BuildSignature(request *http.Request) (string, error) {
 	signature = strings.Replace(signature, " ", "+", -1)
 	signature = url.QueryEscape(signature)
 
-	glog.Info(fmt.Sprintf(
+	logger.Info(fmt.Sprintf(
 		"QingCloud signature: [%d] %s",
 		StringToUnixInt(request.Header.Get("Date"), "RFC 822"),
 		signature))
@@ -132,7 +132,7 @@ func (is *Signer) BuildStringToSign(request *http.Request) (string, error) {
 
 	stringToSign := request.Method + "\n" + request.URL.Path + "\n" + urlParams
 
-	glog.Info(fmt.Sprintf(
+	logger.Info(fmt.Sprintf(
 		"QingCloud string to sign: [%d] %s",
 		StringToUnixInt(request.Header.Get("Date"), "RFC 822"),
 		stringToSign))

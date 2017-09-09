@@ -25,8 +25,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/chai2010/qingcloud-go/logger"
 	"github.com/chai2010/qingcloud-go/request/data"
-	"github.com/golang/glog"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )
@@ -60,7 +60,7 @@ func (b *Builder) build() (*http.Request, error) {
 		return nil, err
 	}
 
-	glog.Info(fmt.Sprintf(
+	logger.Info(fmt.Sprintf(
 		"Built QingCloud request: [%d] %s",
 		StringToUnixInt(httpRequest.Header.Get("Date"), "RFC 822"),
 		httpRequest.URL.String()))

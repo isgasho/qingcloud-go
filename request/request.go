@@ -23,8 +23,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/chai2010/qingcloud-go/logger"
 	"github.com/chai2010/qingcloud-go/request/data"
-	"github.com/golang/glog"
 	"github.com/golang/protobuf/proto"
 )
 
@@ -132,7 +132,7 @@ func (r *Request) send() error {
 	retries := r.Operation.Config.ConnectionRetries + 1
 	for {
 		if retries > 0 {
-			glog.Info(fmt.Sprintf(
+			logger.Info(fmt.Sprintf(
 				"Sending request: [%d] %s",
 				StringToUnixInt(r.HTTPRequest.Header.Get("Date"), "RFC 822"),
 				r.HTTPRequest.Host))

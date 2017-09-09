@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/chai2010/qingcloud-go/logger"
 	"github.com/chai2010/qingcloud-go/request/data"
 	"github.com/chai2010/qingcloud-go/request/errors"
-	"github.com/golang/glog"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )
@@ -61,7 +61,7 @@ func (u *Unpacker) parseResponse() error {
 			buffer.ReadFrom(u.httpResponse.Body)
 			u.httpResponse.Body.Close()
 
-			glog.Info(fmt.Sprintf(
+			logger.Info(fmt.Sprintf(
 				"Response json string: [%d] %s",
 				StringToUnixInt(u.httpResponse.Header.Get("Date"), "RFC 822"),
 				string(buffer.Bytes())))
