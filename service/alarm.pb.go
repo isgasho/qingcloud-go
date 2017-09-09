@@ -684,6 +684,7 @@ It has these top-level messages:
 	DetachTagsOutput
 	Tag
 	EIP
+	Resource
 	Job
 	Volume
 	NIC
@@ -697,6 +698,10 @@ It has these top-level messages:
 	LoadBalancer
 	LoadBalancerListener
 	LoadBalancerBackend
+	Cache
+	CacheNode
+	CacheParameter
+	CacheParameterGroup
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput

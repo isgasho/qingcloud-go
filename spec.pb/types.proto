@@ -54,12 +54,12 @@ message EIP {
 	int32 sub_code = 16;
 	repeated Tag tags = 17;
 	string transition_status = 18;
+}
 
-	message Resource {
-		string resource_id = 1;
-		string resource_name = 2;
-		string resource_type = 3;
-	}
+message Resource {
+	string resource_id = 1;
+	string resource_name = 2;
+	string resource_type = 3;
 }
 
 message Job {
@@ -311,91 +311,72 @@ message LoadBalancerBackend {
 	int32 weight = 10;
 }
 
+message Cache {
+	int32 cache_class = 1;
+	string cache_id = 2;
+	string cache_name = 3;
+	string cache_parameter_group_id = 4;
+	int32 cache_port = 5;
+	int32 cache_size = 6;
+	string cache_type = 7;
+	string cache_version = 8;
+	google.protobuf.Timestamp create_time = 9;
+	string description = 10;
+	int32 is_applied = 11;
+	int32 master_count = 12;
+	int32 max_memory = 13;
+	int32 node_count = 14;
+	repeated CacheNode nodes = 15;
+	int32 replicate_count = 16;
+	string security_group_id = 17;
+	string status = 18;
+	google.protobuf.Timestamp status_time = 19;
+	int32 sub_code = 20;
+	repeated Tag tags = 21;
+	string transition_status = 22;
+	VxNet vxnet = 23;
+}
+
+message CacheNode {
+	string alarm_status = 1;
+	string cache_id = 2;
+	string cache_node_id = 3;
+	string cache_node_name = 4;
+	string cache_role = 5;
+	string cache_type = 6;
+	google.protobuf.Timestamp create_time = 7;
+	string private_ip = 8;
+	string slaveof = 9;
+	string status = 10;
+	google.protobuf.Timestamp status_time = 11;
+	string transition_status = 12;
+}
+
+message CacheParameter {
+	string cache_parameter_name = 1;
+	string cache_parameter_type = 2;
+	string cache_parameter_value = 3;
+	string cache_type = 4;
+	int32 is_readonly = 5;
+	int32 is_static = 6;
+	string opt_name = 7;
+	string parameter_type = 8;
+	string resource_version = 9;
+	string value_range = 10;
+}
+
+message CacheParameterGroup {
+	string cache_parameter_group_id = 1;
+	string cache_parameter_group_name = 2;
+	string cache_type = 3;
+	google.protobuf.Timestamp create_time = 4;
+	string description = 5;
+	int32 is_applied = 6;
+	int32 is_default = 7;
+	repeated Resource resources = 8;
+}
+
 /*
-
-
-
-*/
-
-/*
-
-
-
-type Cache struct {
-	AutoBackupTime *int `json:"auto_backup_time" name:"auto_backup_time"`
-	// CacheClass's available values: 0, 1
-	CacheClass            *int    `json:"cache_class" name:"cache_class"`
-	CacheID               *string `json:"cache_id" name:"cache_id"`
-	CacheName             *string `json:"cache_name" name:"cache_name"`
-	CacheParameterGroupID *string `json:"cache_parameter_group_id" name:"cache_parameter_group_id"`
-	CachePort             *int    `json:"cache_port" name:"cache_port"`
-	CacheSize             *int    `json:"cache_size" name:"cache_size"`
-	// CacheType's available values: Redis2.8.17, Memcached1.4.13
-	CacheType    *string    `json:"cache_type" name:"cache_type"`
-	CacheVersion *string    `json:"cache_version" name:"cache_version"`
-	CreateTime   *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description  *string    `json:"description" name:"description"`
-	// IsApplied's available values: 0, 1
-	IsApplied       *int         `json:"is_applied" name:"is_applied"`
-	MasterCount     *int         `json:"master_count" name:"master_count"`
-	MaxMemory       *int         `json:"max_memory" name:"max_memory"`
-	NodeCount       *int         `json:"node_count" name:"node_count"`
-	Nodes           []*CacheNode `json:"nodes" name:"nodes"`
-	ReplicateCount  *int         `json:"replicate_count" name:"replicate_count"`
-	SecurityGroupID *string      `json:"security_group_id" name:"security_group_id"`
-	// Status's available values: pending, active, stopped, suspended, deleted, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	SubCode    *int       `json:"sub_code" name:"sub_code"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, starting, stopping, updating, suspending, resuming, deleting
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	VxNet            *VxNet  `json:"vxnet" name:"vxnet"`
-}
-
-type CacheNode struct {
-	AlarmStatus   *string `json:"alarm_status" name:"alarm_status"`
-	CacheID       *string `json:"cache_id" name:"cache_id"`
-	CacheNodeID   *string `json:"cache_node_id" name:"cache_node_id"`
-	CacheNodeName *string `json:"cache_node_name" name:"cache_node_name"`
-	// CacheRole's available values: master, slave
-	CacheRole  *string    `json:"cache_role" name:"cache_role"`
-	CacheType  *string    `json:"cache_type" name:"cache_type"`
-	CreateTime *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	PrivateIP  *string    `json:"private_ip" name:"private_ip"`
-	Slaveof    *string    `json:"slaveof" name:"slaveof"`
-	// Status's available values: pending, active, down, suspended
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	// TransitionStatus's available values: creating, starting, stopping, updating, suspending, resuming, deleting
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-}
-
-type CacheParameter struct {
-	CacheParameterName  *string `json:"cache_parameter_name" name:"cache_parameter_name"` // Required
-	CacheParameterType  *string `json:"cache_parameter_type" name:"cache_parameter_type"`
-	CacheParameterValue *string `json:"cache_parameter_value" name:"cache_parameter_value"` // Required
-	CacheType           *string `json:"cache_type" name:"cache_type"`
-	// IsReadonly's available values: 0, 1
-	IsReadonly      *int    `json:"is_readonly" name:"is_readonly"`
-	IsStatic        *int    `json:"is_static" name:"is_static"`
-	OPTName         *string `json:"opt_name" name:"opt_name"`
-	ParameterType   *string `json:"parameter_type" name:"parameter_type"`
-	ResourceVersion *string `json:"resource_version" name:"resource_version"`
-	ValueRange      *string `json:"value_range" name:"value_range"`
-}
-
-type CacheParameterGroup struct {
-	CacheParameterGroupID   *string    `json:"cache_parameter_group_id" name:"cache_parameter_group_id"`
-	CacheParameterGroupName *string    `json:"cache_parameter_group_name" name:"cache_parameter_group_name"`
-	CacheType               *string    `json:"cache_type" name:"cache_type"`
-	CreateTime              *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description             *string    `json:"description" name:"description"`
-	// IsApplied's available values: 0, 1
-	IsApplied *int        `json:"is_applied" name:"is_applied"`
-	IsDefault *int        `json:"is_default" name:"is_default"`
-	Resources []*Resource `json:"resources" name:"resources"`
-}
 
 type CachePrivateIP struct {
 	CacheNodeID *string `json:"cache_node_id" name:"cache_node_id"`
