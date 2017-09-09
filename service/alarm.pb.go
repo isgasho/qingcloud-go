@@ -683,6 +683,8 @@ It has these top-level messages:
 	DetachTagsInput
 	DetachTagsOutput
 	Tag
+	ResourceTagPair
+	ResourceTypeCount
 	EIP
 	Resource
 	Job
@@ -716,6 +718,15 @@ It has these top-level messages:
 	MongoParameter
 	MongoPrivateIP
 	NICIP
+	RDB
+	RDBFile
+	RDBParameter
+	RDBParameters
+	RDBPrivateIP
+	RouterStatic
+	RouterStaticEntry
+	RouterVxNet
+	S2DefaultParameters
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput

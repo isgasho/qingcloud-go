@@ -20,19 +20,19 @@ message Tag {
 	string tag_id = 8;
 	string tag_key = 9;
 	string tag_name = 10;
+}
 
-	message ResourceTagPair {
-		string resource_id = 1;
-		string resource_type = 2;
-		string status = 3;
-		google.protobuf.Timestamp status_time = 4;
-		string tag_id = 5;
-	}
+message ResourceTagPair {
+	string resource_id = 1;
+	string resource_type = 2;
+	string status = 3;
+	google.protobuf.Timestamp status_time = 4;
+	string tag_id = 5;
+}
 
-	message ResourceTypeCount {
-		int32 count = 1;
-		string resource_type = 2;
-	}
+message ResourceTypeCount {
+	int32 count = 1;
+	string resource_type = 2;
 }
 
 message EIP {
@@ -481,177 +481,149 @@ message NICIP {
 	string private_ip = 2;
 }
 
+message RDB {
+	string alarm_status = 1;
+	int32 auto_backup_time = 2;
+	int32 auto_minor_ver_upgrade = 3;
+	string create_time = 4; // time.Time ?
+	string description = 5;
+	string engine_version = 6;
+	google.protobuf.Timestamp latest_snapshot_time = 7;
+	string master_ip = 8;
+	string rdb_engine = 9;
+	string rdb_id = 10;
+	string rdb_name = 11;
+	int32 rdb_type = 12;
+	string status = 13;
+	string status_time = 14;
+	int32 storage_size = 15;
+	repeated Tag tags = 16;
+	VxNet vxnet = 17;
+}
+
+message RDBFile {
+	repeated File binary_log = 1;
+	repeated File error_log = 2;
+	repeated File slow_log = 3;
+}
+
+message RDBParameter {
+	string family = 1;
+	int32 is_readonly = 2;
+	int32 is_static = 3;
+	int32 max_value = 4;
+	int32 min_value = 5;
+	string opt_name = 6;
+	string section_name = 7;
+	string var_name = 8;
+	string var_type = 9;
+	string var_value = 10;
+}
+
+message RDBParameters {
+	string bind_address = 1;
+	string binlog_format = 2;
+	string character_set_server = 3;
+	string datadir = 4;
+	string default_storage_engine = 5;
+	int32 expire_logs_days = 6;
+	string innodb = 7;
+	int32 innodb_buffer_pool_instances = 8;
+	string innodb_buffer_pool_size = 9;
+	int32 innodb_file_per_table = 10;
+	int32 innodb_flush_log_at_trx_commit = 11;
+	string innodb_flush_method = 12;
+	int32 innodb_io_capacity = 13;
+	string innodb_log_buffer_size = 14;
+	string innodb_log_file_size = 15;
+	int32 innodb_log_files_in_group = 16;
+	int32 innodb_max_dirty_pages_pct = 17;
+	int32 innodb_read_io_threads = 18;
+	int32 innodb_write_io_threads = 19;
+	int32 interactive_timeout = 20;
+	string key_buffer_size = 21;
+	//LogBinIndex               *string `json:"log-bin-index" name:"log-bin-index"`
+	string log_bin = 22;
+	string log_error = 23;
+	string log_queries_not_using_indexes = 24;
+	int32 log_slave_updates = 25;
+	int32 long_query_time = 26;
+	int32 lower_case_table_names = 27;
+	string max_allowed_packet = 28;
+	int32 max_connect_errors = 29;
+	int32 max_connections = 30;
+	string max_heap_table_size = 31;
+	int32 open_files_limit = 32;
+	int32 port = 33;
+	int32 query_cache_size = 34;
+	int32 query_cache_type = 35;
+	string relay_log = 36;
+	string relay_log_index = 37;
+	//SkipSlaveStart            *int    `json:"skip-slave-start" name:"skip-slave-start"`
+	int32 skip_name_resolve = 39;
+	string slave_exec_mode = 40;
+	int32 slave_net_timeout = 41;
+	int32 slow_query_log = 42;
+	string slow_query_log_file = 43;
+	string sql_mode = 44;
+	int32 sync_binlog = 45;
+	int32 sync_master_info = 46;
+	int32 sync_relay_log = 47;
+	int32 sync_relay_log_info = 48;
+	int32 table_open_cache = 49;
+	int32 thread_cache_size = 50;
+	string tmp_table_size = 51;
+	string tmpdir = 52;
+	string user = 53;
+	int32 wait_timeout = 54;
+}
+
+message RDBPrivateIP {
+	string master = 1;
+	string topslave = 2;
+}
+
+message RouterStatic {
+	google.protobuf.Timestamp create_time = 1;
+	string router_id = 2;
+	string router_static_id = 3;
+	string router_static_name = 4;
+	int32 static_type = 5;
+	string val1 = 6;
+	string val2 = 7;
+	string val3 = 8;
+	string val4 = 9;
+	string vxnet_id = 10;
+}
+
+message RouterStaticEntry {
+	string router_id = 1;
+	string router_static_entry_id = 2;
+	string router_static_entry_name = 3;
+	string val1 = 4;
+	string val2 = 5;
+}
+
+message RouterVxNet {
+	google.protobuf.Timestamp create_time = 1;
+	string dyn_ip_end = 2;
+	string dyn_ip_start = 3;
+	int32 features = 4;
+	string ip_network = 5;
+	string manager_ip = 6;
+	string router_id = 7;
+	string vxnet_id = 8;
+}
+
+message S2DefaultParameters {
+	string default_value = 1;
+	string description = 2;
+	string param_name = 3;
+	string service_type = 4;
+	string target_type = 5;
+}
+
 /*
-
-type RDB struct {
-	// AlarmStatus's available values: ok, alarm, insufficient
-	AlarmStatus         *string    `json:"alarm_status" name:"alarm_status"`
-	AutoBackupTime      *int       `json:"auto_backup_time" name:"auto_backup_time"`
-	AutoMinorVerUpgrade *int       `json:"auto_minor_ver_upgrade" name:"auto_minor_ver_upgrade"`
-	CreateTime          *string    `json:"create_time" name:"create_time"`
-	Description         *string    `json:"description" name:"description"`
-	EngineVersion       *string    `json:"engine_version" name:"engine_version"`
-	LatestSnapshotTime  *time.Time `json:"latest_snapshot_time" name:"latest_snapshot_time" format:"ISO 8601"`
-	MasterIP            *string    `json:"master_ip" name:"master_ip"`
-	RDBEngine           *string    `json:"rdb_engine" name:"rdb_engine"`
-	RDBID               *string    `json:"rdb_id" name:"rdb_id"`
-	RDBName             *string    `json:"rdb_name" name:"rdb_name"`
-	RDBType             *int       `json:"rdb_type" name:"rdb_type"`
-	// Status's available values: pending, active, stopped, deleted, suspended, ceased
-	Status      *string `json:"status" name:"status"`
-	StatusTime  *string `json:"status_time" name:"status_time"`
-	StorageSize *int    `json:"storage_size" name:"storage_size"`
-	Tags        []*Tag  `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, stopping, starting, deleting, backup-creating, temp-creating, configuring, switching, invalid-tackling, resizing, suspending, ceasing, instance-ceasing, vxnet-leaving, vxnet-joining
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	VxNet            *VxNet  `json:"vxnet" name:"vxnet"`
-}
-
-type RDBFile struct {
-	BinaryLog []*File `json:"binary_log" name:"binary_log"`
-	ErrorLog  []*File `json:"error_log" name:"error_log"`
-	SlowLog   []*File `json:"slow_log" name:"slow_log"`
-}
-
-type RDBParameter struct {
-	Family *string `json:"family" name:"family"`
-	// IsReadonly's available values: 0, 1
-	IsReadonly *int `json:"is_readonly" name:"is_readonly"`
-	// IsStatic's available values: 0, 1
-	IsStatic    *int    `json:"is_static" name:"is_static"`
-	MaxValue    *int    `json:"max_value" name:"max_value"`
-	MinValue    *int    `json:"min_value" name:"min_value"`
-	OPTName     *string `json:"opt_name" name:"opt_name"`
-	SectionName *string `json:"section_name" name:"section_name"`
-	VarName     *string `json:"var_name" name:"var_name"`
-	VarType     *string `json:"var_type" name:"var_type"`
-	VarValue    *string `json:"var_value" name:"var_value"`
-}
-
-type RDBParameters struct {
-	BindAddress               *string `json:"bind_address" name:"bind_address"`
-	BinlogFormat              *string `json:"binlog_format" name:"binlog_format"`
-	CharacterSetServer        *string `json:"character_set_server" name:"character_set_server"`
-	DataDir                   *string `json:"datadir" name:"datadir"`
-	DefaultStorageEngine      *string `json:"default_storage_engine" name:"default_storage_engine"`
-	ExpireLogsDays            *int    `json:"expire_logs_days" name:"expire_logs_days"`
-	InnoDB                    *string `json:"innodb" name:"innodb"`
-	InnoDBBufferPoolInstances *int    `json:"innodb_buffer_pool_instances" name:"innodb_buffer_pool_instances"`
-	InnoDBBufferPoolSize      *string `json:"innodb_buffer_pool_size" name:"innodb_buffer_pool_size"`
-	InnoDBFilePerTable        *int    `json:"innodb_file_per_table" name:"innodb_file_per_table"`
-	InnoDBFlushLogAtTRXCommit *int    `json:"innodb_flush_log_at_trx_commit" name:"innodb_flush_log_at_trx_commit"`
-	InnoDBFlushMethod         *string `json:"innodb_flush_method" name:"innodb_flush_method"`
-	InnoDBIOCapacity          *int    `json:"innodb_io_capacity" name:"innodb_io_capacity"`
-	InnoDBLogBufferSize       *string `json:"innodb_log_buffer_size" name:"innodb_log_buffer_size"`
-	InnoDBLogFileSize         *string `json:"innodb_log_file_size" name:"innodb_log_file_size"`
-	InnoDBLogFilesInGroup     *int    `json:"innodb_log_files_in_group" name:"innodb_log_files_in_group"`
-	InnoDBMaxDirtyPagesPct    *int    `json:"innodb_max_dirty_pages_pct" name:"innodb_max_dirty_pages_pct"`
-	InnoDBReadIOThreads       *int    `json:"innodb_read_io_threads" name:"innodb_read_io_threads"`
-	InnoDBWriteIOThreads      *int    `json:"innodb_write_io_threads" name:"innodb_write_io_threads"`
-	InteractiveTimeout        *int    `json:"interactive_timeout" name:"interactive_timeout"`
-	KeyBufferSize             *string `json:"key_buffer_size" name:"key_buffer_size"`
-	LogBinIndex               *string `json:"log-bin-index" name:"log-bin-index"`
-	LogBin                    *string `json:"log_bin" name:"log_bin"`
-	LogError                  *string `json:"log_error" name:"log_error"`
-	LogQueriesNotUsingIndexes *string `json:"log_queries_not_using_indexes" name:"log_queries_not_using_indexes"`
-	LogSlaveUpdates           *int    `json:"log_slave_updates" name:"log_slave_updates"`
-	LongQueryTime             *int    `json:"long_query_time" name:"long_query_time"`
-	LowerCaseTableNames       *int    `json:"lower_case_table_names" name:"lower_case_table_names"`
-	MaxAllowedPacket          *string `json:"max_allowed_packet" name:"max_allowed_packet"`
-	MaxConnectErrors          *int    `json:"max_connect_errors" name:"max_connect_errors"`
-	MaxConnections            *int    `json:"max_connections" name:"max_connections"`
-	MaxHeapTableSize          *string `json:"max_heap_table_size" name:"max_heap_table_size"`
-	OpenFilesLimit            *int    `json:"open_files_limit" name:"open_files_limit"`
-	Port                      *int    `json:"port" name:"port"`
-	QueryCacheSize            *int    `json:"query_cache_size" name:"query_cache_size"`
-	QueryCacheType            *int    `json:"query_cache_type" name:"query_cache_type"`
-	RelayLog                  *string `json:"relay_log" name:"relay_log"`
-	RelayLogIndex             *string `json:"relay_log_index" name:"relay_log_index"`
-	SkipSlaveStart            *int    `json:"skip-slave-start" name:"skip-slave-start"`
-	SkipNameResolve           *int    `json:"skip_name_resolve" name:"skip_name_resolve"`
-	SlaveExecMode             *string `json:"slave_exec_mode" name:"slave_exec_mode"`
-	SlaveNetTimeout           *int    `json:"slave_net_timeout" name:"slave_net_timeout"`
-	SlowQueryLog              *int    `json:"slow_query_log" name:"slow_query_log"`
-	SlowQueryLogFile          *string `json:"slow_query_log_file" name:"slow_query_log_file"`
-	SQLMode                   *string `json:"sql_mode" name:"sql_mode"`
-	SyncBinlog                *int    `json:"sync_binlog" name:"sync_binlog"`
-	SyncMasterInfo            *int    `json:"sync_master_info" name:"sync_master_info"`
-	SyncRelayLog              *int    `json:"sync_relay_log" name:"sync_relay_log"`
-	SyncRelayLogInfo          *int    `json:"sync_relay_log_info" name:"sync_relay_log_info"`
-	TableOpenCache            *int    `json:"table_open_cache" name:"table_open_cache"`
-	ThreadCacheSize           *int    `json:"thread_cache_size" name:"thread_cache_size"`
-	TMPTableSize              *string `json:"tmp_table_size" name:"tmp_table_size"`
-	TMPDir                    *string `json:"tmpdir" name:"tmpdir"`
-	User                      *string `json:"user" name:"user"`
-	WaitTimeout               *int    `json:"wait_timeout" name:"wait_timeout"`
-}
-
-type RDBPrivateIP struct {
-	Master   *string `json:"master" name:"master"`
-	TopSlave *string `json:"topslave" name:"topslave"`
-}
-
-type Resource struct {
-	ResourceID   *string `json:"resource_id" name:"resource_id"`
-	ResourceName *string `json:"resource_name" name:"resource_name"`
-	ResourceType *string `json:"resource_type" name:"resource_type"`
-}
-
-type ResourceTagPair struct {
-	ResourceID   *string    `json:"resource_id" name:"resource_id"`
-	ResourceType *string    `json:"resource_type" name:"resource_type"`
-	Status       *string    `json:"status" name:"status"`
-	StatusTime   *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	TagID        *string    `json:"tag_id" name:"tag_id"`
-}
-
-type ResourceTypeCount struct {
-	Count        *int    `json:"count" name:"count"`
-	ResourceType *string `json:"resource_type" name:"resource_type"`
-}
-
-
-type RouterStatic struct {
-	CreateTime       *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	RouterID         *string    `json:"router_id" name:"router_id"`
-	RouterStaticID   *string    `json:"router_static_id" name:"router_static_id"`
-	RouterStaticName *string    `json:"router_static_name" name:"router_static_name"`
-	// StaticType's available values: 1, 2, 3, 4, 5, 6, 7, 8
-	StaticType *int    `json:"static_type" name:"static_type"`
-	Val1       *string `json:"val1" name:"val1"`
-	Val2       *string `json:"val2" name:"val2"`
-	Val3       *string `json:"val3" name:"val3"`
-	Val4       *string `json:"val4" name:"val4"`
-	VxNetID    *string `json:"vxnet_id" name:"vxnet_id"`
-}
-
-type RouterStaticEntry struct {
-	RouterID              *string `json:"router_id" name:"router_id"`
-	RouterStaticEntryID   *string `json:"router_static_entry_id" name:"router_static_entry_id"`
-	RouterStaticEntryName *string `json:"router_static_entry_name" name:"router_static_entry_name"`
-	Val1                  *string `json:"val1" name:"val1"`
-	Val2                  *string `json:"val2" name:"val2"`
-}
-
-type RouterVxNet struct {
-	CreateTime *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	DYNIPEnd   *string    `json:"dyn_ip_end" name:"dyn_ip_end"`
-	DYNIPStart *string    `json:"dyn_ip_start" name:"dyn_ip_start"`
-	Features   *int       `json:"features" name:"features"`
-	IPNetwork  *string    `json:"ip_network" name:"ip_network"`
-	ManagerIP  *string    `json:"manager_ip" name:"manager_ip"`
-	RouterID   *string    `json:"router_id" name:"router_id"`
-	VxNetID    *string    `json:"vxnet_id" name:"vxnet_id"`
-}
-
-type S2DefaultParameters struct {
-	DefaultValue *string `json:"default_value" name:"default_value"`
-	Description  *string `json:"description" name:"description"`
-	ParamName    *string `json:"param_name" name:"param_name"`
-	ServiceType  *string `json:"service_type" name:"service_type"`
-	TargetType   *string `json:"target_type" name:"target_type"`
-}
-
 type S2Server struct {
 	CreateTime  *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
 	Description *string    `json:"description" name:"description"`
