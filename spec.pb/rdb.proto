@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/rdb/index.html
 
 message RDBServiceProperties {
@@ -22,22 +20,162 @@ service RDBService {
 		sub_service_name: "RDB"
 	};
 
-	rpc CreateRDB(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StartRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StopRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResizeRDBs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RDBsLeaveVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RDBsJoinVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateRDBFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateTempRDBInstanceFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetRDBInstanceFiles(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CopyRDBInstanceFilesToFTP(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc PurgeRDBLogs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CeaseRDBInstance(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetRDBMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyRDBParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ApplyRDBParameterGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeRDBParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateRDB(CreateRDBInput) returns (CreateRDBOutput);
+	rpc DescribeRDBs(DescribeRDBsInput) returns (DescribeRDBsOutput);
+	rpc DeleteRDBs(DeleteRDBsInput) returns (DeleteRDBsOutput);
+	rpc StartRDBs(StartRDBsInput) returns (StartRDBsOutput);
+	rpc StopRDBs(StopRDBsInput) returns (StopRDBsOutput);
+	rpc ResizeRDBs(ResizeRDBsInput) returns (ResizeRDBsOutput);
+	rpc RDBsLeaveVxnet(RDBsLeaveVxnetInput) returns (RDBsLeaveVxnetOutput);
+	rpc RDBsJoinVxnet(RDBsJoinVxnetInput) returns (RDBsJoinVxnetOutput);
+	rpc CreateRDBFromSnapshot(CreateRDBFromSnapshotInput) returns (CreateRDBFromSnapshotOutput);
+	rpc CreateTempRDBInstanceFromSnapshot(CreateTempRDBInstanceFromSnapshotInput) returns (CreateTempRDBInstanceFromSnapshotOutput);
+	rpc GetRDBInstanceFiles(GetRDBInstanceFilesInput) returns (GetRDBInstanceFilesOutput);
+	rpc CopyRDBInstanceFilesToFTP(CopyRDBInstanceFilesToFTPInput) returns (CopyRDBInstanceFilesToFTPOutput);
+	rpc PurgeRDBLogs(PurgeRDBLogsInput) returns (PurgeRDBLogsOutput);
+	rpc CeaseRDBInstance(CeaseRDBInstanceInput) returns (CeaseRDBInstanceOutput);
+	rpc ModifyRDBParameters(ModifyRDBParametersInput) returns (ModifyRDBParametersOutput);
+	rpc ApplyRDBParameterGroup(ApplyRDBParameterGroupInput) returns (ApplyRDBParameterGroupOutput);
+	rpc DescribeRDBParameters(DescribeRDBParametersInput) returns (DescribeRDBParametersOutput);
+}
+
+message CreateRDBInput {}
+message CreateRDBOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeRDBsInput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+message DescribeRDBsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteRDBsInput {}
+message DeleteRDBsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StartRDBsInput {}
+message StartRDBsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StopRDBsInput {}
+message StopRDBsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ResizeRDBsInput {}
+message ResizeRDBsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RDBsLeaveVxnetInput {}
+message RDBsLeaveVxnetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RDBsJoinVxnetInput {}
+message RDBsJoinVxnetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateRDBFromSnapshotInput {}
+message CreateRDBFromSnapshotOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateTempRDBInstanceFromSnapshotInput {}
+message CreateTempRDBInstanceFromSnapshotOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GetRDBInstanceFilesInput {}
+message GetRDBInstanceFilesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CopyRDBInstanceFilesToFTPInput {}
+message CopyRDBInstanceFilesToFTPOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message PurgeRDBLogsInput {}
+message PurgeRDBLogsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CeaseRDBInstanceInput {}
+message CeaseRDBInstanceOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyRDBParametersInput {}
+message ModifyRDBParametersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ApplyRDBParameterGroupInput {}
+message ApplyRDBParameterGroupOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeRDBParametersInput {}
+message DescribeRDBParametersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

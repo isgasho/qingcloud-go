@@ -331,6 +331,40 @@ It has these top-level messages:
 	DescribeNotificationCenterUserPostsOutput
 	QingCloudServiceProperties
 	RDBServiceProperties
+	CreateRDBInput
+	CreateRDBOutput
+	DescribeRDBsInput
+	DescribeRDBsOutput
+	DeleteRDBsInput
+	DeleteRDBsOutput
+	StartRDBsInput
+	StartRDBsOutput
+	StopRDBsInput
+	StopRDBsOutput
+	ResizeRDBsInput
+	ResizeRDBsOutput
+	RDBsLeaveVxnetInput
+	RDBsLeaveVxnetOutput
+	RDBsJoinVxnetInput
+	RDBsJoinVxnetOutput
+	CreateRDBFromSnapshotInput
+	CreateRDBFromSnapshotOutput
+	CreateTempRDBInstanceFromSnapshotInput
+	CreateTempRDBInstanceFromSnapshotOutput
+	GetRDBInstanceFilesInput
+	GetRDBInstanceFilesOutput
+	CopyRDBInstanceFilesToFTPInput
+	CopyRDBInstanceFilesToFTPOutput
+	PurgeRDBLogsInput
+	PurgeRDBLogsOutput
+	CeaseRDBInstanceInput
+	CeaseRDBInstanceOutput
+	ModifyRDBParametersInput
+	ModifyRDBParametersOutput
+	ApplyRDBParameterGroupInput
+	ApplyRDBParameterGroupOutput
+	DescribeRDBParametersInput
+	DescribeRDBParametersOutput
 	ResourceACLServiceProperties
 	RouterServiceProperties
 	S2ServiceProperties

@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,29 +37,778 @@ func (m *RDBServiceProperties) GetZone() string {
 	return ""
 }
 
+type CreateRDBInput struct {
+}
+
+func (m *CreateRDBInput) Reset()                    { *m = CreateRDBInput{} }
+func (m *CreateRDBInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateRDBInput) ProtoMessage()               {}
+func (*CreateRDBInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{1} }
+
+type CreateRDBOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateRDBOutput) Reset()                    { *m = CreateRDBOutput{} }
+func (m *CreateRDBOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateRDBOutput) ProtoMessage()               {}
+func (*CreateRDBOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{2} }
+
+func (m *CreateRDBOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateRDBOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateRDBOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeRDBsInput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeRDBsInput) Reset()                    { *m = DescribeRDBsInput{} }
+func (m *DescribeRDBsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRDBsInput) ProtoMessage()               {}
+func (*DescribeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{3} }
+
+func (m *DescribeRDBsInput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeRDBsInput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeRDBsInput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeRDBsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeRDBsOutput) Reset()                    { *m = DescribeRDBsOutput{} }
+func (m *DescribeRDBsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRDBsOutput) ProtoMessage()               {}
+func (*DescribeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{4} }
+
+func (m *DescribeRDBsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeRDBsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteRDBsInput struct {
+}
+
+func (m *DeleteRDBsInput) Reset()                    { *m = DeleteRDBsInput{} }
+func (m *DeleteRDBsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteRDBsInput) ProtoMessage()               {}
+func (*DeleteRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{5} }
+
+type DeleteRDBsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteRDBsOutput) Reset()                    { *m = DeleteRDBsOutput{} }
+func (m *DeleteRDBsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteRDBsOutput) ProtoMessage()               {}
+func (*DeleteRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{6} }
+
+func (m *DeleteRDBsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteRDBsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteRDBsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StartRDBsInput struct {
+}
+
+func (m *StartRDBsInput) Reset()                    { *m = StartRDBsInput{} }
+func (m *StartRDBsInput) String() string            { return proto.CompactTextString(m) }
+func (*StartRDBsInput) ProtoMessage()               {}
+func (*StartRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{7} }
+
+type StartRDBsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StartRDBsOutput) Reset()                    { *m = StartRDBsOutput{} }
+func (m *StartRDBsOutput) String() string            { return proto.CompactTextString(m) }
+func (*StartRDBsOutput) ProtoMessage()               {}
+func (*StartRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{8} }
+
+func (m *StartRDBsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StartRDBsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StartRDBsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StopRDBsInput struct {
+}
+
+func (m *StopRDBsInput) Reset()                    { *m = StopRDBsInput{} }
+func (m *StopRDBsInput) String() string            { return proto.CompactTextString(m) }
+func (*StopRDBsInput) ProtoMessage()               {}
+func (*StopRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{9} }
+
+type StopRDBsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StopRDBsOutput) Reset()                    { *m = StopRDBsOutput{} }
+func (m *StopRDBsOutput) String() string            { return proto.CompactTextString(m) }
+func (*StopRDBsOutput) ProtoMessage()               {}
+func (*StopRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{10} }
+
+func (m *StopRDBsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StopRDBsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StopRDBsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ResizeRDBsInput struct {
+}
+
+func (m *ResizeRDBsInput) Reset()                    { *m = ResizeRDBsInput{} }
+func (m *ResizeRDBsInput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeRDBsInput) ProtoMessage()               {}
+func (*ResizeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{11} }
+
+type ResizeRDBsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ResizeRDBsOutput) Reset()                    { *m = ResizeRDBsOutput{} }
+func (m *ResizeRDBsOutput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeRDBsOutput) ProtoMessage()               {}
+func (*ResizeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{12} }
+
+func (m *ResizeRDBsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ResizeRDBsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ResizeRDBsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RDBsLeaveVxnetInput struct {
+}
+
+func (m *RDBsLeaveVxnetInput) Reset()                    { *m = RDBsLeaveVxnetInput{} }
+func (m *RDBsLeaveVxnetInput) String() string            { return proto.CompactTextString(m) }
+func (*RDBsLeaveVxnetInput) ProtoMessage()               {}
+func (*RDBsLeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{13} }
+
+type RDBsLeaveVxnetOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RDBsLeaveVxnetOutput) Reset()                    { *m = RDBsLeaveVxnetOutput{} }
+func (m *RDBsLeaveVxnetOutput) String() string            { return proto.CompactTextString(m) }
+func (*RDBsLeaveVxnetOutput) ProtoMessage()               {}
+func (*RDBsLeaveVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{14} }
+
+func (m *RDBsLeaveVxnetOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RDBsLeaveVxnetOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RDBsLeaveVxnetOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RDBsJoinVxnetInput struct {
+}
+
+func (m *RDBsJoinVxnetInput) Reset()                    { *m = RDBsJoinVxnetInput{} }
+func (m *RDBsJoinVxnetInput) String() string            { return proto.CompactTextString(m) }
+func (*RDBsJoinVxnetInput) ProtoMessage()               {}
+func (*RDBsJoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{15} }
+
+type RDBsJoinVxnetOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RDBsJoinVxnetOutput) Reset()                    { *m = RDBsJoinVxnetOutput{} }
+func (m *RDBsJoinVxnetOutput) String() string            { return proto.CompactTextString(m) }
+func (*RDBsJoinVxnetOutput) ProtoMessage()               {}
+func (*RDBsJoinVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{16} }
+
+func (m *RDBsJoinVxnetOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RDBsJoinVxnetOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RDBsJoinVxnetOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateRDBFromSnapshotInput struct {
+}
+
+func (m *CreateRDBFromSnapshotInput) Reset()                    { *m = CreateRDBFromSnapshotInput{} }
+func (m *CreateRDBFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateRDBFromSnapshotInput) ProtoMessage()               {}
+func (*CreateRDBFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{17} }
+
+type CreateRDBFromSnapshotOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateRDBFromSnapshotOutput) Reset()                    { *m = CreateRDBFromSnapshotOutput{} }
+func (m *CreateRDBFromSnapshotOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateRDBFromSnapshotOutput) ProtoMessage()               {}
+func (*CreateRDBFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{18} }
+
+func (m *CreateRDBFromSnapshotOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateRDBFromSnapshotOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateTempRDBInstanceFromSnapshotInput struct {
+}
+
+func (m *CreateTempRDBInstanceFromSnapshotInput) Reset() {
+	*m = CreateTempRDBInstanceFromSnapshotInput{}
+}
+func (m *CreateTempRDBInstanceFromSnapshotInput) String() string { return proto.CompactTextString(m) }
+func (*CreateTempRDBInstanceFromSnapshotInput) ProtoMessage()    {}
+func (*CreateTempRDBInstanceFromSnapshotInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{19}
+}
+
+type CreateTempRDBInstanceFromSnapshotOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateTempRDBInstanceFromSnapshotOutput) Reset() {
+	*m = CreateTempRDBInstanceFromSnapshotOutput{}
+}
+func (m *CreateTempRDBInstanceFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateTempRDBInstanceFromSnapshotOutput) ProtoMessage()    {}
+func (*CreateTempRDBInstanceFromSnapshotOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{20}
+}
+
+func (m *CreateTempRDBInstanceFromSnapshotOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateTempRDBInstanceFromSnapshotOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateTempRDBInstanceFromSnapshotOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type GetRDBInstanceFilesInput struct {
+}
+
+func (m *GetRDBInstanceFilesInput) Reset()                    { *m = GetRDBInstanceFilesInput{} }
+func (m *GetRDBInstanceFilesInput) String() string            { return proto.CompactTextString(m) }
+func (*GetRDBInstanceFilesInput) ProtoMessage()               {}
+func (*GetRDBInstanceFilesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{21} }
+
+type GetRDBInstanceFilesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *GetRDBInstanceFilesOutput) Reset()                    { *m = GetRDBInstanceFilesOutput{} }
+func (m *GetRDBInstanceFilesOutput) String() string            { return proto.CompactTextString(m) }
+func (*GetRDBInstanceFilesOutput) ProtoMessage()               {}
+func (*GetRDBInstanceFilesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{22} }
+
+func (m *GetRDBInstanceFilesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *GetRDBInstanceFilesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *GetRDBInstanceFilesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CopyRDBInstanceFilesToFTPInput struct {
+}
+
+func (m *CopyRDBInstanceFilesToFTPInput) Reset()         { *m = CopyRDBInstanceFilesToFTPInput{} }
+func (m *CopyRDBInstanceFilesToFTPInput) String() string { return proto.CompactTextString(m) }
+func (*CopyRDBInstanceFilesToFTPInput) ProtoMessage()    {}
+func (*CopyRDBInstanceFilesToFTPInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{23}
+}
+
+type CopyRDBInstanceFilesToFTPOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CopyRDBInstanceFilesToFTPOutput) Reset()         { *m = CopyRDBInstanceFilesToFTPOutput{} }
+func (m *CopyRDBInstanceFilesToFTPOutput) String() string { return proto.CompactTextString(m) }
+func (*CopyRDBInstanceFilesToFTPOutput) ProtoMessage()    {}
+func (*CopyRDBInstanceFilesToFTPOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{24}
+}
+
+func (m *CopyRDBInstanceFilesToFTPOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CopyRDBInstanceFilesToFTPOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CopyRDBInstanceFilesToFTPOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type PurgeRDBLogsInput struct {
+}
+
+func (m *PurgeRDBLogsInput) Reset()                    { *m = PurgeRDBLogsInput{} }
+func (m *PurgeRDBLogsInput) String() string            { return proto.CompactTextString(m) }
+func (*PurgeRDBLogsInput) ProtoMessage()               {}
+func (*PurgeRDBLogsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{25} }
+
+type PurgeRDBLogsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *PurgeRDBLogsOutput) Reset()                    { *m = PurgeRDBLogsOutput{} }
+func (m *PurgeRDBLogsOutput) String() string            { return proto.CompactTextString(m) }
+func (*PurgeRDBLogsOutput) ProtoMessage()               {}
+func (*PurgeRDBLogsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{26} }
+
+func (m *PurgeRDBLogsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *PurgeRDBLogsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *PurgeRDBLogsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CeaseRDBInstanceInput struct {
+}
+
+func (m *CeaseRDBInstanceInput) Reset()                    { *m = CeaseRDBInstanceInput{} }
+func (m *CeaseRDBInstanceInput) String() string            { return proto.CompactTextString(m) }
+func (*CeaseRDBInstanceInput) ProtoMessage()               {}
+func (*CeaseRDBInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{27} }
+
+type CeaseRDBInstanceOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CeaseRDBInstanceOutput) Reset()                    { *m = CeaseRDBInstanceOutput{} }
+func (m *CeaseRDBInstanceOutput) String() string            { return proto.CompactTextString(m) }
+func (*CeaseRDBInstanceOutput) ProtoMessage()               {}
+func (*CeaseRDBInstanceOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{28} }
+
+func (m *CeaseRDBInstanceOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CeaseRDBInstanceOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CeaseRDBInstanceOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyRDBParametersInput struct {
+}
+
+func (m *ModifyRDBParametersInput) Reset()                    { *m = ModifyRDBParametersInput{} }
+func (m *ModifyRDBParametersInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyRDBParametersInput) ProtoMessage()               {}
+func (*ModifyRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{29} }
+
+type ModifyRDBParametersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyRDBParametersOutput) Reset()                    { *m = ModifyRDBParametersOutput{} }
+func (m *ModifyRDBParametersOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyRDBParametersOutput) ProtoMessage()               {}
+func (*ModifyRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{30} }
+
+func (m *ModifyRDBParametersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyRDBParametersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyRDBParametersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ApplyRDBParameterGroupInput struct {
+}
+
+func (m *ApplyRDBParameterGroupInput) Reset()                    { *m = ApplyRDBParameterGroupInput{} }
+func (m *ApplyRDBParameterGroupInput) String() string            { return proto.CompactTextString(m) }
+func (*ApplyRDBParameterGroupInput) ProtoMessage()               {}
+func (*ApplyRDBParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{31} }
+
+type ApplyRDBParameterGroupOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ApplyRDBParameterGroupOutput) Reset()                    { *m = ApplyRDBParameterGroupOutput{} }
+func (m *ApplyRDBParameterGroupOutput) String() string            { return proto.CompactTextString(m) }
+func (*ApplyRDBParameterGroupOutput) ProtoMessage()               {}
+func (*ApplyRDBParameterGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{32} }
+
+func (m *ApplyRDBParameterGroupOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ApplyRDBParameterGroupOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ApplyRDBParameterGroupOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeRDBParametersInput struct {
+}
+
+func (m *DescribeRDBParametersInput) Reset()                    { *m = DescribeRDBParametersInput{} }
+func (m *DescribeRDBParametersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRDBParametersInput) ProtoMessage()               {}
+func (*DescribeRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{33} }
+
+type DescribeRDBParametersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeRDBParametersOutput) Reset()                    { *m = DescribeRDBParametersOutput{} }
+func (m *DescribeRDBParametersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRDBParametersOutput) ProtoMessage()               {}
+func (*DescribeRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{34} }
+
+func (m *DescribeRDBParametersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeRDBParametersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeRDBParametersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*RDBServiceProperties)(nil), "service.RDBServiceProperties")
+	proto.RegisterType((*CreateRDBInput)(nil), "service.CreateRDBInput")
+	proto.RegisterType((*CreateRDBOutput)(nil), "service.CreateRDBOutput")
+	proto.RegisterType((*DescribeRDBsInput)(nil), "service.DescribeRDBsInput")
+	proto.RegisterType((*DescribeRDBsOutput)(nil), "service.DescribeRDBsOutput")
+	proto.RegisterType((*DeleteRDBsInput)(nil), "service.DeleteRDBsInput")
+	proto.RegisterType((*DeleteRDBsOutput)(nil), "service.DeleteRDBsOutput")
+	proto.RegisterType((*StartRDBsInput)(nil), "service.StartRDBsInput")
+	proto.RegisterType((*StartRDBsOutput)(nil), "service.StartRDBsOutput")
+	proto.RegisterType((*StopRDBsInput)(nil), "service.StopRDBsInput")
+	proto.RegisterType((*StopRDBsOutput)(nil), "service.StopRDBsOutput")
+	proto.RegisterType((*ResizeRDBsInput)(nil), "service.ResizeRDBsInput")
+	proto.RegisterType((*ResizeRDBsOutput)(nil), "service.ResizeRDBsOutput")
+	proto.RegisterType((*RDBsLeaveVxnetInput)(nil), "service.RDBsLeaveVxnetInput")
+	proto.RegisterType((*RDBsLeaveVxnetOutput)(nil), "service.RDBsLeaveVxnetOutput")
+	proto.RegisterType((*RDBsJoinVxnetInput)(nil), "service.RDBsJoinVxnetInput")
+	proto.RegisterType((*RDBsJoinVxnetOutput)(nil), "service.RDBsJoinVxnetOutput")
+	proto.RegisterType((*CreateRDBFromSnapshotInput)(nil), "service.CreateRDBFromSnapshotInput")
+	proto.RegisterType((*CreateRDBFromSnapshotOutput)(nil), "service.CreateRDBFromSnapshotOutput")
+	proto.RegisterType((*CreateTempRDBInstanceFromSnapshotInput)(nil), "service.CreateTempRDBInstanceFromSnapshotInput")
+	proto.RegisterType((*CreateTempRDBInstanceFromSnapshotOutput)(nil), "service.CreateTempRDBInstanceFromSnapshotOutput")
+	proto.RegisterType((*GetRDBInstanceFilesInput)(nil), "service.GetRDBInstanceFilesInput")
+	proto.RegisterType((*GetRDBInstanceFilesOutput)(nil), "service.GetRDBInstanceFilesOutput")
+	proto.RegisterType((*CopyRDBInstanceFilesToFTPInput)(nil), "service.CopyRDBInstanceFilesToFTPInput")
+	proto.RegisterType((*CopyRDBInstanceFilesToFTPOutput)(nil), "service.CopyRDBInstanceFilesToFTPOutput")
+	proto.RegisterType((*PurgeRDBLogsInput)(nil), "service.PurgeRDBLogsInput")
+	proto.RegisterType((*PurgeRDBLogsOutput)(nil), "service.PurgeRDBLogsOutput")
+	proto.RegisterType((*CeaseRDBInstanceInput)(nil), "service.CeaseRDBInstanceInput")
+	proto.RegisterType((*CeaseRDBInstanceOutput)(nil), "service.CeaseRDBInstanceOutput")
+	proto.RegisterType((*ModifyRDBParametersInput)(nil), "service.ModifyRDBParametersInput")
+	proto.RegisterType((*ModifyRDBParametersOutput)(nil), "service.ModifyRDBParametersOutput")
+	proto.RegisterType((*ApplyRDBParameterGroupInput)(nil), "service.ApplyRDBParameterGroupInput")
+	proto.RegisterType((*ApplyRDBParameterGroupOutput)(nil), "service.ApplyRDBParameterGroupOutput")
+	proto.RegisterType((*DescribeRDBParametersInput)(nil), "service.DescribeRDBParametersInput")
+	proto.RegisterType((*DescribeRDBParametersOutput)(nil), "service.DescribeRDBParametersOutput")
 }
 
 type RDBServiceInterface interface {
-	CreateRDB(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	StartRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	StopRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ResizeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	RDBsLeaveVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	RDBsJoinVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateRDBFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateTempRDBInstanceFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	GetRDBInstanceFiles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CopyRDBInstanceFilesToFTP(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	PurgeRDBLogs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CeaseRDBInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	GetRDBMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ApplyRDBParameterGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error)
+	DescribeRDBs(in *DescribeRDBsInput) (out *DescribeRDBsOutput, err error)
+	DeleteRDBs(in *DeleteRDBsInput) (out *DeleteRDBsOutput, err error)
+	StartRDBs(in *StartRDBsInput) (out *StartRDBsOutput, err error)
+	StopRDBs(in *StopRDBsInput) (out *StopRDBsOutput, err error)
+	ResizeRDBs(in *ResizeRDBsInput) (out *ResizeRDBsOutput, err error)
+	RDBsLeaveVxnet(in *RDBsLeaveVxnetInput) (out *RDBsLeaveVxnetOutput, err error)
+	RDBsJoinVxnet(in *RDBsJoinVxnetInput) (out *RDBsJoinVxnetOutput, err error)
+	CreateRDBFromSnapshot(in *CreateRDBFromSnapshotInput) (out *CreateRDBFromSnapshotOutput, err error)
+	CreateTempRDBInstanceFromSnapshot(in *CreateTempRDBInstanceFromSnapshotInput) (out *CreateTempRDBInstanceFromSnapshotOutput, err error)
+	GetRDBInstanceFiles(in *GetRDBInstanceFilesInput) (out *GetRDBInstanceFilesOutput, err error)
+	CopyRDBInstanceFilesToFTP(in *CopyRDBInstanceFilesToFTPInput) (out *CopyRDBInstanceFilesToFTPOutput, err error)
+	PurgeRDBLogs(in *PurgeRDBLogsInput) (out *PurgeRDBLogsOutput, err error)
+	CeaseRDBInstance(in *CeaseRDBInstanceInput) (out *CeaseRDBInstanceOutput, err error)
+	ModifyRDBParameters(in *ModifyRDBParametersInput) (out *ModifyRDBParametersOutput, err error)
+	ApplyRDBParameterGroup(in *ApplyRDBParameterGroupInput) (out *ApplyRDBParameterGroupOutput, err error)
+	DescribeRDBParameters(in *DescribeRDBParametersInput) (out *DescribeRDBParametersOutput, err error)
 }
 
 type RDBService struct {
@@ -84,9 +832,9 @@ func (s *QingCloudService) RDB(zone string) (*RDBService, error) {
 	return &RDBService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *RDBService) CreateRDB(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RDBService) CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateRDBInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -95,7 +843,7 @@ func (p *RDBService) CreateRDB(in *google_protobuf2.Empty) (out *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateRDBOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -111,9 +859,13 @@ func (p *RDBService) CreateRDB(in *google_protobuf2.Empty) (out *google_protobuf
 	return x, err
 }
 
-func (p *RDBService) DescribeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateRDBInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) DescribeRDBs(in *DescribeRDBsInput) (out *DescribeRDBsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeRDBsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -122,7 +874,7 @@ func (p *RDBService) DescribeRDBs(in *google_protobuf2.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeRDBsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -138,9 +890,13 @@ func (p *RDBService) DescribeRDBs(in *google_protobuf2.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *RDBService) DeleteRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeRDBsInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) DeleteRDBs(in *DeleteRDBsInput) (out *DeleteRDBsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteRDBsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -149,7 +905,7 @@ func (p *RDBService) DeleteRDBs(in *google_protobuf2.Empty) (out *google_protobu
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteRDBsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -165,9 +921,13 @@ func (p *RDBService) DeleteRDBs(in *google_protobuf2.Empty) (out *google_protobu
 	return x, err
 }
 
-func (p *RDBService) StartRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteRDBsInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) StartRDBs(in *StartRDBsInput) (out *StartRDBsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &StartRDBsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -176,7 +936,7 @@ func (p *RDBService) StartRDBs(in *google_protobuf2.Empty) (out *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &StartRDBsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -192,9 +952,13 @@ func (p *RDBService) StartRDBs(in *google_protobuf2.Empty) (out *google_protobuf
 	return x, err
 }
 
-func (p *RDBService) StopRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *StartRDBsInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) StopRDBs(in *StopRDBsInput) (out *StopRDBsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &StopRDBsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -203,7 +967,7 @@ func (p *RDBService) StopRDBs(in *google_protobuf2.Empty) (out *google_protobuf2
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &StopRDBsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -219,9 +983,13 @@ func (p *RDBService) StopRDBs(in *google_protobuf2.Empty) (out *google_protobuf2
 	return x, err
 }
 
-func (p *RDBService) ResizeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *StopRDBsInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) ResizeRDBs(in *ResizeRDBsInput) (out *ResizeRDBsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ResizeRDBsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -230,7 +998,7 @@ func (p *RDBService) ResizeRDBs(in *google_protobuf2.Empty) (out *google_protobu
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ResizeRDBsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -246,9 +1014,13 @@ func (p *RDBService) ResizeRDBs(in *google_protobuf2.Empty) (out *google_protobu
 	return x, err
 }
 
-func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ResizeRDBsInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) RDBsLeaveVxnet(in *RDBsLeaveVxnetInput) (out *RDBsLeaveVxnetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &RDBsLeaveVxnetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -257,7 +1029,7 @@ func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &RDBsLeaveVxnetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -273,9 +1045,13 @@ func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *RDBService) RDBsJoinVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RDBsLeaveVxnetInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) RDBsJoinVxnet(in *RDBsJoinVxnetInput) (out *RDBsJoinVxnetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &RDBsJoinVxnetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -284,7 +1060,7 @@ func (p *RDBService) RDBsJoinVxnet(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &RDBsJoinVxnetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -300,9 +1076,13 @@ func (p *RDBService) RDBsJoinVxnet(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RDBsJoinVxnetInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) CreateRDBFromSnapshot(in *CreateRDBFromSnapshotInput) (out *CreateRDBFromSnapshotOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateRDBFromSnapshotInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -311,7 +1091,7 @@ func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf2.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateRDBFromSnapshotOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -327,9 +1107,13 @@ func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf2.Empty) (out *goo
 	return x, err
 }
 
-func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateRDBFromSnapshotInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *CreateTempRDBInstanceFromSnapshotInput) (out *CreateTempRDBInstanceFromSnapshotOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateTempRDBInstanceFromSnapshotInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -338,7 +1122,7 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf2.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateTempRDBInstanceFromSnapshotOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -354,9 +1138,13 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf2.Empt
 	return x, err
 }
 
-func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateTempRDBInstanceFromSnapshotInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) GetRDBInstanceFiles(in *GetRDBInstanceFilesInput) (out *GetRDBInstanceFilesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &GetRDBInstanceFilesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -365,7 +1153,7 @@ func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf2.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &GetRDBInstanceFilesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -381,9 +1169,13 @@ func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf2.Empty) (out *googl
 	return x, err
 }
 
-func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *GetRDBInstanceFilesInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) CopyRDBInstanceFilesToFTP(in *CopyRDBInstanceFilesToFTPInput) (out *CopyRDBInstanceFilesToFTPOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CopyRDBInstanceFilesToFTPInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -392,7 +1184,7 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf2.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CopyRDBInstanceFilesToFTPOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -408,9 +1200,13 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf2.Empty) (out 
 	return x, err
 }
 
-func (p *RDBService) PurgeRDBLogs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CopyRDBInstanceFilesToFTPInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) PurgeRDBLogs(in *PurgeRDBLogsInput) (out *PurgeRDBLogsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &PurgeRDBLogsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -419,7 +1215,7 @@ func (p *RDBService) PurgeRDBLogs(in *google_protobuf2.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &PurgeRDBLogsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -435,9 +1231,13 @@ func (p *RDBService) PurgeRDBLogs(in *google_protobuf2.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *RDBService) CeaseRDBInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *PurgeRDBLogsInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) CeaseRDBInstance(in *CeaseRDBInstanceInput) (out *CeaseRDBInstanceOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CeaseRDBInstanceInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -446,7 +1246,7 @@ func (p *RDBService) CeaseRDBInstance(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CeaseRDBInstanceOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -462,36 +1262,13 @@ func (p *RDBService) CeaseRDBInstance(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RDBService) GetRDBMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
-	if in == nil {
-		in = &google_protobuf2.Empty{}
-	}
-	o := &data.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetRDBMonitor",
-		RequestMethod: "GET", // GET or POST
-	}
-
-	x := &google_protobuf2.Empty{}
-	r, err := request.New(o, in, x)
-	if err != nil {
-		return nil, err
-	}
-
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+func (p *CeaseRDBInstanceInput) Validate() error {
+	return nil
 }
 
-func (p *RDBService) ModifyRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RDBService) ModifyRDBParameters(in *ModifyRDBParametersInput) (out *ModifyRDBParametersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyRDBParametersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -500,7 +1277,7 @@ func (p *RDBService) ModifyRDBParameters(in *google_protobuf2.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyRDBParametersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -516,9 +1293,13 @@ func (p *RDBService) ModifyRDBParameters(in *google_protobuf2.Empty) (out *googl
 	return x, err
 }
 
-func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyRDBParametersInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) ApplyRDBParameterGroup(in *ApplyRDBParameterGroupInput) (out *ApplyRDBParameterGroupOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ApplyRDBParameterGroupInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -527,7 +1308,7 @@ func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf2.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ApplyRDBParameterGroupOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -543,9 +1324,13 @@ func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf2.Empty) (out *go
 	return x, err
 }
 
-func (p *RDBService) DescribeRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ApplyRDBParameterGroupInput) Validate() error {
+	return nil
+}
+
+func (p *RDBService) DescribeRDBParameters(in *DescribeRDBParametersInput) (out *DescribeRDBParametersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeRDBParametersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -554,7 +1339,7 @@ func (p *RDBService) DescribeRDBParameters(in *google_protobuf2.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeRDBParametersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -570,33 +1355,63 @@ func (p *RDBService) DescribeRDBParameters(in *google_protobuf2.Empty) (out *goo
 	return x, err
 }
 
+func (p *DescribeRDBParametersInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }
 
 var fileDescriptor17 = []byte{
-	// 399 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x4d, 0xab, 0xd3, 0x40,
-	0x14, 0x86, 0xb9, 0x78, 0x51, 0x73, 0x50, 0xb9, 0xc4, 0x6b, 0xd1, 0x88, 0xa0, 0xae, 0xc4, 0x45,
-	0x0a, 0xba, 0xb3, 0xe2, 0x47, 0x92, 0xb6, 0x7e, 0xb4, 0x10, 0x93, 0xe2, 0xb6, 0x4c, 0x92, 0xd3,
-	0x38, 0x98, 0xcc, 0x19, 0x67, 0x26, 0xc5, 0xf6, 0x27, 0xf8, 0x4b, 0xdd, 0xfa, 0x0f, 0x64, 0x1a,
-	0xd4, 0x2a, 0xb8, 0xc8, 0xdc, 0x4d, 0xc8, 0xc7, 0x79, 0x9f, 0xf3, 0xe6, 0x9d, 0xc3, 0x01, 0x4f,
-	0x55, 0x45, 0x28, 0x15, 0x19, 0xf2, 0xaf, 0x68, 0x54, 0x5b, 0x5e, 0x62, 0x70, 0xef, 0x0b, 0x17,
-	0x75, 0xd9, 0x50, 0x57, 0xad, 0x75, 0xf5, 0x79, 0xad, 0xba, 0x06, 0xc7, 0xf6, 0xd2, 0xd7, 0x05,
-	0x77, 0x6b, 0xa2, 0xba, 0xc1, 0xf1, 0xe1, 0xa9, 0xe8, 0x36, 0x63, 0x6c, 0xa5, 0xd9, 0xf5, 0x1f,
-	0x1f, 0x3e, 0x86, 0xf3, 0x2c, 0x89, 0xf2, 0x9e, 0x94, 0x2a, 0x92, 0xa8, 0x0c, 0x47, 0xed, 0xfb,
-	0x70, 0xba, 0x27, 0x81, 0xb7, 0x4f, 0xee, 0x9f, 0x3c, 0xf2, 0xb2, 0xc3, 0xfd, 0x93, 0xef, 0x1e,
-	0xc0, 0x9f, 0x62, 0x7f, 0x02, 0x5e, 0xac, 0x90, 0x19, 0xcc, 0x92, 0xc8, 0x1f, 0x85, 0x7d, 0x97,
-	0xf0, 0x57, 0x97, 0x70, 0x6a, 0xbb, 0x04, 0xff, 0x79, 0xef, 0xbf, 0x80, 0x6b, 0x09, 0xea, 0x52,
-	0xf1, 0xc2, 0xca, 0xf5, 0x60, 0xfd, 0x73, 0x80, 0x04, 0x1b, 0x34, 0x6e, 0xea, 0x09, 0x78, 0xb9,
-	0x61, 0xca, 0x38, 0x89, 0x9f, 0xc1, 0xd5, 0xdc, 0x90, 0x74, 0xb5, 0x9d, 0xa1, 0xe6, 0x7b, 0x37,
-	0xdb, 0xaf, 0xe0, 0x86, 0xd5, 0x2d, 0x90, 0x6d, 0xf1, 0xe3, 0x57, 0x81, 0x66, 0x30, 0xe1, 0x25,
-	0x5c, 0xb7, 0x84, 0x77, 0xc4, 0x85, 0x1b, 0x60, 0x0e, 0xb7, 0x7e, 0x1f, 0xfa, 0x4c, 0x51, 0x9b,
-	0x0b, 0x26, 0xf5, 0x27, 0x1a, 0x0e, 0xca, 0xe1, 0x41, 0x0f, 0x5a, 0x61, 0x6b, 0xb3, 0x7c, 0x2b,
-	0xb4, 0x61, 0xa2, 0xc4, 0x0b, 0x41, 0xa7, 0x70, 0x73, 0x8e, 0xe6, 0x98, 0xc6, 0x1b, 0x1c, 0x9e,
-	0xf3, 0x7b, 0xb8, 0x13, 0x93, 0xdc, 0xfd, 0xcb, 0x59, 0xd1, 0x6c, 0x95, 0xba, 0x4c, 0x7a, 0xda,
-	0xa9, 0xda, 0x06, 0xb6, 0xa0, 0x7a, 0xb8, 0x99, 0x08, 0xce, 0x62, 0x64, 0x1a, 0x8f, 0xdc, 0xb8,
-	0x1c, 0x7b, 0x9f, 0xcb, 0x92, 0x04, 0x37, 0xa4, 0x5c, 0x82, 0x5d, 0x52, 0xc5, 0x37, 0x36, 0x93,
-	0x94, 0x29, 0xd6, 0xa2, 0x41, 0x35, 0xfc, 0x5f, 0xde, 0xc0, 0xe8, 0xb5, 0x94, 0xcd, 0x5f, 0x94,
-	0xb9, 0xa2, 0x4e, 0xba, 0xcc, 0xe1, 0xd1, 0xfe, 0x70, 0xb7, 0x14, 0x9c, 0x7f, 0xfb, 0x71, 0x7a,
-	0x06, 0xde, 0x07, 0x2e, 0xea, 0xd8, 0xae, 0x50, 0xff, 0x52, 0x96, 0x44, 0xc5, 0xe5, 0x43, 0xd5,
-	0xd3, 0x9f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xcd, 0xdc, 0x34, 0x63, 0x6f, 0x05, 0x00, 0x00,
+	// 805 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x5f, 0x4f, 0xdb, 0x48,
+	0x10, 0x57, 0x0e, 0x0e, 0xc8, 0xdc, 0x41, 0xc2, 0x02, 0x21, 0xd9, 0x84, 0x7f, 0xb9, 0x3f, 0x44,
+	0xf7, 0x00, 0xa7, 0xbb, 0xc7, 0x93, 0x90, 0x20, 0x11, 0xe8, 0x10, 0xa8, 0x69, 0x82, 0xfa, 0xd4,
+	0x92, 0x3a, 0xc9, 0x34, 0x18, 0x12, 0xaf, 0xbb, 0xde, 0xa0, 0x96, 0x0f, 0xd0, 0x87, 0x7e, 0xb5,
+	0x7e, 0x9a, 0x7e, 0x83, 0xca, 0xb1, 0xf1, 0xae, 0xe3, 0x75, 0xd2, 0x87, 0xee, 0x4b, 0x14, 0xcf,
+	0x8c, 0xe7, 0xf7, 0xdb, 0xd1, 0xce, 0xfc, 0xc6, 0x90, 0xe5, 0xfd, 0xee, 0x91, 0xcb, 0x99, 0x60,
+	0x64, 0xd9, 0x43, 0xfe, 0x68, 0xf7, 0x90, 0xee, 0xbc, 0xb7, 0x9d, 0x41, 0x6f, 0xc8, 0xc6, 0xfd,
+	0x8e, 0xd7, 0x7f, 0xe8, 0xf0, 0xf1, 0x10, 0x8f, 0xfd, 0x9f, 0x20, 0xae, 0xfa, 0x17, 0x6c, 0xb6,
+	0x1a, 0x67, 0xed, 0x20, 0xb8, 0xc9, 0x99, 0x8b, 0x5c, 0xd8, 0xe8, 0x11, 0x02, 0x8b, 0x4f, 0xcc,
+	0xc1, 0x62, 0x66, 0x3f, 0x53, 0xcb, 0xb6, 0x26, 0xff, 0xab, 0x79, 0x58, 0xab, 0x73, 0xb4, 0x04,
+	0xb6, 0x1a, 0x67, 0xff, 0x3b, 0xee, 0x58, 0x54, 0x6f, 0x21, 0x17, 0x59, 0x5e, 0x8c, 0x85, 0x3b,
+	0x16, 0xa4, 0x00, 0x4b, 0x56, 0x4f, 0xd8, 0xcc, 0x09, 0x5f, 0x0d, 0x9f, 0x48, 0x09, 0x56, 0x38,
+	0x8a, 0x4e, 0x8f, 0xf5, 0xb1, 0xf8, 0xd3, 0x7e, 0xa6, 0xf6, 0x73, 0x6b, 0x99, 0xa3, 0xa8, 0xb3,
+	0x3e, 0x92, 0x22, 0x2c, 0x8f, 0xd0, 0xf3, 0xac, 0x01, 0x16, 0x17, 0x26, 0xef, 0x3c, 0x3f, 0x56,
+	0xdf, 0xc2, 0x7a, 0x03, 0xbd, 0x1e, 0xb7, 0xbb, 0x3e, 0x82, 0x37, 0x01, 0xfd, 0xb1, 0x08, 0x16,
+	0x10, 0x15, 0xc1, 0xc4, 0x21, 0xd6, 0x21, 0xd7, 0xc0, 0x21, 0x0a, 0x79, 0x84, 0x6a, 0x07, 0xf2,
+	0xd2, 0x64, 0x02, 0x33, 0x0f, 0x6b, 0x6d, 0x61, 0x71, 0x21, 0x21, 0x6f, 0x21, 0x17, 0x59, 0x4c,
+	0x20, 0xe6, 0x60, 0xb5, 0x2d, 0x98, 0x2b, 0x01, 0xdf, 0xf8, 0x14, 0x02, 0x83, 0xa1, 0xaa, 0xb6,
+	0xd0, 0xb3, 0x9f, 0xe2, 0x55, 0x95, 0x26, 0x13, 0x98, 0x5b, 0xb0, 0xe1, 0xa7, 0xbe, 0x42, 0xeb,
+	0x11, 0x5f, 0x7d, 0x70, 0x50, 0x04, 0xb8, 0xbd, 0x49, 0x0f, 0x29, 0x66, 0x13, 0xd8, 0x9b, 0x40,
+	0x7c, 0x90, 0x4b, 0x66, 0x3b, 0x0a, 0x74, 0x37, 0x60, 0x14, 0x59, 0x4d, 0x20, 0x57, 0x80, 0x46,
+	0x4d, 0x7e, 0xce, 0xd9, 0xa8, 0xed, 0x58, 0xae, 0x77, 0xc7, 0x42, 0x06, 0xf7, 0x50, 0xd6, 0x7a,
+	0x4d, 0x30, 0xa9, 0xc1, 0x9f, 0x01, 0xd6, 0x0d, 0x8e, 0xdc, 0xc9, 0x10, 0xf2, 0x84, 0xe5, 0xf4,
+	0x30, 0xc9, 0xea, 0x11, 0x0e, 0xe7, 0x46, 0x9a, 0x60, 0x48, 0xa1, 0x78, 0x81, 0x42, 0x05, 0xb4,
+	0x87, 0x18, 0x5e, 0xcf, 0x3b, 0x28, 0x69, 0x7c, 0x26, 0x58, 0xec, 0xc3, 0x6e, 0x9d, 0xb9, 0x1f,
+	0xa7, 0xa1, 0x6e, 0xd8, 0xf9, 0x4d, 0x33, 0xe0, 0xe2, 0xc0, 0x5e, 0x6a, 0x84, 0x09, 0x46, 0x1b,
+	0xb0, 0xde, 0x1c, 0xf3, 0x81, 0x7f, 0x49, 0xae, 0xd8, 0x20, 0x2c, 0x88, 0x05, 0x44, 0x35, 0x9a,
+	0xc0, 0xdd, 0x86, 0xad, 0x3a, 0x5a, 0x1e, 0x2a, 0x07, 0x0d, 0xb0, 0x11, 0x0a, 0xd3, 0x0e, 0x43,
+	0xf7, 0xe1, 0x9a, 0xf5, 0xed, 0x77, 0x7e, 0xa5, 0x9b, 0x16, 0xb7, 0x46, 0x28, 0x90, 0xcb, 0xfb,
+	0xa0, 0xf1, 0x99, 0x60, 0xb1, 0x03, 0xe5, 0x53, 0xd7, 0x1d, 0xc6, 0x80, 0x2e, 0x38, 0x1b, 0xbb,
+	0x01, 0x91, 0x07, 0xa8, 0xe8, 0xdd, 0x86, 0xa6, 0x89, 0x22, 0xb8, 0xd3, 0x35, 0xb9, 0x87, 0xb2,
+	0xd6, 0x6b, 0x80, 0xc9, 0x3f, 0x5f, 0x7e, 0x01, 0x90, 0xbb, 0x0f, 0x39, 0x81, 0x6c, 0x34, 0xc8,
+	0xc8, 0xf6, 0x51, 0xb8, 0x3f, 0x1d, 0xc5, 0x37, 0x1e, 0x5a, 0x4c, 0x3a, 0x42, 0x6e, 0x17, 0xf0,
+	0xab, 0xba, 0x49, 0x10, 0x1a, 0x45, 0x26, 0x56, 0x18, 0x5a, 0xd6, 0xfa, 0xc2, 0x44, 0xa7, 0x00,
+	0x72, 0x39, 0x20, 0x45, 0x25, 0x34, 0xb6, 0x44, 0xd0, 0x92, 0xc6, 0x13, 0xa6, 0x38, 0x81, 0x6c,
+	0x24, 0xf6, 0xca, 0x59, 0xe2, 0x2b, 0x81, 0x72, 0x96, 0xe9, 0xcd, 0xe0, 0x3f, 0x58, 0x79, 0xd6,
+	0x6e, 0x52, 0x50, 0xa2, 0x14, 0x7d, 0xa7, 0xdb, 0x09, 0xbb, 0xe4, 0x2f, 0x65, 0x58, 0xe1, 0x3f,
+	0x25, 0xd7, 0x0a, 0xff, 0x84, 0x6a, 0x5f, 0xc3, 0x5a, 0x5c, 0x51, 0x49, 0x45, 0x06, 0x27, 0x15,
+	0x98, 0xee, 0xa4, 0x78, 0xc3, 0x74, 0x97, 0xb0, 0x1a, 0x53, 0x49, 0x52, 0x8e, 0xc5, 0xc7, 0x35,
+	0x95, 0x56, 0xf4, 0xce, 0x30, 0x57, 0x17, 0xb6, 0xb4, 0x7a, 0x47, 0x7e, 0x4b, 0xde, 0x8c, 0x84,
+	0x2e, 0xd1, 0xdf, 0x67, 0x07, 0x85, 0x18, 0x9f, 0x32, 0x70, 0x30, 0x57, 0xbe, 0xc8, 0xf1, 0x54,
+	0xae, 0x79, 0xa2, 0x48, 0xff, 0xfe, 0xfe, 0x17, 0x42, 0x22, 0xaf, 0x61, 0x43, 0x23, 0x59, 0xe4,
+	0x20, 0x4a, 0x94, 0x26, 0x76, 0xb4, 0x3a, 0x2b, 0x24, 0xcc, 0xee, 0x40, 0x29, 0x55, 0x84, 0xc8,
+	0xa1, 0x24, 0x3b, 0x53, 0xca, 0x68, 0x6d, 0x7e, 0xa0, 0xec, 0x50, 0x55, 0x6f, 0x94, 0x0e, 0x4d,
+	0x68, 0x93, 0xd2, 0xa1, 0x1a, 0x89, 0x6a, 0x43, 0x7e, 0x5a, 0x3c, 0xc8, 0xae, 0xa4, 0xa1, 0x13,
+	0x1c, 0xba, 0x97, 0xea, 0x97, 0xb5, 0xd6, 0xc8, 0x81, 0x52, 0xeb, 0x34, 0x21, 0x51, 0x6a, 0x9d,
+	0xae, 0x27, 0x08, 0x05, 0xfd, 0x8c, 0x27, 0xf2, 0x4a, 0xce, 0xd0, 0x08, 0xfa, 0xc7, 0x9c, 0x28,
+	0xd9, 0x1d, 0xda, 0xf9, 0xad, 0x74, 0x47, 0xfa, 0xf4, 0x57, 0xba, 0x63, 0x86, 0x08, 0xd0, 0xcd,
+	0xcf, 0x5f, 0x17, 0xf3, 0x90, 0x7d, 0x69, 0x3b, 0x83, 0xba, 0xff, 0x5d, 0x4b, 0x16, 0x5a, 0x8d,
+	0xb3, 0xee, 0xd2, 0xe4, 0x7b, 0xf6, 0xdf, 0x6f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x6e, 0x65, 0x15,
+	0xb4, 0x04, 0x0f, 0x00, 0x00,
 }
