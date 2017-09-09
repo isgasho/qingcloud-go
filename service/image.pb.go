@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,19 +37,355 @@ func (m *ImageServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeImagesInput struct {
+}
+
+func (m *DescribeImagesInput) Reset()                    { *m = DescribeImagesInput{} }
+func (m *DescribeImagesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeImagesInput) ProtoMessage()               {}
+func (*DescribeImagesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{1} }
+
+type DescribeImagesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeImagesOutput) Reset()                    { *m = DescribeImagesOutput{} }
+func (m *DescribeImagesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeImagesOutput) ProtoMessage()               {}
+func (*DescribeImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{2} }
+
+func (m *DescribeImagesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeImagesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeImagesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CaptureInstanceInput struct {
+}
+
+func (m *CaptureInstanceInput) Reset()                    { *m = CaptureInstanceInput{} }
+func (m *CaptureInstanceInput) String() string            { return proto.CompactTextString(m) }
+func (*CaptureInstanceInput) ProtoMessage()               {}
+func (*CaptureInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{3} }
+
+type CaptureInstanceOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CaptureInstanceOutput) Reset()                    { *m = CaptureInstanceOutput{} }
+func (m *CaptureInstanceOutput) String() string            { return proto.CompactTextString(m) }
+func (*CaptureInstanceOutput) ProtoMessage()               {}
+func (*CaptureInstanceOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{4} }
+
+func (m *CaptureInstanceOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CaptureInstanceOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CaptureInstanceOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteImagesInput struct {
+}
+
+func (m *DeleteImagesInput) Reset()                    { *m = DeleteImagesInput{} }
+func (m *DeleteImagesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteImagesInput) ProtoMessage()               {}
+func (*DeleteImagesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{5} }
+
+type DeleteImagesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteImagesOutput) Reset()                    { *m = DeleteImagesOutput{} }
+func (m *DeleteImagesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteImagesOutput) ProtoMessage()               {}
+func (*DeleteImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{6} }
+
+func (m *DeleteImagesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteImagesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteImagesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyImageAttributesInput struct {
+}
+
+func (m *ModifyImageAttributesInput) Reset()                    { *m = ModifyImageAttributesInput{} }
+func (m *ModifyImageAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyImageAttributesInput) ProtoMessage()               {}
+func (*ModifyImageAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{7} }
+
+type ModifyImageAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyImageAttributesOutput) Reset()                    { *m = ModifyImageAttributesOutput{} }
+func (m *ModifyImageAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyImageAttributesOutput) ProtoMessage()               {}
+func (*ModifyImageAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{8} }
+
+func (m *ModifyImageAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyImageAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyImageAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type GrantImageToUsersInput struct {
+}
+
+func (m *GrantImageToUsersInput) Reset()                    { *m = GrantImageToUsersInput{} }
+func (m *GrantImageToUsersInput) String() string            { return proto.CompactTextString(m) }
+func (*GrantImageToUsersInput) ProtoMessage()               {}
+func (*GrantImageToUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{9} }
+
+type GrantImageToUsersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *GrantImageToUsersOutput) Reset()                    { *m = GrantImageToUsersOutput{} }
+func (m *GrantImageToUsersOutput) String() string            { return proto.CompactTextString(m) }
+func (*GrantImageToUsersOutput) ProtoMessage()               {}
+func (*GrantImageToUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{10} }
+
+func (m *GrantImageToUsersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *GrantImageToUsersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *GrantImageToUsersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RevokeImageFromUsersInput struct {
+}
+
+func (m *RevokeImageFromUsersInput) Reset()                    { *m = RevokeImageFromUsersInput{} }
+func (m *RevokeImageFromUsersInput) String() string            { return proto.CompactTextString(m) }
+func (*RevokeImageFromUsersInput) ProtoMessage()               {}
+func (*RevokeImageFromUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{11} }
+
+type RevokeImageFromUsersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RevokeImageFromUsersOutput) Reset()                    { *m = RevokeImageFromUsersOutput{} }
+func (m *RevokeImageFromUsersOutput) String() string            { return proto.CompactTextString(m) }
+func (*RevokeImageFromUsersOutput) ProtoMessage()               {}
+func (*RevokeImageFromUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{12} }
+
+func (m *RevokeImageFromUsersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RevokeImageFromUsersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RevokeImageFromUsersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeImageUsersInput struct {
+}
+
+func (m *DescribeImageUsersInput) Reset()                    { *m = DescribeImageUsersInput{} }
+func (m *DescribeImageUsersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeImageUsersInput) ProtoMessage()               {}
+func (*DescribeImageUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{13} }
+
+type DescribeImageUsersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeImageUsersOutput) Reset()                    { *m = DescribeImageUsersOutput{} }
+func (m *DescribeImageUsersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeImageUsersOutput) ProtoMessage()               {}
+func (*DescribeImageUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{14} }
+
+func (m *DescribeImageUsersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeImageUsersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeImageUsersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CloneImagesInput struct {
+}
+
+func (m *CloneImagesInput) Reset()                    { *m = CloneImagesInput{} }
+func (m *CloneImagesInput) String() string            { return proto.CompactTextString(m) }
+func (*CloneImagesInput) ProtoMessage()               {}
+func (*CloneImagesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{15} }
+
+type CloneImagesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CloneImagesOutput) Reset()                    { *m = CloneImagesOutput{} }
+func (m *CloneImagesOutput) String() string            { return proto.CompactTextString(m) }
+func (*CloneImagesOutput) ProtoMessage()               {}
+func (*CloneImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{16} }
+
+func (m *CloneImagesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CloneImagesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CloneImagesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*ImageServiceProperties)(nil), "service.ImageServiceProperties")
+	proto.RegisterType((*DescribeImagesInput)(nil), "service.DescribeImagesInput")
+	proto.RegisterType((*DescribeImagesOutput)(nil), "service.DescribeImagesOutput")
+	proto.RegisterType((*CaptureInstanceInput)(nil), "service.CaptureInstanceInput")
+	proto.RegisterType((*CaptureInstanceOutput)(nil), "service.CaptureInstanceOutput")
+	proto.RegisterType((*DeleteImagesInput)(nil), "service.DeleteImagesInput")
+	proto.RegisterType((*DeleteImagesOutput)(nil), "service.DeleteImagesOutput")
+	proto.RegisterType((*ModifyImageAttributesInput)(nil), "service.ModifyImageAttributesInput")
+	proto.RegisterType((*ModifyImageAttributesOutput)(nil), "service.ModifyImageAttributesOutput")
+	proto.RegisterType((*GrantImageToUsersInput)(nil), "service.GrantImageToUsersInput")
+	proto.RegisterType((*GrantImageToUsersOutput)(nil), "service.GrantImageToUsersOutput")
+	proto.RegisterType((*RevokeImageFromUsersInput)(nil), "service.RevokeImageFromUsersInput")
+	proto.RegisterType((*RevokeImageFromUsersOutput)(nil), "service.RevokeImageFromUsersOutput")
+	proto.RegisterType((*DescribeImageUsersInput)(nil), "service.DescribeImageUsersInput")
+	proto.RegisterType((*DescribeImageUsersOutput)(nil), "service.DescribeImageUsersOutput")
+	proto.RegisterType((*CloneImagesInput)(nil), "service.CloneImagesInput")
+	proto.RegisterType((*CloneImagesOutput)(nil), "service.CloneImagesOutput")
 }
 
 type ImageServiceInterface interface {
-	DescribeImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CaptureInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyImageAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	GrantImageToUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	RevokeImageFromUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeImageUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CloneImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error)
+	CaptureInstance(in *CaptureInstanceInput) (out *CaptureInstanceOutput, err error)
+	DeleteImages(in *DeleteImagesInput) (out *DeleteImagesOutput, err error)
+	ModifyImageAttributes(in *ModifyImageAttributesInput) (out *ModifyImageAttributesOutput, err error)
+	GrantImageToUsers(in *GrantImageToUsersInput) (out *GrantImageToUsersOutput, err error)
+	RevokeImageFromUsers(in *RevokeImageFromUsersInput) (out *RevokeImageFromUsersOutput, err error)
+	DescribeImageUsers(in *DescribeImageUsersInput) (out *DescribeImageUsersOutput, err error)
+	CloneImages(in *CloneImagesInput) (out *CloneImagesOutput, err error)
 }
 
 type ImageService struct {
@@ -74,9 +409,9 @@ func (s *QingCloudService) Image(zone string) (*ImageService, error) {
 	return &ImageService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *ImageService) DescribeImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ImageService) DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeImagesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -85,7 +420,7 @@ func (p *ImageService) DescribeImages(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeImagesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -101,9 +436,13 @@ func (p *ImageService) DescribeImages(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *ImageService) CaptureInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeImagesInput) Validate() error {
+	return nil
+}
+
+func (p *ImageService) CaptureInstance(in *CaptureInstanceInput) (out *CaptureInstanceOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CaptureInstanceInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -112,7 +451,7 @@ func (p *ImageService) CaptureInstance(in *google_protobuf2.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CaptureInstanceOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -128,9 +467,13 @@ func (p *ImageService) CaptureInstance(in *google_protobuf2.Empty) (out *google_
 	return x, err
 }
 
-func (p *ImageService) DeleteImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CaptureInstanceInput) Validate() error {
+	return nil
+}
+
+func (p *ImageService) DeleteImages(in *DeleteImagesInput) (out *DeleteImagesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteImagesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -139,7 +482,7 @@ func (p *ImageService) DeleteImages(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteImagesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -155,9 +498,13 @@ func (p *ImageService) DeleteImages(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *ImageService) ModifyImageAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteImagesInput) Validate() error {
+	return nil
+}
+
+func (p *ImageService) ModifyImageAttributes(in *ModifyImageAttributesInput) (out *ModifyImageAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyImageAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -166,7 +513,7 @@ func (p *ImageService) ModifyImageAttributes(in *google_protobuf2.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyImageAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -182,9 +529,13 @@ func (p *ImageService) ModifyImageAttributes(in *google_protobuf2.Empty) (out *g
 	return x, err
 }
 
-func (p *ImageService) GrantImageToUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyImageAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *ImageService) GrantImageToUsers(in *GrantImageToUsersInput) (out *GrantImageToUsersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &GrantImageToUsersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -193,7 +544,7 @@ func (p *ImageService) GrantImageToUsers(in *google_protobuf2.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &GrantImageToUsersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -209,9 +560,13 @@ func (p *ImageService) GrantImageToUsers(in *google_protobuf2.Empty) (out *googl
 	return x, err
 }
 
-func (p *ImageService) RevokeImageFromUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *GrantImageToUsersInput) Validate() error {
+	return nil
+}
+
+func (p *ImageService) RevokeImageFromUsers(in *RevokeImageFromUsersInput) (out *RevokeImageFromUsersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &RevokeImageFromUsersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -220,7 +575,7 @@ func (p *ImageService) RevokeImageFromUsers(in *google_protobuf2.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &RevokeImageFromUsersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -236,9 +591,13 @@ func (p *ImageService) RevokeImageFromUsers(in *google_protobuf2.Empty) (out *go
 	return x, err
 }
 
-func (p *ImageService) DescribeImageUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RevokeImageFromUsersInput) Validate() error {
+	return nil
+}
+
+func (p *ImageService) DescribeImageUsers(in *DescribeImageUsersInput) (out *DescribeImageUsersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeImageUsersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -247,7 +606,7 @@ func (p *ImageService) DescribeImageUsers(in *google_protobuf2.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeImageUsersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -263,9 +622,13 @@ func (p *ImageService) DescribeImageUsers(in *google_protobuf2.Empty) (out *goog
 	return x, err
 }
 
-func (p *ImageService) CloneImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeImageUsersInput) Validate() error {
+	return nil
+}
+
+func (p *ImageService) CloneImages(in *CloneImagesInput) (out *CloneImagesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CloneImagesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -274,7 +637,7 @@ func (p *ImageService) CloneImages(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CloneImagesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -290,27 +653,44 @@ func (p *ImageService) CloneImages(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
+func (p *CloneImagesInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("image.proto", fileDescriptor6) }
 
 var fileDescriptor6 = []byte{
-	// 293 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x92, 0xdf, 0x4a, 0xc3, 0x30,
-	0x14, 0xc6, 0x19, 0x54, 0x65, 0x67, 0x43, 0x31, 0x68, 0x91, 0x8a, 0x20, 0x5e, 0x79, 0x21, 0x2d,
-	0xe8, 0xb5, 0xe2, 0x68, 0xdd, 0xd8, 0x85, 0xa0, 0x53, 0xaf, 0x47, 0xff, 0x9c, 0x95, 0xb0, 0x36,
-	0xa7, 0x9e, 0xa4, 0x83, 0xf9, 0x08, 0x3e, 0x98, 0xef, 0xe3, 0x1b, 0x48, 0x53, 0x04, 0xbd, 0xd8,
-	0xc5, 0x7a, 0x13, 0x92, 0x2f, 0x5f, 0x7e, 0x5f, 0x92, 0x73, 0x60, 0x20, 0xcb, 0x38, 0x47, 0xbf,
-	0x62, 0x32, 0x24, 0xf6, 0x34, 0xf2, 0x4a, 0xa6, 0xe8, 0x9d, 0xbd, 0x4b, 0x95, 0xa7, 0x05, 0xd5,
-	0xd9, 0x5c, 0x67, 0xcb, 0x39, 0xd7, 0x05, 0x06, 0xcd, 0xd0, 0xfa, 0xbc, 0xd3, 0x9c, 0x28, 0x2f,
-	0x30, 0xb0, 0xab, 0xa4, 0x5e, 0x04, 0x58, 0x56, 0x66, 0xdd, 0x6e, 0x5e, 0x5c, 0x81, 0x3b, 0x6d,
-	0x98, 0x2f, 0x2d, 0xeb, 0x89, 0xa9, 0x42, 0x36, 0x12, 0xb5, 0x10, 0xe0, 0x7c, 0x90, 0xc2, 0x93,
-	0xde, 0x79, 0xef, 0xb2, 0x3f, 0xb3, 0xf3, 0xeb, 0x2f, 0x07, 0x86, 0x7f, 0xed, 0xe2, 0x1e, 0xf6,
-	0x23, 0xd4, 0x29, 0xcb, 0x04, 0xad, 0xae, 0x85, 0xeb, 0xb7, 0x71, 0xfe, 0x6f, 0x9c, 0xff, 0xd0,
-	0xc4, 0x79, 0x1b, 0x74, 0x31, 0x82, 0x83, 0x30, 0xae, 0x4c, 0xcd, 0x38, 0x55, 0xda, 0xc4, 0x2a,
-	0xc5, 0xad, 0x11, 0x77, 0x30, 0x8c, 0xb0, 0x40, 0xd3, 0xf5, 0x0a, 0x13, 0x38, 0x7e, 0xa4, 0x4c,
-	0x2e, 0xd6, 0xf6, 0xfc, 0xc8, 0x18, 0x96, 0x49, 0x6d, 0x3a, 0x80, 0x42, 0x38, 0x9c, 0x70, 0xac,
-	0x8c, 0xe5, 0xbc, 0xd2, 0x9b, 0x46, 0xde, 0x1e, 0x32, 0x86, 0xa3, 0x19, 0xae, 0x68, 0xd9, 0xbe,
-	0x66, 0xcc, 0x54, 0x76, 0xe3, 0x44, 0x20, 0xfe, 0x95, 0xa6, 0x1b, 0xe5, 0x16, 0x06, 0x61, 0x41,
-	0xaa, 0xe3, 0xd7, 0x7a, 0xee, 0xe7, 0xb7, 0x23, 0xa0, 0xff, 0x2c, 0x55, 0x1e, 0x36, 0x0d, 0x2a,
-	0x76, 0x2c, 0x28, 0xd9, 0xb5, 0xbe, 0x9b, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xdc, 0xcf, 0xbf,
-	0x9c, 0xd1, 0x02, 0x00, 0x00,
+	// 509 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x55, 0xcd, 0x6e, 0xd3, 0x40,
+	0x10, 0x56, 0xa0, 0x69, 0xe8, 0xb4, 0x02, 0x32, 0x4d, 0x5c, 0x67, 0xd3, 0x42, 0x70, 0x39, 0xf4,
+	0x80, 0x82, 0x04, 0x4f, 0x80, 0x12, 0x51, 0xe5, 0x50, 0x51, 0xc2, 0x8f, 0xc4, 0x29, 0x38, 0xf6,
+	0xd4, 0x5a, 0x9a, 0x78, 0xcd, 0x7a, 0x5d, 0x09, 0x1e, 0x81, 0x87, 0xe3, 0x5d, 0x78, 0x03, 0x14,
+	0x7b, 0x9b, 0xd8, 0xce, 0x3a, 0x37, 0x5f, 0xa2, 0xec, 0x7c, 0x33, 0xf3, 0x7d, 0xc9, 0xce, 0x37,
+	0x0b, 0x87, 0x7c, 0xe9, 0x06, 0x34, 0x8c, 0xa4, 0x50, 0x02, 0x5b, 0x31, 0xc9, 0x3b, 0xee, 0x11,
+	0x3b, 0xfb, 0xc9, 0xc3, 0xc0, 0x5b, 0x88, 0xc4, 0x9f, 0xc5, 0xfe, 0xed, 0x4c, 0x26, 0x0b, 0x7a,
+	0xbd, 0xfa, 0xc8, 0xf2, 0x9c, 0x57, 0x60, 0x4d, 0x56, 0x65, 0x9f, 0xb2, 0xf4, 0x6b, 0x29, 0x22,
+	0x92, 0x8a, 0x53, 0x8c, 0x08, 0x7b, 0xbf, 0x45, 0x48, 0x76, 0x63, 0xd0, 0xb8, 0x38, 0x98, 0xa6,
+	0xdf, 0x9d, 0x2e, 0x1c, 0x8f, 0x29, 0xf6, 0x24, 0x9f, 0x53, 0x5a, 0x15, 0x4f, 0xc2, 0x28, 0x51,
+	0x8e, 0x07, 0x9d, 0x62, 0xf8, 0x43, 0xa2, 0xa2, 0x44, 0xa1, 0x05, 0xfb, 0xae, 0xa7, 0xb8, 0x08,
+	0x75, 0x13, 0x7d, 0xc2, 0x1e, 0x3c, 0x92, 0xa4, 0x66, 0x9e, 0xf0, 0xc9, 0x7e, 0x30, 0x68, 0x5c,
+	0x34, 0xa7, 0x2d, 0x49, 0x6a, 0x24, 0x7c, 0x42, 0x1b, 0x5a, 0x4b, 0x8a, 0x63, 0x37, 0x20, 0xfb,
+	0x61, 0x5a, 0x73, 0x7f, 0x74, 0x2c, 0xe8, 0x8c, 0xdc, 0x48, 0x25, 0x92, 0x26, 0x61, 0xac, 0xdc,
+	0xd0, 0xa3, 0x8c, 0xdc, 0x87, 0x6e, 0x29, 0x5e, 0x07, 0xfb, 0x31, 0xb4, 0xc7, 0xb4, 0x20, 0x55,
+	0xf8, 0xdd, 0x2e, 0x60, 0x3e, 0x58, 0x07, 0xef, 0x29, 0xb0, 0x2b, 0xe1, 0xf3, 0x9b, 0x5f, 0x29,
+	0xc5, 0x3b, 0xa5, 0x24, 0x9f, 0x27, 0xea, 0x5e, 0xc0, 0x0f, 0xe8, 0x1b, 0xd1, 0x3a, 0x94, 0xd8,
+	0x60, 0x5d, 0x4a, 0x37, 0x54, 0x29, 0xd5, 0x67, 0xf1, 0x25, 0x26, 0xa9, 0x55, 0xdc, 0xc0, 0xc9,
+	0x16, 0x52, 0x87, 0x82, 0x3e, 0xf4, 0xa6, 0x74, 0x27, 0x6e, 0xb3, 0xbf, 0xfb, 0xbd, 0x14, 0xcb,
+	0x9c, 0x08, 0x0e, 0xcc, 0x04, 0xd6, 0xa1, 0xa3, 0x07, 0x27, 0x85, 0x71, 0xcf, 0xa9, 0x08, 0xc0,
+	0xde, 0x86, 0xea, 0xd0, 0x80, 0xf0, 0x74, 0xb4, 0x10, 0x61, 0x61, 0x1c, 0xbf, 0x43, 0x3b, 0x17,
+	0xab, 0x81, 0xf5, 0xcd, 0xdf, 0x26, 0x1c, 0xe5, 0xd7, 0x05, 0x5e, 0xc1, 0xe3, 0xa2, 0xf3, 0xf1,
+	0x74, 0xa8, 0x37, 0xcf, 0xd0, 0xb0, 0x29, 0xd8, 0x59, 0x05, 0xaa, 0xc5, 0x5e, 0xc3, 0x93, 0x92,
+	0x97, 0x71, 0x53, 0x61, 0x72, 0x3f, 0x7b, 0x56, 0x05, 0xeb, 0x8e, 0x97, 0x70, 0x94, 0xb7, 0x28,
+	0xb2, 0x9c, 0x80, 0x92, 0x9d, 0x59, 0xdf, 0x88, 0xe9, 0x46, 0x73, 0xe8, 0x1a, 0xad, 0x86, 0xe7,
+	0xeb, 0xaa, 0x6a, 0xa3, 0xb2, 0x97, 0xbb, 0x93, 0x34, 0xc7, 0x57, 0x68, 0x6f, 0x19, 0x09, 0x9f,
+	0xaf, 0x4b, 0xcd, 0xf6, 0x63, 0x83, 0xea, 0x04, 0xdd, 0x77, 0x06, 0x1d, 0x93, 0x37, 0xd0, 0x59,
+	0x57, 0x56, 0xfa, 0x8a, 0x9d, 0xef, 0xcc, 0xd1, 0x04, 0xdf, 0x56, 0x8b, 0xb0, 0x3c, 0xf6, 0x38,
+	0x30, 0x5f, 0x76, 0xae, 0xf9, 0x8b, 0x1d, 0x19, 0xba, 0xf5, 0x18, 0x0e, 0x73, 0x43, 0x8d, 0xbd,
+	0xcd, 0x7d, 0x97, 0xc6, 0x9f, 0x31, 0x13, 0x94, 0x75, 0x61, 0xd6, 0x9f, 0x7f, 0x7b, 0x08, 0x07,
+	0x1f, 0x79, 0x18, 0x8c, 0x56, 0x6f, 0x21, 0x36, 0x53, 0x78, 0xbe, 0x9f, 0xbe, 0x82, 0x6f, 0xff,
+	0x07, 0x00, 0x00, 0xff, 0xff, 0x74, 0xd4, 0x9e, 0x41, 0x3c, 0x07, 0x00, 0x00,
 }

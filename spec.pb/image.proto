@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/image/index.html
 
 message ImageServiceProperties {
@@ -22,12 +20,76 @@ service ImageService {
 		sub_service_name: "Image"
 	};
 
-	rpc DescribeImages(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CaptureInstance(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteImages(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyImageAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GrantImageToUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RevokeImageFromUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeImageUsers(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CloneImages(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeImages(DescribeImagesInput) returns (DescribeImagesOutput);
+	rpc CaptureInstance(CaptureInstanceInput) returns (CaptureInstanceOutput);
+	rpc DeleteImages(DeleteImagesInput) returns (DeleteImagesOutput);
+	rpc ModifyImageAttributes(ModifyImageAttributesInput) returns (ModifyImageAttributesOutput);
+	rpc GrantImageToUsers(GrantImageToUsersInput) returns (GrantImageToUsersOutput);
+	rpc RevokeImageFromUsers(RevokeImageFromUsersInput) returns (RevokeImageFromUsersOutput);
+	rpc DescribeImageUsers(DescribeImageUsersInput) returns (DescribeImageUsersOutput);
+	rpc CloneImages(CloneImagesInput) returns (CloneImagesOutput);
+}
+
+message DescribeImagesInput {}
+message DescribeImagesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CaptureInstanceInput {}
+message CaptureInstanceOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteImagesInput {}
+message DeleteImagesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyImageAttributesInput {}
+message ModifyImageAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GrantImageToUsersInput {}
+message GrantImageToUsersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RevokeImageFromUsersInput {}
+message RevokeImageFromUsersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeImageUsersInput {}
+message DescribeImageUsersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CloneImagesInput {}
+message CloneImagesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

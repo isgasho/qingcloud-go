@@ -202,6 +202,22 @@ It has these top-level messages:
 	StopHadoopsInput
 	StopHadoopsOutput
 	ImageServiceProperties
+	DescribeImagesInput
+	DescribeImagesOutput
+	CaptureInstanceInput
+	CaptureInstanceOutput
+	DeleteImagesInput
+	DeleteImagesOutput
+	ModifyImageAttributesInput
+	ModifyImageAttributesOutput
+	GrantImageToUsersInput
+	GrantImageToUsersOutput
+	RevokeImageFromUsersInput
+	RevokeImageFromUsersOutput
+	DescribeImageUsersInput
+	DescribeImageUsersOutput
+	CloneImagesInput
+	CloneImagesOutput
 	InstanceServiceProperties
 	DescribeInstancesInput
 	DescribeInstancesOutput
