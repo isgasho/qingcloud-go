@@ -1,4 +1,4 @@
-<p align="center"><a href="http://qingcloud.com"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></a></p>
+<p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></a></p>
 
 # 青云 SDK Go Version (兼容 [yunify/qingcloud-sdk-go](https://github.com/yunify/qingcloud-sdk-go))
 
