@@ -194,7 +194,7 @@ type XXXInput struct {
 [snips](https://github.com/yunify/snips) 采用和 Protobuf-V2 类似的生成规则, 零值是 `nil`, 空值是空字符串, 二者是不等价的. 在 Protobuf3 的生成规则中, 默认将零值和空值等价.
 
 
-## 为何不用官方SDK, 为何要重现做一个? 自己早轮子很爽吗?
+## 为何不用官方SDK, 为何要重新做一个? 自己造轮子很爽吗?
 
 自己看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 看看哪个更好维护:
 
