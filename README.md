@@ -196,7 +196,9 @@ type XXXInput struct {
 
 ## 为何不用官方SDK, 为何要重新做一个? 自己造轮子很爽吗?
 
-可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 看看哪个更好维护 (官方SDK已经落后于当前服务, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 更别说还要花很大精力维护 snips 本身的开发):
+官方SDK采用json格式定义规范很难维护, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 目前官方SDK已经落后于当前服务. 更别说还要花很大精力维护 snips 本身的开发. 而使用protobuf标准, 也便于以后和docker和k8s等平台互联网(它们都是提供的grpc接口, 也是protobuf规范定义的).
+
+可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 感觉一下哪个更容易维护:
 
 - proto3 格式(我们的): [chai2010/qingcloud-go/spec.pb/volume.proto](./spec.pb/volume.proto)
 - snips 格式(官方的): [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
