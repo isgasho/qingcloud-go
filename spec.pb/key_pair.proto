@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/keypair/index.html
 
 message KeyPairServiceProperties {
@@ -22,10 +20,58 @@ service KeyPairService {
 		sub_service_name: "KeyPair"
 	};
 
-	rpc DescribeKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateKeyPair(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AttachKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DetachKeyPairs(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyKeyPairAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeKeyPairs(DescribeKeyPairsInput) returns (DescribeKeyPairsOutput);
+	rpc CreateKeyPair(CreateKeyPairInput) returns (CreateKeyPairOutput);
+	rpc DeleteKeyPairs(DeleteKeyPairsInput) returns (DeleteKeyPairsOutput);
+	rpc AttachKeyPairs(AttachKeyPairsInput) returns (AttachKeyPairsOutput);
+	rpc DetachKeyPairs(DetachKeyPairsInput) returns (DetachKeyPairsOutput);
+	rpc ModifyKeyPairAttributes(ModifyKeyPairAttributesInput) returns (ModifyKeyPairAttributesOutput);
+}
+
+message DescribeKeyPairsInput {}
+message DescribeKeyPairsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateKeyPairInput {}
+message CreateKeyPairOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteKeyPairsInput {}
+message DeleteKeyPairsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AttachKeyPairsInput {}
+message AttachKeyPairsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DetachKeyPairsInput {}
+message DetachKeyPairsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyKeyPairAttributesInput {}
+message ModifyKeyPairAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

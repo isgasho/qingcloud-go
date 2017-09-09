@@ -247,6 +247,18 @@ It has these top-level messages:
 	DescribeJobsInput
 	DescribeJobsOutput
 	KeyPairServiceProperties
+	DescribeKeyPairsInput
+	DescribeKeyPairsOutput
+	CreateKeyPairInput
+	CreateKeyPairOutput
+	DeleteKeyPairsInput
+	DeleteKeyPairsOutput
+	AttachKeyPairsInput
+	AttachKeyPairsOutput
+	DetachKeyPairsInput
+	DetachKeyPairsOutput
+	ModifyKeyPairAttributesInput
+	ModifyKeyPairAttributesOutput
 	LoadBalancerServiceProperties
 	DescribeLoadBalancersInput
 	DescribeLoadBalancersOutput
