@@ -22,21 +22,158 @@ service AlarmService {
 		sub_service_name: "Alarm"
 	};
 
-	rpc DescribeAlarmPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyAlarmPolicyAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteAlarmPolicies(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyAlarmPolicyRuleAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteAlarmPolicyRules(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyAlarmPolicyActionAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteAlarmPolicyActions(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AssociateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DissociateAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ApplyAlarmPolicy(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeAlarms(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeAlarmHistory(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeAlarmPolicies(DescribeAlarmPoliciesInput) returns (DescribeAlarmPoliciesOutput);
+	rpc CreateAlarmPolicy(CreateAlarmPolicyInput) returns (CreateAlarmPolicyOutput);
+	rpc ModifyAlarmPolicyAttributes(ModifyAlarmPolicyAttributesInput) returns (ModifyAlarmPolicyAttributesOutput);
+	rpc DeleteAlarmPolicies(DeleteAlarmPoliciesInput) returns (DeleteAlarmPoliciesOutput);
+	rpc DescribeAlarmPolicyRules(DescribeAlarmPolicyRulesInput) returns (DescribeAlarmPolicyRulesOutput);
+	rpc AddAlarmPolicyRules(AddAlarmPolicyRulesInput) returns (AddAlarmPolicyRulesOutput);
+	rpc ModifyAlarmPolicyRuleAttributes(ModifyAlarmPolicyRuleAttributesInput) returns (ModifyAlarmPolicyRuleAttributesOutput);
+	rpc DeleteAlarmPolicyRules(DeleteAlarmPolicyRulesInput) returns (DeleteAlarmPolicyRulesOutput);
+	rpc DescribeAlarmPolicyActions(DescribeAlarmPolicyActionsInput) returns (DescribeAlarmPolicyActionsOutput);
+	rpc AddAlarmPolicyActions(AddAlarmPolicyActionsInput) returns (AddAlarmPolicyActionsOutput);
+	rpc ModifyAlarmPolicyActionAttributes(ModifyAlarmPolicyActionAttributesInput) returns (ModifyAlarmPolicyActionAttributesOutput);
+	rpc DeleteAlarmPolicyActions(DeleteAlarmPolicyActionsInput) returns (DeleteAlarmPolicyActionsOutput);
+	rpc AssociateAlarmPolicy(AssociateAlarmPolicyInput) returns (AssociateAlarmPolicyOutput);
+	rpc DissociateAlarmPolicy(DissociateAlarmPolicyInput) returns (DissociateAlarmPolicyOutput);
+	rpc ApplyAlarmPolicy(ApplyAlarmPolicyInput) returns (ApplyAlarmPolicyOutput);
+	rpc DescribeAlarms(DescribeAlarmsInput) returns (DescribeAlarmsOutput);
+	rpc DescribeAlarmHistory(DescribeAlarmHistoryInput) returns (DescribeAlarmHistoryOutput);
 }
+
+message DescribeAlarmPoliciesInput {}
+message DescribeAlarmPoliciesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateAlarmPolicyInput {}
+message CreateAlarmPolicyOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyAlarmPolicyAttributesInput {}
+message ModifyAlarmPolicyAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteAlarmPoliciesInput {}
+message DeleteAlarmPoliciesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeAlarmPolicyRulesInput {}
+message DescribeAlarmPolicyRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddAlarmPolicyRulesInput {}
+message AddAlarmPolicyRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyAlarmPolicyRuleAttributesInput {}
+message ModifyAlarmPolicyRuleAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteAlarmPolicyRulesInput {}
+message DeleteAlarmPolicyRulesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeAlarmPolicyActionsInput {}
+message DescribeAlarmPolicyActionsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddAlarmPolicyActionsInput {}
+message AddAlarmPolicyActionsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyAlarmPolicyActionAttributesInput {}
+message ModifyAlarmPolicyActionAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteAlarmPolicyActionsInput {}
+message DeleteAlarmPolicyActionsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AssociateAlarmPolicyInput {}
+message AssociateAlarmPolicyOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DissociateAlarmPolicyInput {}
+message DissociateAlarmPolicyOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ApplyAlarmPolicyInput {}
+message ApplyAlarmPolicyOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeAlarmsInput {}
+message DescribeAlarmsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeAlarmHistoryInput {}
+message DescribeAlarmHistoryOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
