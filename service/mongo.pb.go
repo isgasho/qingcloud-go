@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,6 +37,246 @@ func (m *MongoServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeMongoNodesInput struct {
+}
+
+func (m *DescribeMongoNodesInput) Reset()                    { *m = DescribeMongoNodesInput{} }
+func (m *DescribeMongoNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeMongoNodesInput) ProtoMessage()               {}
+func (*DescribeMongoNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
+
+type DescribeMongoNodesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeMongoNodesOutput) Reset()                    { *m = DescribeMongoNodesOutput{} }
+func (m *DescribeMongoNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeMongoNodesOutput) ProtoMessage()               {}
+func (*DescribeMongoNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2} }
+
+func (m *DescribeMongoNodesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeMongoNodesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeMongoNodesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeMongoParametersInput struct {
+}
+
+func (m *DescribeMongoParametersInput) Reset()                    { *m = DescribeMongoParametersInput{} }
+func (m *DescribeMongoParametersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeMongoParametersInput) ProtoMessage()               {}
+func (*DescribeMongoParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{3} }
+
+type DescribeMongoParametersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeMongoParametersOutput) Reset()                    { *m = DescribeMongoParametersOutput{} }
+func (m *DescribeMongoParametersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeMongoParametersOutput) ProtoMessage()               {}
+func (*DescribeMongoParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{4} }
+
+func (m *DescribeMongoParametersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeMongoParametersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeMongoParametersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ResizeMongosInput struct {
+}
+
+func (m *ResizeMongosInput) Reset()                    { *m = ResizeMongosInput{} }
+func (m *ResizeMongosInput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeMongosInput) ProtoMessage()               {}
+func (*ResizeMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{5} }
+
+type ResizeMongosOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ResizeMongosOutput) Reset()                    { *m = ResizeMongosOutput{} }
+func (m *ResizeMongosOutput) String() string            { return proto.CompactTextString(m) }
+func (*ResizeMongosOutput) ProtoMessage()               {}
+func (*ResizeMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{6} }
+
+func (m *ResizeMongosOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ResizeMongosOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ResizeMongosOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateMongoInput struct {
+}
+
+func (m *CreateMongoInput) Reset()                    { *m = CreateMongoInput{} }
+func (m *CreateMongoInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateMongoInput) ProtoMessage()               {}
+func (*CreateMongoInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{7} }
+
+type CreateMongoOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateMongoOutput) Reset()                    { *m = CreateMongoOutput{} }
+func (m *CreateMongoOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateMongoOutput) ProtoMessage()               {}
+func (*CreateMongoOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{8} }
+
+func (m *CreateMongoOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateMongoOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateMongoOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StopMongosInput struct {
+}
+
+func (m *StopMongosInput) Reset()                    { *m = StopMongosInput{} }
+func (m *StopMongosInput) String() string            { return proto.CompactTextString(m) }
+func (*StopMongosInput) ProtoMessage()               {}
+func (*StopMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{9} }
+
+type StopMongosOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StopMongosOutput) Reset()                    { *m = StopMongosOutput{} }
+func (m *StopMongosOutput) String() string            { return proto.CompactTextString(m) }
+func (*StopMongosOutput) ProtoMessage()               {}
+func (*StopMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{10} }
+
+func (m *StopMongosOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StopMongosOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StopMongosOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StartMongosInput struct {
+}
+
+func (m *StartMongosInput) Reset()                    { *m = StartMongosInput{} }
+func (m *StartMongosInput) String() string            { return proto.CompactTextString(m) }
+func (*StartMongosInput) ProtoMessage()               {}
+func (*StartMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{11} }
+
+type StartMongosOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StartMongosOutput) Reset()                    { *m = StartMongosOutput{} }
+func (m *StartMongosOutput) String() string            { return proto.CompactTextString(m) }
+func (*StartMongosOutput) ProtoMessage()               {}
+func (*StartMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{12} }
+
+func (m *StartMongosOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StartMongosOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StartMongosOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 type DescribeMongosInput struct {
 	Limit     int32    `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
 	MongoName string   `protobuf:"bytes,2,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
@@ -51,7 +290,7 @@ type DescribeMongosInput struct {
 func (m *DescribeMongosInput) Reset()                    { *m = DescribeMongosInput{} }
 func (m *DescribeMongosInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeMongosInput) ProtoMessage()               {}
-func (*DescribeMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
+func (*DescribeMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{13} }
 
 func (m *DescribeMongosInput) GetLimit() int32 {
 	if m != nil {
@@ -113,7 +352,7 @@ type DescribeMongosOutput struct {
 func (m *DescribeMongosOutput) Reset()                    { *m = DescribeMongosOutput{} }
 func (m *DescribeMongosOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeMongosOutput) ProtoMessage()               {}
-func (*DescribeMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2} }
+func (*DescribeMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{14} }
 
 func (m *DescribeMongosOutput) GetAction() string {
 	if m != nil {
@@ -159,7 +398,7 @@ type DescribeMongosOutput_Mongo struct {
 func (m *DescribeMongosOutput_Mongo) Reset()                    { *m = DescribeMongosOutput_Mongo{} }
 func (m *DescribeMongosOutput_Mongo) String() string            { return proto.CompactTextString(m) }
 func (*DescribeMongosOutput_Mongo) ProtoMessage()               {}
-func (*DescribeMongosOutput_Mongo) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2, 0} }
+func (*DescribeMongosOutput_Mongo) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{14, 0} }
 
 func (m *DescribeMongosOutput_Mongo) GetAlarmStatus() string {
 	if m != nil {
@@ -182,29 +421,377 @@ func (m *DescribeMongosOutput_Mongo) GetAutoMinorVerUpgrade() int32 {
 	return 0
 }
 
+type DeleteMongosInput struct {
+}
+
+func (m *DeleteMongosInput) Reset()                    { *m = DeleteMongosInput{} }
+func (m *DeleteMongosInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteMongosInput) ProtoMessage()               {}
+func (*DeleteMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{15} }
+
+type DeleteMongosOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteMongosOutput) Reset()                    { *m = DeleteMongosOutput{} }
+func (m *DeleteMongosOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteMongosOutput) ProtoMessage()               {}
+func (*DeleteMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{16} }
+
+func (m *DeleteMongosOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteMongosOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteMongosOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateMongoFromSnapshotInput struct {
+}
+
+func (m *CreateMongoFromSnapshotInput) Reset()                    { *m = CreateMongoFromSnapshotInput{} }
+func (m *CreateMongoFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateMongoFromSnapshotInput) ProtoMessage()               {}
+func (*CreateMongoFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{17} }
+
+type CreateMongoFromSnapshotOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateMongoFromSnapshotOutput) Reset()                    { *m = CreateMongoFromSnapshotOutput{} }
+func (m *CreateMongoFromSnapshotOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateMongoFromSnapshotOutput) ProtoMessage()               {}
+func (*CreateMongoFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{18} }
+
+func (m *CreateMongoFromSnapshotOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateMongoFromSnapshotOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateMongoFromSnapshotOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ChangeMongoVxnetInput struct {
+}
+
+func (m *ChangeMongoVxnetInput) Reset()                    { *m = ChangeMongoVxnetInput{} }
+func (m *ChangeMongoVxnetInput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeMongoVxnetInput) ProtoMessage()               {}
+func (*ChangeMongoVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{19} }
+
+type ChangeMongoVxnetOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ChangeMongoVxnetOutput) Reset()                    { *m = ChangeMongoVxnetOutput{} }
+func (m *ChangeMongoVxnetOutput) String() string            { return proto.CompactTextString(m) }
+func (*ChangeMongoVxnetOutput) ProtoMessage()               {}
+func (*ChangeMongoVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{20} }
+
+func (m *ChangeMongoVxnetOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ChangeMongoVxnetOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ChangeMongoVxnetOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddMongoInstancesInput struct {
+}
+
+func (m *AddMongoInstancesInput) Reset()                    { *m = AddMongoInstancesInput{} }
+func (m *AddMongoInstancesInput) String() string            { return proto.CompactTextString(m) }
+func (*AddMongoInstancesInput) ProtoMessage()               {}
+func (*AddMongoInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{21} }
+
+type AddMongoInstancesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddMongoInstancesOutput) Reset()                    { *m = AddMongoInstancesOutput{} }
+func (m *AddMongoInstancesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddMongoInstancesOutput) ProtoMessage()               {}
+func (*AddMongoInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{22} }
+
+func (m *AddMongoInstancesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddMongoInstancesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddMongoInstancesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RemoveMongoInstancesInput struct {
+}
+
+func (m *RemoveMongoInstancesInput) Reset()                    { *m = RemoveMongoInstancesInput{} }
+func (m *RemoveMongoInstancesInput) String() string            { return proto.CompactTextString(m) }
+func (*RemoveMongoInstancesInput) ProtoMessage()               {}
+func (*RemoveMongoInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{23} }
+
+type RemoveMongoInstancesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *RemoveMongoInstancesOutput) Reset()                    { *m = RemoveMongoInstancesOutput{} }
+func (m *RemoveMongoInstancesOutput) String() string            { return proto.CompactTextString(m) }
+func (*RemoveMongoInstancesOutput) ProtoMessage()               {}
+func (*RemoveMongoInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{24} }
+
+func (m *RemoveMongoInstancesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *RemoveMongoInstancesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RemoveMongoInstancesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyMongoAttributesInput struct {
+}
+
+func (m *ModifyMongoAttributesInput) Reset()                    { *m = ModifyMongoAttributesInput{} }
+func (m *ModifyMongoAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyMongoAttributesInput) ProtoMessage()               {}
+func (*ModifyMongoAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{25} }
+
+type ModifyMongoAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyMongoAttributesOutput) Reset()                    { *m = ModifyMongoAttributesOutput{} }
+func (m *ModifyMongoAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyMongoAttributesOutput) ProtoMessage()               {}
+func (*ModifyMongoAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{26} }
+
+func (m *ModifyMongoAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyMongoAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyMongoAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyMongoInstancesInput struct {
+}
+
+func (m *ModifyMongoInstancesInput) Reset()                    { *m = ModifyMongoInstancesInput{} }
+func (m *ModifyMongoInstancesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyMongoInstancesInput) ProtoMessage()               {}
+func (*ModifyMongoInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{27} }
+
+type ModifyMongoInstancesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyMongoInstancesOutput) Reset()                    { *m = ModifyMongoInstancesOutput{} }
+func (m *ModifyMongoInstancesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyMongoInstancesOutput) ProtoMessage()               {}
+func (*ModifyMongoInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{28} }
+
+func (m *ModifyMongoInstancesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyMongoInstancesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyMongoInstancesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type GetMongoMonitorInput struct {
+}
+
+func (m *GetMongoMonitorInput) Reset()                    { *m = GetMongoMonitorInput{} }
+func (m *GetMongoMonitorInput) String() string            { return proto.CompactTextString(m) }
+func (*GetMongoMonitorInput) ProtoMessage()               {}
+func (*GetMongoMonitorInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{29} }
+
+type GetMongoMonitorOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *GetMongoMonitorOutput) Reset()                    { *m = GetMongoMonitorOutput{} }
+func (m *GetMongoMonitorOutput) String() string            { return proto.CompactTextString(m) }
+func (*GetMongoMonitorOutput) ProtoMessage()               {}
+func (*GetMongoMonitorOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{30} }
+
+func (m *GetMongoMonitorOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *GetMongoMonitorOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *GetMongoMonitorOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*MongoServiceProperties)(nil), "service.MongoServiceProperties")
+	proto.RegisterType((*DescribeMongoNodesInput)(nil), "service.DescribeMongoNodesInput")
+	proto.RegisterType((*DescribeMongoNodesOutput)(nil), "service.DescribeMongoNodesOutput")
+	proto.RegisterType((*DescribeMongoParametersInput)(nil), "service.DescribeMongoParametersInput")
+	proto.RegisterType((*DescribeMongoParametersOutput)(nil), "service.DescribeMongoParametersOutput")
+	proto.RegisterType((*ResizeMongosInput)(nil), "service.ResizeMongosInput")
+	proto.RegisterType((*ResizeMongosOutput)(nil), "service.ResizeMongosOutput")
+	proto.RegisterType((*CreateMongoInput)(nil), "service.CreateMongoInput")
+	proto.RegisterType((*CreateMongoOutput)(nil), "service.CreateMongoOutput")
+	proto.RegisterType((*StopMongosInput)(nil), "service.StopMongosInput")
+	proto.RegisterType((*StopMongosOutput)(nil), "service.StopMongosOutput")
+	proto.RegisterType((*StartMongosInput)(nil), "service.StartMongosInput")
+	proto.RegisterType((*StartMongosOutput)(nil), "service.StartMongosOutput")
 	proto.RegisterType((*DescribeMongosInput)(nil), "service.DescribeMongosInput")
 	proto.RegisterType((*DescribeMongosOutput)(nil), "service.DescribeMongosOutput")
 	proto.RegisterType((*DescribeMongosOutput_Mongo)(nil), "service.DescribeMongosOutput.Mongo")
+	proto.RegisterType((*DeleteMongosInput)(nil), "service.DeleteMongosInput")
+	proto.RegisterType((*DeleteMongosOutput)(nil), "service.DeleteMongosOutput")
+	proto.RegisterType((*CreateMongoFromSnapshotInput)(nil), "service.CreateMongoFromSnapshotInput")
+	proto.RegisterType((*CreateMongoFromSnapshotOutput)(nil), "service.CreateMongoFromSnapshotOutput")
+	proto.RegisterType((*ChangeMongoVxnetInput)(nil), "service.ChangeMongoVxnetInput")
+	proto.RegisterType((*ChangeMongoVxnetOutput)(nil), "service.ChangeMongoVxnetOutput")
+	proto.RegisterType((*AddMongoInstancesInput)(nil), "service.AddMongoInstancesInput")
+	proto.RegisterType((*AddMongoInstancesOutput)(nil), "service.AddMongoInstancesOutput")
+	proto.RegisterType((*RemoveMongoInstancesInput)(nil), "service.RemoveMongoInstancesInput")
+	proto.RegisterType((*RemoveMongoInstancesOutput)(nil), "service.RemoveMongoInstancesOutput")
+	proto.RegisterType((*ModifyMongoAttributesInput)(nil), "service.ModifyMongoAttributesInput")
+	proto.RegisterType((*ModifyMongoAttributesOutput)(nil), "service.ModifyMongoAttributesOutput")
+	proto.RegisterType((*ModifyMongoInstancesInput)(nil), "service.ModifyMongoInstancesInput")
+	proto.RegisterType((*ModifyMongoInstancesOutput)(nil), "service.ModifyMongoInstancesOutput")
+	proto.RegisterType((*GetMongoMonitorInput)(nil), "service.GetMongoMonitorInput")
+	proto.RegisterType((*GetMongoMonitorOutput)(nil), "service.GetMongoMonitorOutput")
 }
 
 type MongoServiceInterface interface {
-	DescribeMongoNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeMongoParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ResizeMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateMongo(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	StopMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	StartMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error)
+	DescribeMongoParameters(in *DescribeMongoParametersInput) (out *DescribeMongoParametersOutput, err error)
+	ResizeMongos(in *ResizeMongosInput) (out *ResizeMongosOutput, err error)
+	CreateMongo(in *CreateMongoInput) (out *CreateMongoOutput, err error)
+	StopMongos(in *StopMongosInput) (out *StopMongosOutput, err error)
+	StartMongos(in *StartMongosInput) (out *StartMongosOutput, err error)
 	DescribeMongos(in *DescribeMongosInput) (out *DescribeMongosOutput, err error)
-	DeleteMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateMongoFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ChangeMongoVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	RemoveMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyMongoAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	GetMongoMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteMongos(in *DeleteMongosInput) (out *DeleteMongosOutput, err error)
+	CreateMongoFromSnapshot(in *CreateMongoFromSnapshotInput) (out *CreateMongoFromSnapshotOutput, err error)
+	ChangeMongoVxnet(in *ChangeMongoVxnetInput) (out *ChangeMongoVxnetOutput, err error)
+	AddMongoInstances(in *AddMongoInstancesInput) (out *AddMongoInstancesOutput, err error)
+	RemoveMongoInstances(in *RemoveMongoInstancesInput) (out *RemoveMongoInstancesOutput, err error)
+	ModifyMongoAttributes(in *ModifyMongoAttributesInput) (out *ModifyMongoAttributesOutput, err error)
+	ModifyMongoInstances(in *ModifyMongoInstancesInput) (out *ModifyMongoInstancesOutput, err error)
+	GetMongoMonitor(in *GetMongoMonitorInput) (out *GetMongoMonitorOutput, err error)
 }
 
 type MongoService struct {
@@ -228,9 +815,9 @@ func (s *QingCloudService) Mongo(zone string) (*MongoService, error) {
 	return &MongoService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *MongoService) DescribeMongoNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *MongoService) DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeMongoNodesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -239,7 +826,7 @@ func (p *MongoService) DescribeMongoNodes(in *google_protobuf2.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeMongoNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -255,9 +842,13 @@ func (p *MongoService) DescribeMongoNodes(in *google_protobuf2.Empty) (out *goog
 	return x, err
 }
 
-func (p *MongoService) DescribeMongoParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeMongoNodesInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) DescribeMongoParameters(in *DescribeMongoParametersInput) (out *DescribeMongoParametersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeMongoParametersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -266,7 +857,7 @@ func (p *MongoService) DescribeMongoParameters(in *google_protobuf2.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeMongoParametersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -282,9 +873,13 @@ func (p *MongoService) DescribeMongoParameters(in *google_protobuf2.Empty) (out 
 	return x, err
 }
 
-func (p *MongoService) ResizeMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeMongoParametersInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) ResizeMongos(in *ResizeMongosInput) (out *ResizeMongosOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ResizeMongosInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -293,7 +888,7 @@ func (p *MongoService) ResizeMongos(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ResizeMongosOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -309,9 +904,13 @@ func (p *MongoService) ResizeMongos(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *MongoService) CreateMongo(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ResizeMongosInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) CreateMongo(in *CreateMongoInput) (out *CreateMongoOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateMongoInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -320,7 +919,7 @@ func (p *MongoService) CreateMongo(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateMongoOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -336,9 +935,13 @@ func (p *MongoService) CreateMongo(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *MongoService) StopMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateMongoInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) StopMongos(in *StopMongosInput) (out *StopMongosOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &StopMongosInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -347,7 +950,7 @@ func (p *MongoService) StopMongos(in *google_protobuf2.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &StopMongosOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -363,9 +966,13 @@ func (p *MongoService) StopMongos(in *google_protobuf2.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *MongoService) StartMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *StopMongosInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) StartMongos(in *StartMongosInput) (out *StartMongosOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &StartMongosInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -374,7 +981,7 @@ func (p *MongoService) StartMongos(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &StartMongosOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -388,6 +995,10 @@ func (p *MongoService) StartMongos(in *google_protobuf2.Empty) (out *google_prot
 	}
 
 	return x, err
+}
+
+func (p *StartMongosInput) Validate() error {
+	return nil
 }
 
 func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMongosOutput, err error) {
@@ -421,9 +1032,9 @@ func (p *DescribeMongosInput) Validate() error {
 	return nil
 }
 
-func (p *MongoService) DeleteMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *MongoService) DeleteMongos(in *DeleteMongosInput) (out *DeleteMongosOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteMongosInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -432,7 +1043,7 @@ func (p *MongoService) DeleteMongos(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteMongosOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -448,9 +1059,13 @@ func (p *MongoService) DeleteMongos(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteMongosInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) CreateMongoFromSnapshot(in *CreateMongoFromSnapshotInput) (out *CreateMongoFromSnapshotOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateMongoFromSnapshotInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -459,7 +1074,7 @@ func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf2.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateMongoFromSnapshotOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -475,9 +1090,13 @@ func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf2.Empty) (out 
 	return x, err
 }
 
-func (p *MongoService) ChangeMongoVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateMongoFromSnapshotInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) ChangeMongoVxnet(in *ChangeMongoVxnetInput) (out *ChangeMongoVxnetOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ChangeMongoVxnetInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -486,7 +1105,7 @@ func (p *MongoService) ChangeMongoVxnet(in *google_protobuf2.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ChangeMongoVxnetOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -502,9 +1121,13 @@ func (p *MongoService) ChangeMongoVxnet(in *google_protobuf2.Empty) (out *google
 	return x, err
 }
 
-func (p *MongoService) AddMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ChangeMongoVxnetInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) AddMongoInstances(in *AddMongoInstancesInput) (out *AddMongoInstancesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddMongoInstancesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -513,7 +1136,7 @@ func (p *MongoService) AddMongoInstances(in *google_protobuf2.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddMongoInstancesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -529,9 +1152,13 @@ func (p *MongoService) AddMongoInstances(in *google_protobuf2.Empty) (out *googl
 	return x, err
 }
 
-func (p *MongoService) RemoveMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddMongoInstancesInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) RemoveMongoInstances(in *RemoveMongoInstancesInput) (out *RemoveMongoInstancesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &RemoveMongoInstancesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -540,7 +1167,7 @@ func (p *MongoService) RemoveMongoInstances(in *google_protobuf2.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &RemoveMongoInstancesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -556,9 +1183,13 @@ func (p *MongoService) RemoveMongoInstances(in *google_protobuf2.Empty) (out *go
 	return x, err
 }
 
-func (p *MongoService) ModifyMongoAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RemoveMongoInstancesInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) ModifyMongoAttributes(in *ModifyMongoAttributesInput) (out *ModifyMongoAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyMongoAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -567,7 +1198,7 @@ func (p *MongoService) ModifyMongoAttributes(in *google_protobuf2.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyMongoAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -583,9 +1214,13 @@ func (p *MongoService) ModifyMongoAttributes(in *google_protobuf2.Empty) (out *g
 	return x, err
 }
 
-func (p *MongoService) ModifyMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyMongoAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) ModifyMongoInstances(in *ModifyMongoInstancesInput) (out *ModifyMongoInstancesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyMongoInstancesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -594,7 +1229,7 @@ func (p *MongoService) ModifyMongoInstances(in *google_protobuf2.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyMongoInstancesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -610,9 +1245,13 @@ func (p *MongoService) ModifyMongoInstances(in *google_protobuf2.Empty) (out *go
 	return x, err
 }
 
-func (p *MongoService) GetMongoMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyMongoInstancesInput) Validate() error {
+	return nil
+}
+
+func (p *MongoService) GetMongoMonitor(in *GetMongoMonitorInput) (out *GetMongoMonitorOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &GetMongoMonitorInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -621,7 +1260,7 @@ func (p *MongoService) GetMongoMonitor(in *google_protobuf2.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &GetMongoMonitorOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -637,49 +1276,71 @@ func (p *MongoService) GetMongoMonitor(in *google_protobuf2.Empty) (out *google_
 	return x, err
 }
 
+func (p *GetMongoMonitorInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("mongo.proto", fileDescriptor12) }
 
 var fileDescriptor12 = []byte{
-	// 646 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x55, 0xd1, 0x4e, 0x13, 0x4d,
-	0x14, 0x4e, 0x81, 0xb6, 0xf4, 0x94, 0xf0, 0xf3, 0x0f, 0x58, 0xd6, 0x2a, 0x11, 0xf1, 0x86, 0x0b,
-	0x53, 0x12, 0xb8, 0x55, 0x23, 0x14, 0x21, 0xbd, 0x28, 0xe2, 0x56, 0xb9, 0xdd, 0x4c, 0x77, 0x4f,
-	0x97, 0x09, 0xdd, 0x99, 0x75, 0xe6, 0x6c, 0x23, 0xbc, 0x81, 0x3e, 0x8e, 0x4f, 0xe0, 0x33, 0xf8,
-	0x26, 0xbe, 0x81, 0x99, 0x99, 0x6d, 0x42, 0x13, 0x31, 0x69, 0xbd, 0x69, 0xf6, 0xfb, 0xe6, 0x9c,
-	0x6f, 0xcf, 0x77, 0xe6, 0x6b, 0x0b, 0xcd, 0x4c, 0xc9, 0x54, 0x75, 0x72, 0xad, 0x48, 0xb1, 0xba,
-	0x41, 0x3d, 0x11, 0x31, 0xb6, 0x77, 0x3e, 0x0b, 0x99, 0xc6, 0x63, 0x55, 0x24, 0x91, 0x49, 0x6e,
-	0x22, 0x5d, 0x8c, 0xf1, 0xc0, 0x7e, 0xf8, 0xba, 0xf6, 0x93, 0x54, 0xa9, 0x74, 0x8c, 0x07, 0x0e,
-	0x0d, 0x8b, 0xd1, 0x01, 0x66, 0x39, 0xdd, 0xfa, 0xc3, 0xbd, 0x97, 0xd0, 0xea, 0x5b, 0xcd, 0x81,
-	0xd7, 0xba, 0xd4, 0x2a, 0x47, 0x4d, 0x02, 0x0d, 0x63, 0xb0, 0x72, 0xa7, 0x24, 0x06, 0x95, 0xdd,
-	0xca, 0x7e, 0x23, 0x74, 0xcf, 0x7b, 0x3f, 0x2a, 0xb0, 0x79, 0x8a, 0x26, 0xd6, 0x62, 0x88, 0xae,
-	0xcd, 0xf4, 0x64, 0x5e, 0x10, 0xdb, 0x82, 0xea, 0x58, 0x64, 0x82, 0x5c, 0x71, 0x35, 0xf4, 0x80,
-	0xed, 0x00, 0xb8, 0x79, 0x23, 0xc9, 0x33, 0x0c, 0x96, 0x9c, 0x4e, 0xc3, 0x31, 0x17, 0x3c, 0x43,
-	0xd6, 0x82, 0x9a, 0x03, 0x26, 0x58, 0xde, 0x5d, 0xde, 0x6f, 0x84, 0x25, 0xb2, 0xbc, 0x1a, 0x8d,
-	0x0c, 0x52, 0xb0, 0xe2, 0xd4, 0x4a, 0x64, 0x79, 0x43, 0x9c, 0x0a, 0x13, 0x54, 0x7d, 0xbd, 0x47,
-	0x76, 0x50, 0xe2, 0xa9, 0x09, 0x6a, 0x8e, 0x75, 0xcf, 0x2c, 0x80, 0xfa, 0x04, 0xf5, 0x50, 0x19,
-	0x0c, 0xea, 0x4e, 0x64, 0x0a, 0xf7, 0x7e, 0x2e, 0xc1, 0xd6, 0xac, 0x85, 0xf7, 0x05, 0x59, 0x0f,
-	0x2d, 0xa8, 0xf1, 0x98, 0x84, 0x92, 0xa5, 0xe3, 0x12, 0xb1, 0xc7, 0xb0, 0xaa, 0x91, 0xa2, 0x58,
-	0x25, 0xde, 0x43, 0x35, 0xac, 0x6b, 0xa4, 0xae, 0x4a, 0xd0, 0xbe, 0x25, 0x43, 0x63, 0x78, 0x8a,
-	0xc1, 0xb2, 0xeb, 0x99, 0x42, 0xf6, 0x0c, 0x9a, 0xa4, 0x88, 0x8f, 0xa3, 0x58, 0x15, 0x72, 0x6a,
-	0x04, 0x1c, 0xd5, 0xb5, 0x0c, 0x7b, 0x0b, 0x7e, 0x13, 0x91, 0xf5, 0x69, 0xfd, 0x34, 0x0f, 0x5f,
-	0x74, 0xca, 0x0b, 0xed, 0xfc, 0x69, 0xbe, 0x8e, 0x03, 0xe1, 0x6a, 0xe6, 0x6f, 0x8b, 0xda, 0x5f,
-	0x2b, 0x50, 0x75, 0x1c, 0x7b, 0x0e, 0x6b, 0x7c, 0xcc, 0x75, 0x16, 0x95, 0xeb, 0xf1, 0xf3, 0x37,
-	0x1d, 0x37, 0xf0, 0x3b, 0xda, 0x87, 0x0d, 0x5e, 0x90, 0x8a, 0x86, 0x3c, 0xbe, 0x29, 0xf2, 0x88,
-	0x44, 0x36, 0x35, 0xb3, 0x6e, 0xf9, 0x13, 0x47, 0x7f, 0x14, 0x19, 0xb2, 0x23, 0x68, 0xb9, 0xca,
-	0x4c, 0x48, 0xa5, 0xa3, 0x09, 0xea, 0xa8, 0xc8, 0x53, 0xcd, 0x13, 0x6f, 0xb1, 0x1a, 0x6e, 0xda,
-	0xd3, 0xbe, 0x3d, 0xbc, 0x42, 0xfd, 0xc9, 0x1f, 0x1d, 0x7e, 0x5f, 0x85, 0xb5, 0xfb, 0x31, 0x62,
-	0xa7, 0xc0, 0x66, 0x4c, 0x5c, 0xa8, 0x04, 0x0d, 0x6b, 0x75, 0x7c, 0x14, 0x3b, 0xd3, 0x28, 0x76,
-	0xde, 0xd9, 0x28, 0xb6, 0x1f, 0xe0, 0x59, 0x0f, 0xb6, 0x67, 0x54, 0x2e, 0xb9, 0xe6, 0x19, 0x12,
-	0xea, 0xf9, 0xa5, 0xde, 0xc0, 0x5a, 0x88, 0x46, 0xdc, 0x95, 0x3b, 0x9d, 0xbb, 0xff, 0x35, 0x34,
-	0xbb, 0x1a, 0x39, 0xf9, 0xfe, 0xb9, 0xdb, 0x5f, 0x01, 0x0c, 0x48, 0xe5, 0x8b, 0xbf, 0x7c, 0x40,
-	0x5c, 0xd3, 0x82, 0xed, 0x7d, 0x58, 0x9f, 0x4d, 0x14, 0x7b, 0xfa, 0x40, 0xd4, 0xdc, 0xb7, 0xb9,
-	0xbd, 0xf3, 0xd7, 0x20, 0xda, 0x55, 0x9e, 0xe2, 0x18, 0x69, 0xd1, 0x55, 0xf6, 0x60, 0xfb, 0xde,
-	0x2a, 0xcf, 0xb4, 0xca, 0x06, 0x92, 0xe7, 0xe6, 0x5a, 0xd1, 0xdc, 0x52, 0x27, 0xb0, 0xd1, 0xbd,
-	0xe6, 0x32, 0xf5, 0x52, 0x57, 0x5f, 0x24, 0xce, 0xaf, 0xd1, 0x85, 0xff, 0x8f, 0x93, 0xc4, 0x09,
-	0xf4, 0xa4, 0x21, 0x2e, 0xe3, 0x05, 0x92, 0x7a, 0x06, 0x5b, 0x21, 0x66, 0x6a, 0x82, 0xff, 0xa8,
-	0x73, 0x0e, 0x8f, 0xfa, 0x2a, 0x11, 0xa3, 0x5b, 0xa7, 0x73, 0x4c, 0xa4, 0xc5, 0xb0, 0xa0, 0xc5,
-	0x06, 0xba, 0x27, 0xb4, 0xf8, 0x40, 0xc7, 0xf0, 0xdf, 0x39, 0xfa, 0xe0, 0xf5, 0x95, 0x14, 0xa4,
-	0xf4, 0xbc, 0x12, 0xed, 0xd6, 0xb7, 0x5f, 0x2b, 0x0c, 0x1a, 0x1f, 0x84, 0x4c, 0xbb, 0xf6, 0x4f,
-	0x8a, 0xf9, 0x9f, 0xad, 0x61, 0xcd, 0xd5, 0x1d, 0xfd, 0x0e, 0x00, 0x00, 0xff, 0xff, 0x94, 0x62,
-	0x83, 0xdd, 0xd5, 0x06, 0x00, 0x00,
+	// 936 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x5d, 0x6e, 0x1b, 0x37,
+	0x10, 0x86, 0x63, 0xcb, 0x8e, 0x47, 0x46, 0x62, 0xd1, 0xb6, 0xbc, 0xa2, 0x7f, 0xa2, 0xc8, 0x6d,
+	0xe1, 0x87, 0xc2, 0x05, 0x92, 0x0b, 0xd4, 0x95, 0xd1, 0xa0, 0x0f, 0x4a, 0x5d, 0xa9, 0x35, 0xd0,
+	0xa7, 0x0d, 0xa5, 0x1d, 0xcb, 0xdb, 0x68, 0x97, 0x2a, 0x97, 0x6b, 0xb4, 0xb9, 0x41, 0x7b, 0x94,
+	0x9e, 0xa2, 0x67, 0xe8, 0x4d, 0x7a, 0x83, 0x82, 0x3f, 0xf2, 0x52, 0x2b, 0xae, 0xfa, 0xb4, 0x2f,
+	0x82, 0x38, 0x33, 0xe4, 0xf7, 0xcd, 0x80, 0xfc, 0x66, 0x16, 0x9a, 0x09, 0x4f, 0xa7, 0xfc, 0x6a,
+	0x2e, 0xb8, 0xe4, 0x64, 0x27, 0x43, 0xf1, 0x18, 0x4f, 0x90, 0x9e, 0xfd, 0x1a, 0xa7, 0xd3, 0xc9,
+	0x8c, 0xe7, 0x51, 0x98, 0x45, 0x1f, 0x43, 0x91, 0xcf, 0xf0, 0x2b, 0xf5, 0x63, 0xe2, 0x7a, 0x5f,
+	0x42, 0x7b, 0xa0, 0xb6, 0x8d, 0x4c, 0xf8, 0xad, 0xe0, 0x73, 0x14, 0x32, 0xc6, 0x8c, 0x10, 0xd8,
+	0xfa, 0xc4, 0x53, 0x0c, 0x36, 0xba, 0x1b, 0x97, 0xbb, 0x43, 0xfd, 0xbf, 0xd7, 0x81, 0xe3, 0x1b,
+	0xcc, 0x26, 0x22, 0x1e, 0xa3, 0xde, 0xf5, 0x9e, 0x47, 0x98, 0x7d, 0x97, 0xce, 0x73, 0xd9, 0x9b,
+	0x42, 0xb0, 0xea, 0xfa, 0x3e, 0x97, 0xf3, 0x5c, 0x92, 0x36, 0x6c, 0xb3, 0x89, 0x8c, 0x79, 0x6a,
+	0x0f, 0xb3, 0x2b, 0xd2, 0x81, 0xe7, 0x02, 0x65, 0x38, 0xe1, 0x11, 0x06, 0xcf, 0xba, 0x1b, 0x97,
+	0x8d, 0xe1, 0x8e, 0x40, 0xd9, 0xe7, 0x11, 0x92, 0x00, 0x76, 0x12, 0xcc, 0x32, 0x36, 0xc5, 0x60,
+	0x53, 0xef, 0x59, 0x2c, 0x7b, 0xe7, 0x70, 0xba, 0x04, 0x74, 0xcb, 0x04, 0x4b, 0x50, 0xa2, 0xb0,
+	0x44, 0x66, 0x70, 0x56, 0xe1, 0xaf, 0x83, 0xcd, 0x01, 0xb4, 0x86, 0x98, 0xc5, 0x9f, 0x0c, 0x96,
+	0xa5, 0xc0, 0x80, 0xb8, 0xc6, 0x3a, 0x70, 0x09, 0xec, 0xf7, 0x05, 0x32, 0x69, 0x20, 0x0c, 0xec,
+	0x07, 0x68, 0x39, 0xb6, 0x3a, 0x50, 0x5b, 0xf0, 0x72, 0x24, 0xf9, 0xdc, 0xcd, 0x35, 0x84, 0xfd,
+	0xc2, 0x54, 0x53, 0xa6, 0x23, 0xc9, 0x84, 0x74, 0x41, 0x3f, 0x40, 0xcb, 0xb1, 0xd5, 0x81, 0xfa,
+	0xf7, 0x06, 0x1c, 0x2c, 0x5d, 0x23, 0x83, 0x4c, 0x0e, 0xa1, 0x31, 0x8b, 0x93, 0x58, 0x6a, 0x8c,
+	0xc6, 0xd0, 0x2c, 0xc8, 0x19, 0x80, 0x7e, 0x7c, 0x61, 0xca, 0x12, 0x03, 0xb2, 0x3b, 0xdc, 0xd5,
+	0x96, 0xf7, 0x2c, 0x41, 0xc5, 0x4c, 0x2f, 0xb2, 0x60, 0xb3, 0xbb, 0xa9, 0x98, 0x99, 0x95, 0xb2,
+	0xf3, 0xfb, 0xfb, 0x0c, 0x65, 0xb0, 0xa5, 0x4f, 0xb3, 0x2b, 0x65, 0xcf, 0x24, 0x93, 0x79, 0x16,
+	0x34, 0x4c, 0xbc, 0x59, 0xa9, 0x27, 0x29, 0xd9, 0x34, 0x0b, 0xb6, 0xb5, 0x55, 0xff, 0x57, 0x29,
+	0x3c, 0xa2, 0x18, 0xf3, 0x0c, 0x83, 0x1d, 0x93, 0x9c, 0x5d, 0xf6, 0xfe, 0x79, 0x06, 0x87, 0xcb,
+	0x29, 0xd4, 0x50, 0x28, 0xf2, 0x0a, 0x9a, 0x92, 0x4b, 0x36, 0x0b, 0x27, 0x3c, 0x4f, 0x17, 0x89,
+	0x80, 0x36, 0xf5, 0x95, 0x85, 0x7c, 0x0d, 0xa6, 0x12, 0xa1, 0xca, 0x53, 0xe5, 0xd3, 0x7c, 0x73,
+	0x71, 0x65, 0xd5, 0xe9, 0xca, 0xc7, 0xef, 0x4a, 0x2f, 0x86, 0xcf, 0x13, 0xa3, 0x4b, 0x92, 0xfe,
+	0xb1, 0x01, 0x0d, 0x6d, 0x23, 0xaf, 0x61, 0x8f, 0xcd, 0x98, 0x48, 0x42, 0x5b, 0x1e, 0xc3, 0xbf,
+	0xa9, 0x6d, 0x23, 0x53, 0xa3, 0x4b, 0xd8, 0x67, 0xb9, 0xe4, 0xe1, 0x98, 0x4d, 0x3e, 0xe6, 0xf3,
+	0x50, 0xc6, 0xc9, 0x22, 0x99, 0x17, 0xca, 0xfe, 0x8d, 0x36, 0xff, 0x18, 0x27, 0x48, 0xde, 0x42,
+	0x5b, 0x47, 0x26, 0x71, 0xca, 0x45, 0xf8, 0x88, 0x22, 0xcc, 0xe7, 0x53, 0xc1, 0x22, 0x93, 0x62,
+	0x63, 0x78, 0xa0, 0xbc, 0x03, 0xe5, 0xbc, 0x43, 0xf1, 0x93, 0x71, 0xa9, 0xf7, 0x7e, 0x83, 0x33,
+	0x94, 0xe5, 0xf7, 0xee, 0x1a, 0x6b, 0x52, 0x3d, 0xe7, 0x6d, 0x7f, 0x2b, 0x78, 0x32, 0x4a, 0xd9,
+	0x3c, 0x7b, 0xe0, 0xf2, 0x49, 0xf5, 0x2a, 0xfc, 0x75, 0xb0, 0x39, 0x86, 0xa3, 0xfe, 0x03, 0x4b,
+	0xa7, 0x06, 0xed, 0xee, 0xb7, 0x14, 0x2d, 0x0d, 0x84, 0x76, 0xd9, 0x51, 0x07, 0x7e, 0x00, 0xed,
+	0xeb, 0x28, 0xb2, 0xd2, 0x97, 0x49, 0x96, 0x4e, 0x16, 0x6d, 0xe8, 0x1e, 0x8e, 0x57, 0x3c, 0x75,
+	0x30, 0x38, 0x81, 0xce, 0x10, 0x13, 0xfe, 0x88, 0x3e, 0x12, 0x31, 0x50, 0x9f, 0xb3, 0x0e, 0x1e,
+	0xa7, 0x40, 0x07, 0x3c, 0x8a, 0xef, 0x7f, 0xd7, 0x50, 0xd7, 0x52, 0x8a, 0x78, 0x9c, 0xcb, 0x05,
+	0x91, 0x5f, 0xe0, 0xc4, 0xeb, 0xad, 0xa9, 0x22, 0x0e, 0xd6, 0x6a, 0x45, 0x7c, 0xce, 0x3a, 0x78,
+	0xb4, 0xe1, 0xf0, 0x1d, 0x9a, 0xce, 0x30, 0xe0, 0x69, 0x2c, 0xb9, 0x30, 0x14, 0x22, 0x38, 0x2a,
+	0xd9, 0x6b, 0x40, 0x7f, 0xf3, 0x17, 0xc0, 0x9e, 0x3b, 0x50, 0x91, 0x9f, 0x95, 0x36, 0x94, 0xe7,
+	0x22, 0xd2, 0xf5, 0x2b, 0x60, 0x31, 0x4f, 0xd1, 0xd7, 0x6b, 0x22, 0x2c, 0xf1, 0x87, 0xd2, 0x34,
+	0x56, 0x4c, 0x3a, 0xe4, 0x73, 0xff, 0xee, 0xd2, 0xac, 0x44, 0xbf, 0xf8, 0xbf, 0x30, 0x8b, 0xf4,
+	0x0e, 0xf6, 0xdc, 0x81, 0x86, 0xd0, 0xa7, 0x7d, 0x2b, 0xc3, 0x0f, 0x3d, 0xf1, 0xfa, 0xec, 0x41,
+	0x37, 0xd0, 0x74, 0x64, 0x8a, 0x74, 0x9e, 0x62, 0xcb, 0xc3, 0x0c, 0xa5, 0x3e, 0x97, 0x3d, 0xe5,
+	0x1a, 0xa0, 0x98, 0x39, 0x48, 0xf0, 0x14, 0x59, 0x9a, 0x4d, 0x68, 0xc7, 0xe3, 0x29, 0x88, 0x38,
+	0x13, 0x04, 0x71, 0x23, 0x97, 0x67, 0x0d, 0x87, 0xc8, 0xea, 0xc8, 0x31, 0x80, 0x17, 0xcb, 0x1d,
+	0x8c, 0x9c, 0x56, 0xb4, 0x36, 0x73, 0xd6, 0xd9, 0xda, 0xc6, 0xa7, 0xca, 0xec, 0xf6, 0x11, 0xa7,
+	0xcc, 0x2b, 0x3d, 0xc7, 0x29, 0xb3, 0xa7, 0xf5, 0x3c, 0xc0, 0x71, 0x45, 0x37, 0x70, 0x6e, 0xc6,
+	0xba, 0x7e, 0xe2, 0xdc, 0x8c, 0xf5, 0x6d, 0x65, 0x04, 0xfb, 0x65, 0xc1, 0x27, 0xe7, 0xc5, 0x5e,
+	0x5f, 0x93, 0xa0, 0xaf, 0x2a, 0xfd, 0xf6, 0xd0, 0x3b, 0x68, 0xad, 0x88, 0x38, 0x29, 0x76, 0xf9,
+	0xa5, 0x9f, 0x76, 0xab, 0x03, 0xec, 0xb9, 0x21, 0x1c, 0xfa, 0x74, 0x99, 0xf4, 0x9c, 0x2b, 0x5b,
+	0xa1, 0xe9, 0xf4, 0x62, 0x6d, 0x8c, 0x05, 0x18, 0xc3, 0x91, 0x57, 0x6f, 0x49, 0xb1, 0xbb, 0x5a,
+	0xad, 0xe9, 0x67, 0xeb, 0x83, 0x8a, 0x24, 0x7c, 0x52, 0xea, 0x24, 0x51, 0x29, 0xc3, 0xf4, 0x62,
+	0x6d, 0x8c, 0x05, 0xb8, 0x85, 0x97, 0x25, 0xa1, 0x24, 0xc5, 0xbd, 0xf5, 0x49, 0x2b, 0x3d, 0xaf,
+	0x72, 0x9b, 0x13, 0x69, 0xfb, 0xcf, 0x7f, 0xb7, 0x08, 0xec, 0xfe, 0x10, 0xa7, 0xd3, 0xbe, 0xfa,
+	0x12, 0x25, 0x66, 0x9c, 0x1b, 0x6f, 0xeb, 0x6f, 0xd0, 0xb7, 0xff, 0x05, 0x00, 0x00, 0xff, 0xff,
+	0xf1, 0xc4, 0x93, 0x5e, 0xba, 0x0e, 0x00, 0x00,
 }

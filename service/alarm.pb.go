@@ -270,8 +270,36 @@ It has these top-level messages:
 	GetQuotaLeftInput
 	GetQuotaLeftOutput
 	MongoServiceProperties
+	DescribeMongoNodesInput
+	DescribeMongoNodesOutput
+	DescribeMongoParametersInput
+	DescribeMongoParametersOutput
+	ResizeMongosInput
+	ResizeMongosOutput
+	CreateMongoInput
+	CreateMongoOutput
+	StopMongosInput
+	StopMongosOutput
+	StartMongosInput
+	StartMongosOutput
 	DescribeMongosInput
 	DescribeMongosOutput
+	DeleteMongosInput
+	DeleteMongosOutput
+	CreateMongoFromSnapshotInput
+	CreateMongoFromSnapshotOutput
+	ChangeMongoVxnetInput
+	ChangeMongoVxnetOutput
+	AddMongoInstancesInput
+	AddMongoInstancesOutput
+	RemoveMongoInstancesInput
+	RemoveMongoInstancesOutput
+	ModifyMongoAttributesInput
+	ModifyMongoAttributesOutput
+	ModifyMongoInstancesInput
+	ModifyMongoInstancesOutput
+	GetMongoMonitorInput
+	GetMongoMonitorOutput
 	MonitorServiceProperties
 	GetMonitorInput
 	GetMonitorOutput

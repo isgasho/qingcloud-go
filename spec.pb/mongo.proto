@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/mongo/index.html
 
 message MongoServiceProperties {
@@ -22,21 +20,69 @@ service MongoService {
 		sub_service_name: "Mongo"
 	};
 
-	rpc DescribeMongoNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeMongoParameters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ResizeMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateMongo(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StopMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StartMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeMongoNodes(DescribeMongoNodesInput) returns (DescribeMongoNodesOutput);
+	rpc DescribeMongoParameters(DescribeMongoParametersInput) returns (DescribeMongoParametersOutput);
+	rpc ResizeMongos(ResizeMongosInput) returns (ResizeMongosOutput);
+	rpc CreateMongo(CreateMongoInput) returns (CreateMongoOutput);
+	rpc StopMongos(StopMongosInput) returns (StopMongosOutput);
+	rpc StartMongos(StartMongosInput) returns (StartMongosOutput);
 	rpc DescribeMongos(DescribeMongosInput) returns (DescribeMongosOutput);
-	rpc DeleteMongos(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateMongoFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ChangeMongoVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddMongoInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc RemoveMongoInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyMongoAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyMongoInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc GetMongoMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DeleteMongos(DeleteMongosInput) returns (DeleteMongosOutput);
+	rpc CreateMongoFromSnapshot(CreateMongoFromSnapshotInput) returns (CreateMongoFromSnapshotOutput);
+	rpc ChangeMongoVxnet(ChangeMongoVxnetInput) returns (ChangeMongoVxnetOutput);
+	rpc AddMongoInstances(AddMongoInstancesInput) returns (AddMongoInstancesOutput);
+	rpc RemoveMongoInstances(RemoveMongoInstancesInput) returns (RemoveMongoInstancesOutput);
+	rpc ModifyMongoAttributes(ModifyMongoAttributesInput) returns (ModifyMongoAttributesOutput);
+	rpc ModifyMongoInstances(ModifyMongoInstancesInput) returns (ModifyMongoInstancesOutput);
+	rpc GetMongoMonitor(GetMongoMonitorInput) returns (GetMongoMonitorOutput);
+}
+
+message DescribeMongoNodesInput {}
+message DescribeMongoNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeMongoParametersInput {}
+message DescribeMongoParametersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ResizeMongosInput {}
+message ResizeMongosOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateMongoInput {}
+message CreateMongoOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StopMongosInput {}
+message StopMongosOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StartMongosInput {}
+message StartMongosOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message DescribeMongosInput {
@@ -65,3 +111,70 @@ message DescribeMongosOutput {
 		// TODO
 	}
 }
+
+
+
+message DeleteMongosInput {}
+message DeleteMongosOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateMongoFromSnapshotInput {}
+message CreateMongoFromSnapshotOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ChangeMongoVxnetInput {}
+message ChangeMongoVxnetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddMongoInstancesInput {}
+message AddMongoInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message RemoveMongoInstancesInput {}
+message RemoveMongoInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyMongoAttributesInput {}
+message ModifyMongoAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyMongoInstancesInput {}
+message ModifyMongoInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message GetMongoMonitorInput {}
+message GetMongoMonitorOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
