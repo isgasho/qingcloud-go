@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/router/index.html
 
 message RouterServiceProperties {
@@ -22,23 +20,176 @@ service RouterService {
 		sub_service_name: "Router"
 	};
 
-	rpc DescribeRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc UpdateRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc PowerOffRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc PowerOnRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc JoinRouter(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc LeaveRouter(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyRouterAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyRouterStaticAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CopyRouterStatics(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeRouterVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddRouterStaticEntries(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteRouterStaticEntries(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyRouterStaticEntryAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeRouterStaticEntries(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeRouters(DescribeRoutersInput) returns (DescribeRoutersOutput);
+	rpc CreateRouters(CreateRoutersInput) returns (CreateRoutersOutput);
+	rpc DeleteRouters(DeleteRoutersInput) returns (DeleteRoutersOutput);
+	rpc UpdateRouters(UpdateRoutersInput) returns (UpdateRoutersOutput);
+	rpc PowerOffRouters(PowerOffRoutersInput) returns (PowerOffRoutersOutput);
+	rpc PowerOnRouters(PowerOnRoutersInput) returns (PowerOnRoutersOutput);
+	rpc JoinRouter(JoinRouterInput) returns (JoinRouterOutput);
+	rpc LeaveRouter(LeaveRouterInput) returns (LeaveRouterOutput);
+	rpc ModifyRouterAttributes(ModifyRouterAttributesInput) returns (ModifyRouterAttributesOutput);
+	rpc DescribeRouterStatics(DescribeRouterStaticsInput) returns (DescribeRouterStaticsOutput);
+	rpc AddRouterStatics(AddRouterStaticsInput) returns (AddRouterStaticsOutput);
+	rpc ModifyRouterStaticAttributes(ModifyRouterStaticAttributesInput) returns (ModifyRouterStaticAttributesOutput);
+	rpc DeleteRouterStatics(DeleteRouterStaticsInput) returns (DeleteRouterStaticsOutput);
+	rpc CopyRouterStatics(CopyRouterStaticsInput) returns (CopyRouterStaticsOutput);
+	rpc DescribeRouterVxnets(DescribeRouterVxnetsInput) returns (DescribeRouterVxnetsOutput);
+	rpc AddRouterStaticEntries(AddRouterStaticEntriesInput) returns (AddRouterStaticEntriesOutput);
+	rpc DeleteRouterStaticEntries(DeleteRouterStaticEntriesInput) returns (DeleteRouterStaticEntriesOutput);
+	rpc ModifyRouterStaticEntryAttributes(ModifyRouterStaticEntryAttributesInput) returns (ModifyRouterStaticEntryAttributesOutput);
+	rpc DescribeRouterStaticEntries(DescribeRouterStaticEntriesInput) returns (DescribeRouterStaticEntriesOutput);
 }
+
+message DescribeRoutersInput {}
+message DescribeRoutersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateRoutersInput {}
+message CreateRoutersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteRoutersInput {}
+message DeleteRoutersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message UpdateRoutersInput {}
+message UpdateRoutersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message PowerOffRoutersInput {}
+message PowerOffRoutersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message PowerOnRoutersInput {}
+message PowerOnRoutersOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message JoinRouterInput {}
+message JoinRouterOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message LeaveRouterInput {}
+message LeaveRouterOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyRouterAttributesInput {}
+message ModifyRouterAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeRouterStaticsInput {}
+message DescribeRouterStaticsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddRouterStaticsInput {}
+message AddRouterStaticsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyRouterStaticAttributesInput {}
+message ModifyRouterStaticAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteRouterStaticsInput {}
+message DeleteRouterStaticsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CopyRouterStaticsInput {}
+message CopyRouterStaticsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeRouterVxnetsInput {}
+message DescribeRouterVxnetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddRouterStaticEntriesInput {}
+message AddRouterStaticEntriesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteRouterStaticEntriesInput {}
+message DeleteRouterStaticEntriesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyRouterStaticEntryAttributesInput {}
+message ModifyRouterStaticEntryAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeRouterStaticEntriesInput {}
+message DescribeRouterStaticEntriesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+

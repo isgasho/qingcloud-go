@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,30 +37,848 @@ func (m *RouterServiceProperties) GetZone() string {
 	return ""
 }
 
+type DescribeRoutersInput struct {
+}
+
+func (m *DescribeRoutersInput) Reset()                    { *m = DescribeRoutersInput{} }
+func (m *DescribeRoutersInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRoutersInput) ProtoMessage()               {}
+func (*DescribeRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{1} }
+
+type DescribeRoutersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeRoutersOutput) Reset()                    { *m = DescribeRoutersOutput{} }
+func (m *DescribeRoutersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRoutersOutput) ProtoMessage()               {}
+func (*DescribeRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{2} }
+
+func (m *DescribeRoutersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeRoutersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CreateRoutersInput struct {
+}
+
+func (m *CreateRoutersInput) Reset()                    { *m = CreateRoutersInput{} }
+func (m *CreateRoutersInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateRoutersInput) ProtoMessage()               {}
+func (*CreateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{3} }
+
+type CreateRoutersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateRoutersOutput) Reset()                    { *m = CreateRoutersOutput{} }
+func (m *CreateRoutersOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateRoutersOutput) ProtoMessage()               {}
+func (*CreateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{4} }
+
+func (m *CreateRoutersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateRoutersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateRoutersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteRoutersInput struct {
+}
+
+func (m *DeleteRoutersInput) Reset()                    { *m = DeleteRoutersInput{} }
+func (m *DeleteRoutersInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteRoutersInput) ProtoMessage()               {}
+func (*DeleteRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{5} }
+
+type DeleteRoutersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteRoutersOutput) Reset()                    { *m = DeleteRoutersOutput{} }
+func (m *DeleteRoutersOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteRoutersOutput) ProtoMessage()               {}
+func (*DeleteRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{6} }
+
+func (m *DeleteRoutersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteRoutersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteRoutersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type UpdateRoutersInput struct {
+}
+
+func (m *UpdateRoutersInput) Reset()                    { *m = UpdateRoutersInput{} }
+func (m *UpdateRoutersInput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateRoutersInput) ProtoMessage()               {}
+func (*UpdateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{7} }
+
+type UpdateRoutersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *UpdateRoutersOutput) Reset()                    { *m = UpdateRoutersOutput{} }
+func (m *UpdateRoutersOutput) String() string            { return proto.CompactTextString(m) }
+func (*UpdateRoutersOutput) ProtoMessage()               {}
+func (*UpdateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{8} }
+
+func (m *UpdateRoutersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *UpdateRoutersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *UpdateRoutersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type PowerOffRoutersInput struct {
+}
+
+func (m *PowerOffRoutersInput) Reset()                    { *m = PowerOffRoutersInput{} }
+func (m *PowerOffRoutersInput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOffRoutersInput) ProtoMessage()               {}
+func (*PowerOffRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{9} }
+
+type PowerOffRoutersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *PowerOffRoutersOutput) Reset()                    { *m = PowerOffRoutersOutput{} }
+func (m *PowerOffRoutersOutput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOffRoutersOutput) ProtoMessage()               {}
+func (*PowerOffRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{10} }
+
+func (m *PowerOffRoutersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *PowerOffRoutersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *PowerOffRoutersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type PowerOnRoutersInput struct {
+}
+
+func (m *PowerOnRoutersInput) Reset()                    { *m = PowerOnRoutersInput{} }
+func (m *PowerOnRoutersInput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOnRoutersInput) ProtoMessage()               {}
+func (*PowerOnRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{11} }
+
+type PowerOnRoutersOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *PowerOnRoutersOutput) Reset()                    { *m = PowerOnRoutersOutput{} }
+func (m *PowerOnRoutersOutput) String() string            { return proto.CompactTextString(m) }
+func (*PowerOnRoutersOutput) ProtoMessage()               {}
+func (*PowerOnRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{12} }
+
+func (m *PowerOnRoutersOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *PowerOnRoutersOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *PowerOnRoutersOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type JoinRouterInput struct {
+}
+
+func (m *JoinRouterInput) Reset()                    { *m = JoinRouterInput{} }
+func (m *JoinRouterInput) String() string            { return proto.CompactTextString(m) }
+func (*JoinRouterInput) ProtoMessage()               {}
+func (*JoinRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{13} }
+
+type JoinRouterOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *JoinRouterOutput) Reset()                    { *m = JoinRouterOutput{} }
+func (m *JoinRouterOutput) String() string            { return proto.CompactTextString(m) }
+func (*JoinRouterOutput) ProtoMessage()               {}
+func (*JoinRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{14} }
+
+func (m *JoinRouterOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *JoinRouterOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *JoinRouterOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type LeaveRouterInput struct {
+}
+
+func (m *LeaveRouterInput) Reset()                    { *m = LeaveRouterInput{} }
+func (m *LeaveRouterInput) String() string            { return proto.CompactTextString(m) }
+func (*LeaveRouterInput) ProtoMessage()               {}
+func (*LeaveRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{15} }
+
+type LeaveRouterOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *LeaveRouterOutput) Reset()                    { *m = LeaveRouterOutput{} }
+func (m *LeaveRouterOutput) String() string            { return proto.CompactTextString(m) }
+func (*LeaveRouterOutput) ProtoMessage()               {}
+func (*LeaveRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{16} }
+
+func (m *LeaveRouterOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *LeaveRouterOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *LeaveRouterOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyRouterAttributesInput struct {
+}
+
+func (m *ModifyRouterAttributesInput) Reset()                    { *m = ModifyRouterAttributesInput{} }
+func (m *ModifyRouterAttributesInput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyRouterAttributesInput) ProtoMessage()               {}
+func (*ModifyRouterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{17} }
+
+type ModifyRouterAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyRouterAttributesOutput) Reset()                    { *m = ModifyRouterAttributesOutput{} }
+func (m *ModifyRouterAttributesOutput) String() string            { return proto.CompactTextString(m) }
+func (*ModifyRouterAttributesOutput) ProtoMessage()               {}
+func (*ModifyRouterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{18} }
+
+func (m *ModifyRouterAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyRouterAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeRouterStaticsInput struct {
+}
+
+func (m *DescribeRouterStaticsInput) Reset()                    { *m = DescribeRouterStaticsInput{} }
+func (m *DescribeRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRouterStaticsInput) ProtoMessage()               {}
+func (*DescribeRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{19} }
+
+type DescribeRouterStaticsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeRouterStaticsOutput) Reset()                    { *m = DescribeRouterStaticsOutput{} }
+func (m *DescribeRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRouterStaticsOutput) ProtoMessage()               {}
+func (*DescribeRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{20} }
+
+func (m *DescribeRouterStaticsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeRouterStaticsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeRouterStaticsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddRouterStaticsInput struct {
+}
+
+func (m *AddRouterStaticsInput) Reset()                    { *m = AddRouterStaticsInput{} }
+func (m *AddRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
+func (*AddRouterStaticsInput) ProtoMessage()               {}
+func (*AddRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{21} }
+
+type AddRouterStaticsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddRouterStaticsOutput) Reset()                    { *m = AddRouterStaticsOutput{} }
+func (m *AddRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddRouterStaticsOutput) ProtoMessage()               {}
+func (*AddRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{22} }
+
+func (m *AddRouterStaticsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddRouterStaticsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddRouterStaticsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyRouterStaticAttributesInput struct {
+}
+
+func (m *ModifyRouterStaticAttributesInput) Reset()         { *m = ModifyRouterStaticAttributesInput{} }
+func (m *ModifyRouterStaticAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRouterStaticAttributesInput) ProtoMessage()    {}
+func (*ModifyRouterStaticAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{23}
+}
+
+type ModifyRouterStaticAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyRouterStaticAttributesOutput) Reset()         { *m = ModifyRouterStaticAttributesOutput{} }
+func (m *ModifyRouterStaticAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRouterStaticAttributesOutput) ProtoMessage()    {}
+func (*ModifyRouterStaticAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{24}
+}
+
+func (m *ModifyRouterStaticAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyRouterStaticAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteRouterStaticsInput struct {
+}
+
+func (m *DeleteRouterStaticsInput) Reset()                    { *m = DeleteRouterStaticsInput{} }
+func (m *DeleteRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteRouterStaticsInput) ProtoMessage()               {}
+func (*DeleteRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{25} }
+
+type DeleteRouterStaticsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteRouterStaticsOutput) Reset()                    { *m = DeleteRouterStaticsOutput{} }
+func (m *DeleteRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteRouterStaticsOutput) ProtoMessage()               {}
+func (*DeleteRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{26} }
+
+func (m *DeleteRouterStaticsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteRouterStaticsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteRouterStaticsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type CopyRouterStaticsInput struct {
+}
+
+func (m *CopyRouterStaticsInput) Reset()                    { *m = CopyRouterStaticsInput{} }
+func (m *CopyRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
+func (*CopyRouterStaticsInput) ProtoMessage()               {}
+func (*CopyRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{27} }
+
+type CopyRouterStaticsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CopyRouterStaticsOutput) Reset()                    { *m = CopyRouterStaticsOutput{} }
+func (m *CopyRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
+func (*CopyRouterStaticsOutput) ProtoMessage()               {}
+func (*CopyRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{28} }
+
+func (m *CopyRouterStaticsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CopyRouterStaticsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CopyRouterStaticsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeRouterVxnetsInput struct {
+}
+
+func (m *DescribeRouterVxnetsInput) Reset()                    { *m = DescribeRouterVxnetsInput{} }
+func (m *DescribeRouterVxnetsInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRouterVxnetsInput) ProtoMessage()               {}
+func (*DescribeRouterVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{29} }
+
+type DescribeRouterVxnetsOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeRouterVxnetsOutput) Reset()                    { *m = DescribeRouterVxnetsOutput{} }
+func (m *DescribeRouterVxnetsOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeRouterVxnetsOutput) ProtoMessage()               {}
+func (*DescribeRouterVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{30} }
+
+func (m *DescribeRouterVxnetsOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeRouterVxnetsOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddRouterStaticEntriesInput struct {
+}
+
+func (m *AddRouterStaticEntriesInput) Reset()                    { *m = AddRouterStaticEntriesInput{} }
+func (m *AddRouterStaticEntriesInput) String() string            { return proto.CompactTextString(m) }
+func (*AddRouterStaticEntriesInput) ProtoMessage()               {}
+func (*AddRouterStaticEntriesInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{31} }
+
+type AddRouterStaticEntriesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddRouterStaticEntriesOutput) Reset()                    { *m = AddRouterStaticEntriesOutput{} }
+func (m *AddRouterStaticEntriesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddRouterStaticEntriesOutput) ProtoMessage()               {}
+func (*AddRouterStaticEntriesOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{32} }
+
+func (m *AddRouterStaticEntriesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddRouterStaticEntriesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddRouterStaticEntriesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteRouterStaticEntriesInput struct {
+}
+
+func (m *DeleteRouterStaticEntriesInput) Reset()         { *m = DeleteRouterStaticEntriesInput{} }
+func (m *DeleteRouterStaticEntriesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRouterStaticEntriesInput) ProtoMessage()    {}
+func (*DeleteRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{33}
+}
+
+type DeleteRouterStaticEntriesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteRouterStaticEntriesOutput) Reset()         { *m = DeleteRouterStaticEntriesOutput{} }
+func (m *DeleteRouterStaticEntriesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRouterStaticEntriesOutput) ProtoMessage()    {}
+func (*DeleteRouterStaticEntriesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{34}
+}
+
+func (m *DeleteRouterStaticEntriesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteRouterStaticEntriesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteRouterStaticEntriesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type ModifyRouterStaticEntryAttributesInput struct {
+}
+
+func (m *ModifyRouterStaticEntryAttributesInput) Reset() {
+	*m = ModifyRouterStaticEntryAttributesInput{}
+}
+func (m *ModifyRouterStaticEntryAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRouterStaticEntryAttributesInput) ProtoMessage()    {}
+func (*ModifyRouterStaticEntryAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{35}
+}
+
+type ModifyRouterStaticEntryAttributesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *ModifyRouterStaticEntryAttributesOutput) Reset() {
+	*m = ModifyRouterStaticEntryAttributesOutput{}
+}
+func (m *ModifyRouterStaticEntryAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRouterStaticEntryAttributesOutput) ProtoMessage()    {}
+func (*ModifyRouterStaticEntryAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{36}
+}
+
+func (m *ModifyRouterStaticEntryAttributesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticEntryAttributesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *ModifyRouterStaticEntryAttributesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeRouterStaticEntriesInput struct {
+}
+
+func (m *DescribeRouterStaticEntriesInput) Reset()         { *m = DescribeRouterStaticEntriesInput{} }
+func (m *DescribeRouterStaticEntriesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRouterStaticEntriesInput) ProtoMessage()    {}
+func (*DescribeRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{37}
+}
+
+type DescribeRouterStaticEntriesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeRouterStaticEntriesOutput) Reset()         { *m = DescribeRouterStaticEntriesOutput{} }
+func (m *DescribeRouterStaticEntriesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRouterStaticEntriesOutput) ProtoMessage()    {}
+func (*DescribeRouterStaticEntriesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{38}
+}
+
+func (m *DescribeRouterStaticEntriesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeRouterStaticEntriesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeRouterStaticEntriesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*RouterServiceProperties)(nil), "service.RouterServiceProperties")
+	proto.RegisterType((*DescribeRoutersInput)(nil), "service.DescribeRoutersInput")
+	proto.RegisterType((*DescribeRoutersOutput)(nil), "service.DescribeRoutersOutput")
+	proto.RegisterType((*CreateRoutersInput)(nil), "service.CreateRoutersInput")
+	proto.RegisterType((*CreateRoutersOutput)(nil), "service.CreateRoutersOutput")
+	proto.RegisterType((*DeleteRoutersInput)(nil), "service.DeleteRoutersInput")
+	proto.RegisterType((*DeleteRoutersOutput)(nil), "service.DeleteRoutersOutput")
+	proto.RegisterType((*UpdateRoutersInput)(nil), "service.UpdateRoutersInput")
+	proto.RegisterType((*UpdateRoutersOutput)(nil), "service.UpdateRoutersOutput")
+	proto.RegisterType((*PowerOffRoutersInput)(nil), "service.PowerOffRoutersInput")
+	proto.RegisterType((*PowerOffRoutersOutput)(nil), "service.PowerOffRoutersOutput")
+	proto.RegisterType((*PowerOnRoutersInput)(nil), "service.PowerOnRoutersInput")
+	proto.RegisterType((*PowerOnRoutersOutput)(nil), "service.PowerOnRoutersOutput")
+	proto.RegisterType((*JoinRouterInput)(nil), "service.JoinRouterInput")
+	proto.RegisterType((*JoinRouterOutput)(nil), "service.JoinRouterOutput")
+	proto.RegisterType((*LeaveRouterInput)(nil), "service.LeaveRouterInput")
+	proto.RegisterType((*LeaveRouterOutput)(nil), "service.LeaveRouterOutput")
+	proto.RegisterType((*ModifyRouterAttributesInput)(nil), "service.ModifyRouterAttributesInput")
+	proto.RegisterType((*ModifyRouterAttributesOutput)(nil), "service.ModifyRouterAttributesOutput")
+	proto.RegisterType((*DescribeRouterStaticsInput)(nil), "service.DescribeRouterStaticsInput")
+	proto.RegisterType((*DescribeRouterStaticsOutput)(nil), "service.DescribeRouterStaticsOutput")
+	proto.RegisterType((*AddRouterStaticsInput)(nil), "service.AddRouterStaticsInput")
+	proto.RegisterType((*AddRouterStaticsOutput)(nil), "service.AddRouterStaticsOutput")
+	proto.RegisterType((*ModifyRouterStaticAttributesInput)(nil), "service.ModifyRouterStaticAttributesInput")
+	proto.RegisterType((*ModifyRouterStaticAttributesOutput)(nil), "service.ModifyRouterStaticAttributesOutput")
+	proto.RegisterType((*DeleteRouterStaticsInput)(nil), "service.DeleteRouterStaticsInput")
+	proto.RegisterType((*DeleteRouterStaticsOutput)(nil), "service.DeleteRouterStaticsOutput")
+	proto.RegisterType((*CopyRouterStaticsInput)(nil), "service.CopyRouterStaticsInput")
+	proto.RegisterType((*CopyRouterStaticsOutput)(nil), "service.CopyRouterStaticsOutput")
+	proto.RegisterType((*DescribeRouterVxnetsInput)(nil), "service.DescribeRouterVxnetsInput")
+	proto.RegisterType((*DescribeRouterVxnetsOutput)(nil), "service.DescribeRouterVxnetsOutput")
+	proto.RegisterType((*AddRouterStaticEntriesInput)(nil), "service.AddRouterStaticEntriesInput")
+	proto.RegisterType((*AddRouterStaticEntriesOutput)(nil), "service.AddRouterStaticEntriesOutput")
+	proto.RegisterType((*DeleteRouterStaticEntriesInput)(nil), "service.DeleteRouterStaticEntriesInput")
+	proto.RegisterType((*DeleteRouterStaticEntriesOutput)(nil), "service.DeleteRouterStaticEntriesOutput")
+	proto.RegisterType((*ModifyRouterStaticEntryAttributesInput)(nil), "service.ModifyRouterStaticEntryAttributesInput")
+	proto.RegisterType((*ModifyRouterStaticEntryAttributesOutput)(nil), "service.ModifyRouterStaticEntryAttributesOutput")
+	proto.RegisterType((*DescribeRouterStaticEntriesInput)(nil), "service.DescribeRouterStaticEntriesInput")
+	proto.RegisterType((*DescribeRouterStaticEntriesOutput)(nil), "service.DescribeRouterStaticEntriesOutput")
 }
 
 type RouterServiceInterface interface {
-	DescribeRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CreateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	UpdateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	PowerOffRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	PowerOnRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	JoinRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	LeaveRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyRouterAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyRouterStaticAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	CopyRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeRouterVxnets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	ModifyRouterStaticEntryAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error)
+	CreateRouters(in *CreateRoutersInput) (out *CreateRoutersOutput, err error)
+	DeleteRouters(in *DeleteRoutersInput) (out *DeleteRoutersOutput, err error)
+	UpdateRouters(in *UpdateRoutersInput) (out *UpdateRoutersOutput, err error)
+	PowerOffRouters(in *PowerOffRoutersInput) (out *PowerOffRoutersOutput, err error)
+	PowerOnRouters(in *PowerOnRoutersInput) (out *PowerOnRoutersOutput, err error)
+	JoinRouter(in *JoinRouterInput) (out *JoinRouterOutput, err error)
+	LeaveRouter(in *LeaveRouterInput) (out *LeaveRouterOutput, err error)
+	ModifyRouterAttributes(in *ModifyRouterAttributesInput) (out *ModifyRouterAttributesOutput, err error)
+	DescribeRouterStatics(in *DescribeRouterStaticsInput) (out *DescribeRouterStaticsOutput, err error)
+	AddRouterStatics(in *AddRouterStaticsInput) (out *AddRouterStaticsOutput, err error)
+	ModifyRouterStaticAttributes(in *ModifyRouterStaticAttributesInput) (out *ModifyRouterStaticAttributesOutput, err error)
+	DeleteRouterStatics(in *DeleteRouterStaticsInput) (out *DeleteRouterStaticsOutput, err error)
+	CopyRouterStatics(in *CopyRouterStaticsInput) (out *CopyRouterStaticsOutput, err error)
+	DescribeRouterVxnets(in *DescribeRouterVxnetsInput) (out *DescribeRouterVxnetsOutput, err error)
+	AddRouterStaticEntries(in *AddRouterStaticEntriesInput) (out *AddRouterStaticEntriesOutput, err error)
+	DeleteRouterStaticEntries(in *DeleteRouterStaticEntriesInput) (out *DeleteRouterStaticEntriesOutput, err error)
+	ModifyRouterStaticEntryAttributes(in *ModifyRouterStaticEntryAttributesInput) (out *ModifyRouterStaticEntryAttributesOutput, err error)
+	DescribeRouterStaticEntries(in *DescribeRouterStaticEntriesInput) (out *DescribeRouterStaticEntriesOutput, err error)
 }
 
 type RouterService struct {
@@ -85,9 +902,9 @@ func (s *QingCloudService) Router(zone string) (*RouterService, error) {
 	return &RouterService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *RouterService) DescribeRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *RouterService) DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeRoutersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -96,7 +913,7 @@ func (p *RouterService) DescribeRouters(in *google_protobuf2.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeRoutersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -112,9 +929,13 @@ func (p *RouterService) DescribeRouters(in *google_protobuf2.Empty) (out *google
 	return x, err
 }
 
-func (p *RouterService) CreateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeRoutersInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) CreateRouters(in *CreateRoutersInput) (out *CreateRoutersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateRoutersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -123,7 +944,7 @@ func (p *RouterService) CreateRouters(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateRoutersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -139,9 +960,13 @@ func (p *RouterService) CreateRouters(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RouterService) DeleteRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateRoutersInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) DeleteRouters(in *DeleteRoutersInput) (out *DeleteRoutersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteRoutersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -150,7 +975,7 @@ func (p *RouterService) DeleteRouters(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteRoutersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -166,9 +991,13 @@ func (p *RouterService) DeleteRouters(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RouterService) UpdateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteRoutersInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) UpdateRouters(in *UpdateRoutersInput) (out *UpdateRoutersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &UpdateRoutersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -177,7 +1006,7 @@ func (p *RouterService) UpdateRouters(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &UpdateRoutersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -193,9 +1022,13 @@ func (p *RouterService) UpdateRouters(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RouterService) PowerOffRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *UpdateRoutersInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) PowerOffRouters(in *PowerOffRoutersInput) (out *PowerOffRoutersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &PowerOffRoutersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -204,7 +1037,7 @@ func (p *RouterService) PowerOffRouters(in *google_protobuf2.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &PowerOffRoutersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -220,9 +1053,13 @@ func (p *RouterService) PowerOffRouters(in *google_protobuf2.Empty) (out *google
 	return x, err
 }
 
-func (p *RouterService) PowerOnRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *PowerOffRoutersInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) PowerOnRouters(in *PowerOnRoutersInput) (out *PowerOnRoutersOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &PowerOnRoutersInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -231,7 +1068,7 @@ func (p *RouterService) PowerOnRouters(in *google_protobuf2.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &PowerOnRoutersOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -247,9 +1084,13 @@ func (p *RouterService) PowerOnRouters(in *google_protobuf2.Empty) (out *google_
 	return x, err
 }
 
-func (p *RouterService) JoinRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *PowerOnRoutersInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) JoinRouter(in *JoinRouterInput) (out *JoinRouterOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &JoinRouterInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -258,7 +1099,7 @@ func (p *RouterService) JoinRouter(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &JoinRouterOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -274,9 +1115,13 @@ func (p *RouterService) JoinRouter(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *RouterService) LeaveRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *JoinRouterInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) LeaveRouter(in *LeaveRouterInput) (out *LeaveRouterOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &LeaveRouterInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -285,7 +1130,7 @@ func (p *RouterService) LeaveRouter(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &LeaveRouterOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -301,9 +1146,13 @@ func (p *RouterService) LeaveRouter(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *RouterService) ModifyRouterAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *LeaveRouterInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) ModifyRouterAttributes(in *ModifyRouterAttributesInput) (out *ModifyRouterAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyRouterAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -312,7 +1161,7 @@ func (p *RouterService) ModifyRouterAttributes(in *google_protobuf2.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyRouterAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -328,9 +1177,13 @@ func (p *RouterService) ModifyRouterAttributes(in *google_protobuf2.Empty) (out 
 	return x, err
 }
 
-func (p *RouterService) DescribeRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyRouterAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) DescribeRouterStatics(in *DescribeRouterStaticsInput) (out *DescribeRouterStaticsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeRouterStaticsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -339,7 +1192,7 @@ func (p *RouterService) DescribeRouterStatics(in *google_protobuf2.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeRouterStaticsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -355,9 +1208,13 @@ func (p *RouterService) DescribeRouterStatics(in *google_protobuf2.Empty) (out *
 	return x, err
 }
 
-func (p *RouterService) AddRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeRouterStaticsInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) AddRouterStatics(in *AddRouterStaticsInput) (out *AddRouterStaticsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddRouterStaticsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -366,7 +1223,7 @@ func (p *RouterService) AddRouterStatics(in *google_protobuf2.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddRouterStaticsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -382,9 +1239,13 @@ func (p *RouterService) AddRouterStatics(in *google_protobuf2.Empty) (out *googl
 	return x, err
 }
 
-func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddRouterStaticsInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) ModifyRouterStaticAttributes(in *ModifyRouterStaticAttributesInput) (out *ModifyRouterStaticAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyRouterStaticAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -393,7 +1254,7 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf2.Empty)
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyRouterStaticAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -409,9 +1270,13 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf2.Empty)
 	return x, err
 }
 
-func (p *RouterService) DeleteRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyRouterStaticAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) DeleteRouterStatics(in *DeleteRouterStaticsInput) (out *DeleteRouterStaticsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteRouterStaticsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -420,7 +1285,7 @@ func (p *RouterService) DeleteRouterStatics(in *google_protobuf2.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteRouterStaticsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -436,9 +1301,13 @@ func (p *RouterService) DeleteRouterStatics(in *google_protobuf2.Empty) (out *go
 	return x, err
 }
 
-func (p *RouterService) CopyRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteRouterStaticsInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) CopyRouterStatics(in *CopyRouterStaticsInput) (out *CopyRouterStaticsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CopyRouterStaticsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -447,7 +1316,7 @@ func (p *RouterService) CopyRouterStatics(in *google_protobuf2.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CopyRouterStaticsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -463,9 +1332,13 @@ func (p *RouterService) CopyRouterStatics(in *google_protobuf2.Empty) (out *goog
 	return x, err
 }
 
-func (p *RouterService) DescribeRouterVxnets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CopyRouterStaticsInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) DescribeRouterVxnets(in *DescribeRouterVxnetsInput) (out *DescribeRouterVxnetsOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeRouterVxnetsInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -474,7 +1347,7 @@ func (p *RouterService) DescribeRouterVxnets(in *google_protobuf2.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeRouterVxnetsOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -490,9 +1363,13 @@ func (p *RouterService) DescribeRouterVxnets(in *google_protobuf2.Empty) (out *g
 	return x, err
 }
 
-func (p *RouterService) AddRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeRouterVxnetsInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) AddRouterStaticEntries(in *AddRouterStaticEntriesInput) (out *AddRouterStaticEntriesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddRouterStaticEntriesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -501,7 +1378,7 @@ func (p *RouterService) AddRouterStaticEntries(in *google_protobuf2.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddRouterStaticEntriesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -517,9 +1394,13 @@ func (p *RouterService) AddRouterStaticEntries(in *google_protobuf2.Empty) (out 
 	return x, err
 }
 
-func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddRouterStaticEntriesInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) DeleteRouterStaticEntries(in *DeleteRouterStaticEntriesInput) (out *DeleteRouterStaticEntriesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteRouterStaticEntriesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -528,7 +1409,7 @@ func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf2.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteRouterStaticEntriesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -544,9 +1425,13 @@ func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf2.Empty) (o
 	return x, err
 }
 
-func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteRouterStaticEntriesInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) ModifyRouterStaticEntryAttributes(in *ModifyRouterStaticEntryAttributesInput) (out *ModifyRouterStaticEntryAttributesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &ModifyRouterStaticEntryAttributesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -555,7 +1440,7 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf2.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &ModifyRouterStaticEntryAttributesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -571,9 +1456,13 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf2.E
 	return x, err
 }
 
-func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *ModifyRouterStaticEntryAttributesInput) Validate() error {
+	return nil
+}
+
+func (p *RouterService) DescribeRouterStaticEntries(in *DescribeRouterStaticEntriesInput) (out *DescribeRouterStaticEntriesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeRouterStaticEntriesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -582,7 +1471,7 @@ func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf2.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeRouterStaticEntriesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -598,32 +1487,64 @@ func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf2.Empty) 
 	return x, err
 }
 
+func (p *DescribeRouterStaticEntriesInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("router.proto", fileDescriptor19) }
 
 var fileDescriptor19 = []byte{
-	// 373 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x94, 0x41, 0x4f, 0xea, 0x40,
-	0x10, 0xc7, 0x43, 0x42, 0x78, 0x61, 0xde, 0xe3, 0xa1, 0x45, 0x41, 0x8b, 0x26, 0xea, 0xc9, 0x8b,
-	0x25, 0xd1, 0xab, 0x46, 0x6b, 0x41, 0x8d, 0x8a, 0x22, 0x44, 0xaf, 0x84, 0xb6, 0xd3, 0x66, 0x63,
-	0xed, 0xd6, 0xed, 0x16, 0xad, 0x1f, 0xc1, 0x0f, 0xea, 0xdd, 0x6f, 0x60, 0xda, 0xd5, 0x04, 0x44,
-	0x0f, 0xec, 0x5e, 0x9a, 0xb6, 0x3b, 0xff, 0xdf, 0xcc, 0xfc, 0x67, 0xb2, 0xf0, 0x8f, 0xd1, 0x84,
-	0x23, 0x33, 0x22, 0x46, 0x39, 0xd5, 0xfe, 0xc4, 0xc8, 0xc6, 0xc4, 0x41, 0x7d, 0xfd, 0x91, 0x84,
-	0xbe, 0x13, 0xd0, 0xc4, 0x1d, 0xc6, 0xee, 0xfd, 0x90, 0x25, 0x01, 0xb6, 0xb2, 0x87, 0x88, 0xd3,
-	0x9b, 0x3e, 0xa5, 0x7e, 0x80, 0xad, 0xfc, 0xcb, 0x4e, 0xbc, 0x16, 0x3e, 0x44, 0x3c, 0x15, 0x87,
-	0x5b, 0x3b, 0xd0, 0xe8, 0xe7, 0xd0, 0x81, 0x80, 0xf5, 0x18, 0x8d, 0x90, 0x71, 0x82, 0xb1, 0xa6,
-	0x41, 0xf1, 0x85, 0x86, 0xb8, 0x52, 0xd8, 0x28, 0x6c, 0x97, 0xfb, 0xf9, 0xfb, 0xee, 0x1b, 0x40,
-	0x65, 0x2a, 0x5e, 0x33, 0xa1, 0xda, 0xc6, 0xd8, 0x61, 0xc4, 0x46, 0x71, 0x10, 0x6b, 0x75, 0x43,
-	0x64, 0x34, 0xbe, 0x32, 0x1a, 0x9d, 0x2c, 0xa3, 0xfe, 0xcb, 0x7f, 0xed, 0x10, 0x2a, 0x16, 0xc3,
-	0x11, 0x57, 0x01, 0xb4, 0x31, 0x40, 0x25, 0xc0, 0x6d, 0xe4, 0x2a, 0x54, 0x60, 0x42, 0xb5, 0x47,
-	0x9f, 0x90, 0x5d, 0x7b, 0x9e, 0x2c, 0xe2, 0x08, 0xfe, 0x0b, 0x44, 0x28, 0x4b, 0xd8, 0x07, 0x38,
-	0xa7, 0xe4, 0x53, 0x3e, 0xb7, 0xfa, 0x00, 0xfe, 0x5e, 0xe2, 0x68, 0x8c, 0x92, 0xf2, 0x33, 0xa8,
-	0x77, 0xa9, 0x4b, 0xbc, 0x54, 0xe8, 0x4d, 0xce, 0x19, 0xb1, 0x13, 0x8e, 0xf3, 0xb7, 0x71, 0x0a,
-	0xcb, 0xd3, 0x1b, 0x35, 0xe0, 0x23, 0x4e, 0x9c, 0xf9, 0x41, 0xc7, 0xb0, 0x60, 0xba, 0xae, 0x1a,
-	0xe3, 0x0a, 0xd6, 0x26, 0xdb, 0x12, 0x18, 0x85, 0xe6, 0x3a, 0x50, 0x9b, 0x5c, 0x55, 0xd9, 0xb2,
-	0x2c, 0x58, 0xb4, 0x68, 0x94, 0xaa, 0x41, 0x4e, 0x60, 0x69, 0xda, 0xe8, 0xbb, 0xe7, 0x10, 0x79,
-	0x2c, 0x33, 0xfa, 0x6f, 0x3e, 0x77, 0x42, 0xce, 0x88, 0x84, 0x3b, 0x17, 0xb0, 0x3a, 0xeb, 0x8e,
-	0x2c, 0x6c, 0x00, 0x9b, 0xb3, 0xa3, 0xcb, 0x60, 0xa9, 0xc2, 0xfc, 0xba, 0xd0, 0xfc, 0x69, 0x39,
-	0x25, 0x6b, 0xd4, 0x1b, 0xaf, 0xef, 0xc5, 0x1a, 0x94, 0x6f, 0x48, 0xe8, 0x5b, 0xd9, 0x05, 0xae,
-	0x95, 0x04, 0xd5, 0x2e, 0xe5, 0x81, 0x7b, 0x1f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xb3, 0xec, 0x2a,
-	0x7a, 0xf3, 0x05, 0x00, 0x00,
+	// 827 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x58, 0xcd, 0x52, 0xdb, 0x3a,
+	0x14, 0x9e, 0xdc, 0xcb, 0x85, 0xcb, 0xb9, 0x97, 0x3f, 0x01, 0x89, 0x51, 0x12, 0x08, 0x86, 0x96,
+	0x94, 0x4e, 0xa1, 0xd3, 0x3e, 0x01, 0x13, 0xba, 0x28, 0x53, 0x86, 0x14, 0xa6, 0xac, 0x3a, 0x93,
+	0x26, 0xb6, 0x42, 0x5d, 0x52, 0xcb, 0xc8, 0x32, 0x94, 0x3e, 0x40, 0x17, 0x5d, 0xf4, 0x5d, 0xfb,
+	0x06, 0x1d, 0x62, 0x05, 0x4b, 0xb2, 0x6c, 0xd8, 0x68, 0xc3, 0x60, 0x9d, 0x4f, 0xe7, 0xfb, 0x24,
+	0x1d, 0xf9, 0x7c, 0x0e, 0xfc, 0xcf, 0x68, 0xc2, 0x09, 0xdb, 0x8b, 0x18, 0xe5, 0x14, 0xcd, 0xc4,
+	0x84, 0x5d, 0x07, 0x1e, 0xc1, 0xcd, 0xab, 0x20, 0xbc, 0xf0, 0x46, 0x34, 0xf1, 0x7b, 0xb1, 0x7f,
+	0xd9, 0x63, 0xc9, 0x88, 0xec, 0xdf, 0xfd, 0x49, 0x71, 0xee, 0x0b, 0xa8, 0x9d, 0x8e, 0xe7, 0x9d,
+	0xa5, 0xf8, 0x2e, 0xa3, 0x11, 0x61, 0x3c, 0x20, 0x31, 0x42, 0x30, 0xf5, 0x9d, 0x86, 0xc4, 0xa9,
+	0xb4, 0x2a, 0xed, 0xd9, 0xd3, 0xf1, 0xff, 0x6e, 0x15, 0x56, 0x0e, 0x49, 0xec, 0xb1, 0x60, 0x40,
+	0xd2, 0x69, 0xf1, 0xdb, 0x30, 0x4a, 0xb8, 0xeb, 0xc3, 0xaa, 0x36, 0x7e, 0x92, 0xf0, 0x28, 0xe1,
+	0xa8, 0x0a, 0xd3, 0x7d, 0x8f, 0x07, 0x34, 0x14, 0x69, 0xc4, 0x13, 0x5a, 0x83, 0x7f, 0x19, 0xe1,
+	0x3d, 0x8f, 0xfa, 0xc4, 0xf9, 0xab, 0x55, 0x69, 0xff, 0x73, 0x3a, 0xc3, 0x08, 0xef, 0x50, 0x9f,
+	0x20, 0x07, 0x66, 0xbe, 0x92, 0x38, 0xee, 0x5f, 0x10, 0xe7, 0xef, 0xf1, 0x9c, 0xc9, 0xa3, 0xbb,
+	0x02, 0xa8, 0xc3, 0x48, 0x9f, 0xab, 0xdc, 0x03, 0x58, 0x56, 0x46, 0x2d, 0x31, 0x1f, 0x92, 0x11,
+	0xc9, 0x33, 0x2b, 0xa3, 0x96, 0x98, 0x3f, 0x44, 0xbe, 0x61, 0xcd, 0xca, 0xa8, 0x0d, 0xe6, 0x2a,
+	0xac, 0x74, 0xe9, 0x0d, 0x61, 0x27, 0xc3, 0xa1, 0x7e, 0xd6, 0xda, 0xb8, 0x0d, 0xf6, 0x55, 0x58,
+	0x4e, 0x59, 0x42, 0x85, 0xdc, 0x9b, 0x88, 0x0a, 0x2d, 0x72, 0x2f, 0xc1, 0xc2, 0x11, 0x0d, 0x04,
+	0x43, 0xca, 0xdb, 0x83, 0xc5, 0x6c, 0xc8, 0x06, 0x27, 0x82, 0xc5, 0x77, 0xa4, 0x7f, 0x4d, 0x64,
+	0xd2, 0x4f, 0xb0, 0x24, 0x8d, 0xd9, 0x60, 0x6d, 0x42, 0xfd, 0x98, 0xfa, 0xc1, 0xf0, 0x36, 0xa5,
+	0x38, 0xe0, 0x9c, 0x05, 0x83, 0x84, 0x13, 0xb1, 0xdb, 0x97, 0xd0, 0x30, 0x87, 0x6d, 0x68, 0x69,
+	0x00, 0x56, 0xdf, 0x21, 0x67, 0xbc, 0xcf, 0x03, 0x4f, 0x48, 0xf9, 0x02, 0x75, 0x63, 0xd4, 0x86,
+	0x92, 0x1a, 0xac, 0x1e, 0xf8, 0xbe, 0x41, 0x04, 0x81, 0xaa, 0x1e, 0xb0, 0xc1, 0xbf, 0x05, 0x9b,
+	0xf2, 0xb6, 0xa7, 0x4c, 0xfa, 0xd9, 0x5c, 0x81, 0x5b, 0x06, 0xb2, 0xa1, 0x0b, 0x83, 0x23, 0xbf,
+	0xef, 0x94, 0xad, 0xf9, 0x0c, 0x6b, 0x86, 0x98, 0x0d, 0x15, 0x0e, 0x54, 0x3b, 0x34, 0xba, 0x35,
+	0x68, 0x18, 0x42, 0x2d, 0x17, 0xb1, 0xa1, 0xa0, 0x7e, 0xb7, 0x56, 0xb9, 0x16, 0xcf, 0xbf, 0x85,
+	0x84, 0x0b, 0x11, 0x81, 0x5e, 0xc6, 0x69, 0xd0, 0xd2, 0xed, 0xd5, 0xca, 0xf1, 0x4d, 0xc8, 0x59,
+	0x20, 0xdd, 0x5e, 0x73, 0xd8, 0x86, 0x96, 0x16, 0xac, 0xe7, 0xcf, 0x5f, 0x91, 0x13, 0xc2, 0x46,
+	0x21, 0xc2, 0x86, 0xa2, 0x36, 0x3c, 0xcd, 0x5f, 0x90, 0x3b, 0xbe, 0x5b, 0xfd, 0x2a, 0x5d, 0xc3,
+	0xce, 0x83, 0x48, 0x1b, 0x0a, 0x5d, 0x68, 0x99, 0xde, 0x69, 0xca, 0xae, 0x45, 0xb0, 0x59, 0x82,
+	0xb1, 0xa0, 0xea, 0xd5, 0xaf, 0x79, 0x98, 0x53, 0x3c, 0x21, 0xea, 0xc2, 0x82, 0xe6, 0xee, 0x50,
+	0x73, 0x4f, 0x18, 0xcc, 0x3d, 0x93, 0x1f, 0xc4, 0xeb, 0x45, 0x61, 0x21, 0xf8, 0x08, 0xe6, 0x14,
+	0xcf, 0x86, 0xea, 0xf7, 0x13, 0xf2, 0x0e, 0x0f, 0x37, 0xcc, 0xc1, 0x2c, 0x97, 0xe2, 0xc2, 0xa4,
+	0x5c, 0x79, 0xcf, 0x26, 0xe5, 0x32, 0x59, 0xb7, 0x23, 0x98, 0x53, 0x7c, 0x95, 0x94, 0x2b, 0xef,
+	0xc2, 0xa4, 0x5c, 0x26, 0x33, 0xd6, 0x85, 0x05, 0xcd, 0x27, 0x49, 0xbb, 0x66, 0x72, 0x56, 0xd2,
+	0xae, 0x99, 0x0d, 0xd6, 0x31, 0xcc, 0xab, 0xe6, 0x07, 0x35, 0xb4, 0x19, 0x8a, 0x59, 0xc2, 0xcd,
+	0x82, 0xa8, 0x48, 0x77, 0x00, 0x90, 0x79, 0x1a, 0xe4, 0xdc, 0x83, 0x35, 0xef, 0x83, 0xd7, 0x0c,
+	0x11, 0x91, 0xe2, 0x10, 0xfe, 0x93, 0x1c, 0x0a, 0xca, 0x90, 0xba, 0x97, 0xc1, 0xd8, 0x14, 0x12,
+	0x59, 0x08, 0x54, 0xcd, 0x36, 0x03, 0x6d, 0xdf, 0xcf, 0x2a, 0xb1, 0x29, 0xf8, 0xc9, 0x03, 0x28,
+	0x41, 0x33, 0xd0, 0x3f, 0x52, 0x44, 0x8b, 0x40, 0x5b, 0x05, 0xd5, 0x2a, 0x37, 0x17, 0xbc, 0x5d,
+	0x0e, 0x12, 0x1c, 0x67, 0xb0, 0xa8, 0x3b, 0x04, 0x94, 0x1d, 0xab, 0xd1, 0x55, 0xe0, 0x8d, 0xc2,
+	0xb8, 0x48, 0x7a, 0xa3, 0xda, 0x30, 0xbd, 0xd5, 0xa3, 0x5d, 0xe3, 0xfa, 0x8d, 0xb6, 0x01, 0x3f,
+	0x7f, 0x14, 0x56, 0x10, 0x7f, 0x54, 0x3f, 0x70, 0x26, 0x0b, 0xda, 0x34, 0xde, 0x21, 0x65, 0x4d,
+	0x6e, 0x19, 0x44, 0x64, 0x3f, 0x87, 0xa5, 0x5c, 0xbb, 0x46, 0xd9, 0x66, 0x98, 0x9b, 0x3c, 0x6e,
+	0x15, 0x03, 0x44, 0xde, 0x9e, 0xfe, 0x91, 0x9a, 0x76, 0x60, 0xe4, 0x16, 0x9c, 0xa0, 0xd4, 0xbd,
+	0xf1, 0x56, 0x29, 0x26, 0xab, 0x57, 0x73, 0x63, 0x95, 0xea, 0xb5, 0xa4, 0x31, 0x4b, 0xf5, 0x5a,
+	0xda, 0x9f, 0x43, 0x93, 0xa5, 0x9a, 0x30, 0xed, 0x94, 0x6c, 0xb0, 0x42, 0xd6, 0x7e, 0x18, 0x28,
+	0xf8, 0x7e, 0x54, 0x4c, 0xbe, 0x53, 0xeb, 0x83, 0x68, 0xbf, 0xa4, 0x80, 0x4c, 0xdd, 0x15, 0xbf,
+	0x7c, 0xfc, 0x04, 0x21, 0x84, 0x9b, 0xbd, 0xfe, 0x64, 0xe9, 0xcf, 0x4a, 0x6f, 0xa2, 0xb2, 0xf8,
+	0xdd, 0xc7, 0x40, 0x53, 0x56, 0x5c, 0xfb, 0xf9, 0x7b, 0x6a, 0x19, 0x66, 0xdf, 0x07, 0xe1, 0x45,
+	0x67, 0x44, 0x13, 0x1f, 0x4d, 0xa7, 0xd8, 0xc1, 0xf4, 0xf8, 0xa7, 0x92, 0xd7, 0x7f, 0x02, 0x00,
+	0x00, 0xff, 0xff, 0x50, 0xdb, 0x61, 0x9a, 0x62, 0x11, 0x00, 0x00,
 }

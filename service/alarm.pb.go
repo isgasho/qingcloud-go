@@ -367,6 +367,44 @@ It has these top-level messages:
 	DescribeRDBParametersOutput
 	ResourceACLServiceProperties
 	RouterServiceProperties
+	DescribeRoutersInput
+	DescribeRoutersOutput
+	CreateRoutersInput
+	CreateRoutersOutput
+	DeleteRoutersInput
+	DeleteRoutersOutput
+	UpdateRoutersInput
+	UpdateRoutersOutput
+	PowerOffRoutersInput
+	PowerOffRoutersOutput
+	PowerOnRoutersInput
+	PowerOnRoutersOutput
+	JoinRouterInput
+	JoinRouterOutput
+	LeaveRouterInput
+	LeaveRouterOutput
+	ModifyRouterAttributesInput
+	ModifyRouterAttributesOutput
+	DescribeRouterStaticsInput
+	DescribeRouterStaticsOutput
+	AddRouterStaticsInput
+	AddRouterStaticsOutput
+	ModifyRouterStaticAttributesInput
+	ModifyRouterStaticAttributesOutput
+	DeleteRouterStaticsInput
+	DeleteRouterStaticsOutput
+	CopyRouterStaticsInput
+	CopyRouterStaticsOutput
+	DescribeRouterVxnetsInput
+	DescribeRouterVxnetsOutput
+	AddRouterStaticEntriesInput
+	AddRouterStaticEntriesOutput
+	DeleteRouterStaticEntriesInput
+	DeleteRouterStaticEntriesOutput
+	ModifyRouterStaticEntryAttributesInput
+	ModifyRouterStaticEntryAttributesOutput
+	DescribeRouterStaticEntriesInput
+	DescribeRouterStaticEntriesOutput
 	S2ServiceProperties
 	SecurityGroupServiceProperties
 	DescribeSecurityGroupsInput
