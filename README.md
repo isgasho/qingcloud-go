@@ -103,3 +103,107 @@ func jsonpbEncode(m proto.Message) string {
 	go run hello.go
 
 [更多例子](examples).
+
+## 文档指南
+
+使用青云SDK一般是以下步骤:
+
+1. 用 [config](https://godoc.org/github.com/chai2010/qingcloud-go/config) 包构造一个配置对象, 里面含有最重要的 API密钥, 还包含日志级别等信息.
+2. 基于配置对象调用 [service](https://godoc.org/github.com/chai2010/qingcloud-go/service) 包的 [`Init`](https://godoc.org/github.com/chai2010/qingcloud-go/service#Init) 函数构造一个青云主服务对象 [`qcService`](https://godoc.org/github.com/chai2010/qingcloud-go/service#QingCloudService), 其中会根据配置文件设置日志级别.
+3. 假设有一个 [UserData](./spec.pb/user_data.proto) 子服务, 那么调用 [`qcService.UserData("pek3a")`](https://godoc.org/github.com/chai2010/qingcloud-go/service#QingCloudService.UserData) 方法将返回子服务对象, 其中参数是区域
+4. 使用子服务对象就可以调用每个子对象的方法了
+
+我们也可以查看子服务对应的接口规范, 在 [spec.pb/user_data.proto](./spec.pb/user_data.proto) 文件定义:
+
+```proto
+service UserDataService {
+	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput);
+}
+
+message UploadUserDataAttachmentInput {
+	bytes attachment_content = 2;
+	string attachment_name = 1;
+}
+
+message UploadUserDataAttachmentOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	string attachment_id = 4;
+}
+```
+
+其中`service`关键字开头的表示定义一组子服务, 其中`rpc`开头的表示子服务中每个具体的方法. 方法的输入参数和返回值分别为`UploadUserDataAttachmentInput`和`UploadUserDataAttachmentInput`结构体类型, 它们由后面的`message`关键字定义.
+
+SDK的代码生成插件会生成以下的Go语言代码:
+
+```go
+type UserDataService struct {
+	// ...
+}
+
+func (p *QingCloudService) UserData(zone string) (*UserDataService, error) {
+	// ...
+}
+
+type UploadUserDataAttachmentInput struct {
+	// ...
+}
+type UploadUserDataAttachmentOutput struct {
+	// ...
+}
+
+func (p *UserDataService) UploadUserDataAttachment(
+	in *UploadUserDataAttachmentInput,
+) (
+	*UploadUserDataAttachmentOutput,
+	error,
+) {
+	// ...
+}
+```
+
+其中 message 对应结构体, 可以参考生成的代码, 也可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
+
+## 与官方文档的兼容性
+
+- 该 SDK 和 官方 SDK 的 API 保持最大的兼容性
+- 即使有不兼容的地方, API 也是非常相似的
+
+假设青云的REST规范的文档中有一个名为 `job_id` 的输入参数, 对应 `XXXInput` 结构体的成员.
+
+官方文档是根据 [json定义的规范](https://github.com/yunify/qingcloud-api-specs/tree/master/2013-08-30/swagger), 然后通过一个名为 [snips](https://github.com/yunify/snips) 的工具加自己定义的 模板 生成的代码, `XXXInput` 输入参数生成的代码可能类似以下结构:
+
+```go
+type XXXInput struct {
+	JobID *string `json:"job_id" name:"job_id" location:"elements"`
+}
+```
+
+而我们的SDK采用Protobuf3标准工具生成的代码:
+
+```go
+type XXXInput struct {
+	JobId string   `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+}
+```
+
+其中有两个大的差异: 一个是成员名称不同, 分别为 `JobID` 和 `JobId`; 另一个为类型不同, 分别为 `*string` 和 `string`.
+
+[snips](https://github.com/yunify/snips) 采用和 Protobuf-V2 类似的生成规则, 零值是 `nil`, 空值是空字符串, 二者是不等价的. 在 Protobuf3 的生成规则中, 默认将零值和空值等价.
+
+
+## 为何不用官方SDK, 为何要重现做一个? 自己早轮子很爽吗?
+
+自己看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 看看哪种好维护:
+
+- proto3 格式(我们的): [chai2010/qingcloud-go/spec.pb/volume.proto](./spec.pb/volume.proto)
+- snips 格式(官方的): [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
+
+有码有真相, 什么都明白了吧...
+
+
+## 版权
+
+The Apache License.
