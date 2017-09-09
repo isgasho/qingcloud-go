@@ -196,7 +196,7 @@ type XXXInput struct {
 
 ## 为何不用官方SDK, 为何要重新做一个? 自己造轮子很爽吗?
 
-官方SDK采用json格式定义规范很难维护, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 目前官方SDK已经落后于当前服务. 更别说还要花很大精力维护 snips 本身的开发. 而使用protobuf标准, 也便于以后和docker和k8s等平台互联网(它们都是提供的grpc接口, 也是protobuf规范定义的).
+官方SDK采用json格式定义规范很难维护, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 目前官方SDK已经落后于当前服务(官方的json规范共有约2万行, 我们的proto规范文件远不到1万行). 更别说还要花很大精力维护 snips 本身的开发. 而使用protobuf标准, 也便于以后和docker和k8s等平台互联网(它们都是提供的grpc接口, 也是protobuf规范定义的).
 
 可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 感觉一下哪个更容易维护:
 
