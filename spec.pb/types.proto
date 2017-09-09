@@ -623,137 +623,117 @@ message S2DefaultParameters {
 	string target_type = 5;
 }
 
-/*
-type S2Server struct {
-	CreateTime  *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description *string    `json:"description" name:"description"`
-	// IsApplied's available values: 0, 1
-	IsApplied  *int    `json:"is_applied" name:"is_applied"`
-	Name       *string `json:"name" name:"name"`
-	PrivateIP  *string `json:"private_ip" name:"private_ip"`
-	S2ServerID *string `json:"s2_server_id" name:"s2_server_id"`
-	// S2ServerType's available values: 0, 1, 2, 3
-	S2ServerType *int `json:"s2_server_type" name:"s2_server_type"`
-	// ServiceType's available values: vsan
-	ServiceType *string `json:"service_type" name:"service_type"`
-	// Status's available values: pending, active, poweroffed, suspended, deleted, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	// TransitionStatus's available values: creating, updating, suspending, resuming, poweroffing
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	VxNet            *VxNet  `json:"vxnet" name:"vxnet"`
+message S2Server {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	int32 is_applied = 3;
+	string name = 4;
+	string private_ip = 5;
+	string s2_server_id = 6;
+	int32 s2_server_type = 7;
+	string service_type = 8;
+	string status = 9;
+	google.protobuf.Timestamp status_time = 10;
+	repeated Tag tags = 11;
+	string transition_status = 12;
+	VxNet vxnet = 13;
 }
 
-type S2SharedTarget struct {
-	CreateTime       *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description      *string    `json:"description" name:"description"`
-	ExportName       *string    `json:"export_name" name:"export_name"`
-	S2ServerID       *string    `json:"s2_server_id" name:"s2_server_id"`
-	S2SharedTargetID *string    `json:"s2_shared_target_id" name:"s2_shared_target_id"`
-	StatusTime       *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	// TargetType's available values: ISCSI, NFS
-	TargetType *string `json:"target_type" name:"target_type"`
+message S2SharedTarget {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	string export_name = 3;
+	string s2_server_id = 4;
+	string s2_shared_target_id = 5;
+	google.protobuf.Timestamp status_time = 6;
+	string target_type = 7;
 }
 
-type SecurityGroup struct {
-	CreateTime        *time.Time  `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description       *string     `json:"description" name:"description"`
-	IsApplied         *int        `json:"is_applied" name:"is_applied"`
-	IsDefault         *int        `json:"is_default" name:"is_default"`
-	Resources         []*Resource `json:"resources" name:"resources"`
-	SecurityGroupID   *string     `json:"security_group_id" name:"security_group_id"`
-	SecurityGroupName *string     `json:"security_group_name" name:"security_group_name"`
-	Tags              []*Tag      `json:"tags" name:"tags"`
+message SecurityGroup {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	int32 is_applied = 3;
+	int32 is_default = 4;
+	repeated Resource resources = 5;
+	string security_group_id = 6;
+	string security_group_name = 7;
+	repeated Tag tags = 8;
 }
 
-type SecurityGroupIPSet struct {
-	CreateTime  *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description *string    `json:"description" name:"description"`
-	// IPSetType's available values: 0, 1
-	IPSetType              *int    `json:"ipset_type" name:"ipset_type"`
-	SecurityGroupIPSetID   *string `json:"security_group_ipset_id" name:"security_group_ipset_id"`
-	SecurityGroupIPSetName *string `json:"security_group_ipset_name" name:"security_group_ipset_name"`
-	Val                    *string `json:"val" name:"val"`
+message SecurityGroupIPSet {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	int32 ipset_type = 3;
+	string security_group_ipset_id = 4;
+	string security_group_ipset_name = 5;
+	string val = 6;
 }
 
-type SecurityGroupRule struct {
-	// Action's available values: accept, drop
-	Action              *string `json:"action" name:"action"`
-	Priority            *int    `json:"priority" name:"priority"`
-	Protocol            *string `json:"protocol" name:"protocol"`
-	SecurityGroupID     *string `json:"security_group_id" name:"security_group_id"`
-	SecurityGroupRuleID *string `json:"security_group_rule_id" name:"security_group_rule_id"`
-	Val1                *string `json:"val1" name:"val1"`
-	Val2                *string `json:"val2" name:"val2"`
-	Val3                *string `json:"val3" name:"val3"`
+message SecurityGroupRule {
+	string action = 1;
+	int32 priority = 2;
+	string protocol = 3;
+	string security_group_id = 4;
+	string security_group_rule_id = 5;
+	string val1 = 6;
+	string val2 = 7;
+	string val3 = 8;
 }
 
-type SecurityGroupSnapshot struct {
-	GroupID                 *string              `json:"group_id" name:"group_id"`
-	Rules                   []*SecurityGroupRule `json:"rules" name:"rules"`
-	SecurityGroupSnapshotID *string              `json:"security_group_snapshot_id" name:"security_group_snapshot_id"`
+message SecurityGroupSnapshot {
+	string group_id = 1;
+	repeated SecurityGroupRule rules = 2;
+	string security_group_snapshot_id = 3;
 }
 
-type ServerCertificate struct {
-	CertificateContent    *string    `json:"certificate_content" name:"certificate_content"`
-	CreateTime            *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description           *string    `json:"description" name:"description"`
-	PrivateKey            *string    `json:"private_key" name:"private_key"`
-	ServerCertificateID   *string    `json:"server_certificate_id" name:"server_certificate_id"`
-	ServerCertificateName *string    `json:"server_certificate_name" name:"server_certificate_name"`
+message ServerCertificate {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	string certificate_content = 3;
+	string private_key = 4;
+	string server_certificate_id = 5;
+	string server_certificate_name = 6;
 }
 
-type Snapshot struct {
-	CreateTime  *time.Time `json:"create_time" name:"create_time" format:"ISO 8601"`
-	Description *string    `json:"description" name:"description"`
-	HeadChain   *string    `json:"head_chain" name:"head_chain"`
-	// IsHead's available values: 0, 1
-	IsHead *int `json:"is_head" name:"is_head"`
-	// IsTaken's available values: 0, 1
-	IsTaken            *int              `json:"is_taken" name:"is_taken"`
-	LatestSnapshotTime *time.Time        `json:"latest_snapshot_time" name:"latest_snapshot_time" format:"ISO 8601"`
-	ParentID           *string           `json:"parent_id" name:"parent_id"`
-	Provider           *string           `json:"provider" name:"provider"`
-	Resource           *Resource         `json:"resource" name:"resource"`
-	RootID             *string           `json:"root_id" name:"root_id"`
-	Size               *int              `json:"size" name:"size"`
-	SnapshotID         *string           `json:"snapshot_id" name:"snapshot_id"`
-	SnapshotName       *string           `json:"snapshot_name" name:"snapshot_name"`
-	SnapshotResource   *SnapshotResource `json:"snapshot_resource" name:"snapshot_resource"`
-	SnapshotTime       *time.Time        `json:"snapshot_time" name:"snapshot_time" format:"ISO 8601"`
-	// SnapshotType's available values: 0, 1
-	SnapshotType *string `json:"snapshot_type" name:"snapshot_type"`
-	// Status's available values: pending, available, suspended, deleted, ceased
-	Status     *string    `json:"status" name:"status"`
-	StatusTime *time.Time `json:"status_time" name:"status_time" format:"ISO 8601"`
-	SubCode    *int       `json:"sub_code" name:"sub_code"`
-	Tags       []*Tag     `json:"tags" name:"tags"`
-	TotalCount *int       `json:"total_count" name:"total_count"`
-	TotalSize  *int       `json:"total_size" name:"total_size"`
-	// TransitionStatus's available values: creating, suspending, resuming, deleting, recovering
-	TransitionStatus *string `json:"transition_status" name:"transition_status"`
-	VirtualSize      *int    `json:"virtual_size" name:"virtual_size"`
-	Visibility       *string `json:"visibility" name:"visibility"`
+message Snapshot {
+	google.protobuf.Timestamp create_time = 1;
+	string description = 2;
+	string head_chain = 3;
+	int32 is_head = 4;
+	int32 is_taken = 5;
+	google.protobuf.Timestamp latest_snapshot_time = 6;
+	string parent_id = 7;
+	string provider = 8;
+	Resource resource = 9;
+	string root_id = 10;
+	int32 size = 11;
+	string snapshot_id = 12;
+	string snapshot_name = 13;
+	SnapshotResource snapshot_resource = 14;
+	google.protobuf.Timestamp snapshot_time = 15;
+	string snapshot_type = 16;
+	string status = 17;
+	google.protobuf.Timestamp status_time = 18;
+	int32 sub_code = 19;
+	repeated Tag tags = 20;
+	int32 total_count = 21;
+	int32 total_size = 22;
+	string transition_status = 23;
+	int32 virtual_size = 24;
+	string visibility = 25;
 }
 
-type SnapshotResource struct {
-	OSFamily *string `json:"os_family" name:"os_family"`
-	Platform *string `json:"platform" name:"platform"`
+message SnapshotResource {
+	string os_family = 1;
+	string platform = 2;
 }
 
-
-type User struct {
-	Email  *string `json:"email" name:"email"`
-	UserID *string `json:"user_id" name:"user_id"`
+message User {
+	string email = 1;
+	string user_id = 2;
 }
 
-
-type Zone struct {
-	// Status's available values: active, faulty, defunct
-	Status *string `json:"status" name:"status"`
-	ZoneID *string `json:"zone_id" name:"zone_id"`
+message Zone {
+	string status = 1;
+	string zone_id = 2;
 }
-
-*/
-

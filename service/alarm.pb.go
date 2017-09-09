@@ -727,6 +727,17 @@ It has these top-level messages:
 	RouterStaticEntry
 	RouterVxNet
 	S2DefaultParameters
+	S2Server
+	S2SharedTarget
+	SecurityGroup
+	SecurityGroupIPSet
+	SecurityGroupRule
+	SecurityGroupSnapshot
+	ServerCertificate
+	Snapshot
+	SnapshotResource
+	User
+	Zone
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput
