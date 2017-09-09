@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/snapshot/index.html
 
 message SnapshotServiceProperties {
@@ -22,11 +20,67 @@ service SnapshotService {
 		sub_service_name: "Snapshot"
 	};
 
-	rpc DescribeSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ApplySnapshots(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifySnapshotAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CaptureInstanceFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateVolumeFromSnapshot(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeSnapshots(DescribeSnapshotsInput) returns (DescribeSnapshotsOutput);
+	rpc CreateSnapshots(CreateSnapshotsInput) returns (CreateSnapshotsOutput);
+	rpc DeleteSnapshots(DeleteSnapshotsInput) returns (DeleteSnapshotsOutput);
+	rpc ApplySnapshots(ApplySnapshotsInput) returns (ApplySnapshotsOutput);
+	rpc ModifySnapshotAttributes(ModifySnapshotAttributesInput) returns (ModifySnapshotAttributesOutput);
+	rpc CaptureInstanceFromSnapshot(CaptureInstanceFromSnapshotInput) returns (CaptureInstanceFromSnapshotOutput);
+	rpc CreateVolumeFromSnapshot(CreateVolumeFromSnapshotInput) returns (CreateVolumeFromSnapshotOutput);
+}
+
+message DescribeSnapshotsInput {}
+message DescribeSnapshotsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateSnapshotsInput {}
+message CreateSnapshotsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSnapshotsInput {}
+message DeleteSnapshotsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ApplySnapshotsInput {}
+message ApplySnapshotsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifySnapshotAttributesInput {}
+message ModifySnapshotAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CaptureInstanceFromSnapshotInput {}
+message CaptureInstanceFromSnapshotOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateVolumeFromSnapshotInput {}
+message CreateVolumeFromSnapshotOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

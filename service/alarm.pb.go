@@ -308,6 +308,20 @@ It has these top-level messages:
 	S2ServiceProperties
 	SecurityGroupServiceProperties
 	SnapshotServiceProperties
+	DescribeSnapshotsInput
+	DescribeSnapshotsOutput
+	CreateSnapshotsInput
+	CreateSnapshotsOutput
+	DeleteSnapshotsInput
+	DeleteSnapshotsOutput
+	ApplySnapshotsInput
+	ApplySnapshotsOutput
+	ModifySnapshotAttributesInput
+	ModifySnapshotAttributesOutput
+	CaptureInstanceFromSnapshotInput
+	CaptureInstanceFromSnapshotOutput
+	CreateVolumeFromSnapshotInput
+	CreateVolumeFromSnapshotOutput
 	SpanServiceProperties
 	CreateSpanInput
 	CreateSpanOutput
