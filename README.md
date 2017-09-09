@@ -70,8 +70,6 @@ log_level: 'warn'
 
 生成器代码在 [protoc-gen-go/qingcloud/qingcloud.go](protoc-gen-go/qingcloud/qingcloud.go).
 
-*注: 目前只实现了该接口*
-
 
 ## protobuf 扩展信息
 
