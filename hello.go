@@ -29,7 +29,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// 列出所以网卡
+	// 列出所有网卡
 	reply, err := nicService.DescribeNics(nil)
 	if err != nil {
 		log.Fatal(err)

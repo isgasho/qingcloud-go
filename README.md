@@ -72,7 +72,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// 列出所以网卡
+	// 列出所有网卡
 	reply, err := nicService.DescribeNics(nil)
 	if err != nil {
 		log.Fatal(err)
@@ -113,7 +113,7 @@ func jsonpbEncode(m proto.Message) string {
 3. 假设有一个 [UserData](./spec.pb/user_data.proto) 子服务, 那么调用 [`qcService.UserData("pek3a")`](https://godoc.org/github.com/chai2010/qingcloud-go/service#QingCloudService.UserData) 方法将返回子服务对象, 其中参数是区域
 4. 使用子服务对象就可以调用每个子对象的方法了
 
-我们也可以查看子服务对应的接口规范, 在 [spec.pb/user_data.proto](./spec.pb/user_data.proto) 文件定义:
+我们可以查看子服务对应的接口规范, 在 [spec.pb/user_data.proto](./spec.pb/user_data.proto) 文件定义 ([青云文档](https://docs.qingcloud.com/api/userdata/index.html)):
 
 ```proto
 service UserDataService {
@@ -136,7 +136,7 @@ message UploadUserDataAttachmentOutput {
 
 其中`service`关键字开头的表示定义一组子服务, 其中`rpc`开头的表示子服务中每个具体的方法. 方法的输入参数和返回值分别为`UploadUserDataAttachmentInput`和`UploadUserDataAttachmentInput`结构体类型, 它们由后面的`message`关键字定义.
 
-SDK的代码生成插件会生成以下的Go语言代码:
+[SDK的代码生成插件](./protoc-gen-go/qingcloud/qingcloud.go) 会生成以下的Go语言代码:
 
 ```go
 type UserDataService struct {
@@ -164,7 +164,7 @@ func (p *UserDataService) UploadUserDataAttachment(
 }
 ```
 
-其中 message 对应结构体, 可以参考生成的代码, 也可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
+规范文件的语法细节可以参考 [spec.pb/README.md](./spec.pb/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
 
 ## 与官方文档的兼容性
 
@@ -196,13 +196,14 @@ type XXXInput struct {
 
 ## 为何不用官方SDK, 为何要重现做一个? 自己早轮子很爽吗?
 
-自己看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 看看哪种好维护:
+自己看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 看看哪个更好维护:
 
 - proto3 格式(我们的): [chai2010/qingcloud-go/spec.pb/volume.proto](./spec.pb/volume.proto)
 - snips 格式(官方的): [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
 
 有码有真相, 什么都明白了吧...
 
+<!-- 以后或许可以通过pb自动生成json规范 -->
 
 ## 版权
 
