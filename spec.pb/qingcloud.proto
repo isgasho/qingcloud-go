@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 message QingCloudServiceProperties {
 	//
 }

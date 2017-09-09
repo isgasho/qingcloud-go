@@ -7,6 +7,7 @@ syntax = "proto3";
 package service;
 
 import "types.proto";
+import "qingcloud_sdk_rule/rule.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/nic/index.html
@@ -17,6 +18,11 @@ message NicServiceProperties {
 }
 
 service NicService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "Nic"
+	};
+
 	rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);
 	rpc DescribeNics(DescribeNicsInput) returns (DescribeNicsOutput);
 	rpc AttachNics(AttachNicsInput) returns (AttachNicsOutput);

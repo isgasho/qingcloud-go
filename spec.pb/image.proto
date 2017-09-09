@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 import "google/protobuf/empty.proto";
 
 // https://docs.qingcloud.com/api/image/index.html
@@ -15,6 +17,11 @@ message ImageServiceProperties {
 }
 
 service ImageService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "Image"
+	};
+
 	rpc DescribeImages(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc CaptureInstance(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DeleteImages(google.protobuf.Empty) returns (google.protobuf.Empty);

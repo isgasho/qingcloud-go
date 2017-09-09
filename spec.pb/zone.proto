@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 // https://docs.qingcloud.com/api/zone/index.html
 
 message ZoneServiceProperties {
@@ -13,6 +15,11 @@ message ZoneServiceProperties {
 }
 
 service ZoneService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "Zone"
+	};
+
 	rpc DescribeZones(DescribeZonesInput) returns (DescribeZonesOutput);
 }
 

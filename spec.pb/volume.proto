@@ -7,6 +7,7 @@ syntax = "proto3";
 package service;
 
 import "types.proto";
+import "qingcloud_sdk_rule/rule.proto";
 
 // https://docs.qingcloud.com/api/volume/index.html
 
@@ -15,6 +16,11 @@ message VolumesServiceProperties {
 }
 
 service VolumesService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "Volumes"
+	};
+
 	rpc DescribeVolumes(DescribeVolumesInput) returns (DescribeVolumesOutput);
 	rpc CreateVolumes(CreateVolumesInput) returns (CreateVolumesOutput);
 	rpc DeleteVolumes(DeleteVolumesInput) returns (DeleteVolumesOutput);

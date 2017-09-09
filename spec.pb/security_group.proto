@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 import "google/protobuf/empty.proto";
 
 // https://docs.qingcloud.com/api/sg/index.html
@@ -15,6 +17,11 @@ message SecurityGroupServiceProperties {
 }
 
 service SecurityGroupService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "SecurityGroup"
+	};
+
 	rpc DescribeSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc CreateSecurityGroup(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DeleteSecurityGroups(google.protobuf.Empty) returns (google.protobuf.Empty);

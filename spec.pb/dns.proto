@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 // https://docs.qingcloud.com/api/dns_alias/index.html
 
 message DNSAliasServiceProperties {
@@ -13,6 +15,11 @@ message DNSAliasServiceProperties {
 }
 
 service DNSAliasService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "DNSAlias"
+	};
+
 	rpc DescribeDNSAliases(DescribeDNSAliasesInput) returns (DescribeDNSAliasesOutput);
 	rpc AssociateDNSAlias(AssociateDNSAliasInput) returns (AssociateDNSAliasOutput);
 	rpc DissociateDNSAliases(DissociateDNSAliasesInput) returns (DissociateDNSAliasesOutput);

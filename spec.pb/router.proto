@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 import "google/protobuf/empty.proto";
 
 // https://docs.qingcloud.com/api/router/index.html
@@ -15,6 +17,11 @@ message RouterServiceProperties {
 }
 
 service RouterService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "ResourceACL"
+	};
+
 	rpc DescribeRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc CreateRouters(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DeleteRouters(google.protobuf.Empty) returns (google.protobuf.Empty);

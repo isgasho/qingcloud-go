@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 import "google/protobuf/empty.proto";
 
 // https://docs.qingcloud.com/api/hadoop/index.html
@@ -15,6 +17,11 @@ message HadoopServiceProperties {
 }
 
 service HadoopService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "Hadoop"
+	};
+
 	rpc AddHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DeleteHadoopNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc StartHadoops(google.protobuf.Empty) returns (google.protobuf.Empty);

@@ -7,6 +7,7 @@ syntax = "proto3";
 package service;
 
 import "types.proto";
+import "qingcloud_sdk_rule/rule.proto";
 
 import "google/protobuf/empty.proto";
 
@@ -19,6 +20,11 @@ message InstanceServiceProperties {
 }
 
 service InstanceService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "Instance"
+	};
+
 	rpc DescribeInstances(DescribeInstancesInput) returns (DescribeInstancesOutput);
 	rpc RunInstances(RunInstancesInput) returns (RunInstancesOutput);
 	rpc TerminateInstances(TerminateInstancesInput) returns (TerminateInstancesOutput);

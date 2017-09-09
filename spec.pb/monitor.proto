@@ -6,6 +6,8 @@ syntax = "proto3";
 
 package service;
 
+import "qingcloud_sdk_rule/rule.proto";
+
 import "google/protobuf/empty.proto";
 
 // https://docs.qingcloud.com/api/monitor/index.html
@@ -15,6 +17,11 @@ message MonitorServiceProperties {
 }
 
 service MonitorService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "Monitor"
+	};
+
 	rpc GetMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc GetLoadBalancerMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc GetRDBMonitor(google.protobuf.Empty) returns (google.protobuf.Empty);

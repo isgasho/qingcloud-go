@@ -7,6 +7,7 @@ syntax = "proto3";
 package service;
 
 import "types.proto";
+import "qingcloud_sdk_rule/rule.proto";
 
 import "google/protobuf/empty.proto";
 
@@ -19,6 +20,11 @@ message LoadBalancerServiceProperties {
 //LoadBalancer
 
 service LoadBalancerService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "KeyPair"
+	};
+
 	rpc CreateLoadBalancer(google.protobuf.Empty) returns (google.protobuf.Empty);
 	rpc DescribeLoadBalancers(DescribeLoadBalancersInput) returns (DescribeLoadBalancersOutput);
 	rpc DeleteLoadBalancers(google.protobuf.Empty) returns (google.protobuf.Empty);
