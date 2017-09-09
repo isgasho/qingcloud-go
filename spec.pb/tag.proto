@@ -32,40 +32,58 @@ message DescribeTagsInput {
 	//
 }
 message DescribeTagsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message CreateTagInput {
 	//
 }
 message CreateTagOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message DeleteTagsInput {
 	//
 }
 message DeleteTagsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message ModifyTagAttributesInput {
 	//
 }
 message ModifyTagAttributesOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message AttachTagsInput {
 	//
 }
 message AttachTagsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message DetachTagsInput {
 	//
 }
 message DetachTagsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

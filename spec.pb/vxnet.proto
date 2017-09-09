@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/vxnet/index.html
 
 message VxnetServiceProperties {
@@ -22,11 +20,68 @@ service VxnetService {
 		sub_service_name: "Vxnet"
 	};
 
-	rpc DescribeVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc CreateVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteVxnets(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc JoinVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc LeaveVxnet(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyVxnetAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeVxnetInstances(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeVxnets(DescribeVxnetsInput) returns (DescribeVxnetsOutput);
+	rpc CreateVxnets(CreateVxnetsInput) returns (CreateVxnetsOutput);
+	rpc DeleteVxnets(DeleteVxnetsInput) returns (DeleteVxnetsOutput);
+	rpc JoinVxnet(JoinVxnetInput) returns (JoinVxnetOutput);
+	rpc LeaveVxnet(LeaveVxnetInput) returns (LeaveVxnetOutput);
+	rpc ModifyVxnetAttributes(ModifyVxnetAttributesInput) returns (ModifyVxnetAttributesOutput);
+	rpc DescribeVxnetInstances(DescribeVxnetInstancesInput) returns (DescribeVxnetInstancesOutput);
 }
+
+message DescribeVxnetsInput {}
+message DescribeVxnetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message CreateVxnetsInput {}
+message CreateVxnetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteVxnetsInput {}
+message DeleteVxnetsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message JoinVxnetInput {}
+message JoinVxnetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message LeaveVxnetInput {}
+message LeaveVxnetOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyVxnetAttributesInput {}
+message ModifyVxnetAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeVxnetInstancesInput {}
+message DescribeVxnetInstancesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+

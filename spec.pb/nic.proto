@@ -37,7 +37,10 @@ message CreateNicsInput {
 	//
 }
 message CreateNicsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 // ----------------------------------------------------------------------------
@@ -55,10 +58,11 @@ message DescribeNicsInput {
 	repeated string vxnets = 8;
 }
 message DescribeNicsOutput {
-	string message = 1;
-	string action = 2;
-	repeated NIC nic_set = 3;
-	int32 ret_code = 4;
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	repeated NIC nic_set = 4;
 	int32 total_count = 5;
 }
 
@@ -69,7 +73,10 @@ message AttachNicsInput {
 }
 
 message AttachNicsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 // ----------------------------------------------------------------------------
@@ -78,7 +85,10 @@ message DetachNicsInput {
 	//
 }
 message DetachNicsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 // ----------------------------------------------------------------------------
@@ -87,7 +97,10 @@ message ModifyNicAttributesInput {
 	//
 }
 message ModifyNicAttributesOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 // ----------------------------------------------------------------------------
@@ -97,7 +110,10 @@ message DeleteNicsInput {
 }
 
 message DeleteNicsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 // ----------------------------------------------------------------------------

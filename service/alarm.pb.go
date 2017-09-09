@@ -356,6 +356,20 @@ It has these top-level messages:
 	ModifyVolumeAttributesInput
 	ModifyVolumeAttributesOutput
 	VxnetServiceProperties
+	DescribeVxnetsInput
+	DescribeVxnetsOutput
+	CreateVxnetsInput
+	CreateVxnetsOutput
+	DeleteVxnetsInput
+	DeleteVxnetsOutput
+	JoinVxnetInput
+	JoinVxnetOutput
+	LeaveVxnetInput
+	LeaveVxnetOutput
+	ModifyVxnetAttributesInput
+	ModifyVxnetAttributesOutput
+	DescribeVxnetInstancesInput
+	DescribeVxnetInstancesOutput
 	ZoneServiceProperties
 	DescribeZonesInput
 	DescribeZonesOutput

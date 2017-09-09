@@ -27,5 +27,8 @@ message DescribeNotificationCenterUserPostsInput {
 	//
 }
 message DescribeNotificationCenterUserPostsOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

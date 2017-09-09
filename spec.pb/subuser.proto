@@ -31,33 +31,48 @@ message DescribeSubUsersInput {
 	//
 }
 message DescribeSubUsersOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message CreateSubUserInput {
 	//
 }
 message CreateSubUserOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message ModifySubUserAttributesInput {
 	//
 }
 message ModifySubUserAttributesOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message DeleteSubUsersInput {
 	//
 }
 message DeleteSubUsersOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
 
 message RestoreSubUsersInput {
 	//
 }
 message RestoreSubUsersOutput {
-	//
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }
