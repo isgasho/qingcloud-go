@@ -37,7 +37,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(string(encodeJSON(reply)))
+	//fmt.Println(string(encodeJSON(reply)))
+
+	fmt.Println(reply)
 }
 
 func encodeJSON(m interface{}) []byte {
