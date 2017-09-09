@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -149,37 +149,37 @@ func init() {
 }
 
 type LoadBalancerServiceInterface interface {
-	CreateLoadBalancer(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateLoadBalancer(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 	DescribeLoadBalancers(in *DescribeLoadBalancersInput) (out *DescribeLoadBalancersOutput, err error)
-	DeleteLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyLoadBalancerAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StartLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StopLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	UpdateLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ResizeLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AssociateEipsToLoadBalancer(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DissociateEipsFromLoadBalancer(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddLoadBalancerListeners(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeLoadBalancerListeners(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteLoadBalancerListeners(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyLoadBalancerListenerAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddLoadBalancerBackends(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeLoadBalancerBackends(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteLoadBalancerBackends(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyLoadBalancerBackendAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateLoadBalancerPolicy(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeLoadBalancerPolicies(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyLoadBalancerPolicyAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ApplyLoadBalancerPolicy(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteLoadBalancerPolicies(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddLoadBalancerPolicyRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeLoadBalancerPolicyRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyLoadBalancerPolicyRuleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteLoadBalancerPolicyRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateServerCertificate(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeServerCertificates(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyServerCertificateAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteServerCertificates(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyLoadBalancerAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StartLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StopLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	UpdateLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ResizeLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AssociateEipsToLoadBalancer(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DissociateEipsFromLoadBalancer(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddLoadBalancerListeners(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeLoadBalancerListeners(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteLoadBalancerListeners(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyLoadBalancerListenerAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddLoadBalancerBackends(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeLoadBalancerBackends(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteLoadBalancerBackends(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyLoadBalancerBackendAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateLoadBalancerPolicy(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeLoadBalancerPolicies(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyLoadBalancerPolicyAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ApplyLoadBalancerPolicy(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteLoadBalancerPolicies(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddLoadBalancerPolicyRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeLoadBalancerPolicyRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyLoadBalancerPolicyRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteLoadBalancerPolicyRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateServerCertificate(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeServerCertificates(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyServerCertificateAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteServerCertificates(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type LoadBalancerService struct {
@@ -203,9 +203,9 @@ func (s *QingCloudService) LoadBalancer(zone string) (*LoadBalancerService, erro
 	return &LoadBalancerService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *LoadBalancerService) CreateLoadBalancer(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) CreateLoadBalancer(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -214,7 +214,7 @@ func (p *LoadBalancerService) CreateLoadBalancer(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -261,9 +261,9 @@ func (p *DescribeLoadBalancersInput) Validate() error {
 	return nil
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DeleteLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -272,7 +272,7 @@ func (p *LoadBalancerService) DeleteLoadBalancers(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -288,9 +288,9 @@ func (p *LoadBalancerService) DeleteLoadBalancers(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -299,7 +299,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -315,9 +315,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *google_protobuf1.
 	return x, err
 }
 
-func (p *LoadBalancerService) StartLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) StartLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -326,7 +326,7 @@ func (p *LoadBalancerService) StartLoadBalancers(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -342,9 +342,9 @@ func (p *LoadBalancerService) StartLoadBalancers(in *google_protobuf1.Empty) (ou
 	return x, err
 }
 
-func (p *LoadBalancerService) StopLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) StopLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -353,7 +353,7 @@ func (p *LoadBalancerService) StopLoadBalancers(in *google_protobuf1.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -369,9 +369,9 @@ func (p *LoadBalancerService) StopLoadBalancers(in *google_protobuf1.Empty) (out
 	return x, err
 }
 
-func (p *LoadBalancerService) UpdateLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) UpdateLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -380,7 +380,7 @@ func (p *LoadBalancerService) UpdateLoadBalancers(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -396,9 +396,9 @@ func (p *LoadBalancerService) UpdateLoadBalancers(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *LoadBalancerService) ResizeLoadBalancers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ResizeLoadBalancers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -407,7 +407,7 @@ func (p *LoadBalancerService) ResizeLoadBalancers(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -423,9 +423,9 @@ func (p *LoadBalancerService) ResizeLoadBalancers(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -434,7 +434,7 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *google_protobuf1.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -450,9 +450,9 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *google_protobuf1.E
 	return x, err
 }
 
-func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -461,7 +461,7 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -477,9 +477,9 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *google_protobuf
 	return x, err
 }
 
-func (p *LoadBalancerService) AddLoadBalancerListeners(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) AddLoadBalancerListeners(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -488,7 +488,7 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(in *google_protobuf1.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -504,9 +504,9 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(in *google_protobuf1.Empt
 	return x, err
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -515,7 +515,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *google_protobuf1
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -531,9 +531,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *google_protobuf1
 	return x, err
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -542,7 +542,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *google_protobuf1.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -558,9 +558,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *google_protobuf1.E
 	return x, err
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -569,7 +569,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -585,9 +585,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *google_pr
 	return x, err
 }
 
-func (p *LoadBalancerService) AddLoadBalancerBackends(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) AddLoadBalancerBackends(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -596,7 +596,7 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(in *google_protobuf1.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -612,9 +612,9 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(in *google_protobuf1.Empty
 	return x, err
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -623,7 +623,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -639,9 +639,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *google_protobuf1.
 	return x, err
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -650,7 +650,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *google_protobuf1.Em
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -666,9 +666,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *google_protobuf1.Em
 	return x, err
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -677,7 +677,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -693,9 +693,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *google_pro
 	return x, err
 }
 
-func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -704,7 +704,7 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *google_protobuf1.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -720,9 +720,9 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *google_protobuf1.Empt
 	return x, err
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -731,7 +731,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -747,9 +747,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *google_protobuf1.
 	return x, err
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -758,7 +758,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -774,9 +774,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *google_prot
 	return x, err
 }
 
-func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -785,7 +785,7 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *google_protobuf1.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -801,9 +801,9 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *google_protobuf1.Empty
 	return x, err
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -812,7 +812,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *google_protobuf1.Em
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -828,9 +828,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *google_protobuf1.Em
 	return x, err
 }
 
-func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -839,7 +839,7 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *google_protobuf1.Em
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -855,9 +855,9 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *google_protobuf1.Em
 	return x, err
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -866,7 +866,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *google_protobu
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -882,9 +882,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *google_protobu
 	return x, err
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -893,7 +893,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -909,9 +909,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *google_
 	return x, err
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -920,7 +920,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *google_protobuf1
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -936,9 +936,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *google_protobuf1
 	return x, err
 }
 
-func (p *LoadBalancerService) CreateServerCertificate(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) CreateServerCertificate(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -947,7 +947,7 @@ func (p *LoadBalancerService) CreateServerCertificate(in *google_protobuf1.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -963,9 +963,9 @@ func (p *LoadBalancerService) CreateServerCertificate(in *google_protobuf1.Empty
 	return x, err
 }
 
-func (p *LoadBalancerService) DescribeServerCertificates(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DescribeServerCertificates(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -974,7 +974,7 @@ func (p *LoadBalancerService) DescribeServerCertificates(in *google_protobuf1.Em
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -990,9 +990,9 @@ func (p *LoadBalancerService) DescribeServerCertificates(in *google_protobuf1.Em
 	return x, err
 }
 
-func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -1001,7 +1001,7 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -1017,9 +1017,9 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *google_proto
 	return x, err
 }
 
-func (p *LoadBalancerService) DeleteServerCertificates(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *LoadBalancerService) DeleteServerCertificates(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -1028,7 +1028,7 @@ func (p *LoadBalancerService) DeleteServerCertificates(in *google_protobuf1.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

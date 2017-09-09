@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/timestamp"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -199,10 +199,10 @@ type DescribeClustersOutput_Cluster struct {
 	AppId                 string                                                `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
 	AdvancedActions       *DescribeClustersOutput_Cluster_AdvancedActions       `protobuf:"bytes,7,opt,name=advanced_actions,json=advancedActions" json:"advanced_actions,omitempty"`
 	ConsoleId             string                                                `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	CreateTime            *google_protobuf2.Timestamp                           `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	CreateTime            *google_protobuf1.Timestamp                           `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
 	ClusterId             string                                                `protobuf:"bytes,10,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
 	Owner                 string                                                `protobuf:"bytes,11,opt,name=owner" json:"owner,omitempty"`
-	UpgradeTime           *google_protobuf2.Timestamp                           `protobuf:"bytes,12,opt,name=upgrade_time,json=upgradeTime" json:"upgrade_time,omitempty"`
+	UpgradeTime           *google_protobuf1.Timestamp                           `protobuf:"bytes,12,opt,name=upgrade_time,json=upgradeTime" json:"upgrade_time,omitempty"`
 	// google.protobuf.Any children = 13;
 	IncrementalBackupSupported bool  `protobuf:"varint,14,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
 	ClusterType                int32 `protobuf:"varint,15,opt,name=cluster_type,json=clusterType" json:"cluster_type,omitempty"`
@@ -210,7 +210,7 @@ type DescribeClustersOutput_Cluster struct {
 	MetadataRootAccess         bool  `protobuf:"varint,17,opt,name=metadata_root_access,json=metadataRootAccess" json:"metadata_root_access,omitempty"`
 	// google.protobuf.Any add_links = 18;
 	UpgradeStatus string                                `protobuf:"bytes,19,opt,name=upgrade_status,json=upgradeStatus" json:"upgrade_status,omitempty"`
-	StatusTime    *google_protobuf2.Timestamp           `protobuf:"bytes,20,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StatusTime    *google_protobuf1.Timestamp           `protobuf:"bytes,20,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	NodeCount     int32                                 `protobuf:"varint,21,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
 	AppVersion    string                                `protobuf:"bytes,22,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
 	Vxnet         *DescribeClustersOutput_Cluster_VxNet `protobuf:"bytes,23,opt,name=vxnet" json:"vxnet,omitempty"`
@@ -299,7 +299,7 @@ func (m *DescribeClustersOutput_Cluster) GetConsoleId() string {
 	return ""
 }
 
-func (m *DescribeClustersOutput_Cluster) GetCreateTime() *google_protobuf2.Timestamp {
+func (m *DescribeClustersOutput_Cluster) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -320,7 +320,7 @@ func (m *DescribeClustersOutput_Cluster) GetOwner() string {
 	return ""
 }
 
-func (m *DescribeClustersOutput_Cluster) GetUpgradeTime() *google_protobuf2.Timestamp {
+func (m *DescribeClustersOutput_Cluster) GetUpgradeTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.UpgradeTime
 	}
@@ -362,7 +362,7 @@ func (m *DescribeClustersOutput_Cluster) GetUpgradeStatus() string {
 	return ""
 }
 
-func (m *DescribeClustersOutput_Cluster) GetStatusTime() *google_protobuf2.Timestamp {
+func (m *DescribeClustersOutput_Cluster) GetStatusTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -626,7 +626,7 @@ func (m *DescribeClustersOutput_Cluster_AppInfo) GetAppName() string {
 }
 
 type DescribeClustersOutput_Cluster_AppVersionInfo struct {
-	StatusTime  *google_protobuf2.Timestamp `protobuf:"bytes,1,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StatusTime  *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	ResourceKit string                      `protobuf:"bytes,2,opt,name=resource_kit,json=resourceKit" json:"resource_kit,omitempty"`
 	Name        string                      `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
 	VersionId   string                      `protobuf:"bytes,4,opt,name=version_id,json=versionId" json:"version_id,omitempty"`
@@ -643,7 +643,7 @@ func (*DescribeClustersOutput_Cluster_AppVersionInfo) Descriptor() ([]byte, []in
 	return fileDescriptor2, []int{4, 0, 5}
 }
 
-func (m *DescribeClustersOutput_Cluster_AppVersionInfo) GetStatusTime() *google_protobuf2.Timestamp {
+func (m *DescribeClustersOutput_Cluster_AppVersionInfo) GetStatusTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -762,7 +762,7 @@ type DescribeClusterNodesOutput_NodeSet struct {
 	ConsoleId   string                      `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
 	StopService string                      `protobuf:"bytes,9,opt,name=stop_service,json=stopService" json:"stop_service,omitempty"`
 	UserAccess  int32                       `protobuf:"varint,10,opt,name=user_access,json=userAccess" json:"user_access,omitempty"`
-	CreateTime  *google_protobuf2.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
 	ClusterId   string                      `protobuf:"bytes,12,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
 	PrivateIp   string                      `protobuf:"bytes,13,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
 	// "upgrade_service":null,
@@ -777,7 +777,7 @@ type DescribeClusterNodesOutput_NodeSet struct {
 	RootUserId       string                      `protobuf:"bytes,23,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
 	Role             string                      `protobuf:"bytes,24,opt,name=role" json:"role,omitempty"`
 	Memory           int32                       `protobuf:"varint,25,opt,name=memory" json:"memory,omitempty"`
-	StatusTime       *google_protobuf2.Timestamp `protobuf:"bytes,26,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,26,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	RestartService   string                      `protobuf:"bytes,27,opt,name=restart_service,json=restartService" json:"restart_service,omitempty"`
 	AppVersion       string                      `protobuf:"bytes,28,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
 	Status           string                      `protobuf:"bytes,29,opt,name=status" json:"status,omitempty"`
@@ -869,7 +869,7 @@ func (m *DescribeClusterNodesOutput_NodeSet) GetUserAccess() int32 {
 	return 0
 }
 
-func (m *DescribeClusterNodesOutput_NodeSet) GetCreateTime() *google_protobuf2.Timestamp {
+func (m *DescribeClusterNodesOutput_NodeSet) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -960,7 +960,7 @@ func (m *DescribeClusterNodesOutput_NodeSet) GetMemory() int32 {
 	return 0
 }
 
-func (m *DescribeClusterNodesOutput_NodeSet) GetStatusTime() *google_protobuf2.Timestamp {
+func (m *DescribeClusterNodesOutput_NodeSet) GetStatusTime() *google_protobuf1.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}

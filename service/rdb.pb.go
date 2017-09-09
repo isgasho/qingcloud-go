@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,24 +43,24 @@ func init() {
 }
 
 type RDBServiceInterface interface {
-	CreateRDB(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StartRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StopRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ResizeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RDBsLeaveVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RDBsJoinVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateRDBFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateTempRDBInstanceFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GetRDBInstanceFiles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CopyRDBInstanceFilesToFTP(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	PurgeRDBLogs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CeaseRDBInstance(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GetRDBMonitor(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ApplyRDBParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateRDB(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StartRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StopRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ResizeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	RDBsLeaveVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	RDBsJoinVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateRDBFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateTempRDBInstanceFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	GetRDBInstanceFiles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CopyRDBInstanceFilesToFTP(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	PurgeRDBLogs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CeaseRDBInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	GetRDBMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ApplyRDBParameterGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type RDBService struct {
@@ -84,9 +84,9 @@ func (s *QingCloudService) RDB(zone string) (*RDBService, error) {
 	return &RDBService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *RDBService) CreateRDB(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CreateRDB(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -95,7 +95,7 @@ func (p *RDBService) CreateRDB(in *google_protobuf1.Empty) (out *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -111,9 +111,9 @@ func (p *RDBService) CreateRDB(in *google_protobuf1.Empty) (out *google_protobuf
 	return x, err
 }
 
-func (p *RDBService) DescribeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) DescribeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -122,7 +122,7 @@ func (p *RDBService) DescribeRDBs(in *google_protobuf1.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -138,9 +138,9 @@ func (p *RDBService) DescribeRDBs(in *google_protobuf1.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *RDBService) DeleteRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) DeleteRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -149,7 +149,7 @@ func (p *RDBService) DeleteRDBs(in *google_protobuf1.Empty) (out *google_protobu
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -165,9 +165,9 @@ func (p *RDBService) DeleteRDBs(in *google_protobuf1.Empty) (out *google_protobu
 	return x, err
 }
 
-func (p *RDBService) StartRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) StartRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -176,7 +176,7 @@ func (p *RDBService) StartRDBs(in *google_protobuf1.Empty) (out *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -192,9 +192,9 @@ func (p *RDBService) StartRDBs(in *google_protobuf1.Empty) (out *google_protobuf
 	return x, err
 }
 
-func (p *RDBService) StopRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) StopRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -203,7 +203,7 @@ func (p *RDBService) StopRDBs(in *google_protobuf1.Empty) (out *google_protobuf1
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -219,9 +219,9 @@ func (p *RDBService) StopRDBs(in *google_protobuf1.Empty) (out *google_protobuf1
 	return x, err
 }
 
-func (p *RDBService) ResizeRDBs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) ResizeRDBs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -230,7 +230,7 @@ func (p *RDBService) ResizeRDBs(in *google_protobuf1.Empty) (out *google_protobu
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -246,9 +246,9 @@ func (p *RDBService) ResizeRDBs(in *google_protobuf1.Empty) (out *google_protobu
 	return x, err
 }
 
-func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -257,7 +257,7 @@ func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -273,9 +273,9 @@ func (p *RDBService) RDBsLeaveVxnet(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *RDBService) RDBsJoinVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) RDBsJoinVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -284,7 +284,7 @@ func (p *RDBService) RDBsJoinVxnet(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -300,9 +300,9 @@ func (p *RDBService) RDBsJoinVxnet(in *google_protobuf1.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -311,7 +311,7 @@ func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf1.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -327,9 +327,9 @@ func (p *RDBService) CreateRDBFromSnapshot(in *google_protobuf1.Empty) (out *goo
 	return x, err
 }
 
-func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -338,7 +338,7 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf1.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -354,9 +354,9 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *google_protobuf1.Empt
 	return x, err
 }
 
-func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -365,7 +365,7 @@ func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -381,9 +381,9 @@ func (p *RDBService) GetRDBInstanceFiles(in *google_protobuf1.Empty) (out *googl
 	return x, err
 }
 
-func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -392,7 +392,7 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -408,9 +408,9 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *RDBService) PurgeRDBLogs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) PurgeRDBLogs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -419,7 +419,7 @@ func (p *RDBService) PurgeRDBLogs(in *google_protobuf1.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -435,9 +435,9 @@ func (p *RDBService) PurgeRDBLogs(in *google_protobuf1.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *RDBService) CeaseRDBInstance(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) CeaseRDBInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -446,7 +446,7 @@ func (p *RDBService) CeaseRDBInstance(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -462,9 +462,9 @@ func (p *RDBService) CeaseRDBInstance(in *google_protobuf1.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RDBService) GetRDBMonitor(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) GetRDBMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -473,7 +473,7 @@ func (p *RDBService) GetRDBMonitor(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -489,9 +489,9 @@ func (p *RDBService) GetRDBMonitor(in *google_protobuf1.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *RDBService) ModifyRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) ModifyRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -500,7 +500,7 @@ func (p *RDBService) ModifyRDBParameters(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -516,9 +516,9 @@ func (p *RDBService) ModifyRDBParameters(in *google_protobuf1.Empty) (out *googl
 	return x, err
 }
 
-func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -527,7 +527,7 @@ func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -543,9 +543,9 @@ func (p *RDBService) ApplyRDBParameterGroup(in *google_protobuf1.Empty) (out *go
 	return x, err
 }
 
-func (p *RDBService) DescribeRDBParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RDBService) DescribeRDBParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -554,7 +554,7 @@ func (p *RDBService) DescribeRDBParameters(in *google_protobuf1.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

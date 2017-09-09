@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -190,21 +190,21 @@ func init() {
 }
 
 type MongoServiceInterface interface {
-	DescribeMongoNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeMongoParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ResizeMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateMongo(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StopMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StartMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeMongoNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeMongoParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ResizeMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateMongo(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StopMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StartMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 	DescribeMongos(in *DescribeMongosInput) (out *DescribeMongosOutput, err error)
-	DeleteMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateMongoFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ChangeMongoVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddMongoInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RemoveMongoInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyMongoAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyMongoInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GetMongoMonitor(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DeleteMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateMongoFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ChangeMongoVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	RemoveMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyMongoAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	GetMongoMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type MongoService struct {
@@ -228,9 +228,9 @@ func (s *QingCloudService) Mongo(zone string) (*MongoService, error) {
 	return &MongoService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *MongoService) DescribeMongoNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) DescribeMongoNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -239,7 +239,7 @@ func (p *MongoService) DescribeMongoNodes(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -255,9 +255,9 @@ func (p *MongoService) DescribeMongoNodes(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *MongoService) DescribeMongoParameters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) DescribeMongoParameters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -266,7 +266,7 @@ func (p *MongoService) DescribeMongoParameters(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -282,9 +282,9 @@ func (p *MongoService) DescribeMongoParameters(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *MongoService) ResizeMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) ResizeMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -293,7 +293,7 @@ func (p *MongoService) ResizeMongos(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -309,9 +309,9 @@ func (p *MongoService) ResizeMongos(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *MongoService) CreateMongo(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) CreateMongo(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -320,7 +320,7 @@ func (p *MongoService) CreateMongo(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -336,9 +336,9 @@ func (p *MongoService) CreateMongo(in *google_protobuf1.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *MongoService) StopMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) StopMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -347,7 +347,7 @@ func (p *MongoService) StopMongos(in *google_protobuf1.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -363,9 +363,9 @@ func (p *MongoService) StopMongos(in *google_protobuf1.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *MongoService) StartMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) StartMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -374,7 +374,7 @@ func (p *MongoService) StartMongos(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -421,9 +421,9 @@ func (p *DescribeMongosInput) Validate() error {
 	return nil
 }
 
-func (p *MongoService) DeleteMongos(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) DeleteMongos(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -432,7 +432,7 @@ func (p *MongoService) DeleteMongos(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -448,9 +448,9 @@ func (p *MongoService) DeleteMongos(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -459,7 +459,7 @@ func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -475,9 +475,9 @@ func (p *MongoService) CreateMongoFromSnapshot(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *MongoService) ChangeMongoVxnet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) ChangeMongoVxnet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -486,7 +486,7 @@ func (p *MongoService) ChangeMongoVxnet(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -502,9 +502,9 @@ func (p *MongoService) ChangeMongoVxnet(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *MongoService) AddMongoInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) AddMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -513,7 +513,7 @@ func (p *MongoService) AddMongoInstances(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -529,9 +529,9 @@ func (p *MongoService) AddMongoInstances(in *google_protobuf1.Empty) (out *googl
 	return x, err
 }
 
-func (p *MongoService) RemoveMongoInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) RemoveMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -540,7 +540,7 @@ func (p *MongoService) RemoveMongoInstances(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -556,9 +556,9 @@ func (p *MongoService) RemoveMongoInstances(in *google_protobuf1.Empty) (out *go
 	return x, err
 }
 
-func (p *MongoService) ModifyMongoAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) ModifyMongoAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -567,7 +567,7 @@ func (p *MongoService) ModifyMongoAttributes(in *google_protobuf1.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -583,9 +583,9 @@ func (p *MongoService) ModifyMongoAttributes(in *google_protobuf1.Empty) (out *g
 	return x, err
 }
 
-func (p *MongoService) ModifyMongoInstances(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) ModifyMongoInstances(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -594,7 +594,7 @@ func (p *MongoService) ModifyMongoInstances(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -610,9 +610,9 @@ func (p *MongoService) ModifyMongoInstances(in *google_protobuf1.Empty) (out *go
 	return x, err
 }
 
-func (p *MongoService) GetMongoMonitor(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *MongoService) GetMongoMonitor(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -621,7 +621,7 @@ func (p *MongoService) GetMongoMonitor(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

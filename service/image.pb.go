@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,14 +43,14 @@ func init() {
 }
 
 type ImageServiceInterface interface {
-	DescribeImages(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CaptureInstance(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteImages(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyImageAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GrantImageToUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RevokeImageFromUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeImageUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CloneImages(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CaptureInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyImageAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	GrantImageToUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	RevokeImageFromUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeImageUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CloneImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type ImageService struct {
@@ -74,9 +74,9 @@ func (s *QingCloudService) Image(zone string) (*ImageService, error) {
 	return &ImageService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *ImageService) DescribeImages(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) DescribeImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -85,7 +85,7 @@ func (p *ImageService) DescribeImages(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -101,9 +101,9 @@ func (p *ImageService) DescribeImages(in *google_protobuf1.Empty) (out *google_p
 	return x, err
 }
 
-func (p *ImageService) CaptureInstance(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) CaptureInstance(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -112,7 +112,7 @@ func (p *ImageService) CaptureInstance(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -128,9 +128,9 @@ func (p *ImageService) CaptureInstance(in *google_protobuf1.Empty) (out *google_
 	return x, err
 }
 
-func (p *ImageService) DeleteImages(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) DeleteImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -139,7 +139,7 @@ func (p *ImageService) DeleteImages(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -155,9 +155,9 @@ func (p *ImageService) DeleteImages(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *ImageService) ModifyImageAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) ModifyImageAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -166,7 +166,7 @@ func (p *ImageService) ModifyImageAttributes(in *google_protobuf1.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -182,9 +182,9 @@ func (p *ImageService) ModifyImageAttributes(in *google_protobuf1.Empty) (out *g
 	return x, err
 }
 
-func (p *ImageService) GrantImageToUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) GrantImageToUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -193,7 +193,7 @@ func (p *ImageService) GrantImageToUsers(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -209,9 +209,9 @@ func (p *ImageService) GrantImageToUsers(in *google_protobuf1.Empty) (out *googl
 	return x, err
 }
 
-func (p *ImageService) RevokeImageFromUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) RevokeImageFromUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -220,7 +220,7 @@ func (p *ImageService) RevokeImageFromUsers(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -236,9 +236,9 @@ func (p *ImageService) RevokeImageFromUsers(in *google_protobuf1.Empty) (out *go
 	return x, err
 }
 
-func (p *ImageService) DescribeImageUsers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) DescribeImageUsers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -247,7 +247,7 @@ func (p *ImageService) DescribeImageUsers(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -263,9 +263,9 @@ func (p *ImageService) DescribeImageUsers(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *ImageService) CloneImages(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ImageService) CloneImages(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -274,7 +274,7 @@ func (p *ImageService) CloneImages(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

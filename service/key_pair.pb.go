@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,12 +43,12 @@ func init() {
 }
 
 type KeyPairServiceInterface interface {
-	DescribeKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateKeyPair(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AttachKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DetachKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyKeyPairAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateKeyPair(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AttachKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DetachKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyKeyPairAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type KeyPairService struct {
@@ -72,9 +72,9 @@ func (s *QingCloudService) KeyPair(zone string) (*KeyPairService, error) {
 	return &KeyPairService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -83,7 +83,7 @@ func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -99,9 +99,9 @@ func (p *KeyPairService) DescribeKeyPairs(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *KeyPairService) CreateKeyPair(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *KeyPairService) CreateKeyPair(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -110,7 +110,7 @@ func (p *KeyPairService) CreateKeyPair(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -126,9 +126,9 @@ func (p *KeyPairService) CreateKeyPair(in *google_protobuf1.Empty) (out *google_
 	return x, err
 }
 
-func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -137,7 +137,7 @@ func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -153,9 +153,9 @@ func (p *KeyPairService) DeleteKeyPairs(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *KeyPairService) AttachKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *KeyPairService) AttachKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -164,7 +164,7 @@ func (p *KeyPairService) AttachKeyPairs(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -180,9 +180,9 @@ func (p *KeyPairService) AttachKeyPairs(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *KeyPairService) DetachKeyPairs(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *KeyPairService) DetachKeyPairs(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -191,7 +191,7 @@ func (p *KeyPairService) DetachKeyPairs(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -207,9 +207,9 @@ func (p *KeyPairService) DetachKeyPairs(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *KeyPairService) ModifyKeyPairAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *KeyPairService) ModifyKeyPairAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -218,7 +218,7 @@ func (p *KeyPairService) ModifyKeyPairAttributes(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

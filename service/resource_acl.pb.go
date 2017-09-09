@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,33 +43,33 @@ func init() {
 }
 
 type ResourceACLServiceInterface interface {
-	DescribeSharedResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyResourceGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeResourceGroupItems(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddResourceGroupItems(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteResourceGroupItems(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyUserGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeUserGroupMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddUserGroupMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyUserGroupMemberAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteUserGroupMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeGroupRoles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateGroupRoles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyGroupRoleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteGroupRoles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeGroupRoleRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddGroupRoleRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyGroupRoleRuleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteGroupRoleRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	GrantResourceGroupsToUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RevokeResourceGroupsFromUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeResourceUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeSharedResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyResourceGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyUserGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyUserGroupMemberAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyGroupRoleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyGroupRoleRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	GrantResourceGroupsToUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	RevokeResourceGroupsFromUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeResourceUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type ResourceACLService struct {
@@ -93,9 +93,9 @@ func (s *QingCloudService) ResourceACL(zone string) (*ResourceACLService, error)
 	return &ResourceACLService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -104,7 +104,7 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf1.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -120,9 +120,9 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *google_protobuf1.E
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -131,7 +131,7 @@ func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf1.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -147,9 +147,9 @@ func (p *ResourceACLService) DescribeResourceGroups(in *google_protobuf1.Empty) 
 	return x, err
 }
 
-func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -158,7 +158,7 @@ func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -174,9 +174,9 @@ func (p *ResourceACLService) CreateResourceGroups(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -185,7 +185,7 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -201,9 +201,9 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *google_protobuf1.
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -212,7 +212,7 @@ func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -228,9 +228,9 @@ func (p *ResourceACLService) DeleteResourceGroups(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -239,7 +239,7 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf1.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -255,9 +255,9 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *google_protobuf1.Emp
 	return x, err
 }
 
-func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -266,7 +266,7 @@ func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf1.Empty) (
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -282,9 +282,9 @@ func (p *ResourceACLService) AddResourceGroupItems(in *google_protobuf1.Empty) (
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -293,7 +293,7 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf1.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -309,9 +309,9 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *google_protobuf1.Empty
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -320,7 +320,7 @@ func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf1.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -336,9 +336,9 @@ func (p *ResourceACLService) DescribeUserGroups(in *google_protobuf1.Empty) (out
 	return x, err
 }
 
-func (p *ResourceACLService) CreateUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) CreateUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -347,7 +347,7 @@ func (p *ResourceACLService) CreateUserGroups(in *google_protobuf1.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -363,9 +363,9 @@ func (p *ResourceACLService) CreateUserGroups(in *google_protobuf1.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -374,7 +374,7 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf1.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -390,9 +390,9 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *google_protobuf1.Empt
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -401,7 +401,7 @@ func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf1.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -417,9 +417,9 @@ func (p *ResourceACLService) DeleteUserGroups(in *google_protobuf1.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -428,7 +428,7 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf1.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -444,9 +444,9 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *google_protobuf1.Empty
 	return x, err
 }
 
-func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -455,7 +455,7 @@ func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf1.Empty) (ou
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -471,9 +471,9 @@ func (p *ResourceACLService) AddUserGroupMembers(in *google_protobuf1.Empty) (ou
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -482,7 +482,7 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -498,9 +498,9 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *google_protobuf
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -509,7 +509,7 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf1.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -525,9 +525,9 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *google_protobuf1.Empty) 
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -536,7 +536,7 @@ func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf1.Empty) (out
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -552,9 +552,9 @@ func (p *ResourceACLService) DescribeGroupRoles(in *google_protobuf1.Empty) (out
 	return x, err
 }
 
-func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -563,7 +563,7 @@ func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf1.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -579,9 +579,9 @@ func (p *ResourceACLService) CreateGroupRoles(in *google_protobuf1.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -590,7 +590,7 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf1.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -606,9 +606,9 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *google_protobuf1.Empt
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -617,7 +617,7 @@ func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf1.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -633,9 +633,9 @@ func (p *ResourceACLService) DeleteGroupRoles(in *google_protobuf1.Empty) (out *
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -644,7 +644,7 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf1.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -660,9 +660,9 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *google_protobuf1.Empty) 
 	return x, err
 }
 
-func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -671,7 +671,7 @@ func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -687,9 +687,9 @@ func (p *ResourceACLService) AddGroupRoleRules(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -698,7 +698,7 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -714,9 +714,9 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *google_protobuf1.
 	return x, err
 }
 
-func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -725,7 +725,7 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -741,9 +741,9 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -752,7 +752,7 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -768,9 +768,9 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *google_protobuf
 	return x, err
 }
 
-func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -779,7 +779,7 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -795,9 +795,9 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *google_proto
 	return x, err
 }
 
-func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -806,7 +806,7 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *google_protobuf1.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

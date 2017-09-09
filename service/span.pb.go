@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,13 +43,13 @@ func init() {
 }
 
 type SpanServiceInterface interface {
-	CreateSpan(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeSpans(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteSpans(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddSpanMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RemoveSpanMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifySpanAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	UpdateSpan(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	CreateSpan(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeSpans(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteSpans(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddSpanMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	RemoveSpanMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifySpanAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	UpdateSpan(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type SpanService struct {
@@ -73,9 +73,9 @@ func (s *QingCloudService) Span(zone string) (*SpanService, error) {
 	return &SpanService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *SpanService) CreateSpan(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SpanService) CreateSpan(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -84,7 +84,7 @@ func (p *SpanService) CreateSpan(in *google_protobuf1.Empty) (out *google_protob
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -100,9 +100,9 @@ func (p *SpanService) CreateSpan(in *google_protobuf1.Empty) (out *google_protob
 	return x, err
 }
 
-func (p *SpanService) DescribeSpans(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SpanService) DescribeSpans(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -111,7 +111,7 @@ func (p *SpanService) DescribeSpans(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -127,9 +127,9 @@ func (p *SpanService) DescribeSpans(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *SpanService) DeleteSpans(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SpanService) DeleteSpans(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -138,7 +138,7 @@ func (p *SpanService) DeleteSpans(in *google_protobuf1.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -154,9 +154,9 @@ func (p *SpanService) DeleteSpans(in *google_protobuf1.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *SpanService) AddSpanMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SpanService) AddSpanMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -165,7 +165,7 @@ func (p *SpanService) AddSpanMembers(in *google_protobuf1.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -181,9 +181,9 @@ func (p *SpanService) AddSpanMembers(in *google_protobuf1.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *SpanService) RemoveSpanMembers(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SpanService) RemoveSpanMembers(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -192,7 +192,7 @@ func (p *SpanService) RemoveSpanMembers(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -208,9 +208,9 @@ func (p *SpanService) RemoveSpanMembers(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *SpanService) ModifySpanAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SpanService) ModifySpanAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -219,7 +219,7 @@ func (p *SpanService) ModifySpanAttributes(in *google_protobuf1.Empty) (out *goo
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -235,9 +235,9 @@ func (p *SpanService) ModifySpanAttributes(in *google_protobuf1.Empty) (out *goo
 	return x, err
 }
 
-func (p *SpanService) UpdateSpan(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SpanService) UpdateSpan(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -246,7 +246,7 @@ func (p *SpanService) UpdateSpan(in *google_protobuf1.Empty) (out *google_protob
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

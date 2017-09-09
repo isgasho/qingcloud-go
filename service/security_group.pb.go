@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,24 +43,24 @@ func init() {
 }
 
 type SecurityGroupServiceInterface interface {
-	DescribeSecurityGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateSecurityGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteSecurityGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ApplySecurityGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifySecurityGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeSecurityGroupRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddSecurityGroupRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteSecurityGroupRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifySecurityGroupRuleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateSecurityGroupSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeSecurityGroupSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteSecurityGroupSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	RollbackSecurityGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeSecurityGroupIPSets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateSecurityGroupIPSet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteSecurityGroupIPSets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifySecurityGroupIPSetAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CopySecurityGroupIPSets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ApplySecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifySecurityGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifySecurityGroupRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateSecurityGroupSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	RollbackSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateSecurityGroupIPSet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifySecurityGroupIPSetAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CopySecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type SecurityGroupService struct {
@@ -84,9 +84,9 @@ func (s *QingCloudService) SecurityGroup(zone string) (*SecurityGroupService, er
 	return &SecurityGroupService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -95,7 +95,7 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf1.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -111,9 +111,9 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *google_protobuf1.Empty
 	return x, err
 }
 
-func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -122,7 +122,7 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf1.Empty) (
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -138,9 +138,9 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *google_protobuf1.Empty) (
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -149,7 +149,7 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf1.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -165,9 +165,9 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *google_protobuf1.Empty) 
 	return x, err
 }
 
-func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -176,7 +176,7 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -192,9 +192,9 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -203,7 +203,7 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -219,9 +219,9 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *google_protobuf
 	return x, err
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -230,7 +230,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf1.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -246,9 +246,9 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *google_protobuf1.E
 	return x, err
 }
 
-func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -257,7 +257,7 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf1.Empty)
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -273,9 +273,9 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *google_protobuf1.Empty)
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -284,7 +284,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf1.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -300,9 +300,9 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *google_protobuf1.Emp
 	return x, err
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -311,7 +311,7 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -327,9 +327,9 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *google_prot
 	return x, err
 }
 
-func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -338,7 +338,7 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -354,9 +354,9 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *google_protobuf1.
 	return x, err
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -365,7 +365,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobu
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -381,9 +381,9 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *google_protobu
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -392,7 +392,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf1
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -408,9 +408,9 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *google_protobuf1
 	return x, err
 }
 
-func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -419,7 +419,7 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf1.Empty)
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -435,9 +435,9 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *google_protobuf1.Empty)
 	return x, err
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -446,7 +446,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf1.
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -462,9 +462,9 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *google_protobuf1.
 	return x, err
 }
 
-func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -473,7 +473,7 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf1.Emp
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -489,9 +489,9 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *google_protobuf1.Emp
 	return x, err
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -500,7 +500,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf1.Em
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -516,9 +516,9 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *google_protobuf1.Em
 	return x, err
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -527,7 +527,7 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -543,9 +543,9 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *google_pro
 	return x, err
 }
 
-func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -554,7 +554,7 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *google_protobuf1.Empt
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/eip/index.html
 
 message EipServiceProperties {
@@ -22,12 +20,76 @@ service EipService {
 		sub_service_name: "Eip"
 	};
 
-	rpc DescribeEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AllocateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ReleaseEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AssociateEip(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DissociateEips(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ChangeEipsBandwidth(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ChangeEipsBillingMode(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc ModifyEipAttributes(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc DescribeEips(DescribeEipsInput) returns (DescribeEipsOutput);
+	rpc AllocateEips(AllocateEipsInput) returns (AllocateEipsOutput);
+	rpc ReleaseEips(ReleaseEipsInput) returns (ReleaseEipsOutput);
+	rpc AssociateEip(AssociateEipInput) returns (AssociateEipOutput);
+	rpc DissociateEips(DissociateEipsInput) returns (DissociateEipsOutput);
+	rpc ChangeEipsBandwidth(ChangeEipsBandwidthInput) returns (ChangeEipsBandwidthOutput);
+	rpc ChangeEipsBillingMode(ChangeEipsBillingModeInput) returns (ChangeEipsBillingModeOutput);
+	rpc ModifyEipAttributes(ModifyEipAttributesInput) returns (ModifyEipAttributesOutput);
+}
+
+message DescribeEipsInput {}
+message DescribeEipsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AllocateEipsInput {}
+message AllocateEipsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ReleaseEipsInput {}
+message ReleaseEipsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AssociateEipInput {}
+message AssociateEipOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DissociateEipsInput {}
+message DissociateEipsOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ChangeEipsBandwidthInput {}
+message ChangeEipsBandwidthOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ChangeEipsBillingModeInput {}
+message ChangeEipsBillingModeOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message ModifyEipAttributesInput {}
+message ModifyEipAttributesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

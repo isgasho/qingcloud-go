@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,25 +43,25 @@ func init() {
 }
 
 type RouterServiceInterface interface {
-	DescribeRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	UpdateRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	PowerOffRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	PowerOnRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	JoinRouter(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	LeaveRouter(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyRouterAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyRouterStaticAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CopyRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeRouterVxnets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	AddRouterStaticEntries(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteRouterStaticEntries(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifyRouterStaticEntryAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DescribeRouterStaticEntries(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	UpdateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	PowerOffRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	PowerOnRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	JoinRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	LeaveRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyRouterAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyRouterStaticAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CopyRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeRouterVxnets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	AddRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifyRouterStaticEntryAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DescribeRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type RouterService struct {
@@ -85,9 +85,9 @@ func (s *QingCloudService) Router(zone string) (*RouterService, error) {
 	return &RouterService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *RouterService) DescribeRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) DescribeRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -96,7 +96,7 @@ func (p *RouterService) DescribeRouters(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -112,9 +112,9 @@ func (p *RouterService) DescribeRouters(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *RouterService) CreateRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) CreateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -123,7 +123,7 @@ func (p *RouterService) CreateRouters(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -139,9 +139,9 @@ func (p *RouterService) CreateRouters(in *google_protobuf1.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RouterService) DeleteRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) DeleteRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -150,7 +150,7 @@ func (p *RouterService) DeleteRouters(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -166,9 +166,9 @@ func (p *RouterService) DeleteRouters(in *google_protobuf1.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RouterService) UpdateRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) UpdateRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -177,7 +177,7 @@ func (p *RouterService) UpdateRouters(in *google_protobuf1.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -193,9 +193,9 @@ func (p *RouterService) UpdateRouters(in *google_protobuf1.Empty) (out *google_p
 	return x, err
 }
 
-func (p *RouterService) PowerOffRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) PowerOffRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -204,7 +204,7 @@ func (p *RouterService) PowerOffRouters(in *google_protobuf1.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -220,9 +220,9 @@ func (p *RouterService) PowerOffRouters(in *google_protobuf1.Empty) (out *google
 	return x, err
 }
 
-func (p *RouterService) PowerOnRouters(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) PowerOnRouters(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -231,7 +231,7 @@ func (p *RouterService) PowerOnRouters(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -247,9 +247,9 @@ func (p *RouterService) PowerOnRouters(in *google_protobuf1.Empty) (out *google_
 	return x, err
 }
 
-func (p *RouterService) JoinRouter(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) JoinRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -258,7 +258,7 @@ func (p *RouterService) JoinRouter(in *google_protobuf1.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -274,9 +274,9 @@ func (p *RouterService) JoinRouter(in *google_protobuf1.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *RouterService) LeaveRouter(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) LeaveRouter(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -285,7 +285,7 @@ func (p *RouterService) LeaveRouter(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -301,9 +301,9 @@ func (p *RouterService) LeaveRouter(in *google_protobuf1.Empty) (out *google_pro
 	return x, err
 }
 
-func (p *RouterService) ModifyRouterAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) ModifyRouterAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -312,7 +312,7 @@ func (p *RouterService) ModifyRouterAttributes(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -328,9 +328,9 @@ func (p *RouterService) ModifyRouterAttributes(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *RouterService) DescribeRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) DescribeRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -339,7 +339,7 @@ func (p *RouterService) DescribeRouterStatics(in *google_protobuf1.Empty) (out *
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -355,9 +355,9 @@ func (p *RouterService) DescribeRouterStatics(in *google_protobuf1.Empty) (out *
 	return x, err
 }
 
-func (p *RouterService) AddRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) AddRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -366,7 +366,7 @@ func (p *RouterService) AddRouterStatics(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -382,9 +382,9 @@ func (p *RouterService) AddRouterStatics(in *google_protobuf1.Empty) (out *googl
 	return x, err
 }
 
-func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -393,7 +393,7 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf1.Empty)
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -409,9 +409,9 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *google_protobuf1.Empty)
 	return x, err
 }
 
-func (p *RouterService) DeleteRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) DeleteRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -420,7 +420,7 @@ func (p *RouterService) DeleteRouterStatics(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -436,9 +436,9 @@ func (p *RouterService) DeleteRouterStatics(in *google_protobuf1.Empty) (out *go
 	return x, err
 }
 
-func (p *RouterService) CopyRouterStatics(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) CopyRouterStatics(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -447,7 +447,7 @@ func (p *RouterService) CopyRouterStatics(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -463,9 +463,9 @@ func (p *RouterService) CopyRouterStatics(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *RouterService) DescribeRouterVxnets(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) DescribeRouterVxnets(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -474,7 +474,7 @@ func (p *RouterService) DescribeRouterVxnets(in *google_protobuf1.Empty) (out *g
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -490,9 +490,9 @@ func (p *RouterService) DescribeRouterVxnets(in *google_protobuf1.Empty) (out *g
 	return x, err
 }
 
-func (p *RouterService) AddRouterStaticEntries(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) AddRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -501,7 +501,7 @@ func (p *RouterService) AddRouterStaticEntries(in *google_protobuf1.Empty) (out 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -517,9 +517,9 @@ func (p *RouterService) AddRouterStaticEntries(in *google_protobuf1.Empty) (out 
 	return x, err
 }
 
-func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -528,7 +528,7 @@ func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf1.Empty) (o
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -544,9 +544,9 @@ func (p *RouterService) DeleteRouterStaticEntries(in *google_protobuf1.Empty) (o
 	return x, err
 }
 
-func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -555,7 +555,7 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf1.E
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -571,9 +571,9 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *google_protobuf1.E
 	return x, err
 }
 
-func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -582,7 +582,7 @@ func (p *RouterService) DescribeRouterStaticEntries(in *google_protobuf1.Empty) 
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

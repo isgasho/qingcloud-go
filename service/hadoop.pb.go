@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,10 +43,10 @@ func init() {
 }
 
 type HadoopServiceInterface interface {
-	AddHadoopNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteHadoopNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StartHadoops(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	StopHadoops(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	AddHadoopNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteHadoopNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StartHadoops(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	StopHadoops(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type HadoopService struct {
@@ -70,9 +70,9 @@ func (s *QingCloudService) Hadoop(zone string) (*HadoopService, error) {
 	return &HadoopService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *HadoopService) AddHadoopNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *HadoopService) AddHadoopNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -81,7 +81,7 @@ func (p *HadoopService) AddHadoopNodes(in *google_protobuf1.Empty) (out *google_
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -97,9 +97,9 @@ func (p *HadoopService) AddHadoopNodes(in *google_protobuf1.Empty) (out *google_
 	return x, err
 }
 
-func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -108,7 +108,7 @@ func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -124,9 +124,9 @@ func (p *HadoopService) DeleteHadoopNodes(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *HadoopService) StartHadoops(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *HadoopService) StartHadoops(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -135,7 +135,7 @@ func (p *HadoopService) StartHadoops(in *google_protobuf1.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -151,9 +151,9 @@ func (p *HadoopService) StartHadoops(in *google_protobuf1.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *HadoopService) StopHadoops(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *HadoopService) StopHadoops(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -162,7 +162,7 @@ func (p *HadoopService) StopHadoops(in *google_protobuf1.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err

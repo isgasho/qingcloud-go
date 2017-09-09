@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
+import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -43,13 +43,13 @@ func init() {
 }
 
 type SnapshotServiceInterface interface {
-	DescribeSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	DeleteSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ApplySnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	ModifySnapshotAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CaptureInstanceFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
-	CreateVolumeFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error)
+	DescribeSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	DeleteSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ApplySnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	ModifySnapshotAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CaptureInstanceFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateVolumeFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
 }
 
 type SnapshotService struct {
@@ -73,9 +73,9 @@ func (s *QingCloudService) Snapshot(zone string) (*SnapshotService, error) {
 	return &SnapshotService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *SnapshotService) DescribeSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SnapshotService) DescribeSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -84,7 +84,7 @@ func (p *SnapshotService) DescribeSnapshots(in *google_protobuf1.Empty) (out *go
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -100,9 +100,9 @@ func (p *SnapshotService) DescribeSnapshots(in *google_protobuf1.Empty) (out *go
 	return x, err
 }
 
-func (p *SnapshotService) CreateSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SnapshotService) CreateSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -111,7 +111,7 @@ func (p *SnapshotService) CreateSnapshots(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -127,9 +127,9 @@ func (p *SnapshotService) CreateSnapshots(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *SnapshotService) DeleteSnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SnapshotService) DeleteSnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -138,7 +138,7 @@ func (p *SnapshotService) DeleteSnapshots(in *google_protobuf1.Empty) (out *goog
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -154,9 +154,9 @@ func (p *SnapshotService) DeleteSnapshots(in *google_protobuf1.Empty) (out *goog
 	return x, err
 }
 
-func (p *SnapshotService) ApplySnapshots(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SnapshotService) ApplySnapshots(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -165,7 +165,7 @@ func (p *SnapshotService) ApplySnapshots(in *google_protobuf1.Empty) (out *googl
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -181,9 +181,9 @@ func (p *SnapshotService) ApplySnapshots(in *google_protobuf1.Empty) (out *googl
 	return x, err
 }
 
-func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -192,7 +192,7 @@ func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf1.Empty) (
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -208,9 +208,9 @@ func (p *SnapshotService) ModifySnapshotAttributes(in *google_protobuf1.Empty) (
 	return x, err
 }
 
-func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -219,7 +219,7 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf1.Empty
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -235,9 +235,9 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(in *google_protobuf1.Empty
 	return x, err
 }
 
-func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf1.Empty) (out *google_protobuf1.Empty, err error) {
+func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
 	if in == nil {
-		in = &google_protobuf1.Empty{}
+		in = &google_protobuf2.Empty{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -246,7 +246,7 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(in *google_protobuf1.Empty) (
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf1.Empty{}
+	x := &google_protobuf2.Empty{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
