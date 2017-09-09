@@ -8,8 +8,6 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/empty.proto";
-
 // https://docs.qingcloud.com/api/spark/index.html
 
 message SparkServiceProperties {
@@ -22,11 +20,67 @@ service SparkService {
 		sub_service_name: "Spark"
 	};
 
-	rpc CreateSpark(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DescribeSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc AddSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSparkNodes(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StartSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc StopSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
-	rpc DeleteSparks(google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc CreateSpark(CreateSparkInput) returns (CreateSparkOutput);
+	rpc DescribeSparks(DescribeSparksInput) returns (DescribeSparksOutput);
+	rpc AddSparkNodes(AddSparkNodesInput) returns (AddSparkNodesOutput);
+	rpc DeleteSparkNodes(DeleteSparkNodesInput) returns (DeleteSparkNodesOutput);
+	rpc StartSparks(StartSparksInput) returns (StartSparksOutput);
+	rpc StopSparks(StopSparksInput) returns (StopSparksOutput);
+	rpc DeleteSparks(DeleteSparksInput) returns (DeleteSparksOutput);
+}
+
+message CreateSparkInput {}
+message CreateSparkOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DescribeSparksInput {}
+message DescribeSparksOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message AddSparkNodesInput {}
+message AddSparkNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSparkNodesInput {}
+message DeleteSparkNodesOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StartSparksInput {}
+message StartSparksOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message StopSparksInput {}
+message StopSparksOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+}
+
+message DeleteSparksInput {}
+message DeleteSparksOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
 }

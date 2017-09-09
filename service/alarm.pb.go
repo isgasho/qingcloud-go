@@ -338,6 +338,20 @@ It has these top-level messages:
 	UpdateSpanInput
 	UpdateSpanOutput
 	SparkServiceProperties
+	CreateSparkInput
+	CreateSparkOutput
+	DescribeSparksInput
+	DescribeSparksOutput
+	AddSparkNodesInput
+	AddSparkNodesOutput
+	DeleteSparkNodesInput
+	DeleteSparkNodesOutput
+	StartSparksInput
+	StartSparksOutput
+	StopSparksInput
+	StopSparksOutput
+	DeleteSparksInput
+	DeleteSparksOutput
 	SubuserServiceProperties
 	DescribeSubUsersInput
 	DescribeSubUsersOutput

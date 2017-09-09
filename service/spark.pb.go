@@ -7,7 +7,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,18 +37,312 @@ func (m *SparkServiceProperties) GetZone() string {
 	return ""
 }
 
+type CreateSparkInput struct {
+}
+
+func (m *CreateSparkInput) Reset()                    { *m = CreateSparkInput{} }
+func (m *CreateSparkInput) String() string            { return proto.CompactTextString(m) }
+func (*CreateSparkInput) ProtoMessage()               {}
+func (*CreateSparkInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{1} }
+
+type CreateSparkOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *CreateSparkOutput) Reset()                    { *m = CreateSparkOutput{} }
+func (m *CreateSparkOutput) String() string            { return proto.CompactTextString(m) }
+func (*CreateSparkOutput) ProtoMessage()               {}
+func (*CreateSparkOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{2} }
+
+func (m *CreateSparkOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *CreateSparkOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *CreateSparkOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DescribeSparksInput struct {
+}
+
+func (m *DescribeSparksInput) Reset()                    { *m = DescribeSparksInput{} }
+func (m *DescribeSparksInput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeSparksInput) ProtoMessage()               {}
+func (*DescribeSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{3} }
+
+type DescribeSparksOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DescribeSparksOutput) Reset()                    { *m = DescribeSparksOutput{} }
+func (m *DescribeSparksOutput) String() string            { return proto.CompactTextString(m) }
+func (*DescribeSparksOutput) ProtoMessage()               {}
+func (*DescribeSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{4} }
+
+func (m *DescribeSparksOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DescribeSparksOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DescribeSparksOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type AddSparkNodesInput struct {
+}
+
+func (m *AddSparkNodesInput) Reset()                    { *m = AddSparkNodesInput{} }
+func (m *AddSparkNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*AddSparkNodesInput) ProtoMessage()               {}
+func (*AddSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{5} }
+
+type AddSparkNodesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *AddSparkNodesOutput) Reset()                    { *m = AddSparkNodesOutput{} }
+func (m *AddSparkNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*AddSparkNodesOutput) ProtoMessage()               {}
+func (*AddSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{6} }
+
+func (m *AddSparkNodesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *AddSparkNodesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *AddSparkNodesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteSparkNodesInput struct {
+}
+
+func (m *DeleteSparkNodesInput) Reset()                    { *m = DeleteSparkNodesInput{} }
+func (m *DeleteSparkNodesInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSparkNodesInput) ProtoMessage()               {}
+func (*DeleteSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{7} }
+
+type DeleteSparkNodesOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteSparkNodesOutput) Reset()                    { *m = DeleteSparkNodesOutput{} }
+func (m *DeleteSparkNodesOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSparkNodesOutput) ProtoMessage()               {}
+func (*DeleteSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{8} }
+
+func (m *DeleteSparkNodesOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteSparkNodesOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteSparkNodesOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StartSparksInput struct {
+}
+
+func (m *StartSparksInput) Reset()                    { *m = StartSparksInput{} }
+func (m *StartSparksInput) String() string            { return proto.CompactTextString(m) }
+func (*StartSparksInput) ProtoMessage()               {}
+func (*StartSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{9} }
+
+type StartSparksOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StartSparksOutput) Reset()                    { *m = StartSparksOutput{} }
+func (m *StartSparksOutput) String() string            { return proto.CompactTextString(m) }
+func (*StartSparksOutput) ProtoMessage()               {}
+func (*StartSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{10} }
+
+func (m *StartSparksOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StartSparksOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StartSparksOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StopSparksInput struct {
+}
+
+func (m *StopSparksInput) Reset()                    { *m = StopSparksInput{} }
+func (m *StopSparksInput) String() string            { return proto.CompactTextString(m) }
+func (*StopSparksInput) ProtoMessage()               {}
+func (*StopSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{11} }
+
+type StopSparksOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *StopSparksOutput) Reset()                    { *m = StopSparksOutput{} }
+func (m *StopSparksOutput) String() string            { return proto.CompactTextString(m) }
+func (*StopSparksOutput) ProtoMessage()               {}
+func (*StopSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{12} }
+
+func (m *StopSparksOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *StopSparksOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *StopSparksOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type DeleteSparksInput struct {
+}
+
+func (m *DeleteSparksInput) Reset()                    { *m = DeleteSparksInput{} }
+func (m *DeleteSparksInput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSparksInput) ProtoMessage()               {}
+func (*DeleteSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{13} }
+
+type DeleteSparksOutput struct {
+	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *DeleteSparksOutput) Reset()                    { *m = DeleteSparksOutput{} }
+func (m *DeleteSparksOutput) String() string            { return proto.CompactTextString(m) }
+func (*DeleteSparksOutput) ProtoMessage()               {}
+func (*DeleteSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{14} }
+
+func (m *DeleteSparksOutput) GetAction() string {
+	if m != nil {
+		return m.Action
+	}
+	return ""
+}
+
+func (m *DeleteSparksOutput) GetRetCode() int32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *DeleteSparksOutput) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*SparkServiceProperties)(nil), "service.SparkServiceProperties")
+	proto.RegisterType((*CreateSparkInput)(nil), "service.CreateSparkInput")
+	proto.RegisterType((*CreateSparkOutput)(nil), "service.CreateSparkOutput")
+	proto.RegisterType((*DescribeSparksInput)(nil), "service.DescribeSparksInput")
+	proto.RegisterType((*DescribeSparksOutput)(nil), "service.DescribeSparksOutput")
+	proto.RegisterType((*AddSparkNodesInput)(nil), "service.AddSparkNodesInput")
+	proto.RegisterType((*AddSparkNodesOutput)(nil), "service.AddSparkNodesOutput")
+	proto.RegisterType((*DeleteSparkNodesInput)(nil), "service.DeleteSparkNodesInput")
+	proto.RegisterType((*DeleteSparkNodesOutput)(nil), "service.DeleteSparkNodesOutput")
+	proto.RegisterType((*StartSparksInput)(nil), "service.StartSparksInput")
+	proto.RegisterType((*StartSparksOutput)(nil), "service.StartSparksOutput")
+	proto.RegisterType((*StopSparksInput)(nil), "service.StopSparksInput")
+	proto.RegisterType((*StopSparksOutput)(nil), "service.StopSparksOutput")
+	proto.RegisterType((*DeleteSparksInput)(nil), "service.DeleteSparksInput")
+	proto.RegisterType((*DeleteSparksOutput)(nil), "service.DeleteSparksOutput")
 }
 
 type SparkServiceInterface interface {
-	CreateSpark(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DescribeSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	AddSparkNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteSparkNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	StartSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	StopSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
-	DeleteSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error)
+	CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error)
+	DescribeSparks(in *DescribeSparksInput) (out *DescribeSparksOutput, err error)
+	AddSparkNodes(in *AddSparkNodesInput) (out *AddSparkNodesOutput, err error)
+	DeleteSparkNodes(in *DeleteSparkNodesInput) (out *DeleteSparkNodesOutput, err error)
+	StartSparks(in *StartSparksInput) (out *StartSparksOutput, err error)
+	StopSparks(in *StopSparksInput) (out *StopSparksOutput, err error)
+	DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOutput, err error)
 }
 
 type SparkService struct {
@@ -73,9 +366,9 @@ func (s *QingCloudService) Spark(zone string) (*SparkService, error) {
 	return &SparkService{Config: s.Config, Properties: properties}, nil
 }
 
-func (p *SparkService) CreateSpark(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *SparkService) CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &CreateSparkInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -84,7 +377,7 @@ func (p *SparkService) CreateSpark(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &CreateSparkOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -100,9 +393,13 @@ func (p *SparkService) CreateSpark(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *SparkService) DescribeSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *CreateSparkInput) Validate() error {
+	return nil
+}
+
+func (p *SparkService) DescribeSparks(in *DescribeSparksInput) (out *DescribeSparksOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DescribeSparksInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -111,7 +408,7 @@ func (p *SparkService) DescribeSparks(in *google_protobuf2.Empty) (out *google_p
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DescribeSparksOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -127,9 +424,13 @@ func (p *SparkService) DescribeSparks(in *google_protobuf2.Empty) (out *google_p
 	return x, err
 }
 
-func (p *SparkService) AddSparkNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DescribeSparksInput) Validate() error {
+	return nil
+}
+
+func (p *SparkService) AddSparkNodes(in *AddSparkNodesInput) (out *AddSparkNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &AddSparkNodesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -138,7 +439,7 @@ func (p *SparkService) AddSparkNodes(in *google_protobuf2.Empty) (out *google_pr
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &AddSparkNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -154,9 +455,13 @@ func (p *SparkService) AddSparkNodes(in *google_protobuf2.Empty) (out *google_pr
 	return x, err
 }
 
-func (p *SparkService) DeleteSparkNodes(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *AddSparkNodesInput) Validate() error {
+	return nil
+}
+
+func (p *SparkService) DeleteSparkNodes(in *DeleteSparkNodesInput) (out *DeleteSparkNodesOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteSparkNodesInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -165,7 +470,7 @@ func (p *SparkService) DeleteSparkNodes(in *google_protobuf2.Empty) (out *google
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteSparkNodesOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -181,9 +486,13 @@ func (p *SparkService) DeleteSparkNodes(in *google_protobuf2.Empty) (out *google
 	return x, err
 }
 
-func (p *SparkService) StartSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *DeleteSparkNodesInput) Validate() error {
+	return nil
+}
+
+func (p *SparkService) StartSparks(in *StartSparksInput) (out *StartSparksOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &StartSparksInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -192,7 +501,7 @@ func (p *SparkService) StartSparks(in *google_protobuf2.Empty) (out *google_prot
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &StartSparksOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -208,9 +517,13 @@ func (p *SparkService) StartSparks(in *google_protobuf2.Empty) (out *google_prot
 	return x, err
 }
 
-func (p *SparkService) StopSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *StartSparksInput) Validate() error {
+	return nil
+}
+
+func (p *SparkService) StopSparks(in *StopSparksInput) (out *StopSparksOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &StopSparksInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -219,7 +532,7 @@ func (p *SparkService) StopSparks(in *google_protobuf2.Empty) (out *google_proto
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &StopSparksOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -235,9 +548,13 @@ func (p *SparkService) StopSparks(in *google_protobuf2.Empty) (out *google_proto
 	return x, err
 }
 
-func (p *SparkService) DeleteSparks(in *google_protobuf2.Empty) (out *google_protobuf2.Empty, err error) {
+func (p *StopSparksInput) Validate() error {
+	return nil
+}
+
+func (p *SparkService) DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOutput, err error) {
 	if in == nil {
-		in = &google_protobuf2.Empty{}
+		in = &DeleteSparksInput{}
 	}
 	o := &data.Operation{
 		Config:        p.Config,
@@ -246,7 +563,7 @@ func (p *SparkService) DeleteSparks(in *google_protobuf2.Empty) (out *google_pro
 		RequestMethod: "GET", // GET or POST
 	}
 
-	x := &google_protobuf2.Empty{}
+	x := &DeleteSparksOutput{}
 	r, err := request.New(o, in, x)
 	if err != nil {
 		return nil, err
@@ -262,25 +579,40 @@ func (p *SparkService) DeleteSparks(in *google_protobuf2.Empty) (out *google_pro
 	return x, err
 }
 
+func (p *DeleteSparksInput) Validate() error {
+	return nil
+}
+
 func init() { proto.RegisterFile("spark.proto", fileDescriptor24) }
 
 var fileDescriptor24 = []byte{
-	// 259 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0x2e, 0x48, 0x2c,
-	0xca, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e,
-	0x95, 0x92, 0x2d, 0xcc, 0xcc, 0x4b, 0x4f, 0xce, 0xc9, 0x2f, 0x4d, 0x89, 0x2f, 0x4e, 0xc9, 0x8e,
-	0x2f, 0x2a, 0xcd, 0x49, 0xd5, 0x07, 0x11, 0x10, 0x75, 0x52, 0xd2, 0xe9, 0xf9, 0xf9, 0xe9, 0x39,
-	0xa9, 0xfa, 0x60, 0x5e, 0x52, 0x69, 0x9a, 0x7e, 0x6a, 0x6e, 0x41, 0x49, 0x25, 0x44, 0x52, 0x49,
-	0x87, 0x4b, 0x2c, 0x18, 0x64, 0x66, 0x30, 0xc4, 0xac, 0x80, 0xa2, 0xfc, 0x82, 0xd4, 0xa2, 0x92,
-	0xcc, 0xd4, 0x62, 0x21, 0x21, 0x2e, 0x96, 0xaa, 0xfc, 0xbc, 0x54, 0x09, 0x46, 0x05, 0x46, 0x0d,
-	0xce, 0x20, 0x30, 0xdb, 0xe8, 0x25, 0x33, 0x17, 0x0f, 0xb2, 0x72, 0x21, 0x5b, 0x2e, 0x6e, 0xe7,
-	0xa2, 0xd4, 0xc4, 0x92, 0x54, 0xb0, 0xa8, 0x90, 0x98, 0x1e, 0xc4, 0x2e, 0x3d, 0x98, 0x5d, 0x7a,
-	0xae, 0x20, 0xbb, 0xa4, 0x70, 0x88, 0x0b, 0x39, 0x70, 0xf1, 0xb9, 0xa4, 0x16, 0x27, 0x17, 0x65,
-	0x26, 0x41, 0x0c, 0x28, 0x26, 0xd9, 0x04, 0x7b, 0x2e, 0x5e, 0xc7, 0x94, 0x14, 0xb0, 0x66, 0xbf,
-	0xfc, 0x94, 0x54, 0xd2, 0x0d, 0x70, 0xe2, 0x12, 0x70, 0x49, 0xcd, 0x49, 0x85, 0xfa, 0x80, 0x3c,
-	0x33, 0x6c, 0xb9, 0xb8, 0x83, 0x4b, 0x12, 0x8b, 0x4a, 0xc8, 0xf4, 0x83, 0x0d, 0x17, 0x57, 0x70,
-	0x49, 0x7e, 0x01, 0x99, 0xba, 0xed, 0xb8, 0x78, 0x90, 0x3c, 0x40, 0xb2, 0x7e, 0x29, 0xb1, 0xae,
-	0x8f, 0x2c, 0x42, 0x5c, 0x9c, 0x81, 0x99, 0x79, 0xe9, 0xce, 0xa0, 0x34, 0x24, 0xc4, 0x0a, 0x36,
-	0x28, 0x89, 0x0d, 0xac, 0xce, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x0c, 0x8d, 0x88, 0x63, 0x74,
-	0x02, 0x00, 0x00,
+	// 442 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0x4b, 0x8e, 0xd3, 0x40,
+	0x10, 0x55, 0x20, 0x33, 0x61, 0x2a, 0x03, 0xc4, 0x95, 0x19, 0xe3, 0xf4, 0xcc, 0x40, 0xe4, 0x55,
+	0x16, 0x28, 0x48, 0x70, 0x82, 0x28, 0x96, 0x10, 0x48, 0xfc, 0xe2, 0x03, 0x38, 0x8e, 0x5d, 0x8a,
+	0xac, 0x04, 0xb7, 0xe9, 0x6e, 0xb3, 0xe0, 0x08, 0x1c, 0x86, 0xbb, 0x71, 0x03, 0x64, 0xbb, 0x13,
+	0xda, 0x8e, 0xb3, 0xf4, 0xc6, 0x72, 0xd7, 0xab, 0x7a, 0xaf, 0x55, 0x7a, 0xaf, 0x61, 0x28, 0xb3,
+	0x50, 0xec, 0xe6, 0x99, 0xe0, 0x8a, 0xe3, 0x40, 0x92, 0xf8, 0x99, 0x44, 0xc4, 0x1e, 0x7e, 0x24,
+	0xe9, 0x36, 0xda, 0xf3, 0x3c, 0x0e, 0x64, 0xbc, 0x0b, 0x44, 0xbe, 0xa7, 0x37, 0xc5, 0xa7, 0xea,
+	0x73, 0x5f, 0x83, 0xed, 0x17, 0x63, 0x7e, 0xd5, 0xfe, 0x55, 0xf0, 0x8c, 0x84, 0x4a, 0x48, 0x22,
+	0x42, 0xff, 0x17, 0x4f, 0xc9, 0xe9, 0x4d, 0x7b, 0xb3, 0xab, 0x55, 0xf9, 0xef, 0x22, 0x8c, 0x96,
+	0x82, 0x42, 0x45, 0xe5, 0xcc, 0x87, 0x34, 0xcb, 0x95, 0xbb, 0x06, 0xcb, 0xa8, 0x7d, 0xc9, 0x55,
+	0x96, 0x2b, 0xb4, 0xe1, 0x32, 0x8c, 0x54, 0xc2, 0x53, 0x3d, 0xae, 0x4f, 0x38, 0x81, 0x27, 0x82,
+	0x54, 0x10, 0xf1, 0x98, 0x9c, 0x47, 0xd3, 0xde, 0xec, 0x62, 0x35, 0x10, 0xa4, 0x96, 0x3c, 0x26,
+	0x74, 0x60, 0xf0, 0x9d, 0xa4, 0x0c, 0xb7, 0xe4, 0x3c, 0x2e, 0x67, 0x0e, 0x47, 0xf7, 0x16, 0xc6,
+	0x1e, 0xc9, 0x48, 0x24, 0x9b, 0x4a, 0x43, 0x56, 0xc2, 0x11, 0xdc, 0xd4, 0xcb, 0x5d, 0x68, 0xdf,
+	0x00, 0x2e, 0xe2, 0xb8, 0xe4, 0xff, 0xcc, 0x63, 0xd2, 0xd2, 0x1b, 0x18, 0xd7, 0xaa, 0x5d, 0x28,
+	0xbf, 0x80, 0x5b, 0x8f, 0xf6, 0xa4, 0xf7, 0x6a, 0x88, 0x13, 0xd8, 0x4d, 0xa0, 0x0b, 0x7d, 0x84,
+	0x91, 0xaf, 0x42, 0xa1, 0xcc, 0x95, 0xaf, 0xc1, 0x32, 0x6a, 0x5d, 0xa8, 0x5a, 0xf0, 0xdc, 0x57,
+	0x3c, 0x33, 0x45, 0x83, 0xe2, 0x22, 0x87, 0x52, 0x17, 0x9a, 0x63, 0xb0, 0x8c, 0x85, 0x6a, 0xd5,
+	0x10, 0xd0, 0x2c, 0x76, 0xa0, 0xfb, 0xf6, 0x4f, 0x1f, 0xae, 0xcd, 0xf0, 0xa1, 0x07, 0x43, 0x23,
+	0x4a, 0x38, 0x99, 0xeb, 0x10, 0xcf, 0x9b, 0xa1, 0x63, 0xac, 0x0d, 0xd2, 0x77, 0xfc, 0x04, 0xcf,
+	0xea, 0xb9, 0xc0, 0xfb, 0x63, 0x77, 0x4b, 0x8e, 0xd8, 0xc3, 0x19, 0x54, 0xd3, 0x7d, 0x84, 0xa7,
+	0x35, 0xaf, 0xe3, 0xdd, 0xb1, 0xff, 0x34, 0x19, 0xec, 0xbe, 0x1d, 0xd4, 0x5c, 0x3e, 0x8c, 0x9a,
+	0xd6, 0xc5, 0x97, 0x86, 0x7c, 0x8b, 0xdd, 0xd9, 0xab, 0xb3, 0xb8, 0x26, 0xf5, 0x60, 0x68, 0x98,
+	0xd2, 0xd8, 0x5a, 0xd3, 0xbe, 0xc6, 0xd6, 0x4e, 0x5d, 0xbc, 0x00, 0xf8, 0xef, 0x32, 0x74, 0x8c,
+	0xce, 0x9a, 0x1b, 0xd9, 0xa4, 0x05, 0xd1, 0x14, 0xef, 0xe1, 0xda, 0xb4, 0x0c, 0xb2, 0xb6, 0x9b,
+	0x6b, 0x9a, 0xbb, 0x56, 0xac, 0x22, 0x62, 0xf6, 0xef, 0xbf, 0x7d, 0x84, 0xab, 0x6f, 0x49, 0xba,
+	0x5d, 0x16, 0x2f, 0x37, 0x5e, 0x94, 0xf0, 0xe6, 0xb2, 0x7c, 0xb3, 0xdf, 0xfd, 0x0b, 0x00, 0x00,
+	0xff, 0xff, 0x96, 0xf8, 0xd4, 0x14, 0xea, 0x05, 0x00, 0x00,
 }
