@@ -19,7 +19,7 @@ func (p *pbServiceRule) GetDocUrl() string          { return p.ServiceRule.GetDo
 type pbMethodRule struct{ *rule_pb.MethodRule }
 
 func (p *pbMethodRule) GetHttpMethod() string {
-	if s := p.MethodRule.GetHttpAction(); s != "" {
+	if s := p.MethodRule.GetHttpMethod(); s != "" {
 		return s
 	}
 	return "GET"

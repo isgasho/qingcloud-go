@@ -216,7 +216,7 @@ func (p *{{.ArgsType}}) Validate() error {
 
 		methodRule := p.getMethodExtension(m)
 		if methodRule != nil {
-			if kind := methodRule.GetHttpAction(); kind != "" {
+			if kind := methodRule.GetHttpMethod(); kind != "" {
 				RequestMethod = kind
 			}
 		}

@@ -22,7 +22,7 @@ service UserDataService {
 
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
 		option (qingcloud.sdk.rule.method_rule) = {
-			http_action: "POST"
+			http_method: "POST"
 		};
 	}
 }
