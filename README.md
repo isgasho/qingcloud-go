@@ -158,7 +158,7 @@ type UserDataService struct {
 	// ...
 }
 
-func NewNicService(conf *config.Config, zone string) *NicService {
+func NewUserDataService(conf *config.Config, zone string) *UserDataService {
 	// ...
 }
 
