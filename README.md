@@ -101,6 +101,12 @@ func jsonpbEncode(m proto.Message) string {
 }
 ```
 
+初始化子服务也可以用以下方式:
+
+```go
+nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
+```
+
 运行例子:
 
 	go run hello.go
