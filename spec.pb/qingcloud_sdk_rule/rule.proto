@@ -27,12 +27,12 @@ message MethodRule {
 // 输入参数规则
 // 输入参数成员只有数值类型和字符串, 以及对应的数组, 不含嵌套结构
 message MethodInputRule {
-	string required_fileds = 1;  // 格式: "a, b, ..."
-	string default_value = 2;    // 格式: "a:v, b:v, ..."
-	string enum_value = 3;       // 格式: "a:a1,a2,a3; b:b1,b2; ..."
-	string minimum = 4;          // 格式: "a:v, b:v, ...", 最小值, 仅数值类型或数组
-	string maximum = 5;          // 格式: "a:v, b:v, ...", 最大值, 仅数值类型或数组
-	string multipleOf = 6;       // 格式: "a:v, b:v, ...", 整倍数, 仅整数类型或数组
+	string required_fileds = 1;   // 格式: "a; b; ..."
+	string default_value = 2;     // 格式: "a:v; b:v; ..."
+	string enum_value = 3;        // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+	string min_value = 4;         // 格式: "a:v; b:v ...", 最小值, 仅数值类型或数组
+	string max_value = 5;         // 格式: "a:v; b:v; ...", 最大值, 仅数值类型或数组
+	string multiple_of_value = 6; // 格式: "a:v; b:v; ...", 整倍数, 仅整数类型或数组
 }
 
 // 通过扩展信息给 method 增加约束

@@ -5,6 +5,8 @@
 package qingcloud
 
 import (
+	"strings"
+
 	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 )
 
@@ -28,46 +30,145 @@ func (p *pbMethodRule) GetHttpMethod() string {
 type pbMethodInputRule struct{ *rule_pb.MethodInputRule }
 
 func (p *pbMethodInputRule) IsRequired(filedName string) bool {
+	for _, s := range p.getRequiredFiledList() {
+		if s == filedName {
+			return true
+		}
+	}
 	return false
 }
-func (p *pbMethodInputRule) IsNumberType(filedName string) bool {
-	return false
+
+func (p *pbMethodInputRule) HasDefaultValue(filedName string) bool {
+	return len(p.GetDefaultValue(filedName)) > 0
 }
-func (p *pbMethodInputRule) IsStringType(filedName string) bool {
-	return false
+func (p *pbMethodInputRule) GetDefaultValue(filedName string) string {
+	names, values := p.getDefaultValueList()
+	for i, name := range names {
+		if filedName == name {
+			return values[i]
+		}
+	}
+	return ""
 }
 
 func (p *pbMethodInputRule) HasEnumValue(filedName string) bool {
-	return false
+	return len(p.GetEnumValue(filedName)) > 0
 }
-func (p *pbMethodInputRule) HasDefaultValue(filedName string) bool {
-	return false
-}
-func (p *pbMethodInputRule) HasMaxValue(filedName string) bool {
-	return false
-}
-func (p *pbMethodInputRule) HasMinValue(filedName string) bool {
-	return false
-}
-func (p *pbMethodInputRule) HasMultipleOfValue(filedName string) bool {
-	return false
-}
-
-func (p *pbMethodInputRule) GetRequiredFiledList() []string {
+func (p *pbMethodInputRule) GetEnumValue(filedName string) []string {
+	names, values := p.getEnumValueList()
+	for i, name := range names {
+		if filedName == name {
+			return values[i]
+		}
+	}
 	return nil
 }
-func (p *pbMethodInputRule) GetEnumValueList() (names []string, values [][]string) {
-	return nil, nil
+
+func (p *pbMethodInputRule) HasMinValue(filedName string) bool {
+	return len(p.GetMinValue(filedName)) > 0
 }
-func (p *pbMethodInputRule) GetDefaultValueList() (names []string, values []string) {
-	return nil, nil
+func (p *pbMethodInputRule) GetMinValue(filedName string) string {
+	names, values := p.getMinValueList()
+	for i, name := range names {
+		if filedName == name {
+			return values[i]
+		}
+	}
+	return ""
 }
-func (p *pbMethodInputRule) GetMaxValueList() (names []string, values []string) {
-	return nil, nil
+
+func (p *pbMethodInputRule) HasMaxValue(filedName string) bool {
+	return len(p.GetMaxValue(filedName)) > 0
 }
-func (p *pbMethodInputRule) GetMinValueList() (names []string, values []string) {
-	return nil, nil
+func (p *pbMethodInputRule) GetMaxValue(filedName string) string {
+	names, values := p.getMaxValueList()
+	for i, name := range names {
+		if filedName == name {
+			return values[i]
+		}
+	}
+	return ""
 }
-func (p *pbMethodInputRule) GetMultipleOfValueList() (names []string, values []string) {
-	return nil, nil
+
+func (p *pbMethodInputRule) HasMultipleOfValue(filedName string) bool {
+	return len(p.GetMultipleOfValue(filedName)) > 0
+}
+func (p *pbMethodInputRule) GetMultipleOfValue(filedName string) string {
+	names, values := p.getMultipleOfValueList()
+	for i, name := range names {
+		if filedName == name {
+			return values[i]
+		}
+	}
+	return ""
+}
+
+// data: "a; b; ..."
+func (p *pbMethodInputRule) getRequiredFiledList() []string {
+	return splitString(p.MethodInputRule.RequiredFileds, ";")
+}
+
+// data: "a:v; b:v; ..."
+func (p *pbMethodInputRule) getDefaultValueList() (names []string, values []string) {
+	for _, s := range splitString(p.MethodInputRule.DefaultValue, ";") {
+		if kv := splitString(s, ":"); len(kv) == 2 {
+			names = append(names, kv[0])
+			values = append(values, kv[1])
+		}
+	}
+	return
+}
+
+// data: "a:a1,a2,a3; b:b1,b2; ..."
+func (p *pbMethodInputRule) getEnumValueList() (names []string, values [][]string) {
+	for _, s := range splitString(p.MethodInputRule.EnumValue, ";") {
+		if kv := splitString(s, ":"); len(kv) == 2 {
+			names = append(names, kv[0])
+			values = append(values, splitString(kv[1], ","))
+		}
+	}
+	return
+}
+
+// data: "a:v; b:v; ..."
+func (p *pbMethodInputRule) getMinValueList() (names []string, values []string) {
+	for _, s := range splitString(p.MethodInputRule.MinValue, ";") {
+		if kv := splitString(s, ":"); len(kv) == 2 {
+			names = append(names, kv[0])
+			values = append(values, kv[1])
+		}
+	}
+	return
+}
+
+// data: "a:v; b:v; ..."
+func (p *pbMethodInputRule) getMaxValueList() (names []string, values []string) {
+	for _, s := range splitString(p.MethodInputRule.MaxValue, ";") {
+		if kv := splitString(s, ":"); len(kv) == 2 {
+			names = append(names, kv[0])
+			values = append(values, kv[1])
+		}
+	}
+	return
+}
+
+// data: "a:v; b:v; ..."
+func (p *pbMethodInputRule) getMultipleOfValueList() (names []string, values []string) {
+	for _, s := range splitString(p.MethodInputRule.MultipleOfValue, ";") {
+		if kv := splitString(s, ":"); len(kv) == 2 {
+			names = append(names, kv[0])
+			values = append(values, kv[1])
+		}
+	}
+	return
+}
+
+func splitString(s, sep string) []string {
+	var ss []string
+	for _, s := range strings.Split(s, sep) {
+		if s := strings.TrimSpace(s); s != "" {
+			ss = append(ss, s)
+		}
+	}
+	return ss
 }
