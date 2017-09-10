@@ -7,6 +7,12 @@
 [![API Reference](http://img.shields.io/badge/api-reference-green.svg)](http://docs.qingcloud.com)
 [![License](http://img.shields.io/badge/license-apache%20v2-blue.svg)](https://github.com/chai2010/qingcloud-go/blob/master/LICENSE)
 
+项目目标:
+
+- 基于 Protobuf-V3 语法维护规范, 便于升级和维护
+- 更完整的服务支持, 新服务第一时间提供支持
+- 更好用的编程接口
+
 在线文档:
 
 - https://docs.qingcloud.com
