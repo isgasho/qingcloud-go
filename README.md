@@ -185,7 +185,7 @@ func (p *UserDataService) UploadUserDataAttachment(
 
 规范文件的语法细节可以参考 [spec.pb/README.md](./spec.pb/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
 
-## 与官方文档的兼容性
+## 与官方SDK的兼容性
 
 - 该 SDK 和 官方 SDK 的 API 保持最大的兼容性
 - 即使有不兼容的地方, API 也是非常相似的
