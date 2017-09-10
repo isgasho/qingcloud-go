@@ -44,7 +44,7 @@ message ServiceRule {
 // 方法规则
 message MethodRule {
 	string doc_url = 1;          // 文档链接
-	string http_action = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
+	string http_method = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
 }
 
 // 输入参数规则
@@ -91,7 +91,7 @@ service UserDataService {
 
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
 		option (qingcloud.sdk.rule.method_rule) = {
-			http_action: "POST"
+			http_method: "POST"
 		};
 	}
 }
