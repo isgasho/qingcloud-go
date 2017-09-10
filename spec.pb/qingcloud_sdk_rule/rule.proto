@@ -10,26 +10,35 @@ import "google/protobuf/descriptor.proto";
 
 option go_package = "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule;qingcloud_sdk_rule";
 
+// 服务规则
+// 有主服务和子服务之分, 子服务隶属于某个主服务
 message ServiceRule {
-	string service_name = 1;     // 主服务名(因为要生成一个Init函数, 只能有一个, 否则会重名)
-	string sub_service_name = 2; // 子服务名(主服务可省略)
+	string doc_url = 1;          // 文档链接
+	string service_name = 2;     // 主服务名(因为要生成一个Init函数, 只能有一个, 否则会重名)
+	string sub_service_name = 3; // 子服务名(主服务可省略)
 }
 
+// 方法规则
 message MethodRule {
-	string http_action = 1;
+	string doc_url = 1;          // 文档链接
+	string http_action = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
 }
 
+// 输入参数规则
+// 输入参数成员只有数值类型和字符串, 以及对应的数组, 不含嵌套结构
 message MethodInputRule {
-	string required_fileds = 1; // 格式: "a, b, ..."
-	string default_value = 2;   // 格式: "a:v, b:v, ..."
-	string enum_value = 3;      // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+	string required_fileds = 1;  // 格式: "a, b, ..."
+	string default_value = 2;    // 格式: "a:v, b:v, ..."
+	string enum_value = 3;       // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+	string minimum = 4;          // 格式: "a:v, b:v, ...", 最小值, 仅数值类型或数组
+	string maximum = 5;          // 格式: "a:v, b:v, ...", 最大值, 仅数值类型或数组
+	string multipleOf = 6;       // 格式: "a:v, b:v, ...", 整倍数, 仅整数类型或数组
 }
 
 // 通过扩展信息给 method 增加约束
 extend google.protobuf.ServiceOptions {
 	ServiceRule service_rule = 10001;
 }
-
 
 // 通过扩展信息给 method 增加约束
 extend google.protobuf.MethodOptions {
@@ -38,5 +47,5 @@ extend google.protobuf.MethodOptions {
 
 // 通过扩展信息给 message 增加约束
 extend google.protobuf.MessageOptions {
-	MethodInputRule method_input_rule = 10002;
+	MethodInputRule method_input_rule = 10001;
 }
