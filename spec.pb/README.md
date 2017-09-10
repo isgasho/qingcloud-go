@@ -1,25 +1,52 @@
-
-
 ## 设计思路
 
-- 基于 Protobuf3 语法对应的 json 格式文件定义 api 元数据
-- 基于 Protobuf3 语法定义 rest 接口的请求和响应结构体, 只是用于结构体, 请求时转 json 处理(proto库自带)
+- 基于 Protobuf3 语法定义青云服务接口规范
 - 基于 Protobuf3 的扩展特性, 增加自定义的元数据
-- 内置 Go 语言代码模板基于标准库语法
+- 基于 Protobuf3 生成的输入和输出参数结构进行 json 的编码和解码
+- 内置基于Go标准库模板语法的Go代码生成
+- 外部模板暂不支持(以后会考虑)
 
-## protobuf 扩展信息
+## 构建流程
 
-扩展类型在 [spec.pb/qingcloud_sdk_rule/rule.proto](spec.pb/qingcloud_sdk_rule/rule.proto) 文件中定义:
+1. 用官方的 `protoc-gen-go` 插件生成 [qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto), 参考 `make rule` 命令
+1. 将官方的 `protoc-gen-go` 插件升级为支持 青云 SDK 生成的版本, `go install github.com/chai2010/qingcloud-go/protoc-gen-go`
+1. 根据 spec.pb 下各个服务的 proto 文件, 用升级后的 `protoc-gen-go` 构建出青云的 SDK 代码, 放在 [../service](../service) 目录, 参考 `make` 命令
+1. 在上级目录运行单元测试 `make test ./...`
+1. OK
+
+## Protobuf 扩展信息
+
+扩展类型在 [spec.pb/qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto) 文件中定义:
 
 ```proto
-message MethodRule {
-	string http_action = 1;
+// 服务规则
+// 有主服务和子服务之分, 子服务隶属于某个主服务
+message ServiceRule {
+	string doc_url = 1;          // 文档链接
+	string service_name = 2;     // 主服务名(因为要生成一个Init函数, 只能有一个, 否则会重名)
+	string sub_service_name = 3; // 子服务名(主服务可省略)
 }
 
+// 方法规则
+message MethodRule {
+	string doc_url = 1;          // 文档链接
+	string http_action = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
+}
+
+// 输入参数规则
+// 输入参数成员只有数值类型和字符串, 以及对应的数组, 不含嵌套结构
 message MethodInputRule {
-	string required_fileds = 1; // 格式: "a, b, ..."
-	string default_value = 2;   // 格式: "a:v, b:v, ..."
-	string enum_value = 3;      // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+	string required_fileds = 1;  // 格式: "a, b, ..."
+	string default_value = 2;    // 格式: "a:v, b:v, ..."
+	string enum_value = 3;       // 格式: "a:a1,a2,a3; b:b1,b2; ..."
+	string minimum = 4;          // 格式: "a:v, b:v, ...", 最小值, 仅数值类型或数组
+	string maximum = 5;          // 格式: "a:v, b:v, ...", 最大值, 仅数值类型或数组
+	string multipleOf = 6;       // 格式: "a:v, b:v, ...", 整倍数, 仅整数类型或数组
+}
+
+// 通过扩展信息给 method 增加约束
+extend google.protobuf.ServiceOptions {
+	ServiceRule service_rule = 10001;
 }
 
 // 通过扩展信息给 method 增加约束
@@ -29,7 +56,7 @@ extend google.protobuf.MethodOptions {
 
 // 通过扩展信息给 message 增加约束
 extend google.protobuf.MessageOptions {
-	MethodInputRule method_input_rule = 10002;
+	MethodInputRule method_input_rule = 10001;
 }
 ```
 
@@ -61,6 +88,8 @@ message UploadUserDataAttachmentInput {
 
 输入的参数可以通过 `option (qingcloud.sdk.rule.method_input_rule)` 扩展来定义额外的约束, 主要是针对 必须成员/默认值/枚举字符串 几种类型.
 不过目前还没有使用该信息.
+
+<!--
 
 ## QingCloud API 状态
 
@@ -418,4 +447,6 @@ message UploadUserDataAttachmentInput {
 ### 消息中心
 
 - [ ] DescribeNotificationCenterUserPosts
+
+-->
 
