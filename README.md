@@ -10,8 +10,9 @@
 项目目标:
 
 - 基于 Protobuf-V3 语法维护规范, 便于升级和维护
-- 更完整的服务支持, 新服务第一时间提供支持
-- 更好用的编程接口
+- 更完整的服务支持, 新服务第一时间提供支持(得益于Protobuf-V3语法的可维护性)
+- 兼容 [snips 的模板语法](https://github.com/yunify/snips/blob/master/capsules/data.go), 可继承 [ruby](https://github.com/yunify/qingcloud-sdk-ruby/tree/master/template)/[swift](https://github.com/yunify/qingstor-sdk-swift/tree/master/template) 等模板资源
+- 更好用的编程接口, 更多的测试(Go语言版本)
 
 在线文档:
 
