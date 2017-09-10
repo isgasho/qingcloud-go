@@ -21,8 +21,6 @@ import (
 	"sort"
 	"strings"
 	"text/template"
-
-	"github.com/chai2010/qingcloud-go/protoc-gen-go/capsules"
 )
 
 var funcMap = template.FuncMap{
@@ -79,7 +77,7 @@ func passThrough(data ...interface{}) []interface{} {
 	return data
 }
 
-func firstPropertyIDInCustomizedType(customizedType *capsules.Property) string {
+func firstPropertyIDInCustomizedType(customizedType *Property) string {
 	keys := []string{}
 	for key := range customizedType.Properties {
 		keys = append(keys, key)
