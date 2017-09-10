@@ -192,7 +192,7 @@ func (p *UserDataService) UploadUserDataAttachment(
 
 假设青云的REST规范的文档中有一个名为 `job_id` 的输入参数, 对应 `XXXInput` 结构体的成员.
 
-官方文档是根据 [json定义的规范](https://github.com/yunify/qingcloud-api-specs/tree/master/2013-08-30/swagger), 然后通过一个名为 [snips](https://github.com/yunify/snips) 的工具加自己定义的 模板 生成的代码, `XXXInput` 输入参数生成的代码可能类似以下结构:
+官方文档是根据 [json定义的规范](https://github.com/yunify/qingcloud-api-specs/tree/master/2013-08-30/swagger), 然后通过一个名为 [snips](https://github.com/yunify/snips) 的工具加自己定义的 [模板](https://github.com/yunify/qingcloud-sdk-go/tree/master/template) 生成的代码, `XXXInput` 输入参数生成的代码可能类似以下结构:
 
 ```go
 type XXXInput struct {
