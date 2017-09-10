@@ -62,10 +62,21 @@ extend google.protobuf.MessageOptions {
 }
 ```
 
-通过扩展数据可以改变方法的行为, [spec.pb/user_data.proto](./spec.pb/user_data.proto) 指定了 POST 方法:
+通过扩展数据可以改变方法的行为, [user_data.proto](./user_data.proto) 指定了 POST 方法:
 
 ```proto
+syntax = "proto3";
+
+package service;
+
+import "qingcloud_sdk_rule/rule.proto";
+
 service UserDataService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		service_name:     "QingCloud"
+		sub_service_name: "UserData"
+	};
+
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
 		option (qingcloud.sdk.rule.method_rule) = {
 			http_action: "POST"
@@ -82,6 +93,14 @@ message UploadUserDataAttachmentInput {
 		default_value: ""
 		enum_value: ""
 	};
+}
+
+message UploadUserDataAttachmentOutput {
+	string action = 1;
+	int32 ret_code = 2;
+	string message = 3;
+
+	string attachment_id = 4;
 }
 ```
 
