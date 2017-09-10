@@ -78,6 +78,9 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// 原始返回的json数据
+	// nicService.LastResponseBody
+
 	// JSON 格式打印
 	fmt.Println(jsonpbEncode(reply))
 }
