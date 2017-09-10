@@ -9,12 +9,24 @@
 ## 构建流程
 
 1. 安装官方的 [`protoc`](https://github.com/google/protobuf/releases) 程序, V3版本, 带了官方的扩展类型
-2. 安装官方的 `protoc-gen-go` 插件, `go install github.com/golang/protobuf/protoc-gen-go`
+1. 安装官方的 `protoc-gen-go` 插件, `go install github.com/golang/protobuf/protoc-gen-go`
 1. 用官方的 `protoc-gen-go` 插件生成 [qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto), 参考 `make rule` 命令
 1. 将官方的 `protoc-gen-go` 插件升级为支持 青云 SDK 生成的版本, `go install github.com/chai2010/qingcloud-go/protoc-gen-go`
 1. 根据 spec.pb 下各个服务的 proto 文件, 用升级后的 `protoc-gen-go` 构建出青云的 SDK 代码, 放在 [../service](../service) 目录, 参考 `make` 命令
 1. 在上级目录运行单元测试 `make test ./...`
 1. OK
+
+**服务规则升级流程:**
+
+1. 更新 [qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto) 文件
+1. 用 `protoc-gen-go` 插件重现生成 [qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto), 参考 `make rule` 命令
+1. 升级 `protoc-gen-go` 插件(依赖 rule.proto 文件生成的代码), `go install github.com/chai2010/qingcloud-go/protoc-gen-go`
+1. 根据新的规则更新相应的 proto 接口文件, 并运行 `make`
+
+**服务升级流程:**
+
+1. 更新已有的 proto 接口文件, 或者新建 proto 接口文件
+1. 运行 `make`
 
 ## Protobuf 扩展信息
 
