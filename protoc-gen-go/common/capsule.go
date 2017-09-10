@@ -14,4 +14,31 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
-package capsules
+package common
+
+// Capsule defines the common functions to implement for generator.
+type Capsule interface {
+	SetData(specData *Data)
+	SetMode(templateID string, subServiceID ...string)
+}
+
+// CapsulePowder provides necessary data to fill the template.
+type CapsulePowder struct {
+	Data *Data
+
+	CurrentTemplateID   string
+	CurrentSubServiceID string
+}
+
+// SetData sets the API spec data.
+func (c *CapsulePowder) SetData(specData *Data) {
+	c.Data = specData
+}
+
+// SetMode sets the template ID and sub service ID.
+func (c *CapsulePowder) SetMode(templateID string, subServiceID ...string) {
+	c.CurrentTemplateID = templateID
+	if len(subServiceID) == 1 {
+		c.CurrentSubServiceID = subServiceID[0]
+	}
+}

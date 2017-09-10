@@ -14,7 +14,7 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
-package capsules
+package common
 
 // BaseCapsule provides necessary data to fill the template.
 type BaseCapsule struct {

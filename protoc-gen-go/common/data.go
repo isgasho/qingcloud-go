@@ -14,7 +14,7 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
-package capsules
+package common
 
 // Data stores the data of an API service to render.
 type Data struct {
