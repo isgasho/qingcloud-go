@@ -207,6 +207,10 @@ type XXXInput struct {
 
 <!-- 以后或许可以通过pb自动生成json规范 -->
 
+## 外部依赖
+
+- Protobuf: [https://github.com/golang/protobuf](https://github.com/golang/protobuf)
+
 ## 版权
 
 The Apache License.
