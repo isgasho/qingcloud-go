@@ -8,7 +8,11 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/alarm/index.html
+// ----------------------------------------------------------------------------
 
 message AlarmServiceProperties {
 	string zone = 1;
@@ -39,139 +43,370 @@ service AlarmService {
 	rpc DescribeAlarmHistory(DescribeAlarmHistoryInput) returns (DescribeAlarmHistoryOutput);
 }
 
-message DescribeAlarmPoliciesInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeAlarmPoliciesInput {
+	repeated string alarm_policies = 1; // 告警策略ID
+	string alarm_policy_name = 2;       // 告警策略名称
+	string alarm_policy_type = 3;       // 支持告警策略类型
+	string search_word = 4;             // 搜索关键词，支持告警策略名称
+	int32 verbose = 5;                  // 是否返回冗长的信息，若为1，则返回绑定了该告警策略的资源的信息
+	int32 offset = 6;                   // 数据偏移量
+	int32 limit = 7;                    // 返回数据长度
+
+	option (qingcloud.sdk.rule.method_input_rule) = {
+		required_fileds:
+			"attachment_content;"
+		default_value:
+			"verbose:0"
+			"offset:0;"
+			"limit:20;"
+		enum_value:
+			"alarm_policy_type:"
+				"instance,"
+				"eip,"
+				"router,"
+				"loadbalancer_listener_tcp,"
+				"loadbalancer_listener_https,"
+				"loadbalancer_listener_http,"
+				"loadbalancer_backend_http,"
+				"loadbalancer_backend_tcp,"
+				"rdb_mysql,"
+				"rdb_psql,"
+				"elasticsearch_node,"
+				"cache_node_memcached,"
+				"cache_node_redis,"
+				"queue_node_kafka,"
+				"spark_node,"
+				"hadoop_node,"
+				"zookeeper_node,"
+				"hbase_node,"
+				"mongo_instance,"
+				"storm_node,"
+			";"
+	};
+}
 message DescribeAlarmPoliciesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	ResponseItem alarm_policy_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string alarm_policy_id = 1;
+		string alarm_policy_name = 2;
+		string description = 3;
+		repeated string resources = 4;
+		string alarm_policy_type = 5;
+		int32 is_applied = 6;
+		string status = 7;
+		google.protobuf.Timestamp create_time = 8;
+		google.protobuf.Timestamp status_time = 9;
+	}
 }
 
-message CreateAlarmPolicyInput {}
+// ----------------------------------------------------------------------------
+
+message CreateAlarmPolicyInput {
+	string alarm_policy_type = 1; // 告警策略类型
+	string period = 2;            // 告警策略周期: 一分钟: 1m, 5分钟: 5m
+	string alarm_policy_name = 3; // 告警策略名称
+}
 message CreateAlarmPolicyOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string alarm_policy_id = 4;   // 创建成功的告警策略 ID
 }
 
-message ModifyAlarmPolicyAttributesInput {}
+// ----------------------------------------------------------------------------
+
+message ModifyAlarmPolicyAttributesInput {
+	string alarm_policy = 1;      // 告警策略 ID
+	string alarm_policy_name = 2; // 告警策略名称
+	string period = 3;            // 告警策略检查周期
+	string description = 4;       // 告警策略描述
+}
 message ModifyAlarmPolicyAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
-message DeleteAlarmPoliciesInput {}
+// ----------------------------------------------------------------------------
+
+message DeleteAlarmPoliciesInput {
+	repeated string alarm_policies = 1; // 告警策略 ID
+}
 message DeleteAlarmPoliciesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string alarm_policies = 4; // 删除的告警策略 ID 列表
 }
 
-message DescribeAlarmPolicyRulesInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeAlarmPolicyRulesInput {
+	string alarm_policy = 1;                // 告警策略 ID
+	repeated string alarm_policy_rules = 2; // 告警策略规则ID
+	int32 offset = 3;                       // 数据偏移量
+	int32 limit = 4;                        // 返回数据长度
+
+	option (qingcloud.sdk.rule.method_input_rule) = {
+		default_value:
+			"offset:0;"
+			"limit:20;"
+	};
+}
 message DescribeAlarmPolicyRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem alarm_policy_rule_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string alarm_policy_id = 1;      // 告警策略ID
+		string alarm_policy_rule_id = 2; // 告警策略规则ID
+		string meter = 3;                // 资源监控项，不同资源类型有不同的监控项。可参考 资源监控
+		string condition_type = 4;       // 判断条件类型：gt - 大于, lt - 小于
+		string thresholds = 5;           // 告警阈值
+		string data_processor = 6;       // 通常都是采用默认值 “raw” 表示对监控数据不需做额外处理。
+		                                 // 如果监控资源类型是公网 IP ，还可选择 “percent” 表示阈值数字代表的是百分比，
+		                                 // 这样系统会自动根据公网 IP 当前的带宽上限计算百分比。
+		string consecutive_periods = 7;  // 连续周期数，表示连续多个周期都满足告警条件时，才出发告警。默认是 1 。
+		string period_start_hhmm = 8;    // 此规则生效的起始时间，格式为 hh:mm ，默认是零点。
+		string period_end_hhmm = 9;      // 此规则生效的结束时间，格式为 hh:mm 默认是 23:59 。
+	}
 }
 
-message AddAlarmPolicyRulesInput {}
+// ----------------------------------------------------------------------------
+
+message AddAlarmPolicyRulesInput {
+	string alarm_policy = 1;
+	repeated Rule rules = 2;
+
+	message Rule {
+		string alarm_policy_rule_name = 1; // 规则名称
+		string meter = 2;                  // 资源监控项，不同资源类型有不同的监控项。可参考 资源监控
+		string condition_type = 3;         // 条件类型: gt (大于), lt (小于)
+		int32 thresholds = 4;              // 阈值
+		string data_processor = 5;         // 监控数据处理方式: raw (使用监控数据原始值), percent (只适用于 IP 带宽监控，将监控数据转换为带宽占用百分比，再跟阈值进行比较) 默认是 raw 。
+		int32 consecutive_periods = 6;     // 连续周期数，即连续几个检查周期，监控数据都达到了告警阈值，才触发告警行为。 默认是 1 。
+	}
+}
 message AddAlarmPolicyRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string alarm_policy_rules = 4; // 添加成功的监控告警策略规则 ID 列表
 }
 
-message ModifyAlarmPolicyRuleAttributesInput {}
+// ----------------------------------------------------------------------------
+
+message ModifyAlarmPolicyRuleAttributesInput {
+	string alarm_policy_rule = 1;
+	string alarm_policy_rule_name = 2;
+	string condition_type = 3;
+	string thresholds = 4;
+	string data_processor = 5;
+	string consecutive_periods = 6;
+}
 message ModifyAlarmPolicyRuleAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string alarm_policy_rule_id = 4; // 成功修改的告警策略规则ID
 }
 
-message DeleteAlarmPolicyRulesInput {}
+// ----------------------------------------------------------------------------
+
+message DeleteAlarmPolicyRulesInput {
+	repeated string alarm_policy_rules = 1;
+}
 message DeleteAlarmPolicyRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string alarm_policy_rules = 4;
 }
 
-message DescribeAlarmPolicyActionsInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeAlarmPolicyActionsInput {
+	string alarm_policy = 1;
+	repeated string alarm_policy_actions = 2;
+	int32 offset = 3;
+	int32 limit = 4;
+}
 message DescribeAlarmPolicyActionsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem alarm_policy_action_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string alarm_policy_id = 1;
+		string alarm_policy_action_id = 2;
+		string trigger_action = 3;
+		string trigger_status = 4;
+	}
 }
 
-message AddAlarmPolicyActionsInput {}
+// ----------------------------------------------------------------------------
+
+message AddAlarmPolicyActionsInput {
+	string alarm_policy = 1;
+	repeated ActionItem actions = 2;
+
+	message ActionItem {
+		string trigger_action = 1;
+		string trigger_status = 2;
+	}
+}
 message AddAlarmPolicyActionsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string alarm_policy_actions = 4;
 }
 
-message ModifyAlarmPolicyActionAttributesInput {}
+// ----------------------------------------------------------------------------
+
+message ModifyAlarmPolicyActionAttributesInput {
+	string alarm_policy_action = 1;
+	string trigger_action = 2;
+	string trigger_status = 3;
+}
 message ModifyAlarmPolicyActionAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string alarm_policy_action_id = 4;
 }
 
-message DeleteAlarmPolicyActionsInput {}
+// ----------------------------------------------------------------------------
+
+message DeleteAlarmPolicyActionsInput {
+	repeated string alarm_policy_actions = 1;
+}
 message DeleteAlarmPolicyActionsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string alarm_policy_actions = 4;
 }
 
-message AssociateAlarmPolicyInput {}
+// ----------------------------------------------------------------------------
+
+message AssociateAlarmPolicyInput {
+	string alarm_policy = 1;
+	repeated string resources = 2;
+	string related_resource = 3;
+}
 message AssociateAlarmPolicyOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message DissociateAlarmPolicyInput {}
+// ----------------------------------------------------------------------------
+
+message DissociateAlarmPolicyInput {
+	string alarm_policy = 1;
+	repeated string resources = 2;
+	string related_resource = 3;
+}
 message DissociateAlarmPolicyOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message ApplyAlarmPolicyInput {}
+// ----------------------------------------------------------------------------
+
+message ApplyAlarmPolicyInput {
+	string alarm_policy = 1;
+}
 message ApplyAlarmPolicyOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message DescribeAlarmsInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeAlarmsInput {
+	repeated string alarms = 1;
+	string policy = 2;
+	string status = 3;
+	string resource = 4;
+	int32 offset = 5;
+	int32 limit = 6;
+}
 message DescribeAlarmsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem alarm_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string alarm_id = 1;
+		string status = 2;
+		string alarm_policy_id = 3;
+		string resource_id = 4;
+		string related_resource = 5;
+		google.protobuf.Timestamp create_time = 6;
+	}
 }
 
-message DescribeAlarmHistoryInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeAlarmHistoryInput {
+	string alarm = 1;
+	string history_type = 2;
+	int32 offset = 3;
+	int32 limit = 4;
+}
 message DescribeAlarmHistoryOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem alarm_history_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string alarm_id = 1;
+		string alarm_history_id = 2;
+		string history_type = 3;
+		google.protobuf.Timestamp create_time = 4;
+		string description = 5;
+	}
 }
 
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

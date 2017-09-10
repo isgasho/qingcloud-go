@@ -782,6 +782,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -819,6 +820,13 @@ func (m *AlarmServiceProperties) GetZone() string {
 }
 
 type DescribeAlarmPoliciesInput struct {
+	AlarmPolicies   []string `protobuf:"bytes,1,rep,name=alarm_policies,json=alarmPolicies" json:"alarm_policies,omitempty"`
+	AlarmPolicyName string   `protobuf:"bytes,2,opt,name=alarm_policy_name,json=alarmPolicyName" json:"alarm_policy_name,omitempty"`
+	AlarmPolicyType string   `protobuf:"bytes,3,opt,name=alarm_policy_type,json=alarmPolicyType" json:"alarm_policy_type,omitempty"`
+	SearchWord      string   `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose         int32    `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset          int32    `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit           int32    `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeAlarmPoliciesInput) Reset()                    { *m = DescribeAlarmPoliciesInput{} }
@@ -826,10 +834,61 @@ func (m *DescribeAlarmPoliciesInput) String() string            { return proto.C
 func (*DescribeAlarmPoliciesInput) ProtoMessage()               {}
 func (*DescribeAlarmPoliciesInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
 
+func (m *DescribeAlarmPoliciesInput) GetAlarmPolicies() []string {
+	if m != nil {
+		return m.AlarmPolicies
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPoliciesInput) GetAlarmPolicyName() string {
+	if m != nil {
+		return m.AlarmPolicyName
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesInput) GetAlarmPolicyType() string {
+	if m != nil {
+		return m.AlarmPolicyType
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesInput) GetSearchWord() string {
+	if m != nil {
+		return m.SearchWord
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesInput) GetVerbose() int32 {
+	if m != nil {
+		return m.Verbose
+	}
+	return 0
+}
+
+func (m *DescribeAlarmPoliciesInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeAlarmPoliciesInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeAlarmPoliciesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action         string                                    `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode        int32                                     `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message        string                                    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicySet *DescribeAlarmPoliciesOutput_ResponseItem `protobuf:"bytes,4,opt,name=alarm_policy_set,json=alarmPolicySet" json:"alarm_policy_set,omitempty"`
+	TotalCount     int32                                     `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeAlarmPoliciesOutput) Reset()                    { *m = DescribeAlarmPoliciesOutput{} }
@@ -858,7 +917,108 @@ func (m *DescribeAlarmPoliciesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeAlarmPoliciesOutput) GetAlarmPolicySet() *DescribeAlarmPoliciesOutput_ResponseItem {
+	if m != nil {
+		return m.AlarmPolicySet
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPoliciesOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeAlarmPoliciesOutput_ResponseItem struct {
+	AlarmPolicyId   string                      `protobuf:"bytes,1,opt,name=alarm_policy_id,json=alarmPolicyId" json:"alarm_policy_id,omitempty"`
+	AlarmPolicyName string                      `protobuf:"bytes,2,opt,name=alarm_policy_name,json=alarmPolicyName" json:"alarm_policy_name,omitempty"`
+	Description     string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Resources       []string                    `protobuf:"bytes,4,rep,name=resources" json:"resources,omitempty"`
+	AlarmPolicyType string                      `protobuf:"bytes,5,opt,name=alarm_policy_type,json=alarmPolicyType" json:"alarm_policy_type,omitempty"`
+	IsApplied       int32                       `protobuf:"varint,6,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Status          string                      `protobuf:"bytes,7,opt,name=status" json:"status,omitempty"`
+	CreateTime      *google_protobuf1.Timestamp `protobuf:"bytes,8,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime      *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) Reset() {
+	*m = DescribeAlarmPoliciesOutput_ResponseItem{}
+}
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
+func (*DescribeAlarmPoliciesOutput_ResponseItem) ProtoMessage()    {}
+func (*DescribeAlarmPoliciesOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor0, []int{2, 0}
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetAlarmPolicyId() string {
+	if m != nil {
+		return m.AlarmPolicyId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetAlarmPolicyName() string {
+	if m != nil {
+		return m.AlarmPolicyName
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetResources() []string {
+	if m != nil {
+		return m.Resources
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetAlarmPolicyType() string {
+	if m != nil {
+		return m.AlarmPolicyType
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetIsApplied() int32 {
+	if m != nil {
+		return m.IsApplied
+	}
+	return 0
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPoliciesOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
 type CreateAlarmPolicyInput struct {
+	AlarmPolicyType string `protobuf:"bytes,1,opt,name=alarm_policy_type,json=alarmPolicyType" json:"alarm_policy_type,omitempty"`
+	Period          string `protobuf:"bytes,2,opt,name=period" json:"period,omitempty"`
+	AlarmPolicyName string `protobuf:"bytes,3,opt,name=alarm_policy_name,json=alarmPolicyName" json:"alarm_policy_name,omitempty"`
 }
 
 func (m *CreateAlarmPolicyInput) Reset()                    { *m = CreateAlarmPolicyInput{} }
@@ -866,10 +1026,32 @@ func (m *CreateAlarmPolicyInput) String() string            { return proto.Compa
 func (*CreateAlarmPolicyInput) ProtoMessage()               {}
 func (*CreateAlarmPolicyInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
 
+func (m *CreateAlarmPolicyInput) GetAlarmPolicyType() string {
+	if m != nil {
+		return m.AlarmPolicyType
+	}
+	return ""
+}
+
+func (m *CreateAlarmPolicyInput) GetPeriod() string {
+	if m != nil {
+		return m.Period
+	}
+	return ""
+}
+
+func (m *CreateAlarmPolicyInput) GetAlarmPolicyName() string {
+	if m != nil {
+		return m.AlarmPolicyName
+	}
+	return ""
+}
+
 type CreateAlarmPolicyOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action        string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode       int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message       string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyId string `protobuf:"bytes,4,opt,name=alarm_policy_id,json=alarmPolicyId" json:"alarm_policy_id,omitempty"`
 }
 
 func (m *CreateAlarmPolicyOutput) Reset()                    { *m = CreateAlarmPolicyOutput{} }
@@ -898,7 +1080,18 @@ func (m *CreateAlarmPolicyOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateAlarmPolicyOutput) GetAlarmPolicyId() string {
+	if m != nil {
+		return m.AlarmPolicyId
+	}
+	return ""
+}
+
 type ModifyAlarmPolicyAttributesInput struct {
+	AlarmPolicy     string `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
+	AlarmPolicyName string `protobuf:"bytes,2,opt,name=alarm_policy_name,json=alarmPolicyName" json:"alarm_policy_name,omitempty"`
+	Period          string `protobuf:"bytes,3,opt,name=period" json:"period,omitempty"`
+	Description     string `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
 }
 
 func (m *ModifyAlarmPolicyAttributesInput) Reset()         { *m = ModifyAlarmPolicyAttributesInput{} }
@@ -906,6 +1099,34 @@ func (m *ModifyAlarmPolicyAttributesInput) String() string { return proto.Compac
 func (*ModifyAlarmPolicyAttributesInput) ProtoMessage()    {}
 func (*ModifyAlarmPolicyAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor0, []int{5}
+}
+
+func (m *ModifyAlarmPolicyAttributesInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyAttributesInput) GetAlarmPolicyName() string {
+	if m != nil {
+		return m.AlarmPolicyName
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyAttributesInput) GetPeriod() string {
+	if m != nil {
+		return m.Period
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyAttributesInput) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
 }
 
 type ModifyAlarmPolicyAttributesOutput struct {
@@ -943,6 +1164,7 @@ func (m *ModifyAlarmPolicyAttributesOutput) GetMessage() string {
 }
 
 type DeleteAlarmPoliciesInput struct {
+	AlarmPolicies []string `protobuf:"bytes,1,rep,name=alarm_policies,json=alarmPolicies" json:"alarm_policies,omitempty"`
 }
 
 func (m *DeleteAlarmPoliciesInput) Reset()                    { *m = DeleteAlarmPoliciesInput{} }
@@ -950,10 +1172,18 @@ func (m *DeleteAlarmPoliciesInput) String() string            { return proto.Com
 func (*DeleteAlarmPoliciesInput) ProtoMessage()               {}
 func (*DeleteAlarmPoliciesInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
 
+func (m *DeleteAlarmPoliciesInput) GetAlarmPolicies() []string {
+	if m != nil {
+		return m.AlarmPolicies
+	}
+	return nil
+}
+
 type DeleteAlarmPoliciesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action        string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode       int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message       string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicies []string `protobuf:"bytes,4,rep,name=alarm_policies,json=alarmPolicies" json:"alarm_policies,omitempty"`
 }
 
 func (m *DeleteAlarmPoliciesOutput) Reset()                    { *m = DeleteAlarmPoliciesOutput{} }
@@ -982,7 +1212,18 @@ func (m *DeleteAlarmPoliciesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteAlarmPoliciesOutput) GetAlarmPolicies() []string {
+	if m != nil {
+		return m.AlarmPolicies
+	}
+	return nil
+}
+
 type DescribeAlarmPolicyRulesInput struct {
+	AlarmPolicy      string   `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
+	AlarmPolicyRules []string `protobuf:"bytes,2,rep,name=alarm_policy_rules,json=alarmPolicyRules" json:"alarm_policy_rules,omitempty"`
+	Offset           int32    `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit            int32    `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeAlarmPolicyRulesInput) Reset()                    { *m = DescribeAlarmPolicyRulesInput{} }
@@ -990,10 +1231,40 @@ func (m *DescribeAlarmPolicyRulesInput) String() string            { return prot
 func (*DescribeAlarmPolicyRulesInput) ProtoMessage()               {}
 func (*DescribeAlarmPolicyRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
 
+func (m *DescribeAlarmPolicyRulesInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesInput) GetAlarmPolicyRules() []string {
+	if m != nil {
+		return m.AlarmPolicyRules
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPolicyRulesInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeAlarmPolicyRulesInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeAlarmPolicyRulesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action             string                                         `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode            int32                                          `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message            string                                         `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyRuleSet []*DescribeAlarmPolicyRulesOutput_ResponseItem `protobuf:"bytes,4,rep,name=alarm_policy_rule_set,json=alarmPolicyRuleSet" json:"alarm_policy_rule_set,omitempty"`
+	TotalCount         int32                                          `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeAlarmPolicyRulesOutput) Reset()                    { *m = DescribeAlarmPolicyRulesOutput{} }
@@ -1022,7 +1293,111 @@ func (m *DescribeAlarmPolicyRulesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeAlarmPolicyRulesOutput) GetAlarmPolicyRuleSet() []*DescribeAlarmPolicyRulesOutput_ResponseItem {
+	if m != nil {
+		return m.AlarmPolicyRuleSet
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPolicyRulesOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeAlarmPolicyRulesOutput_ResponseItem struct {
+	AlarmPolicyId     string `protobuf:"bytes,1,opt,name=alarm_policy_id,json=alarmPolicyId" json:"alarm_policy_id,omitempty"`
+	AlarmPolicyRuleId string `protobuf:"bytes,2,opt,name=alarm_policy_rule_id,json=alarmPolicyRuleId" json:"alarm_policy_rule_id,omitempty"`
+	Meter             string `protobuf:"bytes,3,opt,name=meter" json:"meter,omitempty"`
+	ConditionType     string `protobuf:"bytes,4,opt,name=condition_type,json=conditionType" json:"condition_type,omitempty"`
+	Thresholds        string `protobuf:"bytes,5,opt,name=thresholds" json:"thresholds,omitempty"`
+	DataProcessor     string `protobuf:"bytes,6,opt,name=data_processor,json=dataProcessor" json:"data_processor,omitempty"`
+	// 如果监控资源类型是公网 IP ，还可选择 “percent” 表示阈值数字代表的是百分比，
+	// 这样系统会自动根据公网 IP 当前的带宽上限计算百分比。
+	ConsecutivePeriods string `protobuf:"bytes,7,opt,name=consecutive_periods,json=consecutivePeriods" json:"consecutive_periods,omitempty"`
+	PeriodStartHhmm    string `protobuf:"bytes,8,opt,name=period_start_hhmm,json=periodStartHhmm" json:"period_start_hhmm,omitempty"`
+	PeriodEndHhmm      string `protobuf:"bytes,9,opt,name=period_end_hhmm,json=periodEndHhmm" json:"period_end_hhmm,omitempty"`
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) Reset() {
+	*m = DescribeAlarmPolicyRulesOutput_ResponseItem{}
+}
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) String() string {
+	return proto.CompactTextString(m)
+}
+func (*DescribeAlarmPolicyRulesOutput_ResponseItem) ProtoMessage() {}
+func (*DescribeAlarmPolicyRulesOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor0, []int{10, 0}
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetAlarmPolicyId() string {
+	if m != nil {
+		return m.AlarmPolicyId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetAlarmPolicyRuleId() string {
+	if m != nil {
+		return m.AlarmPolicyRuleId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetMeter() string {
+	if m != nil {
+		return m.Meter
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetConditionType() string {
+	if m != nil {
+		return m.ConditionType
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetThresholds() string {
+	if m != nil {
+		return m.Thresholds
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetDataProcessor() string {
+	if m != nil {
+		return m.DataProcessor
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetConsecutivePeriods() string {
+	if m != nil {
+		return m.ConsecutivePeriods
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetPeriodStartHhmm() string {
+	if m != nil {
+		return m.PeriodStartHhmm
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyRulesOutput_ResponseItem) GetPeriodEndHhmm() string {
+	if m != nil {
+		return m.PeriodEndHhmm
+	}
+	return ""
+}
+
 type AddAlarmPolicyRulesInput struct {
+	AlarmPolicy string                           `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
+	Rules       []*AddAlarmPolicyRulesInput_Rule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
 }
 
 func (m *AddAlarmPolicyRulesInput) Reset()                    { *m = AddAlarmPolicyRulesInput{} }
@@ -1030,10 +1405,83 @@ func (m *AddAlarmPolicyRulesInput) String() string            { return proto.Com
 func (*AddAlarmPolicyRulesInput) ProtoMessage()               {}
 func (*AddAlarmPolicyRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{11} }
 
+func (m *AddAlarmPolicyRulesInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
+func (m *AddAlarmPolicyRulesInput) GetRules() []*AddAlarmPolicyRulesInput_Rule {
+	if m != nil {
+		return m.Rules
+	}
+	return nil
+}
+
+type AddAlarmPolicyRulesInput_Rule struct {
+	AlarmPolicyRuleName string `protobuf:"bytes,1,opt,name=alarm_policy_rule_name,json=alarmPolicyRuleName" json:"alarm_policy_rule_name,omitempty"`
+	Meter               string `protobuf:"bytes,2,opt,name=meter" json:"meter,omitempty"`
+	ConditionType       string `protobuf:"bytes,3,opt,name=condition_type,json=conditionType" json:"condition_type,omitempty"`
+	Thresholds          int32  `protobuf:"varint,4,opt,name=thresholds" json:"thresholds,omitempty"`
+	DataProcessor       string `protobuf:"bytes,5,opt,name=data_processor,json=dataProcessor" json:"data_processor,omitempty"`
+	ConsecutivePeriods  int32  `protobuf:"varint,6,opt,name=consecutive_periods,json=consecutivePeriods" json:"consecutive_periods,omitempty"`
+}
+
+func (m *AddAlarmPolicyRulesInput_Rule) Reset()         { *m = AddAlarmPolicyRulesInput_Rule{} }
+func (m *AddAlarmPolicyRulesInput_Rule) String() string { return proto.CompactTextString(m) }
+func (*AddAlarmPolicyRulesInput_Rule) ProtoMessage()    {}
+func (*AddAlarmPolicyRulesInput_Rule) Descriptor() ([]byte, []int) {
+	return fileDescriptor0, []int{11, 0}
+}
+
+func (m *AddAlarmPolicyRulesInput_Rule) GetAlarmPolicyRuleName() string {
+	if m != nil {
+		return m.AlarmPolicyRuleName
+	}
+	return ""
+}
+
+func (m *AddAlarmPolicyRulesInput_Rule) GetMeter() string {
+	if m != nil {
+		return m.Meter
+	}
+	return ""
+}
+
+func (m *AddAlarmPolicyRulesInput_Rule) GetConditionType() string {
+	if m != nil {
+		return m.ConditionType
+	}
+	return ""
+}
+
+func (m *AddAlarmPolicyRulesInput_Rule) GetThresholds() int32 {
+	if m != nil {
+		return m.Thresholds
+	}
+	return 0
+}
+
+func (m *AddAlarmPolicyRulesInput_Rule) GetDataProcessor() string {
+	if m != nil {
+		return m.DataProcessor
+	}
+	return ""
+}
+
+func (m *AddAlarmPolicyRulesInput_Rule) GetConsecutivePeriods() int32 {
+	if m != nil {
+		return m.ConsecutivePeriods
+	}
+	return 0
+}
+
 type AddAlarmPolicyRulesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyRules []string `protobuf:"bytes,4,rep,name=alarm_policy_rules,json=alarmPolicyRules" json:"alarm_policy_rules,omitempty"`
 }
 
 func (m *AddAlarmPolicyRulesOutput) Reset()                    { *m = AddAlarmPolicyRulesOutput{} }
@@ -1062,7 +1510,20 @@ func (m *AddAlarmPolicyRulesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *AddAlarmPolicyRulesOutput) GetAlarmPolicyRules() []string {
+	if m != nil {
+		return m.AlarmPolicyRules
+	}
+	return nil
+}
+
 type ModifyAlarmPolicyRuleAttributesInput struct {
+	AlarmPolicyRule     string `protobuf:"bytes,1,opt,name=alarm_policy_rule,json=alarmPolicyRule" json:"alarm_policy_rule,omitempty"`
+	AlarmPolicyRuleName string `protobuf:"bytes,2,opt,name=alarm_policy_rule_name,json=alarmPolicyRuleName" json:"alarm_policy_rule_name,omitempty"`
+	ConditionType       string `protobuf:"bytes,3,opt,name=condition_type,json=conditionType" json:"condition_type,omitempty"`
+	Thresholds          string `protobuf:"bytes,4,opt,name=thresholds" json:"thresholds,omitempty"`
+	DataProcessor       string `protobuf:"bytes,5,opt,name=data_processor,json=dataProcessor" json:"data_processor,omitempty"`
+	ConsecutivePeriods  string `protobuf:"bytes,6,opt,name=consecutive_periods,json=consecutivePeriods" json:"consecutive_periods,omitempty"`
 }
 
 func (m *ModifyAlarmPolicyRuleAttributesInput) Reset()         { *m = ModifyAlarmPolicyRuleAttributesInput{} }
@@ -1072,10 +1533,53 @@ func (*ModifyAlarmPolicyRuleAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor0, []int{13}
 }
 
+func (m *ModifyAlarmPolicyRuleAttributesInput) GetAlarmPolicyRule() string {
+	if m != nil {
+		return m.AlarmPolicyRule
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyRuleAttributesInput) GetAlarmPolicyRuleName() string {
+	if m != nil {
+		return m.AlarmPolicyRuleName
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyRuleAttributesInput) GetConditionType() string {
+	if m != nil {
+		return m.ConditionType
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyRuleAttributesInput) GetThresholds() string {
+	if m != nil {
+		return m.Thresholds
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyRuleAttributesInput) GetDataProcessor() string {
+	if m != nil {
+		return m.DataProcessor
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyRuleAttributesInput) GetConsecutivePeriods() string {
+	if m != nil {
+		return m.ConsecutivePeriods
+	}
+	return ""
+}
+
 type ModifyAlarmPolicyRuleAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action            string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode           int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message           string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyRuleId string `protobuf:"bytes,4,opt,name=alarm_policy_rule_id,json=alarmPolicyRuleId" json:"alarm_policy_rule_id,omitempty"`
 }
 
 func (m *ModifyAlarmPolicyRuleAttributesOutput) Reset()         { *m = ModifyAlarmPolicyRuleAttributesOutput{} }
@@ -1106,7 +1610,15 @@ func (m *ModifyAlarmPolicyRuleAttributesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifyAlarmPolicyRuleAttributesOutput) GetAlarmPolicyRuleId() string {
+	if m != nil {
+		return m.AlarmPolicyRuleId
+	}
+	return ""
+}
+
 type DeleteAlarmPolicyRulesInput struct {
+	AlarmPolicyRules []string `protobuf:"bytes,1,rep,name=alarm_policy_rules,json=alarmPolicyRules" json:"alarm_policy_rules,omitempty"`
 }
 
 func (m *DeleteAlarmPolicyRulesInput) Reset()                    { *m = DeleteAlarmPolicyRulesInput{} }
@@ -1114,10 +1626,18 @@ func (m *DeleteAlarmPolicyRulesInput) String() string            { return proto.
 func (*DeleteAlarmPolicyRulesInput) ProtoMessage()               {}
 func (*DeleteAlarmPolicyRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{15} }
 
+func (m *DeleteAlarmPolicyRulesInput) GetAlarmPolicyRules() []string {
+	if m != nil {
+		return m.AlarmPolicyRules
+	}
+	return nil
+}
+
 type DeleteAlarmPolicyRulesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyRules []string `protobuf:"bytes,4,rep,name=alarm_policy_rules,json=alarmPolicyRules" json:"alarm_policy_rules,omitempty"`
 }
 
 func (m *DeleteAlarmPolicyRulesOutput) Reset()                    { *m = DeleteAlarmPolicyRulesOutput{} }
@@ -1146,7 +1666,18 @@ func (m *DeleteAlarmPolicyRulesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteAlarmPolicyRulesOutput) GetAlarmPolicyRules() []string {
+	if m != nil {
+		return m.AlarmPolicyRules
+	}
+	return nil
+}
+
 type DescribeAlarmPolicyActionsInput struct {
+	AlarmPolicy        string   `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
+	AlarmPolicyActions []string `protobuf:"bytes,2,rep,name=alarm_policy_actions,json=alarmPolicyActions" json:"alarm_policy_actions,omitempty"`
+	Offset             int32    `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit              int32    `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeAlarmPolicyActionsInput) Reset()         { *m = DescribeAlarmPolicyActionsInput{} }
@@ -1156,10 +1687,40 @@ func (*DescribeAlarmPolicyActionsInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor0, []int{17}
 }
 
+func (m *DescribeAlarmPolicyActionsInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyActionsInput) GetAlarmPolicyActions() []string {
+	if m != nil {
+		return m.AlarmPolicyActions
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPolicyActionsInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeAlarmPolicyActionsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeAlarmPolicyActionsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action               string                                           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              int32                                            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              string                                           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyActionSet []*DescribeAlarmPolicyActionsOutput_ResponseItem `protobuf:"bytes,4,rep,name=alarm_policy_action_set,json=alarmPolicyActionSet" json:"alarm_policy_action_set,omitempty"`
+	TotalCount           int32                                            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeAlarmPolicyActionsOutput) Reset()         { *m = DescribeAlarmPolicyActionsOutput{} }
@@ -1190,7 +1751,69 @@ func (m *DescribeAlarmPolicyActionsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeAlarmPolicyActionsOutput) GetAlarmPolicyActionSet() []*DescribeAlarmPolicyActionsOutput_ResponseItem {
+	if m != nil {
+		return m.AlarmPolicyActionSet
+	}
+	return nil
+}
+
+func (m *DescribeAlarmPolicyActionsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeAlarmPolicyActionsOutput_ResponseItem struct {
+	AlarmPolicyId       string `protobuf:"bytes,1,opt,name=alarm_policy_id,json=alarmPolicyId" json:"alarm_policy_id,omitempty"`
+	AlarmPolicyActionId string `protobuf:"bytes,2,opt,name=alarm_policy_action_id,json=alarmPolicyActionId" json:"alarm_policy_action_id,omitempty"`
+	TriggerAction       string `protobuf:"bytes,3,opt,name=trigger_action,json=triggerAction" json:"trigger_action,omitempty"`
+	TriggerStatus       string `protobuf:"bytes,4,opt,name=trigger_status,json=triggerStatus" json:"trigger_status,omitempty"`
+}
+
+func (m *DescribeAlarmPolicyActionsOutput_ResponseItem) Reset() {
+	*m = DescribeAlarmPolicyActionsOutput_ResponseItem{}
+}
+func (m *DescribeAlarmPolicyActionsOutput_ResponseItem) String() string {
+	return proto.CompactTextString(m)
+}
+func (*DescribeAlarmPolicyActionsOutput_ResponseItem) ProtoMessage() {}
+func (*DescribeAlarmPolicyActionsOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor0, []int{18, 0}
+}
+
+func (m *DescribeAlarmPolicyActionsOutput_ResponseItem) GetAlarmPolicyId() string {
+	if m != nil {
+		return m.AlarmPolicyId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyActionsOutput_ResponseItem) GetAlarmPolicyActionId() string {
+	if m != nil {
+		return m.AlarmPolicyActionId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyActionsOutput_ResponseItem) GetTriggerAction() string {
+	if m != nil {
+		return m.TriggerAction
+	}
+	return ""
+}
+
+func (m *DescribeAlarmPolicyActionsOutput_ResponseItem) GetTriggerStatus() string {
+	if m != nil {
+		return m.TriggerStatus
+	}
+	return ""
+}
+
 type AddAlarmPolicyActionsInput struct {
+	AlarmPolicy string                                   `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
+	Actions     []*AddAlarmPolicyActionsInput_ActionItem `protobuf:"bytes,2,rep,name=actions" json:"actions,omitempty"`
 }
 
 func (m *AddAlarmPolicyActionsInput) Reset()                    { *m = AddAlarmPolicyActionsInput{} }
@@ -1198,10 +1821,51 @@ func (m *AddAlarmPolicyActionsInput) String() string            { return proto.C
 func (*AddAlarmPolicyActionsInput) ProtoMessage()               {}
 func (*AddAlarmPolicyActionsInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{19} }
 
+func (m *AddAlarmPolicyActionsInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
+func (m *AddAlarmPolicyActionsInput) GetActions() []*AddAlarmPolicyActionsInput_ActionItem {
+	if m != nil {
+		return m.Actions
+	}
+	return nil
+}
+
+type AddAlarmPolicyActionsInput_ActionItem struct {
+	TriggerAction string `protobuf:"bytes,1,opt,name=trigger_action,json=triggerAction" json:"trigger_action,omitempty"`
+	TriggerStatus string `protobuf:"bytes,2,opt,name=trigger_status,json=triggerStatus" json:"trigger_status,omitempty"`
+}
+
+func (m *AddAlarmPolicyActionsInput_ActionItem) Reset()         { *m = AddAlarmPolicyActionsInput_ActionItem{} }
+func (m *AddAlarmPolicyActionsInput_ActionItem) String() string { return proto.CompactTextString(m) }
+func (*AddAlarmPolicyActionsInput_ActionItem) ProtoMessage()    {}
+func (*AddAlarmPolicyActionsInput_ActionItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor0, []int{19, 0}
+}
+
+func (m *AddAlarmPolicyActionsInput_ActionItem) GetTriggerAction() string {
+	if m != nil {
+		return m.TriggerAction
+	}
+	return ""
+}
+
+func (m *AddAlarmPolicyActionsInput_ActionItem) GetTriggerStatus() string {
+	if m != nil {
+		return m.TriggerStatus
+	}
+	return ""
+}
+
 type AddAlarmPolicyActionsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action             string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode            int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message            string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyActions []string `protobuf:"bytes,4,rep,name=alarm_policy_actions,json=alarmPolicyActions" json:"alarm_policy_actions,omitempty"`
 }
 
 func (m *AddAlarmPolicyActionsOutput) Reset()                    { *m = AddAlarmPolicyActionsOutput{} }
@@ -1230,7 +1894,17 @@ func (m *AddAlarmPolicyActionsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *AddAlarmPolicyActionsOutput) GetAlarmPolicyActions() []string {
+	if m != nil {
+		return m.AlarmPolicyActions
+	}
+	return nil
+}
+
 type ModifyAlarmPolicyActionAttributesInput struct {
+	AlarmPolicyAction string `protobuf:"bytes,1,opt,name=alarm_policy_action,json=alarmPolicyAction" json:"alarm_policy_action,omitempty"`
+	TriggerAction     string `protobuf:"bytes,2,opt,name=trigger_action,json=triggerAction" json:"trigger_action,omitempty"`
+	TriggerStatus     string `protobuf:"bytes,3,opt,name=trigger_status,json=triggerStatus" json:"trigger_status,omitempty"`
 }
 
 func (m *ModifyAlarmPolicyActionAttributesInput) Reset() {
@@ -1242,10 +1916,32 @@ func (*ModifyAlarmPolicyActionAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor0, []int{21}
 }
 
+func (m *ModifyAlarmPolicyActionAttributesInput) GetAlarmPolicyAction() string {
+	if m != nil {
+		return m.AlarmPolicyAction
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyActionAttributesInput) GetTriggerAction() string {
+	if m != nil {
+		return m.TriggerAction
+	}
+	return ""
+}
+
+func (m *ModifyAlarmPolicyActionAttributesInput) GetTriggerStatus() string {
+	if m != nil {
+		return m.TriggerStatus
+	}
+	return ""
+}
+
 type ModifyAlarmPolicyActionAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action              string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode             int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message             string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyActionId string `protobuf:"bytes,4,opt,name=alarm_policy_action_id,json=alarmPolicyActionId" json:"alarm_policy_action_id,omitempty"`
 }
 
 func (m *ModifyAlarmPolicyActionAttributesOutput) Reset() {
@@ -1278,7 +1974,15 @@ func (m *ModifyAlarmPolicyActionAttributesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifyAlarmPolicyActionAttributesOutput) GetAlarmPolicyActionId() string {
+	if m != nil {
+		return m.AlarmPolicyActionId
+	}
+	return ""
+}
+
 type DeleteAlarmPolicyActionsInput struct {
+	AlarmPolicyActions []string `protobuf:"bytes,1,rep,name=alarm_policy_actions,json=alarmPolicyActions" json:"alarm_policy_actions,omitempty"`
 }
 
 func (m *DeleteAlarmPolicyActionsInput) Reset()                    { *m = DeleteAlarmPolicyActionsInput{} }
@@ -1286,10 +1990,18 @@ func (m *DeleteAlarmPolicyActionsInput) String() string            { return prot
 func (*DeleteAlarmPolicyActionsInput) ProtoMessage()               {}
 func (*DeleteAlarmPolicyActionsInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{23} }
 
+func (m *DeleteAlarmPolicyActionsInput) GetAlarmPolicyActions() []string {
+	if m != nil {
+		return m.AlarmPolicyActions
+	}
+	return nil
+}
+
 type DeleteAlarmPolicyActionsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action             string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode            int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message            string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmPolicyActions []string `protobuf:"bytes,4,rep,name=alarm_policy_actions,json=alarmPolicyActions" json:"alarm_policy_actions,omitempty"`
 }
 
 func (m *DeleteAlarmPolicyActionsOutput) Reset()                    { *m = DeleteAlarmPolicyActionsOutput{} }
@@ -1318,7 +2030,17 @@ func (m *DeleteAlarmPolicyActionsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteAlarmPolicyActionsOutput) GetAlarmPolicyActions() []string {
+	if m != nil {
+		return m.AlarmPolicyActions
+	}
+	return nil
+}
+
 type AssociateAlarmPolicyInput struct {
+	AlarmPolicy     string   `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
+	Resources       []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	RelatedResource string   `protobuf:"bytes,3,opt,name=related_resource,json=relatedResource" json:"related_resource,omitempty"`
 }
 
 func (m *AssociateAlarmPolicyInput) Reset()                    { *m = AssociateAlarmPolicyInput{} }
@@ -1326,10 +2048,32 @@ func (m *AssociateAlarmPolicyInput) String() string            { return proto.Co
 func (*AssociateAlarmPolicyInput) ProtoMessage()               {}
 func (*AssociateAlarmPolicyInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{25} }
 
+func (m *AssociateAlarmPolicyInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
+func (m *AssociateAlarmPolicyInput) GetResources() []string {
+	if m != nil {
+		return m.Resources
+	}
+	return nil
+}
+
+func (m *AssociateAlarmPolicyInput) GetRelatedResource() string {
+	if m != nil {
+		return m.RelatedResource
+	}
+	return ""
+}
+
 type AssociateAlarmPolicyOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *AssociateAlarmPolicyOutput) Reset()                    { *m = AssociateAlarmPolicyOutput{} }
@@ -1358,7 +2102,17 @@ func (m *AssociateAlarmPolicyOutput) GetMessage() string {
 	return ""
 }
 
+func (m *AssociateAlarmPolicyOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type DissociateAlarmPolicyInput struct {
+	AlarmPolicy     string   `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
+	Resources       []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	RelatedResource string   `protobuf:"bytes,3,opt,name=related_resource,json=relatedResource" json:"related_resource,omitempty"`
 }
 
 func (m *DissociateAlarmPolicyInput) Reset()                    { *m = DissociateAlarmPolicyInput{} }
@@ -1366,10 +2120,32 @@ func (m *DissociateAlarmPolicyInput) String() string            { return proto.C
 func (*DissociateAlarmPolicyInput) ProtoMessage()               {}
 func (*DissociateAlarmPolicyInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{27} }
 
+func (m *DissociateAlarmPolicyInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
+func (m *DissociateAlarmPolicyInput) GetResources() []string {
+	if m != nil {
+		return m.Resources
+	}
+	return nil
+}
+
+func (m *DissociateAlarmPolicyInput) GetRelatedResource() string {
+	if m != nil {
+		return m.RelatedResource
+	}
+	return ""
+}
+
 type DissociateAlarmPolicyOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *DissociateAlarmPolicyOutput) Reset()                    { *m = DissociateAlarmPolicyOutput{} }
@@ -1398,7 +2174,15 @@ func (m *DissociateAlarmPolicyOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DissociateAlarmPolicyOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type ApplyAlarmPolicyInput struct {
+	AlarmPolicy string `protobuf:"bytes,1,opt,name=alarm_policy,json=alarmPolicy" json:"alarm_policy,omitempty"`
 }
 
 func (m *ApplyAlarmPolicyInput) Reset()                    { *m = ApplyAlarmPolicyInput{} }
@@ -1406,10 +2190,18 @@ func (m *ApplyAlarmPolicyInput) String() string            { return proto.Compac
 func (*ApplyAlarmPolicyInput) ProtoMessage()               {}
 func (*ApplyAlarmPolicyInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{29} }
 
+func (m *ApplyAlarmPolicyInput) GetAlarmPolicy() string {
+	if m != nil {
+		return m.AlarmPolicy
+	}
+	return ""
+}
+
 type ApplyAlarmPolicyOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *ApplyAlarmPolicyOutput) Reset()                    { *m = ApplyAlarmPolicyOutput{} }
@@ -1438,7 +2230,20 @@ func (m *ApplyAlarmPolicyOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ApplyAlarmPolicyOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type DescribeAlarmsInput struct {
+	Alarms   []string `protobuf:"bytes,1,rep,name=alarms" json:"alarms,omitempty"`
+	Policy   string   `protobuf:"bytes,2,opt,name=policy" json:"policy,omitempty"`
+	Status   string   `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	Resource string   `protobuf:"bytes,4,opt,name=resource" json:"resource,omitempty"`
+	Offset   int32    `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Limit    int32    `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeAlarmsInput) Reset()                    { *m = DescribeAlarmsInput{} }
@@ -1446,10 +2251,54 @@ func (m *DescribeAlarmsInput) String() string            { return proto.CompactT
 func (*DescribeAlarmsInput) ProtoMessage()               {}
 func (*DescribeAlarmsInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{31} }
 
+func (m *DescribeAlarmsInput) GetAlarms() []string {
+	if m != nil {
+		return m.Alarms
+	}
+	return nil
+}
+
+func (m *DescribeAlarmsInput) GetPolicy() string {
+	if m != nil {
+		return m.Policy
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsInput) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsInput) GetResource() string {
+	if m != nil {
+		return m.Resource
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeAlarmsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeAlarmsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action     string                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode    int32                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message    string                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmSet   []*DescribeAlarmsOutput_ResponseItem `protobuf:"bytes,4,rep,name=alarm_set,json=alarmSet" json:"alarm_set,omitempty"`
+	TotalCount int32                                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeAlarmsOutput) Reset()                    { *m = DescribeAlarmsOutput{} }
@@ -1478,7 +2327,83 @@ func (m *DescribeAlarmsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeAlarmsOutput) GetAlarmSet() []*DescribeAlarmsOutput_ResponseItem {
+	if m != nil {
+		return m.AlarmSet
+	}
+	return nil
+}
+
+func (m *DescribeAlarmsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeAlarmsOutput_ResponseItem struct {
+	AlarmId         string                      `protobuf:"bytes,1,opt,name=alarm_id,json=alarmId" json:"alarm_id,omitempty"`
+	Status          string                      `protobuf:"bytes,2,opt,name=status" json:"status,omitempty"`
+	AlarmPolicyId   string                      `protobuf:"bytes,3,opt,name=alarm_policy_id,json=alarmPolicyId" json:"alarm_policy_id,omitempty"`
+	ResourceId      string                      `protobuf:"bytes,4,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	RelatedResource string                      `protobuf:"bytes,5,opt,name=related_resource,json=relatedResource" json:"related_resource,omitempty"`
+	CreateTime      *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+}
+
+func (m *DescribeAlarmsOutput_ResponseItem) Reset()         { *m = DescribeAlarmsOutput_ResponseItem{} }
+func (m *DescribeAlarmsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
+func (*DescribeAlarmsOutput_ResponseItem) ProtoMessage()    {}
+func (*DescribeAlarmsOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor0, []int{32, 0}
+}
+
+func (m *DescribeAlarmsOutput_ResponseItem) GetAlarmId() string {
+	if m != nil {
+		return m.AlarmId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsOutput_ResponseItem) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsOutput_ResponseItem) GetAlarmPolicyId() string {
+	if m != nil {
+		return m.AlarmPolicyId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsOutput_ResponseItem) GetResourceId() string {
+	if m != nil {
+		return m.ResourceId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsOutput_ResponseItem) GetRelatedResource() string {
+	if m != nil {
+		return m.RelatedResource
+	}
+	return ""
+}
+
+func (m *DescribeAlarmsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
 type DescribeAlarmHistoryInput struct {
+	Alarm       string `protobuf:"bytes,1,opt,name=alarm" json:"alarm,omitempty"`
+	HistoryType string `protobuf:"bytes,2,opt,name=history_type,json=historyType" json:"history_type,omitempty"`
+	Offset      int32  `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit       int32  `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeAlarmHistoryInput) Reset()                    { *m = DescribeAlarmHistoryInput{} }
@@ -1486,10 +2411,40 @@ func (m *DescribeAlarmHistoryInput) String() string            { return proto.Co
 func (*DescribeAlarmHistoryInput) ProtoMessage()               {}
 func (*DescribeAlarmHistoryInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{33} }
 
+func (m *DescribeAlarmHistoryInput) GetAlarm() string {
+	if m != nil {
+		return m.Alarm
+	}
+	return ""
+}
+
+func (m *DescribeAlarmHistoryInput) GetHistoryType() string {
+	if m != nil {
+		return m.HistoryType
+	}
+	return ""
+}
+
+func (m *DescribeAlarmHistoryInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeAlarmHistoryInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeAlarmHistoryOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action          string                                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode         int32                                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message         string                                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AlarmHistorySet []*DescribeAlarmHistoryOutput_ResponseItem `protobuf:"bytes,4,rep,name=alarm_history_set,json=alarmHistorySet" json:"alarm_history_set,omitempty"`
+	TotalCount      int32                                      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeAlarmHistoryOutput) Reset()                    { *m = DescribeAlarmHistoryOutput{} }
@@ -1518,10 +2473,77 @@ func (m *DescribeAlarmHistoryOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeAlarmHistoryOutput) GetAlarmHistorySet() []*DescribeAlarmHistoryOutput_ResponseItem {
+	if m != nil {
+		return m.AlarmHistorySet
+	}
+	return nil
+}
+
+func (m *DescribeAlarmHistoryOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeAlarmHistoryOutput_ResponseItem struct {
+	AlarmId        string                      `protobuf:"bytes,1,opt,name=alarm_id,json=alarmId" json:"alarm_id,omitempty"`
+	AlarmHistoryId string                      `protobuf:"bytes,2,opt,name=alarm_history_id,json=alarmHistoryId" json:"alarm_history_id,omitempty"`
+	HistoryType    string                      `protobuf:"bytes,3,opt,name=history_type,json=historyType" json:"history_type,omitempty"`
+	CreateTime     *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description    string                      `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+}
+
+func (m *DescribeAlarmHistoryOutput_ResponseItem) Reset() {
+	*m = DescribeAlarmHistoryOutput_ResponseItem{}
+}
+func (m *DescribeAlarmHistoryOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
+func (*DescribeAlarmHistoryOutput_ResponseItem) ProtoMessage()    {}
+func (*DescribeAlarmHistoryOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor0, []int{34, 0}
+}
+
+func (m *DescribeAlarmHistoryOutput_ResponseItem) GetAlarmId() string {
+	if m != nil {
+		return m.AlarmId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmHistoryOutput_ResponseItem) GetAlarmHistoryId() string {
+	if m != nil {
+		return m.AlarmHistoryId
+	}
+	return ""
+}
+
+func (m *DescribeAlarmHistoryOutput_ResponseItem) GetHistoryType() string {
+	if m != nil {
+		return m.HistoryType
+	}
+	return ""
+}
+
+func (m *DescribeAlarmHistoryOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *DescribeAlarmHistoryOutput_ResponseItem) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*AlarmServiceProperties)(nil), "service.AlarmServiceProperties")
 	proto.RegisterType((*DescribeAlarmPoliciesInput)(nil), "service.DescribeAlarmPoliciesInput")
 	proto.RegisterType((*DescribeAlarmPoliciesOutput)(nil), "service.DescribeAlarmPoliciesOutput")
+	proto.RegisterType((*DescribeAlarmPoliciesOutput_ResponseItem)(nil), "service.DescribeAlarmPoliciesOutput.ResponseItem")
 	proto.RegisterType((*CreateAlarmPolicyInput)(nil), "service.CreateAlarmPolicyInput")
 	proto.RegisterType((*CreateAlarmPolicyOutput)(nil), "service.CreateAlarmPolicyOutput")
 	proto.RegisterType((*ModifyAlarmPolicyAttributesInput)(nil), "service.ModifyAlarmPolicyAttributesInput")
@@ -1530,7 +2552,9 @@ func init() {
 	proto.RegisterType((*DeleteAlarmPoliciesOutput)(nil), "service.DeleteAlarmPoliciesOutput")
 	proto.RegisterType((*DescribeAlarmPolicyRulesInput)(nil), "service.DescribeAlarmPolicyRulesInput")
 	proto.RegisterType((*DescribeAlarmPolicyRulesOutput)(nil), "service.DescribeAlarmPolicyRulesOutput")
+	proto.RegisterType((*DescribeAlarmPolicyRulesOutput_ResponseItem)(nil), "service.DescribeAlarmPolicyRulesOutput.ResponseItem")
 	proto.RegisterType((*AddAlarmPolicyRulesInput)(nil), "service.AddAlarmPolicyRulesInput")
+	proto.RegisterType((*AddAlarmPolicyRulesInput_Rule)(nil), "service.AddAlarmPolicyRulesInput.Rule")
 	proto.RegisterType((*AddAlarmPolicyRulesOutput)(nil), "service.AddAlarmPolicyRulesOutput")
 	proto.RegisterType((*ModifyAlarmPolicyRuleAttributesInput)(nil), "service.ModifyAlarmPolicyRuleAttributesInput")
 	proto.RegisterType((*ModifyAlarmPolicyRuleAttributesOutput)(nil), "service.ModifyAlarmPolicyRuleAttributesOutput")
@@ -1538,7 +2562,9 @@ func init() {
 	proto.RegisterType((*DeleteAlarmPolicyRulesOutput)(nil), "service.DeleteAlarmPolicyRulesOutput")
 	proto.RegisterType((*DescribeAlarmPolicyActionsInput)(nil), "service.DescribeAlarmPolicyActionsInput")
 	proto.RegisterType((*DescribeAlarmPolicyActionsOutput)(nil), "service.DescribeAlarmPolicyActionsOutput")
+	proto.RegisterType((*DescribeAlarmPolicyActionsOutput_ResponseItem)(nil), "service.DescribeAlarmPolicyActionsOutput.ResponseItem")
 	proto.RegisterType((*AddAlarmPolicyActionsInput)(nil), "service.AddAlarmPolicyActionsInput")
+	proto.RegisterType((*AddAlarmPolicyActionsInput_ActionItem)(nil), "service.AddAlarmPolicyActionsInput.ActionItem")
 	proto.RegisterType((*AddAlarmPolicyActionsOutput)(nil), "service.AddAlarmPolicyActionsOutput")
 	proto.RegisterType((*ModifyAlarmPolicyActionAttributesInput)(nil), "service.ModifyAlarmPolicyActionAttributesInput")
 	proto.RegisterType((*ModifyAlarmPolicyActionAttributesOutput)(nil), "service.ModifyAlarmPolicyActionAttributesOutput")
@@ -1552,8 +2578,10 @@ func init() {
 	proto.RegisterType((*ApplyAlarmPolicyOutput)(nil), "service.ApplyAlarmPolicyOutput")
 	proto.RegisterType((*DescribeAlarmsInput)(nil), "service.DescribeAlarmsInput")
 	proto.RegisterType((*DescribeAlarmsOutput)(nil), "service.DescribeAlarmsOutput")
+	proto.RegisterType((*DescribeAlarmsOutput_ResponseItem)(nil), "service.DescribeAlarmsOutput.ResponseItem")
 	proto.RegisterType((*DescribeAlarmHistoryInput)(nil), "service.DescribeAlarmHistoryInput")
 	proto.RegisterType((*DescribeAlarmHistoryOutput)(nil), "service.DescribeAlarmHistoryOutput")
+	proto.RegisterType((*DescribeAlarmHistoryOutput_ResponseItem)(nil), "service.DescribeAlarmHistoryOutput.ResponseItem")
 }
 
 type AlarmServiceInterface interface {
@@ -2127,54 +3155,139 @@ func (p *DescribeAlarmHistoryInput) Validate() error {
 func init() { proto.RegisterFile("alarm.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{
-	// 776 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x58, 0x4d, 0x4f, 0xdb, 0x40,
-	0x10, 0x55, 0x5a, 0x3e, 0xca, 0xb4, 0x42, 0xed, 0x96, 0x84, 0x64, 0x93, 0x90, 0x10, 0xbe, 0x42,
-	0xd5, 0x86, 0xaa, 0xfd, 0x05, 0x11, 0x1c, 0xda, 0x03, 0x2a, 0x05, 0xa9, 0xa7, 0x4a, 0x51, 0x62,
-	0x2f, 0xb0, 0x60, 0xb2, 0xc6, 0x5e, 0x23, 0xa5, 0xa7, 0xaa, 0x87, 0x1e, 0xfa, 0x6f, 0xfb, 0x0f,
-	0x2a, 0x3b, 0x1b, 0xb2, 0x8e, 0x67, 0x9d, 0x5c, 0xb6, 0x17, 0x84, 0x99, 0xb7, 0x3b, 0x6f, 0x67,
-	0x67, 0xfc, 0x9e, 0x81, 0xe7, 0x7d, 0xaf, 0x1f, 0xdc, 0x75, 0xfc, 0x40, 0x48, 0x41, 0x56, 0x43,
-	0x16, 0x3c, 0x70, 0x87, 0xd1, 0xfa, 0x3d, 0x1f, 0x5e, 0x39, 0x9e, 0x88, 0xdc, 0x5e, 0xe8, 0xde,
-	0xf6, 0x82, 0xc8, 0x63, 0x47, 0xf1, 0x8f, 0x31, 0xae, 0xf5, 0x16, 0x4a, 0xdd, 0x78, 0xd9, 0xc5,
-	0x18, 0x7e, 0x16, 0x08, 0x9f, 0x05, 0x92, 0xb3, 0x90, 0x10, 0x58, 0xfa, 0x21, 0x86, 0xac, 0x5c,
-	0x68, 0x16, 0xda, 0x6b, 0xe7, 0xc9, 0xef, 0xad, 0x1a, 0xd0, 0x13, 0x16, 0x3a, 0x01, 0x1f, 0xb0,
-	0x64, 0xd5, 0x99, 0xf0, 0xb8, 0xc3, 0x59, 0xf8, 0x79, 0xe8, 0x47, 0xb2, 0x75, 0x03, 0x55, 0x34,
-	0xfa, 0x25, 0x92, 0x7e, 0x24, 0x49, 0x09, 0x56, 0xfa, 0x8e, 0xe4, 0x62, 0xa8, 0xb6, 0x54, 0x4f,
-	0xa4, 0x02, 0xcf, 0x02, 0x26, 0x7b, 0x8e, 0x70, 0x59, 0xf9, 0x49, 0xb3, 0xd0, 0x5e, 0x3e, 0x5f,
-	0x0d, 0x98, 0x3c, 0x16, 0x2e, 0x23, 0x65, 0x58, 0xbd, 0x63, 0x61, 0xd8, 0xbf, 0x62, 0xe5, 0xa7,
-	0xc9, 0x9a, 0xc9, 0x63, 0xab, 0x0c, 0xa5, 0xe3, 0x80, 0xf5, 0xa5, 0x96, 0x69, 0x34, 0x66, 0x71,
-	0x09, 0x9b, 0x99, 0x88, 0x0d, 0x06, 0x2d, 0x68, 0x9e, 0x0a, 0x97, 0x5f, 0x8e, 0xb4, 0x3c, 0x5d,
-	0x29, 0x03, 0x3e, 0x88, 0xe4, 0xa4, 0x22, 0x3e, 0x6c, 0xe7, 0x60, 0x6c, 0xb0, 0xa2, 0x50, 0x3e,
-	0x61, 0x1e, 0x93, 0xd8, 0xfd, 0x5c, 0x43, 0x05, 0x89, 0xd9, 0x60, 0xd1, 0x80, 0x7a, 0xb6, 0x13,
-	0x46, 0xe7, 0x91, 0x37, 0xa1, 0x72, 0x07, 0x5b, 0x26, 0x80, 0xa5, 0xaa, 0x74, 0x5d, 0x17, 0xa7,
-	0x72, 0x0d, 0x15, 0x24, 0x66, 0x83, 0xc5, 0x3e, 0xec, 0x66, 0xba, 0x21, 0x4e, 0x36, 0xdb, 0x35,
-	0x12, 0xf6, 0xe6, 0xe0, 0x6c, 0xb0, 0xab, 0xc7, 0xd3, 0x9b, 0xee, 0x0e, 0xbd, 0x4c, 0xb7, 0x50,
-	0xc3, 0xc3, 0x36, 0xb8, 0x6c, 0x43, 0x03, 0x69, 0x8f, 0x6e, 0xb2, 0xa3, 0xe2, 0x23, 0xa0, 0x69,
-	0x86, 0xd8, 0xe0, 0x54, 0x03, 0x9a, 0xee, 0x93, 0x14, 0x9d, 0x1b, 0xa8, 0xa2, 0x51, 0x1b, 0x4c,
-	0xda, 0xb0, 0x9f, 0x7d, 0xab, 0x24, 0xfb, 0xcd, 0x76, 0xd2, 0x03, 0x1c, 0xcc, 0x45, 0x5a, 0x9b,
-	0xff, 0x99, 0x66, 0x49, 0x95, 0x2b, 0x99, 0x7f, 0x1c, 0x60, 0x83, 0x4f, 0x15, 0x2a, 0xdd, 0x30,
-	0x14, 0x0e, 0xc7, 0x04, 0x83, 0x03, 0xc5, 0x82, 0x96, 0x7a, 0xe8, 0x84, 0x1b, 0x89, 0xc4, 0xfa,
-	0xc9, 0xff, 0x13, 0x93, 0x4d, 0x28, 0x76, 0x7d, 0xdf, 0x1b, 0x65, 0x48, 0x30, 0x28, 0xcd, 0x06,
-	0x6c, 0xe4, 0x2f, 0xc2, 0xeb, 0xd4, 0xf8, 0xaa, 0xbe, 0x70, 0x60, 0x23, 0xfd, 0x67, 0x4b, 0xdd,
-	0x90, 0x4a, 0xf2, 0x89, 0x87, 0x52, 0x04, 0xd3, 0x6e, 0xc0, 0x82, 0x16, 0x78, 0x7c, 0xf8, 0xb5,
-	0x0e, 0x2f, 0x74, 0xf3, 0x45, 0x06, 0x50, 0x44, 0x0d, 0x14, 0xd9, 0xe9, 0x28, 0x3b, 0xd7, 0x31,
-	0xdb, 0x2f, 0xba, 0x9b, 0x0f, 0x52, 0x27, 0xf8, 0x06, 0xaf, 0x32, 0xf6, 0x88, 0x34, 0x1e, 0x97,
-	0xe2, 0xa6, 0x8a, 0x36, 0xcd, 0x00, 0xb5, 0xaf, 0x84, 0x6a, 0x8e, 0xd5, 0x21, 0x87, 0x8f, 0x1b,
-	0xcc, 0x33, 0x4d, 0xf4, 0xcd, 0x22, 0x50, 0x95, 0xf5, 0x7b, 0xdc, 0x46, 0x19, 0x4b, 0x43, 0xb6,
-	0xb5, 0x52, 0xe0, 0x66, 0x88, 0xb6, 0xf2, 0x20, 0x6a, 0xf7, 0xdb, 0xd8, 0x4c, 0xe1, 0x2e, 0x85,
-	0xec, 0xe7, 0x54, 0x5b, 0xd3, 0x4d, 0x7a, 0x30, 0x17, 0x37, 0x3d, 0x0a, 0xe2, 0x43, 0xb4, 0xa3,
-	0x98, 0x1c, 0x8c, 0x76, 0x14, 0xb3, 0x91, 0xf9, 0x59, 0x80, 0xc6, 0x1c, 0x53, 0x41, 0xde, 0x99,
-	0x0b, 0x8f, 0xd8, 0x14, 0xda, 0x59, 0x14, 0xae, 0x28, 0x30, 0x28, 0xe1, 0x0e, 0x82, 0xec, 0x1a,
-	0xef, 0x42, 0x3f, 0xe6, 0xde, 0x1c, 0x94, 0x4a, 0x73, 0x8f, 0x7d, 0xa3, 0x4c, 0xc4, 0x85, 0xb4,
-	0xf3, 0xae, 0x43, 0x97, 0x28, 0x7a, 0xb8, 0x00, 0x52, 0xa5, 0x1c, 0x40, 0x11, 0x15, 0x7f, 0x6d,
-	0x6e, 0xcd, 0xd6, 0x41, 0x9b, 0xdb, 0x3c, 0x07, 0xf1, 0xbb, 0x80, 0x7d, 0x4b, 0xcc, 0x68, 0x39,
-	0x39, 0xca, 0x99, 0x1d, 0xcc, 0x21, 0xd0, 0xf7, 0x8b, 0x2f, 0xd0, 0x87, 0x02, 0x97, 0xee, 0xd4,
-	0x50, 0xe4, 0xc8, 0x7f, 0x6a, 0x28, 0x72, 0x5d, 0x40, 0x0f, 0x36, 0x30, 0x6d, 0x26, 0x5a, 0xcb,
-	0x9b, 0xe4, 0x94, 0xee, 0xe4, 0x62, 0xa6, 0x57, 0x87, 0x6a, 0xae, 0xfe, 0xca, 0x35, 0x2a, 0xb6,
-	0xfe, 0xca, 0xcd, 0x11, 0xee, 0x0b, 0x78, 0x39, 0x2b, 0xa9, 0x64, 0x6b, 0x4a, 0x0e, 0x93, 0x61,
-	0xda, 0x30, 0xc6, 0xd5, 0xa6, 0xa7, 0xb0, 0x9e, 0x56, 0x4a, 0x52, 0xc3, 0x1b, 0x56, 0x95, 0xbc,
-	0x6e, 0x88, 0x4e, 0x0b, 0x8d, 0xc9, 0x1e, 0x69, 0xe1, 0xcb, 0x74, 0xc9, 0xa4, 0x3b, 0xb9, 0x98,
-	0x71, 0x02, 0x5a, 0xfa, 0xf3, 0x77, 0x89, 0x90, 0xb5, 0xaf, 0x7c, 0x78, 0x75, 0xec, 0x89, 0xc8,
-	0xa5, 0xcb, 0x09, 0x68, 0xb0, 0x92, 0xfc, 0x1f, 0xe2, 0xe3, 0xbf, 0x00, 0x00, 0x00, 0xff, 0xff,
-	0xd1, 0x6b, 0xb1, 0x42, 0xbe, 0x10, 0x00, 0x00,
+	// 2132 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x1a, 0x4d, 0x6f, 0x1c, 0x49,
+	0x55, 0x3d, 0x1f, 0x76, 0xe6, 0x4d, 0xd6, 0x49, 0xca, 0x8e, 0x77, 0xd2, 0x4e, 0x62, 0xa7, 0x37,
+	0xc9, 0x3a, 0x91, 0x19, 0x1b, 0x2f, 0xe2, 0x60, 0x73, 0xb1, 0x12, 0x44, 0x2c, 0xb4, 0x90, 0x1d,
+	0xaf, 0x40, 0x82, 0x95, 0x5a, 0x3d, 0xdd, 0x65, 0x4f, 0xaf, 0xa7, 0xbb, 0x3a, 0xdd, 0x35, 0x41,
+	0x5e, 0x71, 0x58, 0xf6, 0x00, 0x51, 0x24, 0xe0, 0x82, 0x90, 0x90, 0x90, 0xb8, 0xc0, 0x72, 0xd8,
+	0x3f, 0x00, 0xe2, 0x82, 0xf8, 0x0b, 0x88, 0x9f, 0xc0, 0x85, 0x03, 0xda, 0xf0, 0x07, 0x40, 0xf5,
+	0xd1, 0x33, 0xd5, 0xdd, 0xd5, 0xed, 0x19, 0x8b, 0xd9, 0xcd, 0xc5, 0x9a, 0x7a, 0xf5, 0xea, 0xf5,
+	0xfb, 0x7e, 0xaf, 0x5e, 0x19, 0xda, 0xce, 0xd0, 0x89, 0x83, 0x6e, 0x14, 0x13, 0x4a, 0xd0, 0x62,
+	0x82, 0xe3, 0xe7, 0xbe, 0x8b, 0xcd, 0x5b, 0xcf, 0xfc, 0xf0, 0xc4, 0x1d, 0x92, 0x91, 0x67, 0x27,
+	0xde, 0xa9, 0x1d, 0x8f, 0x86, 0x78, 0x9b, 0xfd, 0x11, 0x78, 0xe6, 0xfa, 0x09, 0x21, 0x27, 0x43,
+	0xbc, 0xcd, 0x57, 0xfd, 0xd1, 0xf1, 0x36, 0xf5, 0x03, 0x9c, 0x50, 0x27, 0x88, 0x04, 0x82, 0xb5,
+	0x05, 0xab, 0x07, 0x8c, 0xee, 0x91, 0xa0, 0xf7, 0x34, 0x26, 0x11, 0x8e, 0xa9, 0x8f, 0x13, 0x84,
+	0xa0, 0xf1, 0x11, 0x09, 0x71, 0xc7, 0xd8, 0x30, 0x36, 0x5b, 0x3d, 0xfe, 0xdb, 0xfa, 0x55, 0x13,
+	0xcc, 0xc7, 0x38, 0x71, 0x63, 0xbf, 0x8f, 0xf9, 0xb1, 0xa7, 0x64, 0xe8, 0xbb, 0x3e, 0x4e, 0x0e,
+	0xc3, 0x68, 0x44, 0xd1, 0x3d, 0x58, 0xe2, 0x4c, 0xda, 0x91, 0x04, 0x77, 0x8c, 0x8d, 0xfa, 0x66,
+	0xab, 0xf7, 0x86, 0xa3, 0xe2, 0xa2, 0x87, 0x70, 0x4d, 0x41, 0x3b, 0xb3, 0x43, 0x27, 0xc0, 0x9d,
+	0x1a, 0xff, 0xcc, 0x95, 0x09, 0xe6, 0xd9, 0x77, 0x9c, 0x00, 0x17, 0x70, 0xe9, 0x59, 0x84, 0x3b,
+	0xf5, 0x02, 0xee, 0xfb, 0x67, 0x11, 0x46, 0xeb, 0xd0, 0x4e, 0xb0, 0x13, 0xbb, 0x03, 0xfb, 0x47,
+	0x24, 0xf6, 0x3a, 0x0d, 0x8e, 0x05, 0x02, 0xf4, 0x7d, 0x12, 0x7b, 0xa8, 0x03, 0x8b, 0xcf, 0x71,
+	0xdc, 0x27, 0x09, 0xee, 0x34, 0x37, 0x8c, 0xcd, 0x66, 0x2f, 0x5d, 0xa2, 0x55, 0x58, 0x20, 0xc7,
+	0xc7, 0x09, 0xa6, 0x9d, 0x05, 0xbe, 0x21, 0x57, 0x68, 0x05, 0x9a, 0x43, 0x3f, 0xf0, 0x69, 0x67,
+	0x91, 0x83, 0xc5, 0x62, 0xef, 0xe7, 0xf5, 0x97, 0xaf, 0x1a, 0x2f, 0xea, 0xb0, 0xec, 0x50, 0xea,
+	0xb8, 0x83, 0x00, 0x87, 0xd4, 0x76, 0x49, 0x48, 0x71, 0x48, 0xf7, 0xd1, 0x9a, 0xa4, 0xb9, 0xb7,
+	0x23, 0x68, 0xec, 0xed, 0xec, 0x8b, 0x53, 0xbb, 0x3b, 0xfb, 0xe6, 0xdf, 0x6b, 0x05, 0x69, 0xf6,
+	0xfc, 0x30, 0xa1, 0x4e, 0xe8, 0xe2, 0x2d, 0xec, 0x47, 0x5b, 0x31, 0x19, 0x51, 0x1c, 0x6f, 0x0d,
+	0x89, 0xe3, 0xf5, 0x9d, 0x21, 0x03, 0xc7, 0xf6, 0xd0, 0x4f, 0x28, 0x0e, 0x71, 0x6c, 0x53, 0x37,
+	0x2a, 0xd9, 0x19, 0x50, 0x1a, 0x25, 0x15, 0x7b, 0xd9, 0xad, 0xbe, 0xe3, 0x9e, 0xe2, 0xd0, 0xab,
+	0xd8, 0x61, 0x5f, 0x8a, 0xbd, 0xbe, 0x1d, 0x9c, 0x25, 0xcf, 0x86, 0xfc, 0x57, 0xc4, 0x7e, 0xe0,
+	0xa1, 0x93, 0x50, 0xdf, 0x95, 0x5a, 0x0e, 0x89, 0x87, 0xb7, 0x5c, 0xc7, 0x1d, 0x60, 0xfe, 0xd3,
+	0x0e, 0x70, 0xc0, 0x57, 0x9e, 0x0a, 0x8c, 0xb1, 0xe7, 0x27, 0x5b, 0xcf, 0x46, 0x78, 0x24, 0x01,
+	0xa7, 0xce, 0xf1, 0xa9, 0xb3, 0x95, 0x44, 0x4e, 0x7c, 0x2a, 0x28, 0x0c, 0x1c, 0x8f, 0x90, 0x48,
+	0xfc, 0xfe, 0x88, 0x90, 0x53, 0x8c, 0x23, 0x1c, 0xcb, 0xad, 0xbe, 0x93, 0x88, 0x63, 0x5b, 0x01,
+	0x09, 0x4f, 0x88, 0x3d, 0xd6, 0x55, 0x42, 0x49, 0x1c, 0x88, 0x9d, 0x7d, 0xeb, 0x5f, 0x0d, 0x58,
+	0xd3, 0xba, 0xe5, 0x77, 0x47, 0x94, 0xf9, 0xe5, 0x2a, 0x2c, 0x38, 0x2e, 0xf5, 0x49, 0x28, 0x9d,
+	0x59, 0xae, 0xd0, 0x0d, 0xb8, 0x14, 0x63, 0x66, 0x3a, 0x4f, 0xf8, 0x5f, 0xb3, 0xb7, 0x18, 0x63,
+	0xfa, 0x88, 0x78, 0x98, 0xb9, 0x4a, 0x80, 0x93, 0xc4, 0x39, 0x49, 0xbd, 0x2d, 0x5d, 0xa2, 0x1f,
+	0xc2, 0xd5, 0x8c, 0x0d, 0x99, 0xd3, 0x30, 0x57, 0x6b, 0xef, 0x7e, 0xb5, 0x2b, 0xa3, 0xb2, 0x5b,
+	0xc1, 0x4c, 0xb7, 0x87, 0x93, 0x88, 0x84, 0x09, 0x3e, 0xa4, 0x38, 0xe8, 0x2d, 0x29, 0x3e, 0x7c,
+	0x84, 0x29, 0x73, 0x61, 0x4a, 0xa8, 0x33, 0xb4, 0x5d, 0x32, 0x0a, 0xa9, 0xf4, 0x52, 0xe0, 0xa0,
+	0x47, 0x0c, 0x62, 0xfe, 0xb7, 0x06, 0x97, 0x55, 0x0a, 0xe8, 0x3e, 0x5c, 0xc9, 0xb0, 0xe3, 0x7b,
+	0x52, 0x48, 0x25, 0xe8, 0xce, 0x0e, 0xbd, 0x99, 0x82, 0x6e, 0x03, 0xda, 0x1e, 0x97, 0x20, 0xe2,
+	0x4a, 0x13, 0x0a, 0x50, 0x41, 0xe8, 0x26, 0xb4, 0x62, 0x9c, 0x90, 0x51, 0xec, 0xe2, 0xa4, 0xd3,
+	0xe0, 0x41, 0x3e, 0x01, 0xe8, 0x83, 0xb6, 0xa9, 0x0f, 0xda, 0x5b, 0x00, 0x7e, 0x62, 0x3b, 0x51,
+	0x34, 0xf4, 0xb1, 0x27, 0xa3, 0xaf, 0xe5, 0x27, 0x07, 0x02, 0xc0, 0x4c, 0x97, 0x50, 0x87, 0x8e,
+	0x12, 0x1e, 0x81, 0xad, 0x9e, 0x5c, 0xa1, 0x7d, 0x68, 0xbb, 0x31, 0x76, 0x28, 0xb6, 0x59, 0x46,
+	0xeb, 0x5c, 0xe2, 0x06, 0x30, 0xbb, 0x22, 0xdd, 0x75, 0xd3, 0x74, 0xd7, 0x7d, 0x3f, 0x4d, 0x77,
+	0x3d, 0x10, 0xe8, 0x0c, 0xc0, 0x0e, 0x0b, 0x32, 0xe2, 0x70, 0xeb, 0xfc, 0xc3, 0x02, 0x9d, 0x01,
+	0xac, 0x17, 0x06, 0xac, 0x3e, 0xe2, 0xb4, 0x0e, 0x14, 0x05, 0xf3, 0xfc, 0xa7, 0x95, 0xdb, 0xd0,
+	0xcb, 0xbd, 0x0a, 0x0b, 0x11, 0x8e, 0x7d, 0xe2, 0x49, 0x23, 0xc8, 0x95, 0xde, 0x4e, 0x75, 0xad,
+	0x9d, 0xac, 0x5f, 0x18, 0xf0, 0x66, 0x81, 0x95, 0x79, 0xf8, 0xbc, 0xc6, 0xc9, 0x1a, 0x1a, 0x27,
+	0xb3, 0x3e, 0x33, 0x60, 0xe3, 0x5d, 0xe2, 0xf9, 0xc7, 0x67, 0x0a, 0x43, 0x07, 0x94, 0xc6, 0x7e,
+	0x7f, 0x44, 0xd3, 0x2a, 0x71, 0x07, 0x2e, 0xab, 0xc4, 0x24, 0x7f, 0x6d, 0x85, 0xd2, 0x4c, 0xce,
+	0x3a, 0x51, 0x64, 0x3d, 0xa3, 0xc8, 0x9c, 0x13, 0x37, 0x0a, 0x4e, 0x6c, 0x45, 0x70, 0xa7, 0x82,
+	0xd9, 0x39, 0xe8, 0xd1, 0x3a, 0x80, 0xce, 0x63, 0x3c, 0xc4, 0xf4, 0xe2, 0xc5, 0xd3, 0xfa, 0xa5,
+	0x01, 0x37, 0x34, 0x34, 0xe6, 0x61, 0xf5, 0x22, 0x47, 0x0d, 0x1d, 0x47, 0x7f, 0x32, 0xe0, 0x56,
+	0x31, 0xe1, 0x9d, 0xf5, 0x46, 0xc3, 0x19, 0x2c, 0xbe, 0x05, 0x28, 0x63, 0x71, 0xd6, 0xc3, 0x24,
+	0x9d, 0x1a, 0xff, 0xde, 0x55, 0x27, 0x47, 0x55, 0x29, 0xd7, 0x75, 0x7d, 0xb9, 0x6e, 0xa8, 0xe5,
+	0xba, 0xf3, 0xf2, 0x55, 0x63, 0x05, 0xa1, 0x62, 0x39, 0x66, 0x85, 0xe3, 0x76, 0x19, 0xeb, 0xf3,
+	0xd0, 0xe8, 0x09, 0x5c, 0x2f, 0x48, 0x29, 0x0b, 0x48, 0x7d, 0xb3, 0xbd, 0xfb, 0xb5, 0x8a, 0x02,
+	0xa2, 0x32, 0x95, 0xad, 0x21, 0x28, 0xa7, 0x9e, 0xa9, 0xea, 0xc8, 0xe7, 0x17, 0xad, 0x23, 0xdb,
+	0xb0, 0x52, 0x14, 0xc1, 0x4f, 0xb3, 0xd8, 0xb5, 0x1c, 0x2f, 0x87, 0x1e, 0xb3, 0x49, 0x80, 0x29,
+	0x8e, 0xa5, 0x2e, 0xc4, 0x82, 0xf9, 0x96, 0x4b, 0x42, 0xcf, 0x67, 0xba, 0x14, 0x79, 0x52, 0x26,
+	0x94, 0x31, 0x94, 0x67, 0xc9, 0xdb, 0x00, 0x74, 0x10, 0xe3, 0x64, 0x40, 0x86, 0x5e, 0x22, 0x4b,
+	0x88, 0x02, 0x61, 0x64, 0x3c, 0x87, 0x3a, 0x76, 0x14, 0x13, 0x17, 0x27, 0x09, 0x89, 0x79, 0x05,
+	0x69, 0xf5, 0xde, 0x60, 0xd0, 0xa7, 0x29, 0x10, 0x6d, 0xc3, 0xb2, 0xcb, 0x24, 0x75, 0x47, 0xd4,
+	0x7f, 0x8e, 0x6d, 0x91, 0x21, 0xd2, 0x92, 0x82, 0x94, 0xad, 0xa7, 0x62, 0x87, 0x25, 0x20, 0x81,
+	0x64, 0x27, 0xd4, 0x89, 0xa9, 0x3d, 0x18, 0x04, 0x01, 0x2f, 0x32, 0xad, 0xde, 0x15, 0xb1, 0x71,
+	0xc4, 0xe0, 0x4f, 0x06, 0x01, 0xd7, 0x9c, 0xc4, 0xe5, 0x3d, 0x15, 0xc3, 0x6c, 0x09, 0x26, 0x04,
+	0xf8, 0x9b, 0xa1, 0xc7, 0xf0, 0xac, 0x7f, 0xd7, 0xa0, 0x73, 0xe0, 0x79, 0x17, 0x0e, 0x91, 0x6f,
+	0x40, 0x73, 0x12, 0x15, 0xed, 0xdd, 0xfb, 0x63, 0x67, 0x29, 0x23, 0xda, 0x65, 0x3f, 0x7b, 0xe2,
+	0x90, 0xf9, 0xb9, 0x01, 0x0d, 0xb6, 0x46, 0xef, 0xc0, 0x6a, 0xd1, 0x80, 0x3c, 0xc1, 0x8a, 0x6f,
+	0x2e, 0xe7, 0x4c, 0xc8, 0x93, 0xec, 0xd8, 0x88, 0xb5, 0x6a, 0x23, 0xd6, 0xcf, 0x37, 0x62, 0x43,
+	0xfa, 0x62, 0x95, 0x11, 0x9b, 0x33, 0x18, 0x51, 0xb4, 0x0c, 0x1a, 0x23, 0x5a, 0xbf, 0x36, 0xe0,
+	0x86, 0x46, 0x37, 0xf3, 0x08, 0x6c, 0x7d, 0xfa, 0x6a, 0xe8, 0xd3, 0x97, 0xf5, 0x69, 0x0d, 0xee,
+	0x16, 0x2a, 0x0f, 0xdb, 0xca, 0x97, 0xca, 0x7c, 0x1d, 0x64, 0x64, 0x35, 0x0d, 0xc5, 0x39, 0x76,
+	0xad, 0x95, 0xdb, 0xf5, 0xc2, 0x16, 0x6c, 0xfd, 0x9f, 0x2d, 0xa8, 0x0d, 0x43, 0xeb, 0x0f, 0x06,
+	0xdc, 0x3b, 0x47, 0x51, 0xf3, 0xb0, 0x66, 0x59, 0x8e, 0x6b, 0x94, 0xe4, 0x38, 0xeb, 0xdb, 0xec,
+	0xfe, 0x91, 0xad, 0xc9, 0x6a, 0x70, 0xeb, 0xbd, 0xc3, 0x28, 0xf1, 0x8e, 0xdf, 0x18, 0x70, 0x53,
+	0x4f, 0xed, 0xcb, 0xf7, 0xdc, 0xdf, 0x1b, 0xb0, 0xae, 0xa9, 0x4d, 0x07, 0x9c, 0x81, 0xe9, 0x53,
+	0xd9, 0x4e, 0x4e, 0xc1, 0x42, 0x80, 0xb4, 0xde, 0xab, 0x05, 0x4d, 0x52, 0x9e, 0xad, 0xe2, 0x5b,
+	0x7f, 0xa9, 0xc3, 0x46, 0x39, 0x9b, 0xf3, 0x50, 0x63, 0x00, 0x6f, 0x6a, 0x24, 0x52, 0x6a, 0xfb,
+	0xd7, 0xab, 0x6a, 0x7b, 0x86, 0xb1, 0x6c, 0x75, 0x5f, 0x29, 0x28, 0x63, 0xaa, 0xfa, 0xfe, 0x67,
+	0xe3, 0x82, 0xf5, 0x3d, 0x9f, 0x46, 0xa4, 0x20, 0xe3, 0x0a, 0xbf, 0x5c, 0xe0, 0xe7, 0xd0, 0x63,
+	0xf1, 0x4f, 0x63, 0xff, 0xe4, 0x04, 0xc7, 0x12, 0x3f, 0x4d, 0x23, 0x12, 0x2a, 0x10, 0x55, 0x34,
+	0x79, 0xa9, 0x6b, 0x64, 0xd0, 0x8e, 0x38, 0xd0, 0xfa, 0xa7, 0x01, 0x66, 0x36, 0x6f, 0xcf, 0xea,
+	0x5f, 0x4f, 0x60, 0x51, 0x75, 0xa9, 0xf6, 0x6e, 0xb7, 0xa4, 0x58, 0xaa, 0x84, 0xbb, 0x52, 0x1c,
+	0xa6, 0xf5, 0xf4, 0xb8, 0xf9, 0x03, 0x80, 0x09, 0x58, 0x23, 0xa7, 0x31, 0x9d, 0x9c, 0x35, 0x9d,
+	0x9c, 0xbf, 0x35, 0x60, 0x4d, 0xcb, 0xce, 0x3c, 0x1c, 0xb4, 0x2c, 0xe4, 0x1a, 0x65, 0x21, 0x67,
+	0x7d, 0x6a, 0xc0, 0xfd, 0xe2, 0xfd, 0x88, 0x6f, 0xe6, 0xeb, 0x54, 0x17, 0x96, 0x35, 0xc4, 0x25,
+	0xdb, 0xd7, 0x0a, 0xb4, 0x35, 0x7a, 0xac, 0x4d, 0xa7, 0xc7, 0xba, 0x4e, 0x8f, 0x9f, 0x19, 0xf0,
+	0xf6, 0xb9, 0x8c, 0xce, 0x43, 0xa7, 0xe5, 0xb1, 0xd2, 0x28, 0x8d, 0x15, 0xeb, 0x3d, 0x76, 0x5b,
+	0xca, 0x65, 0xf7, 0x8c, 0x7f, 0x97, 0x59, 0xca, 0x28, 0xb5, 0xd4, 0xef, 0x0c, 0x76, 0x8d, 0xd1,
+	0xd3, 0x7c, 0x3d, 0x7c, 0xe9, 0x67, 0xac, 0x15, 0x4b, 0x12, 0xe2, 0xfa, 0xba, 0xb9, 0xc9, 0x14,
+	0x11, 0x9d, 0x19, 0x38, 0xd5, 0xf2, 0x03, 0xa7, 0x07, 0x70, 0x35, 0xc6, 0x43, 0x87, 0x62, 0xcf,
+	0x4e, 0x81, 0xe9, 0xcc, 0x44, 0xc2, 0x7b, 0x12, 0x6c, 0x7d, 0xcc, 0x92, 0x8b, 0x86, 0x93, 0x79,
+	0xe8, 0xe9, 0x3a, 0x2c, 0x7c, 0x48, 0xfa, 0x13, 0x7f, 0x68, 0x7e, 0x48, 0xfa, 0x87, 0x9e, 0xf5,
+	0xc2, 0x00, 0xf3, 0xb1, 0xff, 0x5a, 0x68, 0xe3, 0x27, 0x06, 0xac, 0x69, 0x59, 0xf9, 0x02, 0xd5,
+	0xb1, 0x07, 0xd7, 0x0f, 0xa2, 0x68, 0x78, 0x76, 0x01, 0x45, 0x58, 0x3f, 0x86, 0xd5, 0xfc, 0xd9,
+	0x2f, 0x90, 0xf3, 0x3f, 0x1a, 0xb0, 0x9c, 0xa9, 0xe6, 0x32, 0x82, 0xd9, 0xb7, 0xf9, 0x52, 0xc6,
+	0xac, 0x5c, 0xf1, 0x51, 0x95, 0x10, 0x25, 0x9d, 0xf9, 0x09, 0x73, 0x4e, 0x86, 0x9c, 0xf5, 0xcc,
+	0x90, 0xd3, 0x64, 0xbc, 0x4a, 0x03, 0x8a, 0x0f, 0x8f, 0xd7, 0x4a, 0x43, 0xd4, 0xd4, 0x37, 0x44,
+	0x0b, 0x6a, 0x43, 0xf4, 0xb7, 0x3a, 0xac, 0x64, 0x39, 0x9d, 0x87, 0x9a, 0xbe, 0x05, 0x2d, 0x61,
+	0xb0, 0x49, 0xdb, 0xf3, 0x50, 0xdf, 0xf6, 0x68, 0x5b, 0x9d, 0x4b, 0x8e, 0x78, 0x89, 0x9a, 0xa2,
+	0xbd, 0xf9, 0x4f, 0xbe, 0xbd, 0xb9, 0x01, 0xe2, 0xf4, 0xa4, 0xaf, 0x59, 0xe4, 0xeb, 0x43, 0x75,
+	0x84, 0x5c, 0xcb, 0x68, 0x57, 0xd3, 0x11, 0xd5, 0x75, 0x1d, 0xd1, 0x3a, 0xb4, 0x53, 0xad, 0x4f,
+	0x3c, 0x00, 0x52, 0xd0, 0xa1, 0xa7, 0x8d, 0xb7, 0xa6, 0x36, 0xde, 0xf2, 0x63, 0xeb, 0x85, 0x59,
+	0xc6, 0xd6, 0xd6, 0x27, 0x7c, 0xf4, 0xa7, 0x68, 0xf1, 0x89, 0x9f, 0x50, 0x12, 0xcb, 0x68, 0x59,
+	0x81, 0x26, 0xe7, 0x5b, 0x8a, 0x2f, 0x16, 0x2c, 0x86, 0x06, 0x02, 0x4b, 0x5c, 0xef, 0x84, 0x0a,
+	0xda, 0x12, 0x96, 0x4e, 0xa2, 0x67, 0x68, 0xad, 0xff, 0x5a, 0xcf, 0x3d, 0x01, 0x4a, 0x26, 0xe6,
+	0xe1, 0x4f, 0x1f, 0xa4, 0xd7, 0xdf, 0x54, 0x84, 0x89, 0x5f, 0xed, 0xe8, 0xfd, 0x2a, 0xc3, 0x4c,
+	0xd6, 0xbb, 0x84, 0xb1, 0x25, 0xc2, 0x54, 0x4e, 0xf6, 0x8f, 0x19, 0x9c, 0x6c, 0x33, 0x7d, 0x15,
+	0x4a, 0x59, 0x1d, 0x37, 0xcc, 0x4b, 0xea, 0x77, 0x0f, 0xbd, 0x82, 0x45, 0xea, 0x45, 0x8b, 0xe4,
+	0xbc, 0xa4, 0x31, 0xd3, 0xe3, 0x46, 0x6e, 0xee, 0xdd, 0x2c, 0xcc, 0xbd, 0x77, 0x3f, 0x59, 0x82,
+	0xcb, 0xea, 0xa3, 0x2f, 0xea, 0xc3, 0x75, 0xed, 0x8b, 0x15, 0x7a, 0xab, 0xfa, 0x45, 0x8b, 0x3b,
+	0x9e, 0x79, 0x77, 0x9a, 0x67, 0x2f, 0xf4, 0x3d, 0xb8, 0x56, 0x78, 0xaa, 0x40, 0xeb, 0xe3, 0xa3,
+	0xfa, 0x17, 0x15, 0x73, 0xa3, 0x1c, 0x41, 0xd2, 0xa5, 0xb0, 0x56, 0x31, 0xc4, 0x47, 0x0f, 0xc6,
+	0x04, 0xce, 0x7b, 0x97, 0x30, 0x1f, 0x4e, 0x83, 0x2a, 0xbf, 0xfa, 0x01, 0x4b, 0xfc, 0x85, 0x21,
+	0x3c, 0xba, 0xa3, 0xa8, 0x42, 0x3f, 0xe6, 0x37, 0xad, 0x2a, 0x14, 0x49, 0xfd, 0x14, 0x3a, 0x65,
+	0x03, 0x60, 0x74, 0xff, 0xdc, 0x19, 0xb1, 0xf8, 0xce, 0xdb, 0x53, 0xce, 0x92, 0x99, 0x28, 0x9a,
+	0x21, 0x99, 0x22, 0x4a, 0xd9, 0x78, 0x51, 0x11, 0xa5, 0x7c, 0xca, 0xf6, 0xb1, 0x01, 0xeb, 0xe7,
+	0x4c, 0x70, 0xd0, 0x57, 0xca, 0x15, 0xaf, 0x19, 0x8a, 0x99, 0xdd, 0x69, 0xd1, 0x25, 0x0b, 0x18,
+	0x56, 0xf5, 0xe3, 0x14, 0x74, 0xb7, 0xd4, 0x16, 0xaa, 0x98, 0xf7, 0xce, 0xc1, 0x92, 0x9f, 0x79,
+	0xa6, 0xfb, 0xd7, 0x88, 0xf1, 0xfc, 0x62, 0x73, 0x8a, 0xeb, 0xbf, 0xf8, 0xdc, 0x83, 0xa9, 0x07,
+	0x05, 0x2c, 0x6e, 0xb5, 0xf7, 0x47, 0x25, 0x6e, 0xcb, 0xaf, 0xbb, 0x4a, 0xdc, 0x56, 0x5d, 0x42,
+	0x7f, 0x6a, 0xe8, 0x5e, 0xc9, 0x72, 0x97, 0x2b, 0xb4, 0x5d, 0x11, 0x3b, 0xba, 0x1b, 0xa3, 0xb9,
+	0x33, 0xfd, 0x01, 0x35, 0x28, 0xf4, 0x77, 0x9c, 0x4c, 0x50, 0x54, 0x5c, 0xad, 0x32, 0x41, 0x51,
+	0x79, 0x5d, 0xb2, 0x61, 0x45, 0x77, 0x49, 0x40, 0x8a, 0xcb, 0x97, 0xf5, 0xef, 0xe6, 0x5b, 0x95,
+	0x38, 0x13, 0xd3, 0x69, 0xfb, 0x6e, 0x35, 0xe5, 0x96, 0x5e, 0x11, 0xd4, 0x94, 0x5b, 0xd1, 0xbc,
+	0x1f, 0xc1, 0xd5, 0x7c, 0x73, 0x8c, 0x6e, 0x4f, 0x98, 0xd3, 0xf5, 0xdc, 0xe6, 0x7a, 0xe9, 0xbe,
+	0x24, 0xfa, 0x2e, 0x2c, 0x65, 0x3b, 0x39, 0x74, 0xb3, 0xa4, 0xc5, 0x13, 0x04, 0x6f, 0x55, 0x36,
+	0x80, 0x4c, 0xd1, 0xba, 0x02, 0x8e, 0xac, 0xca, 0xfa, 0x9e, 0x57, 0x74, 0x79, 0x0f, 0x60, 0xae,
+	0xbe, 0x7c, 0xd5, 0x40, 0xa8, 0xf5, 0x9e, 0x1f, 0x9e, 0x3c, 0x1a, 0x92, 0x91, 0x67, 0x36, 0x39,
+	0x52, 0x7f, 0x81, 0x97, 0xd1, 0x77, 0xfe, 0x17, 0x00, 0x00, 0xff, 0xff, 0xc5, 0x58, 0x8b, 0x06,
+	0x57, 0x25, 0x00, 0x00,
 }
