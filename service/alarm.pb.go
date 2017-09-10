@@ -124,6 +124,7 @@ It has these top-level messages:
 	ResetCacheParametersInput
 	ResetCacheParametersOutput
 	ClusterServiceProperties
+	CreateClusterInput_Conf
 	CreateClusterInput
 	CreateClusterOutput
 	DescribeClustersInput
