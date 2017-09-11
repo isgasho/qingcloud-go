@@ -749,3 +749,141 @@ message Zone {
 	string status = 1;
 	string zone_id = 2;
 }
+
+message Cluster {
+	string global_uuid = 1;
+	int32 auto_backup_time = 2;
+	HealthCheckEnablement health_check_enablement = 3;
+	string cfgmgmt_id = 4;
+	CustomService custom_service = 5;
+	string app_id = 6;
+	AdvancedActions advanced_actions = 7;
+	string console_id = 8;
+	google.protobuf.Timestamp create_time = 9;
+	string cluster_id = 10;
+	string owner = 11;
+	google.protobuf.Timestamp upgrade_time = 12;
+	//google.protobuf.Any children = 13;
+	int32 incremental_backup_supported = 14;
+	int32 cluster_type = 15;
+	int32 sub_code = 16;
+	int32 metadata_root_access = 17;
+	//google.protobuf.Any add_links = 18;
+	string upgrade_status = 19;
+	google.protobuf.Timestamp status_time = 20;
+	int32 node_count = 21;
+	string app_version = 22;
+	VxNet vxnet = 23;
+	string status = 24;
+	string description = 25;
+	//google.protobuf.Any parent = 26;
+	//repeated google.protobuf.Any tags = 27;
+	AppInfo app_info = 28;
+	string transition_status = 29;
+	int32 reuse_hyper = 30;
+	string controller = 31;
+	//repeated google.protobuf.Any upgrade_policy = 32;
+	int32 partner_access = 33;
+	string name = 34;
+	repeated string roles = 35;
+	//google.protobuf.Timestamp lastest_snapshot_time = 36;
+	string lastest_snapshot_time = 36; // 临时, 目前返回的空字符串是非法格式
+	string root_user_id = 37;
+	int32 debug = 38;
+	//repeated google.protobuf.Any backup_policy = 39;
+	//repeated google.protobuf.Any endpoints = 40;
+	HealthCheckEnablement backup = 41;
+	AppVersionInfo app_version_info = 42;
+
+	message HealthCheckEnablement {
+		bool ca = 1;
+		bool orderer = 2;
+		bool peer_node = 3;
+	}
+
+	message CustomService {
+		//
+	}
+
+	message AdvancedActions {
+		//google.protobuf.Any ca = 1;
+		//google.protobuf.Any orderer = 2;
+		//google.protobuf.Any peer_node = 3;
+	}
+
+	message AppInfo {
+		string icon = 1;
+		string app_id = 2;
+		string app_name = 3;
+	}
+
+	message AppVersionInfo {
+		google.protobuf.Timestamp status_time = 1;
+		string resource_kit = 2;
+		string name = 3;
+		string version_id = 4;
+		//repeated google.protobuf.Any upgrade_policy = 5;
+	}
+}
+
+message ClasterNode {
+	// "passphraseless":null,
+	string vertical_scaling_policy = 2;
+	string vxnet_id = 3;
+	//"destroy_service":null,
+	string custom_service = 5;
+	string app_id = 6;
+	//"advanced_actions":null,
+	string console_id = 8;
+	string stop_service = 9;
+	int32 user_access = 10;
+	google.protobuf.Timestamp create_time = 11;
+	string cluster_id = 12;
+	string private_ip = 13;
+	//"upgrade_service":null,
+	string owner = 15;
+	string alarm_status = 16;
+	int32 incremental_backup_supported = 17;
+	//"restore_service":null,
+	int32 server_id = 19;
+	string monitor = 20;
+	string health_status = 21;
+	int32 is_backup = 22;
+	string root_user_id = 23;
+	string role = 24;
+	int32 memory = 25;
+	google.protobuf.Timestamp status_time = 26;
+	string restart_service = 27;
+	string app_version = 28;
+	string status = 29;
+	int32 global_server_id = 30;
+	string scale_in_service = 31;
+	int32 auto_backup = 32;
+	string transition_status = 33;
+	//"custom_metadata":null,
+	int32 storage_size = 35;
+	//"server_id_upper_bound":null,
+	string image_id = 37;
+	string controller = 38;
+	string node_id = 39;
+	int32 agent_installed = 40;
+	//"reserved_ips":null,
+	//"backup_policy":null,
+	string start_service = 43;
+	string volume_ids = 44;
+	string name = 45;
+	string hypervisor = 46;
+	//"delete_snapshot_service":null,
+	string init_service = 48;
+	string instance_id = 49;
+	string scale_out_service = 50;
+	string repl = 51;
+	//"custom_metadata_script":null,
+	string health_check = 52;
+	int32 debug = 53;
+	string single_node_repl = 54;
+	//"pub_key":null,
+	int32 group_id = 56;
+	//"backup_service":null,
+	int32 cpu = 58;
+}

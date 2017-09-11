@@ -742,6 +742,8 @@ It has these top-level messages:
 	SnapshotResource
 	User
 	Zone
+	Cluster
+	ClasterNode
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput
