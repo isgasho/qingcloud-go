@@ -290,10 +290,10 @@ func (p *qingcloudPlugin) genMethodInputValidate(m *descriptor.MethodDescriptorP
 	return ""
 }
 
-func (p *qingcloudPlugin) getServiceExtension(svc *descriptor.ServiceDescriptorProto) (svcRule *rule_pb.ServiceRule) {
+func (p *qingcloudPlugin) getServiceExtension(svc *descriptor.ServiceDescriptorProto) (svcRule *rule_pb.ServiceOptionsRule) {
 	if svc.Options != nil && proto.HasExtension(svc.Options, rule_pb.E_ServiceRule) {
 		if ext, _ := proto.GetExtension(svc.Options, rule_pb.E_ServiceRule); ext != nil {
-			if x, _ := ext.(*rule_pb.ServiceRule); x != nil {
+			if x, _ := ext.(*rule_pb.ServiceOptionsRule); x != nil {
 				svcRule = x
 			}
 		}
@@ -301,10 +301,10 @@ func (p *qingcloudPlugin) getServiceExtension(svc *descriptor.ServiceDescriptorP
 	return
 }
 
-func (p *qingcloudPlugin) getMethodExtension(m *descriptor.MethodDescriptorProto) *rule_pb.MethodRule {
+func (p *qingcloudPlugin) getMethodExtension(m *descriptor.MethodDescriptorProto) *rule_pb.MethodOptionsRule {
 	if m.Options != nil && proto.HasExtension(m.Options, rule_pb.E_MethodRule) {
 		if ext, _ := proto.GetExtension(m.Options, rule_pb.E_MethodRule); ext != nil {
-			if x, _ := ext.(*rule_pb.MethodRule); x != nil {
+			if x, _ := ext.(*rule_pb.MethodOptionsRule); x != nil {
 				return x
 			}
 		}
@@ -312,11 +312,11 @@ func (p *qingcloudPlugin) getMethodExtension(m *descriptor.MethodDescriptorProto
 	return nil
 }
 
-func (p *qingcloudPlugin) getMethodInputExtension(m *descriptor.MethodDescriptorProto) *rule_pb.MethodInputRule {
+func (p *qingcloudPlugin) getMethodInputExtension(m *descriptor.MethodDescriptorProto) *rule_pb.MessageOptionsRule {
 	desc := p.ObjectNamed(m.GetInputType()).(*generator.Descriptor).DescriptorProto
-	if desc.Options != nil && proto.HasExtension(desc.Options, rule_pb.E_MethodInputRule) {
-		if ext, _ := proto.GetExtension(desc.Options, rule_pb.E_MethodInputRule); ext != nil {
-			if x, _ := ext.(*rule_pb.MethodInputRule); x != nil {
+	if desc.Options != nil && proto.HasExtension(desc.Options, rule_pb.E_MessageRule) {
+		if ext, _ := proto.GetExtension(desc.Options, rule_pb.E_MessageRule); ext != nil {
+			if x, _ := ext.(*rule_pb.MessageOptionsRule); x != nil {
 				return x
 			}
 		}

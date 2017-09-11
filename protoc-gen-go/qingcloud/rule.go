@@ -10,24 +10,24 @@ import (
 	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 )
 
-type pbServiceRule struct{ *rule_pb.ServiceRule }
+type pbServiceRule struct{ *rule_pb.ServiceOptionsRule }
 
-func (p *pbServiceRule) IsMainService() bool        { return p.ServiceRule.GetSubServiceName() == "" }
-func (p *pbServiceRule) IsSubService() bool         { return p.ServiceRule.GetSubServiceName() != "" }
-func (p *pbServiceRule) GetMainServiceName() string { return p.ServiceRule.GetServiceName() }
-func (p *pbServiceRule) GetSubServiceName() string  { return p.ServiceRule.GetSubServiceName() }
-func (p *pbServiceRule) GetDocUrl() string          { return p.ServiceRule.GetDocUrl() }
+func (p *pbServiceRule) IsMainService() bool        { return p.ServiceOptionsRule.GetSubServiceName() == "" }
+func (p *pbServiceRule) IsSubService() bool         { return p.ServiceOptionsRule.GetSubServiceName() != "" }
+func (p *pbServiceRule) GetMainServiceName() string { return p.ServiceOptionsRule.GetServiceName() }
+func (p *pbServiceRule) GetSubServiceName() string  { return p.ServiceOptionsRule.GetSubServiceName() }
+func (p *pbServiceRule) GetDocUrl() string          { return p.ServiceOptionsRule.GetDocUrl() }
 
-type pbMethodRule struct{ *rule_pb.MethodRule }
+type pbMethodRule struct{ *rule_pb.MethodOptionsRule }
 
 func (p *pbMethodRule) GetHttpMethod() string {
-	if s := p.MethodRule.GetHttpMethod(); s != "" {
+	if s := p.MethodOptionsRule.GetHttpMethod(); s != "" {
 		return s
 	}
 	return "GET"
 }
 
-type pbMethodInputRule struct{ *rule_pb.MethodInputRule }
+type pbMethodInputRule struct{ *rule_pb.MessageOptionsRule }
 
 func (p *pbMethodInputRule) IsRequired(filedName string) bool {
 	for _, s := range p.getRequiredFiledList() {
@@ -105,12 +105,12 @@ func (p *pbMethodInputRule) GetMultipleOfValue(filedName string) string {
 
 // data: "a; b; ..."
 func (p *pbMethodInputRule) getRequiredFiledList() []string {
-	return splitString(p.MethodInputRule.RequiredFileds, ";")
+	return splitString(p.MessageOptionsRule.RequiredFileds, ";")
 }
 
 // data: "a:v; b:v; ..."
 func (p *pbMethodInputRule) getDefaultValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MethodInputRule.DefaultValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.DefaultValue, ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
@@ -121,7 +121,7 @@ func (p *pbMethodInputRule) getDefaultValueList() (names []string, values []stri
 
 // data: "a:a1,a2,a3; b:b1,b2; ..."
 func (p *pbMethodInputRule) getEnumValueList() (names []string, values [][]string) {
-	for _, s := range splitString(p.MethodInputRule.EnumValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.EnumValue, ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, splitString(kv[1], ","))
@@ -132,7 +132,7 @@ func (p *pbMethodInputRule) getEnumValueList() (names []string, values [][]strin
 
 // data: "a:v; b:v; ..."
 func (p *pbMethodInputRule) getMinValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MethodInputRule.MinValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.MinValue, ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
@@ -143,7 +143,7 @@ func (p *pbMethodInputRule) getMinValueList() (names []string, values []string) 
 
 // data: "a:v; b:v; ..."
 func (p *pbMethodInputRule) getMaxValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MethodInputRule.MaxValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.MaxValue, ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
@@ -154,7 +154,7 @@ func (p *pbMethodInputRule) getMaxValueList() (names []string, values []string) 
 
 // data: "a:v; b:v; ..."
 func (p *pbMethodInputRule) getMultipleOfValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MethodInputRule.MultipleOfValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.MultipleOfValue, ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
