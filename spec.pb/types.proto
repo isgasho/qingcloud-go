@@ -192,15 +192,15 @@ message Instance {
 	repeated string volume_ids = 28;
 	repeated Volume volumes = 29;
 	repeated InstanceVxNet vxnets = 30;
+}
 
-	message InstanceVxNet {
-		string nic_id = 1;
-		string private_ip = 2;
-		int32 role = 3;
-		string vxnet_id = 4;
-		string vxnet_name = 5;
-		int32 vxnet_type = 6;
-	}
+message InstanceVxNet {
+	string nic_id = 1;
+	string private_ip = 2;
+	int32 role = 3;
+	string vxnet_id = 4;
+	string vxnet_name = 5;
+	int32 vxnet_type = 6;
 }
 
 message Image {
@@ -232,6 +232,12 @@ message Image {
 	string transition_status = 26;
 	string ui_type = 27;
 	string visibility = 28;
+}
+
+message ImageUser {
+	google.protobuf.Timestamp create_time = 1;
+	string image_id = 2;
+	string user = 3;
 }
 
 message Mongo {
@@ -405,6 +411,12 @@ message DNSAlias {
 message EIPGroup {
 	string eip_group_id = 1;
 	string eip_group_name = 2;
+}
+
+message EIPResource {
+	string resource_id = 1;
+	string resource_name = 2;
+	string resource_type = 3;
 }
 
 message Extra {

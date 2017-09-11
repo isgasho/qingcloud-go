@@ -695,7 +695,9 @@ It has these top-level messages:
 	VxNet
 	Router
 	Instance
+	InstanceVxNet
 	Image
+	ImageUser
 	Mongo
 	MongoNode
 	LoadBalancer
@@ -710,6 +712,7 @@ It has these top-level messages:
 	DHCPOption
 	DNSAlias
 	EIPGroup
+	EIPResource
 	Extra
 	File
 	InstanceType
