@@ -8,6 +8,8 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/monitor/index.html
 // ----------------------------------------------------------------------------
@@ -32,22 +34,52 @@ service MonitorService {
 
 // ----------------------------------------------------------------------------
 
-message GetMonitorInput {}
+message GetMonitorInput {
+	string resource = 1;
+	repeated string meters = 2;
+	string step = 3;
+	google.protobuf.Timestamp start_time = 4;
+	google.protobuf.Timestamp end_time = 5;
+
+}
 message GetMonitorOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string resource_id = 4;
+	repeated ResponseItem meter_set = 5;
+
+	message ResponseItem {
+		// data: [[1392072000,[12,12]],[15,29],[11,12]]
+		string vxnet_id = 2;
+		string meter_id = 3;
+		int32 sequence = 4;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message GetLoadBalancerMonitorInput {}
+message GetLoadBalancerMonitorInput {
+	string resource = 1;
+	repeated string meters = 2;
+	string step = 3;
+	google.protobuf.Timestamp start_time = 4;
+	google.protobuf.Timestamp end_time = 5;
+}
 message GetLoadBalancerMonitorOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string resource_id = 4;
+	repeated ResponseItem meter_set = 5;
+
+	message ResponseItem {
+		string eip_id = 1;
+		// data: ...
+		string meter_id = 3;
+	}
 }
 
 // ----------------------------------------------------------------------------
