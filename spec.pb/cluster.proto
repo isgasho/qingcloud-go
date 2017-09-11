@@ -9,8 +9,6 @@ package service;
 import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
-import "google/protobuf/timestamp.proto";
-
 // ----------------------------------------------------------------------------
 
 message ClusterServiceProperties {

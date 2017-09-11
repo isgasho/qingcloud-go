@@ -8,6 +8,10 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
+// ----------------------------------------------------------------------------
+
 // https://docs.qingcloud.com/api/dns_alias/index.html
 
 message DNSAliasServiceProperties {
@@ -26,35 +30,63 @@ service DNSAliasService {
 	rpc GetDNSLabel(GetDNSLabelInput) returns (GetDNSLabelOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeDNSAliasesInput {
-	//
+	repeated string dns_aliases = 1;
+	string resource_id = 2;
+	string search_word = 3;
+	int32 offset = 4;
+	int32 limit = 5;
 }
 message DescribeDNSAliasesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem dns_alias_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string status = 1;
+		string dns_alias_id = 2;
+		string resource_id = 3;
+		string dns_alias_name = 4;
+		google.protobuf.Timestamp create_time = 5;
+	}
 }
 
+// ----------------------------------------------------------------------------
+
 message AssociateDNSAliasInput {
-	//
+	string prefix = 1;
+	string resource = 2;
+	string dns_alias_name = 3;
 }
 message AssociateDNSAliasOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string dns_alias_id = 4;
+	string domain_name = 5;
+	string job_id = 6;
 }
 
+// ----------------------------------------------------------------------------
+
 message DissociateDNSAliasesInput {
-	//
+	repeated string dns_aliases = 1;
 }
 message DissociateDNSAliasesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
+
+// ----------------------------------------------------------------------------
 
 message GetDNSLabelInput {
 	//
@@ -64,4 +96,10 @@ message GetDNSLabelOutput {
 	int32 ret_code = 2;
 	string message = 3;
 
+	string dns_label = 4;
+	string domain_name = 5;
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
