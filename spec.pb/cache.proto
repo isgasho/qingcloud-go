@@ -6,9 +6,14 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/cache/index.html
+// ----------------------------------------------------------------------------
 
 message CacheServiceProperties {
 	string zone = 1;
@@ -46,13 +51,49 @@ service CacheService {
 	rpc ResetCacheParameters(ResetCacheParametersInput) returns (ResetCacheParametersOutput);
 }
 
-message DescribeCachesInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeCachesInput {
+	repeated string caches = 1;
+	repeated string status = 2;
+	repeated string cache_type = 3;
+	string search_word = 4;
+	repeated string tags = 5;
+	int32 verbose = 6;
+	int32 offset = 7;
+	int32 limit = 8;
+}
 message DescribeCachesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem cache_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string cache_id = 1;
+		string cache_name = 2;
+		string cache_type = 3;
+		int32 cache_port = 4;
+		int32 cache_size = 5;
+		int32 node_count = 6;
+		int32 description = 7;
+		repeated CacheNode nodes = 8;
+		int32 auto_backup_time = 9;
+		int32 is_applied = 10;
+		string status = 11;
+		string transition_status = 12;
+		map<string,string> vxnet = 13;
+		google.protobuf.Timestamp create_time = 14;
+		google.protobuf.Timestamp status_time = 15;
+		string security_group_id = 16;
+		string cache_parameter_group_id = 17;
+		double max_memory = 18;
+	}
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateCacheInput {}
 message CreateCacheOutput {
@@ -62,6 +103,8 @@ message CreateCacheOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message StopCachesInput {}
 message StopCachesOutput {
 	string action = 1;
@@ -69,6 +112,8 @@ message StopCachesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message StartCachesInput {}
 message StartCachesOutput {
@@ -78,6 +123,8 @@ message StartCachesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message RestartCachesInput {}
 message RestartCachesOutput {
 	string action = 1;
@@ -85,6 +132,8 @@ message RestartCachesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DeleteCachesInput {}
 message DeleteCachesOutput {
@@ -94,6 +143,8 @@ message DeleteCachesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ResizeCachesInput {}
 message ResizeCachesOutput {
 	string action = 1;
@@ -101,6 +152,8 @@ message ResizeCachesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message UpdateCacheInput {}
 message UpdateCacheOutput {
@@ -110,6 +163,8 @@ message UpdateCacheOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ChangeCacheVxnetInput {}
 message ChangeCacheVxnetOutput {
 	string action = 1;
@@ -117,6 +172,8 @@ message ChangeCacheVxnetOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyCacheAttributesInput {}
 message ModifyCacheAttributesOutput {
@@ -126,6 +183,8 @@ message ModifyCacheAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeCacheNodesInput {}
 message DescribeCacheNodesOutput {
 	string action = 1;
@@ -133,6 +192,8 @@ message DescribeCacheNodesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message AddCacheNodesInput {}
 message AddCacheNodesOutput {
@@ -142,6 +203,8 @@ message AddCacheNodesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteCacheNodesInput {}
 message DeleteCacheNodesOutput {
 	string action = 1;
@@ -149,6 +212,8 @@ message DeleteCacheNodesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message RestartCacheNodesInput {}
 message RestartCacheNodesOutput {
@@ -158,6 +223,8 @@ message RestartCacheNodesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifyCacheNodeAttributesInput {}
 message ModifyCacheNodeAttributesOutput {
 	string action = 1;
@@ -165,6 +232,8 @@ message ModifyCacheNodeAttributesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateCacheFromSnapshotInput {}
 message CreateCacheFromSnapshotOutput {
@@ -174,6 +243,8 @@ message CreateCacheFromSnapshotOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeCacheParameterGroupsInput {}
 message DescribeCacheParameterGroupsOutput {
 	string action = 1;
@@ -181,6 +252,8 @@ message DescribeCacheParameterGroupsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateCacheParameterGroupInput {}
 message CreateCacheParameterGroupOutput {
@@ -190,6 +263,8 @@ message CreateCacheParameterGroupOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ApplyCacheParameterGroupInput {}
 message ApplyCacheParameterGroupOutput {
 	string action = 1;
@@ -197,6 +272,8 @@ message ApplyCacheParameterGroupOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DeleteCacheParameterGroupsInput {}
 message DeleteCacheParameterGroupsOutput {
@@ -206,6 +283,8 @@ message DeleteCacheParameterGroupsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifyCacheParameterGroupAttributesInput {}
 message ModifyCacheParameterGroupAttributesOutput {
 	string action = 1;
@@ -213,6 +292,8 @@ message ModifyCacheParameterGroupAttributesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeCacheParametersInput {}
 message DescribeCacheParametersOutput {
@@ -222,6 +303,8 @@ message DescribeCacheParametersOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message UpdateCacheParametersInput {}
 message UpdateCacheParametersOutput {
 	string action = 1;
@@ -229,6 +312,8 @@ message UpdateCacheParametersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ResetCacheParametersInput {}
 message ResetCacheParametersOutput {
@@ -238,3 +323,7 @@ message ResetCacheParametersOutput {
 
 }
 
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
