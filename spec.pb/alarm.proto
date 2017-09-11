@@ -58,7 +58,7 @@ message DescribeAlarmPoliciesInput {
 		required_fileds:
 			"attachment_content;"
 		default_value:
-			"verbose:0"
+			"verbose:0;"
 			"offset:0;"
 			"limit:20;"
 		enum_value:
