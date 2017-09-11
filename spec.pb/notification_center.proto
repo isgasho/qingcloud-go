@@ -8,6 +8,8 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
 // https://docs.qingcloud.com/api/notification_center/index.html
 
 message NotificationCenterServiceProperties {
@@ -24,11 +26,25 @@ service NotificationCenterService {
 }
 
 message DescribeNotificationCenterUserPostsInput {
-	//
+	repeated string post_type = 1;
+	repeated string status = 2;
+	int32 offset = 3;
+	int32 limit = 4;
 }
 message DescribeNotificationCenterUserPostsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem notification_center_post_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string notification_center_post_id = 1;
+		string status = 2;
+		google.protobuf.Timestamp latest_snapshot_time = 3;
+		string post_type = 4;
+		string title = 5;
+		string content = 6;
+	}
 }
