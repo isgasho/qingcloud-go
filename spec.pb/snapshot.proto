@@ -8,6 +8,8 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/snapshot/index.html
 // ----------------------------------------------------------------------------
@@ -33,72 +35,128 @@ service SnapshotService {
 
 // ----------------------------------------------------------------------------
 
-message DescribeSnapshotsInput {}
+message DescribeSnapshotsInput {
+	repeated string snapshots = 1;
+	string resource_id = 2;
+	int32 snapshot_type = 3;
+	repeated string status = 4;
+	string search_word = 5;
+	repeated string tags = 6;
+	int32 verbose = 7;
+	int32 offset = 8;
+	int32 limit = 9;
+}
 message DescribeSnapshotsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem snapshot_set = 4;
+
+	message ResponseItem {
+		string snapshot_id = 1;
+		string snapshot_name = 2;
+		string description = 3;
+		string snapshot_type = 4;
+		string status = 5;
+		string transition_status = 6;
+		google.protobuf.Timestamp create_time = 7;
+		google.protobuf.Timestamp status_time = 8;
+		google.protobuf.Timestamp snapshot_time = 9;
+		int32 is_taken = 10;
+		int32 is_head = 11;
+		string root_id = 12;
+		string parent_id = 13;
+		int32 size = 14;
+		int32 total_size = 15;
+		int32 total_count = 16;
+		google.protobuf.Timestamp lastest_snapshot_time = 17;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateSnapshotsInput {}
+message CreateSnapshotsInput {
+	repeated string resources = 1;
+	string snapshot_name = 2;
+	int32 is_full = 3;
+}
 message CreateSnapshotsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
+	repeated string snapshots = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteSnapshotsInput {}
+message DeleteSnapshotsInput {
+	repeated string snapshots = 1;
+}
 message DeleteSnapshotsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ApplySnapshotsInput {}
+message ApplySnapshotsInput {
+	repeated string snapshots = 1;
+}
 message ApplySnapshotsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifySnapshotAttributesInput {}
+message ModifySnapshotAttributesInput {
+	string snapshot = 1;
+	string snapshot_name = 2;
+	string description = 3;
+}
 message ModifySnapshotAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message CaptureInstanceFromSnapshotInput {}
+message CaptureInstanceFromSnapshotInput {
+	string snapshot = 1;
+	string image_name = 2;
+}
 message CaptureInstanceFromSnapshotOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
+	string image_id = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateVolumeFromSnapshotInput {}
+message CreateVolumeFromSnapshotInput {
+	string snapshot = 1;
+	string volume_name = 2;
+}
 message CreateVolumeFromSnapshotOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
+	string volume_id = 5;
 }
 
 // ----------------------------------------------------------------------------
