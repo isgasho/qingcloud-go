@@ -6,7 +6,10 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
+
+import "google/protobuf/timestamp.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/vxnet/index.html
@@ -33,72 +36,139 @@ service VxnetService {
 
 // ----------------------------------------------------------------------------
 
-message DescribeVxnetsInput {}
+message DescribeVxnetsInput {
+	repeated string vxnets = 1;
+	int32 vxnet_type = 2;
+	string search_word = 3;
+	repeated string tags = 4;
+	int32 verbose = 5;
+	int32 offset = 6;
+	int32 limit = 7;
+}
 message DescribeVxnetsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem vxnet_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		int32 vxnet_type = 1;
+		string vxnet_id = 2;
+		string vxnet_name = 3;
+		google.protobuf.Timestamp create_time = 4;
+		string description = 5;
+		repeated string instance_ids = 6;
+		Router router = 7;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateVxnetsInput {}
+message CreateVxnetsInput {
+	string vxnet_name = 1;
+	int32 vxnet_type = 2;
+	int32 count = 3;
+	string target_user = 4;
+}
 message CreateVxnetsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string vxnets = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteVxnetsInput {}
+message DeleteVxnetsInput {
+	repeated string vxnets = 1;
+}
 message DeleteVxnetsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string vxnets = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message JoinVxnetInput {}
+message JoinVxnetInput {
+	string vxnet = 1;
+	repeated string instances = 2;
+}
 message JoinVxnetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message LeaveVxnetInput {}
+message LeaveVxnetInput {
+	string vxnet = 1;
+	repeated string instances = 2;
+}
 message LeaveVxnetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyVxnetAttributesInput {}
+message ModifyVxnetAttributesInput {
+	string vxnet = 1;
+	string vxnet_name = 2;
+	string description = 3;
+}
 message ModifyVxnetAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeVxnetInstancesInput {}
+message DescribeVxnetInstancesInput {
+	string vxnet = 1;
+	repeated string instances = 2;
+	string instance_type = 3;
+	string status = 4;
+	string image = 5;
+	int32 offset = 6;
+	int32 limit = 7;
+}
 message DescribeVxnetInstancesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem instance_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string vxnet_id = 1;
+		string instance_id = 2;
+		string instance_name = 3;
+		string description = 4;
+		string instance_type = 5;
+		int32 vcpus_current = 6;
+		int32 memory_current = 7;
+		string status = 8;
+		string transition_status = 9;
+		google.protobuf.Timestamp create_time = 10;
+		google.protobuf.Timestamp status_time = 11;
+		string image_id = 12;
+		map<string,string> dhcp_options = 13;
+		string private_ip = 14;
+	}
 }
 
 // ----------------------------------------------------------------------------
