@@ -34,13 +34,17 @@ service NicService {
 // ----------------------------------------------------------------------------
 
 message CreateNicsInput {
-	//
+	string vxnet = 1;
+	string nic_name = 2;
+	int32 count = 3;
+	repeated string private_ips = 4;
 }
 message CreateNicsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated NICIP nics = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -69,7 +73,8 @@ message DescribeNicsOutput {
 // ----------------------------------------------------------------------------
 
 message AttachNicsInput {
-	//
+	repeated string nics = 1;
+	string instance = 2;
 }
 
 message AttachNicsOutput {
@@ -77,43 +82,45 @@ message AttachNicsOutput {
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DetachNicsInput {
-	//
+	repeated string nics = 1;
 }
 message DetachNicsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyNicAttributesInput {
-	//
+	string nic = 1;
+	string nic_name = 2;
+	string private_ip = 3;
 }
 message ModifyNicAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
 message DeleteNicsInput {
-	//
+	repeated string nics = 1;
 }
 
 message DeleteNicsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
