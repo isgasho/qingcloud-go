@@ -6,6 +6,7 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
 // ----------------------------------------------------------------------------
@@ -33,72 +34,119 @@ service SparkService {
 
 // ----------------------------------------------------------------------------
 
-message CreateSparkInput {}
+message CreateSparkInput {
+	string spark_version = 1;
+	int32 node_count = 2;
+	int32 enable_hdfs = 3;
+	int32 spark_type = 4;
+	int32 storage_size = 5;
+	string vxnet = 6;
+	string description = 7;
+	string spark_name = 8;
+	int32 spark_class = 9;
+	repeated SparkPrivateIps private_ips = 10;
+}
 message CreateSparkOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string spark_id = 4;
+	string spark_name = 5;
+	string spark_version = 6;
+	string vxnet_id = 7;
+	repeated string spark_node_ids = 8;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeSparksInput {}
+message DescribeSparksInput {
+	repeated string sparks = 1;
+	repeated string status = 2;
+	string search_word = 3;
+	repeated string tags = 4;
+	int32 verbose = 5;
+	int32 offset = 6;
+	int32 limit = 7;
+}
 message DescribeSparksOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string spark_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message AddSparkNodesInput {}
+message AddSparkNodesInput {
+	string spark = 1;
+	int32 node_count = 2;
+	string spark_node_name = 3;
+	repeated SparkPrivateIps private_ips = 4;
+}
 message AddSparkNodesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string spark_id = 4;
+	repeated string spark_new_node_ids = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteSparkNodesInput {}
+message DeleteSparkNodesInput {
+	string spark = 1;
+	repeated string spark_nodes = 2;
+}
 message DeleteSparkNodesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string spark_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message StartSparksInput {}
+message StartSparksInput {
+	repeated string sparks = 1;
+}
 message StartSparksOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message StopSparksInput {}
+message StopSparksInput {
+	repeated string sparks = 1;
+}
 message StopSparksOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteSparksInput {}
+message DeleteSparksInput {
+	repeated string sparks = 1;
+}
 message DeleteSparksOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string spark_ids = 4;
+	string job_id = 5;
 }
 
 // ----------------------------------------------------------------------------

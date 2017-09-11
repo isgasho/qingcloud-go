@@ -708,6 +708,7 @@ It has these top-level messages:
 	CacheParameter
 	CacheParameterGroup
 	CachePrivateIP
+	SparkPrivateIps
 	Data
 	DHCPOption
 	DNSAlias

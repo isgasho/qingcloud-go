@@ -388,6 +388,11 @@ message CachePrivateIP {
 	string private_ips = 3;
 }
 
+message SparkPrivateIps {
+	string role = 1;
+	string private_ips = 2;
+}
+
 message Data {
 	string data = 1;
 	string eip_id = 2;
