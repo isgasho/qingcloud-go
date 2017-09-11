@@ -6,7 +6,12 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
+
+import "google/protobuf/timestamp.proto";
+
+// ----------------------------------------------------------------------------
 
 // https://docs.qingcloud.com/api/eip/index.html
 
@@ -30,66 +35,142 @@ service EipService {
 	rpc ModifyEipAttributes(ModifyEipAttributesInput) returns (ModifyEipAttributesOutput);
 }
 
-message DescribeEipsInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeEipsInput {
+	repeated string eips = 1;
+	string instance_id = 2;
+	string status = 3;
+	string search_word = 4;
+	repeated string tags = 5;
+	int32 verbose = 6;
+	int32 offset = 7;
+	int32 limit = 8;
+}
 message DescribeEipsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem eip_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string eip_id = 1;
+		string eip_name = 2;
+		string description = 3;
+		int32 bandwidth = 4;
+		string billing_mode = 5;
+		string status = 6;
+		string transition_status = 7;
+		string icp_codes = 8;
+		google.protobuf.Timestamp create_time = 9;
+		google.protobuf.Timestamp status_time = 10;
+		Resource resource = 11;
+		EIPGroup eip_group = 12;
+		string eip_addr = 13;
+	}
 }
 
-message AllocateEipsInput {}
+// ----------------------------------------------------------------------------
+
+message AllocateEipsInput {
+	int32 bandwidth = 1;
+	string billing_mode = 2;
+	string eip_name = 3;
+	int32 count = 4;
+	int32 need_icp = 5;
+	string target_user = 6;
+}
 message AllocateEipsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string eips = 4;
 }
 
-message ReleaseEipsInput {}
+// ----------------------------------------------------------------------------
+
+message ReleaseEipsInput {
+	repeated string eips = 1;
+}
 message ReleaseEipsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message AssociateEipInput {}
+// ----------------------------------------------------------------------------
+
+message AssociateEipInput {
+	string eip = 1;
+	string instance = 2;
+}
 message AssociateEipOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message DissociateEipsInput {}
+// ----------------------------------------------------------------------------
+
+message DissociateEipsInput {
+	repeated string eips = 1;
+}
 message DissociateEipsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message ChangeEipsBandwidthInput {}
+// ----------------------------------------------------------------------------
+
+message ChangeEipsBandwidthInput {
+	repeated string eips = 1;
+	int32 bandwidth = 2;
+}
 message ChangeEipsBandwidthOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message ChangeEipsBillingModeInput {}
+// ----------------------------------------------------------------------------
+
+message ChangeEipsBillingModeInput {
+	repeated string eips = 1;
+	string billing_mode = 2;
+}
 message ChangeEipsBillingModeOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message ModifyEipAttributesInput {}
+// ----------------------------------------------------------------------------
+
+message ModifyEipAttributesInput {
+	string eip = 1;
+	string eip_name = 2;
+	string description = 3;
+}
 message ModifyEipAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
