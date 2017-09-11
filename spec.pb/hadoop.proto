@@ -8,6 +8,8 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
+
 // https://docs.qingcloud.com/api/hadoop/index.html
 
 message HadoopServiceProperties {
@@ -26,34 +28,68 @@ service HadoopService {
 	rpc StopHadoops(StopHadoopsInput) returns (StopHadoopsOutput);
 }
 
-message AddHadoopNodesInput {}
+// ----------------------------------------------------------------------------
+
+message AddHadoopNodesInput {
+	string hadoop = 1;
+	int32 node_count = 2;
+	string hadoop_node_name = 3;
+	repeated PrivateIps private_ips = 4;
+
+	message PrivateIps {
+		string role = 1;
+		string private_ips = 2;
+	}
+}
 message AddHadoopNodesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string hadoop_id = 4;
+	repeated string hadoop_new_node_ids = 5;
 }
 
-message DeleteHadoopNodesInput {}
+// ----------------------------------------------------------------------------
+
+message DeleteHadoopNodesInput {
+	string hadoop = 1;
+	repeated string hadoop_nodes = 2;
+}
 message DeleteHadoopNodesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string hadoop_id = 4;
 }
 
-message StartHadoopsInput {}
+// ----------------------------------------------------------------------------
+
+message StartHadoopsInput {
+	repeated string hadoops = 1;
+}
 message StartHadoopsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message StopHadoopsInput {}
+// ----------------------------------------------------------------------------
+
+message StopHadoopsInput {
+	repeated string hadoops = 1;
+}
 message StopHadoopsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
