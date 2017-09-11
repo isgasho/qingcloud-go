@@ -37,6 +37,8 @@ service InstanceService {
 	rpc DeleteBrokers(DeleteBrokersInput) returns (DeleteBrokersOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeInstancesInput {
 	repeated string image_id = 1;
 	int32 instance_class = 2;
@@ -58,6 +60,8 @@ message DescribeInstancesOutput {
 	repeated Instance instance_set = 4;
 	int32 total_count = 5;
 }
+
+// ----------------------------------------------------------------------------
 
 message RunInstancesInput {
 	string billing_id = 1;
@@ -93,6 +97,8 @@ message RunInstancesOutput {
 	string job_id = 5;
 }
 
+// ----------------------------------------------------------------------------
+
 message TerminateInstancesInput {
 	repeated string instances = 1;
 }
@@ -104,6 +110,8 @@ message TerminateInstancesOutput {
 	string job_id = 4;
 }
 
+// ----------------------------------------------------------------------------
+
 message StartInstancesInput {
 	repeated string instances = 1;
 }
@@ -114,6 +122,8 @@ message StartInstancesOutput {
 
 	string job_id = 4;
 }
+
+// ----------------------------------------------------------------------------
 
 message StopInstancesInput {
 	int32 force = 1;
@@ -127,6 +137,8 @@ message StopInstancesOutput {
 	string job_id = 4;
 }
 
+// ----------------------------------------------------------------------------
+
 message RestartInstancesInput {
 	repeated string instances = 1;
 }
@@ -139,30 +151,52 @@ message RestartInstancesOutput {
 	string job_id = 4;
 }
 
-message ResetInstancesInput {}
+// ----------------------------------------------------------------------------
+
+message ResetInstancesInput {
+	repeated string instances = 1;
+	string login_mode = 2;
+	string login_keypair = 3;
+	string login_passwd = 4;
+	int32 need_newsid = 5;
+}
 message ResetInstancesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message ResizeInstancesInput {}
+// ----------------------------------------------------------------------------
+
+message ResizeInstancesInput {
+	repeated string instances = 1;
+	string instance_type = 2;
+	int32 cpu = 3;
+	int32 memory = 4;
+}
 message ResizeInstancesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message ModifyInstanceAttributesInput {}
+// ----------------------------------------------------------------------------
+
+message ModifyInstanceAttributesInput {
+	string instance = 1;
+	string instance_name = 2;
+	string description = 3;
+	int32 nic_mqueue = 4;
+}
 message ModifyInstanceAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
-
 
 // ----------------------------------------------------------------------------
 //
@@ -206,13 +240,14 @@ message DescribeInstanceTypesInput {
 }
 
 message DescribeInstanceTypesOutput {
-	string action = 1;                                  // 响应动作
-	int32 ret_code = 2;                                 // 状态码
+	string action = 1;                           // 响应动作
+	int32 ret_code = 2;                          // 状态码
+	string message = 3;
 
-	repeated InstanceTypeSetElem instance_type_set = 3; // 主机类型列表
-	int32 total_count = 4;                              // 根据过滤条件得到的主机类型总数
+	repeated ResponseItem instance_type_set = 4; // 主机类型列表
+	int32 total_count = 5;                       // 根据过滤条件得到的主机类型总数
 
-	message InstanceTypeSetElem {
+	message ResponseItem {
 		string instance_type_id = 1;   // 主机类型ID
 		string instance_type_name = 2; // 主机类型名称
 		string description = 3;        // 主机类型描述
@@ -222,19 +257,36 @@ message DescribeInstanceTypesOutput {
 	}
 }
 
-message CreateBrokersInput {}
+// ----------------------------------------------------------------------------
+
+message CreateBrokersInput {
+	repeated string instances = 1;
+}
 message CreateBrokersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem brokers = 4;
+
+	message ResponseItem {
+		string instance_id = 1;
+		string broker_host = 2;
+		int32 broker_port = 3;
+	}
 }
 
-message DeleteBrokersInput {}
+// ----------------------------------------------------------------------------
+
+message DeleteBrokersInput {
+	repeated string instances = 1;
+}
 message DeleteBrokersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
+
+	repeated string brokers = 4;
 }
 
 // ----------------------------------------------------------------------------
