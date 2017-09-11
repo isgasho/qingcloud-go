@@ -124,11 +124,11 @@ message UploadUserDataAttachmentOutput {
 }
 ```
 
-扩展信息中的 `http_action` 用于表示 HTTP 方法, 默认是 GET, 极少数的API是 POST ([UploadUserDataAttachment](https://docs.qingcloud.com/api/userdata/upload_userdata_attachment.html)). 当采用 POST 方法时,
-需要明确指定 `http_action`.
+扩展信息中的 `http_method` 用于表示 HTTP 方法, 默认是 GET, 极少数的API是 POST ([UploadUserDataAttachment](https://docs.qingcloud.com/api/userdata/upload_userdata_attachment.html)). 当采用 POST 方法时,
+需要明确指定 `http_method`.
 
-输入的参数可以通过 `option (qingcloud.sdk.rule.method_input_rule)` 扩展来定义额外的约束, 主要是针对 必须成员/默认值/枚举字符串 几种类型.
-不过目前还没有使用该信息.
+输入的参数可以通过 `option (qingcloud.sdk.rule.message_rule)` 扩展来定义额外的约束, 用于验证整个结构体.
+目前生成的代码还没有使用该信息.
 
 <!--
 
