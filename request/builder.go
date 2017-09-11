@@ -135,12 +135,17 @@ func (b *Builder) parseRequestURL() error {
 	return nil
 }
 
-func protoMessageToMap(msg proto.Message) (map[string]string, error) {
+func protoMessageToMap(msg proto.Message) (m map[string]string, err error) {
+	defer func() {
+		if x := recover(); x != nil {
+			err = fmt.Errorf("protoMessageToMap failed: %v", x)
+		}
+	}()
+
 	jsonMarshaler := &jsonpb.Marshaler{
 		OrigName: true,
 		Indent:   "",
 	}
-
 	jsonString, err := jsonMarshaler.MarshalToString(msg)
 	if err != nil {
 		return nil, err
@@ -151,6 +156,12 @@ func protoMessageToMap(msg proto.Message) (map[string]string, error) {
 		return nil, err
 	}
 
+	m = unpackMapXToMapString(mapx)
+	return m, nil
+}
+
+// X is oneof string/float64/[]interface/map[string]interface{}
+func unpackMapXToMapString(mapx map[string]interface{}) map[string]string {
 	var m = map[string]string{}
 	for k, v := range mapx {
 		switch v := v.(type) {
@@ -161,20 +172,26 @@ func protoMessageToMap(msg proto.Message) (map[string]string, error) {
 		case []interface{}:
 			for i := 0; i < len(v); i++ {
 				ki := k + "." + strconv.Itoa(i+1)
-
 				switch vi := v[i].(type) {
 				case string:
 					m[ki] = vi
 				case float64:
 					m[ki] = fmt.Sprintf("%v", vi)
+				case map[string]interface{}:
+					for kk, vv := range unpackMapXToMapString(vi) {
+						m[ki+"."+kk] = vv
+					}
 				default:
 					// unreachable
 				}
+			}
+		case map[string]interface{}:
+			for kk, vv := range unpackMapXToMapString(v) {
+				m[k+"."+kk] = vv
 			}
 		default:
 			// unreachable
 		}
 	}
-
-	return m, nil
+	return m
 }
