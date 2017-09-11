@@ -37,10 +37,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(encodeJSON(reply))
+	fmt.Println(jsonpbEncode(reply))
 }
 
-func encodeJSON(m proto.Message) string {
+func jsonpbEncode(m proto.Message) string {
 	jsonMarshaler := &jsonpb.Marshaler{
 		OrigName:     true,
 		Indent:       "  ",

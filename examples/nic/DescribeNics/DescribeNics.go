@@ -5,14 +5,14 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
 
 	"github.com/chai2010/qingcloud-go/config"
 	pb "github.com/chai2010/qingcloud-go/service"
+	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
 )
 
 func main() {
@@ -37,16 +37,20 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//fmt.Println(string(encodeJSON(reply)))
-
-	fmt.Println(reply)
+	fmt.Println(jsonpbEncode(reply))
 }
 
-func encodeJSON(m interface{}) []byte {
-	data, err := json.MarshalIndent(m, "", "\t")
-	if err != nil {
-		return nil
+func jsonpbEncode(m proto.Message) string {
+	jsonMarshaler := &jsonpb.Marshaler{
+		OrigName:     true,
+		Indent:       "  ",
+		EnumsAsInts:  true,
+		EmitDefaults: true,
 	}
-	data = bytes.Replace(data, []byte("\n"), []byte("\r\n"), -1)
-	return data
+
+	s, err := jsonMarshaler.MarshalToString(m)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return s
 }
