@@ -8,6 +8,8 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/subuser/index.html
 // ----------------------------------------------------------------------------
@@ -32,61 +34,85 @@ service SubuserService {
 // ----------------------------------------------------------------------------
 
 message DescribeSubUsersInput {
-	//
+	repeated string users = 1;
+	string status = 2;
+	int32 offset = 3;
+	int32 limit = 4;
 }
 message DescribeSubUsersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem user_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string user_id = 1;
+		string user_name = 2;
+		google.protobuf.Timestamp create_time = 3;
+		string email = 4;
+		string status = 5;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateSubUserInput {
-	//
+	string email = 1;
+	string user_name = 2;
+	string passwd = 3;
+	string notify_email = 4;
 }
 message CreateSubUserOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string email = 4;
+	string user_id = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifySubUserAttributesInput {
-	//
+	string user = 1;
+	string user_name = 2;
+	int32 nologin = 3;
+	string notify_email = 4;
 }
 message ModifySubUserAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string user_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DeleteSubUsersInput {
-	//
+	repeated string users = 1;
 }
 message DeleteSubUsersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string users = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message RestoreSubUsersInput {
-	//
+	repeated string users = 1;
 }
 message RestoreSubUsersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string users = 4;
 }
 
 // ----------------------------------------------------------------------------
