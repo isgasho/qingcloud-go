@@ -8,6 +8,8 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/span/index.html
 // ----------------------------------------------------------------------------
@@ -33,77 +35,128 @@ service SpanService {
 
 // ----------------------------------------------------------------------------
 
-message CreateSpanInput {}
+message CreateSpanInput {
+	string span_name = 1;
+	int32 flag = 2;
+	string ip_addr = 3;
+	string tunnel_type = 4;
+	int32 tunnel_key = 5;
+}
 message CreateSpanOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string span_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeSpansInput {}
+message DescribeSpansInput {
+	repeated string spans = 1;
+	string span_name = 2;
+	string ip_addr = 3;
+	repeated string tags = 4;
+	int32 offset = 5;
+	int32 limit = 6;
+}
 message DescribeSpansOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem span_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		int32 is_applied = 1;
+		string span_name = 2;
+		string ip_addr = 3;
+		string tunnel_type = 4;
+		repeated string tags = 5;
+		int32 flag = 6;
+		int32 tunnel_key = 7;
+		google.protobuf.Timestamp create_time = 8;
+		google.protobuf.Timestamp status_time = 9;
+		string span_id = 10;
+		repeated MemberItem members = 11;
+
+		message MemberItem {
+			string span_id = 1;
+			string resource_id = 2;
+			string status = 3;
+			google.protobuf.Timestamp create_time = 4;
+			google.protobuf.Timestamp status_time = 5;
+		}
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteSpansInput {}
+message DeleteSpansInput {
+	repeated string spans = 1;
+}
 message DeleteSpansOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message AddSpanMembersInput {}
+message AddSpanMembersInput {
+	string span = 1;
+	repeated string resources = 2;
+}
 message AddSpanMembersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message RemoveSpanMembersInput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
-
+	string span = 1;
+	repeated string resources = 2;
 }
 message RemoveSpanMembersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifySpanAttributesInput {}
+message ModifySpanAttributesInput {
+	string span_id = 1;
+	string span_name = 2;
+	int32 flag = 3;
+	string ip_addr = 4;
+	string tunnel_type = 5;
+	int32 tunnel_key = 6;
+}
 message ModifySpanAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message UpdateSpanInput {}
+message UpdateSpanInput {
+	string span = 1;
+}
 message UpdateSpanOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
