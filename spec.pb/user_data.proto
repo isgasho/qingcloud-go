@@ -31,7 +31,7 @@ message UploadUserDataAttachmentInput {
 	bytes attachment_content = 2;
 	string attachment_name = 1;
 
-	option (qingcloud.sdk.rule.method_input_rule) = {
+	option (qingcloud.sdk.rule.message_rule) = {
 		required_fileds: "attachment_content"
 		default_value: ""
 		enum_value: ""

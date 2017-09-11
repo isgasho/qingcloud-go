@@ -127,7 +127,7 @@ message CreateClusterInput_Conf {
 message CreateClusterInput {
 	string conf = 1; // 配置信息, JSON 字符串
 
-	option (qingcloud.sdk.rule.method_input_rule) = {
+	option (qingcloud.sdk.rule.message_rule) = {
 		required_fileds: "conf"
 	};
 }
@@ -147,7 +147,7 @@ message DescribeClustersInput {
 	repeated string app_version = 5;
 	repeated string users = 6;
 
-	option (qingcloud.sdk.rule.method_input_rule) = {
+	option (qingcloud.sdk.rule.message_rule) = {
 		enum_value: "scope:all,cfgmgmt;"
 	};
 }

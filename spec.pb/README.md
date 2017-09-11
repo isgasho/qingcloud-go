@@ -35,42 +35,44 @@
 ```proto
 // 服务规则
 // 有主服务和子服务之分, 子服务隶属于某个主服务
-message ServiceRule {
+message ServiceOptionsRule {
 	string doc_url = 1;          // 文档链接
 	string service_name = 2;     // 主服务名(因为要生成一个Init函数, 只能有一个, 否则会重名)
 	string sub_service_name = 3; // 子服务名(主服务可省略)
 }
 
 // 方法规则
-message MethodRule {
+message MethodOptionsRule {
 	string doc_url = 1;          // 文档链接
 	string http_method = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
 }
 
 // 输入参数规则
 // 输入参数成员只有数值类型和字符串, 以及对应的数组, 不含嵌套结构
-message MethodInputRule {
+// 元信息部分只能包含 字符串/数字/链接符号 等普通的字符
+message MessageOptionsRule {
 	string required_fileds = 1;   // 格式: "a; b; ..."
 	string default_value = 2;     // 格式: "a:v; b:v; ..."
 	string enum_value = 3;        // 格式: "a:a1,a2,a3; b:b1,b2; ..."
 	string min_value = 4;         // 格式: "a:v; b:v ...", 最小值, 仅数值类型或数组
 	string max_value = 5;         // 格式: "a:v; b:v; ...", 最大值, 仅数值类型或数组
 	string multiple_of_value = 6; // 格式: "a:v; b:v; ...", 整倍数, 仅整数类型或数组
+	string regexp_value = 7;      // 格式: "a:{{...}}; b:{{...}};", 简单正则, 不要挑战复杂格式
 }
 
 // 通过扩展信息给 method 增加约束
 extend google.protobuf.ServiceOptions {
-	ServiceRule service_rule = 10001;
+	ServiceOptionsRule service_rule = 10001;
 }
 
 // 通过扩展信息给 method 增加约束
 extend google.protobuf.MethodOptions {
-	MethodRule method_rule = 10001;
+	MethodOptionsRule method_rule = 10001;
 }
 
 // 通过扩展信息给 message 增加约束
 extend google.protobuf.MessageOptions {
-	MethodInputRule method_input_rule = 10001;
+	MessageOptionsRule message_rule = 10001;
 }
 ```
 
@@ -82,6 +84,12 @@ syntax = "proto3";
 package service;
 
 import "qingcloud_sdk_rule/rule.proto";
+
+// https://docs.qingcloud.com/api/userdata/index.html
+
+message UserDataServiceProperties {
+	string zone = 1;
+}
 
 service UserDataService {
 	option (qingcloud.sdk.rule.service_rule) = {
@@ -100,7 +108,7 @@ message UploadUserDataAttachmentInput {
 	bytes attachment_content = 2;
 	string attachment_name = 1;
 
-	option (qingcloud.sdk.rule.method_input_rule) = {
+	option (qingcloud.sdk.rule.message_rule) = {
 		required_fileds: "attachment_content"
 		default_value: ""
 		enum_value: ""

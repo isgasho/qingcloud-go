@@ -54,7 +54,7 @@ message DescribeAlarmPoliciesInput {
 	int32 offset = 6;                   // 数据偏移量
 	int32 limit = 7;                    // 返回数据长度
 
-	option (qingcloud.sdk.rule.method_input_rule) = {
+	option (qingcloud.sdk.rule.message_rule) = {
 		required_fileds:
 			"attachment_content;"
 		default_value:
@@ -157,7 +157,7 @@ message DescribeAlarmPolicyRulesInput {
 	int32 offset = 3;                       // 数据偏移量
 	int32 limit = 4;                        // 返回数据长度
 
-	option (qingcloud.sdk.rule.method_input_rule) = {
+	option (qingcloud.sdk.rule.message_rule) = {
 		default_value:
 			"offset:0;"
 			"limit:20;"
