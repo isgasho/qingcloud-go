@@ -9,7 +9,9 @@ package service;
 import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/job/index.html
+// ----------------------------------------------------------------------------
 
 message JobServiceProperties {
 	string zone = 1;
@@ -23,6 +25,8 @@ service JobService {
 
 	rpc DescribeJobs(DescribeJobsInput) returns (DescribeJobsOutput);
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeJobsInput {
 	repeated string jobs = 1;
@@ -39,3 +43,7 @@ message DescribeJobsOutput {
 	repeated Job job_set = 4;
 	int32 total_count = 5;
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

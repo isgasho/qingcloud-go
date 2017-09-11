@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/vxnet/index.html
+// ----------------------------------------------------------------------------
 
 message VxnetServiceProperties {
 	string zone = 1;
@@ -29,6 +31,8 @@ service VxnetService {
 	rpc DescribeVxnetInstances(DescribeVxnetInstancesInput) returns (DescribeVxnetInstancesOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeVxnetsInput {}
 message DescribeVxnetsOutput {
 	string action = 1;
@@ -36,6 +40,8 @@ message DescribeVxnetsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateVxnetsInput {}
 message CreateVxnetsOutput {
@@ -45,6 +51,8 @@ message CreateVxnetsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteVxnetsInput {}
 message DeleteVxnetsOutput {
 	string action = 1;
@@ -52,6 +60,8 @@ message DeleteVxnetsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message JoinVxnetInput {}
 message JoinVxnetOutput {
@@ -61,6 +71,8 @@ message JoinVxnetOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message LeaveVxnetInput {}
 message LeaveVxnetOutput {
 	string action = 1;
@@ -68,6 +80,8 @@ message LeaveVxnetOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyVxnetAttributesInput {}
 message ModifyVxnetAttributesOutput {
@@ -77,6 +91,8 @@ message ModifyVxnetAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeVxnetInstancesInput {}
 message DescribeVxnetInstancesOutput {
 	string action = 1;
@@ -84,4 +100,8 @@ message DescribeVxnetInstancesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
 

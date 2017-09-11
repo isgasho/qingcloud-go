@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/mongo/index.html
+// ----------------------------------------------------------------------------
 
 message MongoServiceProperties {
 	string zone = 1;
@@ -37,6 +39,8 @@ service MongoService {
 	rpc GetMongoMonitor(GetMongoMonitorInput) returns (GetMongoMonitorOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeMongoNodesInput {}
 message DescribeMongoNodesOutput {
 	string action = 1;
@@ -44,6 +48,8 @@ message DescribeMongoNodesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeMongoParametersInput {}
 message DescribeMongoParametersOutput {
@@ -53,6 +59,8 @@ message DescribeMongoParametersOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ResizeMongosInput {}
 message ResizeMongosOutput {
 	string action = 1;
@@ -60,6 +68,8 @@ message ResizeMongosOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateMongoInput {}
 message CreateMongoOutput {
@@ -69,6 +79,8 @@ message CreateMongoOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message StopMongosInput {}
 message StopMongosOutput {
 	string action = 1;
@@ -77,6 +89,8 @@ message StopMongosOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message StartMongosInput {}
 message StartMongosOutput {
 	string action = 1;
@@ -84,6 +98,8 @@ message StartMongosOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeMongosInput {
 	int32 limit = 1;
@@ -94,6 +110,8 @@ message DescribeMongosInput {
 	repeated string tags = 6;
 	int32 verbose = 7;
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeMongosOutput {
 	string action = 1;
@@ -112,7 +130,7 @@ message DescribeMongosOutput {
 	}
 }
 
-
+// ----------------------------------------------------------------------------
 
 message DeleteMongosInput {}
 message DeleteMongosOutput {
@@ -122,6 +140,8 @@ message DeleteMongosOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateMongoFromSnapshotInput {}
 message CreateMongoFromSnapshotOutput {
 	string action = 1;
@@ -129,6 +149,8 @@ message CreateMongoFromSnapshotOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ChangeMongoVxnetInput {}
 message ChangeMongoVxnetOutput {
@@ -138,6 +160,8 @@ message ChangeMongoVxnetOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message AddMongoInstancesInput {}
 message AddMongoInstancesOutput {
 	string action = 1;
@@ -145,6 +169,8 @@ message AddMongoInstancesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message RemoveMongoInstancesInput {}
 message RemoveMongoInstancesOutput {
@@ -154,6 +180,8 @@ message RemoveMongoInstancesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifyMongoAttributesInput {}
 message ModifyMongoAttributesOutput {
 	string action = 1;
@@ -161,6 +189,8 @@ message ModifyMongoAttributesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyMongoInstancesInput {}
 message ModifyMongoInstancesOutput {
@@ -170,6 +200,8 @@ message ModifyMongoInstancesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message GetMongoMonitorInput {}
 message GetMongoMonitorOutput {
 	string action = 1;
@@ -177,4 +209,8 @@ message GetMongoMonitorOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
 

@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/userdata/index.html
+// ----------------------------------------------------------------------------
 
 message UserDataServiceProperties {
 	string zone = 1;
@@ -26,6 +28,8 @@ service UserDataService {
 		};
 	}
 }
+
+// ----------------------------------------------------------------------------
 
 message UploadUserDataAttachmentInput {
 	bytes attachment_content = 2;
@@ -45,3 +49,7 @@ message UploadUserDataAttachmentOutput {
 
 	string attachment_id = 4;
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

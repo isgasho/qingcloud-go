@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/snapshot/index.html
+// ----------------------------------------------------------------------------
 
 message SnapshotServiceProperties {
 	string zone = 1;
@@ -29,6 +31,8 @@ service SnapshotService {
 	rpc CreateVolumeFromSnapshot(CreateVolumeFromSnapshotInput) returns (CreateVolumeFromSnapshotOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeSnapshotsInput {}
 message DescribeSnapshotsOutput {
 	string action = 1;
@@ -36,6 +40,8 @@ message DescribeSnapshotsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateSnapshotsInput {}
 message CreateSnapshotsOutput {
@@ -45,6 +51,8 @@ message CreateSnapshotsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteSnapshotsInput {}
 message DeleteSnapshotsOutput {
 	string action = 1;
@@ -52,6 +60,8 @@ message DeleteSnapshotsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ApplySnapshotsInput {}
 message ApplySnapshotsOutput {
@@ -61,6 +71,8 @@ message ApplySnapshotsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifySnapshotAttributesInput {}
 message ModifySnapshotAttributesOutput {
 	string action = 1;
@@ -68,6 +80,8 @@ message ModifySnapshotAttributesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CaptureInstanceFromSnapshotInput {}
 message CaptureInstanceFromSnapshotOutput {
@@ -77,6 +91,8 @@ message CaptureInstanceFromSnapshotOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateVolumeFromSnapshotInput {}
 message CreateVolumeFromSnapshotOutput {
 	string action = 1;
@@ -84,3 +100,8 @@ message CreateVolumeFromSnapshotOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
+

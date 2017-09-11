@@ -9,7 +9,9 @@ package service;
 import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/zone/index.html
+// ----------------------------------------------------------------------------
 
 message ZoneServiceProperties {
 	string zone = 1;
@@ -24,6 +26,8 @@ service ZoneService {
 	rpc DescribeZones(DescribeZonesInput) returns (DescribeZonesOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeZonesInput {
 	repeated string zones = 1;
 	repeated string status = 2;
@@ -36,3 +40,7 @@ message DescribeZonesOutput {
 	repeated Zone zone_set = 4;
 	int32 total_count = 5;
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

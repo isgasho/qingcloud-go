@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/span/index.html
+// ----------------------------------------------------------------------------
 
 message SpanServiceProperties {
 	string zone = 1;
@@ -29,6 +31,8 @@ service SpanService {
 	rpc UpdateSpan(UpdateSpanInput) returns (UpdateSpanOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateSpanInput {}
 message CreateSpanOutput {
 	string action = 1;
@@ -36,6 +40,8 @@ message CreateSpanOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeSpansInput {}
 message DescribeSpansOutput {
@@ -45,6 +51,8 @@ message DescribeSpansOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteSpansInput {}
 message DeleteSpansOutput {
 	string action = 1;
@@ -53,6 +61,8 @@ message DeleteSpansOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message AddSpanMembersInput {}
 message AddSpanMembersOutput {
 	string action = 1;
@@ -60,6 +70,8 @@ message AddSpanMembersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message RemoveSpanMembersInput {
 	string action = 1;
@@ -74,6 +86,8 @@ message RemoveSpanMembersOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifySpanAttributesInput {}
 message ModifySpanAttributesOutput {
 	string action = 1;
@@ -82,6 +96,8 @@ message ModifySpanAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message UpdateSpanInput {}
 message UpdateSpanOutput {
 	string action = 1;
@@ -89,3 +105,7 @@ message UpdateSpanOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

@@ -9,7 +9,9 @@ package service;
 import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/volume/index.html
+// ----------------------------------------------------------------------------
 
 message VolumesServiceProperties {
 	string zone = 1;
@@ -30,6 +32,8 @@ service VolumesService {
 	rpc ModifyVolumeAttributes(ModifyVolumeAttributesInput) returns (ModifyVolumeAttributesOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeVolumesInput {
 	int32 limit = 1;
 	int32 offset = 2;
@@ -49,6 +53,8 @@ message DescribeVolumesOutput {
 	repeated Volume volume_set = 6;
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateVolumesInput {
 	int32 count = 1;
 	int32 size = 2;
@@ -64,6 +70,8 @@ message CreateVolumesOutput {
 	repeated string volumes = 5;
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteVolumesInput {
 	repeated string volumes = 1;
 }
@@ -74,6 +82,8 @@ message DeleteVolumesOutput {
 
 	string job_id = 4;
 }
+
+// ----------------------------------------------------------------------------
 
 message AttachVolumesInput {
 	string instance = 1;
@@ -87,6 +97,8 @@ message AttachVolumesOutput {
 	string job_id = 4;
 }
 
+// ----------------------------------------------------------------------------
+
 message DetachVolumesInput {
 	string instance = 1;
 	repeated string volumes = 2;
@@ -98,6 +110,8 @@ message DetachVolumesOutput {
 
 	string job_id = 4;
 }
+
+// ----------------------------------------------------------------------------
 
 message ResizeVolumesInput {
 	int32 size = 1;
@@ -111,6 +125,8 @@ message ResizeVolumesOutput {
 	string job_id = 4;
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifyVolumeAttributesInput {
 	string description = 1;
 	string volume = 2;
@@ -121,3 +137,7 @@ message ModifyVolumeAttributesOutput {
 	int32 ret_code = 2;
 	string message = 3;
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

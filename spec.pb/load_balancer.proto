@@ -9,7 +9,9 @@ package service;
 import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/lb/index.html
+// ----------------------------------------------------------------------------
 
 message LoadBalancerServiceProperties {
 	string zone = 1;
@@ -54,6 +56,8 @@ service LoadBalancerService {
 	rpc DeleteServerCertificates(DeleteServerCertificatesInput) returns (DeleteServerCertificatesOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateLoadBalancerInput {}
 message CreateLoadBalancerOutput {
 	string action = 1;
@@ -62,6 +66,7 @@ message CreateLoadBalancerOutput {
 
 }
 
+// ----------------------------------------------------------------------------
 
 message DescribeLoadBalancersInput {
 	int32 limit = 1;
@@ -81,6 +86,8 @@ message DescribeLoadBalancersOutput {
 	repeated LoadBalancer loadbalancer_set = 4;
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteLoadBalancersInput {}
 message DeleteLoadBalancersOutput {
 	string action = 1;
@@ -88,6 +95,8 @@ message DeleteLoadBalancersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyLoadBalancerAttributesInput {}
 message ModifyLoadBalancerAttributesOutput {
@@ -97,6 +106,8 @@ message ModifyLoadBalancerAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message StartLoadBalancersInput {}
 message StartLoadBalancersOutput {
 	string action = 1;
@@ -104,6 +115,8 @@ message StartLoadBalancersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message StopLoadBalancersInput {}
 message StopLoadBalancersOutput {
@@ -113,6 +126,8 @@ message StopLoadBalancersOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message UpdateLoadBalancersInput {}
 message UpdateLoadBalancersOutput {
 	string action = 1;
@@ -120,6 +135,8 @@ message UpdateLoadBalancersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ResizeLoadBalancersInput {}
 message ResizeLoadBalancersOutput {
@@ -129,6 +146,8 @@ message ResizeLoadBalancersOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message AssociateEipsToLoadBalancerInput {}
 message AssociateEipsToLoadBalancerOutput {
 	string action = 1;
@@ -137,6 +156,7 @@ message AssociateEipsToLoadBalancerOutput {
 
 }
 
+// ----------------------------------------------------------------------------
 
 message DissociateEipsFromLoadBalancerInput {}
 message DissociateEipsFromLoadBalancerOutput {
@@ -146,6 +166,8 @@ message DissociateEipsFromLoadBalancerOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message AddLoadBalancerListenersInput {}
 message AddLoadBalancerListenersOutput {
 	string action = 1;
@@ -153,6 +175,8 @@ message AddLoadBalancerListenersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeLoadBalancerListenersInput {}
 message DescribeLoadBalancerListenersOutput {
@@ -162,6 +186,8 @@ message DescribeLoadBalancerListenersOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteLoadBalancerListenersInput {}
 message DeleteLoadBalancerListenersOutput {
 	string action = 1;
@@ -169,6 +195,8 @@ message DeleteLoadBalancerListenersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyLoadBalancerListenerAttributesInput {}
 message ModifyLoadBalancerListenerAttributesOutput {
@@ -178,6 +206,8 @@ message ModifyLoadBalancerListenerAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message AddLoadBalancerBackendsInput {}
 message AddLoadBalancerBackendsOutput {
 	string action = 1;
@@ -185,6 +215,8 @@ message AddLoadBalancerBackendsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeLoadBalancerBackendsInput {}
 message DescribeLoadBalancerBackendsOutput {
@@ -194,6 +226,8 @@ message DescribeLoadBalancerBackendsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteLoadBalancerBackendsInput {}
 message DeleteLoadBalancerBackendsOutput {
 	string action = 1;
@@ -201,6 +235,8 @@ message DeleteLoadBalancerBackendsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyLoadBalancerBackendAttributesInput {}
 message ModifyLoadBalancerBackendAttributesOutput {
@@ -210,6 +246,8 @@ message ModifyLoadBalancerBackendAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateLoadBalancerPolicyInput {}
 message CreateLoadBalancerPolicyOutput {
 	string action = 1;
@@ -217,6 +255,8 @@ message CreateLoadBalancerPolicyOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeLoadBalancerPoliciesInput {}
 message DescribeLoadBalancerPoliciesOutput {
@@ -226,6 +266,8 @@ message DescribeLoadBalancerPoliciesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifyLoadBalancerPolicyAttributesInput {}
 message ModifyLoadBalancerPolicyAttributesOutput {
 	string action = 1;
@@ -233,6 +275,8 @@ message ModifyLoadBalancerPolicyAttributesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ApplyLoadBalancerPolicyInput {}
 message ApplyLoadBalancerPolicyOutput {
@@ -242,6 +286,8 @@ message ApplyLoadBalancerPolicyOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteLoadBalancerPoliciesInput {}
 message DeleteLoadBalancerPoliciesOutput {
 	string action = 1;
@@ -249,6 +295,8 @@ message DeleteLoadBalancerPoliciesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message AddLoadBalancerPolicyRulesInput {}
 message AddLoadBalancerPolicyRulesOutput {
@@ -258,6 +306,8 @@ message AddLoadBalancerPolicyRulesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeLoadBalancerPolicyRulesInput {}
 message DescribeLoadBalancerPolicyRulesOutput {
 	string action = 1;
@@ -265,6 +315,8 @@ message DescribeLoadBalancerPolicyRulesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyLoadBalancerPolicyRuleAttributesInput {}
 message ModifyLoadBalancerPolicyRuleAttributesOutput {
@@ -274,6 +326,8 @@ message ModifyLoadBalancerPolicyRuleAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteLoadBalancerPolicyRulesInput {}
 message DeleteLoadBalancerPolicyRulesOutput {
 	string action = 1;
@@ -281,6 +335,7 @@ message DeleteLoadBalancerPolicyRulesOutput {
 	string message = 3;
 
 }
+
 
 message CreateServerCertificateInput {}
 message CreateServerCertificateOutput {
@@ -290,6 +345,8 @@ message CreateServerCertificateOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeServerCertificatesInput {}
 message DescribeServerCertificatesOutput {
 	string action = 1;
@@ -297,6 +354,8 @@ message DescribeServerCertificatesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ModifyServerCertificateAttributesInput {}
 message ModifyServerCertificateAttributesOutput {
@@ -306,6 +365,8 @@ message ModifyServerCertificateAttributesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteServerCertificatesInput {}
 message DeleteServerCertificatesOutput {
 	string action = 1;
@@ -313,5 +374,9 @@ message DeleteServerCertificatesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
 
 

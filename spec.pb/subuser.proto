@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/subuser/index.html
+// ----------------------------------------------------------------------------
 
 message SubuserServiceProperties {
 	string zone = 1;
@@ -27,6 +29,8 @@ service SubuserService {
 	rpc RestoreSubUsers(RestoreSubUsersInput) returns (RestoreSubUsersOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeSubUsersInput {
 	//
 }
@@ -36,6 +40,8 @@ message DescribeSubUsersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateSubUserInput {
 	//
@@ -47,6 +53,8 @@ message CreateSubUserOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifySubUserAttributesInput {
 	//
 }
@@ -56,6 +64,8 @@ message ModifySubUserAttributesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DeleteSubUsersInput {
 	//
@@ -67,6 +77,8 @@ message DeleteSubUsersOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message RestoreSubUsersInput {
 	//
 }
@@ -76,3 +88,7 @@ message RestoreSubUsersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

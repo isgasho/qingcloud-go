@@ -10,7 +10,9 @@ import "qingcloud_sdk_rule/rule.proto";
 
 import "google/protobuf/timestamp.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/notification_center/index.html
+// ----------------------------------------------------------------------------
 
 message NotificationCenterServiceProperties {
 	string zone = 1;
@@ -24,6 +26,8 @@ service NotificationCenterService {
 
 	rpc DescribeNotificationCenterUserPosts(DescribeNotificationCenterUserPostsInput) returns (DescribeNotificationCenterUserPostsOutput);
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeNotificationCenterUserPostsInput {
 	repeated string post_type = 1;
@@ -48,3 +52,7 @@ message DescribeNotificationCenterUserPostsOutput {
 		string content = 6;
 	}
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

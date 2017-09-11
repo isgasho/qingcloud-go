@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/spark/index.html
+// ----------------------------------------------------------------------------
 
 message SparkServiceProperties {
 	string zone = 1;
@@ -29,6 +31,8 @@ service SparkService {
 	rpc DeleteSparks(DeleteSparksInput) returns (DeleteSparksOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateSparkInput {}
 message CreateSparkOutput {
 	string action = 1;
@@ -36,6 +40,8 @@ message CreateSparkOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeSparksInput {}
 message DescribeSparksOutput {
@@ -45,6 +51,8 @@ message DescribeSparksOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message AddSparkNodesInput {}
 message AddSparkNodesOutput {
 	string action = 1;
@@ -52,6 +60,8 @@ message AddSparkNodesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DeleteSparkNodesInput {}
 message DeleteSparkNodesOutput {
@@ -61,6 +71,8 @@ message DeleteSparkNodesOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message StartSparksInput {}
 message StartSparksOutput {
 	string action = 1;
@@ -68,6 +80,8 @@ message StartSparksOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message StopSparksInput {}
 message StopSparksOutput {
@@ -77,6 +91,8 @@ message StopSparksOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteSparksInput {}
 message DeleteSparksOutput {
 	string action = 1;
@@ -84,3 +100,7 @@ message DeleteSparksOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------

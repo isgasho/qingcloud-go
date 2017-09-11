@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/rdb/index.html
+// ----------------------------------------------------------------------------
 
 message RDBServiceProperties {
 	string zone = 1;
@@ -39,6 +41,8 @@ service RDBService {
 	rpc DescribeRDBParameters(DescribeRDBParametersInput) returns (DescribeRDBParametersOutput);
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateRDBInput {}
 message CreateRDBOutput {
 	string action = 1;
@@ -46,6 +50,8 @@ message CreateRDBOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message DescribeRDBsInput {
 	string action = 1;
@@ -60,6 +66,8 @@ message DescribeRDBsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DeleteRDBsInput {}
 message DeleteRDBsOutput {
 	string action = 1;
@@ -67,6 +75,8 @@ message DeleteRDBsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message StartRDBsInput {}
 message StartRDBsOutput {
@@ -76,6 +86,8 @@ message StartRDBsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message StopRDBsInput {}
 message StopRDBsOutput {
 	string action = 1;
@@ -83,6 +95,8 @@ message StopRDBsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ResizeRDBsInput {}
 message ResizeRDBsOutput {
@@ -92,6 +106,8 @@ message ResizeRDBsOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message RDBsLeaveVxnetInput {}
 message RDBsLeaveVxnetOutput {
 	string action = 1;
@@ -99,6 +115,8 @@ message RDBsLeaveVxnetOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message RDBsJoinVxnetInput {}
 message RDBsJoinVxnetOutput {
@@ -108,6 +126,8 @@ message RDBsJoinVxnetOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message CreateRDBFromSnapshotInput {}
 message CreateRDBFromSnapshotOutput {
 	string action = 1;
@@ -115,6 +135,8 @@ message CreateRDBFromSnapshotOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CreateTempRDBInstanceFromSnapshotInput {}
 message CreateTempRDBInstanceFromSnapshotOutput {
@@ -124,6 +146,8 @@ message CreateTempRDBInstanceFromSnapshotOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message GetRDBInstanceFilesInput {}
 message GetRDBInstanceFilesOutput {
 	string action = 1;
@@ -131,6 +155,8 @@ message GetRDBInstanceFilesOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CopyRDBInstanceFilesToFTPInput {}
 message CopyRDBInstanceFilesToFTPOutput {
@@ -140,6 +166,8 @@ message CopyRDBInstanceFilesToFTPOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message PurgeRDBLogsInput {}
 message PurgeRDBLogsOutput {
 	string action = 1;
@@ -147,6 +175,8 @@ message PurgeRDBLogsOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message CeaseRDBInstanceInput {}
 message CeaseRDBInstanceOutput {
@@ -156,6 +186,8 @@ message CeaseRDBInstanceOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message ModifyRDBParametersInput {}
 message ModifyRDBParametersOutput {
 	string action = 1;
@@ -163,6 +195,8 @@ message ModifyRDBParametersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
 
 message ApplyRDBParameterGroupInput {}
 message ApplyRDBParameterGroupOutput {
@@ -172,6 +206,8 @@ message ApplyRDBParameterGroupOutput {
 
 }
 
+// ----------------------------------------------------------------------------
+
 message DescribeRDBParametersInput {}
 message DescribeRDBParametersOutput {
 	string action = 1;
@@ -179,3 +215,7 @@ message DescribeRDBParametersOutput {
 	string message = 3;
 
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
