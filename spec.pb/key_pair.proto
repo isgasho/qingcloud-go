@@ -8,7 +8,9 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+// ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/keypair/index.html
+// ----------------------------------------------------------------------------
 
 message KeyPairServiceProperties {
 	string zone = 1;
@@ -28,50 +30,108 @@ service KeyPairService {
 	rpc ModifyKeyPairAttributes(ModifyKeyPairAttributesInput) returns (ModifyKeyPairAttributesOutput);
 }
 
-message DescribeKeyPairsInput {}
+// ----------------------------------------------------------------------------
+
+message DescribeKeyPairsInput {
+	repeated string keypairs = 1;
+	string instance_id = 2;
+	string owner = 3;
+	string encrypt_method = 4;
+	string search_word = 5;
+	repeated string tags = 6;
+	int32 verbose = 7;
+	int32 offset = 8;
+	int32 limit = 9;
+}
 message DescribeKeyPairsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem keypair_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string keypair_id = 1;
+		string keypair_name = 2;
+		string description = 3;
+		string encrypt_method = 4;
+		string pub_key = 5;
+		repeated string instance_ids = 6;
+	}
 }
 
-message CreateKeyPairInput {}
+// ----------------------------------------------------------------------------
+
+message CreateKeyPairInput {
+	string keypair_name = 1;
+	string mode = 2;
+	string encrypt_method = 3;
+	string public_key = 4;
+}
 message CreateKeyPairOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string private_key = 4;
+	string keypair_id = 5;
 }
 
-message DeleteKeyPairsInput {}
+// ----------------------------------------------------------------------------
+
+message DeleteKeyPairsInput {
+	repeated string keypairs = 1;
+}
 message DeleteKeyPairsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string keypairs = 4;
 }
 
-message AttachKeyPairsInput {}
+// ----------------------------------------------------------------------------
+
+message AttachKeyPairsInput {
+	repeated string keypairs = 1;
+	repeated string instances = 2;
+}
 message AttachKeyPairsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message DetachKeyPairsInput {}
+// ----------------------------------------------------------------------------
+
+message DetachKeyPairsInput {
+	repeated string keypairs = 1;
+	repeated string instances = 2;
+}
 message DetachKeyPairsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
-message ModifyKeyPairAttributesInput {}
+// ----------------------------------------------------------------------------
+
+message ModifyKeyPairAttributesInput {
+	string keypair = 1;
+	string keypair_name = 2;
+	string description = 3;
+}
 message ModifyKeyPairAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
