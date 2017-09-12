@@ -58,12 +58,22 @@ service LoadBalancerService {
 
 // ----------------------------------------------------------------------------
 
-message CreateLoadBalancerInput {}
+message CreateLoadBalancerInput {
+	repeated string eips = 1;
+	string vxnet = 2;
+	string private_ip = 3;
+	int32 loadbalancer_type = 4;
+	string loadbalancer_name = 5;
+	string security_group = 6;
+	int32 http_header_size = 7;
+	string target_user = 8;
+}
 message CreateLoadBalancerOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string loadbalancer_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -88,42 +98,57 @@ message DescribeLoadBalancersOutput {
 
 // ----------------------------------------------------------------------------
 
-message DeleteLoadBalancersInput {}
+message DeleteLoadBalancersInput {
+	repeated string loadbalancers = 1;
+}
 message DeleteLoadBalancersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyLoadBalancerAttributesInput {}
+message ModifyLoadBalancerAttributesInput {
+	string loadbalancer = 1;
+	string loadbalancer_name = 2;
+	string security_group = 3;
+	string description = 4;
+	string private_ip = 5;
+	int32 http_header_size = 6;
+}
 message ModifyLoadBalancerAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message StartLoadBalancersInput {}
+message StartLoadBalancersInput {
+	repeated string loadbalancers = 1;
+}
 message StartLoadBalancersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message StopLoadBalancersInput {}
+message StopLoadBalancersInput {
+	repeated string loadbalancers = 1;
+}
 message StopLoadBalancersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
