@@ -664,6 +664,8 @@ message S2SharedTarget {
 	string s2_shared_target_id = 5;
 	google.protobuf.Timestamp status_time = 6;
 	string target_type = 7;
+	map<string, string> s2_group = 8;
+	repeated string volumes = 9;
 }
 
 message SecurityGroup {

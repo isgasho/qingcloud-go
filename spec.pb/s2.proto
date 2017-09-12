@@ -6,7 +6,10 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
+
+import "google/protobuf/timestamp.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/s2/index.html
@@ -54,267 +57,436 @@ service S2Service {
 
 // ----------------------------------------------------------------------------
 
-message CreateS2ServerInput {}
+message CreateS2ServerInput {
+	string vxnet_id = 1;
+	string service_type = 2;
+	string name = 3;
+	string s2_server_type = 4;
+	string private_ip = 5;
+	string description = 6;
+	int32 s2_class = 7;
+}
 message CreateS2ServerOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
+	string s2_server_id = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeS2ServersInput {}
+message DescribeS2ServersInput {
+	repeated string s2_servers = 1;
+	repeated string service_types = 2;
+	repeated string status = 3;
+	string search_word = 4;
+	repeated string tags = 5;
+	int32 verbose = 6;
+	int32 offset = 7;
+	int32 limit = 8;
+}
 message DescribeS2ServersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated S2Server s2_server_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyS2ServerInput {}
+message ModifyS2ServerInput {
+	string s2_server = 1;
+	string name = 2;
+	string description = 3;
+}
 message ModifyS2ServerOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message ResizeS2ServersInput {}
+message ResizeS2ServersInput {
+	string s2_server = 1;
+	int32 s2_server_type = 2;
+}
 message ResizeS2ServersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteS2ServersInput {}
+message DeleteS2ServersInput {
+	repeated string s2_servers = 1;
+}
 message DeleteS2ServersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message PowerOnS2ServersInput {}
+message PowerOnS2ServersInput {
+	repeated string s2_servers = 1;
+}
 message PowerOnS2ServersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message PowerOffS2ServersInput {}
+message PowerOffS2ServersInput {
+	repeated string s2_servers = 1;
+}
 message PowerOffS2ServersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message UpdateS2ServersInput {}
+message UpdateS2ServersInput {
+	repeated string s2_servers = 1;
+
+}
 message UpdateS2ServersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ChangeS2ServerVxnetInput {}
+message ChangeS2ServerVxnetInput {
+	string s2_server = 1;
+	string vxnet = 2;
+	string private_ip = 3;
+}
 message ChangeS2ServerVxnetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateS2SharedTargetInput {}
+message CreateS2SharedTargetInput {
+	string s2_server = 1;
+	string export_name = 2;
+	string target_type = 3;
+	string description = 4;
+	repeated string volumes = 5;
+	repeated string initiator_names = 6;
+	string s2_group = 7;
+}
 message CreateS2SharedTargetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeS2SharedTargetsInput {}
+message DescribeS2SharedTargetsInput {
+	repeated string shared_targets = 1;
+	repeated string target_types = 2;
+	string s2_server_id = 3;
+	string export_name = 4;
+	string search_word = 5;
+	int32 verbose = 6;
+	int32 offset = 7;
+	int32 limit = 8;
+}
 message DescribeS2SharedTargetsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated S2SharedTarget s2_shared_target_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteS2SharedTargetsInput {}
+message DeleteS2SharedTargetsInput {
+	repeated string shared_targets = 1;
+}
 message DeleteS2SharedTargetsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message EnableS2SharedTargetsInput {}
+message EnableS2SharedTargetsInput {
+	repeated string shared_targets = 1;
+}
 message EnableS2SharedTargetsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DisableS2SharedTargetsInput {}
+message DisableS2SharedTargetsInput {
+	repeated string shared_targets = 1;
+}
 message DisableS2SharedTargetsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyS2SharedTargetAttributesInput {}
+message ModifyS2SharedTargetAttributesInput {
+	string shared_target = 1;
+	string operation = 2;
+	repeated string initiator_names = 3;
+	repeated string parameters = 4;
+	string s2_group = 5;
+	string export_name = 6;
+}
 message ModifyS2SharedTargetAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	map<string,string> shared_target = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message AttachToS2SharedTargetInput {}
+message AttachToS2SharedTargetInput {
+	string shared_target = 1;
+	repeated string volumes = 2;
+}
 message AttachToS2SharedTargetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DetachFromS2SharedTargetInput {}
+message DetachFromS2SharedTargetInput {
+	string shared_target = 1;
+	repeated string volumes = 2;
+}
 message DetachFromS2SharedTargetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeS2DefaultParametersInput {}
+message DescribeS2DefaultParametersInput {
+	string service_type = 1;
+	string target_type = 2;
+	int32 offset = 3;
+	int32 limit = 4;
+}
 message DescribeS2DefaultParametersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem s2_default_parameters_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string service_type = 1;
+		string target_type = 2;
+		string param_name = 3;
+		string default_value = 4;
+		string description = 5;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateS2GroupInput {}
+message CreateS2GroupInput {
+	string group_type = 1;
+	string group_name = 2;
+	repeated string s2_accounts = 3;
+	string description = 4;
+}
 message CreateS2GroupOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string s2_group_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeS2GroupsInput {}
+message DescribeS2GroupsInput {
+	repeated string s2_groups = 1;
+	repeated string group_types = 2;
+	string account_name = 3;
+	string search_word = 4;
+	int32 verbose = 5;
+	int32 offset = 6;
+	int32 limit = 7;
+}
 message DescribeS2GroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem s2_group_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string group_id = 1;
+		string group_type = 2;
+		int32 is_default = 3;
+		string description = 4;
+		string group_name = 5;
+		google.protobuf.Timestamp create_time = 6;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyS2GroupInput {}
+message ModifyS2GroupInput {
+	string s2_group = 1;
+	string group_name = 2;
+	repeated string s2_accounts = 3;
+	string description = 4;
+}
 message ModifyS2GroupOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteS2GroupsInput {}
+message DeleteS2GroupsInput {
+	repeated string s2_groups = 1;
+}
 message DeleteS2GroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateS2AccountInput {}
+message CreateS2AccountInput {
+	string account_type = 1;
+	string account_name = 2;
+	string smb_name = 3;
+	string smb_passwd = 4;
+	string nfs_ipaddr = 5;
+	S2GroupItem s2_groups = 6;
+	string opt_parameters = 7;
+	string description = 8;
+
+	message S2GroupItem {
+		string group_id = 1;
+		string rw_flag = 2;
+	}
+}
 message CreateS2AccountOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string s2_account_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeS2AccountsInput {}
+message DescribeS2AccountsInput {
+	repeated string s2_accounts = 1;
+	repeated string account_types = 2;
+	string account_name = 3;
+	string search_word = 4;
+	int32 verbose = 5;
+	int32 offset = 6;
+	int32 limit = 7;
+}
 message DescribeS2AccountsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem s2_account_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string opt_parameters = 1;
+		string account_type = 2;
+		string account_id = 3;
+		string description = 4;
+		string account_name = 5;
+		string nfs_ipaddr = 6;
+		google.protobuf.Timestamp create_time = 7;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyS2AccountInput {}
+message ModifyS2AccountInput {
+	string s2_account = 1;
+	string opt_parameters = 2;
+	string account_name = 3;
+	string smb_passwd = 4;
+	string nfs_ipaddr = 5;
+	string description = 6;
+}
 message ModifyS2AccountOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteS2AccountsInput {}
+message DeleteS2AccountsInput {
+	repeated string s2_accounts = 1;
+}
 message DeleteS2AccountsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message AssociateS2AccountGroupInput {}
+message AssociateS2AccountGroupInput {
+	repeated string s2_groups = 1;
+	repeated string s2_accounts = 2;
+}
 message AssociateS2AccountGroupOutput {
 	string action = 1;
 	int32 ret_code = 2;
