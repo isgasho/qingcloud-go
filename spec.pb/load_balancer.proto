@@ -153,251 +153,371 @@ message StopLoadBalancersOutput {
 
 // ----------------------------------------------------------------------------
 
-message UpdateLoadBalancersInput {}
+message UpdateLoadBalancersInput {
+	repeated string loadbalancers = 1;
+}
 message UpdateLoadBalancersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ResizeLoadBalancersInput {}
+message ResizeLoadBalancersInput {
+	repeated string loadbalancers = 1;
+	int32 loadbalancer_type = 2;
+}
 message ResizeLoadBalancersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message AssociateEipsToLoadBalancerInput {}
+message AssociateEipsToLoadBalancerInput {
+	repeated string eips = 1;
+	string loadbalancer = 2;
+}
 message AssociateEipsToLoadBalancerOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DissociateEipsFromLoadBalancerInput {}
+message DissociateEipsFromLoadBalancerInput {
+	repeated string eips = 1;
+	string loadbalancer = 2;
+}
 message DissociateEipsFromLoadBalancerOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message AddLoadBalancerListenersInput {}
+message AddLoadBalancerListenersInput {
+	string loadbalancer = 1;
+	repeated LoadBalancerListener listeners = 2;
+}
 message AddLoadBalancerListenersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string loadbalancer_listeners = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeLoadBalancerListenersInput {}
+message DescribeLoadBalancerListenersInput {
+	repeated string loadbalancer_listeners = 1;
+	string loadbalancer = 2;
+	int32 verbose = 3;
+	int32 offset = 4;
+	int32 limit = 5;
+}
 message DescribeLoadBalancerListenersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated LoadBalancerListener loadbalancer_listener_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteLoadBalancerListenersInput {}
+message DeleteLoadBalancerListenersInput {
+	repeated string loadbalancer_listeners = 1;
+}
 message DeleteLoadBalancerListenersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string loadbalancer_listeners = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyLoadBalancerListenerAttributesInput {}
+message ModifyLoadBalancerListenerAttributesInput {
+	string loadbalancer_listener = 1;
+	string loadbalancer_listener_name = 2;
+	string server_certificate_id = 3;
+	string balance_mode = 4;
+	string session_sticky = 5;
+	int32 forwardfor = 6;
+	string healthy_check_method = 7;
+	string healthy_check_option = 8;
+	repeated ListenerOption listener_option = 9;
+
+	message ListenerOption {
+		int32 listener_option = 1;
+	}
+}
 message ModifyLoadBalancerListenerAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message AddLoadBalancerBackendsInput {}
+message AddLoadBalancerBackendsInput {
+	string loadbalancer_listener = 1;
+	repeated LoadBalancerBackend backends = 2;
+}
 message AddLoadBalancerBackendsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string loadbalancer_backends = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeLoadBalancerBackendsInput {}
+message DescribeLoadBalancerBackendsInput {
+	repeated string loadbalancer_backends = 1;
+	string loadbalancer_listener = 2;
+	string loadbalancer = 3;
+	int32 verbose = 4;
+	int32 offset = 5;
+	int32 limit = 6;
+}
 message DescribeLoadBalancerBackendsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated LoadBalancerBackend loadbalancer_backend_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteLoadBalancerBackendsInput {}
+message DeleteLoadBalancerBackendsInput {
+	repeated string loadbalancer_backends = 1;
+}
 message DeleteLoadBalancerBackendsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string loadbalancer_backends = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyLoadBalancerBackendAttributesInput {}
+message ModifyLoadBalancerBackendAttributesInput {
+	string loadbalancer_backend = 1;
+	string port = 2;
+	string weight = 3;
+	int32 disabled = 4;
+	string loadbalancer_policy_id = 5;
+}
 message ModifyLoadBalancerBackendAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateLoadBalancerPolicyInput {}
+message CreateLoadBalancerPolicyInput {
+	string operator = 1;
+}
 message CreateLoadBalancerPolicyOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string loadbalancer_poicy_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeLoadBalancerPoliciesInput {}
+message DescribeLoadBalancerPoliciesInput {
+	repeated string loadbalancer_policies = 1;
+	int32 verbose = 2;
+	int32 offset = 3;
+	int32 limit = 4;
+}
 message DescribeLoadBalancerPoliciesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated LoadBalancerPolicy loadbalancer_policy_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyLoadBalancerPolicyAttributesInput {}
+message ModifyLoadBalancerPolicyAttributesInput {
+	string loadbalancer_policy = 1;
+	string loadbalancer_policy_name = 2;
+	string operator = 3;
+}
 message ModifyLoadBalancerPolicyAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message ApplyLoadBalancerPolicyInput {}
+message ApplyLoadBalancerPolicyInput {
+	string loadbalancer_policy = 1;
+}
 message ApplyLoadBalancerPolicyOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteLoadBalancerPoliciesInput {}
+message DeleteLoadBalancerPoliciesInput {
+	repeated string loadbalancer_policies = 1;
+}
 message DeleteLoadBalancerPoliciesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string loadbalancer_policies = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message AddLoadBalancerPolicyRulesInput {}
+message AddLoadBalancerPolicyRulesInput {
+	string loadbalancer_policy = 1;
+	repeated LoadBalancerPolicyRule rules = 2;
+}
 message AddLoadBalancerPolicyRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string loadbalancer_policy_rules = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeLoadBalancerPolicyRulesInput {}
+message DescribeLoadBalancerPolicyRulesInput {
+	repeated string loadbalancer_policy_rules = 1;
+	string loadbalancer_policy = 2;
+	int32 offset = 3;
+	int32 limit = 4;
+}
 message DescribeLoadBalancerPolicyRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated LoadBalancerPolicyRule loadbalancer_policy_rule_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyLoadBalancerPolicyRuleAttributesInput {}
+message ModifyLoadBalancerPolicyRuleAttributesInput {
+	string loadbalancer_policy_rule = 1;
+	string loadbalancer_policy_rule_name = 2;
+	string val = 3;
+}
 message ModifyLoadBalancerPolicyRuleAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteLoadBalancerPolicyRulesInput {}
+message DeleteLoadBalancerPolicyRulesInput {
+	repeated string loadbalancer_policy_rules = 1;
+}
 message DeleteLoadBalancerPolicyRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string loadbalancer_policy_rules = 4;
 }
 
+// ----------------------------------------------------------------------------
 
-message CreateServerCertificateInput {}
+message CreateServerCertificateInput {
+	string server_certificate_name = 1;
+	string certificate_content = 2;
+	string private_key = 3;
+}
 message CreateServerCertificateOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string server_certificate_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeServerCertificatesInput {}
+message DescribeServerCertificatesInput {
+	string server_certificates = 1;
+	string search_word = 2;
+	int32 verbose = 3;
+	int32 offset = 4;
+	int32 limit = 5;
+}
 message DescribeServerCertificatesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ServerCertificate server_certificate_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyServerCertificateAttributesInput {}
+message ModifyServerCertificateAttributesInput {
+	string server_certificate = 1;
+	string server_certificate_name = 2;
+	string description = 3;
+}
 message ModifyServerCertificateAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteServerCertificatesInput {}
+message DeleteServerCertificatesInput {
+	repeated string server_certificates = 1;
+}
 message DeleteServerCertificatesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
