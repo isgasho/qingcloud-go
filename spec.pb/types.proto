@@ -892,3 +892,33 @@ message ClasterNode {
 	//"backup_service":null,
 	int32 cpu = 58;
 }
+
+message ResourceGroupsItem {
+	string resource_group_id = 1;
+	google.protobuf.Timestamp create_time = 2;
+	string description = 3;
+	string resource_group_name = 4;
+	string resource_type = 5;
+	string resource_id = 6;
+}
+
+message UserGroupItem {
+	string status = 1;
+	string description = 2;
+	string user_group_name = 3;
+	google.protobuf.Timestamp create_time = 4;
+	google.protobuf.Timestamp status_time = 5;
+	string user_group_id = 6;
+	string user_id = 7;
+	string remarks = 8;
+}
+
+message GroupRoleItem {
+	string status = 1;
+	string description = 2;
+	string group_role_id = 3;
+	google.protobuf.Timestamp create_time = 4;
+	string group_role_name = 5;
+	google.protobuf.Timestamp status_time = 6;
+	string role_type = 7;
+}

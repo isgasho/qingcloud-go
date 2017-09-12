@@ -6,7 +6,10 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
+
+import "google/protobuf/timestamp.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/resource_acl/index.html
@@ -53,172 +56,292 @@ service ResourceACLService {
 
 // ----------------------------------------------------------------------------
 
-message DescribeSharedResourceGroupsInput {}
+message DescribeSharedResourceGroupsInput {
+	repeated string resource_groups = 1;
+	string owner = 2;
+}
 message DescribeSharedResourceGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResourceGroupsItem shared_resource_group_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeResourceGroupsInput {}
+message DescribeResourceGroupsInput {
+	repeated string resource_groups = 1;
+	string search_word = 2;
+	int32 limit = 3;
+	int32 offset = 4;
+	int32 verbose = 5;
+	string sort_key = 6;
+	int32 reverse = 7;
+}
 message DescribeResourceGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResourceGroupsItem shared_resource_group_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateResourceGroupsInput {}
+message CreateResourceGroupsInput {
+	string resource_group_name = 1;
+	string description = 2;
+	int32 count = 3;
+}
 message CreateResourceGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string resource_group_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyResourceGroupAttributesInput {}
+message ModifyResourceGroupAttributesInput {
+	string resource_group = 1;
+	string resource_group_name = 2;
+	string description = 3;
+}
 message ModifyResourceGroupAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string resource_group_id = 4;
+	string resource_group_name = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteResourceGroupsInput {}
+message DeleteResourceGroupsInput {
+	repeated string resource_groups = 1;
+}
 message DeleteResourceGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string resource_groups = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeResourceGroupItemsInput {}
+message DescribeResourceGroupItemsInput {
+	repeated string resource_groups = 1;
+	repeated string resources = 2;
+	int32 limit = 3;
+	int32 offset = 4;
+	int32 verbose = 5;
+	string sort_key = 6;
+	int32 reverse = 7;
+}
 message DescribeResourceGroupItemsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResourceGroupsItem resource_group_item_set = 4;
+	repeated string item_set = 5;
+	int32 total_count = 6;
 }
 
 // ----------------------------------------------------------------------------
 
-message AddResourceGroupItemsInput {}
+message AddResourceGroupItemsInput {
+	string resource_group = 1;
+	repeated string resources = 2;
+}
 message AddResourceGroupItemsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string resource_group_id = 4;
+	repeated string resource_ids = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteResourceGroupItemsInput {}
+message DeleteResourceGroupItemsInput {
+	string resource_group = 1;
+	repeated string resources = 2;
+}
 message DeleteResourceGroupItemsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string resource_group_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeUserGroupsInput {}
+message DescribeUserGroupsInput {
+	repeated string user_groups = 1;
+	repeated string status = 2;
+	int32 limit = 3;
+	int32 offset = 4;
+	int32 verbose = 5;
+	string sort_key = 6;
+	int32 reverse = 7;
+	string search_word = 8;
+}
 message DescribeUserGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated UserGroupItem user_group_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateUserGroupsInput {}
+message CreateUserGroupsInput {
+	string user_group_name = 1;
+	string description = 2;
+	int32 count = 3;
+}
 message CreateUserGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string user_group_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyUserGroupAttributesInput {}
+message ModifyUserGroupAttributesInput {
+	string user_group = 1;
+	string user_group_name = 2;
+	string description = 3;
+	string status = 4;
+}
 message ModifyUserGroupAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string user_group_id = 4;
+	string status = 5;
+	google.protobuf.Timestamp status_time = 6;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteUserGroupsInput {}
+message DeleteUserGroupsInput {
+	repeated string user_groups = 1;
+}
 message DeleteUserGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string user_group_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeUserGroupMembersInput {}
+message DescribeUserGroupMembersInput {
+	repeated string user_groups = 1;
+	repeated string users = 2;
+	repeated string status = 3;
+	string search_word = 4;
+	int32 limit = 5;
+	int32 offset = 6;
+	int32 verbose = 7;
+	string sort_key = 8;
+	int32 reverse = 9;
+}
 message DescribeUserGroupMembersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated UserGroupItem user_group_member_set = 4;
+	int32 total_count = 5;
+	repeated string item_set = 6;
 }
 
 // ----------------------------------------------------------------------------
 
-message AddUserGroupMembersInput {}
+message AddUserGroupMembersInput {
+	string user_group = 1;
+	repeated string users = 2;
+}
 message AddUserGroupMembersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string user_group_id = 4;
+	repeated string user_ids = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyUserGroupMemberAttributesInput {}
+message ModifyUserGroupMemberAttributesInput {
+	string user_group = 1;
+	string user = 2;
+	string remarks = 3;
+	string status = 4;
+}
 message ModifyUserGroupMemberAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string status = 4;
+	string user_id = 5;
+	string remarks = 6;
+	string user_group_id = 7;
+	google.protobuf.Timestamp status_time = 8;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteUserGroupMembersInput {}
+message DeleteUserGroupMembersInput {
+	string user_group = 1;
+	repeated string users = 2;
+}
 message DeleteUserGroupMembersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string user_group_id = 4;
+	repeated string user_ids = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeGroupRolesInput {}
+message DescribeGroupRolesInput {
+	repeated string group_roles = 1;
+	repeated string status = 2;
+	string search_word = 3;
+	int32 limit = 4;
+	int32 offset = 5;
+	int32 verbose = 6;
+	string sort_key = 7;
+	int32 reverse = 8;
+}
 message DescribeGroupRolesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated GroupRoleItem group_role_set = 4;
+	int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------

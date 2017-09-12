@@ -743,6 +743,9 @@ It has these top-level messages:
 	Zone
 	Cluster
 	ClasterNode
+	ResourceGroupsItem
+	UserGroupItem
+	GroupRoleItem
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput
