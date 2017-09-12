@@ -346,102 +346,209 @@ message DescribeGroupRolesOutput {
 
 // ----------------------------------------------------------------------------
 
-message CreateGroupRolesInput {}
+message CreateGroupRolesInput {
+	string role_type = 1;
+	string group_role_name = 2;
+	string description = 3;
+	int32 count = 4;
+}
 message CreateGroupRolesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string group_role_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyGroupRoleAttributesInput {}
+message ModifyGroupRoleAttributesInput {
+	string group_role = 1;
+	string role_type = 2;
+	string group_role_name = 3;
+	string description = 4;
+	string status = 5;
+}
 message ModifyGroupRoleAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string group_role_id = 4;
+	string description = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteGroupRolesInput {}
+message DeleteGroupRolesInput {
+	repeated string group_roles = 1;
+}
 message DeleteGroupRolesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string group_role_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeGroupRoleRulesInput {}
+message DescribeGroupRoleRulesInput {
+	repeated string group_role_rules = 1;
+	repeated string group_roles = 2;
+	repeated string status = 3;
+	int32 limit = 4;
+	int32 offset = 5;
+	int32 verbose = 6;
+	string sort_key = 7;
+	int32 reverse = 8;
+}
 message DescribeGroupRoleRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated GroupRoleRuleItem group_role_rule_set = 4;
+	repeated string item_set = 5;
+	int32 total_count = 6;
 }
 
 // ----------------------------------------------------------------------------
 
-message AddGroupRoleRulesInput {}
+message AddGroupRoleRulesInput {
+	string group_role = 1;
+	string policy = 2;
+	string description = 3;
+}
 message AddGroupRoleRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string status = 4;
+	string description = 5;
+	string group_role_id = 6;
+	string console_id = 7;
+	string root_user_id = 8;
+	google.protobuf.Timestamp create_time = 9;
+	string principle = 10;
+	string policy = 11;
+	string owner = 12;
+	google.protobuf.Timestamp status_time = 13;
+	string group_role_rule_id = 14;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyGroupRoleRuleAttributesInput {}
+message ModifyGroupRoleRuleAttributesInput {
+	string group_role_rule = 1;
+	string description = 2;
+	string policy = 3;
+}
 message ModifyGroupRoleRuleAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string policy = 4;
+	string group_role_rule_id = 5;
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteGroupRoleRulesInput {}
+message DeleteGroupRoleRulesInput {
+	repeated string group_role_rules = 1;
+	repeated string group_roles = 2;
+}
 message DeleteGroupRoleRulesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated string group_role_rule_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message GrantResourceGroupsToUserGroupsInput {}
+message GrantResourceGroupsToUserGroupsInput {
+	repeated RequestItem rur_set = 1;
+
+	message RequestItem {
+		string resource_group = 1;
+		string user_group = 2;
+		string group_role = 3;
+	}
+}
 message GrantResourceGroupsToUserGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem rur_set = 4;
+
+	message ResponseItem {
+		string group_role = 1;
+		string resource_group = 2;
+		string user_group = 3;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message RevokeResourceGroupsFromUserGroupsInput {}
+message RevokeResourceGroupsFromUserGroupsInput {
+	repeated RequestItem ru_set = 1;
+	repeated string resource_groups = 2;
+	repeated string user_groups = 3;
+	repeated string group_roles = 4;
+
+	message RequestItem {
+		string resource_group = 1;
+		string user_group = 2;
+	}
+}
 message RevokeResourceGroupsFromUserGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem rur_set = 4;
+
+	message ResponseItem {
+		string group_role = 1;
+		string resource_group = 2;
+		string user_group = 3;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeResourceUserGroupsInput {}
+message DescribeResourceUserGroupsInput {
+	repeated string resource_groups = 1;
+	repeated string user_groups = 2;
+	repeated string group_roles = 3;
+	int32 limit = 4;
+	int32 offset = 5;
+	int32 verbose = 6;
+	string sort_key = 7;
+	int32 reverse = 8;
+}
 message DescribeResourceUserGroupsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem resource_user_group_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string resource_group_id = 1;
+		string group_role_id = 2;
+		string console_id = 3;
+		string root_user_id = 4;
+		google.protobuf.Timestamp create_time = 5;
+		string owner = 6;
+		string user_group_id = 7;
+	}
 }
 
 // ----------------------------------------------------------------------------

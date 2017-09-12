@@ -746,6 +746,7 @@ It has these top-level messages:
 	ResourceGroupsItem
 	UserGroupItem
 	GroupRoleItem
+	GroupRoleRuleItem
 	UserDataServiceProperties
 	UploadUserDataAttachmentInput
 	UploadUserDataAttachmentOutput
