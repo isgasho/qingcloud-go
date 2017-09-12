@@ -6,6 +6,7 @@ syntax = "proto3";
 
 package service;
 
+import "types.proto";
 import "qingcloud_sdk_rule/rule.proto";
 
 // ----------------------------------------------------------------------------
@@ -36,67 +37,118 @@ service MongoService {
 	rpc RemoveMongoInstances(RemoveMongoInstancesInput) returns (RemoveMongoInstancesOutput);
 	rpc ModifyMongoAttributes(ModifyMongoAttributesInput) returns (ModifyMongoAttributesOutput);
 	rpc ModifyMongoInstances(ModifyMongoInstancesInput) returns (ModifyMongoInstancesOutput);
-	rpc GetMongoMonitor(GetMongoMonitorInput) returns (GetMongoMonitorOutput);
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeMongoNodesInput {}
+message DescribeMongoNodesInput {
+	string mongo = 1;
+	int32 offset = 2;
+	int32 limit = 3;
+}
 message DescribeMongoNodesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem mongo_node_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string status = 1;
+		string mongo_id = 2;
+		string vxnet_id = 3;
+		string ip = 4;
+		int32 primary = 5;
+		string mongo_node_id = 6;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeMongoParametersInput {}
+message DescribeMongoParametersInput {
+	string mongo = 1;
+	int32 offset = 2;
+	int32 limit = 3;
+}
 message DescribeMongoParametersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem parameter_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		int32 is_static = 1;
+		string parameter_value = 2;
+		string parameter_type = 3;
+		int32 is_readonly = 4;
+		string opt_name = 5;
+		string parameter_name = 6;
+		string resource_type = 7;
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message ResizeMongosInput {}
+message ResizeMongosInput {
+	repeated string mongos = 1;
+	int32 mongo_type = 2;
+	int32 storage_size = 3;
+}
 message ResizeMongosOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateMongoInput {}
+message CreateMongoInput {
+	string vxnet = 1;
+	string mongo_version = 2;
+	int32 mongo_type = 3;
+	int32 storage_size = 4;
+	string mongo_name = 5;
+	string description = 6;
+	int32 auto_backup_time = 7;
+	map<string, string> private_ips = 8;
+}
 message CreateMongoOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string mongo = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message StopMongosInput {}
+message StopMongosInput {
+	repeated string mongos = 1;
+}
 message StopMongosOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message StartMongosInput {}
+message StartMongosInput {
+	repeated string mongos = 1;
+}
 message StartMongosOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -120,94 +172,111 @@ message DescribeMongosOutput {
 
 	int32 total_count = 4;
 	repeated Mongo mongo_set = 5;
-
-	message Mongo {
-		string alarm_status = 1;
-		int32 auto_backup_time = 2;
-		int32 auto_minor_ver_upgrade = 3;
-
-		// TODO
-	}
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteMongosInput {}
+message DeleteMongosInput {
+	repeated string mongos = 1;
+}
 message DeleteMongosOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateMongoFromSnapshotInput {}
+message CreateMongoFromSnapshotInput {
+	string vxnet = 1;
+	int32 mongo_type = 2;
+	string mongo_name = 3;
+	string description = 4;
+	int32 auto_backup_time = 5;
+}
 message CreateMongoFromSnapshotOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string mongo = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ChangeMongoVxnetInput {}
+message ChangeMongoVxnetInput {
+	string mongo = 1;
+	string vxnet = 2;
+	repeated MongoPrivateIP private_ips = 3;
+}
 message ChangeMongoVxnetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message AddMongoInstancesInput {}
+message AddMongoInstancesInput {
+	string mongo = 1;
+	int32 node_count = 2;
+	repeated MongoPrivateIP private_ips = 3;
+}
 message AddMongoInstancesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message RemoveMongoInstancesInput {}
+message RemoveMongoInstancesInput {
+	string mongo = 1;
+	repeated string mongo_instances = 2;
+}
 message RemoveMongoInstancesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyMongoAttributesInput {}
+message ModifyMongoAttributesInput {
+	string mongo = 1;
+	string mongo_name = 2;
+	string description = 3;
+	int32 auto_backup_time = 4;
+}
 message ModifyMongoAttributesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyMongoInstancesInput {}
+message ModifyMongoInstancesInput {
+	string mongo = 1;
+	// private_ips  [{“mi-y5kxxvem”: “192.168.160.33”}]
+	// protobuf 不支持 map 数组
+}
 message ModifyMongoInstancesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
-}
-
-// ----------------------------------------------------------------------------
-
-message GetMongoMonitorInput {}
-message GetMongoMonitorOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
-
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------

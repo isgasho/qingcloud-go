@@ -359,8 +359,6 @@ It has these top-level messages:
 	ModifyMongoAttributesOutput
 	ModifyMongoInstancesInput
 	ModifyMongoInstancesOutput
-	GetMongoMonitorInput
-	GetMongoMonitorOutput
 	MonitorServiceProperties
 	GetMonitorInput
 	GetMonitorOutput
