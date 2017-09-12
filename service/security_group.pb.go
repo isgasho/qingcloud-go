@@ -38,6 +38,12 @@ func (m *SecurityGroupServiceProperties) GetZone() string {
 }
 
 type DescribeSecurityGroupsInput struct {
+	SecurityGroups []string `protobuf:"bytes,1,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
+	SearchWord     string   `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags           []string `protobuf:"bytes,3,rep,name=tags" json:"tags,omitempty"`
+	Verbose        int32    `protobuf:"varint,4,opt,name=verbose" json:"verbose,omitempty"`
+	Offset         int32    `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Limit          int32    `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeSecurityGroupsInput) Reset()                    { *m = DescribeSecurityGroupsInput{} }
@@ -45,10 +51,54 @@ func (m *DescribeSecurityGroupsInput) String() string            { return proto.
 func (*DescribeSecurityGroupsInput) ProtoMessage()               {}
 func (*DescribeSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{1} }
 
+func (m *DescribeSecurityGroupsInput) GetSecurityGroups() []string {
+	if m != nil {
+		return m.SecurityGroups
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupsInput) GetSearchWord() string {
+	if m != nil {
+		return m.SearchWord
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupsInput) GetTags() []string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupsInput) GetVerbose() int32 {
+	if m != nil {
+		return m.Verbose
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupsInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeSecurityGroupsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupSet []*SecurityGroup `protobuf:"bytes,4,rep,name=security_group_set,json=securityGroupSet" json:"security_group_set,omitempty"`
+	TotalCount       int32            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeSecurityGroupsOutput) Reset()                    { *m = DescribeSecurityGroupsOutput{} }
@@ -77,7 +127,22 @@ func (m *DescribeSecurityGroupsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeSecurityGroupsOutput) GetSecurityGroupSet() []*SecurityGroup {
+	if m != nil {
+		return m.SecurityGroupSet
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
 type CreateSecurityGroupInput struct {
+	SecurityGroupName string `protobuf:"bytes,1,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
 }
 
 func (m *CreateSecurityGroupInput) Reset()                    { *m = CreateSecurityGroupInput{} }
@@ -85,10 +150,18 @@ func (m *CreateSecurityGroupInput) String() string            { return proto.Com
 func (*CreateSecurityGroupInput) ProtoMessage()               {}
 func (*CreateSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{3} }
 
+func (m *CreateSecurityGroupInput) GetSecurityGroupName() string {
+	if m != nil {
+		return m.SecurityGroupName
+	}
+	return ""
+}
+
 type CreateSecurityGroupOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action          string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode         int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message         string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
 }
 
 func (m *CreateSecurityGroupOutput) Reset()                    { *m = CreateSecurityGroupOutput{} }
@@ -117,7 +190,15 @@ func (m *CreateSecurityGroupOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateSecurityGroupOutput) GetSecurityGroupId() string {
+	if m != nil {
+		return m.SecurityGroupId
+	}
+	return ""
+}
+
 type DeleteSecurityGroupsInput struct {
+	SecurityGroups []string `protobuf:"bytes,1,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
 }
 
 func (m *DeleteSecurityGroupsInput) Reset()                    { *m = DeleteSecurityGroupsInput{} }
@@ -125,10 +206,18 @@ func (m *DeleteSecurityGroupsInput) String() string            { return proto.Co
 func (*DeleteSecurityGroupsInput) ProtoMessage()               {}
 func (*DeleteSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{5} }
 
+func (m *DeleteSecurityGroupsInput) GetSecurityGroups() []string {
+	if m != nil {
+		return m.SecurityGroups
+	}
+	return nil
+}
+
 type DeleteSecurityGroupsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action         string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode        int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message        string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroups []string `protobuf:"bytes,4,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
 }
 
 func (m *DeleteSecurityGroupsOutput) Reset()                    { *m = DeleteSecurityGroupsOutput{} }
@@ -157,7 +246,16 @@ func (m *DeleteSecurityGroupsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteSecurityGroupsOutput) GetSecurityGroups() []string {
+	if m != nil {
+		return m.SecurityGroups
+	}
+	return nil
+}
+
 type ApplySecurityGroupInput struct {
+	SecurityGroup string   `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Instances     []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
 }
 
 func (m *ApplySecurityGroupInput) Reset()                    { *m = ApplySecurityGroupInput{} }
@@ -165,10 +263,25 @@ func (m *ApplySecurityGroupInput) String() string            { return proto.Comp
 func (*ApplySecurityGroupInput) ProtoMessage()               {}
 func (*ApplySecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{7} }
 
+func (m *ApplySecurityGroupInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *ApplySecurityGroupInput) GetInstances() []string {
+	if m != nil {
+		return m.Instances
+	}
+	return nil
+}
+
 type ApplySecurityGroupOutpu struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *ApplySecurityGroupOutpu) Reset()                    { *m = ApplySecurityGroupOutpu{} }
@@ -197,7 +310,17 @@ func (m *ApplySecurityGroupOutpu) GetMessage() string {
 	return ""
 }
 
+func (m *ApplySecurityGroupOutpu) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type ModifySecurityGroupAttributesInput struct {
+	SecurityGroup     string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	SecurityGroupName string `protobuf:"bytes,2,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
+	Description       string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
 }
 
 func (m *ModifySecurityGroupAttributesInput) Reset()         { *m = ModifySecurityGroupAttributesInput{} }
@@ -207,10 +330,32 @@ func (*ModifySecurityGroupAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{9}
 }
 
+func (m *ModifySecurityGroupAttributesInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupAttributesInput) GetSecurityGroupName() string {
+	if m != nil {
+		return m.SecurityGroupName
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupAttributesInput) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
 type ModifySecurityGroupAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action          string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode         int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message         string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
 }
 
 func (m *ModifySecurityGroupAttributesOutput) Reset()         { *m = ModifySecurityGroupAttributesOutput{} }
@@ -241,7 +386,19 @@ func (m *ModifySecurityGroupAttributesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifySecurityGroupAttributesOutput) GetSecurityGroupId() string {
+	if m != nil {
+		return m.SecurityGroupId
+	}
+	return ""
+}
+
 type DescribeSecurityGroupRulesInput struct {
+	SecurityGroup      string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	SecurityGroupRules string `protobuf:"bytes,2,opt,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
+	Direction          int32  `protobuf:"varint,3,opt,name=direction" json:"direction,omitempty"`
+	Offset             int32  `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Limit              int32  `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeSecurityGroupRulesInput) Reset()         { *m = DescribeSecurityGroupRulesInput{} }
@@ -251,10 +408,47 @@ func (*DescribeSecurityGroupRulesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{11}
 }
 
+func (m *DescribeSecurityGroupRulesInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupRulesInput) GetSecurityGroupRules() string {
+	if m != nil {
+		return m.SecurityGroupRules
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupRulesInput) GetDirection() int32 {
+	if m != nil {
+		return m.Direction
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupRulesInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupRulesInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeSecurityGroupRulesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action               string               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              int32                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupRuleSet []*SecurityGroupRule `protobuf:"bytes,4,rep,name=security_group_rule_set,json=securityGroupRuleSet" json:"security_group_rule_set,omitempty"`
+	TotalCount           int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeSecurityGroupRulesOutput) Reset()         { *m = DescribeSecurityGroupRulesOutput{} }
@@ -285,7 +479,23 @@ func (m *DescribeSecurityGroupRulesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeSecurityGroupRulesOutput) GetSecurityGroupRuleSet() []*SecurityGroupRule {
+	if m != nil {
+		return m.SecurityGroupRuleSet
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupRulesOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
 type AddSecurityGroupRulesInput struct {
+	SecurityGroup string               `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Rules         []*SecurityGroupRule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
 }
 
 func (m *AddSecurityGroupRulesInput) Reset()                    { *m = AddSecurityGroupRulesInput{} }
@@ -293,10 +503,25 @@ func (m *AddSecurityGroupRulesInput) String() string            { return proto.C
 func (*AddSecurityGroupRulesInput) ProtoMessage()               {}
 func (*AddSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{13} }
 
+func (m *AddSecurityGroupRulesInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *AddSecurityGroupRulesInput) GetRules() []*SecurityGroupRule {
+	if m != nil {
+		return m.Rules
+	}
+	return nil
+}
+
 type AddSecurityGroupRulesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action             string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode            int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message            string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupRules []string `protobuf:"bytes,4,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
 }
 
 func (m *AddSecurityGroupRulesOutput) Reset()                    { *m = AddSecurityGroupRulesOutput{} }
@@ -325,7 +550,15 @@ func (m *AddSecurityGroupRulesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *AddSecurityGroupRulesOutput) GetSecurityGroupRules() []string {
+	if m != nil {
+		return m.SecurityGroupRules
+	}
+	return nil
+}
+
 type DeleteSecurityGroupRulesInput struct {
+	SecurityGroupRules []string `protobuf:"bytes,1,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
 }
 
 func (m *DeleteSecurityGroupRulesInput) Reset()                    { *m = DeleteSecurityGroupRulesInput{} }
@@ -333,10 +566,18 @@ func (m *DeleteSecurityGroupRulesInput) String() string            { return prot
 func (*DeleteSecurityGroupRulesInput) ProtoMessage()               {}
 func (*DeleteSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{15} }
 
+func (m *DeleteSecurityGroupRulesInput) GetSecurityGroupRules() []string {
+	if m != nil {
+		return m.SecurityGroupRules
+	}
+	return nil
+}
+
 type DeleteSecurityGroupRulesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action             string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode            int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message            string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupRules []string `protobuf:"bytes,4,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
 }
 
 func (m *DeleteSecurityGroupRulesOutput) Reset()         { *m = DeleteSecurityGroupRulesOutput{} }
@@ -367,7 +608,23 @@ func (m *DeleteSecurityGroupRulesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteSecurityGroupRulesOutput) GetSecurityGroupRules() []string {
+	if m != nil {
+		return m.SecurityGroupRules
+	}
+	return nil
+}
+
 type ModifySecurityGroupRuleAttributesInput struct {
+	SecurityGroupRule     string `protobuf:"bytes,1,opt,name=security_group_rule,json=securityGroupRule" json:"security_group_rule,omitempty"`
+	SecurityGroupRuleName string `protobuf:"bytes,2,opt,name=security_group_rule_name,json=securityGroupRuleName" json:"security_group_rule_name,omitempty"`
+	Priority              int32  `protobuf:"varint,3,opt,name=priority" json:"priority,omitempty"`
+	RuleAction            string `protobuf:"bytes,4,opt,name=rule_action,json=ruleAction" json:"rule_action,omitempty"`
+	Direction             int32  `protobuf:"varint,5,opt,name=direction" json:"direction,omitempty"`
+	Protocol              string `protobuf:"bytes,6,opt,name=protocol" json:"protocol,omitempty"`
+	Val1                  int32  `protobuf:"varint,7,opt,name=val1" json:"val1,omitempty"`
+	Val2                  int32  `protobuf:"varint,8,opt,name=val2" json:"val2,omitempty"`
+	Val3                  int32  `protobuf:"varint,9,opt,name=val3" json:"val3,omitempty"`
 }
 
 func (m *ModifySecurityGroupRuleAttributesInput) Reset() {
@@ -379,10 +636,74 @@ func (*ModifySecurityGroupRuleAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{17}
 }
 
+func (m *ModifySecurityGroupRuleAttributesInput) GetSecurityGroupRule() string {
+	if m != nil {
+		return m.SecurityGroupRule
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetSecurityGroupRuleName() string {
+	if m != nil {
+		return m.SecurityGroupRuleName
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetPriority() int32 {
+	if m != nil {
+		return m.Priority
+	}
+	return 0
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetRuleAction() string {
+	if m != nil {
+		return m.RuleAction
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetDirection() int32 {
+	if m != nil {
+		return m.Direction
+	}
+	return 0
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetProtocol() string {
+	if m != nil {
+		return m.Protocol
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetVal1() int32 {
+	if m != nil {
+		return m.Val1
+	}
+	return 0
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetVal2() int32 {
+	if m != nil {
+		return m.Val2
+	}
+	return 0
+}
+
+func (m *ModifySecurityGroupRuleAttributesInput) GetVal3() int32 {
+	if m != nil {
+		return m.Val3
+	}
+	return 0
+}
+
 type ModifySecurityGroupRuleAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action              string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode             int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message             string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupRuleId string `protobuf:"bytes,4,opt,name=security_group_rule_id,json=securityGroupRuleId" json:"security_group_rule_id,omitempty"`
 }
 
 func (m *ModifySecurityGroupRuleAttributesOutput) Reset() {
@@ -415,7 +736,16 @@ func (m *ModifySecurityGroupRuleAttributesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifySecurityGroupRuleAttributesOutput) GetSecurityGroupRuleId() string {
+	if m != nil {
+		return m.SecurityGroupRuleId
+	}
+	return ""
+}
+
 type CreateSecurityGroupSnapshotInput struct {
+	SecurityGroup string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Name          string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
 }
 
 func (m *CreateSecurityGroupSnapshotInput) Reset()         { *m = CreateSecurityGroupSnapshotInput{} }
@@ -425,10 +755,26 @@ func (*CreateSecurityGroupSnapshotInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{19}
 }
 
+func (m *CreateSecurityGroupSnapshotInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *CreateSecurityGroupSnapshotInput) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
 type CreateSecurityGroupSnapshotOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                 int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                 string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupSnapshotId string `protobuf:"bytes,4,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
+	SecurityGroupId         string `protobuf:"bytes,5,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
 }
 
 func (m *CreateSecurityGroupSnapshotOutput) Reset()         { *m = CreateSecurityGroupSnapshotOutput{} }
@@ -459,7 +805,25 @@ func (m *CreateSecurityGroupSnapshotOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateSecurityGroupSnapshotOutput) GetSecurityGroupSnapshotId() string {
+	if m != nil {
+		return m.SecurityGroupSnapshotId
+	}
+	return ""
+}
+
+func (m *CreateSecurityGroupSnapshotOutput) GetSecurityGroupId() string {
+	if m != nil {
+		return m.SecurityGroupId
+	}
+	return ""
+}
+
 type DescribeSecurityGroupSnapshotsInput struct {
+	SecurityGroup          string   `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	SecurityGroupSnapshots []string `protobuf:"bytes,2,rep,name=security_group_snapshots,json=securityGroupSnapshots" json:"security_group_snapshots,omitempty"`
+	Offset                 int32    `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit                  int32    `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeSecurityGroupSnapshotsInput) Reset()         { *m = DescribeSecurityGroupSnapshotsInput{} }
@@ -469,10 +833,40 @@ func (*DescribeSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{21}
 }
 
+func (m *DescribeSecurityGroupSnapshotsInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupSnapshotsInput) GetSecurityGroupSnapshots() []string {
+	if m != nil {
+		return m.SecurityGroupSnapshots
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupSnapshotsInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupSnapshotsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeSecurityGroupSnapshotsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                   string                                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                  int32                                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                  string                                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupSnapshotSet []*DescribeSecurityGroupSnapshotsOutput_ResponseItem `protobuf:"bytes,4,rep,name=security_group_snapshot_set,json=securityGroupSnapshotSet" json:"security_group_snapshot_set,omitempty"`
+	TotalCount               int32                                                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeSecurityGroupSnapshotsOutput) Reset()         { *m = DescribeSecurityGroupSnapshotsOutput{} }
@@ -503,7 +897,60 @@ func (m *DescribeSecurityGroupSnapshotsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeSecurityGroupSnapshotsOutput) GetSecurityGroupSnapshotSet() []*DescribeSecurityGroupSnapshotsOutput_ResponseItem {
+	if m != nil {
+		return m.SecurityGroupSnapshotSet
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeSecurityGroupSnapshotsOutput_ResponseItem struct {
+	GroupId                 string               `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+	SecurityGroupSnapshotId string               `protobuf:"bytes,2,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
+	Rules                   []*SecurityGroupRule `protobuf:"bytes,3,rep,name=rules" json:"rules,omitempty"`
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) Reset() {
+	*m = DescribeSecurityGroupSnapshotsOutput_ResponseItem{}
+}
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) String() string {
+	return proto.CompactTextString(m)
+}
+func (*DescribeSecurityGroupSnapshotsOutput_ResponseItem) ProtoMessage() {}
+func (*DescribeSecurityGroupSnapshotsOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor21, []int{22, 0}
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) GetGroupId() string {
+	if m != nil {
+		return m.GroupId
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) GetSecurityGroupSnapshotId() string {
+	if m != nil {
+		return m.SecurityGroupSnapshotId
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) GetRules() []*SecurityGroupRule {
+	if m != nil {
+		return m.Rules
+	}
+	return nil
+}
+
 type DeleteSecurityGroupSnapshotsInput struct {
+	SecurityGroupSnapshots []string `protobuf:"bytes,1,rep,name=security_group_snapshots,json=securityGroupSnapshots" json:"security_group_snapshots,omitempty"`
 }
 
 func (m *DeleteSecurityGroupSnapshotsInput) Reset()         { *m = DeleteSecurityGroupSnapshotsInput{} }
@@ -513,10 +960,18 @@ func (*DeleteSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{23}
 }
 
+func (m *DeleteSecurityGroupSnapshotsInput) GetSecurityGroupSnapshots() []string {
+	if m != nil {
+		return m.SecurityGroupSnapshots
+	}
+	return nil
+}
+
 type DeleteSecurityGroupSnapshotsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                 string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupSnapshots []string `protobuf:"bytes,4,rep,name=security_group_snapshots,json=securityGroupSnapshots" json:"security_group_snapshots,omitempty"`
 }
 
 func (m *DeleteSecurityGroupSnapshotsOutput) Reset()         { *m = DeleteSecurityGroupSnapshotsOutput{} }
@@ -547,7 +1002,16 @@ func (m *DeleteSecurityGroupSnapshotsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteSecurityGroupSnapshotsOutput) GetSecurityGroupSnapshots() []string {
+	if m != nil {
+		return m.SecurityGroupSnapshots
+	}
+	return nil
+}
+
 type RollbackSecurityGroupInput struct {
+	SecurityGroup         string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	SecurityGroupSnapshot string `protobuf:"bytes,2,opt,name=security_group_snapshot,json=securityGroupSnapshot" json:"security_group_snapshot,omitempty"`
 }
 
 func (m *RollbackSecurityGroupInput) Reset()                    { *m = RollbackSecurityGroupInput{} }
@@ -555,10 +1019,26 @@ func (m *RollbackSecurityGroupInput) String() string            { return proto.C
 func (*RollbackSecurityGroupInput) ProtoMessage()               {}
 func (*RollbackSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{25} }
 
+func (m *RollbackSecurityGroupInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *RollbackSecurityGroupInput) GetSecurityGroupSnapshot() string {
+	if m != nil {
+		return m.SecurityGroupSnapshot
+	}
+	return ""
+}
+
 type RollbackSecurityGroupOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                 int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                 string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId         string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	SecurityGroupSnapshotId string `protobuf:"bytes,5,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
 }
 
 func (m *RollbackSecurityGroupOutput) Reset()                    { *m = RollbackSecurityGroupOutput{} }
@@ -587,7 +1067,28 @@ func (m *RollbackSecurityGroupOutput) GetMessage() string {
 	return ""
 }
 
+func (m *RollbackSecurityGroupOutput) GetSecurityGroupId() string {
+	if m != nil {
+		return m.SecurityGroupId
+	}
+	return ""
+}
+
+func (m *RollbackSecurityGroupOutput) GetSecurityGroupSnapshotId() string {
+	if m != nil {
+		return m.SecurityGroupSnapshotId
+	}
+	return ""
+}
+
 type DescribeSecurityGroupIPSetsInput struct {
+	SecurityGroupIpsets    []string `protobuf:"bytes,1,rep,name=security_group_ipsets,json=securityGroupIpsets" json:"security_group_ipsets,omitempty"`
+	IpsetType              int32    `protobuf:"varint,2,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
+	SecurityGroupIpsetName string   `protobuf:"bytes,4,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
+	Tags                   []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose                int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset                 int32    `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit                  int32    `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeSecurityGroupIPSetsInput) Reset()         { *m = DescribeSecurityGroupIPSetsInput{} }
@@ -597,10 +1098,61 @@ func (*DescribeSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{27}
 }
 
+func (m *DescribeSecurityGroupIPSetsInput) GetSecurityGroupIpsets() []string {
+	if m != nil {
+		return m.SecurityGroupIpsets
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupIPSetsInput) GetIpsetType() int32 {
+	if m != nil {
+		return m.IpsetType
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupIPSetsInput) GetSecurityGroupIpsetName() string {
+	if m != nil {
+		return m.SecurityGroupIpsetName
+	}
+	return ""
+}
+
+func (m *DescribeSecurityGroupIPSetsInput) GetTags() []string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupIPSetsInput) GetVerbose() int32 {
+	if m != nil {
+		return m.Verbose
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupIPSetsInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeSecurityGroupIPSetsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeSecurityGroupIPSetsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                string                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode               int32                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message               string                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupIpsetSet []*SecurityGroupIPSet `protobuf:"bytes,4,rep,name=security_group_ipset_set,json=securityGroupIpsetSet" json:"security_group_ipset_set,omitempty"`
+	TotalCount            int32                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeSecurityGroupIPSetsOutput) Reset()         { *m = DescribeSecurityGroupIPSetsOutput{} }
@@ -631,7 +1183,24 @@ func (m *DescribeSecurityGroupIPSetsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeSecurityGroupIPSetsOutput) GetSecurityGroupIpsetSet() []*SecurityGroupIPSet {
+	if m != nil {
+		return m.SecurityGroupIpsetSet
+	}
+	return nil
+}
+
+func (m *DescribeSecurityGroupIPSetsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
 type CreateSecurityGroupIPSetInput struct {
+	SecurityGroupIpsetName string `protobuf:"bytes,1,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
+	IpsetType              int32  `protobuf:"varint,2,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
+	Val                    string `protobuf:"bytes,3,opt,name=val" json:"val,omitempty"`
 }
 
 func (m *CreateSecurityGroupIPSetInput) Reset()                    { *m = CreateSecurityGroupIPSetInput{} }
@@ -639,10 +1208,32 @@ func (m *CreateSecurityGroupIPSetInput) String() string            { return prot
 func (*CreateSecurityGroupIPSetInput) ProtoMessage()               {}
 func (*CreateSecurityGroupIPSetInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{29} }
 
+func (m *CreateSecurityGroupIPSetInput) GetSecurityGroupIpsetName() string {
+	if m != nil {
+		return m.SecurityGroupIpsetName
+	}
+	return ""
+}
+
+func (m *CreateSecurityGroupIPSetInput) GetIpsetType() int32 {
+	if m != nil {
+		return m.IpsetType
+	}
+	return 0
+}
+
+func (m *CreateSecurityGroupIPSetInput) GetVal() string {
+	if m != nil {
+		return m.Val
+	}
+	return ""
+}
+
 type CreateSecurityGroupIPSetOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action          string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode         int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message         string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
 }
 
 func (m *CreateSecurityGroupIPSetOutput) Reset()         { *m = CreateSecurityGroupIPSetOutput{} }
@@ -673,7 +1264,15 @@ func (m *CreateSecurityGroupIPSetOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateSecurityGroupIPSetOutput) GetSecurityGroupId() string {
+	if m != nil {
+		return m.SecurityGroupId
+	}
+	return ""
+}
+
 type DeleteSecurityGroupIPSetsInput struct {
+	SecurityGroupIpsets []string `protobuf:"bytes,1,rep,name=security_group_ipsets,json=securityGroupIpsets" json:"security_group_ipsets,omitempty"`
 }
 
 func (m *DeleteSecurityGroupIPSetsInput) Reset()         { *m = DeleteSecurityGroupIPSetsInput{} }
@@ -683,10 +1282,18 @@ func (*DeleteSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{31}
 }
 
+func (m *DeleteSecurityGroupIPSetsInput) GetSecurityGroupIpsets() []string {
+	if m != nil {
+		return m.SecurityGroupIpsets
+	}
+	return nil
+}
+
 type DeleteSecurityGroupIPSetsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action              string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode             int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message             string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupIpsets []string `protobuf:"bytes,4,rep,name=security_group_ipsets,json=securityGroupIpsets" json:"security_group_ipsets,omitempty"`
 }
 
 func (m *DeleteSecurityGroupIPSetsOutput) Reset()         { *m = DeleteSecurityGroupIPSetsOutput{} }
@@ -717,7 +1324,18 @@ func (m *DeleteSecurityGroupIPSetsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteSecurityGroupIPSetsOutput) GetSecurityGroupIpsets() []string {
+	if m != nil {
+		return m.SecurityGroupIpsets
+	}
+	return nil
+}
+
 type ModifySecurityGroupIPSetAttributesInput struct {
+	SecurityGroupIpset     string `protobuf:"bytes,1,opt,name=security_group_ipset,json=securityGroupIpset" json:"security_group_ipset,omitempty"`
+	SecurityGroupIpsetName string `protobuf:"bytes,2,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
+	Description            string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Val                    string `protobuf:"bytes,4,opt,name=val" json:"val,omitempty"`
 }
 
 func (m *ModifySecurityGroupIPSetAttributesInput) Reset() {
@@ -729,10 +1347,39 @@ func (*ModifySecurityGroupIPSetAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor21, []int{33}
 }
 
+func (m *ModifySecurityGroupIPSetAttributesInput) GetSecurityGroupIpset() string {
+	if m != nil {
+		return m.SecurityGroupIpset
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupIPSetAttributesInput) GetSecurityGroupIpsetName() string {
+	if m != nil {
+		return m.SecurityGroupIpsetName
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupIPSetAttributesInput) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *ModifySecurityGroupIPSetAttributesInput) GetVal() string {
+	if m != nil {
+		return m.Val
+	}
+	return ""
+}
+
 type ModifySecurityGroupIPSetAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action               string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupIpsetId string `protobuf:"bytes,4,opt,name=security_group_ipset_id,json=securityGroupIpsetId" json:"security_group_ipset_id,omitempty"`
 }
 
 func (m *ModifySecurityGroupIPSetAttributesOutput) Reset() {
@@ -765,13 +1412,36 @@ func (m *ModifySecurityGroupIPSetAttributesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifySecurityGroupIPSetAttributesOutput) GetSecurityGroupIpsetId() string {
+	if m != nil {
+		return m.SecurityGroupIpsetId
+	}
+	return ""
+}
+
 type CopySecurityGroupIPSetsInput struct {
+	Ipsets    []string `protobuf:"bytes,1,rep,name=ipsets" json:"ipsets,omitempty"`
+	DestZones []string `protobuf:"bytes,2,rep,name=dest_zones,json=destZones" json:"dest_zones,omitempty"`
 }
 
 func (m *CopySecurityGroupIPSetsInput) Reset()                    { *m = CopySecurityGroupIPSetsInput{} }
 func (m *CopySecurityGroupIPSetsInput) String() string            { return proto.CompactTextString(m) }
 func (*CopySecurityGroupIPSetsInput) ProtoMessage()               {}
 func (*CopySecurityGroupIPSetsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{35} }
+
+func (m *CopySecurityGroupIPSetsInput) GetIpsets() []string {
+	if m != nil {
+		return m.Ipsets
+	}
+	return nil
+}
+
+func (m *CopySecurityGroupIPSetsInput) GetDestZones() []string {
+	if m != nil {
+		return m.DestZones
+	}
+	return nil
+}
 
 type CopySecurityGroupIPSetsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -829,6 +1499,7 @@ func init() {
 	proto.RegisterType((*CreateSecurityGroupSnapshotOutput)(nil), "service.CreateSecurityGroupSnapshotOutput")
 	proto.RegisterType((*DescribeSecurityGroupSnapshotsInput)(nil), "service.DescribeSecurityGroupSnapshotsInput")
 	proto.RegisterType((*DescribeSecurityGroupSnapshotsOutput)(nil), "service.DescribeSecurityGroupSnapshotsOutput")
+	proto.RegisterType((*DescribeSecurityGroupSnapshotsOutput_ResponseItem)(nil), "service.DescribeSecurityGroupSnapshotsOutput.ResponseItem")
 	proto.RegisterType((*DeleteSecurityGroupSnapshotsInput)(nil), "service.DeleteSecurityGroupSnapshotsInput")
 	proto.RegisterType((*DeleteSecurityGroupSnapshotsOutput)(nil), "service.DeleteSecurityGroupSnapshotsOutput")
 	proto.RegisterType((*RollbackSecurityGroupInput)(nil), "service.RollbackSecurityGroupInput")
@@ -1448,57 +2119,108 @@ func (p *CopySecurityGroupIPSetsInput) Validate() error {
 func init() { proto.RegisterFile("security_group.proto", fileDescriptor21) }
 
 var fileDescriptor21 = []byte{
-	// 829 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x98, 0xdd, 0x4e, 0xdb, 0x30,
-	0x14, 0xc7, 0xd5, 0x8d, 0xc1, 0x38, 0xd2, 0xa4, 0xc9, 0x63, 0xd0, 0xba, 0xb4, 0xb4, 0x69, 0x81,
-	0xf2, 0x31, 0xd8, 0xd7, 0x0b, 0xa0, 0x22, 0x4d, 0x5c, 0x4c, 0x63, 0xed, 0xcd, 0x2e, 0x26, 0x55,
-	0x6d, 0x63, 0x4a, 0x68, 0x88, 0x43, 0xe2, 0x80, 0x40, 0xda, 0xed, 0xa4, 0xed, 0x11, 0xf6, 0x96,
-	0x7b, 0x83, 0x29, 0xad, 0xdb, 0xa6, 0xdd, 0xb1, 0x93, 0x49, 0xf3, 0x0d, 0x22, 0xf2, 0xff, 0xe4,
-	0xfc, 0x73, 0x7c, 0x6c, 0xff, 0x5c, 0x58, 0x0b, 0x59, 0x3f, 0x0a, 0x1c, 0x71, 0xdf, 0x19, 0x04,
-	0x3c, 0xf2, 0x8f, 0xfc, 0x80, 0x0b, 0x4e, 0x56, 0x42, 0x16, 0xdc, 0x3a, 0x7d, 0x46, 0x4b, 0x37,
-	0x8e, 0x37, 0xe8, 0xbb, 0x3c, 0xb2, 0x3b, 0xa1, 0x3d, 0xec, 0x04, 0x91, 0xcb, 0x8e, 0xe3, 0x3f,
-	0x63, 0x9d, 0xf5, 0x1e, 0xca, 0x6d, 0x19, 0xff, 0x21, 0x0e, 0x6f, 0x8f, 0xc3, 0xce, 0x03, 0xee,
-	0xb3, 0x40, 0x38, 0x2c, 0x24, 0x04, 0x96, 0x1e, 0xb8, 0xc7, 0xf2, 0xb9, 0x4a, 0xae, 0xb1, 0xda,
-	0x1a, 0xfd, 0x6f, 0x95, 0xa0, 0x78, 0xca, 0xc2, 0x7e, 0xe0, 0xf4, 0xd8, 0x5c, 0x74, 0x78, 0xe6,
-	0xf9, 0x91, 0xb0, 0x86, 0xb0, 0x89, 0x0f, 0x7f, 0x8a, 0x84, 0x1f, 0x09, 0xb2, 0x0e, 0xcb, 0xdd,
-	0xbe, 0x70, 0xb8, 0x27, 0x5f, 0x2a, 0x9f, 0x48, 0x01, 0x9e, 0x06, 0x4c, 0x74, 0xfa, 0xdc, 0x66,
-	0xf9, 0x47, 0x95, 0x5c, 0xe3, 0x49, 0x6b, 0x25, 0x60, 0xa2, 0xc9, 0x6d, 0x46, 0xf2, 0xb0, 0x72,
-	0xcd, 0xc2, 0xb0, 0x3b, 0x60, 0xf9, 0xc7, 0xa3, 0x98, 0xc9, 0xa3, 0x45, 0x21, 0xdf, 0x0c, 0x58,
-	0x57, 0xcc, 0xa7, 0x1a, 0x1b, 0xb9, 0x84, 0x02, 0x32, 0x66, 0xc2, 0x45, 0x11, 0x0a, 0xa7, 0xcc,
-	0x65, 0x02, 0xad, 0x87, 0x03, 0x14, 0x1b, 0x34, 0xe1, 0xa3, 0x00, 0x1b, 0x27, 0xbe, 0xef, 0xde,
-	0x23, 0xc5, 0xb8, 0xc0, 0x86, 0x46, 0x1e, 0xfe, 0xaf, 0x85, 0x3a, 0x58, 0x1f, 0xb9, 0xed, 0x5c,
-	0xcc, 0x27, 0x3a, 0x11, 0x22, 0x70, 0x7a, 0x91, 0x60, 0xb2, 0x26, 0x01, 0xd4, 0xb4, 0x2a, 0x13,
-	0xc5, 0xa9, 0xc2, 0x16, 0xda, 0x97, 0xad, 0xc8, 0x9d, 0xd8, 0xe2, 0x50, 0x51, 0x4b, 0x4c, 0x78,
-	0xda, 0x04, 0x7a, 0x62, 0xdb, 0x2a, 0x3b, 0x57, 0x50, 0x44, 0x47, 0x4d, 0x38, 0xd9, 0x82, 0x12,
-	0xd2, 0xa5, 0x09, 0x33, 0xd7, 0x50, 0x56, 0x09, 0x4c, 0xf8, 0x69, 0xc0, 0x0e, 0xd2, 0x21, 0x71,
-	0xba, 0xc5, 0x5e, 0xba, 0x85, 0xdd, 0x54, 0xa5, 0x09, 0x87, 0x16, 0x54, 0x90, 0xed, 0xa5, 0xed,
-	0x75, 0xfd, 0xf0, 0x92, 0x8b, 0xb1, 0x37, 0x1f, 0xaa, 0x1a, 0x8d, 0x09, 0x57, 0xdb, 0x50, 0x43,
-	0x5b, 0x78, 0x92, 0x53, 0x16, 0x2d, 0x84, 0xba, 0x5e, 0x66, 0xc2, 0x5b, 0x0d, 0xaa, 0x48, 0x0b,
-	0x2d, 0x38, 0xbb, 0x01, 0x4b, 0x27, 0x32, 0xb4, 0x0a, 0x5b, 0xdc, 0x75, 0x7b, 0xdd, 0xfe, 0x10,
-	0xd9, 0x39, 0xaf, 0xa0, 0x88, 0x8e, 0x1a, 0xea, 0x29, 0x74, 0x5a, 0xce, 0xce, 0xdb, 0x6c, 0x52,
-	0x20, 0x3f, 0xae, 0xa2, 0x52, 0x63, 0x68, 0x6f, 0xc0, 0x0e, 0xd9, 0x38, 0xdf, 0x74, 0x6f, 0x50,
-	0x09, 0x4c, 0xf8, 0xa9, 0xa0, 0x5b, 0x51, 0xb2, 0x46, 0x5e, 0xbc, 0xd7, 0x2b, 0x14, 0x26, 0x1c,
-	0xed, 0xa1, 0x7b, 0xd0, 0x28, 0xdf, 0xe2, 0x76, 0x75, 0x07, 0x8d, 0x74, 0xa9, 0x09, 0x8f, 0x65,
-	0xd8, 0x6c, 0x72, 0xff, 0x5e, 0x59, 0x33, 0x17, 0x4a, 0x8a, 0x71, 0x03, 0x6e, 0xde, 0xfe, 0x7a,
-	0x0e, 0x6b, 0x18, 0x7b, 0x12, 0x06, 0xeb, 0x38, 0x3e, 0x92, 0xfa, 0x91, 0xc4, 0xda, 0x23, 0x0d,
-	0x7e, 0xd2, 0xed, 0x14, 0x95, 0xfc, 0x98, 0xaf, 0xf0, 0x02, 0x69, 0x59, 0x52, 0x9d, 0x46, 0xab,
-	0xb0, 0x92, 0x5a, 0x3a, 0x89, 0x7c, 0x7b, 0x07, 0xd6, 0x30, 0xe6, 0x23, 0x56, 0xc2, 0x9c, 0x82,
-	0x17, 0x69, 0x4d, 0xab, 0x91, 0x09, 0xbe, 0x00, 0xf9, 0x1b, 0xe7, 0x48, 0x65, 0x1a, 0xaa, 0xc0,
-	0x40, 0xaa, 0x53, 0x8c, 0x69, 0xf0, 0x01, 0x4a, 0x5a, 0x34, 0x23, 0x07, 0xd3, 0x57, 0xa4, 0x83,
-	0x1e, 0x3d, 0xcc, 0x26, 0x96, 0x5f, 0x75, 0x13, 0xa3, 0xb2, 0x8a, 0xbf, 0x48, 0x43, 0x3f, 0xb3,
-	0x33, 0x56, 0xa1, 0x7b, 0x19, 0x94, 0x32, 0x65, 0x0f, 0x5e, 0xa2, 0x8c, 0x45, 0x66, 0xd3, 0xa0,
-	0x26, 0x34, 0x5a, 0xd7, 0x8b, 0x64, 0x8e, 0x21, 0xe4, 0x55, 0xe8, 0x44, 0x76, 0x74, 0xb3, 0x9d,
-	0xc8, 0xb4, 0x9b, 0xaa, 0x93, 0xc9, 0xbe, 0xe7, 0xa0, 0x9a, 0xca, 0x43, 0xe4, 0x58, 0x37, 0x2f,
-	0x08, 0x65, 0xd1, 0xd7, 0xd9, 0x03, 0xa4, 0x11, 0x01, 0x45, 0x0d, 0xfb, 0x90, 0x3d, 0xdd, 0x32,
-	0x9a, 0xa3, 0x28, 0xba, 0x9f, 0x45, 0x2a, 0xb3, 0x7e, 0x8b, 0xcf, 0x06, 0x1d, 0xd8, 0x90, 0x43,
-	0x7d, 0x73, 0xcc, 0xe3, 0x08, 0x7d, 0x95, 0x51, 0x2d, 0xd3, 0xdf, 0xc5, 0x97, 0x5f, 0x35, 0xbd,
-	0x90, 0x7d, 0xdd, 0x34, 0x2e, 0xa4, 0x3e, 0xc8, 0xa4, 0x9d, 0xf5, 0x31, 0x4a, 0x29, 0x89, 0x3e,
-	0x56, 0x33, 0x4e, 0xa2, 0x8f, 0x75, 0xa8, 0x23, 0x14, 0x17, 0xff, 0xf1, 0x29, 0x41, 0x52, 0x56,
-	0x5d, 0xe2, 0xac, 0xa1, 0xfb, 0x59, 0xa4, 0xb3, 0xd5, 0xa3, 0x82, 0x8b, 0xc4, 0xea, 0xd1, 0x02,
-	0x4a, 0x62, 0xf5, 0xa4, 0x70, 0x8a, 0x87, 0xde, 0xe4, 0xe5, 0x07, 0x6a, 0xd7, 0x60, 0xf2, 0xf3,
-	0x1a, 0xe9, 0x42, 0x99, 0xef, 0x47, 0x0e, 0xbd, 0x2f, 0x2f, 0xe0, 0x00, 0xd1, 0xae, 0x3e, 0x0c,
-	0x33, 0xe8, 0x9b, 0x7f, 0x88, 0x90, 0x5e, 0x2e, 0x61, 0x43, 0x01, 0x00, 0x64, 0x76, 0xa8, 0xea,
-	0x10, 0x82, 0xee, 0xa4, 0xc9, 0xc6, 0x99, 0x68, 0xf9, 0xe7, 0xef, 0x25, 0x4a, 0x56, 0x3f, 0x3b,
-	0xde, 0xa0, 0xe9, 0xf2, 0xc8, 0xa6, 0xcf, 0xe6, 0xb4, 0xbd, 0xe5, 0xd1, 0xcf, 0x53, 0xef, 0xfe,
-	0x04, 0x00, 0x00, 0xff, 0xff, 0x7e, 0xb4, 0xac, 0x1d, 0xde, 0x12, 0x00, 0x00,
+	// 1636 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x59, 0xc9, 0x6f, 0x1c, 0x45,
+	0x17, 0x57, 0x7b, 0x16, 0x7b, 0x9e, 0xbf, 0x6c, 0x15, 0x7b, 0xdc, 0x6e, 0x2f, 0x19, 0x77, 0xb6,
+	0x89, 0x93, 0xcf, 0x49, 0xec, 0x6f, 0x61, 0x39, 0x59, 0xb6, 0x84, 0x06, 0x09, 0x48, 0xc6, 0x41,
+	0x20, 0x44, 0x18, 0xcd, 0x4c, 0x57, 0x9c, 0x4e, 0xda, 0x53, 0x9d, 0xae, 0x1a, 0x47, 0x13, 0x94,
+	0x2b, 0x12, 0xcb, 0x09, 0x71, 0x00, 0xc4, 0x22, 0x71, 0x04, 0x89, 0x13, 0xff, 0x01, 0x88, 0x03,
+	0x47, 0x38, 0x71, 0xe6, 0xc0, 0x99, 0xff, 0x00, 0x75, 0xf5, 0x32, 0xdd, 0xd3, 0x55, 0xd5, 0x63,
+	0xc2, 0x28, 0x5c, 0x46, 0xdd, 0xd5, 0xaf, 0xde, 0xfb, 0xbd, 0xa5, 0xde, 0x7b, 0xf5, 0x06, 0xe6,
+	0x28, 0xee, 0xf6, 0x3d, 0x9b, 0x0d, 0x5a, 0xfb, 0x1e, 0xe9, 0xbb, 0x1b, 0xae, 0x47, 0x18, 0x41,
+	0xd3, 0x14, 0x7b, 0x87, 0x76, 0x17, 0x1b, 0xb3, 0x6c, 0xe0, 0x62, 0x1a, 0xac, 0x1a, 0x2b, 0x0f,
+	0xec, 0xde, 0x7e, 0xd7, 0x21, 0x7d, 0xab, 0x45, 0xad, 0xfb, 0x2d, 0xaf, 0xef, 0xe0, 0xab, 0xfe,
+	0x4f, 0xf0, 0xd9, 0xfc, 0x0f, 0xac, 0xee, 0x85, 0xcc, 0x5e, 0xf0, 0x79, 0xed, 0x05, 0x3c, 0x6e,
+	0x78, 0xc4, 0xc5, 0x1e, 0xb3, 0x31, 0x45, 0x08, 0x8a, 0x8f, 0x48, 0x0f, 0xeb, 0x5a, 0x4d, 0xab,
+	0x57, 0x9a, 0xfc, 0xd9, 0xfc, 0x5e, 0x83, 0xa5, 0x5d, 0x4c, 0xbb, 0x9e, 0xdd, 0xc1, 0xa9, 0xed,
+	0xb4, 0xd1, 0x73, 0xfb, 0x0c, 0x5d, 0x84, 0x13, 0x69, 0x88, 0x54, 0xd7, 0x6a, 0x85, 0x7a, 0xa5,
+	0x79, 0x9c, 0xa6, 0xa8, 0xd1, 0x19, 0x98, 0xa5, 0xb8, 0xed, 0x75, 0xef, 0xb6, 0x1e, 0x12, 0xcf,
+	0xd2, 0xa7, 0xb8, 0x0c, 0x08, 0x96, 0x5e, 0x23, 0x9e, 0xe5, 0x4b, 0x67, 0xed, 0x7d, 0xaa, 0x17,
+	0xf8, 0x76, 0xfe, 0x8c, 0x74, 0x98, 0x3e, 0xc4, 0x5e, 0x87, 0x50, 0xac, 0x17, 0x6b, 0x5a, 0xbd,
+	0xd4, 0x8c, 0x5e, 0x51, 0x15, 0xca, 0xe4, 0xce, 0x1d, 0x8a, 0x99, 0x5e, 0xe2, 0x1f, 0xc2, 0x37,
+	0x34, 0x07, 0x25, 0xc7, 0x3e, 0xb0, 0x99, 0x5e, 0xe6, 0xcb, 0xc1, 0x8b, 0xf9, 0xb3, 0x06, 0xcb,
+	0x62, 0x2d, 0x5e, 0xe9, 0x33, 0x5f, 0x8d, 0x2a, 0x94, 0xdb, 0x5d, 0x66, 0x93, 0x5e, 0xa8, 0x7c,
+	0xf8, 0x86, 0x16, 0x61, 0xc6, 0xc3, 0xac, 0xd5, 0x25, 0x16, 0xe6, 0x90, 0x4b, 0xcd, 0x69, 0x0f,
+	0xb3, 0x1d, 0x62, 0x61, 0x1f, 0xdb, 0x01, 0xa6, 0xb4, 0xbd, 0x8f, 0xf5, 0x02, 0xdf, 0x13, 0xbd,
+	0xa2, 0x5d, 0x40, 0x69, 0x9b, 0xb4, 0x7c, 0x9c, 0xc5, 0x5a, 0xa1, 0x3e, 0xbb, 0x59, 0xdd, 0x08,
+	0x7d, 0xb7, 0x91, 0xc2, 0xd1, 0x3c, 0x49, 0xd3, 0xbe, 0x61, 0xbe, 0xc1, 0x18, 0x61, 0x6d, 0xa7,
+	0xd5, 0x25, 0xfd, 0x5e, 0xa4, 0x26, 0xf0, 0xa5, 0x1d, 0x7f, 0xc5, 0x7c, 0x11, 0xf4, 0x1d, 0x0f,
+	0xb7, 0x59, 0x5a, 0xa3, 0xc0, 0x2d, 0x1b, 0x70, 0x7a, 0x04, 0x42, 0xaf, 0x7d, 0x10, 0x79, 0xf6,
+	0x54, 0x4a, 0xd6, 0xcb, 0xed, 0x03, 0x6c, 0x7e, 0xa4, 0xc1, 0xa2, 0x80, 0xd9, 0x24, 0xac, 0xb3,
+	0x0e, 0xa7, 0x46, 0xa0, 0xd9, 0x16, 0xf7, 0x6e, 0xa5, 0x79, 0x22, 0x05, 0xac, 0x61, 0x99, 0xbb,
+	0xb0, 0xb8, 0x8b, 0x1d, 0xcc, 0x9e, 0x28, 0xf4, 0xcc, 0x0f, 0x35, 0x30, 0x44, 0x6c, 0x26, 0xa1,
+	0x9d, 0x00, 0x54, 0x51, 0x08, 0xea, 0x2d, 0x58, 0xd8, 0x76, 0x5d, 0x67, 0x20, 0x70, 0xde, 0x79,
+	0x38, 0x9e, 0xe6, 0x11, 0x02, 0x3b, 0x96, 0x62, 0x81, 0x96, 0xa1, 0x62, 0xf7, 0x28, 0x6b, 0xf7,
+	0xba, 0x98, 0xea, 0x53, 0x5c, 0xc8, 0x70, 0xc1, 0x7c, 0x2c, 0xe2, 0xcf, 0x35, 0xfe, 0x7b, 0x15,
+	0x9e, 0x87, 0xf2, 0x3d, 0xd2, 0x19, 0xfa, 0xb0, 0x74, 0x8f, 0x74, 0x1a, 0x96, 0xf9, 0xb9, 0x06,
+	0xe6, 0x4b, 0xc4, 0xb2, 0xef, 0xa4, 0x01, 0x6c, 0x33, 0xe6, 0xd9, 0x9d, 0x3e, 0xc3, 0xf4, 0x48,
+	0xaa, 0x4a, 0xc2, 0x79, 0x4a, 0x12, 0xce, 0xa8, 0x06, 0xb3, 0x16, 0x3f, 0xee, 0x2e, 0x57, 0x33,
+	0x80, 0x9c, 0x5c, 0x32, 0xbf, 0xd0, 0xe0, 0xac, 0x12, 0xdf, 0xd3, 0x0e, 0xfd, 0x1f, 0x35, 0x38,
+	0x23, 0x4c, 0x59, 0xcd, 0xbe, 0x73, 0x44, 0xeb, 0x5d, 0x1b, 0x2d, 0x23, 0xbc, 0x36, 0xd0, 0xd0,
+	0x7c, 0x88, 0x66, 0xb8, 0xfb, 0xa1, 0x65, 0xd9, 0x1e, 0xee, 0xc6, 0xd6, 0x2b, 0x35, 0x87, 0x0b,
+	0x89, 0xdc, 0x5b, 0x14, 0xe7, 0xde, 0x52, 0x32, 0xf7, 0xfe, 0xa6, 0x41, 0x4d, 0xae, 0xc8, 0x24,
+	0xcc, 0x7c, 0x13, 0x16, 0x04, 0xfa, 0x26, 0x92, 0xb0, 0x21, 0x49, 0xc2, 0x7d, 0x07, 0x37, 0xe7,
+	0x32, 0xe6, 0x18, 0x2b, 0x19, 0xf7, 0xc1, 0xd8, 0xb6, 0xac, 0x27, 0x76, 0x54, 0x29, 0xf2, 0x4c,
+	0x1e, 0xcc, 0x80, 0xd0, 0xfc, 0x4c, 0x83, 0x25, 0xa1, 0xdc, 0x49, 0xd8, 0x55, 0x16, 0x47, 0x41,
+	0x82, 0x13, 0xc4, 0x91, 0x79, 0x13, 0x56, 0x04, 0x89, 0x37, 0x61, 0x18, 0x19, 0x4b, 0x4d, 0xca,
+	0xf2, 0x4b, 0x0d, 0x56, 0x65, 0x3c, 0xff, 0x19, 0x4a, 0xff, 0x30, 0x05, 0x17, 0x04, 0xa9, 0xc5,
+	0xff, 0x38, 0x9a, 0xfe, 0xb2, 0x79, 0xcd, 0x67, 0x2e, 0x2c, 0xd3, 0xfe, 0x76, 0xf4, 0x7f, 0xd0,
+	0x45, 0x91, 0x9d, 0x48, 0x86, 0xf3, 0x99, 0x4d, 0x3c, 0x21, 0x1a, 0x30, 0xe3, 0x7a, 0x36, 0xf1,
+	0x3f, 0x84, 0xe7, 0x39, 0x7e, 0xf7, 0x63, 0x9b, 0x73, 0x09, 0x6d, 0x16, 0xe4, 0x23, 0xf0, 0x97,
+	0xb6, 0x03, 0xbb, 0xa5, 0xb2, 0x41, 0x69, 0x34, 0x1b, 0x70, 0xd6, 0x84, 0x91, 0x2e, 0x71, 0x78,
+	0xd3, 0x55, 0x69, 0xc6, 0xef, 0x7e, 0x4f, 0x77, 0xd8, 0x76, 0xae, 0xeb, 0xd3, 0x7c, 0x13, 0x7f,
+	0x0e, 0xd7, 0x36, 0xf5, 0x99, 0x78, 0x6d, 0x33, 0x5c, 0xdb, 0xd2, 0x2b, 0xf1, 0xda, 0x96, 0xf9,
+	0x8d, 0x06, 0x17, 0x73, 0xcd, 0x38, 0x09, 0x8f, 0x6f, 0x41, 0x55, 0x64, 0xe4, 0x38, 0x55, 0x9f,
+	0xce, 0x98, 0xb8, 0x61, 0x99, 0xb7, 0xa1, 0x26, 0xe8, 0x9f, 0xf6, 0x7a, 0x6d, 0x97, 0xde, 0x25,
+	0xec, 0x48, 0x59, 0x00, 0x41, 0x31, 0xe1, 0x50, 0xfe, 0x6c, 0xfe, 0xaa, 0xc1, 0x9a, 0x82, 0xff,
+	0x24, 0xcc, 0xf0, 0x3c, 0x18, 0xa3, 0x5d, 0x6c, 0x28, 0x6d, 0x68, 0x8a, 0x05, 0x2a, 0xd4, 0xd6,
+	0x12, 0x57, 0xba, 0x92, 0xb8, 0xd2, 0x7d, 0xa7, 0xc1, 0x59, 0x61, 0x81, 0x88, 0xf8, 0x1d, 0x2d,
+	0x89, 0x3e, 0x93, 0x39, 0x23, 0x11, 0xee, 0xa8, 0x4b, 0xaa, 0x0a, 0x51, 0xd3, 0x44, 0x5d, 0x2b,
+	0x88, 0xeb, 0x5a, 0x31, 0x59, 0xd7, 0xbe, 0x2e, 0xc0, 0x39, 0x35, 0xec, 0x49, 0x78, 0x65, 0x00,
+	0x4b, 0x32, 0xaf, 0x0c, 0xeb, 0xdb, 0x73, 0x71, 0xe1, 0x18, 0x07, 0xe0, 0x46, 0x13, 0x53, 0x97,
+	0xf4, 0x28, 0x6e, 0x30, 0x7c, 0xd0, 0xd4, 0x85, 0xc6, 0x19, 0xa7, 0x06, 0x1a, 0x1f, 0x6b, 0xf0,
+	0xaf, 0x24, 0x2f, 0x5f, 0xc3, 0xd8, 0xf9, 0x81, 0xee, 0xd3, 0xfb, 0x81, 0xd3, 0x73, 0xa2, 0x6b,
+	0x4a, 0x1d, 0x5d, 0x71, 0x9d, 0x2c, 0x8c, 0x5b, 0x27, 0x6f, 0xc3, 0x9a, 0xa0, 0x68, 0x8c, 0x04,
+	0x98, 0x2a, 0x72, 0x34, 0x55, 0xe4, 0xf8, 0xb9, 0xca, 0x54, 0xf1, 0x9f, 0x44, 0x24, 0xa8, 0xd0,
+	0x16, 0x95, 0x68, 0xdf, 0x06, 0xa3, 0x49, 0x1c, 0xa7, 0xd3, 0xee, 0xde, 0xff, 0xeb, 0xb7, 0x8f,
+	0xff, 0x65, 0x9a, 0xac, 0x48, 0xbc, 0xb0, 0x12, 0x45, 0xd2, 0xcd, 0x5f, 0x34, 0x58, 0x12, 0x4a,
+	0x7f, 0xca, 0x0d, 0x77, 0x4e, 0x44, 0x96, 0x94, 0x11, 0x69, 0x7e, 0x30, 0x25, 0x69, 0x72, 0x1b,
+	0x37, 0xf6, 0x70, 0x14, 0x5f, 0x9b, 0x30, 0x3f, 0x8a, 0xc6, 0xa5, 0x38, 0x0e, 0xae, 0x74, 0x5d,
+	0x69, 0xf0, 0x4f, 0x68, 0x05, 0x80, 0x13, 0xb5, 0xd8, 0xc0, 0x8d, 0x14, 0xaf, 0xf0, 0x95, 0x5b,
+	0x03, 0x17, 0xa3, 0x67, 0x61, 0x51, 0xc4, 0x32, 0xe8, 0x08, 0x02, 0x45, 0xab, 0x59, 0xb6, 0xbc,
+	0x25, 0x88, 0xe6, 0x2d, 0x25, 0xf1, 0xbc, 0xa5, 0x2c, 0x9b, 0xb7, 0x4c, 0x8b, 0x73, 0xe3, 0x4c,
+	0x32, 0x37, 0xfe, 0xae, 0xf9, 0xe7, 0x4d, 0x6a, 0x8e, 0x49, 0xb8, 0xfa, 0x56, 0xe6, 0x38, 0x04,
+	0x96, 0x18, 0x66, 0xc5, 0x25, 0x71, 0x9a, 0xe0, 0x90, 0x46, 0xa2, 0x95, 0x5b, 0x69, 0xac, 0xbe,
+	0xff, 0x7d, 0x0d, 0x56, 0x44, 0x53, 0x18, 0x9f, 0x69, 0xe0, 0x75, 0xa5, 0x8b, 0x34, 0xa5, 0x8b,
+	0x72, 0x9c, 0x7f, 0x12, 0x0a, 0x87, 0x6d, 0x27, 0x34, 0x84, 0xff, 0x68, 0x7e, 0xa2, 0xc1, 0xaa,
+	0x0c, 0xcd, 0xd3, 0xbe, 0xd0, 0xde, 0x12, 0xf6, 0xed, 0x4f, 0x78, 0x3e, 0xcc, 0xaf, 0xf8, 0x35,
+	0x59, 0xc2, 0x76, 0x12, 0x2a, 0x4b, 0x41, 0x16, 0xe5, 0x20, 0x7f, 0x12, 0xb7, 0xb2, 0x1c, 0xe4,
+	0xe8, 0x95, 0x20, 0x7b, 0xdf, 0xe0, 0xfc, 0x43, 0xe8, 0x28, 0xcb, 0x5e, 0x1d, 0x60, 0x53, 0xca,
+	0x00, 0xcb, 0x9d, 0x93, 0x44, 0x31, 0x56, 0x1c, 0xc6, 0xd8, 0xb7, 0x1a, 0xd4, 0xf3, 0x95, 0x99,
+	0x84, 0xe9, 0xff, 0x9b, 0x29, 0x39, 0x81, 0xa2, 0x71, 0xcc, 0xcd, 0x65, 0xd5, 0x6c, 0x58, 0xe6,
+	0xab, 0xb0, 0xbc, 0x43, 0xdc, 0x81, 0x34, 0xec, 0xaa, 0x50, 0x4e, 0xc5, 0x59, 0xf8, 0xe6, 0x9f,
+	0x3e, 0x0b, 0x53, 0xd6, 0x7a, 0x44, 0x7a, 0xc3, 0x01, 0x9b, 0xbf, 0xf2, 0x86, 0xbf, 0x60, 0x3a,
+	0xb0, 0x22, 0x61, 0x3b, 0x01, 0xdd, 0x37, 0x3f, 0x3d, 0x09, 0x73, 0xa2, 0xf1, 0x3d, 0xc2, 0x50,
+	0x15, 0x4f, 0xb6, 0xd1, 0x39, 0x75, 0x17, 0x18, 0x68, 0x6f, 0x9c, 0xcf, 0xa1, 0x0a, 0x95, 0x79,
+	0x13, 0x4e, 0x0b, 0x12, 0x0b, 0x5a, 0x8b, 0x77, 0xcb, 0x46, 0xd1, 0x86, 0xa9, 0x22, 0x09, 0xb9,
+	0xb7, 0x60, 0x4e, 0x34, 0xa0, 0x45, 0x66, 0x02, 0x9c, 0x64, 0x0c, 0x6c, 0x9c, 0x55, 0xd2, 0x84,
+	0x02, 0x5e, 0x07, 0x94, 0x9d, 0x86, 0xa2, 0x5a, 0xbc, 0x55, 0x32, 0x8a, 0x35, 0x54, 0x14, 0xc1,
+	0x30, 0xf5, 0x11, 0xac, 0x28, 0xe7, 0x88, 0xe8, 0x72, 0xcc, 0x22, 0x7f, 0x1e, 0x6a, 0x5c, 0x19,
+	0x8f, 0x38, 0xd4, 0xea, 0x01, 0x18, 0xf2, 0xc9, 0x1a, 0xaa, 0xab, 0x3d, 0x3b, 0x9c, 0xc2, 0x18,
+	0x97, 0xc6, 0xa0, 0x0c, 0x45, 0x76, 0x60, 0x5e, 0x38, 0x6f, 0x42, 0x43, 0x37, 0xc8, 0xe7, 0x60,
+	0xc6, 0x39, 0x35, 0x51, 0x28, 0xe3, 0x3e, 0xe8, 0xb2, 0x09, 0x0f, 0xba, 0xa0, 0xf2, 0x76, 0x42,
+	0xd2, 0xc5, 0x5c, 0xba, 0x50, 0xd8, 0x3b, 0x1a, 0xac, 0xe5, 0x8e, 0x19, 0xd0, 0x55, 0x95, 0x5f,
+	0x04, 0x93, 0x1d, 0xe3, 0xda, 0xf8, 0x1b, 0x42, 0x20, 0x0c, 0x96, 0x14, 0x37, 0x7c, 0x74, 0x49,
+	0x75, 0x8c, 0x52, 0x73, 0x06, 0x63, 0x7d, 0x1c, 0xd2, 0x50, 0xea, 0x63, 0xbf, 0x2a, 0xab, 0xee,
+	0x88, 0xe8, 0xca, 0x98, 0x97, 0xc9, 0x40, 0xf6, 0xbf, 0x8f, 0x74, 0xf5, 0x44, 0x0f, 0x61, 0x59,
+	0x75, 0x6f, 0x42, 0xeb, 0x2a, 0x37, 0x8e, 0x88, 0xbe, 0x3c, 0x16, 0xed, 0x30, 0x8e, 0x85, 0xb7,
+	0x90, 0x44, 0x1c, 0xcb, 0xef, 0x48, 0x89, 0x38, 0x56, 0x5d, 0x65, 0x98, 0xe4, 0xaf, 0xd3, 0xa0,
+	0x4a, 0xa0, 0x9c, 0x53, 0x97, 0x28, 0x51, 0xc6, 0xfa, 0x38, 0xa4, 0xc3, 0xd3, 0x23, 0x6b, 0x01,
+	0x13, 0xa7, 0x47, 0xd9, 0xb3, 0x26, 0x4e, 0x4f, 0x4e, 0x37, 0xd9, 0x13, 0xfe, 0x41, 0x17, 0x2a,
+	0xa8, 0x3c, 0x83, 0x49, 0xf5, 0xea, 0xf9, 0x84, 0xa1, 0xbc, 0x77, 0xc5, 0x7f, 0x2b, 0x8d, 0x34,
+	0x1f, 0x48, 0x79, 0xfa, 0x44, 0x6d, 0x97, 0x71, 0xfd, 0x08, 0x3b, 0x42, 0x2c, 0x77, 0x61, 0x41,
+	0xd2, 0x00, 0xa0, 0x61, 0x51, 0x55, 0x75, 0x1e, 0xc6, 0x85, 0x3c, 0xb2, 0x40, 0x92, 0xb1, 0xfa,
+	0xde, 0x1f, 0x45, 0x03, 0x55, 0x6e, 0xda, 0xbd, 0xfd, 0x1d, 0x87, 0xf4, 0x2d, 0xe3, 0x58, 0x8a,
+	0xb6, 0x53, 0xe6, 0x03, 0xd7, 0xad, 0x3f, 0x03, 0x00, 0x00, 0xff, 0xff, 0x80, 0xfb, 0x01, 0x18,
+	0x2e, 0x20, 0x00, 0x00,
 }
