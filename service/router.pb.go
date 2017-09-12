@@ -7,6 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,6 +39,14 @@ func (m *RouterServiceProperties) GetZone() string {
 }
 
 type DescribeRoutersInput struct {
+	Routers    []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
+	Vxnet      string   `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	Status     []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	SearchWord string   `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags       []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose    int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset     int32    `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit      int32    `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeRoutersInput) Reset()                    { *m = DescribeRoutersInput{} }
@@ -45,10 +54,68 @@ func (m *DescribeRoutersInput) String() string            { return proto.Compact
 func (*DescribeRoutersInput) ProtoMessage()               {}
 func (*DescribeRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{1} }
 
+func (m *DescribeRoutersInput) GetRouters() []string {
+	if m != nil {
+		return m.Routers
+	}
+	return nil
+}
+
+func (m *DescribeRoutersInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
+func (m *DescribeRoutersInput) GetStatus() []string {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *DescribeRoutersInput) GetSearchWord() string {
+	if m != nil {
+		return m.SearchWord
+	}
+	return ""
+}
+
+func (m *DescribeRoutersInput) GetTags() []string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *DescribeRoutersInput) GetVerbose() int32 {
+	if m != nil {
+		return m.Verbose
+	}
+	return 0
+}
+
+func (m *DescribeRoutersInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeRoutersInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeRoutersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action     string                                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode    int32                                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message    string                                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterSet  []*DescribeRoutersOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_set,json=routerSet" json:"router_set,omitempty"`
+	TotalCount int32                                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeRoutersOutput) Reset()                    { *m = DescribeRoutersOutput{} }
@@ -77,7 +144,141 @@ func (m *DescribeRoutersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeRoutersOutput) GetRouterSet() []*DescribeRoutersOutput_ResponseItem {
+	if m != nil {
+		return m.RouterSet
+	}
+	return nil
+}
+
+func (m *DescribeRoutersOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeRoutersOutput_ResponseItem struct {
+	RouterId         string                      `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterName       string                      `protobuf:"bytes,2,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	Description      string                      `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	RouterType       int32                       `protobuf:"varint,5,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
+	PrivateIp        string                      `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	IsApplied        int32                       `protobuf:"varint,7,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Status           string                      `protobuf:"bytes,8,opt,name=status" json:"status,omitempty"`
+	TransitionStatus string                      `protobuf:"bytes,9,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SecurityGroupId  string                      `protobuf:"bytes,12,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Eip              *EIP                        `protobuf:"bytes,13,opt,name=eip" json:"eip,omitempty"`
+	Vxnets           []string                    `protobuf:"bytes,14,rep,name=vxnets" json:"vxnets,omitempty"`
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) Reset()         { *m = DescribeRoutersOutput_ResponseItem{} }
+func (m *DescribeRoutersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
+func (*DescribeRoutersOutput_ResponseItem) ProtoMessage()    {}
+func (*DescribeRoutersOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{2, 0}
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetRouterId() string {
+	if m != nil {
+		return m.RouterId
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetRouterName() string {
+	if m != nil {
+		return m.RouterName
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetRouterType() int32 {
+	if m != nil {
+		return m.RouterType
+	}
+	return 0
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetPrivateIp() string {
+	if m != nil {
+		return m.PrivateIp
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetIsApplied() int32 {
+	if m != nil {
+		return m.IsApplied
+	}
+	return 0
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetTransitionStatus() string {
+	if m != nil {
+		return m.TransitionStatus
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetSecurityGroupId() string {
+	if m != nil {
+		return m.SecurityGroupId
+	}
+	return ""
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetEip() *EIP {
+	if m != nil {
+		return m.Eip
+	}
+	return nil
+}
+
+func (m *DescribeRoutersOutput_ResponseItem) GetVxnets() []string {
+	if m != nil {
+		return m.Vxnets
+	}
+	return nil
+}
+
 type CreateRoutersInput struct {
+	RouterName    string `protobuf:"bytes,1,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	RouterType    int32  `protobuf:"varint,2,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
+	VpcNetwork    string `protobuf:"bytes,3,opt,name=vpc_network,json=vpcNetwork" json:"vpc_network,omitempty"`
+	Count         int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
+	SecurityGroup string `protobuf:"bytes,5,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	TargetUser    string `protobuf:"bytes,6,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
 }
 
 func (m *CreateRoutersInput) Reset()                    { *m = CreateRoutersInput{} }
@@ -85,10 +286,54 @@ func (m *CreateRoutersInput) String() string            { return proto.CompactTe
 func (*CreateRoutersInput) ProtoMessage()               {}
 func (*CreateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{3} }
 
+func (m *CreateRoutersInput) GetRouterName() string {
+	if m != nil {
+		return m.RouterName
+	}
+	return ""
+}
+
+func (m *CreateRoutersInput) GetRouterType() int32 {
+	if m != nil {
+		return m.RouterType
+	}
+	return 0
+}
+
+func (m *CreateRoutersInput) GetVpcNetwork() string {
+	if m != nil {
+		return m.VpcNetwork
+	}
+	return ""
+}
+
+func (m *CreateRoutersInput) GetCount() int32 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
+}
+
+func (m *CreateRoutersInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *CreateRoutersInput) GetTargetUser() string {
+	if m != nil {
+		return m.TargetUser
+	}
+	return ""
+}
+
 type CreateRoutersOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Routers string `protobuf:"bytes,5,opt,name=routers" json:"routers,omitempty"`
 }
 
 func (m *CreateRoutersOutput) Reset()                    { *m = CreateRoutersOutput{} }
@@ -117,7 +362,22 @@ func (m *CreateRoutersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateRoutersOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
+func (m *CreateRoutersOutput) GetRouters() string {
+	if m != nil {
+		return m.Routers
+	}
+	return ""
+}
+
 type DeleteRoutersInput struct {
+	Routers []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
 }
 
 func (m *DeleteRoutersInput) Reset()                    { *m = DeleteRoutersInput{} }
@@ -125,10 +385,18 @@ func (m *DeleteRoutersInput) String() string            { return proto.CompactTe
 func (*DeleteRoutersInput) ProtoMessage()               {}
 func (*DeleteRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{5} }
 
+func (m *DeleteRoutersInput) GetRouters() []string {
+	if m != nil {
+		return m.Routers
+	}
+	return nil
+}
+
 type DeleteRoutersOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *DeleteRoutersOutput) Reset()                    { *m = DeleteRoutersOutput{} }
@@ -157,7 +425,15 @@ func (m *DeleteRoutersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteRoutersOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type UpdateRoutersInput struct {
+	Routers []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
 }
 
 func (m *UpdateRoutersInput) Reset()                    { *m = UpdateRoutersInput{} }
@@ -165,10 +441,18 @@ func (m *UpdateRoutersInput) String() string            { return proto.CompactTe
 func (*UpdateRoutersInput) ProtoMessage()               {}
 func (*UpdateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{7} }
 
+func (m *UpdateRoutersInput) GetRouters() []string {
+	if m != nil {
+		return m.Routers
+	}
+	return nil
+}
+
 type UpdateRoutersOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *UpdateRoutersOutput) Reset()                    { *m = UpdateRoutersOutput{} }
@@ -197,7 +481,15 @@ func (m *UpdateRoutersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *UpdateRoutersOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type PowerOffRoutersInput struct {
+	Routers []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
 }
 
 func (m *PowerOffRoutersInput) Reset()                    { *m = PowerOffRoutersInput{} }
@@ -205,10 +497,18 @@ func (m *PowerOffRoutersInput) String() string            { return proto.Compact
 func (*PowerOffRoutersInput) ProtoMessage()               {}
 func (*PowerOffRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{9} }
 
+func (m *PowerOffRoutersInput) GetRouters() []string {
+	if m != nil {
+		return m.Routers
+	}
+	return nil
+}
+
 type PowerOffRoutersOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *PowerOffRoutersOutput) Reset()                    { *m = PowerOffRoutersOutput{} }
@@ -237,7 +537,15 @@ func (m *PowerOffRoutersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *PowerOffRoutersOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type PowerOnRoutersInput struct {
+	Routers []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
 }
 
 func (m *PowerOnRoutersInput) Reset()                    { *m = PowerOnRoutersInput{} }
@@ -245,10 +553,18 @@ func (m *PowerOnRoutersInput) String() string            { return proto.CompactT
 func (*PowerOnRoutersInput) ProtoMessage()               {}
 func (*PowerOnRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{11} }
 
+func (m *PowerOnRoutersInput) GetRouters() []string {
+	if m != nil {
+		return m.Routers
+	}
+	return nil
+}
+
 type PowerOnRoutersOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *PowerOnRoutersOutput) Reset()                    { *m = PowerOnRoutersOutput{} }
@@ -277,7 +593,21 @@ func (m *PowerOnRoutersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *PowerOnRoutersOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type JoinRouterInput struct {
+	Vxnet      string `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	Router     string `protobuf:"bytes,2,opt,name=router" json:"router,omitempty"`
+	IpNetwork  string `protobuf:"bytes,3,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	Features   int32  `protobuf:"varint,4,opt,name=features" json:"features,omitempty"`
+	ManagerIp  string `protobuf:"bytes,5,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	DynIpStart string `protobuf:"bytes,6,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	DynIpEnd   string `protobuf:"bytes,7,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
 }
 
 func (m *JoinRouterInput) Reset()                    { *m = JoinRouterInput{} }
@@ -285,10 +615,60 @@ func (m *JoinRouterInput) String() string            { return proto.CompactTextS
 func (*JoinRouterInput) ProtoMessage()               {}
 func (*JoinRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{13} }
 
+func (m *JoinRouterInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
+func (m *JoinRouterInput) GetRouter() string {
+	if m != nil {
+		return m.Router
+	}
+	return ""
+}
+
+func (m *JoinRouterInput) GetIpNetwork() string {
+	if m != nil {
+		return m.IpNetwork
+	}
+	return ""
+}
+
+func (m *JoinRouterInput) GetFeatures() int32 {
+	if m != nil {
+		return m.Features
+	}
+	return 0
+}
+
+func (m *JoinRouterInput) GetManagerIp() string {
+	if m != nil {
+		return m.ManagerIp
+	}
+	return ""
+}
+
+func (m *JoinRouterInput) GetDynIpStart() string {
+	if m != nil {
+		return m.DynIpStart
+	}
+	return ""
+}
+
+func (m *JoinRouterInput) GetDynIpEnd() string {
+	if m != nil {
+		return m.DynIpEnd
+	}
+	return ""
+}
+
 type JoinRouterOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *JoinRouterOutput) Reset()                    { *m = JoinRouterOutput{} }
@@ -317,7 +697,16 @@ func (m *JoinRouterOutput) GetMessage() string {
 	return ""
 }
 
+func (m *JoinRouterOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type LeaveRouterInput struct {
+	Vxnets []string `protobuf:"bytes,1,rep,name=vxnets" json:"vxnets,omitempty"`
+	Router string   `protobuf:"bytes,2,opt,name=router" json:"router,omitempty"`
 }
 
 func (m *LeaveRouterInput) Reset()                    { *m = LeaveRouterInput{} }
@@ -325,10 +714,25 @@ func (m *LeaveRouterInput) String() string            { return proto.CompactText
 func (*LeaveRouterInput) ProtoMessage()               {}
 func (*LeaveRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{15} }
 
+func (m *LeaveRouterInput) GetVxnets() []string {
+	if m != nil {
+		return m.Vxnets
+	}
+	return nil
+}
+
+func (m *LeaveRouterInput) GetRouter() string {
+	if m != nil {
+		return m.Router
+	}
+	return ""
+}
+
 type LeaveRouterOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *LeaveRouterOutput) Reset()                    { *m = LeaveRouterOutput{} }
@@ -357,13 +761,92 @@ func (m *LeaveRouterOutput) GetMessage() string {
 	return ""
 }
 
+func (m *LeaveRouterOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type ModifyRouterAttributesInput struct {
+	Router        string `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
+	Eip           string `protobuf:"bytes,2,opt,name=eip" json:"eip,omitempty"`
+	SecurityGroup string `protobuf:"bytes,3,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	RouterName    string `protobuf:"bytes,4,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	Description   string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	Features      int32  `protobuf:"varint,6,opt,name=features" json:"features,omitempty"`
+	Vxnet         string `protobuf:"bytes,7,opt,name=vxnet" json:"vxnet,omitempty"`
+	DynIpStart    string `protobuf:"bytes,8,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	DynIpEnd      string `protobuf:"bytes,9,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
 }
 
 func (m *ModifyRouterAttributesInput) Reset()                    { *m = ModifyRouterAttributesInput{} }
 func (m *ModifyRouterAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyRouterAttributesInput) ProtoMessage()               {}
 func (*ModifyRouterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{17} }
+
+func (m *ModifyRouterAttributesInput) GetRouter() string {
+	if m != nil {
+		return m.Router
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesInput) GetEip() string {
+	if m != nil {
+		return m.Eip
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesInput) GetSecurityGroup() string {
+	if m != nil {
+		return m.SecurityGroup
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesInput) GetRouterName() string {
+	if m != nil {
+		return m.RouterName
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesInput) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesInput) GetFeatures() int32 {
+	if m != nil {
+		return m.Features
+	}
+	return 0
+}
+
+func (m *ModifyRouterAttributesInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesInput) GetDynIpStart() string {
+	if m != nil {
+		return m.DynIpStart
+	}
+	return ""
+}
+
+func (m *ModifyRouterAttributesInput) GetDynIpEnd() string {
+	if m != nil {
+		return m.DynIpEnd
+	}
+	return ""
+}
 
 type ModifyRouterAttributesOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -398,6 +881,7 @@ func (m *ModifyRouterAttributesOutput) GetMessage() string {
 }
 
 type DescribeRouterStaticsInput struct {
+	RouterStatics []string `protobuf:"bytes,1,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
 }
 
 func (m *DescribeRouterStaticsInput) Reset()                    { *m = DescribeRouterStaticsInput{} }
@@ -405,10 +889,18 @@ func (m *DescribeRouterStaticsInput) String() string            { return proto.C
 func (*DescribeRouterStaticsInput) ProtoMessage()               {}
 func (*DescribeRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{19} }
 
+func (m *DescribeRouterStaticsInput) GetRouterStatics() []string {
+	if m != nil {
+		return m.RouterStatics
+	}
+	return nil
+}
+
 type DescribeRouterStaticsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action        string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode       int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message       string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatics []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
 }
 
 func (m *DescribeRouterStaticsOutput) Reset()                    { *m = DescribeRouterStaticsOutput{} }
@@ -437,7 +929,17 @@ func (m *DescribeRouterStaticsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeRouterStaticsOutput) GetRouterStatics() []string {
+	if m != nil {
+		return m.RouterStatics
+	}
+	return nil
+}
+
 type AddRouterStaticsInput struct {
+	Router  string          `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
+	Statics []*RouterStatic `protobuf:"bytes,2,rep,name=statics" json:"statics,omitempty"`
+	Vxnet   string          `protobuf:"bytes,3,opt,name=vxnet" json:"vxnet,omitempty"`
 }
 
 func (m *AddRouterStaticsInput) Reset()                    { *m = AddRouterStaticsInput{} }
@@ -445,10 +947,32 @@ func (m *AddRouterStaticsInput) String() string            { return proto.Compac
 func (*AddRouterStaticsInput) ProtoMessage()               {}
 func (*AddRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{21} }
 
+func (m *AddRouterStaticsInput) GetRouter() string {
+	if m != nil {
+		return m.Router
+	}
+	return ""
+}
+
+func (m *AddRouterStaticsInput) GetStatics() []*RouterStatic {
+	if m != nil {
+		return m.Statics
+	}
+	return nil
+}
+
+func (m *AddRouterStaticsInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
 type AddRouterStaticsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action        string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode       int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message       string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatics []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
 }
 
 func (m *AddRouterStaticsOutput) Reset()                    { *m = AddRouterStaticsOutput{} }
@@ -477,7 +1001,22 @@ func (m *AddRouterStaticsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *AddRouterStaticsOutput) GetRouterStatics() []string {
+	if m != nil {
+		return m.RouterStatics
+	}
+	return nil
+}
+
 type ModifyRouterStaticAttributesInput struct {
+	RouterStatic     string `protobuf:"bytes,1,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
+	RouterStaticName string `protobuf:"bytes,2,opt,name=router_static_name,json=routerStaticName" json:"router_static_name,omitempty"`
+	Val1             string `protobuf:"bytes,3,opt,name=val1" json:"val1,omitempty"`
+	Val2             string `protobuf:"bytes,4,opt,name=val2" json:"val2,omitempty"`
+	Val3             string `protobuf:"bytes,5,opt,name=val3" json:"val3,omitempty"`
+	Val4             string `protobuf:"bytes,6,opt,name=val4" json:"val4,omitempty"`
+	Val5             string `protobuf:"bytes,7,opt,name=val5" json:"val5,omitempty"`
+	Val6             string `protobuf:"bytes,8,opt,name=val6" json:"val6,omitempty"`
 }
 
 func (m *ModifyRouterStaticAttributesInput) Reset()         { *m = ModifyRouterStaticAttributesInput{} }
@@ -487,10 +1026,67 @@ func (*ModifyRouterStaticAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor19, []int{23}
 }
 
+func (m *ModifyRouterStaticAttributesInput) GetRouterStatic() string {
+	if m != nil {
+		return m.RouterStatic
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesInput) GetRouterStaticName() string {
+	if m != nil {
+		return m.RouterStaticName
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesInput) GetVal1() string {
+	if m != nil {
+		return m.Val1
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesInput) GetVal2() string {
+	if m != nil {
+		return m.Val2
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesInput) GetVal3() string {
+	if m != nil {
+		return m.Val3
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesInput) GetVal4() string {
+	if m != nil {
+		return m.Val4
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesInput) GetVal5() string {
+	if m != nil {
+		return m.Val5
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticAttributesInput) GetVal6() string {
+	if m != nil {
+		return m.Val6
+	}
+	return ""
+}
+
 type ModifyRouterStaticAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action       string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode      int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message      string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatic []string `protobuf:"bytes,4,rep,name=router_static,json=routerStatic" json:"router_static,omitempty"`
 }
 
 func (m *ModifyRouterStaticAttributesOutput) Reset()         { *m = ModifyRouterStaticAttributesOutput{} }
@@ -521,7 +1117,15 @@ func (m *ModifyRouterStaticAttributesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifyRouterStaticAttributesOutput) GetRouterStatic() []string {
+	if m != nil {
+		return m.RouterStatic
+	}
+	return nil
+}
+
 type DeleteRouterStaticsInput struct {
+	RouterStatics []string `protobuf:"bytes,1,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
 }
 
 func (m *DeleteRouterStaticsInput) Reset()                    { *m = DeleteRouterStaticsInput{} }
@@ -529,10 +1133,18 @@ func (m *DeleteRouterStaticsInput) String() string            { return proto.Com
 func (*DeleteRouterStaticsInput) ProtoMessage()               {}
 func (*DeleteRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{25} }
 
+func (m *DeleteRouterStaticsInput) GetRouterStatics() []string {
+	if m != nil {
+		return m.RouterStatics
+	}
+	return nil
+}
+
 type DeleteRouterStaticsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action        string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode       int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message       string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatics []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
 }
 
 func (m *DeleteRouterStaticsOutput) Reset()                    { *m = DeleteRouterStaticsOutput{} }
@@ -559,6 +1171,13 @@ func (m *DeleteRouterStaticsOutput) GetMessage() string {
 		return m.Message
 	}
 	return ""
+}
+
+func (m *DeleteRouterStaticsOutput) GetRouterStatics() []string {
+	if m != nil {
+		return m.RouterStatics
+	}
+	return nil
 }
 
 type CopyRouterStaticsInput struct {
@@ -602,6 +1221,11 @@ func (m *CopyRouterStaticsOutput) GetMessage() string {
 }
 
 type DescribeRouterVxnetsInput struct {
+	Router  string `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
+	Vxnet   string `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	Verbose int32  `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
+	Offset  int32  `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Limit   int32  `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeRouterVxnetsInput) Reset()                    { *m = DescribeRouterVxnetsInput{} }
@@ -609,10 +1233,47 @@ func (m *DescribeRouterVxnetsInput) String() string            { return proto.Co
 func (*DescribeRouterVxnetsInput) ProtoMessage()               {}
 func (*DescribeRouterVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{29} }
 
+func (m *DescribeRouterVxnetsInput) GetRouter() string {
+	if m != nil {
+		return m.Router
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsInput) GetVerbose() int32 {
+	if m != nil {
+		return m.Verbose
+	}
+	return 0
+}
+
+func (m *DescribeRouterVxnetsInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeRouterVxnetsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeRouterVxnetsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action         string                                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode        int32                                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message        string                                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterVxnetSet []*DescribeRouterVxnetsOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_vxnet_set,json=routerVxnetSet" json:"router_vxnet_set,omitempty"`
+	TotalCount     int32                                      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeRouterVxnetsOutput) Reset()                    { *m = DescribeRouterVxnetsOutput{} }
@@ -641,7 +1302,99 @@ func (m *DescribeRouterVxnetsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeRouterVxnetsOutput) GetRouterVxnetSet() []*DescribeRouterVxnetsOutput_ResponseItem {
+	if m != nil {
+		return m.RouterVxnetSet
+	}
+	return nil
+}
+
+func (m *DescribeRouterVxnetsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeRouterVxnetsOutput_ResponseItem struct {
+	RouterId   string                      `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	VxnetId    string                      `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	ManagerIp  string                      `protobuf:"bytes,3,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	IpNetwork  string                      `protobuf:"bytes,4,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	DynIpStart string                      `protobuf:"bytes,5,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	DynIpEnd   string                      `protobuf:"bytes,6,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	Features   int32                       `protobuf:"varint,7,opt,name=features" json:"features,omitempty"`
+	CreateTime *google_protobuf1.Timestamp `protobuf:"bytes,8,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) Reset() {
+	*m = DescribeRouterVxnetsOutput_ResponseItem{}
+}
+func (m *DescribeRouterVxnetsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
+func (*DescribeRouterVxnetsOutput_ResponseItem) ProtoMessage()    {}
+func (*DescribeRouterVxnetsOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{30, 0}
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetRouterId() string {
+	if m != nil {
+		return m.RouterId
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetVxnetId() string {
+	if m != nil {
+		return m.VxnetId
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetManagerIp() string {
+	if m != nil {
+		return m.ManagerIp
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetIpNetwork() string {
+	if m != nil {
+		return m.IpNetwork
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetDynIpStart() string {
+	if m != nil {
+		return m.DynIpStart
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetDynIpEnd() string {
+	if m != nil {
+		return m.DynIpEnd
+	}
+	return ""
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetFeatures() int32 {
+	if m != nil {
+		return m.Features
+	}
+	return 0
+}
+
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
 type AddRouterStaticEntriesInput struct {
+	RouterStatic string                                     `protobuf:"bytes,1,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
+	Entries      []*AddRouterStaticEntriesInput_EntriesItem `protobuf:"bytes,2,rep,name=entries" json:"entries,omitempty"`
 }
 
 func (m *AddRouterStaticEntriesInput) Reset()                    { *m = AddRouterStaticEntriesInput{} }
@@ -649,10 +1402,53 @@ func (m *AddRouterStaticEntriesInput) String() string            { return proto.
 func (*AddRouterStaticEntriesInput) ProtoMessage()               {}
 func (*AddRouterStaticEntriesInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{31} }
 
+func (m *AddRouterStaticEntriesInput) GetRouterStatic() string {
+	if m != nil {
+		return m.RouterStatic
+	}
+	return ""
+}
+
+func (m *AddRouterStaticEntriesInput) GetEntries() []*AddRouterStaticEntriesInput_EntriesItem {
+	if m != nil {
+		return m.Entries
+	}
+	return nil
+}
+
+type AddRouterStaticEntriesInput_EntriesItem struct {
+	Val1 string `protobuf:"bytes,1,opt,name=val1" json:"val1,omitempty"`
+	Val2 string `protobuf:"bytes,2,opt,name=val2" json:"val2,omitempty"`
+}
+
+func (m *AddRouterStaticEntriesInput_EntriesItem) Reset() {
+	*m = AddRouterStaticEntriesInput_EntriesItem{}
+}
+func (m *AddRouterStaticEntriesInput_EntriesItem) String() string { return proto.CompactTextString(m) }
+func (*AddRouterStaticEntriesInput_EntriesItem) ProtoMessage()    {}
+func (*AddRouterStaticEntriesInput_EntriesItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor19, []int{31, 0}
+}
+
+func (m *AddRouterStaticEntriesInput_EntriesItem) GetVal1() string {
+	if m != nil {
+		return m.Val1
+	}
+	return ""
+}
+
+func (m *AddRouterStaticEntriesInput_EntriesItem) GetVal2() string {
+	if m != nil {
+		return m.Val2
+	}
+	return ""
+}
+
 type AddRouterStaticEntriesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action              string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode             int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message             string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStaticEntries []string `protobuf:"bytes,4,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
 }
 
 func (m *AddRouterStaticEntriesOutput) Reset()                    { *m = AddRouterStaticEntriesOutput{} }
@@ -681,7 +1477,15 @@ func (m *AddRouterStaticEntriesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *AddRouterStaticEntriesOutput) GetRouterStaticEntries() []string {
+	if m != nil {
+		return m.RouterStaticEntries
+	}
+	return nil
+}
+
 type DeleteRouterStaticEntriesInput struct {
+	RouterStaticEntries []string `protobuf:"bytes,1,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
 }
 
 func (m *DeleteRouterStaticEntriesInput) Reset()         { *m = DeleteRouterStaticEntriesInput{} }
@@ -691,10 +1495,18 @@ func (*DeleteRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor19, []int{33}
 }
 
+func (m *DeleteRouterStaticEntriesInput) GetRouterStaticEntries() []string {
+	if m != nil {
+		return m.RouterStaticEntries
+	}
+	return nil
+}
+
 type DeleteRouterStaticEntriesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action              string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode             int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message             string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStaticEntries []string `protobuf:"bytes,4,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
 }
 
 func (m *DeleteRouterStaticEntriesOutput) Reset()         { *m = DeleteRouterStaticEntriesOutput{} }
@@ -725,7 +1537,18 @@ func (m *DeleteRouterStaticEntriesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteRouterStaticEntriesOutput) GetRouterStaticEntries() []string {
+	if m != nil {
+		return m.RouterStaticEntries
+	}
+	return nil
+}
+
 type ModifyRouterStaticEntryAttributesInput struct {
+	RouterStaticEntry     string `protobuf:"bytes,1,opt,name=router_static_entry,json=routerStaticEntry" json:"router_static_entry,omitempty"`
+	RouterStaticEntryName string `protobuf:"bytes,2,opt,name=router_static_entry_name,json=routerStaticEntryName" json:"router_static_entry_name,omitempty"`
+	Val1                  string `protobuf:"bytes,3,opt,name=val1" json:"val1,omitempty"`
+	Val2                  string `protobuf:"bytes,4,opt,name=val2" json:"val2,omitempty"`
 }
 
 func (m *ModifyRouterStaticEntryAttributesInput) Reset() {
@@ -737,10 +1560,39 @@ func (*ModifyRouterStaticEntryAttributesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor19, []int{35}
 }
 
+func (m *ModifyRouterStaticEntryAttributesInput) GetRouterStaticEntry() string {
+	if m != nil {
+		return m.RouterStaticEntry
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticEntryAttributesInput) GetRouterStaticEntryName() string {
+	if m != nil {
+		return m.RouterStaticEntryName
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticEntryAttributesInput) GetVal1() string {
+	if m != nil {
+		return m.Val1
+	}
+	return ""
+}
+
+func (m *ModifyRouterStaticEntryAttributesInput) GetVal2() string {
+	if m != nil {
+		return m.Val2
+	}
+	return ""
+}
+
 type ModifyRouterStaticEntryAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action            string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode           int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message           string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStaticEntry string `protobuf:"bytes,4,opt,name=router_static_entry,json=routerStaticEntry" json:"router_static_entry,omitempty"`
 }
 
 func (m *ModifyRouterStaticEntryAttributesOutput) Reset() {
@@ -773,7 +1625,18 @@ func (m *ModifyRouterStaticEntryAttributesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifyRouterStaticEntryAttributesOutput) GetRouterStaticEntry() string {
+	if m != nil {
+		return m.RouterStaticEntry
+	}
+	return ""
+}
+
 type DescribeRouterStaticEntriesInput struct {
+	RouterStaticEntryId string `protobuf:"bytes,1,opt,name=router_static_entry_id,json=routerStaticEntryId" json:"router_static_entry_id,omitempty"`
+	RouterStatic        string `protobuf:"bytes,2,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
+	Offset              int32  `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit               int32  `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeRouterStaticEntriesInput) Reset()         { *m = DescribeRouterStaticEntriesInput{} }
@@ -783,10 +1646,40 @@ func (*DescribeRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor19, []int{37}
 }
 
+func (m *DescribeRouterStaticEntriesInput) GetRouterStaticEntryId() string {
+	if m != nil {
+		return m.RouterStaticEntryId
+	}
+	return ""
+}
+
+func (m *DescribeRouterStaticEntriesInput) GetRouterStatic() string {
+	if m != nil {
+		return m.RouterStatic
+	}
+	return ""
+}
+
+func (m *DescribeRouterStaticEntriesInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeRouterStaticEntriesInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeRouterStaticEntriesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action               string               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              int32                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStaticEntrySet []*RouterStaticEntry `protobuf:"bytes,4,rep,name=router_static_entry_set,json=routerStaticEntrySet" json:"router_static_entry_set,omitempty"`
+	TotalCount           int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeRouterStaticEntriesOutput) Reset()         { *m = DescribeRouterStaticEntriesOutput{} }
@@ -817,10 +1710,25 @@ func (m *DescribeRouterStaticEntriesOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeRouterStaticEntriesOutput) GetRouterStaticEntrySet() []*RouterStaticEntry {
+	if m != nil {
+		return m.RouterStaticEntrySet
+	}
+	return nil
+}
+
+func (m *DescribeRouterStaticEntriesOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*RouterServiceProperties)(nil), "service.RouterServiceProperties")
 	proto.RegisterType((*DescribeRoutersInput)(nil), "service.DescribeRoutersInput")
 	proto.RegisterType((*DescribeRoutersOutput)(nil), "service.DescribeRoutersOutput")
+	proto.RegisterType((*DescribeRoutersOutput_ResponseItem)(nil), "service.DescribeRoutersOutput.ResponseItem")
 	proto.RegisterType((*CreateRoutersInput)(nil), "service.CreateRoutersInput")
 	proto.RegisterType((*CreateRoutersOutput)(nil), "service.CreateRoutersOutput")
 	proto.RegisterType((*DeleteRoutersInput)(nil), "service.DeleteRoutersInput")
@@ -849,7 +1757,9 @@ func init() {
 	proto.RegisterType((*CopyRouterStaticsOutput)(nil), "service.CopyRouterStaticsOutput")
 	proto.RegisterType((*DescribeRouterVxnetsInput)(nil), "service.DescribeRouterVxnetsInput")
 	proto.RegisterType((*DescribeRouterVxnetsOutput)(nil), "service.DescribeRouterVxnetsOutput")
+	proto.RegisterType((*DescribeRouterVxnetsOutput_ResponseItem)(nil), "service.DescribeRouterVxnetsOutput.ResponseItem")
 	proto.RegisterType((*AddRouterStaticEntriesInput)(nil), "service.AddRouterStaticEntriesInput")
+	proto.RegisterType((*AddRouterStaticEntriesInput_EntriesItem)(nil), "service.AddRouterStaticEntriesInput.EntriesItem")
 	proto.RegisterType((*AddRouterStaticEntriesOutput)(nil), "service.AddRouterStaticEntriesOutput")
 	proto.RegisterType((*DeleteRouterStaticEntriesInput)(nil), "service.DeleteRouterStaticEntriesInput")
 	proto.RegisterType((*DeleteRouterStaticEntriesOutput)(nil), "service.DeleteRouterStaticEntriesOutput")
@@ -1494,57 +2404,124 @@ func (p *DescribeRouterStaticEntriesInput) Validate() error {
 func init() { proto.RegisterFile("router.proto", fileDescriptor19) }
 
 var fileDescriptor19 = []byte{
-	// 827 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x58, 0xcd, 0x52, 0xdb, 0x3a,
-	0x14, 0x9e, 0xdc, 0xcb, 0x85, 0xcb, 0xb9, 0x97, 0x3f, 0x01, 0x89, 0x51, 0x12, 0x08, 0x86, 0x96,
-	0x94, 0x4e, 0xa1, 0xd3, 0x3e, 0x01, 0x13, 0xba, 0x28, 0x53, 0x86, 0x14, 0xa6, 0xac, 0x3a, 0x93,
-	0x26, 0xb6, 0x42, 0x5d, 0x52, 0xcb, 0xc8, 0x32, 0x94, 0x3e, 0x40, 0x17, 0x5d, 0xf4, 0x5d, 0xfb,
-	0x06, 0x1d, 0x62, 0x05, 0x4b, 0xb2, 0x6c, 0xd8, 0x68, 0xc3, 0x60, 0x9d, 0x4f, 0xe7, 0xfb, 0x24,
-	0x1d, 0xf9, 0x7c, 0x0e, 0xfc, 0xcf, 0x68, 0xc2, 0x09, 0xdb, 0x8b, 0x18, 0xe5, 0x14, 0xcd, 0xc4,
-	0x84, 0x5d, 0x07, 0x1e, 0xc1, 0xcd, 0xab, 0x20, 0xbc, 0xf0, 0x46, 0x34, 0xf1, 0x7b, 0xb1, 0x7f,
-	0xd9, 0x63, 0xc9, 0x88, 0xec, 0xdf, 0xfd, 0x49, 0x71, 0xee, 0x0b, 0xa8, 0x9d, 0x8e, 0xe7, 0x9d,
-	0xa5, 0xf8, 0x2e, 0xa3, 0x11, 0x61, 0x3c, 0x20, 0x31, 0x42, 0x30, 0xf5, 0x9d, 0x86, 0xc4, 0xa9,
-	0xb4, 0x2a, 0xed, 0xd9, 0xd3, 0xf1, 0xff, 0x6e, 0x15, 0x56, 0x0e, 0x49, 0xec, 0xb1, 0x60, 0x40,
-	0xd2, 0x69, 0xf1, 0xdb, 0x30, 0x4a, 0xb8, 0xeb, 0xc3, 0xaa, 0x36, 0x7e, 0x92, 0xf0, 0x28, 0xe1,
-	0xa8, 0x0a, 0xd3, 0x7d, 0x8f, 0x07, 0x34, 0x14, 0x69, 0xc4, 0x13, 0x5a, 0x83, 0x7f, 0x19, 0xe1,
-	0x3d, 0x8f, 0xfa, 0xc4, 0xf9, 0xab, 0x55, 0x69, 0xff, 0x73, 0x3a, 0xc3, 0x08, 0xef, 0x50, 0x9f,
-	0x20, 0x07, 0x66, 0xbe, 0x92, 0x38, 0xee, 0x5f, 0x10, 0xe7, 0xef, 0xf1, 0x9c, 0xc9, 0xa3, 0xbb,
-	0x02, 0xa8, 0xc3, 0x48, 0x9f, 0xab, 0xdc, 0x03, 0x58, 0x56, 0x46, 0x2d, 0x31, 0x1f, 0x92, 0x11,
-	0xc9, 0x33, 0x2b, 0xa3, 0x96, 0x98, 0x3f, 0x44, 0xbe, 0x61, 0xcd, 0xca, 0xa8, 0x0d, 0xe6, 0x2a,
-	0xac, 0x74, 0xe9, 0x0d, 0x61, 0x27, 0xc3, 0xa1, 0x7e, 0xd6, 0xda, 0xb8, 0x0d, 0xf6, 0x55, 0x58,
-	0x4e, 0x59, 0x42, 0x85, 0xdc, 0x9b, 0x88, 0x0a, 0x2d, 0x72, 0x2f, 0xc1, 0xc2, 0x11, 0x0d, 0x04,
-	0x43, 0xca, 0xdb, 0x83, 0xc5, 0x6c, 0xc8, 0x06, 0x27, 0x82, 0xc5, 0x77, 0xa4, 0x7f, 0x4d, 0x64,
-	0xd2, 0x4f, 0xb0, 0x24, 0x8d, 0xd9, 0x60, 0x6d, 0x42, 0xfd, 0x98, 0xfa, 0xc1, 0xf0, 0x36, 0xa5,
-	0x38, 0xe0, 0x9c, 0x05, 0x83, 0x84, 0x13, 0xb1, 0xdb, 0x97, 0xd0, 0x30, 0x87, 0x6d, 0x68, 0x69,
-	0x00, 0x56, 0xdf, 0x21, 0x67, 0xbc, 0xcf, 0x03, 0x4f, 0x48, 0xf9, 0x02, 0x75, 0x63, 0xd4, 0x86,
-	0x92, 0x1a, 0xac, 0x1e, 0xf8, 0xbe, 0x41, 0x04, 0x81, 0xaa, 0x1e, 0xb0, 0xc1, 0xbf, 0x05, 0x9b,
-	0xf2, 0xb6, 0xa7, 0x4c, 0xfa, 0xd9, 0x5c, 0x81, 0x5b, 0x06, 0xb2, 0xa1, 0x0b, 0x83, 0x23, 0xbf,
-	0xef, 0x94, 0xad, 0xf9, 0x0c, 0x6b, 0x86, 0x98, 0x0d, 0x15, 0x0e, 0x54, 0x3b, 0x34, 0xba, 0x35,
-	0x68, 0x18, 0x42, 0x2d, 0x17, 0xb1, 0xa1, 0xa0, 0x7e, 0xb7, 0x56, 0xb9, 0x16, 0xcf, 0xbf, 0x85,
-	0x84, 0x0b, 0x11, 0x81, 0x5e, 0xc6, 0x69, 0xd0, 0xd2, 0xed, 0xd5, 0xca, 0xf1, 0x4d, 0xc8, 0x59,
-	0x20, 0xdd, 0x5e, 0x73, 0xd8, 0x86, 0x96, 0x16, 0xac, 0xe7, 0xcf, 0x5f, 0x91, 0x13, 0xc2, 0x46,
-	0x21, 0xc2, 0x86, 0xa2, 0x36, 0x3c, 0xcd, 0x5f, 0x90, 0x3b, 0xbe, 0x5b, 0xfd, 0x2a, 0x5d, 0xc3,
-	0xce, 0x83, 0x48, 0x1b, 0x0a, 0x5d, 0x68, 0x99, 0xde, 0x69, 0xca, 0xae, 0x45, 0xb0, 0x59, 0x82,
-	0xb1, 0xa0, 0xea, 0xd5, 0xaf, 0x79, 0x98, 0x53, 0x3c, 0x21, 0xea, 0xc2, 0x82, 0xe6, 0xee, 0x50,
-	0x73, 0x4f, 0x18, 0xcc, 0x3d, 0x93, 0x1f, 0xc4, 0xeb, 0x45, 0x61, 0x21, 0xf8, 0x08, 0xe6, 0x14,
-	0xcf, 0x86, 0xea, 0xf7, 0x13, 0xf2, 0x0e, 0x0f, 0x37, 0xcc, 0xc1, 0x2c, 0x97, 0xe2, 0xc2, 0xa4,
-	0x5c, 0x79, 0xcf, 0x26, 0xe5, 0x32, 0x59, 0xb7, 0x23, 0x98, 0x53, 0x7c, 0x95, 0x94, 0x2b, 0xef,
-	0xc2, 0xa4, 0x5c, 0x26, 0x33, 0xd6, 0x85, 0x05, 0xcd, 0x27, 0x49, 0xbb, 0x66, 0x72, 0x56, 0xd2,
-	0xae, 0x99, 0x0d, 0xd6, 0x31, 0xcc, 0xab, 0xe6, 0x07, 0x35, 0xb4, 0x19, 0x8a, 0x59, 0xc2, 0xcd,
-	0x82, 0xa8, 0x48, 0x77, 0x00, 0x90, 0x79, 0x1a, 0xe4, 0xdc, 0x83, 0x35, 0xef, 0x83, 0xd7, 0x0c,
-	0x11, 0x91, 0xe2, 0x10, 0xfe, 0x93, 0x1c, 0x0a, 0xca, 0x90, 0xba, 0x97, 0xc1, 0xd8, 0x14, 0x12,
-	0x59, 0x08, 0x54, 0xcd, 0x36, 0x03, 0x6d, 0xdf, 0xcf, 0x2a, 0xb1, 0x29, 0xf8, 0xc9, 0x03, 0x28,
-	0x41, 0x33, 0xd0, 0x3f, 0x52, 0x44, 0x8b, 0x40, 0x5b, 0x05, 0xd5, 0x2a, 0x37, 0x17, 0xbc, 0x5d,
-	0x0e, 0x12, 0x1c, 0x67, 0xb0, 0xa8, 0x3b, 0x04, 0x94, 0x1d, 0xab, 0xd1, 0x55, 0xe0, 0x8d, 0xc2,
-	0xb8, 0x48, 0x7a, 0xa3, 0xda, 0x30, 0xbd, 0xd5, 0xa3, 0x5d, 0xe3, 0xfa, 0x8d, 0xb6, 0x01, 0x3f,
-	0x7f, 0x14, 0x56, 0x10, 0x7f, 0x54, 0x3f, 0x70, 0x26, 0x0b, 0xda, 0x34, 0xde, 0x21, 0x65, 0x4d,
-	0x6e, 0x19, 0x44, 0x64, 0x3f, 0x87, 0xa5, 0x5c, 0xbb, 0x46, 0xd9, 0x66, 0x98, 0x9b, 0x3c, 0x6e,
-	0x15, 0x03, 0x44, 0xde, 0x9e, 0xfe, 0x91, 0x9a, 0x76, 0x60, 0xe4, 0x16, 0x9c, 0xa0, 0xd4, 0xbd,
-	0xf1, 0x56, 0x29, 0x26, 0xab, 0x57, 0x73, 0x63, 0x95, 0xea, 0xb5, 0xa4, 0x31, 0x4b, 0xf5, 0x5a,
-	0xda, 0x9f, 0x43, 0x93, 0xa5, 0x9a, 0x30, 0xed, 0x94, 0x6c, 0xb0, 0x42, 0xd6, 0x7e, 0x18, 0x28,
-	0xf8, 0x7e, 0x54, 0x4c, 0xbe, 0x53, 0xeb, 0x83, 0x68, 0xbf, 0xa4, 0x80, 0x4c, 0xdd, 0x15, 0xbf,
-	0x7c, 0xfc, 0x04, 0x21, 0x84, 0x9b, 0xbd, 0xfe, 0x64, 0xe9, 0xcf, 0x4a, 0x6f, 0xa2, 0xb2, 0xf8,
-	0xdd, 0xc7, 0x40, 0x53, 0x56, 0x5c, 0xfb, 0xf9, 0x7b, 0x6a, 0x19, 0xcd, 0xbe, 0x0f, 0xc2, 0x8b,
-	0xce, 0x88, 0x26, 0x3e, 0x9e, 0x4e, 0xb1, 0x83, 0xe9, 0xf1, 0x4f, 0x25, 0xaf, 0xff, 0x04, 0x00,
-	0x00, 0xff, 0xff, 0xc0, 0x39, 0x84, 0x75, 0x62, 0x11, 0x00, 0x00,
+	// 1897 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x19, 0x4d, 0x6f, 0x23, 0x49,
+	0x55, 0x1d, 0x7f, 0x3f, 0x27, 0x99, 0xa4, 0xf2, 0xd5, 0xe9, 0x7c, 0x79, 0x7a, 0x76, 0xd8, 0x30,
+	0x03, 0xce, 0x90, 0x61, 0xe1, 0xc0, 0x29, 0x64, 0x46, 0xc8, 0x11, 0xbb, 0x9b, 0x75, 0x66, 0x17,
+	0x09, 0x21, 0xb5, 0xda, 0xee, 0xb2, 0xe9, 0x1d, 0xbb, 0xbb, 0xe9, 0x2e, 0x3b, 0x78, 0xb9, 0xef,
+	0x01, 0x21, 0xd0, 0x0a, 0x89, 0x1b, 0x42, 0x02, 0x89, 0x03, 0xff, 0x80, 0x3b, 0xfc, 0x04, 0x0e,
+	0x88, 0x2b, 0x67, 0x04, 0xff, 0x00, 0xd5, 0x47, 0xdb, 0xd5, 0xdd, 0xd5, 0x8e, 0x83, 0xe4, 0x2c,
+	0x17, 0xab, 0xeb, 0xd5, 0xab, 0x57, 0xef, 0xfb, 0xbd, 0x7a, 0x86, 0xd5, 0xd0, 0x1f, 0x11, 0x1c,
+	0x36, 0x83, 0xd0, 0x27, 0x3e, 0xaa, 0x44, 0x38, 0x1c, 0xbb, 0x5d, 0x6c, 0xd4, 0xc9, 0x24, 0xc0,
+	0x11, 0x87, 0x1a, 0x47, 0x3f, 0x71, 0xbd, 0x7e, 0x77, 0xe0, 0x8f, 0x1c, 0x2b, 0x72, 0xde, 0x5a,
+	0xe1, 0x68, 0x80, 0xcf, 0xe8, 0x8f, 0xd8, 0x3e, 0xe9, 0xfb, 0x7e, 0x7f, 0x80, 0xcf, 0xd8, 0xaa,
+	0x33, 0xea, 0x9d, 0x11, 0x77, 0x88, 0x23, 0x62, 0x0f, 0x03, 0x8e, 0x60, 0x7e, 0x1d, 0xf6, 0xda,
+	0xec, 0x96, 0x1b, 0x4e, 0xfd, 0x3a, 0xf4, 0x03, 0x1c, 0x12, 0x17, 0x47, 0x08, 0x41, 0xf1, 0x33,
+	0xdf, 0xc3, 0xba, 0xd6, 0xd0, 0x4e, 0x6b, 0x6d, 0xf6, 0x6d, 0xfe, 0x43, 0x83, 0xed, 0x57, 0x38,
+	0xea, 0x86, 0x6e, 0x07, 0xf3, 0x73, 0x51, 0xcb, 0x0b, 0x46, 0x04, 0xe9, 0x50, 0xe1, 0xdc, 0x46,
+	0xba, 0xd6, 0x28, 0x9c, 0xd6, 0xda, 0xf1, 0x12, 0x6d, 0x43, 0x69, 0xfc, 0x53, 0x0f, 0x13, 0x7d,
+	0x85, 0xd1, 0xe1, 0x0b, 0xb4, 0x0b, 0xe5, 0x88, 0xd8, 0x64, 0x14, 0xe9, 0x05, 0x86, 0x2e, 0x56,
+	0xe8, 0x04, 0xea, 0x11, 0xb6, 0xc3, 0xee, 0x8f, 0xad, 0x5b, 0x3f, 0x74, 0xf4, 0x22, 0x3b, 0x03,
+	0x1c, 0xf4, 0x03, 0x3f, 0x74, 0x28, 0x57, 0xc4, 0xee, 0x47, 0x7a, 0x89, 0x1d, 0x63, 0xdf, 0xf4,
+	0xf2, 0x31, 0x0e, 0x3b, 0x7e, 0x84, 0xf5, 0x72, 0x43, 0x3b, 0x2d, 0xb5, 0xe3, 0x25, 0xbd, 0xc6,
+	0xef, 0xf5, 0x22, 0x4c, 0xf4, 0x0a, 0xdb, 0x10, 0x2b, 0xca, 0xd4, 0xc0, 0x1d, 0xba, 0x44, 0xaf,
+	0x32, 0x30, 0x5f, 0x98, 0x7f, 0x29, 0xc1, 0x4e, 0x4a, 0xba, 0x0f, 0x47, 0x84, 0x8a, 0xb7, 0x0b,
+	0x65, 0xbb, 0x4b, 0x5c, 0xdf, 0x13, 0xda, 0x10, 0x2b, 0xb4, 0x0f, 0xd5, 0x10, 0x13, 0xab, 0xeb,
+	0x3b, 0x98, 0xc9, 0x57, 0x6a, 0x57, 0x42, 0x4c, 0x2e, 0x7d, 0x07, 0x53, 0xa6, 0x86, 0x38, 0x8a,
+	0xec, 0x3e, 0xd6, 0x0b, 0xec, 0x4c, 0xbc, 0x44, 0x57, 0x00, 0x5c, 0x39, 0x16, 0x65, 0xac, 0xd8,
+	0x28, 0x9c, 0xd6, 0xcf, 0x9f, 0x37, 0x85, 0x79, 0x9b, 0x4a, 0x06, 0x9a, 0x6d, 0x1c, 0x05, 0xbe,
+	0x17, 0xe1, 0x16, 0xc1, 0xc3, 0x76, 0x2d, 0x14, 0x26, 0x23, 0x54, 0x5f, 0xc4, 0x27, 0xf6, 0xc0,
+	0xea, 0xfa, 0x23, 0x8f, 0xe8, 0x25, 0xc6, 0x03, 0x30, 0xd0, 0x25, 0x85, 0x18, 0xff, 0x2e, 0xc0,
+	0xaa, 0x7c, 0x18, 0x1d, 0x80, 0x38, 0x6e, 0xb9, 0x8e, 0x90, 0xa6, 0xca, 0x01, 0x2d, 0x87, 0x92,
+	0x13, 0x9b, 0x9e, 0x3d, 0xc4, 0xc2, 0x64, 0x82, 0xdb, 0x0f, 0xec, 0x21, 0x46, 0x0d, 0xa8, 0x3b,
+	0x8c, 0xc1, 0x80, 0x69, 0x83, 0xdb, 0x47, 0x06, 0x49, 0x24, 0xa8, 0x9f, 0xc6, 0x1c, 0x71, 0xd0,
+	0x9b, 0x49, 0x80, 0xd1, 0x11, 0x40, 0x10, 0xba, 0x63, 0x9b, 0x60, 0xcb, 0x0d, 0x98, 0xc1, 0x6a,
+	0xed, 0x9a, 0x80, 0xb4, 0x02, 0xba, 0xed, 0x46, 0x96, 0x1d, 0x04, 0x03, 0x17, 0x3b, 0xc2, 0x6c,
+	0x35, 0x37, 0xba, 0xe0, 0x00, 0xc9, 0x71, 0xaa, 0xdc, 0x12, 0xc2, 0x71, 0x9e, 0xc3, 0x26, 0x09,
+	0x6d, 0x2f, 0x72, 0x29, 0x13, 0x96, 0x40, 0xa9, 0x31, 0x94, 0x8d, 0xd9, 0xc6, 0x0d, 0x47, 0xfe,
+	0x0e, 0xd4, 0xbb, 0x21, 0xa6, 0x1c, 0xd0, 0x78, 0xd0, 0xa1, 0xa1, 0x9d, 0xd6, 0xcf, 0x8d, 0x26,
+	0x0f, 0x96, 0x66, 0x1c, 0x2c, 0xcd, 0x37, 0x71, 0xb0, 0xb4, 0x81, 0xa3, 0x53, 0x00, 0x3d, 0xcc,
+	0xc9, 0xf3, 0xc3, 0xf5, 0xbb, 0x0f, 0x73, 0x74, 0x76, 0xf8, 0x19, 0x6c, 0x46, 0xb8, 0x3b, 0x0a,
+	0x5d, 0x32, 0xb1, 0xfa, 0xa1, 0x3f, 0x0a, 0xa8, 0x15, 0x56, 0x19, 0x9b, 0x8f, 0xe2, 0x8d, 0xef,
+	0x51, 0x78, 0xcb, 0x41, 0xc7, 0x50, 0xc0, 0x6e, 0xa0, 0xaf, 0xb1, 0x0b, 0x56, 0xa7, 0x0e, 0xf2,
+	0xba, 0x75, 0xdd, 0xa6, 0x1b, 0x54, 0x15, 0x2c, 0x98, 0x22, 0x7d, 0x9d, 0xc7, 0x10, 0x5f, 0x99,
+	0x7f, 0xd3, 0x00, 0x5d, 0x32, 0x7e, 0x13, 0x21, 0x9a, 0xb2, 0xad, 0x96, 0xb1, 0x6d, 0xca, 0x72,
+	0x2b, 0x19, 0xcb, 0x9d, 0x40, 0x7d, 0x1c, 0x74, 0x2d, 0x0f, 0x93, 0x5b, 0x3f, 0x7c, 0x2b, 0xdc,
+	0x1a, 0xc6, 0x41, 0xf7, 0x03, 0x0e, 0xa1, 0x61, 0xc5, 0xfd, 0xb0, 0xc8, 0xc3, 0x8a, 0x2d, 0xd0,
+	0x53, 0x58, 0x4f, 0xca, 0xcc, 0x9c, 0xa2, 0xd6, 0x5e, 0x4b, 0x08, 0xcc, 0x5c, 0xd9, 0x0e, 0xfb,
+	0x98, 0x58, 0xa3, 0x08, 0x87, 0xc2, 0x31, 0x80, 0x83, 0x3e, 0x8e, 0x70, 0x68, 0xfe, 0x5a, 0x83,
+	0xad, 0x84, 0x5c, 0xcb, 0x08, 0xce, 0x1d, 0x28, 0x7f, 0xea, 0x77, 0xa8, 0x55, 0xb8, 0x6f, 0x97,
+	0x3e, 0xf5, 0x3b, 0x2d, 0x47, 0xce, 0x6f, 0x9c, 0xf9, 0x78, 0x69, 0x36, 0x01, 0xbd, 0xc2, 0x03,
+	0x4c, 0x16, 0xcc, 0x87, 0xe6, 0x04, 0xb6, 0x12, 0xf8, 0x0f, 0x27, 0x04, 0x65, 0xf5, 0xe3, 0xc0,
+	0xb1, 0xef, 0xc3, 0x6a, 0x02, 0xff, 0x01, 0x59, 0x7d, 0x01, 0xdb, 0xd7, 0xfe, 0x2d, 0x0e, 0x3f,
+	0xec, 0xf5, 0x16, 0x64, 0xf6, 0x67, 0xb0, 0x93, 0x3a, 0xf1, 0x80, 0xec, 0x9e, 0xc1, 0x16, 0xbf,
+	0xdc, 0x5b, 0x90, 0xdb, 0xcf, 0x62, 0xf9, 0xbc, 0x87, 0x67, 0xf6, 0xef, 0x1a, 0x3c, 0xba, 0xf2,
+	0x5d, 0x71, 0x33, 0xe7, 0x74, 0x5a, 0xa5, 0xb5, 0x54, 0x95, 0xe6, 0x0c, 0x8b, 0x4a, 0x20, 0x56,
+	0x2c, 0x47, 0x07, 0xa9, 0x3c, 0x50, 0x73, 0x83, 0x38, 0x0d, 0x18, 0x50, 0xed, 0x61, 0x9b, 0x8c,
+	0x42, 0x1c, 0x89, 0x4c, 0x30, 0x5d, 0xd3, 0xa3, 0x43, 0xdb, 0xb3, 0xfb, 0xb4, 0xfe, 0xc4, 0x89,
+	0xa0, 0x26, 0x20, 0xad, 0x00, 0x35, 0x60, 0xd5, 0x99, 0x78, 0x96, 0x1b, 0xd0, 0x14, 0x1e, 0x92,
+	0x38, 0x0b, 0x38, 0x13, 0xaf, 0x15, 0xdc, 0x50, 0x08, 0x3a, 0x04, 0x10, 0x18, 0xd8, 0xe3, 0xf5,
+	0xa1, 0xd6, 0xae, 0xb2, 0xfd, 0xd7, 0x9e, 0x63, 0x8e, 0x61, 0x63, 0x26, 0xda, 0x03, 0xea, 0xf4,
+	0xbb, 0xb0, 0xf1, 0x7d, 0x6c, 0x8f, 0xb1, 0xac, 0xd3, 0x59, 0x7e, 0xd6, 0xe4, 0xfc, 0x9c, 0xa7,
+	0x55, 0xf3, 0x16, 0x36, 0x25, 0x1a, 0x0f, 0xc8, 0xfc, 0x1f, 0x56, 0xe0, 0xe0, 0x7d, 0xdf, 0x71,
+	0x7b, 0x13, 0x7e, 0xf5, 0x05, 0x21, 0xa1, 0xdb, 0x19, 0x11, 0x1c, 0x4d, 0x05, 0x11, 0x0c, 0x6b,
+	0x09, 0x37, 0xd8, 0xe0, 0x05, 0x8a, 0x4b, 0xc1, 0x4a, 0x52, 0x36, 0xd5, 0x17, 0x72, 0x52, 0xbd,
+	0x5c, 0x8a, 0x8a, 0x77, 0xb5, 0x19, 0xa5, 0x6c, 0x9b, 0x21, 0xfb, 0x58, 0x39, 0xe5, 0x63, 0x53,
+	0x67, 0xae, 0xc8, 0xce, 0x9c, 0x76, 0xad, 0xea, 0x1d, 0xae, 0x55, 0x4b, 0xb9, 0xd6, 0x5b, 0x38,
+	0x54, 0x2b, 0x69, 0x09, 0x96, 0x32, 0x2f, 0xc1, 0x48, 0x36, 0x82, 0xb4, 0x73, 0x71, 0xbb, 0xc2,
+	0x20, 0x4f, 0x61, 0x3d, 0xee, 0x20, 0x39, 0x58, 0x78, 0xd8, 0x5a, 0x28, 0xe3, 0x9a, 0x5f, 0x68,
+	0x70, 0xa0, 0xa4, 0xb2, 0x0c, 0xdf, 0xca, 0xf2, 0x54, 0x54, 0xf1, 0x34, 0x86, 0x9d, 0x0b, 0xc7,
+	0x51, 0xc8, 0x94, 0xe7, 0x64, 0x67, 0x50, 0x89, 0x09, 0xae, 0xb0, 0x56, 0x79, 0x67, 0xda, 0x09,
+	0xc9, 0x54, 0xda, 0x31, 0xd6, 0xcc, 0xfa, 0x05, 0xc9, 0xfa, 0xe6, 0x2f, 0x34, 0xd8, 0x4d, 0x5f,
+	0xfc, 0x25, 0xaa, 0xe1, 0x5f, 0x1a, 0x3c, 0x96, 0xbd, 0x89, 0xc3, 0xd3, 0x81, 0xf7, 0x04, 0xd6,
+	0x12, 0xc4, 0x04, 0x83, 0xab, 0x32, 0x2d, 0xf4, 0x35, 0x40, 0x09, 0x24, 0xb9, 0x75, 0xdf, 0x90,
+	0x31, 0x59, 0x64, 0x21, 0x28, 0x8e, 0xed, 0xc1, 0x37, 0x04, 0xdb, 0xec, 0x5b, 0xc0, 0xce, 0x45,
+	0x1c, 0xb2, 0x6f, 0x01, 0x7b, 0x29, 0x42, 0x8f, 0x7d, 0x0b, 0xd8, 0x37, 0x45, 0x52, 0x66, 0xdf,
+	0x02, 0xf6, 0x9e, 0x08, 0x35, 0xf6, 0x2d, 0x60, 0xdf, 0x12, 0x11, 0xc6, 0xbe, 0xcd, 0xdf, 0x68,
+	0x60, 0xce, 0x13, 0x78, 0x19, 0xb6, 0xc8, 0xa8, 0x8f, 0x9b, 0x22, 0xa1, 0x3e, 0xf3, 0x02, 0x74,
+	0xb9, 0x1f, 0xfb, 0x5f, 0xe2, 0xec, 0x57, 0x1a, 0xec, 0x2b, 0x68, 0x7c, 0x89, 0xee, 0xa5, 0xc3,
+	0xee, 0xa5, 0x1f, 0x4c, 0xb2, 0x22, 0x99, 0x3d, 0xd8, 0xcb, 0xec, 0x2c, 0x23, 0x81, 0x7d, 0xc1,
+	0x74, 0x22, 0xe7, 0x9e, 0x4f, 0x58, 0xf5, 0x9b, 0x1f, 0xec, 0xea, 0x61, 0x81, 0xf4, 0xbe, 0x2f,
+	0xe4, 0xbd, 0xef, 0x8b, 0xea, 0xf7, 0x7d, 0x49, 0x7e, 0xdf, 0x7f, 0x5e, 0x4c, 0x67, 0x55, 0xce,
+	0xd3, 0x32, 0x0c, 0xf5, 0x43, 0x10, 0xb1, 0x67, 0x31, 0x19, 0xa4, 0xa7, 0xfe, 0x8b, 0x9c, 0xa7,
+	0xbe, 0xcc, 0x4b, 0xf2, 0xbd, 0x2f, 0x4c, 0xce, 0x10, 0x16, 0x7a, 0xf4, 0xff, 0x76, 0xe5, 0x3e,
+	0x8f, 0xfe, 0x7d, 0xa8, 0x72, 0x1e, 0x5d, 0x47, 0xe8, 0xbd, 0xc2, 0xd6, 0x2d, 0x27, 0xd5, 0xad,
+	0x15, 0xd2, 0xdd, 0x5a, 0xb2, 0x0f, 0x2c, 0xa6, 0xfb, 0xc0, 0x74, 0xc5, 0x2d, 0xdd, 0x51, 0x71,
+	0xcb, 0xc9, 0x8a, 0x9b, 0xa8, 0xf1, 0x95, 0x54, 0x8d, 0x4f, 0x3d, 0xe1, 0xab, 0xf7, 0x79, 0xc2,
+	0x9b, 0x7f, 0xd5, 0xe0, 0x20, 0x55, 0x0c, 0x5e, 0x7b, 0x24, 0x74, 0xef, 0x95, 0x77, 0xaf, 0xa0,
+	0x82, 0xf9, 0x21, 0x51, 0x98, 0x66, 0x86, 0x9d, 0x43, 0xbb, 0x19, 0x2f, 0xa8, 0x61, 0x63, 0x02,
+	0xc6, 0x7b, 0x50, 0x97, 0xe0, 0xd3, 0x24, 0xad, 0x29, 0x92, 0xf4, 0xca, 0x2c, 0x49, 0x9b, 0xbf,
+	0xd3, 0xe0, 0x50, 0x7d, 0xd7, 0x32, 0x5c, 0xfa, 0x1c, 0x76, 0x92, 0x85, 0x26, 0x16, 0x9f, 0xa7,
+	0xa0, 0xad, 0x30, 0xcb, 0x86, 0xf9, 0x06, 0x8e, 0xb3, 0x99, 0x31, 0xa1, 0xeb, 0x5c, 0xaa, 0x5a,
+	0x3e, 0xd5, 0xdf, 0x6b, 0x70, 0x92, 0x4b, 0xf6, 0xff, 0x45, 0xf4, 0x3f, 0x6b, 0xf0, 0x95, 0x6c,
+	0xc5, 0xa3, 0xbb, 0x93, 0x74, 0x9d, 0x6f, 0xc2, 0x56, 0x96, 0xfc, 0x44, 0x30, 0xbe, 0x99, 0x26,
+	0x3e, 0x41, 0xdf, 0x06, 0x5d, 0x81, 0x2f, 0x17, 0xfe, 0x9d, 0xcc, 0xa1, 0xfb, 0x54, 0x7f, 0xf3,
+	0x8f, 0x1a, 0xbc, 0x7b, 0x27, 0xef, 0xcb, 0x50, 0x74, 0x8e, 0x26, 0x8a, 0x39, 0x9a, 0x30, 0xff,
+	0xa4, 0x41, 0x43, 0xd5, 0xe2, 0x26, 0x5c, 0xec, 0x25, 0xec, 0xaa, 0xd4, 0x35, 0x4d, 0x85, 0x19,
+	0xf3, 0x4d, 0x5a, 0x4e, 0x36, 0x07, 0xac, 0x28, 0x72, 0xc0, 0xac, 0xfe, 0x14, 0xd4, 0xf5, 0xa7,
+	0x28, 0xd7, 0x9f, 0x7f, 0x6a, 0xf0, 0x78, 0x0e, 0xb3, 0xcb, 0xd0, 0xe7, 0x47, 0xb0, 0xa7, 0x12,
+	0x7d, 0x56, 0x8d, 0x0c, 0x65, 0x37, 0xcd, 0x94, 0xd0, 0xde, 0xce, 0xe8, 0x65, 0x91, 0xea, 0x73,
+	0xfe, 0xcb, 0x75, 0x58, 0x4b, 0xfc, 0xa9, 0x80, 0xae, 0xe1, 0x51, 0x6a, 0xac, 0x8d, 0x8e, 0xf2,
+	0x06, 0xde, 0xcc, 0x64, 0xc6, 0xf1, 0xfc, 0x79, 0x38, 0xba, 0x82, 0xb5, 0xc4, 0x28, 0x10, 0x1d,
+	0x4c, 0x0f, 0x64, 0x47, 0x9f, 0xc6, 0xa1, 0x7a, 0x73, 0x46, 0x2b, 0x31, 0x91, 0x93, 0x68, 0x65,
+	0x27, 0x7b, 0x12, 0x2d, 0xd5, 0x18, 0xef, 0x0a, 0xd6, 0x12, 0x23, 0x33, 0x89, 0x56, 0x76, 0xf4,
+	0x26, 0xd1, 0x52, 0xcd, 0xd9, 0xae, 0xe1, 0x51, 0x6a, 0xa2, 0x25, 0x69, 0x4d, 0x35, 0x1d, 0x93,
+	0xb4, 0xa6, 0x1e, 0x85, 0xbd, 0x0f, 0xeb, 0xc9, 0xa9, 0x13, 0x3a, 0x4c, 0x9d, 0x48, 0xcc, 0xaf,
+	0x8c, 0xa3, 0x9c, 0x5d, 0x41, 0xee, 0x02, 0x60, 0x36, 0x6c, 0x41, 0xfa, 0x14, 0x39, 0x35, 0x5c,
+	0x32, 0xf6, 0x15, 0x3b, 0x82, 0xc4, 0x2b, 0xa8, 0x4b, 0x33, 0x0f, 0x34, 0xc3, 0x4c, 0x4f, 0x53,
+	0x0c, 0x43, 0xb5, 0x25, 0xa8, 0x60, 0xd8, 0x55, 0x3f, 0xcd, 0xd1, 0x3b, 0xd3, 0x53, 0x73, 0x06,
+	0x1c, 0xc6, 0xd3, 0x3b, 0xb0, 0xc4, 0x35, 0x9d, 0xf4, 0xdf, 0x43, 0xa2, 0x7f, 0x46, 0x4f, 0x72,
+	0xbc, 0x55, 0xee, 0xbc, 0x8d, 0x77, 0xe6, 0x23, 0x89, 0x3b, 0x6e, 0x60, 0x23, 0xfd, 0x4c, 0x45,
+	0xc7, 0x79, 0x8d, 0x85, 0xa0, 0x7c, 0x92, 0xbb, 0x2f, 0x88, 0xde, 0x26, 0x47, 0x17, 0xe9, 0xb7,
+	0x17, 0x7a, 0xa6, 0x94, 0x5f, 0xf9, 0x26, 0x35, 0x9e, 0x2f, 0x84, 0x2b, 0x2e, 0xfe, 0x51, 0x72,
+	0xd8, 0x1d, 0x0b, 0xf4, 0x58, 0x19, 0x43, 0x09, 0x99, 0xcc, 0x79, 0x28, 0x82, 0xfa, 0x27, 0xb0,
+	0x99, 0x79, 0xcb, 0xa0, 0x99, 0x32, 0xd4, 0x2f, 0x20, 0xa3, 0x91, 0x8f, 0x20, 0xe8, 0x5a, 0xe9,
+	0x3f, 0x39, 0x79, 0x6b, 0x8e, 0xcc, 0xb9, 0x9d, 0x3b, 0xa7, 0xfe, 0x64, 0x81, 0xee, 0x9e, 0xfa,
+	0xab, 0xba, 0x6d, 0x93, 0xfc, 0x75, 0x4e, 0x0f, 0x29, 0xf9, 0xeb, 0xdc, 0xee, 0xcf, 0x53, 0x3d,
+	0x4b, 0xe3, 0x9b, 0xde, 0x9d, 0xa3, 0xe0, 0xc4, 0x65, 0xa7, 0x77, 0x23, 0x8a, 0xfb, 0x3e, 0x57,
+	0x0e, 0x35, 0x52, 0x5d, 0x03, 0x3a, 0x9b, 0xe3, 0x40, 0xaa, 0xee, 0xc8, 0x78, 0xb1, 0xf8, 0x01,
+	0xc1, 0x08, 0x51, 0xcf, 0xbd, 0x62, 0xd1, 0xbf, 0x3a, 0x37, 0x12, 0x13, 0xc2, 0x3f, 0x5b, 0x04,
+	0x95, 0xdf, 0x6a, 0xec, 0xfd, 0xfc, 0x3f, 0xc5, 0x2d, 0x54, 0xfb, 0xc8, 0xf5, 0xfa, 0x97, 0x03,
+	0x7f, 0xe4, 0x18, 0x65, 0x8e, 0xdb, 0x29, 0xb3, 0xe7, 0xc8, 0xcb, 0xff, 0x06, 0x00, 0x00, 0xff,
+	0xff, 0xfd, 0x51, 0xde, 0x25, 0xd1, 0x1f, 0x00, 0x00,
 }
