@@ -8,6 +8,8 @@ package service;
 
 import "qingcloud_sdk_rule/rule.proto";
 
+import "google/protobuf/timestamp.proto";
+
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/rdb/index.html
 // ----------------------------------------------------------------------------
@@ -43,177 +45,314 @@ service RDBService {
 
 // ----------------------------------------------------------------------------
 
-message CreateRDBInput {}
+message CreateRDBInput {
+	string vxnet = 1;
+	string rdb_engine = 2;
+	string engine_version = 3;
+	string rdb_username = 4;
+	string rdb_password = 5;
+	int32 rdb_type = 6;
+	int32 storage_size = 7;
+	string rdb_name = 8;
+	PrivateIps private_ips = 9;
+	string description = 10;
+	int32 auto_backup_time = 11;
+
+	message PrivateIps {
+		string master = 1;
+		string topslave = 2;
+	}
+}
 message CreateRDBOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string rdb = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeRDBsInput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
-
+	repeated string rdbs = 1;
+	string rdb_engine = 2;
+	repeated string status = 3;
+	string rdb_name = 4;
+	repeated string tags = 5;
+	int32 verbose = 6;
+	int32 offset = 7;
+	int32 limit = 8;
 }
 message DescribeRDBsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem router_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		string rdb_id = 1;
+		int32 auto_backup_time = 2;
+		google.protobuf.Timestamp create_time = 3;
+		string alarm_status = 4;
+		string rdb_name = 5;
+		string master_ip = 6;
+		google.protobuf.Timestamp status_time = 7;
+		Vxnets vxnets = 8;
+		string status = 9;
+		string description = 10;
+		string transition_status = 11;
+		int32 storage_size = 12;
+		int32 rdb_type = 13;
+		int32 auto_minor_ver_upgrade = 14;
+		google.protobuf.Timestamp lastest_snapshot_time = 15;
+		string engine_version = 16;
+		string rdb_engine = 17;
+
+		message Vxnets {
+			string vxnet_name = 1;
+			string vxnet_id = 2;
+		}
+	}
 }
 
 // ----------------------------------------------------------------------------
 
-message DeleteRDBsInput {}
+message DeleteRDBsInput {
+	repeated string rdbs = 1;
+}
 message DeleteRDBsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message StartRDBsInput {}
+message StartRDBsInput {
+	repeated string rdbs = 1;
+}
 message StartRDBsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message StopRDBsInput {}
+message StopRDBsInput {
+	repeated string rdbs = 1;
+}
 message StopRDBsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ResizeRDBsInput {}
+message ResizeRDBsInput {
+	repeated string rdbs = 1;
+	int32 rdb_type = 2;
+	int32 storage_size = 3;
+}
 message ResizeRDBsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message RDBsLeaveVxnetInput {}
+message RDBsLeaveVxnetInput {
+	repeated string rdbs = 1;
+	string vxnet = 2;
+}
 message RDBsLeaveVxnetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message RDBsJoinVxnetInput {}
+message RDBsJoinVxnetInput {
+	repeated string rdbs = 1;
+	string vxnet = 2;
+}
 message RDBsJoinVxnetOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateRDBFromSnapshotInput {}
+message CreateRDBFromSnapshotInput {
+	string snapshot = 1;
+	string vxnet = 2;
+	int32 rdb_type = 3;
+	string rdb_username = 4;
+	string rdb_password = 5;
+	string rdb_name = 6;
+	PrivateIps private_ips = 7;
+	string description = 8;
+	int32 auto_backup_time = 9;
+
+	message PrivateIps {
+		string master = 1;
+		string topslave = 2;
+	}
+}
 message CreateRDBFromSnapshotOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string rdb = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message CreateTempRDBInstanceFromSnapshotInput {}
+message CreateTempRDBInstanceFromSnapshotInput {
+	string rdb = 1;
+	string snapshot = 2;
+}
 message CreateTempRDBInstanceFromSnapshotOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message GetRDBInstanceFilesInput {}
+message GetRDBInstanceFilesInput {
+	string rdb_instance = 1;
+}
 message GetRDBInstanceFilesOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
-
 }
 
 // ----------------------------------------------------------------------------
 
-message CopyRDBInstanceFilesToFTPInput {}
+message CopyRDBInstanceFilesToFTPInput {
+	string rdb_instance = 1;
+	repeated string files = 2;
+}
 message CopyRDBInstanceFilesToFTPOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message PurgeRDBLogsInput {}
+message PurgeRDBLogsInput {
+	string rdb = 1;
+	string rdb_instance = 2;
+	string log_type = 3;
+	string before_file = 4;
+}
 message PurgeRDBLogsOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message CeaseRDBInstanceInput {}
+message CeaseRDBInstanceInput {
+	string rdb = 1;
+	string rdb_instance = 2;
+}
 message CeaseRDBInstanceOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ModifyRDBParametersInput {}
+message ModifyRDBParametersInput {
+	string rdb = 1;
+	repeated ParametersItem parameters = 2;
+
+	message ParametersItem {
+		// 异构数据, 暂不支持
+		// [{“long_query_time”: 5, {“back_log”: 1024}}]
+	}
+}
 message ModifyRDBParametersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string rdb = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message ApplyRDBParameterGroupInput {}
+message ApplyRDBParameterGroupInput {
+	string rdb = 1;
+}
 message ApplyRDBParameterGroupOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	string rdb = 4;
 }
 
 // ----------------------------------------------------------------------------
 
-message DescribeRDBParametersInput {}
+message DescribeRDBParametersInput {
+	string rdb = 1;
+	int32 offset = 2;
+	int32 limit = 3;
+}
 message DescribeRDBParametersOutput {
 	string action = 1;
 	int32 ret_code = 2;
 	string message = 3;
 
+	repeated ResponseItem parameter_set = 4;
+	int32 total_count = 5;
+
+	message ResponseItem {
+		int32 is_static = 1;
+		int32 min_value = 2;
+		string family = 3;
+		int32 is_readonly = 4;
+		string var_value = 5;
+		int32 max_value = 6;
+		string opt_name = 7;
+		string var_type = 8;
+		string var_name = 9;
+		string section_name = 10;
+	}
 }
 
 // ----------------------------------------------------------------------------

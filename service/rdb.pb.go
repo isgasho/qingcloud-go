@@ -7,6 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
+import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/request"
@@ -38,6 +39,17 @@ func (m *RDBServiceProperties) GetZone() string {
 }
 
 type CreateRDBInput struct {
+	Vxnet          string                     `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	RdbEngine      string                     `protobuf:"bytes,2,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+	EngineVersion  string                     `protobuf:"bytes,3,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
+	RdbUsername    string                     `protobuf:"bytes,4,opt,name=rdb_username,json=rdbUsername" json:"rdb_username,omitempty"`
+	RdbPassword    string                     `protobuf:"bytes,5,opt,name=rdb_password,json=rdbPassword" json:"rdb_password,omitempty"`
+	RdbType        int32                      `protobuf:"varint,6,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	StorageSize    int32                      `protobuf:"varint,7,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	RdbName        string                     `protobuf:"bytes,8,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	PrivateIps     *CreateRDBInput_PrivateIps `protobuf:"bytes,9,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	Description    string                     `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime int32                      `protobuf:"varint,11,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
 }
 
 func (m *CreateRDBInput) Reset()                    { *m = CreateRDBInput{} }
@@ -45,10 +57,112 @@ func (m *CreateRDBInput) String() string            { return proto.CompactTextSt
 func (*CreateRDBInput) ProtoMessage()               {}
 func (*CreateRDBInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{1} }
 
+func (m *CreateRDBInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
+func (m *CreateRDBInput) GetRdbEngine() string {
+	if m != nil {
+		return m.RdbEngine
+	}
+	return ""
+}
+
+func (m *CreateRDBInput) GetEngineVersion() string {
+	if m != nil {
+		return m.EngineVersion
+	}
+	return ""
+}
+
+func (m *CreateRDBInput) GetRdbUsername() string {
+	if m != nil {
+		return m.RdbUsername
+	}
+	return ""
+}
+
+func (m *CreateRDBInput) GetRdbPassword() string {
+	if m != nil {
+		return m.RdbPassword
+	}
+	return ""
+}
+
+func (m *CreateRDBInput) GetRdbType() int32 {
+	if m != nil {
+		return m.RdbType
+	}
+	return 0
+}
+
+func (m *CreateRDBInput) GetStorageSize() int32 {
+	if m != nil {
+		return m.StorageSize
+	}
+	return 0
+}
+
+func (m *CreateRDBInput) GetRdbName() string {
+	if m != nil {
+		return m.RdbName
+	}
+	return ""
+}
+
+func (m *CreateRDBInput) GetPrivateIps() *CreateRDBInput_PrivateIps {
+	if m != nil {
+		return m.PrivateIps
+	}
+	return nil
+}
+
+func (m *CreateRDBInput) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *CreateRDBInput) GetAutoBackupTime() int32 {
+	if m != nil {
+		return m.AutoBackupTime
+	}
+	return 0
+}
+
+type CreateRDBInput_PrivateIps struct {
+	Master   string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
+	Topslave string `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
+}
+
+func (m *CreateRDBInput_PrivateIps) Reset()                    { *m = CreateRDBInput_PrivateIps{} }
+func (m *CreateRDBInput_PrivateIps) String() string            { return proto.CompactTextString(m) }
+func (*CreateRDBInput_PrivateIps) ProtoMessage()               {}
+func (*CreateRDBInput_PrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{1, 0} }
+
+func (m *CreateRDBInput_PrivateIps) GetMaster() string {
+	if m != nil {
+		return m.Master
+	}
+	return ""
+}
+
+func (m *CreateRDBInput_PrivateIps) GetTopslave() string {
+	if m != nil {
+		return m.Topslave
+	}
+	return ""
+}
+
 type CreateRDBOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb     string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
 }
 
 func (m *CreateRDBOutput) Reset()                    { *m = CreateRDBOutput{} }
@@ -77,10 +191,22 @@ func (m *CreateRDBOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateRDBOutput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
 type DescribeRDBsInput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdbs      []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	RdbEngine string   `protobuf:"bytes,2,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+	Status    []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	RdbName   string   `protobuf:"bytes,4,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	Tags      []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose   int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset    int32    `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit     int32    `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeRDBsInput) Reset()                    { *m = DescribeRDBsInput{} }
@@ -88,31 +214,68 @@ func (m *DescribeRDBsInput) String() string            { return proto.CompactTex
 func (*DescribeRDBsInput) ProtoMessage()               {}
 func (*DescribeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{3} }
 
-func (m *DescribeRDBsInput) GetAction() string {
+func (m *DescribeRDBsInput) GetRdbs() []string {
 	if m != nil {
-		return m.Action
+		return m.Rdbs
+	}
+	return nil
+}
+
+func (m *DescribeRDBsInput) GetRdbEngine() string {
+	if m != nil {
+		return m.RdbEngine
 	}
 	return ""
 }
 
-func (m *DescribeRDBsInput) GetRetCode() int32 {
+func (m *DescribeRDBsInput) GetStatus() []string {
 	if m != nil {
-		return m.RetCode
+		return m.Status
+	}
+	return nil
+}
+
+func (m *DescribeRDBsInput) GetRdbName() string {
+	if m != nil {
+		return m.RdbName
+	}
+	return ""
+}
+
+func (m *DescribeRDBsInput) GetTags() []string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *DescribeRDBsInput) GetVerbose() int32 {
+	if m != nil {
+		return m.Verbose
 	}
 	return 0
 }
 
-func (m *DescribeRDBsInput) GetMessage() string {
+func (m *DescribeRDBsInput) GetOffset() int32 {
 	if m != nil {
-		return m.Message
+		return m.Offset
 	}
-	return ""
+	return 0
+}
+
+func (m *DescribeRDBsInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
 }
 
 type DescribeRDBsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action     string                             `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode    int32                              `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message    string                             `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterSet  []*DescribeRDBsOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_set,json=routerSet" json:"router_set,omitempty"`
+	TotalCount int32                              `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeRDBsOutput) Reset()                    { *m = DescribeRDBsOutput{} }
@@ -141,7 +304,196 @@ func (m *DescribeRDBsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeRDBsOutput) GetRouterSet() []*DescribeRDBsOutput_ResponseItem {
+	if m != nil {
+		return m.RouterSet
+	}
+	return nil
+}
+
+func (m *DescribeRDBsOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeRDBsOutput_ResponseItem struct {
+	RdbId               string                                  `protobuf:"bytes,1,opt,name=rdb_id,json=rdbId" json:"rdb_id,omitempty"`
+	AutoBackupTime      int32                                   `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	CreateTime          *google_protobuf1.Timestamp             `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	AlarmStatus         string                                  `protobuf:"bytes,4,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	RdbName             string                                  `protobuf:"bytes,5,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	MasterIp            string                                  `protobuf:"bytes,6,opt,name=master_ip,json=masterIp" json:"master_ip,omitempty"`
+	StatusTime          *google_protobuf1.Timestamp             `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Vxnets              *DescribeRDBsOutput_ResponseItem_Vxnets `protobuf:"bytes,8,opt,name=vxnets" json:"vxnets,omitempty"`
+	Status              string                                  `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
+	Description         string                                  `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
+	TransitionStatus    string                                  `protobuf:"bytes,11,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	StorageSize         int32                                   `protobuf:"varint,12,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	RdbType             int32                                   `protobuf:"varint,13,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	AutoMinorVerUpgrade int32                                   `protobuf:"varint,14,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
+	LastestSnapshotTime *google_protobuf1.Timestamp             `protobuf:"bytes,15,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
+	EngineVersion       string                                  `protobuf:"bytes,16,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
+	RdbEngine           string                                  `protobuf:"bytes,17,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) Reset()         { *m = DescribeRDBsOutput_ResponseItem{} }
+func (m *DescribeRDBsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
+func (*DescribeRDBsOutput_ResponseItem) ProtoMessage()    {}
+func (*DescribeRDBsOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{4, 0}
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetRdbId() string {
+	if m != nil {
+		return m.RdbId
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetAutoBackupTime() int32 {
+	if m != nil {
+		return m.AutoBackupTime
+	}
+	return 0
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.CreateTime
+	}
+	return nil
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetAlarmStatus() string {
+	if m != nil {
+		return m.AlarmStatus
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetRdbName() string {
+	if m != nil {
+		return m.RdbName
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetMasterIp() string {
+	if m != nil {
+		return m.MasterIp
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.StatusTime
+	}
+	return nil
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetVxnets() *DescribeRDBsOutput_ResponseItem_Vxnets {
+	if m != nil {
+		return m.Vxnets
+	}
+	return nil
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetTransitionStatus() string {
+	if m != nil {
+		return m.TransitionStatus
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetStorageSize() int32 {
+	if m != nil {
+		return m.StorageSize
+	}
+	return 0
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetRdbType() int32 {
+	if m != nil {
+		return m.RdbType
+	}
+	return 0
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetAutoMinorVerUpgrade() int32 {
+	if m != nil {
+		return m.AutoMinorVerUpgrade
+	}
+	return 0
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetLastestSnapshotTime() *google_protobuf1.Timestamp {
+	if m != nil {
+		return m.LastestSnapshotTime
+	}
+	return nil
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetEngineVersion() string {
+	if m != nil {
+		return m.EngineVersion
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem) GetRdbEngine() string {
+	if m != nil {
+		return m.RdbEngine
+	}
+	return ""
+}
+
+type DescribeRDBsOutput_ResponseItem_Vxnets struct {
+	VxnetName string `protobuf:"bytes,1,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	VxnetId   string `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+}
+
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) Reset() {
+	*m = DescribeRDBsOutput_ResponseItem_Vxnets{}
+}
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) String() string { return proto.CompactTextString(m) }
+func (*DescribeRDBsOutput_ResponseItem_Vxnets) ProtoMessage()    {}
+func (*DescribeRDBsOutput_ResponseItem_Vxnets) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{4, 0, 0}
+}
+
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) GetVxnetName() string {
+	if m != nil {
+		return m.VxnetName
+	}
+	return ""
+}
+
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) GetVxnetId() string {
+	if m != nil {
+		return m.VxnetId
+	}
+	return ""
+}
+
 type DeleteRDBsInput struct {
+	Rdbs []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
 }
 
 func (m *DeleteRDBsInput) Reset()                    { *m = DeleteRDBsInput{} }
@@ -149,10 +501,18 @@ func (m *DeleteRDBsInput) String() string            { return proto.CompactTextS
 func (*DeleteRDBsInput) ProtoMessage()               {}
 func (*DeleteRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{5} }
 
+func (m *DeleteRDBsInput) GetRdbs() []string {
+	if m != nil {
+		return m.Rdbs
+	}
+	return nil
+}
+
 type DeleteRDBsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *DeleteRDBsOutput) Reset()                    { *m = DeleteRDBsOutput{} }
@@ -181,7 +541,15 @@ func (m *DeleteRDBsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DeleteRDBsOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type StartRDBsInput struct {
+	Rdbs []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
 }
 
 func (m *StartRDBsInput) Reset()                    { *m = StartRDBsInput{} }
@@ -189,10 +557,18 @@ func (m *StartRDBsInput) String() string            { return proto.CompactTextSt
 func (*StartRDBsInput) ProtoMessage()               {}
 func (*StartRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{7} }
 
+func (m *StartRDBsInput) GetRdbs() []string {
+	if m != nil {
+		return m.Rdbs
+	}
+	return nil
+}
+
 type StartRDBsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *StartRDBsOutput) Reset()                    { *m = StartRDBsOutput{} }
@@ -221,7 +597,15 @@ func (m *StartRDBsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *StartRDBsOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type StopRDBsInput struct {
+	Rdbs []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
 }
 
 func (m *StopRDBsInput) Reset()                    { *m = StopRDBsInput{} }
@@ -229,10 +613,18 @@ func (m *StopRDBsInput) String() string            { return proto.CompactTextStr
 func (*StopRDBsInput) ProtoMessage()               {}
 func (*StopRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{9} }
 
+func (m *StopRDBsInput) GetRdbs() []string {
+	if m != nil {
+		return m.Rdbs
+	}
+	return nil
+}
+
 type StopRDBsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *StopRDBsOutput) Reset()                    { *m = StopRDBsOutput{} }
@@ -261,7 +653,17 @@ func (m *StopRDBsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *StopRDBsOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type ResizeRDBsInput struct {
+	Rdbs        []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	RdbType     int32    `protobuf:"varint,2,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	StorageSize int32    `protobuf:"varint,3,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
 }
 
 func (m *ResizeRDBsInput) Reset()                    { *m = ResizeRDBsInput{} }
@@ -269,10 +671,32 @@ func (m *ResizeRDBsInput) String() string            { return proto.CompactTextS
 func (*ResizeRDBsInput) ProtoMessage()               {}
 func (*ResizeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{11} }
 
+func (m *ResizeRDBsInput) GetRdbs() []string {
+	if m != nil {
+		return m.Rdbs
+	}
+	return nil
+}
+
+func (m *ResizeRDBsInput) GetRdbType() int32 {
+	if m != nil {
+		return m.RdbType
+	}
+	return 0
+}
+
+func (m *ResizeRDBsInput) GetStorageSize() int32 {
+	if m != nil {
+		return m.StorageSize
+	}
+	return 0
+}
+
 type ResizeRDBsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *ResizeRDBsOutput) Reset()                    { *m = ResizeRDBsOutput{} }
@@ -301,7 +725,16 @@ func (m *ResizeRDBsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ResizeRDBsOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type RDBsLeaveVxnetInput struct {
+	Rdbs  []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	Vxnet string   `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
 }
 
 func (m *RDBsLeaveVxnetInput) Reset()                    { *m = RDBsLeaveVxnetInput{} }
@@ -309,10 +742,25 @@ func (m *RDBsLeaveVxnetInput) String() string            { return proto.CompactT
 func (*RDBsLeaveVxnetInput) ProtoMessage()               {}
 func (*RDBsLeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{13} }
 
+func (m *RDBsLeaveVxnetInput) GetRdbs() []string {
+	if m != nil {
+		return m.Rdbs
+	}
+	return nil
+}
+
+func (m *RDBsLeaveVxnetInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
 type RDBsLeaveVxnetOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *RDBsLeaveVxnetOutput) Reset()                    { *m = RDBsLeaveVxnetOutput{} }
@@ -341,7 +789,16 @@ func (m *RDBsLeaveVxnetOutput) GetMessage() string {
 	return ""
 }
 
+func (m *RDBsLeaveVxnetOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type RDBsJoinVxnetInput struct {
+	Rdbs  []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	Vxnet string   `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
 }
 
 func (m *RDBsJoinVxnetInput) Reset()                    { *m = RDBsJoinVxnetInput{} }
@@ -349,10 +806,25 @@ func (m *RDBsJoinVxnetInput) String() string            { return proto.CompactTe
 func (*RDBsJoinVxnetInput) ProtoMessage()               {}
 func (*RDBsJoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{15} }
 
+func (m *RDBsJoinVxnetInput) GetRdbs() []string {
+	if m != nil {
+		return m.Rdbs
+	}
+	return nil
+}
+
+func (m *RDBsJoinVxnetInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
 type RDBsJoinVxnetOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *RDBsJoinVxnetOutput) Reset()                    { *m = RDBsJoinVxnetOutput{} }
@@ -381,7 +853,23 @@ func (m *RDBsJoinVxnetOutput) GetMessage() string {
 	return ""
 }
 
+func (m *RDBsJoinVxnetOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type CreateRDBFromSnapshotInput struct {
+	Snapshot       string                                 `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
+	Vxnet          string                                 `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	RdbType        int32                                  `protobuf:"varint,3,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	RdbUsername    string                                 `protobuf:"bytes,4,opt,name=rdb_username,json=rdbUsername" json:"rdb_username,omitempty"`
+	RdbPassword    string                                 `protobuf:"bytes,5,opt,name=rdb_password,json=rdbPassword" json:"rdb_password,omitempty"`
+	RdbName        string                                 `protobuf:"bytes,6,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	PrivateIps     *CreateRDBFromSnapshotInput_PrivateIps `protobuf:"bytes,7,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	Description    string                                 `protobuf:"bytes,8,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime int32                                  `protobuf:"varint,9,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
 }
 
 func (m *CreateRDBFromSnapshotInput) Reset()                    { *m = CreateRDBFromSnapshotInput{} }
@@ -389,10 +877,100 @@ func (m *CreateRDBFromSnapshotInput) String() string            { return proto.C
 func (*CreateRDBFromSnapshotInput) ProtoMessage()               {}
 func (*CreateRDBFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{17} }
 
+func (m *CreateRDBFromSnapshotInput) GetSnapshot() string {
+	if m != nil {
+		return m.Snapshot
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotInput) GetVxnet() string {
+	if m != nil {
+		return m.Vxnet
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotInput) GetRdbType() int32 {
+	if m != nil {
+		return m.RdbType
+	}
+	return 0
+}
+
+func (m *CreateRDBFromSnapshotInput) GetRdbUsername() string {
+	if m != nil {
+		return m.RdbUsername
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotInput) GetRdbPassword() string {
+	if m != nil {
+		return m.RdbPassword
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotInput) GetRdbName() string {
+	if m != nil {
+		return m.RdbName
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotInput) GetPrivateIps() *CreateRDBFromSnapshotInput_PrivateIps {
+	if m != nil {
+		return m.PrivateIps
+	}
+	return nil
+}
+
+func (m *CreateRDBFromSnapshotInput) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotInput) GetAutoBackupTime() int32 {
+	if m != nil {
+		return m.AutoBackupTime
+	}
+	return 0
+}
+
+type CreateRDBFromSnapshotInput_PrivateIps struct {
+	Master   string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
+	Topslave string `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
+}
+
+func (m *CreateRDBFromSnapshotInput_PrivateIps) Reset()         { *m = CreateRDBFromSnapshotInput_PrivateIps{} }
+func (m *CreateRDBFromSnapshotInput_PrivateIps) String() string { return proto.CompactTextString(m) }
+func (*CreateRDBFromSnapshotInput_PrivateIps) ProtoMessage()    {}
+func (*CreateRDBFromSnapshotInput_PrivateIps) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{17, 0}
+}
+
+func (m *CreateRDBFromSnapshotInput_PrivateIps) GetMaster() string {
+	if m != nil {
+		return m.Master
+	}
+	return ""
+}
+
+func (m *CreateRDBFromSnapshotInput_PrivateIps) GetTopslave() string {
+	if m != nil {
+		return m.Topslave
+	}
+	return ""
+}
+
 type CreateRDBFromSnapshotOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb     string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
 }
 
 func (m *CreateRDBFromSnapshotOutput) Reset()                    { *m = CreateRDBFromSnapshotOutput{} }
@@ -421,7 +999,16 @@ func (m *CreateRDBFromSnapshotOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateRDBFromSnapshotOutput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
 type CreateTempRDBInstanceFromSnapshotInput struct {
+	Rdb      string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	Snapshot string `protobuf:"bytes,2,opt,name=snapshot" json:"snapshot,omitempty"`
 }
 
 func (m *CreateTempRDBInstanceFromSnapshotInput) Reset() {
@@ -433,10 +1020,25 @@ func (*CreateTempRDBInstanceFromSnapshotInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor17, []int{19}
 }
 
+func (m *CreateTempRDBInstanceFromSnapshotInput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
+func (m *CreateTempRDBInstanceFromSnapshotInput) GetSnapshot() string {
+	if m != nil {
+		return m.Snapshot
+	}
+	return ""
+}
+
 type CreateTempRDBInstanceFromSnapshotOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *CreateTempRDBInstanceFromSnapshotOutput) Reset() {
@@ -469,13 +1071,28 @@ func (m *CreateTempRDBInstanceFromSnapshotOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CreateTempRDBInstanceFromSnapshotOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type GetRDBInstanceFilesInput struct {
+	RdbInstance string `protobuf:"bytes,1,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
 }
 
 func (m *GetRDBInstanceFilesInput) Reset()                    { *m = GetRDBInstanceFilesInput{} }
 func (m *GetRDBInstanceFilesInput) String() string            { return proto.CompactTextString(m) }
 func (*GetRDBInstanceFilesInput) ProtoMessage()               {}
 func (*GetRDBInstanceFilesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{21} }
+
+func (m *GetRDBInstanceFilesInput) GetRdbInstance() string {
+	if m != nil {
+		return m.RdbInstance
+	}
+	return ""
+}
 
 type GetRDBInstanceFilesOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -510,6 +1127,8 @@ func (m *GetRDBInstanceFilesOutput) GetMessage() string {
 }
 
 type CopyRDBInstanceFilesToFTPInput struct {
+	RdbInstance string   `protobuf:"bytes,1,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
+	Files       []string `protobuf:"bytes,2,rep,name=files" json:"files,omitempty"`
 }
 
 func (m *CopyRDBInstanceFilesToFTPInput) Reset()         { *m = CopyRDBInstanceFilesToFTPInput{} }
@@ -519,10 +1138,25 @@ func (*CopyRDBInstanceFilesToFTPInput) Descriptor() ([]byte, []int) {
 	return fileDescriptor17, []int{23}
 }
 
+func (m *CopyRDBInstanceFilesToFTPInput) GetRdbInstance() string {
+	if m != nil {
+		return m.RdbInstance
+	}
+	return ""
+}
+
+func (m *CopyRDBInstanceFilesToFTPInput) GetFiles() []string {
+	if m != nil {
+		return m.Files
+	}
+	return nil
+}
+
 type CopyRDBInstanceFilesToFTPOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *CopyRDBInstanceFilesToFTPOutput) Reset()         { *m = CopyRDBInstanceFilesToFTPOutput{} }
@@ -553,7 +1187,18 @@ func (m *CopyRDBInstanceFilesToFTPOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CopyRDBInstanceFilesToFTPOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type PurgeRDBLogsInput struct {
+	Rdb         string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	RdbInstance string `protobuf:"bytes,2,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
+	LogType     string `protobuf:"bytes,3,opt,name=log_type,json=logType" json:"log_type,omitempty"`
+	BeforeFile  string `protobuf:"bytes,4,opt,name=before_file,json=beforeFile" json:"before_file,omitempty"`
 }
 
 func (m *PurgeRDBLogsInput) Reset()                    { *m = PurgeRDBLogsInput{} }
@@ -561,10 +1206,39 @@ func (m *PurgeRDBLogsInput) String() string            { return proto.CompactTex
 func (*PurgeRDBLogsInput) ProtoMessage()               {}
 func (*PurgeRDBLogsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{25} }
 
+func (m *PurgeRDBLogsInput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
+func (m *PurgeRDBLogsInput) GetRdbInstance() string {
+	if m != nil {
+		return m.RdbInstance
+	}
+	return ""
+}
+
+func (m *PurgeRDBLogsInput) GetLogType() string {
+	if m != nil {
+		return m.LogType
+	}
+	return ""
+}
+
+func (m *PurgeRDBLogsInput) GetBeforeFile() string {
+	if m != nil {
+		return m.BeforeFile
+	}
+	return ""
+}
+
 type PurgeRDBLogsOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *PurgeRDBLogsOutput) Reset()                    { *m = PurgeRDBLogsOutput{} }
@@ -593,7 +1267,16 @@ func (m *PurgeRDBLogsOutput) GetMessage() string {
 	return ""
 }
 
+func (m *PurgeRDBLogsOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type CeaseRDBInstanceInput struct {
+	Rdb         string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	RdbInstance string `protobuf:"bytes,2,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
 }
 
 func (m *CeaseRDBInstanceInput) Reset()                    { *m = CeaseRDBInstanceInput{} }
@@ -601,10 +1284,25 @@ func (m *CeaseRDBInstanceInput) String() string            { return proto.Compac
 func (*CeaseRDBInstanceInput) ProtoMessage()               {}
 func (*CeaseRDBInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{27} }
 
+func (m *CeaseRDBInstanceInput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
+func (m *CeaseRDBInstanceInput) GetRdbInstance() string {
+	if m != nil {
+		return m.RdbInstance
+	}
+	return ""
+}
+
 type CeaseRDBInstanceOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 }
 
 func (m *CeaseRDBInstanceOutput) Reset()                    { *m = CeaseRDBInstanceOutput{} }
@@ -633,7 +1331,16 @@ func (m *CeaseRDBInstanceOutput) GetMessage() string {
 	return ""
 }
 
+func (m *CeaseRDBInstanceOutput) GetJobId() string {
+	if m != nil {
+		return m.JobId
+	}
+	return ""
+}
+
 type ModifyRDBParametersInput struct {
+	Rdb        string                                     `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	Parameters []*ModifyRDBParametersInput_ParametersItem `protobuf:"bytes,2,rep,name=parameters" json:"parameters,omitempty"`
 }
 
 func (m *ModifyRDBParametersInput) Reset()                    { *m = ModifyRDBParametersInput{} }
@@ -641,10 +1348,37 @@ func (m *ModifyRDBParametersInput) String() string            { return proto.Com
 func (*ModifyRDBParametersInput) ProtoMessage()               {}
 func (*ModifyRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{29} }
 
+func (m *ModifyRDBParametersInput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
+func (m *ModifyRDBParametersInput) GetParameters() []*ModifyRDBParametersInput_ParametersItem {
+	if m != nil {
+		return m.Parameters
+	}
+	return nil
+}
+
+type ModifyRDBParametersInput_ParametersItem struct {
+}
+
+func (m *ModifyRDBParametersInput_ParametersItem) Reset() {
+	*m = ModifyRDBParametersInput_ParametersItem{}
+}
+func (m *ModifyRDBParametersInput_ParametersItem) String() string { return proto.CompactTextString(m) }
+func (*ModifyRDBParametersInput_ParametersItem) ProtoMessage()    {}
+func (*ModifyRDBParametersInput_ParametersItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{29, 0}
+}
+
 type ModifyRDBParametersOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb     string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
 }
 
 func (m *ModifyRDBParametersOutput) Reset()                    { *m = ModifyRDBParametersOutput{} }
@@ -673,7 +1407,15 @@ func (m *ModifyRDBParametersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ModifyRDBParametersOutput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
 type ApplyRDBParameterGroupInput struct {
+	Rdb string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
 }
 
 func (m *ApplyRDBParameterGroupInput) Reset()                    { *m = ApplyRDBParameterGroupInput{} }
@@ -681,10 +1423,18 @@ func (m *ApplyRDBParameterGroupInput) String() string            { return proto.
 func (*ApplyRDBParameterGroupInput) ProtoMessage()               {}
 func (*ApplyRDBParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{31} }
 
+func (m *ApplyRDBParameterGroupInput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
 type ApplyRDBParameterGroupOutput struct {
 	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
 	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb     string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
 }
 
 func (m *ApplyRDBParameterGroupOutput) Reset()                    { *m = ApplyRDBParameterGroupOutput{} }
@@ -713,7 +1463,17 @@ func (m *ApplyRDBParameterGroupOutput) GetMessage() string {
 	return ""
 }
 
+func (m *ApplyRDBParameterGroupOutput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
 type DescribeRDBParametersInput struct {
+	Rdb    string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	Offset int32  `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	Limit  int32  `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
 }
 
 func (m *DescribeRDBParametersInput) Reset()                    { *m = DescribeRDBParametersInput{} }
@@ -721,10 +1481,33 @@ func (m *DescribeRDBParametersInput) String() string            { return proto.C
 func (*DescribeRDBParametersInput) ProtoMessage()               {}
 func (*DescribeRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{33} }
 
+func (m *DescribeRDBParametersInput) GetRdb() string {
+	if m != nil {
+		return m.Rdb
+	}
+	return ""
+}
+
+func (m *DescribeRDBParametersInput) GetOffset() int32 {
+	if m != nil {
+		return m.Offset
+	}
+	return 0
+}
+
+func (m *DescribeRDBParametersInput) GetLimit() int32 {
+	if m != nil {
+		return m.Limit
+	}
+	return 0
+}
+
 type DescribeRDBParametersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action       string                                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode      int32                                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message      string                                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ParameterSet []*DescribeRDBParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=parameter_set,json=parameterSet" json:"parameter_set,omitempty"`
+	TotalCount   int32                                       `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 }
 
 func (m *DescribeRDBParametersOutput) Reset()                    { *m = DescribeRDBParametersOutput{} }
@@ -753,12 +1536,121 @@ func (m *DescribeRDBParametersOutput) GetMessage() string {
 	return ""
 }
 
+func (m *DescribeRDBParametersOutput) GetParameterSet() []*DescribeRDBParametersOutput_ResponseItem {
+	if m != nil {
+		return m.ParameterSet
+	}
+	return nil
+}
+
+func (m *DescribeRDBParametersOutput) GetTotalCount() int32 {
+	if m != nil {
+		return m.TotalCount
+	}
+	return 0
+}
+
+type DescribeRDBParametersOutput_ResponseItem struct {
+	IsStatic    int32  `protobuf:"varint,1,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	MinValue    int32  `protobuf:"varint,2,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
+	Family      string `protobuf:"bytes,3,opt,name=family" json:"family,omitempty"`
+	IsReadonly  int32  `protobuf:"varint,4,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	VarValue    string `protobuf:"bytes,5,opt,name=var_value,json=varValue" json:"var_value,omitempty"`
+	MaxValue    int32  `protobuf:"varint,6,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
+	OptName     string `protobuf:"bytes,7,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	VarType     string `protobuf:"bytes,8,opt,name=var_type,json=varType" json:"var_type,omitempty"`
+	VarName     string `protobuf:"bytes,9,opt,name=var_name,json=varName" json:"var_name,omitempty"`
+	SectionName string `protobuf:"bytes,10,opt,name=section_name,json=sectionName" json:"section_name,omitempty"`
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) Reset() {
+	*m = DescribeRDBParametersOutput_ResponseItem{}
+}
+func (m *DescribeRDBParametersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
+func (*DescribeRDBParametersOutput_ResponseItem) ProtoMessage()    {}
+func (*DescribeRDBParametersOutput_ResponseItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor17, []int{34, 0}
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetIsStatic() int32 {
+	if m != nil {
+		return m.IsStatic
+	}
+	return 0
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetMinValue() int32 {
+	if m != nil {
+		return m.MinValue
+	}
+	return 0
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetFamily() string {
+	if m != nil {
+		return m.Family
+	}
+	return ""
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetIsReadonly() int32 {
+	if m != nil {
+		return m.IsReadonly
+	}
+	return 0
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetVarValue() string {
+	if m != nil {
+		return m.VarValue
+	}
+	return ""
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetMaxValue() int32 {
+	if m != nil {
+		return m.MaxValue
+	}
+	return 0
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetOptName() string {
+	if m != nil {
+		return m.OptName
+	}
+	return ""
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetVarType() string {
+	if m != nil {
+		return m.VarType
+	}
+	return ""
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetVarName() string {
+	if m != nil {
+		return m.VarName
+	}
+	return ""
+}
+
+func (m *DescribeRDBParametersOutput_ResponseItem) GetSectionName() string {
+	if m != nil {
+		return m.SectionName
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*RDBServiceProperties)(nil), "service.RDBServiceProperties")
 	proto.RegisterType((*CreateRDBInput)(nil), "service.CreateRDBInput")
+	proto.RegisterType((*CreateRDBInput_PrivateIps)(nil), "service.CreateRDBInput.PrivateIps")
 	proto.RegisterType((*CreateRDBOutput)(nil), "service.CreateRDBOutput")
 	proto.RegisterType((*DescribeRDBsInput)(nil), "service.DescribeRDBsInput")
 	proto.RegisterType((*DescribeRDBsOutput)(nil), "service.DescribeRDBsOutput")
+	proto.RegisterType((*DescribeRDBsOutput_ResponseItem)(nil), "service.DescribeRDBsOutput.ResponseItem")
+	proto.RegisterType((*DescribeRDBsOutput_ResponseItem_Vxnets)(nil), "service.DescribeRDBsOutput.ResponseItem.Vxnets")
 	proto.RegisterType((*DeleteRDBsInput)(nil), "service.DeleteRDBsInput")
 	proto.RegisterType((*DeleteRDBsOutput)(nil), "service.DeleteRDBsOutput")
 	proto.RegisterType((*StartRDBsInput)(nil), "service.StartRDBsInput")
@@ -772,6 +1664,7 @@ func init() {
 	proto.RegisterType((*RDBsJoinVxnetInput)(nil), "service.RDBsJoinVxnetInput")
 	proto.RegisterType((*RDBsJoinVxnetOutput)(nil), "service.RDBsJoinVxnetOutput")
 	proto.RegisterType((*CreateRDBFromSnapshotInput)(nil), "service.CreateRDBFromSnapshotInput")
+	proto.RegisterType((*CreateRDBFromSnapshotInput_PrivateIps)(nil), "service.CreateRDBFromSnapshotInput.PrivateIps")
 	proto.RegisterType((*CreateRDBFromSnapshotOutput)(nil), "service.CreateRDBFromSnapshotOutput")
 	proto.RegisterType((*CreateTempRDBInstanceFromSnapshotInput)(nil), "service.CreateTempRDBInstanceFromSnapshotInput")
 	proto.RegisterType((*CreateTempRDBInstanceFromSnapshotOutput)(nil), "service.CreateTempRDBInstanceFromSnapshotOutput")
@@ -784,11 +1677,13 @@ func init() {
 	proto.RegisterType((*CeaseRDBInstanceInput)(nil), "service.CeaseRDBInstanceInput")
 	proto.RegisterType((*CeaseRDBInstanceOutput)(nil), "service.CeaseRDBInstanceOutput")
 	proto.RegisterType((*ModifyRDBParametersInput)(nil), "service.ModifyRDBParametersInput")
+	proto.RegisterType((*ModifyRDBParametersInput_ParametersItem)(nil), "service.ModifyRDBParametersInput.ParametersItem")
 	proto.RegisterType((*ModifyRDBParametersOutput)(nil), "service.ModifyRDBParametersOutput")
 	proto.RegisterType((*ApplyRDBParameterGroupInput)(nil), "service.ApplyRDBParameterGroupInput")
 	proto.RegisterType((*ApplyRDBParameterGroupOutput)(nil), "service.ApplyRDBParameterGroupOutput")
 	proto.RegisterType((*DescribeRDBParametersInput)(nil), "service.DescribeRDBParametersInput")
 	proto.RegisterType((*DescribeRDBParametersOutput)(nil), "service.DescribeRDBParametersOutput")
+	proto.RegisterType((*DescribeRDBParametersOutput_ResponseItem)(nil), "service.DescribeRDBParametersOutput.ResponseItem")
 }
 
 type RDBServiceInterface interface {
@@ -1362,56 +2257,121 @@ func (p *DescribeRDBParametersInput) Validate() error {
 func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }
 
 var fileDescriptor17 = []byte{
-	// 805 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x5f, 0x4f, 0xdb, 0x48,
-	0x10, 0x57, 0x0e, 0x0e, 0xc8, 0xdc, 0x41, 0xc2, 0x02, 0x21, 0xd9, 0x84, 0x7f, 0xb9, 0x3f, 0x44,
-	0xf7, 0x00, 0xa7, 0xbb, 0xc7, 0x93, 0x90, 0x20, 0x11, 0xe8, 0x10, 0xa8, 0x69, 0x82, 0xfa, 0xd4,
-	0x92, 0x3a, 0xc9, 0x34, 0x18, 0x12, 0xaf, 0xbb, 0xde, 0xa0, 0x96, 0x0f, 0xd0, 0x87, 0x7e, 0xb5,
-	0x7e, 0x9a, 0x7e, 0x83, 0xca, 0xb1, 0xf1, 0xae, 0xe3, 0x75, 0xd2, 0x87, 0xee, 0x4b, 0x14, 0xcf,
-	0x8c, 0xe7, 0xf7, 0xdb, 0xd1, 0xce, 0xfc, 0xc6, 0x90, 0xe5, 0xfd, 0xee, 0x91, 0xcb, 0x99, 0x60,
-	0x64, 0xd9, 0x43, 0xfe, 0x68, 0xf7, 0x90, 0xee, 0xbc, 0xb7, 0x9d, 0x41, 0x6f, 0xc8, 0xc6, 0xfd,
-	0x8e, 0xd7, 0x7f, 0xe8, 0xf0, 0xf1, 0x10, 0x8f, 0xfd, 0x9f, 0x20, 0xae, 0xfa, 0x17, 0x6c, 0xb6,
-	0x1a, 0x67, 0xed, 0x20, 0xb8, 0xc9, 0x99, 0x8b, 0x5c, 0xd8, 0xe8, 0x11, 0x02, 0x8b, 0x4f, 0xcc,
-	0xc1, 0x62, 0x66, 0x3f, 0x53, 0xcb, 0xb6, 0x26, 0xff, 0xab, 0x79, 0x58, 0xab, 0x73, 0xb4, 0x04,
-	0xb6, 0x1a, 0x67, 0xff, 0x3b, 0xee, 0x58, 0x54, 0x6f, 0x21, 0x17, 0x59, 0x5e, 0x8c, 0x85, 0x3b,
-	0x16, 0xa4, 0x00, 0x4b, 0x56, 0x4f, 0xd8, 0xcc, 0x09, 0x5f, 0x0d, 0x9f, 0x48, 0x09, 0x56, 0x38,
-	0x8a, 0x4e, 0x8f, 0xf5, 0xb1, 0xf8, 0xd3, 0x7e, 0xa6, 0xf6, 0x73, 0x6b, 0x99, 0xa3, 0xa8, 0xb3,
-	0x3e, 0x92, 0x22, 0x2c, 0x8f, 0xd0, 0xf3, 0xac, 0x01, 0x16, 0x17, 0x26, 0xef, 0x3c, 0x3f, 0x56,
-	0xdf, 0xc2, 0x7a, 0x03, 0xbd, 0x1e, 0xb7, 0xbb, 0x3e, 0x82, 0x37, 0x01, 0xfd, 0xb1, 0x08, 0x16,
-	0x10, 0x15, 0xc1, 0xc4, 0x21, 0xd6, 0x21, 0xd7, 0xc0, 0x21, 0x0a, 0x79, 0x84, 0x6a, 0x07, 0xf2,
-	0xd2, 0x64, 0x02, 0x33, 0x0f, 0x6b, 0x6d, 0x61, 0x71, 0x21, 0x21, 0x6f, 0x21, 0x17, 0x59, 0x4c,
-	0x20, 0xe6, 0x60, 0xb5, 0x2d, 0x98, 0x2b, 0x01, 0xdf, 0xf8, 0x14, 0x02, 0x83, 0xa1, 0xaa, 0xb6,
-	0xd0, 0xb3, 0x9f, 0xe2, 0x55, 0x95, 0x26, 0x13, 0x98, 0x5b, 0xb0, 0xe1, 0xa7, 0xbe, 0x42, 0xeb,
-	0x11, 0x5f, 0x7d, 0x70, 0x50, 0x04, 0xb8, 0xbd, 0x49, 0x0f, 0x29, 0x66, 0x13, 0xd8, 0x9b, 0x40,
-	0x7c, 0x90, 0x4b, 0x66, 0x3b, 0x0a, 0x74, 0x37, 0x60, 0x14, 0x59, 0x4d, 0x20, 0x57, 0x80, 0x46,
-	0x4d, 0x7e, 0xce, 0xd9, 0xa8, 0xed, 0x58, 0xae, 0x77, 0xc7, 0x42, 0x06, 0xf7, 0x50, 0xd6, 0x7a,
-	0x4d, 0x30, 0xa9, 0xc1, 0x9f, 0x01, 0xd6, 0x0d, 0x8e, 0xdc, 0xc9, 0x10, 0xf2, 0x84, 0xe5, 0xf4,
-	0x30, 0xc9, 0xea, 0x11, 0x0e, 0xe7, 0x46, 0x9a, 0x60, 0x48, 0xa1, 0x78, 0x81, 0x42, 0x05, 0xb4,
-	0x87, 0x18, 0x5e, 0xcf, 0x3b, 0x28, 0x69, 0x7c, 0x26, 0x58, 0xec, 0xc3, 0x6e, 0x9d, 0xb9, 0x1f,
-	0xa7, 0xa1, 0x6e, 0xd8, 0xf9, 0x4d, 0x33, 0xe0, 0xe2, 0xc0, 0x5e, 0x6a, 0x84, 0x09, 0x46, 0x1b,
-	0xb0, 0xde, 0x1c, 0xf3, 0x81, 0x7f, 0x49, 0xae, 0xd8, 0x20, 0x2c, 0x88, 0x05, 0x44, 0x35, 0x9a,
-	0xc0, 0xdd, 0x86, 0xad, 0x3a, 0x5a, 0x1e, 0x2a, 0x07, 0x0d, 0xb0, 0x11, 0x0a, 0xd3, 0x0e, 0x43,
-	0xf7, 0xe1, 0x9a, 0xf5, 0xed, 0x77, 0x7e, 0xa5, 0x9b, 0x16, 0xb7, 0x46, 0x28, 0x90, 0xcb, 0xfb,
-	0xa0, 0xf1, 0x99, 0x60, 0xb1, 0x03, 0xe5, 0x53, 0xd7, 0x1d, 0xc6, 0x80, 0x2e, 0x38, 0x1b, 0xbb,
-	0x01, 0x91, 0x07, 0xa8, 0xe8, 0xdd, 0x86, 0xa6, 0x89, 0x22, 0xb8, 0xd3, 0x35, 0xb9, 0x87, 0xb2,
-	0xd6, 0x6b, 0x80, 0xc9, 0x3f, 0x5f, 0x7e, 0x01, 0x90, 0xbb, 0x0f, 0x39, 0x81, 0x6c, 0x34, 0xc8,
-	0xc8, 0xf6, 0x51, 0xb8, 0x3f, 0x1d, 0xc5, 0x37, 0x1e, 0x5a, 0x4c, 0x3a, 0x42, 0x6e, 0x17, 0xf0,
-	0xab, 0xba, 0x49, 0x10, 0x1a, 0x45, 0x26, 0x56, 0x18, 0x5a, 0xd6, 0xfa, 0xc2, 0x44, 0xa7, 0x00,
-	0x72, 0x39, 0x20, 0x45, 0x25, 0x34, 0xb6, 0x44, 0xd0, 0x92, 0xc6, 0x13, 0xa6, 0x38, 0x81, 0x6c,
-	0x24, 0xf6, 0xca, 0x59, 0xe2, 0x2b, 0x81, 0x72, 0x96, 0xe9, 0xcd, 0xe0, 0x3f, 0x58, 0x79, 0xd6,
-	0x6e, 0x52, 0x50, 0xa2, 0x14, 0x7d, 0xa7, 0xdb, 0x09, 0xbb, 0xe4, 0x2f, 0x65, 0x58, 0xe1, 0x3f,
-	0x25, 0xd7, 0x0a, 0xff, 0x84, 0x6a, 0x5f, 0xc3, 0x5a, 0x5c, 0x51, 0x49, 0x45, 0x06, 0x27, 0x15,
-	0x98, 0xee, 0xa4, 0x78, 0xc3, 0x74, 0x97, 0xb0, 0x1a, 0x53, 0x49, 0x52, 0x8e, 0xc5, 0xc7, 0x35,
-	0x95, 0x56, 0xf4, 0xce, 0x30, 0x57, 0x17, 0xb6, 0xb4, 0x7a, 0x47, 0x7e, 0x4b, 0xde, 0x8c, 0x84,
-	0x2e, 0xd1, 0xdf, 0x67, 0x07, 0x85, 0x18, 0x9f, 0x32, 0x70, 0x30, 0x57, 0xbe, 0xc8, 0xf1, 0x54,
-	0xae, 0x79, 0xa2, 0x48, 0xff, 0xfe, 0xfe, 0x17, 0x42, 0x22, 0xaf, 0x61, 0x43, 0x23, 0x59, 0xe4,
-	0x20, 0x4a, 0x94, 0x26, 0x76, 0xb4, 0x3a, 0x2b, 0x24, 0xcc, 0xee, 0x40, 0x29, 0x55, 0x84, 0xc8,
-	0xa1, 0x24, 0x3b, 0x53, 0xca, 0x68, 0x6d, 0x7e, 0xa0, 0xec, 0x50, 0x55, 0x6f, 0x94, 0x0e, 0x4d,
-	0x68, 0x93, 0xd2, 0xa1, 0x1a, 0x89, 0x6a, 0x43, 0x7e, 0x5a, 0x3c, 0xc8, 0xae, 0xa4, 0xa1, 0x13,
-	0x1c, 0xba, 0x97, 0xea, 0x97, 0xb5, 0xd6, 0xc8, 0x81, 0x52, 0xeb, 0x34, 0x21, 0x51, 0x6a, 0x9d,
-	0xae, 0x27, 0x08, 0x05, 0xfd, 0x8c, 0x27, 0xf2, 0x4a, 0xce, 0xd0, 0x08, 0xfa, 0xc7, 0x9c, 0x28,
-	0xd9, 0x1d, 0xda, 0xf9, 0xad, 0x74, 0x47, 0xfa, 0xf4, 0x57, 0xba, 0x63, 0x86, 0x08, 0xd0, 0xcd,
-	0xcf, 0x5f, 0x17, 0xf3, 0x24, 0xfb, 0xd2, 0x76, 0x06, 0x75, 0xff, 0xbb, 0x96, 0x2e, 0xb4, 0x1a,
-	0x67, 0xdd, 0xa5, 0xc9, 0xf7, 0xec, 0xbf, 0xdf, 0x02, 0x00, 0x00, 0xff, 0xff, 0x80, 0xf5, 0x70,
-	0x43, 0x04, 0x0f, 0x00, 0x00,
+	// 1851 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x18, 0x4b, 0x6f, 0xe3, 0xc6,
+	0x19, 0x92, 0xac, 0xd7, 0x27, 0xaf, 0xed, 0x9d, 0x5d, 0x3b, 0x34, 0xbd, 0x1b, 0x7b, 0x99, 0x6c,
+	0x63, 0xb4, 0x80, 0x9c, 0x3a, 0xc7, 0xa0, 0xdb, 0xc6, 0x76, 0x63, 0x38, 0xd8, 0xdd, 0xb8, 0x94,
+	0x63, 0xa0, 0x40, 0x00, 0x62, 0x24, 0x8e, 0x15, 0x26, 0x14, 0x87, 0x9d, 0x19, 0xaa, 0x6b, 0x23,
+	0xbd, 0xb5, 0x3d, 0x14, 0x28, 0xd0, 0x4b, 0x7f, 0x40, 0x8f, 0x3d, 0xf5, 0x87, 0xf4, 0xdc, 0x6b,
+	0xff, 0x42, 0xd1, 0x7f, 0x50, 0xcc, 0x43, 0x7c, 0x48, 0x94, 0x64, 0x04, 0xb5, 0x2e, 0x82, 0xe6,
+	0x7b, 0xcd, 0xf7, 0xe6, 0xf7, 0x0d, 0xb4, 0x99, 0xdf, 0xef, 0xc6, 0x8c, 0x0a, 0x8a, 0x9a, 0x9c,
+	0xb0, 0x71, 0x30, 0x20, 0xf6, 0xf3, 0xdf, 0x04, 0xd1, 0x70, 0x10, 0xd2, 0xc4, 0xf7, 0xb8, 0xff,
+	0x9d, 0xc7, 0x92, 0x90, 0x1c, 0xc9, 0x1f, 0x4d, 0x67, 0xef, 0x0f, 0x29, 0x1d, 0x86, 0xe4, 0x48,
+	0x9d, 0xfa, 0xc9, 0xcd, 0x91, 0x08, 0x46, 0x84, 0x0b, 0x3c, 0x8a, 0x35, 0x81, 0xf3, 0x63, 0x78,
+	0xea, 0x9e, 0x9d, 0xf4, 0xb4, 0xb4, 0x4b, 0x46, 0x63, 0xc2, 0x44, 0x40, 0x38, 0x42, 0xb0, 0x76,
+	0x47, 0x23, 0x62, 0x55, 0x0e, 0x2a, 0x87, 0x6d, 0x57, 0xfd, 0x77, 0xfe, 0x5d, 0x83, 0x8d, 0x53,
+	0x46, 0xb0, 0x20, 0xee, 0xd9, 0xc9, 0x45, 0x14, 0x27, 0x02, 0x3d, 0x85, 0xfa, 0xf8, 0x5d, 0x44,
+	0x84, 0xa1, 0xd3, 0x07, 0xf4, 0x1c, 0x80, 0xf9, 0x7d, 0x8f, 0x44, 0xc3, 0x20, 0x22, 0x56, 0x55,
+	0xa1, 0xa4, 0xf2, 0xbf, 0x54, 0x00, 0xf4, 0x12, 0x36, 0x34, 0xca, 0x1b, 0x13, 0xc6, 0x03, 0x1a,
+	0x59, 0x35, 0x45, 0xf2, 0x48, 0x43, 0xaf, 0x35, 0x10, 0xbd, 0x80, 0x75, 0x29, 0x25, 0xe1, 0x84,
+	0x45, 0x78, 0x44, 0xac, 0x35, 0x45, 0xd4, 0x61, 0x7e, 0xff, 0x2b, 0x03, 0x9a, 0x90, 0xc4, 0x98,
+	0xf3, 0xdf, 0x52, 0xe6, 0x5b, 0xf5, 0x94, 0xe4, 0xd2, 0x80, 0xd0, 0x2e, 0xb4, 0x24, 0x89, 0xb8,
+	0x8d, 0x89, 0xd5, 0x38, 0xa8, 0x1c, 0xd6, 0xdd, 0x26, 0xf3, 0xfb, 0x57, 0xb7, 0xb1, 0xe2, 0xe6,
+	0x82, 0x32, 0x3c, 0x24, 0x1e, 0x0f, 0xee, 0x88, 0xd5, 0x54, 0xe8, 0x8e, 0x81, 0xf5, 0x82, 0x3b,
+	0x32, 0xe1, 0x56, 0xf7, 0xb7, 0x94, 0x70, 0xc9, 0xfd, 0x56, 0xde, 0x7d, 0x0a, 0x9d, 0x98, 0x05,
+	0x63, 0x2c, 0x88, 0x17, 0xc4, 0xdc, 0x6a, 0x1f, 0x54, 0x0e, 0x3b, 0xc7, 0x4e, 0xd7, 0x04, 0xa6,
+	0x5b, 0x74, 0x54, 0xf7, 0x52, 0x93, 0x5e, 0xc4, 0xdc, 0x85, 0x38, 0xfd, 0x8f, 0x0e, 0xa0, 0xe3,
+	0x13, 0x3e, 0x60, 0x41, 0x2c, 0xa4, 0x1f, 0x40, 0xeb, 0x9f, 0x03, 0xa1, 0x43, 0xd8, 0xc2, 0x89,
+	0xa0, 0x5e, 0x1f, 0x0f, 0xbe, 0x4b, 0x62, 0x4f, 0xc6, 0xcf, 0xea, 0x28, 0x45, 0x37, 0x24, 0xfc,
+	0x44, 0x81, 0xaf, 0x82, 0x11, 0xb1, 0x7f, 0x01, 0x90, 0xdd, 0x82, 0x76, 0xa0, 0x31, 0xc2, 0x5c,
+	0x10, 0x66, 0x42, 0x63, 0x4e, 0xc8, 0x86, 0x96, 0xa0, 0x31, 0x0f, 0xf1, 0x78, 0x12, 0x99, 0xf4,
+	0xec, 0xc4, 0xb0, 0x99, 0xaa, 0xfd, 0x65, 0x22, 0x64, 0x80, 0x77, 0xa0, 0x81, 0x07, 0x4a, 0x37,
+	0x23, 0x46, 0x9f, 0x94, 0x63, 0x88, 0xf0, 0x06, 0xd4, 0xd7, 0x62, 0xa4, 0x5b, 0x89, 0x38, 0xa5,
+	0x3e, 0x41, 0x16, 0x34, 0x47, 0x84, 0x73, 0x3c, 0x24, 0x26, 0xae, 0x93, 0x23, 0xda, 0x82, 0x1a,
+	0xf3, 0xfb, 0x26, 0x90, 0xf2, 0xaf, 0xf3, 0xaf, 0x0a, 0x3c, 0x3e, 0x53, 0xd6, 0xf6, 0xe5, 0xa5,
+	0x5c, 0x67, 0x15, 0x82, 0x35, 0xe6, 0xf7, 0xb9, 0x55, 0x39, 0xa8, 0xc9, 0xe4, 0x93, 0xff, 0x97,
+	0xe5, 0xd4, 0x0e, 0x34, 0xb8, 0xc0, 0x22, 0xe1, 0x56, 0x4d, 0x31, 0x99, 0x53, 0x21, 0x80, 0x6b,
+	0xc5, 0x00, 0x22, 0x58, 0x13, 0x78, 0xc8, 0xad, 0xba, 0xbe, 0x45, 0xfe, 0x97, 0xba, 0x8f, 0x09,
+	0xeb, 0x53, 0x9e, 0x26, 0x8b, 0x39, 0xca, 0x0b, 0xe8, 0xcd, 0x0d, 0x27, 0xc2, 0xa4, 0x89, 0x39,
+	0xc9, 0x0a, 0x08, 0x83, 0x51, 0x20, 0x54, 0x7a, 0xd4, 0x5d, 0x7d, 0x70, 0xfe, 0xd3, 0x04, 0x94,
+	0xb7, 0xeb, 0x21, 0xbc, 0x79, 0x0e, 0xc0, 0x68, 0x22, 0x08, 0xf3, 0xa4, 0x56, 0x6b, 0x07, 0xb5,
+	0xc3, 0xce, 0xf1, 0x61, 0x9a, 0x7f, 0xb3, 0xb7, 0x77, 0x5d, 0xc2, 0x63, 0x1a, 0x71, 0x72, 0x21,
+	0xc8, 0xc8, 0x6d, 0x6b, 0xde, 0x1e, 0x11, 0x68, 0x1f, 0x3a, 0x82, 0x0a, 0x1c, 0x7a, 0x03, 0x9a,
+	0x44, 0x42, 0x15, 0x51, 0xdd, 0x05, 0x05, 0x3a, 0x95, 0x10, 0xfb, 0x6f, 0x0d, 0x58, 0xcf, 0x33,
+	0xa3, 0x6d, 0x68, 0x48, 0xaf, 0x06, 0xfe, 0xa4, 0xee, 0x99, 0xdf, 0xbf, 0xf0, 0x4b, 0x73, 0xb5,
+	0x5a, 0x96, 0xab, 0xe8, 0x53, 0xe8, 0x0c, 0x54, 0xa6, 0x69, 0xa2, 0x9a, 0x2a, 0x1e, 0xbb, 0xab,
+	0xbb, 0x55, 0x77, 0xd2, 0xad, 0xba, 0x57, 0x93, 0x6e, 0xe5, 0x82, 0x26, 0x57, 0xcc, 0x2f, 0x60,
+	0x1d, 0x87, 0x98, 0x8d, 0x3c, 0x13, 0x71, 0xd3, 0x18, 0x14, 0xac, 0x37, 0x1b, 0xf6, 0x7a, 0x31,
+	0xec, 0x7b, 0xd0, 0xd6, 0xa5, 0xe0, 0x05, 0xb1, 0x0a, 0x72, 0xdb, 0x6d, 0x69, 0xc0, 0x45, 0x2c,
+	0xf5, 0xd2, 0x42, 0xb5, 0x5e, 0xcd, 0xe5, 0x7a, 0x69, 0x72, 0xa5, 0xd7, 0x39, 0x34, 0x54, 0xff,
+	0xe3, 0x2a, 0x17, 0x3a, 0xc7, 0x47, 0xf7, 0x0d, 0x46, 0xf7, 0x5a, 0xb1, 0xb9, 0x86, 0x3d, 0x97,
+	0xcc, 0x6d, 0x9d, 0x26, 0x26, 0x99, 0x97, 0x77, 0x8b, 0x9f, 0xc0, 0x63, 0xc1, 0x70, 0xc4, 0x03,
+	0x79, 0x9a, 0xf8, 0xa7, 0xa3, 0xe8, 0xb6, 0x32, 0x84, 0x71, 0xd2, 0x74, 0xff, 0x5b, 0x9f, 0xdb,
+	0xff, 0x54, 0xf7, 0x7c, 0x54, 0xec, 0x9e, 0x9f, 0xc0, 0x8e, 0x0a, 0xf6, 0x28, 0x88, 0x28, 0x93,
+	0x9d, 0xdc, 0x4b, 0xe2, 0x21, 0xc3, 0x3e, 0xb1, 0x36, 0x14, 0xe1, 0x13, 0x89, 0x7d, 0x23, 0x91,
+	0xd7, 0x84, 0x7d, 0xa5, 0x51, 0xe8, 0x2d, 0x6c, 0x87, 0xd2, 0xd7, 0x5c, 0x78, 0x3c, 0xc2, 0x31,
+	0xff, 0x86, 0x0a, 0xed, 0xe9, 0xcd, 0xa5, 0x9e, 0x7e, 0x62, 0x18, 0x7b, 0x86, 0x4f, 0xb9, 0x7c,
+	0xf6, 0x53, 0xb2, 0x55, 0xf6, 0x29, 0x29, 0x36, 0x8f, 0xc7, 0x53, 0xcd, 0xc3, 0x3e, 0x81, 0x86,
+	0x8e, 0x80, 0x24, 0x54, 0x31, 0xd0, 0x99, 0xa3, 0x93, 0xbb, 0xad, 0x20, 0x2a, 0x77, 0x76, 0xa1,
+	0xa5, 0xd1, 0x81, 0x6f, 0x5a, 0x50, 0x53, 0x9d, 0x2f, 0x7c, 0xe7, 0x25, 0x6c, 0x9e, 0x91, 0x90,
+	0x88, 0xc5, 0x6d, 0xcc, 0x19, 0xc3, 0x56, 0x46, 0xf6, 0x10, 0x5d, 0x61, 0x1b, 0x1a, 0xdf, 0x52,
+	0x55, 0x9a, 0xba, 0x2c, 0xea, 0xdf, 0xd2, 0xfe, 0x85, 0xef, 0x7c, 0x08, 0x1b, 0x3d, 0x81, 0x99,
+	0x58, 0xac, 0x5d, 0x02, 0x9b, 0x29, 0xd5, 0x0a, 0x95, 0xfb, 0x00, 0x1e, 0xf5, 0x04, 0x8d, 0x17,
+	0xeb, 0x26, 0xa4, 0x05, 0x9a, 0x68, 0x85, 0xaa, 0x0d, 0x60, 0xd3, 0x25, 0xb2, 0x3a, 0x16, 0x7f,
+	0x9d, 0xf2, 0x75, 0x52, 0x5d, 0x3c, 0x65, 0xd4, 0x66, 0xaa, 0x4c, 0x26, 0x45, 0x76, 0xc9, 0x0a,
+	0x8d, 0xfb, 0x39, 0x3c, 0x91, 0x37, 0xbe, 0x26, 0x78, 0x4c, 0x54, 0x01, 0xcc, 0x37, 0x30, 0x1d,
+	0xf4, 0xaa, 0xb9, 0x41, 0xcf, 0xb9, 0x53, 0xd3, 0x63, 0x4e, 0xc0, 0x0a, 0x95, 0x7f, 0x05, 0x48,
+	0xde, 0xfd, 0x05, 0x0d, 0xa2, 0x1f, 0xa4, 0xfb, 0xad, 0x36, 0x3e, 0xe5, 0x5f, 0xa1, 0xea, 0x7f,
+	0xaf, 0x81, 0x9d, 0x0e, 0x5a, 0x9f, 0x33, 0x3a, 0x9a, 0xf4, 0x34, 0x6d, 0x83, 0x0d, 0xad, 0x49,
+	0x73, 0x34, 0x4a, 0xa4, 0xe7, 0x72, 0x5b, 0x0a, 0xe9, 0x57, 0x9b, 0x49, 0xbf, 0xff, 0xdf, 0x14,
+	0xad, 0x24, 0x34, 0x8a, 0xdf, 0xd3, 0x2f, 0x8b, 0x73, 0xb0, 0xfe, 0x64, 0x76, 0x67, 0xe7, 0xe0,
+	0x19, 0x3b, 0xef, 0x39, 0x13, 0xb7, 0xee, 0x37, 0x13, 0xb7, 0x1f, 0x68, 0x26, 0xfe, 0x1e, 0xf6,
+	0x4a, 0x4d, 0x58, 0xcd, 0x7c, 0x7c, 0x0d, 0x3f, 0xd2, 0xb7, 0x5f, 0x91, 0x51, 0xac, 0x96, 0x09,
+	0x2e, 0x70, 0x34, 0x20, 0xb3, 0x49, 0x63, 0x78, 0x2b, 0x29, 0x6f, 0x21, 0x8d, 0xaa, 0xc5, 0x34,
+	0x72, 0xfe, 0x5c, 0x81, 0x8f, 0x96, 0x0a, 0x5e, 0x61, 0x45, 0xfc, 0x0c, 0xac, 0x73, 0x22, 0xf2,
+	0x7a, 0x04, 0x21, 0x31, 0xfd, 0xd6, 0xa4, 0x67, 0x60, 0x30, 0x46, 0x0b, 0x99, 0x9e, 0x13, 0x62,
+	0xe7, 0x1b, 0xd8, 0x2d, 0x61, 0x7f, 0x00, 0xfd, 0x9d, 0x5f, 0xc3, 0xfb, 0xa7, 0x34, 0xbe, 0x9d,
+	0xbe, 0xea, 0x8a, 0x7e, 0x7e, 0x75, 0x79, 0x5f, 0x75, 0x65, 0x11, 0xdf, 0x48, 0x2e, 0xab, 0xaa,
+	0xba, 0x94, 0x3e, 0x38, 0x7f, 0xa8, 0xc0, 0xfe, 0x5c, 0xd9, 0x2b, 0x8c, 0xc5, 0xef, 0x2b, 0xf0,
+	0xf8, 0x32, 0x61, 0x43, 0x99, 0xf1, 0xaf, 0xe9, 0x90, 0xcf, 0xcb, 0xaf, 0x69, 0x43, 0xab, 0xb3,
+	0x86, 0xee, 0x42, 0x2b, 0xa4, 0xc3, 0xac, 0x2f, 0xb5, 0xdd, 0x66, 0x48, 0x87, 0xaa, 0x2f, 0xed,
+	0x43, 0xa7, 0x4f, 0x6e, 0x28, 0x23, 0x9e, 0xb4, 0xde, 0x68, 0x00, 0x1a, 0x24, 0xcd, 0x76, 0xde,
+	0x01, 0xca, 0x6b, 0xb1, 0x42, 0x07, 0xbc, 0x86, 0xed, 0x53, 0x82, 0x39, 0xc9, 0x05, 0xe2, 0x87,
+	0xfb, 0xc0, 0xf9, 0x1e, 0x76, 0xa6, 0xa5, 0xad, 0xd0, 0x96, 0xbf, 0x54, 0xc0, 0x7a, 0x43, 0xfd,
+	0xe0, 0x46, 0xa6, 0xd5, 0x25, 0x66, 0x78, 0x44, 0x04, 0x61, 0x73, 0x63, 0x7a, 0x09, 0x10, 0xa7,
+	0x44, 0x2a, 0x3d, 0x3b, 0xc7, 0x1f, 0xa7, 0xbd, 0x7c, 0x9e, 0xa0, 0x6e, 0xee, 0x2c, 0x77, 0xcb,
+	0x9c, 0x0c, 0x7b, 0x0b, 0x36, 0x8a, 0x58, 0xe7, 0x0e, 0x76, 0x4b, 0x04, 0xad, 0xa6, 0x9f, 0x1e,
+	0xc1, 0xde, 0x67, 0x71, 0x1c, 0x16, 0xae, 0x3e, 0x67, 0x34, 0x89, 0xe7, 0x38, 0xc4, 0xf9, 0x1d,
+	0x3c, 0x2b, 0x67, 0x58, 0x8d, 0xbe, 0x5f, 0x83, 0x9d, 0xdb, 0x1d, 0x97, 0xc7, 0x2f, 0x7b, 0xa5,
+	0xa8, 0x96, 0xbf, 0x52, 0xd4, 0xf2, 0xaf, 0x14, 0x7f, 0x5d, 0x83, 0xbd, 0x52, 0xf1, 0x0f, 0x61,
+	0xdc, 0x35, 0x3c, 0x4a, 0xd3, 0x22, 0xf7, 0x62, 0xf1, 0xd3, 0xb2, 0x25, 0x79, 0x5a, 0x93, 0xe2,
+	0xd3, 0xc5, 0x7a, 0x2a, 0xe7, 0x5e, 0xaf, 0x17, 0xff, 0xa8, 0x4e, 0xbd, 0x5e, 0xec, 0x41, 0x3b,
+	0xe0, 0x6a, 0x39, 0x0e, 0x06, 0xca, 0xb2, 0xba, 0xdb, 0x0a, 0x78, 0x4f, 0x9d, 0xd5, 0xf3, 0x40,
+	0x10, 0x79, 0x63, 0x1c, 0x26, 0x13, 0xe3, 0x5a, 0xa3, 0x20, 0xba, 0x96, 0x67, 0xe9, 0x90, 0x1b,
+	0x3c, 0x0a, 0xc2, 0x5b, 0x63, 0x9c, 0x39, 0x49, 0x1d, 0x02, 0xee, 0x31, 0x82, 0x7d, 0x1a, 0x85,
+	0xb7, 0x2a, 0x80, 0x75, 0x17, 0x02, 0xee, 0x1a, 0x88, 0x94, 0x3a, 0xc6, 0xcc, 0x48, 0xd5, 0xf3,
+	0x55, 0x6b, 0x8c, 0x99, 0x96, 0xaa, 0x5e, 0x24, 0xde, 0x19, 0x64, 0xc3, 0x5c, 0x89, 0xdf, 0x69,
+	0xe4, 0x2e, 0xb4, 0x68, 0x6c, 0xf6, 0xd1, 0xa6, 0xf6, 0x28, 0x8d, 0xb3, 0x6d, 0x14, 0x33, 0xdd,
+	0x5d, 0xcd, 0xe3, 0xe4, 0x18, 0x33, 0xd5, 0x5d, 0x0d, 0x4a, 0x71, 0xb5, 0x53, 0xd4, 0x5b, 0x33,
+	0xed, 0x71, 0xa2, 0xe2, 0xa8, 0xd1, 0xe6, 0x15, 0xc1, 0xc0, 0x24, 0xc9, 0xf1, 0x3f, 0x3b, 0x00,
+	0xd9, 0xab, 0x30, 0x7a, 0x05, 0xed, 0x74, 0x04, 0x42, 0xef, 0xcd, 0x79, 0xe1, 0xb4, 0xad, 0x59,
+	0x84, 0x49, 0xa3, 0x73, 0x58, 0xcf, 0x3f, 0x80, 0x20, 0xbb, 0xf4, 0x5d, 0x44, 0x4b, 0xd9, 0x5b,
+	0xf0, 0x66, 0x82, 0x3e, 0x03, 0xc8, 0x96, 0x67, 0x64, 0xe5, 0x48, 0x0b, 0x8b, 0xb7, 0xbd, 0x5b,
+	0x82, 0x31, 0x22, 0x5e, 0x41, 0x3b, 0xdd, 0x70, 0x73, 0xb6, 0x14, 0x77, 0xe3, 0x9c, 0x2d, 0xd3,
+	0xeb, 0xf0, 0xa7, 0xd0, 0x9a, 0x6c, 0xa1, 0x68, 0x27, 0x47, 0x95, 0xdb, 0x5e, 0xed, 0xf7, 0x66,
+	0xe0, 0x99, 0xfe, 0xd9, 0x9e, 0x97, 0xd3, 0x7f, 0x6a, 0xc3, 0xcc, 0xe9, 0x3f, 0xb3, 0x16, 0xbe,
+	0x81, 0x8d, 0xe2, 0xc6, 0x85, 0x9e, 0x65, 0xc4, 0xb3, 0xbb, 0x9c, 0xfd, 0x7c, 0x0e, 0xd6, 0x88,
+	0xfb, 0x02, 0x1e, 0x15, 0x96, 0x20, 0xb4, 0x57, 0xa0, 0x2f, 0x2e, 0x57, 0xf6, 0xb3, 0x72, 0xa4,
+	0x91, 0xd5, 0x87, 0xed, 0xd2, 0x49, 0x19, 0x7d, 0x70, 0x8f, 0x65, 0xc0, 0xfe, 0x70, 0x31, 0x91,
+	0xb9, 0xe3, 0x8f, 0x15, 0x78, 0xb1, 0x74, 0x6e, 0x45, 0x47, 0x53, 0xb2, 0x96, 0x0d, 0xcf, 0xf6,
+	0xc7, 0xf7, 0x67, 0x30, 0x8a, 0x7c, 0x0d, 0x4f, 0x4a, 0x26, 0x4e, 0xf4, 0x22, 0x15, 0x34, 0x6f,
+	0x9c, 0xb5, 0x9d, 0x45, 0x24, 0x46, 0x7a, 0x04, 0xbb, 0x73, 0x27, 0x41, 0xf4, 0x51, 0xa6, 0xec,
+	0xc2, 0x49, 0xd4, 0x3e, 0x5c, 0x4e, 0x98, 0x55, 0x68, 0x7e, 0xd6, 0xca, 0x55, 0xe8, 0xcc, 0x20,
+	0x98, 0xab, 0xd0, 0x92, 0xf1, 0xac, 0x07, 0x5b, 0xd3, 0xc3, 0x0e, 0x7a, 0x3f, 0x53, 0xa3, 0x6c,
+	0xaa, 0xb2, 0xf7, 0xe7, 0xe2, 0x33, 0x5f, 0x97, 0x0c, 0x0c, 0x39, 0x5f, 0xcf, 0x9b, 0x4b, 0x72,
+	0xbe, 0x9e, 0x3f, 0x71, 0x10, 0xd8, 0x29, 0xff, 0xc2, 0xa3, 0x2c, 0x25, 0x17, 0xcc, 0x0c, 0xf6,
+	0xcb, 0x25, 0x54, 0x59, 0x75, 0x94, 0x7e, 0xe0, 0x72, 0xd5, 0x31, 0xff, 0x4b, 0x9f, 0xab, 0x8e,
+	0x05, 0x5f, 0x49, 0xfb, 0xe9, 0x9f, 0xfe, 0xbb, 0xb6, 0x85, 0xda, 0xbf, 0x0a, 0xa2, 0xe1, 0x69,
+	0x48, 0x13, 0xdf, 0xae, 0xb9, 0x67, 0x27, 0xfd, 0x86, 0x7a, 0x4c, 0xfd, 0xe4, 0x7f, 0x01, 0x00,
+	0x00, 0xff, 0xff, 0x19, 0x35, 0xff, 0x39, 0x3f, 0x1c, 0x00, 0x00,
 }
