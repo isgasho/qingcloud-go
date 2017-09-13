@@ -9,8 +9,8 @@
 
 项目目标:
 
+- 只做好对Go语言的支持, 接口兼容官方 [SDK](https://github.com/yunify/qingcloud-sdk-go), 更完备的接口, 更多的测试
 - 基于 Protobuf-V3 语法维护规范, 便于升级和维护
-- 只做好对Go语言的支持, 运行稳定/服务完备
 
 在线文档:
 
@@ -186,8 +186,10 @@ func (p *UserDataService) UploadUserDataAttachment(
 
 ## 与官方SDK的兼容性
 
-- 该 SDK 和 官方 SDK 的 API 保持最大的兼容性
+因为 protobuf 语法的限制, 它无法实现对 多维数组/字典数组/异构数据 对支持. 目前对于异构数据对处理思路是, 避免用 protobuf 实现异构数据, 采用纯Go语言对结构体实现(内部不得使用protobuf定义对时间类型). 青云的服务中绝大部分参数都是对 protobuf 友好对. 我们尽量做到以下几点:
+
 - 即使有不兼容的地方, API 也是非常相似的
+- 该 SDK 和 官方 SDK 的 API 保持最大的兼容性
 
 假设青云的REST规范的文档中有一个名为 `job_id` 的输入参数, 对应 `XXXInput` 结构体的成员.
 
@@ -212,16 +214,16 @@ type XXXInput struct {
 [snips](https://github.com/yunify/snips) 采用和 Protobuf-V2 类似的生成规则, 零值是 `nil`, 空值是空字符串, 二者是不等价的. 在 Protobuf3 的生成规则中, 默认将零值和空值等价.
 
 
-## 为何不用官方SDK, 为何要重新做一个? 自己造轮子很爽吗?
+## 为何不用官方SDK, 为何要重新做一个?
 
 官方SDK采用json格式定义规范很难维护, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 目前官方SDK已经落后于当前服务(官方的json规范共有约2万行, 我们的proto规范文件远不到1万行). 更别说还要花很大精力维护 snips 本身的开发. 而使用protobuf标准, 也便于以后和docker和k8s等平台互联网(它们都是提供的grpc接口, 也是protobuf规范定义的).
 
-可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比, 感觉一下哪个更容易维护:
+可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比:
 
-- proto3 格式(我们的): [chai2010/qingcloud-go/spec.pb/volume.proto](./spec.pb/volume.proto)
-- snips 格式(官方的): [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
+- proto3 格式: [chai2010/qingcloud-go/spec.pb/volume.proto](./spec.pb/volume.proto)
+- snips 格式: [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
 
-有码有真相, 什么都明白了吧...
+对比可发现, protobuf 比 json 更容易维护.
 
 <!-- 以后或许可以通过pb自动生成json规范 -->
 
