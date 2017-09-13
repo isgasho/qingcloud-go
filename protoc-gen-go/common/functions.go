@@ -18,7 +18,6 @@ package common
 
 import (
 	"net/http"
-	"sort"
 	"strings"
 	"text/template"
 )
@@ -39,8 +38,6 @@ var funcMap = template.FuncMap{
 
 	"replace":     replace,
 	"passThrough": passThrough,
-
-	"firstPropertyIDInCustomizedType": firstPropertyIDInCustomizedType,
 
 	"statusText": statusText,
 }
@@ -75,21 +72,6 @@ func replace(s, old, new string, n int) string {
 
 func passThrough(data ...interface{}) []interface{} {
 	return data
-}
-
-func firstPropertyIDInCustomizedType(customizedType *Property) string {
-	keys := []string{}
-	for key := range customizedType.Properties {
-		keys = append(keys, key)
-	}
-
-	sort.Strings(keys)
-
-	if len(keys) > 0 {
-		return keys[0]
-	}
-
-	return ""
 }
 
 // statusText translates the integer status code into string text in camelcase.
