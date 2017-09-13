@@ -9,7 +9,7 @@
 
 项目目标:
 
-- 只做好对Go语言的支持, 接口兼容官方 [SDK](https://github.com/yunify/qingcloud-sdk-go), 更完备的接口, 更多的测试
+- 首要是做好对Go语言的支持(其它语言以后可考虑), 接口兼容官方 [SDK](https://github.com/yunify/qingcloud-sdk-go), 更完备的接口, 更多的测试
 - 基于 Protobuf-V3 语法维护规范, 便于升级和维护
 
 在线文档:
