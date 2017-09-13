@@ -37,14 +37,15 @@
 // 有主服务和子服务之分, 子服务隶属于某个主服务
 message ServiceOptionsRule {
 	string doc_url = 1;          // 文档链接
-	string service_name = 2;     // 主服务名(因为要生成一个Init函数, 只能有一个, 否则会重名)
-	string sub_service_name = 3; // 子服务名(主服务可省略)
+	string service_name = 2;     // 服务名, 格式: QingCloud, QingCloud.Alarm
 }
 
 // 方法规则
 message MethodOptionsRule {
 	string doc_url = 1;          // 文档链接
 	string http_method = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
+	string input_type = 3;       // 输入参数类型
+	string output_type = 4;      // 输出参数类型
 }
 
 // 输入参数规则
@@ -93,8 +94,7 @@ message UserDataServiceProperties {
 
 service UserDataService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "UserData"
+		service_name: "QingCloud.UserData"
 	};
 
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
