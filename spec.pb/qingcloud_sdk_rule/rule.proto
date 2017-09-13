@@ -22,6 +22,8 @@ message ServiceOptionsRule {
 message MethodOptionsRule {
 	string doc_url = 1;          // 文档链接
 	string http_method = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
+	string input_type = 3;       // 输入参数类型
+	string output_type = 4;      // 输出参数类型
 }
 
 // 输入参数规则
