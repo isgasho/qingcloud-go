@@ -12,11 +12,7 @@ import (
 
 type pbServiceRule struct{ *rule_pb.ServiceOptionsRule }
 
-func (p *pbServiceRule) IsMainService() bool        { return p.ServiceOptionsRule.GetSubServiceName() == "" }
-func (p *pbServiceRule) IsSubService() bool         { return p.ServiceOptionsRule.GetSubServiceName() != "" }
-func (p *pbServiceRule) GetMainServiceName() string { return p.ServiceOptionsRule.GetServiceName() }
-func (p *pbServiceRule) GetSubServiceName() string  { return p.ServiceOptionsRule.GetSubServiceName() }
-func (p *pbServiceRule) GetDocUrl() string          { return p.ServiceOptionsRule.GetDocUrl() }
+func (p *pbServiceRule) GetDocUrl() string { return p.ServiceOptionsRule.GetDocUrl() }
 
 type pbMethodRule struct{ *rule_pb.MethodOptionsRule }
 

@@ -204,7 +204,7 @@ func (p *{{.ArgsType}}) Validate() error {
 
 	svcRule := p.getServiceExtension(svc)
 	if svcRule != nil {
-		if svcRule.ServiceName != "" || svcRule.SubServiceName != "" {
+		if svcRule.ServiceName != "" {
 			// println("svc:", svcRule.ServiceName+"."+svcRule.SubServiceName)
 		}
 	}
