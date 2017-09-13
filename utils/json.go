@@ -19,11 +19,14 @@ package utils
 import (
 	"bytes"
 	"encoding/json"
+
+	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
 )
 
 // JSONEncode encode given interface to json byte slice.
 func JSONEncode(source interface{}, unescape bool) ([]byte, error) {
-	bytesResult, err := json.Marshal(source)
+	bytesResult, err := encodeJson(source)
 	if err != nil {
 		return []byte{}, err
 	}
@@ -37,21 +40,54 @@ func JSONEncode(source interface{}, unescape bool) ([]byte, error) {
 	return bytesResult, nil
 }
 
+func encodeJson(x interface{}) ([]byte, error) {
+	if x, ok := x.(proto.Message); ok {
+		jsonMarshaler := &jsonpb.Marshaler{
+			OrigName: true,
+			Indent:   "",
+		}
+
+		var buf bytes.Buffer
+		err := jsonMarshaler.Marshal(&buf, x)
+		if err != nil {
+			return nil, err
+		}
+		return buf.Bytes(), nil
+	}
+
+	return json.Marshal(x)
+}
+
 // JSONDecode decode given json byte slice to corresponding struct.
 func JSONDecode(content []byte, destinations ...interface{}) (interface{}, error) {
 	var destination interface{}
 	var err error
 	if len(destinations) == 1 {
 		destination = destinations[0]
-		err = json.Unmarshal(content, destination)
+		err = decodeJson(content, destination)
 	} else {
-		err = json.Unmarshal(content, &destination)
+		err = decodeJson(content, &destination)
 	}
 
 	if err != nil {
 		return nil, err
 	}
 	return destination, err
+}
+
+func decodeJson(data []byte, x interface{}) error {
+	if x, ok := x.(proto.Message); ok {
+		decoder := &jsonpb.Unmarshaler{
+			AllowUnknownFields: true,
+		}
+		err := decoder.Unmarshal(bytes.NewReader(data), x)
+		if err != nil {
+			return err
+		}
+		return nil
+	}
+
+	return json.Unmarshal(data, x)
 }
 
 // JSONFormatToReadable formats given json byte slice prettily.
