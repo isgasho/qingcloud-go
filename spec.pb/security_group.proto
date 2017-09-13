@@ -19,8 +19,8 @@ message SecurityGroupServiceProperties {
 
 service SecurityGroupService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "SecurityGroup"
+		doc_url: "https://docs.qingcloud.com/api/sg/index.html"
+		service_name: "QingCloud.SecurityGroup"
 	};
 
 	rpc DescribeSecurityGroups(DescribeSecurityGroupsInput) returns (DescribeSecurityGroupsOutput);

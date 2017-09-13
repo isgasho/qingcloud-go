@@ -19,8 +19,8 @@ message MongoServiceProperties {
 
 service MongoService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "Mongo"
+		doc_url: "https://docs.qingcloud.com/api/mongo/index.html"
+		service_name: "QingCloud.Mongo"
 	};
 
 	rpc DescribeMongoNodes(DescribeMongoNodesInput) returns (DescribeMongoNodesOutput);

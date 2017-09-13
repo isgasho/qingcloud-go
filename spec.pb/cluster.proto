@@ -17,8 +17,8 @@ message ClusterServiceProperties {
 
 service ClusterService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "Cluster"
+		doc_url: ""
+		service_name: "QingCloud.Cluster"
 	};
 
 	rpc CreateCluster(CreateClusterInput) returns (CreateClusterOutput);

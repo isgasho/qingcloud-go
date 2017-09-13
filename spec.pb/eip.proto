@@ -12,8 +12,8 @@ import "qingcloud_sdk_rule/rule.proto";
 import "google/protobuf/timestamp.proto";
 
 // ----------------------------------------------------------------------------
-
 // https://docs.qingcloud.com/api/eip/index.html
+// ----------------------------------------------------------------------------
 
 message EipServiceProperties {
 	string zone = 1;
@@ -21,8 +21,8 @@ message EipServiceProperties {
 
 service EipService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "Eip"
+		doc_url: "https://docs.qingcloud.com/api/eip/index.html"
+		service_name: "QingCloud.EIP"
 	};
 
 	rpc DescribeEips(DescribeEipsInput) returns (DescribeEipsOutput);

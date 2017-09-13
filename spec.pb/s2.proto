@@ -21,8 +21,8 @@ message S2ServiceProperties {
 
 service S2Service {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "S2"
+		doc_url: "https://docs.qingcloud.com/api/s2/index.html"
+		service_name: "QingCloud.S2"
 	};
 
 	rpc CreateS2Server(CreateS2ServerInput) returns (CreateS2ServerOutput);

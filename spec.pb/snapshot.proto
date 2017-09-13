@@ -20,8 +20,8 @@ message SnapshotServiceProperties {
 
 service SnapshotService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "Snapshot"
+		doc_url: "https://docs.qingcloud.com/api/snapshot/index.html"
+		service_name: "QingCloud.Snapshot"
 	};
 
 	rpc DescribeSnapshots(DescribeSnapshotsInput) returns (DescribeSnapshotsOutput);

@@ -19,8 +19,8 @@ message InstanceServiceProperties {
 
 service InstanceService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		service_name:     "QingCloud"
-		sub_service_name: "Instance"
+		doc_url: "https://docs.qingcloud.com/api/instance/index.html"
+		service_name: "QingCloud.Instance"
 	};
 
 	rpc DescribeInstances(DescribeInstancesInput) returns (DescribeInstancesOutput);
