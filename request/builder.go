@@ -17,6 +17,7 @@
 package request
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -38,11 +39,11 @@ type Builder struct {
 	parsedParams     *map[string]string
 
 	operation *data.Operation
-	input     proto.Message
+	input     interface{}
 }
 
 // BuildHTTPRequest builds http request with an operation and an input.
-func (b *Builder) BuildHTTPRequest(o *data.Operation, i proto.Message) (*http.Request, error) {
+func (b *Builder) BuildHTTPRequest(o *data.Operation, i interface{}) (*http.Request, error) {
 	b.operation = o
 	b.input = i
 
@@ -135,24 +136,20 @@ func (b *Builder) parseRequestURL() error {
 	return nil
 }
 
-func protoMessageToMap(msg proto.Message) (m map[string]string, err error) {
+func protoMessageToMap(msg interface{}) (m map[string]string, err error) {
 	defer func() {
 		if x := recover(); x != nil {
 			err = fmt.Errorf("protoMessageToMap failed: %v", x)
 		}
 	}()
 
-	jsonMarshaler := &jsonpb.Marshaler{
-		OrigName: true,
-		Indent:   "",
-	}
-	jsonString, err := jsonMarshaler.MarshalToString(msg)
+	d, err := encodeJson(msg)
 	if err != nil {
 		return nil, err
 	}
 
 	var mapx map[string]interface{}
-	if err := json.Unmarshal([]byte(jsonString), &mapx); err != nil {
+	if err := json.Unmarshal(d, &mapx); err != nil {
 		return nil, err
 	}
 
@@ -194,4 +191,22 @@ func unpackMapXToMapString(mapx map[string]interface{}) map[string]string {
 		}
 	}
 	return m
+}
+
+func encodeJson(x interface{}) ([]byte, error) {
+	if x, ok := x.(proto.Message); ok {
+		jsonMarshaler := &jsonpb.Marshaler{
+			OrigName: true,
+			Indent:   "",
+		}
+
+		var buf bytes.Buffer
+		err := jsonMarshaler.Marshal(&buf, x)
+		if err != nil {
+			return nil, err
+		}
+		return buf.Bytes(), nil
+	}
+
+	return json.Marshal(x)
 }

@@ -18,13 +18,12 @@ package data
 
 import (
 	"github.com/chai2010/qingcloud-go/config"
-	"github.com/golang/protobuf/proto"
 )
 
 // Operation stores information of an operation.
 type Operation struct {
 	Config     *config.Config
-	Properties proto.Message
+	Properties interface{}
 
 	APIName     string
 	ServiceName string

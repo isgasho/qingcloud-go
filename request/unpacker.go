@@ -18,6 +18,7 @@ package request
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"net/http"
 
@@ -32,11 +33,11 @@ import (
 type Unpacker struct {
 	operation    *data.Operation
 	httpResponse *http.Response
-	output       proto.Message
+	output       interface{}
 }
 
 // UnpackHTTPRequest unpack the http response with an operation, http response and an output.
-func (u *Unpacker) UnpackHTTPRequest(o *data.Operation, r *http.Response, x proto.Message) (respBody string, err error) {
+func (u *Unpacker) UnpackHTTPRequest(o *data.Operation, r *http.Response, x interface{}) (respBody string, err error) {
 	u.operation = o
 	u.httpResponse = r
 	u.output = x
@@ -67,11 +68,7 @@ func (u *Unpacker) parseResponse() (respBody string, err error) {
 				StringToUnixInt(u.httpResponse.Header.Get("Date"), "RFC 822"),
 				respBody))
 
-			decoder := &jsonpb.Unmarshaler{
-				AllowUnknownFields: !u.operation.Config.JSONDisableUnknownFields,
-			}
-
-			err := decoder.Unmarshal(buffer, u.output)
+			err := u.decodeJson(buffer.Bytes(), u.output)
 			if err != nil {
 				return respBody, err
 			}
@@ -92,4 +89,19 @@ func (u *Unpacker) parseError() error {
 	}
 
 	return nil
+}
+
+func (u *Unpacker) decodeJson(data []byte, x interface{}) error {
+	if x, ok := x.(proto.Message); ok {
+		decoder := &jsonpb.Unmarshaler{
+			AllowUnknownFields: !u.operation.Config.JSONDisableUnknownFields,
+		}
+		err := decoder.Unmarshal(bytes.NewReader(data), x)
+		if err != nil {
+			return err
+		}
+		return nil
+	}
+
+	return json.Unmarshal(data, x)
 }

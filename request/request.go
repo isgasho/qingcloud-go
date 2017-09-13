@@ -25,14 +25,13 @@ import (
 
 	"github.com/chai2010/qingcloud-go/logger"
 	"github.com/chai2010/qingcloud-go/request/data"
-	"github.com/golang/protobuf/proto"
 )
 
 // A Request can build, sign, send and unpack API request.
 type Request struct {
 	Operation *data.Operation
-	Input     proto.Message
-	Output    proto.Message
+	Input     interface{}
+	Output    interface{}
 
 	HTTPRequest  *http.Request
 	HTTPResponse *http.Response
@@ -40,7 +39,7 @@ type Request struct {
 
 // New create a Request from given Operation, Input and Output.
 // It returns a Request.
-func New(o *data.Operation, i, x proto.Message) (*Request, error) {
+func New(o *data.Operation, i, x interface{}) (*Request, error) {
 	if x, ok := i.(data.Validation); ok {
 		if err := x.Validate(); err != nil {
 			return nil, err
