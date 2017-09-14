@@ -480,6 +480,7 @@ func init() {
 	proto.RegisterType((*DetachTagsOutput)(nil), "service.DetachTagsOutput")
 }
 
+// See https://docs.qingcloud.com/api/tag/index.html
 type TagServiceInterface interface {
 	DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error)
 	CreateTag(in *CreateTagInput) (out *CreateTagOutput, err error)
@@ -489,12 +490,14 @@ type TagServiceInterface interface {
 	DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/tag/index.html
 type TagService struct {
 	Config           *config.Config
 	Properties       *TagServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/tag/index.html
 func NewTagService(conf *config.Config, zone string) (p *TagService) {
 	return &TagService{
 		Config:     conf,
@@ -502,6 +505,7 @@ func NewTagService(conf *config.Config, zone string) (p *TagService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/tag/index.html
 func (s *QingCloudService) Tag(zone string) (*TagService, error) {
 	properties := &TagServiceProperties{
 		Zone: zone,
@@ -537,10 +541,6 @@ func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutpu
 	return x, err
 }
 
-func (p *DescribeTagsInput) Validate() error {
-	return nil
-}
-
 func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err error) {
 	if in == nil {
 		in = &CreateTagInput{}
@@ -566,10 +566,6 @@ func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err er
 	}
 
 	return x, err
-}
-
-func (p *CreateTagInput) Validate() error {
-	return nil
 }
 
 func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err error) {
@@ -599,10 +595,6 @@ func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err
 	return x, err
 }
 
-func (p *DeleteTagsInput) Validate() error {
-	return nil
-}
-
 func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *ModifyTagAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyTagAttributesInput{}
@@ -628,10 +620,6 @@ func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *Mod
 	}
 
 	return x, err
-}
-
-func (p *ModifyTagAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err error) {
@@ -661,10 +649,6 @@ func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err
 	return x, err
 }
 
-func (p *AttachTagsInput) Validate() error {
-	return nil
-}
-
 func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err error) {
 	if in == nil {
 		in = &DetachTagsInput{}
@@ -692,8 +676,56 @@ func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err
 	return x, err
 }
 
+func (p *TagServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeTagsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeTagsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateTagInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateTagOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteTagsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteTagsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyTagAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyTagAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachTagsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachTagsOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DetachTagsInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DetachTagsOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("tag.proto", fileDescriptor26) }

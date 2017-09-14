@@ -2779,6 +2779,7 @@ func init() {
 	proto.RegisterType((*DescribeResourceUserGroupsOutput_ResponseItem)(nil), "service.DescribeResourceUserGroupsOutput.ResponseItem")
 }
 
+// See https://docs.qingcloud.com/api/resource_acl/index.html
 type ResourceACLServiceInterface interface {
 	DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error)
 	DescribeResourceGroups(in *DescribeResourceGroupsInput) (out *DescribeResourceGroupsOutput, err error)
@@ -2809,12 +2810,14 @@ type ResourceACLServiceInterface interface {
 	DescribeResourceUserGroups(in *DescribeResourceUserGroupsInput) (out *DescribeResourceUserGroupsOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/resource_acl/index.html
 type ResourceACLService struct {
 	Config           *config.Config
 	Properties       *ResourceACLServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/resource_acl/index.html
 func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLService) {
 	return &ResourceACLService{
 		Config:     conf,
@@ -2822,6 +2825,7 @@ func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLServ
 	}
 }
 
+// See https://docs.qingcloud.com/api/resource_acl/index.html
 func (s *QingCloudService) ResourceACL(zone string) (*ResourceACLService, error) {
 	properties := &ResourceACLServiceProperties{
 		Zone: zone,
@@ -2857,10 +2861,6 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *DescribeSharedReso
 	return x, err
 }
 
-func (p *DescribeSharedResourceGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) DescribeResourceGroups(in *DescribeResourceGroupsInput) (out *DescribeResourceGroupsOutput, err error) {
 	if in == nil {
 		in = &DescribeResourceGroupsInput{}
@@ -2886,10 +2886,6 @@ func (p *ResourceACLService) DescribeResourceGroups(in *DescribeResourceGroupsIn
 	}
 
 	return x, err
-}
-
-func (p *DescribeResourceGroupsInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) CreateResourceGroups(in *CreateResourceGroupsInput) (out *CreateResourceGroupsOutput, err error) {
@@ -2919,10 +2915,6 @@ func (p *ResourceACLService) CreateResourceGroups(in *CreateResourceGroupsInput)
 	return x, err
 }
 
-func (p *CreateResourceGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) ModifyResourceGroupAttributes(in *ModifyResourceGroupAttributesInput) (out *ModifyResourceGroupAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyResourceGroupAttributesInput{}
@@ -2948,10 +2940,6 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *ModifyResourceGro
 	}
 
 	return x, err
-}
-
-func (p *ModifyResourceGroupAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) DeleteResourceGroups(in *DeleteResourceGroupsInput) (out *DeleteResourceGroupsOutput, err error) {
@@ -2981,10 +2969,6 @@ func (p *ResourceACLService) DeleteResourceGroups(in *DeleteResourceGroupsInput)
 	return x, err
 }
 
-func (p *DeleteResourceGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) DescribeResourceGroupItems(in *DescribeResourceGroupItemsInput) (out *DescribeResourceGroupItemsOutput, err error) {
 	if in == nil {
 		in = &DescribeResourceGroupItemsInput{}
@@ -3010,10 +2994,6 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *DescribeResourceGrou
 	}
 
 	return x, err
-}
-
-func (p *DescribeResourceGroupItemsInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) AddResourceGroupItems(in *AddResourceGroupItemsInput) (out *AddResourceGroupItemsOutput, err error) {
@@ -3043,10 +3023,6 @@ func (p *ResourceACLService) AddResourceGroupItems(in *AddResourceGroupItemsInpu
 	return x, err
 }
 
-func (p *AddResourceGroupItemsInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) DeleteResourceGroupItems(in *DeleteResourceGroupItemsInput) (out *DeleteResourceGroupItemsOutput, err error) {
 	if in == nil {
 		in = &DeleteResourceGroupItemsInput{}
@@ -3072,10 +3048,6 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *DeleteResourceGroupIte
 	}
 
 	return x, err
-}
-
-func (p *DeleteResourceGroupItemsInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) DescribeUserGroups(in *DescribeUserGroupsInput) (out *DescribeUserGroupsOutput, err error) {
@@ -3105,10 +3077,6 @@ func (p *ResourceACLService) DescribeUserGroups(in *DescribeUserGroupsInput) (ou
 	return x, err
 }
 
-func (p *DescribeUserGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) CreateUserGroups(in *CreateUserGroupsInput) (out *CreateUserGroupsOutput, err error) {
 	if in == nil {
 		in = &CreateUserGroupsInput{}
@@ -3134,10 +3102,6 @@ func (p *ResourceACLService) CreateUserGroups(in *CreateUserGroupsInput) (out *C
 	}
 
 	return x, err
-}
-
-func (p *CreateUserGroupsInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) ModifyUserGroupAttributes(in *ModifyUserGroupAttributesInput) (out *ModifyUserGroupAttributesOutput, err error) {
@@ -3167,10 +3131,6 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *ModifyUserGroupAttrib
 	return x, err
 }
 
-func (p *ModifyUserGroupAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) DeleteUserGroups(in *DeleteUserGroupsInput) (out *DeleteUserGroupsOutput, err error) {
 	if in == nil {
 		in = &DeleteUserGroupsInput{}
@@ -3196,10 +3156,6 @@ func (p *ResourceACLService) DeleteUserGroups(in *DeleteUserGroupsInput) (out *D
 	}
 
 	return x, err
-}
-
-func (p *DeleteUserGroupsInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) DescribeUserGroupMembers(in *DescribeUserGroupMembersInput) (out *DescribeUserGroupMembersOutput, err error) {
@@ -3229,10 +3185,6 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *DescribeUserGroupMembe
 	return x, err
 }
 
-func (p *DescribeUserGroupMembersInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) AddUserGroupMembers(in *AddUserGroupMembersInput) (out *AddUserGroupMembersOutput, err error) {
 	if in == nil {
 		in = &AddUserGroupMembersInput{}
@@ -3258,10 +3210,6 @@ func (p *ResourceACLService) AddUserGroupMembers(in *AddUserGroupMembersInput) (
 	}
 
 	return x, err
-}
-
-func (p *AddUserGroupMembersInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *ModifyUserGroupMemberAttributesInput) (out *ModifyUserGroupMemberAttributesOutput, err error) {
@@ -3291,10 +3239,6 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *ModifyUserGroup
 	return x, err
 }
 
-func (p *ModifyUserGroupMemberAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) DeleteUserGroupMembers(in *DeleteUserGroupMembersInput) (out *DeleteUserGroupMembersOutput, err error) {
 	if in == nil {
 		in = &DeleteUserGroupMembersInput{}
@@ -3320,10 +3264,6 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *DeleteUserGroupMembersIn
 	}
 
 	return x, err
-}
-
-func (p *DeleteUserGroupMembersInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) DescribeGroupRoles(in *DescribeGroupRolesInput) (out *DescribeGroupRolesOutput, err error) {
@@ -3353,10 +3293,6 @@ func (p *ResourceACLService) DescribeGroupRoles(in *DescribeGroupRolesInput) (ou
 	return x, err
 }
 
-func (p *DescribeGroupRolesInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) CreateGroupRoles(in *CreateGroupRolesInput) (out *CreateGroupRolesOutput, err error) {
 	if in == nil {
 		in = &CreateGroupRolesInput{}
@@ -3382,10 +3318,6 @@ func (p *ResourceACLService) CreateGroupRoles(in *CreateGroupRolesInput) (out *C
 	}
 
 	return x, err
-}
-
-func (p *CreateGroupRolesInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) ModifyGroupRoleAttributes(in *ModifyGroupRoleAttributesInput) (out *ModifyGroupRoleAttributesOutput, err error) {
@@ -3415,10 +3347,6 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *ModifyGroupRoleAttrib
 	return x, err
 }
 
-func (p *ModifyGroupRoleAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) DeleteGroupRoles(in *DeleteGroupRolesInput) (out *DeleteGroupRolesOutput, err error) {
 	if in == nil {
 		in = &DeleteGroupRolesInput{}
@@ -3444,10 +3372,6 @@ func (p *ResourceACLService) DeleteGroupRoles(in *DeleteGroupRolesInput) (out *D
 	}
 
 	return x, err
-}
-
-func (p *DeleteGroupRolesInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) DescribeGroupRoleRules(in *DescribeGroupRoleRulesInput) (out *DescribeGroupRoleRulesOutput, err error) {
@@ -3477,10 +3401,6 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *DescribeGroupRoleRulesIn
 	return x, err
 }
 
-func (p *DescribeGroupRoleRulesInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) AddGroupRoleRules(in *AddGroupRoleRulesInput) (out *AddGroupRoleRulesOutput, err error) {
 	if in == nil {
 		in = &AddGroupRoleRulesInput{}
@@ -3506,10 +3426,6 @@ func (p *ResourceACLService) AddGroupRoleRules(in *AddGroupRoleRulesInput) (out 
 	}
 
 	return x, err
-}
-
-func (p *AddGroupRoleRulesInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *ModifyGroupRoleRuleAttributesInput) (out *ModifyGroupRoleRuleAttributesOutput, err error) {
@@ -3539,10 +3455,6 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *ModifyGroupRoleRu
 	return x, err
 }
 
-func (p *ModifyGroupRoleRuleAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) DeleteGroupRoleRules(in *DeleteGroupRoleRulesInput) (out *DeleteGroupRoleRulesOutput, err error) {
 	if in == nil {
 		in = &DeleteGroupRoleRulesInput{}
@@ -3568,10 +3480,6 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *DeleteGroupRoleRulesInput)
 	}
 
 	return x, err
-}
-
-func (p *DeleteGroupRoleRulesInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *GrantResourceGroupsToUserGroupsInput) (out *GrantResourceGroupsToUserGroupsOutput, err error) {
@@ -3601,10 +3509,6 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *GrantResourceGr
 	return x, err
 }
 
-func (p *GrantResourceGroupsToUserGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *RevokeResourceGroupsFromUserGroupsInput) (out *RevokeResourceGroupsFromUserGroupsOutput, err error) {
 	if in == nil {
 		in = &RevokeResourceGroupsFromUserGroupsInput{}
@@ -3630,10 +3534,6 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *RevokeResour
 	}
 
 	return x, err
-}
-
-func (p *RevokeResourceGroupsFromUserGroupsInput) Validate() error {
-	return nil
 }
 
 func (p *ResourceACLService) DescribeResourceUserGroups(in *DescribeResourceUserGroupsInput) (out *DescribeResourceUserGroupsOutput, err error) {
@@ -3663,8 +3563,224 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *DescribeResourceUser
 	return x, err
 }
 
+func (p *ResourceACLServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSharedResourceGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSharedResourceGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeResourceGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeResourceGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateResourceGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateResourceGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyResourceGroupAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyResourceGroupAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteResourceGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteResourceGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeResourceGroupItemsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeResourceGroupItemsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddResourceGroupItemsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddResourceGroupItemsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteResourceGroupItemsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteResourceGroupItemsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeUserGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeUserGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateUserGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateUserGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyUserGroupAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyUserGroupAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteUserGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteUserGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeUserGroupMembersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeUserGroupMembersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddUserGroupMembersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddUserGroupMembersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyUserGroupMemberAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyUserGroupMemberAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteUserGroupMembersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteUserGroupMembersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeGroupRolesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeGroupRolesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateGroupRolesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateGroupRolesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyGroupRoleAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyGroupRoleAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteGroupRolesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteGroupRolesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeGroupRoleRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeGroupRoleRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddGroupRoleRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddGroupRoleRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyGroupRoleRuleAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyGroupRoleRuleAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteGroupRoleRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteGroupRoleRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GrantResourceGroupsToUserGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GrantResourceGroupsToUserGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RevokeResourceGroupsFromUserGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RevokeResourceGroupsFromUserGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DescribeResourceUserGroupsInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DescribeResourceUserGroupsOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor18) }

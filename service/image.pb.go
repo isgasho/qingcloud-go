@@ -816,6 +816,7 @@ func init() {
 	proto.RegisterType((*CloneImagesOutput)(nil), "service.CloneImagesOutput")
 }
 
+// See https://docs.qingcloud.com/api/image/index.html
 type ImageServiceInterface interface {
 	DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error)
 	CaptureInstance(in *CaptureInstanceInput) (out *CaptureInstanceOutput, err error)
@@ -827,12 +828,14 @@ type ImageServiceInterface interface {
 	CloneImages(in *CloneImagesInput) (out *CloneImagesOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/image/index.html
 type ImageService struct {
 	Config           *config.Config
 	Properties       *ImageServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/image/index.html
 func NewImageService(conf *config.Config, zone string) (p *ImageService) {
 	return &ImageService{
 		Config:     conf,
@@ -840,6 +843,7 @@ func NewImageService(conf *config.Config, zone string) (p *ImageService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/image/index.html
 func (s *QingCloudService) Image(zone string) (*ImageService, error) {
 	properties := &ImageServiceProperties{
 		Zone: zone,
@@ -875,10 +879,6 @@ func (p *ImageService) DescribeImages(in *DescribeImagesInput) (out *DescribeIma
 	return x, err
 }
 
-func (p *DescribeImagesInput) Validate() error {
-	return nil
-}
-
 func (p *ImageService) CaptureInstance(in *CaptureInstanceInput) (out *CaptureInstanceOutput, err error) {
 	if in == nil {
 		in = &CaptureInstanceInput{}
@@ -904,10 +904,6 @@ func (p *ImageService) CaptureInstance(in *CaptureInstanceInput) (out *CaptureIn
 	}
 
 	return x, err
-}
-
-func (p *CaptureInstanceInput) Validate() error {
-	return nil
 }
 
 func (p *ImageService) DeleteImages(in *DeleteImagesInput) (out *DeleteImagesOutput, err error) {
@@ -937,10 +933,6 @@ func (p *ImageService) DeleteImages(in *DeleteImagesInput) (out *DeleteImagesOut
 	return x, err
 }
 
-func (p *DeleteImagesInput) Validate() error {
-	return nil
-}
-
 func (p *ImageService) ModifyImageAttributes(in *ModifyImageAttributesInput) (out *ModifyImageAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyImageAttributesInput{}
@@ -966,10 +958,6 @@ func (p *ImageService) ModifyImageAttributes(in *ModifyImageAttributesInput) (ou
 	}
 
 	return x, err
-}
-
-func (p *ModifyImageAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *ImageService) GrantImageToUsers(in *GrantImageToUsersInput) (out *GrantImageToUsersOutput, err error) {
@@ -999,10 +987,6 @@ func (p *ImageService) GrantImageToUsers(in *GrantImageToUsersInput) (out *Grant
 	return x, err
 }
 
-func (p *GrantImageToUsersInput) Validate() error {
-	return nil
-}
-
 func (p *ImageService) RevokeImageFromUsers(in *RevokeImageFromUsersInput) (out *RevokeImageFromUsersOutput, err error) {
 	if in == nil {
 		in = &RevokeImageFromUsersInput{}
@@ -1028,10 +1012,6 @@ func (p *ImageService) RevokeImageFromUsers(in *RevokeImageFromUsersInput) (out 
 	}
 
 	return x, err
-}
-
-func (p *RevokeImageFromUsersInput) Validate() error {
-	return nil
 }
 
 func (p *ImageService) DescribeImageUsers(in *DescribeImageUsersInput) (out *DescribeImageUsersOutput, err error) {
@@ -1061,10 +1041,6 @@ func (p *ImageService) DescribeImageUsers(in *DescribeImageUsersInput) (out *Des
 	return x, err
 }
 
-func (p *DescribeImageUsersInput) Validate() error {
-	return nil
-}
-
 func (p *ImageService) CloneImages(in *CloneImagesInput) (out *CloneImagesOutput, err error) {
 	if in == nil {
 		in = &CloneImagesInput{}
@@ -1092,8 +1068,72 @@ func (p *ImageService) CloneImages(in *CloneImagesInput) (out *CloneImagesOutput
 	return x, err
 }
 
+func (p *ImageServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeImagesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeImagesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CaptureInstanceInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CaptureInstanceOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteImagesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteImagesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyImageAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyImageAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GrantImageToUsersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GrantImageToUsersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RevokeImageFromUsersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RevokeImageFromUsersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeImageUsersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeImageUsersOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *CloneImagesInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *CloneImagesOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("image.proto", fileDescriptor6) }

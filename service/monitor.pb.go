@@ -472,6 +472,7 @@ func init() {
 	proto.RegisterType((*GetQueueMonitorOutput)(nil), "service.GetQueueMonitorOutput")
 }
 
+// See https://docs.qingcloud.com/api/monitor/index.html
 type MonitorServiceInterface interface {
 	GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error)
 	GetLoadBalancerMonitor(in *GetLoadBalancerMonitorInput) (out *GetLoadBalancerMonitorOutput, err error)
@@ -481,12 +482,14 @@ type MonitorServiceInterface interface {
 	GetQueueMonitor(in *GetQueueMonitorInput) (out *GetQueueMonitorOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/monitor/index.html
 type MonitorService struct {
 	Config           *config.Config
 	Properties       *MonitorServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/monitor/index.html
 func NewMonitorService(conf *config.Config, zone string) (p *MonitorService) {
 	return &MonitorService{
 		Config:     conf,
@@ -494,6 +497,7 @@ func NewMonitorService(conf *config.Config, zone string) (p *MonitorService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/monitor/index.html
 func (s *QingCloudService) Monitor(zone string) (*MonitorService, error) {
 	properties := &MonitorServiceProperties{
 		Zone: zone,
@@ -529,10 +533,6 @@ func (p *MonitorService) GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput,
 	return x, err
 }
 
-func (p *GetMonitorInput) Validate() error {
-	return nil
-}
-
 func (p *MonitorService) GetLoadBalancerMonitor(in *GetLoadBalancerMonitorInput) (out *GetLoadBalancerMonitorOutput, err error) {
 	if in == nil {
 		in = &GetLoadBalancerMonitorInput{}
@@ -558,10 +558,6 @@ func (p *MonitorService) GetLoadBalancerMonitor(in *GetLoadBalancerMonitorInput)
 	}
 
 	return x, err
-}
-
-func (p *GetLoadBalancerMonitorInput) Validate() error {
-	return nil
 }
 
 func (p *MonitorService) GetRDBMonitor(in *GetRDBMonitorInput) (out *GetRDBMonitorOutput, err error) {
@@ -591,10 +587,6 @@ func (p *MonitorService) GetRDBMonitor(in *GetRDBMonitorInput) (out *GetRDBMonit
 	return x, err
 }
 
-func (p *GetRDBMonitorInput) Validate() error {
-	return nil
-}
-
 func (p *MonitorService) GetCacheMonitor(in *GetCacheMonitorInput) (out *GetCacheMonitorOutput, err error) {
 	if in == nil {
 		in = &GetCacheMonitorInput{}
@@ -620,10 +612,6 @@ func (p *MonitorService) GetCacheMonitor(in *GetCacheMonitorInput) (out *GetCach
 	}
 
 	return x, err
-}
-
-func (p *GetCacheMonitorInput) Validate() error {
-	return nil
 }
 
 func (p *MonitorService) GetZooKeeperMonitor(in *GetZooKeeperMonitorInput) (out *GetZooKeeperMonitorOutput, err error) {
@@ -653,10 +641,6 @@ func (p *MonitorService) GetZooKeeperMonitor(in *GetZooKeeperMonitorInput) (out 
 	return x, err
 }
 
-func (p *GetZooKeeperMonitorInput) Validate() error {
-	return nil
-}
-
 func (p *MonitorService) GetQueueMonitor(in *GetQueueMonitorInput) (out *GetQueueMonitorOutput, err error) {
 	if in == nil {
 		in = &GetQueueMonitorInput{}
@@ -684,8 +668,56 @@ func (p *MonitorService) GetQueueMonitor(in *GetQueueMonitorInput) (out *GetQueu
 	return x, err
 }
 
+func (p *MonitorServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetMonitorInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetMonitorOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetLoadBalancerMonitorInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetLoadBalancerMonitorOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetRDBMonitorInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetRDBMonitorOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetCacheMonitorInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetCacheMonitorOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetZooKeeperMonitorInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetZooKeeperMonitorOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *GetQueueMonitorInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *GetQueueMonitorOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("monitor.proto", fileDescriptor13) }

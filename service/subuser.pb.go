@@ -471,6 +471,7 @@ func init() {
 	proto.RegisterType((*RestoreSubUsersOutput)(nil), "service.RestoreSubUsersOutput")
 }
 
+// See https://docs.qingcloud.com/api/subuser/index.html
 type SubuserServiceInterface interface {
 	DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error)
 	CreateSubUser(in *CreateSubUserInput) (out *CreateSubUserOutput, err error)
@@ -479,12 +480,14 @@ type SubuserServiceInterface interface {
 	RestoreSubUsers(in *RestoreSubUsersInput) (out *RestoreSubUsersOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/subuser/index.html
 type SubuserService struct {
 	Config           *config.Config
 	Properties       *SubuserServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/subuser/index.html
 func NewSubuserService(conf *config.Config, zone string) (p *SubuserService) {
 	return &SubuserService{
 		Config:     conf,
@@ -492,6 +495,7 @@ func NewSubuserService(conf *config.Config, zone string) (p *SubuserService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/subuser/index.html
 func (s *QingCloudService) Subuser(zone string) (*SubuserService, error) {
 	properties := &SubuserServiceProperties{
 		Zone: zone,
@@ -527,10 +531,6 @@ func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *Descr
 	return x, err
 }
 
-func (p *DescribeSubUsersInput) Validate() error {
-	return nil
-}
-
 func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUserOutput, err error) {
 	if in == nil {
 		in = &CreateSubUserInput{}
@@ -556,10 +556,6 @@ func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUs
 	}
 
 	return x, err
-}
-
-func (p *CreateSubUserInput) Validate() error {
-	return nil
 }
 
 func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInput) (out *ModifySubUserAttributesOutput, err error) {
@@ -589,10 +585,6 @@ func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInpu
 	return x, err
 }
 
-func (p *ModifySubUserAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSubUsersOutput, err error) {
 	if in == nil {
 		in = &DeleteSubUsersInput{}
@@ -618,10 +610,6 @@ func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSub
 	}
 
 	return x, err
-}
-
-func (p *DeleteSubUsersInput) Validate() error {
-	return nil
 }
 
 func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *RestoreSubUsersOutput, err error) {
@@ -651,8 +639,48 @@ func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *Restore
 	return x, err
 }
 
+func (p *SubuserServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSubUsersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSubUsersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSubUserInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSubUserOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySubUserAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySubUserAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSubUsersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSubUsersOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *RestoreSubUsersInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *RestoreSubUsersOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("subuser.proto", fileDescriptor25) }

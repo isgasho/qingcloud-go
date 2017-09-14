@@ -397,6 +397,7 @@ func init() {
 	proto.RegisterType((*GetDNSLabelOutput)(nil), "service.GetDNSLabelOutput")
 }
 
+// See https://docs.qingcloud.com/api/dns_alias/index.html
 type DNSAliasServiceInterface interface {
 	DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error)
 	AssociateDNSAlias(in *AssociateDNSAliasInput) (out *AssociateDNSAliasOutput, err error)
@@ -404,12 +405,14 @@ type DNSAliasServiceInterface interface {
 	GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/dns_alias/index.html
 type DNSAliasService struct {
 	Config           *config.Config
 	Properties       *DNSAliasServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/dns_alias/index.html
 func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
 	return &DNSAliasService{
 		Config:     conf,
@@ -417,6 +420,7 @@ func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/dns_alias/index.html
 func (s *QingCloudService) DNSAlias(zone string) (*DNSAliasService, error) {
 	properties := &DNSAliasServiceProperties{
 		Zone: zone,
@@ -452,10 +456,6 @@ func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *
 	return x, err
 }
 
-func (p *DescribeDNSAliasesInput) Validate() error {
-	return nil
-}
-
 func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *AssociateDNSAliasOutput, err error) {
 	if in == nil {
 		in = &AssociateDNSAliasInput{}
@@ -481,10 +481,6 @@ func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *As
 	}
 
 	return x, err
-}
-
-func (p *AssociateDNSAliasInput) Validate() error {
-	return nil
 }
 
 func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (out *DissociateDNSAliasesOutput, err error) {
@@ -514,10 +510,6 @@ func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (o
 	return x, err
 }
 
-func (p *DissociateDNSAliasesInput) Validate() error {
-	return nil
-}
-
 func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOutput, err error) {
 	if in == nil {
 		in = &GetDNSLabelInput{}
@@ -545,8 +537,40 @@ func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOut
 	return x, err
 }
 
+func (p *DNSAliasServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeDNSAliasesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeDNSAliasesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateDNSAliasInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateDNSAliasOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DissociateDNSAliasesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DissociateDNSAliasesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *GetDNSLabelInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *GetDNSLabelOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("dns.proto", fileDescriptor3) }

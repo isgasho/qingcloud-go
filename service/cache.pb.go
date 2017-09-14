@@ -2210,6 +2210,7 @@ func init() {
 	proto.RegisterType((*ResetCacheParametersOutput)(nil), "service.ResetCacheParametersOutput")
 }
 
+// See https://docs.qingcloud.com/api/cache/index.html
 type CacheServiceInterface interface {
 	DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error)
 	CreateCache(in *CreateCacheInput) (out *CreateCacheOutput, err error)
@@ -2237,12 +2238,14 @@ type CacheServiceInterface interface {
 	ResetCacheParameters(in *ResetCacheParametersInput) (out *ResetCacheParametersOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/cache/index.html
 type CacheService struct {
 	Config           *config.Config
 	Properties       *CacheServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/cache/index.html
 func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
 	return &CacheService{
 		Config:     conf,
@@ -2250,6 +2253,7 @@ func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/cache/index.html
 func (s *QingCloudService) Cache(zone string) (*CacheService, error) {
 	properties := &CacheServiceProperties{
 		Zone: zone,
@@ -2285,10 +2289,6 @@ func (p *CacheService) DescribeCaches(in *DescribeCachesInput) (out *DescribeCac
 	return x, err
 }
 
-func (p *DescribeCachesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) CreateCache(in *CreateCacheInput) (out *CreateCacheOutput, err error) {
 	if in == nil {
 		in = &CreateCacheInput{}
@@ -2314,10 +2314,6 @@ func (p *CacheService) CreateCache(in *CreateCacheInput) (out *CreateCacheOutput
 	}
 
 	return x, err
-}
-
-func (p *CreateCacheInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) StopCaches(in *StopCachesInput) (out *StopCachesOutput, err error) {
@@ -2347,10 +2343,6 @@ func (p *CacheService) StopCaches(in *StopCachesInput) (out *StopCachesOutput, e
 	return x, err
 }
 
-func (p *StopCachesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) StartCaches(in *StartCachesInput) (out *StartCachesOutput, err error) {
 	if in == nil {
 		in = &StartCachesInput{}
@@ -2376,10 +2368,6 @@ func (p *CacheService) StartCaches(in *StartCachesInput) (out *StartCachesOutput
 	}
 
 	return x, err
-}
-
-func (p *StartCachesInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) RestartCaches(in *RestartCachesInput) (out *RestartCachesOutput, err error) {
@@ -2409,10 +2397,6 @@ func (p *CacheService) RestartCaches(in *RestartCachesInput) (out *RestartCaches
 	return x, err
 }
 
-func (p *RestartCachesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) DeleteCaches(in *DeleteCachesInput) (out *DeleteCachesOutput, err error) {
 	if in == nil {
 		in = &DeleteCachesInput{}
@@ -2438,10 +2422,6 @@ func (p *CacheService) DeleteCaches(in *DeleteCachesInput) (out *DeleteCachesOut
 	}
 
 	return x, err
-}
-
-func (p *DeleteCachesInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) ResizeCaches(in *ResizeCachesInput) (out *ResizeCachesOutput, err error) {
@@ -2471,10 +2451,6 @@ func (p *CacheService) ResizeCaches(in *ResizeCachesInput) (out *ResizeCachesOut
 	return x, err
 }
 
-func (p *ResizeCachesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) UpdateCache(in *UpdateCacheInput) (out *UpdateCacheOutput, err error) {
 	if in == nil {
 		in = &UpdateCacheInput{}
@@ -2500,10 +2476,6 @@ func (p *CacheService) UpdateCache(in *UpdateCacheInput) (out *UpdateCacheOutput
 	}
 
 	return x, err
-}
-
-func (p *UpdateCacheInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) ChangeCacheVxnet(in *ChangeCacheVxnetInput) (out *ChangeCacheVxnetOutput, err error) {
@@ -2533,10 +2505,6 @@ func (p *CacheService) ChangeCacheVxnet(in *ChangeCacheVxnetInput) (out *ChangeC
 	return x, err
 }
 
-func (p *ChangeCacheVxnetInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) ModifyCacheAttributes(in *ModifyCacheAttributesInput) (out *ModifyCacheAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyCacheAttributesInput{}
@@ -2562,10 +2530,6 @@ func (p *CacheService) ModifyCacheAttributes(in *ModifyCacheAttributesInput) (ou
 	}
 
 	return x, err
-}
-
-func (p *ModifyCacheAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) DescribeCacheNodes(in *DescribeCacheNodesInput) (out *DescribeCacheNodesOutput, err error) {
@@ -2595,10 +2559,6 @@ func (p *CacheService) DescribeCacheNodes(in *DescribeCacheNodesInput) (out *Des
 	return x, err
 }
 
-func (p *DescribeCacheNodesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) AddCacheNodes(in *AddCacheNodesInput) (out *AddCacheNodesOutput, err error) {
 	if in == nil {
 		in = &AddCacheNodesInput{}
@@ -2624,10 +2584,6 @@ func (p *CacheService) AddCacheNodes(in *AddCacheNodesInput) (out *AddCacheNodes
 	}
 
 	return x, err
-}
-
-func (p *AddCacheNodesInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) DeleteCacheNodes(in *DeleteCacheNodesInput) (out *DeleteCacheNodesOutput, err error) {
@@ -2657,10 +2613,6 @@ func (p *CacheService) DeleteCacheNodes(in *DeleteCacheNodesInput) (out *DeleteC
 	return x, err
 }
 
-func (p *DeleteCacheNodesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) RestartCacheNodes(in *RestartCacheNodesInput) (out *RestartCacheNodesOutput, err error) {
 	if in == nil {
 		in = &RestartCacheNodesInput{}
@@ -2686,10 +2638,6 @@ func (p *CacheService) RestartCacheNodes(in *RestartCacheNodesInput) (out *Resta
 	}
 
 	return x, err
-}
-
-func (p *RestartCacheNodesInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) ModifyCacheNodeAttributes(in *ModifyCacheNodeAttributesInput) (out *ModifyCacheNodeAttributesOutput, err error) {
@@ -2719,10 +2667,6 @@ func (p *CacheService) ModifyCacheNodeAttributes(in *ModifyCacheNodeAttributesIn
 	return x, err
 }
 
-func (p *ModifyCacheNodeAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) CreateCacheFromSnapshot(in *CreateCacheFromSnapshotInput) (out *CreateCacheFromSnapshotOutput, err error) {
 	if in == nil {
 		in = &CreateCacheFromSnapshotInput{}
@@ -2748,10 +2692,6 @@ func (p *CacheService) CreateCacheFromSnapshot(in *CreateCacheFromSnapshotInput)
 	}
 
 	return x, err
-}
-
-func (p *CreateCacheFromSnapshotInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) DescribeCacheParameterGroups(in *DescribeCacheParameterGroupsInput) (out *DescribeCacheParameterGroupsOutput, err error) {
@@ -2781,10 +2721,6 @@ func (p *CacheService) DescribeCacheParameterGroups(in *DescribeCacheParameterGr
 	return x, err
 }
 
-func (p *DescribeCacheParameterGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) CreateCacheParameterGroup(in *CreateCacheParameterGroupInput) (out *CreateCacheParameterGroupOutput, err error) {
 	if in == nil {
 		in = &CreateCacheParameterGroupInput{}
@@ -2810,10 +2746,6 @@ func (p *CacheService) CreateCacheParameterGroup(in *CreateCacheParameterGroupIn
 	}
 
 	return x, err
-}
-
-func (p *CreateCacheParameterGroupInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) ApplyCacheParameterGroup(in *ApplyCacheParameterGroupInput) (out *ApplyCacheParameterGroupOutput, err error) {
@@ -2843,10 +2775,6 @@ func (p *CacheService) ApplyCacheParameterGroup(in *ApplyCacheParameterGroupInpu
 	return x, err
 }
 
-func (p *ApplyCacheParameterGroupInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) DeleteCacheParameterGroups(in *DeleteCacheParameterGroupsInput) (out *DeleteCacheParameterGroupsOutput, err error) {
 	if in == nil {
 		in = &DeleteCacheParameterGroupsInput{}
@@ -2872,10 +2800,6 @@ func (p *CacheService) DeleteCacheParameterGroups(in *DeleteCacheParameterGroups
 	}
 
 	return x, err
-}
-
-func (p *DeleteCacheParameterGroupsInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) ModifyCacheParameterGroupAttributes(in *ModifyCacheParameterGroupAttributesInput) (out *ModifyCacheParameterGroupAttributesOutput, err error) {
@@ -2905,10 +2829,6 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(in *ModifyCacheParame
 	return x, err
 }
 
-func (p *ModifyCacheParameterGroupAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) DescribeCacheParameters(in *DescribeCacheParametersInput) (out *DescribeCacheParametersOutput, err error) {
 	if in == nil {
 		in = &DescribeCacheParametersInput{}
@@ -2934,10 +2854,6 @@ func (p *CacheService) DescribeCacheParameters(in *DescribeCacheParametersInput)
 	}
 
 	return x, err
-}
-
-func (p *DescribeCacheParametersInput) Validate() error {
-	return nil
 }
 
 func (p *CacheService) UpdateCacheParameters(in *UpdateCacheParametersInput) (out *UpdateCacheParametersOutput, err error) {
@@ -2967,10 +2883,6 @@ func (p *CacheService) UpdateCacheParameters(in *UpdateCacheParametersInput) (ou
 	return x, err
 }
 
-func (p *UpdateCacheParametersInput) Validate() error {
-	return nil
-}
-
 func (p *CacheService) ResetCacheParameters(in *ResetCacheParametersInput) (out *ResetCacheParametersOutput, err error) {
 	if in == nil {
 		in = &ResetCacheParametersInput{}
@@ -2998,8 +2910,200 @@ func (p *CacheService) ResetCacheParameters(in *ResetCacheParametersInput) (out 
 	return x, err
 }
 
+func (p *CacheServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCachesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCachesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateCacheInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateCacheOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopCachesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopCachesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartCachesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartCachesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RestartCachesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RestartCachesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteCachesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteCachesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeCachesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeCachesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateCacheInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateCacheOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ChangeCacheVxnetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ChangeCacheVxnetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyCacheAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyCacheAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCacheNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCacheNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddCacheNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddCacheNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteCacheNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteCacheNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RestartCacheNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RestartCacheNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyCacheNodeAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyCacheNodeAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateCacheFromSnapshotInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateCacheFromSnapshotOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCacheParameterGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCacheParameterGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateCacheParameterGroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateCacheParameterGroupOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyCacheParameterGroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyCacheParameterGroupOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteCacheParameterGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteCacheParameterGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyCacheParameterGroupAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyCacheParameterGroupAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCacheParametersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeCacheParametersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateCacheParametersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateCacheParametersOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *ResetCacheParametersInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *ResetCacheParametersOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("cache.proto", fileDescriptor1) }

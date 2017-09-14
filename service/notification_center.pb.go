@@ -205,16 +205,19 @@ func init() {
 	proto.RegisterType((*DescribeNotificationCenterUserPostsOutput_ResponseItem)(nil), "service.DescribeNotificationCenterUserPostsOutput.ResponseItem")
 }
 
+// See https://docs.qingcloud.com/api/notification_center/index.html
 type NotificationCenterServiceInterface interface {
 	DescribeNotificationCenterUserPosts(in *DescribeNotificationCenterUserPostsInput) (out *DescribeNotificationCenterUserPostsOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/notification_center/index.html
 type NotificationCenterService struct {
 	Config           *config.Config
 	Properties       *NotificationCenterServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/notification_center/index.html
 func NewNotificationCenterService(conf *config.Config, zone string) (p *NotificationCenterService) {
 	return &NotificationCenterService{
 		Config:     conf,
@@ -222,6 +225,7 @@ func NewNotificationCenterService(conf *config.Config, zone string) (p *Notifica
 	}
 }
 
+// See https://docs.qingcloud.com/api/notification_center/index.html
 func (s *QingCloudService) NotificationCenter(zone string) (*NotificationCenterService, error) {
 	properties := &NotificationCenterServiceProperties{
 		Zone: zone,
@@ -257,8 +261,16 @@ func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *Desc
 	return x, err
 }
 
+func (p *NotificationCenterServiceProperties) Validate() error {
+	return nil // TODO
+}
+
 func (p *DescribeNotificationCenterUserPostsInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DescribeNotificationCenterUserPostsOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("notification_center.proto", fileDescriptor15) }

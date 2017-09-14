@@ -115,16 +115,19 @@ func init() {
 	proto.RegisterType((*DescribeZonesOutput)(nil), "service.DescribeZonesOutput")
 }
 
+// See https://docs.qingcloud.com/api/zone/index.html
 type ZoneServiceInterface interface {
 	DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/zone/index.html
 type ZoneService struct {
 	Config           *config.Config
 	Properties       *ZoneServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/zone/index.html
 func NewZoneService(conf *config.Config, zone string) (p *ZoneService) {
 	return &ZoneService{
 		Config:     conf,
@@ -132,6 +135,7 @@ func NewZoneService(conf *config.Config, zone string) (p *ZoneService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/zone/index.html
 func (s *QingCloudService) Zone(zone string) (*ZoneService, error) {
 	properties := &ZoneServiceProperties{
 		Zone: zone,
@@ -167,8 +171,16 @@ func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesO
 	return x, err
 }
 
+func (p *ZoneServiceProperties) Validate() error {
+	return nil // TODO
+}
+
 func (p *DescribeZonesInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DescribeZonesOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("zone.proto", fileDescriptor31) }

@@ -731,6 +731,7 @@ func init() {
 	proto.RegisterType((*CreateVolumeFromSnapshotOutput)(nil), "service.CreateVolumeFromSnapshotOutput")
 }
 
+// See https://docs.qingcloud.com/api/snapshot/index.html
 type SnapshotServiceInterface interface {
 	DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error)
 	CreateSnapshots(in *CreateSnapshotsInput) (out *CreateSnapshotsOutput, err error)
@@ -741,12 +742,14 @@ type SnapshotServiceInterface interface {
 	CreateVolumeFromSnapshot(in *CreateVolumeFromSnapshotInput) (out *CreateVolumeFromSnapshotOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/snapshot/index.html
 type SnapshotService struct {
 	Config           *config.Config
 	Properties       *SnapshotServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/snapshot/index.html
 func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService) {
 	return &SnapshotService{
 		Config:     conf,
@@ -754,6 +757,7 @@ func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/snapshot/index.html
 func (s *QingCloudService) Snapshot(zone string) (*SnapshotService, error) {
 	properties := &SnapshotServiceProperties{
 		Zone: zone,
@@ -789,10 +793,6 @@ func (p *SnapshotService) DescribeSnapshots(in *DescribeSnapshotsInput) (out *De
 	return x, err
 }
 
-func (p *DescribeSnapshotsInput) Validate() error {
-	return nil
-}
-
 func (p *SnapshotService) CreateSnapshots(in *CreateSnapshotsInput) (out *CreateSnapshotsOutput, err error) {
 	if in == nil {
 		in = &CreateSnapshotsInput{}
@@ -818,10 +818,6 @@ func (p *SnapshotService) CreateSnapshots(in *CreateSnapshotsInput) (out *Create
 	}
 
 	return x, err
-}
-
-func (p *CreateSnapshotsInput) Validate() error {
-	return nil
 }
 
 func (p *SnapshotService) DeleteSnapshots(in *DeleteSnapshotsInput) (out *DeleteSnapshotsOutput, err error) {
@@ -851,10 +847,6 @@ func (p *SnapshotService) DeleteSnapshots(in *DeleteSnapshotsInput) (out *Delete
 	return x, err
 }
 
-func (p *DeleteSnapshotsInput) Validate() error {
-	return nil
-}
-
 func (p *SnapshotService) ApplySnapshots(in *ApplySnapshotsInput) (out *ApplySnapshotsOutput, err error) {
 	if in == nil {
 		in = &ApplySnapshotsInput{}
@@ -880,10 +872,6 @@ func (p *SnapshotService) ApplySnapshots(in *ApplySnapshotsInput) (out *ApplySna
 	}
 
 	return x, err
-}
-
-func (p *ApplySnapshotsInput) Validate() error {
-	return nil
 }
 
 func (p *SnapshotService) ModifySnapshotAttributes(in *ModifySnapshotAttributesInput) (out *ModifySnapshotAttributesOutput, err error) {
@@ -913,10 +901,6 @@ func (p *SnapshotService) ModifySnapshotAttributes(in *ModifySnapshotAttributesI
 	return x, err
 }
 
-func (p *ModifySnapshotAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *SnapshotService) CaptureInstanceFromSnapshot(in *CaptureInstanceFromSnapshotInput) (out *CaptureInstanceFromSnapshotOutput, err error) {
 	if in == nil {
 		in = &CaptureInstanceFromSnapshotInput{}
@@ -942,10 +926,6 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(in *CaptureInstanceFromSna
 	}
 
 	return x, err
-}
-
-func (p *CaptureInstanceFromSnapshotInput) Validate() error {
-	return nil
 }
 
 func (p *SnapshotService) CreateVolumeFromSnapshot(in *CreateVolumeFromSnapshotInput) (out *CreateVolumeFromSnapshotOutput, err error) {
@@ -975,8 +955,64 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(in *CreateVolumeFromSnapshotI
 	return x, err
 }
 
+func (p *SnapshotServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSnapshotsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSnapshotsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSnapshotsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSnapshotsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSnapshotsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSnapshotsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplySnapshotsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplySnapshotsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySnapshotAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySnapshotAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CaptureInstanceFromSnapshotInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CaptureInstanceFromSnapshotOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *CreateVolumeFromSnapshotInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *CreateVolumeFromSnapshotOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("snapshot.proto", fileDescriptor22) }

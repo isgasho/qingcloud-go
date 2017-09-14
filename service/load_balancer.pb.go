@@ -2462,6 +2462,7 @@ func init() {
 	proto.RegisterType((*DeleteServerCertificatesOutput)(nil), "service.DeleteServerCertificatesOutput")
 }
 
+// See https://docs.qingcloud.com/api/lb/index.html
 type LoadBalancerServiceInterface interface {
 	CreateLoadBalancer(in *CreateLoadBalancerInput) (out *CreateLoadBalancerOutput, err error)
 	DescribeLoadBalancers(in *DescribeLoadBalancersInput) (out *DescribeLoadBalancersOutput, err error)
@@ -2496,12 +2497,14 @@ type LoadBalancerServiceInterface interface {
 	DeleteServerCertificates(in *DeleteServerCertificatesInput) (out *DeleteServerCertificatesOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/lb/index.html
 type LoadBalancerService struct {
 	Config           *config.Config
 	Properties       *LoadBalancerServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/lb/index.html
 func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerService) {
 	return &LoadBalancerService{
 		Config:     conf,
@@ -2509,6 +2512,7 @@ func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerSe
 	}
 }
 
+// See https://docs.qingcloud.com/api/lb/index.html
 func (s *QingCloudService) LoadBalancer(zone string) (*LoadBalancerService, error) {
 	properties := &LoadBalancerServiceProperties{
 		Zone: zone,
@@ -2544,10 +2548,6 @@ func (p *LoadBalancerService) CreateLoadBalancer(in *CreateLoadBalancerInput) (o
 	return x, err
 }
 
-func (p *CreateLoadBalancerInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) DescribeLoadBalancers(in *DescribeLoadBalancersInput) (out *DescribeLoadBalancersOutput, err error) {
 	if in == nil {
 		in = &DescribeLoadBalancersInput{}
@@ -2573,10 +2573,6 @@ func (p *LoadBalancerService) DescribeLoadBalancers(in *DescribeLoadBalancersInp
 	}
 
 	return x, err
-}
-
-func (p *DescribeLoadBalancersInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DeleteLoadBalancers(in *DeleteLoadBalancersInput) (out *DeleteLoadBalancersOutput, err error) {
@@ -2606,10 +2602,6 @@ func (p *LoadBalancerService) DeleteLoadBalancers(in *DeleteLoadBalancersInput) 
 	return x, err
 }
 
-func (p *DeleteLoadBalancersInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *ModifyLoadBalancerAttributesInput) (out *ModifyLoadBalancerAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyLoadBalancerAttributesInput{}
@@ -2635,10 +2627,6 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *ModifyLoadBalance
 	}
 
 	return x, err
-}
-
-func (p *ModifyLoadBalancerAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) StartLoadBalancers(in *StartLoadBalancersInput) (out *StartLoadBalancersOutput, err error) {
@@ -2668,10 +2656,6 @@ func (p *LoadBalancerService) StartLoadBalancers(in *StartLoadBalancersInput) (o
 	return x, err
 }
 
-func (p *StartLoadBalancersInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) StopLoadBalancers(in *StopLoadBalancersInput) (out *StopLoadBalancersOutput, err error) {
 	if in == nil {
 		in = &StopLoadBalancersInput{}
@@ -2697,10 +2681,6 @@ func (p *LoadBalancerService) StopLoadBalancers(in *StopLoadBalancersInput) (out
 	}
 
 	return x, err
-}
-
-func (p *StopLoadBalancersInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) UpdateLoadBalancers(in *UpdateLoadBalancersInput) (out *UpdateLoadBalancersOutput, err error) {
@@ -2730,10 +2710,6 @@ func (p *LoadBalancerService) UpdateLoadBalancers(in *UpdateLoadBalancersInput) 
 	return x, err
 }
 
-func (p *UpdateLoadBalancersInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) ResizeLoadBalancers(in *ResizeLoadBalancersInput) (out *ResizeLoadBalancersOutput, err error) {
 	if in == nil {
 		in = &ResizeLoadBalancersInput{}
@@ -2759,10 +2735,6 @@ func (p *LoadBalancerService) ResizeLoadBalancers(in *ResizeLoadBalancersInput) 
 	}
 
 	return x, err
-}
-
-func (p *ResizeLoadBalancersInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *AssociateEipsToLoadBalancerInput) (out *AssociateEipsToLoadBalancerOutput, err error) {
@@ -2792,10 +2764,6 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *AssociateEipsToLoa
 	return x, err
 }
 
-func (p *AssociateEipsToLoadBalancerInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *DissociateEipsFromLoadBalancerInput) (out *DissociateEipsFromLoadBalancerOutput, err error) {
 	if in == nil {
 		in = &DissociateEipsFromLoadBalancerInput{}
@@ -2821,10 +2789,6 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *DissociateEipsF
 	}
 
 	return x, err
-}
-
-func (p *DissociateEipsFromLoadBalancerInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) AddLoadBalancerListeners(in *AddLoadBalancerListenersInput) (out *AddLoadBalancerListenersOutput, err error) {
@@ -2854,10 +2818,6 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(in *AddLoadBalancerListen
 	return x, err
 }
 
-func (p *AddLoadBalancerListenersInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *DescribeLoadBalancerListenersInput) (out *DescribeLoadBalancerListenersOutput, err error) {
 	if in == nil {
 		in = &DescribeLoadBalancerListenersInput{}
@@ -2883,10 +2843,6 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *DescribeLoadBala
 	}
 
 	return x, err
-}
-
-func (p *DescribeLoadBalancerListenersInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *DeleteLoadBalancerListenersInput) (out *DeleteLoadBalancerListenersOutput, err error) {
@@ -2916,10 +2872,6 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *DeleteLoadBalancer
 	return x, err
 }
 
-func (p *DeleteLoadBalancerListenersInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *ModifyLoadBalancerListenerAttributesInput) (out *ModifyLoadBalancerListenerAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyLoadBalancerListenerAttributesInput{}
@@ -2945,10 +2897,6 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *ModifyLoa
 	}
 
 	return x, err
-}
-
-func (p *ModifyLoadBalancerListenerAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) AddLoadBalancerBackends(in *AddLoadBalancerBackendsInput) (out *AddLoadBalancerBackendsOutput, err error) {
@@ -2978,10 +2926,6 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(in *AddLoadBalancerBackend
 	return x, err
 }
 
-func (p *AddLoadBalancerBackendsInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *DescribeLoadBalancerBackendsInput) (out *DescribeLoadBalancerBackendsOutput, err error) {
 	if in == nil {
 		in = &DescribeLoadBalancerBackendsInput{}
@@ -3007,10 +2951,6 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *DescribeLoadBalan
 	}
 
 	return x, err
-}
-
-func (p *DescribeLoadBalancerBackendsInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *DeleteLoadBalancerBackendsInput) (out *DeleteLoadBalancerBackendsOutput, err error) {
@@ -3040,10 +2980,6 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *DeleteLoadBalancerB
 	return x, err
 }
 
-func (p *DeleteLoadBalancerBackendsInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *ModifyLoadBalancerBackendAttributesInput) (out *ModifyLoadBalancerBackendAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyLoadBalancerBackendAttributesInput{}
@@ -3069,10 +3005,6 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *ModifyLoad
 	}
 
 	return x, err
-}
-
-func (p *ModifyLoadBalancerBackendAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *CreateLoadBalancerPolicyInput) (out *CreateLoadBalancerPolicyOutput, err error) {
@@ -3102,10 +3034,6 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *CreateLoadBalancerPol
 	return x, err
 }
 
-func (p *CreateLoadBalancerPolicyInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *DescribeLoadBalancerPoliciesInput) (out *DescribeLoadBalancerPoliciesOutput, err error) {
 	if in == nil {
 		in = &DescribeLoadBalancerPoliciesInput{}
@@ -3131,10 +3059,6 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *DescribeLoadBalan
 	}
 
 	return x, err
-}
-
-func (p *DescribeLoadBalancerPoliciesInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *ModifyLoadBalancerPolicyAttributesInput) (out *ModifyLoadBalancerPolicyAttributesOutput, err error) {
@@ -3164,10 +3088,6 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *ModifyLoadB
 	return x, err
 }
 
-func (p *ModifyLoadBalancerPolicyAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *ApplyLoadBalancerPolicyInput) (out *ApplyLoadBalancerPolicyOutput, err error) {
 	if in == nil {
 		in = &ApplyLoadBalancerPolicyInput{}
@@ -3193,10 +3113,6 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *ApplyLoadBalancerPolic
 	}
 
 	return x, err
-}
-
-func (p *ApplyLoadBalancerPolicyInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *DeleteLoadBalancerPoliciesInput) (out *DeleteLoadBalancerPoliciesOutput, err error) {
@@ -3226,10 +3142,6 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *DeleteLoadBalancerP
 	return x, err
 }
 
-func (p *DeleteLoadBalancerPoliciesInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *AddLoadBalancerPolicyRulesInput) (out *AddLoadBalancerPolicyRulesOutput, err error) {
 	if in == nil {
 		in = &AddLoadBalancerPolicyRulesInput{}
@@ -3255,10 +3167,6 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *AddLoadBalancerPoli
 	}
 
 	return x, err
-}
-
-func (p *AddLoadBalancerPolicyRulesInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *DescribeLoadBalancerPolicyRulesInput) (out *DescribeLoadBalancerPolicyRulesOutput, err error) {
@@ -3288,10 +3196,6 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *DescribeLoadBa
 	return x, err
 }
 
-func (p *DescribeLoadBalancerPolicyRulesInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *ModifyLoadBalancerPolicyRuleAttributesInput) (out *ModifyLoadBalancerPolicyRuleAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyLoadBalancerPolicyRuleAttributesInput{}
@@ -3317,10 +3221,6 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *ModifyL
 	}
 
 	return x, err
-}
-
-func (p *ModifyLoadBalancerPolicyRuleAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *DeleteLoadBalancerPolicyRulesInput) (out *DeleteLoadBalancerPolicyRulesOutput, err error) {
@@ -3350,10 +3250,6 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *DeleteLoadBalanc
 	return x, err
 }
 
-func (p *DeleteLoadBalancerPolicyRulesInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) CreateServerCertificate(in *CreateServerCertificateInput) (out *CreateServerCertificateOutput, err error) {
 	if in == nil {
 		in = &CreateServerCertificateInput{}
@@ -3379,10 +3275,6 @@ func (p *LoadBalancerService) CreateServerCertificate(in *CreateServerCertificat
 	}
 
 	return x, err
-}
-
-func (p *CreateServerCertificateInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DescribeServerCertificates(in *DescribeServerCertificatesInput) (out *DescribeServerCertificatesOutput, err error) {
@@ -3412,10 +3304,6 @@ func (p *LoadBalancerService) DescribeServerCertificates(in *DescribeServerCerti
 	return x, err
 }
 
-func (p *DescribeServerCertificatesInput) Validate() error {
-	return nil
-}
-
 func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *ModifyServerCertificateAttributesInput) (out *ModifyServerCertificateAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyServerCertificateAttributesInput{}
@@ -3441,10 +3329,6 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *ModifyServer
 	}
 
 	return x, err
-}
-
-func (p *ModifyServerCertificateAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *LoadBalancerService) DeleteServerCertificates(in *DeleteServerCertificatesInput) (out *DeleteServerCertificatesOutput, err error) {
@@ -3474,8 +3358,256 @@ func (p *LoadBalancerService) DeleteServerCertificates(in *DeleteServerCertifica
 	return x, err
 }
 
+func (p *LoadBalancerServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateLoadBalancerInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateLoadBalancerOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartLoadBalancersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartLoadBalancersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopLoadBalancersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopLoadBalancersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateLoadBalancersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateLoadBalancersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeLoadBalancersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeLoadBalancersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateEipsToLoadBalancerInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateEipsToLoadBalancerOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DissociateEipsFromLoadBalancerInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DissociateEipsFromLoadBalancerOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddLoadBalancerListenersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddLoadBalancerListenersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerListenersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerListenersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerListenersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerListenersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerListenerAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerListenerAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddLoadBalancerBackendsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddLoadBalancerBackendsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerBackendsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerBackendsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerBackendsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerBackendsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerBackendAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerBackendAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateLoadBalancerPolicyInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateLoadBalancerPolicyOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerPoliciesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerPoliciesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerPolicyAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerPolicyAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyLoadBalancerPolicyInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyLoadBalancerPolicyOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerPoliciesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerPoliciesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddLoadBalancerPolicyRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddLoadBalancerPolicyRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerPolicyRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeLoadBalancerPolicyRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerPolicyRuleAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyLoadBalancerPolicyRuleAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerPolicyRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteLoadBalancerPolicyRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateServerCertificateInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateServerCertificateOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeServerCertificatesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeServerCertificatesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyServerCertificateAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyServerCertificateAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DeleteServerCertificatesInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DeleteServerCertificatesOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("load_balancer.proto", fileDescriptor10) }

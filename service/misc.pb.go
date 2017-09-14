@@ -458,18 +458,21 @@ func init() {
 	proto.RegisterType((*GetQuotaLeftOutput_QuotaLeft)(nil), "service.GetQuotaLeftOutput.QuotaLeft")
 }
 
+// See https://docs.qingcloud.com/api/misc/index.html
 type MiscServiceInterface interface {
 	GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error)
 	RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQuotaIndepOutput, err error)
 	GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/misc/index.html
 type MiscService struct {
 	Config           *config.Config
 	Properties       *MiscServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/misc/index.html
 func NewMiscService(conf *config.Config, zone string) (p *MiscService) {
 	return &MiscService{
 		Config:     conf,
@@ -477,6 +480,7 @@ func NewMiscService(conf *config.Config, zone string) (p *MiscService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/misc/index.html
 func (s *QingCloudService) Misc(zone string) (*MiscService, error) {
 	properties := &MiscServiceProperties{
 		Zone: zone,
@@ -512,10 +516,6 @@ func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuota
 	return x, err
 }
 
-func (p *GrantQuotaIndepInput) Validate() error {
-	return nil
-}
-
 func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQuotaIndepOutput, err error) {
 	if in == nil {
 		in = &RevokeQuotaIndepInput{}
@@ -541,10 +541,6 @@ func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQu
 	}
 
 	return x, err
-}
-
-func (p *RevokeQuotaIndepInput) Validate() error {
-	return nil
 }
 
 func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutput, err error) {
@@ -574,8 +570,32 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 	return x, err
 }
 
+func (p *MiscServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *GrantQuotaIndepInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GrantQuotaIndepOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RevokeQuotaIndepInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RevokeQuotaIndepOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *GetQuotaLeftInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *GetQuotaLeftOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("misc.proto", fileDescriptor11) }

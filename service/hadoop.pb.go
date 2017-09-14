@@ -340,6 +340,7 @@ func init() {
 	proto.RegisterType((*StopHadoopsOutput)(nil), "service.StopHadoopsOutput")
 }
 
+// See https://docs.qingcloud.com/api/hadoop/index.html
 type HadoopServiceInterface interface {
 	AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error)
 	DeleteHadoopNodes(in *DeleteHadoopNodesInput) (out *DeleteHadoopNodesOutput, err error)
@@ -347,12 +348,14 @@ type HadoopServiceInterface interface {
 	StopHadoops(in *StopHadoopsInput) (out *StopHadoopsOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/hadoop/index.html
 type HadoopService struct {
 	Config           *config.Config
 	Properties       *HadoopServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/hadoop/index.html
 func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
 	return &HadoopService{
 		Config:     conf,
@@ -360,6 +363,7 @@ func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/hadoop/index.html
 func (s *QingCloudService) Hadoop(zone string) (*HadoopService, error) {
 	properties := &HadoopServiceProperties{
 		Zone: zone,
@@ -395,10 +399,6 @@ func (p *HadoopService) AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopN
 	return x, err
 }
 
-func (p *AddHadoopNodesInput) Validate() error {
-	return nil
-}
-
 func (p *HadoopService) DeleteHadoopNodes(in *DeleteHadoopNodesInput) (out *DeleteHadoopNodesOutput, err error) {
 	if in == nil {
 		in = &DeleteHadoopNodesInput{}
@@ -424,10 +424,6 @@ func (p *HadoopService) DeleteHadoopNodes(in *DeleteHadoopNodesInput) (out *Dele
 	}
 
 	return x, err
-}
-
-func (p *DeleteHadoopNodesInput) Validate() error {
-	return nil
 }
 
 func (p *HadoopService) StartHadoops(in *StartHadoopsInput) (out *StartHadoopsOutput, err error) {
@@ -457,10 +453,6 @@ func (p *HadoopService) StartHadoops(in *StartHadoopsInput) (out *StartHadoopsOu
 	return x, err
 }
 
-func (p *StartHadoopsInput) Validate() error {
-	return nil
-}
-
 func (p *HadoopService) StopHadoops(in *StopHadoopsInput) (out *StopHadoopsOutput, err error) {
 	if in == nil {
 		in = &StopHadoopsInput{}
@@ -488,8 +480,40 @@ func (p *HadoopService) StopHadoops(in *StopHadoopsInput) (out *StopHadoopsOutpu
 	return x, err
 }
 
+func (p *HadoopServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddHadoopNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddHadoopNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteHadoopNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteHadoopNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartHadoopsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartHadoopsOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *StopHadoopsInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *StopHadoopsOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("hadoop.proto", fileDescriptor5) }

@@ -107,16 +107,19 @@ func init() {
 	proto.RegisterType((*UploadUserDataAttachmentOutput)(nil), "service.UploadUserDataAttachmentOutput")
 }
 
+// See https://docs.qingcloud.com/api/userdata/index.html
 type UserDataServiceInterface interface {
 	UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/userdata/index.html
 type UserDataService struct {
 	Config           *config.Config
 	Properties       *UserDataServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/userdata/index.html
 func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
 	return &UserDataService{
 		Config:     conf,
@@ -124,6 +127,7 @@ func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/userdata/index.html
 func (s *QingCloudService) UserData(zone string) (*UserDataService, error) {
 	properties := &UserDataServiceProperties{
 		Zone: zone,
@@ -159,8 +163,16 @@ func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentI
 	return x, err
 }
 
+func (p *UserDataServiceProperties) Validate() error {
+	return nil // TODO
+}
+
 func (p *UploadUserDataAttachmentInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *UploadUserDataAttachmentOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("user_data.proto", fileDescriptor28) }

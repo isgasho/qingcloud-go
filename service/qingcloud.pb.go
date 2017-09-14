@@ -25,6 +25,10 @@ func init() {
 	proto.RegisterType((*QingCloudServiceProperties)(nil), "service.QingCloudServiceProperties")
 }
 
+func (p *QingCloudServiceProperties) Validate() error {
+	return nil // TODO
+}
+
 func init() { proto.RegisterFile("qingcloud.proto", fileDescriptor16) }
 
 var fileDescriptor16 = []byte{

@@ -575,6 +575,7 @@ func init() {
 	proto.RegisterType((*ModifyVolumeAttributesOutput)(nil), "service.ModifyVolumeAttributesOutput")
 }
 
+// See https://docs.qingcloud.com/api/volume/index.html
 type VolumesServiceInterface interface {
 	DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error)
 	CreateVolumes(in *CreateVolumesInput) (out *CreateVolumesOutput, err error)
@@ -585,12 +586,14 @@ type VolumesServiceInterface interface {
 	ModifyVolumeAttributes(in *ModifyVolumeAttributesInput) (out *ModifyVolumeAttributesOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/volume/index.html
 type VolumesService struct {
 	Config           *config.Config
 	Properties       *VolumesServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/volume/index.html
 func NewVolumesService(conf *config.Config, zone string) (p *VolumesService) {
 	return &VolumesService{
 		Config:     conf,
@@ -598,6 +601,7 @@ func NewVolumesService(conf *config.Config, zone string) (p *VolumesService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/volume/index.html
 func (s *QingCloudService) Volumes(zone string) (*VolumesService, error) {
 	properties := &VolumesServiceProperties{
 		Zone: zone,
@@ -633,10 +637,6 @@ func (p *VolumesService) DescribeVolumes(in *DescribeVolumesInput) (out *Describ
 	return x, err
 }
 
-func (p *DescribeVolumesInput) Validate() error {
-	return nil
-}
-
 func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolumesOutput, err error) {
 	if in == nil {
 		in = &CreateVolumesInput{}
@@ -662,10 +662,6 @@ func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolum
 	}
 
 	return x, err
-}
-
-func (p *CreateVolumesInput) Validate() error {
-	return nil
 }
 
 func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolumesOutput, err error) {
@@ -695,10 +691,6 @@ func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolum
 	return x, err
 }
 
-func (p *DeleteVolumesInput) Validate() error {
-	return nil
-}
-
 func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolumesOutput, err error) {
 	if in == nil {
 		in = &AttachVolumesInput{}
@@ -724,10 +716,6 @@ func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolum
 	}
 
 	return x, err
-}
-
-func (p *AttachVolumesInput) Validate() error {
-	return nil
 }
 
 func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolumesOutput, err error) {
@@ -757,10 +745,6 @@ func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolum
 	return x, err
 }
 
-func (p *DetachVolumesInput) Validate() error {
-	return nil
-}
-
 func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolumesOutput, err error) {
 	if in == nil {
 		in = &ResizeVolumesInput{}
@@ -786,10 +770,6 @@ func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolum
 	}
 
 	return x, err
-}
-
-func (p *ResizeVolumesInput) Validate() error {
-	return nil
 }
 
 func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput) (out *ModifyVolumeAttributesOutput, err error) {
@@ -819,8 +799,64 @@ func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput)
 	return x, err
 }
 
+func (p *VolumesServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeVolumesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeVolumesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateVolumesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateVolumesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteVolumesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteVolumesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachVolumesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachVolumesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachVolumesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachVolumesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeVolumesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeVolumesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *ModifyVolumeAttributesInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *ModifyVolumeAttributesOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("volume.proto", fileDescriptor29) }

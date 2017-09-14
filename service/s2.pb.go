@@ -2398,6 +2398,7 @@ func init() {
 	proto.RegisterType((*DissociateS2AccountGroupOutput)(nil), "service.DissociateS2AccountGroupOutput")
 }
 
+// See https://docs.qingcloud.com/api/s2/index.html
 type S2ServiceInterface interface {
 	CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error)
 	DescribeS2Servers(in *DescribeS2ServersInput) (out *DescribeS2ServersOutput, err error)
@@ -2429,12 +2430,14 @@ type S2ServiceInterface interface {
 	DissociateS2AccountGroup(in *DissociateS2AccountGroupInput) (out *DissociateS2AccountGroupOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/s2/index.html
 type S2Service struct {
 	Config           *config.Config
 	Properties       *S2ServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/s2/index.html
 func NewS2Service(conf *config.Config, zone string) (p *S2Service) {
 	return &S2Service{
 		Config:     conf,
@@ -2442,6 +2445,7 @@ func NewS2Service(conf *config.Config, zone string) (p *S2Service) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/s2/index.html
 func (s *QingCloudService) S2(zone string) (*S2Service, error) {
 	properties := &S2ServiceProperties{
 		Zone: zone,
@@ -2477,10 +2481,6 @@ func (p *S2Service) CreateS2Server(in *CreateS2ServerInput) (out *CreateS2Server
 	return x, err
 }
 
-func (p *CreateS2ServerInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DescribeS2Servers(in *DescribeS2ServersInput) (out *DescribeS2ServersOutput, err error) {
 	if in == nil {
 		in = &DescribeS2ServersInput{}
@@ -2506,10 +2506,6 @@ func (p *S2Service) DescribeS2Servers(in *DescribeS2ServersInput) (out *Describe
 	}
 
 	return x, err
-}
-
-func (p *DescribeS2ServersInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) ModifyS2Server(in *ModifyS2ServerInput) (out *ModifyS2ServerOutput, err error) {
@@ -2539,10 +2535,6 @@ func (p *S2Service) ModifyS2Server(in *ModifyS2ServerInput) (out *ModifyS2Server
 	return x, err
 }
 
-func (p *ModifyS2ServerInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) ResizeS2Servers(in *ResizeS2ServersInput) (out *ResizeS2ServersOutput, err error) {
 	if in == nil {
 		in = &ResizeS2ServersInput{}
@@ -2568,10 +2560,6 @@ func (p *S2Service) ResizeS2Servers(in *ResizeS2ServersInput) (out *ResizeS2Serv
 	}
 
 	return x, err
-}
-
-func (p *ResizeS2ServersInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) DeleteS2Servers(in *DeleteS2ServersInput) (out *DeleteS2ServersOutput, err error) {
@@ -2601,10 +2589,6 @@ func (p *S2Service) DeleteS2Servers(in *DeleteS2ServersInput) (out *DeleteS2Serv
 	return x, err
 }
 
-func (p *DeleteS2ServersInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) PowerOnS2Servers(in *PowerOnS2ServersInput) (out *PowerOnS2ServersOutput, err error) {
 	if in == nil {
 		in = &PowerOnS2ServersInput{}
@@ -2630,10 +2614,6 @@ func (p *S2Service) PowerOnS2Servers(in *PowerOnS2ServersInput) (out *PowerOnS2S
 	}
 
 	return x, err
-}
-
-func (p *PowerOnS2ServersInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) PowerOffS2Servers(in *PowerOffS2ServersInput) (out *PowerOffS2ServersOutput, err error) {
@@ -2663,10 +2643,6 @@ func (p *S2Service) PowerOffS2Servers(in *PowerOffS2ServersInput) (out *PowerOff
 	return x, err
 }
 
-func (p *PowerOffS2ServersInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) UpdateS2Servers(in *UpdateS2ServersInput) (out *UpdateS2ServersOutput, err error) {
 	if in == nil {
 		in = &UpdateS2ServersInput{}
@@ -2692,10 +2668,6 @@ func (p *S2Service) UpdateS2Servers(in *UpdateS2ServersInput) (out *UpdateS2Serv
 	}
 
 	return x, err
-}
-
-func (p *UpdateS2ServersInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) ChangeS2ServerVxnet(in *ChangeS2ServerVxnetInput) (out *ChangeS2ServerVxnetOutput, err error) {
@@ -2725,10 +2697,6 @@ func (p *S2Service) ChangeS2ServerVxnet(in *ChangeS2ServerVxnetInput) (out *Chan
 	return x, err
 }
 
-func (p *ChangeS2ServerVxnetInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) CreateS2SharedTarget(in *CreateS2SharedTargetInput) (out *CreateS2SharedTargetOutput, err error) {
 	if in == nil {
 		in = &CreateS2SharedTargetInput{}
@@ -2754,10 +2722,6 @@ func (p *S2Service) CreateS2SharedTarget(in *CreateS2SharedTargetInput) (out *Cr
 	}
 
 	return x, err
-}
-
-func (p *CreateS2SharedTargetInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) DescribeS2SharedTargets(in *DescribeS2SharedTargetsInput) (out *DescribeS2SharedTargetsOutput, err error) {
@@ -2787,10 +2751,6 @@ func (p *S2Service) DescribeS2SharedTargets(in *DescribeS2SharedTargetsInput) (o
 	return x, err
 }
 
-func (p *DescribeS2SharedTargetsInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DeleteS2SharedTargets(in *DeleteS2SharedTargetsInput) (out *DeleteS2SharedTargetsOutput, err error) {
 	if in == nil {
 		in = &DeleteS2SharedTargetsInput{}
@@ -2816,10 +2776,6 @@ func (p *S2Service) DeleteS2SharedTargets(in *DeleteS2SharedTargetsInput) (out *
 	}
 
 	return x, err
-}
-
-func (p *DeleteS2SharedTargetsInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) EnableS2SharedTargets(in *EnableS2SharedTargetsInput) (out *EnableS2SharedTargetsOutput, err error) {
@@ -2849,10 +2805,6 @@ func (p *S2Service) EnableS2SharedTargets(in *EnableS2SharedTargetsInput) (out *
 	return x, err
 }
 
-func (p *EnableS2SharedTargetsInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DisableS2SharedTargets(in *DisableS2SharedTargetsInput) (out *DisableS2SharedTargetsOutput, err error) {
 	if in == nil {
 		in = &DisableS2SharedTargetsInput{}
@@ -2878,10 +2830,6 @@ func (p *S2Service) DisableS2SharedTargets(in *DisableS2SharedTargetsInput) (out
 	}
 
 	return x, err
-}
-
-func (p *DisableS2SharedTargetsInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttributesInput) (out *ModifyS2SharedTargetAttributesOutput, err error) {
@@ -2911,10 +2859,6 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttri
 	return x, err
 }
 
-func (p *ModifyS2SharedTargetAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) AttachToS2SharedTarget(in *AttachToS2SharedTargetInput) (out *AttachToS2SharedTargetOutput, err error) {
 	if in == nil {
 		in = &AttachToS2SharedTargetInput{}
@@ -2940,10 +2884,6 @@ func (p *S2Service) AttachToS2SharedTarget(in *AttachToS2SharedTargetInput) (out
 	}
 
 	return x, err
-}
-
-func (p *AttachToS2SharedTargetInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) DetachFromS2SharedTarget(in *DetachFromS2SharedTargetInput) (out *DetachFromS2SharedTargetOutput, err error) {
@@ -2973,10 +2913,6 @@ func (p *S2Service) DetachFromS2SharedTarget(in *DetachFromS2SharedTargetInput) 
 	return x, err
 }
 
-func (p *DetachFromS2SharedTargetInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DescribeS2DefaultParameters(in *DescribeS2DefaultParametersInput) (out *DescribeS2DefaultParametersOutput, err error) {
 	if in == nil {
 		in = &DescribeS2DefaultParametersInput{}
@@ -3002,10 +2938,6 @@ func (p *S2Service) DescribeS2DefaultParameters(in *DescribeS2DefaultParametersI
 	}
 
 	return x, err
-}
-
-func (p *DescribeS2DefaultParametersInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) CreateS2Group(in *CreateS2GroupInput) (out *CreateS2GroupOutput, err error) {
@@ -3035,10 +2967,6 @@ func (p *S2Service) CreateS2Group(in *CreateS2GroupInput) (out *CreateS2GroupOut
 	return x, err
 }
 
-func (p *CreateS2GroupInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DescribeS2Groups(in *DescribeS2GroupsInput) (out *DescribeS2GroupsOutput, err error) {
 	if in == nil {
 		in = &DescribeS2GroupsInput{}
@@ -3064,10 +2992,6 @@ func (p *S2Service) DescribeS2Groups(in *DescribeS2GroupsInput) (out *DescribeS2
 	}
 
 	return x, err
-}
-
-func (p *DescribeS2GroupsInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) ModifyS2Group(in *ModifyS2GroupInput) (out *ModifyS2GroupOutput, err error) {
@@ -3097,10 +3021,6 @@ func (p *S2Service) ModifyS2Group(in *ModifyS2GroupInput) (out *ModifyS2GroupOut
 	return x, err
 }
 
-func (p *ModifyS2GroupInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DeleteS2Groups(in *DeleteS2GroupsInput) (out *DeleteS2GroupsOutput, err error) {
 	if in == nil {
 		in = &DeleteS2GroupsInput{}
@@ -3126,10 +3046,6 @@ func (p *S2Service) DeleteS2Groups(in *DeleteS2GroupsInput) (out *DeleteS2Groups
 	}
 
 	return x, err
-}
-
-func (p *DeleteS2GroupsInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) CreateS2Account(in *CreateS2AccountInput) (out *CreateS2AccountOutput, err error) {
@@ -3159,10 +3075,6 @@ func (p *S2Service) CreateS2Account(in *CreateS2AccountInput) (out *CreateS2Acco
 	return x, err
 }
 
-func (p *CreateS2AccountInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DescribeS2Accounts(in *DescribeS2AccountsInput) (out *DescribeS2AccountsOutput, err error) {
 	if in == nil {
 		in = &DescribeS2AccountsInput{}
@@ -3188,10 +3100,6 @@ func (p *S2Service) DescribeS2Accounts(in *DescribeS2AccountsInput) (out *Descri
 	}
 
 	return x, err
-}
-
-func (p *DescribeS2AccountsInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) ModifyS2Account(in *ModifyS2AccountInput) (out *ModifyS2AccountOutput, err error) {
@@ -3221,10 +3129,6 @@ func (p *S2Service) ModifyS2Account(in *ModifyS2AccountInput) (out *ModifyS2Acco
 	return x, err
 }
 
-func (p *ModifyS2AccountInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DeleteS2Accounts(in *DeleteS2AccountsInput) (out *DeleteS2AccountsOutput, err error) {
 	if in == nil {
 		in = &DeleteS2AccountsInput{}
@@ -3250,10 +3154,6 @@ func (p *S2Service) DeleteS2Accounts(in *DeleteS2AccountsInput) (out *DeleteS2Ac
 	}
 
 	return x, err
-}
-
-func (p *DeleteS2AccountsInput) Validate() error {
-	return nil
 }
 
 func (p *S2Service) AssociateS2AccountGroup(in *AssociateS2AccountGroupInput) (out *AssociateS2AccountGroupOutput, err error) {
@@ -3283,10 +3183,6 @@ func (p *S2Service) AssociateS2AccountGroup(in *AssociateS2AccountGroupInput) (o
 	return x, err
 }
 
-func (p *AssociateS2AccountGroupInput) Validate() error {
-	return nil
-}
-
 func (p *S2Service) DissociateS2AccountGroup(in *DissociateS2AccountGroupInput) (out *DissociateS2AccountGroupOutput, err error) {
 	if in == nil {
 		in = &DissociateS2AccountGroupInput{}
@@ -3314,8 +3210,232 @@ func (p *S2Service) DissociateS2AccountGroup(in *DissociateS2AccountGroupInput) 
 	return x, err
 }
 
+func (p *S2ServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2ServerInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2ServerOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2ServersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2ServersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2ServerInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2ServerOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeS2ServersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeS2ServersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2ServersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2ServersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOnS2ServersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOnS2ServersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOffS2ServersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOffS2ServersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateS2ServersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateS2ServersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ChangeS2ServerVxnetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ChangeS2ServerVxnetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2SharedTargetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2SharedTargetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2SharedTargetsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2SharedTargetsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2SharedTargetsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2SharedTargetsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *EnableS2SharedTargetsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *EnableS2SharedTargetsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DisableS2SharedTargetsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DisableS2SharedTargetsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2SharedTargetAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2SharedTargetAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachToS2SharedTargetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachToS2SharedTargetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachFromS2SharedTargetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachFromS2SharedTargetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2DefaultParametersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2DefaultParametersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2GroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2GroupOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2GroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2GroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2GroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2GroupOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2GroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2GroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2AccountInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateS2AccountOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2AccountsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeS2AccountsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2AccountInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyS2AccountOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2AccountsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteS2AccountsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateS2AccountGroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateS2AccountGroupOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DissociateS2AccountGroupInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DissociateS2AccountGroupOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }

@@ -139,16 +139,19 @@ func init() {
 	proto.RegisterType((*DescribeJobsOutput)(nil), "service.DescribeJobsOutput")
 }
 
+// See https://docs.qingcloud.com/api/job/index.html
 type JobServiceInterface interface {
 	DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/job/index.html
 type JobService struct {
 	Config           *config.Config
 	Properties       *JobServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/job/index.html
 func NewJobService(conf *config.Config, zone string) (p *JobService) {
 	return &JobService{
 		Config:     conf,
@@ -156,6 +159,7 @@ func NewJobService(conf *config.Config, zone string) (p *JobService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/job/index.html
 func (s *QingCloudService) Job(zone string) (*JobService, error) {
 	properties := &JobServiceProperties{
 		Zone: zone,
@@ -191,8 +195,16 @@ func (p *JobService) DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutpu
 	return x, err
 }
 
+func (p *JobServiceProperties) Validate() error {
+	return nil // TODO
+}
+
 func (p *DescribeJobsInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DescribeJobsOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("job.proto", fileDescriptor8) }

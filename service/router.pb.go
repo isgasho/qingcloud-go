@@ -1769,6 +1769,7 @@ func init() {
 	proto.RegisterType((*DescribeRouterStaticEntriesOutput)(nil), "service.DescribeRouterStaticEntriesOutput")
 }
 
+// See https://docs.qingcloud.com/api/router/index.html
 type RouterServiceInterface interface {
 	DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error)
 	CreateRouters(in *CreateRoutersInput) (out *CreateRoutersOutput, err error)
@@ -1791,12 +1792,14 @@ type RouterServiceInterface interface {
 	DescribeRouterStaticEntries(in *DescribeRouterStaticEntriesInput) (out *DescribeRouterStaticEntriesOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/router/index.html
 type RouterService struct {
 	Config           *config.Config
 	Properties       *RouterServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/router/index.html
 func NewRouterService(conf *config.Config, zone string) (p *RouterService) {
 	return &RouterService{
 		Config:     conf,
@@ -1804,6 +1807,7 @@ func NewRouterService(conf *config.Config, zone string) (p *RouterService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/router/index.html
 func (s *QingCloudService) Router(zone string) (*RouterService, error) {
 	properties := &RouterServiceProperties{
 		Zone: zone,
@@ -1839,10 +1843,6 @@ func (p *RouterService) DescribeRouters(in *DescribeRoutersInput) (out *Describe
 	return x, err
 }
 
-func (p *DescribeRoutersInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) CreateRouters(in *CreateRoutersInput) (out *CreateRoutersOutput, err error) {
 	if in == nil {
 		in = &CreateRoutersInput{}
@@ -1868,10 +1868,6 @@ func (p *RouterService) CreateRouters(in *CreateRoutersInput) (out *CreateRouter
 	}
 
 	return x, err
-}
-
-func (p *CreateRoutersInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) DeleteRouters(in *DeleteRoutersInput) (out *DeleteRoutersOutput, err error) {
@@ -1901,10 +1897,6 @@ func (p *RouterService) DeleteRouters(in *DeleteRoutersInput) (out *DeleteRouter
 	return x, err
 }
 
-func (p *DeleteRoutersInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) UpdateRouters(in *UpdateRoutersInput) (out *UpdateRoutersOutput, err error) {
 	if in == nil {
 		in = &UpdateRoutersInput{}
@@ -1930,10 +1922,6 @@ func (p *RouterService) UpdateRouters(in *UpdateRoutersInput) (out *UpdateRouter
 	}
 
 	return x, err
-}
-
-func (p *UpdateRoutersInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) PowerOffRouters(in *PowerOffRoutersInput) (out *PowerOffRoutersOutput, err error) {
@@ -1963,10 +1951,6 @@ func (p *RouterService) PowerOffRouters(in *PowerOffRoutersInput) (out *PowerOff
 	return x, err
 }
 
-func (p *PowerOffRoutersInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) PowerOnRouters(in *PowerOnRoutersInput) (out *PowerOnRoutersOutput, err error) {
 	if in == nil {
 		in = &PowerOnRoutersInput{}
@@ -1992,10 +1976,6 @@ func (p *RouterService) PowerOnRouters(in *PowerOnRoutersInput) (out *PowerOnRou
 	}
 
 	return x, err
-}
-
-func (p *PowerOnRoutersInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) JoinRouter(in *JoinRouterInput) (out *JoinRouterOutput, err error) {
@@ -2025,10 +2005,6 @@ func (p *RouterService) JoinRouter(in *JoinRouterInput) (out *JoinRouterOutput, 
 	return x, err
 }
 
-func (p *JoinRouterInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) LeaveRouter(in *LeaveRouterInput) (out *LeaveRouterOutput, err error) {
 	if in == nil {
 		in = &LeaveRouterInput{}
@@ -2054,10 +2030,6 @@ func (p *RouterService) LeaveRouter(in *LeaveRouterInput) (out *LeaveRouterOutpu
 	}
 
 	return x, err
-}
-
-func (p *LeaveRouterInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) ModifyRouterAttributes(in *ModifyRouterAttributesInput) (out *ModifyRouterAttributesOutput, err error) {
@@ -2087,10 +2059,6 @@ func (p *RouterService) ModifyRouterAttributes(in *ModifyRouterAttributesInput) 
 	return x, err
 }
 
-func (p *ModifyRouterAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) DescribeRouterStatics(in *DescribeRouterStaticsInput) (out *DescribeRouterStaticsOutput, err error) {
 	if in == nil {
 		in = &DescribeRouterStaticsInput{}
@@ -2116,10 +2084,6 @@ func (p *RouterService) DescribeRouterStatics(in *DescribeRouterStaticsInput) (o
 	}
 
 	return x, err
-}
-
-func (p *DescribeRouterStaticsInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) AddRouterStatics(in *AddRouterStaticsInput) (out *AddRouterStaticsOutput, err error) {
@@ -2149,10 +2113,6 @@ func (p *RouterService) AddRouterStatics(in *AddRouterStaticsInput) (out *AddRou
 	return x, err
 }
 
-func (p *AddRouterStaticsInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) ModifyRouterStaticAttributes(in *ModifyRouterStaticAttributesInput) (out *ModifyRouterStaticAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyRouterStaticAttributesInput{}
@@ -2178,10 +2138,6 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *ModifyRouterStaticAttri
 	}
 
 	return x, err
-}
-
-func (p *ModifyRouterStaticAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) DeleteRouterStatics(in *DeleteRouterStaticsInput) (out *DeleteRouterStaticsOutput, err error) {
@@ -2211,10 +2167,6 @@ func (p *RouterService) DeleteRouterStatics(in *DeleteRouterStaticsInput) (out *
 	return x, err
 }
 
-func (p *DeleteRouterStaticsInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) CopyRouterStatics(in *CopyRouterStaticsInput) (out *CopyRouterStaticsOutput, err error) {
 	if in == nil {
 		in = &CopyRouterStaticsInput{}
@@ -2240,10 +2192,6 @@ func (p *RouterService) CopyRouterStatics(in *CopyRouterStaticsInput) (out *Copy
 	}
 
 	return x, err
-}
-
-func (p *CopyRouterStaticsInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) DescribeRouterVxnets(in *DescribeRouterVxnetsInput) (out *DescribeRouterVxnetsOutput, err error) {
@@ -2273,10 +2221,6 @@ func (p *RouterService) DescribeRouterVxnets(in *DescribeRouterVxnetsInput) (out
 	return x, err
 }
 
-func (p *DescribeRouterVxnetsInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) AddRouterStaticEntries(in *AddRouterStaticEntriesInput) (out *AddRouterStaticEntriesOutput, err error) {
 	if in == nil {
 		in = &AddRouterStaticEntriesInput{}
@@ -2302,10 +2246,6 @@ func (p *RouterService) AddRouterStaticEntries(in *AddRouterStaticEntriesInput) 
 	}
 
 	return x, err
-}
-
-func (p *AddRouterStaticEntriesInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) DeleteRouterStaticEntries(in *DeleteRouterStaticEntriesInput) (out *DeleteRouterStaticEntriesOutput, err error) {
@@ -2335,10 +2275,6 @@ func (p *RouterService) DeleteRouterStaticEntries(in *DeleteRouterStaticEntriesI
 	return x, err
 }
 
-func (p *DeleteRouterStaticEntriesInput) Validate() error {
-	return nil
-}
-
 func (p *RouterService) ModifyRouterStaticEntryAttributes(in *ModifyRouterStaticEntryAttributesInput) (out *ModifyRouterStaticEntryAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyRouterStaticEntryAttributesInput{}
@@ -2364,10 +2300,6 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *ModifyRouterStatic
 	}
 
 	return x, err
-}
-
-func (p *ModifyRouterStaticEntryAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *RouterService) DescribeRouterStaticEntries(in *DescribeRouterStaticEntriesInput) (out *DescribeRouterStaticEntriesOutput, err error) {
@@ -2397,8 +2329,160 @@ func (p *RouterService) DescribeRouterStaticEntries(in *DescribeRouterStaticEntr
 	return x, err
 }
 
+func (p *RouterServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRoutersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRoutersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateRoutersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateRoutersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRoutersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRoutersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateRoutersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *UpdateRoutersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOffRoutersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOffRoutersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOnRoutersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PowerOnRoutersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *JoinRouterInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *JoinRouterOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *LeaveRouterInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *LeaveRouterOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRouterAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRouterAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRouterStaticsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRouterStaticsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddRouterStaticsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddRouterStaticsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRouterStaticAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRouterStaticAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRouterStaticsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRouterStaticsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CopyRouterStaticsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CopyRouterStaticsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRouterVxnetsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRouterVxnetsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddRouterStaticEntriesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddRouterStaticEntriesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRouterStaticEntriesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRouterStaticEntriesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRouterStaticEntryAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRouterStaticEntryAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DescribeRouterStaticEntriesInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DescribeRouterStaticEntriesOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("router.proto", fileDescriptor19) }

@@ -2592,6 +2592,7 @@ func init() {
 	proto.RegisterType((*DescribeAlarmHistoryOutput_ResponseItem)(nil), "service.DescribeAlarmHistoryOutput.ResponseItem")
 }
 
+// See https://docs.qingcloud.com/api/alarm/index.html
 type AlarmServiceInterface interface {
 	DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (out *DescribeAlarmPoliciesOutput, err error)
 	CreateAlarmPolicy(in *CreateAlarmPolicyInput) (out *CreateAlarmPolicyOutput, err error)
@@ -2612,12 +2613,14 @@ type AlarmServiceInterface interface {
 	DescribeAlarmHistory(in *DescribeAlarmHistoryInput) (out *DescribeAlarmHistoryOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/alarm/index.html
 type AlarmService struct {
 	Config           *config.Config
 	Properties       *AlarmServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/alarm/index.html
 func NewAlarmService(conf *config.Config, zone string) (p *AlarmService) {
 	return &AlarmService{
 		Config:     conf,
@@ -2625,6 +2628,7 @@ func NewAlarmService(conf *config.Config, zone string) (p *AlarmService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/alarm/index.html
 func (s *QingCloudService) Alarm(zone string) (*AlarmService, error) {
 	properties := &AlarmServiceProperties{
 		Zone: zone,
@@ -2660,10 +2664,6 @@ func (p *AlarmService) DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (ou
 	return x, err
 }
 
-func (p *DescribeAlarmPoliciesInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) CreateAlarmPolicy(in *CreateAlarmPolicyInput) (out *CreateAlarmPolicyOutput, err error) {
 	if in == nil {
 		in = &CreateAlarmPolicyInput{}
@@ -2689,10 +2689,6 @@ func (p *AlarmService) CreateAlarmPolicy(in *CreateAlarmPolicyInput) (out *Creat
 	}
 
 	return x, err
-}
-
-func (p *CreateAlarmPolicyInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) ModifyAlarmPolicyAttributes(in *ModifyAlarmPolicyAttributesInput) (out *ModifyAlarmPolicyAttributesOutput, err error) {
@@ -2722,10 +2718,6 @@ func (p *AlarmService) ModifyAlarmPolicyAttributes(in *ModifyAlarmPolicyAttribut
 	return x, err
 }
 
-func (p *ModifyAlarmPolicyAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) DeleteAlarmPolicies(in *DeleteAlarmPoliciesInput) (out *DeleteAlarmPoliciesOutput, err error) {
 	if in == nil {
 		in = &DeleteAlarmPoliciesInput{}
@@ -2751,10 +2743,6 @@ func (p *AlarmService) DeleteAlarmPolicies(in *DeleteAlarmPoliciesInput) (out *D
 	}
 
 	return x, err
-}
-
-func (p *DeleteAlarmPoliciesInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) DescribeAlarmPolicyRules(in *DescribeAlarmPolicyRulesInput) (out *DescribeAlarmPolicyRulesOutput, err error) {
@@ -2784,10 +2772,6 @@ func (p *AlarmService) DescribeAlarmPolicyRules(in *DescribeAlarmPolicyRulesInpu
 	return x, err
 }
 
-func (p *DescribeAlarmPolicyRulesInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) AddAlarmPolicyRules(in *AddAlarmPolicyRulesInput) (out *AddAlarmPolicyRulesOutput, err error) {
 	if in == nil {
 		in = &AddAlarmPolicyRulesInput{}
@@ -2813,10 +2797,6 @@ func (p *AlarmService) AddAlarmPolicyRules(in *AddAlarmPolicyRulesInput) (out *A
 	}
 
 	return x, err
-}
-
-func (p *AddAlarmPolicyRulesInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *ModifyAlarmPolicyRuleAttributesInput) (out *ModifyAlarmPolicyRuleAttributesOutput, err error) {
@@ -2846,10 +2826,6 @@ func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *ModifyAlarmPolicyRule
 	return x, err
 }
 
-func (p *ModifyAlarmPolicyRuleAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) DeleteAlarmPolicyRules(in *DeleteAlarmPolicyRulesInput) (out *DeleteAlarmPolicyRulesOutput, err error) {
 	if in == nil {
 		in = &DeleteAlarmPolicyRulesInput{}
@@ -2875,10 +2851,6 @@ func (p *AlarmService) DeleteAlarmPolicyRules(in *DeleteAlarmPolicyRulesInput) (
 	}
 
 	return x, err
-}
-
-func (p *DeleteAlarmPolicyRulesInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) DescribeAlarmPolicyActions(in *DescribeAlarmPolicyActionsInput) (out *DescribeAlarmPolicyActionsOutput, err error) {
@@ -2908,10 +2880,6 @@ func (p *AlarmService) DescribeAlarmPolicyActions(in *DescribeAlarmPolicyActions
 	return x, err
 }
 
-func (p *DescribeAlarmPolicyActionsInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) AddAlarmPolicyActions(in *AddAlarmPolicyActionsInput) (out *AddAlarmPolicyActionsOutput, err error) {
 	if in == nil {
 		in = &AddAlarmPolicyActionsInput{}
@@ -2937,10 +2905,6 @@ func (p *AlarmService) AddAlarmPolicyActions(in *AddAlarmPolicyActionsInput) (ou
 	}
 
 	return x, err
-}
-
-func (p *AddAlarmPolicyActionsInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *ModifyAlarmPolicyActionAttributesInput) (out *ModifyAlarmPolicyActionAttributesOutput, err error) {
@@ -2970,10 +2934,6 @@ func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *ModifyAlarmPolicyAc
 	return x, err
 }
 
-func (p *ModifyAlarmPolicyActionAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) DeleteAlarmPolicyActions(in *DeleteAlarmPolicyActionsInput) (out *DeleteAlarmPolicyActionsOutput, err error) {
 	if in == nil {
 		in = &DeleteAlarmPolicyActionsInput{}
@@ -2999,10 +2959,6 @@ func (p *AlarmService) DeleteAlarmPolicyActions(in *DeleteAlarmPolicyActionsInpu
 	}
 
 	return x, err
-}
-
-func (p *DeleteAlarmPolicyActionsInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) AssociateAlarmPolicy(in *AssociateAlarmPolicyInput) (out *AssociateAlarmPolicyOutput, err error) {
@@ -3032,10 +2988,6 @@ func (p *AlarmService) AssociateAlarmPolicy(in *AssociateAlarmPolicyInput) (out 
 	return x, err
 }
 
-func (p *AssociateAlarmPolicyInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) DissociateAlarmPolicy(in *DissociateAlarmPolicyInput) (out *DissociateAlarmPolicyOutput, err error) {
 	if in == nil {
 		in = &DissociateAlarmPolicyInput{}
@@ -3061,10 +3013,6 @@ func (p *AlarmService) DissociateAlarmPolicy(in *DissociateAlarmPolicyInput) (ou
 	}
 
 	return x, err
-}
-
-func (p *DissociateAlarmPolicyInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) ApplyAlarmPolicy(in *ApplyAlarmPolicyInput) (out *ApplyAlarmPolicyOutput, err error) {
@@ -3094,10 +3042,6 @@ func (p *AlarmService) ApplyAlarmPolicy(in *ApplyAlarmPolicyInput) (out *ApplyAl
 	return x, err
 }
 
-func (p *ApplyAlarmPolicyInput) Validate() error {
-	return nil
-}
-
 func (p *AlarmService) DescribeAlarms(in *DescribeAlarmsInput) (out *DescribeAlarmsOutput, err error) {
 	if in == nil {
 		in = &DescribeAlarmsInput{}
@@ -3123,10 +3067,6 @@ func (p *AlarmService) DescribeAlarms(in *DescribeAlarmsInput) (out *DescribeAla
 	}
 
 	return x, err
-}
-
-func (p *DescribeAlarmsInput) Validate() error {
-	return nil
 }
 
 func (p *AlarmService) DescribeAlarmHistory(in *DescribeAlarmHistoryInput) (out *DescribeAlarmHistoryOutput, err error) {
@@ -3156,8 +3096,144 @@ func (p *AlarmService) DescribeAlarmHistory(in *DescribeAlarmHistoryInput) (out 
 	return x, err
 }
 
+func (p *AlarmServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmPoliciesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmPoliciesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateAlarmPolicyInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateAlarmPolicyOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyAlarmPolicyAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyAlarmPolicyAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteAlarmPoliciesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteAlarmPoliciesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmPolicyRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmPolicyRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddAlarmPolicyRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddAlarmPolicyRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyAlarmPolicyRuleAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyAlarmPolicyRuleAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteAlarmPolicyRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteAlarmPolicyRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmPolicyActionsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmPolicyActionsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddAlarmPolicyActionsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddAlarmPolicyActionsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyAlarmPolicyActionAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyAlarmPolicyActionAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteAlarmPolicyActionsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteAlarmPolicyActionsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateAlarmPolicyInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AssociateAlarmPolicyOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DissociateAlarmPolicyInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DissociateAlarmPolicyOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyAlarmPolicyInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyAlarmPolicyOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeAlarmsOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DescribeAlarmHistoryInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DescribeAlarmHistoryOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("alarm.proto", fileDescriptor0) }

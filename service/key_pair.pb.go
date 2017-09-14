@@ -576,6 +576,7 @@ func init() {
 	proto.RegisterType((*ModifyKeyPairAttributesOutput)(nil), "service.ModifyKeyPairAttributesOutput")
 }
 
+// See https://docs.qingcloud.com/api/keypair/index.html
 type KeyPairServiceInterface interface {
 	DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error)
 	CreateKeyPair(in *CreateKeyPairInput) (out *CreateKeyPairOutput, err error)
@@ -585,12 +586,14 @@ type KeyPairServiceInterface interface {
 	ModifyKeyPairAttributes(in *ModifyKeyPairAttributesInput) (out *ModifyKeyPairAttributesOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/keypair/index.html
 type KeyPairService struct {
 	Config           *config.Config
 	Properties       *KeyPairServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/keypair/index.html
 func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService) {
 	return &KeyPairService{
 		Config:     conf,
@@ -598,6 +601,7 @@ func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/keypair/index.html
 func (s *QingCloudService) KeyPair(zone string) (*KeyPairService, error) {
 	properties := &KeyPairServiceProperties{
 		Zone: zone,
@@ -633,10 +637,6 @@ func (p *KeyPairService) DescribeKeyPairs(in *DescribeKeyPairsInput) (out *Descr
 	return x, err
 }
 
-func (p *DescribeKeyPairsInput) Validate() error {
-	return nil
-}
-
 func (p *KeyPairService) CreateKeyPair(in *CreateKeyPairInput) (out *CreateKeyPairOutput, err error) {
 	if in == nil {
 		in = &CreateKeyPairInput{}
@@ -662,10 +662,6 @@ func (p *KeyPairService) CreateKeyPair(in *CreateKeyPairInput) (out *CreateKeyPa
 	}
 
 	return x, err
-}
-
-func (p *CreateKeyPairInput) Validate() error {
-	return nil
 }
 
 func (p *KeyPairService) DeleteKeyPairs(in *DeleteKeyPairsInput) (out *DeleteKeyPairsOutput, err error) {
@@ -695,10 +691,6 @@ func (p *KeyPairService) DeleteKeyPairs(in *DeleteKeyPairsInput) (out *DeleteKey
 	return x, err
 }
 
-func (p *DeleteKeyPairsInput) Validate() error {
-	return nil
-}
-
 func (p *KeyPairService) AttachKeyPairs(in *AttachKeyPairsInput) (out *AttachKeyPairsOutput, err error) {
 	if in == nil {
 		in = &AttachKeyPairsInput{}
@@ -724,10 +716,6 @@ func (p *KeyPairService) AttachKeyPairs(in *AttachKeyPairsInput) (out *AttachKey
 	}
 
 	return x, err
-}
-
-func (p *AttachKeyPairsInput) Validate() error {
-	return nil
 }
 
 func (p *KeyPairService) DetachKeyPairs(in *DetachKeyPairsInput) (out *DetachKeyPairsOutput, err error) {
@@ -757,10 +745,6 @@ func (p *KeyPairService) DetachKeyPairs(in *DetachKeyPairsInput) (out *DetachKey
 	return x, err
 }
 
-func (p *DetachKeyPairsInput) Validate() error {
-	return nil
-}
-
 func (p *KeyPairService) ModifyKeyPairAttributes(in *ModifyKeyPairAttributesInput) (out *ModifyKeyPairAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifyKeyPairAttributesInput{}
@@ -788,8 +772,56 @@ func (p *KeyPairService) ModifyKeyPairAttributes(in *ModifyKeyPairAttributesInpu
 	return x, err
 }
 
+func (p *KeyPairServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeKeyPairsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeKeyPairsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateKeyPairInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateKeyPairOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteKeyPairsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteKeyPairsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachKeyPairsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachKeyPairsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachKeyPairsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachKeyPairsOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *ModifyKeyPairAttributesInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *ModifyKeyPairAttributesOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("key_pair.proto", fileDescriptor9) }

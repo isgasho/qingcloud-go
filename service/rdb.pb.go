@@ -1686,6 +1686,7 @@ func init() {
 	proto.RegisterType((*DescribeRDBParametersOutput_ResponseItem)(nil), "service.DescribeRDBParametersOutput.ResponseItem")
 }
 
+// See https://docs.qingcloud.com/api/rdb/index.html
 type RDBServiceInterface interface {
 	CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error)
 	DescribeRDBs(in *DescribeRDBsInput) (out *DescribeRDBsOutput, err error)
@@ -1706,12 +1707,14 @@ type RDBServiceInterface interface {
 	DescribeRDBParameters(in *DescribeRDBParametersInput) (out *DescribeRDBParametersOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/rdb/index.html
 type RDBService struct {
 	Config           *config.Config
 	Properties       *RDBServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/rdb/index.html
 func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
 	return &RDBService{
 		Config:     conf,
@@ -1719,6 +1722,7 @@ func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/rdb/index.html
 func (s *QingCloudService) RDB(zone string) (*RDBService, error) {
 	properties := &RDBServiceProperties{
 		Zone: zone,
@@ -1754,10 +1758,6 @@ func (p *RDBService) CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err er
 	return x, err
 }
 
-func (p *CreateRDBInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) DescribeRDBs(in *DescribeRDBsInput) (out *DescribeRDBsOutput, err error) {
 	if in == nil {
 		in = &DescribeRDBsInput{}
@@ -1783,10 +1783,6 @@ func (p *RDBService) DescribeRDBs(in *DescribeRDBsInput) (out *DescribeRDBsOutpu
 	}
 
 	return x, err
-}
-
-func (p *DescribeRDBsInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) DeleteRDBs(in *DeleteRDBsInput) (out *DeleteRDBsOutput, err error) {
@@ -1816,10 +1812,6 @@ func (p *RDBService) DeleteRDBs(in *DeleteRDBsInput) (out *DeleteRDBsOutput, err
 	return x, err
 }
 
-func (p *DeleteRDBsInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) StartRDBs(in *StartRDBsInput) (out *StartRDBsOutput, err error) {
 	if in == nil {
 		in = &StartRDBsInput{}
@@ -1845,10 +1837,6 @@ func (p *RDBService) StartRDBs(in *StartRDBsInput) (out *StartRDBsOutput, err er
 	}
 
 	return x, err
-}
-
-func (p *StartRDBsInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) StopRDBs(in *StopRDBsInput) (out *StopRDBsOutput, err error) {
@@ -1878,10 +1866,6 @@ func (p *RDBService) StopRDBs(in *StopRDBsInput) (out *StopRDBsOutput, err error
 	return x, err
 }
 
-func (p *StopRDBsInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) ResizeRDBs(in *ResizeRDBsInput) (out *ResizeRDBsOutput, err error) {
 	if in == nil {
 		in = &ResizeRDBsInput{}
@@ -1907,10 +1891,6 @@ func (p *RDBService) ResizeRDBs(in *ResizeRDBsInput) (out *ResizeRDBsOutput, err
 	}
 
 	return x, err
-}
-
-func (p *ResizeRDBsInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) RDBsLeaveVxnet(in *RDBsLeaveVxnetInput) (out *RDBsLeaveVxnetOutput, err error) {
@@ -1940,10 +1920,6 @@ func (p *RDBService) RDBsLeaveVxnet(in *RDBsLeaveVxnetInput) (out *RDBsLeaveVxne
 	return x, err
 }
 
-func (p *RDBsLeaveVxnetInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) RDBsJoinVxnet(in *RDBsJoinVxnetInput) (out *RDBsJoinVxnetOutput, err error) {
 	if in == nil {
 		in = &RDBsJoinVxnetInput{}
@@ -1969,10 +1945,6 @@ func (p *RDBService) RDBsJoinVxnet(in *RDBsJoinVxnetInput) (out *RDBsJoinVxnetOu
 	}
 
 	return x, err
-}
-
-func (p *RDBsJoinVxnetInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) CreateRDBFromSnapshot(in *CreateRDBFromSnapshotInput) (out *CreateRDBFromSnapshotOutput, err error) {
@@ -2002,10 +1974,6 @@ func (p *RDBService) CreateRDBFromSnapshot(in *CreateRDBFromSnapshotInput) (out 
 	return x, err
 }
 
-func (p *CreateRDBFromSnapshotInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *CreateTempRDBInstanceFromSnapshotInput) (out *CreateTempRDBInstanceFromSnapshotOutput, err error) {
 	if in == nil {
 		in = &CreateTempRDBInstanceFromSnapshotInput{}
@@ -2031,10 +1999,6 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *CreateTempRDBInstance
 	}
 
 	return x, err
-}
-
-func (p *CreateTempRDBInstanceFromSnapshotInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) GetRDBInstanceFiles(in *GetRDBInstanceFilesInput) (out *GetRDBInstanceFilesOutput, err error) {
@@ -2064,10 +2028,6 @@ func (p *RDBService) GetRDBInstanceFiles(in *GetRDBInstanceFilesInput) (out *Get
 	return x, err
 }
 
-func (p *GetRDBInstanceFilesInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) CopyRDBInstanceFilesToFTP(in *CopyRDBInstanceFilesToFTPInput) (out *CopyRDBInstanceFilesToFTPOutput, err error) {
 	if in == nil {
 		in = &CopyRDBInstanceFilesToFTPInput{}
@@ -2093,10 +2053,6 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *CopyRDBInstanceFilesToFTPInpu
 	}
 
 	return x, err
-}
-
-func (p *CopyRDBInstanceFilesToFTPInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) PurgeRDBLogs(in *PurgeRDBLogsInput) (out *PurgeRDBLogsOutput, err error) {
@@ -2126,10 +2082,6 @@ func (p *RDBService) PurgeRDBLogs(in *PurgeRDBLogsInput) (out *PurgeRDBLogsOutpu
 	return x, err
 }
 
-func (p *PurgeRDBLogsInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) CeaseRDBInstance(in *CeaseRDBInstanceInput) (out *CeaseRDBInstanceOutput, err error) {
 	if in == nil {
 		in = &CeaseRDBInstanceInput{}
@@ -2155,10 +2107,6 @@ func (p *RDBService) CeaseRDBInstance(in *CeaseRDBInstanceInput) (out *CeaseRDBI
 	}
 
 	return x, err
-}
-
-func (p *CeaseRDBInstanceInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) ModifyRDBParameters(in *ModifyRDBParametersInput) (out *ModifyRDBParametersOutput, err error) {
@@ -2188,10 +2136,6 @@ func (p *RDBService) ModifyRDBParameters(in *ModifyRDBParametersInput) (out *Mod
 	return x, err
 }
 
-func (p *ModifyRDBParametersInput) Validate() error {
-	return nil
-}
-
 func (p *RDBService) ApplyRDBParameterGroup(in *ApplyRDBParameterGroupInput) (out *ApplyRDBParameterGroupOutput, err error) {
 	if in == nil {
 		in = &ApplyRDBParameterGroupInput{}
@@ -2217,10 +2161,6 @@ func (p *RDBService) ApplyRDBParameterGroup(in *ApplyRDBParameterGroupInput) (ou
 	}
 
 	return x, err
-}
-
-func (p *ApplyRDBParameterGroupInput) Validate() error {
-	return nil
 }
 
 func (p *RDBService) DescribeRDBParameters(in *DescribeRDBParametersInput) (out *DescribeRDBParametersOutput, err error) {
@@ -2250,8 +2190,144 @@ func (p *RDBService) DescribeRDBParameters(in *DescribeRDBParametersInput) (out 
 	return x, err
 }
 
+func (p *RDBServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateRDBInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateRDBOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRDBsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeRDBsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRDBsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteRDBsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartRDBsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartRDBsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopRDBsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopRDBsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeRDBsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeRDBsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBsLeaveVxnetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBsLeaveVxnetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBsJoinVxnetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBsJoinVxnetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateRDBFromSnapshotInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateRDBFromSnapshotOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateTempRDBInstanceFromSnapshotInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateTempRDBInstanceFromSnapshotOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetRDBInstanceFilesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *GetRDBInstanceFilesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CopyRDBInstanceFilesToFTPInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CopyRDBInstanceFilesToFTPOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PurgeRDBLogsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *PurgeRDBLogsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CeaseRDBInstanceInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CeaseRDBInstanceOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRDBParametersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyRDBParametersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyRDBParameterGroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplyRDBParameterGroupOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DescribeRDBParametersInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DescribeRDBParametersOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }

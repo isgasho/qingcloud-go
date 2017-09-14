@@ -485,6 +485,7 @@ func init() {
 	proto.RegisterType((*DeleteNicsOutput)(nil), "service.DeleteNicsOutput")
 }
 
+// See https://docs.qingcloud.com/api/nic/index.html
 type NicServiceInterface interface {
 	CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error)
 	DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutput, err error)
@@ -494,12 +495,14 @@ type NicServiceInterface interface {
 	DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/nic/index.html
 type NicService struct {
 	Config           *config.Config
 	Properties       *NicServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/nic/index.html
 func NewNicService(conf *config.Config, zone string) (p *NicService) {
 	return &NicService{
 		Config:     conf,
@@ -507,6 +510,7 @@ func NewNicService(conf *config.Config, zone string) (p *NicService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/nic/index.html
 func (s *QingCloudService) Nic(zone string) (*NicService, error) {
 	properties := &NicServiceProperties{
 		Zone: zone,
@@ -542,10 +546,6 @@ func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err
 	return x, err
 }
 
-func (p *CreateNicsInput) Validate() error {
-	return nil
-}
-
 func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutput, err error) {
 	if in == nil {
 		in = &DescribeNicsInput{}
@@ -571,10 +571,6 @@ func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutpu
 	}
 
 	return x, err
-}
-
-func (p *DescribeNicsInput) Validate() error {
-	return nil
 }
 
 func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err error) {
@@ -604,10 +600,6 @@ func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err
 	return x, err
 }
 
-func (p *AttachNicsInput) Validate() error {
-	return nil
-}
-
 func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err error) {
 	if in == nil {
 		in = &DetachNicsInput{}
@@ -633,10 +625,6 @@ func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err
 	}
 
 	return x, err
-}
-
-func (p *DetachNicsInput) Validate() error {
-	return nil
 }
 
 func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *ModifyNicAttributesOutput, err error) {
@@ -666,10 +654,6 @@ func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *Mod
 	return x, err
 }
 
-func (p *ModifyNicAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err error) {
 	if in == nil {
 		in = &DeleteNicsInput{}
@@ -697,8 +681,56 @@ func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err
 	return x, err
 }
 
+func (p *NicServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateNicsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateNicsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeNicsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeNicsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachNicsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AttachNicsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachNicsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DetachNicsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyNicAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyNicAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DeleteNicsInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DeleteNicsOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("nic.proto", fileDescriptor14) }
@@ -747,7 +779,7 @@ var fileDescriptor14 = []byte{
 	0xab, 0xa4, 0x4c, 0x70, 0x71, 0xbf, 0x2b, 0x04, 0x57, 0xbc, 0xb1, 0x42, 0x70, 0xd5, 0x0e, 0xe1,
 	0x9b, 0xef, 0xbf, 0xaa, 0xaf, 0xe1, 0xc5, 0x08, 0x31, 0x53, 0xaf, 0x5a, 0xad, 0x54, 0x52, 0xd5,
 	0x5c, 0x7e, 0x60, 0x9b, 0x54, 0x4e, 0x5a, 0x49, 0xc6, 0x5b, 0x82, 0xd3, 0x16, 0x17, 0x29, 0xbb,
-	0x6a, 0x8e, 0x70, 0x32, 0x26, 0xff, 0x7f, 0xe0, 0xe2, 0xa2, 0x63, 0x2a, 0x7a, 0xdd, 0xce, 0xa0,
-	0x6e, 0xbe, 0xbc, 0x2f, 0x7f, 0x07, 0x00, 0x00, 0xff, 0xff, 0x70, 0x14, 0x03, 0xa3, 0xbb, 0x07,
+	0x6a, 0x8e, 0x70, 0x32, 0x26, 0xff, 0x7f, 0xe0, 0xe2, 0xa2, 0x63, 0x2a, 0x7a, 0x9c, 0x0e, 0xea,
+	0xe6, 0xcb, 0xfb, 0xf2, 0x77, 0x00, 0x00, 0x00, 0xff, 0xff, 0x03, 0x95, 0xaf, 0x6e, 0xbb, 0x07,
 	0x00, 0x00,
 }

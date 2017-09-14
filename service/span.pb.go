@@ -722,6 +722,7 @@ func init() {
 	proto.RegisterType((*UpdateSpanOutput)(nil), "service.UpdateSpanOutput")
 }
 
+// See https://docs.qingcloud.com/api/span/index.html
 type SpanServiceInterface interface {
 	CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error)
 	DescribeSpans(in *DescribeSpansInput) (out *DescribeSpansOutput, err error)
@@ -732,12 +733,14 @@ type SpanServiceInterface interface {
 	UpdateSpan(in *UpdateSpanInput) (out *UpdateSpanOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/span/index.html
 type SpanService struct {
 	Config           *config.Config
 	Properties       *SpanServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/span/index.html
 func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
 	return &SpanService{
 		Config:     conf,
@@ -745,6 +748,7 @@ func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/span/index.html
 func (s *QingCloudService) Span(zone string) (*SpanService, error) {
 	properties := &SpanServiceProperties{
 		Zone: zone,
@@ -780,10 +784,6 @@ func (p *SpanService) CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, er
 	return x, err
 }
 
-func (p *CreateSpanInput) Validate() error {
-	return nil
-}
-
 func (p *SpanService) DescribeSpans(in *DescribeSpansInput) (out *DescribeSpansOutput, err error) {
 	if in == nil {
 		in = &DescribeSpansInput{}
@@ -809,10 +809,6 @@ func (p *SpanService) DescribeSpans(in *DescribeSpansInput) (out *DescribeSpansO
 	}
 
 	return x, err
-}
-
-func (p *DescribeSpansInput) Validate() error {
-	return nil
 }
 
 func (p *SpanService) DeleteSpans(in *DeleteSpansInput) (out *DeleteSpansOutput, err error) {
@@ -842,10 +838,6 @@ func (p *SpanService) DeleteSpans(in *DeleteSpansInput) (out *DeleteSpansOutput,
 	return x, err
 }
 
-func (p *DeleteSpansInput) Validate() error {
-	return nil
-}
-
 func (p *SpanService) AddSpanMembers(in *AddSpanMembersInput) (out *AddSpanMembersOutput, err error) {
 	if in == nil {
 		in = &AddSpanMembersInput{}
@@ -871,10 +863,6 @@ func (p *SpanService) AddSpanMembers(in *AddSpanMembersInput) (out *AddSpanMembe
 	}
 
 	return x, err
-}
-
-func (p *AddSpanMembersInput) Validate() error {
-	return nil
 }
 
 func (p *SpanService) RemoveSpanMembers(in *RemoveSpanMembersInput) (out *RemoveSpanMembersOutput, err error) {
@@ -904,10 +892,6 @@ func (p *SpanService) RemoveSpanMembers(in *RemoveSpanMembersInput) (out *Remove
 	return x, err
 }
 
-func (p *RemoveSpanMembersInput) Validate() error {
-	return nil
-}
-
 func (p *SpanService) ModifySpanAttributes(in *ModifySpanAttributesInput) (out *ModifySpanAttributesOutput, err error) {
 	if in == nil {
 		in = &ModifySpanAttributesInput{}
@@ -933,10 +917,6 @@ func (p *SpanService) ModifySpanAttributes(in *ModifySpanAttributesInput) (out *
 	}
 
 	return x, err
-}
-
-func (p *ModifySpanAttributesInput) Validate() error {
-	return nil
 }
 
 func (p *SpanService) UpdateSpan(in *UpdateSpanInput) (out *UpdateSpanOutput, err error) {
@@ -966,8 +946,64 @@ func (p *SpanService) UpdateSpan(in *UpdateSpanInput) (out *UpdateSpanOutput, er
 	return x, err
 }
 
+func (p *SpanServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSpanInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSpanOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSpansInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSpansOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSpansInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSpansOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddSpanMembersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddSpanMembersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RemoveSpanMembersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RemoveSpanMembersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySpanAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySpanAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *UpdateSpanInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *UpdateSpanOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("span.proto", fileDescriptor23) }

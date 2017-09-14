@@ -1201,6 +1201,7 @@ func init() {
 	proto.RegisterType((*DeleteBrokersOutput)(nil), "service.DeleteBrokersOutput")
 }
 
+// See https://docs.qingcloud.com/api/instance/index.html
 type InstanceServiceInterface interface {
 	DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error)
 	RunInstances(in *RunInstancesInput) (out *RunInstancesOutput, err error)
@@ -1216,12 +1217,14 @@ type InstanceServiceInterface interface {
 	DeleteBrokers(in *DeleteBrokersInput) (out *DeleteBrokersOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/instance/index.html
 type InstanceService struct {
 	Config           *config.Config
 	Properties       *InstanceServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/instance/index.html
 func NewInstanceService(conf *config.Config, zone string) (p *InstanceService) {
 	return &InstanceService{
 		Config:     conf,
@@ -1229,6 +1232,7 @@ func NewInstanceService(conf *config.Config, zone string) (p *InstanceService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/instance/index.html
 func (s *QingCloudService) Instance(zone string) (*InstanceService, error) {
 	properties := &InstanceServiceProperties{
 		Zone: zone,
@@ -1264,10 +1268,6 @@ func (p *InstanceService) DescribeInstances(in *DescribeInstancesInput) (out *De
 	return x, err
 }
 
-func (p *DescribeInstancesInput) Validate() error {
-	return nil
-}
-
 func (p *InstanceService) RunInstances(in *RunInstancesInput) (out *RunInstancesOutput, err error) {
 	if in == nil {
 		in = &RunInstancesInput{}
@@ -1293,10 +1293,6 @@ func (p *InstanceService) RunInstances(in *RunInstancesInput) (out *RunInstances
 	}
 
 	return x, err
-}
-
-func (p *RunInstancesInput) Validate() error {
-	return nil
 }
 
 func (p *InstanceService) TerminateInstances(in *TerminateInstancesInput) (out *TerminateInstancesOutput, err error) {
@@ -1326,10 +1322,6 @@ func (p *InstanceService) TerminateInstances(in *TerminateInstancesInput) (out *
 	return x, err
 }
 
-func (p *TerminateInstancesInput) Validate() error {
-	return nil
-}
-
 func (p *InstanceService) StartInstances(in *StartInstancesInput) (out *StartInstancesOutput, err error) {
 	if in == nil {
 		in = &StartInstancesInput{}
@@ -1355,10 +1347,6 @@ func (p *InstanceService) StartInstances(in *StartInstancesInput) (out *StartIns
 	}
 
 	return x, err
-}
-
-func (p *StartInstancesInput) Validate() error {
-	return nil
 }
 
 func (p *InstanceService) StopInstances(in *StopInstancesInput) (out *StopInstancesOutput, err error) {
@@ -1388,10 +1376,6 @@ func (p *InstanceService) StopInstances(in *StopInstancesInput) (out *StopInstan
 	return x, err
 }
 
-func (p *StopInstancesInput) Validate() error {
-	return nil
-}
-
 func (p *InstanceService) RestartInstances(in *RestartInstancesInput) (out *RestartInstancesOutput, err error) {
 	if in == nil {
 		in = &RestartInstancesInput{}
@@ -1417,10 +1401,6 @@ func (p *InstanceService) RestartInstances(in *RestartInstancesInput) (out *Rest
 	}
 
 	return x, err
-}
-
-func (p *RestartInstancesInput) Validate() error {
-	return nil
 }
 
 func (p *InstanceService) ResetInstances(in *ResetInstancesInput) (out *ResetInstancesOutput, err error) {
@@ -1450,10 +1430,6 @@ func (p *InstanceService) ResetInstances(in *ResetInstancesInput) (out *ResetIns
 	return x, err
 }
 
-func (p *ResetInstancesInput) Validate() error {
-	return nil
-}
-
 func (p *InstanceService) ResizeInstances(in *ResizeInstancesInput) (out *ResizeInstancesOutput, err error) {
 	if in == nil {
 		in = &ResizeInstancesInput{}
@@ -1479,10 +1455,6 @@ func (p *InstanceService) ResizeInstances(in *ResizeInstancesInput) (out *Resize
 	}
 
 	return x, err
-}
-
-func (p *ResizeInstancesInput) Validate() error {
-	return nil
 }
 
 func (p *InstanceService) ModifyInstanceAttributes(in *ModifyInstanceAttributesInput) (out *ModifyInstanceAttributesOutput, err error) {
@@ -1512,10 +1484,6 @@ func (p *InstanceService) ModifyInstanceAttributes(in *ModifyInstanceAttributesI
 	return x, err
 }
 
-func (p *ModifyInstanceAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) (out *DescribeInstanceTypesOutput, err error) {
 	if in == nil {
 		in = &DescribeInstanceTypesInput{}
@@ -1541,10 +1509,6 @@ func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) 
 	}
 
 	return x, err
-}
-
-func (p *DescribeInstanceTypesInput) Validate() error {
-	return nil
 }
 
 func (p *InstanceService) CreateBrokers(in *CreateBrokersInput) (out *CreateBrokersOutput, err error) {
@@ -1574,10 +1538,6 @@ func (p *InstanceService) CreateBrokers(in *CreateBrokersInput) (out *CreateBrok
 	return x, err
 }
 
-func (p *CreateBrokersInput) Validate() error {
-	return nil
-}
-
 func (p *InstanceService) DeleteBrokers(in *DeleteBrokersInput) (out *DeleteBrokersOutput, err error) {
 	if in == nil {
 		in = &DeleteBrokersInput{}
@@ -1605,8 +1565,104 @@ func (p *InstanceService) DeleteBrokers(in *DeleteBrokersInput) (out *DeleteBrok
 	return x, err
 }
 
+func (p *InstanceServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RunInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RunInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *TerminateInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *TerminateInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RestartInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RestartInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResetInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResetInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyInstanceAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyInstanceAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeInstanceTypesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeInstanceTypesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateBrokersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateBrokersOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DeleteBrokersInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DeleteBrokersOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("instances.proto", fileDescriptor7) }

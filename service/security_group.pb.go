@@ -1516,6 +1516,7 @@ func init() {
 	proto.RegisterType((*CopySecurityGroupIPSetsOutput)(nil), "service.CopySecurityGroupIPSetsOutput")
 }
 
+// See https://docs.qingcloud.com/api/sg/index.html
 type SecurityGroupServiceInterface interface {
 	DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error)
 	CreateSecurityGroup(in *CreateSecurityGroupInput) (out *CreateSecurityGroupOutput, err error)
@@ -1537,12 +1538,14 @@ type SecurityGroupServiceInterface interface {
 	CopySecurityGroupIPSets(in *CopySecurityGroupIPSetsInput) (out *CopySecurityGroupIPSetsOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/sg/index.html
 type SecurityGroupService struct {
 	Config           *config.Config
 	Properties       *SecurityGroupServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/sg/index.html
 func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroupService) {
 	return &SecurityGroupService{
 		Config:     conf,
@@ -1550,6 +1553,7 @@ func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroup
 	}
 }
 
+// See https://docs.qingcloud.com/api/sg/index.html
 func (s *QingCloudService) SecurityGroup(zone string) (*SecurityGroupService, error) {
 	properties := &SecurityGroupServiceProperties{
 		Zone: zone,
@@ -1585,10 +1589,6 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *DescribeSecurityGroups
 	return x, err
 }
 
-func (p *DescribeSecurityGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) CreateSecurityGroup(in *CreateSecurityGroupInput) (out *CreateSecurityGroupOutput, err error) {
 	if in == nil {
 		in = &CreateSecurityGroupInput{}
@@ -1614,10 +1614,6 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *CreateSecurityGroupInput)
 	}
 
 	return x, err
-}
-
-func (p *CreateSecurityGroupInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) DeleteSecurityGroups(in *DeleteSecurityGroupsInput) (out *DeleteSecurityGroupsOutput, err error) {
@@ -1647,10 +1643,6 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *DeleteSecurityGroupsInpu
 	return x, err
 }
 
-func (p *DeleteSecurityGroupsInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) ApplySecurityGroup(in *ApplySecurityGroupInput) (out *ApplySecurityGroupOutpu, err error) {
 	if in == nil {
 		in = &ApplySecurityGroupInput{}
@@ -1676,10 +1668,6 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *ApplySecurityGroupInput) (
 	}
 
 	return x, err
-}
-
-func (p *ApplySecurityGroupInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *ModifySecurityGroupAttributesInput) (out *ModifySecurityGroupAttributesOutput, err error) {
@@ -1709,10 +1697,6 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *ModifySecurityG
 	return x, err
 }
 
-func (p *ModifySecurityGroupAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) DescribeSecurityGroupRules(in *DescribeSecurityGroupRulesInput) (out *DescribeSecurityGroupRulesOutput, err error) {
 	if in == nil {
 		in = &DescribeSecurityGroupRulesInput{}
@@ -1738,10 +1722,6 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *DescribeSecurityGr
 	}
 
 	return x, err
-}
-
-func (p *DescribeSecurityGroupRulesInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) AddSecurityGroupRules(in *AddSecurityGroupRulesInput) (out *AddSecurityGroupRulesOutput, err error) {
@@ -1771,10 +1751,6 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *AddSecurityGroupRulesIn
 	return x, err
 }
 
-func (p *AddSecurityGroupRulesInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) DeleteSecurityGroupRules(in *DeleteSecurityGroupRulesInput) (out *DeleteSecurityGroupRulesOutput, err error) {
 	if in == nil {
 		in = &DeleteSecurityGroupRulesInput{}
@@ -1800,10 +1776,6 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *DeleteSecurityGroupR
 	}
 
 	return x, err
-}
-
-func (p *DeleteSecurityGroupRulesInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *ModifySecurityGroupRuleAttributesInput) (out *ModifySecurityGroupRuleAttributesOutput, err error) {
@@ -1833,10 +1805,6 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *ModifySecur
 	return x, err
 }
 
-func (p *ModifySecurityGroupRuleAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *CreateSecurityGroupSnapshotInput) (out *CreateSecurityGroupSnapshotOutput, err error) {
 	if in == nil {
 		in = &CreateSecurityGroupSnapshotInput{}
@@ -1862,10 +1830,6 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *CreateSecurityGro
 	}
 
 	return x, err
-}
-
-func (p *CreateSecurityGroupSnapshotInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *DescribeSecurityGroupSnapshotsInput) (out *DescribeSecurityGroupSnapshotsOutput, err error) {
@@ -1895,10 +1859,6 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *DescribeSecuri
 	return x, err
 }
 
-func (p *DescribeSecurityGroupSnapshotsInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *DeleteSecurityGroupSnapshotsInput) (out *DeleteSecurityGroupSnapshotsOutput, err error) {
 	if in == nil {
 		in = &DeleteSecurityGroupSnapshotsInput{}
@@ -1924,10 +1884,6 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *DeleteSecurityGr
 	}
 
 	return x, err
-}
-
-func (p *DeleteSecurityGroupSnapshotsInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) RollbackSecurityGroup(in *RollbackSecurityGroupInput) (out *RollbackSecurityGroupOutput, err error) {
@@ -1957,10 +1913,6 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *RollbackSecurityGroupIn
 	return x, err
 }
 
-func (p *RollbackSecurityGroupInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *DescribeSecurityGroupIPSetsInput) (out *DescribeSecurityGroupIPSetsOutput, err error) {
 	if in == nil {
 		in = &DescribeSecurityGroupIPSetsInput{}
@@ -1986,10 +1938,6 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *DescribeSecurityG
 	}
 
 	return x, err
-}
-
-func (p *DescribeSecurityGroupIPSetsInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *CreateSecurityGroupIPSetInput) (out *CreateSecurityGroupIPSetOutput, err error) {
@@ -2019,10 +1967,6 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *CreateSecurityGroupI
 	return x, err
 }
 
-func (p *CreateSecurityGroupIPSetInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *DeleteSecurityGroupIPSetsInput) (out *DeleteSecurityGroupIPSetsOutput, err error) {
 	if in == nil {
 		in = &DeleteSecurityGroupIPSetsInput{}
@@ -2048,10 +1992,6 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *DeleteSecurityGroup
 	}
 
 	return x, err
-}
-
-func (p *DeleteSecurityGroupIPSetsInput) Validate() error {
-	return nil
 }
 
 func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *ModifySecurityGroupIPSetAttributesInput) (out *ModifySecurityGroupIPSetAttributesOutput, err error) {
@@ -2081,10 +2021,6 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *ModifySecu
 	return x, err
 }
 
-func (p *ModifySecurityGroupIPSetAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *SecurityGroupService) CopySecurityGroupIPSets(in *CopySecurityGroupIPSetsInput) (out *CopySecurityGroupIPSetsOutput, err error) {
 	if in == nil {
 		in = &CopySecurityGroupIPSetsInput{}
@@ -2112,8 +2048,152 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *CopySecurityGroupIPSe
 	return x, err
 }
 
+func (p *SecurityGroupServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSecurityGroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSecurityGroupOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplySecurityGroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ApplySecurityGroupOutpu) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySecurityGroupAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySecurityGroupAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddSecurityGroupRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddSecurityGroupRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupRulesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupRulesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySecurityGroupRuleAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySecurityGroupRuleAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSecurityGroupSnapshotInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSecurityGroupSnapshotOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupSnapshotsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupSnapshotsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupSnapshotsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupSnapshotsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RollbackSecurityGroupInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RollbackSecurityGroupOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupIPSetsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSecurityGroupIPSetsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSecurityGroupIPSetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSecurityGroupIPSetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupIPSetsInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSecurityGroupIPSetsOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySecurityGroupIPSetAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifySecurityGroupIPSetAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *CopySecurityGroupIPSetsInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *CopySecurityGroupIPSetsOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("security_group.proto", fileDescriptor21) }

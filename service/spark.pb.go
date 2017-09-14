@@ -655,6 +655,7 @@ func init() {
 	proto.RegisterType((*DeleteSparksOutput)(nil), "service.DeleteSparksOutput")
 }
 
+// See https://docs.qingcloud.com/api/spark/index.html
 type SparkServiceInterface interface {
 	CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error)
 	DescribeSparks(in *DescribeSparksInput) (out *DescribeSparksOutput, err error)
@@ -665,12 +666,14 @@ type SparkServiceInterface interface {
 	DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/spark/index.html
 type SparkService struct {
 	Config           *config.Config
 	Properties       *SparkServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/spark/index.html
 func NewSparkService(conf *config.Config, zone string) (p *SparkService) {
 	return &SparkService{
 		Config:     conf,
@@ -678,6 +681,7 @@ func NewSparkService(conf *config.Config, zone string) (p *SparkService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/spark/index.html
 func (s *QingCloudService) Spark(zone string) (*SparkService, error) {
 	properties := &SparkServiceProperties{
 		Zone: zone,
@@ -713,10 +717,6 @@ func (p *SparkService) CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput
 	return x, err
 }
 
-func (p *CreateSparkInput) Validate() error {
-	return nil
-}
-
 func (p *SparkService) DescribeSparks(in *DescribeSparksInput) (out *DescribeSparksOutput, err error) {
 	if in == nil {
 		in = &DescribeSparksInput{}
@@ -742,10 +742,6 @@ func (p *SparkService) DescribeSparks(in *DescribeSparksInput) (out *DescribeSpa
 	}
 
 	return x, err
-}
-
-func (p *DescribeSparksInput) Validate() error {
-	return nil
 }
 
 func (p *SparkService) AddSparkNodes(in *AddSparkNodesInput) (out *AddSparkNodesOutput, err error) {
@@ -775,10 +771,6 @@ func (p *SparkService) AddSparkNodes(in *AddSparkNodesInput) (out *AddSparkNodes
 	return x, err
 }
 
-func (p *AddSparkNodesInput) Validate() error {
-	return nil
-}
-
 func (p *SparkService) DeleteSparkNodes(in *DeleteSparkNodesInput) (out *DeleteSparkNodesOutput, err error) {
 	if in == nil {
 		in = &DeleteSparkNodesInput{}
@@ -804,10 +796,6 @@ func (p *SparkService) DeleteSparkNodes(in *DeleteSparkNodesInput) (out *DeleteS
 	}
 
 	return x, err
-}
-
-func (p *DeleteSparkNodesInput) Validate() error {
-	return nil
 }
 
 func (p *SparkService) StartSparks(in *StartSparksInput) (out *StartSparksOutput, err error) {
@@ -837,10 +825,6 @@ func (p *SparkService) StartSparks(in *StartSparksInput) (out *StartSparksOutput
 	return x, err
 }
 
-func (p *StartSparksInput) Validate() error {
-	return nil
-}
-
 func (p *SparkService) StopSparks(in *StopSparksInput) (out *StopSparksOutput, err error) {
 	if in == nil {
 		in = &StopSparksInput{}
@@ -866,10 +850,6 @@ func (p *SparkService) StopSparks(in *StopSparksInput) (out *StopSparksOutput, e
 	}
 
 	return x, err
-}
-
-func (p *StopSparksInput) Validate() error {
-	return nil
 }
 
 func (p *SparkService) DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOutput, err error) {
@@ -899,8 +879,64 @@ func (p *SparkService) DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOut
 	return x, err
 }
 
+func (p *SparkServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSparkInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateSparkOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSparksInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeSparksOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddSparkNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddSparkNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSparkNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteSparkNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartSparksInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartSparksOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopSparksInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopSparksOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *DeleteSparksInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *DeleteSparksOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("spark.proto", fileDescriptor24) }

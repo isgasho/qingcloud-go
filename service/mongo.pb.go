@@ -1255,6 +1255,7 @@ func init() {
 	proto.RegisterType((*ModifyMongoInstancesOutput)(nil), "service.ModifyMongoInstancesOutput")
 }
 
+// See https://docs.qingcloud.com/api/mongo/index.html
 type MongoServiceInterface interface {
 	DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error)
 	DescribeMongoParameters(in *DescribeMongoParametersInput) (out *DescribeMongoParametersOutput, err error)
@@ -1272,12 +1273,14 @@ type MongoServiceInterface interface {
 	ModifyMongoInstances(in *ModifyMongoInstancesInput) (out *ModifyMongoInstancesOutput, err error)
 }
 
+// See https://docs.qingcloud.com/api/mongo/index.html
 type MongoService struct {
 	Config           *config.Config
 	Properties       *MongoServiceProperties
 	LastResponseBody string
 }
 
+// See https://docs.qingcloud.com/api/mongo/index.html
 func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
 	return &MongoService{
 		Config:     conf,
@@ -1285,6 +1288,7 @@ func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
 	}
 }
 
+// See https://docs.qingcloud.com/api/mongo/index.html
 func (s *QingCloudService) Mongo(zone string) (*MongoService, error) {
 	properties := &MongoServiceProperties{
 		Zone: zone,
@@ -1320,10 +1324,6 @@ func (p *MongoService) DescribeMongoNodes(in *DescribeMongoNodesInput) (out *Des
 	return x, err
 }
 
-func (p *DescribeMongoNodesInput) Validate() error {
-	return nil
-}
-
 func (p *MongoService) DescribeMongoParameters(in *DescribeMongoParametersInput) (out *DescribeMongoParametersOutput, err error) {
 	if in == nil {
 		in = &DescribeMongoParametersInput{}
@@ -1349,10 +1349,6 @@ func (p *MongoService) DescribeMongoParameters(in *DescribeMongoParametersInput)
 	}
 
 	return x, err
-}
-
-func (p *DescribeMongoParametersInput) Validate() error {
-	return nil
 }
 
 func (p *MongoService) ResizeMongos(in *ResizeMongosInput) (out *ResizeMongosOutput, err error) {
@@ -1382,10 +1378,6 @@ func (p *MongoService) ResizeMongos(in *ResizeMongosInput) (out *ResizeMongosOut
 	return x, err
 }
 
-func (p *ResizeMongosInput) Validate() error {
-	return nil
-}
-
 func (p *MongoService) CreateMongo(in *CreateMongoInput) (out *CreateMongoOutput, err error) {
 	if in == nil {
 		in = &CreateMongoInput{}
@@ -1411,10 +1403,6 @@ func (p *MongoService) CreateMongo(in *CreateMongoInput) (out *CreateMongoOutput
 	}
 
 	return x, err
-}
-
-func (p *CreateMongoInput) Validate() error {
-	return nil
 }
 
 func (p *MongoService) StopMongos(in *StopMongosInput) (out *StopMongosOutput, err error) {
@@ -1444,10 +1432,6 @@ func (p *MongoService) StopMongos(in *StopMongosInput) (out *StopMongosOutput, e
 	return x, err
 }
 
-func (p *StopMongosInput) Validate() error {
-	return nil
-}
-
 func (p *MongoService) StartMongos(in *StartMongosInput) (out *StartMongosOutput, err error) {
 	if in == nil {
 		in = &StartMongosInput{}
@@ -1473,10 +1457,6 @@ func (p *MongoService) StartMongos(in *StartMongosInput) (out *StartMongosOutput
 	}
 
 	return x, err
-}
-
-func (p *StartMongosInput) Validate() error {
-	return nil
 }
 
 func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMongosOutput, err error) {
@@ -1506,10 +1486,6 @@ func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMon
 	return x, err
 }
 
-func (p *DescribeMongosInput) Validate() error {
-	return nil
-}
-
 func (p *MongoService) DeleteMongos(in *DeleteMongosInput) (out *DeleteMongosOutput, err error) {
 	if in == nil {
 		in = &DeleteMongosInput{}
@@ -1535,10 +1511,6 @@ func (p *MongoService) DeleteMongos(in *DeleteMongosInput) (out *DeleteMongosOut
 	}
 
 	return x, err
-}
-
-func (p *DeleteMongosInput) Validate() error {
-	return nil
 }
 
 func (p *MongoService) CreateMongoFromSnapshot(in *CreateMongoFromSnapshotInput) (out *CreateMongoFromSnapshotOutput, err error) {
@@ -1568,10 +1540,6 @@ func (p *MongoService) CreateMongoFromSnapshot(in *CreateMongoFromSnapshotInput)
 	return x, err
 }
 
-func (p *CreateMongoFromSnapshotInput) Validate() error {
-	return nil
-}
-
 func (p *MongoService) ChangeMongoVxnet(in *ChangeMongoVxnetInput) (out *ChangeMongoVxnetOutput, err error) {
 	if in == nil {
 		in = &ChangeMongoVxnetInput{}
@@ -1597,10 +1565,6 @@ func (p *MongoService) ChangeMongoVxnet(in *ChangeMongoVxnetInput) (out *ChangeM
 	}
 
 	return x, err
-}
-
-func (p *ChangeMongoVxnetInput) Validate() error {
-	return nil
 }
 
 func (p *MongoService) AddMongoInstances(in *AddMongoInstancesInput) (out *AddMongoInstancesOutput, err error) {
@@ -1630,10 +1594,6 @@ func (p *MongoService) AddMongoInstances(in *AddMongoInstancesInput) (out *AddMo
 	return x, err
 }
 
-func (p *AddMongoInstancesInput) Validate() error {
-	return nil
-}
-
 func (p *MongoService) RemoveMongoInstances(in *RemoveMongoInstancesInput) (out *RemoveMongoInstancesOutput, err error) {
 	if in == nil {
 		in = &RemoveMongoInstancesInput{}
@@ -1659,10 +1619,6 @@ func (p *MongoService) RemoveMongoInstances(in *RemoveMongoInstancesInput) (out 
 	}
 
 	return x, err
-}
-
-func (p *RemoveMongoInstancesInput) Validate() error {
-	return nil
 }
 
 func (p *MongoService) ModifyMongoAttributes(in *ModifyMongoAttributesInput) (out *ModifyMongoAttributesOutput, err error) {
@@ -1692,10 +1648,6 @@ func (p *MongoService) ModifyMongoAttributes(in *ModifyMongoAttributesInput) (ou
 	return x, err
 }
 
-func (p *ModifyMongoAttributesInput) Validate() error {
-	return nil
-}
-
 func (p *MongoService) ModifyMongoInstances(in *ModifyMongoInstancesInput) (out *ModifyMongoInstancesOutput, err error) {
 	if in == nil {
 		in = &ModifyMongoInstancesInput{}
@@ -1723,8 +1675,120 @@ func (p *MongoService) ModifyMongoInstances(in *ModifyMongoInstancesInput) (out 
 	return x, err
 }
 
+func (p *MongoServiceProperties) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeMongoNodesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeMongoNodesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeMongoParametersInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeMongoParametersOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeMongosInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResizeMongosOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateMongoInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateMongoOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopMongosInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StopMongosOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartMongosInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *StartMongosOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeMongosInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DescribeMongosOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteMongosInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *DeleteMongosOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateMongoFromSnapshotInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *CreateMongoFromSnapshotOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ChangeMongoVxnetInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ChangeMongoVxnetOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddMongoInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *AddMongoInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RemoveMongoInstancesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *RemoveMongoInstancesOutput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyMongoAttributesInput) Validate() error {
+	return nil // TODO
+}
+
+func (p *ModifyMongoAttributesOutput) Validate() error {
+	return nil // TODO
+}
+
 func (p *ModifyMongoInstancesInput) Validate() error {
-	return nil
+	return nil // TODO
+}
+
+func (p *ModifyMongoInstancesOutput) Validate() error {
+	return nil // TODO
 }
 
 func init() { proto.RegisterFile("mongo.proto", fileDescriptor12) }

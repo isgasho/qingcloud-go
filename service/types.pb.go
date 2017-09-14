@@ -6127,6 +6127,270 @@ func init() {
 	proto.RegisterType((*GroupRoleRuleItem)(nil), "service.GroupRoleRuleItem")
 }
 
+func (p *Tag) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResourceTagPair) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResourceTypeCount) Validate() error {
+	return nil // TODO
+}
+
+func (p *EIP) Validate() error {
+	return nil // TODO
+}
+
+func (p *Resource) Validate() error {
+	return nil // TODO
+}
+
+func (p *Job) Validate() error {
+	return nil // TODO
+}
+
+func (p *Volume) Validate() error {
+	return nil // TODO
+}
+
+func (p *NIC) Validate() error {
+	return nil // TODO
+}
+
+func (p *KeyPair) Validate() error {
+	return nil // TODO
+}
+
+func (p *VxNet) Validate() error {
+	return nil // TODO
+}
+
+func (p *Router) Validate() error {
+	return nil // TODO
+}
+
+func (p *Instance) Validate() error {
+	return nil // TODO
+}
+
+func (p *InstanceVxNet) Validate() error {
+	return nil // TODO
+}
+
+func (p *Image) Validate() error {
+	return nil // TODO
+}
+
+func (p *ImageUser) Validate() error {
+	return nil // TODO
+}
+
+func (p *Mongo) Validate() error {
+	return nil // TODO
+}
+
+func (p *MongoNode) Validate() error {
+	return nil // TODO
+}
+
+func (p *LoadBalancer) Validate() error {
+	return nil // TODO
+}
+
+func (p *LoadBalancerListener) Validate() error {
+	return nil // TODO
+}
+
+func (p *LoadBalancerBackend) Validate() error {
+	return nil // TODO
+}
+
+func (p *Cache) Validate() error {
+	return nil // TODO
+}
+
+func (p *CacheNode) Validate() error {
+	return nil // TODO
+}
+
+func (p *CacheParameter) Validate() error {
+	return nil // TODO
+}
+
+func (p *CacheParameterGroup) Validate() error {
+	return nil // TODO
+}
+
+func (p *CachePrivateIP) Validate() error {
+	return nil // TODO
+}
+
+func (p *SparkPrivateIps) Validate() error {
+	return nil // TODO
+}
+
+func (p *Data) Validate() error {
+	return nil // TODO
+}
+
+func (p *DHCPOption) Validate() error {
+	return nil // TODO
+}
+
+func (p *DNSAlias) Validate() error {
+	return nil // TODO
+}
+
+func (p *EIPGroup) Validate() error {
+	return nil // TODO
+}
+
+func (p *EIPResource) Validate() error {
+	return nil // TODO
+}
+
+func (p *Extra) Validate() error {
+	return nil // TODO
+}
+
+func (p *File) Validate() error {
+	return nil // TODO
+}
+
+func (p *InstanceType) Validate() error {
+	return nil // TODO
+}
+
+func (p *LoadBalancerPolicy) Validate() error {
+	return nil // TODO
+}
+
+func (p *LoadBalancerPolicyRule) Validate() error {
+	return nil // TODO
+}
+
+func (p *Meter) Validate() error {
+	return nil // TODO
+}
+
+func (p *MongoParameter) Validate() error {
+	return nil // TODO
+}
+
+func (p *MongoPrivateIP) Validate() error {
+	return nil // TODO
+}
+
+func (p *NICIP) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDB) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBFile) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBParameter) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBParameters) Validate() error {
+	return nil // TODO
+}
+
+func (p *RDBPrivateIP) Validate() error {
+	return nil // TODO
+}
+
+func (p *RouterStatic) Validate() error {
+	return nil // TODO
+}
+
+func (p *RouterStaticEntry) Validate() error {
+	return nil // TODO
+}
+
+func (p *RouterVxNet) Validate() error {
+	return nil // TODO
+}
+
+func (p *S2DefaultParameters) Validate() error {
+	return nil // TODO
+}
+
+func (p *S2Server) Validate() error {
+	return nil // TODO
+}
+
+func (p *S2SharedTarget) Validate() error {
+	return nil // TODO
+}
+
+func (p *SecurityGroup) Validate() error {
+	return nil // TODO
+}
+
+func (p *SecurityGroupIPSet) Validate() error {
+	return nil // TODO
+}
+
+func (p *SecurityGroupRule) Validate() error {
+	return nil // TODO
+}
+
+func (p *SecurityGroupSnapshot) Validate() error {
+	return nil // TODO
+}
+
+func (p *ServerCertificate) Validate() error {
+	return nil // TODO
+}
+
+func (p *Snapshot) Validate() error {
+	return nil // TODO
+}
+
+func (p *SnapshotResource) Validate() error {
+	return nil // TODO
+}
+
+func (p *User) Validate() error {
+	return nil // TODO
+}
+
+func (p *Zone) Validate() error {
+	return nil // TODO
+}
+
+func (p *Cluster) Validate() error {
+	return nil // TODO
+}
+
+func (p *ClasterNode) Validate() error {
+	return nil // TODO
+}
+
+func (p *ResourceGroupsItem) Validate() error {
+	return nil // TODO
+}
+
+func (p *UserGroupItem) Validate() error {
+	return nil // TODO
+}
+
+func (p *GroupRoleItem) Validate() error {
+	return nil // TODO
+}
+
+func (p *GroupRoleRuleItem) Validate() error {
+	return nil // TODO
+}
+
 func init() { proto.RegisterFile("types.proto", fileDescriptor27) }
 
 var fileDescriptor27 = []byte{
