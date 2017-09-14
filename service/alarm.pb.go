@@ -176,7 +176,7 @@ It has these top-level messages:
 	DissociateDNSAliasesOutput
 	GetDNSLabelInput
 	GetDNSLabelOutput
-	EipServiceProperties
+	EIPServiceProperties
 	DescribeEipsInput
 	DescribeEipsOutput
 	AllocateEipsInput
