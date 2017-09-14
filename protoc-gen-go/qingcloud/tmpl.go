@@ -41,7 +41,6 @@ func GetImportsCode() string {
 }
 
 func (spec *ServiceSpec) Code() string {
-	//return "/* ServiceSpec code*/"
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(tmplService))
 	t.Execute(&buf, spec)
@@ -49,7 +48,6 @@ func (spec *ServiceSpec) Code() string {
 }
 
 func (spec *MessageSpec) Code() string {
-	//return ""
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(tmplMessageValidate))
 	t.Execute(&buf, spec)
