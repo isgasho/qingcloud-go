@@ -8,4 +8,4 @@
 package qingcloud
 
 // Version number.
-const Version = "0.0.9"
+const Version = "0.1.0"

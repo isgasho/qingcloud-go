@@ -4,6 +4,10 @@
 
 TODO
 
+### v0.1.0
+
+- 实现 `protoMessage.Validate` 方法, 可用户输入参数验证
+
 ### v0.0.9
 
 - spec: 基本完全全部接口规范(少数proto无法支持的接口除外)
