@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -802,63 +805,63 @@ func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput)
 }
 
 func (p *VolumesServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeVolumesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeVolumesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateVolumesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateVolumesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteVolumesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteVolumesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachVolumesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachVolumesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachVolumesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachVolumesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeVolumesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeVolumesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyVolumeAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyVolumeAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("volume.proto", fileDescriptor29) }

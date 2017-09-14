@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -264,15 +267,15 @@ func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *Desc
 }
 
 func (p *NotificationCenterServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeNotificationCenterUserPostsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeNotificationCenterUserPostsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("notification_center.proto", fileDescriptor15) }

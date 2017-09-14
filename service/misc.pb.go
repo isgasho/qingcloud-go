@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -573,31 +576,31 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 }
 
 func (p *MiscServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GrantQuotaIndepInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GrantQuotaIndepOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeQuotaIndepInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeQuotaIndepOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetQuotaLeftInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetQuotaLeftOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("misc.proto", fileDescriptor11) }

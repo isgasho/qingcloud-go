@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -1027,63 +1030,63 @@ func (p *VxnetService) DescribeVxnetInstances(in *DescribeVxnetInstancesInput) (
 }
 
 func (p *VxnetServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeVxnetsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeVxnetsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateVxnetsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateVxnetsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteVxnetsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteVxnetsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *JoinVxnetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *JoinVxnetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *LeaveVxnetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *LeaveVxnetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyVxnetAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyVxnetAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeVxnetInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeVxnetInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("vxnet.proto", fileDescriptor30) }

@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -1012,71 +1015,71 @@ func (p *EIPService) ModifyEipAttributes(in *ModifyEipAttributesInput) (out *Mod
 }
 
 func (p *EIPServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeEipsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeEipsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AllocateEipsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AllocateEipsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ReleaseEipsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ReleaseEipsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AssociateEipInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AssociateEipOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DissociateEipsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DissociateEipsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeEipsBandwidthInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeEipsBandwidthOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeEipsBillingModeInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeEipsBillingModeOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyEipAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyEipAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("eip.proto", fileDescriptor4) }

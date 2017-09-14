@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -2913,199 +2916,199 @@ func (p *CacheService) ResetCacheParameters(in *ResetCacheParametersInput) (out 
 }
 
 func (p *CacheServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCachesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCachesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateCacheInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateCacheOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopCachesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopCachesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartCachesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartCachesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartCachesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartCachesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteCachesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteCachesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeCachesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeCachesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateCacheInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateCacheOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeCacheVxnetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeCacheVxnetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyCacheAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyCacheAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCacheNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCacheNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddCacheNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddCacheNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteCacheNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteCacheNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartCacheNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartCacheNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyCacheNodeAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyCacheNodeAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateCacheFromSnapshotInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateCacheFromSnapshotOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCacheParameterGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCacheParameterGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateCacheParameterGroupInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateCacheParameterGroupOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplyCacheParameterGroupInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplyCacheParameterGroupOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteCacheParameterGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteCacheParameterGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyCacheParameterGroupAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyCacheParameterGroupAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCacheParametersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeCacheParametersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateCacheParametersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateCacheParametersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResetCacheParametersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResetCacheParametersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("cache.proto", fileDescriptor1) }

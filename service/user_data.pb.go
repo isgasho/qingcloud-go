@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -166,15 +169,20 @@ func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentI
 }
 
 func (p *UserDataServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UploadUserDataAttachmentInput) Validate() error {
-	return nil // TODO
+
+	if len(p.AttachmentContent) == 0 {
+		return fmt.Errorf("UploadUserDataAttachmentInput.AttachmentContent required field missing!")
+	}
+
+	return nil
 }
 
 func (p *UploadUserDataAttachmentOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("user_data.proto", fileDescriptor28) }

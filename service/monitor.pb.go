@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -671,55 +674,55 @@ func (p *MonitorService) GetQueueMonitor(in *GetQueueMonitorInput) (out *GetQueu
 }
 
 func (p *MonitorServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetMonitorInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetMonitorOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetLoadBalancerMonitorInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetLoadBalancerMonitorOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetRDBMonitorInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetRDBMonitorOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetCacheMonitorInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetCacheMonitorOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetZooKeeperMonitorInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetZooKeeperMonitorOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetQueueMonitorInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetQueueMonitorOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("monitor.proto", fileDescriptor13) }

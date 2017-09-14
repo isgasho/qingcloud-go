@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -81,7 +84,7 @@ func (p *QingCloudService) DescribeZones(in *DescribeZonesInput) (out *DescribeZ
 }
 
 func (p *QingCloudServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("qingcloud.proto", fileDescriptor16) }

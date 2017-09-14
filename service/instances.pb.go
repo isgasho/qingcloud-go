@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -1568,103 +1571,103 @@ func (p *InstanceService) DeleteBrokers(in *DeleteBrokersInput) (out *DeleteBrok
 }
 
 func (p *InstanceServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RunInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RunInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *TerminateInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *TerminateInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResetInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResetInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyInstanceAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyInstanceAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeInstanceTypesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeInstanceTypesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateBrokersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateBrokersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteBrokersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteBrokersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("instances.proto", fileDescriptor7) }

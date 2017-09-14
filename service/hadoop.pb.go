@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -483,39 +486,39 @@ func (p *HadoopService) StopHadoops(in *StopHadoopsInput) (out *StopHadoopsOutpu
 }
 
 func (p *HadoopServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddHadoopNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddHadoopNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteHadoopNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteHadoopNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartHadoopsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartHadoopsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopHadoopsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopHadoopsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("hadoop.proto", fileDescriptor5) }

@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -2051,151 +2054,151 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *CopySecurityGroupIPSe
 }
 
 func (p *SecurityGroupServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSecurityGroupInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSecurityGroupOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplySecurityGroupInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplySecurityGroupOutpu) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySecurityGroupAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySecurityGroupAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddSecurityGroupRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddSecurityGroupRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySecurityGroupRuleAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySecurityGroupRuleAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSecurityGroupSnapshotInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSecurityGroupSnapshotOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupSnapshotsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupSnapshotsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupSnapshotsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupSnapshotsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RollbackSecurityGroupInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RollbackSecurityGroupOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupIPSetsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSecurityGroupIPSetsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSecurityGroupIPSetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSecurityGroupIPSetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupIPSetsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSecurityGroupIPSetsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySecurityGroupIPSetAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySecurityGroupIPSetAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CopySecurityGroupIPSetsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CopySecurityGroupIPSetsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("security_group.proto", fileDescriptor21) }

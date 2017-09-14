@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -1071,71 +1074,71 @@ func (p *ImageService) CloneImages(in *CloneImagesInput) (out *CloneImagesOutput
 }
 
 func (p *ImageServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeImagesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeImagesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CaptureInstanceInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CaptureInstanceOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteImagesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteImagesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyImageAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyImageAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GrantImageToUsersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GrantImageToUsersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeImageFromUsersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeImageFromUsersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeImageUsersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeImageUsersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CloneImagesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CloneImagesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("image.proto", fileDescriptor6) }

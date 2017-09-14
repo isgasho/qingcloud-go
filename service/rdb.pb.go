@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -2193,143 +2196,143 @@ func (p *RDBService) DescribeRDBParameters(in *DescribeRDBParametersInput) (out 
 }
 
 func (p *RDBServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateRDBInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateRDBOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRDBsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRDBsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRDBsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRDBsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartRDBsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartRDBsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopRDBsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopRDBsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeRDBsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeRDBsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RDBsLeaveVxnetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RDBsLeaveVxnetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RDBsJoinVxnetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RDBsJoinVxnetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateRDBFromSnapshotInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateRDBFromSnapshotOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateTempRDBInstanceFromSnapshotInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateTempRDBInstanceFromSnapshotOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetRDBInstanceFilesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetRDBInstanceFilesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CopyRDBInstanceFilesToFTPInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CopyRDBInstanceFilesToFTPOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *PurgeRDBLogsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *PurgeRDBLogsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CeaseRDBInstanceInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CeaseRDBInstanceOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRDBParametersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRDBParametersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplyRDBParameterGroupInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplyRDBParameterGroupOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRDBParametersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRDBParametersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }

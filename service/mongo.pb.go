@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -1678,119 +1681,119 @@ func (p *MongoService) ModifyMongoInstances(in *ModifyMongoInstancesInput) (out 
 }
 
 func (p *MongoServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeMongoNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeMongoNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeMongoParametersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeMongoParametersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeMongosInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeMongosOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateMongoInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateMongoOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopMongosInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopMongosOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartMongosInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartMongosOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeMongosInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeMongosOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteMongosInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteMongosOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateMongoFromSnapshotInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateMongoFromSnapshotOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeMongoVxnetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeMongoVxnetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddMongoInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddMongoInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RemoveMongoInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RemoveMongoInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyMongoAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyMongoAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyMongoInstancesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyMongoInstancesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("mongo.proto", fileDescriptor12) }

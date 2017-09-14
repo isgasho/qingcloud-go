@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -3566,223 +3569,223 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *DescribeResourceUser
 }
 
 func (p *ResourceACLServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSharedResourceGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSharedResourceGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeResourceGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeResourceGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateResourceGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateResourceGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyResourceGroupAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyResourceGroupAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteResourceGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteResourceGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeResourceGroupItemsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeResourceGroupItemsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddResourceGroupItemsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddResourceGroupItemsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteResourceGroupItemsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteResourceGroupItemsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeUserGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeUserGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateUserGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateUserGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyUserGroupAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyUserGroupAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteUserGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteUserGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeUserGroupMembersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeUserGroupMembersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddUserGroupMembersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddUserGroupMembersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyUserGroupMemberAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyUserGroupMemberAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteUserGroupMembersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteUserGroupMembersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeGroupRolesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeGroupRolesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateGroupRolesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateGroupRolesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyGroupRoleAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyGroupRoleAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteGroupRolesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteGroupRolesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeGroupRoleRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeGroupRoleRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddGroupRoleRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddGroupRoleRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyGroupRoleRuleAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyGroupRoleRuleAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteGroupRoleRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteGroupRoleRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GrantResourceGroupsToUserGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GrantResourceGroupsToUserGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeResourceGroupsFromUserGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeResourceGroupsFromUserGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeResourceUserGroupsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeResourceUserGroupsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor18) }

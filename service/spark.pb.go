@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -882,63 +885,63 @@ func (p *SparkService) DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOut
 }
 
 func (p *SparkServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSparkInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSparkOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSparksInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSparksOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddSparkNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddSparkNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSparkNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSparkNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartSparksInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartSparksOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopSparksInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopSparksOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSparksInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSparksOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("spark.proto", fileDescriptor24) }

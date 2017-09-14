@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -642,47 +645,47 @@ func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *Restore
 }
 
 func (p *SubuserServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSubUsersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSubUsersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSubUserInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSubUserOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySubUserAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySubUserAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSubUsersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSubUsersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestoreSubUsersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestoreSubUsersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("subuser.proto", fileDescriptor25) }

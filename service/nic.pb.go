@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -684,55 +687,55 @@ func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err
 }
 
 func (p *NicServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateNicsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateNicsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeNicsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeNicsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachNicsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachNicsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachNicsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachNicsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyNicAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyNicAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteNicsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteNicsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("nic.proto", fileDescriptor14) }

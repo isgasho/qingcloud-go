@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -3361,255 +3364,255 @@ func (p *LoadBalancerService) DeleteServerCertificates(in *DeleteServerCertifica
 }
 
 func (p *LoadBalancerServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateLoadBalancerInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateLoadBalancerOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartLoadBalancersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartLoadBalancersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopLoadBalancersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopLoadBalancersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateLoadBalancersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateLoadBalancersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeLoadBalancersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeLoadBalancersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AssociateEipsToLoadBalancerInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AssociateEipsToLoadBalancerOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DissociateEipsFromLoadBalancerInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DissociateEipsFromLoadBalancerOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddLoadBalancerListenersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddLoadBalancerListenersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerListenersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerListenersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerListenersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerListenersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerListenerAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerListenerAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddLoadBalancerBackendsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddLoadBalancerBackendsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerBackendsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerBackendsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerBackendsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerBackendsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerBackendAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerBackendAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateLoadBalancerPolicyInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateLoadBalancerPolicyOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerPoliciesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerPoliciesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerPolicyAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerPolicyAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplyLoadBalancerPolicyInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ApplyLoadBalancerPolicyOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerPoliciesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerPoliciesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddLoadBalancerPolicyRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddLoadBalancerPolicyRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerPolicyRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeLoadBalancerPolicyRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerPolicyRuleAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyLoadBalancerPolicyRuleAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerPolicyRulesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteLoadBalancerPolicyRulesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateServerCertificateInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateServerCertificateOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeServerCertificatesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeServerCertificatesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyServerCertificateAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyServerCertificateAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteServerCertificatesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteServerCertificatesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("load_balancer.proto", fileDescriptor10) }

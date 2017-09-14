@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -775,55 +778,55 @@ func (p *KeyPairService) ModifyKeyPairAttributes(in *ModifyKeyPairAttributesInpu
 }
 
 func (p *KeyPairServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeKeyPairsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeKeyPairsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateKeyPairInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateKeyPairOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteKeyPairsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteKeyPairsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachKeyPairsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachKeyPairsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachKeyPairsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachKeyPairsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyKeyPairAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyKeyPairAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("key_pair.proto", fileDescriptor9) }

@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -2296,179 +2299,197 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBro
 }
 
 func (p *ClusterServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateClusterInput_Conf) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateClusterInput) Validate() error {
-	return nil // TODO
+
+	if len(p.Conf) == 0 {
+		return fmt.Errorf("CreateClusterInput.Conf required field missing!")
+	}
+
+	return nil
 }
 
 func (p *CreateClusterOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeClustersInput) Validate() error {
-	return nil // TODO
+
+	{
+		var _enumValues = []string{
+			"all",
+			"cfgmgmt",
+		}
+		for _, v := range _enumValues {
+			if p.Scope != v {
+				return fmt.Errorf("DescribeClustersInput.Scope: invalid enum value!")
+			}
+		}
+	}
+
+	return nil
 }
 
 func (p *DescribeClustersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeClusterNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeClusterNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopClustersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StopClustersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartClustersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *StartClustersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteClustersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteClustersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *LeaseInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *LeaseOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddClusterNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddClusterNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteClusterNodesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteClusterNodesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeClusterInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ResizeClusterOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeClusterVxnetInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ChangeClusterVxnetOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *SuspendClustersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *SuspendClustersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateClusterEnvironmentInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateClusterEnvironmentOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyClusterAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyClusterAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyClusterNodeAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyClusterNodeAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetClustersStatsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *GetClustersStatsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeClusterUsersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeClusterUsersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartClusterServiceInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RestartClusterServiceOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpgradeClustersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpgradeClustersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AuthorizeClustersBrokerToDeveloperInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AuthorizeClustersBrokerToDeveloperOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeClustersBrokerFromDeveloperInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RevokeClustersBrokerFromDeveloperOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("cluster.proto", fileDescriptor2) }

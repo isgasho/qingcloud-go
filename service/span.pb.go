@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -949,63 +952,63 @@ func (p *SpanService) UpdateSpan(in *UpdateSpanInput) (out *UpdateSpanOutput, er
 }
 
 func (p *SpanServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSpanInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateSpanOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSpansInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeSpansOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSpansInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteSpansOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddSpanMembersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddSpanMembersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RemoveSpanMembersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *RemoveSpanMembersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySpanAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifySpanAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateSpanInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateSpanOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("span.proto", fileDescriptor23) }

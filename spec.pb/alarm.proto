@@ -56,7 +56,7 @@ message DescribeAlarmPoliciesInput {
 
 	option (qingcloud.sdk.rule.message_rule) = {
 		required_fileds:
-			"attachment_content;"
+			""
 		default_value:
 			"verbose:0;"
 			"offset:0;"

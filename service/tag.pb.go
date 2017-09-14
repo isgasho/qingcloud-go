@@ -8,11 +8,14 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -679,55 +682,55 @@ func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err
 }
 
 func (p *TagServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeTagsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeTagsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateTagInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateTagOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteTagsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteTagsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyTagAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyTagAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachTagsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AttachTagsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachTagsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DetachTagsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("tag.proto", fileDescriptor26) }

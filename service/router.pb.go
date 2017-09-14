@@ -9,11 +9,14 @@ import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
@@ -2332,159 +2335,159 @@ func (p *RouterService) DescribeRouterStaticEntries(in *DescribeRouterStaticEntr
 }
 
 func (p *RouterServiceProperties) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRoutersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRoutersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateRoutersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CreateRoutersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRoutersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRoutersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateRoutersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *UpdateRoutersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *PowerOffRoutersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *PowerOffRoutersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *PowerOnRoutersInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *PowerOnRoutersOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *JoinRouterInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *JoinRouterOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *LeaveRouterInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *LeaveRouterOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRouterAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRouterAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRouterStaticsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRouterStaticsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddRouterStaticsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddRouterStaticsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRouterStaticAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRouterStaticAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRouterStaticsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRouterStaticsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CopyRouterStaticsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *CopyRouterStaticsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRouterVxnetsInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRouterVxnetsOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddRouterStaticEntriesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *AddRouterStaticEntriesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRouterStaticEntriesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DeleteRouterStaticEntriesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRouterStaticEntryAttributesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *ModifyRouterStaticEntryAttributesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRouterStaticEntriesInput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func (p *DescribeRouterStaticEntriesOutput) Validate() error {
-	return nil // TODO
+	return nil
 }
 
 func init() { proto.RegisterFile("router.proto", fileDescriptor19) }
