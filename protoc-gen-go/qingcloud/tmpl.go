@@ -81,6 +81,7 @@ type {{.ServiceName}}Service struct {
 	LastResponseBody string
 }
 
+{{if .DocUrl}}// See {{.DocUrl}}{{end}}
 func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.ServiceName}}Service) {
 	return &{{.ServiceName}}Service{
 		Config:     conf,
@@ -89,6 +90,7 @@ func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.Service
 }
 
 {{if .MainServiceName}}
+{{if .DocUrl}}// See {{.DocUrl}}{{end}}
 func (s *{{.MainServiceName}}Service) {{.ServiceName}}(zone string) (*{{.ServiceName}}Service, error) {
 	properties := &{{.ServiceName}}ServiceProperties{
 		Zone: zone,
