@@ -4,6 +4,11 @@
 
 package qingcloud
 
+import (
+	"bytes"
+	"text/template"
+)
+
 type ServiceSpec struct {
 	DocUrl          string
 	ServiceName     string
@@ -28,9 +33,44 @@ type MessageSpec struct {
 	MaxValue        map[string]string
 	MultipleOfValue map[string]string
 	RegexpValue     map[string]string
+	FiledsType      map[string]string // srting/bool/int32/in64/float32/.../message/map/...
 }
 
+func GetImportsCode() string {
+	return tmplImports
+}
+
+func (spec *ServiceSpec) Code() string {
+	var buf bytes.Buffer
+	t := template.Must(template.New("tmplService").Parse(tmplService))
+	t.Execute(&buf, spec)
+	return buf.String()
+}
+
+func (spec *MessageSpec) Code() string {
+	var buf bytes.Buffer
+	t := template.Must(template.New("tmplMessageValidate").Parse(tmplMessageValidate))
+	t.Execute(&buf, spec)
+	return buf.String()
+}
+
+const tmplImports = `
+import "github.com/chai2010/qingcloud-go/config"
+import "github.com/chai2010/qingcloud-go/request"
+import "github.com/chai2010/qingcloud-go/request/data"
+
+var _ = config.Config{}
+var _ = request.Request{}
+var _ = data.Operation{}
+`
+
 const tmplService = `
+{{if .DocUrl}}// See {{.DocUrl}}{{end}}
+type {{.ServiceName}}ServiceInterface interface {
+	{{range $_, $m := .MethodList}}
+		{{$m.MethodName}}(in *{{$m.InputTypeName}}) (out *{{$m.OutputTypeName}}, err error)
+	{{end}}
+}
 
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
 type {{.ServiceName}}Service struct {
@@ -89,6 +129,6 @@ func (p *{{.ServiceName}}Service) {{$m.MethodName}}(in *{{$m.InputTypeName}}) (o
 
 const tmplMessageValidate = `
 func (p *{{.MessageTypeName}}) Validate() error {
-	return nil
+	return nil // TODO
 }
 `
