@@ -64,7 +64,43 @@ func (spec *ServiceSpec) Code() string {
 	return buf.String()
 }
 
+func (spec *MessageOptionsSpec) HasOptions() bool {
+	if len(spec.RequiredFieldMap) > 0 {
+		return true
+	}
+	if len(spec.RepeatedFieldMap) > 0 {
+		// skip
+	}
+	if len(spec.DefaultValueMap) > 0 {
+		return true
+	}
+	if len(spec.EnumValueListMap) > 0 {
+		return true
+	}
+	if len(spec.MinValueMap) > 0 {
+		return true
+	}
+	if len(spec.MaxValueMap) > 0 {
+		return true
+	}
+	if len(spec.MultipleOfValueMap) > 0 {
+		return true
+	}
+	if len(spec.RegexpValueMap) > 0 {
+		return true
+	}
+	if len(spec.FiledTypeMap) > 0 {
+		// skip
+	}
+
+	return false
+}
+
 func (spec *MessageOptionsSpec) ValidateCode() string {
+	if !spec.HasOptions() {
+		// return ""
+	}
+
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(tmplMessageValidate))
 	t.Execute(&buf, spec)
