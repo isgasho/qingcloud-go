@@ -793,10 +793,12 @@ import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 
 import "github.com/chai2010/qingcloud-go/config"
+import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
+var _ = logger.SetLevel
 var _ = request.Request{}
 var _ = data.Operation{}
 
