@@ -40,7 +40,7 @@ func (p *qingcloudPlugin) GenerateImports(file *generator.FileDescriptor) {
 // Generate generates the Service interface.
 // rpc service can't handle other proto message!!!
 func (p *qingcloudPlugin) Generate(file *generator.FileDescriptor) {
-	if true {
+	if false {
 		for _, svc := range file.Service {
 			p.genServiceInterface(file, svc)
 			p.genServiceServer(file, svc)
@@ -76,7 +76,7 @@ func (p *qingcloudPlugin) buildServiceSpec(svc *descriptor.ServiceDescriptorProt
 		if rule := p.getMethodRule(m); rule != nil {
 			methodSpec.DocUrl = rule.GetDocUrl()
 			methodSpec.HttpMethod = rule.GetHttpMethod()
-			methodSpec.InputTypeName = rule.GetHttpMethod()
+			methodSpec.InputTypeName = rule.GetInputType()
 			methodSpec.OutputTypeName = rule.GetOutputType()
 		}
 
@@ -100,7 +100,9 @@ func (p *qingcloudPlugin) buildMessageSpec(msg *descriptor.DescriptorProto) *Mes
 	if rule := p.getMessageRule(msg); rule != nil {
 		// TODO
 	}
-	return nil
+	return &MessageSpec{
+		MessageTypeName: generator.CamelCase(msg.GetName()),
+	}
 }
 
 func (p *qingcloudPlugin) genServiceInterface(

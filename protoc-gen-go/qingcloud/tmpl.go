@@ -41,15 +41,17 @@ func GetImportsCode() string {
 }
 
 func (spec *ServiceSpec) Code() string {
+	//return "/* ServiceSpec code*/"
 	var buf bytes.Buffer
-	t := template.Must(template.New("tmplService").Parse(tmplService))
+	t := template.Must(template.New("").Parse(tmplService))
 	t.Execute(&buf, spec)
 	return buf.String()
 }
 
 func (spec *MessageSpec) Code() string {
+	//return ""
 	var buf bytes.Buffer
-	t := template.Must(template.New("tmplMessageValidate").Parse(tmplMessageValidate))
+	t := template.Must(template.New("").Parse(tmplMessageValidate))
 	t.Execute(&buf, spec)
 	return buf.String()
 }
@@ -65,40 +67,42 @@ var _ = data.Operation{}
 `
 
 const tmplService = `
+{{$service := .}}
+
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
 type {{.ServiceName}}ServiceInterface interface {
-	{{range $_, $m := .MethodList}}
+	{{- range $_, $m := .MethodList}}
 		{{$m.MethodName}}(in *{{$m.InputTypeName}}) (out *{{$m.OutputTypeName}}, err error)
-	{{end}}
+	{{- end}}
 }
 
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
 type {{.ServiceName}}Service struct {
 	Config           *config.Config
-	Properties       *{{.ServiceName}}Properties
+	Properties       *{{.ServiceName}}ServiceProperties
 	LastResponseBody string
 }
 
 func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.ServiceName}}Service) {
 	return &{{.ServiceName}}Service{
 		Config:     conf,
-		Properties: &{{.ServiceName}}Properties{Zone: zone},
+		Properties: &{{.ServiceName}}ServiceProperties{Zone: zone},
 	}
 }
 
-{{if not .MainServiceName}}
+{{if .MainServiceName}}
 func (s *{{.MainServiceName}}Service) {{.ServiceName}}(zone string) (*{{.ServiceName}}Service, error) {
 	properties := &{{.ServiceName}}ServiceProperties{
 		Zone: zone,
 	}
 
-	return &{{.ServiceName}}{Config: s.Config, Properties: properties}, nil
+	return &{{.ServiceName}}Service{Config: s.Config, Properties: properties}, nil
 }
 {{end}}
 
 {{range $_, $m := .MethodList}}
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
-func (p *{{.ServiceName}}Service) {{$m.MethodName}}(in *{{$m.InputTypeName}}) (out *{{$m.OutputTypeName}}, err error) {
+func (p *{{$service.ServiceName}}Service) {{$m.MethodName}}(in *{{$m.InputTypeName}}) (out *{{$m.OutputTypeName}}, err error) {
 	if in == nil {
 		in = &{{$m.InputTypeName}}{}
 	}
@@ -106,7 +110,7 @@ func (p *{{.ServiceName}}Service) {{$m.MethodName}}(in *{{$m.InputTypeName}}) (o
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "{{$m.MethodName}}",
-		RequestMethod: "{{$m.HttpMethod}}",
+		RequestMethod: "{{$m.HttpMethod}}", // GET or POST
 	}
 
 	x := &{{$m.OutputTypeName}}{}
