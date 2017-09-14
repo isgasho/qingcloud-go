@@ -249,10 +249,13 @@ func (p *{{$msg.MessageName}}) Validate() error {
 							{{$vi}},
 						{{end}}
 					}
-					var found = false
-					for _, v := range _enumValues {
-						if int(p.{{$name}}) == v {
-							found = true
+					for _, vi := range p.{{$name}} {
+						var found = false
+						for _, viEnum := range _enumValues {
+							if vi == viEnum {
+								found = true
+								break
+							}
 						}
 						if !found {
 							return fmt.Errorf("{{$msg.MessageName}}.{{$name}} invalid enum value!")
@@ -267,8 +270,15 @@ func (p *{{$msg.MessageName}}) Validate() error {
 							"{{$vi}}",
 						{{end}}
 					}
-					for _, v := range _enumValues {
-						if p.{{$name}} != v {
+					for _, vi := range p.{{$name}} {
+						var found = false
+						for _, viEnum := range _enumValues {
+							if vi == viEnum {
+								found = true
+								break
+							}
+						}
+						if !found {
 							return fmt.Errorf("{{$msg.MessageName}}.{{$name}} invalid enum value!")
 						}
 					}
@@ -314,8 +324,8 @@ func (p *{{$msg.MessageName}}) Validate() error {
 
 		{{if $isRepeaded}}
 			{{if eq $type "int"}}
-				for _, vi := range {{$v}} {
-					if int(p.{{$name}}) < vi {
+				for _, vi := range p.{{$name}} {
+					if int(vi) < {{$v}} {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check min_value failed!")
 					}
 				}
@@ -337,7 +347,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 
 		{{if $isRepeaded}}
 			{{if eq $type "int"}}
-				for _, vi := range {{$v}} {
+				for _, vi := range p.{{$name}} {
 					if int(vi) > {{$v}} {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check max_value failed!")
 					}
@@ -360,8 +370,8 @@ func (p *{{$msg.MessageName}}) Validate() error {
 
 		{{if $isRepeaded}}
 			{{if eq $type "int"}}
-				for _, vi := range {{$v}} {
-					if int(p.{{$name}}) % {{$v}} != 0 {
+				for _, vi := range p.{{$name}} {
+					if int(vi) % {{$v}} != 0 {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check multiple_of_value failed!")
 					}
 				}
@@ -384,7 +394,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 		{{if $isRepeaded}}
 			{{if eq $type "string"}}
 				for _, vi := range {{$v}} {
-					if ok, err := regexp.MatchString("{{$v}}", p.{{$name}}); err != nil || !ok {
+					if ok, err := regexp.MatchString("{{$v}}", vi); err != nil || !ok {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check regexp failed!")
 					}
 				}
