@@ -76,9 +76,9 @@ func (p *MessageRule) GetDefaultValue(filedName string) string {
 }
 
 func (p *MessageRule) HasEnumValue(filedName string) bool {
-	return len(p.GetEnumValue(filedName)) > 0
+	return len(p.GetEnumValueList(filedName)) > 0
 }
-func (p *MessageRule) GetEnumValue(filedName string) []string {
+func (p *MessageRule) GetEnumValueList(filedName string) []string {
 	names, values := p.getEnumValueList()
 	for i, name := range names {
 		if filedName == name {
@@ -119,6 +119,19 @@ func (p *MessageRule) HasMultipleOfValue(filedName string) bool {
 }
 func (p *MessageRule) GetMultipleOfValue(filedName string) string {
 	names, values := p.getMultipleOfValueList()
+	for i, name := range names {
+		if filedName == name {
+			return values[i]
+		}
+	}
+	return ""
+}
+
+func (p *MessageRule) HasRegexpValue(filedName string) bool {
+	return len(p.GetRegexpValue(filedName)) > 0
+}
+func (p *MessageRule) GetRegexpValue(filedName string) string {
+	names, values := p.getRegexpValueList()
 	for i, name := range names {
 		if filedName == name {
 			return values[i]
@@ -182,6 +195,17 @@ func (p *MessageRule) getMultipleOfValueList() (names []string, values []string)
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
+		}
+	}
+	return
+}
+
+// "a:{{...}}; b:{{...}};"
+func (p *MessageRule) getRegexpValueList() (names []string, values []string) {
+	for _, s := range splitString(p.MessageOptionsRule.MultipleOfValue, ";") {
+		if kv := splitString(s, ":"); len(kv) == 2 {
+			names = append(names, kv[0])
+			values = append(values, strings.TrimSuffix(strings.TrimPrefix(kv[1], "{{"), "}}"))
 		}
 	}
 	return

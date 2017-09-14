@@ -6,6 +6,8 @@
 package qingcloud
 
 import (
+	"strings"
+
 	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
@@ -40,7 +42,7 @@ func (p *qingcloudPlugin) Generate(file *generator.FileDescriptor) {
 		p.P(p.buildServiceSpec(v).Code())
 	}
 	for _, v := range file.MessageType {
-		p.P(p.buildMessageSpec(v).Code())
+		p.P(p.buildMessageOptionsSpec(v).ValidateCode())
 	}
 }
 
@@ -83,13 +85,70 @@ func (p *qingcloudPlugin) buildServiceSpec(svc *descriptor.ServiceDescriptorProt
 	return spec
 }
 
-func (p *qingcloudPlugin) buildMessageSpec(msg *descriptor.DescriptorProto) *MessageSpec {
+func (p *qingcloudPlugin) buildMessageOptionsSpec(msg *descriptor.DescriptorProto) *MessageOptionsSpec {
+	spec := NewMessageOptionsSpec()
+	spec.MessageName = generator.CamelCase(msg.GetName())
+
+	for _, field := range msg.Field {
+		name := field.GetName()
+		typeName := field.GetType().String()
+		fixedName := generator.CamelCase(field.GetName())
+
+		spec.FieldNameMap[name] = fixedName
+		spec.FiledTypeMap[name] = typeName
+
+		if field.Label != nil && *field.Label == descriptor.FieldDescriptorProto_LABEL_REPEATED {
+			spec.RepeatedFieldMap[name] = true
+		}
+
+		// fix type name
+		switch {
+		case typeName == "TYPE_BOOL":
+			spec.FiledTypeMap[name] = "bool"
+		case strings.Contains(typeName, "INT") || strings.Contains(typeName, "FIXED"):
+			spec.FiledTypeMap[name] = "int"
+		case strings.Contains(typeName, "DOUBLE") || strings.Contains(typeName, "FLOAT"):
+			spec.FiledTypeMap[name] = "number"
+		case typeName == "TYPE_ENUM":
+			spec.FiledTypeMap[name] = "int"
+		case typeName == "TYPE_STRING":
+			spec.FiledTypeMap[name] = "string"
+		case typeName == "TYPE_MESSAGE":
+			spec.FiledTypeMap[name] = "message"
+		default:
+			spec.FiledTypeMap[name] = "?"
+		}
+	}
+
 	if rule := p.getMessageRule(msg); rule != nil {
-		// TODO
+		for name, _ := range spec.FieldNameMap {
+			if rule.IsRequired(name) {
+				spec.RequiredFieldMap[name] = true
+			}
+
+			if rule.HasDefaultValue(name) {
+				spec.DefaultValueMap[name] = rule.GetDefaultValue(name)
+			}
+			if rule.HasEnumValue(name) {
+				spec.EnumValueListMap[name] = rule.GetEnumValueList(name)
+			}
+
+			if rule.HasMinValue(name) {
+				spec.MinValueMap[name] = rule.GetMinValue(name)
+			}
+			if rule.HasMaxValue(name) {
+				spec.MaxValueMap[name] = rule.GetMaxValue(name)
+			}
+			if rule.HasMultipleOfValue(name) {
+				spec.MultipleOfValueMap[name] = rule.GetMultipleOfValue(name)
+			}
+			if rule.HasRegexpValue(name) {
+				spec.RegexpValueMap[name] = rule.GetRegexpValue(name)
+			}
+		}
 	}
-	return &MessageSpec{
-		MessageTypeName: generator.CamelCase(msg.GetName()),
-	}
+
+	return spec
 }
 
 func (p *qingcloudPlugin) getServiceRule(svc *descriptor.ServiceDescriptorProto) (svcRule *ServiceRule) {

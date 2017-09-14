@@ -24,16 +24,33 @@ type MethodSpec struct {
 	HttpMethod     string
 }
 
-type MessageSpec struct {
-	MessageTypeName string
-	RequiredFileds  []string
-	DefaultValue    map[string]string
-	EnumValue       map[string][]string
-	MinValue        map[string]string
-	MaxValue        map[string]string
-	MultipleOfValue map[string]string
-	RegexpValue     map[string]string
-	FiledsType      map[string]string // srting/bool/int32/in64/float32/.../message/map/...
+type MessageOptionsSpec struct {
+	MessageName        string
+	FieldNameMap       map[string]string
+	RequiredFieldMap   map[string]bool
+	RepeatedFieldMap   map[string]bool
+	DefaultValueMap    map[string]string
+	EnumValueListMap   map[string][]string
+	MinValueMap        map[string]string
+	MaxValueMap        map[string]string
+	MultipleOfValueMap map[string]string
+	RegexpValueMap     map[string]string
+	FiledTypeMap       map[string]string // bool/int/number/string/message/?
+}
+
+func NewMessageOptionsSpec() *MessageOptionsSpec {
+	return &MessageOptionsSpec{
+		FieldNameMap:       map[string]string{},
+		RequiredFieldMap:   map[string]bool{},
+		RepeatedFieldMap:   map[string]bool{},
+		DefaultValueMap:    map[string]string{},
+		EnumValueListMap:   map[string][]string{},
+		MinValueMap:        map[string]string{},
+		MaxValueMap:        map[string]string{},
+		MultipleOfValueMap: map[string]string{},
+		RegexpValueMap:     map[string]string{},
+		FiledTypeMap:       map[string]string{},
+	}
 }
 
 func GetImportsCode() string {
@@ -47,7 +64,7 @@ func (spec *ServiceSpec) Code() string {
 	return buf.String()
 }
 
-func (spec *MessageSpec) Code() string {
+func (spec *MessageOptionsSpec) ValidateCode() string {
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(tmplMessageValidate))
 	t.Execute(&buf, spec)
@@ -142,7 +159,7 @@ func (p *{{$service.ServiceName}}Service) {{$m.MethodName}}(in *{{$m.InputTypeNa
 `
 
 const tmplMessageValidate = `
-func (p *{{.MessageTypeName}}) Validate() error {
+func (p *{{.MessageName}}) Validate() error {
 	return nil // TODO
 }
 `
