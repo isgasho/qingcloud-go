@@ -56,10 +56,12 @@ func (spec *MessageSpec) Code() string {
 
 const tmplImports = `
 import "github.com/chai2010/qingcloud-go/config"
+import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
 var _ = config.Config{}
+var _ = logger.SetLevel
 var _ = request.Request{}
 var _ = data.Operation{}
 `
@@ -81,6 +83,15 @@ type {{.ServiceName}}Service struct {
 	LastResponseBody string
 }
 
+{{if not .MainServiceName}}
+func Init(c *config.Config) (*{{.ServiceName}}Service, error) {
+	properties := &{{.ServiceName}}ServiceProperties{}
+	logger.SetLevel(c.LogLevel)
+	return &{{.ServiceName}}Service{Config: c, Properties: properties}, nil
+}
+{{end}}
+
+{{if .MainServiceName}}
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
 func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.ServiceName}}Service) {
 	return &{{.ServiceName}}Service{
@@ -89,7 +100,6 @@ func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.Service
 	}
 }
 
-{{if .MainServiceName}}
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
 func (s *{{.MainServiceName}}Service) {{.ServiceName}}(zone string) (*{{.ServiceName}}Service, error) {
 	properties := &{{.ServiceName}}ServiceProperties{
