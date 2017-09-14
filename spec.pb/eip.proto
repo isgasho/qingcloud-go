@@ -22,7 +22,7 @@ message EipServiceProperties {
 service EipService {
 	option (qingcloud.sdk.rule.service_rule) = {
 		doc_url: "https://docs.qingcloud.com/api/eip/index.html"
-		service_name: "QingCloud.EIP"
+		service_name: "QingCloud.Eip"
 	};
 
 	rpc DescribeEips(DescribeEipsInput) returns (DescribeEipsOutput);

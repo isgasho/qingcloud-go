@@ -20,7 +20,7 @@ message NicServiceProperties {
 service NicService {
 	option (qingcloud.sdk.rule.service_rule) = {
 		doc_url: "https://docs.qingcloud.com/api/nic/index.html"
-		service_name: "QingCloud.NIC"
+		service_name: "QingCloud.Nic"
 	};
 
 	rpc CreateNics(CreateNicsInput) returns (CreateNicsOutput);

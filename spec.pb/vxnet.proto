@@ -22,7 +22,7 @@ message VxnetServiceProperties {
 service VxnetService {
 	option (qingcloud.sdk.rule.service_rule) = {
 		doc_url: "https://docs.qingcloud.com/api/vxnet/index.html"
-		service_name: "QingCloud.VxNet"
+		service_name: "QingCloud.Vxnet"
 	};
 
 	rpc DescribeVxnets(DescribeVxnetsInput) returns (DescribeVxnetsOutput);
