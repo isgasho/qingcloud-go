@@ -6,6 +6,7 @@
 package qingcloud
 
 import (
+	"fmt"
 	"strings"
 
 	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
@@ -108,13 +109,15 @@ func (p *qingcloudPlugin) buildMessageOptionsSpec(msg *descriptor.DescriptorProt
 		case strings.Contains(typeName, "INT") || strings.Contains(typeName, "FIXED"):
 			spec.FiledTypeMap[name] = "int"
 		case strings.Contains(typeName, "DOUBLE") || strings.Contains(typeName, "FLOAT"):
-			spec.FiledTypeMap[name] = "number"
+			spec.FiledTypeMap[name] = "float"
 		case typeName == "TYPE_ENUM":
 			spec.FiledTypeMap[name] = "int"
 		case typeName == "TYPE_STRING":
 			spec.FiledTypeMap[name] = "string"
 		case typeName == "TYPE_MESSAGE":
 			spec.FiledTypeMap[name] = "message"
+		case typeName == "TYPE_BYTES":
+			spec.FiledTypeMap[name] = "bytes"
 		default:
 			spec.FiledTypeMap[name] = "?"
 		}
@@ -143,7 +146,7 @@ func (p *qingcloudPlugin) buildMessageOptionsSpec(msg *descriptor.DescriptorProt
 				spec.MultipleOfValueMap[name] = rule.GetMultipleOfValue(name)
 			}
 			if rule.HasRegexpValue(name) {
-				spec.RegexpValueMap[name] = rule.GetRegexpValue(name)
+				spec.RegexpValueMap[name] = fmt.Sprintf("%q", rule.GetRegexpValue(name))
 			}
 		}
 	}

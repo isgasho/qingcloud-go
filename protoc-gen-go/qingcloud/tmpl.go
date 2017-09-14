@@ -35,7 +35,7 @@ type MessageOptionsSpec struct {
 	MaxValueMap        map[string]string
 	MultipleOfValueMap map[string]string
 	RegexpValueMap     map[string]string
-	FiledTypeMap       map[string]string // bool/int/number/string/message/?
+	FiledTypeMap       map[string]string // bool/int/float/string/bytes/message/?
 }
 
 func NewMessageOptionsSpec() *MessageOptionsSpec {
@@ -98,7 +98,10 @@ func (spec *MessageOptionsSpec) HasOptions() bool {
 
 func (spec *MessageOptionsSpec) ValidateCode() string {
 	if !spec.HasOptions() {
-		// return ""
+		var buf bytes.Buffer
+		t := template.Must(template.New("").Parse(tmplMessageValidateEmpty))
+		t.Execute(&buf, spec)
+		return buf.String()
 	}
 
 	var buf bytes.Buffer
@@ -107,17 +110,24 @@ func (spec *MessageOptionsSpec) ValidateCode() string {
 	return buf.String()
 }
 
+// ----------------------------------------------------------------------------
+
 const tmplImports = `
+import "regexp"
+
 import "github.com/chai2010/qingcloud-go/config"
 import "github.com/chai2010/qingcloud-go/logger"
 import "github.com/chai2010/qingcloud-go/request"
 import "github.com/chai2010/qingcloud-go/request/data"
 
+var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.SetLevel
 var _ = request.Request{}
 var _ = data.Operation{}
 `
+
+// ----------------------------------------------------------------------------
 
 const tmplService = `
 {{$service := .}}
@@ -194,8 +204,204 @@ func (p *{{$service.ServiceName}}Service) {{$m.MethodName}}(in *{{$m.InputTypeNa
 {{end}}
 `
 
-const tmplMessageValidate = `
+// ----------------------------------------------------------------------------
+
+const tmplMessageValidateEmpty = `
 func (p *{{.MessageName}}) Validate() error {
-	return nil // TODO
+	return nil
 }
 `
+
+const tmplMessageValidate = `
+{{$msg := .}}
+
+func (p *{{$msg.MessageName}}) Validate() error {
+	{{/* required fields */}}
+	{{range $k, $_ := $msg.RequiredFieldMap}}
+		{{$name := index $msg.FieldNameMap $k}}
+		{{$type := index $msg.FiledTypeMap $k}}
+		{{$isRepeaded := index $msg.RepeatedFieldMap $k}}
+
+		{{if or $isRepeaded (eq $type "string") (eq $type "bytes") -}}
+			if len(p.{{$name}}) == 0 {
+				return fmt.Errorf("{{$msg.MessageName}}.{{$name}} required field missing!")
+			}
+		{{else}}
+			{{if eq $type "message"}}
+				if {{$msg.MessageName}}.{{$name}} == nil {
+					return fmt.Errorf("{{$msg.MessageName}}.{{$name}} required field missing!")
+				}
+			{{end}}
+		{{end}}
+	{{end}}
+
+	{{/* enum fields */}}
+	{{range $k, $v := $msg.EnumValueListMap}}
+		{{$name := index $msg.FieldNameMap $k}}
+		{{$type := index $msg.FiledTypeMap $k}}
+		{{$isRepeaded := index $msg.RepeatedFieldMap $k}}
+
+		{{if $isRepeaded}}
+			{{if eq $type "int"}}
+				{
+					var _enumValues = []int{
+						{{range $_, $vi := $v -}}
+							{{$vi}},
+						{{end}}
+					}
+					var found = false
+					for _, v := range _enumValues {
+						if int(p.{{$name}}) == v {
+							found = true
+						}
+						if !found {
+							return fmt.Errorf("{{$msg.MessageName}}.{{$name}} invalid enum value!")
+						}
+					}
+				}
+			{{end}}
+			{{if eq $type "string"}}
+				{
+					var _enumValues = []string{
+						{{range $_, $vi := $v -}}
+							"{{$vi}}",
+						{{end}}
+					}
+					for _, v := range _enumValues {
+						if p.{{$name}} != v {
+							return fmt.Errorf("{{$msg.MessageName}}.{{$name}} invalid enum value!")
+						}
+					}
+				}
+			{{end}}
+		{{else}}
+			{{if eq $type "int"}}
+				{
+					var _enumValues = []int{
+						{{range $_, $vi := $v -}}
+							{{$vi}},
+						{{end}}
+					}
+					for _, v := range _enumValues {
+						if int(p.{{$name}}) != v {
+							return fmt.Errorf("{{$msg.MessageName}}.{{$name}} invalid enum value!")
+						}
+					}
+				}
+			{{end}}
+			{{if eq $type "string"}}
+				{
+					var _enumValues = []string{
+						{{range $_, $vi := $v -}}
+							"{{$vi}}",
+						{{end}}
+					}
+					for _, v := range _enumValues {
+						if p.{{$name}} != v {
+							return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: invalid enum value!")
+						}
+					}
+				}
+			{{end}}
+		{{end}}
+	{{end}}
+
+	{{/* min_value */}}
+	{{range $k, $v := $msg.MinValueMap}}
+		{{$name := index $msg.FieldNameMap $k}}
+		{{$type := index $msg.FiledTypeMap $k}}
+		{{$isRepeaded := index $msg.RepeatedFieldMap $k}}
+
+		{{if $isRepeaded}}
+			{{if eq $type "int"}}
+				for _, vi := range {{$v}} {
+					if int(p.{{$name}}) < vi {
+						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check min_value failed!")
+					}
+				}
+			{{end}}
+		{{else}}
+			{{if eq $type "int"}}
+				if int(p.{{$name}}) < {{$v}} {
+					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check min_value failed!")
+				}
+			{{end}}
+		{{end}}
+	{{end}}
+
+	{{/* max_value */}}
+	{{range $k, $v := $msg.MaxValueMap}}
+		{{$name := index $msg.FieldNameMap $k}}
+		{{$type := index $msg.FiledTypeMap $k}}
+		{{$isRepeaded := index $msg.RepeatedFieldMap $k}}
+
+		{{if $isRepeaded}}
+			{{if eq $type "int"}}
+				for _, vi := range {{$v}} {
+					if int(vi) > {{$v}} {
+						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check max_value failed!")
+					}
+				}
+			{{end}}
+		{{else}}
+			{{if eq $type "int"}}
+				if int(p.{{$name}}) > {{$v}} {
+					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check max_value failed!")
+				}
+			{{end}}
+		{{end}}
+	{{end}}
+
+	{{/* multiple_of_value */}}
+	{{range $k, $v := $msg.MaxValueMap}}
+		{{$name := index $msg.FieldNameMap $k}}
+		{{$type := index $msg.FiledTypeMap $k}}
+		{{$isRepeaded := index $msg.RepeatedFieldMap $k}}
+
+		{{if $isRepeaded}}
+			{{if eq $type "int"}}
+				for _, vi := range {{$v}} {
+					if int(p.{{$name}}) % {{$v}} != 0 {
+						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check multiple_of_value failed!")
+					}
+				}
+			{{end}}
+		{{else}}
+			{{if eq $type "int"}}
+				if int(p.{{$name}}) % {{$v}} != 0 {
+					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check multiple_of_value failed!")
+				}
+			{{end}}
+		{{end}}
+	{{end}}
+
+	{{/* regexp_value */}}
+	{{range $k, $v := $msg.RegexpValueMap}}
+		{{$name := index $msg.FieldNameMap $k}}
+		{{$type := index $msg.FiledTypeMap $k}}
+		{{$isRepeaded := index $msg.RepeatedFieldMap $k}}
+
+		{{if $isRepeaded}}
+			{{if eq $type "string"}}
+				for _, vi := range {{$v}} {
+					if ok, err := regexp.MatchString("{{$v}}", p.{{$name}}); err != nil || !ok {
+						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check regexp failed!")
+					}
+				}
+			{{end}}
+		{{else}}
+			{{if eq $type "string"}}
+				if ok, err := regexp.MatchString("{{$v}}", p.{{$name}}); err != nil || !ok {
+					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check regexp failed!")
+				}
+			{{end}}
+		{{end}}
+	{{end}}
+
+	return nil
+}
+`
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
