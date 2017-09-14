@@ -7,7 +7,25 @@ syntax = "proto3";
 package service;
 
 import "qingcloud_sdk_rule/rule.proto";
+import "zone.proto";
+
+// ----------------------------------------------------------------------------
+// https://docs.qingcloud.com/api/index.html
+// ----------------------------------------------------------------------------
 
 message QingCloudServiceProperties {
 	//
 }
+
+service QingCloudService {
+	option (qingcloud.sdk.rule.service_rule) = {
+		doc_url: "https://docs.qingcloud.com/api/index.html"
+		service_name: "QingCloud"
+	};
+
+	rpc DescribeZones(DescribeZonesInput) returns (DescribeZonesOutput);
+}
+
+// ----------------------------------------------------------------------------
+// END
+// ----------------------------------------------------------------------------
