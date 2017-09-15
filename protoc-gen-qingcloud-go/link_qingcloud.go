@@ -4,4 +4,4 @@
 
 package main
 
-import _ "github.com/chai2010/qingcloud-go/protoc-gen-go/qingcloud"
+import _ "github.com/chai2010/qingcloud-go/protoc-gen-qingcloud-go/qingcloud"

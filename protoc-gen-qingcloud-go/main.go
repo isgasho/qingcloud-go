@@ -51,6 +51,7 @@ package main
 import (
 	"io/ioutil"
 	"os"
+	"strings"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
@@ -85,6 +86,15 @@ func main() {
 	g.BuildTypeNameMap()
 
 	g.GenerateAllFiles()
+
+	// skip non *.pb.qingcloud.go
+	respFileList := g.Response.File[:0]
+	for _, file := range g.Response.File {
+		if strings.HasSuffix(file.GetName(), ".pb.qingcloud.go") {
+			respFileList = append(respFileList, file)
+		}
+	}
+	g.Response.File = respFileList
 
 	// Send back the results.
 	data, err = proto.Marshal(g.Response)
