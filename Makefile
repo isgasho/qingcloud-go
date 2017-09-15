@@ -10,6 +10,9 @@ hello:
 	go fmt ./...
 	go run hello.go
 
+debug:
+	cd spec.pb && make debug
+
 demo_mgo:
 	go run examples/mongo/DescribeMongos/DescribeMongos.go
 
