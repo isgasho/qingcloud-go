@@ -13,6 +13,8 @@ default: $(SOURCES) Makefile
 	protoc --go_out=plugins=qingcloud,aa=11,bb=22:../service --plugin=aa=11 ${PROTO_FILES}
 
 debug:
+	go install ../protoc-gen-go
+	protoc --go_out=../service-debug ${PROTO_FILES}
 	go install ../protoc-gen-qingcloud-go
 	protoc --qingcloud-go_out=plugins=qingcloud,aa=11,bb=22:../service-debug ${PROTO_FILES}
 
