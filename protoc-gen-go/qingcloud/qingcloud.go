@@ -7,12 +7,14 @@ package qingcloud
 
 import (
 	"fmt"
+	"path"
 	"strings"
 
 	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
+	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
 )
 
 // qingcloudPlugin produce the Service interface.
@@ -39,12 +41,59 @@ func (p *qingcloudPlugin) GenerateImports(file *generator.FileDescriptor) {
 // Generate generates the Service interface.
 // rpc service can't handle other proto message!!!
 func (p *qingcloudPlugin) Generate(file *generator.FileDescriptor) {
+	if false {
+		p.Generator.Response.File = append(p.Generator.Response.File, &plugin.CodeGeneratorResponse_File{
+			Name:    proto.String(p.goFileName(file)),
+			Content: proto.String("package service"),
+		})
+	}
+
 	for _, v := range file.Service {
 		p.P(p.buildServiceSpec(v).Code())
 	}
 	for _, v := range file.MessageType {
 		p.P(p.buildMessageOptionsSpec(v).ValidateCode())
 	}
+}
+
+func (p *qingcloudPlugin) goFileName(file *generator.FileDescriptor) string {
+	name := *file.Name
+	if ext := path.Ext(name); ext == ".proto" || ext == ".protodevel" {
+		name = name[:len(name)-len(ext)]
+	}
+	name += ".pb.qingcloud.go"
+
+	// Does the file have a "go_package" option?
+	// If it does, it may override the filename.
+	if impPath, _, ok := p.goPackageOption(file); ok && impPath != "" {
+		// Replace the existing dirname with the declared import path.
+		_, name = path.Split(name)
+		name = path.Join(impPath, name)
+		return name
+	}
+
+	return name
+}
+
+func (p *qingcloudPlugin) goPackageOption(file *generator.FileDescriptor) (impPath, pkg string, ok bool) {
+	pkg = file.GetOptions().GetGoPackage()
+	if pkg == "" {
+		return
+	}
+	ok = true
+	// The presence of a slash implies there's an import path.
+	slash := strings.LastIndex(pkg, "/")
+	if slash < 0 {
+		return
+	}
+	impPath, pkg = pkg, pkg[slash+1:]
+	// A semicolon-delimited suffix overrides the package name.
+	sc := strings.IndexByte(impPath, ';')
+	if sc < 0 {
+		return
+	}
+	impPath, pkg = impPath[:sc], impPath[sc+1:]
+	return
 }
 
 func (p *qingcloudPlugin) buildServiceSpec(svc *descriptor.ServiceDescriptorProto) *ServiceSpec {
