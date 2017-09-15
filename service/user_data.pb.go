@@ -8,19 +8,6 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
-import "regexp"
-
-import "github.com/chai2010/qingcloud-go/config"
-import "github.com/chai2010/qingcloud-go/logger"
-import "github.com/chai2010/qingcloud-go/request"
-import "github.com/chai2010/qingcloud-go/request/data"
-
-var _ = regexp.Match
-var _ = config.Config{}
-var _ = logger.SetLevel
-var _ = request.Request{}
-var _ = data.Operation{}
-
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -110,79 +97,6 @@ func init() {
 	proto.RegisterType((*UserDataServiceProperties)(nil), "service.UserDataServiceProperties")
 	proto.RegisterType((*UploadUserDataAttachmentInput)(nil), "service.UploadUserDataAttachmentInput")
 	proto.RegisterType((*UploadUserDataAttachmentOutput)(nil), "service.UploadUserDataAttachmentOutput")
-}
-
-// See https://docs.qingcloud.com/api/userdata/index.html
-type UserDataServiceInterface interface {
-	UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error)
-}
-
-// See https://docs.qingcloud.com/api/userdata/index.html
-type UserDataService struct {
-	Config           *config.Config
-	Properties       *UserDataServiceProperties
-	LastResponseBody string
-}
-
-// See https://docs.qingcloud.com/api/userdata/index.html
-func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
-	return &UserDataService{
-		Config:     conf,
-		Properties: &UserDataServiceProperties{Zone: zone},
-	}
-}
-
-// See https://docs.qingcloud.com/api/userdata/index.html
-func (s *QingCloudService) UserData(zone string) (*UserDataService, error) {
-	properties := &UserDataServiceProperties{
-		Zone: zone,
-	}
-
-	return &UserDataService{Config: s.Config, Properties: properties}, nil
-}
-
-func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error) {
-	if in == nil {
-		in = &UploadUserDataAttachmentInput{}
-	}
-	o := &data.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UploadUserDataAttachment",
-		RequestMethod: "POST", // GET or POST
-	}
-
-	x := &UploadUserDataAttachmentOutput{}
-	r, err := request.New(o, in, x)
-	if err != nil {
-		return nil, err
-	}
-
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
-}
-
-func (p *UserDataServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *UploadUserDataAttachmentInput) Validate() error {
-
-	if len(p.AttachmentContent) == 0 {
-		return fmt.Errorf("UploadUserDataAttachmentInput.AttachmentContent required field missing!")
-	}
-
-	return nil
-}
-
-func (p *UploadUserDataAttachmentOutput) Validate() error {
-	return nil
 }
 
 func init() { proto.RegisterFile("user_data.proto", fileDescriptor28) }

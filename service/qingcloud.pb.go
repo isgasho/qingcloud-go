@@ -8,19 +8,6 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
-import "regexp"
-
-import "github.com/chai2010/qingcloud-go/config"
-import "github.com/chai2010/qingcloud-go/logger"
-import "github.com/chai2010/qingcloud-go/request"
-import "github.com/chai2010/qingcloud-go/request/data"
-
-var _ = regexp.Match
-var _ = config.Config{}
-var _ = logger.SetLevel
-var _ = request.Request{}
-var _ = data.Operation{}
-
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -36,55 +23,6 @@ func (*QingCloudServiceProperties) Descriptor() ([]byte, []int) { return fileDes
 
 func init() {
 	proto.RegisterType((*QingCloudServiceProperties)(nil), "service.QingCloudServiceProperties")
-}
-
-// See https://docs.qingcloud.com/api/index.html
-type QingCloudServiceInterface interface {
-	DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error)
-}
-
-// See https://docs.qingcloud.com/api/index.html
-type QingCloudService struct {
-	Config           *config.Config
-	Properties       *QingCloudServiceProperties
-	LastResponseBody string
-}
-
-func Init(c *config.Config) (*QingCloudService, error) {
-	properties := &QingCloudServiceProperties{}
-	logger.SetLevel(c.LogLevel)
-	return &QingCloudService{Config: c, Properties: properties}, nil
-}
-
-func (p *QingCloudService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error) {
-	if in == nil {
-		in = &DescribeZonesInput{}
-	}
-	o := &data.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeZones",
-		RequestMethod: "GET", // GET or POST
-	}
-
-	x := &DescribeZonesOutput{}
-	r, err := request.New(o, in, x)
-	if err != nil {
-		return nil, err
-	}
-
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
-}
-
-func (p *QingCloudServiceProperties) Validate() error {
-	return nil
 }
 
 func init() { proto.RegisterFile("qingcloud.proto", fileDescriptor16) }

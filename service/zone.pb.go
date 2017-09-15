@@ -8,19 +8,6 @@ import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 
-import "regexp"
-
-import "github.com/chai2010/qingcloud-go/config"
-import "github.com/chai2010/qingcloud-go/logger"
-import "github.com/chai2010/qingcloud-go/request"
-import "github.com/chai2010/qingcloud-go/request/data"
-
-var _ = regexp.Match
-var _ = config.Config{}
-var _ = logger.SetLevel
-var _ = request.Request{}
-var _ = data.Operation{}
-
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -118,74 +105,6 @@ func init() {
 	proto.RegisterType((*ZoneServiceProperties)(nil), "service.ZoneServiceProperties")
 	proto.RegisterType((*DescribeZonesInput)(nil), "service.DescribeZonesInput")
 	proto.RegisterType((*DescribeZonesOutput)(nil), "service.DescribeZonesOutput")
-}
-
-// See https://docs.qingcloud.com/api/zone/index.html
-type ZoneServiceInterface interface {
-	DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error)
-}
-
-// See https://docs.qingcloud.com/api/zone/index.html
-type ZoneService struct {
-	Config           *config.Config
-	Properties       *ZoneServiceProperties
-	LastResponseBody string
-}
-
-// See https://docs.qingcloud.com/api/zone/index.html
-func NewZoneService(conf *config.Config, zone string) (p *ZoneService) {
-	return &ZoneService{
-		Config:     conf,
-		Properties: &ZoneServiceProperties{Zone: zone},
-	}
-}
-
-// See https://docs.qingcloud.com/api/zone/index.html
-func (s *QingCloudService) Zone(zone string) (*ZoneService, error) {
-	properties := &ZoneServiceProperties{
-		Zone: zone,
-	}
-
-	return &ZoneService{Config: s.Config, Properties: properties}, nil
-}
-
-func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error) {
-	if in == nil {
-		in = &DescribeZonesInput{}
-	}
-	o := &data.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeZones",
-		RequestMethod: "GET", // GET or POST
-	}
-
-	x := &DescribeZonesOutput{}
-	r, err := request.New(o, in, x)
-	if err != nil {
-		return nil, err
-	}
-
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
-}
-
-func (p *ZoneServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *DescribeZonesInput) Validate() error {
-	return nil
-}
-
-func (p *DescribeZonesOutput) Validate() error {
-	return nil
 }
 
 func init() { proto.RegisterFile("zone.proto", fileDescriptor31) }
