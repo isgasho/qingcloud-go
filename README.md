@@ -150,7 +150,7 @@ message UploadUserDataAttachmentOutput {
 
 其中`service`关键字开头的表示定义一组子服务, 其中`rpc`开头的表示子服务中每个具体的方法. 方法的输入参数和返回值分别为`UploadUserDataAttachmentInput`和`UploadUserDataAttachmentInput`结构体类型, 它们由后面的`message`关键字定义.
 
-[SDK的代码生成插件](./protoc-gen-go/qingcloud/qingcloud.go) 会生成以下的Go语言代码:
+[SDK的代码生成插件](./protoc-gen-qingcloud-go/qingcloud/qingcloud.go) 会生成以下的Go语言代码:
 
 ```go
 type UserDataService struct {
