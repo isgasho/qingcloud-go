@@ -76,7 +76,15 @@ func main() {
 		g.Fail("no files to generate")
 	}
 
-	g.CommandLineParameters(g.Request.GetParameter())
+	// set default plugins: qingcloud
+	// protoc --qingcloud-go_out=plugins=qingcloud+plugin1+plugin2,aa=11,bb=22:. x.proto
+	parameter := g.Request.GetParameter()
+	if plugins := getCommandLineParameterValue(parameter, "plugins"); plugins == "" {
+		parameter += ",plugins=qingcloud"
+	}
+
+	// parse command line parameters
+	g.CommandLineParameters(parameter)
 
 	// Create a wrapped version of the Descriptors and EnumDescriptors that
 	// point to the file that defines them.
@@ -105,4 +113,15 @@ func main() {
 	if err != nil {
 		g.Error(err, "failed to write output proto")
 	}
+}
+
+func getCommandLineParameterValue(parameter, key string) string {
+	for _, p := range strings.Split(parameter, ",") {
+		if i := strings.Index(p, "="); i > 0 {
+			if p[0:i] == key {
+				return p[i+1:]
+			}
+		}
+	}
+	return ""
 }
