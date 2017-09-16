@@ -20,13 +20,18 @@ import (
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
 )
 
+const (
+	PluginName  = "qingcloud"
+	FileNameExt = ".pb.qingcloud.go"
+)
+
 // qingcloudPlugin produce the Service interface.
 type qingcloudPlugin struct {
 	*generator.Generator
 }
 
 // Name returns the name of the plugin.
-func (p *qingcloudPlugin) Name() string { return "qingcloud" }
+func (p *qingcloudPlugin) Name() string { return PluginName }
 
 // Init is called once after data structures are built but before
 // code generation begins.
@@ -83,7 +88,7 @@ func (p *qingcloudPlugin) goFileName(file *generator.FileDescriptor) string {
 	if ext := path.Ext(name); ext == ".proto" || ext == ".protodevel" {
 		name = name[:len(name)-len(ext)]
 	}
-	name += ".pb.qingcloud.go"
+	name += FileNameExt
 
 	// Does the file have a "go_package" option?
 	// If it does, it may override the filename.

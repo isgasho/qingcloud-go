@@ -22,7 +22,6 @@ demo:
 	go run examples/nic/DescribeNics/DescribeNics.go
 
 generate:
-	go install ./protoc-gen-go
 	go generate ./spec.pb
 	go fmt  ./...
 	go test ./...

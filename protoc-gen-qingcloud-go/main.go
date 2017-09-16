@@ -53,6 +53,7 @@ import (
 	"os"
 	"strings"
 
+	qcPlugin "github.com/chai2010/qingcloud-go/protoc-gen-qingcloud-go/qingcloud"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 )
@@ -80,7 +81,7 @@ func main() {
 	// protoc --qingcloud-go_out=plugins=qingcloud+plugin1+plugin2,aa=11,bb=22:. x.proto
 	parameter := g.Request.GetParameter()
 	if plugins := getCommandLineParameterValue(parameter, "plugins"); plugins == "" {
-		parameter += ",plugins=qingcloud"
+		parameter += ",plugins=" + qcPlugin.PluginName
 	}
 
 	// parse command line parameters
@@ -98,7 +99,7 @@ func main() {
 	// skip non *.pb.qingcloud.go
 	respFileList := g.Response.File[:0]
 	for _, file := range g.Response.File {
-		if strings.HasSuffix(file.GetName(), ".pb.qingcloud.go") {
+		if strings.HasSuffix(file.GetName(), qcPlugin.FileNameExt) {
 			respFileList = append(respFileList, file)
 		}
 	}
