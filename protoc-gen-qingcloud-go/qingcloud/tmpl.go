@@ -10,11 +10,13 @@ import (
 )
 
 type FileSpec struct {
+	IsProto3    bool
 	FileName    string
 	PackageName string
 }
 
 type ServiceSpec struct {
+	IsProto3        bool
 	DocUrl          string
 	ServiceName     string
 	MainServiceName string
@@ -30,6 +32,7 @@ type MethodSpec struct {
 }
 
 type MessageOptionsSpec struct {
+	IsProto3           bool
 	MessageName        string
 	FieldNameMap       map[string]string
 	RequiredFieldMap   map[string]bool
@@ -181,14 +184,14 @@ func Init(c *config.Config) (*{{.ServiceName}}Service, error) {
 func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.ServiceName}}Service) {
 	return &{{.ServiceName}}Service{
 		Config:     conf,
-		Properties: &{{.ServiceName}}ServiceProperties{Zone: zone},
+		Properties: &{{.ServiceName}}ServiceProperties{ Zone: {{if .IsProto3}}zone{{else}}proto.String(zone){{end}} },
 	}
 }
 
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
 func (s *{{.MainServiceName}}Service) {{.ServiceName}}(zone string) (*{{.ServiceName}}Service, error) {
 	properties := &{{.ServiceName}}ServiceProperties{
-		Zone: zone,
+		Zone: {{if .IsProto3}}zone{{else}}proto.String(zone){{end}},
 	}
 
 	return &{{.ServiceName}}Service{Config: s.Config, Properties: properties}, nil
@@ -245,12 +248,12 @@ func (p *{{$msg.MessageName}}) Validate() error {
 		{{$isRepeaded := index $msg.RepeatedFieldMap $k}}
 
 		{{if or $isRepeaded (eq $type "string") (eq $type "bytes") -}}
-			if len(p.{{$name}}) == 0 {
+			if len(p.Get{{$name}}()) == 0 {
 				return fmt.Errorf("{{$msg.MessageName}}.{{$name}} required field missing!")
 			}
 		{{else}}
 			{{if eq $type "message"}}
-				if {{$msg.MessageName}}.{{$name}} == nil {
+				if {{$msg.MessageName}}.Get{{$name}}() == nil {
 					return fmt.Errorf("{{$msg.MessageName}}.{{$name}} required field missing!")
 				}
 			{{end}}
@@ -271,7 +274,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 							{{$vi}},
 						{{end}}
 					}
-					for _, vi := range p.{{$name}} {
+					for _, vi := range p.Get{{$name}}() {
 						var found = false
 						for _, viEnum := range _enumValues {
 							if vi == viEnum {
@@ -292,7 +295,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 							"{{$vi}}",
 						{{end}}
 					}
-					for _, vi := range p.{{$name}} {
+					for _, vi := range p.Get{{$name}}() {
 						var found = false
 						for _, viEnum := range _enumValues {
 							if vi == viEnum {
@@ -315,7 +318,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 						{{end}}
 					}
 					for _, v := range _enumValues {
-						if int(p.{{$name}}) != v {
+						if int(p.Get{{$name}}()) != v {
 							return fmt.Errorf("{{$msg.MessageName}}.{{$name}} invalid enum value!")
 						}
 					}
@@ -329,7 +332,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 						{{end}}
 					}
 					for _, v := range _enumValues {
-						if p.{{$name}} != v {
+						if p.Get{{$name}}() != v {
 							return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: invalid enum value!")
 						}
 					}
@@ -346,7 +349,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 
 		{{if $isRepeaded}}
 			{{if eq $type "int"}}
-				for _, vi := range p.{{$name}} {
+				for _, vi := range p.Get{{$name}}() {
 					if int(vi) < {{$v}} {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check min_value failed!")
 					}
@@ -354,7 +357,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 			{{end}}
 		{{else}}
 			{{if eq $type "int"}}
-				if int(p.{{$name}}) < {{$v}} {
+				if int(p.Get{{$name}}()) < {{$v}} {
 					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check min_value failed!")
 				}
 			{{end}}
@@ -369,7 +372,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 
 		{{if $isRepeaded}}
 			{{if eq $type "int"}}
-				for _, vi := range p.{{$name}} {
+				for _, vi := range p.Get{{$name}}() {
 					if int(vi) > {{$v}} {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check max_value failed!")
 					}
@@ -377,7 +380,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 			{{end}}
 		{{else}}
 			{{if eq $type "int"}}
-				if int(p.{{$name}}) > {{$v}} {
+				if int(p.Get{{$name}}()) > {{$v}} {
 					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check max_value failed!")
 				}
 			{{end}}
@@ -392,7 +395,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 
 		{{if $isRepeaded}}
 			{{if eq $type "int"}}
-				for _, vi := range p.{{$name}} {
+				for _, vi := range p.Get{{$name}}() {
 					if int(vi) % {{$v}} != 0 {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check multiple_of_value failed!")
 					}
@@ -400,7 +403,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 			{{end}}
 		{{else}}
 			{{if eq $type "int"}}
-				if int(p.{{$name}}) % {{$v}} != 0 {
+				if int(p.Get{{$name}}()) % {{$v}} != 0 {
 					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check multiple_of_value failed!")
 				}
 			{{end}}
@@ -415,15 +418,15 @@ func (p *{{$msg.MessageName}}) Validate() error {
 
 		{{if $isRepeaded}}
 			{{if eq $type "string"}}
-				for _, vi := range {{$v}} {
-					if ok, err := regexp.MatchString("{{$v}}", vi); err != nil || !ok {
+				for _, ki := range p.Get{{$k}}() {
+					if ok, err := regexp.MatchString("{{$v}}", ki); err != nil || !ok {
 						return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check regexp failed!")
 					}
 				}
 			{{end}}
 		{{else}}
 			{{if eq $type "string"}}
-				if ok, err := regexp.MatchString("{{$v}}", p.{{$name}}); err != nil || !ok {
+				if ok, err := regexp.MatchString("{{$v}}", p.Get{{$name}}()); err != nil || !ok {
 					return fmt.Errorf("{{$msg.MessageName}}.{{$name}}: check regexp failed!")
 				}
 			{{end}}

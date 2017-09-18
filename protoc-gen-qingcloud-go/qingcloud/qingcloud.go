@@ -55,10 +55,10 @@ func (p *qingcloudPlugin) Generate(file *generator.FileDescriptor) {
 	fmt.Fprintln(&buf, p.buildFileSpec(file).HeaderCode())
 
 	for _, v := range file.Service {
-		fmt.Fprintln(&buf, p.buildServiceSpec(v).Code())
+		fmt.Fprintln(&buf, p.buildServiceSpec(file, v).Code())
 	}
 	for _, v := range file.MessageType {
-		fmt.Fprintln(&buf, p.buildMessageOptionsSpec(v).ValidateCode())
+		fmt.Fprintln(&buf, p.buildMessageOptionsSpec(file, v).ValidateCode())
 	}
 
 	fileContent := buf.String()
@@ -125,13 +125,15 @@ func (p *qingcloudPlugin) goPackageOption(file *generator.FileDescriptor) (impPa
 
 func (p *qingcloudPlugin) buildFileSpec(file *generator.FileDescriptor) *FileSpec {
 	return &FileSpec{
+		IsProto3:    file.GetSyntax() == "proto3",
 		FileName:    file.GetName(),
 		PackageName: file.PackageName(),
 	}
 }
 
-func (p *qingcloudPlugin) buildServiceSpec(svc *descriptor.ServiceDescriptorProto) *ServiceSpec {
+func (p *qingcloudPlugin) buildServiceSpec(file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) *ServiceSpec {
 	spec := new(ServiceSpec)
+	spec.IsProto3 = file.GetSyntax() == "proto3"
 
 	if rule := p.getServiceRule(svc); rule != nil {
 		spec.DocUrl = rule.GetDocUrl()
@@ -169,8 +171,9 @@ func (p *qingcloudPlugin) buildServiceSpec(svc *descriptor.ServiceDescriptorProt
 	return spec
 }
 
-func (p *qingcloudPlugin) buildMessageOptionsSpec(msg *descriptor.DescriptorProto) *MessageOptionsSpec {
+func (p *qingcloudPlugin) buildMessageOptionsSpec(file *generator.FileDescriptor, msg *descriptor.DescriptorProto) *MessageOptionsSpec {
 	spec := NewMessageOptionsSpec()
+	spec.IsProto3 = file.GetSyntax() == "proto3"
 	spec.MessageName = generator.CamelCase(msg.GetName())
 
 	for _, field := range msg.Field {
@@ -181,6 +184,9 @@ func (p *qingcloudPlugin) buildMessageOptionsSpec(msg *descriptor.DescriptorProt
 		spec.FieldNameMap[name] = fixedName
 		spec.FiledTypeMap[name] = typeName
 
+		if field.Label != nil && *field.Label == descriptor.FieldDescriptorProto_LABEL_REQUIRED {
+			spec.RequiredFieldMap[name] = true
+		}
 		if field.Label != nil && *field.Label == descriptor.FieldDescriptorProto_LABEL_REPEATED {
 			spec.RepeatedFieldMap[name] = true
 		}
