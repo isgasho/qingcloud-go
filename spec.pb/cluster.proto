@@ -186,6 +186,7 @@ message StopClustersOutput {
 	required string action = 1;
 	required int32 ret_code = 2;
 	optional string message = 3;
+	map<string,string> job_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -197,6 +198,7 @@ message StartClustersOutput {
 	required string action = 1;
 	required int32 ret_code = 2;
 	optional string message = 3;
+	map<string,string> job_ids = 4;
 }
 
 // ----------------------------------------------------------------------------
