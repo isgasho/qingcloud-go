@@ -559,7 +559,7 @@ func (p *DescribeAlarmPoliciesInput) Validate() error {
 			"storm_node",
 		}
 		for _, v := range _enumValues {
-			if p.AlarmPolicyType != v {
+			if p.GetAlarmPolicyType() != v {
 				return fmt.Errorf("DescribeAlarmPoliciesInput.AlarmPolicyType: invalid enum value!")
 			}
 		}

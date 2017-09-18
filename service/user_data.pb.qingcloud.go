@@ -87,7 +87,7 @@ func (p *UserDataServiceProperties) Validate() error {
 
 func (p *UploadUserDataAttachmentInput) Validate() error {
 
-	if len(p.AttachmentContent) == 0 {
+	if len(p.GetAttachmentContent()) == 0 {
 		return fmt.Errorf("UploadUserDataAttachmentInput.AttachmentContent required field missing!")
 	}
 

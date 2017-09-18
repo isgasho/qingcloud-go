@@ -647,7 +647,7 @@ func (p *CreateClusterInput_Conf) Validate() error {
 
 func (p *CreateClusterInput) Validate() error {
 
-	if len(p.Conf) == 0 {
+	if len(p.GetConf()) == 0 {
 		return fmt.Errorf("CreateClusterInput.Conf required field missing!")
 	}
 
@@ -666,7 +666,7 @@ func (p *DescribeClustersInput) Validate() error {
 			"cfgmgmt",
 		}
 		for _, v := range _enumValues {
-			if p.Scope != v {
+			if p.GetScope() != v {
 				return fmt.Errorf("DescribeClustersInput.Scope: invalid enum value!")
 			}
 		}
