@@ -253,7 +253,7 @@ func (p *{{$msg.MessageName}}) Validate() error {
 			}
 		{{else}}
 			{{if eq $type "message"}}
-				if {{$msg.MessageName}}.Get{{$name}}() == nil {
+				if p.Get{{$name}}() == nil {
 					return fmt.Errorf("{{$msg.MessageName}}.{{$name}} required field missing!")
 				}
 			{{end}}
