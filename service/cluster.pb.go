@@ -14,7 +14,8 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type ClusterServiceProperties struct {
-	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Zone             *string `protobuf:"bytes,1,req,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ClusterServiceProperties) Reset()                    { *m = ClusterServiceProperties{} }
@@ -23,8 +24,8 @@ func (*ClusterServiceProperties) ProtoMessage()               {}
 func (*ClusterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *ClusterServiceProperties) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
@@ -66,10 +67,11 @@ func (m *ClusterServiceProperties) GetZone() string {
 // }
 // }
 type CreateClusterInput_Conf struct {
-	AppId      string                        `protobuf:"bytes,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	AppVersion string                        `protobuf:"bytes,2,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	Vxnet      string                        `protobuf:"bytes,3,opt,name=vxnet" json:"vxnet,omitempty"`
-	Node       *CreateClusterInput_Conf_Node `protobuf:"bytes,4,opt,name=node" json:"node,omitempty"`
+	AppId            *string                       `protobuf:"bytes,1,req,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppVersion       *string                       `protobuf:"bytes,2,req,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	Vxnet            *string                       `protobuf:"bytes,3,req,name=vxnet" json:"vxnet,omitempty"`
+	Node             *CreateClusterInput_Conf_Node `protobuf:"bytes,4,req,name=node" json:"node,omitempty"`
+	XXX_unrecognized []byte                        `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf) Reset()                    { *m = CreateClusterInput_Conf{} }
@@ -78,22 +80,22 @@ func (*CreateClusterInput_Conf) ProtoMessage()               {}
 func (*CreateClusterInput_Conf) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *CreateClusterInput_Conf) GetAppId() string {
-	if m != nil {
-		return m.AppId
+	if m != nil && m.AppId != nil {
+		return *m.AppId
 	}
 	return ""
 }
 
 func (m *CreateClusterInput_Conf) GetAppVersion() string {
-	if m != nil {
-		return m.AppVersion
+	if m != nil && m.AppVersion != nil {
+		return *m.AppVersion
 	}
 	return ""
 }
 
 func (m *CreateClusterInput_Conf) GetVxnet() string {
-	if m != nil {
-		return m.Vxnet
+	if m != nil && m.Vxnet != nil {
+		return *m.Vxnet
 	}
 	return ""
 }
@@ -106,14 +108,15 @@ func (m *CreateClusterInput_Conf) GetNode() *CreateClusterInput_Conf_Node {
 }
 
 type CreateClusterInput_Conf_Node struct {
-	Container          *CreateClusterInput_Conf_Container `protobuf:"bytes,1,opt,name=container" json:"container,omitempty"`
-	InstanceClass      int32                              `protobuf:"varint,2,opt,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
-	Count              int32                              `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
-	Cpu                int32                              `protobuf:"varint,4,opt,name=cpu" json:"cpu,omitempty"`
-	Memory             int32                              `protobuf:"varint,5,opt,name=memory" json:"memory,omitempty"`
+	Container          *CreateClusterInput_Conf_Container `protobuf:"bytes,1,req,name=container" json:"container,omitempty"`
+	InstanceClass      *int32                             `protobuf:"varint,2,req,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
+	Count              *int32                             `protobuf:"varint,3,req,name=count" json:"count,omitempty"`
+	Cpu                *int32                             `protobuf:"varint,4,req,name=cpu" json:"cpu,omitempty"`
+	Memory             *int32                             `protobuf:"varint,5,req,name=memory" json:"memory,omitempty"`
 	Volume             *CreateClusterInput_Conf_Volume    `protobuf:"bytes,6,opt,name=volume" json:"volume,omitempty"`
-	ServerIdUpperBound int32                              `protobuf:"varint,7,opt,name=server_id_upper_bound,json=serverIdUpperBound" json:"server_id_upper_bound,omitempty"`
-	Service            *CreateClusterInput_Conf_Service   `protobuf:"bytes,8,opt,name=service" json:"service,omitempty"`
+	ServerIdUpperBound *int32                             `protobuf:"varint,7,opt,name=server_id_upper_bound,json=serverIdUpperBound" json:"server_id_upper_bound,omitempty"`
+	Service            *CreateClusterInput_Conf_Service   `protobuf:"bytes,8,req,name=service" json:"service,omitempty"`
+	XXX_unrecognized   []byte                             `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Node) Reset()                    { *m = CreateClusterInput_Conf_Node{} }
@@ -129,29 +132,29 @@ func (m *CreateClusterInput_Conf_Node) GetContainer() *CreateClusterInput_Conf_C
 }
 
 func (m *CreateClusterInput_Conf_Node) GetInstanceClass() int32 {
-	if m != nil {
-		return m.InstanceClass
+	if m != nil && m.InstanceClass != nil {
+		return *m.InstanceClass
 	}
 	return 0
 }
 
 func (m *CreateClusterInput_Conf_Node) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 func (m *CreateClusterInput_Conf_Node) GetCpu() int32 {
-	if m != nil {
-		return m.Cpu
+	if m != nil && m.Cpu != nil {
+		return *m.Cpu
 	}
 	return 0
 }
 
 func (m *CreateClusterInput_Conf_Node) GetMemory() int32 {
-	if m != nil {
-		return m.Memory
+	if m != nil && m.Memory != nil {
+		return *m.Memory
 	}
 	return 0
 }
@@ -164,8 +167,8 @@ func (m *CreateClusterInput_Conf_Node) GetVolume() *CreateClusterInput_Conf_Volu
 }
 
 func (m *CreateClusterInput_Conf_Node) GetServerIdUpperBound() int32 {
-	if m != nil {
-		return m.ServerIdUpperBound
+	if m != nil && m.ServerIdUpperBound != nil {
+		return *m.ServerIdUpperBound
 	}
 	return 0
 }
@@ -178,9 +181,10 @@ func (m *CreateClusterInput_Conf_Node) GetService() *CreateClusterInput_Conf_Ser
 }
 
 type CreateClusterInput_Conf_Container struct {
-	Type  string `protobuf:"bytes,1,opt,name=type" json:"type,omitempty"`
-	Image string `protobuf:"bytes,2,opt,name=image" json:"image,omitempty"`
-	Zone  string `protobuf:"bytes,3,opt,name=zone" json:"zone,omitempty"`
+	Type             *string `protobuf:"bytes,1,req,name=type" json:"type,omitempty"`
+	Image            *string `protobuf:"bytes,2,req,name=image" json:"image,omitempty"`
+	Zone             *string `protobuf:"bytes,3,opt,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Container) Reset()         { *m = CreateClusterInput_Conf_Container{} }
@@ -191,31 +195,32 @@ func (*CreateClusterInput_Conf_Container) Descriptor() ([]byte, []int) {
 }
 
 func (m *CreateClusterInput_Conf_Container) GetType() string {
-	if m != nil {
-		return m.Type
+	if m != nil && m.Type != nil {
+		return *m.Type
 	}
 	return ""
 }
 
 func (m *CreateClusterInput_Conf_Container) GetImage() string {
-	if m != nil {
-		return m.Image
+	if m != nil && m.Image != nil {
+		return *m.Image
 	}
 	return ""
 }
 
 func (m *CreateClusterInput_Conf_Container) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
 
 type CreateClusterInput_Conf_Volume struct {
-	Size       int32  `protobuf:"varint,1,opt,name=size" json:"size,omitempty"`
-	MountPoint string `protobuf:"bytes,2,opt,name=mount_point,json=mountPoint" json:"mount_point,omitempty"`
-	Filesystem string `protobuf:"bytes,3,opt,name=filesystem" json:"filesystem,omitempty"`
-	Class      int32  `protobuf:"varint,4,opt,name=class" json:"class,omitempty"`
+	Size             *int32  `protobuf:"varint,1,req,name=size" json:"size,omitempty"`
+	MountPoint       *string `protobuf:"bytes,2,req,name=mount_point,json=mountPoint" json:"mount_point,omitempty"`
+	Filesystem       *string `protobuf:"bytes,3,req,name=filesystem" json:"filesystem,omitempty"`
+	Class            *int32  `protobuf:"varint,4,req,name=class" json:"class,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Volume) Reset()         { *m = CreateClusterInput_Conf_Volume{} }
@@ -226,36 +231,37 @@ func (*CreateClusterInput_Conf_Volume) Descriptor() ([]byte, []int) {
 }
 
 func (m *CreateClusterInput_Conf_Volume) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
 
 func (m *CreateClusterInput_Conf_Volume) GetMountPoint() string {
-	if m != nil {
-		return m.MountPoint
+	if m != nil && m.MountPoint != nil {
+		return *m.MountPoint
 	}
 	return ""
 }
 
 func (m *CreateClusterInput_Conf_Volume) GetFilesystem() string {
-	if m != nil {
-		return m.Filesystem
+	if m != nil && m.Filesystem != nil {
+		return *m.Filesystem
 	}
 	return ""
 }
 
 func (m *CreateClusterInput_Conf_Volume) GetClass() int32 {
-	if m != nil {
-		return m.Class
+	if m != nil && m.Class != nil {
+		return *m.Class
 	}
 	return 0
 }
 
 type CreateClusterInput_Conf_Service struct {
-	Start *CreateClusterInput_Conf_Command `protobuf:"bytes,1,opt,name=start" json:"start,omitempty"`
-	Stop  *CreateClusterInput_Conf_Command `protobuf:"bytes,2,opt,name=stop" json:"stop,omitempty"`
+	Start            *CreateClusterInput_Conf_Command `protobuf:"bytes,1,req,name=start" json:"start,omitempty"`
+	Stop             *CreateClusterInput_Conf_Command `protobuf:"bytes,2,req,name=stop" json:"stop,omitempty"`
+	XXX_unrecognized []byte                           `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Service) Reset()         { *m = CreateClusterInput_Conf_Service{} }
@@ -280,7 +286,8 @@ func (m *CreateClusterInput_Conf_Service) GetStop() *CreateClusterInput_Conf_Com
 }
 
 type CreateClusterInput_Conf_Command struct {
-	Cmd string `protobuf:"bytes,1,opt,name=cmd" json:"cmd,omitempty"`
+	Cmd              *string `protobuf:"bytes,1,req,name=cmd" json:"cmd,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Command) Reset()         { *m = CreateClusterInput_Conf_Command{} }
@@ -291,14 +298,15 @@ func (*CreateClusterInput_Conf_Command) Descriptor() ([]byte, []int) {
 }
 
 func (m *CreateClusterInput_Conf_Command) GetCmd() string {
-	if m != nil {
-		return m.Cmd
+	if m != nil && m.Cmd != nil {
+		return *m.Cmd
 	}
 	return ""
 }
 
 type CreateClusterInput struct {
-	Conf string `protobuf:"bytes,1,opt,name=conf" json:"conf,omitempty"`
+	Conf             *string `protobuf:"bytes,1,req,name=conf" json:"conf,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateClusterInput) Reset()                    { *m = CreateClusterInput{} }
@@ -307,16 +315,17 @@ func (*CreateClusterInput) ProtoMessage()               {}
 func (*CreateClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *CreateClusterInput) GetConf() string {
-	if m != nil {
-		return m.Conf
+	if m != nil && m.Conf != nil {
+		return *m.Conf
 	}
 	return ""
 }
 
 type CreateClusterOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateClusterOutput) Reset()                    { *m = CreateClusterOutput{} }
@@ -325,33 +334,34 @@ func (*CreateClusterOutput) ProtoMessage()               {}
 func (*CreateClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *CreateClusterOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateClusterOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateClusterOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DescribeClustersInput struct {
-	Clusters   []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	Scope      string   `protobuf:"bytes,2,opt,name=scope" json:"scope,omitempty"`
-	Role       string   `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
-	AppId      []string `protobuf:"bytes,4,rep,name=app_id,json=appId" json:"app_id,omitempty"`
-	AppVersion []string `protobuf:"bytes,5,rep,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	Users      []string `protobuf:"bytes,6,rep,name=users" json:"users,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Scope            *string  `protobuf:"bytes,2,req,name=scope" json:"scope,omitempty"`
+	Role             *string  `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
+	AppId            []string `protobuf:"bytes,4,rep,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppVersion       []string `protobuf:"bytes,5,rep,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	Users            []string `protobuf:"bytes,6,rep,name=users" json:"users,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeClustersInput) Reset()                    { *m = DescribeClustersInput{} }
@@ -367,15 +377,15 @@ func (m *DescribeClustersInput) GetClusters() []string {
 }
 
 func (m *DescribeClustersInput) GetScope() string {
-	if m != nil {
-		return m.Scope
+	if m != nil && m.Scope != nil {
+		return *m.Scope
 	}
 	return ""
 }
 
 func (m *DescribeClustersInput) GetRole() string {
-	if m != nil {
-		return m.Role
+	if m != nil && m.Role != nil {
+		return *m.Role
 	}
 	return ""
 }
@@ -402,11 +412,12 @@ func (m *DescribeClustersInput) GetUsers() []string {
 }
 
 type DescribeClustersOutput struct {
-	Action     string     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TotalCount int32      `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	ClusterSet []*Cluster `protobuf:"bytes,5,rep,name=cluster_set,json=clusterSet" json:"cluster_set,omitempty"`
+	Action           *string    `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32     `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount       *int32     `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	ClusterSet       []*Cluster `protobuf:"bytes,5,rep,name=cluster_set,json=clusterSet" json:"cluster_set,omitempty"`
+	XXX_unrecognized []byte     `json:"-"`
 }
 
 func (m *DescribeClustersOutput) Reset()                    { *m = DescribeClustersOutput{} }
@@ -415,29 +426,29 @@ func (*DescribeClustersOutput) ProtoMessage()               {}
 func (*DescribeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 func (m *DescribeClustersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeClustersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeClustersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DescribeClustersOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
@@ -450,9 +461,10 @@ func (m *DescribeClustersOutput) GetClusterSet() []*Cluster {
 }
 
 type DescribeClusterNodesInput struct {
-	Cluster      string   `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	ClusterNodes []string `protobuf:"bytes,2,rep,name=cluster_nodes,json=clusterNodes" json:"cluster_nodes,omitempty"`
-	Role         string   `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
+	Cluster          *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	ClusterNodes     []string `protobuf:"bytes,2,rep,name=cluster_nodes,json=clusterNodes" json:"cluster_nodes,omitempty"`
+	Role             *string  `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeClusterNodesInput) Reset()                    { *m = DescribeClusterNodesInput{} }
@@ -461,8 +473,8 @@ func (*DescribeClusterNodesInput) ProtoMessage()               {}
 func (*DescribeClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 func (m *DescribeClusterNodesInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
@@ -475,18 +487,19 @@ func (m *DescribeClusterNodesInput) GetClusterNodes() []string {
 }
 
 func (m *DescribeClusterNodesInput) GetRole() string {
-	if m != nil {
-		return m.Role
+	if m != nil && m.Role != nil {
+		return *m.Role
 	}
 	return ""
 }
 
 type DescribeClusterNodesOutput struct {
-	Action     string         `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32          `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string         `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TotalCount int32          `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	NodeSet    []*ClasterNode `protobuf:"bytes,5,rep,name=node_set,json=nodeSet" json:"node_set,omitempty"`
+	Action           *string        `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32         `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string        `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount       *int32         `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	NodeSet          []*ClasterNode `protobuf:"bytes,5,rep,name=node_set,json=nodeSet" json:"node_set,omitempty"`
+	XXX_unrecognized []byte         `json:"-"`
 }
 
 func (m *DescribeClusterNodesOutput) Reset()                    { *m = DescribeClusterNodesOutput{} }
@@ -495,29 +508,29 @@ func (*DescribeClusterNodesOutput) ProtoMessage()               {}
 func (*DescribeClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 func (m *DescribeClusterNodesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeClusterNodesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeClusterNodesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DescribeClusterNodesOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
@@ -530,8 +543,9 @@ func (m *DescribeClusterNodesOutput) GetNodeSet() []*ClasterNode {
 }
 
 type StopClustersInput struct {
-	Clusters []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	Force    int32    `protobuf:"varint,2,opt,name=force" json:"force,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Force            *int32   `protobuf:"varint,2,opt,name=force" json:"force,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *StopClustersInput) Reset()                    { *m = StopClustersInput{} }
@@ -547,16 +561,17 @@ func (m *StopClustersInput) GetClusters() []string {
 }
 
 func (m *StopClustersInput) GetForce() int32 {
-	if m != nil {
-		return m.Force
+	if m != nil && m.Force != nil {
+		return *m.Force
 	}
 	return 0
 }
 
 type StopClustersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *StopClustersOutput) Reset()                    { *m = StopClustersOutput{} }
@@ -565,28 +580,29 @@ func (*StopClustersOutput) ProtoMessage()               {}
 func (*StopClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 func (m *StopClustersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *StopClustersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *StopClustersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type StartClustersInput struct {
-	Clusters []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *StartClustersInput) Reset()                    { *m = StartClustersInput{} }
@@ -602,9 +618,10 @@ func (m *StartClustersInput) GetClusters() []string {
 }
 
 type StartClustersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *StartClustersOutput) Reset()                    { *m = StartClustersOutput{} }
@@ -613,28 +630,29 @@ func (*StartClustersOutput) ProtoMessage()               {}
 func (*StartClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 func (m *StartClustersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *StartClustersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *StartClustersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DeleteClustersInput struct {
-	Clusters []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteClustersInput) Reset()                    { *m = DeleteClustersInput{} }
@@ -650,9 +668,10 @@ func (m *DeleteClustersInput) GetClusters() []string {
 }
 
 type DeleteClustersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteClustersOutput) Reset()                    { *m = DeleteClustersOutput{} }
@@ -661,28 +680,29 @@ func (*DeleteClustersOutput) ProtoMessage()               {}
 func (*DeleteClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
 
 func (m *DeleteClustersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteClustersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteClustersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type LeaseInput struct {
-	Clusters []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *LeaseInput) Reset()                    { *m = LeaseInput{} }
@@ -698,9 +718,10 @@ func (m *LeaseInput) GetClusters() []string {
 }
 
 type LeaseOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *LeaseOutput) Reset()                    { *m = LeaseOutput{} }
@@ -709,32 +730,33 @@ func (*LeaseOutput) ProtoMessage()               {}
 func (*LeaseOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{15} }
 
 func (m *LeaseOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *LeaseOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *LeaseOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type AddClusterNodesInput struct {
-	Cluster    string   `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	NodeCount  int32    `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	NodeRole   string   `protobuf:"bytes,3,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
-	NodeName   string   `protobuf:"bytes,4,opt,name=node_name,json=nodeName" json:"node_name,omitempty"`
-	PrivateIps []string `protobuf:"bytes,5,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	Cluster          *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	NodeCount        *int32   `protobuf:"varint,2,req,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	NodeRole         *string  `protobuf:"bytes,3,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
+	NodeName         *string  `protobuf:"bytes,4,opt,name=node_name,json=nodeName" json:"node_name,omitempty"`
+	PrivateIps       []string `protobuf:"bytes,5,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AddClusterNodesInput) Reset()                    { *m = AddClusterNodesInput{} }
@@ -743,29 +765,29 @@ func (*AddClusterNodesInput) ProtoMessage()               {}
 func (*AddClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
 
 func (m *AddClusterNodesInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
 
 func (m *AddClusterNodesInput) GetNodeCount() int32 {
-	if m != nil {
-		return m.NodeCount
+	if m != nil && m.NodeCount != nil {
+		return *m.NodeCount
 	}
 	return 0
 }
 
 func (m *AddClusterNodesInput) GetNodeRole() string {
-	if m != nil {
-		return m.NodeRole
+	if m != nil && m.NodeRole != nil {
+		return *m.NodeRole
 	}
 	return ""
 }
 
 func (m *AddClusterNodesInput) GetNodeName() string {
-	if m != nil {
-		return m.NodeName
+	if m != nil && m.NodeName != nil {
+		return *m.NodeName
 	}
 	return ""
 }
@@ -778,9 +800,10 @@ func (m *AddClusterNodesInput) GetPrivateIps() []string {
 }
 
 type AddClusterNodesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AddClusterNodesOutput) Reset()                    { *m = AddClusterNodesOutput{} }
@@ -789,30 +812,31 @@ func (*AddClusterNodesOutput) ProtoMessage()               {}
 func (*AddClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
 
 func (m *AddClusterNodesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AddClusterNodesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AddClusterNodesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DeleteClusterNodesInput struct {
-	Cluster string   `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	Nodes   []string `protobuf:"bytes,2,rep,name=nodes" json:"nodes,omitempty"`
-	Force   int32    `protobuf:"varint,3,opt,name=force" json:"force,omitempty"`
+	Cluster          *string  `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
+	Nodes            []string `protobuf:"bytes,2,rep,name=nodes" json:"nodes,omitempty"`
+	Force            *int32   `protobuf:"varint,3,opt,name=force" json:"force,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteClusterNodesInput) Reset()                    { *m = DeleteClusterNodesInput{} }
@@ -821,8 +845,8 @@ func (*DeleteClusterNodesInput) ProtoMessage()               {}
 func (*DeleteClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{18} }
 
 func (m *DeleteClusterNodesInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
@@ -835,16 +859,17 @@ func (m *DeleteClusterNodesInput) GetNodes() []string {
 }
 
 func (m *DeleteClusterNodesInput) GetForce() int32 {
-	if m != nil {
-		return m.Force
+	if m != nil && m.Force != nil {
+		return *m.Force
 	}
 	return 0
 }
 
 type DeleteClusterNodesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteClusterNodesOutput) Reset()                    { *m = DeleteClusterNodesOutput{} }
@@ -853,32 +878,33 @@ func (*DeleteClusterNodesOutput) ProtoMessage()               {}
 func (*DeleteClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{19} }
 
 func (m *DeleteClusterNodesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteClusterNodesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteClusterNodesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type ResizeClusterInput struct {
-	Cluster     string `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	NodeRole    string `protobuf:"bytes,2,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
-	Cpu         int32  `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
-	Memory      int32  `protobuf:"varint,4,opt,name=memory" json:"memory,omitempty"`
-	StorageSize int32  `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	NodeRole         *string `protobuf:"bytes,2,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
+	Cpu              *int32  `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
+	Memory           *int32  `protobuf:"varint,4,opt,name=memory" json:"memory,omitempty"`
+	StorageSize      *int32  `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ResizeClusterInput) Reset()                    { *m = ResizeClusterInput{} }
@@ -887,44 +913,45 @@ func (*ResizeClusterInput) ProtoMessage()               {}
 func (*ResizeClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{20} }
 
 func (m *ResizeClusterInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
 
 func (m *ResizeClusterInput) GetNodeRole() string {
-	if m != nil {
-		return m.NodeRole
+	if m != nil && m.NodeRole != nil {
+		return *m.NodeRole
 	}
 	return ""
 }
 
 func (m *ResizeClusterInput) GetCpu() int32 {
-	if m != nil {
-		return m.Cpu
+	if m != nil && m.Cpu != nil {
+		return *m.Cpu
 	}
 	return 0
 }
 
 func (m *ResizeClusterInput) GetMemory() int32 {
-	if m != nil {
-		return m.Memory
+	if m != nil && m.Memory != nil {
+		return *m.Memory
 	}
 	return 0
 }
 
 func (m *ResizeClusterInput) GetStorageSize() int32 {
-	if m != nil {
-		return m.StorageSize
+	if m != nil && m.StorageSize != nil {
+		return *m.StorageSize
 	}
 	return 0
 }
 
 type ResizeClusterOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ResizeClusterOutput) Reset()                    { *m = ResizeClusterOutput{} }
@@ -933,31 +960,32 @@ func (*ResizeClusterOutput) ProtoMessage()               {}
 func (*ResizeClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{21} }
 
 func (m *ResizeClusterOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ResizeClusterOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ResizeClusterOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type ChangeClusterVxnetInput struct {
-	Cluster    string            `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	Vxnet      string            `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	PrivateIps map[string]string `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Roles      []string          `protobuf:"bytes,4,rep,name=roles" json:"roles,omitempty"`
+	Cluster          *string           `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Vxnet            *string           `protobuf:"bytes,2,req,name=vxnet" json:"vxnet,omitempty"`
+	PrivateIps       map[string]string `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Roles            []string          `protobuf:"bytes,4,rep,name=roles" json:"roles,omitempty"`
+	XXX_unrecognized []byte            `json:"-"`
 }
 
 func (m *ChangeClusterVxnetInput) Reset()                    { *m = ChangeClusterVxnetInput{} }
@@ -966,15 +994,15 @@ func (*ChangeClusterVxnetInput) ProtoMessage()               {}
 func (*ChangeClusterVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{22} }
 
 func (m *ChangeClusterVxnetInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
 
 func (m *ChangeClusterVxnetInput) GetVxnet() string {
-	if m != nil {
-		return m.Vxnet
+	if m != nil && m.Vxnet != nil {
+		return *m.Vxnet
 	}
 	return ""
 }
@@ -994,9 +1022,10 @@ func (m *ChangeClusterVxnetInput) GetRoles() []string {
 }
 
 type ChangeClusterVxnetOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ChangeClusterVxnetOutput) Reset()                    { *m = ChangeClusterVxnetOutput{} }
@@ -1005,28 +1034,29 @@ func (*ChangeClusterVxnetOutput) ProtoMessage()               {}
 func (*ChangeClusterVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{23} }
 
 func (m *ChangeClusterVxnetOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ChangeClusterVxnetOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ChangeClusterVxnetOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type SuspendClustersInput struct {
-	Clusters []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *SuspendClustersInput) Reset()                    { *m = SuspendClustersInput{} }
@@ -1042,9 +1072,10 @@ func (m *SuspendClustersInput) GetClusters() []string {
 }
 
 type SuspendClustersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *SuspendClustersOutput) Reset()                    { *m = SuspendClustersOutput{} }
@@ -1053,30 +1084,31 @@ func (*SuspendClustersOutput) ProtoMessage()               {}
 func (*SuspendClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{25} }
 
 func (m *SuspendClustersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *SuspendClustersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *SuspendClustersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type UpdateClusterEnvironmentInput struct {
-	Cluster string            `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	Roles   []string          `protobuf:"bytes,2,rep,name=roles" json:"roles,omitempty"`
-	Env     map[string]string `protobuf:"bytes,3,rep,name=env" json:"env,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Cluster          *string           `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Roles            []string          `protobuf:"bytes,2,rep,name=roles" json:"roles,omitempty"`
+	Env              map[string]string `protobuf:"bytes,3,rep,name=env" json:"env,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_unrecognized []byte            `json:"-"`
 }
 
 func (m *UpdateClusterEnvironmentInput) Reset()                    { *m = UpdateClusterEnvironmentInput{} }
@@ -1085,8 +1117,8 @@ func (*UpdateClusterEnvironmentInput) ProtoMessage()               {}
 func (*UpdateClusterEnvironmentInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{26} }
 
 func (m *UpdateClusterEnvironmentInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
@@ -1106,9 +1138,10 @@ func (m *UpdateClusterEnvironmentInput) GetEnv() map[string]string {
 }
 
 type UpdateClusterEnvironmentOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *UpdateClusterEnvironmentOutput) Reset()                    { *m = UpdateClusterEnvironmentOutput{} }
@@ -1117,30 +1150,31 @@ func (*UpdateClusterEnvironmentOutput) ProtoMessage()               {}
 func (*UpdateClusterEnvironmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{27} }
 
 func (m *UpdateClusterEnvironmentOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *UpdateClusterEnvironmentOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *UpdateClusterEnvironmentOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type ModifyClusterAttributesInput struct {
-	Cluster     string `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	Name        string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Description string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Name             *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyClusterAttributesInput) Reset()                    { *m = ModifyClusterAttributesInput{} }
@@ -1149,30 +1183,31 @@ func (*ModifyClusterAttributesInput) ProtoMessage()               {}
 func (*ModifyClusterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{28} }
 
 func (m *ModifyClusterAttributesInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
 
 func (m *ModifyClusterAttributesInput) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
 
 func (m *ModifyClusterAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type ModifyClusterAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyClusterAttributesOutput) Reset()                    { *m = ModifyClusterAttributesOutput{} }
@@ -1181,30 +1216,31 @@ func (*ModifyClusterAttributesOutput) ProtoMessage()               {}
 func (*ModifyClusterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{29} }
 
 func (m *ModifyClusterAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyClusterAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyClusterAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type ModifyClusterNodeAttributesInput struct {
-	Cluster     string `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	ClusterNode string `protobuf:"bytes,2,opt,name=cluster_node,json=clusterNode" json:"cluster_node,omitempty"`
-	Name        string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	ClusterNode      *string `protobuf:"bytes,2,req,name=cluster_node,json=clusterNode" json:"cluster_node,omitempty"`
+	Name             *string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyClusterNodeAttributesInput) Reset()         { *m = ModifyClusterNodeAttributesInput{} }
@@ -1215,30 +1251,31 @@ func (*ModifyClusterNodeAttributesInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyClusterNodeAttributesInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
 
 func (m *ModifyClusterNodeAttributesInput) GetClusterNode() string {
-	if m != nil {
-		return m.ClusterNode
+	if m != nil && m.ClusterNode != nil {
+		return *m.ClusterNode
 	}
 	return ""
 }
 
 func (m *ModifyClusterNodeAttributesInput) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
 
 type ModifyClusterNodeAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyClusterNodeAttributesOutput) Reset()         { *m = ModifyClusterNodeAttributesOutput{} }
@@ -1249,28 +1286,29 @@ func (*ModifyClusterNodeAttributesOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyClusterNodeAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyClusterNodeAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyClusterNodeAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type GetClustersStatsInput struct {
-	Zones []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
+	Zones            []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *GetClustersStatsInput) Reset()                    { *m = GetClustersStatsInput{} }
@@ -1286,9 +1324,10 @@ func (m *GetClustersStatsInput) GetZones() []string {
 }
 
 type GetClustersStatsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *GetClustersStatsOutput) Reset()                    { *m = GetClustersStatsOutput{} }
@@ -1297,32 +1336,33 @@ func (*GetClustersStatsOutput) ProtoMessage()               {}
 func (*GetClustersStatsOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{33} }
 
 func (m *GetClustersStatsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *GetClustersStatsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *GetClustersStatsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DescribeClusterUsersInput struct {
-	Zones         []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
-	Apps          []string `protobuf:"bytes,2,rep,name=apps" json:"apps,omitempty"`
-	AppVersions   []string `protobuf:"bytes,3,rep,name=app_versions,json=appVersions" json:"app_versions,omitempty"`
-	Users         []string `protobuf:"bytes,4,rep,name=users" json:"users,omitempty"`
-	ClusterStatus []string `protobuf:"bytes,5,rep,name=cluster_status,json=clusterStatus" json:"cluster_status,omitempty"`
+	Zones            []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
+	Apps             []string `protobuf:"bytes,2,rep,name=apps" json:"apps,omitempty"`
+	AppVersions      []string `protobuf:"bytes,3,rep,name=app_versions,json=appVersions" json:"app_versions,omitempty"`
+	Users            []string `protobuf:"bytes,4,rep,name=users" json:"users,omitempty"`
+	ClusterStatus    []string `protobuf:"bytes,5,rep,name=cluster_status,json=clusterStatus" json:"cluster_status,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeClusterUsersInput) Reset()                    { *m = DescribeClusterUsersInput{} }
@@ -1366,9 +1406,10 @@ func (m *DescribeClusterUsersInput) GetClusterStatus() []string {
 }
 
 type DescribeClusterUsersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DescribeClusterUsersOutput) Reset()                    { *m = DescribeClusterUsersOutput{} }
@@ -1377,29 +1418,30 @@ func (*DescribeClusterUsersOutput) ProtoMessage()               {}
 func (*DescribeClusterUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{35} }
 
 func (m *DescribeClusterUsersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeClusterUsersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeClusterUsersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type RestartClusterServiceInput struct {
-	Cluster string `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	Role    string `protobuf:"bytes,2,opt,name=role" json:"role,omitempty"`
+	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Role             *string `protobuf:"bytes,2,opt,name=role" json:"role,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RestartClusterServiceInput) Reset()                    { *m = RestartClusterServiceInput{} }
@@ -1408,23 +1450,24 @@ func (*RestartClusterServiceInput) ProtoMessage()               {}
 func (*RestartClusterServiceInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{36} }
 
 func (m *RestartClusterServiceInput) GetCluster() string {
-	if m != nil {
-		return m.Cluster
+	if m != nil && m.Cluster != nil {
+		return *m.Cluster
 	}
 	return ""
 }
 
 func (m *RestartClusterServiceInput) GetRole() string {
-	if m != nil {
-		return m.Role
+	if m != nil && m.Role != nil {
+		return *m.Role
 	}
 	return ""
 }
 
 type RestartClusterServiceOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RestartClusterServiceOutput) Reset()                    { *m = RestartClusterServiceOutput{} }
@@ -1433,29 +1476,30 @@ func (*RestartClusterServiceOutput) ProtoMessage()               {}
 func (*RestartClusterServiceOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{37} }
 
 func (m *RestartClusterServiceOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *RestartClusterServiceOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *RestartClusterServiceOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type UpgradeClustersInput struct {
-	Clusters   []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	AppVersion string   `protobuf:"bytes,2,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	AppVersion       *string  `protobuf:"bytes,2,req,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *UpgradeClustersInput) Reset()                    { *m = UpgradeClustersInput{} }
@@ -1471,16 +1515,17 @@ func (m *UpgradeClustersInput) GetClusters() []string {
 }
 
 func (m *UpgradeClustersInput) GetAppVersion() string {
-	if m != nil {
-		return m.AppVersion
+	if m != nil && m.AppVersion != nil {
+		return *m.AppVersion
 	}
 	return ""
 }
 
 type UpgradeClustersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *UpgradeClustersOutput) Reset()                    { *m = UpgradeClustersOutput{} }
@@ -1489,28 +1534,29 @@ func (*UpgradeClustersOutput) ProtoMessage()               {}
 func (*UpgradeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{39} }
 
 func (m *UpgradeClustersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *UpgradeClustersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *UpgradeClustersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type AuthorizeClustersBrokerToDeveloperInput struct {
-	Clusters []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperInput) Reset() {
@@ -1530,9 +1576,10 @@ func (m *AuthorizeClustersBrokerToDeveloperInput) GetClusters() []string {
 }
 
 type AuthorizeClustersBrokerToDeveloperOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperOutput) Reset() {
@@ -1545,28 +1592,29 @@ func (*AuthorizeClustersBrokerToDeveloperOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type RevokeClustersBrokerFromDeveloperInput struct {
-	Clusters []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *RevokeClustersBrokerFromDeveloperInput) Reset() {
@@ -1586,9 +1634,10 @@ func (m *RevokeClustersBrokerFromDeveloperInput) GetClusters() []string {
 }
 
 type RevokeClustersBrokerFromDeveloperOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RevokeClustersBrokerFromDeveloperOutput) Reset() {
@@ -1601,22 +1650,22 @@ func (*RevokeClustersBrokerFromDeveloperOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *RevokeClustersBrokerFromDeveloperOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *RevokeClustersBrokerFromDeveloperOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *RevokeClustersBrokerFromDeveloperOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1676,120 +1725,126 @@ func init() {
 func init() { proto.RegisterFile("cluster.proto", fileDescriptor2) }
 
 var fileDescriptor2 = []byte{
-	// 1840 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x59, 0xdd, 0x72, 0xdc, 0x48,
-	0x15, 0xae, 0xf1, 0xfc, 0xd8, 0x3e, 0x93, 0xbf, 0xed, 0x8c, 0xe3, 0x59, 0x39, 0xce, 0xda, 0x0a,
-	0x49, 0xcc, 0x16, 0x38, 0x89, 0xa1, 0x28, 0x08, 0x7f, 0x95, 0x4c, 0xcc, 0xe2, 0x54, 0xed, 0xe2,
-	0xd5, 0x90, 0x54, 0x2d, 0x37, 0x2a, 0x59, 0x6a, 0x4f, 0x84, 0x47, 0x6a, 0xa1, 0x6e, 0x0d, 0x38,
-	0x0f, 0x00, 0x45, 0x9e, 0x80, 0x17, 0xe0, 0x86, 0x17, 0xa0, 0x28, 0xae, 0xb9, 0xe1, 0x65, 0x28,
-	0x5f, 0x73, 0x43, 0xf5, 0x8f, 0xa4, 0x96, 0x46, 0x9a, 0x19, 0x5f, 0xa8, 0xb8, 0x99, 0x52, 0x9f,
-	0xee, 0xf3, 0x7f, 0xfa, 0xe8, 0x3b, 0x1a, 0xb8, 0xe9, 0x4e, 0x13, 0xca, 0x70, 0x7c, 0x18, 0xc5,
-	0x84, 0x11, 0xb4, 0x4e, 0x71, 0x3c, 0xf3, 0x5d, 0x6c, 0xf4, 0xd9, 0x65, 0x84, 0xa9, 0xa4, 0x1a,
-	0xbb, 0xbf, 0xf3, 0xc3, 0x89, 0x3b, 0x25, 0x89, 0x67, 0x53, 0xef, 0xc2, 0x8e, 0x93, 0x29, 0x7e,
-	0xca, 0x7f, 0xe4, 0xb6, 0x79, 0x08, 0xc3, 0x91, 0x94, 0x32, 0x96, 0xdc, 0xa7, 0x31, 0x89, 0x70,
-	0xcc, 0x7c, 0x4c, 0x11, 0x82, 0xce, 0x07, 0x12, 0xe2, 0x61, 0x6b, 0xaf, 0x75, 0xb0, 0x69, 0x89,
-	0x67, 0xf3, 0xbf, 0x3d, 0xd8, 0x1e, 0xc5, 0xd8, 0x61, 0x58, 0xb1, 0x9d, 0x84, 0x51, 0xc2, 0xec,
-	0x11, 0x09, 0xcf, 0xd1, 0x16, 0xf4, 0x9c, 0x28, 0xb2, 0x7d, 0x4f, 0x71, 0x74, 0x9d, 0x28, 0x3a,
-	0xf1, 0xd0, 0x67, 0xd0, 0xe7, 0xe4, 0x19, 0x8e, 0xa9, 0x4f, 0xc2, 0xe1, 0x9a, 0xd8, 0x03, 0x27,
-	0x8a, 0xde, 0x49, 0x0a, 0x1a, 0x40, 0x77, 0xf6, 0x87, 0x10, 0xb3, 0x61, 0x5b, 0xb2, 0x89, 0x05,
-	0xfa, 0x11, 0x74, 0x42, 0xe2, 0xe1, 0x61, 0x67, 0xaf, 0x75, 0xd0, 0x3f, 0x7a, 0x74, 0xa8, 0xbc,
-	0x3b, 0xac, 0xd1, 0x7e, 0xf8, 0x15, 0xf1, 0xb0, 0x25, 0x58, 0x8c, 0xff, 0xac, 0x41, 0x87, 0x2f,
-	0xd1, 0x2f, 0x61, 0xd3, 0x25, 0x21, 0x73, 0xfc, 0x10, 0xc7, 0xc2, 0xa8, 0xfe, 0xd1, 0xe7, 0x4b,
-	0x05, 0x8d, 0x52, 0x0e, 0x2b, 0x67, 0x46, 0x8f, 0xe0, 0x96, 0x1f, 0x52, 0xe6, 0x84, 0x2e, 0xb6,
-	0xdd, 0xa9, 0x43, 0xa9, 0xf0, 0xa3, 0x6b, 0xdd, 0x4c, 0xa9, 0x23, 0x4e, 0xe4, 0xae, 0xb8, 0x24,
-	0x09, 0xa5, 0x2b, 0x5d, 0x4b, 0x2e, 0xd0, 0x1d, 0x68, 0xbb, 0x51, 0x22, 0x3c, 0xe9, 0x5a, 0xfc,
-	0x11, 0xdd, 0x83, 0x5e, 0x80, 0x03, 0x12, 0x5f, 0x0e, 0xbb, 0x82, 0xa8, 0x56, 0xe8, 0xe7, 0xd0,
-	0x9b, 0x91, 0x69, 0x12, 0xe0, 0x61, 0x4f, 0x58, 0xfb, 0x64, 0xa9, 0xb5, 0xef, 0xc4, 0x71, 0x4b,
-	0xb1, 0xa1, 0xe7, 0xb0, 0xc5, 0x39, 0x70, 0x6c, 0xfb, 0x9e, 0x9d, 0x44, 0x11, 0x8e, 0xed, 0x33,
-	0x92, 0x84, 0xde, 0x70, 0x5d, 0xe8, 0x41, 0x72, 0xf3, 0xc4, 0x7b, 0xcb, 0xb7, 0x5e, 0xf1, 0x1d,
-	0xf4, 0x0a, 0xd2, 0xca, 0x19, 0x6e, 0x08, 0xa5, 0x07, 0x4b, 0x95, 0xaa, 0x5a, 0xb1, 0xb2, 0x92,
-	0x3b, 0x81, 0xcd, 0x2c, 0x6c, 0xbc, 0x6e, 0x78, 0x05, 0xa6, 0x75, 0xc3, 0x9f, 0x79, 0x60, 0xfc,
-	0xc0, 0x99, 0x60, 0x95, 0x7e, 0xb9, 0xc8, 0x2a, 0xac, 0x9d, 0x57, 0x98, 0x41, 0xa1, 0x27, 0x7d,
-	0xe2, 0xbb, 0xd4, 0xff, 0x20, 0xe5, 0x74, 0x2d, 0xf1, 0xcc, 0x8b, 0x29, 0xe0, 0x31, 0xb5, 0x23,
-	0xe2, 0x87, 0x2c, 0x2d, 0x26, 0x41, 0x3a, 0xe5, 0x14, 0xf4, 0x00, 0xe0, 0xdc, 0x9f, 0x62, 0x7a,
-	0x49, 0x19, 0x0e, 0x94, 0x60, 0x8d, 0x22, 0x32, 0x24, 0xf2, 0xd7, 0x51, 0x19, 0xe2, 0x0b, 0xe3,
-	0x4f, 0x2d, 0x58, 0x57, 0x4e, 0xa1, 0x9f, 0x41, 0x97, 0x32, 0x27, 0x66, 0xaa, 0x60, 0x0e, 0x56,
-	0x28, 0x98, 0x20, 0x70, 0x42, 0xcf, 0x92, 0x6c, 0xe8, 0x27, 0xd0, 0xa1, 0x8c, 0x44, 0xc2, 0xb6,
-	0xeb, 0xb0, 0x0b, 0x2e, 0x63, 0x07, 0xd6, 0x15, 0x41, 0x94, 0x4d, 0x90, 0x5e, 0x26, 0xfe, 0x68,
-	0x7e, 0x1f, 0xd0, 0xbc, 0x14, 0x1e, 0x27, 0x97, 0x84, 0xe7, 0x69, 0xbc, 0xf9, 0xf3, 0x0b, 0xf8,
-	0x78, 0xd5, 0xe9, 0x49, 0xba, 0x79, 0x06, 0x77, 0x0b, 0x5c, 0xbf, 0x4a, 0x18, 0x67, 0xbb, 0x07,
-	0x3d, 0xc7, 0x65, 0xfc, 0x4a, 0x4a, 0x46, 0xb5, 0x42, 0x9f, 0xc2, 0x46, 0x8c, 0x99, 0xed, 0xf2,
-	0xcb, 0x27, 0x8b, 0x7c, 0x3d, 0xc6, 0x6c, 0xc4, 0xef, 0xd3, 0x10, 0xd6, 0x03, 0x4c, 0x29, 0xcf,
-	0xa3, 0x8c, 0x6c, 0xba, 0x34, 0xff, 0xd5, 0x82, 0xad, 0xd7, 0x98, 0xba, 0xb1, 0x7f, 0x96, 0xaa,
-	0xa1, 0xd2, 0x3a, 0x03, 0x36, 0x54, 0x9f, 0xa2, 0xc3, 0xd6, 0x5e, 0xfb, 0x60, 0xd3, 0xca, 0xd6,
-	0x3c, 0x19, 0xd4, 0x25, 0x51, 0x56, 0x15, 0x62, 0xc1, 0xfd, 0x89, 0xc9, 0x34, 0xab, 0x0a, 0xfe,
-	0xac, 0xf5, 0x96, 0x8e, 0x90, 0x51, 0xdd, 0x5b, 0xba, 0x62, 0xaf, 0xd4, 0x5b, 0x12, 0xca, 0x55,
-	0xf7, 0x24, 0x9b, 0x58, 0xbc, 0x18, 0x7e, 0xbc, 0xea, 0x0c, 0x0c, 0x24, 0xd4, 0xbd, 0x70, 0xa6,
-	0xd3, 0xef, 0xb8, 0xe7, 0x93, 0x60, 0x12, 0xb0, 0x1f, 0x9b, 0xff, 0x68, 0xc1, 0xbd, 0xb2, 0x1f,
-	0x0d, 0xc4, 0x8b, 0x1b, 0xce, 0x08, 0x73, 0xa6, 0xb6, 0x6c, 0x17, 0xb2, 0x18, 0x41, 0x90, 0x46,
-	0xa2, 0x67, 0x3c, 0x87, 0xbe, 0x0a, 0x93, 0x4d, 0x31, 0x13, 0x9e, 0xf5, 0x8f, 0xee, 0xe4, 0xc5,
-	0x24, 0xf7, 0x2c, 0x70, 0xd3, 0xee, 0xcd, 0xcc, 0x10, 0x3e, 0x2d, 0x99, 0xce, 0x9b, 0xa0, 0x4a,
-	0xc3, 0x10, 0xd6, 0xd5, 0x51, 0x65, 0x7e, 0xba, 0x44, 0x0f, 0xb3, 0x17, 0x89, 0xcd, 0xbb, 0x27,
-	0xef, 0x6c, 0x3c, 0x54, 0x37, 0x5c, 0x4d, 0x46, 0x55, 0x4e, 0xcc, 0x7f, 0xb6, 0xc0, 0xa8, 0x52,
-	0xf8, 0x7f, 0x89, 0xd7, 0x53, 0xd8, 0xe0, 0xd6, 0x6b, 0xc1, 0x1a, 0x68, 0xc1, 0x72, 0x52, 0xe3,
-	0xac, 0x75, 0x7e, 0x8a, 0x47, 0xeb, 0x18, 0x3e, 0x19, 0x33, 0x12, 0x5d, 0xab, 0x58, 0xcf, 0x49,
-	0xec, 0xa6, 0x46, 0xcb, 0x85, 0xe9, 0x00, 0xd2, 0xc5, 0x34, 0x71, 0xb7, 0x9e, 0x71, 0x15, 0x4e,
-	0xcc, 0x56, 0x36, 0x95, 0xdf, 0xf8, 0x02, 0x47, 0x13, 0x56, 0x3d, 0x87, 0xbb, 0xaf, 0xf1, 0x14,
-	0xb3, 0xd5, 0xaf, 0xbb, 0xe9, 0xc2, 0xa0, 0xc8, 0xd2, 0x84, 0x5d, 0x07, 0x00, 0x53, 0xec, 0x50,
-	0xbc, 0xdc, 0x9c, 0xdf, 0x40, 0x5f, 0x9c, 0x6c, 0xc2, 0x8a, 0xbf, 0xb5, 0x60, 0xf0, 0xd2, 0xf3,
-	0xae, 0x73, 0x0f, 0x77, 0x01, 0x44, 0x05, 0xcb, 0x0a, 0x97, 0x9a, 0x36, 0x39, 0x45, 0x16, 0xf8,
-	0x0e, 0x88, 0x85, 0xad, 0x5d, 0x43, 0x51, 0xf1, 0x16, 0x6f, 0x8f, 0xe9, 0x66, 0xe8, 0x04, 0x12,
-	0x31, 0xa9, 0xcd, 0xaf, 0x9c, 0x40, 0xdc, 0x9d, 0x28, 0xf6, 0x67, 0x0e, 0xc3, 0xb6, 0x1f, 0xd1,
-	0xb4, 0x49, 0x2a, 0xd2, 0x49, 0x44, 0x4d, 0x0f, 0xb6, 0x4a, 0xb6, 0x36, 0x11, 0x12, 0x1b, 0xb6,
-	0x0b, 0xd9, 0x5f, 0x29, 0x28, 0x03, 0xe8, 0xea, 0x4d, 0x49, 0x2e, 0xf2, 0xab, 0xd8, 0xd6, 0xaf,
-	0xe2, 0x04, 0x86, 0xf3, 0x0a, 0x9a, 0xf0, 0xe4, 0x2f, 0x2d, 0x40, 0x16, 0xe6, 0x78, 0xa4, 0xf0,
-	0x1e, 0xae, 0xf7, 0xa2, 0x90, 0xbb, 0xb5, 0x52, 0xee, 0x14, 0x3a, 0x6c, 0x57, 0xa1, 0xc3, 0x4e,
-	0x01, 0x1d, 0xee, 0xc3, 0x0d, 0xca, 0x48, 0xec, 0x4c, 0xb0, 0x2d, 0x80, 0x91, 0xc4, 0x8e, 0x7d,
-	0x45, 0x1b, 0xfb, 0x1f, 0x30, 0xbf, 0xf9, 0x05, 0xcb, 0x9a, 0x70, 0xff, 0xaa, 0x05, 0xdb, 0xa3,
-	0xf7, 0x4e, 0x38, 0x49, 0x95, 0xbc, 0xe3, 0x80, 0x7d, 0x85, 0x4c, 0x4a, 0x94, 0xbf, 0xa6, 0xa3,
-	0xfc, 0xaf, 0x8b, 0xb5, 0xd9, 0x16, 0x9d, 0xfb, 0x59, 0xde, 0xb9, 0xab, 0xd5, 0x1c, 0x9e, 0x66,
-	0xc5, 0x7b, 0x1c, 0xb2, 0xf8, 0x52, 0xaf, 0x66, 0xae, 0x88, 0xc7, 0x99, 0xa6, 0x48, 0x41, 0x2c,
-	0x8c, 0x9f, 0xc2, 0xed, 0x12, 0x13, 0x0f, 0xfc, 0x05, 0xbe, 0x4c, 0xf1, 0xd5, 0x05, 0xbe, 0x14,
-	0x36, 0x3a, 0xd3, 0x24, 0xc3, 0x23, 0x62, 0xf1, 0x62, 0xed, 0x87, 0x2d, 0x5e, 0x5b, 0xf3, 0xb6,
-	0x34, 0x11, 0xdc, 0x23, 0x18, 0x8c, 0x13, 0x1a, 0xe1, 0xd0, 0x5b, 0xbd, 0xaf, 0x7a, 0xb0, 0x55,
-	0xe2, 0x69, 0xc2, 0xb2, 0x7f, 0xb7, 0x60, 0xf7, 0x6d, 0xe4, 0xe5, 0x38, 0xf2, 0x38, 0x9c, 0xf9,
-	0x31, 0x09, 0x03, 0x1c, 0xae, 0x92, 0x7c, 0x99, 0x93, 0x35, 0x2d, 0x27, 0xe8, 0x25, 0xb4, 0x71,
-	0x38, 0x53, 0x49, 0x7f, 0x9a, 0x25, 0x7d, 0xa1, 0x92, 0xc3, 0xe3, 0x70, 0x26, 0x73, 0xce, 0x79,
-	0x8d, 0x1f, 0xc0, 0x46, 0x4a, 0xb8, 0x56, 0x3e, 0x03, 0x78, 0x50, 0xa7, 0xa6, 0x89, 0xd8, 0x85,
-	0x70, 0xff, 0x4b, 0xe2, 0xf9, 0xe7, 0x97, 0x4a, 0xdd, 0x4b, 0xc6, 0x62, 0xff, 0x2c, 0x61, 0xcb,
-	0x1b, 0x20, 0x82, 0x8e, 0x68, 0xea, 0xd2, 0x03, 0xf1, 0x8c, 0xf6, 0xa0, 0xef, 0x09, 0xdc, 0x15,
-	0x09, 0xfb, 0xa4, 0x2e, 0x9d, 0x64, 0x4e, 0x61, 0xb7, 0x46, 0x5f, 0x13, 0xde, 0x51, 0xd8, 0x2b,
-	0x68, 0xe3, 0x8d, 0x77, 0x75, 0x0f, 0xf7, 0xe1, 0x86, 0x8e, 0x3f, 0x95, 0xa7, 0x7d, 0x0d, 0x7e,
-	0x66, 0x41, 0x68, 0xe7, 0x41, 0x30, 0x23, 0xd8, 0x5f, 0xa0, 0xb4, 0x09, 0x37, 0xbf, 0x0b, 0x5b,
-	0x5f, 0xe0, 0x0c, 0x53, 0x8d, 0x99, 0xc3, 0x94, 0x6f, 0x03, 0xe8, 0xf2, 0xd1, 0x35, 0xbd, 0x98,
-	0x72, 0x61, 0x62, 0xb8, 0x57, 0x3e, 0xde, 0x84, 0x55, 0x7f, 0x6d, 0xcd, 0xc1, 0xfe, 0xb7, 0x34,
-	0x6b, 0x1b, 0x95, 0xa6, 0xf1, 0x78, 0x3a, 0x51, 0x94, 0xde, 0x46, 0xf1, 0xcc, 0xd3, 0xa0, 0x8d,
-	0x52, 0xb2, 0x15, 0x6f, 0x5a, 0xfd, 0x7c, 0x96, 0xa2, 0xf9, 0x30, 0xd5, 0xd1, 0x86, 0x29, 0xf4,
-	0x08, 0x6e, 0x65, 0x93, 0x0a, 0x73, 0x58, 0x92, 0x22, 0x8c, 0x74, 0xaa, 0x18, 0x0b, 0xa2, 0xe9,
-	0xcf, 0x0d, 0x0b, 0xc2, 0xcc, 0x26, 0x42, 0xf2, 0x06, 0x0c, 0x0b, 0x53, 0x0d, 0x00, 0xab, 0xd1,
-	0x7e, 0x85, 0xbb, 0xa6, 0xbd, 0xa1, 0xe5, 0x90, 0xf3, 0x5b, 0xd8, 0xa9, 0x94, 0xd5, 0x84, 0xdd,
-	0x63, 0x18, 0xbc, 0x8d, 0x26, 0xb1, 0xe3, 0x5d, 0x63, 0x84, 0x5e, 0xf6, 0x75, 0x8d, 0xbf, 0x1c,
-	0x4a, 0x42, 0x9b, 0x30, 0xfd, 0x18, 0x9e, 0xbc, 0x4c, 0xd8, 0x7b, 0x12, 0xe7, 0xd0, 0x83, 0xbe,
-	0x8a, 0xc9, 0x05, 0x8e, 0x7f, 0x4d, 0x5e, 0xe3, 0x19, 0x9e, 0x92, 0x28, 0x85, 0x49, 0x8b, 0xde,
-	0x64, 0xbf, 0x87, 0x83, 0xe5, 0x62, 0x9a, 0xb0, 0xff, 0x35, 0x3c, 0xb6, 0xf0, 0x8c, 0x5c, 0x94,
-	0xb4, 0xfe, 0x22, 0x26, 0xc1, 0x35, 0xcc, 0x9f, 0xc1, 0x93, 0xa5, 0x52, 0x1a, 0xb0, 0xfe, 0xe8,
-	0xef, 0xb7, 0xe1, 0x56, 0xb1, 0x3c, 0xd1, 0x1b, 0xb8, 0x59, 0xf8, 0xe8, 0x83, 0x76, 0x16, 0x7c,
-	0x88, 0x32, 0xee, 0x57, 0x6f, 0x2a, 0x5b, 0xc7, 0x70, 0xa7, 0xfc, 0x4d, 0x04, 0x3d, 0xc8, 0x38,
-	0x2a, 0x3f, 0xfb, 0x18, 0x9f, 0xd5, 0xee, 0x2b, 0xa1, 0x36, 0x1f, 0x06, 0xe7, 0x3f, 0x1e, 0x20,
-	0xb3, 0x8e, 0x31, 0x9f, 0x17, 0x8c, 0x87, 0x0b, 0xcf, 0x28, 0x05, 0x5f, 0xc0, 0x0d, 0x7d, 0x32,
-	0x47, 0x46, 0xc6, 0x34, 0x37, 0xf7, 0x1b, 0x3b, 0x95, 0x7b, 0x4a, 0xd0, 0x1b, 0xb8, 0x59, 0x98,
-	0xa6, 0x91, 0x7e, 0xba, 0x3c, 0x97, 0x6b, 0xa1, 0xac, 0x1a, 0xc1, 0xbf, 0x84, 0x5b, 0xc5, 0x11,
-	0x18, 0xdd, 0xd7, 0x7c, 0x99, 0x1b, 0xa7, 0x8d, 0xdd, 0x9a, 0x5d, 0x25, 0xee, 0x08, 0xba, 0x62,
-	0x84, 0x45, 0x77, 0xb3, 0x73, 0xf9, 0xf0, 0x6b, 0x0c, 0x8a, 0x44, 0xc5, 0x73, 0x0a, 0xb7, 0x4b,
-	0xd3, 0x1e, 0xca, 0xb5, 0x54, 0xcd, 0xac, 0xc6, 0x83, 0xba, 0x6d, 0x25, 0xf1, 0x1b, 0x40, 0xf3,
-	0x83, 0x17, 0xda, 0xab, 0x36, 0x5d, 0x93, 0xbb, 0xbf, 0xe0, 0x44, 0x1e, 0xfb, 0xc2, 0x3c, 0xa3,
-	0xc5, 0x7e, 0x7e, 0x02, 0xd3, 0x62, 0x5f, 0x35, 0x04, 0x7d, 0x03, 0x68, 0x1e, 0xc3, 0x6b, 0x66,
-	0xd6, 0x0c, 0x1b, 0x9a, 0x99, 0xb5, 0x23, 0xc0, 0x29, 0xdc, 0x2e, 0x21, 0x70, 0x2d, 0xa6, 0x55,
-	0x78, 0x5e, 0x8b, 0x69, 0x35, 0x74, 0xbf, 0x80, 0x61, 0x1d, 0x40, 0x45, 0x8f, 0x57, 0x83, 0xca,
-	0xc6, 0x93, 0xa5, 0xe7, 0x94, 0xb2, 0xf7, 0xb0, 0x5d, 0x03, 0x17, 0x51, 0xfe, 0xc7, 0xcb, 0x22,
-	0x00, 0x6b, 0x3c, 0x5e, 0x76, 0x4c, 0x69, 0x62, 0xb0, 0xb3, 0x00, 0xb5, 0xa1, 0x6f, 0x57, 0x8b,
-	0xa9, 0x00, 0x94, 0xc6, 0xe7, 0xab, 0x1c, 0xcd, 0x1b, 0x58, 0x19, 0x8a, 0x69, 0x0d, 0xac, 0x12,
-	0xd4, 0x69, 0x0d, 0xac, 0x06, 0xc5, 0xcd, 0x37, 0x30, 0x01, 0x68, 0xea, 0x1b, 0x58, 0x0e, 0xcb,
-	0xea, 0x1b, 0x98, 0x8e, 0x89, 0xce, 0x60, 0xab, 0x12, 0x7a, 0xa0, 0x87, 0x7a, 0x99, 0xd7, 0xc0,
-	0x1c, 0xe3, 0x5b, 0x8b, 0x0f, 0xe5, 0x85, 0x5b, 0x42, 0x07, 0x5a, 0xe1, 0x56, 0x81, 0x11, 0xad,
-	0x70, 0xab, 0x61, 0xc5, 0x9f, 0x5b, 0x60, 0x2e, 0x7f, 0x87, 0xa3, 0x7c, 0xc6, 0x5f, 0x11, 0x37,
-	0x18, 0xcf, 0xaf, 0xc1, 0xa1, 0x6c, 0xf9, 0x63, 0x0b, 0xf6, 0x97, 0xbe, 0x90, 0xd1, 0x53, 0x2d,
-	0x52, 0xab, 0x40, 0x00, 0xe3, 0xd9, 0xea, 0x0c, 0xd2, 0x10, 0x63, 0xfb, 0xe3, 0x55, 0xe7, 0x2e,
-	0xfa, 0xe4, 0x6b, 0x3f, 0x9c, 0x8c, 0xa6, 0x24, 0xf1, 0xd2, 0xef, 0xf7, 0x67, 0x3d, 0xf1, 0x37,
-	0xec, 0xf7, 0xfe, 0x17, 0x00, 0x00, 0xff, 0xff, 0x82, 0x14, 0xf3, 0x9e, 0xcc, 0x1d, 0x00, 0x00,
+	// 1930 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x59, 0x5b, 0x6f, 0xdb, 0xc8,
+	0x15, 0x06, 0x6d, 0xc9, 0x97, 0xa3, 0xdc, 0x76, 0x22, 0x27, 0x5a, 0x3a, 0xce, 0xca, 0x4a, 0x93,
+	0xa8, 0x8b, 0x5a, 0x4a, 0x8c, 0xa2, 0x68, 0xdd, 0x1b, 0x1c, 0xc5, 0xdd, 0x3a, 0xc0, 0x6e, 0xbd,
+	0x74, 0x13, 0x60, 0xfb, 0x42, 0xd0, 0xe4, 0x58, 0x61, 0x4d, 0x72, 0x58, 0xce, 0x50, 0x5d, 0xe5,
+	0xb1, 0x0f, 0x0d, 0x9a, 0x5f, 0xd0, 0x3f, 0x50, 0xa0, 0xe8, 0x3f, 0x28, 0xfa, 0xdc, 0x97, 0xfe,
+	0x99, 0x22, 0xcf, 0x7d, 0x29, 0xe6, 0x42, 0x71, 0x24, 0x91, 0x92, 0xfc, 0x40, 0xec, 0x8b, 0x31,
+	0x73, 0x66, 0xce, 0x9c, 0xfb, 0xe1, 0x77, 0x64, 0xb8, 0xe9, 0x06, 0x29, 0x65, 0x38, 0xe9, 0xc5,
+	0x09, 0x61, 0x04, 0x6d, 0x52, 0x9c, 0x8c, 0x7c, 0x17, 0x9b, 0x0d, 0x36, 0x8e, 0x31, 0x95, 0x54,
+	0x73, 0xef, 0x0f, 0x7e, 0x34, 0x74, 0x03, 0x92, 0x7a, 0x36, 0xf5, 0xae, 0xec, 0x24, 0x0d, 0x70,
+	0x9f, 0xff, 0x91, 0xc7, 0x9d, 0x1e, 0xb4, 0x06, 0xf2, 0x95, 0x73, 0xc9, 0x7d, 0x96, 0x90, 0x18,
+	0x27, 0xcc, 0xc7, 0x14, 0x21, 0xa8, 0xbd, 0x23, 0x11, 0x6e, 0x19, 0xed, 0xb5, 0xee, 0xb6, 0x25,
+	0xd6, 0x9d, 0xff, 0x6d, 0xc0, 0xfd, 0x41, 0x82, 0x1d, 0x86, 0x15, 0xdb, 0x69, 0x14, 0xa7, 0xcc,
+	0x1e, 0x90, 0xe8, 0x12, 0xed, 0xc0, 0x86, 0x13, 0xc7, 0xb6, 0xef, 0x29, 0x8e, 0xba, 0x13, 0xc7,
+	0xa7, 0x1e, 0xfa, 0x0c, 0x1a, 0x9c, 0x3c, 0xc2, 0x09, 0xf5, 0x49, 0xd4, 0x5a, 0x13, 0x67, 0xe0,
+	0xc4, 0xf1, 0x1b, 0x49, 0x41, 0x4d, 0xa8, 0x8f, 0xbe, 0x8d, 0x30, 0x6b, 0xad, 0x4b, 0x36, 0xb1,
+	0x41, 0x3f, 0x81, 0x5a, 0x44, 0x3c, 0xdc, 0xaa, 0xb5, 0xd7, 0xba, 0x8d, 0xc3, 0xc7, 0x3d, 0x65,
+	0x5d, 0xaf, 0x44, 0x7a, 0xef, 0x2b, 0xe2, 0x61, 0x4b, 0xb0, 0x98, 0xff, 0x5d, 0x83, 0x1a, 0xdf,
+	0xa2, 0x5f, 0xc3, 0xb6, 0x4b, 0x22, 0xe6, 0xf8, 0x11, 0x4e, 0x84, 0x52, 0x8d, 0xc3, 0xcf, 0x97,
+	0x3e, 0x34, 0xc8, 0x38, 0xac, 0x9c, 0x19, 0x3d, 0x86, 0x5b, 0x7e, 0x44, 0x99, 0x13, 0xb9, 0xd8,
+	0x76, 0x03, 0x87, 0x52, 0x61, 0x47, 0xdd, 0xba, 0x99, 0x51, 0x07, 0x9c, 0xc8, 0x4d, 0x71, 0x49,
+	0x1a, 0x49, 0x53, 0xea, 0x96, 0xdc, 0xa0, 0x3b, 0xb0, 0xee, 0xc6, 0xa9, 0xb0, 0xa4, 0x6e, 0xf1,
+	0x25, 0xba, 0x07, 0x1b, 0x21, 0x0e, 0x49, 0x32, 0x6e, 0xd5, 0x05, 0x51, 0xed, 0xd0, 0x2f, 0x61,
+	0x63, 0x44, 0x82, 0x34, 0xc4, 0xad, 0x8d, 0xb6, 0xd1, 0x6d, 0x1c, 0x3e, 0x5d, 0xaa, 0xed, 0x1b,
+	0x71, 0xdd, 0x52, 0x6c, 0xe8, 0x39, 0xec, 0x70, 0x0e, 0x9c, 0xd8, 0xbe, 0x67, 0xa7, 0x71, 0x8c,
+	0x13, 0xfb, 0x82, 0xa4, 0x91, 0xd7, 0xda, 0x6c, 0x1b, 0xdd, 0xba, 0x85, 0xe4, 0xe1, 0xa9, 0xf7,
+	0x9a, 0x1f, 0xbd, 0xe0, 0x27, 0xe8, 0x05, 0x64, 0x99, 0xd3, 0xda, 0x12, 0x2e, 0xea, 0x2e, 0x15,
+	0xaa, 0x72, 0xc5, 0x9a, 0xa4, 0xdc, 0x29, 0x6c, 0x4f, 0xdc, 0xc6, 0xf3, 0x86, 0x67, 0x60, 0x96,
+	0x37, 0x7c, 0xcd, 0x1d, 0xe3, 0x87, 0xce, 0x10, 0xab, 0xf0, 0xcb, 0xcd, 0x24, 0xc3, 0xd6, 0xdb,
+	0x46, 0x96, 0x61, 0x26, 0x85, 0x0d, 0x69, 0x13, 0x3f, 0xa5, 0xfe, 0x3b, 0xf9, 0x4e, 0xdd, 0x12,
+	0x6b, 0x9e, 0x4c, 0x21, 0xf7, 0xa9, 0x1d, 0x13, 0x3f, 0x62, 0x59, 0x32, 0x09, 0xd2, 0x19, 0xa7,
+	0xa0, 0x87, 0x00, 0x97, 0x7e, 0x80, 0xe9, 0x98, 0x32, 0x1c, 0xaa, 0x8c, 0xd2, 0x28, 0x22, 0x42,
+	0x22, 0x7e, 0x35, 0x15, 0x21, 0xbe, 0x31, 0xdf, 0x1b, 0xb0, 0xa9, 0x8c, 0x42, 0xbf, 0x80, 0x3a,
+	0x65, 0x4e, 0xc2, 0x54, 0xc2, 0x74, 0x57, 0x48, 0x98, 0x30, 0x74, 0x22, 0xcf, 0x92, 0x6c, 0xe8,
+	0x67, 0x50, 0xa3, 0x8c, 0xc4, 0x42, 0xb7, 0xeb, 0xb0, 0x0b, 0x2e, 0x73, 0x17, 0x36, 0x15, 0x41,
+	0xa4, 0x4d, 0x98, 0x15, 0x13, 0x5f, 0x76, 0x7e, 0x08, 0x68, 0xfe, 0x15, 0xee, 0x27, 0x97, 0x44,
+	0x97, 0x99, 0xbf, 0xf9, 0xfa, 0x08, 0x3e, 0x7c, 0xac, 0x6d, 0x48, 0x7a, 0xe7, 0x02, 0xee, 0x4e,
+	0x71, 0xfd, 0x26, 0x65, 0x9c, 0xed, 0x1e, 0x6c, 0x38, 0x2e, 0xe3, 0x25, 0x29, 0x19, 0xd5, 0x0e,
+	0x7d, 0x0a, 0x5b, 0x09, 0x66, 0xb6, 0xcb, 0x8b, 0x4f, 0x26, 0xf9, 0x66, 0x82, 0xd9, 0x80, 0xd7,
+	0x53, 0x0b, 0x36, 0x43, 0x4c, 0x29, 0x8f, 0xa3, 0x0c, 0x59, 0xb6, 0xed, 0xfc, 0xdb, 0x80, 0x9d,
+	0x97, 0x98, 0xba, 0x89, 0x7f, 0x91, 0x89, 0xa1, 0x52, 0x3b, 0x13, 0xb6, 0x54, 0x9f, 0xa2, 0x2d,
+	0xa3, 0xbd, 0xde, 0xdd, 0xb6, 0x26, 0x7b, 0x1e, 0x0c, 0xea, 0x92, 0x78, 0x92, 0x15, 0x62, 0xc3,
+	0xed, 0x49, 0x48, 0x30, 0xc9, 0x0a, 0xbe, 0xd6, 0x7a, 0x4b, 0x4d, 0xbc, 0x51, 0xdc, 0x5b, 0xea,
+	0xe2, 0x6c, 0xa6, 0xb7, 0xa4, 0x94, 0x8b, 0xde, 0x90, 0x6c, 0x62, 0x73, 0xd4, 0xfa, 0xf0, 0xb1,
+	0xd6, 0x34, 0x91, 0x10, 0x77, 0xe4, 0x04, 0xc1, 0x0f, 0xdc, 0xcb, 0x61, 0x38, 0x0c, 0xd9, 0x4f,
+	0x3b, 0xff, 0x34, 0xe0, 0xde, 0xac, 0x1d, 0x15, 0xf8, 0x8b, 0x2b, 0xce, 0x08, 0x73, 0x02, 0x5b,
+	0xb6, 0x8b, 0x9a, 0xa8, 0x4e, 0x10, 0xa4, 0x81, 0xe8, 0x19, 0xcf, 0xa1, 0xa1, 0xdc, 0x64, 0x53,
+	0xcc, 0x84, 0x65, 0x8d, 0xc3, 0x3b, 0x79, 0x32, 0xc9, 0x33, 0x0b, 0xdc, 0xac, 0x7b, 0xb3, 0x4e,
+	0x04, 0x9f, 0xce, 0xa8, 0xce, 0x9b, 0xa0, 0x0a, 0x43, 0x0b, 0x36, 0xd5, 0x55, 0xa5, 0x7e, 0xb6,
+	0x45, 0x8f, 0x26, 0x1f, 0x12, 0x9b, 0x77, 0x4f, 0xde, 0xd9, 0xb8, 0xab, 0x6e, 0xb8, 0xda, 0x1b,
+	0x45, 0x31, 0xe9, 0xfc, 0xcb, 0x00, 0xb3, 0x48, 0xe0, 0x77, 0xe2, 0xaf, 0x3e, 0x6c, 0x71, 0xed,
+	0x35, 0x67, 0x35, 0x35, 0x67, 0x39, 0x99, 0x72, 0xd6, 0x26, 0xbf, 0xc5, 0xbd, 0x75, 0x02, 0x9f,
+	0x9c, 0x33, 0x12, 0x5f, 0x2b, 0x59, 0x2f, 0x49, 0xe2, 0x72, 0xa5, 0xb9, 0x70, 0xb9, 0xe9, 0x38,
+	0x80, 0xf4, 0x67, 0xaa, 0xa8, 0xad, 0x67, 0x5c, 0x84, 0x93, 0xb0, 0x95, 0x55, 0xe5, 0x15, 0x3f,
+	0xc5, 0x51, 0x85, 0x56, 0xcf, 0xe1, 0xee, 0x4b, 0x1c, 0x60, 0xb6, 0x7a, 0xb9, 0x77, 0x5c, 0x68,
+	0x4e, 0xb3, 0x54, 0xa1, 0x57, 0x17, 0x20, 0xc0, 0x0e, 0xc5, 0xcb, 0xd5, 0xf9, 0x1d, 0x34, 0xc4,
+	0xcd, 0x2a, 0xb4, 0xf8, 0x87, 0x01, 0xcd, 0x63, 0xcf, 0xbb, 0x4e, 0x1d, 0xee, 0x01, 0x88, 0x0c,
+	0x96, 0x19, 0x2e, 0x25, 0x6d, 0x73, 0x8a, 0x4c, 0xf0, 0x5d, 0x10, 0x1b, 0x5b, 0x2b, 0x43, 0x91,
+	0xf1, 0x16, 0x6f, 0x8f, 0xd9, 0x61, 0xe4, 0x84, 0x58, 0x14, 0x87, 0x3a, 0xfc, 0xca, 0x09, 0x45,
+	0xed, 0xc4, 0x89, 0x3f, 0x72, 0x18, 0xb6, 0xfd, 0x98, 0x66, 0x4d, 0x52, 0x91, 0x4e, 0x63, 0xda,
+	0xf1, 0x60, 0x67, 0x46, 0xd7, 0x2a, 0x5c, 0x62, 0xc3, 0xfd, 0xa9, 0xe8, 0x97, 0x39, 0xc5, 0xd0,
+	0x9d, 0xd2, 0x84, 0xba, 0xde, 0x94, 0xe4, 0x26, 0x2f, 0xc5, 0x75, 0xbd, 0x14, 0x87, 0xd0, 0x9a,
+	0x17, 0x50, 0x85, 0x25, 0x7f, 0x35, 0x00, 0x59, 0x98, 0xe3, 0x91, 0xa9, 0xef, 0x70, 0x79, 0x68,
+	0xa7, 0x62, 0xb7, 0x36, 0x13, 0x3b, 0x85, 0x0e, 0xa5, 0x29, 0x33, 0xe8, 0x50, 0xf6, 0xb9, 0x0c,
+	0x1d, 0xee, 0xc3, 0x0d, 0xca, 0x48, 0xe2, 0x0c, 0xb1, 0x2d, 0x80, 0x51, 0x5d, 0x9c, 0x36, 0x14,
+	0xed, 0xdc, 0x7f, 0x87, 0x79, 0xe5, 0x4f, 0x69, 0x56, 0x85, 0xf9, 0x1f, 0x0d, 0xb8, 0x3f, 0x78,
+	0xeb, 0x44, 0xc3, 0x4c, 0xc8, 0x1b, 0x0e, 0xd8, 0x97, 0xf9, 0x60, 0x82, 0xf2, 0xd7, 0x74, 0x94,
+	0xff, 0xf5, 0x74, 0x6e, 0xae, 0x8b, 0xce, 0xfd, 0x2c, 0xef, 0xdc, 0xc5, 0x62, 0x7a, 0x67, 0x93,
+	0xe4, 0x3d, 0x89, 0x58, 0x32, 0xd6, 0xb3, 0x99, 0x0b, 0xe2, 0x7e, 0xa6, 0x19, 0x52, 0x10, 0x1b,
+	0xf3, 0xe7, 0x70, 0x7b, 0x86, 0x89, 0x3b, 0xfe, 0x0a, 0x8f, 0x55, 0xc6, 0xf1, 0xa5, 0xd0, 0xd1,
+	0x09, 0xd2, 0x2c, 0x46, 0x72, 0x73, 0xb4, 0xf6, 0x63, 0x83, 0xe7, 0xd6, 0xbc, 0x2e, 0x55, 0x38,
+	0xf7, 0x10, 0x9a, 0xe7, 0x29, 0x8d, 0x71, 0xe4, 0xad, 0xde, 0x57, 0x3d, 0xd8, 0x99, 0xe1, 0xa9,
+	0x42, 0xb3, 0xff, 0x18, 0xb0, 0xf7, 0x3a, 0xf6, 0x72, 0x1c, 0x79, 0x12, 0x8d, 0xfc, 0x84, 0x44,
+	0x21, 0x8e, 0x56, 0x09, 0xbe, 0x8c, 0xc9, 0x9a, 0x16, 0x13, 0x74, 0x0c, 0xeb, 0x38, 0x1a, 0xa9,
+	0xa0, 0xf7, 0x27, 0x41, 0x5f, 0x28, 0xa4, 0x77, 0x12, 0x8d, 0x64, 0xcc, 0x39, 0xaf, 0xf9, 0x23,
+	0xd8, 0xca, 0x08, 0xd7, 0x8a, 0x67, 0x08, 0x0f, 0xcb, 0xc4, 0x54, 0xe1, 0xbb, 0x08, 0x1e, 0x7c,
+	0x49, 0x3c, 0xff, 0x72, 0xac, 0xc4, 0x1d, 0x33, 0x96, 0xf8, 0x17, 0x29, 0x5b, 0xfe, 0x55, 0x40,
+	0x50, 0x13, 0x4d, 0x5d, 0x5a, 0x20, 0xd6, 0xa8, 0x0d, 0x0d, 0x4f, 0xe0, 0xae, 0x58, 0xe8, 0x27,
+	0x65, 0xe9, 0xa4, 0x4e, 0x00, 0x7b, 0x25, 0xf2, 0xaa, 0xb0, 0x8e, 0x42, 0x7b, 0x4a, 0x1a, 0x6f,
+	0xbc, 0xab, 0x5b, 0xb8, 0x0f, 0x37, 0x74, 0xfc, 0xa9, 0xfa, 0x43, 0x43, 0x83, 0x9f, 0x13, 0x27,
+	0xac, 0xe7, 0x4e, 0xe8, 0xc4, 0xb0, 0xbf, 0x40, 0x68, 0x15, 0x66, 0x1e, 0xc0, 0xce, 0x17, 0x78,
+	0x82, 0xa9, 0xce, 0x99, 0xc3, 0x94, 0x6d, 0x4d, 0xa8, 0xf3, 0xd1, 0x35, 0x2b, 0x4c, 0xb9, 0xe9,
+	0x60, 0xb8, 0x37, 0x7b, 0xbd, 0x0a, 0xad, 0xfe, 0x66, 0xcc, 0xc1, 0xfe, 0xd7, 0x74, 0xd2, 0x36,
+	0x0a, 0x55, 0xe3, 0xfe, 0x74, 0xe2, 0x38, 0xab, 0x46, 0xb1, 0xe6, 0x61, 0xd0, 0x46, 0x29, 0xd9,
+	0x8a, 0xb7, 0xad, 0x46, 0x3e, 0x4b, 0xd1, 0x7c, 0x98, 0xaa, 0x69, 0xc3, 0x14, 0x7a, 0x0c, 0xb7,
+	0x26, 0x93, 0x0a, 0x73, 0x58, 0x9a, 0x21, 0x8c, 0x6c, 0xaa, 0x38, 0x17, 0xc4, 0x8e, 0x3f, 0x37,
+	0x2c, 0x08, 0x35, 0xab, 0x70, 0xc9, 0x2b, 0x30, 0x2d, 0x4c, 0x35, 0x00, 0xac, 0x46, 0xfb, 0x15,
+	0x6a, 0x4d, 0xfb, 0x42, 0xcb, 0x21, 0xe7, 0xf7, 0xb0, 0x5b, 0xf8, 0x56, 0x15, 0x7a, 0x9f, 0x43,
+	0xf3, 0x75, 0x3c, 0x4c, 0x1c, 0xef, 0x1a, 0x23, 0xf4, 0xb2, 0x5f, 0xd7, 0xf8, 0xc7, 0x61, 0xe6,
+	0xd1, 0x2a, 0x54, 0x3f, 0x81, 0xa7, 0xc7, 0x29, 0x7b, 0x4b, 0x92, 0x1c, 0x7a, 0xd0, 0x17, 0x09,
+	0xb9, 0xc2, 0xc9, 0x6f, 0xc9, 0x4b, 0x3c, 0xc2, 0x01, 0x89, 0x33, 0x98, 0xb4, 0xe8, 0x4b, 0xf6,
+	0x47, 0xe8, 0x2e, 0x7f, 0xa6, 0x0a, 0xfd, 0x5f, 0xc2, 0x13, 0x0b, 0x8f, 0xc8, 0xd5, 0x8c, 0xd4,
+	0x5f, 0x25, 0x24, 0xbc, 0x86, 0xfa, 0x23, 0x78, 0xba, 0xf4, 0x95, 0x0a, 0xb4, 0x3f, 0xfc, 0xfb,
+	0x1d, 0xb8, 0x35, 0x9d, 0x9e, 0xe8, 0x15, 0xdc, 0x9c, 0xfa, 0xd1, 0x07, 0xed, 0x2e, 0xf8, 0x21,
+	0xca, 0x7c, 0x50, 0x7c, 0xa8, 0x74, 0x3d, 0x87, 0x3b, 0xb3, 0xbf, 0x89, 0xa0, 0x87, 0x13, 0x8e,
+	0xc2, 0x9f, 0x7d, 0xcc, 0xcf, 0x4a, 0xcf, 0xd5, 0xa3, 0x36, 0x1f, 0x06, 0xe7, 0x7f, 0x3c, 0x40,
+	0x9d, 0x32, 0xc6, 0x7c, 0x5e, 0x30, 0x1f, 0x2d, 0xbc, 0xa3, 0x04, 0x7c, 0x01, 0x37, 0xf4, 0xc9,
+	0x1c, 0x99, 0x13, 0xa6, 0xb9, 0xb9, 0xdf, 0xdc, 0x2d, 0x3c, 0x53, 0x0f, 0xbd, 0x82, 0x9b, 0x53,
+	0xd3, 0x34, 0xd2, 0x6f, 0xcf, 0xce, 0xe5, 0x9a, 0x2b, 0x8b, 0x46, 0xf0, 0x2f, 0xe1, 0xd6, 0xf4,
+	0x08, 0x8c, 0x1e, 0x68, 0xb6, 0xcc, 0x8d, 0xd3, 0xe6, 0x5e, 0xc9, 0xa9, 0x7a, 0xee, 0x10, 0xea,
+	0x62, 0x84, 0x45, 0x77, 0x27, 0xf7, 0xf2, 0xe1, 0xd7, 0x6c, 0x4e, 0x13, 0x15, 0xcf, 0x19, 0xdc,
+	0x9e, 0x99, 0xf6, 0x50, 0x2e, 0xa5, 0x68, 0x66, 0x35, 0x1f, 0x96, 0x1d, 0xab, 0x17, 0xbf, 0x01,
+	0x34, 0x3f, 0x78, 0xa1, 0x76, 0xb1, 0xea, 0xda, 0xbb, 0xfb, 0x0b, 0x6e, 0xe4, 0xbe, 0x9f, 0x9a,
+	0x67, 0x34, 0xdf, 0xcf, 0x4f, 0x60, 0x9a, 0xef, 0x8b, 0x86, 0xa0, 0x6f, 0x00, 0xcd, 0x63, 0x78,
+	0x4d, 0xcd, 0x92, 0x61, 0x43, 0x53, 0xb3, 0x74, 0x04, 0x38, 0x83, 0xdb, 0x33, 0x08, 0x5c, 0xf3,
+	0x69, 0x11, 0x9e, 0xd7, 0x7c, 0x5a, 0x0c, 0xdd, 0xaf, 0xa0, 0x55, 0x06, 0x50, 0xd1, 0x93, 0xd5,
+	0xa0, 0xb2, 0xf9, 0x74, 0xe9, 0x3d, 0x25, 0xec, 0x2d, 0xdc, 0x2f, 0x81, 0x8b, 0x28, 0xff, 0xc7,
+	0xcb, 0x22, 0x00, 0x6b, 0x3e, 0x59, 0x76, 0x4d, 0x49, 0x62, 0xb0, 0xbb, 0x00, 0xb5, 0xa1, 0xef,
+	0x17, 0x3f, 0x53, 0x00, 0x28, 0xcd, 0xcf, 0x57, 0xb9, 0x9a, 0x37, 0xb0, 0x59, 0x28, 0xa6, 0x35,
+	0xb0, 0x42, 0x50, 0xa7, 0x35, 0xb0, 0x12, 0x14, 0x37, 0xdf, 0xc0, 0x04, 0xa0, 0x29, 0x6f, 0x60,
+	0x39, 0x2c, 0x2b, 0x6f, 0x60, 0x3a, 0x26, 0xba, 0x80, 0x9d, 0x42, 0xe8, 0x81, 0x1e, 0xe9, 0x69,
+	0x5e, 0x02, 0x73, 0xcc, 0xef, 0x2d, 0xbe, 0x94, 0x27, 0xee, 0x0c, 0x3a, 0xd0, 0x12, 0xb7, 0x08,
+	0x8c, 0x68, 0x89, 0x5b, 0x0c, 0x2b, 0xfe, 0x62, 0x40, 0x67, 0xf9, 0x37, 0x1c, 0xe5, 0x33, 0xfe,
+	0x8a, 0xb8, 0xc1, 0x7c, 0x7e, 0x0d, 0x0e, 0xa5, 0xcb, 0x9f, 0x0d, 0xd8, 0x5f, 0xfa, 0x41, 0x46,
+	0x7d, 0xcd, 0x53, 0xab, 0x40, 0x00, 0xf3, 0xd9, 0xea, 0x0c, 0x52, 0x11, 0xf3, 0xbd, 0xf1, 0xe1,
+	0x63, 0xed, 0x4f, 0x06, 0x84, 0x6f, 0x19, 0x8b, 0xe9, 0x51, 0xbf, 0x3f, 0xf4, 0x59, 0xcf, 0x8f,
+	0x18, 0x4e, 0x22, 0x27, 0xe8, 0x8d, 0xd3, 0xc8, 0xbf, 0x1c, 0xf7, 0x5c, 0x12, 0xf6, 0x13, 0x67,
+	0xdc, 0x8f, 0x7d, 0x96, 0xf8, 0xdf, 0x1e, 0x38, 0x71, 0xec, 0x62, 0x7e, 0xe5, 0xc0, 0x23, 0x2e,
+	0xed, 0x5f, 0x04, 0xe4, 0xa2, 0x1f, 0x8a, 0x1f, 0xb2, 0xfb, 0x19, 0x67, 0x5f, 0x9c, 0x28, 0xf8,
+	0x71, 0x10, 0xf8, 0x97, 0xd8, 0x1d, 0xbb, 0x01, 0x3e, 0x38, 0x3e, 0x3b, 0xa5, 0xbd, 0xd0, 0x43,
+	0x9f, 0x7c, 0xed, 0x47, 0xc3, 0x41, 0x40, 0x52, 0x2f, 0xfb, 0x87, 0xc1, 0xff, 0x03, 0x00, 0x00,
+	0xff, 0xff, 0xf0, 0x99, 0x6e, 0x6b, 0x35, 0x1e, 0x00, 0x00,
 }

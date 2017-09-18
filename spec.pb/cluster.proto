@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -12,12 +12,12 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message ClusterServiceProperties {
-	string zone = 1;
+	required string zone = 1;
 }
 
 service ClusterService {
 	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: ""
+		doc_url: "https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md"
 		service_name: "QingCloud.Cluster"
 	};
 
@@ -84,64 +84,64 @@ conf - 配置文件格式
 }
 */
 message CreateClusterInput_Conf {
-	string app_id = 1;
-	string app_version = 2;
-	string vxnet = 3;
-	Node node = 4;
+	required string app_id = 1;
+	required string app_version = 2;
+	required string vxnet = 3;
+	required Node node = 4;
 
 	message Node {
-		Container container = 1;
-		int32 instance_class = 2;
-		int32 count = 3;
-		int32 cpu = 4;
-		int32 memory = 5;
-		Volume volume = 6;
-		int32 server_id_upper_bound = 7;
-		Service service = 8;
+		required Container container = 1;
+		required int32 instance_class = 2;
+		required int32 count = 3;
+		required int32 cpu = 4;
+		required int32 memory = 5;
+		optional Volume volume = 6;
+		optional int32 server_id_upper_bound = 7;
+		required Service service = 8;
 	}
 
 	message Container {
-		string type = 1;
-		string image = 2;
-		string zone = 3;
+		required string type = 1;
+		required string image = 2;
+		optional string zone = 3;
 	}
 
 	message Volume {
-		int32 size = 1;
-		string mount_point = 2;
-		string filesystem = 3;
-		int32 class = 4;
+		required int32 size = 1;
+		required string mount_point = 2;
+		required string filesystem = 3;
+		required int32 class = 4;
 	}
 
 	message Service {
-		Command start = 1;
-		Command stop = 2;
+		required Command start = 1;
+		required Command stop = 2;
 	}
 
 	message Command {
-		string cmd = 1;
+		required string cmd = 1;
 	}
 }
 
 message CreateClusterInput {
-	string conf = 1; // 配置信息, JSON 字符串
+	required string conf = 1; // 配置信息, JSON 字符串
 
 	option (qingcloud.sdk.rule.message_rule) = {
 		required_fileds: "conf"
 	};
 }
 message CreateClusterOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeClustersInput {
 	repeated string clusters = 1;
-	string scope = 2;
-	string role = 3;
+	required string scope = 2;
+	optional string role = 3;
 	repeated string app_id = 4;
 	repeated string app_version = 5;
 	repeated string users = 6;
@@ -152,27 +152,27 @@ message DescribeClustersInput {
 }
 
 message DescribeClustersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 
-	int32 total_count = 4;
+	optional int32 total_count = 4;
 	repeated Cluster cluster_set = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeClusterNodesInput {
-	string cluster = 1;
+	required string cluster = 1;
 	repeated string cluster_nodes = 2;
-	string role = 3;
+	optional string role = 3;
 }
 message DescribeClusterNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 
-	int32 total_count = 4;
+	optional int32 total_count = 4;
 	repeated ClasterNode node_set = 5;
 }
 
@@ -180,12 +180,12 @@ message DescribeClusterNodesOutput {
 
 message StopClustersInput {
 	repeated string clusters = 1;
-	int32 force = 2;
+	optional int32 force = 2;
 }
 message StopClustersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -194,9 +194,9 @@ message StartClustersInput {
 	repeated string clusters = 1;
 }
 message StartClustersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -205,9 +205,9 @@ message DeleteClustersInput {
 	repeated string clusters = 1;
 }
 message DeleteClustersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -216,66 +216,66 @@ message leaseInput {
 	repeated string clusters = 1;
 }
 message leaseOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message AddClusterNodesInput {
-	string cluster = 1;
-	int32 node_count = 2;
-	string node_role = 3;
-	string node_name = 4;
+	required string cluster = 1;
+	required int32 node_count = 2;
+	optional string node_role = 3;
+	optional string node_name = 4;
 	repeated string private_ips = 5;
 }
 message AddClusterNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message DeleteClusterNodesInput {
-	string cluster = 1;
+	optional string cluster = 1;
 	repeated string nodes = 2;
-	int32 force = 3;
+	optional int32 force = 3;
 }
 message DeleteClusterNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message ResizeClusterInput {
-	string cluster = 1;
-	string node_role = 2;
-	int32 cpu = 3;
-	int32 memory = 4;
-	int32 storage_size = 5;
+	required string cluster = 1;
+	optional string node_role = 2;
+	optional int32 cpu = 3;
+	optional int32 memory = 4;
+	optional int32 storage_size = 5;
 }
 message ResizeClusterOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message ChangeClusterVxnetInput {
-	string cluster = 1;
-	string vxnet = 2;
+	required string cluster = 1;
+	required string vxnet = 2;
 	map<string, string> private_ips = 3;
 	repeated string roles = 4;
 }
 message ChangeClusterVxnetOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -284,48 +284,48 @@ message SuspendClustersInput {
 	repeated string clusters = 1;
 }
 message SuspendClustersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message UpdateClusterEnvironmentInput {
-	string cluster = 1;
+	required string cluster = 1;
 	repeated string roles = 2;
 	map<string, string> env = 3;
 }
 message UpdateClusterEnvironmentOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyClusterAttributesInput {
-	string cluster = 1;
-	string name = 2;
-	string description = 3;
+	required string cluster = 1;
+	optional string name = 2;
+	optional string description = 3;
 }
 message ModifyClusterAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyClusterNodeAttributesInput {
-	string cluster = 1;
-	string cluster_node = 2;
-	string name = 3;
+	required string cluster = 1;
+	required string cluster_node = 2;
+	optional string name = 3;
 }
 message ModifyClusterNodeAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -334,9 +334,9 @@ message GetClustersStatsInput {
 	repeated string zones = 1;
 }
 message GetClustersStatsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -349,33 +349,33 @@ message DescribeClusterUsersInput {
 	repeated string cluster_status = 5;
 }
 message DescribeClusterUsersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message RestartClusterServiceInput {
-	string cluster = 1;
-	string role = 2;
+	required string cluster = 1;
+	optional string role = 2;
 }
 message RestartClusterServiceOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message UpgradeClustersInput {
 	repeated string clusters = 1;
-	string app_version = 2;
+	required string app_version = 2;
 }
 message UpgradeClustersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -384,9 +384,9 @@ message AuthorizeClustersBrokerToDeveloperInput {
 	repeated string clusters = 1;
 }
 message AuthorizeClustersBrokerToDeveloperOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -395,9 +395,9 @@ message RevokeClustersBrokerFromDeveloperInput {
 	repeated string clusters = 1;
 }
 message RevokeClustersBrokerFromDeveloperOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	required string action = 1;
+	required int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------

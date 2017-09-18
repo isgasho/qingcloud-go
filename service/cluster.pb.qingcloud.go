@@ -25,6 +25,7 @@ var _ = logger.SetLevel
 var _ = request.Request{}
 var _ = data.Operation{}
 
+// See https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md
 type ClusterServiceInterface interface {
 	CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error)
 	DescribeClusters(in *DescribeClustersInput) (out *DescribeClustersOutput, err error)
@@ -49,22 +50,25 @@ type ClusterServiceInterface interface {
 	RevokeClustersBrokerFromDeveloper(in *RevokeClustersBrokerFromDeveloperInput) (out *RevokeClustersBrokerFromDeveloperOutput, err error)
 }
 
+// See https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md
 type ClusterService struct {
 	Config           *config.Config
 	Properties       *ClusterServiceProperties
 	LastResponseBody string
 }
 
+// See https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md
 func NewClusterService(conf *config.Config, zone string) (p *ClusterService) {
 	return &ClusterService{
 		Config:     conf,
-		Properties: &ClusterServiceProperties{Zone: zone},
+		Properties: &ClusterServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
+// See https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md
 func (s *QingCloudService) Cluster(zone string) (*ClusterService, error) {
 	properties := &ClusterServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &ClusterService{Config: s.Config, Properties: properties}, nil
@@ -638,10 +642,32 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBro
 }
 
 func (p *ClusterServiceProperties) Validate() error {
+
+	if len(p.GetZone()) == 0 {
+		return fmt.Errorf("ClusterServiceProperties.Zone required field missing!")
+	}
+
 	return nil
 }
 
 func (p *CreateClusterInput_Conf) Validate() error {
+
+	if len(p.GetAppId()) == 0 {
+		return fmt.Errorf("CreateClusterInput_Conf.AppId required field missing!")
+	}
+
+	if len(p.GetAppVersion()) == 0 {
+		return fmt.Errorf("CreateClusterInput_Conf.AppVersion required field missing!")
+	}
+
+	if p.GetNode() == nil {
+		return fmt.Errorf("CreateClusterInput_Conf.Node required field missing!")
+	}
+
+	if len(p.GetVxnet()) == 0 {
+		return fmt.Errorf("CreateClusterInput_Conf.Vxnet required field missing!")
+	}
+
 	return nil
 }
 
@@ -655,10 +681,19 @@ func (p *CreateClusterInput) Validate() error {
 }
 
 func (p *CreateClusterOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("CreateClusterOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *DescribeClustersInput) Validate() error {
+
+	if len(p.GetScope()) == 0 {
+		return fmt.Errorf("DescribeClustersInput.Scope required field missing!")
+	}
 
 	{
 		var _enumValues = []string{
@@ -676,14 +711,29 @@ func (p *DescribeClustersInput) Validate() error {
 }
 
 func (p *DescribeClustersOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("DescribeClustersOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *DescribeClusterNodesInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("DescribeClusterNodesInput.Cluster required field missing!")
+	}
+
 	return nil
 }
 
 func (p *DescribeClusterNodesOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("DescribeClusterNodesOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -692,6 +742,11 @@ func (p *StopClustersInput) Validate() error {
 }
 
 func (p *StopClustersOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("StopClustersOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -700,6 +755,11 @@ func (p *StartClustersInput) Validate() error {
 }
 
 func (p *StartClustersOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("StartClustersOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -708,6 +768,11 @@ func (p *DeleteClustersInput) Validate() error {
 }
 
 func (p *DeleteClustersOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("DeleteClustersOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -716,14 +781,29 @@ func (p *LeaseInput) Validate() error {
 }
 
 func (p *LeaseOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("LeaseOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *AddClusterNodesInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("AddClusterNodesInput.Cluster required field missing!")
+	}
+
 	return nil
 }
 
 func (p *AddClusterNodesOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("AddClusterNodesOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -732,22 +812,51 @@ func (p *DeleteClusterNodesInput) Validate() error {
 }
 
 func (p *DeleteClusterNodesOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("DeleteClusterNodesOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ResizeClusterInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("ResizeClusterInput.Cluster required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ResizeClusterOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("ResizeClusterOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ChangeClusterVxnetInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("ChangeClusterVxnetInput.Cluster required field missing!")
+	}
+
+	if len(p.GetVxnet()) == 0 {
+		return fmt.Errorf("ChangeClusterVxnetInput.Vxnet required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ChangeClusterVxnetOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("ChangeClusterVxnetOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -756,30 +865,69 @@ func (p *SuspendClustersInput) Validate() error {
 }
 
 func (p *SuspendClustersOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("SuspendClustersOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *UpdateClusterEnvironmentInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("UpdateClusterEnvironmentInput.Cluster required field missing!")
+	}
+
 	return nil
 }
 
 func (p *UpdateClusterEnvironmentOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("UpdateClusterEnvironmentOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ModifyClusterAttributesInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("ModifyClusterAttributesInput.Cluster required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ModifyClusterAttributesOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("ModifyClusterAttributesOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ModifyClusterNodeAttributesInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("ModifyClusterNodeAttributesInput.Cluster required field missing!")
+	}
+
+	if len(p.GetClusterNode()) == 0 {
+		return fmt.Errorf("ModifyClusterNodeAttributesInput.ClusterNode required field missing!")
+	}
+
 	return nil
 }
 
 func (p *ModifyClusterNodeAttributesOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("ModifyClusterNodeAttributesOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -788,6 +936,11 @@ func (p *GetClustersStatsInput) Validate() error {
 }
 
 func (p *GetClustersStatsOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("GetClustersStatsOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -796,22 +949,47 @@ func (p *DescribeClusterUsersInput) Validate() error {
 }
 
 func (p *DescribeClusterUsersOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("DescribeClusterUsersOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *RestartClusterServiceInput) Validate() error {
+
+	if len(p.GetCluster()) == 0 {
+		return fmt.Errorf("RestartClusterServiceInput.Cluster required field missing!")
+	}
+
 	return nil
 }
 
 func (p *RestartClusterServiceOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("RestartClusterServiceOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
 func (p *UpgradeClustersInput) Validate() error {
+
+	if len(p.GetAppVersion()) == 0 {
+		return fmt.Errorf("UpgradeClustersInput.AppVersion required field missing!")
+	}
+
 	return nil
 }
 
 func (p *UpgradeClustersOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("UpgradeClustersOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -820,6 +998,11 @@ func (p *AuthorizeClustersBrokerToDeveloperInput) Validate() error {
 }
 
 func (p *AuthorizeClustersBrokerToDeveloperOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("AuthorizeClustersBrokerToDeveloperOutput.Action required field missing!")
+	}
+
 	return nil
 }
 
@@ -828,5 +1011,10 @@ func (p *RevokeClustersBrokerFromDeveloperInput) Validate() error {
 }
 
 func (p *RevokeClustersBrokerFromDeveloperOutput) Validate() error {
+
+	if len(p.GetAction()) == 0 {
+		return fmt.Errorf("RevokeClustersBrokerFromDeveloperOutput.Action required field missing!")
+	}
+
 	return nil
 }
