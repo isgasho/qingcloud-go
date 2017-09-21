@@ -167,6 +167,7 @@ It has these top-level messages:
 	AuthorizeClustersBrokerToDeveloperOutput
 	RevokeClustersBrokerFromDeveloperInput
 	RevokeClustersBrokerFromDeveloperOutput
+	ClusterProperty
 	DNSAliasServiceProperties
 	DescribeDNSAliasesInput
 	DescribeDNSAliasesOutput

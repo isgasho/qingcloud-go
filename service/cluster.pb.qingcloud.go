@@ -1018,3 +1018,7 @@ func (p *RevokeClustersBrokerFromDeveloperOutput) Validate() error {
 
 	return nil
 }
+
+func (p *ClusterProperty) Validate() error {
+	return nil
+}
