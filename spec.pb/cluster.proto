@@ -403,5 +403,23 @@ message RevokeClustersBrokerFromDeveloperOutput {
 }
 
 // ----------------------------------------------------------------------------
+
+message ClusterProperty {
+	optional string key = 1;
+	optional string type = 2; // bool/int/string/array
+	optional string label = 3;
+	optional string description = 4;
+
+	optional string default = 5;
+	optional int32 min = 6;
+	optional int32 max = 7;
+	optional int32 step = 8;
+	repeated string range = 9;
+	optional bool required = 10;
+
+	repeated ClusterProperty properties = 11;
+}
+
+// ----------------------------------------------------------------------------
 // END
 // ----------------------------------------------------------------------------
