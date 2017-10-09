@@ -3,7 +3,3 @@ language: go
 go:
   - 1.9
   - tip
-
-before_script:
-  - go get github.com/golang/glog
-  - go get github.com/golang/protobuf/proto
