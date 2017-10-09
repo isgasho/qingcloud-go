@@ -37,7 +37,7 @@ tools:
 	@echo "ok"
 
 generate:
-	go generate ./spec.pb
+	cd ./spec.pb && make
 	go fmt  ./...
 	go test ./...
 
