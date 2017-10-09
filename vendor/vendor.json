@@ -1,0 +1,117 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "5Sl71Blb1YD+8SpQNVoDS6AixrU=",
+			"path": "github.com/chai2010/assert",
+			"revision": "f369707aa50c0aec2d23ada706953117f8499fab",
+			"revisionTime": "2016-09-09T08:20:15Z"
+		},
+		{
+			"checksumSHA1": "9D8mL+67GTNJWdOI4mjQGBXyK6Y=",
+			"path": "github.com/chai2010/cli",
+			"revision": "51060043dcb34fa7c7ddf4614355b969c0424890",
+			"revisionTime": "2016-03-29T03:03:31Z"
+		},
+		{
+			"checksumSHA1": "zxEcK4zONmdGJ2kC1tXtIItOm6o=",
+			"path": "github.com/chai2010/cli/i18n/zh_CN",
+			"revision": "51060043dcb34fa7c7ddf4614355b969c0424890",
+			"revisionTime": "2016-03-29T03:03:31Z"
+		},
+		{
+			"checksumSHA1": "OFu4xJEIjiI8Suu+j/gabfp+y6Q=",
+			"origin": "github.com/stretchr/testify/vendor/github.com/davecgh/go-spew/spew",
+			"path": "github.com/davecgh/go-spew/spew",
+			"revision": "890a5c3458b43e6104ff5da8dfa139d013d77544",
+			"revisionTime": "2017-07-05T02:17:15Z"
+		},
+		{
+			"checksumSHA1": "URkBh8mU7cUyCnePKDsPKzGreps=",
+			"path": "github.com/golang/protobuf/jsonpb",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "yqF125xVSkmfLpIVGrLlfE05IUk=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "Z1gJ3PKzwBpOoPnTSEM5yd0zHYA=",
+			"path": "github.com/golang/protobuf/protoc-gen-go/descriptor",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "hWnfY+wjIbEjO9ckwUjNk6Iw/Ks=",
+			"path": "github.com/golang/protobuf/protoc-gen-go/generator",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "8RePrdBuPdr7dY5w45FSQkTA2+0=",
+			"path": "github.com/golang/protobuf/protoc-gen-go/plugin",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "Z5Cpi8mr3kfpZ/CdmudThTWQ0Mo=",
+			"path": "github.com/golang/protobuf/ptypes/struct",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "+nsb2jDuP/5l2DO78dtU/jYB3G8=",
+			"path": "github.com/golang/protobuf/ptypes/timestamp",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "zKKp5SZ3d3ycKe4EKMNT0BqAWBw=",
+			"origin": "github.com/stretchr/testify/vendor/github.com/pmezard/go-difflib/difflib",
+			"path": "github.com/pmezard/go-difflib/difflib",
+			"revision": "890a5c3458b43e6104ff5da8dfa139d013d77544",
+			"revisionTime": "2017-07-05T02:17:15Z"
+		},
+		{
+			"checksumSHA1": "BYvROBsiyAXK4sq6yhDe8RgT4LM=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "89742aefa4b206dcf400792f3bd35b542998eb3b",
+			"revisionTime": "2017-08-22T13:27:46Z"
+		},
+		{
+			"checksumSHA1": "mGbTYZ8dHVTiPTTJu3ktp+84pPI=",
+			"path": "github.com/stretchr/testify/assert",
+			"revision": "890a5c3458b43e6104ff5da8dfa139d013d77544",
+			"revisionTime": "2017-07-05T02:17:15Z"
+		},
+		{
+			"checksumSHA1": "8wbHSD24FGJUJDS1F6wbtEt8z+w=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": "42ff06aea7c329876e5a0fe94acc96902accf0ad",
+			"revisionTime": "2017-08-03T14:09:35Z"
+		},
+		{
+			"checksumSHA1": "fwb6FNBUs0SOyUpUx5R31Xf22GY=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "d8f5ea21b9295e315e612b4bcf4bedea93454d4d",
+			"revisionTime": "2017-08-03T09:04:06Z"
+		},
+		{
+			"checksumSHA1": "LkAsnLUlAZSg3lRYk7BEyNfog3A=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "d8f5ea21b9295e315e612b4bcf4bedea93454d4d",
+			"revisionTime": "2017-08-03T09:04:06Z"
+		},
+		{
+			"checksumSHA1": "RDJpJQwkF012L6m/2BJizyOksNw=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "eb3733d160e74a9c7e442f435eb3bea458e1d19f",
+			"revisionTime": "2017-08-12T16:00:11Z"
+		}
+	],
+	"rootPath": "github.com/chai2010/qingcloud-go"
+}

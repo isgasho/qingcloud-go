@@ -21,6 +21,21 @@ demo_cluster:
 demo:
 	go run examples/nic/DescribeNics/DescribeNics.go
 
+init-vendor:
+	govendor init
+	govendor add +external
+	@echo "ok"
+
+update-vendor:
+	govendor update +external
+	govendor list
+	@echo "ok"
+
+tools:
+	go get github.com/kardianos/govendor
+	docker pull golang:alpine
+	@echo "ok"
+
 generate:
 	go generate ./spec.pb
 	go fmt  ./...
