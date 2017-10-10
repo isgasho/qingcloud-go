@@ -14,15 +14,13 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
-// +build ignore
-
 package store
 
 import (
 	"fmt"
 	"time"
 
-	"github.com/yunify/qingstor-sdk-go/request/errors"
+	"github.com/chai2010/qingcloud-go/request/errors"
 )
 
 // Properties presents the service properties.

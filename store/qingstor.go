@@ -14,17 +14,15 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
-// +build ignore
-
 // Package service provides QingStor Service API (API Version 2016-01-06)
 package store
 
 import (
 	"net/http"
 
-	"github.com/yunify/qingstor-sdk-go/config"
-	"github.com/yunify/qingstor-sdk-go/request"
-	"github.com/yunify/qingstor-sdk-go/request/data"
+	"github.com/chai2010/qingcloud-go/config"
+	"github.com/chai2010/qingcloud-go/request"
+	"github.com/chai2010/qingcloud-go/request/data"
 )
 
 var _ http.Header

@@ -14,8 +14,6 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
-// +build ignore
-
 package store
 
 import (
@@ -25,10 +23,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yunify/qingstor-sdk-go/config"
-	"github.com/yunify/qingstor-sdk-go/request"
-	"github.com/yunify/qingstor-sdk-go/request/data"
-	"github.com/yunify/qingstor-sdk-go/request/errors"
+	"github.com/chai2010/qingcloud-go/config"
+	"github.com/chai2010/qingcloud-go/request"
+	"github.com/chai2010/qingcloud-go/request/data"
+	"github.com/chai2010/qingcloud-go/request/errors"
 )
 
 var _ fmt.State
