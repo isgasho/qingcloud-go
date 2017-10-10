@@ -2,9 +2,20 @@
 # Use of this source code is governed by a Apache
 # license that can be found in the LICENSE file.
 
+GO_LDFLAGS:=--ldflags '-w -s -extldflags "-static"'
+GO:=docker run --rm -v $(shell go env GOPATH):/go -w /go/src/$(shell go list) golang:alpine go
+
 default:
 	go fmt ./...
 	go test ./...
+
+docker: Dockerfile
+	$(GO) fmt ./...
+	$(GO) build $(GO_LDFLAGS) -o qingcloud-cli.linux.exe ./cmds/qingcloud-cli
+	docker build -t qingcloud-cli .
+
+docker-run:
+	docker run --rm -v $(HOME):$(HOME) -w `pwd` qingcloud-cli
 
 hello:
 	go fmt ./...
