@@ -1,15 +1,30 @@
-// +build ignore
+// +-------------------------------------------------------------------------
+// | Copyright (C) 2017 Yunify, Inc.
+// +-------------------------------------------------------------------------
+// | Licensed under the Apache License, Version 2.0 (the "License");
+// | you may not use this work except in compliance with the License.
+// | You may obtain a copy of the License in the LICENSE file, or at:
+// |
+// | http://www.apache.org/licenses/LICENSE-2.0
+// |
+// | Unless required by applicable law or agreed to in writing, software
+// | distributed under the License is distributed on an "AS IS" BASIS,
+// | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// | See the License for the specific language governing permissions and
+// | limitations under the License.
+// +-------------------------------------------------------------------------
 
-package qingcloud
+package main
 
 import (
 	"errors"
 	"fmt"
+	"time"
+
+	"github.com/chai2010/qingcloud-go/config"
+	qcservice "github.com/chai2010/qingcloud-go/service"
 	"github.com/docker/machine/libmachine/log"
 	"github.com/docker/machine/libmachine/mcnutils"
-	"github.com/yunify/qingcloud-sdk-go/config"
-	qcservice "github.com/yunify/qingcloud-sdk-go/service"
-	"time"
 )
 
 const (
@@ -20,29 +35,37 @@ const (
 	INSTANCE_STATUS_TERMINATED = "terminated"
 	INSTANCE_STATUS_CEASED     = "ceased"
 )
+
 const (
 	DefaultSecurityGroupName = "docker-machine"
 )
 
-var DefaultInstanceClassByZone = map[string]int{"pek1": 0, "pek2": 0, "pek3a": 0, "gd1": 0, "ap1": 0, "sh1a": 1}
+var DefaultInstanceClassByZone = map[string]int{
+	"pek1":  0,
+	"pek2":  0,
+	"pek3a": 0,
+	"gd1":   0,
+	"ap1":   0,
+	"sh1a":  1,
+}
 
 type Client interface {
 	RunInstance(arg *RunInstanceArg) (*qcservice.Instance, error)
-	DescribeInstance(instanceID *string) (*qcservice.Instance, error)
-	StartInstance(instanceID *string) error
-	StopInstance(instanceID *string, force bool) error
-	RestartInstance(instanceID *string) error
-	TerminateInstance(instanceID *string) error
-	WaitInstanceStatus(instanceID *string, status string) error
+	DescribeInstance(instanceID string) (*qcservice.Instance, error)
+	StartInstance(instanceID string) error
+	StopInstance(instanceID string, force bool) error
+	RestartInstance(instanceID string) error
+	TerminateInstance(instanceID string) error
+	WaitInstanceStatus(instanceID string, status string) error
 
-	BindEIP(instanceID *string) (*qcservice.EIP, error)
-	ReleaseEIP(eipID *string) error
-	BindSecurityGroup(instanceID *string, rules []*qcservice.SecurityGroupRule) (*qcservice.SecurityGroup, error)
-	DeleteSecurityGroup(sgID *string) error
+	BindEIP(instanceID string) (*qcservice.EIP, error)
+	ReleaseEIP(eipID string) error
+	BindSecurityGroup(instanceID string, rules []*qcservice.SecurityGroupRule) (*qcservice.SecurityGroup, error)
+	DeleteSecurityGroup(sgID string) error
 
-	CreateKeyPair(keyPairName *string, publicKey *string) (*string, error)
-	DescribeKeyPair(keyPairID *string) (*qcservice.KeyPair, error)
-	DeleteKeyPair(keyPairID *string) error
+	CreateKeyPair(keyPairName, publicKey string) (*string, error)
+	DescribeKeyPair(keyPairID string) (*qcservice.KeyPair, error)
+	DeleteKeyPair(keyPairID string) error
 }
 
 func NewClient(config *config.Config, zone string) (Client, error) {
@@ -81,7 +104,7 @@ func NewClient(config *config.Config, zone string) (Client, error) {
 		securityGroupService: securityGroupService,
 		opTimeout:            defaultOpTimeout,
 		zone:                 zone,
-		instanceClass:        &instanceClass,
+		instanceClass:        instanceClass,
 	}
 	return c, nil
 }
@@ -94,7 +117,7 @@ type client struct {
 	securityGroupService *qcservice.SecurityGroupService
 	opTimeout            int
 	zone                 string
-	instanceClass        *int
+	instanceClass        int
 }
 
 type RunInstanceArg struct {
@@ -123,16 +146,16 @@ func (c *client) RunInstance(arg *RunInstanceArg) (*qcservice.Instance, error) {
 		return nil, errors.New("InstanceName can not be empty.")
 	}
 	input := &qcservice.RunInstancesInput{
-		CPU:           &arg.CPU,
-		Count:         intPtr(1),
-		ImageID:       &arg.ImageID,
-		Memory:        &arg.Memory,
-		LoginKeyPair:  &arg.LoginKeyPair,
-		LoginMode:     stringPtr("keypair"),
-		InstanceName:  &arg.InstanceName,
-		InstanceClass: c.instanceClass,
+		Cpu:           int32(arg.CPU),
+		Count:         1,
+		ImageId:       arg.ImageID,
+		Memory:        int32(arg.Memory),
+		LoginKeypair:  arg.LoginKeyPair,
+		LoginMode:     "keypair",
+		InstanceName:  arg.InstanceName,
+		InstanceClass: int32(c.instanceClass),
 		//SecurityGroup string   `json:"security_group" name:"security_group" location:"requestParams"`
-		VxNets: []*string{&arg.VxNet},
+		Vxnets: []string{arg.VxNet},
 		//Volumes       []string `json:"volumes" name:"volumes" location:"requestParams"`
 	}
 
@@ -143,7 +166,7 @@ func (c *client) RunInstance(arg *RunInstanceArg) (*qcservice.Instance, error) {
 	if len(output.Instances) == 0 {
 		return nil, errors.New("Create instance response error.")
 	}
-	jobID := output.JobID
+	jobID := output.JobId
 	jobErr := c.waitJob(jobID)
 	if jobErr != nil {
 		return nil, jobErr
@@ -160,25 +183,30 @@ func (c *client) RunInstance(arg *RunInstanceArg) (*qcservice.Instance, error) {
 	return ins, nil
 }
 
-func (c *client) DescribeInstance(instanceID *string) (*qcservice.Instance, error) {
-	input := &qcservice.DescribeInstancesInput{Instances: []*string{instanceID}, InstanceClass: c.instanceClass}
+func (c *client) DescribeInstance(instanceID string) (*qcservice.Instance, error) {
+	input := &qcservice.DescribeInstancesInput{
+		Instances:     []string{instanceID},
+		InstanceClass: int32(c.instanceClass),
+	}
 	output, err := c.instanceService.DescribeInstances(input)
 	if err != nil {
 		return nil, err
 	}
 	if len(output.InstanceSet) == 0 {
-		return nil, fmt.Errorf("Instance with id [%s] not exist.", *instanceID)
+		return nil, fmt.Errorf("Instance with id [%s] not exist.", instanceID)
 	}
 	return output.InstanceSet[0], nil
 }
 
-func (c *client) StartInstance(instanceID *string) error {
-	input := &qcservice.StartInstancesInput{Instances: []*string{instanceID}}
+func (c *client) StartInstance(instanceID string) error {
+	input := &qcservice.StartInstancesInput{
+		Instances: []string{instanceID},
+	}
 	output, err := c.instanceService.StartInstances(input)
 	if err != nil {
 		return err
 	}
-	jobID := output.JobID
+	jobID := output.JobId
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr
@@ -186,19 +214,22 @@ func (c *client) StartInstance(instanceID *string) error {
 	return c.WaitInstanceStatus(instanceID, INSTANCE_STATUS_RUNNING)
 }
 
-func (c *client) StopInstance(instanceID *string, force bool) error {
-	var forceParam int
+func (c *client) StopInstance(instanceID string, force bool) error {
+	var forceParam int32
 	if force {
 		forceParam = 1
 	} else {
 		forceParam = 0
 	}
-	input := &qcservice.StopInstancesInput{Instances: []*string{instanceID}, Force: &forceParam}
+	input := &qcservice.StopInstancesInput{
+		Instances: []string{instanceID},
+		Force:     forceParam,
+	}
 	output, err := c.instanceService.StopInstances(input)
 	if err != nil {
 		return err
 	}
-	jobID := output.JobID
+	jobID := output.JobId
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr
@@ -206,13 +237,15 @@ func (c *client) StopInstance(instanceID *string, force bool) error {
 	return c.WaitInstanceStatus(instanceID, INSTANCE_STATUS_STOPPED)
 }
 
-func (c *client) RestartInstance(instanceID *string) error {
-	input := &qcservice.RestartInstancesInput{Instances: []*string{instanceID}}
+func (c *client) RestartInstance(instanceID string) error {
+	input := &qcservice.RestartInstancesInput{
+		Instances: []string{instanceID},
+	}
 	output, err := c.instanceService.RestartInstances(input)
 	if err != nil {
 		return err
 	}
-	jobID := output.JobID
+	jobID := output.JobId
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr
@@ -220,13 +253,15 @@ func (c *client) RestartInstance(instanceID *string) error {
 	return c.WaitInstanceStatus(instanceID, INSTANCE_STATUS_RUNNING)
 }
 
-func (c *client) TerminateInstance(instanceID *string) error {
-	input := &qcservice.TerminateInstancesInput{Instances: []*string{instanceID}}
+func (c *client) TerminateInstance(instanceID string) error {
+	input := &qcservice.TerminateInstancesInput{
+		Instances: []string{instanceID},
+	}
 	output, err := c.instanceService.TerminateInstances(input)
 	if err != nil {
 		return err
 	}
-	jobID := output.JobID
+	jobID := output.JobId
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr
@@ -234,172 +269,211 @@ func (c *client) TerminateInstance(instanceID *string) error {
 	return c.WaitInstanceStatus(instanceID, INSTANCE_STATUS_TERMINATED)
 }
 
-func (c *client) BindEIP(instanceID *string) (*qcservice.EIP, error) {
-	eip, err := c.allocateEIP(instanceID)
-	if err != nil {
-		return nil, err
-	}
-	input := &qcservice.AssociateEIPInput{EIP: eip.EIPID, Instance: instanceID}
-	output, err := c.eipService.AssociateEIP(input)
-	if err != nil {
-		return nil, err
-	}
-	jobID := output.JobID
-	err = c.waitJob(jobID)
-	if err != nil {
-		return nil, err
-	}
-	return eip, nil
+func (c *client) BindEIP(instanceID string) (*qcservice.EIP, error) {
+	panic("TODO")
+	/*
+		eip, err := c.allocateEIP(instanceID)
+		if err != nil {
+			return nil, err
+		}
+		input := &qcservice.AssociateEIPInput{
+			EIP:      eip.EIPID,
+			Instance: instanceID,
+		}
+		output, err := c.eipService.AssociateEIP(input)
+		if err != nil {
+			return nil, err
+		}
+		jobID := output.JobID
+		err = c.waitJob(jobID)
+		if err != nil {
+			return nil, err
+		}
+		return eip, nil
+	*/
 }
 
-func (c *client) allocateEIP(instanceID *string) (*qcservice.EIP, error) {
-	allocateEIPInput := &qcservice.AllocateEIPsInput{Bandwidth: intPtr(defaultEIPBandwidth), EIPName: instanceID}
-	allocateEIPOutput, err := c.eipService.AllocateEIPs(allocateEIPInput)
-	if err != nil {
-		return nil, err
-	}
-	eip := allocateEIPOutput.EIPs[0]
-	input := &qcservice.DescribeEIPsInput{EIPs: []*string{eip}}
-	output, err := c.eipService.DescribeEIPs(input)
-	if err != nil {
-		return nil, err
-	}
-	return output.EIPSet[0], nil
+func (c *client) allocateEIP(instanceID string) (*qcservice.EIP, error) {
+	panic("TODO")
+	/*
+		allocateEIPInput := &qcservice.AllocateEIPsInput{
+			Bandwidth: defaultEIPBandwidth,
+			EIPName:   instanceID,
+		}
+		allocateEIPOutput, err := c.eipService.AllocateEIPs(allocateEIPInput)
+		if err != nil {
+			return nil, err
+		}
+		eip := allocateEIPOutput.EIPs[0]
+		input := &qcservice.DescribeEIPsInput{EIPs: []*string{eip}}
+		output, err := c.eipService.DescribeEIPs(input)
+		if err != nil {
+			return nil, err
+		}
+		return output.EIPSet[0], nil
+	*/
 }
 
-func (c *client) ReleaseEIP(eipID *string) error {
-	input := &qcservice.ReleaseEIPsInput{EIPs: []*string{eipID}}
-	_, err := c.eipService.ReleaseEIPs(input)
-	if err != nil {
-		return err
-	}
-	return nil
+func (c *client) ReleaseEIP(eipID string) error {
+	panic("TODO")
+	/*
+		input := &qcservice.ReleaseEIPsInput{EIPs: []string{eipID}}
+		_, err := c.eipService.ReleaseEIPs(input)
+		if err != nil {
+			return err
+		}
+		return nil
+	*/
 }
 
-func (c *client) BindSecurityGroup(instanceID *string, rules []*qcservice.SecurityGroupRule) (*qcservice.SecurityGroup, error) {
-	sg, err := c.createSecurityGroup(instanceID, rules)
-	if err != nil {
-		return nil, err
-	}
-	applySGInput := &qcservice.ApplySecurityGroupInput{SecurityGroup: sg.SecurityGroupID, Instances: []*string{instanceID}}
-	applySGOutput, err := c.securityGroupService.ApplySecurityGroup(applySGInput)
-	if err != nil {
-		return nil, err
-	}
-	log.Debugf("ApplySecurityGroup SecurityGroup:%s, output: %+v ", *sg.SecurityGroupID, applySGOutput)
-	return sg, nil
+func (c *client) BindSecurityGroup(instanceID string, rules []*qcservice.SecurityGroupRule) (*qcservice.SecurityGroup, error) {
+	panic("TODO")
+	/*
+		sg, err := c.createSecurityGroup(instanceID, rules)
+		if err != nil {
+			return nil, err
+		}
+		applySGInput := &qcservice.ApplySecurityGroupInput{
+			SecurityGroup: sg.SecurityGroupID,
+			Instances: []string{instanceID},
+		}
+		applySGOutput, err := c.securityGroupService.ApplySecurityGroup(applySGInput)
+		if err != nil {
+			return nil, err
+		}
+		log.Debugf("ApplySecurityGroup SecurityGroup:%s, output: %+v ", *sg.SecurityGroupID, applySGOutput)
+		return sg, nil
+	*/
 }
 
-func (c *client) createSecurityGroup(sgName *string, rules []*qcservice.SecurityGroupRule) (*qcservice.SecurityGroup, error) {
-	createInput := &qcservice.CreateSecurityGroupInput{SecurityGroupName: sgName}
-	createOutput, err := c.securityGroupService.CreateSecurityGroup(createInput)
-	if err != nil {
-		return nil, err
-	}
-	sgID := createOutput.SecurityGroupID
-	input := &qcservice.DescribeSecurityGroupsInput{SecurityGroups: []*string{sgID}}
-	output, err := c.securityGroupService.DescribeSecurityGroups(input)
-	if err != nil {
-		return nil, err
-	}
-	sg := output.SecurityGroupSet[0]
-	err = c.addSecurityRule(sg.SecurityGroupID, rules)
-	if err != nil {
-		return sg, err
-	}
-	return sg, nil
+func (c *client) createSecurityGroup(sgName string, rules []*qcservice.SecurityGroupRule) (*qcservice.SecurityGroup, error) {
+	panic("TODO")
+	/*
+		createInput := &qcservice.CreateSecurityGroupInput{SecurityGroupName: sgName}
+		createOutput, err := c.securityGroupService.CreateSecurityGroup(createInput)
+		if err != nil {
+			return nil, err
+		}
+		sgID := createOutput.SecurityGroupID
+		input := &qcservice.DescribeSecurityGroupsInput{SecurityGroups: []*string{sgID}}
+		output, err := c.securityGroupService.DescribeSecurityGroups(input)
+		if err != nil {
+			return nil, err
+		}
+		sg := output.SecurityGroupSet[0]
+		err = c.addSecurityRule(sg.SecurityGroupID, rules)
+		if err != nil {
+			return sg, err
+		}
+		return sg, nil
+	*/
 }
 
-func (c *client) addSecurityRule(sgID *string, rules []*qcservice.SecurityGroupRule) error {
-	addRuleInput := &qcservice.AddSecurityGroupRulesInput{SecurityGroup: sgID, Rules: rules}
-	addRuleOutput, err := c.securityGroupService.AddSecurityGroupRules(addRuleInput)
-	if err != nil {
-		return err
-	}
-	log.Debugf("AddSecurityGroupRules SecurityGroup: [%s], output: [%+v] ", *sgID, addRuleOutput)
-	return nil
+func (c *client) addSecurityRule(sgID string, rules []*qcservice.SecurityGroupRule) error {
+	panic("TODO")
+	/*
+		addRuleInput := &qcservice.AddSecurityGroupRulesInput{SecurityGroup: sgID, Rules: rules}
+		addRuleOutput, err := c.securityGroupService.AddSecurityGroupRules(addRuleInput)
+		if err != nil {
+			return err
+		}
+		log.Debugf("AddSecurityGroupRules SecurityGroup: [%s], output: [%+v] ", *sgID, addRuleOutput)
+		return nil
+	*/
 }
 
-func (c *client) DeleteSecurityGroup(sgID *string) error {
-	input := &qcservice.DeleteSecurityGroupsInput{SecurityGroups: []*string{sgID}}
-	_, err := c.securityGroupService.DeleteSecurityGroups(input)
-	if err != nil {
-		return err
-	}
-	return nil
+func (c *client) DeleteSecurityGroup(sgID string) error {
+	panic("TODO")
+	/*
+		input := &qcservice.DeleteSecurityGroupsInput{SecurityGroups: []*string{sgID}}
+		_, err := c.securityGroupService.DeleteSecurityGroups(input)
+		if err != nil {
+			return err
+		}
+		return nil
+	*/
 }
 
-func (c *client) CreateKeyPair(keyPairName *string, publicKey *string) (*string, error) {
-	log.Debugf("Create KeyPair name: [%s], publicKey: [%s]", *keyPairName, *publicKey)
-	input := &qcservice.CreateKeyPairInput{Mode: stringPtr("user"), KeyPairName: keyPairName, PublicKey: publicKey}
-	output, err := c.keypairService.CreateKeyPair(input)
-	if err != nil {
-		return nil, err
-	}
-	return output.KeyPairID, nil
+func (c *client) CreateKeyPair(keyPairName, publicKey string) (*string, error) {
+	panic("TODO")
+	/*
+		log.Debugf("Create KeyPair name: [%s], publicKey: [%s]", *keyPairName, *publicKey)
+		input := &qcservice.CreateKeyPairInput{Mode: stringPtr("user"), KeyPairName: keyPairName, PublicKey: publicKey}
+		output, err := c.keypairService.CreateKeyPair(input)
+		if err != nil {
+			return nil, err
+		}
+		return output.KeyPairID, nil
+	*/
 }
 
-func (c *client) DescribeKeyPair(keyPairID *string) (*qcservice.KeyPair, error) {
-	input := &qcservice.DescribeKeyPairsInput{KeyPairs: []*string{keyPairID}}
-	output, err := c.keypairService.DescribeKeyPairs(input)
-	if err != nil {
-		return nil, err
-	}
-	if err != nil {
-		return nil, err
-	}
-	if len(output.KeyPairSet) == 0 {
-		return nil, fmt.Errorf("KeyPair with id [%s] not exist.", keyPairID)
-	}
-	return output.KeyPairSet[0], nil
+func (c *client) DescribeKeyPair(keyPairID string) (*qcservice.KeyPair, error) {
+	panic("TODO")
+	/*
+		input := &qcservice.DescribeKeyPairsInput{KeyPairs: []*string{keyPairID}}
+		output, err := c.keypairService.DescribeKeyPairs(input)
+		if err != nil {
+			return nil, err
+		}
+		if err != nil {
+			return nil, err
+		}
+		if len(output.KeyPairSet) == 0 {
+			return nil, fmt.Errorf("KeyPair with id [%s] not exist.", keyPairID)
+		}
+		return output.KeyPairSet[0], nil
+	*/
 }
 
-func (c *client) DeleteKeyPair(keyPairID *string) error {
-	input := &qcservice.DeleteKeyPairsInput{KeyPairs: []*string{keyPairID}}
-	_, err := c.keypairService.DeleteKeyPairs(input)
-	if err != nil {
-		return err
-	}
-	return nil
+func (c *client) DeleteKeyPair(keyPairID string) error {
+	panic("TODO")
+	/*
+		input := &qcservice.DeleteKeyPairsInput{KeyPairs: []*string{keyPairID}}
+		_, err := c.keypairService.DeleteKeyPairs(input)
+		if err != nil {
+			return err
+		}
+		return nil
+	*/
 }
 
-func (c *client) waitJob(jobID *string) error {
-	log.Debugf("Waiting for Job [%s] finished", *jobID)
+func (c *client) waitJob(jobID string) error {
+	log.Debugf("Waiting for Job [%s] finished", jobID)
 	return mcnutils.WaitForSpecificOrError(func() (bool, error) {
-		input := &qcservice.DescribeJobsInput{Jobs: []*string{jobID}}
+		input := &qcservice.DescribeJobsInput{Jobs: []string{jobID}}
 		output, err := c.jobService.DescribeJobs(input)
 		if err != nil {
 			return false, err
 		}
 		if len(output.JobSet) == 0 {
-			return false, fmt.Errorf("Can not find job [%s]", *jobID)
+			return false, fmt.Errorf("Can not find job [%s]", jobID)
 		}
 		j := output.JobSet[0]
-		if j.Status == nil {
-			log.Errorf("Job [%s] status is nil ", *jobID)
+		if j.Status == "" {
+			log.Errorf("Job [%s] status is empty ", jobID)
 			return false, nil
 		}
-		if *j.Status == "working" || *j.Status == "pending" {
+		if j.Status == "working" || j.Status == "pending" {
 			return false, nil
 		}
-		if *j.Status == "successful" {
+		if j.Status == "successful" {
 			return true, nil
 		}
-		if *j.Status == "failed" {
-			return false, fmt.Errorf("Job [%s] failed", *jobID)
+		if j.Status == "failed" {
+			return false, fmt.Errorf("Job [%s] failed", jobID)
 		}
-		log.Errorf("Unknow status [%s] for job [%s]", *j.Status, *jobID)
+		log.Errorf("Unknow status [%s] for job [%s]", j.Status, jobID)
 		return false, nil
 	}, (c.opTimeout / 5), 5*time.Second)
 }
 
-func (c *client) WaitInstanceStatus(instanceID *string, status string) error {
-	log.Debugf("Waiting for Instance [%s] status [%s] ", *instanceID, status)
+func (c *client) WaitInstanceStatus(instanceID string, status string) error {
+	log.Debugf("Waiting for Instance [%s] status [%s] ", instanceID, status)
 	errorTimes := 0
 	return mcnutils.WaitForSpecificOrError(func() (bool, error) {
 		i, err := c.DescribeInstance(instanceID)
 		if err != nil {
-			log.Errorf("DescribeInstance [%s] error : [%s]", *instanceID, err.Error())
+			log.Errorf("DescribeInstance [%s] error : [%s]", instanceID, err.Error())
 			errorTimes += 1
 			if errorTimes > 3 {
 				return false, err
@@ -407,31 +481,31 @@ func (c *client) WaitInstanceStatus(instanceID *string, status string) error {
 				return false, nil
 			}
 		}
-		if i.Status != nil && *i.Status == status {
-			if i.TransitionStatus != nil && *i.TransitionStatus != "" {
+		if i.Status != "" && i.Status == status {
+			if i.TransitionStatus != "" {
 				//wait transition to finished
 				return false, nil
 			}
-			log.Debugf("Instance [%s] status is [%s] ", *instanceID, *i.Status)
+			log.Debugf("Instance [%s] status is [%s] ", instanceID, i.Status)
 			return true, nil
 		}
 		return false, nil
 	}, (c.opTimeout / 5), 5*time.Second)
 }
 
-func (c *client) waitInstanceNetwork(instanceID *string) (*qcservice.Instance, error) {
-	log.Debugf("Waiting for IP address to be assigned to Instance [%s]", *instanceID)
+func (c *client) waitInstanceNetwork(instanceID string) (*qcservice.Instance, error) {
+	log.Debugf("Waiting for IP address to be assigned to Instance [%s]", instanceID)
 	var ins *qcservice.Instance
 	err := mcnutils.WaitForSpecificOrError(func() (bool, error) {
 		i, err := c.DescribeInstance(instanceID)
 		if err != nil {
 			return false, err
 		}
-		if len(i.VxNets) == 0 || i.VxNets[0].PrivateIP == nil || *i.VxNets[0].PrivateIP == "" {
+		if len(i.Vxnets) == 0 || i.Vxnets[0].PrivateIp == "" {
 			return false, nil
 		}
 		ins = i
-		log.Debugf("Instance [%s] get IP address [%s]", *instanceID, *ins.VxNets[0].PrivateIP)
+		log.Debugf("Instance [%s] get IP address [%s]", instanceID, ins.Vxnets[0].PrivateIp)
 		return true, nil
 	}, (c.opTimeout / 5), 5*time.Second)
 	return ins, err

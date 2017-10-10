@@ -1,22 +1,37 @@
-// +build ignore
+// +-------------------------------------------------------------------------
+// | Copyright (C) 2017 Yunify, Inc.
+// +-------------------------------------------------------------------------
+// | Licensed under the Apache License, Version 2.0 (the "License");
+// | you may not use this work except in compliance with the License.
+// | You may obtain a copy of the License in the LICENSE file, or at:
+// |
+// | http://www.apache.org/licenses/LICENSE-2.0
+// |
+// | Unless required by applicable law or agreed to in writing, software
+// | distributed under the License is distributed on an "AS IS" BASIS,
+// | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// | See the License for the specific language governing permissions and
+// | limitations under the License.
+// +-------------------------------------------------------------------------
 
-package qingcloud
+package main
 
 import (
 	"errors"
 	"fmt"
+	"io/ioutil"
+	"os/user"
+	"path"
+	"time"
+
+	"github.com/chai2010/qingcloud-go/config"
+	qcservice "github.com/chai2010/qingcloud-go/service"
 	"github.com/docker/machine/libmachine/drivers"
 	"github.com/docker/machine/libmachine/log"
 	"github.com/docker/machine/libmachine/mcnflag"
 	"github.com/docker/machine/libmachine/mcnutils"
 	"github.com/docker/machine/libmachine/ssh"
 	"github.com/docker/machine/libmachine/state"
-	"github.com/yunify/qingcloud-sdk-go/config"
-	qcservice "github.com/yunify/qingcloud-sdk-go/service"
-	"io/ioutil"
-	"os/user"
-	"path"
-	"time"
 )
 
 const (
@@ -34,28 +49,28 @@ const (
 
 var defaultSecurityGroupRules = []*qcservice.SecurityGroupRule{
 	{
-		Priority: intPtr(0),
-		Protocol: stringPtr("icmp"),
-		Action:   stringPtr("accept"),
-		Val1:     stringPtr("8"), //Echo
-		Val2:     stringPtr("0"), //Echo request
-		Val3:     nil,
+		Priority: 0,
+		Protocol: "icmp",
+		Action:   "accept",
+		Val1:     "8", //Echo
+		Val2:     "0", //Echo request
+		Val3:     "",
 	},
 	{
-		Priority: intPtr(1),
-		Protocol: stringPtr("tcp"),
-		Action:   stringPtr("accept"),
-		Val1:     stringPtr("22"),
-		Val2:     nil,
-		Val3:     nil,
+		Priority: 1,
+		Protocol: "tcp",
+		Action:   "accept",
+		Val1:     "22",
+		Val2:     "",
+		Val3:     "",
 	},
 	{
-		Priority: intPtr(2),
-		Protocol: stringPtr("tcp"),
-		Action:   stringPtr("accept"),
-		Val1:     stringPtr("2376"),
-		Val2:     nil,
-		Val3:     nil,
+		Priority: 2,
+		Protocol: "tcp",
+		Action:   "accept",
+		Val1:     "2376",
+		Val2:     "",
+		Val3:     "",
 	},
 }
 
@@ -69,7 +84,7 @@ type Driver struct {
 	Memory          int
 	LoginKeyPair    string
 	VxNet           string
-	InstanceID      *string
+	InstanceID      string
 	EIP             *qcservice.EIP
 	SecurityGroup   *qcservice.SecurityGroup
 	client          Client
@@ -190,7 +205,7 @@ func (d *Driver) Config() *config.Config {
 // PreCreateCheck allows for pre-create operations to make sure a driver is ready for creation
 func (d *Driver) PreCreateCheck() error {
 	if d.LoginKeyPair != "" {
-		_, err := d.GetClient().DescribeKeyPair(&d.LoginKeyPair)
+		_, err := d.GetClient().DescribeKeyPair(d.LoginKeyPair)
 		if err != nil {
 			return err
 		}
@@ -230,42 +245,42 @@ func (d *Driver) Create() error {
 	if err != nil {
 		return err
 	}
-	d.InstanceID = ins.InstanceID
+	d.InstanceID = ins.InstanceId
 
 	if d.VxNet == defaultVxNet {
 		eip, err := client.BindEIP(d.InstanceID)
 		if err != nil {
 			return err
 		}
-		log.Infof("Bind EIP [%s] to Instance [%s]", *eip.EIPAddr, *d.InstanceID)
-		ins.EIP = eip
+		log.Infof("Bind EIP [%s] to Instance [%s]", eip.EipAddr, d.InstanceID)
+		ins.Eip = eip
 		d.EIP = eip
 		sg, err := client.BindSecurityGroup(d.InstanceID, defaultSecurityGroupRules)
 		if err != nil {
 			return err
 		}
 		d.SecurityGroup = sg
-		log.Infof("Bind SecurityGroup [%s] to Instance [%s]", *sg.SecurityGroupID, *d.InstanceID)
+		log.Infof("Bind SecurityGroup [%s] to Instance [%s]", sg.SecurityGroupId, d.InstanceID)
 	}
 
-	d.IPAddress = *ins.VxNets[0].PrivateIP
-	if ins.EIP != nil && ins.EIP.EIPAddr != nil {
-		d.IPAddress = *ins.EIP.EIPAddr
+	d.IPAddress = ins.Vxnets[0].PrivateIp
+	if ins.Eip != nil && ins.Eip.EipAddr != "" {
+		d.IPAddress = ins.Eip.EipAddr
 	}
-	d.MachineName = *d.InstanceID
+	d.MachineName = d.InstanceID
 
 	log.Infof("Created Instance [%s] IPAddress: [%s]",
-		*d.InstanceID, d.IPAddress)
+		d.InstanceID, d.IPAddress)
 	d.checkOSEnv()
 
 	return nil
 }
 
 func (d *Driver) checkOSEnv() error {
-	log.Infof("Check OS Env on Instance [%s]", *d.InstanceID)
+	log.Infof("Check OS Env on Instance [%s]", d.InstanceID)
 	sshClient, err := drivers.GetSSHClientFromDriver(d)
 	if err != nil {
-		log.Errorf("Get ssh client for [%s] error: [%s]", *d.InstanceID, err.Error())
+		log.Errorf("Get ssh client for [%s] error: [%s]", d.InstanceID, err.Error())
 		return err
 	}
 	// check access public network
@@ -277,7 +292,7 @@ func (d *Driver) checkOSEnv() error {
 		return true
 	}, (defaultOpTimeout / 10), 10*time.Second)
 	if err != nil {
-		log.Errorf("Ping get.docker.com on Instance [%s] error :[%s]", *d.InstanceID, err.Error())
+		log.Errorf("Ping get.docker.com on Instance [%s] error :[%s]", d.InstanceID, err.Error())
 		return err
 	}
 	err = mcnutils.WaitForSpecific(func() bool {
@@ -294,7 +309,7 @@ func (d *Driver) checkOSEnv() error {
 		return true
 	}, (defaultOpTimeout / 20), 20*time.Second)
 	if err != nil {
-		log.Errorf("Apt-get update on Instance [%s] error :[%s]", *d.InstanceID, err.Error())
+		log.Errorf("Apt-get update on Instance [%s] error :[%s]", d.InstanceID, err.Error())
 		return err
 	}
 
@@ -340,7 +355,7 @@ func (d *Driver) createSSHKey() error {
 	keyName := d.MachineName
 
 	log.Debugf("Creating key pair: %s", keyName)
-	keyPairID, err := d.GetClient().CreateKeyPair(&keyName, stringPtr(string(publicKey)))
+	keyPairID, err := d.GetClient().CreateKeyPair(keyName, string(publicKey))
 	if err != nil {
 		return err
 	}
@@ -371,10 +386,10 @@ func (d *Driver) GetState() (state.State, error) {
 	if err != nil {
 		return state.None, err
 	}
-	if i.Status == nil {
+	if i.Status == "" {
 		return state.None, nil
 	}
-	switch *i.Status {
+	switch i.Status {
 	case INSTANCE_STATUS_PENDING:
 		return state.Starting, nil
 	case INSTANCE_STATUS_RUNNING:
@@ -399,13 +414,13 @@ func (d *Driver) Remove() error {
 		return err
 	}
 	if d.EIP != nil {
-		err := d.GetClient().ReleaseEIP(d.EIP.EIPID)
+		err := d.GetClient().ReleaseEIP(d.EIP.EipId)
 		if err != nil {
 			log.Errorf("Release EIP [%+v] fail, err: [%s]", *d.EIP, err.Error())
 		}
 	}
 	if d.SecurityGroup != nil {
-		err := d.GetClient().DeleteSecurityGroup(d.SecurityGroup.SecurityGroupID)
+		err := d.GetClient().DeleteSecurityGroup(d.SecurityGroup.SecurityGroupId)
 		if err != nil {
 			log.Errorf("Delete SecurityGroup [%+v] fail, err: [%s]", *d.SecurityGroup, err.Error())
 		}
