@@ -38,6 +38,19 @@ message MessageOptionsRule {
 	string regexp_value = 7;      // 格式: "a:{{...}}; b:{{...}};", 仅字符串类型或数组, 简单正则, 不要挑战复杂格式
 }
 
+// Message成员规则
+message FieldOptionsRule {
+	string min_value = 1;           // 格式: "200", 最小值, 仅整数类型或数组
+	string max_value = 2;           // 格式: "900", 最大值, 仅整数类型或数组
+	string multiple_of_value = 3;   // 格式: "100", 整倍数, 仅整数类型或数组
+	string exclusive_min_value = 4; // 开区间最小值, 仅整数类型或数组
+	string exclusive_max_value = 5; // 开区间最大值, 仅整数类型或数组
+	string max_length = 6;          // 格式: "0", 最大值, 字符串或数组
+	string min_length = 7;          // 格式: "9", 最小值, 字符串或数组
+	string regexp_value = 8;        // 格式: "app-[a-z0-9]{8}", 仅字符串类型或数组
+	repeated string enum_value = 9; // 枚举类型的值
+}
+
 // 通过扩展信息给 method 增加约束
 extend google.protobuf.ServiceOptions {
 	ServiceOptionsRule service_rule = 10001;
@@ -51,4 +64,8 @@ extend google.protobuf.MethodOptions {
 // 通过扩展信息给 message 增加约束
 extend google.protobuf.MessageOptions {
 	MessageOptionsRule message_rule = 10001;
+}
+
+extend google.protobuf.FieldOptions {
+	FieldOptionsRule field_rule = 10001;
 }
