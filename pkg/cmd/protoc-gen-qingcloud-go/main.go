@@ -46,7 +46,7 @@
 //
 // See the README and documentation for protocol buffers to learn more:
 // 	https://developers.google.com/protocol-buffers/
-package main
+package plugin_main
 
 import (
 	"io/ioutil"
@@ -58,7 +58,7 @@ import (
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 )
 
-func main() {
+func Main() {
 	// Begin by allocating a generator. The request and response structures are stored there
 	// so we can do error handling easily - the response structure contains the field to
 	// report failure.
