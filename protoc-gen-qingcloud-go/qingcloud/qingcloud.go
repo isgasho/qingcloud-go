@@ -177,6 +177,10 @@ func (p *qingcloudPlugin) buildMessageOptionsSpec(file *generator.FileDescriptor
 	spec.MessageName = generator.CamelCase(msg.GetName())
 
 	for _, field := range msg.Field {
+		if rule := p.getMessageFieldRule(field); rule != nil {
+			_ = rule
+		}
+
 		name := field.GetName()
 		typeName := field.GetType().String()
 		fixedName := generator.CamelCase(field.GetName())
@@ -270,6 +274,17 @@ func (p *qingcloudPlugin) getMessageRule(m *descriptor.DescriptorProto) *Message
 		if ext, _ := proto.GetExtension(m.Options, rule_pb.E_MessageRule); ext != nil {
 			if x, _ := ext.(*rule_pb.MessageOptionsRule); x != nil {
 				return &MessageRule{x}
+			}
+		}
+	}
+	return nil
+}
+
+func (p *qingcloudPlugin) getMessageFieldRule(m *descriptor.FieldDescriptorProto) *FieldRule {
+	if m.Options != nil && proto.HasExtension(m.Options, rule_pb.E_FieldRule) {
+		if ext, _ := proto.GetExtension(m.Options, rule_pb.E_FieldRule); ext != nil {
+			if x, _ := ext.(*rule_pb.FieldOptionsRule); x != nil {
+				return &FieldRule{x}
 			}
 		}
 	}

@@ -10,6 +10,10 @@ import (
 	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
 )
 
+type FieldRule struct {
+	*rule_pb.FieldOptionsRule
+}
+
 type ServiceRule struct {
 	*rule_pb.ServiceOptionsRule
 }
