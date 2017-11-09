@@ -19,17 +19,17 @@ type ServiceRule struct {
 }
 
 func (p *ServiceRule) GetDocUrl() string {
-	return p.ServiceOptionsRule.DocUrl
+	return p.ServiceOptionsRule.GetDocUrl()
 }
 func (p *ServiceRule) GetServiceName() string {
-	name := p.ServiceOptionsRule.ServiceName
+	name := p.ServiceOptionsRule.GetServiceName()
 	if idx := strings.Index(name, "."); idx >= 0 {
 		return name[idx+1:]
 	}
 	return name
 }
 func (p *ServiceRule) GetMainServiceName() string {
-	name := p.ServiceOptionsRule.ServiceName
+	name := p.ServiceOptionsRule.GetServiceName()
 	if idx := strings.LastIndex(name, "."); idx >= 0 {
 		return name[:idx]
 	}
@@ -41,16 +41,16 @@ type MethodRule struct {
 }
 
 func (p *MethodRule) GetDocUrl() string {
-	return p.MethodOptionsRule.DocUrl
+	return p.MethodOptionsRule.GetDocUrl()
 }
 func (p *MethodRule) GetHttpMethod() string {
-	return p.MethodOptionsRule.HttpMethod
+	return p.MethodOptionsRule.GetHttpMethod()
 }
 func (p *MethodRule) GetInputType() string {
-	return p.MethodOptionsRule.InputType
+	return p.MethodOptionsRule.GetInputType()
 }
 func (p *MethodRule) GetOutputType() string {
-	return p.MethodOptionsRule.OutputType
+	return p.MethodOptionsRule.GetOutputType()
 }
 
 type MessageRule struct {
@@ -146,12 +146,12 @@ func (p *MessageRule) GetRegexpValue(filedName string) string {
 
 // data: "a; b; ..."
 func (p *MessageRule) getRequiredFiledList() []string {
-	return splitString(p.MessageOptionsRule.RequiredFileds, ";")
+	return splitString(p.MessageOptionsRule.GetRequiredFileds(), ";")
 }
 
 // data: "a:v; b:v; ..."
 func (p *MessageRule) getDefaultValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MessageOptionsRule.DefaultValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.GetDefaultValue(), ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
@@ -162,7 +162,7 @@ func (p *MessageRule) getDefaultValueList() (names []string, values []string) {
 
 // data: "a:a1,a2,a3; b:b1,b2; ..."
 func (p *MessageRule) getEnumValueList() (names []string, values [][]string) {
-	for _, s := range splitString(p.MessageOptionsRule.EnumValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.GetEnumValue(), ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, splitString(kv[1], ","))
@@ -173,7 +173,7 @@ func (p *MessageRule) getEnumValueList() (names []string, values [][]string) {
 
 // data: "a:v; b:v; ..."
 func (p *MessageRule) getMinValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MessageOptionsRule.MinValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.GetMinValue(), ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
@@ -184,7 +184,7 @@ func (p *MessageRule) getMinValueList() (names []string, values []string) {
 
 // data: "a:v; b:v; ..."
 func (p *MessageRule) getMaxValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MessageOptionsRule.MaxValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.GetMaxValue(), ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
@@ -195,7 +195,7 @@ func (p *MessageRule) getMaxValueList() (names []string, values []string) {
 
 // data: "a:v; b:v; ..."
 func (p *MessageRule) getMultipleOfValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MessageOptionsRule.MultipleOfValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.GetMultipleOfValue(), ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, kv[1])
@@ -206,7 +206,7 @@ func (p *MessageRule) getMultipleOfValueList() (names []string, values []string)
 
 // "a:{{...}}; b:{{...}};"
 func (p *MessageRule) getRegexpValueList() (names []string, values []string) {
-	for _, s := range splitString(p.MessageOptionsRule.MultipleOfValue, ";") {
+	for _, s := range splitString(p.MessageOptionsRule.GetMultipleOfValue(), ";") {
 		if kv := splitString(s, ":"); len(kv) == 2 {
 			names = append(names, kv[0])
 			values = append(values, strings.TrimSuffix(strings.TrimPrefix(kv[1], "{{"), "}}"))
