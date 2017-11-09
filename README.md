@@ -1,6 +1,6 @@
 <p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></a></p>
 
-# 青云 SDK Go Version (兼容官方 [SDK](https://github.com/yunify/qingcloud-sdk-go))
+# 青云 SDK Go Version
 
 [![Build Status](https://travis-ci.org/chai2010/qingcloud-go.svg)](https://travis-ci.org/chai2010/qingcloud-go)
 [![GoDoc](https://godoc.org/github.com/chai2010/qingcloud-go?status.svg)](https://godoc.org/github.com/chai2010/qingcloud-go)
@@ -9,8 +9,9 @@
 
 项目目标:
 
-- 首要是做好对Go语言的支持(其它语言以后可考虑), 接口兼容官方 [SDK](https://github.com/yunify/qingcloud-sdk-go), 更完备的接口, 更多的测试
-- 基于 Protobuf-V3 语法维护规范, 便于升级和维护
+- Go语言风格的接口, 简单好用是第一目标
+- 基于 Protobuf-V2 语法维护规范, 便于升级和维护
+- 更完备的接口, 更多的测试 ....
 
 在线文档:
 
@@ -19,7 +20,7 @@
 
 接口规范:
 
-- [spec.pb](spec.pb)
+- [api](api)
 
 ## 配置文件
 
@@ -58,8 +59,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/chai2010/qingcloud-go/config"
-	pb "github.com/chai2010/qingcloud-go/service"
+	"github.com/chai2010/qingcloud-go/pkg/config"
+	pb "github.com/chai2010/qingcloud-go/pkg/service.pb"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )
@@ -116,18 +117,18 @@ nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
 
 	go run hello.go
 
-[更多例子](examples).
+[更多例子](docs/examples).
 
 ## 文档指南
 
 使用青云SDK一般是以下步骤:
 
-1. 用 [config](https://godoc.org/github.com/chai2010/qingcloud-go/config) 包构造一个配置对象, 里面含有最重要的 API密钥, 还包含日志级别等信息.
-2. 基于配置对象调用 [service](https://godoc.org/github.com/chai2010/qingcloud-go/service) 包的 [`Init`](https://godoc.org/github.com/chai2010/qingcloud-go/service#Init) 函数构造一个青云主服务对象 [`qcService`](https://godoc.org/github.com/chai2010/qingcloud-go/service#QingCloudService), 其中会根据配置文件设置日志级别.
-3. 假设有一个 [UserData](./spec.pb/user_data.proto) 子服务, 那么调用 [`qcService.UserData("pek3a")`](https://godoc.org/github.com/chai2010/qingcloud-go/service#QingCloudService.UserData) 方法将返回子服务对象, 其中参数是区域
+1. 用 [pkg/config](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/config) 包构造一个配置对象, 里面含有最重要的 API密钥, 还包含日志级别等信息.
+2. 基于配置对象调用 [pkg/service.pb](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb) 包的 [`Init`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb#Init) 函数构造一个青云主服务对象 [`qcService`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb#QingCloudService), 其中会根据配置文件设置日志级别.
+3. 假设有一个 [UserData](./api/user_data.proto) 子服务, 那么调用 [`qcService.UserData("pek3a")`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb#QingCloudService.UserData) 方法将返回子服务对象, 其中参数是区域
 4. 使用子服务对象就可以调用每个子对象的方法了
 
-我们可以查看子服务对应的接口规范, 在 [spec.pb/user_data.proto](./spec.pb/user_data.proto) 文件定义 ([青云文档](https://docs.qingcloud.com/api/userdata/index.html)):
+我们可以查看子服务对应的接口规范, 在 [api/user_data.proto](./api/user_data.proto) 文件定义 ([青云文档](https://docs.qingcloud.com/api/userdata/index.html)):
 
 ```proto
 service UserDataService {
@@ -150,7 +151,7 @@ message UploadUserDataAttachmentOutput {
 
 其中`service`关键字开头的表示定义一组子服务, 其中`rpc`开头的表示子服务中每个具体的方法. 方法的输入参数和返回值分别为`UploadUserDataAttachmentInput`和`UploadUserDataAttachmentInput`结构体类型, 它们由后面的`message`关键字定义.
 
-[SDK的代码生成插件](./protoc-gen-qingcloud-go/qingcloud/qingcloud.go) 会生成以下的Go语言代码:
+[SDK的代码生成插件](./pkg/cmd/protoc-gen-qingcloud-go/qingcloud/qingcloud.go) 会生成以下的Go语言代码:
 
 ```go
 type UserDataService struct {
@@ -182,7 +183,7 @@ func (p *UserDataService) UploadUserDataAttachment(
 }
 ```
 
-规范文件的语法细节可以参考 [spec.pb/README.md](./spec.pb/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
+规范文件的语法细节可以参考 [spec.pb/README.md](./api/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
 
 ## 与官方SDK的兼容性
 
@@ -213,6 +214,8 @@ type XXXInput struct {
 
 [snips](https://github.com/yunify/snips) 采用和 Protobuf-V2 类似的生成规则, 零值是 `nil`, 空值是空字符串, 二者是不等价的. 在 Protobuf3 的生成规则中, 默认将零值和空值等价.
 
+注意: 经过慎重考虑, 我们绝对转为 Protobuf-V2 语法, 实现对默认值的支持.
+
 
 ## 为何不用官方SDK, 为何要重新做一个?
 
@@ -220,7 +223,7 @@ type XXXInput struct {
 
 可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比:
 
-- proto3 格式: [chai2010/qingcloud-go/spec.pb/volume.proto](./spec.pb/volume.proto)
+- proto3 格式: [chai2010/qingcloud-go/api/volume.proto](./api/volume.proto)
 - snips 格式: [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
 
 对比可发现, protobuf 比 json 更容易维护.

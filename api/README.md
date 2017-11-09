@@ -1,8 +1,8 @@
 ## 设计思路
 
-- 基于 Protobuf3 语法定义青云服务接口规范
-- 基于 Protobuf3 的扩展特性, 增加自定义的元数据
-- 基于 Protobuf3 生成的输入和输出参数结构进行 json 的编码和解码
+- 基于 Protobuf2 语法定义青云服务接口规范
+- 基于 Protobuf2 的扩展特性, 增加自定义的元数据
+- 基于 Protobuf2 生成的输入和输出参数结构进行 json 的编码和解码
 - 内置基于Go标准库模板语法的Go代码生成
 - 外部模板暂不支持(以后会考虑)
 
@@ -12,11 +12,11 @@
 
 1. 安装官方的 [`protoc`](https://github.com/google/protobuf/releases) 程序, V3版本, 带了官方的扩展类型
 1. 安装官方的 `protoc-gen-go` 插件, `go install github.com/golang/protobuf/protoc-gen-go`
-1. 用官方的 `protoc-gen-go` 插件编译 spec.pb 目录下全部的 proto 文件(生成的文件后缀名为`*.pb.go`, 不含青云SDK代码)
+1. 用官方的 `protoc-gen-go` 插件编译当前目录下全部的 proto 文件(生成的文件后缀名为`*.pb.go`, 不含青云SDK代码)
 
 用针对青云定制的插件生成青云SDK相关代码:
 
-1. 安装定制的`protoc-gen-qingcloud-go`插件, 命令: `go install github.com/chai2010/qingcloud-go/protoc-gen-qingcloud-go`
+1. 安装定制的`protoc-gen-qingcloud-go`插件, 命令: `go install github.com/chai2010/qingcloud-go/cmd/protoc-gen-qingcloud-go`
 1. 用定制的`protoc-gen-qingcloud-go`插件编译 spec.pb 目录下全部的 proto 文件(生成的文件后缀名为`*.pb.qingcloud.go`, 含有青云SDK代码), 参考 `make` 命令
 1. 在上级目录运行单元测试 `make test ./...`
 1. OK
@@ -29,7 +29,7 @@
 
 ## Protobuf 扩展信息
 
-扩展类型在 [spec.pb/qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto) 文件中定义:
+扩展类型在 [api/qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto) 文件中定义:
 
 ```proto
 // 服务规则
@@ -128,3 +128,5 @@ message UploadUserDataAttachmentOutput {
 
 输入的参数可以通过 `option (qingcloud.sdk.rule.message_rule)` 扩展来定义额外的约束, 用于验证整个结构体.
 目前生成的代码还没有使用该信息.
+
+注意: 文档已经滞后, 需要同步!
