@@ -41,14 +41,14 @@ type ZoneService struct {
 func NewZoneService(conf *config.Config, zone string) (p *ZoneService) {
 	return &ZoneService{
 		Config:     conf,
-		Properties: &ZoneServiceProperties{Zone: zone},
+		Properties: &ZoneServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/zone/index.html
 func (s *QingCloudService) Zone(zone string) (*ZoneService, error) {
 	properties := &ZoneServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &ZoneService{Config: s.Config, Properties: properties}, nil
