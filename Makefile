@@ -48,7 +48,7 @@ tools:
 	@echo "ok"
 
 generate:
-	cd ./spec.pb && make
+	cd ./api && make
 	go fmt  ./...
 	go test ./...
 
