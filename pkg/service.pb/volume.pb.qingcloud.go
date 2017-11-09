@@ -47,14 +47,14 @@ type VolumesService struct {
 func NewVolumesService(conf *config.Config, zone string) (p *VolumesService) {
 	return &VolumesService{
 		Config:     conf,
-		Properties: &VolumesServiceProperties{Zone: zone},
+		Properties: &VolumesServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/volume/index.html
 func (s *QingCloudService) Volumes(zone string) (*VolumesService, error) {
 	properties := &VolumesServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &VolumesService{Config: s.Config, Properties: properties}, nil

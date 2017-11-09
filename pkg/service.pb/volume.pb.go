@@ -14,7 +14,8 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type VolumesServiceProperties struct {
-	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Zone             *string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *VolumesServiceProperties) Reset()                    { *m = VolumesServiceProperties{} }
@@ -23,21 +24,22 @@ func (*VolumesServiceProperties) ProtoMessage()               {}
 func (*VolumesServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
 
 func (m *VolumesServiceProperties) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
 
 type DescribeVolumesInput struct {
-	Limit      int32    `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
-	Offset     int32    `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
-	SearchWord string   `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Status     []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
-	Tags       []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose    int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	VolumeType int32    `protobuf:"varint,7,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
-	Volumes    []string `protobuf:"bytes,8,rep,name=volumes" json:"volumes,omitempty"`
+	Limit            *int32   `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Status           []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
+	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	VolumeType       *int32   `protobuf:"varint,7,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	Volumes          []string `protobuf:"bytes,8,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeVolumesInput) Reset()                    { *m = DescribeVolumesInput{} }
@@ -46,22 +48,22 @@ func (*DescribeVolumesInput) ProtoMessage()               {}
 func (*DescribeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{1} }
 
 func (m *DescribeVolumesInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeVolumesInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeVolumesInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
@@ -81,15 +83,15 @@ func (m *DescribeVolumesInput) GetTags() []string {
 }
 
 func (m *DescribeVolumesInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeVolumesInput) GetVolumeType() int32 {
-	if m != nil {
-		return m.VolumeType
+	if m != nil && m.VolumeType != nil {
+		return *m.VolumeType
 	}
 	return 0
 }
@@ -102,11 +104,12 @@ func (m *DescribeVolumesInput) GetVolumes() []string {
 }
 
 type DescribeVolumesOutput struct {
-	Action     string    `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32     `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TotalCount int32     `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	VolumeSet  []*Volume `protobuf:"bytes,6,rep,name=volume_set,json=volumeSet" json:"volume_set,omitempty"`
+	Action           *string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount       *int32    `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	VolumeSet        []*Volume `protobuf:"bytes,6,rep,name=volume_set,json=volumeSet" json:"volume_set,omitempty"`
+	XXX_unrecognized []byte    `json:"-"`
 }
 
 func (m *DescribeVolumesOutput) Reset()                    { *m = DescribeVolumesOutput{} }
@@ -115,29 +118,29 @@ func (*DescribeVolumesOutput) ProtoMessage()               {}
 func (*DescribeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{2} }
 
 func (m *DescribeVolumesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeVolumesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeVolumesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DescribeVolumesOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
@@ -150,10 +153,11 @@ func (m *DescribeVolumesOutput) GetVolumeSet() []*Volume {
 }
 
 type CreateVolumesInput struct {
-	Count      int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
-	Size       int32  `protobuf:"varint,2,opt,name=size" json:"size,omitempty"`
-	VolumeName string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
-	VolumeType int32  `protobuf:"varint,4,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	Count            *int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
+	Size             *int32  `protobuf:"varint,2,opt,name=size" json:"size,omitempty"`
+	VolumeName       *string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	VolumeType       *int32  `protobuf:"varint,4,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateVolumesInput) Reset()                    { *m = CreateVolumesInput{} }
@@ -162,39 +166,40 @@ func (*CreateVolumesInput) ProtoMessage()               {}
 func (*CreateVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{3} }
 
 func (m *CreateVolumesInput) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 func (m *CreateVolumesInput) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
 
 func (m *CreateVolumesInput) GetVolumeName() string {
-	if m != nil {
-		return m.VolumeName
+	if m != nil && m.VolumeName != nil {
+		return *m.VolumeName
 	}
 	return ""
 }
 
 func (m *CreateVolumesInput) GetVolumeType() int32 {
-	if m != nil {
-		return m.VolumeType
+	if m != nil && m.VolumeType != nil {
+		return *m.VolumeType
 	}
 	return 0
 }
 
 type CreateVolumesOutput struct {
-	Action  string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string   `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	Volumes []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Volumes          []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *CreateVolumesOutput) Reset()                    { *m = CreateVolumesOutput{} }
@@ -203,29 +208,29 @@ func (*CreateVolumesOutput) ProtoMessage()               {}
 func (*CreateVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{4} }
 
 func (m *CreateVolumesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateVolumesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateVolumesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *CreateVolumesOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
@@ -238,7 +243,8 @@ func (m *CreateVolumesOutput) GetVolumes() []string {
 }
 
 type DeleteVolumesInput struct {
-	Volumes []string `protobuf:"bytes,1,rep,name=volumes" json:"volumes,omitempty"`
+	Volumes          []string `protobuf:"bytes,1,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteVolumesInput) Reset()                    { *m = DeleteVolumesInput{} }
@@ -254,10 +260,11 @@ func (m *DeleteVolumesInput) GetVolumes() []string {
 }
 
 type DeleteVolumesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteVolumesOutput) Reset()                    { *m = DeleteVolumesOutput{} }
@@ -266,36 +273,37 @@ func (*DeleteVolumesOutput) ProtoMessage()               {}
 func (*DeleteVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{6} }
 
 func (m *DeleteVolumesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteVolumesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteVolumesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DeleteVolumesOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type AttachVolumesInput struct {
-	Instance string   `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
-	Volumes  []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	Instance         *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AttachVolumesInput) Reset()                    { *m = AttachVolumesInput{} }
@@ -304,8 +312,8 @@ func (*AttachVolumesInput) ProtoMessage()               {}
 func (*AttachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{7} }
 
 func (m *AttachVolumesInput) GetInstance() string {
-	if m != nil {
-		return m.Instance
+	if m != nil && m.Instance != nil {
+		return *m.Instance
 	}
 	return ""
 }
@@ -318,10 +326,11 @@ func (m *AttachVolumesInput) GetVolumes() []string {
 }
 
 type AttachVolumesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AttachVolumesOutput) Reset()                    { *m = AttachVolumesOutput{} }
@@ -330,36 +339,37 @@ func (*AttachVolumesOutput) ProtoMessage()               {}
 func (*AttachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{8} }
 
 func (m *AttachVolumesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AttachVolumesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AttachVolumesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *AttachVolumesOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type DetachVolumesInput struct {
-	Instance string   `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
-	Volumes  []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	Instance         *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DetachVolumesInput) Reset()                    { *m = DetachVolumesInput{} }
@@ -368,8 +378,8 @@ func (*DetachVolumesInput) ProtoMessage()               {}
 func (*DetachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{9} }
 
 func (m *DetachVolumesInput) GetInstance() string {
-	if m != nil {
-		return m.Instance
+	if m != nil && m.Instance != nil {
+		return *m.Instance
 	}
 	return ""
 }
@@ -382,10 +392,11 @@ func (m *DetachVolumesInput) GetVolumes() []string {
 }
 
 type DetachVolumesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DetachVolumesOutput) Reset()                    { *m = DetachVolumesOutput{} }
@@ -394,36 +405,37 @@ func (*DetachVolumesOutput) ProtoMessage()               {}
 func (*DetachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{10} }
 
 func (m *DetachVolumesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DetachVolumesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DetachVolumesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DetachVolumesOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type ResizeVolumesInput struct {
-	Size    int32    `protobuf:"varint,1,opt,name=size" json:"size,omitempty"`
-	Volumes []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	Size             *int32   `protobuf:"varint,1,opt,name=size" json:"size,omitempty"`
+	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *ResizeVolumesInput) Reset()                    { *m = ResizeVolumesInput{} }
@@ -432,8 +444,8 @@ func (*ResizeVolumesInput) ProtoMessage()               {}
 func (*ResizeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{11} }
 
 func (m *ResizeVolumesInput) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
@@ -446,10 +458,11 @@ func (m *ResizeVolumesInput) GetVolumes() []string {
 }
 
 type ResizeVolumesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ResizeVolumesOutput) Reset()                    { *m = ResizeVolumesOutput{} }
@@ -458,37 +471,38 @@ func (*ResizeVolumesOutput) ProtoMessage()               {}
 func (*ResizeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{12} }
 
 func (m *ResizeVolumesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ResizeVolumesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ResizeVolumesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ResizeVolumesOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type ModifyVolumeAttributesInput struct {
-	Description string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
-	Volume      string `protobuf:"bytes,2,opt,name=volume" json:"volume,omitempty"`
-	VolumeName  string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	Description      *string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	Volume           *string `protobuf:"bytes,2,opt,name=volume" json:"volume,omitempty"`
+	VolumeName       *string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyVolumeAttributesInput) Reset()                    { *m = ModifyVolumeAttributesInput{} }
@@ -497,30 +511,31 @@ func (*ModifyVolumeAttributesInput) ProtoMessage()               {}
 func (*ModifyVolumeAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{13} }
 
 func (m *ModifyVolumeAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *ModifyVolumeAttributesInput) GetVolume() string {
-	if m != nil {
-		return m.Volume
+	if m != nil && m.Volume != nil {
+		return *m.Volume
 	}
 	return ""
 }
 
 func (m *ModifyVolumeAttributesInput) GetVolumeName() string {
-	if m != nil {
-		return m.VolumeName
+	if m != nil && m.VolumeName != nil {
+		return *m.VolumeName
 	}
 	return ""
 }
 
 type ModifyVolumeAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyVolumeAttributesOutput) Reset()                    { *m = ModifyVolumeAttributesOutput{} }
@@ -529,22 +544,22 @@ func (*ModifyVolumeAttributesOutput) ProtoMessage()               {}
 func (*ModifyVolumeAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{14} }
 
 func (m *ModifyVolumeAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyVolumeAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyVolumeAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -570,51 +585,51 @@ func init() {
 func init() { proto.RegisterFile("volume.proto", fileDescriptor29) }
 
 var fileDescriptor29 = []byte{
-	// 730 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xcd, 0x6e, 0xdb, 0x38,
-	0x10, 0x86, 0x12, 0xff, 0xc4, 0xe3, 0xcd, 0x06, 0xcb, 0xfc, 0x40, 0xeb, 0x24, 0xbb, 0x86, 0xd1,
-	0x02, 0x39, 0xc9, 0x45, 0x7a, 0xeb, 0x2d, 0x75, 0x7a, 0x48, 0x80, 0xb6, 0xa9, 0x53, 0xb4, 0x47,
-	0x41, 0x96, 0x26, 0x36, 0x13, 0x4b, 0x54, 0x45, 0x2a, 0x8d, 0x73, 0xea, 0xb9, 0xa7, 0x02, 0x7d,
-	0x96, 0xbe, 0x52, 0xef, 0x7d, 0x83, 0x42, 0x24, 0xe5, 0x8a, 0x96, 0x9a, 0x5c, 0x1a, 0x5f, 0x0c,
-	0xce, 0x70, 0xf8, 0xcd, 0xf7, 0x0d, 0x39, 0x63, 0xc1, 0x5f, 0xd7, 0x6c, 0x9a, 0x86, 0xe8, 0xc4,
-	0x09, 0x13, 0x8c, 0x34, 0x39, 0x26, 0xd7, 0xd4, 0xc7, 0x4e, 0x5b, 0xcc, 0x62, 0xe4, 0xca, 0xdb,
-	0xd9, 0xff, 0x40, 0xa3, 0xb1, 0x3f, 0x65, 0x69, 0xe0, 0xf2, 0xe0, 0xca, 0x4d, 0xd2, 0x29, 0xf6,
-	0xb3, 0x1f, 0xb5, 0xdd, 0x73, 0xc0, 0x7e, 0x27, 0x41, 0xf8, 0xb9, 0x3a, 0x7d, 0x96, 0xb0, 0x18,
-	0x13, 0x41, 0x91, 0x13, 0x02, 0xb5, 0x5b, 0x16, 0xa1, 0x6d, 0x75, 0xad, 0x83, 0xd6, 0x50, 0xae,
-	0x7b, 0xdf, 0x2d, 0xd8, 0x3a, 0x46, 0xee, 0x27, 0x74, 0x84, 0xfa, 0xe0, 0x49, 0x14, 0xa7, 0x82,
-	0x6c, 0x41, 0x7d, 0x4a, 0x43, 0x2a, 0x64, 0x74, 0x7d, 0xa8, 0x0c, 0xb2, 0x03, 0x0d, 0x76, 0x71,
-	0xc1, 0x51, 0xd8, 0x2b, 0xd2, 0xad, 0x2d, 0xf2, 0x3f, 0xb4, 0x39, 0x7a, 0x89, 0x3f, 0x71, 0x3f,
-	0xb2, 0x24, 0xb0, 0x57, 0x65, 0x06, 0x50, 0xae, 0xf7, 0x2c, 0x09, 0xb2, 0x83, 0x5c, 0x78, 0x22,
-	0xe5, 0x76, 0xad, 0xbb, 0x7a, 0xd0, 0x1a, 0x6a, 0x2b, 0xe3, 0x24, 0xbc, 0x31, 0xb7, 0xeb, 0xd2,
-	0x2b, 0xd7, 0xc4, 0x86, 0xe6, 0x35, 0x26, 0x23, 0xc6, 0xd1, 0x6e, 0xc8, 0x2c, 0xb9, 0x99, 0xa5,
-	0x51, 0x25, 0x72, 0xb3, 0x92, 0xd8, 0x4d, 0xb9, 0x0b, 0xca, 0xf5, 0x76, 0x16, 0xa3, 0x3c, 0xaa,
-	0x54, 0xd8, 0x6b, 0x12, 0x31, 0x37, 0x7b, 0xdf, 0x2c, 0xd8, 0x5e, 0x10, 0xfa, 0x3a, 0x15, 0x99,
-	0xd2, 0x1d, 0x68, 0x78, 0xbe, 0xa0, 0x2c, 0xd2, 0x85, 0xd1, 0x16, 0xf9, 0x17, 0xd6, 0x12, 0x14,
-	0xae, 0xcf, 0x02, 0xd4, 0x6a, 0x9b, 0x09, 0x8a, 0x01, 0x0b, 0x64, 0x9a, 0x10, 0x39, 0xf7, 0xc6,
-	0xa8, 0xa5, 0xe6, 0x66, 0xc6, 0x50, 0x30, 0xe1, 0x4d, 0x5d, 0x9f, 0xa5, 0x91, 0xb0, 0x6b, 0x8a,
-	0xa1, 0x74, 0x0d, 0x32, 0x0f, 0x71, 0x40, 0xf3, 0x75, 0xb3, 0x2a, 0x36, 0xba, 0xab, 0x07, 0xed,
-	0xc3, 0x0d, 0x47, 0x5f, 0xb5, 0xa3, 0x98, 0x0d, 0x5b, 0x2a, 0xe4, 0x1c, 0x45, 0xef, 0x93, 0x05,
-	0x64, 0x90, 0xa0, 0x27, 0x4a, 0xd7, 0xa3, 0x32, 0xe8, 0xeb, 0x91, 0x46, 0x56, 0x4d, 0x4e, 0x6f,
-	0x73, 0xba, 0x72, 0x5d, 0xa8, 0x59, 0xe4, 0x85, 0x39, 0x5f, 0xcd, 0xe1, 0x95, 0x17, 0x96, 0x8a,
-	0x5a, 0x5b, 0x2c, 0x6a, 0xef, 0xab, 0x05, 0x9b, 0x06, 0x85, 0x87, 0x28, 0xdc, 0x36, 0x34, 0x2e,
-	0xd9, 0xc8, 0xa5, 0x81, 0x24, 0xd0, 0x1a, 0xd6, 0x2f, 0xd9, 0xe8, 0x24, 0x28, 0x5e, 0x68, 0xdd,
-	0xbc, 0x50, 0x07, 0xc8, 0x31, 0x4e, 0x71, 0xa1, 0x2e, 0x85, 0x78, 0xcb, 0x8c, 0x9f, 0xc1, 0xa6,
-	0x11, 0xbf, 0x3c, 0x11, 0xbd, 0x53, 0x20, 0x47, 0x42, 0x78, 0xfe, 0xc4, 0xa0, 0xda, 0x81, 0x35,
-	0x1a, 0x71, 0xe1, 0x45, 0x7e, 0xde, 0x92, 0x73, 0xbb, 0x28, 0x63, 0xa5, 0x24, 0xc3, 0xc0, 0x5a,
-	0xae, 0x8c, 0x63, 0xfc, 0x73, 0x32, 0x0c, 0xac, 0x25, 0xca, 0x78, 0x0e, 0x64, 0x88, 0x59, 0x6b,
-	0x18, 0x32, 0xf2, 0xd6, 0xb1, 0x0a, 0xad, 0x73, 0x27, 0x7d, 0x03, 0x63, 0x89, 0xf4, 0x6f, 0x60,
-	0xf7, 0x25, 0x0b, 0xe8, 0xc5, 0x4c, 0xa5, 0x3e, 0x12, 0x22, 0xa1, 0xa3, 0x54, 0xe4, 0x3a, 0xba,
-	0xd0, 0x0e, 0xe4, 0x98, 0x8b, 0x0b, 0x3c, 0x8a, 0xae, 0x8c, 0xa4, 0x92, 0x21, 0xa9, 0xb4, 0x86,
-	0xda, 0xba, 0x77, 0x50, 0xf4, 0xae, 0x60, 0xaf, 0x3a, 0xf3, 0x03, 0xa8, 0x3f, 0xfc, 0x52, 0x87,
-	0xbf, 0xcd, 0x7f, 0x32, 0x72, 0x06, 0x1b, 0x0b, 0x13, 0x9c, 0xec, 0xcf, 0x27, 0x67, 0xd5, 0x9f,
-	0x58, 0xe7, 0xbf, 0xdf, 0x6d, 0x6b, 0xc6, 0xa7, 0xb0, 0x6e, 0x0c, 0x36, 0xb2, 0x3b, 0x3f, 0x50,
-	0x9e, 0xb9, 0x9d, 0xbd, 0xea, 0xcd, 0x5f, 0x58, 0xc6, 0x7c, 0x29, 0x60, 0x95, 0xe7, 0x54, 0x01,
-	0xab, 0x6a, 0x28, 0x9d, 0xc2, 0xba, 0xd1, 0xe4, 0x05, 0xac, 0xf2, 0x20, 0x29, 0x60, 0x55, 0x4d,
-	0x06, 0xc9, 0xab, 0x1a, 0xab, 0xdc, 0xcd, 0x06, 0xaf, 0x4a, 0x2c, 0xe3, 0xd9, 0x17, 0xb0, 0xca,
-	0x2d, 0x55, 0xc0, 0xaa, 0xea, 0x15, 0x84, 0x9d, 0xea, 0xd7, 0x44, 0x1e, 0xcd, 0xcf, 0xdd, 0xf1,
-	0xd0, 0x3b, 0x8f, 0xef, 0x89, 0x52, 0x69, 0x3a, 0x27, 0x9f, 0x7f, 0xd4, 0x5e, 0xc0, 0x93, 0x89,
-	0x10, 0x31, 0x7f, 0xd6, 0xef, 0x07, 0xcc, 0xe7, 0xce, 0xfc, 0x13, 0xca, 0xf1, 0x59, 0xd8, 0xf7,
-	0x62, 0xda, 0x57, 0xaf, 0xbc, 0x4f, 0xa3, 0x00, 0x6f, 0x9c, 0x89, 0x08, 0xa7, 0xe4, 0x9f, 0x37,
-	0x34, 0x1a, 0x0f, 0x64, 0x90, 0xe6, 0x3d, 0x6a, 0xc8, 0x4f, 0xac, 0xa7, 0x3f, 0x03, 0x00, 0x00,
-	0xff, 0xff, 0x6e, 0x45, 0x22, 0x3b, 0xa7, 0x09, 0x00, 0x00,
+	// 723 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0x4d, 0x6f, 0xd3, 0x4c,
+	0x10, 0x96, 0xdb, 0x7c, 0x34, 0x93, 0xb7, 0x6f, 0xf5, 0x6e, 0x3f, 0xe4, 0x37, 0x6d, 0x21, 0x8a,
+	0x40, 0xea, 0xc9, 0x41, 0x3d, 0x72, 0x2b, 0x29, 0x87, 0x56, 0x02, 0x4a, 0x8a, 0xe0, 0x68, 0x39,
+	0xf6, 0x34, 0xd9, 0x36, 0xf6, 0x1a, 0xef, 0xba, 0x34, 0x3d, 0x71, 0xe6, 0x84, 0xc4, 0x6f, 0xe1,
+	0x2f, 0x71, 0xe7, 0x1f, 0x20, 0xef, 0xae, 0x83, 0x37, 0x36, 0xed, 0x85, 0xe6, 0x12, 0xed, 0xcc,
+	0xce, 0x3e, 0xf3, 0x3c, 0xb3, 0x3b, 0xe3, 0xc0, 0x3f, 0xd7, 0x6c, 0x9a, 0x86, 0xe8, 0xc4, 0x09,
+	0x13, 0x8c, 0x34, 0x39, 0x26, 0xd7, 0xd4, 0xc7, 0x4e, 0x5b, 0xcc, 0x62, 0xe4, 0xca, 0xdb, 0xd9,
+	0xff, 0x48, 0xa3, 0xb1, 0x3f, 0x65, 0x69, 0xe0, 0xf2, 0xe0, 0xca, 0x4d, 0xd2, 0x29, 0xf6, 0xb3,
+	0x1f, 0xb5, 0xdd, 0x73, 0xc0, 0x7e, 0x2f, 0x41, 0xf8, 0xb9, 0x3a, 0x7d, 0x96, 0xb0, 0x18, 0x13,
+	0x41, 0x91, 0x13, 0x02, 0xb5, 0x5b, 0x16, 0xa1, 0x6d, 0x75, 0xad, 0x83, 0xd6, 0x50, 0xae, 0x7b,
+	0x3f, 0x2c, 0xd8, 0x3a, 0x46, 0xee, 0x27, 0x74, 0x84, 0xfa, 0xe0, 0x49, 0x14, 0xa7, 0x82, 0x6c,
+	0x41, 0x7d, 0x4a, 0x43, 0x2a, 0x64, 0x74, 0x7d, 0xa8, 0x0c, 0xb2, 0x03, 0x0d, 0x76, 0x71, 0xc1,
+	0x51, 0xd8, 0x2b, 0xd2, 0xad, 0x2d, 0xf2, 0x18, 0xda, 0x1c, 0xbd, 0xc4, 0x9f, 0xb8, 0x9f, 0x58,
+	0x12, 0xd8, 0xab, 0x32, 0x03, 0x28, 0xd7, 0x07, 0x96, 0x04, 0xd9, 0x41, 0x2e, 0x3c, 0x91, 0x72,
+	0xbb, 0xd6, 0x5d, 0x3d, 0x68, 0x0d, 0xb5, 0x95, 0x71, 0x12, 0xde, 0x98, 0xdb, 0x75, 0xe9, 0x95,
+	0x6b, 0x62, 0x43, 0xf3, 0x1a, 0x93, 0x11, 0xe3, 0x68, 0x37, 0x64, 0x96, 0xdc, 0xcc, 0xd2, 0xa8,
+	0x12, 0xb9, 0x59, 0x49, 0xec, 0xa6, 0xdc, 0x05, 0xe5, 0x7a, 0x37, 0x8b, 0x51, 0x1e, 0x55, 0x2a,
+	0xec, 0x35, 0x89, 0x98, 0x9b, 0xbd, 0xef, 0x16, 0x6c, 0x2f, 0x08, 0x7d, 0x93, 0x8a, 0x4c, 0xe9,
+	0x0e, 0x34, 0x3c, 0x5f, 0x50, 0x16, 0xe9, 0xc2, 0x68, 0x8b, 0xfc, 0x0f, 0x6b, 0x09, 0x0a, 0xd7,
+	0x67, 0x01, 0x6a, 0xb5, 0xcd, 0x04, 0xc5, 0x80, 0x05, 0x32, 0x4d, 0x88, 0x9c, 0x7b, 0x63, 0xd4,
+	0x52, 0x73, 0x33, 0x63, 0x28, 0x98, 0xf0, 0xa6, 0xae, 0xcf, 0xd2, 0x48, 0xd8, 0x35, 0xc5, 0x50,
+	0xba, 0x06, 0x99, 0x87, 0x38, 0xa0, 0xf9, 0xba, 0x59, 0x15, 0x1b, 0xdd, 0xd5, 0x83, 0xf6, 0xe1,
+	0x86, 0xa3, 0xaf, 0xda, 0x51, 0xcc, 0x86, 0x2d, 0x15, 0x72, 0x8e, 0xa2, 0xf7, 0xd9, 0x02, 0x32,
+	0x48, 0xd0, 0x13, 0xa5, 0xeb, 0x51, 0x19, 0xf4, 0xf5, 0x48, 0x23, 0xab, 0x26, 0xa7, 0xb7, 0x39,
+	0x5d, 0xb9, 0x2e, 0xd4, 0x2c, 0xf2, 0xc2, 0x9c, 0xaf, 0xe6, 0xf0, 0xda, 0x0b, 0x4b, 0x45, 0xad,
+	0x2d, 0x16, 0xb5, 0xf7, 0xcd, 0x82, 0x4d, 0x83, 0xc2, 0x43, 0x14, 0x6e, 0x1b, 0x1a, 0x97, 0x6c,
+	0xe4, 0xd2, 0x40, 0x12, 0x68, 0x0d, 0xeb, 0x97, 0x6c, 0x74, 0x12, 0x14, 0x2f, 0xb4, 0x6e, 0x5e,
+	0xa8, 0x03, 0xe4, 0x18, 0xa7, 0xb8, 0x50, 0x97, 0x42, 0xbc, 0x65, 0xc6, 0xcf, 0x60, 0xd3, 0x88,
+	0x5f, 0x9e, 0x88, 0xde, 0x29, 0x90, 0x23, 0x21, 0x3c, 0x7f, 0x62, 0x50, 0xed, 0xc0, 0x1a, 0x8d,
+	0xb8, 0xf0, 0x22, 0x3f, 0x6f, 0xc9, 0xb9, 0x5d, 0x94, 0xb1, 0x52, 0x92, 0x61, 0x60, 0x2d, 0x57,
+	0xc6, 0x31, 0xfe, 0x3d, 0x19, 0x06, 0xd6, 0x12, 0x65, 0xbc, 0x00, 0x32, 0xc4, 0xac, 0x35, 0x0c,
+	0x19, 0x79, 0xeb, 0x58, 0x85, 0xd6, 0xb9, 0x93, 0xbe, 0x81, 0xb1, 0x44, 0xfa, 0x37, 0xb0, 0xfb,
+	0x8a, 0x05, 0xf4, 0x62, 0xa6, 0x52, 0x1f, 0x09, 0x91, 0xd0, 0x51, 0x2a, 0x72, 0x1d, 0x5d, 0x68,
+	0x07, 0x72, 0xcc, 0xc5, 0x05, 0x1e, 0x45, 0x57, 0x46, 0x52, 0xc9, 0x90, 0x54, 0x5a, 0x43, 0x6d,
+	0xdd, 0x3b, 0x28, 0x7a, 0x57, 0xb0, 0x57, 0x9d, 0xf9, 0x01, 0xd4, 0x1f, 0x7e, 0xad, 0xc3, 0xbf,
+	0xe6, 0x97, 0x8c, 0x9c, 0xc1, 0xc6, 0xc2, 0x04, 0x27, 0xfb, 0xf3, 0xc9, 0x59, 0xf5, 0x11, 0xeb,
+	0x3c, 0xfa, 0xd3, 0xb6, 0x66, 0x7c, 0x0a, 0xeb, 0xc6, 0x60, 0x23, 0xbb, 0xf3, 0x03, 0xe5, 0x99,
+	0xdb, 0xd9, 0xab, 0xde, 0xfc, 0x8d, 0x65, 0xcc, 0x97, 0x02, 0x56, 0x79, 0x4e, 0x15, 0xb0, 0xaa,
+	0x86, 0xd2, 0x29, 0xac, 0x1b, 0x4d, 0x5e, 0xc0, 0x2a, 0x0f, 0x92, 0x02, 0x56, 0xd5, 0x64, 0x90,
+	0xbc, 0xaa, 0xb1, 0xca, 0xdd, 0x6c, 0xf0, 0xaa, 0xc4, 0x32, 0x9e, 0x7d, 0x01, 0xab, 0xdc, 0x52,
+	0x05, 0xac, 0xaa, 0x5e, 0x41, 0xd8, 0xa9, 0x7e, 0x4d, 0xe4, 0xc9, 0xfc, 0xdc, 0x1d, 0x0f, 0xbd,
+	0xf3, 0xf4, 0x9e, 0x28, 0x95, 0xa6, 0x73, 0xf2, 0xe5, 0x67, 0xed, 0x25, 0x3c, 0x9b, 0x08, 0x11,
+	0xf3, 0xe7, 0xfd, 0x7e, 0xc0, 0x7c, 0xee, 0xcc, 0xff, 0x42, 0x39, 0x3e, 0x0b, 0xfb, 0x5e, 0x4c,
+	0xfb, 0xea, 0x95, 0xf7, 0x69, 0x14, 0xe0, 0x8d, 0x33, 0x11, 0xe1, 0x94, 0xfc, 0xf7, 0x96, 0x46,
+	0xe3, 0x81, 0x0c, 0xd2, 0xbc, 0x7f, 0x05, 0x00, 0x00, 0xff, 0xff, 0xed, 0x52, 0xb7, 0x98, 0x9f,
+	0x09, 0x00, 0x00,
 }

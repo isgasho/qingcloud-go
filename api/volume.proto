@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -14,7 +14,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message VolumesServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service VolumesService {
@@ -35,38 +35,38 @@ service VolumesService {
 // ----------------------------------------------------------------------------
 
 message DescribeVolumesInput {
-	int32 limit = 1;
-	int32 offset = 2;
-	string search_word = 3;
+	optional int32 limit = 1;
+	optional int32 offset = 2;
+	optional string search_word = 3;
 	repeated string status = 4;
 	repeated string tags = 5;
-	int32 verbose = 6;
-	int32 volume_type = 7;
+	optional int32 verbose = 6;
+	optional int32 volume_type = 7;
 	repeated string volumes = 8;
 }
 message DescribeVolumesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	int32 total_count = 4;
+	optional int32 total_count = 4;
 	repeated Volume volume_set = 6;
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateVolumesInput {
-	int32 count = 1;
-	int32 size = 2;
-	string volume_name = 3;
-	int32 volume_type = 4;
+	optional int32 count = 1;
+	optional int32 size = 2;
+	optional string volume_name = 3;
+	optional int32 volume_type = 4;
 }
 message CreateVolumesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 	repeated string volumes = 5;
 }
 
@@ -76,66 +76,66 @@ message DeleteVolumesInput {
 	repeated string volumes = 1;
 }
 message DeleteVolumesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message AttachVolumesInput {
-	string instance = 1;
+	optional string instance = 1;
 	repeated string volumes = 2;
 }
 message AttachVolumesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DetachVolumesInput {
-	string instance = 1;
+	optional string instance = 1;
 	repeated string volumes = 2;
 }
 message DetachVolumesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ResizeVolumesInput {
-	int32 size = 1;
+	optional int32 size = 1;
 	repeated string volumes = 2;
 }
 message ResizeVolumesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyVolumeAttributesInput {
-	string description = 1;
-	string volume = 2;
-	string volume_name = 3;
+	optional string description = 1;
+	optional string volume = 2;
+	optional string volume_name = 3;
 }
 message ModifyVolumeAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
