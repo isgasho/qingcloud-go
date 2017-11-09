@@ -85,7 +85,7 @@ func WaitInstanceStatus(instanceService *service.InstanceService, instanceID str
 			return false, nil
 		}
 		if i.Status != "" && i.Status == status {
-			if i.TransitionStatus != "" && i.TransitionStatus != "" {
+			if i.TransitionStatus != "" {
 				//wait transition to finished
 				return false, nil
 			}
