@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/chai2010/qingcloud-go/config"
+	"github.com/chai2010/qingcloud-go/pkg/config"
 	"github.com/chai2010/qingcloud-go/service"
 )
 
