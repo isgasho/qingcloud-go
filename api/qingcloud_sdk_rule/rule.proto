@@ -8,7 +8,7 @@ package qingcloud.sdk.rule;
 
 import "google/protobuf/descriptor.proto";
 
-option go_package = "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule;qingcloud_sdk_rule";
+option go_package = "github.com/chai2010/qingcloud-go/pkg/service.pb/qingcloud_sdk_rule;qingcloud_sdk_rule";
 
 // 服务规则
 // 有主服务和子服务之分, 子服务隶属于某个主服务

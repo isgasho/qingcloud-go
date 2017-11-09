@@ -7,7 +7,7 @@ package qingcloud
 import (
 	"strings"
 
-	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
+	rule_pb "github.com/chai2010/qingcloud-go/pkg/service.pb/qingcloud_sdk_rule"
 )
 
 type FieldRule struct {

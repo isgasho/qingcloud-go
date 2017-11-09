@@ -13,7 +13,7 @@ import (
 	"path"
 	"strings"
 
-	rule_pb "github.com/chai2010/qingcloud-go/spec.pb/qingcloud_sdk_rule"
+	rule_pb "github.com/chai2010/qingcloud-go/pkg/service.pb/qingcloud_sdk_rule"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/generator"

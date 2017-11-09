@@ -53,7 +53,7 @@ import (
 	"os"
 	"strings"
 
-	qcPlugin "github.com/chai2010/qingcloud-go/protoc-gen-qingcloud-go/qingcloud"
+	qcPlugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud-go/qingcloud"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 )

@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/service"
+	service "github.com/chai2010/qingcloud-go/pkg/service.pb"
 )
 
 const (

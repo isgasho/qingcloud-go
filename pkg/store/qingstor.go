@@ -20,9 +20,9 @@ package store
 import (
 	"net/http"
 
-	"github.com/chai2010/qingcloud-go/config"
-	"github.com/chai2010/qingcloud-go/request"
-	"github.com/chai2010/qingcloud-go/request/data"
+	"github.com/chai2010/qingcloud-go/pkg/config"
+	"github.com/chai2010/qingcloud-go/pkg/request"
+	"github.com/chai2010/qingcloud-go/pkg/request/data"
 )
 
 var _ http.Header

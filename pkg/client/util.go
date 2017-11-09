@@ -3,8 +3,8 @@ package client
 import (
 	"fmt"
 	"github.com/chai2010/qingcloud-go/pkg/logger"
+	service "github.com/chai2010/qingcloud-go/pkg/service.pb"
 	"github.com/chai2010/qingcloud-go/pkg/utils"
-	"github.com/chai2010/qingcloud-go/service"
 	"time"
 )
 

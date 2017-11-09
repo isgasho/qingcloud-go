@@ -9,9 +9,9 @@
 PROTO_FILES=$(wildcard ./*.proto)
 
 default: $(SOURCES) Makefile rule
-	go install ../protoc-gen-qingcloud-go
-	protoc --go_out=../service ${PROTO_FILES}
-	protoc --qingcloud-go_out=../service ${PROTO_FILES}
+	go install ../pkg/cmd/protoc-gen-qingcloud-go
+	protoc --go_out=../pkg/service.pb ${PROTO_FILES}
+	protoc --qingcloud-go_out=../pkg/service.pb ${PROTO_FILES}
 
 rule: ./qingcloud_sdk_rule/rule.proto
 	protoc --go_out=../../../.. ./qingcloud_sdk_rule/rule.proto
