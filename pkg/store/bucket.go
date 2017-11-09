@@ -23,10 +23,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chai2010/qingcloud-go/config"
-	"github.com/chai2010/qingcloud-go/request"
-	"github.com/chai2010/qingcloud-go/request/data"
-	"github.com/chai2010/qingcloud-go/request/errors"
+	"github.com/chai2010/qingcloud-go/pkg/config"
+	"github.com/chai2010/qingcloud-go/pkg/request"
+	"github.com/chai2010/qingcloud-go/pkg/request/data"
+	"github.com/chai2010/qingcloud-go/pkg/request/errors"
 )
 
 var _ fmt.State

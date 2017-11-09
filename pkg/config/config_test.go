@@ -19,7 +19,7 @@ package config
 import (
 	"testing"
 
-	"github.com/chai2010/qingcloud-go/logger"
+	"github.com/chai2010/qingcloud-go/pkg/logger"
 	"github.com/stretchr/testify/assert"
 )
 

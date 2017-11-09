@@ -26,8 +26,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/chai2010/qingcloud-go/logger"
-	"github.com/chai2010/qingcloud-go/request/data"
+	"github.com/chai2010/qingcloud-go/pkg/logger"
+	"github.com/chai2010/qingcloud-go/pkg/request/data"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )

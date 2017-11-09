@@ -23,8 +23,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/chai2010/qingcloud-go/logger"
-	"github.com/chai2010/qingcloud-go/request/data"
+	"github.com/chai2010/qingcloud-go/pkg/logger"
+	"github.com/chai2010/qingcloud-go/pkg/request/data"
 )
 
 // A Request can build, sign, send and unpack API request.

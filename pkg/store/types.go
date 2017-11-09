@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/chai2010/qingcloud-go/request/errors"
+	"github.com/chai2010/qingcloud-go/pkg/request/errors"
 )
 
 // Properties presents the service properties.
