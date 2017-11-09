@@ -47,14 +47,14 @@ type VxnetService struct {
 func NewVxnetService(conf *config.Config, zone string) (p *VxnetService) {
 	return &VxnetService{
 		Config:     conf,
-		Properties: &VxnetServiceProperties{Zone: zone},
+		Properties: &VxnetServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/vxnet/index.html
 func (s *QingCloudService) Vxnet(zone string) (*VxnetService, error) {
 	properties := &VxnetServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &VxnetService{Config: s.Config, Properties: properties}, nil
