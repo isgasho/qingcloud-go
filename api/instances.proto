@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -14,7 +14,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message InstanceServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service InstanceService {
@@ -41,60 +41,60 @@ service InstanceService {
 
 message DescribeInstancesInput {
 	repeated string image_id = 1;
-	int32 instance_class = 2;
+	optional int32 instance_class = 2;
 	repeated string instance_type = 3;
 	repeated string instances = 4;
-	int32 is_cluster_node = 5;
-	int32 limit = 6;
-	int32 offset = 7;
-	string search_word = 8;
+	optional int32 is_cluster_node = 5;
+	optional int32 limit = 6;
+	optional int32 offset = 7;
+	optional string search_word = 8;
 	repeated string status = 9;
 	repeated string tags = 10;
-	int32 verbose = 11;
+	optional int32 verbose = 11;
 }
 message DescribeInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated Instance instance_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message RunInstancesInput {
-	string billing_id = 1;
-	int32 count = 2;
-	int32 cpu = 3;
-	string hostname = 4;
-	string image_id = 5;
-	int32 instance_class = 6;
-	string instance_name = 7;
-	string instance_type = 8;
-	string login_keypair = 9;
-	string login_mode = 10;
-	string login_passwd = 11;
-	int32 memory = 12;
-	int32 need_newsid = 13;
-	int32 need_userdata = 14;
-	string security_group = 15;
-	string ui_type = 16;
-	string userdata_file = 17;
-	string userdata_path = 18;
-	string userdata_type = 19;
-	string userdata_value = 20;
+	optional string billing_id = 1;
+	optional int32 count = 2;
+	optional int32 cpu = 3;
+	optional string hostname = 4;
+	optional string image_id = 5;
+	optional int32 instance_class = 6;
+	optional string instance_name = 7;
+	optional string instance_type = 8;
+	optional string login_keypair = 9;
+	optional string login_mode = 10;
+	optional string login_passwd = 11;
+	optional int32 memory = 12;
+	optional int32 need_newsid = 13;
+	optional int32 need_userdata = 14;
+	optional string security_group = 15;
+	optional string ui_type = 16;
+	optional string userdata_file = 17;
+	optional string userdata_path = 18;
+	optional string userdata_type = 19;
+	optional string userdata_value = 20;
 	repeated string volumes = 21;
 	repeated string vxnets = 22;
 }
 
 message RunInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string instances = 4;
-	string job_id = 5;
+	optional string job_id = 5;
 }
 
 // ----------------------------------------------------------------------------
@@ -103,11 +103,11 @@ message TerminateInstancesInput {
 	repeated string instances = 1;
 }
 message TerminateInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -116,25 +116,25 @@ message StartInstancesInput {
 	repeated string instances = 1;
 }
 message StartInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message StopInstancesInput {
-	int32 force = 1;
+	optional int32 force = 1;
 	repeated string instances = 2;
 }
 message StopInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -144,58 +144,58 @@ message RestartInstancesInput {
 }
 
 message RestartInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ResetInstancesInput {
 	repeated string instances = 1;
-	string login_mode = 2;
-	string login_keypair = 3;
-	string login_passwd = 4;
-	int32 need_newsid = 5;
+	optional string login_mode = 2;
+	optional string login_keypair = 3;
+	optional string login_passwd = 4;
+	optional int32 need_newsid = 5;
 }
 message ResetInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ResizeInstancesInput {
 	repeated string instances = 1;
-	string instance_type = 2;
-	int32 cpu = 3;
-	int32 memory = 4;
+	optional string instance_type = 2;
+	optional int32 cpu = 3;
+	optional int32 memory = 4;
 }
 message ResizeInstancesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyInstanceAttributesInput {
-	string instance = 1;
-	string instance_name = 2;
-	string description = 3;
-	int32 nic_mqueue = 4;
+	optional string instance = 1;
+	optional string instance_name = 2;
+	optional string description = 3;
+	optional int32 nic_mqueue = 4;
 }
 message ModifyInstanceAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -234,26 +234,26 @@ message ModifyInstanceAttributesOutput {
 // ----------------------------------------------------------------------------
 
 message DescribeInstanceTypesInput {
-	string action = 1;                  // 用来标识所请求指令
-	string zone = 2;                    // 区域 ID, 例如 pek3a
+	optional string action = 1;                  // 用来标识所请求指令
+	optional string zone = 2;                    // 区域 ID, 例如 pek3a
 	repeated string instance_types = 3; // 指定查询的主机类型
 }
 
 message DescribeInstanceTypesOutput {
-	string action = 1;                           // 响应动作
-	int32 ret_code = 2;                          // 状态码
-	string message = 3;
+	optional string action = 1;                           // 响应动作
+	optional int32 ret_code = 2;                          // 状态码
+	optional string message = 3;
 
 	repeated ResponseItem instance_type_set = 4; // 主机类型列表
-	int32 total_count = 5;                       // 根据过滤条件得到的主机类型总数
+	optional int32 total_count = 5;                       // 根据过滤条件得到的主机类型总数
 
 	message ResponseItem {
-		string instance_type_id = 1;   // 主机类型ID
-		string instance_type_name = 2; // 主机类型名称
-		string description = 3;        // 主机类型描述
-		int32 vcpus_current = 4;       // 主机类型CPU核心数目
-		int32 memory_current = 5;      // 主机类型内存大小, 单位为MB
-		string status = 6;             // 主机类型状态. enum: {available, deprecated}
+		optional string instance_type_id = 1;   // 主机类型ID
+		optional string instance_type_name = 2; // 主机类型名称
+		optional string description = 3;        // 主机类型描述
+		optional int32 vcpus_current = 4;       // 主机类型CPU核心数目
+		optional int32 memory_current = 5;      // 主机类型内存大小, 单位为MB
+		optional string status = 6;             // 主机类型状态. enum: {available, deprecated}
 	}
 }
 
@@ -263,16 +263,16 @@ message CreateBrokersInput {
 	repeated string instances = 1;
 }
 message CreateBrokersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem brokers = 4;
 
 	message ResponseItem {
-		string instance_id = 1;
-		string broker_host = 2;
-		int32 broker_port = 3;
+		optional string instance_id = 1;
+		optional string broker_host = 2;
+		optional int32 broker_port = 3;
 	}
 }
 
@@ -282,9 +282,9 @@ message DeleteBrokersInput {
 	repeated string instances = 1;
 }
 message DeleteBrokersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string brokers = 4;
 }

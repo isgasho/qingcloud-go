@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -14,7 +14,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message JobServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service JobService {
@@ -30,18 +30,18 @@ service JobService {
 
 message DescribeJobsInput {
 	repeated string jobs = 1;
-	int32 limit = 2;
-	int32 offset = 3;
+	optional int32 limit = 2;
+	optional int32 offset = 3;
 	repeated string status = 4;
-	int32 verbose = 5;
+	optional int32 verbose = 5;
 }
 message DescribeJobsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated Job job_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------

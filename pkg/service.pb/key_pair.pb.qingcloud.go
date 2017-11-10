@@ -46,14 +46,14 @@ type KeyPairService struct {
 func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService) {
 	return &KeyPairService{
 		Config:     conf,
-		Properties: &KeyPairServiceProperties{Zone: zone},
+		Properties: &KeyPairServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/keypair/index.html
 func (s *QingCloudService) KeyPair(zone string) (*KeyPairService, error) {
 	properties := &KeyPairServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &KeyPairService{Config: s.Config, Properties: properties}, nil

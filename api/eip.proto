@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -16,7 +16,7 @@ import "google/protobuf/timestamp.proto";
 // ----------------------------------------------------------------------------
 
 message EIPServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service EIPService {
@@ -39,53 +39,53 @@ service EIPService {
 
 message DescribeEipsInput {
 	repeated string eips = 1;
-	string instance_id = 2;
-	string status = 3;
-	string search_word = 4;
+	optional string instance_id = 2;
+	optional string status = 3;
+	optional string search_word = 4;
 	repeated string tags = 5;
-	int32 verbose = 6;
-	int32 offset = 7;
-	int32 limit = 8;
+	optional int32 verbose = 6;
+	optional int32 offset = 7;
+	optional int32 limit = 8;
 }
 message DescribeEipsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem eip_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string eip_id = 1;
-		string eip_name = 2;
-		string description = 3;
-		int32 bandwidth = 4;
-		string billing_mode = 5;
-		string status = 6;
-		string transition_status = 7;
-		string icp_codes = 8;
-		google.protobuf.Timestamp create_time = 9;
-		google.protobuf.Timestamp status_time = 10;
-		Resource resource = 11;
-		EIPGroup eip_group = 12;
-		string eip_addr = 13;
+		optional string eip_id = 1;
+		optional string eip_name = 2;
+		optional string description = 3;
+		optional int32 bandwidth = 4;
+		optional string billing_mode = 5;
+		optional string status = 6;
+		optional string transition_status = 7;
+		optional string icp_codes = 8;
+		optional google.protobuf.Timestamp create_time = 9;
+		optional google.protobuf.Timestamp status_time = 10;
+		optional Resource resource = 11;
+		optional EIPGroup eip_group = 12;
+		optional string eip_addr = 13;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message AllocateEipsInput {
-	int32 bandwidth = 1;
-	string billing_mode = 2;
-	string eip_name = 3;
-	int32 count = 4;
-	int32 need_icp = 5;
-	string target_user = 6;
+	optional int32 bandwidth = 1;
+	optional string billing_mode = 2;
+	optional string eip_name = 3;
+	optional int32 count = 4;
+	optional int32 need_icp = 5;
+	optional string target_user = 6;
 }
 message AllocateEipsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string eips = 4;
 }
@@ -96,25 +96,25 @@ message ReleaseEipsInput {
 	repeated string eips = 1;
 }
 message ReleaseEipsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message AssociateEipInput {
-	string eip = 1;
-	string instance = 2;
+	optional string eip = 1;
+	optional string instance = 2;
 }
 message AssociateEipOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -123,52 +123,52 @@ message DissociateEipsInput {
 	repeated string eips = 1;
 }
 message DissociateEipsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ChangeEipsBandwidthInput {
 	repeated string eips = 1;
-	int32 bandwidth = 2;
+	optional int32 bandwidth = 2;
 }
 message ChangeEipsBandwidthOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ChangeEipsBillingModeInput {
 	repeated string eips = 1;
-	string billing_mode = 2;
+	optional string billing_mode = 2;
 }
 message ChangeEipsBillingModeOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyEipAttributesInput {
-	string eip = 1;
-	string eip_name = 2;
-	string description = 3;
+	optional string eip = 1;
+	optional string eip_name = 2;
+	optional string description = 3;
 }
 message ModifyEipAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------

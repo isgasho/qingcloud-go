@@ -44,14 +44,14 @@ type DNSAliasService struct {
 func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
 	return &DNSAliasService{
 		Config:     conf,
-		Properties: &DNSAliasServiceProperties{Zone: zone},
+		Properties: &DNSAliasServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/dns_alias/index.html
 func (s *QingCloudService) DNSAlias(zone string) (*DNSAliasService, error) {
 	properties := &DNSAliasServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &DNSAliasService{Config: s.Config, Properties: properties}, nil

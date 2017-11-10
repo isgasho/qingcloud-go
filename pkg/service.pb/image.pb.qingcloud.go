@@ -48,14 +48,14 @@ type ImageService struct {
 func NewImageService(conf *config.Config, zone string) (p *ImageService) {
 	return &ImageService{
 		Config:     conf,
-		Properties: &ImageServiceProperties{Zone: zone},
+		Properties: &ImageServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/image/index.html
 func (s *QingCloudService) Image(zone string) (*ImageService, error) {
 	properties := &ImageServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &ImageService{Config: s.Config, Properties: properties}, nil

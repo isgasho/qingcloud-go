@@ -15,7 +15,8 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type EIPServiceProperties struct {
-	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Zone             *string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *EIPServiceProperties) Reset()                    { *m = EIPServiceProperties{} }
@@ -24,21 +25,22 @@ func (*EIPServiceProperties) ProtoMessage()               {}
 func (*EIPServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 func (m *EIPServiceProperties) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
 
 type DescribeEipsInput struct {
-	Eips       []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	InstanceId string   `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	Status     string   `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
-	SearchWord string   `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags       []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose    int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset     int32    `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit      int32    `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	InstanceId       *string  `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	Status           *string  `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeEipsInput) Reset()                    { *m = DescribeEipsInput{} }
@@ -54,22 +56,22 @@ func (m *DescribeEipsInput) GetEips() []string {
 }
 
 func (m *DescribeEipsInput) GetInstanceId() string {
-	if m != nil {
-		return m.InstanceId
+	if m != nil && m.InstanceId != nil {
+		return *m.InstanceId
 	}
 	return ""
 }
 
 func (m *DescribeEipsInput) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *DescribeEipsInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
@@ -82,32 +84,33 @@ func (m *DescribeEipsInput) GetTags() []string {
 }
 
 func (m *DescribeEipsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeEipsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeEipsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeEipsOutput struct {
-	Action     string                             `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32                              `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string                             `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	EipSet     []*DescribeEipsOutput_ResponseItem `protobuf:"bytes,4,rep,name=eip_set,json=eipSet" json:"eip_set,omitempty"`
-	TotalCount int32                              `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string                            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	EipSet           []*DescribeEipsOutput_ResponseItem `protobuf:"bytes,4,rep,name=eip_set,json=eipSet" json:"eip_set,omitempty"`
+	TotalCount       *int32                             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte                             `json:"-"`
 }
 
 func (m *DescribeEipsOutput) Reset()                    { *m = DescribeEipsOutput{} }
@@ -116,22 +119,22 @@ func (*DescribeEipsOutput) ProtoMessage()               {}
 func (*DescribeEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
 
 func (m *DescribeEipsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeEipsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeEipsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -144,26 +147,27 @@ func (m *DescribeEipsOutput) GetEipSet() []*DescribeEipsOutput_ResponseItem {
 }
 
 func (m *DescribeEipsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeEipsOutput_ResponseItem struct {
-	EipId            string                      `protobuf:"bytes,1,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
-	EipName          string                      `protobuf:"bytes,2,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
-	Description      string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Bandwidth        int32                       `protobuf:"varint,4,opt,name=bandwidth" json:"bandwidth,omitempty"`
-	BillingMode      string                      `protobuf:"bytes,5,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
-	Status           string                      `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,7,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	IcpCodes         string                      `protobuf:"bytes,8,opt,name=icp_codes,json=icpCodes" json:"icp_codes,omitempty"`
+	EipId            *string                     `protobuf:"bytes,1,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
+	EipName          *string                     `protobuf:"bytes,2,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	Description      *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Bandwidth        *int32                      `protobuf:"varint,4,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	BillingMode      *string                     `protobuf:"bytes,5,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	Status           *string                     `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,7,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	IcpCodes         *string                     `protobuf:"bytes,8,opt,name=icp_codes,json=icpCodes" json:"icp_codes,omitempty"`
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	Resource         *Resource                   `protobuf:"bytes,11,opt,name=resource" json:"resource,omitempty"`
 	EipGroup         *EIPGroup                   `protobuf:"bytes,12,opt,name=eip_group,json=eipGroup" json:"eip_group,omitempty"`
-	EipAddr          string                      `protobuf:"bytes,13,opt,name=eip_addr,json=eipAddr" json:"eip_addr,omitempty"`
+	EipAddr          *string                     `protobuf:"bytes,13,opt,name=eip_addr,json=eipAddr" json:"eip_addr,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *DescribeEipsOutput_ResponseItem) Reset()         { *m = DescribeEipsOutput_ResponseItem{} }
@@ -174,57 +178,57 @@ func (*DescribeEipsOutput_ResponseItem) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetEipId() string {
-	if m != nil {
-		return m.EipId
+	if m != nil && m.EipId != nil {
+		return *m.EipId
 	}
 	return ""
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetEipName() string {
-	if m != nil {
-		return m.EipName
+	if m != nil && m.EipName != nil {
+		return *m.EipName
 	}
 	return ""
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetBandwidth() int32 {
-	if m != nil {
-		return m.Bandwidth
+	if m != nil && m.Bandwidth != nil {
+		return *m.Bandwidth
 	}
 	return 0
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetBillingMode() string {
-	if m != nil {
-		return m.BillingMode
+	if m != nil && m.BillingMode != nil {
+		return *m.BillingMode
 	}
 	return ""
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetIcpCodes() string {
-	if m != nil {
-		return m.IcpCodes
+	if m != nil && m.IcpCodes != nil {
+		return *m.IcpCodes
 	}
 	return ""
 }
@@ -258,19 +262,20 @@ func (m *DescribeEipsOutput_ResponseItem) GetEipGroup() *EIPGroup {
 }
 
 func (m *DescribeEipsOutput_ResponseItem) GetEipAddr() string {
-	if m != nil {
-		return m.EipAddr
+	if m != nil && m.EipAddr != nil {
+		return *m.EipAddr
 	}
 	return ""
 }
 
 type AllocateEipsInput struct {
-	Bandwidth   int32  `protobuf:"varint,1,opt,name=bandwidth" json:"bandwidth,omitempty"`
-	BillingMode string `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
-	EipName     string `protobuf:"bytes,3,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
-	Count       int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
-	NeedIcp     int32  `protobuf:"varint,5,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
-	TargetUser  string `protobuf:"bytes,6,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	Bandwidth        *int32  `protobuf:"varint,1,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	BillingMode      *string `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	EipName          *string `protobuf:"bytes,3,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	Count            *int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
+	NeedIcp          *int32  `protobuf:"varint,5,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
+	TargetUser       *string `protobuf:"bytes,6,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AllocateEipsInput) Reset()                    { *m = AllocateEipsInput{} }
@@ -279,52 +284,53 @@ func (*AllocateEipsInput) ProtoMessage()               {}
 func (*AllocateEipsInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
 
 func (m *AllocateEipsInput) GetBandwidth() int32 {
-	if m != nil {
-		return m.Bandwidth
+	if m != nil && m.Bandwidth != nil {
+		return *m.Bandwidth
 	}
 	return 0
 }
 
 func (m *AllocateEipsInput) GetBillingMode() string {
-	if m != nil {
-		return m.BillingMode
+	if m != nil && m.BillingMode != nil {
+		return *m.BillingMode
 	}
 	return ""
 }
 
 func (m *AllocateEipsInput) GetEipName() string {
-	if m != nil {
-		return m.EipName
+	if m != nil && m.EipName != nil {
+		return *m.EipName
 	}
 	return ""
 }
 
 func (m *AllocateEipsInput) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 func (m *AllocateEipsInput) GetNeedIcp() int32 {
-	if m != nil {
-		return m.NeedIcp
+	if m != nil && m.NeedIcp != nil {
+		return *m.NeedIcp
 	}
 	return 0
 }
 
 func (m *AllocateEipsInput) GetTargetUser() string {
-	if m != nil {
-		return m.TargetUser
+	if m != nil && m.TargetUser != nil {
+		return *m.TargetUser
 	}
 	return ""
 }
 
 type AllocateEipsOutput struct {
-	Action  string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Eips    []string `protobuf:"bytes,4,rep,name=eips" json:"eips,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Eips             []string `protobuf:"bytes,4,rep,name=eips" json:"eips,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AllocateEipsOutput) Reset()                    { *m = AllocateEipsOutput{} }
@@ -333,22 +339,22 @@ func (*AllocateEipsOutput) ProtoMessage()               {}
 func (*AllocateEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
 
 func (m *AllocateEipsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AllocateEipsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AllocateEipsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -361,7 +367,8 @@ func (m *AllocateEipsOutput) GetEips() []string {
 }
 
 type ReleaseEipsInput struct {
-	Eips []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *ReleaseEipsInput) Reset()                    { *m = ReleaseEipsInput{} }
@@ -377,10 +384,11 @@ func (m *ReleaseEipsInput) GetEips() []string {
 }
 
 type ReleaseEipsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ReleaseEipsOutput) Reset()                    { *m = ReleaseEipsOutput{} }
@@ -389,36 +397,37 @@ func (*ReleaseEipsOutput) ProtoMessage()               {}
 func (*ReleaseEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{6} }
 
 func (m *ReleaseEipsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ReleaseEipsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ReleaseEipsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ReleaseEipsOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type AssociateEipInput struct {
-	Eip      string `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
-	Instance string `protobuf:"bytes,2,opt,name=instance" json:"instance,omitempty"`
+	Eip              *string `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
+	Instance         *string `protobuf:"bytes,2,opt,name=instance" json:"instance,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AssociateEipInput) Reset()                    { *m = AssociateEipInput{} }
@@ -427,24 +436,25 @@ func (*AssociateEipInput) ProtoMessage()               {}
 func (*AssociateEipInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{7} }
 
 func (m *AssociateEipInput) GetEip() string {
-	if m != nil {
-		return m.Eip
+	if m != nil && m.Eip != nil {
+		return *m.Eip
 	}
 	return ""
 }
 
 func (m *AssociateEipInput) GetInstance() string {
-	if m != nil {
-		return m.Instance
+	if m != nil && m.Instance != nil {
+		return *m.Instance
 	}
 	return ""
 }
 
 type AssociateEipOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AssociateEipOutput) Reset()                    { *m = AssociateEipOutput{} }
@@ -453,35 +463,36 @@ func (*AssociateEipOutput) ProtoMessage()               {}
 func (*AssociateEipOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{8} }
 
 func (m *AssociateEipOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AssociateEipOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AssociateEipOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *AssociateEipOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type DissociateEipsInput struct {
-	Eips []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DissociateEipsInput) Reset()                    { *m = DissociateEipsInput{} }
@@ -497,10 +508,11 @@ func (m *DissociateEipsInput) GetEips() []string {
 }
 
 type DissociateEipsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DissociateEipsOutput) Reset()                    { *m = DissociateEipsOutput{} }
@@ -509,36 +521,37 @@ func (*DissociateEipsOutput) ProtoMessage()               {}
 func (*DissociateEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{10} }
 
 func (m *DissociateEipsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DissociateEipsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DissociateEipsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DissociateEipsOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type ChangeEipsBandwidthInput struct {
-	Eips      []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	Bandwidth int32    `protobuf:"varint,2,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	Bandwidth        *int32   `protobuf:"varint,2,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *ChangeEipsBandwidthInput) Reset()                    { *m = ChangeEipsBandwidthInput{} }
@@ -554,17 +567,18 @@ func (m *ChangeEipsBandwidthInput) GetEips() []string {
 }
 
 func (m *ChangeEipsBandwidthInput) GetBandwidth() int32 {
-	if m != nil {
-		return m.Bandwidth
+	if m != nil && m.Bandwidth != nil {
+		return *m.Bandwidth
 	}
 	return 0
 }
 
 type ChangeEipsBandwidthOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ChangeEipsBandwidthOutput) Reset()                    { *m = ChangeEipsBandwidthOutput{} }
@@ -573,36 +587,37 @@ func (*ChangeEipsBandwidthOutput) ProtoMessage()               {}
 func (*ChangeEipsBandwidthOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{12} }
 
 func (m *ChangeEipsBandwidthOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ChangeEipsBandwidthOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ChangeEipsBandwidthOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ChangeEipsBandwidthOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type ChangeEipsBillingModeInput struct {
-	Eips        []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	BillingMode string   `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	BillingMode      *string  `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *ChangeEipsBillingModeInput) Reset()                    { *m = ChangeEipsBillingModeInput{} }
@@ -618,17 +633,18 @@ func (m *ChangeEipsBillingModeInput) GetEips() []string {
 }
 
 func (m *ChangeEipsBillingModeInput) GetBillingMode() string {
-	if m != nil {
-		return m.BillingMode
+	if m != nil && m.BillingMode != nil {
+		return *m.BillingMode
 	}
 	return ""
 }
 
 type ChangeEipsBillingModeOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ChangeEipsBillingModeOutput) Reset()                    { *m = ChangeEipsBillingModeOutput{} }
@@ -637,37 +653,38 @@ func (*ChangeEipsBillingModeOutput) ProtoMessage()               {}
 func (*ChangeEipsBillingModeOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{14} }
 
 func (m *ChangeEipsBillingModeOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ChangeEipsBillingModeOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ChangeEipsBillingModeOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ChangeEipsBillingModeOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type ModifyEipAttributesInput struct {
-	Eip         string `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
-	EipName     string `protobuf:"bytes,2,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
-	Description string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Eip              *string `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
+	EipName          *string `protobuf:"bytes,2,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyEipAttributesInput) Reset()                    { *m = ModifyEipAttributesInput{} }
@@ -676,30 +693,31 @@ func (*ModifyEipAttributesInput) ProtoMessage()               {}
 func (*ModifyEipAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{15} }
 
 func (m *ModifyEipAttributesInput) GetEip() string {
-	if m != nil {
-		return m.Eip
+	if m != nil && m.Eip != nil {
+		return *m.Eip
 	}
 	return ""
 }
 
 func (m *ModifyEipAttributesInput) GetEipName() string {
-	if m != nil {
-		return m.EipName
+	if m != nil && m.EipName != nil {
+		return *m.EipName
 	}
 	return ""
 }
 
 func (m *ModifyEipAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type ModifyEipAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyEipAttributesOutput) Reset()                    { *m = ModifyEipAttributesOutput{} }
@@ -708,22 +726,22 @@ func (*ModifyEipAttributesOutput) ProtoMessage()               {}
 func (*ModifyEipAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{16} }
 
 func (m *ModifyEipAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyEipAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyEipAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -752,71 +770,71 @@ func init() {
 func init() { proto.RegisterFile("eip.proto", fileDescriptor4) }
 
 var fileDescriptor4 = []byte{
-	// 1055 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0x4f, 0x6f, 0x1b, 0x45,
-	0x14, 0x97, 0xeb, 0xac, 0x1d, 0x3f, 0xa7, 0x28, 0x9e, 0x26, 0xd5, 0x66, 0xd3, 0xaa, 0xee, 0x82,
-	0x50, 0x00, 0xd5, 0x96, 0xc2, 0x0d, 0x24, 0x24, 0x37, 0x89, 0x2a, 0x4b, 0x04, 0xc2, 0x06, 0xc4,
-	0x05, 0x69, 0xb5, 0xde, 0x7d, 0xb1, 0xa7, 0xac, 0x77, 0x86, 0x99, 0xd9, 0xa6, 0xed, 0x05, 0x71,
-	0xe5, 0x5b, 0xf5, 0x83, 0x20, 0xf1, 0x15, 0x38, 0x72, 0x43, 0x33, 0xb3, 0xb6, 0xc7, 0x89, 0x9d,
-	0x1c, 0x50, 0x72, 0xb1, 0xe6, 0xfd, 0x7f, 0x6f, 0xde, 0xfb, 0xbd, 0x1d, 0x43, 0x0b, 0x29, 0xef,
-	0x71, 0xc1, 0x14, 0x23, 0x4d, 0x89, 0xe2, 0x0d, 0x4d, 0x31, 0x68, 0xab, 0x77, 0x1c, 0xa5, 0xe5,
-	0x06, 0x4f, 0x7f, 0xa3, 0xc5, 0x38, 0xcd, 0x59, 0x99, 0xc5, 0x32, 0xfb, 0x35, 0x16, 0x65, 0x8e,
-	0x7d, 0xfd, 0x53, 0x89, 0x9f, 0x8d, 0x19, 0x1b, 0xe7, 0xd8, 0x37, 0xd4, 0xa8, 0xbc, 0xe8, 0x2b,
-	0x3a, 0x45, 0xa9, 0x92, 0x69, 0xe5, 0x35, 0xfc, 0x1c, 0x76, 0x4e, 0x86, 0x67, 0xe7, 0xd6, 0xf5,
-	0x99, 0x60, 0x1c, 0x85, 0xa2, 0x28, 0x09, 0x81, 0x8d, 0xf7, 0xac, 0x40, 0xbf, 0xd6, 0xad, 0x1d,
-	0xb4, 0x22, 0x73, 0x0e, 0xff, 0xaa, 0x41, 0xe7, 0x18, 0x65, 0x2a, 0xe8, 0x08, 0x4f, 0x28, 0x97,
-	0xc3, 0x82, 0x97, 0x4a, 0x6b, 0x22, 0xe5, 0xd2, 0xaf, 0x75, 0xeb, 0x5a, 0x53, 0x9f, 0xc9, 0x33,
-	0x68, 0xd3, 0x42, 0xaa, 0xa4, 0x48, 0x31, 0xa6, 0x99, 0xff, 0xc0, 0x38, 0x81, 0x19, 0x6b, 0x98,
-	0x91, 0xc7, 0xd0, 0x90, 0x2a, 0x51, 0xa5, 0xf4, 0xeb, 0x46, 0x56, 0x51, 0xda, 0x50, 0x62, 0x22,
-	0xd2, 0x49, 0x7c, 0xc9, 0x44, 0xe6, 0x6f, 0x58, 0x43, 0xcb, 0xfa, 0x99, 0x89, 0x4c, 0x47, 0x53,
-	0xc9, 0x58, 0xfa, 0x9e, 0x8d, 0xa6, 0xcf, 0xc4, 0x87, 0xe6, 0x1b, 0x14, 0x23, 0x26, 0xd1, 0x6f,
-	0x74, 0x6b, 0x07, 0x5e, 0x34, 0x23, 0x75, 0x18, 0x76, 0x71, 0x21, 0x51, 0xf9, 0x4d, 0x23, 0xa8,
-	0x28, 0xb2, 0x03, 0x5e, 0x4e, 0xa7, 0x54, 0xf9, 0x9b, 0x86, 0x6d, 0x89, 0xf0, 0x83, 0x07, 0xc4,
-	0xad, 0xef, 0xfb, 0x52, 0xe9, 0x02, 0x1f, 0x43, 0x23, 0x49, 0x15, 0x65, 0x45, 0x75, 0x19, 0x15,
-	0x45, 0xf6, 0x60, 0x53, 0xa0, 0x8a, 0x53, 0x96, 0xa1, 0xa9, 0xd0, 0x8b, 0x9a, 0x02, 0xd5, 0x11,
-	0xcb, 0x50, 0x67, 0x34, 0x45, 0x29, 0x93, 0x31, 0x56, 0xf5, 0xcd, 0x48, 0x32, 0x80, 0x26, 0x52,
-	0x1e, 0xeb, 0x94, 0x36, 0xba, 0xf5, 0x83, 0xf6, 0xe1, 0x41, 0xaf, 0xea, 0x6b, 0xef, 0x7a, 0xe8,
-	0x5e, 0x84, 0x92, 0xb3, 0x42, 0xe2, 0x50, 0xe1, 0x34, 0x6a, 0x20, 0xe5, 0xe7, 0xa8, 0xf4, 0x1d,
-	0x29, 0xa6, 0x92, 0x3c, 0x4e, 0x59, 0x59, 0x28, 0xdf, 0x33, 0xa1, 0xc1, 0xb0, 0x8e, 0x34, 0x27,
-	0xf8, 0xb7, 0x0e, 0x5b, 0xae, 0x25, 0xd9, 0x05, 0x6d, 0xab, 0x3b, 0x61, 0x2b, 0xf0, 0x90, 0xf2,
-	0x61, 0xa6, 0x0b, 0xd0, 0xec, 0x22, 0x99, 0x62, 0xd5, 0x22, 0x9d, 0xdb, 0x77, 0xc9, 0x14, 0x49,
-	0x17, 0xda, 0x99, 0x49, 0x87, 0x9b, 0xc2, 0x6d, 0x11, 0x2e, 0x8b, 0x3c, 0x81, 0xd6, 0x28, 0x29,
-	0xb2, 0x4b, 0x9a, 0xa9, 0x89, 0xe9, 0x93, 0x17, 0x2d, 0x18, 0xe4, 0x39, 0x6c, 0x8d, 0x68, 0x9e,
-	0xd3, 0x62, 0x1c, 0x4f, 0xf5, 0xfd, 0x78, 0xd6, 0x41, 0xc5, 0x3b, 0xd5, 0x77, 0xb4, 0x18, 0x81,
-	0xc6, 0xd2, 0x08, 0x7c, 0x01, 0x1d, 0x25, 0x92, 0x42, 0x52, 0x1d, 0x26, 0xae, 0x54, 0x9a, 0x46,
-	0x65, 0x7b, 0x21, 0x38, 0xb7, 0xca, 0xfb, 0xd0, 0xa2, 0x29, 0x37, 0x3d, 0x90, 0xa6, 0x99, 0xad,
-	0x68, 0x93, 0xa6, 0x5c, 0x37, 0x41, 0x92, 0xaf, 0xa1, 0x9d, 0x0a, 0x4c, 0x14, 0xc6, 0x7a, 0xea,
-	0xfd, 0x56, 0xb7, 0x76, 0xd0, 0x3e, 0x0c, 0x7a, 0x16, 0x12, 0xbd, 0x19, 0x24, 0x7a, 0x3f, 0xce,
-	0x20, 0x11, 0x81, 0x55, 0xd7, 0x0c, 0x6d, 0x6c, 0x63, 0x5b, 0x63, 0xb8, 0xdd, 0xd8, 0xaa, 0x1b,
-	0xe3, 0x17, 0x7a, 0x34, 0x24, 0x2b, 0x45, 0x8a, 0x7e, 0xdb, 0x58, 0x76, 0xe6, 0x6d, 0x8e, 0x2a,
-	0x41, 0x34, 0x57, 0x21, 0x3d, 0x83, 0xf3, 0x78, 0x2c, 0x58, 0xc9, 0xfd, 0xad, 0x2b, 0xfa, 0x27,
-	0xc3, 0xb3, 0x57, 0x5a, 0x10, 0xe9, 0x66, 0x99, 0xd3, 0xac, 0x71, 0x49, 0x96, 0x09, 0xff, 0xe1,
-	0xbc, 0x71, 0x83, 0x2c, 0x13, 0xe1, 0x87, 0x1a, 0x74, 0x06, 0x79, 0xce, 0xd2, 0x44, 0x39, 0x18,
-	0x5d, 0x6a, 0x56, 0xed, 0xb6, 0x66, 0x3d, 0xb8, 0xde, 0x2c, 0x77, 0x54, 0xea, 0xcb, 0xa3, 0xb2,
-	0x03, 0x9e, 0x1d, 0x44, 0x3b, 0x04, 0x96, 0xd0, 0x06, 0x05, 0x62, 0x16, 0xd3, 0x94, 0x57, 0x13,
-	0xda, 0xd4, 0xf4, 0x30, 0xe5, 0x66, 0x7e, 0x13, 0x31, 0x46, 0x15, 0x97, 0x12, 0x45, 0xd5, 0x7d,
-	0xb0, 0xac, 0x9f, 0x24, 0x8a, 0xb0, 0x04, 0xe2, 0x96, 0x70, 0x17, 0x30, 0x9c, 0x2d, 0xad, 0x8d,
-	0xc5, 0xd2, 0x0a, 0x3f, 0x85, 0xed, 0x08, 0x73, 0x4c, 0xe4, 0xcd, 0xcb, 0x2d, 0xbc, 0x84, 0x8e,
-	0xa3, 0x77, 0x17, 0xd9, 0xed, 0x42, 0xe3, 0x35, 0x1b, 0x69, 0xbc, 0xda, 0x05, 0xe8, 0xbd, 0x66,
-	0xa3, 0x61, 0x16, 0x0e, 0xa0, 0x33, 0x90, 0x92, 0xa5, 0xd4, 0x5e, 0x8c, 0xcd, 0x70, 0x1b, 0xea,
-	0x48, 0x79, 0x15, 0x55, 0x1f, 0x49, 0x00, 0x9b, 0xb3, 0x4d, 0x5b, 0xb5, 0x72, 0x4e, 0x87, 0x6f,
-	0x81, 0xb8, 0x2e, 0xee, 0x31, 0xf9, 0xcf, 0xe0, 0xd1, 0x31, 0x75, 0x42, 0xdf, 0x70, 0xc1, 0xef,
-	0x61, 0x67, 0x59, 0xf5, 0x1e, 0xd3, 0xfc, 0x16, 0xfc, 0xa3, 0x49, 0x52, 0x8c, 0x4d, 0xdc, 0x97,
-	0x33, 0x88, 0xac, 0xff, 0xd2, 0x2d, 0x21, 0xeb, 0xc1, 0x15, 0x64, 0x85, 0xbf, 0xc3, 0xde, 0x0a,
-	0x6f, 0xf7, 0x58, 0xce, 0x39, 0x04, 0x4e, 0x02, 0x0b, 0x40, 0xaf, 0x2f, 0xe8, 0xf6, 0x65, 0x10,
-	0xfe, 0x51, 0x83, 0xfd, 0x95, 0x5e, 0xef, 0xb1, 0x30, 0x0a, 0xfe, 0x29, 0xcb, 0xe8, 0xc5, 0xbb,
-	0x13, 0xca, 0x07, 0x4a, 0x09, 0x3a, 0x2a, 0x15, 0xca, 0x75, 0x90, 0xf8, 0x3f, 0x5f, 0xba, 0x70,
-	0x02, 0x7b, 0x2b, 0x42, 0xdd, 0x41, 0xad, 0x87, 0x7f, 0x7b, 0x00, 0x8b, 0xd7, 0x18, 0x79, 0x05,
-	0x5b, 0xee, 0x9b, 0x80, 0x04, 0x2b, 0x9f, 0x0a, 0xa6, 0xe6, 0x60, 0xff, 0x86, 0x67, 0x84, 0x76,
-	0xe4, 0x2e, 0x54, 0xc7, 0xd1, 0xb5, 0x4f, 0x85, 0xe3, 0x68, 0xc5, 0x0e, 0x3e, 0x86, 0xb6, 0xb3,
-	0xfa, 0xc8, 0x9e, 0xf3, 0x51, 0x5b, 0x5e, 0x9c, 0x41, 0xb0, 0x4a, 0xe4, 0xa4, 0xe3, 0xc0, 0xdb,
-	0x4d, 0xe7, 0xea, 0x7a, 0x73, 0xd3, 0xb9, 0xbe, 0xb7, 0x4e, 0xe1, 0xa3, 0xe5, 0x45, 0x41, 0x9e,
-	0x2c, 0xae, 0xe1, 0xfa, 0xb2, 0x09, 0x9e, 0xae, 0x91, 0x56, 0xee, 0x7e, 0x81, 0x47, 0x2b, 0xd0,
-	0x4a, 0x9e, 0xcf, 0xad, 0xd6, 0x6d, 0x86, 0x20, 0xbc, 0x49, 0xa5, 0xf2, 0x3e, 0x82, 0xdd, 0x95,
-	0xa0, 0x21, 0x1f, 0xaf, 0x32, 0xbe, 0x02, 0xd5, 0xe0, 0x93, 0x9b, 0x95, 0x16, 0x15, 0xac, 0x18,
-	0x55, 0xa7, 0x82, 0x75, 0x98, 0x71, 0x2a, 0x58, 0x3b, 0xeb, 0xc1, 0xcb, 0x3f, 0xff, 0xd9, 0xf8,
-	0x06, 0x5e, 0x4c, 0x94, 0xe2, 0xf2, 0xab, 0x7e, 0x3f, 0x63, 0xa9, 0xec, 0xcd, 0xff, 0x7e, 0xf4,
-	0x52, 0x36, 0xed, 0x27, 0x9c, 0xf6, 0x91, 0xf2, 0x3e, 0x2d, 0x32, 0x7c, 0xdb, 0x9b, 0xa8, 0x69,
-	0x4e, 0x1e, 0xfe, 0x40, 0x8b, 0xf1, 0x91, 0xd1, 0x38, 0x19, 0x9e, 0x8d, 0x1a, 0xe6, 0xe5, 0xf4,
-	0xe5, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xff, 0x3f, 0xc5, 0xca, 0xd9, 0x0c, 0x00, 0x00,
+	// 1051 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0xcf, 0x6e, 0xdb, 0x46,
+	0x13, 0x87, 0x2c, 0x53, 0xb2, 0x46, 0xce, 0x07, 0x6b, 0x63, 0x07, 0x34, 0x9d, 0x20, 0x0a, 0xbf,
+	0xa2, 0x70, 0x5b, 0x44, 0x02, 0x7c, 0x6c, 0x81, 0x02, 0x8a, 0x6d, 0x04, 0x02, 0xea, 0xd6, 0xa5,
+	0x5b, 0xf4, 0x52, 0x80, 0xa0, 0xc8, 0xb1, 0xb4, 0x29, 0xc5, 0xdd, 0xee, 0x2e, 0xe3, 0x24, 0x97,
+	0xa2, 0xd7, 0xbe, 0x55, 0x1e, 0xa4, 0x40, 0x5f, 0xa1, 0xc7, 0xde, 0x8a, 0xdd, 0xa5, 0xa4, 0x95,
+	0x2d, 0xd9, 0x87, 0xc2, 0xbe, 0x08, 0x9c, 0xd9, 0xf9, 0xf7, 0xdb, 0x99, 0xdf, 0x90, 0x82, 0x16,
+	0x52, 0xde, 0xe3, 0x82, 0x29, 0x46, 0x9a, 0x12, 0xc5, 0x5b, 0x9a, 0x62, 0xd0, 0x56, 0xef, 0x39,
+	0x4a, 0xab, 0x0d, 0x9e, 0xfd, 0x4a, 0x8b, 0x71, 0x9a, 0xb3, 0x32, 0x8b, 0x65, 0xf6, 0x4b, 0x2c,
+	0xca, 0x1c, 0xfb, 0xfa, 0xa7, 0x3a, 0x7e, 0x3e, 0x66, 0x6c, 0x9c, 0x63, 0xdf, 0x48, 0xa3, 0xf2,
+	0xb2, 0xaf, 0xe8, 0x14, 0xa5, 0x4a, 0xa6, 0x55, 0xd4, 0xf0, 0x73, 0xd8, 0x3d, 0x1d, 0x9e, 0x5f,
+	0xd8, 0xd0, 0xe7, 0x82, 0x71, 0x14, 0x8a, 0xa2, 0x24, 0x04, 0x36, 0x3f, 0xb0, 0x02, 0xfd, 0x5a,
+	0xb7, 0x76, 0xd8, 0x8a, 0xcc, 0x73, 0xf8, 0x67, 0x0d, 0x3a, 0x27, 0x28, 0x53, 0x41, 0x47, 0x78,
+	0x4a, 0xb9, 0x1c, 0x16, 0xbc, 0x54, 0xda, 0x12, 0x29, 0x97, 0x7e, 0xad, 0x5b, 0xd7, 0x96, 0xfa,
+	0x99, 0x3c, 0x87, 0x36, 0x2d, 0xa4, 0x4a, 0x8a, 0x14, 0x63, 0x9a, 0xf9, 0x1b, 0x26, 0x08, 0xcc,
+	0x54, 0xc3, 0x8c, 0x3c, 0x81, 0x86, 0x54, 0x89, 0x2a, 0xa5, 0x5f, 0x37, 0x67, 0x95, 0xa4, 0x1d,
+	0x25, 0x26, 0x22, 0x9d, 0xc4, 0x57, 0x4c, 0x64, 0xfe, 0xa6, 0x75, 0xb4, 0xaa, 0x9f, 0x98, 0xc8,
+	0x74, 0x36, 0x95, 0x8c, 0xa5, 0xef, 0xd9, 0x6c, 0xfa, 0x99, 0xf8, 0xd0, 0x7c, 0x8b, 0x62, 0xc4,
+	0x24, 0xfa, 0x8d, 0x6e, 0xed, 0xd0, 0x8b, 0x66, 0xa2, 0x4e, 0xc3, 0x2e, 0x2f, 0x25, 0x2a, 0xbf,
+	0x69, 0x0e, 0x2a, 0x89, 0xec, 0x82, 0x97, 0xd3, 0x29, 0x55, 0xfe, 0x96, 0x51, 0x5b, 0x21, 0xfc,
+	0xe8, 0x01, 0x71, 0xf1, 0x7d, 0x57, 0x2a, 0x0d, 0xf0, 0x09, 0x34, 0x92, 0x54, 0x51, 0x56, 0x54,
+	0x97, 0x51, 0x49, 0x64, 0x1f, 0xb6, 0x04, 0xaa, 0x38, 0x65, 0x19, 0x1a, 0x84, 0x5e, 0xd4, 0x14,
+	0xa8, 0x8e, 0x59, 0x86, 0xba, 0xa2, 0x29, 0x4a, 0x99, 0x8c, 0xb1, 0xc2, 0x37, 0x13, 0xc9, 0x00,
+	0x9a, 0x48, 0x79, 0xac, 0x4b, 0xda, 0xec, 0xd6, 0x0f, 0xdb, 0x47, 0x87, 0xbd, 0xaa, 0xaf, 0xbd,
+	0x9b, 0xa9, 0x7b, 0x11, 0x4a, 0xce, 0x0a, 0x89, 0x43, 0x85, 0xd3, 0xa8, 0x81, 0x94, 0x5f, 0xa0,
+	0xd2, 0x77, 0xa4, 0x98, 0x4a, 0xf2, 0x38, 0x65, 0x65, 0xa1, 0x7c, 0xcf, 0xa4, 0x06, 0xa3, 0x3a,
+	0xd6, 0x9a, 0xe0, 0x9f, 0x3a, 0x6c, 0xbb, 0x9e, 0x64, 0x0f, 0xb4, 0xaf, 0xee, 0x84, 0x45, 0xe0,
+	0x21, 0xe5, 0xc3, 0x4c, 0x03, 0xd0, 0xea, 0x22, 0x99, 0x62, 0xd5, 0x22, 0x5d, 0xdb, 0xb7, 0xc9,
+	0x14, 0x49, 0x17, 0xda, 0x99, 0x29, 0x87, 0x1b, 0xe0, 0x16, 0x84, 0xab, 0x22, 0x4f, 0xa1, 0x35,
+	0x4a, 0x8a, 0xec, 0x8a, 0x66, 0x6a, 0x62, 0xfa, 0xe4, 0x45, 0x0b, 0x05, 0x79, 0x01, 0xdb, 0x23,
+	0x9a, 0xe7, 0xb4, 0x18, 0xc7, 0x53, 0x7d, 0x3f, 0x9e, 0x0d, 0x50, 0xe9, 0xce, 0xf4, 0x1d, 0x2d,
+	0x46, 0xa0, 0xb1, 0x34, 0x02, 0x5f, 0x40, 0x47, 0x89, 0xa4, 0x90, 0x54, 0xa7, 0x89, 0x2b, 0x93,
+	0xa6, 0x31, 0xd9, 0x59, 0x1c, 0x5c, 0x58, 0xe3, 0x03, 0x68, 0xd1, 0x94, 0x9b, 0x1e, 0x48, 0xd3,
+	0xcc, 0x56, 0xb4, 0x45, 0x53, 0xae, 0x9b, 0x20, 0xc9, 0x57, 0xd0, 0x4e, 0x05, 0x26, 0x0a, 0x63,
+	0x3d, 0xf5, 0x7e, 0xab, 0x5b, 0x3b, 0x6c, 0x1f, 0x05, 0x3d, 0x4b, 0x89, 0xde, 0x8c, 0x12, 0xbd,
+	0x1f, 0x66, 0x94, 0x88, 0xc0, 0x9a, 0x6b, 0x85, 0x76, 0xb6, 0xb9, 0xad, 0x33, 0xdc, 0xed, 0x6c,
+	0xcd, 0x8d, 0xf3, 0x4b, 0x3d, 0x1a, 0x92, 0x95, 0x22, 0x45, 0xbf, 0x6d, 0x3c, 0x3b, 0xf3, 0x36,
+	0x47, 0xd5, 0x41, 0x34, 0x37, 0x21, 0x3d, 0xc3, 0xf3, 0x78, 0x2c, 0x58, 0xc9, 0xfd, 0xed, 0x6b,
+	0xf6, 0xa7, 0xc3, 0xf3, 0xd7, 0xfa, 0x20, 0xd2, 0xcd, 0x32, 0x4f, 0xb3, 0xc6, 0x25, 0x59, 0x26,
+	0xfc, 0x47, 0xf3, 0xc6, 0x0d, 0xb2, 0x4c, 0x84, 0x1f, 0x6b, 0xd0, 0x19, 0xe4, 0x39, 0x4b, 0x13,
+	0xe5, 0x70, 0x74, 0xa9, 0x59, 0xb5, 0xbb, 0x9a, 0xb5, 0x71, 0xb3, 0x59, 0xee, 0xa8, 0xd4, 0x97,
+	0x47, 0x65, 0x17, 0x3c, 0x3b, 0x88, 0x76, 0x08, 0xac, 0xa0, 0x1d, 0x0a, 0xc4, 0x2c, 0xa6, 0x29,
+	0xaf, 0x26, 0xb4, 0xa9, 0xe5, 0x61, 0xca, 0xcd, 0xfc, 0x26, 0x62, 0x8c, 0x2a, 0x2e, 0x25, 0x8a,
+	0xaa, 0xfb, 0x60, 0x55, 0x3f, 0x4a, 0x14, 0x61, 0x09, 0xc4, 0x85, 0x70, 0x1f, 0x34, 0x9c, 0x2d,
+	0xad, 0xcd, 0xc5, 0xd2, 0x0a, 0x3f, 0x85, 0x9d, 0x08, 0x73, 0x4c, 0xe4, 0xed, 0xcb, 0x2d, 0xbc,
+	0x82, 0x8e, 0x63, 0x77, 0x1f, 0xd5, 0xed, 0x41, 0xe3, 0x0d, 0x1b, 0x69, 0xbe, 0xda, 0x05, 0xe8,
+	0xbd, 0x61, 0xa3, 0x61, 0x16, 0x0e, 0xa0, 0x33, 0x90, 0x92, 0xa5, 0xd4, 0x5e, 0x8c, 0xad, 0x70,
+	0x07, 0xea, 0x48, 0x79, 0x95, 0x55, 0x3f, 0x92, 0x00, 0xb6, 0x66, 0x9b, 0xb6, 0x6a, 0xe5, 0x5c,
+	0x0e, 0xdf, 0x01, 0x71, 0x43, 0x3c, 0x60, 0xf1, 0x9f, 0xc1, 0xe3, 0x13, 0xea, 0xa4, 0xbe, 0xe5,
+	0x82, 0x3f, 0xc0, 0xee, 0xb2, 0xe9, 0x03, 0x96, 0xf9, 0x0d, 0xf8, 0xc7, 0x93, 0xa4, 0x18, 0x9b,
+	0xbc, 0xaf, 0x66, 0x14, 0x59, 0xff, 0xa6, 0x5b, 0x62, 0xd6, 0xc6, 0x35, 0x66, 0x85, 0xbf, 0xc1,
+	0xfe, 0x8a, 0x68, 0x0f, 0x08, 0xe7, 0x02, 0x02, 0xa7, 0x80, 0x05, 0xa1, 0xd7, 0x03, 0xba, 0x7b,
+	0x19, 0x84, 0xbf, 0xd7, 0xe0, 0x60, 0x65, 0xd4, 0x07, 0x04, 0x46, 0xc1, 0x3f, 0x63, 0x19, 0xbd,
+	0x7c, 0x7f, 0x4a, 0xf9, 0x40, 0x29, 0x41, 0x47, 0xa5, 0x42, 0xb9, 0x8e, 0x12, 0xff, 0xe5, 0x4d,
+	0x17, 0x4e, 0x60, 0x7f, 0x45, 0xaa, 0x7b, 0xc0, 0x7a, 0xf4, 0x97, 0x07, 0xb0, 0xf8, 0x1a, 0x23,
+	0xaf, 0x61, 0xdb, 0xfd, 0x26, 0x20, 0xc1, 0xca, 0x4f, 0x05, 0x83, 0x39, 0x38, 0xb8, 0xe5, 0x33,
+	0x42, 0x07, 0x72, 0x17, 0xaa, 0x13, 0xe8, 0xc6, 0xab, 0xc2, 0x09, 0xb4, 0x62, 0x07, 0x9f, 0x40,
+	0xdb, 0x59, 0x7d, 0x64, 0xdf, 0x79, 0xa9, 0x2d, 0x2f, 0xce, 0x20, 0x58, 0x75, 0xe4, 0x94, 0xe3,
+	0xd0, 0xdb, 0x2d, 0xe7, 0xfa, 0x7a, 0x73, 0xcb, 0xb9, 0xb9, 0xb7, 0xce, 0xe0, 0x7f, 0xcb, 0x8b,
+	0x82, 0x3c, 0x5d, 0x5c, 0xc3, 0xcd, 0x65, 0x13, 0x3c, 0x5b, 0x73, 0x5a, 0x85, 0xfb, 0x19, 0x1e,
+	0xaf, 0x60, 0x2b, 0x79, 0x31, 0xf7, 0x5a, 0xb7, 0x19, 0x82, 0xf0, 0x36, 0x93, 0x2a, 0xfa, 0x08,
+	0xf6, 0x56, 0x92, 0x86, 0xfc, 0x7f, 0x95, 0xf3, 0x35, 0xaa, 0x06, 0x9f, 0xdc, 0x6e, 0xb4, 0x40,
+	0xb0, 0x62, 0x54, 0x1d, 0x04, 0xeb, 0x38, 0xe3, 0x20, 0x58, 0x3b, 0xeb, 0xc1, 0xab, 0x3f, 0xfe,
+	0xde, 0xfc, 0x1a, 0x5e, 0x4e, 0x94, 0xe2, 0xf2, 0xcb, 0x7e, 0x3f, 0x63, 0xa9, 0xec, 0xcd, 0xff,
+	0x7e, 0xf4, 0x52, 0x36, 0xed, 0x27, 0x9c, 0xf6, 0x91, 0xf2, 0x3e, 0x2d, 0x32, 0x7c, 0xd7, 0x9b,
+	0xa8, 0x69, 0x4e, 0x1e, 0x7d, 0x4f, 0x8b, 0xf1, 0xb1, 0xb1, 0x38, 0x1d, 0x9e, 0xff, 0x1b, 0x00,
+	0x00, 0xff, 0xff, 0xe8, 0x80, 0x32, 0x1a, 0xd1, 0x0c, 0x00, 0x00,
 }

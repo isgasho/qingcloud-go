@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -16,7 +16,7 @@ import "google/protobuf/timestamp.proto";
 // ----------------------------------------------------------------------------
 
 message ImageServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service ImageService {
@@ -39,57 +39,57 @@ service ImageService {
 
 message DescribeImagesInput {
 	repeated string images = 1;
-	string processor_type = 2;
-	string os_family = 3;
-	string visibility = 4;
-	string provider = 5;
+	optional string processor_type = 2;
+	optional string os_family = 3;
+	optional string visibility = 4;
+	optional string provider = 5;
 	repeated string status = 6;
-	string search_word = 7;
-	int32 verbose = 8;
-	int32 offset = 9;
-	int32 limit = 10;
+	optional string search_word = 7;
+	optional int32 verbose = 8;
+	optional int32 offset = 9;
+	optional int32 limit = 10;
 }
 message DescribeImagesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem image_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string image_id = 1;
-		string image_name = 2;
-		string description = 3;
-		int32 size = 4;
-		string processor_type = 5;
-		string platform = 6;
-		string os_family = 7;
-		string visibility = 8;
-		string provider = 9;
-		string owner = 10;
-		string recommended_type = 11;
-		string status = 12;
-		string transition_status = 13;
-		google.protobuf.Timestamp create_time = 14;
-		google.protobuf.Timestamp status_time = 15;
+		optional string image_id = 1;
+		optional string image_name = 2;
+		optional string description = 3;
+		optional int32 size = 4;
+		optional string processor_type = 5;
+		optional string platform = 6;
+		optional string os_family = 7;
+		optional string visibility = 8;
+		optional string provider = 9;
+		optional string owner = 10;
+		optional string recommended_type = 11;
+		optional string status = 12;
+		optional string transition_status = 13;
+		optional google.protobuf.Timestamp create_time = 14;
+		optional google.protobuf.Timestamp status_time = 15;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message CaptureInstanceInput {
-	string instance = 1;
-	string image_name = 2;
-	string target_user = 3;
+	optional string instance = 1;
+	optional string image_name = 2;
+	optional string target_user = 3;
 }
 message CaptureInstanceOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
-	string image_id = 5;
+	optional string job_id = 4;
+	optional string image_id = 5;
 }
 
 // ----------------------------------------------------------------------------
@@ -98,83 +98,83 @@ message DeleteImagesInput {
 	repeated string images = 1;
 }
 message DeleteImagesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyImageAttributesInput {
-	string image = 1;
-	string image_name = 2;
-	string description = 3;
+	optional string image = 1;
+	optional string image_name = 2;
+	optional string description = 3;
 }
 message ModifyImageAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message GrantImageToUsersInput {
-	string image = 1;
+	optional string image = 1;
 	repeated string users = 2;
 }
 message GrantImageToUsersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message RevokeImageFromUsersInput {
-	string image = 1;
+	optional string image = 1;
 	repeated string users = 2;
 }
 message RevokeImageFromUsersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeImageUsersInput {
-	string image_id = 1;
-	int32 offset = 2;
-	int32 limit = 3;
+	optional string image_id = 1;
+	optional int32 offset = 2;
+	optional int32 limit = 3;
 }
 message DescribeImageUsersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem image_user_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string image_id = 1;
-		User user = 2;
-		google.protobuf.Timestamp create_time = 3;
+		optional string image_id = 1;
+		optional User user = 2;
+		optional google.protobuf.Timestamp create_time = 3;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message CloneImagesInput {
-	string image = 1;
-	int32 count = 2;
-	string image_name = 3;
+	optional string image = 1;
+	optional int32 count = 2;
+	optional string image_name = 3;
 }
 message CloneImagesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------

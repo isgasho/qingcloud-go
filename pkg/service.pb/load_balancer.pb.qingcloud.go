@@ -71,14 +71,14 @@ type LoadBalancerService struct {
 func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerService) {
 	return &LoadBalancerService{
 		Config:     conf,
-		Properties: &LoadBalancerServiceProperties{Zone: zone},
+		Properties: &LoadBalancerServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/lb/index.html
 func (s *QingCloudService) LoadBalancer(zone string) (*LoadBalancerService, error) {
 	properties := &LoadBalancerServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &LoadBalancerService{Config: s.Config, Properties: properties}, nil

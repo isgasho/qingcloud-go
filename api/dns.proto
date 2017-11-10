@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -15,7 +15,7 @@ import "google/protobuf/timestamp.proto";
 // ----------------------------------------------------------------------------
 
 message DNSAliasServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service DNSAliasService {
@@ -34,43 +34,43 @@ service DNSAliasService {
 
 message DescribeDNSAliasesInput {
 	repeated string dns_aliases = 1;
-	string resource_id = 2;
-	string search_word = 3;
-	int32 offset = 4;
-	int32 limit = 5;
+	optional string resource_id = 2;
+	optional string search_word = 3;
+	optional int32 offset = 4;
+	optional int32 limit = 5;
 }
 message DescribeDNSAliasesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem dns_alias_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string status = 1;
-		string dns_alias_id = 2;
-		string resource_id = 3;
-		string dns_alias_name = 4;
-		google.protobuf.Timestamp create_time = 5;
+		optional string status = 1;
+		optional string dns_alias_id = 2;
+		optional string resource_id = 3;
+		optional string dns_alias_name = 4;
+		optional google.protobuf.Timestamp create_time = 5;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message AssociateDNSAliasInput {
-	string prefix = 1;
-	string resource = 2;
-	string dns_alias_name = 3;
+	optional string prefix = 1;
+	optional string resource = 2;
+	optional string dns_alias_name = 3;
 }
 message AssociateDNSAliasOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string dns_alias_id = 4;
-	string domain_name = 5;
-	string job_id = 6;
+	optional string dns_alias_id = 4;
+	optional string domain_name = 5;
+	optional string job_id = 6;
 }
 
 // ----------------------------------------------------------------------------
@@ -79,11 +79,11 @@ message DissociateDNSAliasesInput {
 	repeated string dns_aliases = 1;
 }
 message DissociateDNSAliasesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -92,12 +92,12 @@ message GetDNSLabelInput {
 	//
 }
 message GetDNSLabelOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string dns_label = 4;
-	string domain_name = 5;
+	optional string dns_label = 4;
+	optional string domain_name = 5;
 }
 
 // ----------------------------------------------------------------------------

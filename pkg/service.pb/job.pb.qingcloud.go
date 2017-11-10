@@ -41,14 +41,14 @@ type JobService struct {
 func NewJobService(conf *config.Config, zone string) (p *JobService) {
 	return &JobService{
 		Config:     conf,
-		Properties: &JobServiceProperties{Zone: zone},
+		Properties: &JobServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/job/index.html
 func (s *QingCloudService) Job(zone string) (*JobService, error) {
 	properties := &JobServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &JobService{Config: s.Config, Properties: properties}, nil

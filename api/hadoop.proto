@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -13,7 +13,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message HadoopServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service HadoopService {
@@ -31,37 +31,37 @@ service HadoopService {
 // ----------------------------------------------------------------------------
 
 message AddHadoopNodesInput {
-	string hadoop = 1;
-	int32 node_count = 2;
-	string hadoop_node_name = 3;
+	optional string hadoop = 1;
+	optional int32 node_count = 2;
+	optional string hadoop_node_name = 3;
 	repeated PrivateIps private_ips = 4;
 
 	message PrivateIps {
-		string role = 1;
-		string private_ips = 2;
+		optional string role = 1;
+		optional string private_ips = 2;
 	}
 }
 message AddHadoopNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string hadoop_id = 4;
+	optional string hadoop_id = 4;
 	repeated string hadoop_new_node_ids = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message DeleteHadoopNodesInput {
-	string hadoop = 1;
+	optional string hadoop = 1;
 	repeated string hadoop_nodes = 2;
 }
 message DeleteHadoopNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string hadoop_id = 4;
+	optional string hadoop_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -70,11 +70,11 @@ message StartHadoopsInput {
 	repeated string hadoops = 1;
 }
 message StartHadoopsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -83,11 +83,11 @@ message StopHadoopsInput {
 	repeated string hadoops = 1;
 }
 message StopHadoopsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------

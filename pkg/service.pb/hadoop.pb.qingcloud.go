@@ -44,14 +44,14 @@ type HadoopService struct {
 func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
 	return &HadoopService{
 		Config:     conf,
-		Properties: &HadoopServiceProperties{Zone: zone},
+		Properties: &HadoopServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/hadoop/index.html
 func (s *QingCloudService) Hadoop(zone string) (*HadoopService, error) {
 	properties := &HadoopServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &HadoopService{Config: s.Config, Properties: properties}, nil

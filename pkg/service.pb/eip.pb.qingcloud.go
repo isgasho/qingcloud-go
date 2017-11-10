@@ -48,14 +48,14 @@ type EIPService struct {
 func NewEIPService(conf *config.Config, zone string) (p *EIPService) {
 	return &EIPService{
 		Config:     conf,
-		Properties: &EIPServiceProperties{Zone: zone},
+		Properties: &EIPServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/eip/index.html
 func (s *QingCloudService) EIP(zone string) (*EIPService, error) {
 	properties := &EIPServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &EIPService{Config: s.Config, Properties: properties}, nil

@@ -15,7 +15,8 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type ImageServiceProperties struct {
-	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Zone             *string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ImageServiceProperties) Reset()                    { *m = ImageServiceProperties{} }
@@ -24,23 +25,24 @@ func (*ImageServiceProperties) ProtoMessage()               {}
 func (*ImageServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
 
 func (m *ImageServiceProperties) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
 
 type DescribeImagesInput struct {
-	Images        []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
-	ProcessorType string   `protobuf:"bytes,2,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
-	OsFamily      string   `protobuf:"bytes,3,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Visibility    string   `protobuf:"bytes,4,opt,name=visibility" json:"visibility,omitempty"`
-	Provider      string   `protobuf:"bytes,5,opt,name=provider" json:"provider,omitempty"`
-	Status        []string `protobuf:"bytes,6,rep,name=status" json:"status,omitempty"`
-	SearchWord    string   `protobuf:"bytes,7,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose       int32    `protobuf:"varint,8,opt,name=verbose" json:"verbose,omitempty"`
-	Offset        int32    `protobuf:"varint,9,opt,name=offset" json:"offset,omitempty"`
-	Limit         int32    `protobuf:"varint,10,opt,name=limit" json:"limit,omitempty"`
+	Images           []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
+	ProcessorType    *string  `protobuf:"bytes,2,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
+	OsFamily         *string  `protobuf:"bytes,3,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Visibility       *string  `protobuf:"bytes,4,opt,name=visibility" json:"visibility,omitempty"`
+	Provider         *string  `protobuf:"bytes,5,opt,name=provider" json:"provider,omitempty"`
+	Status           []string `protobuf:"bytes,6,rep,name=status" json:"status,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,7,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose          *int32   `protobuf:"varint,8,opt,name=verbose" json:"verbose,omitempty"`
+	Offset           *int32   `protobuf:"varint,9,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32   `protobuf:"varint,10,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeImagesInput) Reset()                    { *m = DescribeImagesInput{} }
@@ -56,29 +58,29 @@ func (m *DescribeImagesInput) GetImages() []string {
 }
 
 func (m *DescribeImagesInput) GetProcessorType() string {
-	if m != nil {
-		return m.ProcessorType
+	if m != nil && m.ProcessorType != nil {
+		return *m.ProcessorType
 	}
 	return ""
 }
 
 func (m *DescribeImagesInput) GetOsFamily() string {
-	if m != nil {
-		return m.OsFamily
+	if m != nil && m.OsFamily != nil {
+		return *m.OsFamily
 	}
 	return ""
 }
 
 func (m *DescribeImagesInput) GetVisibility() string {
-	if m != nil {
-		return m.Visibility
+	if m != nil && m.Visibility != nil {
+		return *m.Visibility
 	}
 	return ""
 }
 
 func (m *DescribeImagesInput) GetProvider() string {
-	if m != nil {
-		return m.Provider
+	if m != nil && m.Provider != nil {
+		return *m.Provider
 	}
 	return ""
 }
@@ -91,39 +93,40 @@ func (m *DescribeImagesInput) GetStatus() []string {
 }
 
 func (m *DescribeImagesInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 func (m *DescribeImagesInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeImagesInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeImagesInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeImagesOutput struct {
-	Action     string                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ImageSet   []*DescribeImagesOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_set,json=imageSet" json:"image_set,omitempty"`
-	TotalCount int32                                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string                              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ImageSet         []*DescribeImagesOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_set,json=imageSet" json:"image_set,omitempty"`
+	TotalCount       *int32                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte                               `json:"-"`
 }
 
 func (m *DescribeImagesOutput) Reset()                    { *m = DescribeImagesOutput{} }
@@ -132,22 +135,22 @@ func (*DescribeImagesOutput) ProtoMessage()               {}
 func (*DescribeImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{2} }
 
 func (m *DescribeImagesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeImagesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -160,28 +163,29 @@ func (m *DescribeImagesOutput) GetImageSet() []*DescribeImagesOutput_ResponseIte
 }
 
 func (m *DescribeImagesOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeImagesOutput_ResponseItem struct {
-	ImageId          string                      `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	ImageName        string                      `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	Description      string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Size             int32                       `protobuf:"varint,4,opt,name=size" json:"size,omitempty"`
-	ProcessorType    string                      `protobuf:"bytes,5,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
-	Platform         string                      `protobuf:"bytes,6,opt,name=platform" json:"platform,omitempty"`
-	OsFamily         string                      `protobuf:"bytes,7,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Visibility       string                      `protobuf:"bytes,8,opt,name=visibility" json:"visibility,omitempty"`
-	Provider         string                      `protobuf:"bytes,9,opt,name=provider" json:"provider,omitempty"`
-	Owner            string                      `protobuf:"bytes,10,opt,name=owner" json:"owner,omitempty"`
-	RecommendedType  string                      `protobuf:"bytes,11,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
-	Status           string                      `protobuf:"bytes,12,opt,name=status" json:"status,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,13,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	ImageId          *string                     `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	ImageName        *string                     `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	Description      *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Size             *int32                      `protobuf:"varint,4,opt,name=size" json:"size,omitempty"`
+	ProcessorType    *string                     `protobuf:"bytes,5,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
+	Platform         *string                     `protobuf:"bytes,6,opt,name=platform" json:"platform,omitempty"`
+	OsFamily         *string                     `protobuf:"bytes,7,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Visibility       *string                     `protobuf:"bytes,8,opt,name=visibility" json:"visibility,omitempty"`
+	Provider         *string                     `protobuf:"bytes,9,opt,name=provider" json:"provider,omitempty"`
+	Owner            *string                     `protobuf:"bytes,10,opt,name=owner" json:"owner,omitempty"`
+	RecommendedType  *string                     `protobuf:"bytes,11,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
+	Status           *string                     `protobuf:"bytes,12,opt,name=status" json:"status,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,13,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,14,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *DescribeImagesOutput_ResponseItem) Reset()         { *m = DescribeImagesOutput_ResponseItem{} }
@@ -192,92 +196,92 @@ func (*DescribeImagesOutput_ResponseItem) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetImageName() string {
-	if m != nil {
-		return m.ImageName
+	if m != nil && m.ImageName != nil {
+		return *m.ImageName
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetProcessorType() string {
-	if m != nil {
-		return m.ProcessorType
+	if m != nil && m.ProcessorType != nil {
+		return *m.ProcessorType
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetPlatform() string {
-	if m != nil {
-		return m.Platform
+	if m != nil && m.Platform != nil {
+		return *m.Platform
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetOsFamily() string {
-	if m != nil {
-		return m.OsFamily
+	if m != nil && m.OsFamily != nil {
+		return *m.OsFamily
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetVisibility() string {
-	if m != nil {
-		return m.Visibility
+	if m != nil && m.Visibility != nil {
+		return *m.Visibility
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetProvider() string {
-	if m != nil {
-		return m.Provider
+	if m != nil && m.Provider != nil {
+		return *m.Provider
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetRecommendedType() string {
-	if m != nil {
-		return m.RecommendedType
+	if m != nil && m.RecommendedType != nil {
+		return *m.RecommendedType
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *DescribeImagesOutput_ResponseItem) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
@@ -297,9 +301,10 @@ func (m *DescribeImagesOutput_ResponseItem) GetStatusTime() *google_protobuf1.Ti
 }
 
 type CaptureInstanceInput struct {
-	Instance   string `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
-	ImageName  string `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	TargetUser string `protobuf:"bytes,3,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	Instance         *string `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	ImageName        *string `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	TargetUser       *string `protobuf:"bytes,3,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CaptureInstanceInput) Reset()                    { *m = CaptureInstanceInput{} }
@@ -308,32 +313,33 @@ func (*CaptureInstanceInput) ProtoMessage()               {}
 func (*CaptureInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{3} }
 
 func (m *CaptureInstanceInput) GetInstance() string {
-	if m != nil {
-		return m.Instance
+	if m != nil && m.Instance != nil {
+		return *m.Instance
 	}
 	return ""
 }
 
 func (m *CaptureInstanceInput) GetImageName() string {
-	if m != nil {
-		return m.ImageName
+	if m != nil && m.ImageName != nil {
+		return *m.ImageName
 	}
 	return ""
 }
 
 func (m *CaptureInstanceInput) GetTargetUser() string {
-	if m != nil {
-		return m.TargetUser
+	if m != nil && m.TargetUser != nil {
+		return *m.TargetUser
 	}
 	return ""
 }
 
 type CaptureInstanceOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	ImageId string `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	ImageId          *string `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CaptureInstanceOutput) Reset()                    { *m = CaptureInstanceOutput{} }
@@ -342,42 +348,43 @@ func (*CaptureInstanceOutput) ProtoMessage()               {}
 func (*CaptureInstanceOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{4} }
 
 func (m *CaptureInstanceOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CaptureInstanceOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CaptureInstanceOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *CaptureInstanceOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 func (m *CaptureInstanceOutput) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
 
 type DeleteImagesInput struct {
-	Images []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
+	Images           []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteImagesInput) Reset()                    { *m = DeleteImagesInput{} }
@@ -393,10 +400,11 @@ func (m *DeleteImagesInput) GetImages() []string {
 }
 
 type DeleteImagesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteImagesOutput) Reset()                    { *m = DeleteImagesOutput{} }
@@ -405,37 +413,38 @@ func (*DeleteImagesOutput) ProtoMessage()               {}
 func (*DeleteImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{6} }
 
 func (m *DeleteImagesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteImagesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteImagesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DeleteImagesOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type ModifyImageAttributesInput struct {
-	Image       string `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	ImageName   string `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	Description string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Image            *string `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	ImageName        *string `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyImageAttributesInput) Reset()                    { *m = ModifyImageAttributesInput{} }
@@ -444,30 +453,31 @@ func (*ModifyImageAttributesInput) ProtoMessage()               {}
 func (*ModifyImageAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{7} }
 
 func (m *ModifyImageAttributesInput) GetImage() string {
-	if m != nil {
-		return m.Image
+	if m != nil && m.Image != nil {
+		return *m.Image
 	}
 	return ""
 }
 
 func (m *ModifyImageAttributesInput) GetImageName() string {
-	if m != nil {
-		return m.ImageName
+	if m != nil && m.ImageName != nil {
+		return *m.ImageName
 	}
 	return ""
 }
 
 func (m *ModifyImageAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type ModifyImageAttributesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyImageAttributesOutput) Reset()                    { *m = ModifyImageAttributesOutput{} }
@@ -476,29 +486,30 @@ func (*ModifyImageAttributesOutput) ProtoMessage()               {}
 func (*ModifyImageAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{8} }
 
 func (m *ModifyImageAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyImageAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyImageAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type GrantImageToUsersInput struct {
-	Image string   `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	Users []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	Image            *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *GrantImageToUsersInput) Reset()                    { *m = GrantImageToUsersInput{} }
@@ -507,8 +518,8 @@ func (*GrantImageToUsersInput) ProtoMessage()               {}
 func (*GrantImageToUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{9} }
 
 func (m *GrantImageToUsersInput) GetImage() string {
-	if m != nil {
-		return m.Image
+	if m != nil && m.Image != nil {
+		return *m.Image
 	}
 	return ""
 }
@@ -521,9 +532,10 @@ func (m *GrantImageToUsersInput) GetUsers() []string {
 }
 
 type GrantImageToUsersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *GrantImageToUsersOutput) Reset()                    { *m = GrantImageToUsersOutput{} }
@@ -532,29 +544,30 @@ func (*GrantImageToUsersOutput) ProtoMessage()               {}
 func (*GrantImageToUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{10} }
 
 func (m *GrantImageToUsersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *GrantImageToUsersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *GrantImageToUsersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type RevokeImageFromUsersInput struct {
-	Image string   `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	Users []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	Image            *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *RevokeImageFromUsersInput) Reset()                    { *m = RevokeImageFromUsersInput{} }
@@ -563,8 +576,8 @@ func (*RevokeImageFromUsersInput) ProtoMessage()               {}
 func (*RevokeImageFromUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{11} }
 
 func (m *RevokeImageFromUsersInput) GetImage() string {
-	if m != nil {
-		return m.Image
+	if m != nil && m.Image != nil {
+		return *m.Image
 	}
 	return ""
 }
@@ -577,9 +590,10 @@ func (m *RevokeImageFromUsersInput) GetUsers() []string {
 }
 
 type RevokeImageFromUsersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RevokeImageFromUsersOutput) Reset()                    { *m = RevokeImageFromUsersOutput{} }
@@ -588,30 +602,31 @@ func (*RevokeImageFromUsersOutput) ProtoMessage()               {}
 func (*RevokeImageFromUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{12} }
 
 func (m *RevokeImageFromUsersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *RevokeImageFromUsersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *RevokeImageFromUsersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DescribeImageUsersInput struct {
-	ImageId string `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	Offset  int32  `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
-	Limit   int32  `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	ImageId          *string `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	Offset           *int32  `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32  `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DescribeImageUsersInput) Reset()                    { *m = DescribeImageUsersInput{} }
@@ -620,32 +635,33 @@ func (*DescribeImageUsersInput) ProtoMessage()               {}
 func (*DescribeImageUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{13} }
 
 func (m *DescribeImageUsersInput) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
 
 func (m *DescribeImageUsersInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeImageUsersInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeImageUsersOutput struct {
-	Action       string                                   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32                                    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string                                   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ImageUserSet []*DescribeImageUsersOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_user_set,json=imageUserSet" json:"image_user_set,omitempty"`
-	TotalCount   int32                                    `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ImageUserSet     []*DescribeImageUsersOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_user_set,json=imageUserSet" json:"image_user_set,omitempty"`
+	TotalCount       *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte                                   `json:"-"`
 }
 
 func (m *DescribeImageUsersOutput) Reset()                    { *m = DescribeImageUsersOutput{} }
@@ -654,22 +670,22 @@ func (*DescribeImageUsersOutput) ProtoMessage()               {}
 func (*DescribeImageUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{14} }
 
 func (m *DescribeImageUsersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeImageUsersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeImageUsersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -682,16 +698,17 @@ func (m *DescribeImageUsersOutput) GetImageUserSet() []*DescribeImageUsersOutput
 }
 
 func (m *DescribeImageUsersOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeImageUsersOutput_ResponseItem struct {
-	ImageId    string                      `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	User       *User                       `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
-	CreateTime *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	ImageId          *string                     `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	User             *User                       `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *DescribeImageUsersOutput_ResponseItem) Reset()         { *m = DescribeImageUsersOutput_ResponseItem{} }
@@ -702,8 +719,8 @@ func (*DescribeImageUsersOutput_ResponseItem) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeImageUsersOutput_ResponseItem) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
@@ -723,9 +740,10 @@ func (m *DescribeImageUsersOutput_ResponseItem) GetCreateTime() *google_protobuf
 }
 
 type CloneImagesInput struct {
-	Image     string `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	Count     int32  `protobuf:"varint,2,opt,name=count" json:"count,omitempty"`
-	ImageName string `protobuf:"bytes,3,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	Image            *string `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	Count            *int32  `protobuf:"varint,2,opt,name=count" json:"count,omitempty"`
+	ImageName        *string `protobuf:"bytes,3,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CloneImagesInput) Reset()                    { *m = CloneImagesInput{} }
@@ -734,30 +752,31 @@ func (*CloneImagesInput) ProtoMessage()               {}
 func (*CloneImagesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{15} }
 
 func (m *CloneImagesInput) GetImage() string {
-	if m != nil {
-		return m.Image
+	if m != nil && m.Image != nil {
+		return *m.Image
 	}
 	return ""
 }
 
 func (m *CloneImagesInput) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 func (m *CloneImagesInput) GetImageName() string {
-	if m != nil {
-		return m.ImageName
+	if m != nil && m.ImageName != nil {
+		return *m.ImageName
 	}
 	return ""
 }
 
 type CloneImagesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CloneImagesOutput) Reset()                    { *m = CloneImagesOutput{} }
@@ -766,22 +785,22 @@ func (*CloneImagesOutput) ProtoMessage()               {}
 func (*CloneImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{16} }
 
 func (m *CloneImagesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CloneImagesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CloneImagesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -811,76 +830,75 @@ func init() {
 func init() { proto.RegisterFile("image.proto", fileDescriptor6) }
 
 var fileDescriptor6 = []byte{
-	// 1126 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0xcd, 0x72, 0xe3, 0xc4,
-	0x13, 0x2f, 0x7f, 0x28, 0xb6, 0xdb, 0xd9, 0x7c, 0xcc, 0xdf, 0xc9, 0x2a, 0xca, 0x3f, 0x1b, 0xaf,
-	0x16, 0xaa, 0x02, 0x4b, 0xd9, 0x55, 0xe1, 0x06, 0x27, 0x48, 0x2a, 0x29, 0x1f, 0x16, 0x16, 0x6d,
-	0x80, 0xe2, 0x40, 0x09, 0x59, 0x6a, 0x3b, 0x93, 0xb5, 0x34, 0x62, 0x66, 0x9c, 0xdd, 0xec, 0x1b,
-	0xc0, 0x03, 0x70, 0xe0, 0x21, 0x78, 0x30, 0x6e, 0xbc, 0x00, 0x45, 0xcd, 0x8c, 0xec, 0xc8, 0x8e,
-	0xec, 0x04, 0x28, 0x73, 0x49, 0xb9, 0x7b, 0xfa, 0xe3, 0x37, 0x3d, 0xbf, 0xee, 0x56, 0xa0, 0x49,
-	0xe3, 0x60, 0x88, 0x9d, 0x94, 0x33, 0xc9, 0x48, 0x4d, 0x20, 0xbf, 0xa6, 0x21, 0x3a, 0x4d, 0x79,
-	0x93, 0xa2, 0x30, 0x5a, 0xe7, 0xe0, 0x47, 0x9a, 0x0c, 0xc3, 0x11, 0x1b, 0x47, 0xbe, 0x88, 0x5e,
-	0xfb, 0x7c, 0x3c, 0xc2, 0xae, 0xfa, 0x93, 0x1d, 0x1f, 0x0e, 0x19, 0x1b, 0x8e, 0xb0, 0xab, 0xa5,
-	0xfe, 0x78, 0xd0, 0x95, 0x34, 0x46, 0x21, 0x83, 0x38, 0x35, 0x06, 0xee, 0x47, 0xb0, 0xdb, 0x53,
-	0x49, 0x5e, 0x99, 0xe0, 0x2f, 0x39, 0x4b, 0x91, 0x4b, 0x8a, 0x82, 0x10, 0xa8, 0xbe, 0x63, 0x09,
-	0xda, 0xa5, 0x76, 0xe9, 0xa8, 0xe1, 0xe9, 0xdf, 0xee, 0x6f, 0x65, 0xf8, 0xdf, 0x29, 0x8a, 0x90,
-	0xd3, 0x3e, 0x6a, 0x37, 0xd1, 0x4b, 0xd2, 0xb1, 0x24, 0xbb, 0xb0, 0xa6, 0xa1, 0x0a, 0xbb, 0xd4,
-	0xae, 0x1c, 0x35, 0xbc, 0x4c, 0x22, 0xef, 0xc3, 0x46, 0xca, 0x59, 0x88, 0x42, 0x30, 0xee, 0x2b,
-	0xd8, 0x76, 0x59, 0x47, 0x7b, 0x34, 0xd5, 0x5e, 0xdc, 0xa4, 0x48, 0xf6, 0xa1, 0xc1, 0x84, 0x3f,
-	0x08, 0x62, 0x3a, 0xba, 0xb1, 0x2b, 0xda, 0xa2, 0xce, 0xc4, 0x99, 0x96, 0xc9, 0x13, 0x80, 0x6b,
-	0x2a, 0x68, 0x9f, 0x8e, 0xa8, 0xbc, 0xb1, 0xab, 0xfa, 0x34, 0xa7, 0x21, 0x0e, 0xd4, 0x53, 0xce,
-	0xae, 0x69, 0x84, 0xdc, 0xb6, 0x8c, 0xef, 0x44, 0x56, 0xb8, 0x84, 0x0c, 0xe4, 0x58, 0xd8, 0x6b,
-	0x06, 0x97, 0x91, 0xc8, 0x21, 0x34, 0x05, 0x06, 0x3c, 0xbc, 0xf4, 0xdf, 0x30, 0x1e, 0xd9, 0x35,
-	0x13, 0xd4, 0xa8, 0xbe, 0x65, 0x3c, 0x22, 0x36, 0xd4, 0xae, 0x91, 0xf7, 0x99, 0x40, 0xbb, 0xde,
-	0x2e, 0x1d, 0x59, 0xde, 0x44, 0x54, 0x21, 0xd9, 0x60, 0x20, 0x50, 0xda, 0x0d, 0x7d, 0x90, 0x49,
-	0xa4, 0x05, 0xd6, 0x88, 0xc6, 0x54, 0xda, 0xa0, 0xd5, 0x46, 0x70, 0x7f, 0xb7, 0xa0, 0x35, 0x5b,
-	0xb0, 0x2f, 0xc7, 0x32, 0xab, 0x58, 0x10, 0x4a, 0xca, 0x92, 0xac, 0xbe, 0x99, 0x44, 0xf6, 0xa0,
-	0xce, 0x51, 0xfa, 0x21, 0x8b, 0x4c, 0xad, 0x2c, 0xaf, 0xc6, 0x51, 0x9e, 0xb0, 0x08, 0x15, 0xa6,
-	0x18, 0x85, 0x08, 0x86, 0x98, 0xd5, 0x68, 0x22, 0x92, 0x73, 0x68, 0xe8, 0x82, 0xfb, 0x0a, 0x56,
-	0xb5, 0x5d, 0x39, 0x6a, 0x1e, 0x7f, 0xd8, 0xc9, 0xe8, 0xd2, 0x29, 0x4a, 0xdf, 0xf1, 0x50, 0xa4,
-	0x2c, 0x11, 0xd8, 0x93, 0x18, 0x7b, 0x75, 0x6a, 0x18, 0x20, 0x55, 0x5d, 0x24, 0x93, 0xc1, 0xc8,
-	0x0f, 0xd9, 0x38, 0x91, 0xba, 0x9c, 0x96, 0x07, 0x5a, 0x75, 0xa2, 0x34, 0xce, 0xaf, 0x55, 0x58,
-	0xcf, 0xfb, 0x2a, 0xbc, 0x26, 0x35, 0x8d, 0xb2, 0x9b, 0xd4, 0xb4, 0xdc, 0x8b, 0xc8, 0x01, 0x80,
-	0x39, 0x4a, 0x82, 0x78, 0xf2, 0xf0, 0x06, 0xe7, 0x17, 0x41, 0x8c, 0xa4, 0x0d, 0xcd, 0x48, 0x43,
-	0x4b, 0x75, 0x19, 0xcc, 0x95, 0xf2, 0x2a, 0xc5, 0x40, 0x41, 0xdf, 0xa1, 0x7e, 0x73, 0xcb, 0xd3,
-	0xbf, 0x0b, 0x18, 0x65, 0x15, 0x31, 0x4a, 0x91, 0x62, 0x14, 0xc8, 0x01, 0xe3, 0xb1, 0xbd, 0x96,
-	0x91, 0x22, 0x93, 0x67, 0xd9, 0x56, 0x5b, 0xca, 0xb6, 0xfa, 0x52, 0xb6, 0x35, 0xe6, 0xd8, 0xd6,
-	0x02, 0x8b, 0xbd, 0x49, 0x90, 0x6b, 0x0a, 0x34, 0x3c, 0x23, 0x90, 0x0f, 0x60, 0x8b, 0x63, 0xc8,
-	0xe2, 0x18, 0x93, 0x08, 0x23, 0x83, 0xb9, 0xa9, 0x0d, 0x36, 0x73, 0x7a, 0x8d, 0xfa, 0x96, 0xae,
-	0xeb, 0x86, 0x14, 0x19, 0x5d, 0x9f, 0xc3, 0xb6, 0xe4, 0x41, 0x22, 0xa8, 0x2a, 0x8b, 0x9f, 0x99,
-	0x3c, 0xd2, 0x26, 0x5b, 0xb7, 0x07, 0xaf, 0x8c, 0xf1, 0xa7, 0xd0, 0x0c, 0x39, 0x06, 0x12, 0x7d,
-	0xd5, 0xeb, 0xf6, 0x46, 0xbb, 0x74, 0xd4, 0x3c, 0x76, 0x3a, 0x66, 0x10, 0x74, 0x26, 0x83, 0xa0,
-	0x73, 0x31, 0x19, 0x04, 0x1e, 0x18, 0x73, 0xa5, 0x50, 0xce, 0x26, 0xbc, 0x71, 0xde, 0xbc, 0xdf,
-	0xd9, 0x98, 0x2b, 0x85, 0xcb, 0xa1, 0x75, 0x12, 0xa4, 0x72, 0xcc, 0xb1, 0x97, 0x08, 0x19, 0x24,
-	0x21, 0x9a, 0xe9, 0xe0, 0x40, 0x9d, 0x66, 0x8a, 0x8c, 0x23, 0x53, 0xf9, 0x3e, 0x92, 0x28, 0x42,
-	0x06, 0x7c, 0x88, 0xd2, 0x1f, 0x0b, 0xe4, 0x19, 0x49, 0xc0, 0xa8, 0xbe, 0x16, 0xc8, 0xdd, 0x5f,
-	0x4a, 0xb0, 0x33, 0x97, 0x74, 0x15, 0x1d, 0xb6, 0x03, 0x6b, 0x57, 0xac, 0xaf, 0x48, 0x6e, 0x06,
-	0x90, 0x75, 0xc5, 0xfa, 0xbd, 0x68, 0x86, 0xfd, 0xd6, 0x0c, 0xfb, 0xdd, 0xe7, 0xb0, 0x7d, 0x8a,
-	0x23, 0x94, 0x0f, 0x99, 0x93, 0xee, 0x5b, 0x20, 0x79, 0xe3, 0xff, 0xee, 0x06, 0xae, 0x00, 0xe7,
-	0x05, 0x8b, 0xe8, 0xe0, 0x46, 0x67, 0xfe, 0x4c, 0x4a, 0x4e, 0xfb, 0x63, 0x39, 0xc1, 0xdb, 0x02,
-	0x4b, 0x23, 0xcc, 0x00, 0x18, 0xe1, 0x5f, 0x37, 0xb6, 0x7b, 0x05, 0xfb, 0x85, 0x49, 0x57, 0x70,
-	0x6f, 0xf7, 0x14, 0x76, 0xcf, 0x79, 0x90, 0x48, 0x9d, 0xea, 0x82, 0x29, 0xd2, 0x2c, 0xbd, 0x5c,
-	0x0b, 0x2c, 0x45, 0x35, 0x61, 0x97, 0xf5, 0x0b, 0x19, 0xc1, 0x1d, 0xc0, 0xe3, 0x3b, 0x51, 0x56,
-	0x81, 0xf6, 0x1c, 0xf6, 0x3c, 0xbc, 0x66, 0xaf, 0x0d, 0x11, 0xce, 0x38, 0x8b, 0xff, 0x21, 0x60,
-	0x0a, 0x4e, 0x51, 0xa0, 0x55, 0x60, 0xee, 0xc3, 0xe3, 0x99, 0x1d, 0x93, 0x43, 0xbc, 0x64, 0x3b,
-	0xdc, 0xee, 0xd1, 0x72, 0xf1, 0x1e, 0xad, 0xcc, 0xec, 0xd1, 0x32, 0xd8, 0x77, 0x93, 0xac, 0xa2,
-	0x4f, 0x2e, 0x60, 0xc3, 0x40, 0x56, 0x75, 0xcc, 0x2d, 0xd4, 0x4e, 0xf1, 0x42, 0xcd, 0xe1, 0x98,
-	0x5d, 0xaa, 0xeb, 0x74, 0x72, 0xfc, 0xa0, 0xc5, 0xfa, 0x53, 0xe9, 0xe1, 0x8b, 0xf5, 0x29, 0x54,
-	0xf5, 0x34, 0x2c, 0xeb, 0xe9, 0xfc, 0x68, 0x0a, 0x4c, 0x25, 0xf3, 0xf4, 0xd1, 0xfc, 0x12, 0xa8,
-	0xfc, 0x9d, 0x25, 0xe0, 0x7e, 0x0f, 0x5b, 0x27, 0x23, 0x96, 0xcc, 0x4c, 0xae, 0x85, 0xdc, 0x33,
-	0x17, 0x32, 0xe5, 0x35, 0xc2, 0xdc, 0x7c, 0xa8, 0xcc, 0xcd, 0x07, 0xf7, 0x07, 0xd8, 0xce, 0x85,
-	0x5f, 0xc1, 0x1b, 0x1e, 0xff, 0x69, 0xc1, 0x7a, 0xfe, 0xab, 0x96, 0xbc, 0x80, 0x8d, 0xd9, 0xcf,
-	0x20, 0xf2, 0xff, 0x05, 0xdf, 0x47, 0xfa, 0xb6, 0xce, 0xc1, 0xd2, 0xaf, 0x27, 0xf2, 0x12, 0x36,
-	0xe7, 0x76, 0x0e, 0xb9, 0xf5, 0x28, 0x5a, 0x81, 0xce, 0x93, 0x45, 0xc7, 0x59, 0xc4, 0x73, 0x58,
-	0xcf, 0x2f, 0x00, 0xe2, 0xe4, 0x00, 0xcc, 0x2d, 0x11, 0x67, 0xbf, 0xf0, 0x2c, 0x0b, 0xd4, 0x87,
-	0x9d, 0xc2, 0xd1, 0x4a, 0x9e, 0x4d, 0xbd, 0x16, 0xcf, 0x7b, 0xe7, 0xbd, 0xe5, 0x46, 0x59, 0x8e,
-	0x6f, 0x60, 0xfb, 0xce, 0x30, 0x24, 0x87, 0x53, 0xd7, 0xe2, 0x71, 0xeb, 0xb4, 0x17, 0x1b, 0x64,
-	0x71, 0x7d, 0x68, 0x15, 0xcd, 0x2c, 0xe2, 0x4e, 0x3d, 0x17, 0xce, 0x46, 0xe7, 0xd9, 0x52, 0x9b,
-	0x2c, 0xc1, 0x77, 0x6a, 0xcd, 0xce, 0x37, 0x2f, 0x69, 0x2f, 0xe9, 0x6c, 0x13, 0xfc, 0xe9, 0xbd,
-	0xbd, 0x4f, 0x4e, 0xa1, 0x99, 0x23, 0x35, 0xd9, 0xbb, 0x7d, 0xef, 0xb9, 0x4e, 0x72, 0x9c, 0xa2,
-	0x23, 0x13, 0xc5, 0x39, 0xfb, 0xf9, 0x8f, 0xea, 0xe7, 0xd0, 0xbd, 0x94, 0x32, 0x15, 0x9f, 0x74,
-	0xbb, 0x11, 0x0b, 0x45, 0x67, 0xfa, 0x0f, 0x5e, 0x27, 0x64, 0x71, 0x37, 0x48, 0x69, 0x57, 0xb7,
-	0x52, 0x97, 0x26, 0x11, 0xbe, 0xed, 0x5c, 0xca, 0x78, 0x44, 0x36, 0xbf, 0xa2, 0xc9, 0xf0, 0x44,
-	0xdb, 0xe8, 0x70, 0xfd, 0x35, 0xdd, 0xe1, 0x1f, 0xff, 0x15, 0x00, 0x00, 0xff, 0xff, 0x6d, 0x89,
-	0x2b, 0x77, 0x41, 0x0e, 0x00, 0x00,
+	// 1117 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0xdd, 0x6e, 0xe3, 0x44,
+	0x14, 0x56, 0x7e, 0xdc, 0x24, 0x27, 0xdd, 0xfe, 0x0c, 0x69, 0xd7, 0x75, 0xe9, 0x36, 0xeb, 0x05,
+	0xa9, 0xb0, 0x28, 0x91, 0x7a, 0x09, 0x57, 0xd0, 0xaa, 0x55, 0x2e, 0x16, 0x16, 0x6f, 0x01, 0x71,
+	0x81, 0x8c, 0x63, 0x9f, 0xa4, 0xd3, 0x8d, 0x3d, 0x66, 0x66, 0xd2, 0xdd, 0xee, 0x1b, 0xc0, 0x03,
+	0x70, 0xc1, 0x43, 0xf0, 0x60, 0xdc, 0xf1, 0x02, 0x08, 0xcd, 0x8c, 0x93, 0x3a, 0xa9, 0x93, 0x16,
+	0x50, 0xb8, 0xa9, 0x72, 0xfe, 0xbf, 0x39, 0xf3, 0xcd, 0x39, 0x2e, 0x34, 0x69, 0x1c, 0x0c, 0xb1,
+	0x93, 0x72, 0x26, 0x19, 0xa9, 0x09, 0xe4, 0xd7, 0x34, 0x44, 0xa7, 0x29, 0x6f, 0x52, 0x14, 0x46,
+	0xeb, 0x1c, 0xfc, 0x44, 0x93, 0x61, 0x38, 0x62, 0xe3, 0xc8, 0x17, 0xd1, 0x6b, 0x9f, 0x8f, 0x47,
+	0xd8, 0x55, 0x7f, 0x32, 0xf3, 0xe1, 0x90, 0xb1, 0xe1, 0x08, 0xbb, 0x5a, 0xea, 0x8f, 0x07, 0x5d,
+	0x49, 0x63, 0x14, 0x32, 0x88, 0x53, 0xe3, 0xe0, 0x7e, 0x02, 0xbb, 0x3d, 0x55, 0xe4, 0x95, 0x49,
+	0xfe, 0x92, 0xb3, 0x14, 0xb9, 0xa4, 0x28, 0x08, 0x81, 0xea, 0x3b, 0x96, 0xa0, 0x5d, 0x6a, 0x97,
+	0x8e, 0x1a, 0x9e, 0xfe, 0xed, 0xfe, 0x5e, 0x86, 0xf7, 0x4e, 0x51, 0x84, 0x9c, 0xf6, 0x51, 0x87,
+	0x89, 0x5e, 0x92, 0x8e, 0x25, 0xd9, 0x85, 0x35, 0x0d, 0x55, 0xd8, 0xa5, 0x76, 0xe5, 0xa8, 0xe1,
+	0x65, 0x12, 0xf9, 0x10, 0x36, 0x52, 0xce, 0x42, 0x14, 0x82, 0x71, 0x5f, 0xc1, 0xb6, 0xcb, 0x3a,
+	0xdb, 0xa3, 0xa9, 0xf6, 0xe2, 0x26, 0x45, 0xb2, 0x0f, 0x0d, 0x26, 0xfc, 0x41, 0x10, 0xd3, 0xd1,
+	0x8d, 0x5d, 0xd1, 0x1e, 0x75, 0x26, 0xce, 0xb4, 0x4c, 0x9e, 0x00, 0x5c, 0x53, 0x41, 0xfb, 0x74,
+	0x44, 0xe5, 0x8d, 0x5d, 0xd5, 0xd6, 0x9c, 0x86, 0x38, 0x50, 0x4f, 0x39, 0xbb, 0xa6, 0x11, 0x72,
+	0xdb, 0x32, 0xb1, 0x13, 0x59, 0xe1, 0x12, 0x32, 0x90, 0x63, 0x61, 0xaf, 0x19, 0x5c, 0x46, 0x22,
+	0x87, 0xd0, 0x14, 0x18, 0xf0, 0xf0, 0xd2, 0x7f, 0xc3, 0x78, 0x64, 0xd7, 0x4c, 0x52, 0xa3, 0xfa,
+	0x8e, 0xf1, 0x88, 0xd8, 0x50, 0xbb, 0x46, 0xde, 0x67, 0x02, 0xed, 0x7a, 0xbb, 0x74, 0x64, 0x79,
+	0x13, 0x51, 0xa5, 0x64, 0x83, 0x81, 0x40, 0x69, 0x37, 0xb4, 0x21, 0x93, 0x48, 0x0b, 0xac, 0x11,
+	0x8d, 0xa9, 0xb4, 0x41, 0xab, 0x8d, 0xe0, 0xfe, 0x61, 0x41, 0x6b, 0xb6, 0x61, 0x5f, 0x8d, 0x65,
+	0xd6, 0xb1, 0x20, 0x94, 0x94, 0x25, 0x59, 0x7f, 0x33, 0x89, 0xec, 0x41, 0x9d, 0xa3, 0xf4, 0x43,
+	0x16, 0x99, 0x5e, 0x59, 0x5e, 0x8d, 0xa3, 0x3c, 0x61, 0x11, 0x2a, 0x4c, 0x31, 0x0a, 0x11, 0x0c,
+	0x31, 0xeb, 0xd1, 0x44, 0x24, 0xe7, 0xd0, 0xd0, 0x0d, 0xf7, 0x15, 0xac, 0x6a, 0xbb, 0x72, 0xd4,
+	0x3c, 0xfe, 0xb8, 0x93, 0xd1, 0xa5, 0x53, 0x54, 0xbe, 0xe3, 0xa1, 0x48, 0x59, 0x22, 0xb0, 0x27,
+	0x31, 0xf6, 0xea, 0xd4, 0x30, 0x40, 0xaa, 0xbe, 0x48, 0x26, 0x83, 0x91, 0x1f, 0xb2, 0x71, 0x22,
+	0x75, 0x3b, 0x2d, 0x0f, 0xb4, 0xea, 0x44, 0x69, 0x9c, 0xdf, 0xaa, 0xb0, 0x9e, 0x8f, 0x55, 0x78,
+	0x4d, 0x69, 0x1a, 0x65, 0x27, 0xa9, 0x69, 0xb9, 0x17, 0x91, 0x03, 0x00, 0x63, 0x4a, 0x82, 0x78,
+	0x72, 0xf1, 0x06, 0xe7, 0x97, 0x41, 0x8c, 0xa4, 0x0d, 0xcd, 0x48, 0x43, 0x4b, 0x75, 0x1b, 0xcc,
+	0x91, 0xf2, 0x2a, 0xc5, 0x40, 0x41, 0xdf, 0xa1, 0xbe, 0x73, 0xcb, 0xd3, 0xbf, 0x0b, 0x18, 0x65,
+	0x15, 0x31, 0x4a, 0x91, 0x62, 0x14, 0xc8, 0x01, 0xe3, 0xb1, 0xbd, 0x96, 0x91, 0x22, 0x93, 0x67,
+	0xd9, 0x56, 0x5b, 0xca, 0xb6, 0xfa, 0x52, 0xb6, 0x35, 0xe6, 0xd8, 0xd6, 0x02, 0x8b, 0xbd, 0x49,
+	0x90, 0x6b, 0x0a, 0x34, 0x3c, 0x23, 0x90, 0x8f, 0x60, 0x8b, 0x63, 0xc8, 0xe2, 0x18, 0x93, 0x08,
+	0x23, 0x83, 0xb9, 0xa9, 0x1d, 0x36, 0x73, 0x7a, 0x8d, 0xfa, 0x96, 0xae, 0xeb, 0x86, 0x14, 0x19,
+	0x5d, 0x9f, 0xc3, 0xb6, 0xe4, 0x41, 0x22, 0xa8, 0x6a, 0x8b, 0x9f, 0xb9, 0x3c, 0xd2, 0x2e, 0x5b,
+	0xb7, 0x86, 0x57, 0xc6, 0xf9, 0x33, 0x68, 0x86, 0x1c, 0x03, 0x89, 0xbe, 0x7a, 0xeb, 0xf6, 0x46,
+	0xbb, 0x74, 0xd4, 0x3c, 0x76, 0x3a, 0x66, 0x10, 0x74, 0x26, 0x83, 0xa0, 0x73, 0x31, 0x19, 0x04,
+	0x1e, 0x18, 0x77, 0xa5, 0x50, 0xc1, 0x26, 0xbd, 0x09, 0xde, 0xbc, 0x3f, 0xd8, 0xb8, 0x2b, 0x85,
+	0xcb, 0xa1, 0x75, 0x12, 0xa4, 0x72, 0xcc, 0xb1, 0x97, 0x08, 0x19, 0x24, 0x21, 0x9a, 0xe9, 0xe0,
+	0x40, 0x9d, 0x66, 0x8a, 0x8c, 0x23, 0x53, 0xf9, 0x3e, 0x92, 0x28, 0x42, 0x06, 0x7c, 0x88, 0xd2,
+	0x1f, 0x0b, 0xe4, 0x19, 0x49, 0xc0, 0xa8, 0xbe, 0x11, 0xc8, 0xdd, 0x5f, 0x4b, 0xb0, 0x33, 0x57,
+	0x74, 0x15, 0x2f, 0x6c, 0x07, 0xd6, 0xae, 0x58, 0x5f, 0x91, 0xdc, 0x0c, 0x20, 0xeb, 0x8a, 0xf5,
+	0x7b, 0xd1, 0x0c, 0xfb, 0xad, 0x19, 0xf6, 0xbb, 0xcf, 0x61, 0xfb, 0x14, 0x47, 0x28, 0x1f, 0x32,
+	0x27, 0xdd, 0xb7, 0x40, 0xf2, 0xce, 0xff, 0xdf, 0x09, 0x5c, 0x01, 0xce, 0x0b, 0x16, 0xd1, 0xc1,
+	0x8d, 0xae, 0xfc, 0xb9, 0x94, 0x9c, 0xf6, 0xc7, 0x72, 0x82, 0xb7, 0x05, 0x96, 0x46, 0x98, 0x01,
+	0x30, 0xc2, 0x7f, 0x7e, 0xd8, 0xee, 0x15, 0xec, 0x17, 0x16, 0x5d, 0xc1, 0xb9, 0xdd, 0x53, 0xd8,
+	0x3d, 0xe7, 0x41, 0x22, 0x75, 0xa9, 0x0b, 0xa6, 0x48, 0xb3, 0xf4, 0x70, 0x2d, 0xb0, 0x14, 0xd5,
+	0x84, 0x5d, 0xd6, 0x37, 0x64, 0x04, 0x77, 0x00, 0x8f, 0xef, 0x64, 0x59, 0x05, 0xda, 0x73, 0xd8,
+	0xf3, 0xf0, 0x9a, 0xbd, 0x36, 0x44, 0x38, 0xe3, 0x2c, 0xfe, 0x97, 0x80, 0x29, 0x38, 0x45, 0x89,
+	0x56, 0x81, 0xb9, 0x0f, 0x8f, 0x67, 0x76, 0x4c, 0x0e, 0xf1, 0x92, 0xed, 0x70, 0xbb, 0x47, 0xcb,
+	0xc5, 0x7b, 0xb4, 0x32, 0xb3, 0x47, 0xcb, 0x60, 0xdf, 0x2d, 0xb2, 0x8a, 0x77, 0x72, 0x01, 0x1b,
+	0x06, 0xb2, 0xea, 0x63, 0x6e, 0xa1, 0x76, 0x8a, 0x17, 0x6a, 0x0e, 0xc7, 0xec, 0x52, 0x5d, 0xa7,
+	0x13, 0xf3, 0x83, 0x16, 0xeb, 0xcf, 0xa5, 0x87, 0x2f, 0xd6, 0xa7, 0x50, 0xd5, 0xd3, 0xb0, 0xac,
+	0xa7, 0xf3, 0xa3, 0x29, 0x30, 0x55, 0xcc, 0xd3, 0xa6, 0xf9, 0x25, 0x50, 0xf9, 0x27, 0x4b, 0xc0,
+	0xfd, 0x01, 0xb6, 0x4e, 0x46, 0x2c, 0x99, 0x99, 0x5c, 0x0b, 0xb9, 0x67, 0x0e, 0x64, 0xda, 0x6b,
+	0x84, 0xb9, 0xf9, 0x50, 0x99, 0x9b, 0x0f, 0xee, 0x8f, 0xb0, 0x9d, 0x4b, 0xbf, 0x82, 0x3b, 0x3c,
+	0xfe, 0xcb, 0x82, 0xf5, 0xfc, 0x57, 0x2d, 0x79, 0x01, 0x1b, 0xb3, 0x9f, 0x41, 0xe4, 0xfd, 0x05,
+	0xdf, 0x47, 0xfa, 0xb4, 0xce, 0xc1, 0xd2, 0xaf, 0x27, 0xf2, 0x12, 0x36, 0xe7, 0x76, 0x0e, 0xb9,
+	0x8d, 0x28, 0x5a, 0x81, 0xce, 0x93, 0x45, 0xe6, 0x2c, 0xe3, 0x39, 0xac, 0xe7, 0x17, 0x00, 0x71,
+	0x72, 0x00, 0xe6, 0x96, 0x88, 0xb3, 0x5f, 0x68, 0xcb, 0x12, 0xf5, 0x61, 0xa7, 0x70, 0xb4, 0x92,
+	0x67, 0xd3, 0xa8, 0xc5, 0xf3, 0xde, 0xf9, 0x60, 0xb9, 0x53, 0x56, 0xe3, 0x5b, 0xd8, 0xbe, 0x33,
+	0x0c, 0xc9, 0xe1, 0x34, 0xb4, 0x78, 0xdc, 0x3a, 0xed, 0xc5, 0x0e, 0x59, 0x5e, 0x1f, 0x5a, 0x45,
+	0x33, 0x8b, 0xb8, 0xd3, 0xc8, 0x85, 0xb3, 0xd1, 0x79, 0xb6, 0xd4, 0x27, 0x2b, 0xf0, 0xbd, 0x5a,
+	0xb3, 0xf3, 0x8f, 0x97, 0xb4, 0x97, 0xbc, 0x6c, 0x93, 0xfc, 0xe9, 0xbd, 0x6f, 0x9f, 0x9c, 0x42,
+	0x33, 0x47, 0x6a, 0xb2, 0x77, 0x7b, 0xdf, 0x73, 0x2f, 0xc9, 0x71, 0x8a, 0x4c, 0x26, 0x8b, 0x73,
+	0xf6, 0xcb, 0x9f, 0xd5, 0x2f, 0xa0, 0x7b, 0x29, 0x65, 0x2a, 0x3e, 0xed, 0x76, 0x23, 0x16, 0x8a,
+	0xce, 0xf4, 0x1f, 0xbc, 0x4e, 0xc8, 0xe2, 0x6e, 0x90, 0xd2, 0xae, 0x7e, 0x4a, 0x5d, 0x9a, 0x44,
+	0xf8, 0xb6, 0x73, 0x29, 0xe3, 0x11, 0xd9, 0xfc, 0x9a, 0x26, 0xc3, 0x13, 0xed, 0xa3, 0xd3, 0xfd,
+	0x1d, 0x00, 0x00, 0xff, 0xff, 0x53, 0xd0, 0xca, 0x8b, 0x39, 0x0e, 0x00, 0x00,
 }

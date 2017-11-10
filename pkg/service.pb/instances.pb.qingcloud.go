@@ -52,14 +52,14 @@ type InstanceService struct {
 func NewInstanceService(conf *config.Config, zone string) (p *InstanceService) {
 	return &InstanceService{
 		Config:     conf,
-		Properties: &InstanceServiceProperties{Zone: zone},
+		Properties: &InstanceServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/instance/index.html
 func (s *QingCloudService) Instance(zone string) (*InstanceService, error) {
 	properties := &InstanceServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &InstanceService{Config: s.Config, Properties: properties}, nil
