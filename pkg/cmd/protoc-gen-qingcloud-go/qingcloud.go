@@ -56,9 +56,6 @@ func (p *qingcloudPlugin) Generate(file *generator.FileDescriptor) {
 	for _, v := range file.Service {
 		fmt.Fprintln(&buf, p.buildServiceSpec(file, v).Code())
 	}
-	for _, v := range file.MessageType {
-		fmt.Fprintln(&buf, p.buildMessageOptionsSpec(file, v).ValidateCode())
-	}
 
 	fileContent := buf.String()
 	if code, err := format.Source(buf.Bytes()); err != nil {
