@@ -46,14 +46,14 @@ type TagService struct {
 func NewTagService(conf *config.Config, zone string) (p *TagService) {
 	return &TagService{
 		Config:     conf,
-		Properties: &TagServiceProperties{Zone: zone},
+		Properties: &TagServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/tag/index.html
 func (s *QingCloudService) Tag(zone string) (*TagService, error) {
 	properties := &TagServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &TagService{Config: s.Config, Properties: properties}, nil

@@ -14,7 +14,8 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type SparkServiceProperties struct {
-	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Zone             *string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *SparkServiceProperties) Reset()                    { *m = SparkServiceProperties{} }
@@ -23,23 +24,24 @@ func (*SparkServiceProperties) ProtoMessage()               {}
 func (*SparkServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{0} }
 
 func (m *SparkServiceProperties) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
 
 type CreateSparkInput struct {
-	SparkVersion string             `protobuf:"bytes,1,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
-	NodeCount    int32              `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	EnableHdfs   int32              `protobuf:"varint,3,opt,name=enable_hdfs,json=enableHdfs" json:"enable_hdfs,omitempty"`
-	SparkType    int32              `protobuf:"varint,4,opt,name=spark_type,json=sparkType" json:"spark_type,omitempty"`
-	StorageSize  int32              `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	Vxnet        string             `protobuf:"bytes,6,opt,name=vxnet" json:"vxnet,omitempty"`
-	Description  string             `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
-	SparkName    string             `protobuf:"bytes,8,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
-	SparkClass   int32              `protobuf:"varint,9,opt,name=spark_class,json=sparkClass" json:"spark_class,omitempty"`
-	PrivateIps   []*SparkPrivateIps `protobuf:"bytes,10,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	SparkVersion     *string            `protobuf:"bytes,1,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
+	NodeCount        *int32             `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	EnableHdfs       *int32             `protobuf:"varint,3,opt,name=enable_hdfs,json=enableHdfs" json:"enable_hdfs,omitempty"`
+	SparkType        *int32             `protobuf:"varint,4,opt,name=spark_type,json=sparkType" json:"spark_type,omitempty"`
+	StorageSize      *int32             `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	Vxnet            *string            `protobuf:"bytes,6,opt,name=vxnet" json:"vxnet,omitempty"`
+	Description      *string            `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
+	SparkName        *string            `protobuf:"bytes,8,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
+	SparkClass       *int32             `protobuf:"varint,9,opt,name=spark_class,json=sparkClass" json:"spark_class,omitempty"`
+	PrivateIps       []*SparkPrivateIps `protobuf:"bytes,10,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *CreateSparkInput) Reset()                    { *m = CreateSparkInput{} }
@@ -48,64 +50,64 @@ func (*CreateSparkInput) ProtoMessage()               {}
 func (*CreateSparkInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{1} }
 
 func (m *CreateSparkInput) GetSparkVersion() string {
-	if m != nil {
-		return m.SparkVersion
+	if m != nil && m.SparkVersion != nil {
+		return *m.SparkVersion
 	}
 	return ""
 }
 
 func (m *CreateSparkInput) GetNodeCount() int32 {
-	if m != nil {
-		return m.NodeCount
+	if m != nil && m.NodeCount != nil {
+		return *m.NodeCount
 	}
 	return 0
 }
 
 func (m *CreateSparkInput) GetEnableHdfs() int32 {
-	if m != nil {
-		return m.EnableHdfs
+	if m != nil && m.EnableHdfs != nil {
+		return *m.EnableHdfs
 	}
 	return 0
 }
 
 func (m *CreateSparkInput) GetSparkType() int32 {
-	if m != nil {
-		return m.SparkType
+	if m != nil && m.SparkType != nil {
+		return *m.SparkType
 	}
 	return 0
 }
 
 func (m *CreateSparkInput) GetStorageSize() int32 {
-	if m != nil {
-		return m.StorageSize
+	if m != nil && m.StorageSize != nil {
+		return *m.StorageSize
 	}
 	return 0
 }
 
 func (m *CreateSparkInput) GetVxnet() string {
-	if m != nil {
-		return m.Vxnet
+	if m != nil && m.Vxnet != nil {
+		return *m.Vxnet
 	}
 	return ""
 }
 
 func (m *CreateSparkInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *CreateSparkInput) GetSparkName() string {
-	if m != nil {
-		return m.SparkName
+	if m != nil && m.SparkName != nil {
+		return *m.SparkName
 	}
 	return ""
 }
 
 func (m *CreateSparkInput) GetSparkClass() int32 {
-	if m != nil {
-		return m.SparkClass
+	if m != nil && m.SparkClass != nil {
+		return *m.SparkClass
 	}
 	return 0
 }
@@ -118,14 +120,15 @@ func (m *CreateSparkInput) GetPrivateIps() []*SparkPrivateIps {
 }
 
 type CreateSparkOutput struct {
-	Action       string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkId      string   `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
-	SparkName    string   `protobuf:"bytes,5,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
-	SparkVersion string   `protobuf:"bytes,6,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
-	VxnetId      string   `protobuf:"bytes,7,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	SparkNodeIds []string `protobuf:"bytes,8,rep,name=spark_node_ids,json=sparkNodeIds" json:"spark_node_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkId          *string  `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
+	SparkName        *string  `protobuf:"bytes,5,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
+	SparkVersion     *string  `protobuf:"bytes,6,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
+	VxnetId          *string  `protobuf:"bytes,7,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	SparkNodeIds     []string `protobuf:"bytes,8,rep,name=spark_node_ids,json=sparkNodeIds" json:"spark_node_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *CreateSparkOutput) Reset()                    { *m = CreateSparkOutput{} }
@@ -134,50 +137,50 @@ func (*CreateSparkOutput) ProtoMessage()               {}
 func (*CreateSparkOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{2} }
 
 func (m *CreateSparkOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateSparkOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateSparkOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *CreateSparkOutput) GetSparkId() string {
-	if m != nil {
-		return m.SparkId
+	if m != nil && m.SparkId != nil {
+		return *m.SparkId
 	}
 	return ""
 }
 
 func (m *CreateSparkOutput) GetSparkName() string {
-	if m != nil {
-		return m.SparkName
+	if m != nil && m.SparkName != nil {
+		return *m.SparkName
 	}
 	return ""
 }
 
 func (m *CreateSparkOutput) GetSparkVersion() string {
-	if m != nil {
-		return m.SparkVersion
+	if m != nil && m.SparkVersion != nil {
+		return *m.SparkVersion
 	}
 	return ""
 }
 
 func (m *CreateSparkOutput) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
@@ -190,13 +193,14 @@ func (m *CreateSparkOutput) GetSparkNodeIds() []string {
 }
 
 type DescribeSparksInput struct {
-	Sparks     []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
-	Status     []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	SearchWord string   `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags       []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
-	Verbose    int32    `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset     int32    `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit      int32    `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags             []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
+	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeSparksInput) Reset()                    { *m = DescribeSparksInput{} }
@@ -219,8 +223,8 @@ func (m *DescribeSparksInput) GetStatus() []string {
 }
 
 func (m *DescribeSparksInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
@@ -233,32 +237,33 @@ func (m *DescribeSparksInput) GetTags() []string {
 }
 
 func (m *DescribeSparksInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeSparksInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeSparksInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeSparksOutput struct {
-	Action     string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkSet   []string `protobuf:"bytes,4,rep,name=spark_set,json=sparkSet" json:"spark_set,omitempty"`
-	TotalCount int32    `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkSet         []string `protobuf:"bytes,4,rep,name=spark_set,json=sparkSet" json:"spark_set,omitempty"`
+	TotalCount       *int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeSparksOutput) Reset()                    { *m = DescribeSparksOutput{} }
@@ -267,22 +272,22 @@ func (*DescribeSparksOutput) ProtoMessage()               {}
 func (*DescribeSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{4} }
 
 func (m *DescribeSparksOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeSparksOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeSparksOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -295,17 +300,18 @@ func (m *DescribeSparksOutput) GetSparkSet() []string {
 }
 
 func (m *DescribeSparksOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type AddSparkNodesInput struct {
-	Spark         string             `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
-	NodeCount     int32              `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	SparkNodeName string             `protobuf:"bytes,3,opt,name=spark_node_name,json=sparkNodeName" json:"spark_node_name,omitempty"`
-	PrivateIps    []*SparkPrivateIps `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	Spark            *string            `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
+	NodeCount        *int32             `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	SparkNodeName    *string            `protobuf:"bytes,3,opt,name=spark_node_name,json=sparkNodeName" json:"spark_node_name,omitempty"`
+	PrivateIps       []*SparkPrivateIps `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_unrecognized []byte             `json:"-"`
 }
 
 func (m *AddSparkNodesInput) Reset()                    { *m = AddSparkNodesInput{} }
@@ -314,22 +320,22 @@ func (*AddSparkNodesInput) ProtoMessage()               {}
 func (*AddSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{5} }
 
 func (m *AddSparkNodesInput) GetSpark() string {
-	if m != nil {
-		return m.Spark
+	if m != nil && m.Spark != nil {
+		return *m.Spark
 	}
 	return ""
 }
 
 func (m *AddSparkNodesInput) GetNodeCount() int32 {
-	if m != nil {
-		return m.NodeCount
+	if m != nil && m.NodeCount != nil {
+		return *m.NodeCount
 	}
 	return 0
 }
 
 func (m *AddSparkNodesInput) GetSparkNodeName() string {
-	if m != nil {
-		return m.SparkNodeName
+	if m != nil && m.SparkNodeName != nil {
+		return *m.SparkNodeName
 	}
 	return ""
 }
@@ -342,11 +348,12 @@ func (m *AddSparkNodesInput) GetPrivateIps() []*SparkPrivateIps {
 }
 
 type AddSparkNodesOutput struct {
-	Action          string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode         int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message         string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkId         string   `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
-	SparkNewNodeIds []string `protobuf:"bytes,5,rep,name=spark_new_node_ids,json=sparkNewNodeIds" json:"spark_new_node_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkId          *string  `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
+	SparkNewNodeIds  []string `protobuf:"bytes,5,rep,name=spark_new_node_ids,json=sparkNewNodeIds" json:"spark_new_node_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AddSparkNodesOutput) Reset()                    { *m = AddSparkNodesOutput{} }
@@ -355,29 +362,29 @@ func (*AddSparkNodesOutput) ProtoMessage()               {}
 func (*AddSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{6} }
 
 func (m *AddSparkNodesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AddSparkNodesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AddSparkNodesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *AddSparkNodesOutput) GetSparkId() string {
-	if m != nil {
-		return m.SparkId
+	if m != nil && m.SparkId != nil {
+		return *m.SparkId
 	}
 	return ""
 }
@@ -390,8 +397,9 @@ func (m *AddSparkNodesOutput) GetSparkNewNodeIds() []string {
 }
 
 type DeleteSparkNodesInput struct {
-	Spark      string   `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
-	SparkNodes []string `protobuf:"bytes,2,rep,name=spark_nodes,json=sparkNodes" json:"spark_nodes,omitempty"`
+	Spark            *string  `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
+	SparkNodes       []string `protobuf:"bytes,2,rep,name=spark_nodes,json=sparkNodes" json:"spark_nodes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteSparkNodesInput) Reset()                    { *m = DeleteSparkNodesInput{} }
@@ -400,8 +408,8 @@ func (*DeleteSparkNodesInput) ProtoMessage()               {}
 func (*DeleteSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{7} }
 
 func (m *DeleteSparkNodesInput) GetSpark() string {
-	if m != nil {
-		return m.Spark
+	if m != nil && m.Spark != nil {
+		return *m.Spark
 	}
 	return ""
 }
@@ -414,10 +422,11 @@ func (m *DeleteSparkNodesInput) GetSparkNodes() []string {
 }
 
 type DeleteSparkNodesOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkId string `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkId          *string `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteSparkNodesOutput) Reset()                    { *m = DeleteSparkNodesOutput{} }
@@ -426,35 +435,36 @@ func (*DeleteSparkNodesOutput) ProtoMessage()               {}
 func (*DeleteSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{8} }
 
 func (m *DeleteSparkNodesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteSparkNodesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteSparkNodesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DeleteSparkNodesOutput) GetSparkId() string {
-	if m != nil {
-		return m.SparkId
+	if m != nil && m.SparkId != nil {
+		return *m.SparkId
 	}
 	return ""
 }
 
 type StartSparksInput struct {
-	Sparks []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *StartSparksInput) Reset()                    { *m = StartSparksInput{} }
@@ -470,10 +480,11 @@ func (m *StartSparksInput) GetSparks() []string {
 }
 
 type StartSparksOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *StartSparksOutput) Reset()                    { *m = StartSparksOutput{} }
@@ -482,35 +493,36 @@ func (*StartSparksOutput) ProtoMessage()               {}
 func (*StartSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{10} }
 
 func (m *StartSparksOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *StartSparksOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *StartSparksOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *StartSparksOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type StopSparksInput struct {
-	Sparks []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *StopSparksInput) Reset()                    { *m = StopSparksInput{} }
@@ -526,10 +538,11 @@ func (m *StopSparksInput) GetSparks() []string {
 }
 
 type StopSparksOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *StopSparksOutput) Reset()                    { *m = StopSparksOutput{} }
@@ -538,35 +551,36 @@ func (*StopSparksOutput) ProtoMessage()               {}
 func (*StopSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{12} }
 
 func (m *StopSparksOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *StopSparksOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *StopSparksOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *StopSparksOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type DeleteSparksInput struct {
-	Sparks []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteSparksInput) Reset()                    { *m = DeleteSparksInput{} }
@@ -582,11 +596,12 @@ func (m *DeleteSparksInput) GetSparks() []string {
 }
 
 type DeleteSparksOutput struct {
-	Action   string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode  int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message  string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkIds []string `protobuf:"bytes,4,rep,name=spark_ids,json=sparkIds" json:"spark_ids,omitempty"`
-	JobId    string   `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkIds         []string `protobuf:"bytes,4,rep,name=spark_ids,json=sparkIds" json:"spark_ids,omitempty"`
+	JobId            *string  `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteSparksOutput) Reset()                    { *m = DeleteSparksOutput{} }
@@ -595,22 +610,22 @@ func (*DeleteSparksOutput) ProtoMessage()               {}
 func (*DeleteSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{14} }
 
 func (m *DeleteSparksOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteSparksOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteSparksOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -623,8 +638,8 @@ func (m *DeleteSparksOutput) GetSparkIds() []string {
 }
 
 func (m *DeleteSparksOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
@@ -650,64 +665,64 @@ func init() {
 func init() { proto.RegisterFile("spark.proto", fileDescriptor24) }
 
 var fileDescriptor24 = []byte{
-	// 939 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0x4f, 0x6f, 0x1b, 0x45,
-	0x14, 0xd7, 0xa6, 0x5e, 0x3b, 0x7e, 0x4e, 0x9a, 0x64, 0x9a, 0x46, 0x9b, 0x4d, 0x43, 0xcd, 0x82,
-	0x50, 0xa0, 0xc8, 0x96, 0xca, 0x09, 0x6e, 0xc5, 0x11, 0x60, 0x24, 0x42, 0xb1, 0x11, 0x1c, 0x57,
-	0xeb, 0x9d, 0x17, 0x67, 0x5b, 0x7b, 0x67, 0x99, 0x19, 0x3b, 0x6d, 0x4e, 0x3d, 0x73, 0xe7, 0x03,
-	0x70, 0x45, 0x7c, 0x0a, 0x3e, 0x08, 0x9f, 0x80, 0x0b, 0xdf, 0x00, 0xcd, 0x9b, 0xb1, 0xbd, 0x76,
-	0x5c, 0xa5, 0x1c, 0x92, 0x8b, 0xb5, 0xef, 0xef, 0xbc, 0xf7, 0x7b, 0xef, 0x37, 0x1e, 0x68, 0xa8,
-	0x22, 0x91, 0x2f, 0x5b, 0x85, 0x14, 0x5a, 0xb0, 0x9a, 0x42, 0x39, 0xcd, 0x52, 0x0c, 0x1b, 0xfa,
-	0x75, 0x81, 0xca, 0x6a, 0xc3, 0xe3, 0x5f, 0xb2, 0x7c, 0x98, 0x8e, 0xc4, 0x84, 0xc7, 0x8a, 0xbf,
-	0x8c, 0xe5, 0x64, 0x84, 0x6d, 0xf3, 0x63, 0xcd, 0xd1, 0xa7, 0x70, 0xd0, 0x37, 0x39, 0xfa, 0x36,
-	0xf6, 0xb9, 0x14, 0x05, 0x4a, 0x9d, 0xa1, 0x62, 0x0c, 0x2a, 0x57, 0x22, 0xc7, 0xc0, 0x6b, 0x7a,
-	0x27, 0xf5, 0x1e, 0x7d, 0x47, 0xff, 0x6c, 0xc0, 0x6e, 0x47, 0x62, 0xa2, 0x91, 0x82, 0xba, 0x79,
-	0x31, 0xd1, 0xec, 0x03, 0xd8, 0xa6, 0x32, 0xe2, 0x29, 0x4a, 0x95, 0x89, 0xdc, 0x45, 0x6c, 0x91,
-	0xf2, 0x27, 0xab, 0x63, 0xc7, 0x00, 0xb9, 0xe0, 0x18, 0xa7, 0x62, 0x92, 0xeb, 0x60, 0xa3, 0xe9,
-	0x9d, 0xf8, 0xbd, 0xba, 0xd1, 0x74, 0x8c, 0x82, 0x3d, 0x86, 0x06, 0xe6, 0xc9, 0x60, 0x84, 0xf1,
-	0x05, 0x3f, 0x57, 0xc1, 0x3d, 0xb2, 0x83, 0x55, 0x7d, 0xc3, 0xcf, 0x95, 0x89, 0xb7, 0x87, 0x98,
-	0xde, 0x82, 0x8a, 0x8d, 0x27, 0xcd, 0x8f, 0xaf, 0x0b, 0x64, 0xef, 0xc3, 0x96, 0xd2, 0x42, 0x26,
-	0x43, 0x8c, 0x55, 0x76, 0x85, 0x81, 0x4f, 0x0e, 0x0d, 0xa7, 0xeb, 0x67, 0x57, 0xc8, 0xf6, 0xc1,
-	0x9f, 0xbe, 0xca, 0x51, 0x07, 0x55, 0x2a, 0xcf, 0x0a, 0xac, 0x09, 0x0d, 0x8e, 0x2a, 0x95, 0x59,
-	0xa1, 0x4d, 0xe9, 0x35, 0xb2, 0x95, 0x55, 0x8b, 0x93, 0xf3, 0x64, 0x8c, 0xc1, 0x26, 0x39, 0xd8,
-	0x93, 0xcf, 0x92, 0x31, 0x9a, 0xca, 0xad, 0x39, 0x1d, 0x25, 0x4a, 0x05, 0x75, 0x5b, 0x39, 0xa9,
-	0x3a, 0x46, 0xc3, 0x3e, 0x87, 0x46, 0x21, 0xb3, 0x69, 0xa2, 0x31, 0xce, 0x0a, 0x15, 0x40, 0xf3,
-	0xde, 0x49, 0xe3, 0x69, 0xd0, 0x72, 0xc3, 0x6a, 0x11, 0x90, 0xcf, 0xad, 0x43, 0xb7, 0x50, 0x3d,
-	0x28, 0xe6, 0xdf, 0xd1, 0x9b, 0x0d, 0xd8, 0x2b, 0xc1, 0xfd, 0xfd, 0x44, 0x1b, 0xbc, 0x0f, 0xa0,
-	0x9a, 0xa4, 0x7a, 0x01, 0xb4, 0x93, 0xd8, 0x21, 0x6c, 0x4a, 0xd4, 0x71, 0x2a, 0x38, 0x3a, 0x80,
-	0x6b, 0x12, 0x75, 0x47, 0x70, 0x64, 0x01, 0xd4, 0xc6, 0xa8, 0x54, 0x32, 0x44, 0x82, 0xb6, 0xde,
-	0x9b, 0x89, 0x26, 0xc8, 0x96, 0x9f, 0x71, 0x42, 0xb5, 0xde, 0xab, 0x91, 0xdc, 0xe5, 0x2b, 0x8d,
-	0xfb, 0xab, 0x8d, 0x5f, 0x1b, 0x7b, 0x75, 0xcd, 0xd8, 0x0f, 0x61, 0x93, 0x70, 0x36, 0xe9, 0x2d,
-	0xb6, 0x35, 0x92, 0xbb, 0x9c, 0x7d, 0x08, 0xf7, 0x5d, 0x7a, 0xb3, 0x17, 0x19, 0x57, 0xc1, 0x66,
-	0xf3, 0xde, 0x3c, 0xc1, 0x99, 0xe0, 0xd8, 0xe5, 0x2a, 0xfa, 0xcb, 0x83, 0x07, 0xa7, 0x34, 0x8d,
-	0x81, 0x05, 0x41, 0xd9, 0xa5, 0x3b, 0x80, 0x2a, 0xf9, 0xa9, 0xc0, 0xa3, 0x28, 0x27, 0x91, 0x5e,
-	0x27, 0x7a, 0xa2, 0x82, 0x0d, 0xa7, 0x27, 0x89, 0xc6, 0x84, 0x89, 0x4c, 0x2f, 0xe2, 0x4b, 0x21,
-	0xb9, 0x43, 0x01, 0xac, 0xea, 0x67, 0x21, 0xb9, 0x59, 0x77, 0x9d, 0x0c, 0x55, 0x50, 0xa1, 0x30,
-	0xfa, 0x36, 0xb0, 0x4d, 0x51, 0x0e, 0x84, 0x9a, 0x2d, 0xd4, 0x4c, 0x34, 0xc7, 0x88, 0xf3, 0x73,
-	0xe5, 0xb6, 0xc9, 0xef, 0x39, 0xc9, 0x2c, 0xd9, 0x28, 0x1b, 0x67, 0x9a, 0x9a, 0xf5, 0x7b, 0x56,
-	0x88, 0x7e, 0xf7, 0x60, 0x7f, 0xb9, 0x89, 0xdb, 0x18, 0xe5, 0x11, 0xd8, 0xe9, 0xc4, 0xa6, 0x2c,
-	0xdb, 0x86, 0x9d, 0x6d, 0x1f, 0x89, 0x60, 0x5a, 0xe8, 0x64, 0xe4, 0x08, 0x68, 0xdb, 0x01, 0x52,
-	0x11, 0x03, 0xa3, 0x3f, 0x3d, 0x60, 0xcf, 0x38, 0xef, 0xcf, 0xc0, 0x77, 0x38, 0xef, 0x83, 0x4f,
-	0x39, 0x5c, 0x81, 0x56, 0xb8, 0x89, 0xcd, 0x1f, 0xc1, 0x4e, 0x69, 0xb4, 0xb4, 0x3e, 0xb6, 0xd6,
-	0xed, 0xf9, 0x6c, 0x69, 0x85, 0x56, 0xa8, 0x51, 0xf9, 0x1f, 0xd4, 0xf8, 0xc3, 0x83, 0x07, 0x4b,
-	0xe5, 0xde, 0x31, 0x39, 0x9e, 0x00, 0x73, 0x2d, 0xe2, 0xe5, 0x62, 0x83, 0x7d, 0x42, 0xdd, 0x36,
-	0x7f, 0x86, 0x97, 0xb3, 0x25, 0x3e, 0x83, 0x87, 0xa7, 0x38, 0x42, 0x47, 0xe3, 0x1b, 0xd1, 0x9d,
-	0x5f, 0x29, 0x26, 0xef, 0x6c, 0x91, 0x61, 0x0e, 0x9d, 0x8a, 0xde, 0x78, 0x70, 0xb0, 0x9a, 0xf0,
-	0x6e, 0xfb, 0x8f, 0x3e, 0x81, 0xdd, 0xbe, 0x4e, 0xa4, 0x7e, 0x07, 0x4e, 0x46, 0x97, 0xb0, 0x57,
-	0xf2, 0xbd, 0x8d, 0x42, 0x1f, 0x42, 0xf5, 0x85, 0x18, 0x2c, 0xca, 0xf4, 0x5f, 0x88, 0x41, 0x97,
-	0x47, 0x1f, 0xc3, 0x4e, 0x5f, 0x8b, 0xe2, 0x5d, 0x6a, 0x9c, 0x9a, 0x7e, 0x66, 0xae, 0x77, 0x58,
-	0xe2, 0x13, 0xd8, 0x2b, 0x4d, 0xf2, 0x86, 0x22, 0x7f, 0xf3, 0x80, 0x95, 0xbd, 0x6f, 0xf5, 0x16,
-	0x31, 0xfb, 0x5c, 0xbe, 0x45, 0xba, 0x5c, 0x95, 0x9a, 0xf0, 0x4b, 0x4d, 0x3c, 0xfd, 0xbb, 0x02,
-	0x5b, 0xe5, 0x57, 0x04, 0x3b, 0x85, 0x46, 0xe9, 0x7f, 0x8b, 0x1d, 0xce, 0x29, 0xbd, 0xfa, 0x78,
-	0x08, 0xc3, 0x75, 0x26, 0xd7, 0xd7, 0x77, 0x70, 0x7f, 0xf9, 0xd6, 0x64, 0x8f, 0xe6, 0xde, 0x6b,
-	0xfe, 0x13, 0xc2, 0xe3, 0xb7, 0x58, 0x5d, 0xba, 0x6f, 0x61, 0x7b, 0xe9, 0xc6, 0x60, 0x47, 0x73,
-	0xff, 0xeb, 0x17, 0x5f, 0xf8, 0x68, 0xbd, 0xd1, 0xe5, 0xea, 0xc3, 0xee, 0x2a, 0x01, 0xd9, 0x7b,
-	0xa5, 0xe3, 0xd7, 0x90, 0x3d, 0x7c, 0xfc, 0x56, 0xbb, 0x4b, 0x7a, 0x0a, 0x8d, 0x12, 0x4f, 0x4a,
-	0xa8, 0xad, 0x32, 0xad, 0x84, 0xda, 0x75, 0x62, 0x3d, 0x03, 0x58, 0x6c, 0x32, 0x2b, 0xdd, 0xa6,
-	0xcb, 0x4c, 0x08, 0x0f, 0xd7, 0x58, 0x5c, 0x8a, 0xaf, 0x61, 0xab, 0xbc, 0x66, 0x2c, 0x5c, 0x57,
-	0xb9, 0x4b, 0x73, 0xb4, 0xd6, 0x66, 0x13, 0x85, 0x5f, 0xfd, 0xfa, 0x6f, 0xe5, 0x4b, 0x68, 0x5f,
-	0x68, 0x5d, 0xa8, 0x2f, 0xda, 0x6d, 0x2e, 0x52, 0xd5, 0x9a, 0xbf, 0x47, 0x5b, 0xa9, 0x18, 0xb7,
-	0x93, 0x22, 0x6b, 0xd3, 0x7a, 0xb5, 0xb3, 0x9c, 0xe3, 0xab, 0xd6, 0x85, 0x1e, 0x8f, 0xd8, 0xce,
-	0x0f, 0x59, 0x3e, 0xec, 0x90, 0x0f, 0xa5, 0x1b, 0x54, 0xe9, 0xb1, 0xfa, 0xd9, 0x7f, 0x01, 0x00,
-	0x00, 0xff, 0xff, 0xed, 0x4b, 0x1f, 0xe6, 0xf0, 0x0a, 0x00, 0x00,
+	// 936 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xcf, 0x72, 0x1b, 0xc5,
+	0x13, 0xae, 0xb5, 0xb5, 0x92, 0xd5, 0xb2, 0x63, 0x7b, 0xe2, 0xb8, 0xd6, 0xeb, 0xf8, 0x17, 0xfd,
+	0x16, 0x8a, 0x32, 0x84, 0x92, 0xaa, 0x72, 0x83, 0x5b, 0x90, 0x0b, 0x10, 0x55, 0x98, 0x20, 0x51,
+	0x70, 0xdc, 0x5a, 0xed, 0xb4, 0xe5, 0x4d, 0xa4, 0x9d, 0x65, 0x66, 0x24, 0x27, 0x3e, 0xe5, 0xcc,
+	0x9d, 0x07, 0xe0, 0x4a, 0xf1, 0x14, 0x3c, 0x08, 0x4f, 0xc0, 0x85, 0x37, 0xa0, 0xa6, 0x67, 0x24,
+	0xad, 0x64, 0xa5, 0x1c, 0x0e, 0xf6, 0x45, 0xb5, 0xfd, 0x67, 0x7a, 0xbf, 0xfe, 0xba, 0xbf, 0xd1,
+	0x42, 0x43, 0x15, 0x89, 0x7c, 0xd5, 0x2a, 0xa4, 0xd0, 0x82, 0xd5, 0x14, 0xca, 0x69, 0x96, 0x62,
+	0xd8, 0xd0, 0x6f, 0x0a, 0x54, 0xd6, 0x1b, 0x9e, 0xfc, 0x9c, 0xe5, 0xc3, 0x74, 0x24, 0x26, 0x3c,
+	0x56, 0xfc, 0x55, 0x2c, 0x27, 0x23, 0x6c, 0x9b, 0x1f, 0x1b, 0x8e, 0x3e, 0x85, 0xc3, 0xbe, 0xa9,
+	0xd1, 0xb7, 0x67, 0x5f, 0x48, 0x51, 0xa0, 0xd4, 0x19, 0x2a, 0xc6, 0xa0, 0x72, 0x2d, 0x72, 0x0c,
+	0xbc, 0xa6, 0x77, 0x5a, 0xef, 0xd1, 0x73, 0xf4, 0xf7, 0x06, 0xec, 0x75, 0x24, 0x26, 0x1a, 0xe9,
+	0x50, 0x37, 0x2f, 0x26, 0x9a, 0x7d, 0x00, 0x3b, 0x04, 0x23, 0x9e, 0xa2, 0x54, 0x99, 0xc8, 0xdd,
+	0x89, 0x6d, 0x72, 0xfe, 0x68, 0x7d, 0xec, 0x04, 0x20, 0x17, 0x1c, 0xe3, 0x54, 0x4c, 0x72, 0x1d,
+	0x6c, 0x34, 0xbd, 0x53, 0xbf, 0x57, 0x37, 0x9e, 0x8e, 0x71, 0xb0, 0x27, 0xd0, 0xc0, 0x3c, 0x19,
+	0x8c, 0x30, 0xbe, 0xe4, 0x17, 0x2a, 0xd8, 0xa4, 0x38, 0x58, 0xd7, 0xd7, 0xfc, 0x42, 0x99, 0xf3,
+	0xf6, 0x25, 0xa6, 0xb7, 0xa0, 0x62, 0xcf, 0x93, 0xe7, 0x87, 0x37, 0x05, 0xb2, 0xff, 0xc3, 0xb6,
+	0xd2, 0x42, 0x26, 0x43, 0x8c, 0x55, 0x76, 0x8d, 0x81, 0x4f, 0x09, 0x0d, 0xe7, 0xeb, 0x67, 0xd7,
+	0xc8, 0x0e, 0xc0, 0x9f, 0xbe, 0xce, 0x51, 0x07, 0x55, 0x82, 0x67, 0x0d, 0xd6, 0x84, 0x06, 0x47,
+	0x95, 0xca, 0xac, 0xd0, 0x06, 0x7a, 0x8d, 0x62, 0x65, 0xd7, 0xe2, 0xcd, 0x79, 0x32, 0xc6, 0x60,
+	0x8b, 0x12, 0xec, 0x9b, 0xcf, 0x93, 0x31, 0x1a, 0xe4, 0x36, 0x9c, 0x8e, 0x12, 0xa5, 0x82, 0xba,
+	0x45, 0x4e, 0xae, 0x8e, 0xf1, 0xb0, 0xcf, 0xa0, 0x51, 0xc8, 0x6c, 0x9a, 0x68, 0x8c, 0xb3, 0x42,
+	0x05, 0xd0, 0xdc, 0x3c, 0x6d, 0x3c, 0x0b, 0x5a, 0x6e, 0x58, 0x2d, 0x22, 0xf2, 0x85, 0x4d, 0xe8,
+	0x16, 0xaa, 0x07, 0xc5, 0xfc, 0x39, 0x7a, 0xbb, 0x01, 0xfb, 0x25, 0xba, 0xbf, 0x9b, 0x68, 0xc3,
+	0xf7, 0x21, 0x54, 0x93, 0x54, 0x2f, 0x88, 0x76, 0x16, 0x3b, 0x82, 0x2d, 0x89, 0x3a, 0x4e, 0x05,
+	0x47, 0x47, 0x70, 0x4d, 0xa2, 0xee, 0x08, 0x8e, 0x2c, 0x80, 0xda, 0x18, 0x95, 0x4a, 0x86, 0x48,
+	0xd4, 0xd6, 0x7b, 0x33, 0xd3, 0x1c, 0xb2, 0xf0, 0x33, 0x4e, 0xac, 0xd6, 0x7b, 0x35, 0xb2, 0xbb,
+	0x7c, 0xa5, 0x71, 0x7f, 0xb5, 0xf1, 0x1b, 0x63, 0xaf, 0xae, 0x19, 0xfb, 0x11, 0x6c, 0x11, 0xcf,
+	0xa6, 0xbc, 0xe5, 0xb6, 0x46, 0x76, 0x97, 0xb3, 0x0f, 0xe1, 0x81, 0x2b, 0x6f, 0xf6, 0x22, 0xe3,
+	0x2a, 0xd8, 0x6a, 0x6e, 0xce, 0x0b, 0x9c, 0x0b, 0x8e, 0x5d, 0xae, 0xa2, 0x3f, 0x3d, 0x78, 0x78,
+	0x46, 0xd3, 0x18, 0x58, 0x12, 0x94, 0x5d, 0xba, 0x43, 0xa8, 0x52, 0x9e, 0x0a, 0x3c, 0x3a, 0xe5,
+	0x2c, 0xf2, 0xeb, 0x44, 0x4f, 0x54, 0xb0, 0xe1, 0xfc, 0x64, 0xd1, 0x98, 0x30, 0x91, 0xe9, 0x65,
+	0x7c, 0x25, 0x24, 0x77, 0x2c, 0x80, 0x75, 0xfd, 0x24, 0x24, 0x37, 0xeb, 0xae, 0x93, 0xa1, 0x0a,
+	0x2a, 0x74, 0x8c, 0x9e, 0x0d, 0x6d, 0x53, 0x94, 0x03, 0xa1, 0x66, 0x0b, 0x35, 0x33, 0xcd, 0x6b,
+	0xc4, 0xc5, 0x85, 0x72, 0xdb, 0xe4, 0xf7, 0x9c, 0x65, 0x96, 0x6c, 0x94, 0x8d, 0x33, 0x4d, 0xcd,
+	0xfa, 0x3d, 0x6b, 0x44, 0xbf, 0x79, 0x70, 0xb0, 0xdc, 0xc4, 0x5d, 0x8c, 0xf2, 0x18, 0xec, 0x74,
+	0x62, 0x03, 0xcb, 0xb6, 0x61, 0x67, 0xdb, 0x47, 0x12, 0x98, 0x16, 0x3a, 0x19, 0x39, 0x01, 0xda,
+	0x76, 0x80, 0x5c, 0xa4, 0xc0, 0xe8, 0x0f, 0x0f, 0xd8, 0x73, 0xce, 0xfb, 0x33, 0xf2, 0x1d, 0xcf,
+	0x07, 0xe0, 0x53, 0x0d, 0x07, 0xd0, 0x1a, 0xb7, 0xa9, 0xf9, 0x23, 0xd8, 0x2d, 0x8d, 0x96, 0xd6,
+	0xc7, 0x62, 0xdd, 0x99, 0xcf, 0x96, 0x56, 0x68, 0x45, 0x1a, 0x95, 0xff, 0x20, 0x8d, 0xdf, 0x3d,
+	0x78, 0xb8, 0x04, 0xf7, 0x9e, 0xc5, 0xf1, 0x14, 0x98, 0x6b, 0x11, 0xaf, 0x16, 0x1b, 0xec, 0x13,
+	0xeb, 0xb6, 0xf9, 0x73, 0xbc, 0x9a, 0x2d, 0xf1, 0x39, 0x3c, 0x3a, 0xc3, 0x11, 0x3a, 0x19, 0xdf,
+	0xca, 0xee, 0xfc, 0x4a, 0x31, 0x75, 0x67, 0x8b, 0x0c, 0x73, 0xea, 0x54, 0xf4, 0xd6, 0x83, 0xc3,
+	0xd5, 0x82, 0xf7, 0xdb, 0x7f, 0xf4, 0x09, 0xec, 0xf5, 0x75, 0x22, 0xf5, 0x7b, 0x68, 0x32, 0xba,
+	0x82, 0xfd, 0x52, 0xee, 0x5d, 0x00, 0x7d, 0x04, 0xd5, 0x97, 0x62, 0xb0, 0x80, 0xe9, 0xbf, 0x14,
+	0x83, 0x2e, 0x8f, 0x3e, 0x86, 0xdd, 0xbe, 0x16, 0xc5, 0xfb, 0x60, 0x9c, 0x9a, 0x7e, 0x66, 0xa9,
+	0xf7, 0x08, 0xf1, 0x29, 0xec, 0x97, 0x26, 0x79, 0x0b, 0xc8, 0x5f, 0x3d, 0x60, 0xe5, 0xec, 0x3b,
+	0xbd, 0x45, 0xcc, 0x3e, 0x97, 0x6f, 0x91, 0x2e, 0x57, 0xa5, 0x26, 0xfc, 0x52, 0x13, 0xcf, 0xfe,
+	0xaa, 0xc0, 0x76, 0xf9, 0x2b, 0x82, 0x9d, 0x41, 0xa3, 0xf4, 0xbf, 0xc5, 0x8e, 0xe6, 0x92, 0x5e,
+	0xfd, 0x78, 0x08, 0xc3, 0x75, 0x21, 0xd7, 0xd7, 0xb7, 0xf0, 0x60, 0xf9, 0xd6, 0x64, 0x8f, 0xe7,
+	0xd9, 0x6b, 0xfe, 0x13, 0xc2, 0x93, 0x77, 0x44, 0x5d, 0xb9, 0x6f, 0x60, 0x67, 0xe9, 0xc6, 0x60,
+	0xc7, 0xf3, 0xfc, 0x9b, 0x17, 0x5f, 0xf8, 0x78, 0x7d, 0xd0, 0xd5, 0xea, 0xc3, 0xde, 0xaa, 0x00,
+	0xd9, 0xff, 0x4a, 0xaf, 0x5f, 0x23, 0xf6, 0xf0, 0xc9, 0x3b, 0xe3, 0xae, 0xe8, 0x19, 0x34, 0x4a,
+	0x3a, 0x29, 0xb1, 0xb6, 0xaa, 0xb4, 0x12, 0x6b, 0x37, 0x85, 0xf5, 0x1c, 0x60, 0xb1, 0xc9, 0xac,
+	0x74, 0x9b, 0x2e, 0x2b, 0x21, 0x3c, 0x5a, 0x13, 0x71, 0x25, 0xbe, 0x82, 0xed, 0xf2, 0x9a, 0xb1,
+	0x70, 0x1d, 0x72, 0x57, 0xe6, 0x78, 0x6d, 0xcc, 0x16, 0x0a, 0xbf, 0xfc, 0xe5, 0x9f, 0xca, 0x17,
+	0xd0, 0xbe, 0xd4, 0xba, 0x50, 0x9f, 0xb7, 0xdb, 0x5c, 0xa4, 0xaa, 0x35, 0xff, 0x1e, 0x6d, 0xa5,
+	0x62, 0xdc, 0x4e, 0x8a, 0xac, 0x4d, 0xeb, 0xd5, 0xce, 0x72, 0x8e, 0xaf, 0x5b, 0x97, 0x7a, 0x3c,
+	0x62, 0xbb, 0xdf, 0x67, 0xf9, 0xb0, 0x43, 0x39, 0x54, 0xee, 0xdf, 0x00, 0x00, 0x00, 0xff, 0xff,
+	0x7f, 0x51, 0x4c, 0x43, 0xe8, 0x0a, 0x00, 0x00,
 }

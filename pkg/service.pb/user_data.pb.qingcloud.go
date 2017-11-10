@@ -41,14 +41,14 @@ type UserDataService struct {
 func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
 	return &UserDataService{
 		Config:     conf,
-		Properties: &UserDataServiceProperties{Zone: zone},
+		Properties: &UserDataServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/userdata/index.html
 func (s *QingCloudService) UserData(zone string) (*UserDataService, error) {
 	properties := &UserDataServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &UserDataService{Config: s.Config, Properties: properties}, nil

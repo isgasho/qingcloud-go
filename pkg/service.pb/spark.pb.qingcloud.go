@@ -47,14 +47,14 @@ type SparkService struct {
 func NewSparkService(conf *config.Config, zone string) (p *SparkService) {
 	return &SparkService{
 		Config:     conf,
-		Properties: &SparkServiceProperties{Zone: zone},
+		Properties: &SparkServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/spark/index.html
 func (s *QingCloudService) Spark(zone string) (*SparkService, error) {
 	properties := &SparkServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &SparkService{Config: s.Config, Properties: properties}, nil

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -14,7 +14,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message SecurityGroupServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service SecurityGroupService {
@@ -47,32 +47,32 @@ service SecurityGroupService {
 
 message DescribeSecurityGroupsInput {
 	repeated string security_groups = 1;
-	string search_word = 2;
+	optional string search_word = 2;
 	repeated string tags = 3;
-	int32 verbose = 4;
-	int32 offset = 5;
-	int32 limit = 6;
+	optional int32 verbose = 4;
+	optional int32 offset = 5;
+	optional int32 limit = 6;
 }
 message DescribeSecurityGroupsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated SecurityGroup security_group_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateSecurityGroupInput {
-	string security_group_name = 1;
+	optional string security_group_name = 1;
 }
 message CreateSecurityGroupOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string security_group_id = 4;
+	optional string security_group_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -81,9 +81,9 @@ message DeleteSecurityGroupsInput {
 	repeated string security_groups = 1;
 }
 message DeleteSecurityGroupsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string security_groups = 4;
 }
@@ -91,60 +91,60 @@ message DeleteSecurityGroupsOutput {
 // ----------------------------------------------------------------------------
 
 message ApplySecurityGroupInput {
-	string security_group = 1;
+	optional string security_group = 1;
 	repeated string instances = 2;
 }
 message ApplySecurityGroupOutpu {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifySecurityGroupAttributesInput {
-	string security_group = 1;
-	string security_group_name = 2;
-	string description = 3;
+	optional string security_group = 1;
+	optional string security_group_name = 2;
+	optional string description = 3;
 }
 message ModifySecurityGroupAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string security_group_id = 4;
+	optional string security_group_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeSecurityGroupRulesInput {
-	string security_group = 1;
-	string security_group_rules = 2;
-	int32 direction = 3;
-	int32 offset = 4;
-	int32 limit = 5;
+	optional string security_group = 1;
+	optional string security_group_rules = 2;
+	optional int32 direction = 3;
+	optional int32 offset = 4;
+	optional int32 limit = 5;
 }
 message DescribeSecurityGroupRulesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated SecurityGroupRule security_group_rule_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message AddSecurityGroupRulesInput {
-	string security_group = 1;
+	optional string security_group = 1;
 	repeated SecurityGroupRule rules = 2;
 }
 message AddSecurityGroupRulesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string security_group_rules = 4;
 }
@@ -155,9 +155,9 @@ message DeleteSecurityGroupRulesInput {
 	repeated string security_group_rules = 1;
 }
 message DeleteSecurityGroupRulesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string security_group_rules = 4;
 }
@@ -165,58 +165,58 @@ message DeleteSecurityGroupRulesOutput {
 // ----------------------------------------------------------------------------
 
 message ModifySecurityGroupRuleAttributesInput {
-	string security_group_rule = 1;
-	string security_group_rule_name = 2;
-	int32 priority = 3;
-	string rule_action = 4;
-	int32 direction = 5;
-	string protocol = 6;
-	int32 val1 = 7;
-	int32 val2 = 8;
-	int32 val3 = 9;
+	optional string security_group_rule = 1;
+	optional string security_group_rule_name = 2;
+	optional int32 priority = 3;
+	optional string rule_action = 4;
+	optional int32 direction = 5;
+	optional string protocol = 6;
+	optional int32 val1 = 7;
+	optional int32 val2 = 8;
+	optional int32 val3 = 9;
 }
 message ModifySecurityGroupRuleAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string security_group_rule_id = 4;
+	optional string security_group_rule_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateSecurityGroupSnapshotInput {
-	string security_group = 1;
-	string name = 2;
+	optional string security_group = 1;
+	optional string name = 2;
 }
 message CreateSecurityGroupSnapshotOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string security_group_snapshot_id = 4;
-	string security_group_id = 5;
+	optional string security_group_snapshot_id = 4;
+	optional string security_group_id = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeSecurityGroupSnapshotsInput {
-	string security_group = 1;
+	optional string security_group = 1;
 	repeated string security_group_snapshots = 2;
-	int32 offset = 3;
-	int32 limit = 4;
+	optional int32 offset = 3;
+	optional int32 limit = 4;
 }
 message DescribeSecurityGroupSnapshotsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem security_group_snapshot_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string group_id = 1;
-		string security_group_snapshot_id = 2;
+		optional string group_id = 1;
+		optional string security_group_snapshot_id = 2;
 		repeated SecurityGroupRule rules = 3;
 	}
 }
@@ -227,9 +227,9 @@ message DeleteSecurityGroupSnapshotsInput {
 	repeated string security_group_snapshots = 1;
 }
 message DeleteSecurityGroupSnapshotsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string security_group_snapshots = 4;
 }
@@ -237,51 +237,51 @@ message DeleteSecurityGroupSnapshotsOutput {
 // ----------------------------------------------------------------------------
 
 message RollbackSecurityGroupInput {
-	string security_group = 1;
-	string security_group_snapshot = 2;
+	optional string security_group = 1;
+	optional string security_group_snapshot = 2;
 }
 message RollbackSecurityGroupOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string security_group_id = 4;
-	string security_group_snapshot_id = 5;
+	optional string security_group_id = 4;
+	optional string security_group_snapshot_id = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeSecurityGroupIPSetsInput {
 	repeated string security_group_ipsets = 1;
-	int32 ipset_type = 2;
-	string security_group_ipset_name = 4;
+	optional int32 ipset_type = 2;
+	optional string security_group_ipset_name = 4;
 	repeated string tags = 5;
-	int32 verbose = 6;
-	int32 offset = 7;
-	int32 limit = 8;
+	optional int32 verbose = 6;
+	optional int32 offset = 7;
+	optional int32 limit = 8;
 }
 message DescribeSecurityGroupIPSetsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated SecurityGroupIPSet security_group_ipset_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateSecurityGroupIPSetInput {
-	string security_group_ipset_name = 1;
-	int32 ipset_type = 2;
-	string val = 3;
+	optional string security_group_ipset_name = 1;
+	optional int32 ipset_type = 2;
+	optional string val = 3;
 }
 message CreateSecurityGroupIPSetOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string security_group_id = 4;
+	optional string security_group_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -290,9 +290,9 @@ message DeleteSecurityGroupIPSetsInput {
 	repeated string security_group_ipsets = 1;
 }
 message DeleteSecurityGroupIPSetsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string security_group_ipsets = 4;
 }
@@ -300,17 +300,17 @@ message DeleteSecurityGroupIPSetsOutput {
 // ----------------------------------------------------------------------------
 
 message ModifySecurityGroupIPSetAttributesInput {
-	string security_group_ipset = 1;
-	string security_group_ipset_name = 2;
-	string description = 3;
-	string val = 4;
+	optional string security_group_ipset = 1;
+	optional string security_group_ipset_name = 2;
+	optional string description = 3;
+	optional string val = 4;
 }
 message ModifySecurityGroupIPSetAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string security_group_ipset_id = 4;
+	optional string security_group_ipset_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -320,9 +320,9 @@ message CopySecurityGroupIPSetsInput {
 	repeated string dest_zones = 2;
 }
 message CopySecurityGroupIPSetsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------

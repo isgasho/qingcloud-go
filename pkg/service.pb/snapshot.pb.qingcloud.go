@@ -47,14 +47,14 @@ type SnapshotService struct {
 func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService) {
 	return &SnapshotService{
 		Config:     conf,
-		Properties: &SnapshotServiceProperties{Zone: zone},
+		Properties: &SnapshotServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/snapshot/index.html
 func (s *QingCloudService) Snapshot(zone string) (*SnapshotService, error) {
 	properties := &SnapshotServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &SnapshotService{Config: s.Config, Properties: properties}, nil

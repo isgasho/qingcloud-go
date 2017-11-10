@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -13,7 +13,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message UserDataServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service UserDataService {
@@ -32,8 +32,8 @@ service UserDataService {
 // ----------------------------------------------------------------------------
 
 message UploadUserDataAttachmentInput {
-	bytes attachment_content = 2;
-	string attachment_name = 1;
+	optional bytes attachment_content = 2;
+	optional string attachment_name = 1;
 
 	option (qingcloud.sdk.rule.message_rule) = {
 		required_fileds: "attachment_content"
@@ -43,11 +43,11 @@ message UploadUserDataAttachmentInput {
 }
 
 message UploadUserDataAttachmentOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string attachment_id = 4;
+	optional string attachment_id = 4;
 }
 
 // ----------------------------------------------------------------------------

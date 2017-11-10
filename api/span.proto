@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -15,7 +15,7 @@ import "google/protobuf/timestamp.proto";
 // ----------------------------------------------------------------------------
 
 message SpanServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service SpanService {
@@ -36,57 +36,57 @@ service SpanService {
 // ----------------------------------------------------------------------------
 
 message CreateSpanInput {
-	string span_name = 1;
-	int32 flag = 2;
-	string ip_addr = 3;
-	string tunnel_type = 4;
-	int32 tunnel_key = 5;
+	optional string span_name = 1;
+	optional int32 flag = 2;
+	optional string ip_addr = 3;
+	optional string tunnel_type = 4;
+	optional int32 tunnel_key = 5;
 }
 message CreateSpanOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string span_id = 4;
+	optional string span_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeSpansInput {
 	repeated string spans = 1;
-	string span_name = 2;
-	string ip_addr = 3;
+	optional string span_name = 2;
+	optional string ip_addr = 3;
 	repeated string tags = 4;
-	int32 offset = 5;
-	int32 limit = 6;
+	optional int32 offset = 5;
+	optional int32 limit = 6;
 }
 message DescribeSpansOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem span_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		int32 is_applied = 1;
-		string span_name = 2;
-		string ip_addr = 3;
-		string tunnel_type = 4;
+		optional int32 is_applied = 1;
+		optional string span_name = 2;
+		optional string ip_addr = 3;
+		optional string tunnel_type = 4;
 		repeated string tags = 5;
-		int32 flag = 6;
-		int32 tunnel_key = 7;
-		google.protobuf.Timestamp create_time = 8;
-		google.protobuf.Timestamp status_time = 9;
-		string span_id = 10;
+		optional int32 flag = 6;
+		optional int32 tunnel_key = 7;
+		optional google.protobuf.Timestamp create_time = 8;
+		optional google.protobuf.Timestamp status_time = 9;
+		optional string span_id = 10;
 		repeated MemberItem members = 11;
 
 		message MemberItem {
-			string span_id = 1;
-			string resource_id = 2;
-			string status = 3;
-			google.protobuf.Timestamp create_time = 4;
-			google.protobuf.Timestamp status_time = 5;
+			optional string span_id = 1;
+			optional string resource_id = 2;
+			optional string status = 3;
+			optional google.protobuf.Timestamp create_time = 4;
+			optional google.protobuf.Timestamp status_time = 5;
 		}
 	}
 }
@@ -97,66 +97,66 @@ message DeleteSpansInput {
 	repeated string spans = 1;
 }
 message DeleteSpansOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message AddSpanMembersInput {
-	string span = 1;
+	optional string span = 1;
 	repeated string resources = 2;
 }
 message AddSpanMembersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message RemoveSpanMembersInput {
-	string span = 1;
+	optional string span = 1;
 	repeated string resources = 2;
 }
 message RemoveSpanMembersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifySpanAttributesInput {
-	string span_id = 1;
-	string span_name = 2;
-	int32 flag = 3;
-	string ip_addr = 4;
-	string tunnel_type = 5;
-	int32 tunnel_key = 6;
+	optional string span_id = 1;
+	optional string span_name = 2;
+	optional int32 flag = 3;
+	optional string ip_addr = 4;
+	optional string tunnel_type = 5;
+	optional int32 tunnel_key = 6;
 }
 message ModifySpanAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message UpdateSpanInput {
-	string span = 1;
+	optional string span = 1;
 }
 message UpdateSpanOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------

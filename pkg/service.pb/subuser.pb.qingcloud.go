@@ -45,14 +45,14 @@ type SubuserService struct {
 func NewSubuserService(conf *config.Config, zone string) (p *SubuserService) {
 	return &SubuserService{
 		Config:     conf,
-		Properties: &SubuserServiceProperties{Zone: zone},
+		Properties: &SubuserServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/subuser/index.html
 func (s *QingCloudService) Subuser(zone string) (*SubuserService, error) {
 	properties := &SubuserServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &SubuserService{Config: s.Config, Properties: properties}, nil

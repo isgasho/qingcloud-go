@@ -15,16 +15,17 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type Tag struct {
-	Color             string                      `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
+	Color             *string                     `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
 	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description       string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Owner             string                      `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
-	ResourceCount     int32                       `protobuf:"varint,5,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
+	Description       *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Owner             *string                     `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
+	ResourceCount     *int32                      `protobuf:"varint,5,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
 	ResourceTagPairs  []*ResourceTagPair          `protobuf:"bytes,6,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
 	ResourceTypeCount []*ResourceTypeCount        `protobuf:"bytes,7,rep,name=resource_type_count,json=resourceTypeCount" json:"resource_type_count,omitempty"`
-	TagId             string                      `protobuf:"bytes,8,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
-	TagKey            string                      `protobuf:"bytes,9,opt,name=tag_key,json=tagKey" json:"tag_key,omitempty"`
-	TagName           string                      `protobuf:"bytes,10,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+	TagId             *string                     `protobuf:"bytes,8,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	TagKey            *string                     `protobuf:"bytes,9,opt,name=tag_key,json=tagKey" json:"tag_key,omitempty"`
+	TagName           *string                     `protobuf:"bytes,10,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+	XXX_unrecognized  []byte                      `json:"-"`
 }
 
 func (m *Tag) Reset()                    { *m = Tag{} }
@@ -33,8 +34,8 @@ func (*Tag) ProtoMessage()               {}
 func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0} }
 
 func (m *Tag) GetColor() string {
-	if m != nil {
-		return m.Color
+	if m != nil && m.Color != nil {
+		return *m.Color
 	}
 	return ""
 }
@@ -47,22 +48,22 @@ func (m *Tag) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Tag) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *Tag) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *Tag) GetResourceCount() int32 {
-	if m != nil {
-		return m.ResourceCount
+	if m != nil && m.ResourceCount != nil {
+		return *m.ResourceCount
 	}
 	return 0
 }
@@ -82,32 +83,33 @@ func (m *Tag) GetResourceTypeCount() []*ResourceTypeCount {
 }
 
 func (m *Tag) GetTagId() string {
-	if m != nil {
-		return m.TagId
+	if m != nil && m.TagId != nil {
+		return *m.TagId
 	}
 	return ""
 }
 
 func (m *Tag) GetTagKey() string {
-	if m != nil {
-		return m.TagKey
+	if m != nil && m.TagKey != nil {
+		return *m.TagKey
 	}
 	return ""
 }
 
 func (m *Tag) GetTagName() string {
-	if m != nil {
-		return m.TagName
+	if m != nil && m.TagName != nil {
+		return *m.TagName
 	}
 	return ""
 }
 
 type ResourceTagPair struct {
-	ResourceId   string                      `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	ResourceType string                      `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	Status       string                      `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
-	StatusTime   *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	TagId        string                      `protobuf:"bytes,5,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	ResourceId       *string                     `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceType     *string                     `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	Status           *string                     `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	TagId            *string                     `protobuf:"bytes,5,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *ResourceTagPair) Reset()                    { *m = ResourceTagPair{} }
@@ -116,22 +118,22 @@ func (*ResourceTagPair) ProtoMessage()               {}
 func (*ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1} }
 
 func (m *ResourceTagPair) GetResourceId() string {
-	if m != nil {
-		return m.ResourceId
+	if m != nil && m.ResourceId != nil {
+		return *m.ResourceId
 	}
 	return ""
 }
 
 func (m *ResourceTagPair) GetResourceType() string {
-	if m != nil {
-		return m.ResourceType
+	if m != nil && m.ResourceType != nil {
+		return *m.ResourceType
 	}
 	return ""
 }
 
 func (m *ResourceTagPair) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -144,15 +146,16 @@ func (m *ResourceTagPair) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *ResourceTagPair) GetTagId() string {
-	if m != nil {
-		return m.TagId
+	if m != nil && m.TagId != nil {
+		return *m.TagId
 	}
 	return ""
 }
 
 type ResourceTypeCount struct {
-	Count        int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
-	ResourceType string `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	Count            *int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
+	ResourceType     *string `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ResourceTypeCount) Reset()                    { *m = ResourceTypeCount{} }
@@ -161,38 +164,39 @@ func (*ResourceTypeCount) ProtoMessage()               {}
 func (*ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{2} }
 
 func (m *ResourceTypeCount) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 func (m *ResourceTypeCount) GetResourceType() string {
-	if m != nil {
-		return m.ResourceType
+	if m != nil && m.ResourceType != nil {
+		return *m.ResourceType
 	}
 	return ""
 }
 
 type EIP struct {
-	AlarmStatus      string                      `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	AssociateMode    int32                       `protobuf:"varint,2,opt,name=associate_mode,json=associateMode" json:"associate_mode,omitempty"`
-	Bandwidth        int32                       `protobuf:"varint,3,opt,name=bandwidth" json:"bandwidth,omitempty"`
-	BillingMode      string                      `protobuf:"bytes,4,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	AlarmStatus      *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	AssociateMode    *int32                      `protobuf:"varint,2,opt,name=associate_mode,json=associateMode" json:"associate_mode,omitempty"`
+	Bandwidth        *int32                      `protobuf:"varint,3,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	BillingMode      *string                     `protobuf:"bytes,4,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      string                      `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
-	EipAddr          string                      `protobuf:"bytes,7,opt,name=eip_addr,json=eipAddr" json:"eip_addr,omitempty"`
-	EipGroup         string                      `protobuf:"bytes,8,opt,name=eip_group,json=eipGroup" json:"eip_group,omitempty"`
-	EipId            string                      `protobuf:"bytes,9,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
-	EipName          string                      `protobuf:"bytes,10,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
-	IcpCodes         string                      `protobuf:"bytes,11,opt,name=icp_codes,json=icpCodes" json:"icp_codes,omitempty"`
-	NeedIcp          int32                       `protobuf:"varint,12,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
+	Description      *string                     `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	EipAddr          *string                     `protobuf:"bytes,7,opt,name=eip_addr,json=eipAddr" json:"eip_addr,omitempty"`
+	EipGroup         *string                     `protobuf:"bytes,8,opt,name=eip_group,json=eipGroup" json:"eip_group,omitempty"`
+	EipId            *string                     `protobuf:"bytes,9,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
+	EipName          *string                     `protobuf:"bytes,10,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	IcpCodes         *string                     `protobuf:"bytes,11,opt,name=icp_codes,json=icpCodes" json:"icp_codes,omitempty"`
+	NeedIcp          *int32                      `protobuf:"varint,12,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
 	Resource         *Resource                   `protobuf:"bytes,13,opt,name=resource" json:"resource,omitempty"`
-	Status           string                      `protobuf:"bytes,14,opt,name=status" json:"status,omitempty"`
+	Status           *string                     `protobuf:"bytes,14,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode          int32                       `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	SubCode          *int32                      `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,17,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *EIP) Reset()                    { *m = EIP{} }
@@ -201,29 +205,29 @@ func (*EIP) ProtoMessage()               {}
 func (*EIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{3} }
 
 func (m *EIP) GetAlarmStatus() string {
-	if m != nil {
-		return m.AlarmStatus
+	if m != nil && m.AlarmStatus != nil {
+		return *m.AlarmStatus
 	}
 	return ""
 }
 
 func (m *EIP) GetAssociateMode() int32 {
-	if m != nil {
-		return m.AssociateMode
+	if m != nil && m.AssociateMode != nil {
+		return *m.AssociateMode
 	}
 	return 0
 }
 
 func (m *EIP) GetBandwidth() int32 {
-	if m != nil {
-		return m.Bandwidth
+	if m != nil && m.Bandwidth != nil {
+		return *m.Bandwidth
 	}
 	return 0
 }
 
 func (m *EIP) GetBillingMode() string {
-	if m != nil {
-		return m.BillingMode
+	if m != nil && m.BillingMode != nil {
+		return *m.BillingMode
 	}
 	return ""
 }
@@ -236,50 +240,50 @@ func (m *EIP) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *EIP) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *EIP) GetEipAddr() string {
-	if m != nil {
-		return m.EipAddr
+	if m != nil && m.EipAddr != nil {
+		return *m.EipAddr
 	}
 	return ""
 }
 
 func (m *EIP) GetEipGroup() string {
-	if m != nil {
-		return m.EipGroup
+	if m != nil && m.EipGroup != nil {
+		return *m.EipGroup
 	}
 	return ""
 }
 
 func (m *EIP) GetEipId() string {
-	if m != nil {
-		return m.EipId
+	if m != nil && m.EipId != nil {
+		return *m.EipId
 	}
 	return ""
 }
 
 func (m *EIP) GetEipName() string {
-	if m != nil {
-		return m.EipName
+	if m != nil && m.EipName != nil {
+		return *m.EipName
 	}
 	return ""
 }
 
 func (m *EIP) GetIcpCodes() string {
-	if m != nil {
-		return m.IcpCodes
+	if m != nil && m.IcpCodes != nil {
+		return *m.IcpCodes
 	}
 	return ""
 }
 
 func (m *EIP) GetNeedIcp() int32 {
-	if m != nil {
-		return m.NeedIcp
+	if m != nil && m.NeedIcp != nil {
+		return *m.NeedIcp
 	}
 	return 0
 }
@@ -292,8 +296,8 @@ func (m *EIP) GetResource() *Resource {
 }
 
 func (m *EIP) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -306,8 +310,8 @@ func (m *EIP) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *EIP) GetSubCode() int32 {
-	if m != nil {
-		return m.SubCode
+	if m != nil && m.SubCode != nil {
+		return *m.SubCode
 	}
 	return 0
 }
@@ -320,16 +324,17 @@ func (m *EIP) GetTags() []*Tag {
 }
 
 func (m *EIP) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 type Resource struct {
-	ResourceId   string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	ResourceName string `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
-	ResourceType string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	ResourceId       *string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceName     *string `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
+	ResourceType     *string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *Resource) Reset()                    { *m = Resource{} }
@@ -338,34 +343,35 @@ func (*Resource) ProtoMessage()               {}
 func (*Resource) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{4} }
 
 func (m *Resource) GetResourceId() string {
-	if m != nil {
-		return m.ResourceId
+	if m != nil && m.ResourceId != nil {
+		return *m.ResourceId
 	}
 	return ""
 }
 
 func (m *Resource) GetResourceName() string {
-	if m != nil {
-		return m.ResourceName
+	if m != nil && m.ResourceName != nil {
+		return *m.ResourceName
 	}
 	return ""
 }
 
 func (m *Resource) GetResourceType() string {
-	if m != nil {
-		return m.ResourceType
+	if m != nil && m.ResourceType != nil {
+		return *m.ResourceType
 	}
 	return ""
 }
 
 type Job struct {
-	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	JobAction   string                      `protobuf:"bytes,2,opt,name=job_action,json=jobAction" json:"job_action,omitempty"`
-	JobId       string                      `protobuf:"bytes,3,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	Owner       string                      `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
-	ResourceIds string                      `protobuf:"bytes,5,opt,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
-	Status      string                      `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
-	StatusTime  *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	JobAction        *string                     `protobuf:"bytes,2,opt,name=job_action,json=jobAction" json:"job_action,omitempty"`
+	JobId            *string                     `protobuf:"bytes,3,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Owner            *string                     `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
+	ResourceIds      *string                     `protobuf:"bytes,5,opt,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
+	Status           *string                     `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *Job) Reset()                    { *m = Job{} }
@@ -381,36 +387,36 @@ func (m *Job) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Job) GetJobAction() string {
-	if m != nil {
-		return m.JobAction
+	if m != nil && m.JobAction != nil {
+		return *m.JobAction
 	}
 	return ""
 }
 
 func (m *Job) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 func (m *Job) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *Job) GetResourceIds() string {
-	if m != nil {
-		return m.ResourceIds
+	if m != nil && m.ResourceIds != nil {
+		return *m.ResourceIds
 	}
 	return ""
 }
 
 func (m *Job) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -424,22 +430,23 @@ func (m *Job) GetStatusTime() *google_protobuf1.Timestamp {
 
 type Volume struct {
 	CreateTime         *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description        string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Device             string                      `protobuf:"bytes,3,opt,name=device" json:"device,omitempty"`
+	Description        *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Device             *string                     `protobuf:"bytes,3,opt,name=device" json:"device,omitempty"`
 	Instance           *Instance                   `protobuf:"bytes,4,opt,name=instance" json:"instance,omitempty"`
 	Instances          []*Instance                 `protobuf:"bytes,5,rep,name=instances" json:"instances,omitempty"`
 	LatestSnapshotTime *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	Owner              string                      `protobuf:"bytes,7,opt,name=owner" json:"owner,omitempty"`
-	PlaceGroupId       string                      `protobuf:"bytes,8,opt,name=place_group_id,json=placeGroupId" json:"place_group_id,omitempty"`
-	Size               int32                       `protobuf:"varint,9,opt,name=size" json:"size,omitempty"`
-	Status             string                      `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
+	Owner              *string                     `protobuf:"bytes,7,opt,name=owner" json:"owner,omitempty"`
+	PlaceGroupId       *string                     `protobuf:"bytes,8,opt,name=place_group_id,json=placeGroupId" json:"place_group_id,omitempty"`
+	Size               *int32                      `protobuf:"varint,9,opt,name=size" json:"size,omitempty"`
+	Status             *string                     `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
 	StatusTime         *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode            int32                       `protobuf:"varint,12,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	SubCode            *int32                      `protobuf:"varint,12,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
 	Tags               []*Tag                      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus   string                      `protobuf:"bytes,14,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VolumeId           string                      `protobuf:"bytes,15,opt,name=volume_id,json=volumeId" json:"volume_id,omitempty"`
-	VolumeName         string                      `protobuf:"bytes,16,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
-	VolumeType         int32                       `protobuf:"varint,17,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	TransitionStatus   *string                     `protobuf:"bytes,14,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VolumeId           *string                     `protobuf:"bytes,15,opt,name=volume_id,json=volumeId" json:"volume_id,omitempty"`
+	VolumeName         *string                     `protobuf:"bytes,16,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	VolumeType         *int32                      `protobuf:"varint,17,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	XXX_unrecognized   []byte                      `json:"-"`
 }
 
 func (m *Volume) Reset()                    { *m = Volume{} }
@@ -455,15 +462,15 @@ func (m *Volume) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Volume) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *Volume) GetDevice() string {
-	if m != nil {
-		return m.Device
+	if m != nil && m.Device != nil {
+		return *m.Device
 	}
 	return ""
 }
@@ -490,29 +497,29 @@ func (m *Volume) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Volume) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *Volume) GetPlaceGroupId() string {
-	if m != nil {
-		return m.PlaceGroupId
+	if m != nil && m.PlaceGroupId != nil {
+		return *m.PlaceGroupId
 	}
 	return ""
 }
 
 func (m *Volume) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
 
 func (m *Volume) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -525,8 +532,8 @@ func (m *Volume) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Volume) GetSubCode() int32 {
-	if m != nil {
-		return m.SubCode
+	if m != nil && m.SubCode != nil {
+		return *m.SubCode
 	}
 	return 0
 }
@@ -539,54 +546,55 @@ func (m *Volume) GetTags() []*Tag {
 }
 
 func (m *Volume) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *Volume) GetVolumeId() string {
-	if m != nil {
-		return m.VolumeId
+	if m != nil && m.VolumeId != nil {
+		return *m.VolumeId
 	}
 	return ""
 }
 
 func (m *Volume) GetVolumeName() string {
-	if m != nil {
-		return m.VolumeName
+	if m != nil && m.VolumeName != nil {
+		return *m.VolumeName
 	}
 	return ""
 }
 
 func (m *Volume) GetVolumeType() int32 {
-	if m != nil {
-		return m.VolumeType
+	if m != nil && m.VolumeType != nil {
+		return *m.VolumeType
 	}
 	return 0
 }
 
 type NIC struct {
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	InstanceId       string                      `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	NicId            string                      `protobuf:"bytes,3,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
-	NicName          string                      `protobuf:"bytes,4,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
-	Owner            string                      `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
-	PrivateIp        string                      `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Role             int32                       `protobuf:"varint,7,opt,name=role" json:"role,omitempty"`
-	RootUserId       string                      `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	SecurityGroup    string                      `protobuf:"bytes,9,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	Sequence         int32                       `protobuf:"varint,10,opt,name=sequence" json:"sequence,omitempty"`
-	Status           string                      `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
+	InstanceId       *string                     `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	NicId            *string                     `protobuf:"bytes,3,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
+	NicName          *string                     `protobuf:"bytes,4,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
+	Owner            *string                     `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
+	PrivateIp        *string                     `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Role             *int32                      `protobuf:"varint,7,opt,name=role" json:"role,omitempty"`
+	RootUserId       *string                     `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	SecurityGroup    *string                     `protobuf:"bytes,9,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Sequence         *int32                      `protobuf:"varint,10,opt,name=sequence" json:"sequence,omitempty"`
+	Status           *string                     `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
-	VxnetId          string                      `protobuf:"bytes,14,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	VxnetId          *string                     `protobuf:"bytes,14,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
 	Eip              *EIP                        `protobuf:"bytes,15,opt,name=eip" json:"eip,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,16,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	Controller       string                      `protobuf:"bytes,17,opt,name=controller" json:"controller,omitempty"`
-	VxnetType        int32                       `protobuf:"varint,18,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	ConsoleId        string                      `protobuf:"bytes,19,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	ResourceId       string                      `protobuf:"bytes,20,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,16,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	Controller       *string                     `protobuf:"bytes,17,opt,name=controller" json:"controller,omitempty"`
+	VxnetType        *int32                      `protobuf:"varint,18,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	ConsoleId        *string                     `protobuf:"bytes,19,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	ResourceId       *string                     `protobuf:"bytes,20,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *NIC) Reset()                    { *m = NIC{} }
@@ -602,71 +610,71 @@ func (m *NIC) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *NIC) GetInstanceId() string {
-	if m != nil {
-		return m.InstanceId
+	if m != nil && m.InstanceId != nil {
+		return *m.InstanceId
 	}
 	return ""
 }
 
 func (m *NIC) GetNicId() string {
-	if m != nil {
-		return m.NicId
+	if m != nil && m.NicId != nil {
+		return *m.NicId
 	}
 	return ""
 }
 
 func (m *NIC) GetNicName() string {
-	if m != nil {
-		return m.NicName
+	if m != nil && m.NicName != nil {
+		return *m.NicName
 	}
 	return ""
 }
 
 func (m *NIC) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *NIC) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *NIC) GetRole() int32 {
-	if m != nil {
-		return m.Role
+	if m != nil && m.Role != nil {
+		return *m.Role
 	}
 	return 0
 }
 
 func (m *NIC) GetRootUserId() string {
-	if m != nil {
-		return m.RootUserId
+	if m != nil && m.RootUserId != nil {
+		return *m.RootUserId
 	}
 	return ""
 }
 
 func (m *NIC) GetSecurityGroup() string {
-	if m != nil {
-		return m.SecurityGroup
+	if m != nil && m.SecurityGroup != nil {
+		return *m.SecurityGroup
 	}
 	return ""
 }
 
 func (m *NIC) GetSequence() int32 {
-	if m != nil {
-		return m.Sequence
+	if m != nil && m.Sequence != nil {
+		return *m.Sequence
 	}
 	return 0
 }
 
 func (m *NIC) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -686,8 +694,8 @@ func (m *NIC) GetTags() []*Tag {
 }
 
 func (m *NIC) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
@@ -700,48 +708,49 @@ func (m *NIC) GetEip() *EIP {
 }
 
 func (m *NIC) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *NIC) GetController() string {
-	if m != nil {
-		return m.Controller
+	if m != nil && m.Controller != nil {
+		return *m.Controller
 	}
 	return ""
 }
 
 func (m *NIC) GetVxnetType() int32 {
-	if m != nil {
-		return m.VxnetType
+	if m != nil && m.VxnetType != nil {
+		return *m.VxnetType
 	}
 	return 0
 }
 
 func (m *NIC) GetConsoleId() string {
-	if m != nil {
-		return m.ConsoleId
+	if m != nil && m.ConsoleId != nil {
+		return *m.ConsoleId
 	}
 	return ""
 }
 
 func (m *NIC) GetResourceId() string {
-	if m != nil {
-		return m.ResourceId
+	if m != nil && m.ResourceId != nil {
+		return *m.ResourceId
 	}
 	return ""
 }
 
 type KeyPair struct {
-	Description   string   `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
-	EncryptMethod string   `protobuf:"bytes,2,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
-	InstanceIds   []string `protobuf:"bytes,3,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
-	KeypairId     string   `protobuf:"bytes,4,opt,name=keypair_id,json=keypairId" json:"keypair_id,omitempty"`
-	KeypairName   string   `protobuf:"bytes,5,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
-	PubKey        string   `protobuf:"bytes,6,opt,name=pub_key,json=pubKey" json:"pub_key,omitempty"`
-	Tags          []*Tag   `protobuf:"bytes,7,rep,name=tags" json:"tags,omitempty"`
+	Description      *string  `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	EncryptMethod    *string  `protobuf:"bytes,2,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
+	InstanceIds      []string `protobuf:"bytes,3,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
+	KeypairId        *string  `protobuf:"bytes,4,opt,name=keypair_id,json=keypairId" json:"keypair_id,omitempty"`
+	KeypairName      *string  `protobuf:"bytes,5,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
+	PubKey           *string  `protobuf:"bytes,6,opt,name=pub_key,json=pubKey" json:"pub_key,omitempty"`
+	Tags             []*Tag   `protobuf:"bytes,7,rep,name=tags" json:"tags,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *KeyPair) Reset()                    { *m = KeyPair{} }
@@ -750,15 +759,15 @@ func (*KeyPair) ProtoMessage()               {}
 func (*KeyPair) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{8} }
 
 func (m *KeyPair) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *KeyPair) GetEncryptMethod() string {
-	if m != nil {
-		return m.EncryptMethod
+	if m != nil && m.EncryptMethod != nil {
+		return *m.EncryptMethod
 	}
 	return ""
 }
@@ -771,22 +780,22 @@ func (m *KeyPair) GetInstanceIds() []string {
 }
 
 func (m *KeyPair) GetKeypairId() string {
-	if m != nil {
-		return m.KeypairId
+	if m != nil && m.KeypairId != nil {
+		return *m.KeypairId
 	}
 	return ""
 }
 
 func (m *KeyPair) GetKeypairName() string {
-	if m != nil {
-		return m.KeypairName
+	if m != nil && m.KeypairName != nil {
+		return *m.KeypairName
 	}
 	return ""
 }
 
 func (m *KeyPair) GetPubKey() string {
-	if m != nil {
-		return m.PubKey
+	if m != nil && m.PubKey != nil {
+		return *m.PubKey
 	}
 	return ""
 }
@@ -799,17 +808,18 @@ func (m *KeyPair) GetTags() []*Tag {
 }
 
 type VxNet struct {
-	AvailableIpCount int32                       `protobuf:"varint,1,opt,name=available_ip_count,json=availableIpCount" json:"available_ip_count,omitempty"`
+	AvailableIpCount *int32                      `protobuf:"varint,1,opt,name=available_ip_count,json=availableIpCount" json:"available_ip_count,omitempty"`
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Description      *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
 	InstanceIds      []string                    `protobuf:"bytes,4,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
-	Owner            string                      `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
+	Owner            *string                     `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
 	Router           *Router                     `protobuf:"bytes,6,opt,name=router" json:"router,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,7,rep,name=tags" json:"tags,omitempty"`
-	VpcRouterId      string                      `protobuf:"bytes,8,opt,name=vpc_router_id,json=vpcRouterId" json:"vpc_router_id,omitempty"`
-	VxnetId          string                      `protobuf:"bytes,9,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	VxnetName        string                      `protobuf:"bytes,10,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	VxnetType        int32                       `protobuf:"varint,11,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	VpcRouterId      *string                     `protobuf:"bytes,8,opt,name=vpc_router_id,json=vpcRouterId" json:"vpc_router_id,omitempty"`
+	VxnetId          *string                     `protobuf:"bytes,9,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	VxnetName        *string                     `protobuf:"bytes,10,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	VxnetType        *int32                      `protobuf:"varint,11,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *VxNet) Reset()                    { *m = VxNet{} }
@@ -818,8 +828,8 @@ func (*VxNet) ProtoMessage()               {}
 func (*VxNet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{9} }
 
 func (m *VxNet) GetAvailableIpCount() int32 {
-	if m != nil {
-		return m.AvailableIpCount
+	if m != nil && m.AvailableIpCount != nil {
+		return *m.AvailableIpCount
 	}
 	return 0
 }
@@ -832,8 +842,8 @@ func (m *VxNet) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *VxNet) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
@@ -846,8 +856,8 @@ func (m *VxNet) GetInstanceIds() []string {
 }
 
 func (m *VxNet) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
@@ -867,53 +877,54 @@ func (m *VxNet) GetTags() []*Tag {
 }
 
 func (m *VxNet) GetVpcRouterId() string {
-	if m != nil {
-		return m.VpcRouterId
+	if m != nil && m.VpcRouterId != nil {
+		return *m.VpcRouterId
 	}
 	return ""
 }
 
 func (m *VxNet) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 func (m *VxNet) GetVxnetName() string {
-	if m != nil {
-		return m.VxnetName
+	if m != nil && m.VxnetName != nil {
+		return *m.VxnetName
 	}
 	return ""
 }
 
 func (m *VxNet) GetVxnetType() int32 {
-	if m != nil {
-		return m.VxnetType
+	if m != nil && m.VxnetType != nil {
+		return *m.VxnetType
 	}
 	return 0
 }
 
 type Router struct {
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	DynIpEnd         string                      `protobuf:"bytes,3,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
-	DynIpStart       string                      `protobuf:"bytes,4,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	DynIpEnd         *string                     `protobuf:"bytes,3,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	DynIpStart       *string                     `protobuf:"bytes,4,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
 	Eip              *EIP                        `protobuf:"bytes,5,opt,name=eip" json:"eip,omitempty"`
-	IpNetwork        string                      `protobuf:"bytes,6,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
-	IsApplied        int32                       `protobuf:"varint,7,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	ManagerIp        string                      `protobuf:"bytes,8,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
-	Mode             int32                       `protobuf:"varint,9,opt,name=mode" json:"mode,omitempty"`
-	PrivateIp        string                      `protobuf:"bytes,10,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	RouterId         string                      `protobuf:"bytes,11,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	RouterName       string                      `protobuf:"bytes,12,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
-	RouterType       int32                       `protobuf:"varint,13,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
-	SecurityGroupId  string                      `protobuf:"bytes,14,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Status           string                      `protobuf:"bytes,15,opt,name=status" json:"status,omitempty"`
+	IpNetwork        *string                     `protobuf:"bytes,6,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	IsApplied        *int32                      `protobuf:"varint,7,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	ManagerIp        *string                     `protobuf:"bytes,8,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	Mode             *int32                      `protobuf:"varint,9,opt,name=mode" json:"mode,omitempty"`
+	PrivateIp        *string                     `protobuf:"bytes,10,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	RouterId         *string                     `protobuf:"bytes,11,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterName       *string                     `protobuf:"bytes,12,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	RouterType       *int32                      `protobuf:"varint,13,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
+	SecurityGroupId  *string                     `protobuf:"bytes,14,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Status           *string                     `protobuf:"bytes,15,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,16,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,17,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
 	Vxnets           []*VxNet                    `protobuf:"bytes,19,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *Router) Reset()                    { *m = Router{} }
@@ -929,22 +940,22 @@ func (m *Router) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Router) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *Router) GetDynIpEnd() string {
-	if m != nil {
-		return m.DynIpEnd
+	if m != nil && m.DynIpEnd != nil {
+		return *m.DynIpEnd
 	}
 	return ""
 }
 
 func (m *Router) GetDynIpStart() string {
-	if m != nil {
-		return m.DynIpStart
+	if m != nil && m.DynIpStart != nil {
+		return *m.DynIpStart
 	}
 	return ""
 }
@@ -957,71 +968,71 @@ func (m *Router) GetEip() *EIP {
 }
 
 func (m *Router) GetIpNetwork() string {
-	if m != nil {
-		return m.IpNetwork
+	if m != nil && m.IpNetwork != nil {
+		return *m.IpNetwork
 	}
 	return ""
 }
 
 func (m *Router) GetIsApplied() int32 {
-	if m != nil {
-		return m.IsApplied
+	if m != nil && m.IsApplied != nil {
+		return *m.IsApplied
 	}
 	return 0
 }
 
 func (m *Router) GetManagerIp() string {
-	if m != nil {
-		return m.ManagerIp
+	if m != nil && m.ManagerIp != nil {
+		return *m.ManagerIp
 	}
 	return ""
 }
 
 func (m *Router) GetMode() int32 {
-	if m != nil {
-		return m.Mode
+	if m != nil && m.Mode != nil {
+		return *m.Mode
 	}
 	return 0
 }
 
 func (m *Router) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *Router) GetRouterId() string {
-	if m != nil {
-		return m.RouterId
+	if m != nil && m.RouterId != nil {
+		return *m.RouterId
 	}
 	return ""
 }
 
 func (m *Router) GetRouterName() string {
-	if m != nil {
-		return m.RouterName
+	if m != nil && m.RouterName != nil {
+		return *m.RouterName
 	}
 	return ""
 }
 
 func (m *Router) GetRouterType() int32 {
-	if m != nil {
-		return m.RouterType
+	if m != nil && m.RouterType != nil {
+		return *m.RouterType
 	}
 	return 0
 }
 
 func (m *Router) GetSecurityGroupId() string {
-	if m != nil {
-		return m.SecurityGroupId
+	if m != nil && m.SecurityGroupId != nil {
+		return *m.SecurityGroupId
 	}
 	return ""
 }
 
 func (m *Router) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -1041,8 +1052,8 @@ func (m *Router) GetTags() []*Tag {
 }
 
 func (m *Router) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
@@ -1055,36 +1066,37 @@ func (m *Router) GetVxnets() []*VxNet {
 }
 
 type Instance struct {
-	AlarmStatus string                      `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	CpuTopology string                      `protobuf:"bytes,2,opt,name=cpu_topology,json=cpuTopology" json:"cpu_topology,omitempty"`
+	AlarmStatus *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	CpuTopology *string                     `protobuf:"bytes,2,opt,name=cpu_topology,json=cpuTopology" json:"cpu_topology,omitempty"`
 	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description string                      `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	Device      string                      `protobuf:"bytes,5,opt,name=device" json:"device,omitempty"`
+	Description *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	Device      *string                     `protobuf:"bytes,5,opt,name=device" json:"device,omitempty"`
 	// DHCPOptions      *DHCPOption    `json:"dhcp_options" name:"dhcp_options"`
 	// DNSAliases       []*DNSAlias    `json:"dns_aliases" name:"dns_aliases"`
 	Eip *EIP `protobuf:"bytes,8,opt,name=eip" json:"eip,omitempty"`
 	// Extra            *Extra         `json:"extra" name:"extra"`
-	GraphicsPasswd   string   `protobuf:"bytes,10,opt,name=graphics_passwd,json=graphicsPasswd" json:"graphics_passwd,omitempty"`
-	GraphicsProtocol string   `protobuf:"bytes,11,opt,name=graphics_protocol,json=graphicsProtocol" json:"graphics_protocol,omitempty"`
+	GraphicsPasswd   *string  `protobuf:"bytes,10,opt,name=graphics_passwd,json=graphicsPasswd" json:"graphics_passwd,omitempty"`
+	GraphicsProtocol *string  `protobuf:"bytes,11,opt,name=graphics_protocol,json=graphicsProtocol" json:"graphics_protocol,omitempty"`
 	Image            *Image   `protobuf:"bytes,12,opt,name=image" json:"image,omitempty"`
-	ImageId          string   `protobuf:"bytes,13,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	InstanceClass    int32    `protobuf:"varint,14,opt,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
-	InstanceId       string   `protobuf:"bytes,15,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	InstanceName     string   `protobuf:"bytes,16,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
-	InstanceType     string   `protobuf:"bytes,17,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
+	ImageId          *string  `protobuf:"bytes,13,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	InstanceClass    *int32   `protobuf:"varint,14,opt,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
+	InstanceId       *string  `protobuf:"bytes,15,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	InstanceName     *string  `protobuf:"bytes,16,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
+	InstanceType     *string  `protobuf:"bytes,17,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
 	KeypairIds       []string `protobuf:"bytes,18,rep,name=keypair_ids,json=keypairIds" json:"keypair_ids,omitempty"`
-	MemoryCurrent    int32    `protobuf:"varint,19,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
-	PrivateIp        string   `protobuf:"bytes,20,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	MemoryCurrent    *int32   `protobuf:"varint,19,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
+	PrivateIp        *string  `protobuf:"bytes,20,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
 	// SecurityGroup    *SecurityGroup `json:"security_group" name:"security_group"`
-	Status           string                      `protobuf:"bytes,22,opt,name=status" json:"status,omitempty"`
+	Status           *string                     `protobuf:"bytes,22,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,23,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode          int32                       `protobuf:"varint,24,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	SubCode          *int32                      `protobuf:"varint,24,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,25,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VcpusCurrent     int32                       `protobuf:"varint,27,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VcpusCurrent     *int32                      `protobuf:"varint,27,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
 	VolumeIds        []string                    `protobuf:"bytes,28,rep,name=volume_ids,json=volumeIds" json:"volume_ids,omitempty"`
 	Volumes          []*Volume                   `protobuf:"bytes,29,rep,name=volumes" json:"volumes,omitempty"`
 	Vxnets           []*InstanceVxNet            `protobuf:"bytes,30,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *Instance) Reset()                    { *m = Instance{} }
@@ -1093,15 +1105,15 @@ func (*Instance) ProtoMessage()               {}
 func (*Instance) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{11} }
 
 func (m *Instance) GetAlarmStatus() string {
-	if m != nil {
-		return m.AlarmStatus
+	if m != nil && m.AlarmStatus != nil {
+		return *m.AlarmStatus
 	}
 	return ""
 }
 
 func (m *Instance) GetCpuTopology() string {
-	if m != nil {
-		return m.CpuTopology
+	if m != nil && m.CpuTopology != nil {
+		return *m.CpuTopology
 	}
 	return ""
 }
@@ -1114,15 +1126,15 @@ func (m *Instance) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Instance) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *Instance) GetDevice() string {
-	if m != nil {
-		return m.Device
+	if m != nil && m.Device != nil {
+		return *m.Device
 	}
 	return ""
 }
@@ -1135,15 +1147,15 @@ func (m *Instance) GetEip() *EIP {
 }
 
 func (m *Instance) GetGraphicsPasswd() string {
-	if m != nil {
-		return m.GraphicsPasswd
+	if m != nil && m.GraphicsPasswd != nil {
+		return *m.GraphicsPasswd
 	}
 	return ""
 }
 
 func (m *Instance) GetGraphicsProtocol() string {
-	if m != nil {
-		return m.GraphicsProtocol
+	if m != nil && m.GraphicsProtocol != nil {
+		return *m.GraphicsProtocol
 	}
 	return ""
 }
@@ -1156,36 +1168,36 @@ func (m *Instance) GetImage() *Image {
 }
 
 func (m *Instance) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
 
 func (m *Instance) GetInstanceClass() int32 {
-	if m != nil {
-		return m.InstanceClass
+	if m != nil && m.InstanceClass != nil {
+		return *m.InstanceClass
 	}
 	return 0
 }
 
 func (m *Instance) GetInstanceId() string {
-	if m != nil {
-		return m.InstanceId
+	if m != nil && m.InstanceId != nil {
+		return *m.InstanceId
 	}
 	return ""
 }
 
 func (m *Instance) GetInstanceName() string {
-	if m != nil {
-		return m.InstanceName
+	if m != nil && m.InstanceName != nil {
+		return *m.InstanceName
 	}
 	return ""
 }
 
 func (m *Instance) GetInstanceType() string {
-	if m != nil {
-		return m.InstanceType
+	if m != nil && m.InstanceType != nil {
+		return *m.InstanceType
 	}
 	return ""
 }
@@ -1198,22 +1210,22 @@ func (m *Instance) GetKeypairIds() []string {
 }
 
 func (m *Instance) GetMemoryCurrent() int32 {
-	if m != nil {
-		return m.MemoryCurrent
+	if m != nil && m.MemoryCurrent != nil {
+		return *m.MemoryCurrent
 	}
 	return 0
 }
 
 func (m *Instance) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *Instance) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -1226,8 +1238,8 @@ func (m *Instance) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Instance) GetSubCode() int32 {
-	if m != nil {
-		return m.SubCode
+	if m != nil && m.SubCode != nil {
+		return *m.SubCode
 	}
 	return 0
 }
@@ -1240,15 +1252,15 @@ func (m *Instance) GetTags() []*Tag {
 }
 
 func (m *Instance) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *Instance) GetVcpusCurrent() int32 {
-	if m != nil {
-		return m.VcpusCurrent
+	if m != nil && m.VcpusCurrent != nil {
+		return *m.VcpusCurrent
 	}
 	return 0
 }
@@ -1275,12 +1287,13 @@ func (m *Instance) GetVxnets() []*InstanceVxNet {
 }
 
 type InstanceVxNet struct {
-	NicId     string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
-	PrivateIp string `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Role      int32  `protobuf:"varint,3,opt,name=role" json:"role,omitempty"`
-	VxnetId   string `protobuf:"bytes,4,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	VxnetName string `protobuf:"bytes,5,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	VxnetType int32  `protobuf:"varint,6,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	NicId            *string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
+	PrivateIp        *string `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Role             *int32  `protobuf:"varint,3,opt,name=role" json:"role,omitempty"`
+	VxnetId          *string `protobuf:"bytes,4,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	VxnetName        *string `protobuf:"bytes,5,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	VxnetType        *int32  `protobuf:"varint,6,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *InstanceVxNet) Reset()                    { *m = InstanceVxNet{} }
@@ -1289,76 +1302,77 @@ func (*InstanceVxNet) ProtoMessage()               {}
 func (*InstanceVxNet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{12} }
 
 func (m *InstanceVxNet) GetNicId() string {
-	if m != nil {
-		return m.NicId
+	if m != nil && m.NicId != nil {
+		return *m.NicId
 	}
 	return ""
 }
 
 func (m *InstanceVxNet) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *InstanceVxNet) GetRole() int32 {
-	if m != nil {
-		return m.Role
+	if m != nil && m.Role != nil {
+		return *m.Role
 	}
 	return 0
 }
 
 func (m *InstanceVxNet) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 func (m *InstanceVxNet) GetVxnetName() string {
-	if m != nil {
-		return m.VxnetName
+	if m != nil && m.VxnetName != nil {
+		return *m.VxnetName
 	}
 	return ""
 }
 
 func (m *InstanceVxNet) GetVxnetType() int32 {
-	if m != nil {
-		return m.VxnetType
+	if m != nil && m.VxnetType != nil {
+		return *m.VxnetType
 	}
 	return 0
 }
 
 type Image struct {
-	AppBillingId     string                      `protobuf:"bytes,1,opt,name=app_billing_id,json=appBillingId" json:"app_billing_id,omitempty"`
-	Architecture     string                      `protobuf:"bytes,2,opt,name=architecture" json:"architecture,omitempty"`
-	BillingId        string                      `protobuf:"bytes,3,opt,name=billing_id,json=billingId" json:"billing_id,omitempty"`
+	AppBillingId     *string                     `protobuf:"bytes,1,opt,name=app_billing_id,json=appBillingId" json:"app_billing_id,omitempty"`
+	Architecture     *string                     `protobuf:"bytes,2,opt,name=architecture" json:"architecture,omitempty"`
+	BillingId        *string                     `protobuf:"bytes,3,opt,name=billing_id,json=billingId" json:"billing_id,omitempty"`
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	DefaultPasswd    string                      `protobuf:"bytes,5,opt,name=default_passwd,json=defaultPasswd" json:"default_passwd,omitempty"`
-	DefaultUser      string                      `protobuf:"bytes,6,opt,name=default_user,json=defaultUser" json:"default_user,omitempty"`
-	Description      string                      `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
-	FResetpwd        int32                       `protobuf:"varint,8,opt,name=f_resetpwd,json=fResetpwd" json:"f_resetpwd,omitempty"`
-	Feature          int32                       `protobuf:"varint,9,opt,name=feature" json:"feature,omitempty"`
-	Features         int32                       `protobuf:"varint,10,opt,name=features" json:"features,omitempty"`
-	Hypervisor       string                      `protobuf:"bytes,11,opt,name=hypervisor" json:"hypervisor,omitempty"`
-	ImageId          string                      `protobuf:"bytes,12,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	ImageName        string                      `protobuf:"bytes,13,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	DefaultPasswd    *string                     `protobuf:"bytes,5,opt,name=default_passwd,json=defaultPasswd" json:"default_passwd,omitempty"`
+	DefaultUser      *string                     `protobuf:"bytes,6,opt,name=default_user,json=defaultUser" json:"default_user,omitempty"`
+	Description      *string                     `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
+	FResetpwd        *int32                      `protobuf:"varint,8,opt,name=f_resetpwd,json=fResetpwd" json:"f_resetpwd,omitempty"`
+	Feature          *int32                      `protobuf:"varint,9,opt,name=feature" json:"feature,omitempty"`
+	Features         *int32                      `protobuf:"varint,10,opt,name=features" json:"features,omitempty"`
+	Hypervisor       *string                     `protobuf:"bytes,11,opt,name=hypervisor" json:"hypervisor,omitempty"`
+	ImageId          *string                     `protobuf:"bytes,12,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	ImageName        *string                     `protobuf:"bytes,13,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
 	InstanceIds      []string                    `protobuf:"bytes,14,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
-	OsFamily         string                      `protobuf:"bytes,15,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Owner            string                      `protobuf:"bytes,16,opt,name=owner" json:"owner,omitempty"`
-	Platform         string                      `protobuf:"bytes,17,opt,name=platform" json:"platform,omitempty"`
-	ProcessorType    string                      `protobuf:"bytes,18,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
-	Provider         string                      `protobuf:"bytes,19,opt,name=provider" json:"provider,omitempty"`
-	RecommendedType  string                      `protobuf:"bytes,20,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
-	RootId           string                      `protobuf:"bytes,21,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
-	Size             int32                       `protobuf:"varint,22,opt,name=size" json:"size,omitempty"`
-	Status           string                      `protobuf:"bytes,23,opt,name=status" json:"status,omitempty"`
+	OsFamily         *string                     `protobuf:"bytes,15,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Owner            *string                     `protobuf:"bytes,16,opt,name=owner" json:"owner,omitempty"`
+	Platform         *string                     `protobuf:"bytes,17,opt,name=platform" json:"platform,omitempty"`
+	ProcessorType    *string                     `protobuf:"bytes,18,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
+	Provider         *string                     `protobuf:"bytes,19,opt,name=provider" json:"provider,omitempty"`
+	RecommendedType  *string                     `protobuf:"bytes,20,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
+	RootId           *string                     `protobuf:"bytes,21,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
+	Size             *int32                      `protobuf:"varint,22,opt,name=size" json:"size,omitempty"`
+	Status           *string                     `protobuf:"bytes,23,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,24,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode          int32                       `protobuf:"varint,25,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	UiType           string                      `protobuf:"bytes,27,opt,name=ui_type,json=uiType" json:"ui_type,omitempty"`
-	Visibility       string                      `protobuf:"bytes,28,opt,name=visibility" json:"visibility,omitempty"`
+	SubCode          *int32                      `protobuf:"varint,25,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	UiType           *string                     `protobuf:"bytes,27,opt,name=ui_type,json=uiType" json:"ui_type,omitempty"`
+	Visibility       *string                     `protobuf:"bytes,28,opt,name=visibility" json:"visibility,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *Image) Reset()                    { *m = Image{} }
@@ -1367,22 +1381,22 @@ func (*Image) ProtoMessage()               {}
 func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{13} }
 
 func (m *Image) GetAppBillingId() string {
-	if m != nil {
-		return m.AppBillingId
+	if m != nil && m.AppBillingId != nil {
+		return *m.AppBillingId
 	}
 	return ""
 }
 
 func (m *Image) GetArchitecture() string {
-	if m != nil {
-		return m.Architecture
+	if m != nil && m.Architecture != nil {
+		return *m.Architecture
 	}
 	return ""
 }
 
 func (m *Image) GetBillingId() string {
-	if m != nil {
-		return m.BillingId
+	if m != nil && m.BillingId != nil {
+		return *m.BillingId
 	}
 	return ""
 }
@@ -1395,64 +1409,64 @@ func (m *Image) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Image) GetDefaultPasswd() string {
-	if m != nil {
-		return m.DefaultPasswd
+	if m != nil && m.DefaultPasswd != nil {
+		return *m.DefaultPasswd
 	}
 	return ""
 }
 
 func (m *Image) GetDefaultUser() string {
-	if m != nil {
-		return m.DefaultUser
+	if m != nil && m.DefaultUser != nil {
+		return *m.DefaultUser
 	}
 	return ""
 }
 
 func (m *Image) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *Image) GetFResetpwd() int32 {
-	if m != nil {
-		return m.FResetpwd
+	if m != nil && m.FResetpwd != nil {
+		return *m.FResetpwd
 	}
 	return 0
 }
 
 func (m *Image) GetFeature() int32 {
-	if m != nil {
-		return m.Feature
+	if m != nil && m.Feature != nil {
+		return *m.Feature
 	}
 	return 0
 }
 
 func (m *Image) GetFeatures() int32 {
-	if m != nil {
-		return m.Features
+	if m != nil && m.Features != nil {
+		return *m.Features
 	}
 	return 0
 }
 
 func (m *Image) GetHypervisor() string {
-	if m != nil {
-		return m.Hypervisor
+	if m != nil && m.Hypervisor != nil {
+		return *m.Hypervisor
 	}
 	return ""
 }
 
 func (m *Image) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
 
 func (m *Image) GetImageName() string {
-	if m != nil {
-		return m.ImageName
+	if m != nil && m.ImageName != nil {
+		return *m.ImageName
 	}
 	return ""
 }
@@ -1465,64 +1479,64 @@ func (m *Image) GetInstanceIds() []string {
 }
 
 func (m *Image) GetOsFamily() string {
-	if m != nil {
-		return m.OsFamily
+	if m != nil && m.OsFamily != nil {
+		return *m.OsFamily
 	}
 	return ""
 }
 
 func (m *Image) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *Image) GetPlatform() string {
-	if m != nil {
-		return m.Platform
+	if m != nil && m.Platform != nil {
+		return *m.Platform
 	}
 	return ""
 }
 
 func (m *Image) GetProcessorType() string {
-	if m != nil {
-		return m.ProcessorType
+	if m != nil && m.ProcessorType != nil {
+		return *m.ProcessorType
 	}
 	return ""
 }
 
 func (m *Image) GetProvider() string {
-	if m != nil {
-		return m.Provider
+	if m != nil && m.Provider != nil {
+		return *m.Provider
 	}
 	return ""
 }
 
 func (m *Image) GetRecommendedType() string {
-	if m != nil {
-		return m.RecommendedType
+	if m != nil && m.RecommendedType != nil {
+		return *m.RecommendedType
 	}
 	return ""
 }
 
 func (m *Image) GetRootId() string {
-	if m != nil {
-		return m.RootId
+	if m != nil && m.RootId != nil {
+		return *m.RootId
 	}
 	return ""
 }
 
 func (m *Image) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
 
 func (m *Image) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -1535,37 +1549,38 @@ func (m *Image) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Image) GetSubCode() int32 {
-	if m != nil {
-		return m.SubCode
+	if m != nil && m.SubCode != nil {
+		return *m.SubCode
 	}
 	return 0
 }
 
 func (m *Image) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *Image) GetUiType() string {
-	if m != nil {
-		return m.UiType
+	if m != nil && m.UiType != nil {
+		return *m.UiType
 	}
 	return ""
 }
 
 func (m *Image) GetVisibility() string {
-	if m != nil {
-		return m.Visibility
+	if m != nil && m.Visibility != nil {
+		return *m.Visibility
 	}
 	return ""
 }
 
 type ImageUser struct {
-	CreateTime *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	ImageId    string                      `protobuf:"bytes,2,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	User       string                      `protobuf:"bytes,3,opt,name=user" json:"user,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	ImageId          *string                     `protobuf:"bytes,2,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	User             *string                     `protobuf:"bytes,3,opt,name=user" json:"user,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *ImageUser) Reset()                    { *m = ImageUser{} }
@@ -1581,36 +1596,37 @@ func (m *ImageUser) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *ImageUser) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
 
 func (m *ImageUser) GetUser() string {
-	if m != nil {
-		return m.User
+	if m != nil && m.User != nil {
+		return *m.User
 	}
 	return ""
 }
 
 type Mongo struct {
-	AlarmStatus         string                      `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	AutoBackupTime      int32                       `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	AutoMinorVerUpgrade int32                       `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
+	AlarmStatus         *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	AutoBackupTime      *int32                      `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	AutoMinorVerUpgrade *int32                      `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
 	CreateTime          *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description         string                      `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	Description         *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
 	LatestSnapshotTime  *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	MongoId             string                      `protobuf:"bytes,7,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
-	MongoName           string                      `protobuf:"bytes,8,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
-	MongoType           int32                       `protobuf:"varint,9,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
-	MongoVersion        string                      `protobuf:"bytes,10,opt,name=mongo_version,json=mongoVersion" json:"mongo_version,omitempty"`
-	Status              string                      `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
+	MongoId             *string                     `protobuf:"bytes,7,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
+	MongoName           *string                     `protobuf:"bytes,8,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
+	MongoType           *int32                      `protobuf:"varint,9,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
+	MongoVersion        *string                     `protobuf:"bytes,10,opt,name=mongo_version,json=mongoVersion" json:"mongo_version,omitempty"`
+	Status              *string                     `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
 	StatusTime          *google_protobuf1.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	StorageSize         int32                       `protobuf:"varint,13,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	StorageSize         *int32                      `protobuf:"varint,13,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
 	Tags                []*Tag                      `protobuf:"bytes,14,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus    string                      `protobuf:"bytes,15,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	TransitionStatus    *string                     `protobuf:"bytes,15,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
 	Vxnet               *VxNet                      `protobuf:"bytes,16,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_unrecognized    []byte                      `json:"-"`
 }
 
 func (m *Mongo) Reset()                    { *m = Mongo{} }
@@ -1619,22 +1635,22 @@ func (*Mongo) ProtoMessage()               {}
 func (*Mongo) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{15} }
 
 func (m *Mongo) GetAlarmStatus() string {
-	if m != nil {
-		return m.AlarmStatus
+	if m != nil && m.AlarmStatus != nil {
+		return *m.AlarmStatus
 	}
 	return ""
 }
 
 func (m *Mongo) GetAutoBackupTime() int32 {
-	if m != nil {
-		return m.AutoBackupTime
+	if m != nil && m.AutoBackupTime != nil {
+		return *m.AutoBackupTime
 	}
 	return 0
 }
 
 func (m *Mongo) GetAutoMinorVerUpgrade() int32 {
-	if m != nil {
-		return m.AutoMinorVerUpgrade
+	if m != nil && m.AutoMinorVerUpgrade != nil {
+		return *m.AutoMinorVerUpgrade
 	}
 	return 0
 }
@@ -1647,8 +1663,8 @@ func (m *Mongo) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Mongo) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
@@ -1661,36 +1677,36 @@ func (m *Mongo) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Mongo) GetMongoId() string {
-	if m != nil {
-		return m.MongoId
+	if m != nil && m.MongoId != nil {
+		return *m.MongoId
 	}
 	return ""
 }
 
 func (m *Mongo) GetMongoName() string {
-	if m != nil {
-		return m.MongoName
+	if m != nil && m.MongoName != nil {
+		return *m.MongoName
 	}
 	return ""
 }
 
 func (m *Mongo) GetMongoType() int32 {
-	if m != nil {
-		return m.MongoType
+	if m != nil && m.MongoType != nil {
+		return *m.MongoType
 	}
 	return 0
 }
 
 func (m *Mongo) GetMongoVersion() string {
-	if m != nil {
-		return m.MongoVersion
+	if m != nil && m.MongoVersion != nil {
+		return *m.MongoVersion
 	}
 	return ""
 }
 
 func (m *Mongo) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -1703,8 +1719,8 @@ func (m *Mongo) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Mongo) GetStorageSize() int32 {
-	if m != nil {
-		return m.StorageSize
+	if m != nil && m.StorageSize != nil {
+		return *m.StorageSize
 	}
 	return 0
 }
@@ -1717,8 +1733,8 @@ func (m *Mongo) GetTags() []*Tag {
 }
 
 func (m *Mongo) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
@@ -1731,12 +1747,13 @@ func (m *Mongo) GetVxnet() *VxNet {
 }
 
 type MongoNode struct {
-	Ip          string `protobuf:"bytes,1,opt,name=ip" json:"ip,omitempty"`
-	MongoId     string `protobuf:"bytes,2,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
-	MongoNodeId string `protobuf:"bytes,3,opt,name=mongo_node_id,json=mongoNodeId" json:"mongo_node_id,omitempty"`
-	Primary     int32  `protobuf:"varint,4,opt,name=primary" json:"primary,omitempty"`
-	Status      string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	VxnetId     string `protobuf:"bytes,6,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	Ip               *string `protobuf:"bytes,1,opt,name=ip" json:"ip,omitempty"`
+	MongoId          *string `protobuf:"bytes,2,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
+	MongoNodeId      *string `protobuf:"bytes,3,opt,name=mongo_node_id,json=mongoNodeId" json:"mongo_node_id,omitempty"`
+	Primary          *int32  `protobuf:"varint,4,opt,name=primary" json:"primary,omitempty"`
+	Status           *string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	VxnetId          *string `protobuf:"bytes,6,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *MongoNode) Reset()                    { *m = MongoNode{} }
@@ -1745,43 +1762,43 @@ func (*MongoNode) ProtoMessage()               {}
 func (*MongoNode) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{16} }
 
 func (m *MongoNode) GetIp() string {
-	if m != nil {
-		return m.Ip
+	if m != nil && m.Ip != nil {
+		return *m.Ip
 	}
 	return ""
 }
 
 func (m *MongoNode) GetMongoId() string {
-	if m != nil {
-		return m.MongoId
+	if m != nil && m.MongoId != nil {
+		return *m.MongoId
 	}
 	return ""
 }
 
 func (m *MongoNode) GetMongoNodeId() string {
-	if m != nil {
-		return m.MongoNodeId
+	if m != nil && m.MongoNodeId != nil {
+		return *m.MongoNodeId
 	}
 	return ""
 }
 
 func (m *MongoNode) GetPrimary() int32 {
-	if m != nil {
-		return m.Primary
+	if m != nil && m.Primary != nil {
+		return *m.Primary
 	}
 	return 0
 }
 
 func (m *MongoNode) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *MongoNode) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
@@ -1789,19 +1806,20 @@ func (m *MongoNode) GetVxnetId() string {
 type LoadBalancer struct {
 	Cluster          []*EIP                      `protobuf:"bytes,1,rep,name=cluster" json:"cluster,omitempty"`
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	IsApplied        int32                       `protobuf:"varint,4,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Description      *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	IsApplied        *int32                      `protobuf:"varint,4,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
 	Listeners        []*LoadBalancerListener     `protobuf:"bytes,5,rep,name=listeners" json:"listeners,omitempty"`
-	LoadbalancerId   string                      `protobuf:"bytes,6,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
-	LoadbalancerName string                      `protobuf:"bytes,7,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
-	LoadbalancerType int32                       `protobuf:"varint,8,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
+	LoadbalancerId   *string                     `protobuf:"bytes,6,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
+	LoadbalancerName *string                     `protobuf:"bytes,7,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
+	LoadbalancerType *int32                      `protobuf:"varint,8,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
 	PrivateIps       []string                    `protobuf:"bytes,9,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	SecurityGroupId  string                      `protobuf:"bytes,10,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Status           string                      `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
+	SecurityGroupId  *string                     `protobuf:"bytes,10,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Status           *string                     `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,14,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VxnetId          string                      `protobuf:"bytes,15,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,14,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VxnetId          *string                     `protobuf:"bytes,15,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *LoadBalancer) Reset()                    { *m = LoadBalancer{} }
@@ -1824,15 +1842,15 @@ func (m *LoadBalancer) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *LoadBalancer) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *LoadBalancer) GetIsApplied() int32 {
-	if m != nil {
-		return m.IsApplied
+	if m != nil && m.IsApplied != nil {
+		return *m.IsApplied
 	}
 	return 0
 }
@@ -1845,22 +1863,22 @@ func (m *LoadBalancer) GetListeners() []*LoadBalancerListener {
 }
 
 func (m *LoadBalancer) GetLoadbalancerId() string {
-	if m != nil {
-		return m.LoadbalancerId
+	if m != nil && m.LoadbalancerId != nil {
+		return *m.LoadbalancerId
 	}
 	return ""
 }
 
 func (m *LoadBalancer) GetLoadbalancerName() string {
-	if m != nil {
-		return m.LoadbalancerName
+	if m != nil && m.LoadbalancerName != nil {
+		return *m.LoadbalancerName
 	}
 	return ""
 }
 
 func (m *LoadBalancer) GetLoadbalancerType() int32 {
-	if m != nil {
-		return m.LoadbalancerType
+	if m != nil && m.LoadbalancerType != nil {
+		return *m.LoadbalancerType
 	}
 	return 0
 }
@@ -1873,15 +1891,15 @@ func (m *LoadBalancer) GetPrivateIps() []string {
 }
 
 func (m *LoadBalancer) GetSecurityGroupId() string {
-	if m != nil {
-		return m.SecurityGroupId
+	if m != nil && m.SecurityGroupId != nil {
+		return *m.SecurityGroupId
 	}
 	return ""
 }
 
 func (m *LoadBalancer) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -1901,35 +1919,36 @@ func (m *LoadBalancer) GetTags() []*Tag {
 }
 
 func (m *LoadBalancer) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *LoadBalancer) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 type LoadBalancerListener struct {
-	BackendProtocol          string                      `protobuf:"bytes,1,opt,name=backend_protocol,json=backendProtocol" json:"backend_protocol,omitempty"`
+	BackendProtocol          *string                     `protobuf:"bytes,1,opt,name=backend_protocol,json=backendProtocol" json:"backend_protocol,omitempty"`
 	Backends                 []*LoadBalancerBackend      `protobuf:"bytes,2,rep,name=backends" json:"backends,omitempty"`
-	BalanceMode              string                      `protobuf:"bytes,3,opt,name=balance_mode,json=balanceMode" json:"balance_mode,omitempty"`
+	BalanceMode              *string                     `protobuf:"bytes,3,opt,name=balance_mode,json=balanceMode" json:"balance_mode,omitempty"`
 	CreateTime               *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Forwardfor               int32                       `protobuf:"varint,5,opt,name=forwardfor" json:"forwardfor,omitempty"`
-	HealthyCheckMethod       string                      `protobuf:"bytes,6,opt,name=healthy_check_method,json=healthyCheckMethod" json:"healthy_check_method,omitempty"`
-	HealthyCheckOption       string                      `protobuf:"bytes,7,opt,name=healthy_check_option,json=healthyCheckOption" json:"healthy_check_option,omitempty"`
-	ListenerOption           int32                       `protobuf:"varint,8,opt,name=listener_option,json=listenerOption" json:"listener_option,omitempty"`
-	ListenerPort             int32                       `protobuf:"varint,9,opt,name=listener_port,json=listenerPort" json:"listener_port,omitempty"`
-	ListenerProtocol         string                      `protobuf:"bytes,10,opt,name=listener_protocol,json=listenerProtocol" json:"listener_protocol,omitempty"`
-	LoadbalancerId           string                      `protobuf:"bytes,11,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
-	LoadbalancerListenerId   string                      `protobuf:"bytes,12,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
-	LoadbalancerListenerName string                      `protobuf:"bytes,13,opt,name=loadbalancer_listener_name,json=loadbalancerListenerName" json:"loadbalancer_listener_name,omitempty"`
-	ServerCertificateId      string                      `protobuf:"bytes,14,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
-	SessionSticky            string                      `protobuf:"bytes,15,opt,name=session_sticky,json=sessionSticky" json:"session_sticky,omitempty"`
+	Forwardfor               *int32                      `protobuf:"varint,5,opt,name=forwardfor" json:"forwardfor,omitempty"`
+	HealthyCheckMethod       *string                     `protobuf:"bytes,6,opt,name=healthy_check_method,json=healthyCheckMethod" json:"healthy_check_method,omitempty"`
+	HealthyCheckOption       *string                     `protobuf:"bytes,7,opt,name=healthy_check_option,json=healthyCheckOption" json:"healthy_check_option,omitempty"`
+	ListenerOption           *int32                      `protobuf:"varint,8,opt,name=listener_option,json=listenerOption" json:"listener_option,omitempty"`
+	ListenerPort             *int32                      `protobuf:"varint,9,opt,name=listener_port,json=listenerPort" json:"listener_port,omitempty"`
+	ListenerProtocol         *string                     `protobuf:"bytes,10,opt,name=listener_protocol,json=listenerProtocol" json:"listener_protocol,omitempty"`
+	LoadbalancerId           *string                     `protobuf:"bytes,11,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
+	LoadbalancerListenerId   *string                     `protobuf:"bytes,12,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
+	LoadbalancerListenerName *string                     `protobuf:"bytes,13,opt,name=loadbalancer_listener_name,json=loadbalancerListenerName" json:"loadbalancer_listener_name,omitempty"`
+	ServerCertificateId      *string                     `protobuf:"bytes,14,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
+	SessionSticky            *string                     `protobuf:"bytes,15,opt,name=session_sticky,json=sessionSticky" json:"session_sticky,omitempty"`
+	XXX_unrecognized         []byte                      `json:"-"`
 }
 
 func (m *LoadBalancerListener) Reset()                    { *m = LoadBalancerListener{} }
@@ -1938,8 +1957,8 @@ func (*LoadBalancerListener) ProtoMessage()               {}
 func (*LoadBalancerListener) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{18} }
 
 func (m *LoadBalancerListener) GetBackendProtocol() string {
-	if m != nil {
-		return m.BackendProtocol
+	if m != nil && m.BackendProtocol != nil {
+		return *m.BackendProtocol
 	}
 	return ""
 }
@@ -1952,8 +1971,8 @@ func (m *LoadBalancerListener) GetBackends() []*LoadBalancerBackend {
 }
 
 func (m *LoadBalancerListener) GetBalanceMode() string {
-	if m != nil {
-		return m.BalanceMode
+	if m != nil && m.BalanceMode != nil {
+		return *m.BalanceMode
 	}
 	return ""
 }
@@ -1966,93 +1985,94 @@ func (m *LoadBalancerListener) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *LoadBalancerListener) GetForwardfor() int32 {
-	if m != nil {
-		return m.Forwardfor
+	if m != nil && m.Forwardfor != nil {
+		return *m.Forwardfor
 	}
 	return 0
 }
 
 func (m *LoadBalancerListener) GetHealthyCheckMethod() string {
-	if m != nil {
-		return m.HealthyCheckMethod
+	if m != nil && m.HealthyCheckMethod != nil {
+		return *m.HealthyCheckMethod
 	}
 	return ""
 }
 
 func (m *LoadBalancerListener) GetHealthyCheckOption() string {
-	if m != nil {
-		return m.HealthyCheckOption
+	if m != nil && m.HealthyCheckOption != nil {
+		return *m.HealthyCheckOption
 	}
 	return ""
 }
 
 func (m *LoadBalancerListener) GetListenerOption() int32 {
-	if m != nil {
-		return m.ListenerOption
+	if m != nil && m.ListenerOption != nil {
+		return *m.ListenerOption
 	}
 	return 0
 }
 
 func (m *LoadBalancerListener) GetListenerPort() int32 {
-	if m != nil {
-		return m.ListenerPort
+	if m != nil && m.ListenerPort != nil {
+		return *m.ListenerPort
 	}
 	return 0
 }
 
 func (m *LoadBalancerListener) GetListenerProtocol() string {
-	if m != nil {
-		return m.ListenerProtocol
+	if m != nil && m.ListenerProtocol != nil {
+		return *m.ListenerProtocol
 	}
 	return ""
 }
 
 func (m *LoadBalancerListener) GetLoadbalancerId() string {
-	if m != nil {
-		return m.LoadbalancerId
+	if m != nil && m.LoadbalancerId != nil {
+		return *m.LoadbalancerId
 	}
 	return ""
 }
 
 func (m *LoadBalancerListener) GetLoadbalancerListenerId() string {
-	if m != nil {
-		return m.LoadbalancerListenerId
+	if m != nil && m.LoadbalancerListenerId != nil {
+		return *m.LoadbalancerListenerId
 	}
 	return ""
 }
 
 func (m *LoadBalancerListener) GetLoadbalancerListenerName() string {
-	if m != nil {
-		return m.LoadbalancerListenerName
+	if m != nil && m.LoadbalancerListenerName != nil {
+		return *m.LoadbalancerListenerName
 	}
 	return ""
 }
 
 func (m *LoadBalancerListener) GetServerCertificateId() string {
-	if m != nil {
-		return m.ServerCertificateId
+	if m != nil && m.ServerCertificateId != nil {
+		return *m.ServerCertificateId
 	}
 	return ""
 }
 
 func (m *LoadBalancerListener) GetSessionSticky() string {
-	if m != nil {
-		return m.SessionSticky
+	if m != nil && m.SessionSticky != nil {
+		return *m.SessionSticky
 	}
 	return ""
 }
 
 type LoadBalancerBackend struct {
 	CreateTime              *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	LoadbalancerBackendId   string                      `protobuf:"bytes,2,opt,name=loadbalancer_backend_id,json=loadbalancerBackendId" json:"loadbalancer_backend_id,omitempty"`
-	LoadbalancerBackendName string                      `protobuf:"bytes,3,opt,name=loadbalancer_backend_name,json=loadbalancerBackendName" json:"loadbalancer_backend_name,omitempty"`
-	LoadbalancerId          string                      `protobuf:"bytes,4,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
-	LoadbalancerListenerId  string                      `protobuf:"bytes,5,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
-	LoadbalancerPolicyId    string                      `protobuf:"bytes,6,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
-	Port                    int32                       `protobuf:"varint,7,opt,name=port" json:"port,omitempty"`
-	ResourceId              string                      `protobuf:"bytes,8,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	Status                  string                      `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
-	Weight                  int32                       `protobuf:"varint,10,opt,name=weight" json:"weight,omitempty"`
+	LoadbalancerBackendId   *string                     `protobuf:"bytes,2,opt,name=loadbalancer_backend_id,json=loadbalancerBackendId" json:"loadbalancer_backend_id,omitempty"`
+	LoadbalancerBackendName *string                     `protobuf:"bytes,3,opt,name=loadbalancer_backend_name,json=loadbalancerBackendName" json:"loadbalancer_backend_name,omitempty"`
+	LoadbalancerId          *string                     `protobuf:"bytes,4,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
+	LoadbalancerListenerId  *string                     `protobuf:"bytes,5,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
+	LoadbalancerPolicyId    *string                     `protobuf:"bytes,6,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
+	Port                    *int32                      `protobuf:"varint,7,opt,name=port" json:"port,omitempty"`
+	ResourceId              *string                     `protobuf:"bytes,8,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	Status                  *string                     `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
+	Weight                  *int32                      `protobuf:"varint,10,opt,name=weight" json:"weight,omitempty"`
+	XXX_unrecognized        []byte                      `json:"-"`
 }
 
 func (m *LoadBalancerBackend) Reset()                    { *m = LoadBalancerBackend{} }
@@ -2068,92 +2088,93 @@ func (m *LoadBalancerBackend) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *LoadBalancerBackend) GetLoadbalancerBackendId() string {
-	if m != nil {
-		return m.LoadbalancerBackendId
+	if m != nil && m.LoadbalancerBackendId != nil {
+		return *m.LoadbalancerBackendId
 	}
 	return ""
 }
 
 func (m *LoadBalancerBackend) GetLoadbalancerBackendName() string {
-	if m != nil {
-		return m.LoadbalancerBackendName
+	if m != nil && m.LoadbalancerBackendName != nil {
+		return *m.LoadbalancerBackendName
 	}
 	return ""
 }
 
 func (m *LoadBalancerBackend) GetLoadbalancerId() string {
-	if m != nil {
-		return m.LoadbalancerId
+	if m != nil && m.LoadbalancerId != nil {
+		return *m.LoadbalancerId
 	}
 	return ""
 }
 
 func (m *LoadBalancerBackend) GetLoadbalancerListenerId() string {
-	if m != nil {
-		return m.LoadbalancerListenerId
+	if m != nil && m.LoadbalancerListenerId != nil {
+		return *m.LoadbalancerListenerId
 	}
 	return ""
 }
 
 func (m *LoadBalancerBackend) GetLoadbalancerPolicyId() string {
-	if m != nil {
-		return m.LoadbalancerPolicyId
+	if m != nil && m.LoadbalancerPolicyId != nil {
+		return *m.LoadbalancerPolicyId
 	}
 	return ""
 }
 
 func (m *LoadBalancerBackend) GetPort() int32 {
-	if m != nil {
-		return m.Port
+	if m != nil && m.Port != nil {
+		return *m.Port
 	}
 	return 0
 }
 
 func (m *LoadBalancerBackend) GetResourceId() string {
-	if m != nil {
-		return m.ResourceId
+	if m != nil && m.ResourceId != nil {
+		return *m.ResourceId
 	}
 	return ""
 }
 
 func (m *LoadBalancerBackend) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *LoadBalancerBackend) GetWeight() int32 {
-	if m != nil {
-		return m.Weight
+	if m != nil && m.Weight != nil {
+		return *m.Weight
 	}
 	return 0
 }
 
 type Cache struct {
-	CacheClass            int32                       `protobuf:"varint,1,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
-	CacheId               string                      `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheName             string                      `protobuf:"bytes,3,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
-	CacheParameterGroupId string                      `protobuf:"bytes,4,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-	CachePort             int32                       `protobuf:"varint,5,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
-	CacheSize             int32                       `protobuf:"varint,6,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
-	CacheType             string                      `protobuf:"bytes,7,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	CacheVersion          string                      `protobuf:"bytes,8,opt,name=cache_version,json=cacheVersion" json:"cache_version,omitempty"`
+	CacheClass            *int32                      `protobuf:"varint,1,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
+	CacheId               *string                     `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheName             *string                     `protobuf:"bytes,3,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
+	CacheParameterGroupId *string                     `protobuf:"bytes,4,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+	CachePort             *int32                      `protobuf:"varint,5,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
+	CacheSize             *int32                      `protobuf:"varint,6,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
+	CacheType             *string                     `protobuf:"bytes,7,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CacheVersion          *string                     `protobuf:"bytes,8,opt,name=cache_version,json=cacheVersion" json:"cache_version,omitempty"`
 	CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description           string                      `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
-	IsApplied             int32                       `protobuf:"varint,11,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	MasterCount           int32                       `protobuf:"varint,12,opt,name=master_count,json=masterCount" json:"master_count,omitempty"`
-	MaxMemory             int32                       `protobuf:"varint,13,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
-	NodeCount             int32                       `protobuf:"varint,14,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	Description           *string                     `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
+	IsApplied             *int32                      `protobuf:"varint,11,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	MasterCount           *int32                      `protobuf:"varint,12,opt,name=master_count,json=masterCount" json:"master_count,omitempty"`
+	MaxMemory             *int32                      `protobuf:"varint,13,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
+	NodeCount             *int32                      `protobuf:"varint,14,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
 	Nodes                 []*CacheNode                `protobuf:"bytes,15,rep,name=nodes" json:"nodes,omitempty"`
-	ReplicateCount        int32                       `protobuf:"varint,16,opt,name=replicate_count,json=replicateCount" json:"replicate_count,omitempty"`
-	SecurityGroupId       string                      `protobuf:"bytes,17,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Status                string                      `protobuf:"bytes,18,opt,name=status" json:"status,omitempty"`
+	ReplicateCount        *int32                      `protobuf:"varint,16,opt,name=replicate_count,json=replicateCount" json:"replicate_count,omitempty"`
+	SecurityGroupId       *string                     `protobuf:"bytes,17,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Status                *string                     `protobuf:"bytes,18,opt,name=status" json:"status,omitempty"`
 	StatusTime            *google_protobuf1.Timestamp `protobuf:"bytes,19,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode               int32                       `protobuf:"varint,20,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	SubCode               *int32                      `protobuf:"varint,20,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
 	Tags                  []*Tag                      `protobuf:"bytes,21,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus      string                      `protobuf:"bytes,22,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	TransitionStatus      *string                     `protobuf:"bytes,22,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
 	Vxnet                 *VxNet                      `protobuf:"bytes,23,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_unrecognized      []byte                      `json:"-"`
 }
 
 func (m *Cache) Reset()                    { *m = Cache{} }
@@ -2162,57 +2183,57 @@ func (*Cache) ProtoMessage()               {}
 func (*Cache) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{20} }
 
 func (m *Cache) GetCacheClass() int32 {
-	if m != nil {
-		return m.CacheClass
+	if m != nil && m.CacheClass != nil {
+		return *m.CacheClass
 	}
 	return 0
 }
 
 func (m *Cache) GetCacheId() string {
-	if m != nil {
-		return m.CacheId
+	if m != nil && m.CacheId != nil {
+		return *m.CacheId
 	}
 	return ""
 }
 
 func (m *Cache) GetCacheName() string {
-	if m != nil {
-		return m.CacheName
+	if m != nil && m.CacheName != nil {
+		return *m.CacheName
 	}
 	return ""
 }
 
 func (m *Cache) GetCacheParameterGroupId() string {
-	if m != nil {
-		return m.CacheParameterGroupId
+	if m != nil && m.CacheParameterGroupId != nil {
+		return *m.CacheParameterGroupId
 	}
 	return ""
 }
 
 func (m *Cache) GetCachePort() int32 {
-	if m != nil {
-		return m.CachePort
+	if m != nil && m.CachePort != nil {
+		return *m.CachePort
 	}
 	return 0
 }
 
 func (m *Cache) GetCacheSize() int32 {
-	if m != nil {
-		return m.CacheSize
+	if m != nil && m.CacheSize != nil {
+		return *m.CacheSize
 	}
 	return 0
 }
 
 func (m *Cache) GetCacheType() string {
-	if m != nil {
-		return m.CacheType
+	if m != nil && m.CacheType != nil {
+		return *m.CacheType
 	}
 	return ""
 }
 
 func (m *Cache) GetCacheVersion() string {
-	if m != nil {
-		return m.CacheVersion
+	if m != nil && m.CacheVersion != nil {
+		return *m.CacheVersion
 	}
 	return ""
 }
@@ -2225,36 +2246,36 @@ func (m *Cache) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Cache) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *Cache) GetIsApplied() int32 {
-	if m != nil {
-		return m.IsApplied
+	if m != nil && m.IsApplied != nil {
+		return *m.IsApplied
 	}
 	return 0
 }
 
 func (m *Cache) GetMasterCount() int32 {
-	if m != nil {
-		return m.MasterCount
+	if m != nil && m.MasterCount != nil {
+		return *m.MasterCount
 	}
 	return 0
 }
 
 func (m *Cache) GetMaxMemory() int32 {
-	if m != nil {
-		return m.MaxMemory
+	if m != nil && m.MaxMemory != nil {
+		return *m.MaxMemory
 	}
 	return 0
 }
 
 func (m *Cache) GetNodeCount() int32 {
-	if m != nil {
-		return m.NodeCount
+	if m != nil && m.NodeCount != nil {
+		return *m.NodeCount
 	}
 	return 0
 }
@@ -2267,22 +2288,22 @@ func (m *Cache) GetNodes() []*CacheNode {
 }
 
 func (m *Cache) GetReplicateCount() int32 {
-	if m != nil {
-		return m.ReplicateCount
+	if m != nil && m.ReplicateCount != nil {
+		return *m.ReplicateCount
 	}
 	return 0
 }
 
 func (m *Cache) GetSecurityGroupId() string {
-	if m != nil {
-		return m.SecurityGroupId
+	if m != nil && m.SecurityGroupId != nil {
+		return *m.SecurityGroupId
 	}
 	return ""
 }
 
 func (m *Cache) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -2295,8 +2316,8 @@ func (m *Cache) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Cache) GetSubCode() int32 {
-	if m != nil {
-		return m.SubCode
+	if m != nil && m.SubCode != nil {
+		return *m.SubCode
 	}
 	return 0
 }
@@ -2309,8 +2330,8 @@ func (m *Cache) GetTags() []*Tag {
 }
 
 func (m *Cache) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
@@ -2323,18 +2344,19 @@ func (m *Cache) GetVxnet() *VxNet {
 }
 
 type CacheNode struct {
-	AlarmStatus      string                      `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	CacheId          string                      `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheNodeId      string                      `protobuf:"bytes,3,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
-	CacheNodeName    string                      `protobuf:"bytes,4,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
-	CacheRole        string                      `protobuf:"bytes,5,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
-	CacheType        string                      `protobuf:"bytes,6,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	AlarmStatus      *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	CacheId          *string                     `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheNodeId      *string                     `protobuf:"bytes,3,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
+	CacheNodeName    *string                     `protobuf:"bytes,4,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
+	CacheRole        *string                     `protobuf:"bytes,5,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
+	CacheType        *string                     `protobuf:"bytes,6,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	PrivateIp        string                      `protobuf:"bytes,8,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Slaveof          string                      `protobuf:"bytes,9,opt,name=slaveof" json:"slaveof,omitempty"`
-	Status           string                      `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
+	PrivateIp        *string                     `protobuf:"bytes,8,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Slaveof          *string                     `protobuf:"bytes,9,opt,name=slaveof" json:"slaveof,omitempty"`
+	Status           *string                     `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *CacheNode) Reset()                    { *m = CacheNode{} }
@@ -2343,43 +2365,43 @@ func (*CacheNode) ProtoMessage()               {}
 func (*CacheNode) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{21} }
 
 func (m *CacheNode) GetAlarmStatus() string {
-	if m != nil {
-		return m.AlarmStatus
+	if m != nil && m.AlarmStatus != nil {
+		return *m.AlarmStatus
 	}
 	return ""
 }
 
 func (m *CacheNode) GetCacheId() string {
-	if m != nil {
-		return m.CacheId
+	if m != nil && m.CacheId != nil {
+		return *m.CacheId
 	}
 	return ""
 }
 
 func (m *CacheNode) GetCacheNodeId() string {
-	if m != nil {
-		return m.CacheNodeId
+	if m != nil && m.CacheNodeId != nil {
+		return *m.CacheNodeId
 	}
 	return ""
 }
 
 func (m *CacheNode) GetCacheNodeName() string {
-	if m != nil {
-		return m.CacheNodeName
+	if m != nil && m.CacheNodeName != nil {
+		return *m.CacheNodeName
 	}
 	return ""
 }
 
 func (m *CacheNode) GetCacheRole() string {
-	if m != nil {
-		return m.CacheRole
+	if m != nil && m.CacheRole != nil {
+		return *m.CacheRole
 	}
 	return ""
 }
 
 func (m *CacheNode) GetCacheType() string {
-	if m != nil {
-		return m.CacheType
+	if m != nil && m.CacheType != nil {
+		return *m.CacheType
 	}
 	return ""
 }
@@ -2392,22 +2414,22 @@ func (m *CacheNode) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *CacheNode) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *CacheNode) GetSlaveof() string {
-	if m != nil {
-		return m.Slaveof
+	if m != nil && m.Slaveof != nil {
+		return *m.Slaveof
 	}
 	return ""
 }
 
 func (m *CacheNode) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -2420,23 +2442,24 @@ func (m *CacheNode) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *CacheNode) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 type CacheParameter struct {
-	CacheParameterName  string `protobuf:"bytes,1,opt,name=cache_parameter_name,json=cacheParameterName" json:"cache_parameter_name,omitempty"`
-	CacheParameterType  string `protobuf:"bytes,2,opt,name=cache_parameter_type,json=cacheParameterType" json:"cache_parameter_type,omitempty"`
-	CacheParameterValue string `protobuf:"bytes,3,opt,name=cache_parameter_value,json=cacheParameterValue" json:"cache_parameter_value,omitempty"`
-	CacheType           string `protobuf:"bytes,4,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	IsReadonly          int32  `protobuf:"varint,5,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	IsStatic            int32  `protobuf:"varint,6,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	OptName             string `protobuf:"bytes,7,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	ParameterType       string `protobuf:"bytes,8,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
-	ResourceVersion     string `protobuf:"bytes,9,opt,name=resource_version,json=resourceVersion" json:"resource_version,omitempty"`
-	ValueRange          string `protobuf:"bytes,10,opt,name=value_range,json=valueRange" json:"value_range,omitempty"`
+	CacheParameterName  *string `protobuf:"bytes,1,opt,name=cache_parameter_name,json=cacheParameterName" json:"cache_parameter_name,omitempty"`
+	CacheParameterType  *string `protobuf:"bytes,2,opt,name=cache_parameter_type,json=cacheParameterType" json:"cache_parameter_type,omitempty"`
+	CacheParameterValue *string `protobuf:"bytes,3,opt,name=cache_parameter_value,json=cacheParameterValue" json:"cache_parameter_value,omitempty"`
+	CacheType           *string `protobuf:"bytes,4,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	IsReadonly          *int32  `protobuf:"varint,5,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	IsStatic            *int32  `protobuf:"varint,6,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	OptName             *string `protobuf:"bytes,7,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	ParameterType       *string `protobuf:"bytes,8,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
+	ResourceVersion     *string `protobuf:"bytes,9,opt,name=resource_version,json=resourceVersion" json:"resource_version,omitempty"`
+	ValueRange          *string `protobuf:"bytes,10,opt,name=value_range,json=valueRange" json:"value_range,omitempty"`
+	XXX_unrecognized    []byte  `json:"-"`
 }
 
 func (m *CacheParameter) Reset()                    { *m = CacheParameter{} }
@@ -2445,84 +2468,85 @@ func (*CacheParameter) ProtoMessage()               {}
 func (*CacheParameter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{22} }
 
 func (m *CacheParameter) GetCacheParameterName() string {
-	if m != nil {
-		return m.CacheParameterName
+	if m != nil && m.CacheParameterName != nil {
+		return *m.CacheParameterName
 	}
 	return ""
 }
 
 func (m *CacheParameter) GetCacheParameterType() string {
-	if m != nil {
-		return m.CacheParameterType
+	if m != nil && m.CacheParameterType != nil {
+		return *m.CacheParameterType
 	}
 	return ""
 }
 
 func (m *CacheParameter) GetCacheParameterValue() string {
-	if m != nil {
-		return m.CacheParameterValue
+	if m != nil && m.CacheParameterValue != nil {
+		return *m.CacheParameterValue
 	}
 	return ""
 }
 
 func (m *CacheParameter) GetCacheType() string {
-	if m != nil {
-		return m.CacheType
+	if m != nil && m.CacheType != nil {
+		return *m.CacheType
 	}
 	return ""
 }
 
 func (m *CacheParameter) GetIsReadonly() int32 {
-	if m != nil {
-		return m.IsReadonly
+	if m != nil && m.IsReadonly != nil {
+		return *m.IsReadonly
 	}
 	return 0
 }
 
 func (m *CacheParameter) GetIsStatic() int32 {
-	if m != nil {
-		return m.IsStatic
+	if m != nil && m.IsStatic != nil {
+		return *m.IsStatic
 	}
 	return 0
 }
 
 func (m *CacheParameter) GetOptName() string {
-	if m != nil {
-		return m.OptName
+	if m != nil && m.OptName != nil {
+		return *m.OptName
 	}
 	return ""
 }
 
 func (m *CacheParameter) GetParameterType() string {
-	if m != nil {
-		return m.ParameterType
+	if m != nil && m.ParameterType != nil {
+		return *m.ParameterType
 	}
 	return ""
 }
 
 func (m *CacheParameter) GetResourceVersion() string {
-	if m != nil {
-		return m.ResourceVersion
+	if m != nil && m.ResourceVersion != nil {
+		return *m.ResourceVersion
 	}
 	return ""
 }
 
 func (m *CacheParameter) GetValueRange() string {
-	if m != nil {
-		return m.ValueRange
+	if m != nil && m.ValueRange != nil {
+		return *m.ValueRange
 	}
 	return ""
 }
 
 type CacheParameterGroup struct {
-	CacheParameterGroupId   string                      `protobuf:"bytes,1,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-	CacheParameterGroupName string                      `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
-	CacheType               string                      `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CacheParameterGroupId   *string                     `protobuf:"bytes,1,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+	CacheParameterGroupName *string                     `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
+	CacheType               *string                     `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
 	CreateTime              *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description             string                      `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	IsApplied               int32                       `protobuf:"varint,6,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	IsDefault               int32                       `protobuf:"varint,7,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
+	Description             *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	IsApplied               *int32                      `protobuf:"varint,6,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	IsDefault               *int32                      `protobuf:"varint,7,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
 	Resources               []*Resource                 `protobuf:"bytes,8,rep,name=resources" json:"resources,omitempty"`
+	XXX_unrecognized        []byte                      `json:"-"`
 }
 
 func (m *CacheParameterGroup) Reset()                    { *m = CacheParameterGroup{} }
@@ -2531,22 +2555,22 @@ func (*CacheParameterGroup) ProtoMessage()               {}
 func (*CacheParameterGroup) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{23} }
 
 func (m *CacheParameterGroup) GetCacheParameterGroupId() string {
-	if m != nil {
-		return m.CacheParameterGroupId
+	if m != nil && m.CacheParameterGroupId != nil {
+		return *m.CacheParameterGroupId
 	}
 	return ""
 }
 
 func (m *CacheParameterGroup) GetCacheParameterGroupName() string {
-	if m != nil {
-		return m.CacheParameterGroupName
+	if m != nil && m.CacheParameterGroupName != nil {
+		return *m.CacheParameterGroupName
 	}
 	return ""
 }
 
 func (m *CacheParameterGroup) GetCacheType() string {
-	if m != nil {
-		return m.CacheType
+	if m != nil && m.CacheType != nil {
+		return *m.CacheType
 	}
 	return ""
 }
@@ -2559,22 +2583,22 @@ func (m *CacheParameterGroup) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *CacheParameterGroup) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *CacheParameterGroup) GetIsApplied() int32 {
-	if m != nil {
-		return m.IsApplied
+	if m != nil && m.IsApplied != nil {
+		return *m.IsApplied
 	}
 	return 0
 }
 
 func (m *CacheParameterGroup) GetIsDefault() int32 {
-	if m != nil {
-		return m.IsDefault
+	if m != nil && m.IsDefault != nil {
+		return *m.IsDefault
 	}
 	return 0
 }
@@ -2587,9 +2611,10 @@ func (m *CacheParameterGroup) GetResources() []*Resource {
 }
 
 type CachePrivateIP struct {
-	CacheNodeId string `protobuf:"bytes,1,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
-	CacheRole   string `protobuf:"bytes,2,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
-	PrivateIps  string `protobuf:"bytes,3,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	CacheNodeId      *string `protobuf:"bytes,1,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
+	CacheRole        *string `protobuf:"bytes,2,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
+	PrivateIps       *string `protobuf:"bytes,3,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CachePrivateIP) Reset()                    { *m = CachePrivateIP{} }
@@ -2598,29 +2623,30 @@ func (*CachePrivateIP) ProtoMessage()               {}
 func (*CachePrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{24} }
 
 func (m *CachePrivateIP) GetCacheNodeId() string {
-	if m != nil {
-		return m.CacheNodeId
+	if m != nil && m.CacheNodeId != nil {
+		return *m.CacheNodeId
 	}
 	return ""
 }
 
 func (m *CachePrivateIP) GetCacheRole() string {
-	if m != nil {
-		return m.CacheRole
+	if m != nil && m.CacheRole != nil {
+		return *m.CacheRole
 	}
 	return ""
 }
 
 func (m *CachePrivateIP) GetPrivateIps() string {
-	if m != nil {
-		return m.PrivateIps
+	if m != nil && m.PrivateIps != nil {
+		return *m.PrivateIps
 	}
 	return ""
 }
 
 type SparkPrivateIps struct {
-	Role       string `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
-	PrivateIps string `protobuf:"bytes,2,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	Role             *string `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
+	PrivateIps       *string `protobuf:"bytes,2,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *SparkPrivateIps) Reset()                    { *m = SparkPrivateIps{} }
@@ -2629,22 +2655,23 @@ func (*SparkPrivateIps) ProtoMessage()               {}
 func (*SparkPrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{25} }
 
 func (m *SparkPrivateIps) GetRole() string {
-	if m != nil {
-		return m.Role
+	if m != nil && m.Role != nil {
+		return *m.Role
 	}
 	return ""
 }
 
 func (m *SparkPrivateIps) GetPrivateIps() string {
-	if m != nil {
-		return m.PrivateIps
+	if m != nil && m.PrivateIps != nil {
+		return *m.PrivateIps
 	}
 	return ""
 }
 
 type Data struct {
-	Data  string `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
-	EipId string `protobuf:"bytes,2,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
+	Data             *string `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	EipId            *string `protobuf:"bytes,2,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *Data) Reset()                    { *m = Data{} }
@@ -2653,22 +2680,23 @@ func (*Data) ProtoMessage()               {}
 func (*Data) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{26} }
 
 func (m *Data) GetData() string {
-	if m != nil {
-		return m.Data
+	if m != nil && m.Data != nil {
+		return *m.Data
 	}
 	return ""
 }
 
 func (m *Data) GetEipId() string {
-	if m != nil {
-		return m.EipId
+	if m != nil && m.EipId != nil {
+		return *m.EipId
 	}
 	return ""
 }
 
 type DHCPOption struct {
-	RouterStaticId string `protobuf:"bytes,1,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
-	Val2           string `protobuf:"bytes,2,opt,name=val2" json:"val2,omitempty"`
+	RouterStaticId   *string `protobuf:"bytes,1,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
+	Val2             *string `protobuf:"bytes,2,opt,name=val2" json:"val2,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DHCPOption) Reset()                    { *m = DHCPOption{} }
@@ -2677,27 +2705,28 @@ func (*DHCPOption) ProtoMessage()               {}
 func (*DHCPOption) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{27} }
 
 func (m *DHCPOption) GetRouterStaticId() string {
-	if m != nil {
-		return m.RouterStaticId
+	if m != nil && m.RouterStaticId != nil {
+		return *m.RouterStaticId
 	}
 	return ""
 }
 
 func (m *DHCPOption) GetVal2() string {
-	if m != nil {
-		return m.Val2
+	if m != nil && m.Val2 != nil {
+		return *m.Val2
 	}
 	return ""
 }
 
 type DNSAlias struct {
-	CreateTime   *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description  string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	DnsAliasId   string                      `protobuf:"bytes,3,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
-	DnsAliasName string                      `protobuf:"bytes,4,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
-	DomainName   string                      `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
-	ResourceId   string                      `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	Status       string                      `protobuf:"bytes,7,opt,name=status" json:"status,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	DnsAliasId       *string                     `protobuf:"bytes,3,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
+	DnsAliasName     *string                     `protobuf:"bytes,4,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
+	DomainName       *string                     `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
+	ResourceId       *string                     `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	Status           *string                     `protobuf:"bytes,7,opt,name=status" json:"status,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *DNSAlias) Reset()                    { *m = DNSAlias{} }
@@ -2713,50 +2742,51 @@ func (m *DNSAlias) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *DNSAlias) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *DNSAlias) GetDnsAliasId() string {
-	if m != nil {
-		return m.DnsAliasId
+	if m != nil && m.DnsAliasId != nil {
+		return *m.DnsAliasId
 	}
 	return ""
 }
 
 func (m *DNSAlias) GetDnsAliasName() string {
-	if m != nil {
-		return m.DnsAliasName
+	if m != nil && m.DnsAliasName != nil {
+		return *m.DnsAliasName
 	}
 	return ""
 }
 
 func (m *DNSAlias) GetDomainName() string {
-	if m != nil {
-		return m.DomainName
+	if m != nil && m.DomainName != nil {
+		return *m.DomainName
 	}
 	return ""
 }
 
 func (m *DNSAlias) GetResourceId() string {
-	if m != nil {
-		return m.ResourceId
+	if m != nil && m.ResourceId != nil {
+		return *m.ResourceId
 	}
 	return ""
 }
 
 func (m *DNSAlias) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 type EIPGroup struct {
-	EipGroupId   string `protobuf:"bytes,1,opt,name=eip_group_id,json=eipGroupId" json:"eip_group_id,omitempty"`
-	EipGroupName string `protobuf:"bytes,2,opt,name=eip_group_name,json=eipGroupName" json:"eip_group_name,omitempty"`
+	EipGroupId       *string `protobuf:"bytes,1,opt,name=eip_group_id,json=eipGroupId" json:"eip_group_id,omitempty"`
+	EipGroupName     *string `protobuf:"bytes,2,opt,name=eip_group_name,json=eipGroupName" json:"eip_group_name,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *EIPGroup) Reset()                    { *m = EIPGroup{} }
@@ -2765,23 +2795,24 @@ func (*EIPGroup) ProtoMessage()               {}
 func (*EIPGroup) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{29} }
 
 func (m *EIPGroup) GetEipGroupId() string {
-	if m != nil {
-		return m.EipGroupId
+	if m != nil && m.EipGroupId != nil {
+		return *m.EipGroupId
 	}
 	return ""
 }
 
 func (m *EIPGroup) GetEipGroupName() string {
-	if m != nil {
-		return m.EipGroupName
+	if m != nil && m.EipGroupName != nil {
+		return *m.EipGroupName
 	}
 	return ""
 }
 
 type EIPResource struct {
-	ResourceId   string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	ResourceName string `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
-	ResourceType string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	ResourceId       *string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceName     *string `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
+	ResourceType     *string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *EIPResource) Reset()                    { *m = EIPResource{} }
@@ -2790,39 +2821,40 @@ func (*EIPResource) ProtoMessage()               {}
 func (*EIPResource) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{30} }
 
 func (m *EIPResource) GetResourceId() string {
-	if m != nil {
-		return m.ResourceId
+	if m != nil && m.ResourceId != nil {
+		return *m.ResourceId
 	}
 	return ""
 }
 
 func (m *EIPResource) GetResourceName() string {
-	if m != nil {
-		return m.ResourceName
+	if m != nil && m.ResourceName != nil {
+		return *m.ResourceName
 	}
 	return ""
 }
 
 func (m *EIPResource) GetResourceType() string {
-	if m != nil {
-		return m.ResourceType
+	if m != nil && m.ResourceType != nil {
+		return *m.ResourceType
 	}
 	return ""
 }
 
 type Extra struct {
-	BlockBus   string `protobuf:"bytes,1,opt,name=block_bus,json=blockBus" json:"block_bus,omitempty"`
-	BootDev    string `protobuf:"bytes,2,opt,name=boot_dev,json=bootDev" json:"boot_dev,omitempty"`
-	CpuMax     int32  `protobuf:"varint,3,opt,name=cpu_max,json=cpuMax" json:"cpu_max,omitempty"`
-	CpuModel   string `protobuf:"bytes,4,opt,name=cpu_model,json=cpuModel" json:"cpu_model,omitempty"`
-	Features   int32  `protobuf:"varint,5,opt,name=features" json:"features,omitempty"`
-	Hypervisor string `protobuf:"bytes,6,opt,name=hypervisor" json:"hypervisor,omitempty"`
-	MemMax     int32  `protobuf:"varint,7,opt,name=mem_max,json=memMax" json:"mem_max,omitempty"`
-	NicMqueue  int32  `protobuf:"varint,8,opt,name=nic_mqueue,json=nicMqueue" json:"nic_mqueue,omitempty"`
-	NoLimit    int32  `protobuf:"varint,9,opt,name=no_limit,json=noLimit" json:"no_limit,omitempty"`
-	NoRestrict int32  `protobuf:"varint,10,opt,name=no_restrict,json=noRestrict" json:"no_restrict,omitempty"`
-	OsDiskSize int32  `protobuf:"varint,11,opt,name=os_disk_size,json=osDiskSize" json:"os_disk_size,omitempty"`
-	Usb        int32  `protobuf:"varint,12,opt,name=usb" json:"usb,omitempty"`
+	BlockBus         *string `protobuf:"bytes,1,opt,name=block_bus,json=blockBus" json:"block_bus,omitempty"`
+	BootDev          *string `protobuf:"bytes,2,opt,name=boot_dev,json=bootDev" json:"boot_dev,omitempty"`
+	CpuMax           *int32  `protobuf:"varint,3,opt,name=cpu_max,json=cpuMax" json:"cpu_max,omitempty"`
+	CpuModel         *string `protobuf:"bytes,4,opt,name=cpu_model,json=cpuModel" json:"cpu_model,omitempty"`
+	Features         *int32  `protobuf:"varint,5,opt,name=features" json:"features,omitempty"`
+	Hypervisor       *string `protobuf:"bytes,6,opt,name=hypervisor" json:"hypervisor,omitempty"`
+	MemMax           *int32  `protobuf:"varint,7,opt,name=mem_max,json=memMax" json:"mem_max,omitempty"`
+	NicMqueue        *int32  `protobuf:"varint,8,opt,name=nic_mqueue,json=nicMqueue" json:"nic_mqueue,omitempty"`
+	NoLimit          *int32  `protobuf:"varint,9,opt,name=no_limit,json=noLimit" json:"no_limit,omitempty"`
+	NoRestrict       *int32  `protobuf:"varint,10,opt,name=no_restrict,json=noRestrict" json:"no_restrict,omitempty"`
+	OsDiskSize       *int32  `protobuf:"varint,11,opt,name=os_disk_size,json=osDiskSize" json:"os_disk_size,omitempty"`
+	Usb              *int32  `protobuf:"varint,12,opt,name=usb" json:"usb,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *Extra) Reset()                    { *m = Extra{} }
@@ -2831,93 +2863,94 @@ func (*Extra) ProtoMessage()               {}
 func (*Extra) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{31} }
 
 func (m *Extra) GetBlockBus() string {
-	if m != nil {
-		return m.BlockBus
+	if m != nil && m.BlockBus != nil {
+		return *m.BlockBus
 	}
 	return ""
 }
 
 func (m *Extra) GetBootDev() string {
-	if m != nil {
-		return m.BootDev
+	if m != nil && m.BootDev != nil {
+		return *m.BootDev
 	}
 	return ""
 }
 
 func (m *Extra) GetCpuMax() int32 {
-	if m != nil {
-		return m.CpuMax
+	if m != nil && m.CpuMax != nil {
+		return *m.CpuMax
 	}
 	return 0
 }
 
 func (m *Extra) GetCpuModel() string {
-	if m != nil {
-		return m.CpuModel
+	if m != nil && m.CpuModel != nil {
+		return *m.CpuModel
 	}
 	return ""
 }
 
 func (m *Extra) GetFeatures() int32 {
-	if m != nil {
-		return m.Features
+	if m != nil && m.Features != nil {
+		return *m.Features
 	}
 	return 0
 }
 
 func (m *Extra) GetHypervisor() string {
-	if m != nil {
-		return m.Hypervisor
+	if m != nil && m.Hypervisor != nil {
+		return *m.Hypervisor
 	}
 	return ""
 }
 
 func (m *Extra) GetMemMax() int32 {
-	if m != nil {
-		return m.MemMax
+	if m != nil && m.MemMax != nil {
+		return *m.MemMax
 	}
 	return 0
 }
 
 func (m *Extra) GetNicMqueue() int32 {
-	if m != nil {
-		return m.NicMqueue
+	if m != nil && m.NicMqueue != nil {
+		return *m.NicMqueue
 	}
 	return 0
 }
 
 func (m *Extra) GetNoLimit() int32 {
-	if m != nil {
-		return m.NoLimit
+	if m != nil && m.NoLimit != nil {
+		return *m.NoLimit
 	}
 	return 0
 }
 
 func (m *Extra) GetNoRestrict() int32 {
-	if m != nil {
-		return m.NoRestrict
+	if m != nil && m.NoRestrict != nil {
+		return *m.NoRestrict
 	}
 	return 0
 }
 
 func (m *Extra) GetOsDiskSize() int32 {
-	if m != nil {
-		return m.OsDiskSize
+	if m != nil && m.OsDiskSize != nil {
+		return *m.OsDiskSize
 	}
 	return 0
 }
 
 func (m *Extra) GetUsb() int32 {
-	if m != nil {
-		return m.Usb
+	if m != nil && m.Usb != nil {
+		return *m.Usb
 	}
 	return 0
 }
 
 type File struct {
-	File       string                      `protobuf:"bytes,1,opt,name=file" json:"file,omitempty"`
-	LastModify *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=last_modify,json=lastModify" json:"last_modify,omitempty"`
-	Size       int32                       `protobuf:"varint,3,opt,name=size" json:"size,omitempty"`
+	File             *string                     `protobuf:"bytes,1,opt,name=file" json:"file,omitempty"`
+	LastModify       *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=last_modify,json=lastModify" json:"last_modify,omitempty"`
+	Size             *int32                      `protobuf:"varint,3,opt,name=size" json:"size,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *File) Reset()                    { *m = File{} }
@@ -2926,8 +2959,8 @@ func (*File) ProtoMessage()               {}
 func (*File) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{32} }
 
 func (m *File) GetFile() string {
-	if m != nil {
-		return m.File
+	if m != nil && m.File != nil {
+		return *m.File
 	}
 	return ""
 }
@@ -2940,20 +2973,21 @@ func (m *File) GetLastModify() *google_protobuf1.Timestamp {
 }
 
 func (m *File) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
 
 type InstanceType struct {
-	Description      string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
-	InstanceTypeId   string `protobuf:"bytes,2,opt,name=instance_type_id,json=instanceTypeId" json:"instance_type_id,omitempty"`
-	InstanceTypeName string `protobuf:"bytes,3,opt,name=instance_type_name,json=instanceTypeName" json:"instance_type_name,omitempty"`
-	MemoryCurrent    int32  `protobuf:"varint,4,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
-	Status           string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	VcpusCurrent     int32  `protobuf:"varint,6,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
-	ZoneId           string `protobuf:"bytes,7,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
+	Description      *string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	InstanceTypeId   *string `protobuf:"bytes,2,opt,name=instance_type_id,json=instanceTypeId" json:"instance_type_id,omitempty"`
+	InstanceTypeName *string `protobuf:"bytes,3,opt,name=instance_type_name,json=instanceTypeName" json:"instance_type_name,omitempty"`
+	MemoryCurrent    *int32  `protobuf:"varint,4,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
+	Status           *string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	VcpusCurrent     *int32  `protobuf:"varint,6,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
+	ZoneId           *string `protobuf:"bytes,7,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *InstanceType) Reset()                    { *m = InstanceType{} }
@@ -2962,60 +2996,61 @@ func (*InstanceType) ProtoMessage()               {}
 func (*InstanceType) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{33} }
 
 func (m *InstanceType) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *InstanceType) GetInstanceTypeId() string {
-	if m != nil {
-		return m.InstanceTypeId
+	if m != nil && m.InstanceTypeId != nil {
+		return *m.InstanceTypeId
 	}
 	return ""
 }
 
 func (m *InstanceType) GetInstanceTypeName() string {
-	if m != nil {
-		return m.InstanceTypeName
+	if m != nil && m.InstanceTypeName != nil {
+		return *m.InstanceTypeName
 	}
 	return ""
 }
 
 func (m *InstanceType) GetMemoryCurrent() int32 {
-	if m != nil {
-		return m.MemoryCurrent
+	if m != nil && m.MemoryCurrent != nil {
+		return *m.MemoryCurrent
 	}
 	return 0
 }
 
 func (m *InstanceType) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *InstanceType) GetVcpusCurrent() int32 {
-	if m != nil {
-		return m.VcpusCurrent
+	if m != nil && m.VcpusCurrent != nil {
+		return *m.VcpusCurrent
 	}
 	return 0
 }
 
 func (m *InstanceType) GetZoneId() string {
-	if m != nil {
-		return m.ZoneId
+	if m != nil && m.ZoneId != nil {
+		return *m.ZoneId
 	}
 	return ""
 }
 
 type LoadBalancerPolicy struct {
 	CreateTime             *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	IsApplied              int32                       `protobuf:"varint,2,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	IsApplied              *int32                      `protobuf:"varint,2,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
 	LoadbalancerIds        []string                    `protobuf:"bytes,3,rep,name=loadbalancer_ids,json=loadbalancerIds" json:"loadbalancer_ids,omitempty"`
-	LoadbalancerPolicyId   string                      `protobuf:"bytes,4,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
-	LoadbalancerPolicyName string                      `protobuf:"bytes,5,opt,name=loadbalancer_policy_name,json=loadbalancerPolicyName" json:"loadbalancer_policy_name,omitempty"`
+	LoadbalancerPolicyId   *string                     `protobuf:"bytes,4,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
+	LoadbalancerPolicyName *string                     `protobuf:"bytes,5,opt,name=loadbalancer_policy_name,json=loadbalancerPolicyName" json:"loadbalancer_policy_name,omitempty"`
+	XXX_unrecognized       []byte                      `json:"-"`
 }
 
 func (m *LoadBalancerPolicy) Reset()                    { *m = LoadBalancerPolicy{} }
@@ -3031,8 +3066,8 @@ func (m *LoadBalancerPolicy) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *LoadBalancerPolicy) GetIsApplied() int32 {
-	if m != nil {
-		return m.IsApplied
+	if m != nil && m.IsApplied != nil {
+		return *m.IsApplied
 	}
 	return 0
 }
@@ -3045,24 +3080,25 @@ func (m *LoadBalancerPolicy) GetLoadbalancerIds() []string {
 }
 
 func (m *LoadBalancerPolicy) GetLoadbalancerPolicyId() string {
-	if m != nil {
-		return m.LoadbalancerPolicyId
+	if m != nil && m.LoadbalancerPolicyId != nil {
+		return *m.LoadbalancerPolicyId
 	}
 	return ""
 }
 
 func (m *LoadBalancerPolicy) GetLoadbalancerPolicyName() string {
-	if m != nil {
-		return m.LoadbalancerPolicyName
+	if m != nil && m.LoadbalancerPolicyName != nil {
+		return *m.LoadbalancerPolicyName
 	}
 	return ""
 }
 
 type LoadBalancerPolicyRule struct {
-	LoadbalancerPolicyRuleId   string `protobuf:"bytes,1,opt,name=loadbalancer_policy_rule_id,json=loadbalancerPolicyRuleId" json:"loadbalancer_policy_rule_id,omitempty"`
-	LoadbalancerPolicyRuleName string `protobuf:"bytes,2,opt,name=loadbalancer_policy_rule_name,json=loadbalancerPolicyRuleName" json:"loadbalancer_policy_rule_name,omitempty"`
-	RuleType                   string `protobuf:"bytes,3,opt,name=rule_type,json=ruleType" json:"rule_type,omitempty"`
-	Val                        string `protobuf:"bytes,4,opt,name=val" json:"val,omitempty"`
+	LoadbalancerPolicyRuleId   *string `protobuf:"bytes,1,opt,name=loadbalancer_policy_rule_id,json=loadbalancerPolicyRuleId" json:"loadbalancer_policy_rule_id,omitempty"`
+	LoadbalancerPolicyRuleName *string `protobuf:"bytes,2,opt,name=loadbalancer_policy_rule_name,json=loadbalancerPolicyRuleName" json:"loadbalancer_policy_rule_name,omitempty"`
+	RuleType                   *string `protobuf:"bytes,3,opt,name=rule_type,json=ruleType" json:"rule_type,omitempty"`
+	Val                        *string `protobuf:"bytes,4,opt,name=val" json:"val,omitempty"`
+	XXX_unrecognized           []byte  `json:"-"`
 }
 
 func (m *LoadBalancerPolicyRule) Reset()                    { *m = LoadBalancerPolicyRule{} }
@@ -3071,29 +3107,29 @@ func (*LoadBalancerPolicyRule) ProtoMessage()               {}
 func (*LoadBalancerPolicyRule) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{35} }
 
 func (m *LoadBalancerPolicyRule) GetLoadbalancerPolicyRuleId() string {
-	if m != nil {
-		return m.LoadbalancerPolicyRuleId
+	if m != nil && m.LoadbalancerPolicyRuleId != nil {
+		return *m.LoadbalancerPolicyRuleId
 	}
 	return ""
 }
 
 func (m *LoadBalancerPolicyRule) GetLoadbalancerPolicyRuleName() string {
-	if m != nil {
-		return m.LoadbalancerPolicyRuleName
+	if m != nil && m.LoadbalancerPolicyRuleName != nil {
+		return *m.LoadbalancerPolicyRuleName
 	}
 	return ""
 }
 
 func (m *LoadBalancerPolicyRule) GetRuleType() string {
-	if m != nil {
-		return m.RuleType
+	if m != nil && m.RuleType != nil {
+		return *m.RuleType
 	}
 	return ""
 }
 
 func (m *LoadBalancerPolicyRule) GetVal() string {
-	if m != nil {
-		return m.Val
+	if m != nil && m.Val != nil {
+		return *m.Val
 	}
 	return ""
 }
@@ -3101,9 +3137,10 @@ func (m *LoadBalancerPolicyRule) GetVal() string {
 type Meter struct {
 	// Data     interface{}   `json:"data" name:"data"`
 	// DataSet  []interface{} `json:"data_set" name:"data_set"`
-	MeterId  string `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
-	Sequence int32  `protobuf:"varint,4,opt,name=sequence" json:"sequence,omitempty"`
-	VxnetId  string `protobuf:"bytes,5,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	MeterId          *string `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
+	Sequence         *int32  `protobuf:"varint,4,opt,name=sequence" json:"sequence,omitempty"`
+	VxnetId          *string `protobuf:"bytes,5,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *Meter) Reset()                    { *m = Meter{} }
@@ -3112,34 +3149,35 @@ func (*Meter) ProtoMessage()               {}
 func (*Meter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{36} }
 
 func (m *Meter) GetMeterId() string {
-	if m != nil {
-		return m.MeterId
+	if m != nil && m.MeterId != nil {
+		return *m.MeterId
 	}
 	return ""
 }
 
 func (m *Meter) GetSequence() int32 {
-	if m != nil {
-		return m.Sequence
+	if m != nil && m.Sequence != nil {
+		return *m.Sequence
 	}
 	return 0
 }
 
 func (m *Meter) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 type MongoParameter struct {
-	IsReadonly     int32  `protobuf:"varint,1,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	IsStatic       int32  `protobuf:"varint,2,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	OptName        string `protobuf:"bytes,3,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	ParameterName  string `protobuf:"bytes,4,opt,name=parameter_name,json=parameterName" json:"parameter_name,omitempty"`
-	ParameterType  string `protobuf:"bytes,5,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
-	ParameterValue string `protobuf:"bytes,6,opt,name=parameter_value,json=parameterValue" json:"parameter_value,omitempty"`
-	ResourceType   string `protobuf:"bytes,7,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	IsReadonly       *int32  `protobuf:"varint,1,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	IsStatic         *int32  `protobuf:"varint,2,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	OptName          *string `protobuf:"bytes,3,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	ParameterName    *string `protobuf:"bytes,4,opt,name=parameter_name,json=parameterName" json:"parameter_name,omitempty"`
+	ParameterType    *string `protobuf:"bytes,5,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
+	ParameterValue   *string `protobuf:"bytes,6,opt,name=parameter_value,json=parameterValue" json:"parameter_value,omitempty"`
+	ResourceType     *string `protobuf:"bytes,7,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *MongoParameter) Reset()                    { *m = MongoParameter{} }
@@ -3148,57 +3186,58 @@ func (*MongoParameter) ProtoMessage()               {}
 func (*MongoParameter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{37} }
 
 func (m *MongoParameter) GetIsReadonly() int32 {
-	if m != nil {
-		return m.IsReadonly
+	if m != nil && m.IsReadonly != nil {
+		return *m.IsReadonly
 	}
 	return 0
 }
 
 func (m *MongoParameter) GetIsStatic() int32 {
-	if m != nil {
-		return m.IsStatic
+	if m != nil && m.IsStatic != nil {
+		return *m.IsStatic
 	}
 	return 0
 }
 
 func (m *MongoParameter) GetOptName() string {
-	if m != nil {
-		return m.OptName
+	if m != nil && m.OptName != nil {
+		return *m.OptName
 	}
 	return ""
 }
 
 func (m *MongoParameter) GetParameterName() string {
-	if m != nil {
-		return m.ParameterName
+	if m != nil && m.ParameterName != nil {
+		return *m.ParameterName
 	}
 	return ""
 }
 
 func (m *MongoParameter) GetParameterType() string {
-	if m != nil {
-		return m.ParameterType
+	if m != nil && m.ParameterType != nil {
+		return *m.ParameterType
 	}
 	return ""
 }
 
 func (m *MongoParameter) GetParameterValue() string {
-	if m != nil {
-		return m.ParameterValue
+	if m != nil && m.ParameterValue != nil {
+		return *m.ParameterValue
 	}
 	return ""
 }
 
 func (m *MongoParameter) GetResourceType() string {
-	if m != nil {
-		return m.ResourceType
+	if m != nil && m.ResourceType != nil {
+		return *m.ResourceType
 	}
 	return ""
 }
 
 type MongoPrivateIP struct {
-	Priority0 string `protobuf:"bytes,1,opt,name=priority0" json:"priority0,omitempty"`
-	Replica   string `protobuf:"bytes,2,opt,name=replica" json:"replica,omitempty"`
+	Priority0        *string `protobuf:"bytes,1,opt,name=priority0" json:"priority0,omitempty"`
+	Replica          *string `protobuf:"bytes,2,opt,name=replica" json:"replica,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *MongoPrivateIP) Reset()                    { *m = MongoPrivateIP{} }
@@ -3207,22 +3246,23 @@ func (*MongoPrivateIP) ProtoMessage()               {}
 func (*MongoPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{38} }
 
 func (m *MongoPrivateIP) GetPriority0() string {
-	if m != nil {
-		return m.Priority0
+	if m != nil && m.Priority0 != nil {
+		return *m.Priority0
 	}
 	return ""
 }
 
 func (m *MongoPrivateIP) GetReplica() string {
-	if m != nil {
-		return m.Replica
+	if m != nil && m.Replica != nil {
+		return *m.Replica
 	}
 	return ""
 }
 
 type NICIP struct {
-	NicId     string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
-	PrivateIp string `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	NicId            *string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
+	PrivateIp        *string `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *NICIP) Reset()                    { *m = NICIP{} }
@@ -3231,37 +3271,38 @@ func (*NICIP) ProtoMessage()               {}
 func (*NICIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{39} }
 
 func (m *NICIP) GetNicId() string {
-	if m != nil {
-		return m.NicId
+	if m != nil && m.NicId != nil {
+		return *m.NicId
 	}
 	return ""
 }
 
 func (m *NICIP) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 type RDB struct {
-	AlarmStatus         string                      `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	AutoBackupTime      int32                       `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	AutoMinorVerUpgrade int32                       `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
-	CreateTime          string                      `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description         string                      `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	EngineVersion       string                      `protobuf:"bytes,6,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
+	AlarmStatus         *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	AutoBackupTime      *int32                      `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	AutoMinorVerUpgrade *int32                      `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
+	CreateTime          *string                     `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description         *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	EngineVersion       *string                     `protobuf:"bytes,6,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
 	LatestSnapshotTime  *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	MasterIp            string                      `protobuf:"bytes,8,opt,name=master_ip,json=masterIp" json:"master_ip,omitempty"`
-	RdbEngine           string                      `protobuf:"bytes,9,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
-	RdbId               string                      `protobuf:"bytes,10,opt,name=rdb_id,json=rdbId" json:"rdb_id,omitempty"`
-	RdbName             string                      `protobuf:"bytes,11,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
-	RdbType             int32                       `protobuf:"varint,12,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
-	Status              string                      `protobuf:"bytes,13,opt,name=status" json:"status,omitempty"`
-	StatusTime          string                      `protobuf:"bytes,14,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	StorageSize         int32                       `protobuf:"varint,15,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	MasterIp            *string                     `protobuf:"bytes,8,opt,name=master_ip,json=masterIp" json:"master_ip,omitempty"`
+	RdbEngine           *string                     `protobuf:"bytes,9,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+	RdbId               *string                     `protobuf:"bytes,10,opt,name=rdb_id,json=rdbId" json:"rdb_id,omitempty"`
+	RdbName             *string                     `protobuf:"bytes,11,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	RdbType             *int32                      `protobuf:"varint,12,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	Status              *string                     `protobuf:"bytes,13,opt,name=status" json:"status,omitempty"`
+	StatusTime          *string                     `protobuf:"bytes,14,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StorageSize         *int32                      `protobuf:"varint,15,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
 	Tags                []*Tag                      `protobuf:"bytes,16,rep,name=tags" json:"tags,omitempty"`
 	Vxnet               *VxNet                      `protobuf:"bytes,17,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_unrecognized    []byte                      `json:"-"`
 }
 
 func (m *RDB) Reset()                    { *m = RDB{} }
@@ -3270,43 +3311,43 @@ func (*RDB) ProtoMessage()               {}
 func (*RDB) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{40} }
 
 func (m *RDB) GetAlarmStatus() string {
-	if m != nil {
-		return m.AlarmStatus
+	if m != nil && m.AlarmStatus != nil {
+		return *m.AlarmStatus
 	}
 	return ""
 }
 
 func (m *RDB) GetAutoBackupTime() int32 {
-	if m != nil {
-		return m.AutoBackupTime
+	if m != nil && m.AutoBackupTime != nil {
+		return *m.AutoBackupTime
 	}
 	return 0
 }
 
 func (m *RDB) GetAutoMinorVerUpgrade() int32 {
-	if m != nil {
-		return m.AutoMinorVerUpgrade
+	if m != nil && m.AutoMinorVerUpgrade != nil {
+		return *m.AutoMinorVerUpgrade
 	}
 	return 0
 }
 
 func (m *RDB) GetCreateTime() string {
-	if m != nil {
-		return m.CreateTime
+	if m != nil && m.CreateTime != nil {
+		return *m.CreateTime
 	}
 	return ""
 }
 
 func (m *RDB) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *RDB) GetEngineVersion() string {
-	if m != nil {
-		return m.EngineVersion
+	if m != nil && m.EngineVersion != nil {
+		return *m.EngineVersion
 	}
 	return ""
 }
@@ -3319,57 +3360,57 @@ func (m *RDB) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
 }
 
 func (m *RDB) GetMasterIp() string {
-	if m != nil {
-		return m.MasterIp
+	if m != nil && m.MasterIp != nil {
+		return *m.MasterIp
 	}
 	return ""
 }
 
 func (m *RDB) GetRdbEngine() string {
-	if m != nil {
-		return m.RdbEngine
+	if m != nil && m.RdbEngine != nil {
+		return *m.RdbEngine
 	}
 	return ""
 }
 
 func (m *RDB) GetRdbId() string {
-	if m != nil {
-		return m.RdbId
+	if m != nil && m.RdbId != nil {
+		return *m.RdbId
 	}
 	return ""
 }
 
 func (m *RDB) GetRdbName() string {
-	if m != nil {
-		return m.RdbName
+	if m != nil && m.RdbName != nil {
+		return *m.RdbName
 	}
 	return ""
 }
 
 func (m *RDB) GetRdbType() int32 {
-	if m != nil {
-		return m.RdbType
+	if m != nil && m.RdbType != nil {
+		return *m.RdbType
 	}
 	return 0
 }
 
 func (m *RDB) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *RDB) GetStatusTime() string {
-	if m != nil {
-		return m.StatusTime
+	if m != nil && m.StatusTime != nil {
+		return *m.StatusTime
 	}
 	return ""
 }
 
 func (m *RDB) GetStorageSize() int32 {
-	if m != nil {
-		return m.StorageSize
+	if m != nil && m.StorageSize != nil {
+		return *m.StorageSize
 	}
 	return 0
 }
@@ -3389,9 +3430,10 @@ func (m *RDB) GetVxnet() *VxNet {
 }
 
 type RDBFile struct {
-	BinaryLog []*File `protobuf:"bytes,1,rep,name=binary_log,json=binaryLog" json:"binary_log,omitempty"`
-	ErrorLog  []*File `protobuf:"bytes,2,rep,name=error_log,json=errorLog" json:"error_log,omitempty"`
-	SlowLog   []*File `protobuf:"bytes,3,rep,name=slow_log,json=slowLog" json:"slow_log,omitempty"`
+	BinaryLog        []*File `protobuf:"bytes,1,rep,name=binary_log,json=binaryLog" json:"binary_log,omitempty"`
+	ErrorLog         []*File `protobuf:"bytes,2,rep,name=error_log,json=errorLog" json:"error_log,omitempty"`
+	SlowLog          []*File `protobuf:"bytes,3,rep,name=slow_log,json=slowLog" json:"slow_log,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RDBFile) Reset()                    { *m = RDBFile{} }
@@ -3421,16 +3463,17 @@ func (m *RDBFile) GetSlowLog() []*File {
 }
 
 type RDBParameter struct {
-	Family      string `protobuf:"bytes,1,opt,name=family" json:"family,omitempty"`
-	IsReadonly  int32  `protobuf:"varint,2,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	IsStatic    int32  `protobuf:"varint,3,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	MaxValue    int32  `protobuf:"varint,4,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
-	MinValue    int32  `protobuf:"varint,5,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
-	OptName     string `protobuf:"bytes,6,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	SectionName string `protobuf:"bytes,7,opt,name=section_name,json=sectionName" json:"section_name,omitempty"`
-	VarName     string `protobuf:"bytes,8,opt,name=var_name,json=varName" json:"var_name,omitempty"`
-	VarType     string `protobuf:"bytes,9,opt,name=var_type,json=varType" json:"var_type,omitempty"`
-	VarValue    string `protobuf:"bytes,10,opt,name=var_value,json=varValue" json:"var_value,omitempty"`
+	Family           *string `protobuf:"bytes,1,opt,name=family" json:"family,omitempty"`
+	IsReadonly       *int32  `protobuf:"varint,2,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	IsStatic         *int32  `protobuf:"varint,3,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	MaxValue         *int32  `protobuf:"varint,4,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
+	MinValue         *int32  `protobuf:"varint,5,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
+	OptName          *string `protobuf:"bytes,6,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	SectionName      *string `protobuf:"bytes,7,opt,name=section_name,json=sectionName" json:"section_name,omitempty"`
+	VarName          *string `protobuf:"bytes,8,opt,name=var_name,json=varName" json:"var_name,omitempty"`
+	VarType          *string `protobuf:"bytes,9,opt,name=var_type,json=varType" json:"var_type,omitempty"`
+	VarValue         *string `protobuf:"bytes,10,opt,name=var_value,json=varValue" json:"var_value,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RDBParameter) Reset()                    { *m = RDBParameter{} }
@@ -3439,131 +3482,132 @@ func (*RDBParameter) ProtoMessage()               {}
 func (*RDBParameter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{42} }
 
 func (m *RDBParameter) GetFamily() string {
-	if m != nil {
-		return m.Family
+	if m != nil && m.Family != nil {
+		return *m.Family
 	}
 	return ""
 }
 
 func (m *RDBParameter) GetIsReadonly() int32 {
-	if m != nil {
-		return m.IsReadonly
+	if m != nil && m.IsReadonly != nil {
+		return *m.IsReadonly
 	}
 	return 0
 }
 
 func (m *RDBParameter) GetIsStatic() int32 {
-	if m != nil {
-		return m.IsStatic
+	if m != nil && m.IsStatic != nil {
+		return *m.IsStatic
 	}
 	return 0
 }
 
 func (m *RDBParameter) GetMaxValue() int32 {
-	if m != nil {
-		return m.MaxValue
+	if m != nil && m.MaxValue != nil {
+		return *m.MaxValue
 	}
 	return 0
 }
 
 func (m *RDBParameter) GetMinValue() int32 {
-	if m != nil {
-		return m.MinValue
+	if m != nil && m.MinValue != nil {
+		return *m.MinValue
 	}
 	return 0
 }
 
 func (m *RDBParameter) GetOptName() string {
-	if m != nil {
-		return m.OptName
+	if m != nil && m.OptName != nil {
+		return *m.OptName
 	}
 	return ""
 }
 
 func (m *RDBParameter) GetSectionName() string {
-	if m != nil {
-		return m.SectionName
+	if m != nil && m.SectionName != nil {
+		return *m.SectionName
 	}
 	return ""
 }
 
 func (m *RDBParameter) GetVarName() string {
-	if m != nil {
-		return m.VarName
+	if m != nil && m.VarName != nil {
+		return *m.VarName
 	}
 	return ""
 }
 
 func (m *RDBParameter) GetVarType() string {
-	if m != nil {
-		return m.VarType
+	if m != nil && m.VarType != nil {
+		return *m.VarType
 	}
 	return ""
 }
 
 func (m *RDBParameter) GetVarValue() string {
-	if m != nil {
-		return m.VarValue
+	if m != nil && m.VarValue != nil {
+		return *m.VarValue
 	}
 	return ""
 }
 
 type RDBParameters struct {
-	BindAddress               string `protobuf:"bytes,1,opt,name=bind_address,json=bindAddress" json:"bind_address,omitempty"`
-	BinlogFormat              string `protobuf:"bytes,2,opt,name=binlog_format,json=binlogFormat" json:"binlog_format,omitempty"`
-	CharacterSetServer        string `protobuf:"bytes,3,opt,name=character_set_server,json=characterSetServer" json:"character_set_server,omitempty"`
-	Datadir                   string `protobuf:"bytes,4,opt,name=datadir" json:"datadir,omitempty"`
-	DefaultStorageEngine      string `protobuf:"bytes,5,opt,name=default_storage_engine,json=defaultStorageEngine" json:"default_storage_engine,omitempty"`
-	ExpireLogsDays            int32  `protobuf:"varint,6,opt,name=expire_logs_days,json=expireLogsDays" json:"expire_logs_days,omitempty"`
-	Innodb                    string `protobuf:"bytes,7,opt,name=innodb" json:"innodb,omitempty"`
-	InnodbBufferPoolInstances int32  `protobuf:"varint,8,opt,name=innodb_buffer_pool_instances,json=innodbBufferPoolInstances" json:"innodb_buffer_pool_instances,omitempty"`
-	InnodbBufferPoolSize      string `protobuf:"bytes,9,opt,name=innodb_buffer_pool_size,json=innodbBufferPoolSize" json:"innodb_buffer_pool_size,omitempty"`
-	InnodbFilePerTable        int32  `protobuf:"varint,10,opt,name=innodb_file_per_table,json=innodbFilePerTable" json:"innodb_file_per_table,omitempty"`
-	InnodbFlushLogAtTrxCommit int32  `protobuf:"varint,11,opt,name=innodb_flush_log_at_trx_commit,json=innodbFlushLogAtTrxCommit" json:"innodb_flush_log_at_trx_commit,omitempty"`
-	InnodbFlushMethod         string `protobuf:"bytes,12,opt,name=innodb_flush_method,json=innodbFlushMethod" json:"innodb_flush_method,omitempty"`
-	InnodbIoCapacity          int32  `protobuf:"varint,13,opt,name=innodb_io_capacity,json=innodbIoCapacity" json:"innodb_io_capacity,omitempty"`
-	InnodbLogBufferSize       string `protobuf:"bytes,14,opt,name=innodb_log_buffer_size,json=innodbLogBufferSize" json:"innodb_log_buffer_size,omitempty"`
-	InnodbLogFileSize         string `protobuf:"bytes,15,opt,name=innodb_log_file_size,json=innodbLogFileSize" json:"innodb_log_file_size,omitempty"`
-	InnodbLogFilesInGroup     int32  `protobuf:"varint,16,opt,name=innodb_log_files_in_group,json=innodbLogFilesInGroup" json:"innodb_log_files_in_group,omitempty"`
-	InnodbMaxDirtyPagesPct    int32  `protobuf:"varint,17,opt,name=innodb_max_dirty_pages_pct,json=innodbMaxDirtyPagesPct" json:"innodb_max_dirty_pages_pct,omitempty"`
-	InnodbReadIoThreads       int32  `protobuf:"varint,18,opt,name=innodb_read_io_threads,json=innodbReadIoThreads" json:"innodb_read_io_threads,omitempty"`
-	InnodbWriteIoThreads      int32  `protobuf:"varint,19,opt,name=innodb_write_io_threads,json=innodbWriteIoThreads" json:"innodb_write_io_threads,omitempty"`
-	InteractiveTimeout        int32  `protobuf:"varint,20,opt,name=interactive_timeout,json=interactiveTimeout" json:"interactive_timeout,omitempty"`
-	KeyBufferSize             string `protobuf:"bytes,21,opt,name=key_buffer_size,json=keyBufferSize" json:"key_buffer_size,omitempty"`
+	BindAddress               *string `protobuf:"bytes,1,opt,name=bind_address,json=bindAddress" json:"bind_address,omitempty"`
+	BinlogFormat              *string `protobuf:"bytes,2,opt,name=binlog_format,json=binlogFormat" json:"binlog_format,omitempty"`
+	CharacterSetServer        *string `protobuf:"bytes,3,opt,name=character_set_server,json=characterSetServer" json:"character_set_server,omitempty"`
+	Datadir                   *string `protobuf:"bytes,4,opt,name=datadir" json:"datadir,omitempty"`
+	DefaultStorageEngine      *string `protobuf:"bytes,5,opt,name=default_storage_engine,json=defaultStorageEngine" json:"default_storage_engine,omitempty"`
+	ExpireLogsDays            *int32  `protobuf:"varint,6,opt,name=expire_logs_days,json=expireLogsDays" json:"expire_logs_days,omitempty"`
+	Innodb                    *string `protobuf:"bytes,7,opt,name=innodb" json:"innodb,omitempty"`
+	InnodbBufferPoolInstances *int32  `protobuf:"varint,8,opt,name=innodb_buffer_pool_instances,json=innodbBufferPoolInstances" json:"innodb_buffer_pool_instances,omitempty"`
+	InnodbBufferPoolSize      *string `protobuf:"bytes,9,opt,name=innodb_buffer_pool_size,json=innodbBufferPoolSize" json:"innodb_buffer_pool_size,omitempty"`
+	InnodbFilePerTable        *int32  `protobuf:"varint,10,opt,name=innodb_file_per_table,json=innodbFilePerTable" json:"innodb_file_per_table,omitempty"`
+	InnodbFlushLogAtTrxCommit *int32  `protobuf:"varint,11,opt,name=innodb_flush_log_at_trx_commit,json=innodbFlushLogAtTrxCommit" json:"innodb_flush_log_at_trx_commit,omitempty"`
+	InnodbFlushMethod         *string `protobuf:"bytes,12,opt,name=innodb_flush_method,json=innodbFlushMethod" json:"innodb_flush_method,omitempty"`
+	InnodbIoCapacity          *int32  `protobuf:"varint,13,opt,name=innodb_io_capacity,json=innodbIoCapacity" json:"innodb_io_capacity,omitempty"`
+	InnodbLogBufferSize       *string `protobuf:"bytes,14,opt,name=innodb_log_buffer_size,json=innodbLogBufferSize" json:"innodb_log_buffer_size,omitempty"`
+	InnodbLogFileSize         *string `protobuf:"bytes,15,opt,name=innodb_log_file_size,json=innodbLogFileSize" json:"innodb_log_file_size,omitempty"`
+	InnodbLogFilesInGroup     *int32  `protobuf:"varint,16,opt,name=innodb_log_files_in_group,json=innodbLogFilesInGroup" json:"innodb_log_files_in_group,omitempty"`
+	InnodbMaxDirtyPagesPct    *int32  `protobuf:"varint,17,opt,name=innodb_max_dirty_pages_pct,json=innodbMaxDirtyPagesPct" json:"innodb_max_dirty_pages_pct,omitempty"`
+	InnodbReadIoThreads       *int32  `protobuf:"varint,18,opt,name=innodb_read_io_threads,json=innodbReadIoThreads" json:"innodb_read_io_threads,omitempty"`
+	InnodbWriteIoThreads      *int32  `protobuf:"varint,19,opt,name=innodb_write_io_threads,json=innodbWriteIoThreads" json:"innodb_write_io_threads,omitempty"`
+	InteractiveTimeout        *int32  `protobuf:"varint,20,opt,name=interactive_timeout,json=interactiveTimeout" json:"interactive_timeout,omitempty"`
+	KeyBufferSize             *string `protobuf:"bytes,21,opt,name=key_buffer_size,json=keyBufferSize" json:"key_buffer_size,omitempty"`
 	// LogBinIndex               *string `json:"log-bin-index" name:"log-bin-index"`
-	LogBin                    string `protobuf:"bytes,22,opt,name=log_bin,json=logBin" json:"log_bin,omitempty"`
-	LogError                  string `protobuf:"bytes,23,opt,name=log_error,json=logError" json:"log_error,omitempty"`
-	LogQueriesNotUsingIndexes string `protobuf:"bytes,24,opt,name=log_queries_not_using_indexes,json=logQueriesNotUsingIndexes" json:"log_queries_not_using_indexes,omitempty"`
-	LogSlaveUpdates           int32  `protobuf:"varint,25,opt,name=log_slave_updates,json=logSlaveUpdates" json:"log_slave_updates,omitempty"`
-	LongQueryTime             int32  `protobuf:"varint,26,opt,name=long_query_time,json=longQueryTime" json:"long_query_time,omitempty"`
-	LowerCaseTableNames       int32  `protobuf:"varint,27,opt,name=lower_case_table_names,json=lowerCaseTableNames" json:"lower_case_table_names,omitempty"`
-	MaxAllowedPacket          string `protobuf:"bytes,28,opt,name=max_allowed_packet,json=maxAllowedPacket" json:"max_allowed_packet,omitempty"`
-	MaxConnectErrors          int32  `protobuf:"varint,29,opt,name=max_connect_errors,json=maxConnectErrors" json:"max_connect_errors,omitempty"`
-	MaxConnections            int32  `protobuf:"varint,30,opt,name=max_connections,json=maxConnections" json:"max_connections,omitempty"`
-	MaxHeapTableSize          string `protobuf:"bytes,31,opt,name=max_heap_table_size,json=maxHeapTableSize" json:"max_heap_table_size,omitempty"`
-	OpenFilesLimit            int32  `protobuf:"varint,32,opt,name=open_files_limit,json=openFilesLimit" json:"open_files_limit,omitempty"`
-	Port                      int32  `protobuf:"varint,33,opt,name=port" json:"port,omitempty"`
-	QueryCacheSize            int32  `protobuf:"varint,34,opt,name=query_cache_size,json=queryCacheSize" json:"query_cache_size,omitempty"`
-	QueryCacheType            int32  `protobuf:"varint,35,opt,name=query_cache_type,json=queryCacheType" json:"query_cache_type,omitempty"`
-	RelayLog                  string `protobuf:"bytes,36,opt,name=relay_log,json=relayLog" json:"relay_log,omitempty"`
-	RelayLogIndex             string `protobuf:"bytes,37,opt,name=relay_log_index,json=relayLogIndex" json:"relay_log_index,omitempty"`
+	LogBin                    *string `protobuf:"bytes,22,opt,name=log_bin,json=logBin" json:"log_bin,omitempty"`
+	LogError                  *string `protobuf:"bytes,23,opt,name=log_error,json=logError" json:"log_error,omitempty"`
+	LogQueriesNotUsingIndexes *string `protobuf:"bytes,24,opt,name=log_queries_not_using_indexes,json=logQueriesNotUsingIndexes" json:"log_queries_not_using_indexes,omitempty"`
+	LogSlaveUpdates           *int32  `protobuf:"varint,25,opt,name=log_slave_updates,json=logSlaveUpdates" json:"log_slave_updates,omitempty"`
+	LongQueryTime             *int32  `protobuf:"varint,26,opt,name=long_query_time,json=longQueryTime" json:"long_query_time,omitempty"`
+	LowerCaseTableNames       *int32  `protobuf:"varint,27,opt,name=lower_case_table_names,json=lowerCaseTableNames" json:"lower_case_table_names,omitempty"`
+	MaxAllowedPacket          *string `protobuf:"bytes,28,opt,name=max_allowed_packet,json=maxAllowedPacket" json:"max_allowed_packet,omitempty"`
+	MaxConnectErrors          *int32  `protobuf:"varint,29,opt,name=max_connect_errors,json=maxConnectErrors" json:"max_connect_errors,omitempty"`
+	MaxConnections            *int32  `protobuf:"varint,30,opt,name=max_connections,json=maxConnections" json:"max_connections,omitempty"`
+	MaxHeapTableSize          *string `protobuf:"bytes,31,opt,name=max_heap_table_size,json=maxHeapTableSize" json:"max_heap_table_size,omitempty"`
+	OpenFilesLimit            *int32  `protobuf:"varint,32,opt,name=open_files_limit,json=openFilesLimit" json:"open_files_limit,omitempty"`
+	Port                      *int32  `protobuf:"varint,33,opt,name=port" json:"port,omitempty"`
+	QueryCacheSize            *int32  `protobuf:"varint,34,opt,name=query_cache_size,json=queryCacheSize" json:"query_cache_size,omitempty"`
+	QueryCacheType            *int32  `protobuf:"varint,35,opt,name=query_cache_type,json=queryCacheType" json:"query_cache_type,omitempty"`
+	RelayLog                  *string `protobuf:"bytes,36,opt,name=relay_log,json=relayLog" json:"relay_log,omitempty"`
+	RelayLogIndex             *string `protobuf:"bytes,37,opt,name=relay_log_index,json=relayLogIndex" json:"relay_log_index,omitempty"`
 	// SkipSlaveStart            *int    `json:"skip-slave-start" name:"skip-slave-start"`
-	SkipNameResolve  int32  `protobuf:"varint,39,opt,name=skip_name_resolve,json=skipNameResolve" json:"skip_name_resolve,omitempty"`
-	SlaveExecMode    string `protobuf:"bytes,40,opt,name=slave_exec_mode,json=slaveExecMode" json:"slave_exec_mode,omitempty"`
-	SlaveNetTimeout  int32  `protobuf:"varint,41,opt,name=slave_net_timeout,json=slaveNetTimeout" json:"slave_net_timeout,omitempty"`
-	SlowQueryLog     int32  `protobuf:"varint,42,opt,name=slow_query_log,json=slowQueryLog" json:"slow_query_log,omitempty"`
-	SlowQueryLogFile string `protobuf:"bytes,43,opt,name=slow_query_log_file,json=slowQueryLogFile" json:"slow_query_log_file,omitempty"`
-	SqlMode          string `protobuf:"bytes,44,opt,name=sql_mode,json=sqlMode" json:"sql_mode,omitempty"`
-	SyncBinlog       int32  `protobuf:"varint,45,opt,name=sync_binlog,json=syncBinlog" json:"sync_binlog,omitempty"`
-	SyncMasterInfo   int32  `protobuf:"varint,46,opt,name=sync_master_info,json=syncMasterInfo" json:"sync_master_info,omitempty"`
-	SyncRelayLog     int32  `protobuf:"varint,47,opt,name=sync_relay_log,json=syncRelayLog" json:"sync_relay_log,omitempty"`
-	SyncRelayLogInfo int32  `protobuf:"varint,48,opt,name=sync_relay_log_info,json=syncRelayLogInfo" json:"sync_relay_log_info,omitempty"`
-	TableOpenCache   int32  `protobuf:"varint,49,opt,name=table_open_cache,json=tableOpenCache" json:"table_open_cache,omitempty"`
-	ThreadCacheSize  int32  `protobuf:"varint,50,opt,name=thread_cache_size,json=threadCacheSize" json:"thread_cache_size,omitempty"`
-	TmpTableSize     string `protobuf:"bytes,51,opt,name=tmp_table_size,json=tmpTableSize" json:"tmp_table_size,omitempty"`
-	Tmpdir           string `protobuf:"bytes,52,opt,name=tmpdir" json:"tmpdir,omitempty"`
-	User             string `protobuf:"bytes,53,opt,name=user" json:"user,omitempty"`
-	WaitTimeout      int32  `protobuf:"varint,54,opt,name=wait_timeout,json=waitTimeout" json:"wait_timeout,omitempty"`
+	SkipNameResolve  *int32  `protobuf:"varint,39,opt,name=skip_name_resolve,json=skipNameResolve" json:"skip_name_resolve,omitempty"`
+	SlaveExecMode    *string `protobuf:"bytes,40,opt,name=slave_exec_mode,json=slaveExecMode" json:"slave_exec_mode,omitempty"`
+	SlaveNetTimeout  *int32  `protobuf:"varint,41,opt,name=slave_net_timeout,json=slaveNetTimeout" json:"slave_net_timeout,omitempty"`
+	SlowQueryLog     *int32  `protobuf:"varint,42,opt,name=slow_query_log,json=slowQueryLog" json:"slow_query_log,omitempty"`
+	SlowQueryLogFile *string `protobuf:"bytes,43,opt,name=slow_query_log_file,json=slowQueryLogFile" json:"slow_query_log_file,omitempty"`
+	SqlMode          *string `protobuf:"bytes,44,opt,name=sql_mode,json=sqlMode" json:"sql_mode,omitempty"`
+	SyncBinlog       *int32  `protobuf:"varint,45,opt,name=sync_binlog,json=syncBinlog" json:"sync_binlog,omitempty"`
+	SyncMasterInfo   *int32  `protobuf:"varint,46,opt,name=sync_master_info,json=syncMasterInfo" json:"sync_master_info,omitempty"`
+	SyncRelayLog     *int32  `protobuf:"varint,47,opt,name=sync_relay_log,json=syncRelayLog" json:"sync_relay_log,omitempty"`
+	SyncRelayLogInfo *int32  `protobuf:"varint,48,opt,name=sync_relay_log_info,json=syncRelayLogInfo" json:"sync_relay_log_info,omitempty"`
+	TableOpenCache   *int32  `protobuf:"varint,49,opt,name=table_open_cache,json=tableOpenCache" json:"table_open_cache,omitempty"`
+	ThreadCacheSize  *int32  `protobuf:"varint,50,opt,name=thread_cache_size,json=threadCacheSize" json:"thread_cache_size,omitempty"`
+	TmpTableSize     *string `protobuf:"bytes,51,opt,name=tmp_table_size,json=tmpTableSize" json:"tmp_table_size,omitempty"`
+	Tmpdir           *string `protobuf:"bytes,52,opt,name=tmpdir" json:"tmpdir,omitempty"`
+	User             *string `protobuf:"bytes,53,opt,name=user" json:"user,omitempty"`
+	WaitTimeout      *int32  `protobuf:"varint,54,opt,name=wait_timeout,json=waitTimeout" json:"wait_timeout,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RDBParameters) Reset()                    { *m = RDBParameters{} }
@@ -3572,379 +3616,380 @@ func (*RDBParameters) ProtoMessage()               {}
 func (*RDBParameters) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{43} }
 
 func (m *RDBParameters) GetBindAddress() string {
-	if m != nil {
-		return m.BindAddress
+	if m != nil && m.BindAddress != nil {
+		return *m.BindAddress
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetBinlogFormat() string {
-	if m != nil {
-		return m.BinlogFormat
+	if m != nil && m.BinlogFormat != nil {
+		return *m.BinlogFormat
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetCharacterSetServer() string {
-	if m != nil {
-		return m.CharacterSetServer
+	if m != nil && m.CharacterSetServer != nil {
+		return *m.CharacterSetServer
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetDatadir() string {
-	if m != nil {
-		return m.Datadir
+	if m != nil && m.Datadir != nil {
+		return *m.Datadir
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetDefaultStorageEngine() string {
-	if m != nil {
-		return m.DefaultStorageEngine
+	if m != nil && m.DefaultStorageEngine != nil {
+		return *m.DefaultStorageEngine
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetExpireLogsDays() int32 {
-	if m != nil {
-		return m.ExpireLogsDays
+	if m != nil && m.ExpireLogsDays != nil {
+		return *m.ExpireLogsDays
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodb() string {
-	if m != nil {
-		return m.Innodb
+	if m != nil && m.Innodb != nil {
+		return *m.Innodb
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetInnodbBufferPoolInstances() int32 {
-	if m != nil {
-		return m.InnodbBufferPoolInstances
+	if m != nil && m.InnodbBufferPoolInstances != nil {
+		return *m.InnodbBufferPoolInstances
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodbBufferPoolSize() string {
-	if m != nil {
-		return m.InnodbBufferPoolSize
+	if m != nil && m.InnodbBufferPoolSize != nil {
+		return *m.InnodbBufferPoolSize
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetInnodbFilePerTable() int32 {
-	if m != nil {
-		return m.InnodbFilePerTable
+	if m != nil && m.InnodbFilePerTable != nil {
+		return *m.InnodbFilePerTable
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodbFlushLogAtTrxCommit() int32 {
-	if m != nil {
-		return m.InnodbFlushLogAtTrxCommit
+	if m != nil && m.InnodbFlushLogAtTrxCommit != nil {
+		return *m.InnodbFlushLogAtTrxCommit
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodbFlushMethod() string {
-	if m != nil {
-		return m.InnodbFlushMethod
+	if m != nil && m.InnodbFlushMethod != nil {
+		return *m.InnodbFlushMethod
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetInnodbIoCapacity() int32 {
-	if m != nil {
-		return m.InnodbIoCapacity
+	if m != nil && m.InnodbIoCapacity != nil {
+		return *m.InnodbIoCapacity
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodbLogBufferSize() string {
-	if m != nil {
-		return m.InnodbLogBufferSize
+	if m != nil && m.InnodbLogBufferSize != nil {
+		return *m.InnodbLogBufferSize
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetInnodbLogFileSize() string {
-	if m != nil {
-		return m.InnodbLogFileSize
+	if m != nil && m.InnodbLogFileSize != nil {
+		return *m.InnodbLogFileSize
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetInnodbLogFilesInGroup() int32 {
-	if m != nil {
-		return m.InnodbLogFilesInGroup
+	if m != nil && m.InnodbLogFilesInGroup != nil {
+		return *m.InnodbLogFilesInGroup
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodbMaxDirtyPagesPct() int32 {
-	if m != nil {
-		return m.InnodbMaxDirtyPagesPct
+	if m != nil && m.InnodbMaxDirtyPagesPct != nil {
+		return *m.InnodbMaxDirtyPagesPct
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodbReadIoThreads() int32 {
-	if m != nil {
-		return m.InnodbReadIoThreads
+	if m != nil && m.InnodbReadIoThreads != nil {
+		return *m.InnodbReadIoThreads
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInnodbWriteIoThreads() int32 {
-	if m != nil {
-		return m.InnodbWriteIoThreads
+	if m != nil && m.InnodbWriteIoThreads != nil {
+		return *m.InnodbWriteIoThreads
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetInteractiveTimeout() int32 {
-	if m != nil {
-		return m.InteractiveTimeout
+	if m != nil && m.InteractiveTimeout != nil {
+		return *m.InteractiveTimeout
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetKeyBufferSize() string {
-	if m != nil {
-		return m.KeyBufferSize
+	if m != nil && m.KeyBufferSize != nil {
+		return *m.KeyBufferSize
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetLogBin() string {
-	if m != nil {
-		return m.LogBin
+	if m != nil && m.LogBin != nil {
+		return *m.LogBin
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetLogError() string {
-	if m != nil {
-		return m.LogError
+	if m != nil && m.LogError != nil {
+		return *m.LogError
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetLogQueriesNotUsingIndexes() string {
-	if m != nil {
-		return m.LogQueriesNotUsingIndexes
+	if m != nil && m.LogQueriesNotUsingIndexes != nil {
+		return *m.LogQueriesNotUsingIndexes
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetLogSlaveUpdates() int32 {
-	if m != nil {
-		return m.LogSlaveUpdates
+	if m != nil && m.LogSlaveUpdates != nil {
+		return *m.LogSlaveUpdates
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetLongQueryTime() int32 {
-	if m != nil {
-		return m.LongQueryTime
+	if m != nil && m.LongQueryTime != nil {
+		return *m.LongQueryTime
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetLowerCaseTableNames() int32 {
-	if m != nil {
-		return m.LowerCaseTableNames
+	if m != nil && m.LowerCaseTableNames != nil {
+		return *m.LowerCaseTableNames
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetMaxAllowedPacket() string {
-	if m != nil {
-		return m.MaxAllowedPacket
+	if m != nil && m.MaxAllowedPacket != nil {
+		return *m.MaxAllowedPacket
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetMaxConnectErrors() int32 {
-	if m != nil {
-		return m.MaxConnectErrors
+	if m != nil && m.MaxConnectErrors != nil {
+		return *m.MaxConnectErrors
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetMaxConnections() int32 {
-	if m != nil {
-		return m.MaxConnections
+	if m != nil && m.MaxConnections != nil {
+		return *m.MaxConnections
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetMaxHeapTableSize() string {
-	if m != nil {
-		return m.MaxHeapTableSize
+	if m != nil && m.MaxHeapTableSize != nil {
+		return *m.MaxHeapTableSize
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetOpenFilesLimit() int32 {
-	if m != nil {
-		return m.OpenFilesLimit
+	if m != nil && m.OpenFilesLimit != nil {
+		return *m.OpenFilesLimit
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetPort() int32 {
-	if m != nil {
-		return m.Port
+	if m != nil && m.Port != nil {
+		return *m.Port
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetQueryCacheSize() int32 {
-	if m != nil {
-		return m.QueryCacheSize
+	if m != nil && m.QueryCacheSize != nil {
+		return *m.QueryCacheSize
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetQueryCacheType() int32 {
-	if m != nil {
-		return m.QueryCacheType
+	if m != nil && m.QueryCacheType != nil {
+		return *m.QueryCacheType
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetRelayLog() string {
-	if m != nil {
-		return m.RelayLog
+	if m != nil && m.RelayLog != nil {
+		return *m.RelayLog
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetRelayLogIndex() string {
-	if m != nil {
-		return m.RelayLogIndex
+	if m != nil && m.RelayLogIndex != nil {
+		return *m.RelayLogIndex
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetSkipNameResolve() int32 {
-	if m != nil {
-		return m.SkipNameResolve
+	if m != nil && m.SkipNameResolve != nil {
+		return *m.SkipNameResolve
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetSlaveExecMode() string {
-	if m != nil {
-		return m.SlaveExecMode
+	if m != nil && m.SlaveExecMode != nil {
+		return *m.SlaveExecMode
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetSlaveNetTimeout() int32 {
-	if m != nil {
-		return m.SlaveNetTimeout
+	if m != nil && m.SlaveNetTimeout != nil {
+		return *m.SlaveNetTimeout
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetSlowQueryLog() int32 {
-	if m != nil {
-		return m.SlowQueryLog
+	if m != nil && m.SlowQueryLog != nil {
+		return *m.SlowQueryLog
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetSlowQueryLogFile() string {
-	if m != nil {
-		return m.SlowQueryLogFile
+	if m != nil && m.SlowQueryLogFile != nil {
+		return *m.SlowQueryLogFile
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetSqlMode() string {
-	if m != nil {
-		return m.SqlMode
+	if m != nil && m.SqlMode != nil {
+		return *m.SqlMode
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetSyncBinlog() int32 {
-	if m != nil {
-		return m.SyncBinlog
+	if m != nil && m.SyncBinlog != nil {
+		return *m.SyncBinlog
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetSyncMasterInfo() int32 {
-	if m != nil {
-		return m.SyncMasterInfo
+	if m != nil && m.SyncMasterInfo != nil {
+		return *m.SyncMasterInfo
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetSyncRelayLog() int32 {
-	if m != nil {
-		return m.SyncRelayLog
+	if m != nil && m.SyncRelayLog != nil {
+		return *m.SyncRelayLog
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetSyncRelayLogInfo() int32 {
-	if m != nil {
-		return m.SyncRelayLogInfo
+	if m != nil && m.SyncRelayLogInfo != nil {
+		return *m.SyncRelayLogInfo
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetTableOpenCache() int32 {
-	if m != nil {
-		return m.TableOpenCache
+	if m != nil && m.TableOpenCache != nil {
+		return *m.TableOpenCache
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetThreadCacheSize() int32 {
-	if m != nil {
-		return m.ThreadCacheSize
+	if m != nil && m.ThreadCacheSize != nil {
+		return *m.ThreadCacheSize
 	}
 	return 0
 }
 
 func (m *RDBParameters) GetTmpTableSize() string {
-	if m != nil {
-		return m.TmpTableSize
+	if m != nil && m.TmpTableSize != nil {
+		return *m.TmpTableSize
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetTmpdir() string {
-	if m != nil {
-		return m.Tmpdir
+	if m != nil && m.Tmpdir != nil {
+		return *m.Tmpdir
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetUser() string {
-	if m != nil {
-		return m.User
+	if m != nil && m.User != nil {
+		return *m.User
 	}
 	return ""
 }
 
 func (m *RDBParameters) GetWaitTimeout() int32 {
-	if m != nil {
-		return m.WaitTimeout
+	if m != nil && m.WaitTimeout != nil {
+		return *m.WaitTimeout
 	}
 	return 0
 }
 
 type RDBPrivateIP struct {
-	Master   string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
-	Topslave string `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
+	Master           *string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
+	Topslave         *string `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RDBPrivateIP) Reset()                    { *m = RDBPrivateIP{} }
@@ -3953,30 +3998,31 @@ func (*RDBPrivateIP) ProtoMessage()               {}
 func (*RDBPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{44} }
 
 func (m *RDBPrivateIP) GetMaster() string {
-	if m != nil {
-		return m.Master
+	if m != nil && m.Master != nil {
+		return *m.Master
 	}
 	return ""
 }
 
 func (m *RDBPrivateIP) GetTopslave() string {
-	if m != nil {
-		return m.Topslave
+	if m != nil && m.Topslave != nil {
+		return *m.Topslave
 	}
 	return ""
 }
 
 type RouterStatic struct {
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	RouterId         string                      `protobuf:"bytes,2,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	RouterStaticId   string                      `protobuf:"bytes,3,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
-	RouterStaticName string                      `protobuf:"bytes,4,opt,name=router_static_name,json=routerStaticName" json:"router_static_name,omitempty"`
-	StaticType       int32                       `protobuf:"varint,5,opt,name=static_type,json=staticType" json:"static_type,omitempty"`
-	Val1             string                      `protobuf:"bytes,6,opt,name=val1" json:"val1,omitempty"`
-	Val2             string                      `protobuf:"bytes,7,opt,name=val2" json:"val2,omitempty"`
-	Val3             string                      `protobuf:"bytes,8,opt,name=val3" json:"val3,omitempty"`
-	Val4             string                      `protobuf:"bytes,9,opt,name=val4" json:"val4,omitempty"`
-	VxnetId          string                      `protobuf:"bytes,10,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	RouterId         *string                     `protobuf:"bytes,2,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterStaticId   *string                     `protobuf:"bytes,3,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
+	RouterStaticName *string                     `protobuf:"bytes,4,opt,name=router_static_name,json=routerStaticName" json:"router_static_name,omitempty"`
+	StaticType       *int32                      `protobuf:"varint,5,opt,name=static_type,json=staticType" json:"static_type,omitempty"`
+	Val1             *string                     `protobuf:"bytes,6,opt,name=val1" json:"val1,omitempty"`
+	Val2             *string                     `protobuf:"bytes,7,opt,name=val2" json:"val2,omitempty"`
+	Val3             *string                     `protobuf:"bytes,8,opt,name=val3" json:"val3,omitempty"`
+	Val4             *string                     `protobuf:"bytes,9,opt,name=val4" json:"val4,omitempty"`
+	VxnetId          *string                     `protobuf:"bytes,10,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *RouterStatic) Reset()                    { *m = RouterStatic{} }
@@ -3992,74 +4038,75 @@ func (m *RouterStatic) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *RouterStatic) GetRouterId() string {
-	if m != nil {
-		return m.RouterId
+	if m != nil && m.RouterId != nil {
+		return *m.RouterId
 	}
 	return ""
 }
 
 func (m *RouterStatic) GetRouterStaticId() string {
-	if m != nil {
-		return m.RouterStaticId
+	if m != nil && m.RouterStaticId != nil {
+		return *m.RouterStaticId
 	}
 	return ""
 }
 
 func (m *RouterStatic) GetRouterStaticName() string {
-	if m != nil {
-		return m.RouterStaticName
+	if m != nil && m.RouterStaticName != nil {
+		return *m.RouterStaticName
 	}
 	return ""
 }
 
 func (m *RouterStatic) GetStaticType() int32 {
-	if m != nil {
-		return m.StaticType
+	if m != nil && m.StaticType != nil {
+		return *m.StaticType
 	}
 	return 0
 }
 
 func (m *RouterStatic) GetVal1() string {
-	if m != nil {
-		return m.Val1
+	if m != nil && m.Val1 != nil {
+		return *m.Val1
 	}
 	return ""
 }
 
 func (m *RouterStatic) GetVal2() string {
-	if m != nil {
-		return m.Val2
+	if m != nil && m.Val2 != nil {
+		return *m.Val2
 	}
 	return ""
 }
 
 func (m *RouterStatic) GetVal3() string {
-	if m != nil {
-		return m.Val3
+	if m != nil && m.Val3 != nil {
+		return *m.Val3
 	}
 	return ""
 }
 
 func (m *RouterStatic) GetVal4() string {
-	if m != nil {
-		return m.Val4
+	if m != nil && m.Val4 != nil {
+		return *m.Val4
 	}
 	return ""
 }
 
 func (m *RouterStatic) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 type RouterStaticEntry struct {
-	RouterId              string `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	RouterStaticEntryId   string `protobuf:"bytes,2,opt,name=router_static_entry_id,json=routerStaticEntryId" json:"router_static_entry_id,omitempty"`
-	RouterStaticEntryName string `protobuf:"bytes,3,opt,name=router_static_entry_name,json=routerStaticEntryName" json:"router_static_entry_name,omitempty"`
-	Val1                  string `protobuf:"bytes,4,opt,name=val1" json:"val1,omitempty"`
-	Val2                  string `protobuf:"bytes,5,opt,name=val2" json:"val2,omitempty"`
+	RouterId              *string `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterStaticEntryId   *string `protobuf:"bytes,2,opt,name=router_static_entry_id,json=routerStaticEntryId" json:"router_static_entry_id,omitempty"`
+	RouterStaticEntryName *string `protobuf:"bytes,3,opt,name=router_static_entry_name,json=routerStaticEntryName" json:"router_static_entry_name,omitempty"`
+	Val1                  *string `protobuf:"bytes,4,opt,name=val1" json:"val1,omitempty"`
+	Val2                  *string `protobuf:"bytes,5,opt,name=val2" json:"val2,omitempty"`
+	XXX_unrecognized      []byte  `json:"-"`
 }
 
 func (m *RouterStaticEntry) Reset()                    { *m = RouterStaticEntry{} }
@@ -4068,49 +4115,50 @@ func (*RouterStaticEntry) ProtoMessage()               {}
 func (*RouterStaticEntry) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{46} }
 
 func (m *RouterStaticEntry) GetRouterId() string {
-	if m != nil {
-		return m.RouterId
+	if m != nil && m.RouterId != nil {
+		return *m.RouterId
 	}
 	return ""
 }
 
 func (m *RouterStaticEntry) GetRouterStaticEntryId() string {
-	if m != nil {
-		return m.RouterStaticEntryId
+	if m != nil && m.RouterStaticEntryId != nil {
+		return *m.RouterStaticEntryId
 	}
 	return ""
 }
 
 func (m *RouterStaticEntry) GetRouterStaticEntryName() string {
-	if m != nil {
-		return m.RouterStaticEntryName
+	if m != nil && m.RouterStaticEntryName != nil {
+		return *m.RouterStaticEntryName
 	}
 	return ""
 }
 
 func (m *RouterStaticEntry) GetVal1() string {
-	if m != nil {
-		return m.Val1
+	if m != nil && m.Val1 != nil {
+		return *m.Val1
 	}
 	return ""
 }
 
 func (m *RouterStaticEntry) GetVal2() string {
-	if m != nil {
-		return m.Val2
+	if m != nil && m.Val2 != nil {
+		return *m.Val2
 	}
 	return ""
 }
 
 type RouterVxNet struct {
-	CreateTime *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	DynIpEnd   string                      `protobuf:"bytes,2,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
-	DynIpStart string                      `protobuf:"bytes,3,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
-	Features   int32                       `protobuf:"varint,4,opt,name=features" json:"features,omitempty"`
-	IpNetwork  string                      `protobuf:"bytes,5,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
-	ManagerIp  string                      `protobuf:"bytes,6,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
-	RouterId   string                      `protobuf:"bytes,7,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	VxnetId    string                      `protobuf:"bytes,8,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	DynIpEnd         *string                     `protobuf:"bytes,2,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	DynIpStart       *string                     `protobuf:"bytes,3,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	Features         *int32                      `protobuf:"varint,4,opt,name=features" json:"features,omitempty"`
+	IpNetwork        *string                     `protobuf:"bytes,5,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	ManagerIp        *string                     `protobuf:"bytes,6,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	RouterId         *string                     `protobuf:"bytes,7,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	VxnetId          *string                     `protobuf:"bytes,8,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *RouterVxNet) Reset()                    { *m = RouterVxNet{} }
@@ -4126,60 +4174,61 @@ func (m *RouterVxNet) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *RouterVxNet) GetDynIpEnd() string {
-	if m != nil {
-		return m.DynIpEnd
+	if m != nil && m.DynIpEnd != nil {
+		return *m.DynIpEnd
 	}
 	return ""
 }
 
 func (m *RouterVxNet) GetDynIpStart() string {
-	if m != nil {
-		return m.DynIpStart
+	if m != nil && m.DynIpStart != nil {
+		return *m.DynIpStart
 	}
 	return ""
 }
 
 func (m *RouterVxNet) GetFeatures() int32 {
-	if m != nil {
-		return m.Features
+	if m != nil && m.Features != nil {
+		return *m.Features
 	}
 	return 0
 }
 
 func (m *RouterVxNet) GetIpNetwork() string {
-	if m != nil {
-		return m.IpNetwork
+	if m != nil && m.IpNetwork != nil {
+		return *m.IpNetwork
 	}
 	return ""
 }
 
 func (m *RouterVxNet) GetManagerIp() string {
-	if m != nil {
-		return m.ManagerIp
+	if m != nil && m.ManagerIp != nil {
+		return *m.ManagerIp
 	}
 	return ""
 }
 
 func (m *RouterVxNet) GetRouterId() string {
-	if m != nil {
-		return m.RouterId
+	if m != nil && m.RouterId != nil {
+		return *m.RouterId
 	}
 	return ""
 }
 
 func (m *RouterVxNet) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 type S2DefaultParameters struct {
-	DefaultValue string `protobuf:"bytes,1,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
-	Description  string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	ParamName    string `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
-	ServiceType  string `protobuf:"bytes,4,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	TargetType   string `protobuf:"bytes,5,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	DefaultValue     *string `protobuf:"bytes,1,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
+	Description      *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	ParamName        *string `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
+	ServiceType      *string `protobuf:"bytes,4,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	TargetType       *string `protobuf:"bytes,5,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *S2DefaultParameters) Reset()                    { *m = S2DefaultParameters{} }
@@ -4188,54 +4237,55 @@ func (*S2DefaultParameters) ProtoMessage()               {}
 func (*S2DefaultParameters) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{48} }
 
 func (m *S2DefaultParameters) GetDefaultValue() string {
-	if m != nil {
-		return m.DefaultValue
+	if m != nil && m.DefaultValue != nil {
+		return *m.DefaultValue
 	}
 	return ""
 }
 
 func (m *S2DefaultParameters) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *S2DefaultParameters) GetParamName() string {
-	if m != nil {
-		return m.ParamName
+	if m != nil && m.ParamName != nil {
+		return *m.ParamName
 	}
 	return ""
 }
 
 func (m *S2DefaultParameters) GetServiceType() string {
-	if m != nil {
-		return m.ServiceType
+	if m != nil && m.ServiceType != nil {
+		return *m.ServiceType
 	}
 	return ""
 }
 
 func (m *S2DefaultParameters) GetTargetType() string {
-	if m != nil {
-		return m.TargetType
+	if m != nil && m.TargetType != nil {
+		return *m.TargetType
 	}
 	return ""
 }
 
 type S2Server struct {
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	IsApplied        int32                       `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	Name             string                      `protobuf:"bytes,4,opt,name=name" json:"name,omitempty"`
-	PrivateIp        string                      `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	S2ServerId       string                      `protobuf:"bytes,6,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
-	S2ServerType     int32                       `protobuf:"varint,7,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
-	ServiceType      string                      `protobuf:"bytes,8,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	Status           string                      `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
+	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	IsApplied        *int32                      `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Name             *string                     `protobuf:"bytes,4,opt,name=name" json:"name,omitempty"`
+	PrivateIp        *string                     `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	S2ServerId       *string                     `protobuf:"bytes,6,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	S2ServerType     *int32                      `protobuf:"varint,7,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
+	ServiceType      *string                     `protobuf:"bytes,8,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	Status           *string                     `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
 	Tags             []*Tag                      `protobuf:"bytes,11,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
 	Vxnet            *VxNet                      `protobuf:"bytes,13,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *S2Server) Reset()                    { *m = S2Server{} }
@@ -4251,57 +4301,57 @@ func (m *S2Server) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *S2Server) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *S2Server) GetIsApplied() int32 {
-	if m != nil {
-		return m.IsApplied
+	if m != nil && m.IsApplied != nil {
+		return *m.IsApplied
 	}
 	return 0
 }
 
 func (m *S2Server) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
 
 func (m *S2Server) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *S2Server) GetS2ServerId() string {
-	if m != nil {
-		return m.S2ServerId
+	if m != nil && m.S2ServerId != nil {
+		return *m.S2ServerId
 	}
 	return ""
 }
 
 func (m *S2Server) GetS2ServerType() int32 {
-	if m != nil {
-		return m.S2ServerType
+	if m != nil && m.S2ServerType != nil {
+		return *m.S2ServerType
 	}
 	return 0
 }
 
 func (m *S2Server) GetServiceType() string {
-	if m != nil {
-		return m.ServiceType
+	if m != nil && m.ServiceType != nil {
+		return *m.ServiceType
 	}
 	return ""
 }
 
 func (m *S2Server) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -4321,8 +4371,8 @@ func (m *S2Server) GetTags() []*Tag {
 }
 
 func (m *S2Server) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
@@ -4336,14 +4386,15 @@ func (m *S2Server) GetVxnet() *VxNet {
 
 type S2SharedTarget struct {
 	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	ExportName       string                      `protobuf:"bytes,3,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
-	S2ServerId       string                      `protobuf:"bytes,4,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
-	S2SharedTargetId string                      `protobuf:"bytes,5,opt,name=s2_shared_target_id,json=s2SharedTargetId" json:"s2_shared_target_id,omitempty"`
+	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	ExportName       *string                     `protobuf:"bytes,3,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	S2ServerId       *string                     `protobuf:"bytes,4,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	S2SharedTargetId *string                     `protobuf:"bytes,5,opt,name=s2_shared_target_id,json=s2SharedTargetId" json:"s2_shared_target_id,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	TargetType       string                      `protobuf:"bytes,7,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	TargetType       *string                     `protobuf:"bytes,7,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
 	S2Group          map[string]string           `protobuf:"bytes,8,rep,name=s2_group,json=s2Group" json:"s2_group,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	Volumes          []string                    `protobuf:"bytes,9,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *S2SharedTarget) Reset()                    { *m = S2SharedTarget{} }
@@ -4359,29 +4410,29 @@ func (m *S2SharedTarget) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *S2SharedTarget) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *S2SharedTarget) GetExportName() string {
-	if m != nil {
-		return m.ExportName
+	if m != nil && m.ExportName != nil {
+		return *m.ExportName
 	}
 	return ""
 }
 
 func (m *S2SharedTarget) GetS2ServerId() string {
-	if m != nil {
-		return m.S2ServerId
+	if m != nil && m.S2ServerId != nil {
+		return *m.S2ServerId
 	}
 	return ""
 }
 
 func (m *S2SharedTarget) GetS2SharedTargetId() string {
-	if m != nil {
-		return m.S2SharedTargetId
+	if m != nil && m.S2SharedTargetId != nil {
+		return *m.S2SharedTargetId
 	}
 	return ""
 }
@@ -4394,8 +4445,8 @@ func (m *S2SharedTarget) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *S2SharedTarget) GetTargetType() string {
-	if m != nil {
-		return m.TargetType
+	if m != nil && m.TargetType != nil {
+		return *m.TargetType
 	}
 	return ""
 }
@@ -4416,13 +4467,14 @@ func (m *S2SharedTarget) GetVolumes() []string {
 
 type SecurityGroup struct {
 	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description       string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	IsApplied         int32                       `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	IsDefault         int32                       `protobuf:"varint,4,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
+	Description       *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	IsApplied         *int32                      `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	IsDefault         *int32                      `protobuf:"varint,4,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
 	Resources         []*Resource                 `protobuf:"bytes,5,rep,name=resources" json:"resources,omitempty"`
-	SecurityGroupId   string                      `protobuf:"bytes,6,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	SecurityGroupName string                      `protobuf:"bytes,7,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
+	SecurityGroupId   *string                     `protobuf:"bytes,6,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	SecurityGroupName *string                     `protobuf:"bytes,7,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
 	Tags              []*Tag                      `protobuf:"bytes,8,rep,name=tags" json:"tags,omitempty"`
+	XXX_unrecognized  []byte                      `json:"-"`
 }
 
 func (m *SecurityGroup) Reset()                    { *m = SecurityGroup{} }
@@ -4438,22 +4490,22 @@ func (m *SecurityGroup) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *SecurityGroup) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *SecurityGroup) GetIsApplied() int32 {
-	if m != nil {
-		return m.IsApplied
+	if m != nil && m.IsApplied != nil {
+		return *m.IsApplied
 	}
 	return 0
 }
 
 func (m *SecurityGroup) GetIsDefault() int32 {
-	if m != nil {
-		return m.IsDefault
+	if m != nil && m.IsDefault != nil {
+		return *m.IsDefault
 	}
 	return 0
 }
@@ -4466,15 +4518,15 @@ func (m *SecurityGroup) GetResources() []*Resource {
 }
 
 func (m *SecurityGroup) GetSecurityGroupId() string {
-	if m != nil {
-		return m.SecurityGroupId
+	if m != nil && m.SecurityGroupId != nil {
+		return *m.SecurityGroupId
 	}
 	return ""
 }
 
 func (m *SecurityGroup) GetSecurityGroupName() string {
-	if m != nil {
-		return m.SecurityGroupName
+	if m != nil && m.SecurityGroupName != nil {
+		return *m.SecurityGroupName
 	}
 	return ""
 }
@@ -4488,11 +4540,12 @@ func (m *SecurityGroup) GetTags() []*Tag {
 
 type SecurityGroupIPSet struct {
 	CreateTime             *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description            string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	IpsetType              int32                       `protobuf:"varint,3,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
-	SecurityGroupIpsetId   string                      `protobuf:"bytes,4,opt,name=security_group_ipset_id,json=securityGroupIpsetId" json:"security_group_ipset_id,omitempty"`
-	SecurityGroupIpsetName string                      `protobuf:"bytes,5,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
-	Val                    string                      `protobuf:"bytes,6,opt,name=val" json:"val,omitempty"`
+	Description            *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	IpsetType              *int32                      `protobuf:"varint,3,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
+	SecurityGroupIpsetId   *string                     `protobuf:"bytes,4,opt,name=security_group_ipset_id,json=securityGroupIpsetId" json:"security_group_ipset_id,omitempty"`
+	SecurityGroupIpsetName *string                     `protobuf:"bytes,5,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
+	Val                    *string                     `protobuf:"bytes,6,opt,name=val" json:"val,omitempty"`
+	XXX_unrecognized       []byte                      `json:"-"`
 }
 
 func (m *SecurityGroupIPSet) Reset()                    { *m = SecurityGroupIPSet{} }
@@ -4508,49 +4561,50 @@ func (m *SecurityGroupIPSet) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *SecurityGroupIPSet) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *SecurityGroupIPSet) GetIpsetType() int32 {
-	if m != nil {
-		return m.IpsetType
+	if m != nil && m.IpsetType != nil {
+		return *m.IpsetType
 	}
 	return 0
 }
 
 func (m *SecurityGroupIPSet) GetSecurityGroupIpsetId() string {
-	if m != nil {
-		return m.SecurityGroupIpsetId
+	if m != nil && m.SecurityGroupIpsetId != nil {
+		return *m.SecurityGroupIpsetId
 	}
 	return ""
 }
 
 func (m *SecurityGroupIPSet) GetSecurityGroupIpsetName() string {
-	if m != nil {
-		return m.SecurityGroupIpsetName
+	if m != nil && m.SecurityGroupIpsetName != nil {
+		return *m.SecurityGroupIpsetName
 	}
 	return ""
 }
 
 func (m *SecurityGroupIPSet) GetVal() string {
-	if m != nil {
-		return m.Val
+	if m != nil && m.Val != nil {
+		return *m.Val
 	}
 	return ""
 }
 
 type SecurityGroupRule struct {
-	Action              string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	Priority            int32  `protobuf:"varint,2,opt,name=priority" json:"priority,omitempty"`
-	Protocol            string `protobuf:"bytes,3,opt,name=protocol" json:"protocol,omitempty"`
-	SecurityGroupId     string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	SecurityGroupRuleId string `protobuf:"bytes,5,opt,name=security_group_rule_id,json=securityGroupRuleId" json:"security_group_rule_id,omitempty"`
-	Val1                string `protobuf:"bytes,6,opt,name=val1" json:"val1,omitempty"`
-	Val2                string `protobuf:"bytes,7,opt,name=val2" json:"val2,omitempty"`
-	Val3                string `protobuf:"bytes,8,opt,name=val3" json:"val3,omitempty"`
+	Action              *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	Priority            *int32  `protobuf:"varint,2,opt,name=priority" json:"priority,omitempty"`
+	Protocol            *string `protobuf:"bytes,3,opt,name=protocol" json:"protocol,omitempty"`
+	SecurityGroupId     *string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	SecurityGroupRuleId *string `protobuf:"bytes,5,opt,name=security_group_rule_id,json=securityGroupRuleId" json:"security_group_rule_id,omitempty"`
+	Val1                *string `protobuf:"bytes,6,opt,name=val1" json:"val1,omitempty"`
+	Val2                *string `protobuf:"bytes,7,opt,name=val2" json:"val2,omitempty"`
+	Val3                *string `protobuf:"bytes,8,opt,name=val3" json:"val3,omitempty"`
+	XXX_unrecognized    []byte  `json:"-"`
 }
 
 func (m *SecurityGroupRule) Reset()                    { *m = SecurityGroupRule{} }
@@ -4559,65 +4613,66 @@ func (*SecurityGroupRule) ProtoMessage()               {}
 func (*SecurityGroupRule) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{53} }
 
 func (m *SecurityGroupRule) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *SecurityGroupRule) GetPriority() int32 {
-	if m != nil {
-		return m.Priority
+	if m != nil && m.Priority != nil {
+		return *m.Priority
 	}
 	return 0
 }
 
 func (m *SecurityGroupRule) GetProtocol() string {
-	if m != nil {
-		return m.Protocol
+	if m != nil && m.Protocol != nil {
+		return *m.Protocol
 	}
 	return ""
 }
 
 func (m *SecurityGroupRule) GetSecurityGroupId() string {
-	if m != nil {
-		return m.SecurityGroupId
+	if m != nil && m.SecurityGroupId != nil {
+		return *m.SecurityGroupId
 	}
 	return ""
 }
 
 func (m *SecurityGroupRule) GetSecurityGroupRuleId() string {
-	if m != nil {
-		return m.SecurityGroupRuleId
+	if m != nil && m.SecurityGroupRuleId != nil {
+		return *m.SecurityGroupRuleId
 	}
 	return ""
 }
 
 func (m *SecurityGroupRule) GetVal1() string {
-	if m != nil {
-		return m.Val1
+	if m != nil && m.Val1 != nil {
+		return *m.Val1
 	}
 	return ""
 }
 
 func (m *SecurityGroupRule) GetVal2() string {
-	if m != nil {
-		return m.Val2
+	if m != nil && m.Val2 != nil {
+		return *m.Val2
 	}
 	return ""
 }
 
 func (m *SecurityGroupRule) GetVal3() string {
-	if m != nil {
-		return m.Val3
+	if m != nil && m.Val3 != nil {
+		return *m.Val3
 	}
 	return ""
 }
 
 type SecurityGroupSnapshot struct {
-	GroupId                 string               `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+	GroupId                 *string              `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
 	Rules                   []*SecurityGroupRule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
-	SecurityGroupSnapshotId string               `protobuf:"bytes,3,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
+	SecurityGroupSnapshotId *string              `protobuf:"bytes,3,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
+	XXX_unrecognized        []byte               `json:"-"`
 }
 
 func (m *SecurityGroupSnapshot) Reset()                    { *m = SecurityGroupSnapshot{} }
@@ -4626,8 +4681,8 @@ func (*SecurityGroupSnapshot) ProtoMessage()               {}
 func (*SecurityGroupSnapshot) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{54} }
 
 func (m *SecurityGroupSnapshot) GetGroupId() string {
-	if m != nil {
-		return m.GroupId
+	if m != nil && m.GroupId != nil {
+		return *m.GroupId
 	}
 	return ""
 }
@@ -4640,19 +4695,20 @@ func (m *SecurityGroupSnapshot) GetRules() []*SecurityGroupRule {
 }
 
 func (m *SecurityGroupSnapshot) GetSecurityGroupSnapshotId() string {
-	if m != nil {
-		return m.SecurityGroupSnapshotId
+	if m != nil && m.SecurityGroupSnapshotId != nil {
+		return *m.SecurityGroupSnapshotId
 	}
 	return ""
 }
 
 type ServerCertificate struct {
 	CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description           string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	CertificateContent    string                      `protobuf:"bytes,3,opt,name=certificate_content,json=certificateContent" json:"certificate_content,omitempty"`
-	PrivateKey            string                      `protobuf:"bytes,4,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
-	ServerCertificateId   string                      `protobuf:"bytes,5,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
-	ServerCertificateName string                      `protobuf:"bytes,6,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
+	Description           *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	CertificateContent    *string                     `protobuf:"bytes,3,opt,name=certificate_content,json=certificateContent" json:"certificate_content,omitempty"`
+	PrivateKey            *string                     `protobuf:"bytes,4,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
+	ServerCertificateId   *string                     `protobuf:"bytes,5,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
+	ServerCertificateName *string                     `protobuf:"bytes,6,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
+	XXX_unrecognized      []byte                      `json:"-"`
 }
 
 func (m *ServerCertificate) Reset()                    { *m = ServerCertificate{} }
@@ -4668,66 +4724,67 @@ func (m *ServerCertificate) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *ServerCertificate) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *ServerCertificate) GetCertificateContent() string {
-	if m != nil {
-		return m.CertificateContent
+	if m != nil && m.CertificateContent != nil {
+		return *m.CertificateContent
 	}
 	return ""
 }
 
 func (m *ServerCertificate) GetPrivateKey() string {
-	if m != nil {
-		return m.PrivateKey
+	if m != nil && m.PrivateKey != nil {
+		return *m.PrivateKey
 	}
 	return ""
 }
 
 func (m *ServerCertificate) GetServerCertificateId() string {
-	if m != nil {
-		return m.ServerCertificateId
+	if m != nil && m.ServerCertificateId != nil {
+		return *m.ServerCertificateId
 	}
 	return ""
 }
 
 func (m *ServerCertificate) GetServerCertificateName() string {
-	if m != nil {
-		return m.ServerCertificateName
+	if m != nil && m.ServerCertificateName != nil {
+		return *m.ServerCertificateName
 	}
 	return ""
 }
 
 type Snapshot struct {
 	CreateTime         *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description        string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	HeadChain          string                      `protobuf:"bytes,3,opt,name=head_chain,json=headChain" json:"head_chain,omitempty"`
-	IsHead             int32                       `protobuf:"varint,4,opt,name=is_head,json=isHead" json:"is_head,omitempty"`
-	IsTaken            int32                       `protobuf:"varint,5,opt,name=is_taken,json=isTaken" json:"is_taken,omitempty"`
+	Description        *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	HeadChain          *string                     `protobuf:"bytes,3,opt,name=head_chain,json=headChain" json:"head_chain,omitempty"`
+	IsHead             *int32                      `protobuf:"varint,4,opt,name=is_head,json=isHead" json:"is_head,omitempty"`
+	IsTaken            *int32                      `protobuf:"varint,5,opt,name=is_taken,json=isTaken" json:"is_taken,omitempty"`
 	LatestSnapshotTime *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	ParentId           string                      `protobuf:"bytes,7,opt,name=parent_id,json=parentId" json:"parent_id,omitempty"`
-	Provider           string                      `protobuf:"bytes,8,opt,name=provider" json:"provider,omitempty"`
+	ParentId           *string                     `protobuf:"bytes,7,opt,name=parent_id,json=parentId" json:"parent_id,omitempty"`
+	Provider           *string                     `protobuf:"bytes,8,opt,name=provider" json:"provider,omitempty"`
 	Resource           *Resource                   `protobuf:"bytes,9,opt,name=resource" json:"resource,omitempty"`
-	RootId             string                      `protobuf:"bytes,10,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
-	Size               int32                       `protobuf:"varint,11,opt,name=size" json:"size,omitempty"`
-	SnapshotId         string                      `protobuf:"bytes,12,opt,name=snapshot_id,json=snapshotId" json:"snapshot_id,omitempty"`
-	SnapshotName       string                      `protobuf:"bytes,13,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
+	RootId             *string                     `protobuf:"bytes,10,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
+	Size               *int32                      `protobuf:"varint,11,opt,name=size" json:"size,omitempty"`
+	SnapshotId         *string                     `protobuf:"bytes,12,opt,name=snapshot_id,json=snapshotId" json:"snapshot_id,omitempty"`
+	SnapshotName       *string                     `protobuf:"bytes,13,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
 	SnapshotResource   *SnapshotResource           `protobuf:"bytes,14,opt,name=snapshot_resource,json=snapshotResource" json:"snapshot_resource,omitempty"`
 	SnapshotTime       *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=snapshot_time,json=snapshotTime" json:"snapshot_time,omitempty"`
-	SnapshotType       string                      `protobuf:"bytes,16,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
-	Status             string                      `protobuf:"bytes,17,opt,name=status" json:"status,omitempty"`
+	SnapshotType       *string                     `protobuf:"bytes,16,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
+	Status             *string                     `protobuf:"bytes,17,opt,name=status" json:"status,omitempty"`
 	StatusTime         *google_protobuf1.Timestamp `protobuf:"bytes,18,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode            int32                       `protobuf:"varint,19,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	SubCode            *int32                      `protobuf:"varint,19,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
 	Tags               []*Tag                      `protobuf:"bytes,20,rep,name=tags" json:"tags,omitempty"`
-	TotalCount         int32                       `protobuf:"varint,21,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	TotalSize          int32                       `protobuf:"varint,22,opt,name=total_size,json=totalSize" json:"total_size,omitempty"`
-	TransitionStatus   string                      `protobuf:"bytes,23,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VirtualSize        int32                       `protobuf:"varint,24,opt,name=virtual_size,json=virtualSize" json:"virtual_size,omitempty"`
-	Visibility         string                      `protobuf:"bytes,25,opt,name=visibility" json:"visibility,omitempty"`
+	TotalCount         *int32                      `protobuf:"varint,21,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalSize          *int32                      `protobuf:"varint,22,opt,name=total_size,json=totalSize" json:"total_size,omitempty"`
+	TransitionStatus   *string                     `protobuf:"bytes,23,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VirtualSize        *int32                      `protobuf:"varint,24,opt,name=virtual_size,json=virtualSize" json:"virtual_size,omitempty"`
+	Visibility         *string                     `protobuf:"bytes,25,opt,name=visibility" json:"visibility,omitempty"`
+	XXX_unrecognized   []byte                      `json:"-"`
 }
 
 func (m *Snapshot) Reset()                    { *m = Snapshot{} }
@@ -4743,29 +4800,29 @@ func (m *Snapshot) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Snapshot) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *Snapshot) GetHeadChain() string {
-	if m != nil {
-		return m.HeadChain
+	if m != nil && m.HeadChain != nil {
+		return *m.HeadChain
 	}
 	return ""
 }
 
 func (m *Snapshot) GetIsHead() int32 {
-	if m != nil {
-		return m.IsHead
+	if m != nil && m.IsHead != nil {
+		return *m.IsHead
 	}
 	return 0
 }
 
 func (m *Snapshot) GetIsTaken() int32 {
-	if m != nil {
-		return m.IsTaken
+	if m != nil && m.IsTaken != nil {
+		return *m.IsTaken
 	}
 	return 0
 }
@@ -4778,15 +4835,15 @@ func (m *Snapshot) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Snapshot) GetParentId() string {
-	if m != nil {
-		return m.ParentId
+	if m != nil && m.ParentId != nil {
+		return *m.ParentId
 	}
 	return ""
 }
 
 func (m *Snapshot) GetProvider() string {
-	if m != nil {
-		return m.Provider
+	if m != nil && m.Provider != nil {
+		return *m.Provider
 	}
 	return ""
 }
@@ -4799,29 +4856,29 @@ func (m *Snapshot) GetResource() *Resource {
 }
 
 func (m *Snapshot) GetRootId() string {
-	if m != nil {
-		return m.RootId
+	if m != nil && m.RootId != nil {
+		return *m.RootId
 	}
 	return ""
 }
 
 func (m *Snapshot) GetSize() int32 {
-	if m != nil {
-		return m.Size
+	if m != nil && m.Size != nil {
+		return *m.Size
 	}
 	return 0
 }
 
 func (m *Snapshot) GetSnapshotId() string {
-	if m != nil {
-		return m.SnapshotId
+	if m != nil && m.SnapshotId != nil {
+		return *m.SnapshotId
 	}
 	return ""
 }
 
 func (m *Snapshot) GetSnapshotName() string {
-	if m != nil {
-		return m.SnapshotName
+	if m != nil && m.SnapshotName != nil {
+		return *m.SnapshotName
 	}
 	return ""
 }
@@ -4841,15 +4898,15 @@ func (m *Snapshot) GetSnapshotTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Snapshot) GetSnapshotType() string {
-	if m != nil {
-		return m.SnapshotType
+	if m != nil && m.SnapshotType != nil {
+		return *m.SnapshotType
 	}
 	return ""
 }
 
 func (m *Snapshot) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -4862,8 +4919,8 @@ func (m *Snapshot) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Snapshot) GetSubCode() int32 {
-	if m != nil {
-		return m.SubCode
+	if m != nil && m.SubCode != nil {
+		return *m.SubCode
 	}
 	return 0
 }
@@ -4876,43 +4933,44 @@ func (m *Snapshot) GetTags() []*Tag {
 }
 
 func (m *Snapshot) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 func (m *Snapshot) GetTotalSize() int32 {
-	if m != nil {
-		return m.TotalSize
+	if m != nil && m.TotalSize != nil {
+		return *m.TotalSize
 	}
 	return 0
 }
 
 func (m *Snapshot) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *Snapshot) GetVirtualSize() int32 {
-	if m != nil {
-		return m.VirtualSize
+	if m != nil && m.VirtualSize != nil {
+		return *m.VirtualSize
 	}
 	return 0
 }
 
 func (m *Snapshot) GetVisibility() string {
-	if m != nil {
-		return m.Visibility
+	if m != nil && m.Visibility != nil {
+		return *m.Visibility
 	}
 	return ""
 }
 
 type SnapshotResource struct {
-	OsFamily string `protobuf:"bytes,1,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Platform string `protobuf:"bytes,2,opt,name=platform" json:"platform,omitempty"`
+	OsFamily         *string `protobuf:"bytes,1,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Platform         *string `protobuf:"bytes,2,opt,name=platform" json:"platform,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *SnapshotResource) Reset()                    { *m = SnapshotResource{} }
@@ -4921,22 +4979,23 @@ func (*SnapshotResource) ProtoMessage()               {}
 func (*SnapshotResource) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{57} }
 
 func (m *SnapshotResource) GetOsFamily() string {
-	if m != nil {
-		return m.OsFamily
+	if m != nil && m.OsFamily != nil {
+		return *m.OsFamily
 	}
 	return ""
 }
 
 func (m *SnapshotResource) GetPlatform() string {
-	if m != nil {
-		return m.Platform
+	if m != nil && m.Platform != nil {
+		return *m.Platform
 	}
 	return ""
 }
 
 type User struct {
-	Email  string `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
-	UserId string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	Email            *string `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
+	UserId           *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *User) Reset()                    { *m = User{} }
@@ -4945,22 +5004,23 @@ func (*User) ProtoMessage()               {}
 func (*User) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{58} }
 
 func (m *User) GetEmail() string {
-	if m != nil {
-		return m.Email
+	if m != nil && m.Email != nil {
+		return *m.Email
 	}
 	return ""
 }
 
 func (m *User) GetUserId() string {
-	if m != nil {
-		return m.UserId
+	if m != nil && m.UserId != nil {
+		return *m.UserId
 	}
 	return ""
 }
 
 type Zone struct {
-	Status string `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	ZoneId string `protobuf:"bytes,2,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
+	Status           *string `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	ZoneId           *string `protobuf:"bytes,2,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *Zone) Reset()                    { *m = Zone{} }
@@ -4969,63 +5029,64 @@ func (*Zone) ProtoMessage()               {}
 func (*Zone) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{59} }
 
 func (m *Zone) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *Zone) GetZoneId() string {
-	if m != nil {
-		return m.ZoneId
+	if m != nil && m.ZoneId != nil {
+		return *m.ZoneId
 	}
 	return ""
 }
 
 type Cluster struct {
-	GlobalUuid            string                         `protobuf:"bytes,1,opt,name=global_uuid,json=globalUuid" json:"global_uuid,omitempty"`
-	AutoBackupTime        int32                          `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	GlobalUuid            *string                        `protobuf:"bytes,1,opt,name=global_uuid,json=globalUuid" json:"global_uuid,omitempty"`
+	AutoBackupTime        *int32                         `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
 	HealthCheckEnablement *Cluster_HealthCheckEnablement `protobuf:"bytes,3,opt,name=health_check_enablement,json=healthCheckEnablement" json:"health_check_enablement,omitempty"`
-	CfgmgmtId             string                         `protobuf:"bytes,4,opt,name=cfgmgmt_id,json=cfgmgmtId" json:"cfgmgmt_id,omitempty"`
+	CfgmgmtId             *string                        `protobuf:"bytes,4,opt,name=cfgmgmt_id,json=cfgmgmtId" json:"cfgmgmt_id,omitempty"`
 	CustomService         *Cluster_CustomService         `protobuf:"bytes,5,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
-	AppId                 string                         `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppId                 *string                        `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
 	AdvancedActions       *Cluster_AdvancedActions       `protobuf:"bytes,7,opt,name=advanced_actions,json=advancedActions" json:"advanced_actions,omitempty"`
-	ConsoleId             string                         `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	ConsoleId             *string                        `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
 	CreateTime            *google_protobuf1.Timestamp    `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	ClusterId             string                         `protobuf:"bytes,10,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
-	Owner                 string                         `protobuf:"bytes,11,opt,name=owner" json:"owner,omitempty"`
+	ClusterId             *string                        `protobuf:"bytes,10,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
+	Owner                 *string                        `protobuf:"bytes,11,opt,name=owner" json:"owner,omitempty"`
 	UpgradeTime           *google_protobuf1.Timestamp    `protobuf:"bytes,12,opt,name=upgrade_time,json=upgradeTime" json:"upgrade_time,omitempty"`
 	// google.protobuf.Any children = 13;
-	IncrementalBackupSupported int32 `protobuf:"varint,14,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
-	ClusterType                int32 `protobuf:"varint,15,opt,name=cluster_type,json=clusterType" json:"cluster_type,omitempty"`
-	SubCode                    int32 `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	MetadataRootAccess         int32 `protobuf:"varint,17,opt,name=metadata_root_access,json=metadataRootAccess" json:"metadata_root_access,omitempty"`
+	IncrementalBackupSupported *int32 `protobuf:"varint,14,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
+	ClusterType                *int32 `protobuf:"varint,15,opt,name=cluster_type,json=clusterType" json:"cluster_type,omitempty"`
+	SubCode                    *int32 `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	MetadataRootAccess         *int32 `protobuf:"varint,17,opt,name=metadata_root_access,json=metadataRootAccess" json:"metadata_root_access,omitempty"`
 	// google.protobuf.Any add_links = 18;
-	UpgradeStatus string                      `protobuf:"bytes,19,opt,name=upgrade_status,json=upgradeStatus" json:"upgrade_status,omitempty"`
+	UpgradeStatus *string                     `protobuf:"bytes,19,opt,name=upgrade_status,json=upgradeStatus" json:"upgrade_status,omitempty"`
 	StatusTime    *google_protobuf1.Timestamp `protobuf:"bytes,20,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	NodeCount     int32                       `protobuf:"varint,21,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	AppVersion    string                      `protobuf:"bytes,22,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	NodeCount     *int32                      `protobuf:"varint,21,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	AppVersion    *string                     `protobuf:"bytes,22,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
 	Vxnet         *VxNet                      `protobuf:"bytes,23,opt,name=vxnet" json:"vxnet,omitempty"`
-	Status        string                      `protobuf:"bytes,24,opt,name=status" json:"status,omitempty"`
-	Description   string                      `protobuf:"bytes,25,opt,name=description" json:"description,omitempty"`
+	Status        *string                     `protobuf:"bytes,24,opt,name=status" json:"status,omitempty"`
+	Description   *string                     `protobuf:"bytes,25,opt,name=description" json:"description,omitempty"`
 	// google.protobuf.Any parent = 26;
 	// repeated google.protobuf.Any tags = 27;
 	AppInfo          *Cluster_AppInfo `protobuf:"bytes,28,opt,name=app_info,json=appInfo" json:"app_info,omitempty"`
-	TransitionStatus string           `protobuf:"bytes,29,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	ReuseHyper       int32            `protobuf:"varint,30,opt,name=reuse_hyper,json=reuseHyper" json:"reuse_hyper,omitempty"`
-	Controller       string           `protobuf:"bytes,31,opt,name=controller" json:"controller,omitempty"`
+	TransitionStatus *string          `protobuf:"bytes,29,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	ReuseHyper       *int32           `protobuf:"varint,30,opt,name=reuse_hyper,json=reuseHyper" json:"reuse_hyper,omitempty"`
+	Controller       *string          `protobuf:"bytes,31,opt,name=controller" json:"controller,omitempty"`
 	// repeated google.protobuf.Any upgrade_policy = 32;
-	PartnerAccess int32    `protobuf:"varint,33,opt,name=partner_access,json=partnerAccess" json:"partner_access,omitempty"`
-	Name          string   `protobuf:"bytes,34,opt,name=name" json:"name,omitempty"`
+	PartnerAccess *int32   `protobuf:"varint,33,opt,name=partner_access,json=partnerAccess" json:"partner_access,omitempty"`
+	Name          *string  `protobuf:"bytes,34,opt,name=name" json:"name,omitempty"`
 	Roles         []string `protobuf:"bytes,35,rep,name=roles" json:"roles,omitempty"`
 	// google.protobuf.Timestamp lastest_snapshot_time = 36;
-	LastestSnapshotTime string `protobuf:"bytes,36,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
-	RootUserId          string `protobuf:"bytes,37,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	Debug               int32  `protobuf:"varint,38,opt,name=debug" json:"debug,omitempty"`
+	LastestSnapshotTime *string `protobuf:"bytes,36,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
+	RootUserId          *string `protobuf:"bytes,37,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	Debug               *int32  `protobuf:"varint,38,opt,name=debug" json:"debug,omitempty"`
 	// repeated google.protobuf.Any backup_policy = 39;
 	// repeated google.protobuf.Any endpoints = 40;
-	Backup         *Cluster_HealthCheckEnablement `protobuf:"bytes,41,opt,name=backup" json:"backup,omitempty"`
-	AppVersionInfo *Cluster_AppVersionInfo        `protobuf:"bytes,42,opt,name=app_version_info,json=appVersionInfo" json:"app_version_info,omitempty"`
+	Backup           *Cluster_HealthCheckEnablement `protobuf:"bytes,41,opt,name=backup" json:"backup,omitempty"`
+	AppVersionInfo   *Cluster_AppVersionInfo        `protobuf:"bytes,42,opt,name=app_version_info,json=appVersionInfo" json:"app_version_info,omitempty"`
+	XXX_unrecognized []byte                         `json:"-"`
 }
 
 func (m *Cluster) Reset()                    { *m = Cluster{} }
@@ -5034,15 +5095,15 @@ func (*Cluster) ProtoMessage()               {}
 func (*Cluster) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60} }
 
 func (m *Cluster) GetGlobalUuid() string {
-	if m != nil {
-		return m.GlobalUuid
+	if m != nil && m.GlobalUuid != nil {
+		return *m.GlobalUuid
 	}
 	return ""
 }
 
 func (m *Cluster) GetAutoBackupTime() int32 {
-	if m != nil {
-		return m.AutoBackupTime
+	if m != nil && m.AutoBackupTime != nil {
+		return *m.AutoBackupTime
 	}
 	return 0
 }
@@ -5055,8 +5116,8 @@ func (m *Cluster) GetHealthCheckEnablement() *Cluster_HealthCheckEnablement {
 }
 
 func (m *Cluster) GetCfgmgmtId() string {
-	if m != nil {
-		return m.CfgmgmtId
+	if m != nil && m.CfgmgmtId != nil {
+		return *m.CfgmgmtId
 	}
 	return ""
 }
@@ -5069,8 +5130,8 @@ func (m *Cluster) GetCustomService() *Cluster_CustomService {
 }
 
 func (m *Cluster) GetAppId() string {
-	if m != nil {
-		return m.AppId
+	if m != nil && m.AppId != nil {
+		return *m.AppId
 	}
 	return ""
 }
@@ -5083,8 +5144,8 @@ func (m *Cluster) GetAdvancedActions() *Cluster_AdvancedActions {
 }
 
 func (m *Cluster) GetConsoleId() string {
-	if m != nil {
-		return m.ConsoleId
+	if m != nil && m.ConsoleId != nil {
+		return *m.ConsoleId
 	}
 	return ""
 }
@@ -5097,15 +5158,15 @@ func (m *Cluster) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Cluster) GetClusterId() string {
-	if m != nil {
-		return m.ClusterId
+	if m != nil && m.ClusterId != nil {
+		return *m.ClusterId
 	}
 	return ""
 }
 
 func (m *Cluster) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
@@ -5118,36 +5179,36 @@ func (m *Cluster) GetUpgradeTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Cluster) GetIncrementalBackupSupported() int32 {
-	if m != nil {
-		return m.IncrementalBackupSupported
+	if m != nil && m.IncrementalBackupSupported != nil {
+		return *m.IncrementalBackupSupported
 	}
 	return 0
 }
 
 func (m *Cluster) GetClusterType() int32 {
-	if m != nil {
-		return m.ClusterType
+	if m != nil && m.ClusterType != nil {
+		return *m.ClusterType
 	}
 	return 0
 }
 
 func (m *Cluster) GetSubCode() int32 {
-	if m != nil {
-		return m.SubCode
+	if m != nil && m.SubCode != nil {
+		return *m.SubCode
 	}
 	return 0
 }
 
 func (m *Cluster) GetMetadataRootAccess() int32 {
-	if m != nil {
-		return m.MetadataRootAccess
+	if m != nil && m.MetadataRootAccess != nil {
+		return *m.MetadataRootAccess
 	}
 	return 0
 }
 
 func (m *Cluster) GetUpgradeStatus() string {
-	if m != nil {
-		return m.UpgradeStatus
+	if m != nil && m.UpgradeStatus != nil {
+		return *m.UpgradeStatus
 	}
 	return ""
 }
@@ -5160,15 +5221,15 @@ func (m *Cluster) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Cluster) GetNodeCount() int32 {
-	if m != nil {
-		return m.NodeCount
+	if m != nil && m.NodeCount != nil {
+		return *m.NodeCount
 	}
 	return 0
 }
 
 func (m *Cluster) GetAppVersion() string {
-	if m != nil {
-		return m.AppVersion
+	if m != nil && m.AppVersion != nil {
+		return *m.AppVersion
 	}
 	return ""
 }
@@ -5181,15 +5242,15 @@ func (m *Cluster) GetVxnet() *VxNet {
 }
 
 func (m *Cluster) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *Cluster) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
@@ -5202,36 +5263,36 @@ func (m *Cluster) GetAppInfo() *Cluster_AppInfo {
 }
 
 func (m *Cluster) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *Cluster) GetReuseHyper() int32 {
-	if m != nil {
-		return m.ReuseHyper
+	if m != nil && m.ReuseHyper != nil {
+		return *m.ReuseHyper
 	}
 	return 0
 }
 
 func (m *Cluster) GetController() string {
-	if m != nil {
-		return m.Controller
+	if m != nil && m.Controller != nil {
+		return *m.Controller
 	}
 	return ""
 }
 
 func (m *Cluster) GetPartnerAccess() int32 {
-	if m != nil {
-		return m.PartnerAccess
+	if m != nil && m.PartnerAccess != nil {
+		return *m.PartnerAccess
 	}
 	return 0
 }
 
 func (m *Cluster) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
@@ -5244,22 +5305,22 @@ func (m *Cluster) GetRoles() []string {
 }
 
 func (m *Cluster) GetLastestSnapshotTime() string {
-	if m != nil {
-		return m.LastestSnapshotTime
+	if m != nil && m.LastestSnapshotTime != nil {
+		return *m.LastestSnapshotTime
 	}
 	return ""
 }
 
 func (m *Cluster) GetRootUserId() string {
-	if m != nil {
-		return m.RootUserId
+	if m != nil && m.RootUserId != nil {
+		return *m.RootUserId
 	}
 	return ""
 }
 
 func (m *Cluster) GetDebug() int32 {
-	if m != nil {
-		return m.Debug
+	if m != nil && m.Debug != nil {
+		return *m.Debug
 	}
 	return 0
 }
@@ -5279,9 +5340,10 @@ func (m *Cluster) GetAppVersionInfo() *Cluster_AppVersionInfo {
 }
 
 type Cluster_HealthCheckEnablement struct {
-	Ca       bool `protobuf:"varint,1,opt,name=ca" json:"ca,omitempty"`
-	Orderer  bool `protobuf:"varint,2,opt,name=orderer" json:"orderer,omitempty"`
-	PeerNode bool `protobuf:"varint,3,opt,name=peer_node,json=peerNode" json:"peer_node,omitempty"`
+	Ca               *bool  `protobuf:"varint,1,opt,name=ca" json:"ca,omitempty"`
+	Orderer          *bool  `protobuf:"varint,2,opt,name=orderer" json:"orderer,omitempty"`
+	PeerNode         *bool  `protobuf:"varint,3,opt,name=peer_node,json=peerNode" json:"peer_node,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
 }
 
 func (m *Cluster_HealthCheckEnablement) Reset()         { *m = Cluster_HealthCheckEnablement{} }
@@ -5292,27 +5354,28 @@ func (*Cluster_HealthCheckEnablement) Descriptor() ([]byte, []int) {
 }
 
 func (m *Cluster_HealthCheckEnablement) GetCa() bool {
-	if m != nil {
-		return m.Ca
+	if m != nil && m.Ca != nil {
+		return *m.Ca
 	}
 	return false
 }
 
 func (m *Cluster_HealthCheckEnablement) GetOrderer() bool {
-	if m != nil {
-		return m.Orderer
+	if m != nil && m.Orderer != nil {
+		return *m.Orderer
 	}
 	return false
 }
 
 func (m *Cluster_HealthCheckEnablement) GetPeerNode() bool {
-	if m != nil {
-		return m.PeerNode
+	if m != nil && m.PeerNode != nil {
+		return *m.PeerNode
 	}
 	return false
 }
 
 type Cluster_CustomService struct {
+	XXX_unrecognized []byte `json:"-"`
 }
 
 func (m *Cluster_CustomService) Reset()                    { *m = Cluster_CustomService{} }
@@ -5321,6 +5384,7 @@ func (*Cluster_CustomService) ProtoMessage()               {}
 func (*Cluster_CustomService) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60, 1} }
 
 type Cluster_AdvancedActions struct {
+	XXX_unrecognized []byte `json:"-"`
 }
 
 func (m *Cluster_AdvancedActions) Reset()                    { *m = Cluster_AdvancedActions{} }
@@ -5329,9 +5393,10 @@ func (*Cluster_AdvancedActions) ProtoMessage()               {}
 func (*Cluster_AdvancedActions) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60, 2} }
 
 type Cluster_AppInfo struct {
-	Icon    string `protobuf:"bytes,1,opt,name=icon" json:"icon,omitempty"`
-	AppId   string `protobuf:"bytes,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	AppName string `protobuf:"bytes,3,opt,name=app_name,json=appName" json:"app_name,omitempty"`
+	Icon             *string `protobuf:"bytes,1,opt,name=icon" json:"icon,omitempty"`
+	AppId            *string `protobuf:"bytes,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppName          *string `protobuf:"bytes,3,opt,name=app_name,json=appName" json:"app_name,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *Cluster_AppInfo) Reset()                    { *m = Cluster_AppInfo{} }
@@ -5340,31 +5405,32 @@ func (*Cluster_AppInfo) ProtoMessage()               {}
 func (*Cluster_AppInfo) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60, 3} }
 
 func (m *Cluster_AppInfo) GetIcon() string {
-	if m != nil {
-		return m.Icon
+	if m != nil && m.Icon != nil {
+		return *m.Icon
 	}
 	return ""
 }
 
 func (m *Cluster_AppInfo) GetAppId() string {
-	if m != nil {
-		return m.AppId
+	if m != nil && m.AppId != nil {
+		return *m.AppId
 	}
 	return ""
 }
 
 func (m *Cluster_AppInfo) GetAppName() string {
-	if m != nil {
-		return m.AppName
+	if m != nil && m.AppName != nil {
+		return *m.AppName
 	}
 	return ""
 }
 
 type Cluster_AppVersionInfo struct {
-	StatusTime  *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	ResourceKit string                      `protobuf:"bytes,2,opt,name=resource_kit,json=resourceKit" json:"resource_kit,omitempty"`
-	Name        string                      `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
-	VersionId   string                      `protobuf:"bytes,4,opt,name=version_id,json=versionId" json:"version_id,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	ResourceKit      *string                     `protobuf:"bytes,2,opt,name=resource_kit,json=resourceKit" json:"resource_kit,omitempty"`
+	Name             *string                     `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	VersionId        *string                     `protobuf:"bytes,4,opt,name=version_id,json=versionId" json:"version_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *Cluster_AppVersionInfo) Reset()                    { *m = Cluster_AppVersionInfo{} }
@@ -5380,86 +5446,87 @@ func (m *Cluster_AppVersionInfo) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *Cluster_AppVersionInfo) GetResourceKit() string {
-	if m != nil {
-		return m.ResourceKit
+	if m != nil && m.ResourceKit != nil {
+		return *m.ResourceKit
 	}
 	return ""
 }
 
 func (m *Cluster_AppVersionInfo) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
 
 func (m *Cluster_AppVersionInfo) GetVersionId() string {
-	if m != nil {
-		return m.VersionId
+	if m != nil && m.VersionId != nil {
+		return *m.VersionId
 	}
 	return ""
 }
 
 type ClasterNode struct {
 	// "passphraseless":null,
-	VerticalScalingPolicy string `protobuf:"bytes,2,opt,name=vertical_scaling_policy,json=verticalScalingPolicy" json:"vertical_scaling_policy,omitempty"`
-	VxnetId               string `protobuf:"bytes,3,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	VerticalScalingPolicy *string `protobuf:"bytes,2,opt,name=vertical_scaling_policy,json=verticalScalingPolicy" json:"vertical_scaling_policy,omitempty"`
+	VxnetId               *string `protobuf:"bytes,3,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
 	// "destroy_service":null,
-	CustomService string `protobuf:"bytes,5,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
-	AppId         string `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	CustomService *string `protobuf:"bytes,5,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
+	AppId         *string `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
 	// "advanced_actions":null,
-	ConsoleId   string                      `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	StopService string                      `protobuf:"bytes,9,opt,name=stop_service,json=stopService" json:"stop_service,omitempty"`
-	UserAccess  int32                       `protobuf:"varint,10,opt,name=user_access,json=userAccess" json:"user_access,omitempty"`
+	ConsoleId   *string                     `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	StopService *string                     `protobuf:"bytes,9,opt,name=stop_service,json=stopService" json:"stop_service,omitempty"`
+	UserAccess  *int32                      `protobuf:"varint,10,opt,name=user_access,json=userAccess" json:"user_access,omitempty"`
 	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	ClusterId   string                      `protobuf:"bytes,12,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
-	PrivateIp   string                      `protobuf:"bytes,13,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	ClusterId   *string                     `protobuf:"bytes,12,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
+	PrivateIp   *string                     `protobuf:"bytes,13,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
 	// "upgrade_service":null,
-	Owner                      string `protobuf:"bytes,15,opt,name=owner" json:"owner,omitempty"`
-	AlarmStatus                string `protobuf:"bytes,16,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	IncrementalBackupSupported int32  `protobuf:"varint,17,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
+	Owner                      *string `protobuf:"bytes,15,opt,name=owner" json:"owner,omitempty"`
+	AlarmStatus                *string `protobuf:"bytes,16,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	IncrementalBackupSupported *int32  `protobuf:"varint,17,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
 	// "restore_service":null,
-	ServerId         int32                       `protobuf:"varint,19,opt,name=server_id,json=serverId" json:"server_id,omitempty"`
-	Monitor          string                      `protobuf:"bytes,20,opt,name=monitor" json:"monitor,omitempty"`
-	HealthStatus     string                      `protobuf:"bytes,21,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
-	IsBackup         int32                       `protobuf:"varint,22,opt,name=is_backup,json=isBackup" json:"is_backup,omitempty"`
-	RootUserId       string                      `protobuf:"bytes,23,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	Role             string                      `protobuf:"bytes,24,opt,name=role" json:"role,omitempty"`
-	Memory           int32                       `protobuf:"varint,25,opt,name=memory" json:"memory,omitempty"`
+	ServerId         *int32                      `protobuf:"varint,19,opt,name=server_id,json=serverId" json:"server_id,omitempty"`
+	Monitor          *string                     `protobuf:"bytes,20,opt,name=monitor" json:"monitor,omitempty"`
+	HealthStatus     *string                     `protobuf:"bytes,21,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
+	IsBackup         *int32                      `protobuf:"varint,22,opt,name=is_backup,json=isBackup" json:"is_backup,omitempty"`
+	RootUserId       *string                     `protobuf:"bytes,23,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	Role             *string                     `protobuf:"bytes,24,opt,name=role" json:"role,omitempty"`
+	Memory           *int32                      `protobuf:"varint,25,opt,name=memory" json:"memory,omitempty"`
 	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,26,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	RestartService   string                      `protobuf:"bytes,27,opt,name=restart_service,json=restartService" json:"restart_service,omitempty"`
-	AppVersion       string                      `protobuf:"bytes,28,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	Status           string                      `protobuf:"bytes,29,opt,name=status" json:"status,omitempty"`
-	GlobalServerId   int32                       `protobuf:"varint,30,opt,name=global_server_id,json=globalServerId" json:"global_server_id,omitempty"`
-	ScaleInService   string                      `protobuf:"bytes,31,opt,name=scale_in_service,json=scaleInService" json:"scale_in_service,omitempty"`
-	AutoBackup       int32                       `protobuf:"varint,32,opt,name=auto_backup,json=autoBackup" json:"auto_backup,omitempty"`
-	TransitionStatus string                      `protobuf:"bytes,33,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	RestartService   *string                     `protobuf:"bytes,27,opt,name=restart_service,json=restartService" json:"restart_service,omitempty"`
+	AppVersion       *string                     `protobuf:"bytes,28,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	Status           *string                     `protobuf:"bytes,29,opt,name=status" json:"status,omitempty"`
+	GlobalServerId   *int32                      `protobuf:"varint,30,opt,name=global_server_id,json=globalServerId" json:"global_server_id,omitempty"`
+	ScaleInService   *string                     `protobuf:"bytes,31,opt,name=scale_in_service,json=scaleInService" json:"scale_in_service,omitempty"`
+	AutoBackup       *int32                      `protobuf:"varint,32,opt,name=auto_backup,json=autoBackup" json:"auto_backup,omitempty"`
+	TransitionStatus *string                     `protobuf:"bytes,33,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
 	// "custom_metadata":null,
-	StorageSize int32 `protobuf:"varint,35,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	StorageSize *int32 `protobuf:"varint,35,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
 	// "server_id_upper_bound":null,
-	ImageId        string `protobuf:"bytes,37,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	Controller     string `protobuf:"bytes,38,opt,name=controller" json:"controller,omitempty"`
-	NodeId         string `protobuf:"bytes,39,opt,name=node_id,json=nodeId" json:"node_id,omitempty"`
-	AgentInstalled int32  `protobuf:"varint,40,opt,name=agent_installed,json=agentInstalled" json:"agent_installed,omitempty"`
+	ImageId        *string `protobuf:"bytes,37,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	Controller     *string `protobuf:"bytes,38,opt,name=controller" json:"controller,omitempty"`
+	NodeId         *string `protobuf:"bytes,39,opt,name=node_id,json=nodeId" json:"node_id,omitempty"`
+	AgentInstalled *int32  `protobuf:"varint,40,opt,name=agent_installed,json=agentInstalled" json:"agent_installed,omitempty"`
 	// "reserved_ips":null,
 	// "backup_policy":null,
-	StartService string `protobuf:"bytes,43,opt,name=start_service,json=startService" json:"start_service,omitempty"`
-	VolumeIds    string `protobuf:"bytes,44,opt,name=volume_ids,json=volumeIds" json:"volume_ids,omitempty"`
-	Name         string `protobuf:"bytes,45,opt,name=name" json:"name,omitempty"`
-	Hypervisor   string `protobuf:"bytes,46,opt,name=hypervisor" json:"hypervisor,omitempty"`
+	StartService *string `protobuf:"bytes,43,opt,name=start_service,json=startService" json:"start_service,omitempty"`
+	VolumeIds    *string `protobuf:"bytes,44,opt,name=volume_ids,json=volumeIds" json:"volume_ids,omitempty"`
+	Name         *string `protobuf:"bytes,45,opt,name=name" json:"name,omitempty"`
+	Hypervisor   *string `protobuf:"bytes,46,opt,name=hypervisor" json:"hypervisor,omitempty"`
 	// "delete_snapshot_service":null,
-	InitService     string `protobuf:"bytes,48,opt,name=init_service,json=initService" json:"init_service,omitempty"`
-	InstanceId      string `protobuf:"bytes,49,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	ScaleOutService string `protobuf:"bytes,50,opt,name=scale_out_service,json=scaleOutService" json:"scale_out_service,omitempty"`
-	Repl            string `protobuf:"bytes,51,opt,name=repl" json:"repl,omitempty"`
+	InitService     *string `protobuf:"bytes,48,opt,name=init_service,json=initService" json:"init_service,omitempty"`
+	InstanceId      *string `protobuf:"bytes,49,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	ScaleOutService *string `protobuf:"bytes,50,opt,name=scale_out_service,json=scaleOutService" json:"scale_out_service,omitempty"`
+	Repl            *string `protobuf:"bytes,51,opt,name=repl" json:"repl,omitempty"`
 	// "custom_metadata_script":null,
-	HealthCheck    string `protobuf:"bytes,52,opt,name=health_check,json=healthCheck" json:"health_check,omitempty"`
-	Debug          int32  `protobuf:"varint,53,opt,name=debug" json:"debug,omitempty"`
-	SingleNodeRepl string `protobuf:"bytes,54,opt,name=single_node_repl,json=singleNodeRepl" json:"single_node_repl,omitempty"`
+	HealthCheck    *string `protobuf:"bytes,52,opt,name=health_check,json=healthCheck" json:"health_check,omitempty"`
+	Debug          *int32  `protobuf:"varint,53,opt,name=debug" json:"debug,omitempty"`
+	SingleNodeRepl *string `protobuf:"bytes,54,opt,name=single_node_repl,json=singleNodeRepl" json:"single_node_repl,omitempty"`
 	// "pub_key":null,
-	GroupId int32 `protobuf:"varint,56,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+	GroupId *int32 `protobuf:"varint,56,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
 	// "backup_service":null,
-	Cpu int32 `protobuf:"varint,58,opt,name=cpu" json:"cpu,omitempty"`
+	Cpu              *int32 `protobuf:"varint,58,opt,name=cpu" json:"cpu,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
 }
 
 func (m *ClasterNode) Reset()                    { *m = ClasterNode{} }
@@ -5468,50 +5535,50 @@ func (*ClasterNode) ProtoMessage()               {}
 func (*ClasterNode) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{61} }
 
 func (m *ClasterNode) GetVerticalScalingPolicy() string {
-	if m != nil {
-		return m.VerticalScalingPolicy
+	if m != nil && m.VerticalScalingPolicy != nil {
+		return *m.VerticalScalingPolicy
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetCustomService() string {
-	if m != nil {
-		return m.CustomService
+	if m != nil && m.CustomService != nil {
+		return *m.CustomService
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetAppId() string {
-	if m != nil {
-		return m.AppId
+	if m != nil && m.AppId != nil {
+		return *m.AppId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetConsoleId() string {
-	if m != nil {
-		return m.ConsoleId
+	if m != nil && m.ConsoleId != nil {
+		return *m.ConsoleId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetStopService() string {
-	if m != nil {
-		return m.StopService
+	if m != nil && m.StopService != nil {
+		return *m.StopService
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetUserAccess() int32 {
-	if m != nil {
-		return m.UserAccess
+	if m != nil && m.UserAccess != nil {
+		return *m.UserAccess
 	}
 	return 0
 }
@@ -5524,85 +5591,85 @@ func (m *ClasterNode) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *ClasterNode) GetClusterId() string {
-	if m != nil {
-		return m.ClusterId
+	if m != nil && m.ClusterId != nil {
+		return *m.ClusterId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetAlarmStatus() string {
-	if m != nil {
-		return m.AlarmStatus
+	if m != nil && m.AlarmStatus != nil {
+		return *m.AlarmStatus
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetIncrementalBackupSupported() int32 {
-	if m != nil {
-		return m.IncrementalBackupSupported
+	if m != nil && m.IncrementalBackupSupported != nil {
+		return *m.IncrementalBackupSupported
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetServerId() int32 {
-	if m != nil {
-		return m.ServerId
+	if m != nil && m.ServerId != nil {
+		return *m.ServerId
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetMonitor() string {
-	if m != nil {
-		return m.Monitor
+	if m != nil && m.Monitor != nil {
+		return *m.Monitor
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetHealthStatus() string {
-	if m != nil {
-		return m.HealthStatus
+	if m != nil && m.HealthStatus != nil {
+		return *m.HealthStatus
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetIsBackup() int32 {
-	if m != nil {
-		return m.IsBackup
+	if m != nil && m.IsBackup != nil {
+		return *m.IsBackup
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetRootUserId() string {
-	if m != nil {
-		return m.RootUserId
+	if m != nil && m.RootUserId != nil {
+		return *m.RootUserId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetRole() string {
-	if m != nil {
-		return m.Role
+	if m != nil && m.Role != nil {
+		return *m.Role
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetMemory() int32 {
-	if m != nil {
-		return m.Memory
+	if m != nil && m.Memory != nil {
+		return *m.Memory
 	}
 	return 0
 }
@@ -5615,187 +5682,188 @@ func (m *ClasterNode) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *ClasterNode) GetRestartService() string {
-	if m != nil {
-		return m.RestartService
+	if m != nil && m.RestartService != nil {
+		return *m.RestartService
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetAppVersion() string {
-	if m != nil {
-		return m.AppVersion
+	if m != nil && m.AppVersion != nil {
+		return *m.AppVersion
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetGlobalServerId() int32 {
-	if m != nil {
-		return m.GlobalServerId
+	if m != nil && m.GlobalServerId != nil {
+		return *m.GlobalServerId
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetScaleInService() string {
-	if m != nil {
-		return m.ScaleInService
+	if m != nil && m.ScaleInService != nil {
+		return *m.ScaleInService
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetAutoBackup() int32 {
-	if m != nil {
-		return m.AutoBackup
+	if m != nil && m.AutoBackup != nil {
+		return *m.AutoBackup
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetTransitionStatus() string {
-	if m != nil {
-		return m.TransitionStatus
+	if m != nil && m.TransitionStatus != nil {
+		return *m.TransitionStatus
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetStorageSize() int32 {
-	if m != nil {
-		return m.StorageSize
+	if m != nil && m.StorageSize != nil {
+		return *m.StorageSize
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetImageId() string {
-	if m != nil {
-		return m.ImageId
+	if m != nil && m.ImageId != nil {
+		return *m.ImageId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetController() string {
-	if m != nil {
-		return m.Controller
+	if m != nil && m.Controller != nil {
+		return *m.Controller
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetNodeId() string {
-	if m != nil {
-		return m.NodeId
+	if m != nil && m.NodeId != nil {
+		return *m.NodeId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetAgentInstalled() int32 {
-	if m != nil {
-		return m.AgentInstalled
+	if m != nil && m.AgentInstalled != nil {
+		return *m.AgentInstalled
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetStartService() string {
-	if m != nil {
-		return m.StartService
+	if m != nil && m.StartService != nil {
+		return *m.StartService
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetVolumeIds() string {
-	if m != nil {
-		return m.VolumeIds
+	if m != nil && m.VolumeIds != nil {
+		return *m.VolumeIds
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetHypervisor() string {
-	if m != nil {
-		return m.Hypervisor
+	if m != nil && m.Hypervisor != nil {
+		return *m.Hypervisor
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetInitService() string {
-	if m != nil {
-		return m.InitService
+	if m != nil && m.InitService != nil {
+		return *m.InitService
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetInstanceId() string {
-	if m != nil {
-		return m.InstanceId
+	if m != nil && m.InstanceId != nil {
+		return *m.InstanceId
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetScaleOutService() string {
-	if m != nil {
-		return m.ScaleOutService
+	if m != nil && m.ScaleOutService != nil {
+		return *m.ScaleOutService
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetRepl() string {
-	if m != nil {
-		return m.Repl
+	if m != nil && m.Repl != nil {
+		return *m.Repl
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetHealthCheck() string {
-	if m != nil {
-		return m.HealthCheck
+	if m != nil && m.HealthCheck != nil {
+		return *m.HealthCheck
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetDebug() int32 {
-	if m != nil {
-		return m.Debug
+	if m != nil && m.Debug != nil {
+		return *m.Debug
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetSingleNodeRepl() string {
-	if m != nil {
-		return m.SingleNodeRepl
+	if m != nil && m.SingleNodeRepl != nil {
+		return *m.SingleNodeRepl
 	}
 	return ""
 }
 
 func (m *ClasterNode) GetGroupId() int32 {
-	if m != nil {
-		return m.GroupId
+	if m != nil && m.GroupId != nil {
+		return *m.GroupId
 	}
 	return 0
 }
 
 func (m *ClasterNode) GetCpu() int32 {
-	if m != nil {
-		return m.Cpu
+	if m != nil && m.Cpu != nil {
+		return *m.Cpu
 	}
 	return 0
 }
 
 type ResourceGroupsItem struct {
-	ResourceGroupId   string                      `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	ResourceGroupId   *string                     `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
 	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description       string                      `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	ResourceGroupName string                      `protobuf:"bytes,4,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
-	ResourceType      string                      `protobuf:"bytes,5,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	ResourceId        string                      `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	Description       *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	ResourceGroupName *string                     `protobuf:"bytes,4,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	ResourceType      *string                     `protobuf:"bytes,5,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	ResourceId        *string                     `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	XXX_unrecognized  []byte                      `json:"-"`
 }
 
 func (m *ResourceGroupsItem) Reset()                    { *m = ResourceGroupsItem{} }
@@ -5804,8 +5872,8 @@ func (*ResourceGroupsItem) ProtoMessage()               {}
 func (*ResourceGroupsItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{62} }
 
 func (m *ResourceGroupsItem) GetResourceGroupId() string {
-	if m != nil {
-		return m.ResourceGroupId
+	if m != nil && m.ResourceGroupId != nil {
+		return *m.ResourceGroupId
 	}
 	return ""
 }
@@ -5818,42 +5886,43 @@ func (m *ResourceGroupsItem) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *ResourceGroupsItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *ResourceGroupsItem) GetResourceGroupName() string {
-	if m != nil {
-		return m.ResourceGroupName
+	if m != nil && m.ResourceGroupName != nil {
+		return *m.ResourceGroupName
 	}
 	return ""
 }
 
 func (m *ResourceGroupsItem) GetResourceType() string {
-	if m != nil {
-		return m.ResourceType
+	if m != nil && m.ResourceType != nil {
+		return *m.ResourceType
 	}
 	return ""
 }
 
 func (m *ResourceGroupsItem) GetResourceId() string {
-	if m != nil {
-		return m.ResourceId
+	if m != nil && m.ResourceId != nil {
+		return *m.ResourceId
 	}
 	return ""
 }
 
 type UserGroupItem struct {
-	Status        string                      `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	Description   string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	UserGroupName string                      `protobuf:"bytes,3,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
-	CreateTime    *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime    *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	UserGroupId   string                      `protobuf:"bytes,6,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	UserId        string                      `protobuf:"bytes,7,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	Remarks       string                      `protobuf:"bytes,8,opt,name=remarks" json:"remarks,omitempty"`
+	Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	UserGroupName    *string                     `protobuf:"bytes,3,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	UserGroupId      *string                     `protobuf:"bytes,6,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	UserId           *string                     `protobuf:"bytes,7,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	Remarks          *string                     `protobuf:"bytes,8,opt,name=remarks" json:"remarks,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *UserGroupItem) Reset()                    { *m = UserGroupItem{} }
@@ -5862,22 +5931,22 @@ func (*UserGroupItem) ProtoMessage()               {}
 func (*UserGroupItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{63} }
 
 func (m *UserGroupItem) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *UserGroupItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *UserGroupItem) GetUserGroupName() string {
-	if m != nil {
-		return m.UserGroupName
+	if m != nil && m.UserGroupName != nil {
+		return *m.UserGroupName
 	}
 	return ""
 }
@@ -5897,34 +5966,35 @@ func (m *UserGroupItem) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *UserGroupItem) GetUserGroupId() string {
-	if m != nil {
-		return m.UserGroupId
+	if m != nil && m.UserGroupId != nil {
+		return *m.UserGroupId
 	}
 	return ""
 }
 
 func (m *UserGroupItem) GetUserId() string {
-	if m != nil {
-		return m.UserId
+	if m != nil && m.UserId != nil {
+		return *m.UserId
 	}
 	return ""
 }
 
 func (m *UserGroupItem) GetRemarks() string {
-	if m != nil {
-		return m.Remarks
+	if m != nil && m.Remarks != nil {
+		return *m.Remarks
 	}
 	return ""
 }
 
 type GroupRoleItem struct {
-	Status        string                      `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	Description   string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	GroupRoleId   string                      `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	CreateTime    *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	GroupRoleName string                      `protobuf:"bytes,5,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
-	StatusTime    *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	RoleType      string                      `protobuf:"bytes,7,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
+	Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	GroupRoleId      *string                     `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	GroupRoleName    *string                     `protobuf:"bytes,5,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	RoleType         *string                     `protobuf:"bytes,7,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *GroupRoleItem) Reset()                    { *m = GroupRoleItem{} }
@@ -5933,22 +6003,22 @@ func (*GroupRoleItem) ProtoMessage()               {}
 func (*GroupRoleItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{64} }
 
 func (m *GroupRoleItem) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *GroupRoleItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *GroupRoleItem) GetGroupRoleId() string {
-	if m != nil {
-		return m.GroupRoleId
+	if m != nil && m.GroupRoleId != nil {
+		return *m.GroupRoleId
 	}
 	return ""
 }
@@ -5961,8 +6031,8 @@ func (m *GroupRoleItem) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *GroupRoleItem) GetGroupRoleName() string {
-	if m != nil {
-		return m.GroupRoleName
+	if m != nil && m.GroupRoleName != nil {
+		return *m.GroupRoleName
 	}
 	return ""
 }
@@ -5975,21 +6045,22 @@ func (m *GroupRoleItem) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *GroupRoleItem) GetRoleType() string {
-	if m != nil {
-		return m.RoleType
+	if m != nil && m.RoleType != nil {
+		return *m.RoleType
 	}
 	return ""
 }
 
 type GroupRoleRuleItem struct {
-	Status          string                      `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	Description     string                      `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	GroupRoleId     string                      `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	CreateTime      *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Principle       string                      `protobuf:"bytes,5,opt,name=principle" json:"principle,omitempty"`
-	Policy          string                      `protobuf:"bytes,6,opt,name=policy" json:"policy,omitempty"`
-	StatusTime      *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	GroupRoleRuleId string                      `protobuf:"bytes,8,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	GroupRoleId      *string                     `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Principle        *string                     `protobuf:"bytes,5,opt,name=principle" json:"principle,omitempty"`
+	Policy           *string                     `protobuf:"bytes,6,opt,name=policy" json:"policy,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	GroupRoleRuleId  *string                     `protobuf:"bytes,8,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *GroupRoleRuleItem) Reset()                    { *m = GroupRoleRuleItem{} }
@@ -5998,22 +6069,22 @@ func (*GroupRoleRuleItem) ProtoMessage()               {}
 func (*GroupRoleRuleItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{65} }
 
 func (m *GroupRoleRuleItem) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *GroupRoleRuleItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *GroupRoleRuleItem) GetGroupRoleId() string {
-	if m != nil {
-		return m.GroupRoleId
+	if m != nil && m.GroupRoleId != nil {
+		return *m.GroupRoleId
 	}
 	return ""
 }
@@ -6026,15 +6097,15 @@ func (m *GroupRoleRuleItem) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *GroupRoleRuleItem) GetPrinciple() string {
-	if m != nil {
-		return m.Principle
+	if m != nil && m.Principle != nil {
+		return *m.Principle
 	}
 	return ""
 }
 
 func (m *GroupRoleRuleItem) GetPolicy() string {
-	if m != nil {
-		return m.Policy
+	if m != nil && m.Policy != nil {
+		return *m.Policy
 	}
 	return ""
 }
@@ -6047,8 +6118,8 @@ func (m *GroupRoleRuleItem) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *GroupRoleRuleItem) GetGroupRoleRuleId() string {
-	if m != nil {
-		return m.GroupRoleRuleId
+	if m != nil && m.GroupRoleRuleId != nil {
+		return *m.GroupRoleRuleId
 	}
 	return ""
 }
@@ -6130,7 +6201,7 @@ func init() {
 func init() { proto.RegisterFile("types.proto", fileDescriptor27) }
 
 var fileDescriptor27 = []byte{
-	// 7724 bytes of a gzipped FileDescriptorProto
+	// 7719 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x7d, 0x4d, 0x8f, 0x24, 0x49,
 	0x96, 0x90, 0x32, 0x22, 0xe3, 0xeb, 0xc5, 0x47, 0x46, 0x7a, 0x7e, 0x45, 0x66, 0x7d, 0x47, 0x7d,
 	0x74, 0x4e, 0x4f, 0x77, 0x55, 0x77, 0xf5, 0xf4, 0x4c, 0xd3, 0xc3, 0x30, 0x5b, 0x95, 0x55, 0x4d,
@@ -6612,6 +6683,6 @@ var fileDescriptor27 = []byte{
 	0xd4, 0x11, 0x40, 0x89, 0xed, 0xff, 0x5c, 0x82, 0xd5, 0x74, 0xb9, 0x28, 0xc4, 0xff, 0x7b, 0xbe,
 	0x64, 0x7c, 0xc1, 0xc2, 0xb7, 0xdd, 0x30, 0xbb, 0xdf, 0x9e, 0x02, 0x70, 0xe2, 0xd2, 0xcf, 0x54,
 	0x5f, 0xa8, 0x4e, 0xaf, 0x33, 0xbd, 0xf3, 0x7f, 0x1e, 0x18, 0x3f, 0x05, 0x43, 0x7b, 0x27, 0x95,
-	0x23, 0x61, 0xbe, 0x5b, 0x19, 0xe7, 0x16, 0xcf, 0x19, 0x55, 0x69, 0xb0, 0xcf, 0xfe, 0x5f, 0x00,
-	0x00, 0x00, 0xff, 0xff, 0x0c, 0x02, 0xd5, 0xf4, 0x33, 0x68, 0x00, 0x00,
+	0x23, 0x61, 0xbe, 0x5b, 0x19, 0xe7, 0x16, 0xcf, 0xf9, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xcc,
+	0xa7, 0x98, 0x32, 0x2b, 0x68, 0x00, 0x00,
 }

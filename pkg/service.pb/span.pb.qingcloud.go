@@ -47,14 +47,14 @@ type SpanService struct {
 func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
 	return &SpanService{
 		Config:     conf,
-		Properties: &SpanServiceProperties{Zone: zone},
+		Properties: &SpanServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/span/index.html
 func (s *QingCloudService) Span(zone string) (*SpanService, error) {
 	properties := &SpanServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &SpanService{Config: s.Config, Properties: properties}, nil

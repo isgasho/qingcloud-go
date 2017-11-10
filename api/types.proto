@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -10,512 +10,512 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/descriptor.proto";
 
 message Tag {
-	string color = 1;
-	google.protobuf.Timestamp create_time = 2;
-	string description = 3;
-	string owner = 4;
-	int32 resource_count = 5;
+	optional string color = 1;
+	optional google.protobuf.Timestamp create_time = 2;
+	optional string description = 3;
+	optional string owner = 4;
+	optional int32 resource_count = 5;
 	repeated ResourceTagPair resource_tag_pairs = 6;
 	repeated ResourceTypeCount resource_type_count = 7;
-	string tag_id = 8;
-	string tag_key = 9;
-	string tag_name = 10;
+	optional string tag_id = 8;
+	optional string tag_key = 9;
+	optional string tag_name = 10;
 }
 
 message ResourceTagPair {
-	string resource_id = 1;
-	string resource_type = 2;
-	string status = 3;
-	google.protobuf.Timestamp status_time = 4;
-	string tag_id = 5;
+	optional string resource_id = 1;
+	optional string resource_type = 2;
+	optional string status = 3;
+	optional google.protobuf.Timestamp status_time = 4;
+	optional string tag_id = 5;
 }
 
 message ResourceTypeCount {
-	int32 count = 1;
-	string resource_type = 2;
+	optional int32 count = 1;
+	optional string resource_type = 2;
 }
 
 message EIP {
-	string alarm_status = 1;
-	int32 associate_mode = 2;
-	int32 bandwidth = 3;
-	string billing_mode = 4;
-	google.protobuf.Timestamp create_time = 5;
-	string description = 6;
-	string eip_addr = 7;
-	string eip_group = 8;
-	string eip_id = 9;
-	string eip_name = 10;
-	string icp_codes = 11;
-	int32 need_icp = 12;
-	Resource resource = 13;
-	string status = 14;
-	google.protobuf.Timestamp status_time = 15;
-	int32 sub_code = 16;
+	optional string alarm_status = 1;
+	optional int32 associate_mode = 2;
+	optional int32 bandwidth = 3;
+	optional string billing_mode = 4;
+	optional google.protobuf.Timestamp create_time = 5;
+	optional string description = 6;
+	optional string eip_addr = 7;
+	optional string eip_group = 8;
+	optional string eip_id = 9;
+	optional string eip_name = 10;
+	optional string icp_codes = 11;
+	optional int32 need_icp = 12;
+	optional Resource resource = 13;
+	optional string status = 14;
+	optional google.protobuf.Timestamp status_time = 15;
+	optional int32 sub_code = 16;
 	repeated Tag tags = 17;
-	string transition_status = 18;
+	optional string transition_status = 18;
 }
 
 message Resource {
-	string resource_id = 1;
-	string resource_name = 2;
-	string resource_type = 3;
+	optional string resource_id = 1;
+	optional string resource_name = 2;
+	optional string resource_type = 3;
 }
 
 message Job {
-	google.protobuf.Timestamp create_time = 1;
-	string job_action = 2;
-	string job_id = 3;
-	string owner = 4;
-	string resource_ids = 5;
-	string status = 6;
-	google.protobuf.Timestamp status_time = 7;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string job_action = 2;
+	optional string job_id = 3;
+	optional string owner = 4;
+	optional string resource_ids = 5;
+	optional string status = 6;
+	optional google.protobuf.Timestamp status_time = 7;
 }
 
 message Volume {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	string device = 3;
-	Instance instance = 4;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional string device = 3;
+	optional Instance instance = 4;
 	repeated Instance instances = 5;
-	google.protobuf.Timestamp latest_snapshot_time = 6;
-	string owner = 7;
-	string place_group_id = 8;
-	int32 size = 9;
-	string status = 10;
-	google.protobuf.Timestamp status_time = 11;
-	int32 sub_code = 12;
+	optional google.protobuf.Timestamp latest_snapshot_time = 6;
+	optional string owner = 7;
+	optional string place_group_id = 8;
+	optional int32 size = 9;
+	optional string status = 10;
+	optional google.protobuf.Timestamp status_time = 11;
+	optional int32 sub_code = 12;
 	repeated Tag tags = 13;
-	string transition_status = 14;
-	string volume_id = 15;
-	string volume_name = 16;
-	int32 volume_type = 17;
+	optional string transition_status = 14;
+	optional string volume_id = 15;
+	optional string volume_name = 16;
+	optional int32 volume_type = 17;
 }
 
 message NIC {
-	google.protobuf.Timestamp create_time = 1;
-	string instance_id = 2;
-	string nic_id = 3;
-	string nic_name = 4;
-	string owner = 5;
-	string private_ip = 6;
-	int32 role = 7;
-	string root_user_id = 8;
-	string security_group = 9;
-	int32 sequence = 10;
-	string status = 11;
-	google.protobuf.Timestamp status_time = 12;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string instance_id = 2;
+	optional string nic_id = 3;
+	optional string nic_name = 4;
+	optional string owner = 5;
+	optional string private_ip = 6;
+	optional int32 role = 7;
+	optional string root_user_id = 8;
+	optional string security_group = 9;
+	optional int32 sequence = 10;
+	optional string status = 11;
+	optional google.protobuf.Timestamp status_time = 12;
 	repeated Tag tags = 13;
-	string vxnet_id = 14;
-	EIP eip = 15;
-	string transition_status = 16;
-	string controller = 17;
-	int32 vxnet_type = 18;
-	string console_id = 19;
-	string resource_id = 20;
+	optional string vxnet_id = 14;
+	optional EIP eip = 15;
+	optional string transition_status = 16;
+	optional string controller = 17;
+	optional int32 vxnet_type = 18;
+	optional string console_id = 19;
+	optional string resource_id = 20;
 }
 
 message KeyPair {
-	string description = 1;
-	string encrypt_method = 2;
+	optional string description = 1;
+	optional string encrypt_method = 2;
 	repeated string instance_ids = 3;
-	string keypair_id = 4;
-	string keypair_name = 5;
-	string pub_key = 6;
+	optional string keypair_id = 4;
+	optional string keypair_name = 5;
+	optional string pub_key = 6;
 	repeated Tag tags = 7;
 }
 
 message VxNet {
-	int32 available_ip_count = 1;
-	google.protobuf.Timestamp create_time = 2;
-	string description = 3;
+	optional int32 available_ip_count = 1;
+	optional google.protobuf.Timestamp create_time = 2;
+	optional string description = 3;
 	repeated string instance_ids = 4;
-	string owner = 5;
-	Router router = 6;
+	optional string owner = 5;
+	optional Router router = 6;
 	repeated Tag tags = 7;
-	string vpc_router_id = 8;
-	string vxnet_id = 9;
-	string vxnet_name = 10;
-	int32 vxnet_type = 11;
+	optional string vpc_router_id = 8;
+	optional string vxnet_id = 9;
+	optional string vxnet_name = 10;
+	optional int32 vxnet_type = 11;
 }
 
 message Router {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	string dyn_ip_end = 3;
-	string dyn_ip_start = 4;
-	EIP eip = 5;
-	string ip_network = 6;
-	int32 is_applied = 7;
-	string manager_ip = 8;
-	int32 mode = 9;
-	string private_ip = 10;
-	string router_id = 11;
-	string router_name = 12;
-	int32 router_type = 13;
-	string security_group_id = 14;
-	string status = 15;
-	google.protobuf.Timestamp status_time = 16;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional string dyn_ip_end = 3;
+	optional string dyn_ip_start = 4;
+	optional EIP eip = 5;
+	optional string ip_network = 6;
+	optional int32 is_applied = 7;
+	optional string manager_ip = 8;
+	optional int32 mode = 9;
+	optional string private_ip = 10;
+	optional string router_id = 11;
+	optional string router_name = 12;
+	optional int32 router_type = 13;
+	optional string security_group_id = 14;
+	optional string status = 15;
+	optional google.protobuf.Timestamp status_time = 16;
 	repeated Tag tags = 17;
-	string transition_status = 18;
+	optional string transition_status = 18;
 	repeated VxNet vxnets = 19;
 }
 
 message Instance {
-	string alarm_status = 1;
-	string cpu_topology = 2;
-	google.protobuf.Timestamp create_time = 3;
-	string description = 4;
-	string device = 5;
+	optional string alarm_status = 1;
+	optional string cpu_topology = 2;
+	optional google.protobuf.Timestamp create_time = 3;
+	optional string description = 4;
+	optional string device = 5;
 	//DHCPOptions      *DHCPOption    `json:"dhcp_options" name:"dhcp_options"`
 	//DNSAliases       []*DNSAlias    `json:"dns_aliases" name:"dns_aliases"`
-	EIP eip = 8;
+	optional EIP eip = 8;
 	//Extra            *Extra         `json:"extra" name:"extra"`
-	string graphics_passwd = 10;
-	string graphics_protocol = 11;
-	Image image = 12;
-	string image_id = 13;
-	int32 instance_class = 14;
-	string instance_id = 15;
-	string instance_name = 16;
-	string instance_type = 17;
+	optional string graphics_passwd = 10;
+	optional string graphics_protocol = 11;
+	optional Image image = 12;
+	optional string image_id = 13;
+	optional int32 instance_class = 14;
+	optional string instance_id = 15;
+	optional string instance_name = 16;
+	optional string instance_type = 17;
 	repeated string keypair_ids = 18;
-	int32 memory_current = 19;
-	string private_ip = 20;
+	optional int32 memory_current = 19;
+	optional string private_ip = 20;
 	//SecurityGroup    *SecurityGroup `json:"security_group" name:"security_group"`
-	string status = 22;
-	google.protobuf.Timestamp status_time = 23;
-	int32 sub_code = 24;
+	optional string status = 22;
+	optional google.protobuf.Timestamp status_time = 23;
+	optional int32 sub_code = 24;
 	repeated Tag tags = 25;
-	string transition_status = 26;
-	int32 vcpus_current = 27;
+	optional string transition_status = 26;
+	optional int32 vcpus_current = 27;
 	repeated string volume_ids = 28;
 	repeated Volume volumes = 29;
 	repeated InstanceVxNet vxnets = 30;
 }
 
 message InstanceVxNet {
-	string nic_id = 1;
-	string private_ip = 2;
-	int32 role = 3;
-	string vxnet_id = 4;
-	string vxnet_name = 5;
-	int32 vxnet_type = 6;
+	optional string nic_id = 1;
+	optional string private_ip = 2;
+	optional int32 role = 3;
+	optional string vxnet_id = 4;
+	optional string vxnet_name = 5;
+	optional int32 vxnet_type = 6;
 }
 
 message Image {
-	string app_billing_id = 1;
-	string architecture = 2;
-	string billing_id = 3;
-	google.protobuf.Timestamp create_time = 4;
-	string default_passwd = 5;
-	string default_user = 6;
-	string description = 7;
-	int32 f_resetpwd = 8;
-	int32 feature = 9;
-	int32 features = 10;
-	string hypervisor = 11;
-	string image_id = 12;
-	string image_name = 13;
+	optional string app_billing_id = 1;
+	optional string architecture = 2;
+	optional string billing_id = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional string default_passwd = 5;
+	optional string default_user = 6;
+	optional string description = 7;
+	optional int32 f_resetpwd = 8;
+	optional int32 feature = 9;
+	optional int32 features = 10;
+	optional string hypervisor = 11;
+	optional string image_id = 12;
+	optional string image_name = 13;
 	repeated string instance_ids = 14;
-	string os_family = 15;
-	string owner = 16;
-	string platform = 17;
-	string processor_type = 18;
-	string provider = 19;
-	string recommended_type = 20;
-	string root_id = 21;
-	int32 size = 22;
-	string status = 23;
-	google.protobuf.Timestamp status_time = 24;
-	int32 sub_code = 25;
-	string transition_status = 26;
-	string ui_type = 27;
-	string visibility = 28;
+	optional string os_family = 15;
+	optional string owner = 16;
+	optional string platform = 17;
+	optional string processor_type = 18;
+	optional string provider = 19;
+	optional string recommended_type = 20;
+	optional string root_id = 21;
+	optional int32 size = 22;
+	optional string status = 23;
+	optional google.protobuf.Timestamp status_time = 24;
+	optional int32 sub_code = 25;
+	optional string transition_status = 26;
+	optional string ui_type = 27;
+	optional string visibility = 28;
 }
 
 message ImageUser {
-	google.protobuf.Timestamp create_time = 1;
-	string image_id = 2;
-	string user = 3;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string image_id = 2;
+	optional string user = 3;
 }
 
 message Mongo {
-	string alarm_status = 1;
-	int32 auto_backup_time = 2;
-	int32 auto_minor_ver_upgrade = 3;
-	google.protobuf.Timestamp create_time = 4;
-	string description = 5;
-	google.protobuf.Timestamp latest_snapshot_time = 6;
-	string mongo_id = 7;
-	string mongo_name = 8;
-	int32 mongo_type = 9;
-	string mongo_version = 10;
-	string status = 11;
-	google.protobuf.Timestamp status_time = 12;
-	int32 storage_size = 13;
+	optional string alarm_status = 1;
+	optional int32 auto_backup_time = 2;
+	optional int32 auto_minor_ver_upgrade = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional string description = 5;
+	optional google.protobuf.Timestamp latest_snapshot_time = 6;
+	optional string mongo_id = 7;
+	optional string mongo_name = 8;
+	optional int32 mongo_type = 9;
+	optional string mongo_version = 10;
+	optional string status = 11;
+	optional google.protobuf.Timestamp status_time = 12;
+	optional int32 storage_size = 13;
 	repeated Tag tags = 14;
-	string transition_status = 15;
-	VxNet vxnet = 16;
+	optional string transition_status = 15;
+	optional VxNet vxnet = 16;
 }
 
 message MongoNode {
-	string ip = 1;
-	string mongo_id = 2;
-	string mongo_node_id = 3;
-	int32 primary = 4;
-	string status = 5;
-	string vxnet_id = 6;
+	optional string ip = 1;
+	optional string mongo_id = 2;
+	optional string mongo_node_id = 3;
+	optional int32 primary = 4;
+	optional string status = 5;
+	optional string vxnet_id = 6;
 }
 
 message LoadBalancer {
 	repeated EIP cluster = 1;
-	google.protobuf.Timestamp create_time = 2;
-	string description = 3;
-	int32 is_applied = 4;
+	optional google.protobuf.Timestamp create_time = 2;
+	optional string description = 3;
+	optional int32 is_applied = 4;
 	repeated LoadBalancerListener listeners = 5;
-	string loadbalancer_id = 6;
-	string loadbalancer_name = 7;
-	int32 loadbalancer_type = 8;
+	optional string loadbalancer_id = 6;
+	optional string loadbalancer_name = 7;
+	optional int32 loadbalancer_type = 8;
 	repeated string private_ips = 9;
-	string security_group_id = 10;
-	string status = 11;
-	google.protobuf.Timestamp status_time = 12;
+	optional string security_group_id = 10;
+	optional string status = 11;
+	optional google.protobuf.Timestamp status_time = 12;
 	repeated Tag tags = 13;
-	string transition_status = 14;
-	string vxnet_id = 15;
+	optional string transition_status = 14;
+	optional string vxnet_id = 15;
 }
 
 message LoadBalancerListener {
-	string backend_protocol = 1;
+	optional string backend_protocol = 1;
 	repeated LoadBalancerBackend backends = 2;
-	string balance_mode = 3;
-	google.protobuf.Timestamp create_time = 4;
-	int32 forwardfor = 5;
-	string healthy_check_method = 6;
-	string healthy_check_option = 7;
-	int32 listener_option = 8;
-	int32 listener_port = 9;
-	string listener_protocol = 10;
-	string loadbalancer_id = 11;
-	string loadbalancer_listener_id = 12;
-	string loadbalancer_listener_name = 13;
-	string server_certificate_id = 14;
-	string session_sticky = 15;
+	optional string balance_mode = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional int32 forwardfor = 5;
+	optional string healthy_check_method = 6;
+	optional string healthy_check_option = 7;
+	optional int32 listener_option = 8;
+	optional int32 listener_port = 9;
+	optional string listener_protocol = 10;
+	optional string loadbalancer_id = 11;
+	optional string loadbalancer_listener_id = 12;
+	optional string loadbalancer_listener_name = 13;
+	optional string server_certificate_id = 14;
+	optional string session_sticky = 15;
 }
 
 message LoadBalancerBackend {
-	google.protobuf.Timestamp create_time = 1;
-	string loadbalancer_backend_id = 2;
-	string loadbalancer_backend_name = 3;
-	string loadbalancer_id = 4;
-	string loadbalancer_listener_id = 5;
-	string loadbalancer_policy_id = 6;
-	int32 port = 7;
-	string resource_id = 8;
-	string status = 9;
-	int32 weight = 10;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string loadbalancer_backend_id = 2;
+	optional string loadbalancer_backend_name = 3;
+	optional string loadbalancer_id = 4;
+	optional string loadbalancer_listener_id = 5;
+	optional string loadbalancer_policy_id = 6;
+	optional int32 port = 7;
+	optional string resource_id = 8;
+	optional string status = 9;
+	optional int32 weight = 10;
 }
 
 message Cache {
-	int32 cache_class = 1;
-	string cache_id = 2;
-	string cache_name = 3;
-	string cache_parameter_group_id = 4;
-	int32 cache_port = 5;
-	int32 cache_size = 6;
-	string cache_type = 7;
-	string cache_version = 8;
-	google.protobuf.Timestamp create_time = 9;
-	string description = 10;
-	int32 is_applied = 11;
-	int32 master_count = 12;
-	int32 max_memory = 13;
-	int32 node_count = 14;
+	optional int32 cache_class = 1;
+	optional string cache_id = 2;
+	optional string cache_name = 3;
+	optional string cache_parameter_group_id = 4;
+	optional int32 cache_port = 5;
+	optional int32 cache_size = 6;
+	optional string cache_type = 7;
+	optional string cache_version = 8;
+	optional google.protobuf.Timestamp create_time = 9;
+	optional string description = 10;
+	optional int32 is_applied = 11;
+	optional int32 master_count = 12;
+	optional int32 max_memory = 13;
+	optional int32 node_count = 14;
 	repeated CacheNode nodes = 15;
-	int32 replicate_count = 16;
-	string security_group_id = 17;
-	string status = 18;
-	google.protobuf.Timestamp status_time = 19;
-	int32 sub_code = 20;
+	optional int32 replicate_count = 16;
+	optional string security_group_id = 17;
+	optional string status = 18;
+	optional google.protobuf.Timestamp status_time = 19;
+	optional int32 sub_code = 20;
 	repeated Tag tags = 21;
-	string transition_status = 22;
-	VxNet vxnet = 23;
+	optional string transition_status = 22;
+	optional VxNet vxnet = 23;
 }
 
 message CacheNode {
-	string alarm_status = 1;
-	string cache_id = 2;
-	string cache_node_id = 3;
-	string cache_node_name = 4;
-	string cache_role = 5;
-	string cache_type = 6;
-	google.protobuf.Timestamp create_time = 7;
-	string private_ip = 8;
-	string slaveof = 9;
-	string status = 10;
-	google.protobuf.Timestamp status_time = 11;
-	string transition_status = 12;
+	optional string alarm_status = 1;
+	optional string cache_id = 2;
+	optional string cache_node_id = 3;
+	optional string cache_node_name = 4;
+	optional string cache_role = 5;
+	optional string cache_type = 6;
+	optional google.protobuf.Timestamp create_time = 7;
+	optional string private_ip = 8;
+	optional string slaveof = 9;
+	optional string status = 10;
+	optional google.protobuf.Timestamp status_time = 11;
+	optional string transition_status = 12;
 }
 
 message CacheParameter {
-	string cache_parameter_name = 1;
-	string cache_parameter_type = 2;
-	string cache_parameter_value = 3;
-	string cache_type = 4;
-	int32 is_readonly = 5;
-	int32 is_static = 6;
-	string opt_name = 7;
-	string parameter_type = 8;
-	string resource_version = 9;
-	string value_range = 10;
+	optional string cache_parameter_name = 1;
+	optional string cache_parameter_type = 2;
+	optional string cache_parameter_value = 3;
+	optional string cache_type = 4;
+	optional int32 is_readonly = 5;
+	optional int32 is_static = 6;
+	optional string opt_name = 7;
+	optional string parameter_type = 8;
+	optional string resource_version = 9;
+	optional string value_range = 10;
 }
 
 message CacheParameterGroup {
-	string cache_parameter_group_id = 1;
-	string cache_parameter_group_name = 2;
-	string cache_type = 3;
-	google.protobuf.Timestamp create_time = 4;
-	string description = 5;
-	int32 is_applied = 6;
-	int32 is_default = 7;
+	optional string cache_parameter_group_id = 1;
+	optional string cache_parameter_group_name = 2;
+	optional string cache_type = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional string description = 5;
+	optional int32 is_applied = 6;
+	optional int32 is_default = 7;
 	repeated Resource resources = 8;
 }
 
 message CachePrivateIP {
-	string cache_node_id = 1;
-	string cache_role = 2;
-	string private_ips = 3;
+	optional string cache_node_id = 1;
+	optional string cache_role = 2;
+	optional string private_ips = 3;
 }
 
 message SparkPrivateIps {
-	string role = 1;
-	string private_ips = 2;
+	optional string role = 1;
+	optional string private_ips = 2;
 }
 
 message Data {
-	string data = 1;
-	string eip_id = 2;
+	optional string data = 1;
+	optional string eip_id = 2;
 }
 
 message DHCPOption {
-	string router_static_id = 1;
-	string val2 = 2;
+	optional string router_static_id = 1;
+	optional string val2 = 2;
 }
 
 message DNSAlias {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	string dns_alias_id = 3;
-	string dns_alias_name = 4;
-	string domain_name = 5;
-	string resource_id = 6;
-	string status = 7;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional string dns_alias_id = 3;
+	optional string dns_alias_name = 4;
+	optional string domain_name = 5;
+	optional string resource_id = 6;
+	optional string status = 7;
 }
 
 message EIPGroup {
-	string eip_group_id = 1;
-	string eip_group_name = 2;
+	optional string eip_group_id = 1;
+	optional string eip_group_name = 2;
 }
 
 message EIPResource {
-	string resource_id = 1;
-	string resource_name = 2;
-	string resource_type = 3;
+	optional string resource_id = 1;
+	optional string resource_name = 2;
+	optional string resource_type = 3;
 }
 
 message Extra {
-	string block_bus = 1;
-	string boot_dev = 2;
-	int32 cpu_max = 3;
-	string cpu_model = 4;
-	int32 features = 5;
-	string hypervisor = 6;
-	int32 mem_max = 7;
-	int32 nic_mqueue = 8;
-	int32 no_limit = 9;
-	int32 no_restrict = 10;
-	int32 os_disk_size = 11;
-	int32 usb = 12;
+	optional string block_bus = 1;
+	optional string boot_dev = 2;
+	optional int32 cpu_max = 3;
+	optional string cpu_model = 4;
+	optional int32 features = 5;
+	optional string hypervisor = 6;
+	optional int32 mem_max = 7;
+	optional int32 nic_mqueue = 8;
+	optional int32 no_limit = 9;
+	optional int32 no_restrict = 10;
+	optional int32 os_disk_size = 11;
+	optional int32 usb = 12;
 }
 
 message File {
-	string file = 1;
-	google.protobuf.Timestamp last_modify = 2;
-	int32 size = 3;
+	optional string file = 1;
+	optional google.protobuf.Timestamp last_modify = 2;
+	optional int32 size = 3;
 }
 
 message InstanceType {
-	string description = 1;
-	string instance_type_id = 2;
-	string instance_type_name = 3;
-	int32 memory_current = 4;
-	string status = 5;
-	int32 vcpus_current = 6;
-	string zone_id = 7;
+	optional string description = 1;
+	optional string instance_type_id = 2;
+	optional string instance_type_name = 3;
+	optional int32 memory_current = 4;
+	optional string status = 5;
+	optional int32 vcpus_current = 6;
+	optional string zone_id = 7;
 }
 
 message LoadBalancerPolicy {
-	google.protobuf.Timestamp create_time = 1;
-	int32 is_applied = 2;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional int32 is_applied = 2;
 	repeated string loadbalancer_ids = 3;
-	string loadbalancer_policy_id = 4;
-	string loadbalancer_policy_name = 5;
+	optional string loadbalancer_policy_id = 4;
+	optional string loadbalancer_policy_name = 5;
 }
 
 message LoadBalancerPolicyRule {
-	string loadbalancer_policy_rule_id = 1;
-	string loadbalancer_policy_rule_name = 2;
-	string rule_type = 3;
-	string val = 4;
+	optional string loadbalancer_policy_rule_id = 1;
+	optional string loadbalancer_policy_rule_name = 2;
+	optional string rule_type = 3;
+	optional string val = 4;
 }
 
 message Meter {
 	//Data     interface{}   `json:"data" name:"data"`
 	//DataSet  []interface{} `json:"data_set" name:"data_set"`
-	string meter_id = 3;
-	int32 sequence = 4;
-	string vxnet_id = 5;
+	optional string meter_id = 3;
+	optional int32 sequence = 4;
+	optional string vxnet_id = 5;
 }
 
 message MongoParameter {
-	int32 is_readonly = 1;
-	int32 is_static = 2;
-	string opt_name = 3;
-	string parameter_name = 4;
-	string parameter_type = 5;
-	string parameter_value = 6;
-	string resource_type = 7;
+	optional int32 is_readonly = 1;
+	optional int32 is_static = 2;
+	optional string opt_name = 3;
+	optional string parameter_name = 4;
+	optional string parameter_type = 5;
+	optional string parameter_value = 6;
+	optional string resource_type = 7;
 }
 
 message MongoPrivateIP {
-	string priority0 = 1;
-	string replica = 2;
+	optional string priority0 = 1;
+	optional string replica = 2;
 }
 
 message NICIP {
-	string nic_id = 1;
-	string private_ip = 2;
+	optional string nic_id = 1;
+	optional string private_ip = 2;
 }
 
 message RDB {
-	string alarm_status = 1;
-	int32 auto_backup_time = 2;
-	int32 auto_minor_ver_upgrade = 3;
-	string create_time = 4; // time.Time ?
-	string description = 5;
-	string engine_version = 6;
-	google.protobuf.Timestamp latest_snapshot_time = 7;
-	string master_ip = 8;
-	string rdb_engine = 9;
-	string rdb_id = 10;
-	string rdb_name = 11;
-	int32 rdb_type = 12;
-	string status = 13;
-	string status_time = 14;
-	int32 storage_size = 15;
+	optional string alarm_status = 1;
+	optional int32 auto_backup_time = 2;
+	optional int32 auto_minor_ver_upgrade = 3;
+	optional string create_time = 4; // time.Time ?
+	optional string description = 5;
+	optional string engine_version = 6;
+	optional google.protobuf.Timestamp latest_snapshot_time = 7;
+	optional string master_ip = 8;
+	optional string rdb_engine = 9;
+	optional string rdb_id = 10;
+	optional string rdb_name = 11;
+	optional int32 rdb_type = 12;
+	optional string status = 13;
+	optional string status_time = 14;
+	optional int32 storage_size = 15;
 	repeated Tag tags = 16;
-	VxNet vxnet = 17;
+	optional VxNet vxnet = 17;
 }
 
 message RDBFile {
@@ -525,287 +525,287 @@ message RDBFile {
 }
 
 message RDBParameter {
-	string family = 1;
-	int32 is_readonly = 2;
-	int32 is_static = 3;
-	int32 max_value = 4;
-	int32 min_value = 5;
-	string opt_name = 6;
-	string section_name = 7;
-	string var_name = 8;
-	string var_type = 9;
-	string var_value = 10;
+	optional string family = 1;
+	optional int32 is_readonly = 2;
+	optional int32 is_static = 3;
+	optional int32 max_value = 4;
+	optional int32 min_value = 5;
+	optional string opt_name = 6;
+	optional string section_name = 7;
+	optional string var_name = 8;
+	optional string var_type = 9;
+	optional string var_value = 10;
 }
 
 message RDBParameters {
-	string bind_address = 1;
-	string binlog_format = 2;
-	string character_set_server = 3;
-	string datadir = 4;
-	string default_storage_engine = 5;
-	int32 expire_logs_days = 6;
-	string innodb = 7;
-	int32 innodb_buffer_pool_instances = 8;
-	string innodb_buffer_pool_size = 9;
-	int32 innodb_file_per_table = 10;
-	int32 innodb_flush_log_at_trx_commit = 11;
-	string innodb_flush_method = 12;
-	int32 innodb_io_capacity = 13;
-	string innodb_log_buffer_size = 14;
-	string innodb_log_file_size = 15;
-	int32 innodb_log_files_in_group = 16;
-	int32 innodb_max_dirty_pages_pct = 17;
-	int32 innodb_read_io_threads = 18;
-	int32 innodb_write_io_threads = 19;
-	int32 interactive_timeout = 20;
-	string key_buffer_size = 21;
+	optional string bind_address = 1;
+	optional string binlog_format = 2;
+	optional string character_set_server = 3;
+	optional string datadir = 4;
+	optional string default_storage_engine = 5;
+	optional int32 expire_logs_days = 6;
+	optional string innodb = 7;
+	optional int32 innodb_buffer_pool_instances = 8;
+	optional string innodb_buffer_pool_size = 9;
+	optional int32 innodb_file_per_table = 10;
+	optional int32 innodb_flush_log_at_trx_commit = 11;
+	optional string innodb_flush_method = 12;
+	optional int32 innodb_io_capacity = 13;
+	optional string innodb_log_buffer_size = 14;
+	optional string innodb_log_file_size = 15;
+	optional int32 innodb_log_files_in_group = 16;
+	optional int32 innodb_max_dirty_pages_pct = 17;
+	optional int32 innodb_read_io_threads = 18;
+	optional int32 innodb_write_io_threads = 19;
+	optional int32 interactive_timeout = 20;
+	optional string key_buffer_size = 21;
 	//LogBinIndex               *string `json:"log-bin-index" name:"log-bin-index"`
-	string log_bin = 22;
-	string log_error = 23;
-	string log_queries_not_using_indexes = 24;
-	int32 log_slave_updates = 25;
-	int32 long_query_time = 26;
-	int32 lower_case_table_names = 27;
-	string max_allowed_packet = 28;
-	int32 max_connect_errors = 29;
-	int32 max_connections = 30;
-	string max_heap_table_size = 31;
-	int32 open_files_limit = 32;
-	int32 port = 33;
-	int32 query_cache_size = 34;
-	int32 query_cache_type = 35;
-	string relay_log = 36;
-	string relay_log_index = 37;
+	optional string log_bin = 22;
+	optional string log_error = 23;
+	optional string log_queries_not_using_indexes = 24;
+	optional int32 log_slave_updates = 25;
+	optional int32 long_query_time = 26;
+	optional int32 lower_case_table_names = 27;
+	optional string max_allowed_packet = 28;
+	optional int32 max_connect_errors = 29;
+	optional int32 max_connections = 30;
+	optional string max_heap_table_size = 31;
+	optional int32 open_files_limit = 32;
+	optional int32 port = 33;
+	optional int32 query_cache_size = 34;
+	optional int32 query_cache_type = 35;
+	optional string relay_log = 36;
+	optional string relay_log_index = 37;
 	//SkipSlaveStart            *int    `json:"skip-slave-start" name:"skip-slave-start"`
-	int32 skip_name_resolve = 39;
-	string slave_exec_mode = 40;
-	int32 slave_net_timeout = 41;
-	int32 slow_query_log = 42;
-	string slow_query_log_file = 43;
-	string sql_mode = 44;
-	int32 sync_binlog = 45;
-	int32 sync_master_info = 46;
-	int32 sync_relay_log = 47;
-	int32 sync_relay_log_info = 48;
-	int32 table_open_cache = 49;
-	int32 thread_cache_size = 50;
-	string tmp_table_size = 51;
-	string tmpdir = 52;
-	string user = 53;
-	int32 wait_timeout = 54;
+	optional int32 skip_name_resolve = 39;
+	optional string slave_exec_mode = 40;
+	optional int32 slave_net_timeout = 41;
+	optional int32 slow_query_log = 42;
+	optional string slow_query_log_file = 43;
+	optional string sql_mode = 44;
+	optional int32 sync_binlog = 45;
+	optional int32 sync_master_info = 46;
+	optional int32 sync_relay_log = 47;
+	optional int32 sync_relay_log_info = 48;
+	optional int32 table_open_cache = 49;
+	optional int32 thread_cache_size = 50;
+	optional string tmp_table_size = 51;
+	optional string tmpdir = 52;
+	optional string user = 53;
+	optional int32 wait_timeout = 54;
 }
 
 message RDBPrivateIP {
-	string master = 1;
-	string topslave = 2;
+	optional string master = 1;
+	optional string topslave = 2;
 }
 
 message RouterStatic {
-	google.protobuf.Timestamp create_time = 1;
-	string router_id = 2;
-	string router_static_id = 3;
-	string router_static_name = 4;
-	int32 static_type = 5;
-	string val1 = 6;
-	string val2 = 7;
-	string val3 = 8;
-	string val4 = 9;
-	string vxnet_id = 10;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string router_id = 2;
+	optional string router_static_id = 3;
+	optional string router_static_name = 4;
+	optional int32 static_type = 5;
+	optional string val1 = 6;
+	optional string val2 = 7;
+	optional string val3 = 8;
+	optional string val4 = 9;
+	optional string vxnet_id = 10;
 }
 
 message RouterStaticEntry {
-	string router_id = 1;
-	string router_static_entry_id = 2;
-	string router_static_entry_name = 3;
-	string val1 = 4;
-	string val2 = 5;
+	optional string router_id = 1;
+	optional string router_static_entry_id = 2;
+	optional string router_static_entry_name = 3;
+	optional string val1 = 4;
+	optional string val2 = 5;
 }
 
 message RouterVxNet {
-	google.protobuf.Timestamp create_time = 1;
-	string dyn_ip_end = 2;
-	string dyn_ip_start = 3;
-	int32 features = 4;
-	string ip_network = 5;
-	string manager_ip = 6;
-	string router_id = 7;
-	string vxnet_id = 8;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string dyn_ip_end = 2;
+	optional string dyn_ip_start = 3;
+	optional int32 features = 4;
+	optional string ip_network = 5;
+	optional string manager_ip = 6;
+	optional string router_id = 7;
+	optional string vxnet_id = 8;
 }
 
 message S2DefaultParameters {
-	string default_value = 1;
-	string description = 2;
-	string param_name = 3;
-	string service_type = 4;
-	string target_type = 5;
+	optional string default_value = 1;
+	optional string description = 2;
+	optional string param_name = 3;
+	optional string service_type = 4;
+	optional string target_type = 5;
 }
 
 message S2Server {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	int32 is_applied = 3;
-	string name = 4;
-	string private_ip = 5;
-	string s2_server_id = 6;
-	int32 s2_server_type = 7;
-	string service_type = 8;
-	string status = 9;
-	google.protobuf.Timestamp status_time = 10;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional int32 is_applied = 3;
+	optional string name = 4;
+	optional string private_ip = 5;
+	optional string s2_server_id = 6;
+	optional int32 s2_server_type = 7;
+	optional string service_type = 8;
+	optional string status = 9;
+	optional google.protobuf.Timestamp status_time = 10;
 	repeated Tag tags = 11;
-	string transition_status = 12;
-	VxNet vxnet = 13;
+	optional string transition_status = 12;
+	optional VxNet vxnet = 13;
 }
 
 message S2SharedTarget {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	string export_name = 3;
-	string s2_server_id = 4;
-	string s2_shared_target_id = 5;
-	google.protobuf.Timestamp status_time = 6;
-	string target_type = 7;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional string export_name = 3;
+	optional string s2_server_id = 4;
+	optional string s2_shared_target_id = 5;
+	optional google.protobuf.Timestamp status_time = 6;
+	optional string target_type = 7;
 	map<string, string> s2_group = 8;
 	repeated string volumes = 9;
 }
 
 message SecurityGroup {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	int32 is_applied = 3;
-	int32 is_default = 4;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional int32 is_applied = 3;
+	optional int32 is_default = 4;
 	repeated Resource resources = 5;
-	string security_group_id = 6;
-	string security_group_name = 7;
+	optional string security_group_id = 6;
+	optional string security_group_name = 7;
 	repeated Tag tags = 8;
 }
 
 message SecurityGroupIPSet {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	int32 ipset_type = 3;
-	string security_group_ipset_id = 4;
-	string security_group_ipset_name = 5;
-	string val = 6;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional int32 ipset_type = 3;
+	optional string security_group_ipset_id = 4;
+	optional string security_group_ipset_name = 5;
+	optional string val = 6;
 }
 
 message SecurityGroupRule {
-	string action = 1;
-	int32 priority = 2;
-	string protocol = 3;
-	string security_group_id = 4;
-	string security_group_rule_id = 5;
-	string val1 = 6;
-	string val2 = 7;
-	string val3 = 8;
+	optional string action = 1;
+	optional int32 priority = 2;
+	optional string protocol = 3;
+	optional string security_group_id = 4;
+	optional string security_group_rule_id = 5;
+	optional string val1 = 6;
+	optional string val2 = 7;
+	optional string val3 = 8;
 }
 
 message SecurityGroupSnapshot {
-	string group_id = 1;
+	optional string group_id = 1;
 	repeated SecurityGroupRule rules = 2;
-	string security_group_snapshot_id = 3;
+	optional string security_group_snapshot_id = 3;
 }
 
 message ServerCertificate {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	string certificate_content = 3;
-	string private_key = 4;
-	string server_certificate_id = 5;
-	string server_certificate_name = 6;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional string certificate_content = 3;
+	optional string private_key = 4;
+	optional string server_certificate_id = 5;
+	optional string server_certificate_name = 6;
 }
 
 message Snapshot {
-	google.protobuf.Timestamp create_time = 1;
-	string description = 2;
-	string head_chain = 3;
-	int32 is_head = 4;
-	int32 is_taken = 5;
-	google.protobuf.Timestamp latest_snapshot_time = 6;
-	string parent_id = 7;
-	string provider = 8;
-	Resource resource = 9;
-	string root_id = 10;
-	int32 size = 11;
-	string snapshot_id = 12;
-	string snapshot_name = 13;
-	SnapshotResource snapshot_resource = 14;
-	google.protobuf.Timestamp snapshot_time = 15;
-	string snapshot_type = 16;
-	string status = 17;
-	google.protobuf.Timestamp status_time = 18;
-	int32 sub_code = 19;
+	optional google.protobuf.Timestamp create_time = 1;
+	optional string description = 2;
+	optional string head_chain = 3;
+	optional int32 is_head = 4;
+	optional int32 is_taken = 5;
+	optional google.protobuf.Timestamp latest_snapshot_time = 6;
+	optional string parent_id = 7;
+	optional string provider = 8;
+	optional Resource resource = 9;
+	optional string root_id = 10;
+	optional int32 size = 11;
+	optional string snapshot_id = 12;
+	optional string snapshot_name = 13;
+	optional SnapshotResource snapshot_resource = 14;
+	optional google.protobuf.Timestamp snapshot_time = 15;
+	optional string snapshot_type = 16;
+	optional string status = 17;
+	optional google.protobuf.Timestamp status_time = 18;
+	optional int32 sub_code = 19;
 	repeated Tag tags = 20;
-	int32 total_count = 21;
-	int32 total_size = 22;
-	string transition_status = 23;
-	int32 virtual_size = 24;
-	string visibility = 25;
+	optional int32 total_count = 21;
+	optional int32 total_size = 22;
+	optional string transition_status = 23;
+	optional int32 virtual_size = 24;
+	optional string visibility = 25;
 }
 
 message SnapshotResource {
-	string os_family = 1;
-	string platform = 2;
+	optional string os_family = 1;
+	optional string platform = 2;
 }
 
 message User {
-	string email = 1;
-	string user_id = 2;
+	optional string email = 1;
+	optional string user_id = 2;
 }
 
 message Zone {
-	string status = 1;
-	string zone_id = 2;
+	optional string status = 1;
+	optional string zone_id = 2;
 }
 
 message Cluster {
-	string global_uuid = 1;
-	int32 auto_backup_time = 2;
-	HealthCheckEnablement health_check_enablement = 3;
-	string cfgmgmt_id = 4;
-	CustomService custom_service = 5;
-	string app_id = 6;
-	AdvancedActions advanced_actions = 7;
-	string console_id = 8;
-	google.protobuf.Timestamp create_time = 9;
-	string cluster_id = 10;
-	string owner = 11;
-	google.protobuf.Timestamp upgrade_time = 12;
+	optional string global_uuid = 1;
+	optional int32 auto_backup_time = 2;
+	optional HealthCheckEnablement health_check_enablement = 3;
+	optional string cfgmgmt_id = 4;
+	optional CustomService custom_service = 5;
+	optional string app_id = 6;
+	optional AdvancedActions advanced_actions = 7;
+	optional string console_id = 8;
+	optional google.protobuf.Timestamp create_time = 9;
+	optional string cluster_id = 10;
+	optional string owner = 11;
+	optional google.protobuf.Timestamp upgrade_time = 12;
 	//google.protobuf.Any children = 13;
-	int32 incremental_backup_supported = 14;
-	int32 cluster_type = 15;
-	int32 sub_code = 16;
-	int32 metadata_root_access = 17;
+	optional int32 incremental_backup_supported = 14;
+	optional int32 cluster_type = 15;
+	optional int32 sub_code = 16;
+	optional int32 metadata_root_access = 17;
 	//google.protobuf.Any add_links = 18;
-	string upgrade_status = 19;
-	google.protobuf.Timestamp status_time = 20;
-	int32 node_count = 21;
-	string app_version = 22;
-	VxNet vxnet = 23;
-	string status = 24;
-	string description = 25;
+	optional string upgrade_status = 19;
+	optional google.protobuf.Timestamp status_time = 20;
+	optional int32 node_count = 21;
+	optional string app_version = 22;
+	optional VxNet vxnet = 23;
+	optional string status = 24;
+	optional string description = 25;
 	//google.protobuf.Any parent = 26;
 	//repeated google.protobuf.Any tags = 27;
-	AppInfo app_info = 28;
-	string transition_status = 29;
-	int32 reuse_hyper = 30;
-	string controller = 31;
+	optional AppInfo app_info = 28;
+	optional string transition_status = 29;
+	optional int32 reuse_hyper = 30;
+	optional string controller = 31;
 	//repeated google.protobuf.Any upgrade_policy = 32;
-	int32 partner_access = 33;
-	string name = 34;
+	optional int32 partner_access = 33;
+	optional string name = 34;
 	repeated string roles = 35;
 	//google.protobuf.Timestamp lastest_snapshot_time = 36;
-	string lastest_snapshot_time = 36; // 临时, 目前返回的空字符串是非法格式
-	string root_user_id = 37;
-	int32 debug = 38;
+	optional string lastest_snapshot_time = 36; // 临时, 目前返回的空字符串是非法格式
+	optional string root_user_id = 37;
+	optional int32 debug = 38;
 	//repeated google.protobuf.Any backup_policy = 39;
 	//repeated google.protobuf.Any endpoints = 40;
-	HealthCheckEnablement backup = 41;
-	AppVersionInfo app_version_info = 42;
+	optional HealthCheckEnablement backup = 41;
+	optional AppVersionInfo app_version_info = 42;
 
 	message HealthCheckEnablement {
-		bool ca = 1;
-		bool orderer = 2;
-		bool peer_node = 3;
+		optional bool ca = 1;
+		optional bool orderer = 2;
+		optional bool peer_node = 3;
 	}
 
 	message CustomService {
@@ -819,119 +819,119 @@ message Cluster {
 	}
 
 	message AppInfo {
-		string icon = 1;
-		string app_id = 2;
-		string app_name = 3;
+		optional string icon = 1;
+		optional string app_id = 2;
+		optional string app_name = 3;
 	}
 
 	message AppVersionInfo {
-		google.protobuf.Timestamp status_time = 1;
-		string resource_kit = 2;
-		string name = 3;
-		string version_id = 4;
+		optional google.protobuf.Timestamp status_time = 1;
+		optional string resource_kit = 2;
+		optional string name = 3;
+		optional string version_id = 4;
 		//repeated google.protobuf.Any upgrade_policy = 5;
 	}
 }
 
 message ClasterNode {
 	// "passphraseless":null,
-	string vertical_scaling_policy = 2;
-	string vxnet_id = 3;
+	optional string vertical_scaling_policy = 2;
+	optional string vxnet_id = 3;
 	//"destroy_service":null,
-	string custom_service = 5;
-	string app_id = 6;
+	optional string custom_service = 5;
+	optional string app_id = 6;
 	//"advanced_actions":null,
-	string console_id = 8;
-	string stop_service = 9;
-	int32 user_access = 10;
-	google.protobuf.Timestamp create_time = 11;
-	string cluster_id = 12;
-	string private_ip = 13;
+	optional string console_id = 8;
+	optional string stop_service = 9;
+	optional int32 user_access = 10;
+	optional google.protobuf.Timestamp create_time = 11;
+	optional string cluster_id = 12;
+	optional string private_ip = 13;
 	//"upgrade_service":null,
-	string owner = 15;
-	string alarm_status = 16;
-	int32 incremental_backup_supported = 17;
+	optional string owner = 15;
+	optional string alarm_status = 16;
+	optional int32 incremental_backup_supported = 17;
 	//"restore_service":null,
-	int32 server_id = 19;
-	string monitor = 20;
-	string health_status = 21;
-	int32 is_backup = 22;
-	string root_user_id = 23;
-	string role = 24;
-	int32 memory = 25;
-	google.protobuf.Timestamp status_time = 26;
-	string restart_service = 27;
-	string app_version = 28;
-	string status = 29;
-	int32 global_server_id = 30;
-	string scale_in_service = 31;
-	int32 auto_backup = 32;
-	string transition_status = 33;
+	optional int32 server_id = 19;
+	optional string monitor = 20;
+	optional string health_status = 21;
+	optional int32 is_backup = 22;
+	optional string root_user_id = 23;
+	optional string role = 24;
+	optional int32 memory = 25;
+	optional google.protobuf.Timestamp status_time = 26;
+	optional string restart_service = 27;
+	optional string app_version = 28;
+	optional string status = 29;
+	optional int32 global_server_id = 30;
+	optional string scale_in_service = 31;
+	optional int32 auto_backup = 32;
+	optional string transition_status = 33;
 	//"custom_metadata":null,
-	int32 storage_size = 35;
+	optional int32 storage_size = 35;
 	//"server_id_upper_bound":null,
-	string image_id = 37;
-	string controller = 38;
-	string node_id = 39;
-	int32 agent_installed = 40;
+	optional string image_id = 37;
+	optional string controller = 38;
+	optional string node_id = 39;
+	optional int32 agent_installed = 40;
 	//"reserved_ips":null,
 	//"backup_policy":null,
-	string start_service = 43;
-	string volume_ids = 44;
-	string name = 45;
-	string hypervisor = 46;
+	optional string start_service = 43;
+	optional string volume_ids = 44;
+	optional string name = 45;
+	optional string hypervisor = 46;
 	//"delete_snapshot_service":null,
-	string init_service = 48;
-	string instance_id = 49;
-	string scale_out_service = 50;
-	string repl = 51;
+	optional string init_service = 48;
+	optional string instance_id = 49;
+	optional string scale_out_service = 50;
+	optional string repl = 51;
 	//"custom_metadata_script":null,
-	string health_check = 52;
-	int32 debug = 53;
-	string single_node_repl = 54;
+	optional string health_check = 52;
+	optional int32 debug = 53;
+	optional string single_node_repl = 54;
 	//"pub_key":null,
-	int32 group_id = 56;
+	optional int32 group_id = 56;
 	//"backup_service":null,
-	int32 cpu = 58;
+	optional int32 cpu = 58;
 }
 
 message ResourceGroupsItem {
-	string resource_group_id = 1;
-	google.protobuf.Timestamp create_time = 2;
-	string description = 3;
-	string resource_group_name = 4;
-	string resource_type = 5;
-	string resource_id = 6;
+	optional string resource_group_id = 1;
+	optional google.protobuf.Timestamp create_time = 2;
+	optional string description = 3;
+	optional string resource_group_name = 4;
+	optional string resource_type = 5;
+	optional string resource_id = 6;
 }
 
 message UserGroupItem {
-	string status = 1;
-	string description = 2;
-	string user_group_name = 3;
-	google.protobuf.Timestamp create_time = 4;
-	google.protobuf.Timestamp status_time = 5;
-	string user_group_id = 6;
-	string user_id = 7;
-	string remarks = 8;
+	optional string status = 1;
+	optional string description = 2;
+	optional string user_group_name = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional google.protobuf.Timestamp status_time = 5;
+	optional string user_group_id = 6;
+	optional string user_id = 7;
+	optional string remarks = 8;
 }
 
 message GroupRoleItem {
-	string status = 1;
-	string description = 2;
-	string group_role_id = 3;
-	google.protobuf.Timestamp create_time = 4;
-	string group_role_name = 5;
-	google.protobuf.Timestamp status_time = 6;
-	string role_type = 7;
+	optional string status = 1;
+	optional string description = 2;
+	optional string group_role_id = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional string group_role_name = 5;
+	optional google.protobuf.Timestamp status_time = 6;
+	optional string role_type = 7;
 }
 
 message GroupRoleRuleItem {
-	string status = 1;
-	string description = 2;
-	string group_role_id = 3;
-	google.protobuf.Timestamp create_time = 4;
-	string principle = 5;
-	string policy = 6;
-	google.protobuf.Timestamp status_time = 7;
-	string group_role_rule_id = 8;
+	optional string status = 1;
+	optional string description = 2;
+	optional string group_role_id = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional string principle = 5;
+	optional string policy = 6;
+	optional google.protobuf.Timestamp status_time = 7;
+	optional string group_role_rule_id = 8;
 }

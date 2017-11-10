@@ -58,14 +58,14 @@ type SecurityGroupService struct {
 func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroupService) {
 	return &SecurityGroupService{
 		Config:     conf,
-		Properties: &SecurityGroupServiceProperties{Zone: zone},
+		Properties: &SecurityGroupServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/sg/index.html
 func (s *QingCloudService) SecurityGroup(zone string) (*SecurityGroupService, error) {
 	properties := &SecurityGroupServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &SecurityGroupService{Config: s.Config, Properties: properties}, nil
