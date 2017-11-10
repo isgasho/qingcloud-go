@@ -54,14 +54,14 @@ type MongoService struct {
 func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
 	return &MongoService{
 		Config:     conf,
-		Properties: &MongoServiceProperties{Zone: zone},
+		Properties: &MongoServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/mongo/index.html
 func (s *QingCloudService) Mongo(zone string) (*MongoService, error) {
 	properties := &MongoServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &MongoService{Config: s.Config, Properties: properties}, nil

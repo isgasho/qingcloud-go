@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -16,7 +16,7 @@ import "google/protobuf/timestamp.proto";
 // ----------------------------------------------------------------------------
 
 message RouterServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service RouterService {
@@ -50,35 +50,35 @@ service RouterService {
 
 message DescribeRoutersInput {
 	repeated string routers = 1;
-	string vxnet = 2;
+	optional string vxnet = 2;
 	repeated string status = 3;
-	string search_word = 4;
+	optional string search_word = 4;
 	repeated string tags = 5;
-	int32 verbose = 6;
-	int32 offset = 7;
-	int32 limit = 8;
+	optional int32 verbose = 6;
+	optional int32 offset = 7;
+	optional int32 limit = 8;
 }
 message DescribeRoutersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem router_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string router_id = 1;
-		string router_name = 2;
-		string description = 4;
-		int32 router_type = 5;
-		string private_ip = 6;
-		int32 is_applied = 7;
-		string status = 8;
-		string transition_status = 9;
-		google.protobuf.Timestamp create_time = 10;
-		google.protobuf.Timestamp status_time = 11;
-		string security_group_id = 12;
-		EIP eip = 13;
+		optional string router_id = 1;
+		optional string router_name = 2;
+		optional string description = 4;
+		optional int32 router_type = 5;
+		optional string private_ip = 6;
+		optional int32 is_applied = 7;
+		optional string status = 8;
+		optional string transition_status = 9;
+		optional google.protobuf.Timestamp create_time = 10;
+		optional google.protobuf.Timestamp status_time = 11;
+		optional string security_group_id = 12;
+		optional EIP eip = 13;
 		repeated string vxnets = 14;
 	}
 }
@@ -86,20 +86,20 @@ message DescribeRoutersOutput {
 // ----------------------------------------------------------------------------
 
 message CreateRoutersInput {
-	string router_name = 1;
-	int32 router_type = 2;
-	string vpc_network = 3;
-	int32 count = 4;
-	string security_group = 5;
-	string target_user = 6;
+	optional string router_name = 1;
+	optional int32 router_type = 2;
+	optional string vpc_network = 3;
+	optional int32 count = 4;
+	optional string security_group = 5;
+	optional string target_user = 6;
 }
 message CreateRoutersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
-	string routers = 5;
+	optional string job_id = 4;
+	optional string routers = 5;
 }
 
 // ----------------------------------------------------------------------------
@@ -108,11 +108,11 @@ message DeleteRoutersInput {
 	repeated string routers = 1;
 }
 message DeleteRoutersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -121,11 +121,11 @@ message UpdateRoutersInput {
 	repeated string routers = 1;
 }
 message UpdateRoutersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -134,11 +134,11 @@ message PowerOffRoutersInput {
 	repeated string routers = 1;
 }
 message PowerOffRoutersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -147,63 +147,63 @@ message PowerOnRoutersInput {
 	repeated string routers = 1;
 }
 message PowerOnRoutersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message JoinRouterInput {
-	string vxnet = 1;
-	string router = 2;
-	string ip_network = 3;
-	int32 features = 4;
-	string manager_ip = 5;
-	string dyn_ip_start = 6;
-	string dyn_ip_end = 7;
+	optional string vxnet = 1;
+	optional string router = 2;
+	optional string ip_network = 3;
+	optional int32 features = 4;
+	optional string manager_ip = 5;
+	optional string dyn_ip_start = 6;
+	optional string dyn_ip_end = 7;
 }
 message JoinRouterOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message LeaveRouterInput {
 	repeated string vxnets = 1;
-	string router = 2;
+	optional string router = 2;
 }
 message LeaveRouterOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyRouterAttributesInput {
-	string router = 1;
-	string eip = 2;
-	string security_group = 3;
-	string router_name = 4;
-	string description = 5;
-	int32 features = 6;
-	string vxnet = 7;
-	string dyn_ip_start = 8;
-	string dyn_ip_end = 9;
+	optional string router = 1;
+	optional string eip = 2;
+	optional string security_group = 3;
+	optional string router_name = 4;
+	optional string description = 5;
+	optional int32 features = 6;
+	optional string vxnet = 7;
+	optional string dyn_ip_start = 8;
+	optional string dyn_ip_end = 9;
 }
 message ModifyRouterAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -212,9 +212,9 @@ message DescribeRouterStaticsInput {
 	repeated string router_statics = 1;
 }
 message DescribeRouterStaticsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string router_statics = 4;
 }
@@ -222,14 +222,14 @@ message DescribeRouterStaticsOutput {
 // ----------------------------------------------------------------------------
 
 message AddRouterStaticsInput {
-	string router = 1;
+	optional string router = 1;
 	repeated RouterStatic statics = 2;
-	string vxnet = 3;
+	optional string vxnet = 3;
 }
 message AddRouterStaticsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string router_statics = 4;
 }
@@ -237,19 +237,19 @@ message AddRouterStaticsOutput {
 // ----------------------------------------------------------------------------
 
 message ModifyRouterStaticAttributesInput {
-	string router_static = 1;
-	string router_static_name = 2;
-	string val1 = 3;
-	string val2 = 4;
-	string val3 = 5;
-	string val4 = 6;
-	string val5 = 7;
-	string val6 = 8;
+	optional string router_static = 1;
+	optional string router_static_name = 2;
+	optional string val1 = 3;
+	optional string val2 = 4;
+	optional string val3 = 5;
+	optional string val4 = 6;
+	optional string val5 = 7;
+	optional string val6 = 8;
 }
 message ModifyRouterStaticAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string router_static = 4;
 }
@@ -260,9 +260,9 @@ message DeleteRouterStaticsInput {
 	repeated string router_statics = 1;
 }
 message DeleteRouterStaticsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string router_statics = 4;
 }
@@ -273,55 +273,55 @@ message CopyRouterStaticsInput {
 	//
 }
 message CopyRouterStaticsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeRouterVxnetsInput {
-	string router = 1;
-	string vxnet = 2;
-	int32 verbose = 3;
-	int32 offset = 4;
-	int32 limit = 5;
+	optional string router = 1;
+	optional string vxnet = 2;
+	optional int32 verbose = 3;
+	optional int32 offset = 4;
+	optional int32 limit = 5;
 }
 message DescribeRouterVxnetsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem router_vxnet_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string router_id = 1;
-		string vxnet_id = 2;
-		string manager_ip = 3;
-		string ip_network = 4;
-		string dyn_ip_start = 5;
-		string dyn_ip_end = 6;
-		int32 features = 7;
-		google.protobuf.Timestamp create_time = 8;
+		optional string router_id = 1;
+		optional string vxnet_id = 2;
+		optional string manager_ip = 3;
+		optional string ip_network = 4;
+		optional string dyn_ip_start = 5;
+		optional string dyn_ip_end = 6;
+		optional int32 features = 7;
+		optional google.protobuf.Timestamp create_time = 8;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message AddRouterStaticEntriesInput {
-	string router_static = 1;
+	optional string router_static = 1;
 	repeated EntriesItem entries = 2;
 
 	message EntriesItem {
-		string val1 = 1;
-		string val2 = 2;
+		optional string val1 = 1;
+		optional string val2 = 2;
 	}
 }
 message AddRouterStaticEntriesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string router_static_entries = 4;
 }
@@ -332,9 +332,9 @@ message DeleteRouterStaticEntriesInput {
 	repeated string router_static_entries = 1;
 }
 message DeleteRouterStaticEntriesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string router_static_entries = 4;
 }
@@ -342,34 +342,34 @@ message DeleteRouterStaticEntriesOutput {
 // ----------------------------------------------------------------------------
 
 message ModifyRouterStaticEntryAttributesInput {
-	string router_static_entry = 1;
-	string router_static_entry_name = 2;
-	string val1 = 3;
-	string val2 = 4;
+	optional string router_static_entry = 1;
+	optional string router_static_entry_name = 2;
+	optional string val1 = 3;
+	optional string val2 = 4;
 }
 message ModifyRouterStaticEntryAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string router_static_entry = 4;
+	optional string router_static_entry = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeRouterStaticEntriesInput {
-	string router_static_entry_id = 1;
-	string router_static = 2;
-	int32 offset = 3;
-	int32 limit = 4;
+	optional string router_static_entry_id = 1;
+	optional string router_static = 2;
+	optional int32 offset = 3;
+	optional int32 limit = 4;
 }
 message DescribeRouterStaticEntriesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated RouterStaticEntry router_static_entry_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------

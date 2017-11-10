@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -15,7 +15,7 @@ import "google/protobuf/timestamp.proto";
 // ----------------------------------------------------------------------------
 
 message MonitorServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service MonitorService {
@@ -35,50 +35,50 @@ service MonitorService {
 // ----------------------------------------------------------------------------
 
 message GetMonitorInput {
-	string resource = 1;
+	optional string resource = 1;
 	repeated string meters = 2;
-	string step = 3;
-	google.protobuf.Timestamp start_time = 4;
-	google.protobuf.Timestamp end_time = 5;
+	optional string step = 3;
+	optional google.protobuf.Timestamp start_time = 4;
+	optional google.protobuf.Timestamp end_time = 5;
 
 }
 message GetMonitorOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string resource_id = 4;
+	optional string resource_id = 4;
 	repeated ResponseItem meter_set = 5;
 
 	message ResponseItem {
 		// data: [[1392072000,[12,12]],[15,29],[11,12]]
-		string vxnet_id = 2;
-		string meter_id = 3;
-		int32 sequence = 4;
+		optional string vxnet_id = 2;
+		optional string meter_id = 3;
+		optional int32 sequence = 4;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message GetLoadBalancerMonitorInput {
-	string resource = 1;
+	optional string resource = 1;
 	repeated string meters = 2;
-	string step = 3;
-	google.protobuf.Timestamp start_time = 4;
-	google.protobuf.Timestamp end_time = 5;
+	optional string step = 3;
+	optional google.protobuf.Timestamp start_time = 4;
+	optional google.protobuf.Timestamp end_time = 5;
 }
 message GetLoadBalancerMonitorOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string resource_id = 4;
+	optional string resource_id = 4;
 	repeated ResponseItem meter_set = 5;
 
 	message ResponseItem {
-		string eip_id = 1;
+		optional string eip_id = 1;
 		// data: ...
-		string meter_id = 3;
+		optional string meter_id = 3;
 	}
 }
 
@@ -86,9 +86,9 @@ message GetLoadBalancerMonitorOutput {
 
 message GetRDBMonitorInput {}
 message GetRDBMonitorOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 }
 
@@ -96,9 +96,9 @@ message GetRDBMonitorOutput {
 
 message GetCacheMonitorInput {}
 message GetCacheMonitorOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 }
 
@@ -106,9 +106,9 @@ message GetCacheMonitorOutput {
 
 message GetZooKeeperMonitorInput {}
 message GetZooKeeperMonitorOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 }
 
@@ -116,9 +116,9 @@ message GetZooKeeperMonitorOutput {
 
 message GetQueueMonitorInput {}
 message GetQueueMonitorOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 }
 

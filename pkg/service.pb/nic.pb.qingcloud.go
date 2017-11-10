@@ -46,14 +46,14 @@ type NicService struct {
 func NewNicService(conf *config.Config, zone string) (p *NicService) {
 	return &NicService{
 		Config:     conf,
-		Properties: &NicServiceProperties{Zone: zone},
+		Properties: &NicServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/nic/index.html
 func (s *QingCloudService) Nic(zone string) (*NicService, error) {
 	properties := &NicServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &NicService{Config: s.Config, Properties: properties}, nil

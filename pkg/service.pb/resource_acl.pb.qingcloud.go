@@ -67,14 +67,14 @@ type ResourceACLService struct {
 func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLService) {
 	return &ResourceACLService{
 		Config:     conf,
-		Properties: &ResourceACLServiceProperties{Zone: zone},
+		Properties: &ResourceACLServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/resource_acl/index.html
 func (s *QingCloudService) ResourceACL(zone string) (*ResourceACLService, error) {
 	properties := &ResourceACLServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &ResourceACLService{Config: s.Config, Properties: properties}, nil

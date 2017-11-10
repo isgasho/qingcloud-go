@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -13,7 +13,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message MiscServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service MiscService {
@@ -30,53 +30,53 @@ service MiscService {
 // ----------------------------------------------------------------------------
 
 message GrantQuotaIndepInput {
-	string user = 1;
-	string zone = 2;
-	int32 instance = 3;
-	int32 cpu = 4;
-	int32 memory = 5;
-	int32 hp_instance = 6;
-	int32 hp_cpu = 7;
-	int32 hp_memory = 8;
-	int32 volume = 9;
-	int32 volume_size = 10;
-	int32 hc_volume = 11;
-	int32 hc_volume_size = 12;
-	int32 hpp_volume = 13;
-	int32 hpp_volume_size = 14;
-	int32 image = 15;
-	int32 loadbalancer = 16;
-	int32 loadbalancer_policy = 17;
-	int32 vxnet = 18;
-	int32 router = 19;
-	int32 eip = 20;
-	int32 eip_bandwidth = 21;
-	int32 rdb = 22;
-	int32 hpp_rdb = 23;
-	int32 cache = 24;
-	int32 hp_cache = 25;
-	int32 mongo = 26;
-	int32 hp_mongo = 27;
+	optional string user = 1;
+	optional string zone = 2;
+	optional int32 instance = 3;
+	optional int32 cpu = 4;
+	optional int32 memory = 5;
+	optional int32 hp_instance = 6;
+	optional int32 hp_cpu = 7;
+	optional int32 hp_memory = 8;
+	optional int32 volume = 9;
+	optional int32 volume_size = 10;
+	optional int32 hc_volume = 11;
+	optional int32 hc_volume_size = 12;
+	optional int32 hpp_volume = 13;
+	optional int32 hpp_volume_size = 14;
+	optional int32 image = 15;
+	optional int32 loadbalancer = 16;
+	optional int32 loadbalancer_policy = 17;
+	optional int32 vxnet = 18;
+	optional int32 router = 19;
+	optional int32 eip = 20;
+	optional int32 eip_bandwidth = 21;
+	optional int32 rdb = 22;
+	optional int32 hpp_rdb = 23;
+	optional int32 cache = 24;
+	optional int32 hp_cache = 25;
+	optional int32 mongo = 26;
+	optional int32 hp_mongo = 27;
 }
 message GrantQuotaIndepOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string user_id = 4;
-	string zone_id = 5;
+	optional string user_id = 4;
+	optional string zone_id = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message RevokeQuotaIndepInput {
-	string user = 1;
-	string zone = 2;
+	optional string user = 1;
+	optional string zone = 2;
 }
 message RevokeQuotaIndepOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 }
 
@@ -86,15 +86,15 @@ message GetQuotaLeftInput {
 	repeated string resource_types = 1;
 }
 message GetQuotaLeftOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated QuotaLeft quota_left_set = 4;
 
 	message QuotaLeft {
-		string resource_type = 1;
-		int32 left = 2;
+		optional string resource_type = 1;
+		optional int32 left = 2;
 	}
 }
 

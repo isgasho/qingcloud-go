@@ -15,7 +15,8 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type ResourceACLServiceProperties struct {
-	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Zone             *string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ResourceACLServiceProperties) Reset()                    { *m = ResourceACLServiceProperties{} }
@@ -24,15 +25,16 @@ func (*ResourceACLServiceProperties) ProtoMessage()               {}
 func (*ResourceACLServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
 
 func (m *ResourceACLServiceProperties) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
 
 type DescribeSharedResourceGroupsInput struct {
-	ResourceGroups []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	Owner          string   `protobuf:"bytes,2,opt,name=owner" json:"owner,omitempty"`
+	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	Owner            *string  `protobuf:"bytes,2,opt,name=owner" json:"owner,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeSharedResourceGroupsInput) Reset()         { *m = DescribeSharedResourceGroupsInput{} }
@@ -50,18 +52,19 @@ func (m *DescribeSharedResourceGroupsInput) GetResourceGroups() []string {
 }
 
 func (m *DescribeSharedResourceGroupsInput) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 type DescribeSharedResourceGroupsOutput struct {
-	Action                 string                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode                int32                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message                string                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                 *string               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                *int32                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                *string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SharedResourceGroupSet []*ResourceGroupsItem `protobuf:"bytes,4,rep,name=shared_resource_group_set,json=sharedResourceGroupSet" json:"shared_resource_group_set,omitempty"`
-	TotalCount             int32                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount             *int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized       []byte                `json:"-"`
 }
 
 func (m *DescribeSharedResourceGroupsOutput) Reset()         { *m = DescribeSharedResourceGroupsOutput{} }
@@ -72,22 +75,22 @@ func (*DescribeSharedResourceGroupsOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeSharedResourceGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeSharedResourceGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeSharedResourceGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -100,20 +103,21 @@ func (m *DescribeSharedResourceGroupsOutput) GetSharedResourceGroupSet() []*Reso
 }
 
 func (m *DescribeSharedResourceGroupsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeResourceGroupsInput struct {
-	ResourceGroups []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	SearchWord     string   `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Limit          int32    `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	Offset         int32    `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Verbose        int32    `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey        string   `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse        int32    `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Limit            *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey          *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse          *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeResourceGroupsInput) Reset()                    { *m = DescribeResourceGroupsInput{} }
@@ -129,53 +133,54 @@ func (m *DescribeResourceGroupsInput) GetResourceGroups() []string {
 }
 
 func (m *DescribeResourceGroupsInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 func (m *DescribeResourceGroupsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupsInput) GetSortKey() string {
-	if m != nil {
-		return m.SortKey
+	if m != nil && m.SortKey != nil {
+		return *m.SortKey
 	}
 	return ""
 }
 
 func (m *DescribeResourceGroupsInput) GetReverse() int32 {
-	if m != nil {
-		return m.Reverse
+	if m != nil && m.Reverse != nil {
+		return *m.Reverse
 	}
 	return 0
 }
 
 type DescribeResourceGroupsOutput struct {
-	Action                 string                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode                int32                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message                string                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                 *string               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                *int32                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                *string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SharedResourceGroupSet []*ResourceGroupsItem `protobuf:"bytes,4,rep,name=shared_resource_group_set,json=sharedResourceGroupSet" json:"shared_resource_group_set,omitempty"`
-	TotalCount             int32                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount             *int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized       []byte                `json:"-"`
 }
 
 func (m *DescribeResourceGroupsOutput) Reset()                    { *m = DescribeResourceGroupsOutput{} }
@@ -184,22 +189,22 @@ func (*DescribeResourceGroupsOutput) ProtoMessage()               {}
 func (*DescribeResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{4} }
 
 func (m *DescribeResourceGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeResourceGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -212,16 +217,17 @@ func (m *DescribeResourceGroupsOutput) GetSharedResourceGroupSet() []*ResourceGr
 }
 
 func (m *DescribeResourceGroupsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type CreateResourceGroupsInput struct {
-	ResourceGroupName string `protobuf:"bytes,1,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
-	Description       string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Count             int32  `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	ResourceGroupName *string `protobuf:"bytes,1,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	Description       *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Count             *int32  `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	XXX_unrecognized  []byte  `json:"-"`
 }
 
 func (m *CreateResourceGroupsInput) Reset()                    { *m = CreateResourceGroupsInput{} }
@@ -230,31 +236,32 @@ func (*CreateResourceGroupsInput) ProtoMessage()               {}
 func (*CreateResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{5} }
 
 func (m *CreateResourceGroupsInput) GetResourceGroupName() string {
-	if m != nil {
-		return m.ResourceGroupName
+	if m != nil && m.ResourceGroupName != nil {
+		return *m.ResourceGroupName
 	}
 	return ""
 }
 
 func (m *CreateResourceGroupsInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *CreateResourceGroupsInput) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 type CreateResourceGroupsOutput struct {
-	Action           string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	ResourceGroupIds []string `protobuf:"bytes,4,rep,name=resource_group_ids,json=resourceGroupIds" json:"resource_group_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *CreateResourceGroupsOutput) Reset()                    { *m = CreateResourceGroupsOutput{} }
@@ -263,22 +270,22 @@ func (*CreateResourceGroupsOutput) ProtoMessage()               {}
 func (*CreateResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{6} }
 
 func (m *CreateResourceGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateResourceGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateResourceGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -291,9 +298,10 @@ func (m *CreateResourceGroupsOutput) GetResourceGroupIds() []string {
 }
 
 type ModifyResourceGroupAttributesInput struct {
-	ResourceGroup     string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	ResourceGroupName string `protobuf:"bytes,2,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
-	Description       string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	ResourceGroup     *string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	ResourceGroupName *string `protobuf:"bytes,2,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	Description       *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized  []byte  `json:"-"`
 }
 
 func (m *ModifyResourceGroupAttributesInput) Reset()         { *m = ModifyResourceGroupAttributesInput{} }
@@ -304,32 +312,33 @@ func (*ModifyResourceGroupAttributesInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyResourceGroupAttributesInput) GetResourceGroup() string {
-	if m != nil {
-		return m.ResourceGroup
+	if m != nil && m.ResourceGroup != nil {
+		return *m.ResourceGroup
 	}
 	return ""
 }
 
 func (m *ModifyResourceGroupAttributesInput) GetResourceGroupName() string {
-	if m != nil {
-		return m.ResourceGroupName
+	if m != nil && m.ResourceGroupName != nil {
+		return *m.ResourceGroupName
 	}
 	return ""
 }
 
 func (m *ModifyResourceGroupAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type ModifyResourceGroupAttributesOutput struct {
-	Action            string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode           int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message           string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroupId   string `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	ResourceGroupName string `protobuf:"bytes,5,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	Action            *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode           *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message           *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroupId   *string `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	ResourceGroupName *string `protobuf:"bytes,5,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	XXX_unrecognized  []byte  `json:"-"`
 }
 
 func (m *ModifyResourceGroupAttributesOutput) Reset()         { *m = ModifyResourceGroupAttributesOutput{} }
@@ -340,42 +349,43 @@ func (*ModifyResourceGroupAttributesOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyResourceGroupAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyResourceGroupAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyResourceGroupAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ModifyResourceGroupAttributesOutput) GetResourceGroupId() string {
-	if m != nil {
-		return m.ResourceGroupId
+	if m != nil && m.ResourceGroupId != nil {
+		return *m.ResourceGroupId
 	}
 	return ""
 }
 
 func (m *ModifyResourceGroupAttributesOutput) GetResourceGroupName() string {
-	if m != nil {
-		return m.ResourceGroupName
+	if m != nil && m.ResourceGroupName != nil {
+		return *m.ResourceGroupName
 	}
 	return ""
 }
 
 type DeleteResourceGroupsInput struct {
-	ResourceGroups []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteResourceGroupsInput) Reset()                    { *m = DeleteResourceGroupsInput{} }
@@ -391,10 +401,11 @@ func (m *DeleteResourceGroupsInput) GetResourceGroups() []string {
 }
 
 type DeleteResourceGroupsOutput struct {
-	Action         string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode        int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message        string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroups []string `protobuf:"bytes,4,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroups   []string `protobuf:"bytes,4,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteResourceGroupsOutput) Reset()                    { *m = DeleteResourceGroupsOutput{} }
@@ -403,22 +414,22 @@ func (*DeleteResourceGroupsOutput) ProtoMessage()               {}
 func (*DeleteResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{10} }
 
 func (m *DeleteResourceGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteResourceGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteResourceGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -431,13 +442,14 @@ func (m *DeleteResourceGroupsOutput) GetResourceGroups() []string {
 }
 
 type DescribeResourceGroupItemsInput struct {
-	ResourceGroups []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	Resources      []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
-	Limit          int32    `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	Offset         int32    `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Verbose        int32    `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey        string   `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse        int32    `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	Limit            *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey          *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse          *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeResourceGroupItemsInput) Reset()         { *m = DescribeResourceGroupItemsInput{} }
@@ -462,47 +474,48 @@ func (m *DescribeResourceGroupItemsInput) GetResources() []string {
 }
 
 func (m *DescribeResourceGroupItemsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupItemsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupItemsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupItemsInput) GetSortKey() string {
-	if m != nil {
-		return m.SortKey
+	if m != nil && m.SortKey != nil {
+		return *m.SortKey
 	}
 	return ""
 }
 
 func (m *DescribeResourceGroupItemsInput) GetReverse() int32 {
-	if m != nil {
-		return m.Reverse
+	if m != nil && m.Reverse != nil {
+		return *m.Reverse
 	}
 	return 0
 }
 
 type DescribeResourceGroupItemsOutput struct {
-	Action               string                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode              int32                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message              string                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action               *string               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	ResourceGroupItemSet []*ResourceGroupsItem `protobuf:"bytes,4,rep,name=resource_group_item_set,json=resourceGroupItemSet" json:"resource_group_item_set,omitempty"`
 	ItemSet              []string              `protobuf:"bytes,5,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
-	TotalCount           int32                 `protobuf:"varint,6,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount           *int32                `protobuf:"varint,6,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized     []byte                `json:"-"`
 }
 
 func (m *DescribeResourceGroupItemsOutput) Reset()         { *m = DescribeResourceGroupItemsOutput{} }
@@ -513,22 +526,22 @@ func (*DescribeResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeResourceGroupItemsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeResourceGroupItemsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeResourceGroupItemsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -548,15 +561,16 @@ func (m *DescribeResourceGroupItemsOutput) GetItemSet() []string {
 }
 
 func (m *DescribeResourceGroupItemsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type AddResourceGroupItemsInput struct {
-	ResourceGroup string   `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	Resources     []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	ResourceGroup    *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AddResourceGroupItemsInput) Reset()                    { *m = AddResourceGroupItemsInput{} }
@@ -565,8 +579,8 @@ func (*AddResourceGroupItemsInput) ProtoMessage()               {}
 func (*AddResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{13} }
 
 func (m *AddResourceGroupItemsInput) GetResourceGroup() string {
-	if m != nil {
-		return m.ResourceGroup
+	if m != nil && m.ResourceGroup != nil {
+		return *m.ResourceGroup
 	}
 	return ""
 }
@@ -579,11 +593,12 @@ func (m *AddResourceGroupItemsInput) GetResources() []string {
 }
 
 type AddResourceGroupItemsOutput struct {
-	Action          string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode         int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message         string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroupId string   `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	ResourceIds     []string `protobuf:"bytes,5,rep,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroupId  *string  `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	ResourceIds      []string `protobuf:"bytes,5,rep,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AddResourceGroupItemsOutput) Reset()                    { *m = AddResourceGroupItemsOutput{} }
@@ -592,29 +607,29 @@ func (*AddResourceGroupItemsOutput) ProtoMessage()               {}
 func (*AddResourceGroupItemsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{14} }
 
 func (m *AddResourceGroupItemsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AddResourceGroupItemsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AddResourceGroupItemsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *AddResourceGroupItemsOutput) GetResourceGroupId() string {
-	if m != nil {
-		return m.ResourceGroupId
+	if m != nil && m.ResourceGroupId != nil {
+		return *m.ResourceGroupId
 	}
 	return ""
 }
@@ -627,8 +642,9 @@ func (m *AddResourceGroupItemsOutput) GetResourceIds() []string {
 }
 
 type DeleteResourceGroupItemsInput struct {
-	ResourceGroup string   `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	Resources     []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	ResourceGroup    *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteResourceGroupItemsInput) Reset()                    { *m = DeleteResourceGroupItemsInput{} }
@@ -637,8 +653,8 @@ func (*DeleteResourceGroupItemsInput) ProtoMessage()               {}
 func (*DeleteResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{15} }
 
 func (m *DeleteResourceGroupItemsInput) GetResourceGroup() string {
-	if m != nil {
-		return m.ResourceGroup
+	if m != nil && m.ResourceGroup != nil {
+		return *m.ResourceGroup
 	}
 	return ""
 }
@@ -651,10 +667,11 @@ func (m *DeleteResourceGroupItemsInput) GetResources() []string {
 }
 
 type DeleteResourceGroupItemsOutput struct {
-	Action          string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode         int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message         string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroupId string `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroupId  *string `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteResourceGroupItemsOutput) Reset()         { *m = DeleteResourceGroupItemsOutput{} }
@@ -665,42 +682,43 @@ func (*DeleteResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DeleteResourceGroupItemsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteResourceGroupItemsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteResourceGroupItemsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DeleteResourceGroupItemsOutput) GetResourceGroupId() string {
-	if m != nil {
-		return m.ResourceGroupId
+	if m != nil && m.ResourceGroupId != nil {
+		return *m.ResourceGroupId
 	}
 	return ""
 }
 
 type DescribeUserGroupsInput struct {
-	UserGroups []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	Status     []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	Limit      int32    `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	Offset     int32    `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Verbose    int32    `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey    string   `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse    int32    `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
-	SearchWord string   `protobuf:"bytes,8,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	UserGroups       []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	Limit            *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey          *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse          *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,8,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeUserGroupsInput) Reset()                    { *m = DescribeUserGroupsInput{} }
@@ -723,53 +741,54 @@ func (m *DescribeUserGroupsInput) GetStatus() []string {
 }
 
 func (m *DescribeUserGroupsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupsInput) GetSortKey() string {
-	if m != nil {
-		return m.SortKey
+	if m != nil && m.SortKey != nil {
+		return *m.SortKey
 	}
 	return ""
 }
 
 func (m *DescribeUserGroupsInput) GetReverse() int32 {
-	if m != nil {
-		return m.Reverse
+	if m != nil && m.Reverse != nil {
+		return *m.Reverse
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupsInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 type DescribeUserGroupsOutput struct {
-	Action       string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupSet []*UserGroupItem `protobuf:"bytes,4,rep,name=user_group_set,json=userGroupSet" json:"user_group_set,omitempty"`
-	TotalCount   int32            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupSet     []*UserGroupItem `protobuf:"bytes,4,rep,name=user_group_set,json=userGroupSet" json:"user_group_set,omitempty"`
+	TotalCount       *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte           `json:"-"`
 }
 
 func (m *DescribeUserGroupsOutput) Reset()                    { *m = DescribeUserGroupsOutput{} }
@@ -778,22 +797,22 @@ func (*DescribeUserGroupsOutput) ProtoMessage()               {}
 func (*DescribeUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{18} }
 
 func (m *DescribeUserGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeUserGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -806,16 +825,17 @@ func (m *DescribeUserGroupsOutput) GetUserGroupSet() []*UserGroupItem {
 }
 
 func (m *DescribeUserGroupsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type CreateUserGroupsInput struct {
-	UserGroupName string `protobuf:"bytes,1,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
-	Description   string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Count         int32  `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	UserGroupName    *string `protobuf:"bytes,1,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
+	Description      *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Count            *int32  `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateUserGroupsInput) Reset()                    { *m = CreateUserGroupsInput{} }
@@ -824,31 +844,32 @@ func (*CreateUserGroupsInput) ProtoMessage()               {}
 func (*CreateUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{19} }
 
 func (m *CreateUserGroupsInput) GetUserGroupName() string {
-	if m != nil {
-		return m.UserGroupName
+	if m != nil && m.UserGroupName != nil {
+		return *m.UserGroupName
 	}
 	return ""
 }
 
 func (m *CreateUserGroupsInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *CreateUserGroupsInput) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 type CreateUserGroupsOutput struct {
-	Action       string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupIds []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupIds     []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *CreateUserGroupsOutput) Reset()                    { *m = CreateUserGroupsOutput{} }
@@ -857,22 +878,22 @@ func (*CreateUserGroupsOutput) ProtoMessage()               {}
 func (*CreateUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{20} }
 
 func (m *CreateUserGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateUserGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateUserGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -885,10 +906,11 @@ func (m *CreateUserGroupsOutput) GetUserGroupIds() []string {
 }
 
 type ModifyUserGroupAttributesInput struct {
-	UserGroup     string `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	UserGroupName string `protobuf:"bytes,2,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
-	Description   string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Status        string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	UserGroup        *string `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	UserGroupName    *string `protobuf:"bytes,2,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
+	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Status           *string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyUserGroupAttributesInput) Reset()         { *m = ModifyUserGroupAttributesInput{} }
@@ -899,40 +921,41 @@ func (*ModifyUserGroupAttributesInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyUserGroupAttributesInput) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupAttributesInput) GetUserGroupName() string {
-	if m != nil {
-		return m.UserGroupName
+	if m != nil && m.UserGroupName != nil {
+		return *m.UserGroupName
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupAttributesInput) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 type ModifyUserGroupAttributesOutput struct {
-	Action      string                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode     int32                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message     string                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupId string                      `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	Status      string                      `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	StatusTime  *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Action           *string                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupId      *string                     `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	Status           *string                     `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *ModifyUserGroupAttributesOutput) Reset()         { *m = ModifyUserGroupAttributesOutput{} }
@@ -943,36 +966,36 @@ func (*ModifyUserGroupAttributesOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyUserGroupAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyUserGroupAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupAttributesOutput) GetUserGroupId() string {
-	if m != nil {
-		return m.UserGroupId
+	if m != nil && m.UserGroupId != nil {
+		return *m.UserGroupId
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupAttributesOutput) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
@@ -985,7 +1008,8 @@ func (m *ModifyUserGroupAttributesOutput) GetStatusTime() *google_protobuf1.Time
 }
 
 type DeleteUserGroupsInput struct {
-	UserGroups []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	UserGroups       []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteUserGroupsInput) Reset()                    { *m = DeleteUserGroupsInput{} }
@@ -1001,10 +1025,11 @@ func (m *DeleteUserGroupsInput) GetUserGroups() []string {
 }
 
 type DeleteUserGroupsOutput struct {
-	Action       string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupIds []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupIds     []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteUserGroupsOutput) Reset()                    { *m = DeleteUserGroupsOutput{} }
@@ -1013,22 +1038,22 @@ func (*DeleteUserGroupsOutput) ProtoMessage()               {}
 func (*DeleteUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{24} }
 
 func (m *DeleteUserGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteUserGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteUserGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1041,15 +1066,16 @@ func (m *DeleteUserGroupsOutput) GetUserGroupIds() []string {
 }
 
 type DescribeUserGroupMembersInput struct {
-	UserGroups []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	Users      []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
-	Status     []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	SearchWord string   `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Limit      int32    `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
-	Offset     int32    `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Verbose    int32    `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey    string   `protobuf:"bytes,8,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse    int32    `protobuf:"varint,9,opt,name=reverse" json:"reverse,omitempty"`
+	UserGroups       []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Limit            *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Verbose          *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey          *string  `protobuf:"bytes,8,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse          *int32   `protobuf:"varint,9,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeUserGroupMembersInput) Reset()                    { *m = DescribeUserGroupMembersInput{} }
@@ -1079,54 +1105,55 @@ func (m *DescribeUserGroupMembersInput) GetStatus() []string {
 }
 
 func (m *DescribeUserGroupMembersInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 func (m *DescribeUserGroupMembersInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupMembersInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupMembersInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupMembersInput) GetSortKey() string {
-	if m != nil {
-		return m.SortKey
+	if m != nil && m.SortKey != nil {
+		return *m.SortKey
 	}
 	return ""
 }
 
 func (m *DescribeUserGroupMembersInput) GetReverse() int32 {
-	if m != nil {
-		return m.Reverse
+	if m != nil && m.Reverse != nil {
+		return *m.Reverse
 	}
 	return 0
 }
 
 type DescribeUserGroupMembersOutput struct {
-	Action             string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode            int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message            string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action             *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode            *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message            *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	UserGroupMemberSet []*UserGroupItem `protobuf:"bytes,4,rep,name=user_group_member_set,json=userGroupMemberSet" json:"user_group_member_set,omitempty"`
-	TotalCount         int32            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount         *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 	ItemSet            []string         `protobuf:"bytes,6,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
+	XXX_unrecognized   []byte           `json:"-"`
 }
 
 func (m *DescribeUserGroupMembersOutput) Reset()         { *m = DescribeUserGroupMembersOutput{} }
@@ -1137,22 +1164,22 @@ func (*DescribeUserGroupMembersOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeUserGroupMembersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeUserGroupMembersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeUserGroupMembersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1165,8 +1192,8 @@ func (m *DescribeUserGroupMembersOutput) GetUserGroupMemberSet() []*UserGroupIte
 }
 
 func (m *DescribeUserGroupMembersOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
@@ -1179,8 +1206,9 @@ func (m *DescribeUserGroupMembersOutput) GetItemSet() []string {
 }
 
 type AddUserGroupMembersInput struct {
-	UserGroup string   `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	Users     []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	UserGroup        *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AddUserGroupMembersInput) Reset()                    { *m = AddUserGroupMembersInput{} }
@@ -1189,8 +1217,8 @@ func (*AddUserGroupMembersInput) ProtoMessage()               {}
 func (*AddUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{27} }
 
 func (m *AddUserGroupMembersInput) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
@@ -1203,11 +1231,12 @@ func (m *AddUserGroupMembersInput) GetUsers() []string {
 }
 
 type AddUserGroupMembersOutput struct {
-	Action      string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode     int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message     string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupId string   `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	UserIds     []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupId      *string  `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	UserIds          []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AddUserGroupMembersOutput) Reset()                    { *m = AddUserGroupMembersOutput{} }
@@ -1216,29 +1245,29 @@ func (*AddUserGroupMembersOutput) ProtoMessage()               {}
 func (*AddUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{28} }
 
 func (m *AddUserGroupMembersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AddUserGroupMembersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AddUserGroupMembersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *AddUserGroupMembersOutput) GetUserGroupId() string {
-	if m != nil {
-		return m.UserGroupId
+	if m != nil && m.UserGroupId != nil {
+		return *m.UserGroupId
 	}
 	return ""
 }
@@ -1251,10 +1280,11 @@ func (m *AddUserGroupMembersOutput) GetUserIds() []string {
 }
 
 type ModifyUserGroupMemberAttributesInput struct {
-	UserGroup string `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	User      string `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
-	Remarks   string `protobuf:"bytes,3,opt,name=remarks" json:"remarks,omitempty"`
-	Status    string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	UserGroup        *string `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	User             *string `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
+	Remarks          *string `protobuf:"bytes,3,opt,name=remarks" json:"remarks,omitempty"`
+	Status           *string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyUserGroupMemberAttributesInput) Reset()         { *m = ModifyUserGroupMemberAttributesInput{} }
@@ -1265,42 +1295,43 @@ func (*ModifyUserGroupMemberAttributesInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyUserGroupMemberAttributesInput) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesInput) GetUser() string {
-	if m != nil {
-		return m.User
+	if m != nil && m.User != nil {
+		return *m.User
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesInput) GetRemarks() string {
-	if m != nil {
-		return m.Remarks
+	if m != nil && m.Remarks != nil {
+		return *m.Remarks
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesInput) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 type ModifyUserGroupMemberAttributesOutput struct {
-	Action      string                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode     int32                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message     string                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Status      string                      `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	UserId      string                      `protobuf:"bytes,5,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	Remarks     string                      `protobuf:"bytes,6,opt,name=remarks" json:"remarks,omitempty"`
-	UserGroupId string                      `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	StatusTime  *google_protobuf1.Timestamp `protobuf:"bytes,8,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Action           *string                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Status           *string                     `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	UserId           *string                     `protobuf:"bytes,5,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	Remarks          *string                     `protobuf:"bytes,6,opt,name=remarks" json:"remarks,omitempty"`
+	UserGroupId      *string                     `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,8,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) Reset()         { *m = ModifyUserGroupMemberAttributesOutput{} }
@@ -1311,50 +1342,50 @@ func (*ModifyUserGroupMemberAttributesOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetUserId() string {
-	if m != nil {
-		return m.UserId
+	if m != nil && m.UserId != nil {
+		return *m.UserId
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetRemarks() string {
-	if m != nil {
-		return m.Remarks
+	if m != nil && m.Remarks != nil {
+		return *m.Remarks
 	}
 	return ""
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetUserGroupId() string {
-	if m != nil {
-		return m.UserGroupId
+	if m != nil && m.UserGroupId != nil {
+		return *m.UserGroupId
 	}
 	return ""
 }
@@ -1367,8 +1398,9 @@ func (m *ModifyUserGroupMemberAttributesOutput) GetStatusTime() *google_protobuf
 }
 
 type DeleteUserGroupMembersInput struct {
-	UserGroup string   `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	Users     []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	UserGroup        *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteUserGroupMembersInput) Reset()                    { *m = DeleteUserGroupMembersInput{} }
@@ -1377,8 +1409,8 @@ func (*DeleteUserGroupMembersInput) ProtoMessage()               {}
 func (*DeleteUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{31} }
 
 func (m *DeleteUserGroupMembersInput) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
@@ -1391,11 +1423,12 @@ func (m *DeleteUserGroupMembersInput) GetUsers() []string {
 }
 
 type DeleteUserGroupMembersOutput struct {
-	Action      string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode     int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message     string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupId string   `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	UserIds     []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupId      *string  `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	UserIds          []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteUserGroupMembersOutput) Reset()                    { *m = DeleteUserGroupMembersOutput{} }
@@ -1404,29 +1437,29 @@ func (*DeleteUserGroupMembersOutput) ProtoMessage()               {}
 func (*DeleteUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{32} }
 
 func (m *DeleteUserGroupMembersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteUserGroupMembersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteUserGroupMembersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DeleteUserGroupMembersOutput) GetUserGroupId() string {
-	if m != nil {
-		return m.UserGroupId
+	if m != nil && m.UserGroupId != nil {
+		return *m.UserGroupId
 	}
 	return ""
 }
@@ -1439,14 +1472,15 @@ func (m *DeleteUserGroupMembersOutput) GetUserIds() []string {
 }
 
 type DescribeGroupRolesInput struct {
-	GroupRoles []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	Status     []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	SearchWord string   `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Limit      int32    `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	Offset     int32    `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Verbose    int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey    string   `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse    int32    `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	GroupRoles       []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey          *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse          *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeGroupRolesInput) Reset()                    { *m = DescribeGroupRolesInput{} }
@@ -1469,53 +1503,54 @@ func (m *DescribeGroupRolesInput) GetStatus() []string {
 }
 
 func (m *DescribeGroupRolesInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 func (m *DescribeGroupRolesInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeGroupRolesInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeGroupRolesInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeGroupRolesInput) GetSortKey() string {
-	if m != nil {
-		return m.SortKey
+	if m != nil && m.SortKey != nil {
+		return *m.SortKey
 	}
 	return ""
 }
 
 func (m *DescribeGroupRolesInput) GetReverse() int32 {
-	if m != nil {
-		return m.Reverse
+	if m != nil && m.Reverse != nil {
+		return *m.Reverse
 	}
 	return 0
 }
 
 type DescribeGroupRolesOutput struct {
-	Action       string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleSet []*GroupRoleItem `protobuf:"bytes,4,rep,name=group_role_set,json=groupRoleSet" json:"group_role_set,omitempty"`
-	TotalCount   int32            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleSet     []*GroupRoleItem `protobuf:"bytes,4,rep,name=group_role_set,json=groupRoleSet" json:"group_role_set,omitempty"`
+	TotalCount       *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte           `json:"-"`
 }
 
 func (m *DescribeGroupRolesOutput) Reset()                    { *m = DescribeGroupRolesOutput{} }
@@ -1524,22 +1559,22 @@ func (*DescribeGroupRolesOutput) ProtoMessage()               {}
 func (*DescribeGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{34} }
 
 func (m *DescribeGroupRolesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeGroupRolesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeGroupRolesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1552,17 +1587,18 @@ func (m *DescribeGroupRolesOutput) GetGroupRoleSet() []*GroupRoleItem {
 }
 
 func (m *DescribeGroupRolesOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type CreateGroupRolesInput struct {
-	RoleType      string `protobuf:"bytes,1,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
-	GroupRoleName string `protobuf:"bytes,2,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
-	Description   string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Count         int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
+	RoleType         *string `protobuf:"bytes,1,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
+	GroupRoleName    *string `protobuf:"bytes,2,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
+	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Count            *int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateGroupRolesInput) Reset()                    { *m = CreateGroupRolesInput{} }
@@ -1571,38 +1607,39 @@ func (*CreateGroupRolesInput) ProtoMessage()               {}
 func (*CreateGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{35} }
 
 func (m *CreateGroupRolesInput) GetRoleType() string {
-	if m != nil {
-		return m.RoleType
+	if m != nil && m.RoleType != nil {
+		return *m.RoleType
 	}
 	return ""
 }
 
 func (m *CreateGroupRolesInput) GetGroupRoleName() string {
-	if m != nil {
-		return m.GroupRoleName
+	if m != nil && m.GroupRoleName != nil {
+		return *m.GroupRoleName
 	}
 	return ""
 }
 
 func (m *CreateGroupRolesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *CreateGroupRolesInput) GetCount() int32 {
-	if m != nil {
-		return m.Count
+	if m != nil && m.Count != nil {
+		return *m.Count
 	}
 	return 0
 }
 
 type CreateGroupRolesOutput struct {
-	Action       string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleIds []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleIds     []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *CreateGroupRolesOutput) Reset()                    { *m = CreateGroupRolesOutput{} }
@@ -1611,22 +1648,22 @@ func (*CreateGroupRolesOutput) ProtoMessage()               {}
 func (*CreateGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{36} }
 
 func (m *CreateGroupRolesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateGroupRolesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateGroupRolesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1639,11 +1676,12 @@ func (m *CreateGroupRolesOutput) GetGroupRoleIds() []string {
 }
 
 type ModifyGroupRoleAttributesInput struct {
-	GroupRole     string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	RoleType      string `protobuf:"bytes,2,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
-	GroupRoleName string `protobuf:"bytes,3,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
-	Description   string `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	Status        string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	RoleType         *string `protobuf:"bytes,2,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
+	GroupRoleName    *string `protobuf:"bytes,3,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
+	Description      *string `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	Status           *string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyGroupRoleAttributesInput) Reset()         { *m = ModifyGroupRoleAttributesInput{} }
@@ -1654,46 +1692,47 @@ func (*ModifyGroupRoleAttributesInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyGroupRoleAttributesInput) GetGroupRole() string {
-	if m != nil {
-		return m.GroupRole
+	if m != nil && m.GroupRole != nil {
+		return *m.GroupRole
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleAttributesInput) GetRoleType() string {
-	if m != nil {
-		return m.RoleType
+	if m != nil && m.RoleType != nil {
+		return *m.RoleType
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleAttributesInput) GetGroupRoleName() string {
-	if m != nil {
-		return m.GroupRoleName
+	if m != nil && m.GroupRoleName != nil {
+		return *m.GroupRoleName
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleAttributesInput) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 type ModifyGroupRoleAttributesOutput struct {
-	Action      string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode     int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message     string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleId string `protobuf:"bytes,4,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	Description string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleId      *string `protobuf:"bytes,4,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	Description      *string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyGroupRoleAttributesOutput) Reset()         { *m = ModifyGroupRoleAttributesOutput{} }
@@ -1704,42 +1743,43 @@ func (*ModifyGroupRoleAttributesOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyGroupRoleAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyGroupRoleAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleAttributesOutput) GetGroupRoleId() string {
-	if m != nil {
-		return m.GroupRoleId
+	if m != nil && m.GroupRoleId != nil {
+		return *m.GroupRoleId
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleAttributesOutput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type DeleteGroupRolesInput struct {
-	GroupRoles []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	GroupRoles       []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteGroupRolesInput) Reset()                    { *m = DeleteGroupRolesInput{} }
@@ -1755,10 +1795,11 @@ func (m *DeleteGroupRolesInput) GetGroupRoles() []string {
 }
 
 type DeleteGroupRolesOutput struct {
-	Action       string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleIds []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleIds     []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteGroupRolesOutput) Reset()                    { *m = DeleteGroupRolesOutput{} }
@@ -1767,22 +1808,22 @@ func (*DeleteGroupRolesOutput) ProtoMessage()               {}
 func (*DeleteGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{40} }
 
 func (m *DeleteGroupRolesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteGroupRolesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteGroupRolesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1795,14 +1836,15 @@ func (m *DeleteGroupRolesOutput) GetGroupRoleIds() []string {
 }
 
 type DescribeGroupRoleRulesInput struct {
-	GroupRoleRules []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
-	GroupRoles     []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	Status         []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	Limit          int32    `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	Offset         int32    `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Verbose        int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey        string   `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse        int32    `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	GroupRoleRules   []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
+	GroupRoles       []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey          *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse          *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeGroupRoleRulesInput) Reset()                    { *m = DescribeGroupRoleRulesInput{} }
@@ -1832,47 +1874,48 @@ func (m *DescribeGroupRoleRulesInput) GetStatus() []string {
 }
 
 func (m *DescribeGroupRoleRulesInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeGroupRoleRulesInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeGroupRoleRulesInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeGroupRoleRulesInput) GetSortKey() string {
-	if m != nil {
-		return m.SortKey
+	if m != nil && m.SortKey != nil {
+		return *m.SortKey
 	}
 	return ""
 }
 
 func (m *DescribeGroupRoleRulesInput) GetReverse() int32 {
-	if m != nil {
-		return m.Reverse
+	if m != nil && m.Reverse != nil {
+		return *m.Reverse
 	}
 	return 0
 }
 
 type DescribeGroupRoleRulesOutput struct {
-	Action           string               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          int32                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	GroupRoleRuleSet []*GroupRoleRuleItem `protobuf:"bytes,4,rep,name=group_role_rule_set,json=groupRoleRuleSet" json:"group_role_rule_set,omitempty"`
 	ItemSet          []string             `protobuf:"bytes,5,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
-	TotalCount       int32                `protobuf:"varint,6,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount       *int32               `protobuf:"varint,6,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
 func (m *DescribeGroupRoleRulesOutput) Reset()                    { *m = DescribeGroupRoleRulesOutput{} }
@@ -1881,22 +1924,22 @@ func (*DescribeGroupRoleRulesOutput) ProtoMessage()               {}
 func (*DescribeGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{42} }
 
 func (m *DescribeGroupRoleRulesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeGroupRoleRulesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeGroupRoleRulesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1916,16 +1959,17 @@ func (m *DescribeGroupRoleRulesOutput) GetItemSet() []string {
 }
 
 func (m *DescribeGroupRoleRulesOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type AddGroupRoleRulesInput struct {
-	GroupRole   string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	Policy      string `protobuf:"bytes,2,opt,name=policy" json:"policy,omitempty"`
-	Description string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	Policy           *string `protobuf:"bytes,2,opt,name=policy" json:"policy,omitempty"`
+	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AddGroupRoleRulesInput) Reset()                    { *m = AddGroupRoleRulesInput{} }
@@ -1934,41 +1978,42 @@ func (*AddGroupRoleRulesInput) ProtoMessage()               {}
 func (*AddGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{43} }
 
 func (m *AddGroupRoleRulesInput) GetGroupRole() string {
-	if m != nil {
-		return m.GroupRole
+	if m != nil && m.GroupRole != nil {
+		return *m.GroupRole
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesInput) GetPolicy() string {
-	if m != nil {
-		return m.Policy
+	if m != nil && m.Policy != nil {
+		return *m.Policy
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type AddGroupRoleRulesOutput struct {
-	Action          string                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode         int32                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message         string                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Status          string                      `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	Description     string                      `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	GroupRoleId     string                      `protobuf:"bytes,6,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	ConsoleId       string                      `protobuf:"bytes,7,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	RootUserId      string                      `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	CreateTime      *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Principle       string                      `protobuf:"bytes,10,opt,name=principle" json:"principle,omitempty"`
-	Policy          string                      `protobuf:"bytes,11,opt,name=policy" json:"policy,omitempty"`
-	Owner           string                      `protobuf:"bytes,12,opt,name=owner" json:"owner,omitempty"`
-	StatusTime      *google_protobuf1.Timestamp `protobuf:"bytes,13,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	GroupRoleRuleId string                      `protobuf:"bytes,14,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	Action           *string                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Status           *string                     `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	Description      *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	GroupRoleId      *string                     `protobuf:"bytes,6,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	ConsoleId        *string                     `protobuf:"bytes,7,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	RootUserId       *string                     `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Principle        *string                     `protobuf:"bytes,10,opt,name=principle" json:"principle,omitempty"`
+	Policy           *string                     `protobuf:"bytes,11,opt,name=policy" json:"policy,omitempty"`
+	Owner            *string                     `protobuf:"bytes,12,opt,name=owner" json:"owner,omitempty"`
+	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,13,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	GroupRoleRuleId  *string                     `protobuf:"bytes,14,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *AddGroupRoleRulesOutput) Reset()                    { *m = AddGroupRoleRulesOutput{} }
@@ -1977,57 +2022,57 @@ func (*AddGroupRoleRulesOutput) ProtoMessage()               {}
 func (*AddGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{44} }
 
 func (m *AddGroupRoleRulesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AddGroupRoleRulesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetStatus() string {
-	if m != nil {
-		return m.Status
+	if m != nil && m.Status != nil {
+		return *m.Status
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetGroupRoleId() string {
-	if m != nil {
-		return m.GroupRoleId
+	if m != nil && m.GroupRoleId != nil {
+		return *m.GroupRoleId
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetConsoleId() string {
-	if m != nil {
-		return m.ConsoleId
+	if m != nil && m.ConsoleId != nil {
+		return *m.ConsoleId
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetRootUserId() string {
-	if m != nil {
-		return m.RootUserId
+	if m != nil && m.RootUserId != nil {
+		return *m.RootUserId
 	}
 	return ""
 }
@@ -2040,22 +2085,22 @@ func (m *AddGroupRoleRulesOutput) GetCreateTime() *google_protobuf1.Timestamp {
 }
 
 func (m *AddGroupRoleRulesOutput) GetPrinciple() string {
-	if m != nil {
-		return m.Principle
+	if m != nil && m.Principle != nil {
+		return *m.Principle
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetPolicy() string {
-	if m != nil {
-		return m.Policy
+	if m != nil && m.Policy != nil {
+		return *m.Policy
 	}
 	return ""
 }
 
 func (m *AddGroupRoleRulesOutput) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
@@ -2068,16 +2113,17 @@ func (m *AddGroupRoleRulesOutput) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 func (m *AddGroupRoleRulesOutput) GetGroupRoleRuleId() string {
-	if m != nil {
-		return m.GroupRoleRuleId
+	if m != nil && m.GroupRoleRuleId != nil {
+		return *m.GroupRoleRuleId
 	}
 	return ""
 }
 
 type ModifyGroupRoleRuleAttributesInput struct {
-	GroupRoleRule string `protobuf:"bytes,1,opt,name=group_role_rule,json=groupRoleRule" json:"group_role_rule,omitempty"`
-	Description   string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Policy        string `protobuf:"bytes,3,opt,name=policy" json:"policy,omitempty"`
+	GroupRoleRule    *string `protobuf:"bytes,1,opt,name=group_role_rule,json=groupRoleRule" json:"group_role_rule,omitempty"`
+	Description      *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Policy           *string `protobuf:"bytes,3,opt,name=policy" json:"policy,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyGroupRoleRuleAttributesInput) Reset()         { *m = ModifyGroupRoleRuleAttributesInput{} }
@@ -2088,32 +2134,33 @@ func (*ModifyGroupRoleRuleAttributesInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyGroupRoleRuleAttributesInput) GetGroupRoleRule() string {
-	if m != nil {
-		return m.GroupRoleRule
+	if m != nil && m.GroupRoleRule != nil {
+		return *m.GroupRoleRule
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleRuleAttributesInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleRuleAttributesInput) GetPolicy() string {
-	if m != nil {
-		return m.Policy
+	if m != nil && m.Policy != nil {
+		return *m.Policy
 	}
 	return ""
 }
 
 type ModifyGroupRoleRuleAttributesOutput struct {
-	Action          string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode         int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message         string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Policy          string `protobuf:"bytes,4,opt,name=policy" json:"policy,omitempty"`
-	GroupRoleRuleId string `protobuf:"bytes,5,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Policy           *string `protobuf:"bytes,4,opt,name=policy" json:"policy,omitempty"`
+	GroupRoleRuleId  *string `protobuf:"bytes,5,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) Reset()         { *m = ModifyGroupRoleRuleAttributesOutput{} }
@@ -2124,43 +2171,44 @@ func (*ModifyGroupRoleRuleAttributesOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) GetPolicy() string {
-	if m != nil {
-		return m.Policy
+	if m != nil && m.Policy != nil {
+		return *m.Policy
 	}
 	return ""
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) GetGroupRoleRuleId() string {
-	if m != nil {
-		return m.GroupRoleRuleId
+	if m != nil && m.GroupRoleRuleId != nil {
+		return *m.GroupRoleRuleId
 	}
 	return ""
 }
 
 type DeleteGroupRoleRulesInput struct {
-	GroupRoleRules []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
-	GroupRoles     []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	GroupRoleRules   []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
+	GroupRoles       []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteGroupRoleRulesInput) Reset()                    { *m = DeleteGroupRoleRulesInput{} }
@@ -2183,10 +2231,11 @@ func (m *DeleteGroupRoleRulesInput) GetGroupRoles() []string {
 }
 
 type DeleteGroupRoleRulesOutput struct {
-	Action           string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	GroupRoleRuleIds []string `protobuf:"bytes,4,rep,name=group_role_rule_ids,json=groupRoleRuleIds" json:"group_role_rule_ids,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteGroupRoleRulesOutput) Reset()                    { *m = DeleteGroupRoleRulesOutput{} }
@@ -2195,22 +2244,22 @@ func (*DeleteGroupRoleRulesOutput) ProtoMessage()               {}
 func (*DeleteGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{48} }
 
 func (m *DeleteGroupRoleRulesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteGroupRoleRulesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteGroupRoleRulesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -2223,7 +2272,8 @@ func (m *DeleteGroupRoleRulesOutput) GetGroupRoleRuleIds() []string {
 }
 
 type GrantResourceGroupsToUserGroupsInput struct {
-	RurSet []*GrantResourceGroupsToUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	RurSet           []*GrantResourceGroupsToUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	XXX_unrecognized []byte                                              `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput) Reset()         { *m = GrantResourceGroupsToUserGroupsInput{} }
@@ -2241,9 +2291,10 @@ func (m *GrantResourceGroupsToUserGroupsInput) GetRurSet() []*GrantResourceGroup
 }
 
 type GrantResourceGroupsToUserGroupsInput_RequestItem struct {
-	ResourceGroup string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup     string `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	GroupRole     string `protobuf:"bytes,3,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	ResourceGroup    *string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup        *string `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	GroupRole        *string `protobuf:"bytes,3,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) Reset() {
@@ -2258,31 +2309,32 @@ func (*GrantResourceGroupsToUserGroupsInput_RequestItem) Descriptor() ([]byte, [
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) GetResourceGroup() string {
-	if m != nil {
-		return m.ResourceGroup
+	if m != nil && m.ResourceGroup != nil {
+		return *m.ResourceGroup
 	}
 	return ""
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) GetGroupRole() string {
-	if m != nil {
-		return m.GroupRole
+	if m != nil && m.GroupRole != nil {
+		return *m.GroupRole
 	}
 	return ""
 }
 
 type GrantResourceGroupsToUserGroupsOutput struct {
-	Action  string                                                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32                                                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string                                                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RurSet  []*GrantResourceGroupsToUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	Action           *string                                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RurSet           []*GrantResourceGroupsToUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	XXX_unrecognized []byte                                                `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput) Reset()         { *m = GrantResourceGroupsToUserGroupsOutput{} }
@@ -2293,22 +2345,22 @@ func (*GrantResourceGroupsToUserGroupsOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -2321,9 +2373,10 @@ func (m *GrantResourceGroupsToUserGroupsOutput) GetRurSet() []*GrantResourceGrou
 }
 
 type GrantResourceGroupsToUserGroupsOutput_ResponseItem struct {
-	GroupRole     string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	ResourceGroup string `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup     string `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	ResourceGroup    *string `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup        *string `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) Reset() {
@@ -2338,31 +2391,32 @@ func (*GrantResourceGroupsToUserGroupsOutput_ResponseItem) Descriptor() ([]byte,
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) GetGroupRole() string {
-	if m != nil {
-		return m.GroupRole
+	if m != nil && m.GroupRole != nil {
+		return *m.GroupRole
 	}
 	return ""
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) GetResourceGroup() string {
-	if m != nil {
-		return m.ResourceGroup
+	if m != nil && m.ResourceGroup != nil {
+		return *m.ResourceGroup
 	}
 	return ""
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
 
 type RevokeResourceGroupsFromUserGroupsInput struct {
-	RuSet          []*RevokeResourceGroupsFromUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=ru_set,json=ruSet" json:"ru_set,omitempty"`
-	ResourceGroups []string                                               `protobuf:"bytes,2,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	UserGroups     []string                                               `protobuf:"bytes,3,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	GroupRoles     []string                                               `protobuf:"bytes,4,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	RuSet            []*RevokeResourceGroupsFromUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=ru_set,json=ruSet" json:"ru_set,omitempty"`
+	ResourceGroups   []string                                               `protobuf:"bytes,2,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	UserGroups       []string                                               `protobuf:"bytes,3,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	GroupRoles       []string                                               `protobuf:"bytes,4,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	XXX_unrecognized []byte                                                 `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput) Reset() {
@@ -2403,8 +2457,9 @@ func (m *RevokeResourceGroupsFromUserGroupsInput) GetGroupRoles() []string {
 }
 
 type RevokeResourceGroupsFromUserGroupsInput_RequestItem struct {
-	ResourceGroup string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup     string `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	ResourceGroup    *string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup        *string `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) Reset() {
@@ -2419,24 +2474,25 @@ func (*RevokeResourceGroupsFromUserGroupsInput_RequestItem) Descriptor() ([]byte
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) GetResourceGroup() string {
-	if m != nil {
-		return m.ResourceGroup
+	if m != nil && m.ResourceGroup != nil {
+		return *m.ResourceGroup
 	}
 	return ""
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
 
 type RevokeResourceGroupsFromUserGroupsOutput struct {
-	Action  string                                                   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32                                                    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string                                                   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RurSet  []*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	Action           *string                                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RurSet           []*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	XXX_unrecognized []byte                                                   `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput) Reset() {
@@ -2449,22 +2505,22 @@ func (*RevokeResourceGroupsFromUserGroupsOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -2477,9 +2533,10 @@ func (m *RevokeResourceGroupsFromUserGroupsOutput) GetRurSet() []*RevokeResource
 }
 
 type RevokeResourceGroupsFromUserGroupsOutput_ResponseItem struct {
-	GroupRole     string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	ResourceGroup string `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup     string `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	ResourceGroup    *string `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup        *string `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) Reset() {
@@ -2494,35 +2551,36 @@ func (*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) Descriptor() ([]by
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) GetGroupRole() string {
-	if m != nil {
-		return m.GroupRole
+	if m != nil && m.GroupRole != nil {
+		return *m.GroupRole
 	}
 	return ""
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) GetResourceGroup() string {
-	if m != nil {
-		return m.ResourceGroup
+	if m != nil && m.ResourceGroup != nil {
+		return *m.ResourceGroup
 	}
 	return ""
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) GetUserGroup() string {
-	if m != nil {
-		return m.UserGroup
+	if m != nil && m.UserGroup != nil {
+		return *m.UserGroup
 	}
 	return ""
 }
 
 type DescribeResourceUserGroupsInput struct {
-	ResourceGroups []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	UserGroups     []string `protobuf:"bytes,2,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	GroupRoles     []string `protobuf:"bytes,3,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	Limit          int32    `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	Offset         int32    `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Verbose        int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey        string   `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse        int32    `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	UserGroups       []string `protobuf:"bytes,2,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	GroupRoles       []string `protobuf:"bytes,3,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey          *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse          *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeResourceUserGroupsInput) Reset()         { *m = DescribeResourceUserGroupsInput{} }
@@ -2554,46 +2612,47 @@ func (m *DescribeResourceUserGroupsInput) GetGroupRoles() []string {
 }
 
 func (m *DescribeResourceUserGroupsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 func (m *DescribeResourceUserGroupsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeResourceUserGroupsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeResourceUserGroupsInput) GetSortKey() string {
-	if m != nil {
-		return m.SortKey
+	if m != nil && m.SortKey != nil {
+		return *m.SortKey
 	}
 	return ""
 }
 
 func (m *DescribeResourceUserGroupsInput) GetReverse() int32 {
-	if m != nil {
-		return m.Reverse
+	if m != nil && m.Reverse != nil {
+		return *m.Reverse
 	}
 	return 0
 }
 
 type DescribeResourceUserGroupsOutput struct {
-	Action               string                                           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode              int32                                            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message              string                                           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action               *string                                          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	ResourceUserGroupSet []*DescribeResourceUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=resource_user_group_set,json=resourceUserGroupSet" json:"resource_user_group_set,omitempty"`
-	TotalCount           int32                                            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount           *int32                                           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized     []byte                                           `json:"-"`
 }
 
 func (m *DescribeResourceUserGroupsOutput) Reset()         { *m = DescribeResourceUserGroupsOutput{} }
@@ -2604,22 +2663,22 @@ func (*DescribeResourceUserGroupsOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeResourceUserGroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeResourceUserGroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeResourceUserGroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -2632,20 +2691,21 @@ func (m *DescribeResourceUserGroupsOutput) GetResourceUserGroupSet() []*Describe
 }
 
 func (m *DescribeResourceUserGroupsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeResourceUserGroupsOutput_ResponseItem struct {
-	ResourceGroupId string                      `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	GroupRoleId     string                      `protobuf:"bytes,2,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	ConsoleId       string                      `protobuf:"bytes,3,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	RootUserId      string                      `protobuf:"bytes,4,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	CreateTime      *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Owner           string                      `protobuf:"bytes,6,opt,name=owner" json:"owner,omitempty"`
-	UserGroupId     string                      `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	ResourceGroupId  *string                     `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	GroupRoleId      *string                     `protobuf:"bytes,2,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	ConsoleId        *string                     `protobuf:"bytes,3,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	RootUserId       *string                     `protobuf:"bytes,4,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Owner            *string                     `protobuf:"bytes,6,opt,name=owner" json:"owner,omitempty"`
+	UserGroupId      *string                     `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) Reset() {
@@ -2660,29 +2720,29 @@ func (*DescribeResourceUserGroupsOutput_ResponseItem) Descriptor() ([]byte, []in
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetResourceGroupId() string {
-	if m != nil {
-		return m.ResourceGroupId
+	if m != nil && m.ResourceGroupId != nil {
+		return *m.ResourceGroupId
 	}
 	return ""
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetGroupRoleId() string {
-	if m != nil {
-		return m.GroupRoleId
+	if m != nil && m.GroupRoleId != nil {
+		return *m.GroupRoleId
 	}
 	return ""
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetConsoleId() string {
-	if m != nil {
-		return m.ConsoleId
+	if m != nil && m.ConsoleId != nil {
+		return *m.ConsoleId
 	}
 	return ""
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetRootUserId() string {
-	if m != nil {
-		return m.RootUserId
+	if m != nil && m.RootUserId != nil {
+		return *m.RootUserId
 	}
 	return ""
 }
@@ -2695,15 +2755,15 @@ func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetCreateTime() *google_
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetOwner() string {
-	if m != nil {
-		return m.Owner
+	if m != nil && m.Owner != nil {
+		return *m.Owner
 	}
 	return ""
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetUserGroupId() string {
-	if m != nil {
-		return m.UserGroupId
+	if m != nil && m.UserGroupId != nil {
+		return *m.UserGroupId
 	}
 	return ""
 }
@@ -2774,142 +2834,142 @@ func init() {
 func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor18) }
 
 var fileDescriptor18 = []byte{
-	// 2412 bytes of a gzipped FileDescriptorProto
+	// 2406 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x5b, 0xcd, 0x6f, 0x1c, 0x49,
 	0x15, 0x57, 0xf7, 0x7c, 0x79, 0xde, 0x38, 0x4e, 0xd2, 0x89, 0xed, 0x71, 0x3b, 0xce, 0x38, 0x1d,
-	0x67, 0x63, 0xf6, 0x63, 0x0c, 0x41, 0x5a, 0x01, 0x59, 0x21, 0x59, 0x8e, 0x58, 0x45, 0xb0, 0x04,
-	0xc6, 0xc9, 0xae, 0x90, 0x90, 0x46, 0xe3, 0xe9, 0xb2, 0xd3, 0xf2, 0xcc, 0xf4, 0xa4, 0xba, 0x3b,
-	0xc1, 0x7b, 0x42, 0x42, 0x42, 0x2c, 0xcb, 0x09, 0x21, 0x58, 0x0e, 0x48, 0x70, 0x42, 0xe2, 0x8c,
-	0x84, 0xb8, 0x2c, 0x27, 0x38, 0xf2, 0x57, 0x80, 0x90, 0x38, 0x20, 0x40, 0x1c, 0xb8, 0x20, 0x50,
-	0xf5, 0x47, 0x75, 0x55, 0x75, 0x55, 0x77, 0x8f, 0x4c, 0xe3, 0x88, 0x4b, 0xe4, 0x2a, 0x97, 0xab,
-	0xde, 0xfb, 0xbd, 0xf7, 0x7e, 0xf5, 0xfa, 0xbd, 0x0a, 0x18, 0x18, 0x79, 0x6e, 0x80, 0xc7, 0x68,
-	0x38, 0x1a, 0x4f, 0xfa, 0x73, 0xec, 0xfa, 0xae, 0xd1, 0xf2, 0x10, 0x7e, 0xee, 0x8c, 0x91, 0xd9,
-	0xf1, 0xcf, 0xe6, 0xc8, 0x8b, 0x66, 0xcd, 0xad, 0x67, 0xce, 0xec, 0x64, 0x3c, 0x71, 0x03, 0x7b,
-	0xe8, 0xd9, 0xa7, 0x43, 0x1c, 0x4c, 0xd0, 0x1e, 0xf9, 0x27, 0xfe, 0x75, 0xef, 0xc4, 0x75, 0x4f,
-	0x26, 0x68, 0x2f, 0x1c, 0x1d, 0x05, 0xc7, 0x7b, 0xbe, 0x33, 0x45, 0x9e, 0x3f, 0x9a, 0xce, 0xa3,
-	0x05, 0xd6, 0x3d, 0xb8, 0x31, 0x88, 0xcf, 0xda, 0x3f, 0xf8, 0xd2, 0x61, 0x74, 0xc4, 0x57, 0xb0,
-	0x3b, 0x47, 0xd8, 0x77, 0x90, 0x67, 0x18, 0x50, 0x7f, 0xdf, 0x9d, 0xa1, 0xae, 0xb6, 0xad, 0xed,
-	0xb6, 0x07, 0xe1, 0xcf, 0xd6, 0x11, 0xdc, 0x7a, 0x80, 0xbc, 0x31, 0x76, 0x8e, 0xd0, 0xe1, 0xd3,
-	0x11, 0x46, 0x76, 0xb2, 0xc3, 0xdb, 0xd8, 0x0d, 0xe6, 0xde, 0xc3, 0xd9, 0x3c, 0xf0, 0x8d, 0xbb,
-	0x70, 0x99, 0x2a, 0x71, 0x12, 0xce, 0x77, 0xb5, 0xed, 0xda, 0x6e, 0x7b, 0xb0, 0x82, 0xb9, 0xd5,
-	0xc6, 0x75, 0x68, 0xb8, 0x2f, 0x66, 0x08, 0x77, 0xf5, 0xf0, 0x88, 0x68, 0x60, 0xfd, 0x59, 0x03,
-	0x2b, 0xef, 0x90, 0x47, 0x81, 0x4f, 0x4e, 0x59, 0x83, 0xe6, 0x68, 0xec, 0x3b, 0xee, 0x2c, 0x16,
-	0x30, 0x1e, 0x19, 0x1b, 0xb0, 0x84, 0x91, 0x3f, 0x1c, 0xbb, 0x36, 0x0a, 0xf7, 0x6d, 0x0c, 0x5a,
-	0x18, 0xf9, 0x07, 0xae, 0x8d, 0x8c, 0x2e, 0xb4, 0xa6, 0xc8, 0xf3, 0x46, 0x27, 0xa8, 0x5b, 0x0b,
-	0xff, 0x26, 0x19, 0x1a, 0xef, 0xc2, 0x86, 0x17, 0x1e, 0x35, 0xe4, 0x25, 0x1f, 0x7a, 0xc8, 0xef,
-	0xd6, 0xb7, 0x6b, 0xbb, 0x9d, 0x7b, 0x9b, 0xfd, 0xd8, 0x0a, 0x7d, 0x41, 0x67, 0x1f, 0x4d, 0x07,
-	0x6b, 0x5e, 0x56, 0xd0, 0x43, 0xe4, 0x1b, 0x3d, 0xe8, 0xf8, 0xae, 0x3f, 0x9a, 0x0c, 0xc7, 0x6e,
-	0x30, 0xf3, 0xbb, 0x8d, 0x50, 0x1e, 0x08, 0xa7, 0x0e, 0xc8, 0x8c, 0xf5, 0x07, 0x0d, 0x36, 0x13,
-	0x65, 0xcf, 0x85, 0x65, 0x0f, 0x3a, 0x1e, 0x1a, 0xe1, 0xf1, 0xd3, 0xe1, 0x0b, 0x17, 0xdb, 0x31,
-	0xa2, 0x10, 0x4d, 0xbd, 0xe7, 0x62, 0x9b, 0x80, 0x3d, 0x71, 0xa6, 0x8e, 0x1f, 0xaa, 0xde, 0x18,
-	0x44, 0x03, 0x82, 0xa2, 0x7b, 0x7c, 0x1c, 0x69, 0x49, 0xa6, 0xe3, 0x11, 0x81, 0xea, 0x39, 0xc2,
-	0x47, 0xae, 0x87, 0x62, 0xa1, 0x93, 0x21, 0xc1, 0xd7, 0x73, 0xb1, 0x3f, 0x3c, 0x45, 0x67, 0xdd,
-	0x66, 0x84, 0x22, 0x19, 0x7f, 0x11, 0x9d, 0x91, 0x3f, 0xc2, 0xe8, 0x39, 0xc2, 0x1e, 0xea, 0xb6,
-	0x12, 0xe4, 0xc3, 0x21, 0x51, 0xf3, 0x86, 0x5c, 0xcd, 0xff, 0x2b, 0x6b, 0x7e, 0x4b, 0x83, 0x8d,
+	0x67, 0x63, 0xf6, 0x63, 0x0c, 0x39, 0xac, 0x80, 0xac, 0x90, 0x2c, 0x47, 0xac, 0x22, 0x58, 0x02,
+	0xe3, 0x64, 0x57, 0x48, 0x48, 0xa3, 0xf1, 0x74, 0xd9, 0x69, 0x79, 0x66, 0x7a, 0x52, 0xdd, 0x9d,
+	0xe0, 0x3d, 0x21, 0x21, 0x21, 0x96, 0xe5, 0x84, 0x10, 0x2c, 0x07, 0x24, 0x38, 0x21, 0x71, 0x46,
+	0x42, 0x5c, 0x96, 0x13, 0x1c, 0xf9, 0x2b, 0x40, 0x48, 0x1c, 0x10, 0x20, 0x0e, 0x5c, 0x10, 0xa8,
+	0xfa, 0xa3, 0xba, 0xaa, 0xba, 0xaa, 0xbb, 0x47, 0xa6, 0x71, 0xb4, 0x97, 0xc8, 0x55, 0x2e, 0x57,
+	0xbd, 0xf7, 0x7b, 0xef, 0xfd, 0xea, 0xf5, 0x7b, 0x15, 0x30, 0x30, 0xf2, 0xdc, 0x00, 0x8f, 0xd1,
+	0x70, 0x34, 0x9e, 0xf4, 0xe7, 0xd8, 0xf5, 0x5d, 0xa3, 0xe5, 0x21, 0xfc, 0xdc, 0x19, 0x23, 0xb3,
+	0xe3, 0x9f, 0xcd, 0x91, 0x17, 0xcd, 0x9a, 0x5b, 0xcf, 0x9c, 0xd9, 0xc9, 0x78, 0xe2, 0x06, 0xf6,
+	0xd0, 0xb3, 0x4f, 0x87, 0x38, 0x98, 0xa0, 0x3d, 0xf2, 0x4f, 0xfc, 0xeb, 0xde, 0x89, 0xeb, 0x9e,
+	0x4c, 0xd0, 0x5e, 0x38, 0x3a, 0x0a, 0x8e, 0xf7, 0x7c, 0x67, 0x8a, 0x3c, 0x7f, 0x34, 0x9d, 0x47,
+	0x0b, 0xac, 0x7b, 0x70, 0x63, 0x10, 0x9f, 0xb5, 0x7f, 0xf0, 0xe5, 0xc3, 0xe8, 0x88, 0xaf, 0x62,
+	0x77, 0x8e, 0xb0, 0xef, 0x20, 0xcf, 0x30, 0xa0, 0xfe, 0xbe, 0x3b, 0x43, 0x5d, 0x6d, 0x5b, 0xdb,
+	0x6d, 0x0f, 0xc2, 0x9f, 0xad, 0x23, 0xb8, 0xf5, 0x00, 0x79, 0x63, 0xec, 0x1c, 0xa1, 0xc3, 0xa7,
+	0x23, 0x8c, 0xec, 0x64, 0x87, 0xb7, 0xb1, 0x1b, 0xcc, 0xbd, 0x87, 0xb3, 0x79, 0xe0, 0x1b, 0x77,
+	0xe1, 0x32, 0x55, 0xe2, 0x24, 0x9c, 0xef, 0x6a, 0xdb, 0xb5, 0xdd, 0xf6, 0x60, 0x05, 0x73, 0xab,
+	0x8d, 0xeb, 0xd0, 0x70, 0x5f, 0xcc, 0x10, 0xee, 0xea, 0xe1, 0x11, 0xd1, 0xc0, 0xfa, 0x8b, 0x06,
+	0x56, 0xde, 0x21, 0x8f, 0x02, 0x9f, 0x9c, 0xb2, 0x06, 0xcd, 0xd1, 0xd8, 0x77, 0xdc, 0x59, 0x2c,
+	0x60, 0x3c, 0x32, 0x36, 0x60, 0x09, 0x23, 0x7f, 0x38, 0x76, 0x6d, 0x14, 0xee, 0xdb, 0x18, 0xb4,
+	0x30, 0xf2, 0x0f, 0x5c, 0x1b, 0x19, 0x5d, 0x68, 0x4d, 0x91, 0xe7, 0x8d, 0x4e, 0x50, 0xb7, 0x16,
+	0xfe, 0x4d, 0x32, 0x34, 0xde, 0x85, 0x0d, 0x2f, 0x3c, 0x6a, 0xc8, 0x4b, 0x3e, 0xf4, 0x90, 0xdf,
+	0xad, 0x6f, 0xd7, 0x76, 0x3b, 0xf7, 0x36, 0xfb, 0xb1, 0x15, 0xfa, 0x82, 0xce, 0x3e, 0x9a, 0x0e,
+	0xd6, 0xbc, 0xac, 0xa0, 0x87, 0xc8, 0x37, 0x7a, 0xd0, 0xf1, 0x5d, 0x7f, 0x34, 0x19, 0x8e, 0xdd,
+	0x60, 0xe6, 0x77, 0x1b, 0xa1, 0x3c, 0x10, 0x4e, 0x1d, 0x90, 0x19, 0xeb, 0x8f, 0x1a, 0x6c, 0x26,
+	0xca, 0x9e, 0x0b, 0xcb, 0x1e, 0x74, 0x3c, 0x34, 0xc2, 0xe3, 0xa7, 0xc3, 0x17, 0x2e, 0xb6, 0x63,
+	0x44, 0x21, 0x9a, 0x7a, 0xcf, 0xc5, 0x36, 0x01, 0x7b, 0xe2, 0x4c, 0x1d, 0x3f, 0x54, 0xbd, 0x31,
+	0x88, 0x06, 0x04, 0x45, 0xf7, 0xf8, 0x38, 0xd2, 0x92, 0x4c, 0xc7, 0x23, 0x02, 0xd5, 0x73, 0x84,
+	0x8f, 0x5c, 0x0f, 0xc5, 0x42, 0x27, 0x43, 0x82, 0xaf, 0xe7, 0x62, 0x7f, 0x78, 0x8a, 0xce, 0xba,
+	0xcd, 0x08, 0x45, 0x32, 0xfe, 0x12, 0x3a, 0x23, 0x7f, 0x84, 0xd1, 0x73, 0x84, 0x3d, 0xd4, 0x6d,
+	0x25, 0xc8, 0x87, 0x43, 0xa2, 0xe6, 0x0d, 0xb9, 0x9a, 0x9f, 0x28, 0x6b, 0x7e, 0x5b, 0x83, 0x8d,
 	0x03, 0x8c, 0x46, 0xbe, 0xd4, 0x96, 0x7d, 0xb8, 0x26, 0xc8, 0x33, 0x1b, 0x4d, 0x93, 0xf8, 0xba,
-	0xca, 0xd9, 0xf3, 0xcb, 0xa3, 0x29, 0x32, 0xb6, 0xa1, 0x63, 0x87, 0x98, 0xcd, 0x43, 0x60, 0x22,
-	0x93, 0xb2, 0x53, 0xc4, 0xa6, 0x91, 0x28, 0xb1, 0x4d, 0xc3, 0x81, 0xf5, 0x23, 0x0d, 0x4c, 0x99,
+	0xca, 0xd9, 0xf3, 0x2b, 0xa3, 0x29, 0x32, 0xb6, 0xa1, 0x63, 0x87, 0x98, 0xcd, 0x43, 0x60, 0x22,
+	0x93, 0xb2, 0x53, 0xc4, 0xa6, 0x91, 0x28, 0xb1, 0x4d, 0xc3, 0x81, 0xf5, 0x63, 0x0d, 0x4c, 0x99,
 	0x14, 0x55, 0x40, 0xfd, 0x3a, 0x43, 0x58, 0x91, 0x4e, 0x8e, 0xed, 0x85, 0x18, 0xb7, 0x07, 0x57,
-	0x38, 0x95, 0x1e, 0xda, 0x9e, 0xf5, 0x13, 0x0d, 0xac, 0x77, 0x5c, 0xdb, 0x39, 0x3e, 0xe3, 0x24,
+	0x38, 0x95, 0x1e, 0xda, 0x9e, 0xf5, 0x53, 0x0d, 0xac, 0x77, 0x5c, 0xdb, 0x39, 0x3e, 0xe3, 0x24,
 	0xdb, 0xf7, 0x7d, 0xec, 0x1c, 0x05, 0x3e, 0x8a, 0x81, 0xba, 0x03, 0x2b, 0xfc, 0xa6, 0xb1, 0xa4,
-	0x97, 0xb8, 0x0d, 0x55, 0x78, 0xea, 0x25, 0xf1, 0xac, 0x65, 0xf0, 0xb4, 0x7e, 0xaf, 0xc1, 0xed,
+	0x97, 0xb8, 0x0d, 0x55, 0x78, 0xea, 0x25, 0xf1, 0xac, 0x65, 0xf0, 0xb4, 0xfe, 0xa0, 0xc1, 0xed,
 	0x5c, 0xf9, 0xaa, 0x80, 0xf0, 0x55, 0xb8, 0x9a, 0x81, 0x30, 0x8c, 0xc6, 0xf6, 0xe0, 0xb2, 0x80,
 	0xa0, 0x4a, 0xe5, 0x86, 0x42, 0x65, 0xeb, 0x01, 0x6c, 0x3c, 0x40, 0x13, 0xe4, 0x9f, 0x8b, 0x5b,
-	0xac, 0xef, 0x6b, 0x60, 0xca, 0xb6, 0xa9, 0x02, 0x0d, 0x89, 0x50, 0x75, 0xa9, 0x50, 0x7f, 0xd4,
+	0xac, 0x1f, 0x68, 0x60, 0xca, 0xb6, 0xa9, 0x02, 0x0d, 0x89, 0x50, 0x75, 0xa9, 0x50, 0x7f, 0xd2,
 	0xa0, 0x27, 0xa5, 0x14, 0x12, 0xc2, 0x8b, 0xb2, 0xe7, 0x0d, 0x68, 0x27, 0x33, 0x5e, 0x57, 0x0f,
-	0x97, 0xa4, 0x13, 0x17, 0x4b, 0x9d, 0xff, 0xd6, 0x60, 0x5b, 0xad, 0x67, 0x15, 0x26, 0x18, 0xc0,
+	0x97, 0xa4, 0x13, 0x17, 0x4b, 0x9d, 0xff, 0xd1, 0x60, 0x5b, 0xad, 0x67, 0x15, 0x26, 0x18, 0xc0,
 	0xba, 0xe8, 0x90, 0x3e, 0x9a, 0x96, 0x25, 0xcf, 0xeb, 0x58, 0x14, 0x92, 0x50, 0xe7, 0x06, 0x2c,
 	0xd1, 0x4d, 0x1a, 0x21, 0xbe, 0x2d, 0x27, 0xfe, 0x95, 0xc0, 0xaa, 0xcd, 0x0c, 0xab, 0x8e, 0xc0,
-	0xdc, 0xb7, 0x6d, 0x95, 0x8d, 0x4b, 0x92, 0x45, 0xae, 0x85, 0xad, 0x5f, 0x6b, 0xb0, 0x29, 0x3d,
+	0xdc, 0xb7, 0x6d, 0x95, 0x8d, 0x4b, 0x92, 0x45, 0xae, 0x85, 0xad, 0xdf, 0x68, 0xb0, 0x29, 0x3d,
 	0xe3, 0xa2, 0x03, 0xfe, 0x16, 0x2c, 0xd3, 0xb5, 0x84, 0x59, 0x23, 0xec, 0x3a, 0xc9, 0x1c, 0x21,
-	0x55, 0x1b, 0xb6, 0x24, 0xc1, 0xf9, 0xdf, 0x46, 0xe8, 0xc7, 0x1a, 0xdc, 0x54, 0x1d, 0x73, 0xc1,
-	0x20, 0x59, 0x7f, 0xd5, 0x60, 0x3d, 0x09, 0x91, 0x27, 0x1e, 0xc2, 0x2c, 0xc9, 0xf5, 0xa0, 0x13,
+	0x55, 0x1b, 0xb6, 0x24, 0xc1, 0xf9, 0xbf, 0x46, 0xe8, 0x27, 0x1a, 0xdc, 0x54, 0x1d, 0x73, 0xc1,
+	0x20, 0x59, 0x7f, 0xd3, 0x60, 0x3d, 0x09, 0x91, 0x27, 0x1e, 0xc2, 0x2c, 0xc9, 0xf5, 0xa0, 0x13,
 	0x78, 0x08, 0xf3, 0xe1, 0x0f, 0x01, 0x5d, 0x45, 0xa4, 0xf6, 0xfc, 0x91, 0x1f, 0x24, 0x3a, 0xc7,
-	0xa3, 0x0b, 0x0d, 0x7a, 0x31, 0x9b, 0x5b, 0x12, 0xb3, 0x39, 0xeb, 0x77, 0x1a, 0x74, 0xb3, 0x2a,
+	0xa3, 0x0b, 0x0d, 0x7a, 0x31, 0x9b, 0x5b, 0x12, 0xb3, 0x39, 0xeb, 0xf7, 0x1a, 0x74, 0xb3, 0x2a,
 	0x57, 0x61, 0x88, 0xb7, 0x60, 0x25, 0x05, 0x90, 0x21, 0x81, 0x35, 0x4a, 0x02, 0xf4, 0xfc, 0x30,
 	0xfe, 0x97, 0x29, 0xb6, 0xa5, 0x52, 0xa6, 0x17, 0xb0, 0x1a, 0xe5, 0x2a, 0xa2, 0xe1, 0x5e, 0x81,
 	0xcb, 0xcc, 0xb9, 0x4c, 0xa6, 0x74, 0x89, 0x1e, 0x70, 0xae, 0x2c, 0xe9, 0x43, 0x0d, 0xd6, 0xc4,
-	0x93, 0xab, 0xc0, 0x6f, 0x87, 0xc3, 0x2f, 0xcd, 0x8e, 0x52, 0x9c, 0x48, 0x10, 0xff, 0x4c, 0x83,
+	0x93, 0xab, 0xc0, 0x6f, 0x87, 0xc3, 0x2f, 0xcd, 0x8e, 0x52, 0x9c, 0x48, 0x10, 0xff, 0x5c, 0x83,
 	0x9b, 0x51, 0xe6, 0x41, 0xa5, 0x11, 0xb3, 0xa2, 0x2d, 0x80, 0x74, 0xa3, 0x58, 0xb2, 0x36, 0xdd,
 	0x44, 0x86, 0x97, 0x5e, 0x02, 0xaf, 0x6c, 0x16, 0xc4, 0x44, 0x44, 0x14, 0x6f, 0xf1, 0xc8, 0xfa,
-	0x93, 0x06, 0x3d, 0xa5, 0x8c, 0x55, 0x40, 0x67, 0xc1, 0x25, 0x0e, 0xba, 0x58, 0x9e, 0x0e, 0x83,
+	0xb3, 0x06, 0x3d, 0xa5, 0x8c, 0x55, 0x40, 0x67, 0xc1, 0x25, 0x0e, 0xba, 0x58, 0x9e, 0x0e, 0x83,
 	0x1c, 0x23, 0x6c, 0x83, 0x15, 0xd6, 0xb8, 0x0f, 0x9d, 0xe8, 0xa7, 0x21, 0xf9, 0xee, 0x0d, 0x23,
 	0xaf, 0x73, 0xcf, 0xec, 0x47, 0x1f, 0xc5, 0xfd, 0xe4, 0xa3, 0xb8, 0xff, 0x38, 0xf9, 0x28, 0x1e,
-	0x40, 0xb4, 0x9c, 0x4c, 0x58, 0x9f, 0x81, 0xd5, 0x88, 0xeb, 0x16, 0x65, 0x93, 0xd0, 0xab, 0xc4,
-	0x3f, 0xbd, 0x38, 0xaf, 0xfa, 0x9e, 0x4e, 0xee, 0x06, 0x81, 0x25, 0xde, 0x41, 0xd3, 0x23, 0x84,
+	0x40, 0xb4, 0x9c, 0x4c, 0x58, 0x9f, 0x85, 0xd5, 0x88, 0xeb, 0x16, 0x65, 0x93, 0xd0, 0xab, 0xc4,
+	0x3f, 0xbd, 0x38, 0xaf, 0xfa, 0xbe, 0x4e, 0xee, 0x06, 0x81, 0x25, 0xde, 0x41, 0xd3, 0x23, 0x84,
 	0xcb, 0xd2, 0xe3, 0x75, 0x68, 0x90, 0x51, 0xc2, 0x8e, 0xd1, 0x80, 0x41, 0xbd, 0xc6, 0x91, 0xa6,
 	0xc0, 0x5b, 0x75, 0xf5, 0x57, 0x68, 0x43, 0xce, 0xaa, 0x4d, 0x15, 0xab, 0xb6, 0xd4, 0xac, 0xba,
-	0xa4, 0x64, 0xd5, 0x36, 0x9f, 0x4a, 0xfd, 0x23, 0xbc, 0xc3, 0xe4, 0x70, 0x54, 0x61, 0xa4, 0x87,
+	0xa4, 0x64, 0xd5, 0x36, 0x9f, 0x4a, 0xfd, 0x33, 0xbc, 0xc3, 0xe4, 0x70, 0x54, 0x61, 0xa4, 0x87,
 	0xb0, 0xca, 0x18, 0x69, 0x1a, 0x1e, 0x54, 0x82, 0x41, 0x8d, 0x80, 0x97, 0xad, 0x0c, 0x8f, 0x72,
 	0x09, 0x56, 0x93, 0x4b, 0xb0, 0xac, 0x47, 0xd0, 0xdd, 0xb7, 0x6d, 0xb9, 0xfd, 0x0b, 0x48, 0x45,
-	0x6a, 0x7d, 0xeb, 0xe7, 0x1a, 0x6c, 0x48, 0x76, 0xbc, 0x28, 0x0a, 0xd8, 0x80, 0xa5, 0x70, 0x4d,
+	0x6a, 0x7d, 0xeb, 0x17, 0x1a, 0x6c, 0x48, 0x76, 0xbc, 0x28, 0x0a, 0xd8, 0x80, 0xa5, 0x70, 0x4d,
 	0x9a, 0x1f, 0xb5, 0xc8, 0x98, 0x04, 0xc0, 0x87, 0x1a, 0xec, 0x08, 0x94, 0x15, 0x09, 0xbb, 0x20,
 	0xb9, 0x1a, 0x50, 0x27, 0x83, 0x98, 0x51, 0xc3, 0x9f, 0x23, 0x3f, 0x9b, 0x8e, 0xf0, 0xa9, 0x97,
-	0x08, 0x1d, 0x0f, 0x95, 0x04, 0xfa, 0x53, 0x1d, 0xee, 0x14, 0x48, 0x53, 0x05, 0x86, 0x0a, 0x71,
+	0x08, 0x1d, 0x0f, 0x95, 0x04, 0xfa, 0x33, 0x1d, 0xee, 0x14, 0x48, 0x53, 0x05, 0x86, 0x0a, 0x71,
 	0x8c, 0x75, 0x68, 0xc5, 0xb8, 0x25, 0xdc, 0x19, 0xc1, 0xc6, 0x6a, 0xd6, 0xe4, 0x35, 0xcb, 0x98,
 	0xa3, 0x95, 0x35, 0x87, 0xc0, 0xbc, 0x4b, 0x0b, 0x31, 0xef, 0x00, 0x36, 0x05, 0xfa, 0x3c, 0xbf,
-	0xbb, 0xfe, 0x22, 0x2c, 0x3e, 0xc9, 0x36, 0x7d, 0x09, 0x3d, 0x96, 0xcd, 0x65, 0xc3, 0xe5, 0x03,
+	0xbb, 0xfe, 0x32, 0x2c, 0x3e, 0xc9, 0x36, 0x7d, 0x09, 0x3d, 0x96, 0xcd, 0x65, 0xc3, 0xe5, 0x03,
 	0x77, 0x82, 0x52, 0xb2, 0x8e, 0x76, 0xc5, 0x64, 0x2e, 0x21, 0xeb, 0x13, 0xba, 0x4a, 0x99, 0xcb,
 	0x0a, 0xb4, 0x5c, 0x53, 0xd3, 0x72, 0x5d, 0x4e, 0xcb, 0x0d, 0x15, 0x2d, 0x37, 0xd5, 0xb4, 0xdc,
 	0x52, 0xd2, 0xf2, 0x12, 0x4f, 0xcb, 0x6c, 0x2e, 0x9b, 0xaa, 0x5c, 0x51, 0x2e, 0x9b, 0x02, 0x28,
-	0x65, 0x62, 0x7a, 0x7e, 0x94, 0xcb, 0x52, 0x6c, 0x4b, 0xe5, 0xb2, 0x3f, 0xd0, 0x92, 0x64, 0x56,
+	0x65, 0x62, 0x7a, 0x7e, 0x94, 0xcb, 0x52, 0x6c, 0x4b, 0xe5, 0xb2, 0x3f, 0xd4, 0x92, 0x64, 0x56,
 	0xb4, 0xdc, 0x26, 0xb4, 0xc3, 0x23, 0xfd, 0xb3, 0x79, 0x92, 0xc6, 0x2e, 0x91, 0x89, 0xc7, 0x67,
 	0x73, 0x44, 0x32, 0x37, 0x46, 0x2a, 0x36, 0x73, 0xa3, 0xc7, 0x97, 0xcc, 0xdc, 0x68, 0xa6, 0x5b,
 	0x97, 0x67, 0xba, 0xd5, 0xa2, 0xbb, 0xc3, 0xa1, 0xcb, 0xe4, 0x24, 0x54, 0x0d, 0xe2, 0xe0, 0x1f,
 	0xd3, 0x4c, 0x97, 0x4a, 0x23, 0x21, 0xe3, 0x74, 0xa3, 0x24, 0xca, 0xe9, 0x26, 0x3c, 0x98, 0x7a,
-	0x31, 0x98, 0xb5, 0x12, 0x60, 0xd6, 0xf3, 0xd2, 0x60, 0x2e, 0xb3, 0xb4, 0x7e, 0x49, 0xd3, 0x60,
+	0x31, 0x98, 0xb5, 0x12, 0x60, 0xd6, 0xf3, 0xd2, 0x60, 0x2e, 0xb3, 0xb4, 0x7e, 0x45, 0xd3, 0x60,
 	0x89, 0x02, 0x15, 0x31, 0x0a, 0x87, 0x6b, 0x22, 0x2c, 0x03, 0xab, 0xa8, 0x4e, 0x23, 0x5b, 0xdb,
-	0xa4, 0x39, 0xed, 0xa2, 0xac, 0xc2, 0xe4, 0xb4, 0x2f, 0x83, 0xff, 0xfc, 0x8b, 0xe9, 0x98, 0x50,
+	0xa4, 0x39, 0xed, 0xa2, 0xac, 0xc2, 0xe4, 0xb4, 0x2f, 0x83, 0xff, 0xfc, 0x9b, 0xe9, 0x98, 0x50,
 	0x79, 0x06, 0x01, 0x55, 0x67, 0x17, 0xae, 0x30, 0xbb, 0xe0, 0x20, 0xd5, 0x69, 0xe5, 0x84, 0x5b,
-	0x2e, 0x2a, 0xae, 0xe7, 0xd0, 0x69, 0x4d, 0x5e, 0x1a, 0xb8, 0x08, 0xb6, 0xfc, 0x3b, 0xd3, 0x4a,
+	0x2e, 0x2a, 0xae, 0xe7, 0xd0, 0x69, 0x4d, 0x5e, 0x1a, 0xb8, 0x08, 0xb6, 0xfc, 0x07, 0xd3, 0x4a,
 	0xe1, 0xf5, 0xaf, 0x26, 0x85, 0xbd, 0x26, 0xa0, 0xc9, 0xd0, 0xa6, 0x99, 0xa5, 0x4d, 0x22, 0x48,
 	0x48, 0x9d, 0x57, 0x38, 0xb0, 0xcf, 0x5b, 0x02, 0x7c, 0x06, 0x6b, 0xfb, 0xb6, 0x2d, 0x33, 0x77,
 	0x01, 0x57, 0xac, 0x41, 0x73, 0xee, 0x4e, 0x9c, 0xf1, 0x59, 0x4c, 0x14, 0xf1, 0xa8, 0x44, 0x2f,
-	0xe0, 0x9f, 0x35, 0x58, 0xcf, 0x9c, 0xf9, 0xbf, 0x4c, 0xcf, 0x0a, 0x43, 0x3a, 0x4b, 0x0c, 0xcd,
+	0xe0, 0x5f, 0x35, 0x58, 0xcf, 0x9c, 0xf9, 0xff, 0x4c, 0xcf, 0x0a, 0x43, 0x3a, 0x4b, 0x0c, 0xcd,
 	0x2c, 0x31, 0x6c, 0x01, 0x8c, 0xdd, 0x99, 0x17, 0x2f, 0x88, 0xbc, 0xac, 0x1d, 0xcf, 0x84, 0xbc,
 	0xb1, 0x8c, 0x5d, 0xd7, 0x1f, 0x26, 0x89, 0x60, 0x5c, 0x69, 0x22, 0x73, 0x4f, 0xa2, 0x64, 0xf0,
 	0x3e, 0x74, 0xc6, 0xe1, 0xe5, 0x11, 0xa5, 0x73, 0xed, 0xe2, 0x74, 0x2e, 0x5a, 0x4e, 0x26, 0x8c,
 	0x1b, 0xd0, 0x9e, 0x63, 0x67, 0x36, 0x76, 0xe6, 0x13, 0xd4, 0x85, 0xe8, 0x70, 0x3a, 0xc1, 0x18,
 	0xa7, 0xc3, 0x19, 0x87, 0xf6, 0x85, 0x97, 0x99, 0xbe, 0xb0, 0x98, 0x57, 0x5e, 0x5a, 0x24, 0xaf,
 	0x34, 0x5e, 0x03, 0x43, 0xf4, 0x63, 0xc7, 0xee, 0xae, 0x44, 0xf5, 0x44, 0xce, 0x55, 0x1f, 0xda,
-	0xd6, 0xb7, 0x69, 0x9b, 0x8a, 0xb3, 0xbe, 0x78, 0x4d, 0xf1, 0x57, 0x0d, 0xd9, 0x33, 0xa9, 0x50,
-	0x71, 0x1b, 0x96, 0xa8, 0x50, 0xa5, 0x40, 0xd4, 0x58, 0x20, 0xac, 0x5f, 0xd1, 0x7e, 0x94, 0x42,
+	0xd6, 0x77, 0x68, 0x9b, 0x8a, 0xb3, 0xbe, 0x78, 0x4d, 0xf1, 0x57, 0x0d, 0xd9, 0x33, 0xa9, 0x50,
+	0x71, 0x1b, 0x96, 0xa8, 0x50, 0xa5, 0x40, 0xd4, 0x58, 0x20, 0xac, 0x5f, 0xd3, 0x7e, 0x94, 0x42,
 	0x90, 0x8a, 0xfc, 0x31, 0x16, 0xa6, 0xce, 0x59, 0x45, 0x0e, 0x61, 0x43, 0x0e, 0xe1, 0x71, 0xd2,
 	0x78, 0xaa, 0x96, 0xa2, 0xad, 0x8f, 0x68, 0x6b, 0xaa, 0xfa, 0x40, 0x7d, 0x23, 0xcb, 0x85, 0x4c,
-	0xb3, 0x53, 0x40, 0xc0, 0xb3, 0xfe, 0xa2, 0xc1, 0xce, 0xdb, 0x78, 0x34, 0xf3, 0xf9, 0x26, 0xc9,
-	0x63, 0x57, 0x2c, 0x2a, 0x0d, 0xa0, 0x85, 0x83, 0xa8, 0x30, 0xa0, 0x85, 0xbc, 0xfa, 0x59, 0x86,
+	0xb3, 0x53, 0x40, 0xc0, 0xb3, 0xfe, 0xaa, 0xc1, 0xce, 0xdb, 0x78, 0x34, 0xf3, 0xf9, 0x26, 0xc9,
+	0x63, 0x57, 0x2c, 0x2a, 0x0d, 0xa0, 0x85, 0x83, 0xa8, 0x30, 0xa0, 0x85, 0xbc, 0xfa, 0x39, 0x86,
 	0x57, 0x8b, 0xff, 0xbe, 0x3f, 0x40, 0xcf, 0x02, 0xe4, 0xf9, 0x21, 0xed, 0x36, 0x71, 0x80, 0x0f,
 	0x91, 0x6f, 0x62, 0xe8, 0x30, 0xd3, 0x65, 0x5b, 0x00, 0xfc, 0xe7, 0x95, 0x2e, 0x7e, 0x5e, 0xf1,
-	0x5c, 0x5b, 0x13, 0xb8, 0xd6, 0xfa, 0x8d, 0x0e, 0x77, 0x0a, 0x04, 0xae, 0xc2, 0x2c, 0x8f, 0x53,
+	0x5c, 0x5b, 0x13, 0xb8, 0xd6, 0xfa, 0xad, 0x0e, 0x77, 0x0a, 0x04, 0xae, 0xc2, 0x2c, 0x8f, 0x53,
 	0xf8, 0xa2, 0x6b, 0xe9, 0x7e, 0x59, 0xf8, 0x22, 0x69, 0xfa, 0x03, 0xe4, 0xcd, 0xdd, 0x99, 0x87,
 	0x38, 0x00, 0x3d, 0x58, 0x66, 0xe7, 0x8b, 0xee, 0x99, 0x2c, 0xc0, 0x7a, 0x31, 0xc0, 0x35, 0x01,
-	0x60, 0xeb, 0x63, 0x1d, 0xee, 0x0e, 0xd0, 0x73, 0xf7, 0x54, 0x68, 0xb4, 0x7e, 0x01, 0xbb, 0x53,
+	0x60, 0xeb, 0x63, 0x1d, 0xee, 0x0e, 0xd0, 0x73, 0xf7, 0x54, 0x68, 0xb4, 0x7e, 0x11, 0xbb, 0x53,
 	0xd1, 0x6b, 0x0e, 0xa1, 0x89, 0x03, 0xc6, 0x69, 0xde, 0x62, 0x9a, 0x72, 0xa5, 0x76, 0xe0, 0xfc,
 	0xa6, 0x81, 0x03, 0x72, 0x11, 0x4b, 0x1a, 0xa6, 0xba, 0xea, 0xb9, 0x09, 0x5b, 0x37, 0xac, 0x65,
-	0xea, 0x86, 0x42, 0xe4, 0xd6, 0xc5, 0xc8, 0x35, 0x0f, 0x2b, 0xf0, 0x50, 0xeb, 0xb7, 0x3a, 0xec,
-	0x16, 0xab, 0x5f, 0x85, 0x17, 0xbe, 0x27, 0x7a, 0xe1, 0xe7, 0x17, 0xb0, 0xc7, 0x4b, 0xe7, 0x88,
+	0xea, 0x86, 0x42, 0xe4, 0xd6, 0xc5, 0xc8, 0x35, 0x0f, 0x2b, 0xf0, 0x50, 0xeb, 0x77, 0x3a, 0xec,
+	0x16, 0xab, 0x5f, 0x85, 0x17, 0xbe, 0x27, 0x7a, 0xe1, 0x17, 0x16, 0xb0, 0xc7, 0x4b, 0xe7, 0x88,
 	0x1f, 0xe8, 0xd9, 0xe6, 0xba, 0xe8, 0x80, 0x8b, 0x3c, 0x4d, 0x62, 0x7d, 0x45, 0x2f, 0xf2, 0x95,
 	0x5a, 0x26, 0x11, 0xbf, 0xd0, 0x84, 0xfb, 0xa3, 0x7a, 0xb6, 0x01, 0x5f, 0xad, 0x2f, 0x4d, 0x99,
 	0x06, 0xbc, 0xb4, 0xf7, 0xf6, 0x26, 0xf5, 0xad, 0x22, 0xc1, 0x78, 0x9f, 0xa2, 0xbd, 0xf9, 0x27,
-	0x8b, 0xf4, 0xe8, 0xcc, 0x1f, 0xea, 0x82, 0x0f, 0x4a, 0x9b, 0xb3, 0x9a, 0xbc, 0x83, 0x9d, 0x49,
+	0x8b, 0xf4, 0xe8, 0xcc, 0x1f, 0xe9, 0x82, 0x0f, 0x4a, 0x9b, 0xb3, 0x9a, 0xbc, 0x83, 0x9d, 0x49,
 	0x52, 0xf5, 0xa2, 0x24, 0xb5, 0x56, 0x94, 0xa4, 0xd6, 0x8b, 0x92, 0xd4, 0xc6, 0x42, 0x49, 0x2a,
-	0x4d, 0x37, 0x9b, 0x6c, 0xba, 0x59, 0xa2, 0xd4, 0x79, 0xef, 0x3b, 0xeb, 0x60, 0x64, 0xdf, 0x50,
+	0x4d, 0x37, 0x9b, 0x6c, 0xba, 0x59, 0xa2, 0xd4, 0x79, 0xef, 0xbb, 0xeb, 0x60, 0x64, 0xdf, 0x50,
 	0x1a, 0x2f, 0xd2, 0x2f, 0x34, 0xd9, 0x03, 0x46, 0xe3, 0xd5, 0x8c, 0xf9, 0x94, 0x8f, 0x29, 0xcd,
 	0xd7, 0x4a, 0xad, 0x8d, 0xbd, 0x10, 0x91, 0x0f, 0x75, 0xd9, 0x2b, 0x3b, 0x63, 0x47, 0xe9, 0x31,
 	0xec, 0x61, 0x77, 0x0a, 0x56, 0xc5, 0xc7, 0x0c, 0xe1, 0xba, 0xec, 0x7d, 0x99, 0x61, 0xd1, 0x3f,
 	0x57, 0x3e, 0x82, 0x33, 0x6f, 0xe7, 0xae, 0x89, 0x0f, 0x78, 0x1f, 0xb6, 0x72, 0x9f, 0x61, 0x19,
 	0x29, 0x2a, 0xc5, 0xcf, 0xc9, 0xcc, 0xd7, 0xcb, 0x2d, 0x4e, 0x95, 0x93, 0xbd, 0x75, 0x62, 0x94,
 	0x53, 0xbe, 0xa8, 0x62, 0x94, 0xcb, 0x79, 0x2e, 0xf5, 0x8c, 0x64, 0xac, 0xaa, 0xf7, 0x3c, 0xc6,
-	0x6e, 0xbe, 0x09, 0xd2, 0x67, 0x1d, 0xe6, 0x27, 0x4a, 0xac, 0x8c, 0x8f, 0x3c, 0x82, 0x55, 0xe9,
+	0x6e, 0xbe, 0x09, 0xd2, 0x67, 0x1d, 0xe6, 0xa7, 0x4a, 0xac, 0x8c, 0x8f, 0x3c, 0x82, 0x55, 0xe9,
 	0xeb, 0x16, 0x23, 0x15, 0x58, 0xfd, 0xc2, 0xc6, 0xdc, 0xc9, 0x5f, 0x14, 0x9f, 0x71, 0x0a, 0x5d,
-	0xd5, 0xfb, 0x10, 0xe3, 0x95, 0x3c, 0x5c, 0x98, 0x93, 0xee, 0x16, 0xae, 0x8b, 0x0f, 0xfb, 0x1a,
+	0xd5, 0xfb, 0x10, 0xe3, 0x95, 0x3c, 0x5c, 0x98, 0x93, 0xee, 0x16, 0xae, 0x8b, 0x0f, 0xfb, 0x3a,
 	0x18, 0xd9, 0xd7, 0x0f, 0xc6, 0x76, 0x06, 0x11, 0xe1, 0xce, 0x32, 0x6f, 0xe5, 0xac, 0x88, 0xb7,
 	0x3e, 0x84, 0x2b, 0xe2, 0xb3, 0x00, 0xe3, 0xa6, 0xe0, 0xb4, 0xe2, 0xb6, 0x3d, 0xe5, 0xef, 0xe3,
 	0x4d, 0x67, 0xb0, 0xa1, 0xec, 0x9c, 0x1b, 0x77, 0x05, 0xff, 0x54, 0xbd, 0x00, 0x30, 0x77, 0x8b,
 	0x17, 0xa6, 0x4a, 0x88, 0x5d, 0x68, 0x46, 0x09, 0x69, 0x6f, 0x9b, 0x51, 0x42, 0xd1, 0xc0, 0x3e,
 	0x95, 0x3c, 0x39, 0x89, 0x1b, 0x29, 0x9c, 0x85, 0x73, 0xfa, 0xcd, 0x9c, 0x85, 0x73, 0x1b, 0xb1,
-	0x5f, 0x87, 0x6b, 0x92, 0x16, 0xa3, 0x71, 0x8b, 0xf5, 0x45, 0xf9, 0x11, 0x56, 0xde, 0x92, 0x78,
-	0xf7, 0x6f, 0x66, 0x9f, 0x32, 0x88, 0x9d, 0x38, 0xe3, 0x0d, 0x15, 0xda, 0xd2, 0x0e, 0xa2, 0xd9,
+	0xdf, 0x80, 0x6b, 0x92, 0x16, 0xa3, 0x71, 0x8b, 0xf5, 0x45, 0xf9, 0x11, 0x56, 0xde, 0x92, 0x78,
+	0xf7, 0x6f, 0x65, 0x9f, 0x32, 0x88, 0x9d, 0x38, 0xe3, 0x0d, 0x15, 0xda, 0xd2, 0x0e, 0xa2, 0xd9,
 	0x2f, 0xbb, 0x9c, 0xe5, 0x6a, 0x59, 0x53, 0x8a, 0xe3, 0x6a, 0x65, 0x2b, 0x8c, 0xe3, 0xea, 0x9c,
 	0xde, 0x16, 0x13, 0x29, 0x69, 0xf5, 0x56, 0x12, 0x29, 0x42, 0x55, 0x58, 0x12, 0x29, 0x99, 0xe2,
 	0x2f, 0x8d, 0x14, 0x66, 0x63, 0x31, 0x52, 0xc4, 0x6d, 0x7b, 0xca, 0xdf, 0x8b, 0x91, 0x22, 0x29,
@@ -2919,11 +2979,11 @@ var fileDescriptor18 = []byte{
 	0x97, 0x6d, 0xbe, 0xad, 0x5e, 0x20, 0x5e, 0xbf, 0x8a, 0xaa, 0x53, 0xe6, 0xfa, 0xcd, 0x2b, 0x93,
 	0x65, 0xae, 0xdf, 0xfc, 0x52, 0x16, 0xbd, 0x7e, 0x05, 0xb5, 0x2c, 0x15, 0xe6, 0x8c, 0x66, 0xb7,
 	0x73, 0xd7, 0x30, 0xa1, 0x5f, 0x50, 0x17, 0x60, 0x42, 0xbf, 0x4c, 0x01, 0x86, 0x09, 0xfd, 0x72,
-	0xe5, 0x8f, 0x0f, 0x34, 0xb0, 0x8a, 0x3f, 0x0a, 0x8d, 0x4f, 0x2e, 0xfa, 0x45, 0x6f, 0x7e, 0x6a,
+	0xe5, 0x8f, 0x0f, 0x34, 0xb0, 0x8a, 0x3f, 0x0a, 0x8d, 0x4f, 0x2f, 0xfa, 0x45, 0x6f, 0x7e, 0x66,
 	0xe1, 0x6f, 0x4e, 0x59, 0x36, 0xc2, 0x88, 0xb0, 0x5b, 0xe2, 0x43, 0xa3, 0x28, 0x1b, 0x11, 0x8f,
-	0x34, 0x0f, 0xbf, 0xfb, 0xb7, 0xfa, 0x23, 0x78, 0xf3, 0xa9, 0xef, 0xcf, 0xbd, 0xcf, 0xed, 0xed,
+	0x34, 0x0f, 0xbf, 0xf7, 0xf7, 0xfa, 0x23, 0x78, 0xf3, 0xa9, 0xef, 0xcf, 0xbd, 0xcf, 0xef, 0xed,
 	0xd9, 0xee, 0xd8, 0xeb, 0xd3, 0xff, 0xcb, 0xd4, 0x1f, 0xbb, 0xd3, 0xbd, 0xd1, 0xdc, 0xd9, 0x63,
-	0xff, 0x1f, 0xd4, 0x9e, 0x33, 0xb3, 0xd1, 0x37, 0xfa, 0x4f, 0xfd, 0xe9, 0xc4, 0x58, 0xfd, 0xaa,
-	0x33, 0x3b, 0x39, 0x08, 0x97, 0x32, 0xa9, 0xf7, 0x51, 0x33, 0x4c, 0xf2, 0x3f, 0xfd, 0x9f, 0x00,
-	0x00, 0x00, 0xff, 0xff, 0x23, 0x87, 0x3a, 0x45, 0x40, 0x35, 0x00, 0x00,
+	0xff, 0x1f, 0xd4, 0x9e, 0x33, 0xb3, 0xd1, 0x37, 0xfb, 0x4f, 0xfd, 0xe9, 0xc4, 0x58, 0xfd, 0x9a,
+	0x33, 0x3b, 0x39, 0x08, 0x97, 0x32, 0xa9, 0xf7, 0x7f, 0x03, 0x00, 0x00, 0xff, 0xff, 0x42, 0xa4,
+	0x39, 0xae, 0x38, 0x35, 0x00, 0x00,
 }

@@ -41,14 +41,14 @@ type NotificationCenterService struct {
 func NewNotificationCenterService(conf *config.Config, zone string) (p *NotificationCenterService) {
 	return &NotificationCenterService{
 		Config:     conf,
-		Properties: &NotificationCenterServiceProperties{Zone: zone},
+		Properties: &NotificationCenterServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/notification_center/index.html
 func (s *QingCloudService) NotificationCenter(zone string) (*NotificationCenterService, error) {
 	properties := &NotificationCenterServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &NotificationCenterService{Config: s.Config, Properties: properties}, nil

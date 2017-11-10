@@ -59,14 +59,14 @@ type RouterService struct {
 func NewRouterService(conf *config.Config, zone string) (p *RouterService) {
 	return &RouterService{
 		Config:     conf,
-		Properties: &RouterServiceProperties{Zone: zone},
+		Properties: &RouterServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/router/index.html
 func (s *QingCloudService) Router(zone string) (*RouterService, error) {
 	properties := &RouterServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &RouterService{Config: s.Config, Properties: properties}, nil

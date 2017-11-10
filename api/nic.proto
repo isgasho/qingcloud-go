@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -14,7 +14,7 @@ import "qingcloud_sdk_rule/rule.proto";
 // ----------------------------------------------------------------------------
 
 message NicServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service NicService {
@@ -34,15 +34,15 @@ service NicService {
 // ----------------------------------------------------------------------------
 
 message CreateNicsInput {
-	string vxnet = 1;
-	string nic_name = 2;
-	int32 count = 3;
+	optional string vxnet = 1;
+	optional string nic_name = 2;
+	optional int32 count = 3;
 	repeated string private_ips = 4;
 }
 message CreateNicsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated NICIP nics = 4;
 }
@@ -53,36 +53,36 @@ message CreateNicsOutput {
 
 message DescribeNicsInput {
 	repeated string instances = 1;
-	int32 limit = 2;
-	string nic_name = 3;
+	optional int32 limit = 2;
+	optional string nic_name = 3;
 	repeated string nics = 4;
-	int32 offset = 5;
-	string status = 6;
-	int32 vxnet_type = 7;
+	optional int32 offset = 5;
+	optional string status = 6;
+	optional int32 vxnet_type = 7;
 	repeated string vxnets = 8;
 }
 message DescribeNicsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated NIC nic_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 }
 
 // ----------------------------------------------------------------------------
 
 message AttachNicsInput {
 	repeated string nics = 1;
-	string instance = 2;
+	optional string instance = 2;
 }
 
 message AttachNicsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -91,24 +91,24 @@ message DetachNicsInput {
 	repeated string nics = 1;
 }
 message DetachNicsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyNicAttributesInput {
-	string nic = 1;
-	string nic_name = 2;
-	string private_ip = 3;
+	optional string nic = 1;
+	optional string nic_name = 2;
+	optional string private_ip = 3;
 }
 message ModifyNicAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
@@ -118,9 +118,9 @@ message DeleteNicsInput {
 }
 
 message DeleteNicsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------

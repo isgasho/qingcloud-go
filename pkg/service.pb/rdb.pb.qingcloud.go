@@ -57,14 +57,14 @@ type RDBService struct {
 func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
 	return &RDBService{
 		Config:     conf,
-		Properties: &RDBServiceProperties{Zone: zone},
+		Properties: &RDBServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/rdb/index.html
 func (s *QingCloudService) RDB(zone string) (*RDBService, error) {
 	properties := &RDBServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &RDBService{Config: s.Config, Properties: properties}, nil

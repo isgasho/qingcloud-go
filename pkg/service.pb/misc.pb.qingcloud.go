@@ -43,14 +43,14 @@ type MiscService struct {
 func NewMiscService(conf *config.Config, zone string) (p *MiscService) {
 	return &MiscService{
 		Config:     conf,
-		Properties: &MiscServiceProperties{Zone: zone},
+		Properties: &MiscServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/misc/index.html
 func (s *QingCloudService) Misc(zone string) (*MiscService, error) {
 	properties := &MiscServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &MiscService{Config: s.Config, Properties: properties}, nil

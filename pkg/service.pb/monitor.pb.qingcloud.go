@@ -46,14 +46,14 @@ type MonitorService struct {
 func NewMonitorService(conf *config.Config, zone string) (p *MonitorService) {
 	return &MonitorService{
 		Config:     conf,
-		Properties: &MonitorServiceProperties{Zone: zone},
+		Properties: &MonitorServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/monitor/index.html
 func (s *QingCloudService) Monitor(zone string) (*MonitorService, error) {
 	properties := &MonitorServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &MonitorService{Config: s.Config, Properties: properties}, nil

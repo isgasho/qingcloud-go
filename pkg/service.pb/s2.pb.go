@@ -15,7 +15,8 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type S2ServiceProperties struct {
-	Zone string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Zone             *string `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *S2ServiceProperties) Reset()                    { *m = S2ServiceProperties{} }
@@ -24,20 +25,21 @@ func (*S2ServiceProperties) ProtoMessage()               {}
 func (*S2ServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
 
 func (m *S2ServiceProperties) GetZone() string {
-	if m != nil {
-		return m.Zone
+	if m != nil && m.Zone != nil {
+		return *m.Zone
 	}
 	return ""
 }
 
 type CreateS2ServerInput struct {
-	VxnetId      string `protobuf:"bytes,1,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	ServiceType  string `protobuf:"bytes,2,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	Name         string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
-	S2ServerType string `protobuf:"bytes,4,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
-	PrivateIp    string `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Description  string `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
-	S2Class      int32  `protobuf:"varint,7,opt,name=s2_class,json=s2Class" json:"s2_class,omitempty"`
+	VxnetId          *string `protobuf:"bytes,1,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	ServiceType      *string `protobuf:"bytes,2,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	Name             *string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	S2ServerType     *string `protobuf:"bytes,4,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
+	PrivateIp        *string `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Description      *string `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	S2Class          *int32  `protobuf:"varint,7,opt,name=s2_class,json=s2Class" json:"s2_class,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateS2ServerInput) Reset()                    { *m = CreateS2ServerInput{} }
@@ -46,60 +48,61 @@ func (*CreateS2ServerInput) ProtoMessage()               {}
 func (*CreateS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{1} }
 
 func (m *CreateS2ServerInput) GetVxnetId() string {
-	if m != nil {
-		return m.VxnetId
+	if m != nil && m.VxnetId != nil {
+		return *m.VxnetId
 	}
 	return ""
 }
 
 func (m *CreateS2ServerInput) GetServiceType() string {
-	if m != nil {
-		return m.ServiceType
+	if m != nil && m.ServiceType != nil {
+		return *m.ServiceType
 	}
 	return ""
 }
 
 func (m *CreateS2ServerInput) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
 
 func (m *CreateS2ServerInput) GetS2ServerType() string {
-	if m != nil {
-		return m.S2ServerType
+	if m != nil && m.S2ServerType != nil {
+		return *m.S2ServerType
 	}
 	return ""
 }
 
 func (m *CreateS2ServerInput) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 func (m *CreateS2ServerInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *CreateS2ServerInput) GetS2Class() int32 {
-	if m != nil {
-		return m.S2Class
+	if m != nil && m.S2Class != nil {
+		return *m.S2Class
 	}
 	return 0
 }
 
 type CreateS2ServerOutput struct {
-	Action     string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId      string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	S2ServerId string `protobuf:"bytes,5,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	S2ServerId       *string `protobuf:"bytes,5,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateS2ServerOutput) Reset()                    { *m = CreateS2ServerOutput{} }
@@ -108,49 +111,50 @@ func (*CreateS2ServerOutput) ProtoMessage()               {}
 func (*CreateS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{2} }
 
 func (m *CreateS2ServerOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateS2ServerOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateS2ServerOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *CreateS2ServerOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 func (m *CreateS2ServerOutput) GetS2ServerId() string {
-	if m != nil {
-		return m.S2ServerId
+	if m != nil && m.S2ServerId != nil {
+		return *m.S2ServerId
 	}
 	return ""
 }
 
 type DescribeS2ServersInput struct {
-	S2Servers    []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
-	ServiceTypes []string `protobuf:"bytes,2,rep,name=service_types,json=serviceTypes" json:"service_types,omitempty"`
-	Status       []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	SearchWord   string   `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags         []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose      int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset       int32    `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit        int32    `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	ServiceTypes     []string `protobuf:"bytes,2,rep,name=service_types,json=serviceTypes" json:"service_types,omitempty"`
+	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeS2ServersInput) Reset()                    { *m = DescribeS2ServersInput{} }
@@ -180,8 +184,8 @@ func (m *DescribeS2ServersInput) GetStatus() []string {
 }
 
 func (m *DescribeS2ServersInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
@@ -194,32 +198,33 @@ func (m *DescribeS2ServersInput) GetTags() []string {
 }
 
 func (m *DescribeS2ServersInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeS2ServersInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeS2ServersInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeS2ServersOutput struct {
-	Action      string      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode     int32       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message     string      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2ServerSet []*S2Server `protobuf:"bytes,4,rep,name=s2_server_set,json=s2ServerSet" json:"s2_server_set,omitempty"`
-	TotalCount  int32       `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2ServerSet      []*S2Server `protobuf:"bytes,4,rep,name=s2_server_set,json=s2ServerSet" json:"s2_server_set,omitempty"`
+	TotalCount       *int32      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte      `json:"-"`
 }
 
 func (m *DescribeS2ServersOutput) Reset()                    { *m = DescribeS2ServersOutput{} }
@@ -228,22 +233,22 @@ func (*DescribeS2ServersOutput) ProtoMessage()               {}
 func (*DescribeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{4} }
 
 func (m *DescribeS2ServersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeS2ServersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeS2ServersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -256,16 +261,17 @@ func (m *DescribeS2ServersOutput) GetS2ServerSet() []*S2Server {
 }
 
 func (m *DescribeS2ServersOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type ModifyS2ServerInput struct {
-	S2Server    string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	Name        string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Description string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	S2Server         *string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	Name             *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyS2ServerInput) Reset()                    { *m = ModifyS2ServerInput{} }
@@ -274,30 +280,31 @@ func (*ModifyS2ServerInput) ProtoMessage()               {}
 func (*ModifyS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{5} }
 
 func (m *ModifyS2ServerInput) GetS2Server() string {
-	if m != nil {
-		return m.S2Server
+	if m != nil && m.S2Server != nil {
+		return *m.S2Server
 	}
 	return ""
 }
 
 func (m *ModifyS2ServerInput) GetName() string {
-	if m != nil {
-		return m.Name
+	if m != nil && m.Name != nil {
+		return *m.Name
 	}
 	return ""
 }
 
 func (m *ModifyS2ServerInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type ModifyS2ServerOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyS2ServerOutput) Reset()                    { *m = ModifyS2ServerOutput{} }
@@ -306,29 +313,30 @@ func (*ModifyS2ServerOutput) ProtoMessage()               {}
 func (*ModifyS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{6} }
 
 func (m *ModifyS2ServerOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyS2ServerOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyS2ServerOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type ResizeS2ServersInput struct {
-	S2Server     string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	S2ServerType int32  `protobuf:"varint,2,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
+	S2Server         *string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	S2ServerType     *int32  `protobuf:"varint,2,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ResizeS2ServersInput) Reset()                    { *m = ResizeS2ServersInput{} }
@@ -337,24 +345,25 @@ func (*ResizeS2ServersInput) ProtoMessage()               {}
 func (*ResizeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{7} }
 
 func (m *ResizeS2ServersInput) GetS2Server() string {
-	if m != nil {
-		return m.S2Server
+	if m != nil && m.S2Server != nil {
+		return *m.S2Server
 	}
 	return ""
 }
 
 func (m *ResizeS2ServersInput) GetS2ServerType() int32 {
-	if m != nil {
-		return m.S2ServerType
+	if m != nil && m.S2ServerType != nil {
+		return *m.S2ServerType
 	}
 	return 0
 }
 
 type ResizeS2ServersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ResizeS2ServersOutput) Reset()                    { *m = ResizeS2ServersOutput{} }
@@ -363,35 +372,36 @@ func (*ResizeS2ServersOutput) ProtoMessage()               {}
 func (*ResizeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{8} }
 
 func (m *ResizeS2ServersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ResizeS2ServersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ResizeS2ServersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ResizeS2ServersOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type DeleteS2ServersInput struct {
-	S2Servers []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteS2ServersInput) Reset()                    { *m = DeleteS2ServersInput{} }
@@ -407,10 +417,11 @@ func (m *DeleteS2ServersInput) GetS2Servers() []string {
 }
 
 type DeleteS2ServersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteS2ServersOutput) Reset()                    { *m = DeleteS2ServersOutput{} }
@@ -419,35 +430,36 @@ func (*DeleteS2ServersOutput) ProtoMessage()               {}
 func (*DeleteS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{10} }
 
 func (m *DeleteS2ServersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteS2ServersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteS2ServersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *DeleteS2ServersOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type PowerOnS2ServersInput struct {
-	S2Servers []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *PowerOnS2ServersInput) Reset()                    { *m = PowerOnS2ServersInput{} }
@@ -463,10 +475,11 @@ func (m *PowerOnS2ServersInput) GetS2Servers() []string {
 }
 
 type PowerOnS2ServersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *PowerOnS2ServersOutput) Reset()                    { *m = PowerOnS2ServersOutput{} }
@@ -475,35 +488,36 @@ func (*PowerOnS2ServersOutput) ProtoMessage()               {}
 func (*PowerOnS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{12} }
 
 func (m *PowerOnS2ServersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *PowerOnS2ServersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *PowerOnS2ServersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *PowerOnS2ServersOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type PowerOffS2ServersInput struct {
-	S2Servers []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *PowerOffS2ServersInput) Reset()                    { *m = PowerOffS2ServersInput{} }
@@ -519,10 +533,11 @@ func (m *PowerOffS2ServersInput) GetS2Servers() []string {
 }
 
 type PowerOffS2ServersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *PowerOffS2ServersOutput) Reset()                    { *m = PowerOffS2ServersOutput{} }
@@ -531,35 +546,36 @@ func (*PowerOffS2ServersOutput) ProtoMessage()               {}
 func (*PowerOffS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{14} }
 
 func (m *PowerOffS2ServersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *PowerOffS2ServersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *PowerOffS2ServersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *PowerOffS2ServersOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type UpdateS2ServersInput struct {
-	S2Servers []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *UpdateS2ServersInput) Reset()                    { *m = UpdateS2ServersInput{} }
@@ -575,10 +591,11 @@ func (m *UpdateS2ServersInput) GetS2Servers() []string {
 }
 
 type UpdateS2ServersOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *UpdateS2ServersOutput) Reset()                    { *m = UpdateS2ServersOutput{} }
@@ -587,37 +604,38 @@ func (*UpdateS2ServersOutput) ProtoMessage()               {}
 func (*UpdateS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{16} }
 
 func (m *UpdateS2ServersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *UpdateS2ServersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *UpdateS2ServersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *UpdateS2ServersOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type ChangeS2ServerVxnetInput struct {
-	S2Server  string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	Vxnet     string `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	PrivateIp string `protobuf:"bytes,3,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	S2Server         *string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	Vxnet            *string `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	PrivateIp        *string `protobuf:"bytes,3,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ChangeS2ServerVxnetInput) Reset()                    { *m = ChangeS2ServerVxnetInput{} }
@@ -626,31 +644,32 @@ func (*ChangeS2ServerVxnetInput) ProtoMessage()               {}
 func (*ChangeS2ServerVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{17} }
 
 func (m *ChangeS2ServerVxnetInput) GetS2Server() string {
-	if m != nil {
-		return m.S2Server
+	if m != nil && m.S2Server != nil {
+		return *m.S2Server
 	}
 	return ""
 }
 
 func (m *ChangeS2ServerVxnetInput) GetVxnet() string {
-	if m != nil {
-		return m.Vxnet
+	if m != nil && m.Vxnet != nil {
+		return *m.Vxnet
 	}
 	return ""
 }
 
 func (m *ChangeS2ServerVxnetInput) GetPrivateIp() string {
-	if m != nil {
-		return m.PrivateIp
+	if m != nil && m.PrivateIp != nil {
+		return *m.PrivateIp
 	}
 	return ""
 }
 
 type ChangeS2ServerVxnetOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId   string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ChangeS2ServerVxnetOutput) Reset()                    { *m = ChangeS2ServerVxnetOutput{} }
@@ -659,41 +678,42 @@ func (*ChangeS2ServerVxnetOutput) ProtoMessage()               {}
 func (*ChangeS2ServerVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{18} }
 
 func (m *ChangeS2ServerVxnetOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ChangeS2ServerVxnetOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ChangeS2ServerVxnetOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *ChangeS2ServerVxnetOutput) GetJobId() string {
-	if m != nil {
-		return m.JobId
+	if m != nil && m.JobId != nil {
+		return *m.JobId
 	}
 	return ""
 }
 
 type CreateS2SharedTargetInput struct {
-	S2Server       string   `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	ExportName     string   `protobuf:"bytes,2,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
-	TargetType     string   `protobuf:"bytes,3,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	Description    string   `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	Volumes        []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
-	InitiatorNames []string `protobuf:"bytes,6,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
-	S2Group        string   `protobuf:"bytes,7,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
+	S2Server         *string  `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	ExportName       *string  `protobuf:"bytes,2,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	TargetType       *string  `protobuf:"bytes,3,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	Description      *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	Volumes          []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
+	InitiatorNames   []string `protobuf:"bytes,6,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
+	S2Group          *string  `protobuf:"bytes,7,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *CreateS2SharedTargetInput) Reset()                    { *m = CreateS2SharedTargetInput{} }
@@ -702,29 +722,29 @@ func (*CreateS2SharedTargetInput) ProtoMessage()               {}
 func (*CreateS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{19} }
 
 func (m *CreateS2SharedTargetInput) GetS2Server() string {
-	if m != nil {
-		return m.S2Server
+	if m != nil && m.S2Server != nil {
+		return *m.S2Server
 	}
 	return ""
 }
 
 func (m *CreateS2SharedTargetInput) GetExportName() string {
-	if m != nil {
-		return m.ExportName
+	if m != nil && m.ExportName != nil {
+		return *m.ExportName
 	}
 	return ""
 }
 
 func (m *CreateS2SharedTargetInput) GetTargetType() string {
-	if m != nil {
-		return m.TargetType
+	if m != nil && m.TargetType != nil {
+		return *m.TargetType
 	}
 	return ""
 }
 
 func (m *CreateS2SharedTargetInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
@@ -744,16 +764,17 @@ func (m *CreateS2SharedTargetInput) GetInitiatorNames() []string {
 }
 
 func (m *CreateS2SharedTargetInput) GetS2Group() string {
-	if m != nil {
-		return m.S2Group
+	if m != nil && m.S2Group != nil {
+		return *m.S2Group
 	}
 	return ""
 }
 
 type CreateS2SharedTargetOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateS2SharedTargetOutput) Reset()                    { *m = CreateS2SharedTargetOutput{} }
@@ -762,35 +783,36 @@ func (*CreateS2SharedTargetOutput) ProtoMessage()               {}
 func (*CreateS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{20} }
 
 func (m *CreateS2SharedTargetOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateS2SharedTargetOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateS2SharedTargetOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DescribeS2SharedTargetsInput struct {
-	SharedTargets []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
-	TargetTypes   []string `protobuf:"bytes,2,rep,name=target_types,json=targetTypes" json:"target_types,omitempty"`
-	S2ServerId    string   `protobuf:"bytes,3,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
-	ExportName    string   `protobuf:"bytes,4,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
-	SearchWord    string   `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose       int32    `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset        int32    `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit         int32    `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	TargetTypes      []string `protobuf:"bytes,2,rep,name=target_types,json=targetTypes" json:"target_types,omitempty"`
+	S2ServerId       *string  `protobuf:"bytes,3,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	ExportName       *string  `protobuf:"bytes,4,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeS2SharedTargetsInput) Reset()                    { *m = DescribeS2SharedTargetsInput{} }
@@ -813,53 +835,54 @@ func (m *DescribeS2SharedTargetsInput) GetTargetTypes() []string {
 }
 
 func (m *DescribeS2SharedTargetsInput) GetS2ServerId() string {
-	if m != nil {
-		return m.S2ServerId
+	if m != nil && m.S2ServerId != nil {
+		return *m.S2ServerId
 	}
 	return ""
 }
 
 func (m *DescribeS2SharedTargetsInput) GetExportName() string {
-	if m != nil {
-		return m.ExportName
+	if m != nil && m.ExportName != nil {
+		return *m.ExportName
 	}
 	return ""
 }
 
 func (m *DescribeS2SharedTargetsInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 func (m *DescribeS2SharedTargetsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeS2SharedTargetsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeS2SharedTargetsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeS2SharedTargetsOutput struct {
-	Action            string            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode           int32             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message           string            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action            *string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode           *int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message           *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	S2SharedTargetSet []*S2SharedTarget `protobuf:"bytes,4,rep,name=s2_shared_target_set,json=s2SharedTargetSet" json:"s2_shared_target_set,omitempty"`
-	TotalCount        int32             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount        *int32            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized  []byte            `json:"-"`
 }
 
 func (m *DescribeS2SharedTargetsOutput) Reset()                    { *m = DescribeS2SharedTargetsOutput{} }
@@ -868,22 +891,22 @@ func (*DescribeS2SharedTargetsOutput) ProtoMessage()               {}
 func (*DescribeS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{22} }
 
 func (m *DescribeS2SharedTargetsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeS2SharedTargetsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeS2SharedTargetsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -896,14 +919,15 @@ func (m *DescribeS2SharedTargetsOutput) GetS2SharedTargetSet() []*S2SharedTarget
 }
 
 func (m *DescribeS2SharedTargetsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DeleteS2SharedTargetsInput struct {
-	SharedTargets []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteS2SharedTargetsInput) Reset()                    { *m = DeleteS2SharedTargetsInput{} }
@@ -919,9 +943,10 @@ func (m *DeleteS2SharedTargetsInput) GetSharedTargets() []string {
 }
 
 type DeleteS2SharedTargetsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteS2SharedTargetsOutput) Reset()                    { *m = DeleteS2SharedTargetsOutput{} }
@@ -930,28 +955,29 @@ func (*DeleteS2SharedTargetsOutput) ProtoMessage()               {}
 func (*DeleteS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{24} }
 
 func (m *DeleteS2SharedTargetsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteS2SharedTargetsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteS2SharedTargetsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type EnableS2SharedTargetsInput struct {
-	SharedTargets []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *EnableS2SharedTargetsInput) Reset()                    { *m = EnableS2SharedTargetsInput{} }
@@ -967,9 +993,10 @@ func (m *EnableS2SharedTargetsInput) GetSharedTargets() []string {
 }
 
 type EnableS2SharedTargetsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *EnableS2SharedTargetsOutput) Reset()                    { *m = EnableS2SharedTargetsOutput{} }
@@ -978,28 +1005,29 @@ func (*EnableS2SharedTargetsOutput) ProtoMessage()               {}
 func (*EnableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{26} }
 
 func (m *EnableS2SharedTargetsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *EnableS2SharedTargetsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *EnableS2SharedTargetsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DisableS2SharedTargetsInput struct {
-	SharedTargets []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DisableS2SharedTargetsInput) Reset()                    { *m = DisableS2SharedTargetsInput{} }
@@ -1015,9 +1043,10 @@ func (m *DisableS2SharedTargetsInput) GetSharedTargets() []string {
 }
 
 type DisableS2SharedTargetsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DisableS2SharedTargetsOutput) Reset()                    { *m = DisableS2SharedTargetsOutput{} }
@@ -1026,33 +1055,34 @@ func (*DisableS2SharedTargetsOutput) ProtoMessage()               {}
 func (*DisableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{28} }
 
 func (m *DisableS2SharedTargetsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DisableS2SharedTargetsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DisableS2SharedTargetsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type ModifyS2SharedTargetAttributesInput struct {
-	SharedTarget   string   `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
-	Operation      string   `protobuf:"bytes,2,opt,name=operation" json:"operation,omitempty"`
-	InitiatorNames []string `protobuf:"bytes,3,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
-	Parameters     []string `protobuf:"bytes,4,rep,name=parameters" json:"parameters,omitempty"`
-	S2Group        string   `protobuf:"bytes,5,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
-	ExportName     string   `protobuf:"bytes,6,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	SharedTarget     *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
+	Operation        *string  `protobuf:"bytes,2,opt,name=operation" json:"operation,omitempty"`
+	InitiatorNames   []string `protobuf:"bytes,3,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
+	Parameters       []string `protobuf:"bytes,4,rep,name=parameters" json:"parameters,omitempty"`
+	S2Group          *string  `protobuf:"bytes,5,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
+	ExportName       *string  `protobuf:"bytes,6,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *ModifyS2SharedTargetAttributesInput) Reset()         { *m = ModifyS2SharedTargetAttributesInput{} }
@@ -1063,15 +1093,15 @@ func (*ModifyS2SharedTargetAttributesInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyS2SharedTargetAttributesInput) GetSharedTarget() string {
-	if m != nil {
-		return m.SharedTarget
+	if m != nil && m.SharedTarget != nil {
+		return *m.SharedTarget
 	}
 	return ""
 }
 
 func (m *ModifyS2SharedTargetAttributesInput) GetOperation() string {
-	if m != nil {
-		return m.Operation
+	if m != nil && m.Operation != nil {
+		return *m.Operation
 	}
 	return ""
 }
@@ -1091,24 +1121,25 @@ func (m *ModifyS2SharedTargetAttributesInput) GetParameters() []string {
 }
 
 func (m *ModifyS2SharedTargetAttributesInput) GetS2Group() string {
-	if m != nil {
-		return m.S2Group
+	if m != nil && m.S2Group != nil {
+		return *m.S2Group
 	}
 	return ""
 }
 
 func (m *ModifyS2SharedTargetAttributesInput) GetExportName() string {
-	if m != nil {
-		return m.ExportName
+	if m != nil && m.ExportName != nil {
+		return *m.ExportName
 	}
 	return ""
 }
 
 type ModifyS2SharedTargetAttributesOutput struct {
-	Action       string            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SharedTarget map[string]string `protobuf:"bytes,4,rep,name=shared_target,json=sharedTarget" json:"shared_target,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Action           *string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SharedTarget     map[string]string `protobuf:"bytes,4,rep,name=shared_target,json=sharedTarget" json:"shared_target,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_unrecognized []byte            `json:"-"`
 }
 
 func (m *ModifyS2SharedTargetAttributesOutput) Reset()         { *m = ModifyS2SharedTargetAttributesOutput{} }
@@ -1119,22 +1150,22 @@ func (*ModifyS2SharedTargetAttributesOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *ModifyS2SharedTargetAttributesOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyS2SharedTargetAttributesOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyS2SharedTargetAttributesOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1147,8 +1178,9 @@ func (m *ModifyS2SharedTargetAttributesOutput) GetSharedTarget() map[string]stri
 }
 
 type AttachToS2SharedTargetInput struct {
-	SharedTarget string   `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
-	Volumes      []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	SharedTarget     *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
+	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AttachToS2SharedTargetInput) Reset()                    { *m = AttachToS2SharedTargetInput{} }
@@ -1157,8 +1189,8 @@ func (*AttachToS2SharedTargetInput) ProtoMessage()               {}
 func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{31} }
 
 func (m *AttachToS2SharedTargetInput) GetSharedTarget() string {
-	if m != nil {
-		return m.SharedTarget
+	if m != nil && m.SharedTarget != nil {
+		return *m.SharedTarget
 	}
 	return ""
 }
@@ -1171,9 +1203,10 @@ func (m *AttachToS2SharedTargetInput) GetVolumes() []string {
 }
 
 type AttachToS2SharedTargetOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AttachToS2SharedTargetOutput) Reset()                    { *m = AttachToS2SharedTargetOutput{} }
@@ -1182,29 +1215,30 @@ func (*AttachToS2SharedTargetOutput) ProtoMessage()               {}
 func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{32} }
 
 func (m *AttachToS2SharedTargetOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AttachToS2SharedTargetOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AttachToS2SharedTargetOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DetachFromS2SharedTargetInput struct {
-	SharedTarget string   `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
-	Volumes      []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	SharedTarget     *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
+	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DetachFromS2SharedTargetInput) Reset()                    { *m = DetachFromS2SharedTargetInput{} }
@@ -1213,8 +1247,8 @@ func (*DetachFromS2SharedTargetInput) ProtoMessage()               {}
 func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{33} }
 
 func (m *DetachFromS2SharedTargetInput) GetSharedTarget() string {
-	if m != nil {
-		return m.SharedTarget
+	if m != nil && m.SharedTarget != nil {
+		return *m.SharedTarget
 	}
 	return ""
 }
@@ -1227,9 +1261,10 @@ func (m *DetachFromS2SharedTargetInput) GetVolumes() []string {
 }
 
 type DetachFromS2SharedTargetOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DetachFromS2SharedTargetOutput) Reset()         { *m = DetachFromS2SharedTargetOutput{} }
@@ -1240,31 +1275,32 @@ func (*DetachFromS2SharedTargetOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DetachFromS2SharedTargetOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DetachFromS2SharedTargetOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DetachFromS2SharedTargetOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DescribeS2DefaultParametersInput struct {
-	ServiceType string `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	TargetType  string `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	Offset      int32  `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
-	Limit       int32  `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	ServiceType      *string `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	TargetType       *string `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	Offset           *int32  `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32  `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DescribeS2DefaultParametersInput) Reset()         { *m = DescribeS2DefaultParametersInput{} }
@@ -1275,39 +1311,40 @@ func (*DescribeS2DefaultParametersInput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeS2DefaultParametersInput) GetServiceType() string {
-	if m != nil {
-		return m.ServiceType
+	if m != nil && m.ServiceType != nil {
+		return *m.ServiceType
 	}
 	return ""
 }
 
 func (m *DescribeS2DefaultParametersInput) GetTargetType() string {
-	if m != nil {
-		return m.TargetType
+	if m != nil && m.TargetType != nil {
+		return *m.TargetType
 	}
 	return ""
 }
 
 func (m *DescribeS2DefaultParametersInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeS2DefaultParametersInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeS2DefaultParametersOutput struct {
-	Action                 string                                            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode                int32                                             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message                string                                            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action                 *string                                           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                *int32                                            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                *string                                           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	S2DefaultParametersSet []*DescribeS2DefaultParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_default_parameters_set,json=s2DefaultParametersSet" json:"s2_default_parameters_set,omitempty"`
-	TotalCount             int32                                             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalCount             *int32                                            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized       []byte                                            `json:"-"`
 }
 
 func (m *DescribeS2DefaultParametersOutput) Reset()         { *m = DescribeS2DefaultParametersOutput{} }
@@ -1318,22 +1355,22 @@ func (*DescribeS2DefaultParametersOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeS2DefaultParametersOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeS2DefaultParametersOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeS2DefaultParametersOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1346,18 +1383,19 @@ func (m *DescribeS2DefaultParametersOutput) GetS2DefaultParametersSet() []*Descr
 }
 
 func (m *DescribeS2DefaultParametersOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeS2DefaultParametersOutput_ResponseItem struct {
-	ServiceType  string `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	TargetType   string `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	ParamName    string `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
-	DefaultValue string `protobuf:"bytes,4,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
-	Description  string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	ServiceType      *string `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	TargetType       *string `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	ParamName        *string `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
+	DefaultValue     *string `protobuf:"bytes,4,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
+	Description      *string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) Reset() {
@@ -1372,45 +1410,46 @@ func (*DescribeS2DefaultParametersOutput_ResponseItem) Descriptor() ([]byte, []i
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetServiceType() string {
-	if m != nil {
-		return m.ServiceType
+	if m != nil && m.ServiceType != nil {
+		return *m.ServiceType
 	}
 	return ""
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetTargetType() string {
-	if m != nil {
-		return m.TargetType
+	if m != nil && m.TargetType != nil {
+		return *m.TargetType
 	}
 	return ""
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetParamName() string {
-	if m != nil {
-		return m.ParamName
+	if m != nil && m.ParamName != nil {
+		return *m.ParamName
 	}
 	return ""
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetDefaultValue() string {
-	if m != nil {
-		return m.DefaultValue
+	if m != nil && m.DefaultValue != nil {
+		return *m.DefaultValue
 	}
 	return ""
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type CreateS2GroupInput struct {
-	GroupType   string   `protobuf:"bytes,1,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
-	GroupName   string   `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
-	S2Accounts  []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	Description string   `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	GroupType        *string  `protobuf:"bytes,1,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
+	GroupName        *string  `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
+	S2Accounts       []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	Description      *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *CreateS2GroupInput) Reset()                    { *m = CreateS2GroupInput{} }
@@ -1419,15 +1458,15 @@ func (*CreateS2GroupInput) ProtoMessage()               {}
 func (*CreateS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{37} }
 
 func (m *CreateS2GroupInput) GetGroupType() string {
-	if m != nil {
-		return m.GroupType
+	if m != nil && m.GroupType != nil {
+		return *m.GroupType
 	}
 	return ""
 }
 
 func (m *CreateS2GroupInput) GetGroupName() string {
-	if m != nil {
-		return m.GroupName
+	if m != nil && m.GroupName != nil {
+		return *m.GroupName
 	}
 	return ""
 }
@@ -1440,17 +1479,18 @@ func (m *CreateS2GroupInput) GetS2Accounts() []string {
 }
 
 func (m *CreateS2GroupInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type CreateS2GroupOutput struct {
-	Action    string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode   int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message   string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2GroupId string `protobuf:"bytes,4,opt,name=s2_group_id,json=s2GroupId" json:"s2_group_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2GroupId        *string `protobuf:"bytes,4,opt,name=s2_group_id,json=s2GroupId" json:"s2_group_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateS2GroupOutput) Reset()                    { *m = CreateS2GroupOutput{} }
@@ -1459,41 +1499,42 @@ func (*CreateS2GroupOutput) ProtoMessage()               {}
 func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{38} }
 
 func (m *CreateS2GroupOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateS2GroupOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateS2GroupOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *CreateS2GroupOutput) GetS2GroupId() string {
-	if m != nil {
-		return m.S2GroupId
+	if m != nil && m.S2GroupId != nil {
+		return *m.S2GroupId
 	}
 	return ""
 }
 
 type DescribeS2GroupsInput struct {
-	S2Groups    []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
-	GroupTypes  []string `protobuf:"bytes,2,rep,name=group_types,json=groupTypes" json:"group_types,omitempty"`
-	AccountName string   `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SearchWord  string   `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose     int32    `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset      int32    `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit       int32    `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	S2Groups         []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	GroupTypes       []string `protobuf:"bytes,2,rep,name=group_types,json=groupTypes" json:"group_types,omitempty"`
+	AccountName      *string  `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeS2GroupsInput) Reset()                    { *m = DescribeS2GroupsInput{} }
@@ -1516,46 +1557,47 @@ func (m *DescribeS2GroupsInput) GetGroupTypes() []string {
 }
 
 func (m *DescribeS2GroupsInput) GetAccountName() string {
-	if m != nil {
-		return m.AccountName
+	if m != nil && m.AccountName != nil {
+		return *m.AccountName
 	}
 	return ""
 }
 
 func (m *DescribeS2GroupsInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 func (m *DescribeS2GroupsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeS2GroupsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeS2GroupsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeS2GroupsOutput struct {
-	Action     string                                 `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode    int32                                  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message    string                                 `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2GroupSet []*DescribeS2GroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_group_set,json=s2GroupSet" json:"s2_group_set,omitempty"`
-	TotalCount int32                                  `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string                                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2GroupSet       []*DescribeS2GroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_group_set,json=s2GroupSet" json:"s2_group_set,omitempty"`
+	TotalCount       *int32                                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte                                 `json:"-"`
 }
 
 func (m *DescribeS2GroupsOutput) Reset()                    { *m = DescribeS2GroupsOutput{} }
@@ -1564,22 +1606,22 @@ func (*DescribeS2GroupsOutput) ProtoMessage()               {}
 func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{40} }
 
 func (m *DescribeS2GroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeS2GroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeS2GroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -1592,19 +1634,20 @@ func (m *DescribeS2GroupsOutput) GetS2GroupSet() []*DescribeS2GroupsOutput_Respo
 }
 
 func (m *DescribeS2GroupsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeS2GroupsOutput_ResponseItem struct {
-	GroupId     string                      `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
-	GroupType   string                      `protobuf:"bytes,2,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
-	IsDefault   int32                       `protobuf:"varint,3,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
-	Description string                      `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	GroupName   string                      `protobuf:"bytes,5,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
-	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	GroupId          *string                     `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+	GroupType        *string                     `protobuf:"bytes,2,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
+	IsDefault        *int32                      `protobuf:"varint,3,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
+	Description      *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	GroupName        *string                     `protobuf:"bytes,5,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) Reset()         { *m = DescribeS2GroupsOutput_ResponseItem{} }
@@ -1615,36 +1658,36 @@ func (*DescribeS2GroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) GetGroupId() string {
-	if m != nil {
-		return m.GroupId
+	if m != nil && m.GroupId != nil {
+		return *m.GroupId
 	}
 	return ""
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) GetGroupType() string {
-	if m != nil {
-		return m.GroupType
+	if m != nil && m.GroupType != nil {
+		return *m.GroupType
 	}
 	return ""
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) GetIsDefault() int32 {
-	if m != nil {
-		return m.IsDefault
+	if m != nil && m.IsDefault != nil {
+		return *m.IsDefault
 	}
 	return 0
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) GetGroupName() string {
-	if m != nil {
-		return m.GroupName
+	if m != nil && m.GroupName != nil {
+		return *m.GroupName
 	}
 	return ""
 }
@@ -1657,10 +1700,11 @@ func (m *DescribeS2GroupsOutput_ResponseItem) GetCreateTime() *google_protobuf1.
 }
 
 type ModifyS2GroupInput struct {
-	S2Group     string   `protobuf:"bytes,1,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
-	GroupName   string   `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
-	S2Accounts  []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	Description string   `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	S2Group          *string  `protobuf:"bytes,1,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
+	GroupName        *string  `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
+	S2Accounts       []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	Description      *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *ModifyS2GroupInput) Reset()                    { *m = ModifyS2GroupInput{} }
@@ -1669,15 +1713,15 @@ func (*ModifyS2GroupInput) ProtoMessage()               {}
 func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{41} }
 
 func (m *ModifyS2GroupInput) GetS2Group() string {
-	if m != nil {
-		return m.S2Group
+	if m != nil && m.S2Group != nil {
+		return *m.S2Group
 	}
 	return ""
 }
 
 func (m *ModifyS2GroupInput) GetGroupName() string {
-	if m != nil {
-		return m.GroupName
+	if m != nil && m.GroupName != nil {
+		return *m.GroupName
 	}
 	return ""
 }
@@ -1690,16 +1734,17 @@ func (m *ModifyS2GroupInput) GetS2Accounts() []string {
 }
 
 func (m *ModifyS2GroupInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type ModifyS2GroupOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyS2GroupOutput) Reset()                    { *m = ModifyS2GroupOutput{} }
@@ -1708,28 +1753,29 @@ func (*ModifyS2GroupOutput) ProtoMessage()               {}
 func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{42} }
 
 func (m *ModifyS2GroupOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyS2GroupOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyS2GroupOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DeleteS2GroupsInput struct {
-	S2Groups []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	S2Groups         []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteS2GroupsInput) Reset()                    { *m = DeleteS2GroupsInput{} }
@@ -1745,9 +1791,10 @@ func (m *DeleteS2GroupsInput) GetS2Groups() []string {
 }
 
 type DeleteS2GroupsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteS2GroupsOutput) Reset()                    { *m = DeleteS2GroupsOutput{} }
@@ -1756,35 +1803,36 @@ func (*DeleteS2GroupsOutput) ProtoMessage()               {}
 func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{44} }
 
 func (m *DeleteS2GroupsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteS2GroupsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteS2GroupsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type CreateS2AccountInput struct {
-	AccountType   string                            `protobuf:"bytes,1,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
-	AccountName   string                            `protobuf:"bytes,2,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SmbName       string                            `protobuf:"bytes,3,opt,name=smb_name,json=smbName" json:"smb_name,omitempty"`
-	SmbPasswd     string                            `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
-	NfsIpaddr     string                            `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
-	S2Groups      *CreateS2AccountInput_S2GroupItem `protobuf:"bytes,6,opt,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
-	OptParameters string                            `protobuf:"bytes,7,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
-	Description   string                            `protobuf:"bytes,8,opt,name=description" json:"description,omitempty"`
+	AccountType      *string                           `protobuf:"bytes,1,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
+	AccountName      *string                           `protobuf:"bytes,2,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SmbName          *string                           `protobuf:"bytes,3,opt,name=smb_name,json=smbName" json:"smb_name,omitempty"`
+	SmbPasswd        *string                           `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
+	NfsIpaddr        *string                           `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
+	S2Groups         *CreateS2AccountInput_S2GroupItem `protobuf:"bytes,6,opt,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	OptParameters    *string                           `protobuf:"bytes,7,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
+	Description      *string                           `protobuf:"bytes,8,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte                            `json:"-"`
 }
 
 func (m *CreateS2AccountInput) Reset()                    { *m = CreateS2AccountInput{} }
@@ -1793,36 +1841,36 @@ func (*CreateS2AccountInput) ProtoMessage()               {}
 func (*CreateS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{45} }
 
 func (m *CreateS2AccountInput) GetAccountType() string {
-	if m != nil {
-		return m.AccountType
+	if m != nil && m.AccountType != nil {
+		return *m.AccountType
 	}
 	return ""
 }
 
 func (m *CreateS2AccountInput) GetAccountName() string {
-	if m != nil {
-		return m.AccountName
+	if m != nil && m.AccountName != nil {
+		return *m.AccountName
 	}
 	return ""
 }
 
 func (m *CreateS2AccountInput) GetSmbName() string {
-	if m != nil {
-		return m.SmbName
+	if m != nil && m.SmbName != nil {
+		return *m.SmbName
 	}
 	return ""
 }
 
 func (m *CreateS2AccountInput) GetSmbPasswd() string {
-	if m != nil {
-		return m.SmbPasswd
+	if m != nil && m.SmbPasswd != nil {
+		return *m.SmbPasswd
 	}
 	return ""
 }
 
 func (m *CreateS2AccountInput) GetNfsIpaddr() string {
-	if m != nil {
-		return m.NfsIpaddr
+	if m != nil && m.NfsIpaddr != nil {
+		return *m.NfsIpaddr
 	}
 	return ""
 }
@@ -1835,22 +1883,23 @@ func (m *CreateS2AccountInput) GetS2Groups() *CreateS2AccountInput_S2GroupItem {
 }
 
 func (m *CreateS2AccountInput) GetOptParameters() string {
-	if m != nil {
-		return m.OptParameters
+	if m != nil && m.OptParameters != nil {
+		return *m.OptParameters
 	}
 	return ""
 }
 
 func (m *CreateS2AccountInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type CreateS2AccountInput_S2GroupItem struct {
-	GroupId string `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
-	RwFlag  string `protobuf:"bytes,2,opt,name=rw_flag,json=rwFlag" json:"rw_flag,omitempty"`
+	GroupId          *string `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+	RwFlag           *string `protobuf:"bytes,2,opt,name=rw_flag,json=rwFlag" json:"rw_flag,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateS2AccountInput_S2GroupItem) Reset()         { *m = CreateS2AccountInput_S2GroupItem{} }
@@ -1861,24 +1910,25 @@ func (*CreateS2AccountInput_S2GroupItem) Descriptor() ([]byte, []int) {
 }
 
 func (m *CreateS2AccountInput_S2GroupItem) GetGroupId() string {
-	if m != nil {
-		return m.GroupId
+	if m != nil && m.GroupId != nil {
+		return *m.GroupId
 	}
 	return ""
 }
 
 func (m *CreateS2AccountInput_S2GroupItem) GetRwFlag() string {
-	if m != nil {
-		return m.RwFlag
+	if m != nil && m.RwFlag != nil {
+		return *m.RwFlag
 	}
 	return ""
 }
 
 type CreateS2AccountOutput struct {
-	Action      string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode     int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message     string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2AccountId string `protobuf:"bytes,4,opt,name=s2_account_id,json=s2AccountId" json:"s2_account_id,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2AccountId      *string `protobuf:"bytes,4,opt,name=s2_account_id,json=s2AccountId" json:"s2_account_id,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *CreateS2AccountOutput) Reset()                    { *m = CreateS2AccountOutput{} }
@@ -1887,41 +1937,42 @@ func (*CreateS2AccountOutput) ProtoMessage()               {}
 func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{46} }
 
 func (m *CreateS2AccountOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *CreateS2AccountOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *CreateS2AccountOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 func (m *CreateS2AccountOutput) GetS2AccountId() string {
-	if m != nil {
-		return m.S2AccountId
+	if m != nil && m.S2AccountId != nil {
+		return *m.S2AccountId
 	}
 	return ""
 }
 
 type DescribeS2AccountsInput struct {
-	S2Accounts   []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	AccountTypes []string `protobuf:"bytes,2,rep,name=account_types,json=accountTypes" json:"account_types,omitempty"`
-	AccountName  string   `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SearchWord   string   `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose      int32    `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset       int32    `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit        int32    `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	S2Accounts       []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	AccountTypes     []string `protobuf:"bytes,2,rep,name=account_types,json=accountTypes" json:"account_types,omitempty"`
+	AccountName      *string  `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DescribeS2AccountsInput) Reset()                    { *m = DescribeS2AccountsInput{} }
@@ -1944,46 +1995,47 @@ func (m *DescribeS2AccountsInput) GetAccountTypes() []string {
 }
 
 func (m *DescribeS2AccountsInput) GetAccountName() string {
-	if m != nil {
-		return m.AccountName
+	if m != nil && m.AccountName != nil {
+		return *m.AccountName
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsInput) GetSearchWord() string {
-	if m != nil {
-		return m.SearchWord
+	if m != nil && m.SearchWord != nil {
+		return *m.SearchWord
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsInput) GetVerbose() int32 {
-	if m != nil {
-		return m.Verbose
+	if m != nil && m.Verbose != nil {
+		return *m.Verbose
 	}
 	return 0
 }
 
 func (m *DescribeS2AccountsInput) GetOffset() int32 {
-	if m != nil {
-		return m.Offset
+	if m != nil && m.Offset != nil {
+		return *m.Offset
 	}
 	return 0
 }
 
 func (m *DescribeS2AccountsInput) GetLimit() int32 {
-	if m != nil {
-		return m.Limit
+	if m != nil && m.Limit != nil {
+		return *m.Limit
 	}
 	return 0
 }
 
 type DescribeS2AccountsOutput struct {
-	Action       string                                   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode      int32                                    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message      string                                   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2AccountSet []*DescribeS2AccountsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_account_set,json=s2AccountSet" json:"s2_account_set,omitempty"`
-	TotalCount   int32                                    `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	Action           *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2AccountSet     []*DescribeS2AccountsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_account_set,json=s2AccountSet" json:"s2_account_set,omitempty"`
+	TotalCount       *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_unrecognized []byte                                   `json:"-"`
 }
 
 func (m *DescribeS2AccountsOutput) Reset()                    { *m = DescribeS2AccountsOutput{} }
@@ -1992,22 +2044,22 @@ func (*DescribeS2AccountsOutput) ProtoMessage()               {}
 func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{48} }
 
 func (m *DescribeS2AccountsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DescribeS2AccountsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -2020,20 +2072,21 @@ func (m *DescribeS2AccountsOutput) GetS2AccountSet() []*DescribeS2AccountsOutput
 }
 
 func (m *DescribeS2AccountsOutput) GetTotalCount() int32 {
-	if m != nil {
-		return m.TotalCount
+	if m != nil && m.TotalCount != nil {
+		return *m.TotalCount
 	}
 	return 0
 }
 
 type DescribeS2AccountsOutput_ResponseItem struct {
-	OptParameters string                      `protobuf:"bytes,1,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
-	AccountType   string                      `protobuf:"bytes,2,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
-	AccountId     string                      `protobuf:"bytes,3,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
-	Description   string                      `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	AccountName   string                      `protobuf:"bytes,5,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	NfsIpaddr     string                      `protobuf:"bytes,6,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
-	CreateTime    *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	OptParameters    *string                     `protobuf:"bytes,1,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
+	AccountType      *string                     `protobuf:"bytes,2,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
+	AccountId        *string                     `protobuf:"bytes,3,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	Description      *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	AccountName      *string                     `protobuf:"bytes,5,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	NfsIpaddr        *string                     `protobuf:"bytes,6,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
+	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_unrecognized []byte                      `json:"-"`
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) Reset()         { *m = DescribeS2AccountsOutput_ResponseItem{} }
@@ -2044,43 +2097,43 @@ func (*DescribeS2AccountsOutput_ResponseItem) Descriptor() ([]byte, []int) {
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetOptParameters() string {
-	if m != nil {
-		return m.OptParameters
+	if m != nil && m.OptParameters != nil {
+		return *m.OptParameters
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetAccountType() string {
-	if m != nil {
-		return m.AccountType
+	if m != nil && m.AccountType != nil {
+		return *m.AccountType
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetAccountId() string {
-	if m != nil {
-		return m.AccountId
+	if m != nil && m.AccountId != nil {
+		return *m.AccountId
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetAccountName() string {
-	if m != nil {
-		return m.AccountName
+	if m != nil && m.AccountName != nil {
+		return *m.AccountName
 	}
 	return ""
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetNfsIpaddr() string {
-	if m != nil {
-		return m.NfsIpaddr
+	if m != nil && m.NfsIpaddr != nil {
+		return *m.NfsIpaddr
 	}
 	return ""
 }
@@ -2093,12 +2146,13 @@ func (m *DescribeS2AccountsOutput_ResponseItem) GetCreateTime() *google_protobuf
 }
 
 type ModifyS2AccountInput struct {
-	S2Account     string `protobuf:"bytes,1,opt,name=s2_account,json=s2Account" json:"s2_account,omitempty"`
-	OptParameters string `protobuf:"bytes,2,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
-	AccountName   string `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SmbPasswd     string `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
-	NfsIpaddr     string `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
-	Description   string `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	S2Account        *string `protobuf:"bytes,1,opt,name=s2_account,json=s2Account" json:"s2_account,omitempty"`
+	OptParameters    *string `protobuf:"bytes,2,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
+	AccountName      *string `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SmbPasswd        *string `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
+	NfsIpaddr        *string `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
+	Description      *string `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyS2AccountInput) Reset()                    { *m = ModifyS2AccountInput{} }
@@ -2107,51 +2161,52 @@ func (*ModifyS2AccountInput) ProtoMessage()               {}
 func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{49} }
 
 func (m *ModifyS2AccountInput) GetS2Account() string {
-	if m != nil {
-		return m.S2Account
+	if m != nil && m.S2Account != nil {
+		return *m.S2Account
 	}
 	return ""
 }
 
 func (m *ModifyS2AccountInput) GetOptParameters() string {
-	if m != nil {
-		return m.OptParameters
+	if m != nil && m.OptParameters != nil {
+		return *m.OptParameters
 	}
 	return ""
 }
 
 func (m *ModifyS2AccountInput) GetAccountName() string {
-	if m != nil {
-		return m.AccountName
+	if m != nil && m.AccountName != nil {
+		return *m.AccountName
 	}
 	return ""
 }
 
 func (m *ModifyS2AccountInput) GetSmbPasswd() string {
-	if m != nil {
-		return m.SmbPasswd
+	if m != nil && m.SmbPasswd != nil {
+		return *m.SmbPasswd
 	}
 	return ""
 }
 
 func (m *ModifyS2AccountInput) GetNfsIpaddr() string {
-	if m != nil {
-		return m.NfsIpaddr
+	if m != nil && m.NfsIpaddr != nil {
+		return *m.NfsIpaddr
 	}
 	return ""
 }
 
 func (m *ModifyS2AccountInput) GetDescription() string {
-	if m != nil {
-		return m.Description
+	if m != nil && m.Description != nil {
+		return *m.Description
 	}
 	return ""
 }
 
 type ModifyS2AccountOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *ModifyS2AccountOutput) Reset()                    { *m = ModifyS2AccountOutput{} }
@@ -2160,28 +2215,29 @@ func (*ModifyS2AccountOutput) ProtoMessage()               {}
 func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{50} }
 
 func (m *ModifyS2AccountOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *ModifyS2AccountOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *ModifyS2AccountOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DeleteS2AccountsInput struct {
-	S2Accounts []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	S2Accounts       []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *DeleteS2AccountsInput) Reset()                    { *m = DeleteS2AccountsInput{} }
@@ -2197,9 +2253,10 @@ func (m *DeleteS2AccountsInput) GetS2Accounts() []string {
 }
 
 type DeleteS2AccountsOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DeleteS2AccountsOutput) Reset()                    { *m = DeleteS2AccountsOutput{} }
@@ -2208,29 +2265,30 @@ func (*DeleteS2AccountsOutput) ProtoMessage()               {}
 func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{52} }
 
 func (m *DeleteS2AccountsOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DeleteS2AccountsOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DeleteS2AccountsOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type AssociateS2AccountGroupInput struct {
-	S2Groups   []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
-	S2Accounts []string `protobuf:"bytes,2,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	S2Groups         []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	S2Accounts       []string `protobuf:"bytes,2,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
 func (m *AssociateS2AccountGroupInput) Reset()                    { *m = AssociateS2AccountGroupInput{} }
@@ -2253,9 +2311,10 @@ func (m *AssociateS2AccountGroupInput) GetS2Accounts() []string {
 }
 
 type AssociateS2AccountGroupOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *AssociateS2AccountGroupOutput) Reset()                    { *m = AssociateS2AccountGroupOutput{} }
@@ -2264,27 +2323,28 @@ func (*AssociateS2AccountGroupOutput) ProtoMessage()               {}
 func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{54} }
 
 func (m *AssociateS2AccountGroupOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *AssociateS2AccountGroupOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *AssociateS2AccountGroupOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
 
 type DissociateS2AccountGroupInput struct {
+	XXX_unrecognized []byte `json:"-"`
 }
 
 func (m *DissociateS2AccountGroupInput) Reset()                    { *m = DissociateS2AccountGroupInput{} }
@@ -2293,9 +2353,10 @@ func (*DissociateS2AccountGroupInput) ProtoMessage()               {}
 func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{55} }
 
 type DissociateS2AccountGroupOutput struct {
-	Action  string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
 func (m *DissociateS2AccountGroupOutput) Reset()         { *m = DissociateS2AccountGroupOutput{} }
@@ -2306,22 +2367,22 @@ func (*DissociateS2AccountGroupOutput) Descriptor() ([]byte, []int) {
 }
 
 func (m *DissociateS2AccountGroupOutput) GetAction() string {
-	if m != nil {
-		return m.Action
+	if m != nil && m.Action != nil {
+		return *m.Action
 	}
 	return ""
 }
 
 func (m *DissociateS2AccountGroupOutput) GetRetCode() int32 {
-	if m != nil {
-		return m.RetCode
+	if m != nil && m.RetCode != nil {
+		return *m.RetCode
 	}
 	return 0
 }
 
 func (m *DissociateS2AccountGroupOutput) GetMessage() string {
-	if m != nil {
-		return m.Message
+	if m != nil && m.Message != nil {
+		return *m.Message
 	}
 	return ""
 }
@@ -2393,155 +2454,155 @@ func init() {
 func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }
 
 var fileDescriptor20 = []byte{
-	// 2399 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x3a, 0xcd, 0x6f, 0xdb, 0xc8,
-	0xf5, 0xa0, 0x64, 0x59, 0xd6, 0x93, 0xed, 0x6c, 0x18, 0x3b, 0x51, 0x68, 0xcb, 0x76, 0xe8, 0xe4,
-	0xb7, 0xc9, 0x0f, 0xa9, 0x0c, 0xa8, 0xd8, 0xee, 0x62, 0x5b, 0x60, 0x1b, 0xd8, 0x9b, 0xd6, 0x0b,
-	0x64, 0xd7, 0x55, 0xdc, 0x14, 0x0b, 0x04, 0x25, 0x28, 0x71, 0x24, 0x33, 0x91, 0x44, 0x96, 0x33,
-	0x8a, 0xe3, 0x6d, 0x17, 0x05, 0x7a, 0x6a, 0x7b, 0x2b, 0xd0, 0x02, 0x45, 0xd1, 0x3f, 0xa4, 0xa7,
-	0xa2, 0xff, 0x45, 0x8f, 0x45, 0x0f, 0x3d, 0x14, 0x45, 0x0b, 0xec, 0xb1, 0x3d, 0x15, 0x33, 0x1c,
-	0x92, 0xc3, 0xe1, 0x90, 0x92, 0x37, 0x4b, 0xa3, 0x17, 0x41, 0xf3, 0xe6, 0xe3, 0x7d, 0xcc, 0xfb,
-	0x9a, 0xf7, 0x08, 0x2b, 0xb8, 0xdb, 0xf1, 0x03, 0x8f, 0x78, 0x7a, 0x1d, 0xa3, 0xe0, 0x95, 0x3b,
-	0x40, 0x46, 0x93, 0x5c, 0xf8, 0x08, 0x87, 0x50, 0xa3, 0xfd, 0x23, 0x77, 0x3a, 0x1a, 0x8c, 0xbd,
-	0x99, 0x63, 0x61, 0xe7, 0xa5, 0x15, 0xcc, 0xc6, 0xe8, 0x80, 0xfe, 0xf0, 0xe9, 0xdd, 0x91, 0xe7,
-	0x8d, 0xc6, 0xe8, 0x80, 0x8d, 0xfa, 0xb3, 0xe1, 0x01, 0x71, 0x27, 0x08, 0x13, 0x7b, 0xe2, 0x87,
-	0x0b, 0xcc, 0x07, 0x70, 0xe3, 0x69, 0xf7, 0x69, 0x78, 0xf2, 0x49, 0xe0, 0xf9, 0x28, 0x20, 0x2e,
-	0xc2, 0xba, 0x0e, 0x4b, 0x9f, 0x79, 0x53, 0xd4, 0xd2, 0xf6, 0xb4, 0xfb, 0x8d, 0x1e, 0xfb, 0x6f,
-	0xfe, 0x5d, 0x83, 0x1b, 0x87, 0x01, 0xb2, 0x09, 0x0a, 0x77, 0xa0, 0xe0, 0x78, 0xea, 0xcf, 0x88,
-	0x7e, 0x1b, 0x56, 0x5e, 0xbd, 0x9e, 0x22, 0x62, 0xb9, 0x0e, 0x5f, 0x5f, 0x67, 0xe3, 0x63, 0x47,
-	0xbf, 0x03, 0xab, 0x9c, 0x6a, 0x8b, 0x12, 0xdd, 0xaa, 0xb0, 0xe9, 0x26, 0x87, 0x9d, 0x5e, 0xf8,
-	0x88, 0x62, 0x9a, 0xda, 0x13, 0xd4, 0xaa, 0x86, 0x98, 0xe8, 0x7f, 0xfd, 0x2e, 0xac, 0xe3, 0xae,
-	0x85, 0x19, 0x8e, 0x70, 0xe3, 0x12, 0x9b, 0x5d, 0xc5, 0x1c, 0x31, 0xdb, 0xd9, 0x06, 0xf0, 0x03,
-	0xf7, 0x95, 0x4d, 0x90, 0xe5, 0xfa, 0xad, 0x1a, 0x5b, 0xd1, 0xe0, 0x90, 0x63, 0x5f, 0xdf, 0x83,
-	0xa6, 0x83, 0xf0, 0x20, 0x70, 0x7d, 0xe2, 0x7a, 0xd3, 0xd6, 0x72, 0x88, 0x5a, 0x00, 0x51, 0xc2,
-	0x71, 0xd7, 0x1a, 0x8c, 0x6d, 0x8c, 0x5b, 0xf5, 0x3d, 0xed, 0x7e, 0xad, 0x57, 0xc7, 0xdd, 0x43,
-	0x3a, 0x34, 0x7f, 0xaf, 0xc1, 0x46, 0x9a, 0xd7, 0x4f, 0x66, 0x84, 0x32, 0x7b, 0x13, 0x96, 0xed,
-	0x01, 0x3b, 0x30, 0x64, 0x95, 0x8f, 0xe8, 0x59, 0x01, 0x22, 0xd6, 0xc0, 0x73, 0x42, 0x2e, 0x6b,
-	0xbd, 0x7a, 0x80, 0xc8, 0xa1, 0xe7, 0x20, 0xbd, 0x05, 0xf5, 0x09, 0xc2, 0xd8, 0x1e, 0x45, 0x4c,
-	0x46, 0x43, 0x7d, 0x13, 0x96, 0x5f, 0x78, 0x7d, 0x2a, 0xb7, 0x90, 0xbf, 0xda, 0x0b, 0xaf, 0x7f,
-	0xec, 0xe8, 0x7b, 0xb0, 0x9a, 0xb0, 0xef, 0x3a, 0x9c, 0x35, 0x88, 0x98, 0x3f, 0x76, 0xcc, 0x2f,
-	0x34, 0xb8, 0x79, 0xc4, 0x38, 0xe9, 0xc7, 0x04, 0xe2, 0xf0, 0x36, 0xda, 0x00, 0xf1, 0x66, 0xdc,
-	0xd2, 0xf6, 0xaa, 0x54, 0x2a, 0xd1, 0x56, 0xac, 0xef, 0xc3, 0x9a, 0x78, 0x23, 0xb8, 0x55, 0x61,
-	0x2b, 0x56, 0x85, 0x2b, 0xc1, 0x94, 0x49, 0x4c, 0x6c, 0x32, 0xc3, 0xad, 0x2a, 0x9b, 0xe5, 0x23,
-	0x7d, 0x17, 0x9a, 0x18, 0xd9, 0xc1, 0xe0, 0xcc, 0x3a, 0xf7, 0x82, 0x88, 0x68, 0x08, 0x41, 0x3f,
-	0xf0, 0x02, 0x87, 0x5e, 0x26, 0xb1, 0x47, 0xb8, 0x55, 0x63, 0xdb, 0xd8, 0x7f, 0xca, 0xfe, 0x2b,
-	0x14, 0xf4, 0x3d, 0x8c, 0xd8, 0x1d, 0xd4, 0x7a, 0xd1, 0x90, 0xa2, 0xf1, 0x86, 0x43, 0x8c, 0x08,
-	0x97, 0x3e, 0x1f, 0xe9, 0x1b, 0x50, 0x1b, 0xbb, 0x13, 0x97, 0xb4, 0x56, 0x18, 0x38, 0x1c, 0x98,
-	0x7f, 0xd4, 0xe0, 0x56, 0x86, 0xe7, 0x32, 0x6e, 0xe5, 0x1d, 0x58, 0x4b, 0xc4, 0x4f, 0xa9, 0x5b,
-	0xda, 0xab, 0xde, 0x6f, 0x76, 0xaf, 0x77, 0xb8, 0x8c, 0x3a, 0x11, 0xf6, 0x5e, 0x33, 0x92, 0xeb,
-	0x53, 0x44, 0xa8, 0x70, 0x88, 0x47, 0xec, 0xb1, 0x35, 0xf0, 0x66, 0x53, 0xc2, 0x2e, 0xad, 0xd6,
-	0x03, 0x06, 0x3a, 0xa4, 0x10, 0xf3, 0x0c, 0x6e, 0x3c, 0xf1, 0x1c, 0x77, 0x78, 0x91, 0x36, 0x9f,
-	0x2d, 0x68, 0xc4, 0xe8, 0x38, 0xf9, 0x2b, 0xd1, 0xb9, 0xb1, 0x75, 0x54, 0x04, 0xeb, 0x90, 0x14,
-	0xbb, 0x9a, 0x51, 0x6c, 0x73, 0x00, 0x1b, 0x69, 0x4c, 0x25, 0x88, 0xc9, 0xfc, 0x14, 0x36, 0x7a,
-	0x08, 0xbb, 0x9f, 0xc9, 0x0a, 0x58, 0xc8, 0x4f, 0xd6, 0xb2, 0x43, 0x7c, 0x29, 0xcb, 0x36, 0x7f,
-	0x0c, 0x9b, 0xd2, 0xd1, 0x57, 0x67, 0x7d, 0xe6, 0x3b, 0xb0, 0x71, 0x84, 0xc6, 0x88, 0x5c, 0xce,
-	0xb0, 0x28, 0xcd, 0xd2, 0xb6, 0x2b, 0xa4, 0xf9, 0x1b, 0xb0, 0x79, 0xe2, 0x9d, 0xa3, 0xe0, 0x93,
-	0xe9, 0xe5, 0x88, 0xfe, 0x09, 0xdc, 0x94, 0xf7, 0x5d, 0x21, 0xd5, 0xef, 0x46, 0xd8, 0x87, 0xc3,
-	0xcb, 0x91, 0xfd, 0x39, 0xdc, 0xca, 0x6c, 0xbc, 0x5a, 0x0d, 0xf9, 0xbe, 0xef, 0xd8, 0x5f, 0x42,
-	0x43, 0xa4, 0x6d, 0x57, 0x48, 0xf3, 0x18, 0x5a, 0x87, 0x67, 0xf6, 0x74, 0x14, 0x23, 0x7f, 0xc6,
-	0x42, 0xf4, 0x7c, 0x8b, 0xdd, 0x80, 0x1a, 0x8b, 0xe6, 0xdc, 0x05, 0x85, 0x03, 0x29, 0xf6, 0x56,
-	0xa5, 0xd8, 0x6b, 0xfe, 0x14, 0x6e, 0x2b, 0xb0, 0x5d, 0x21, 0xbb, 0xff, 0xd1, 0xe0, 0x76, 0x1c,
-	0xbf, 0xcf, 0xec, 0x00, 0x39, 0xa7, 0x76, 0x30, 0x5a, 0x88, 0xe1, 0x5d, 0x68, 0xa2, 0xd7, 0xbe,
-	0x17, 0x10, 0x4b, 0xf0, 0xbc, 0x10, 0x82, 0x3e, 0xa6, 0xfe, 0x97, 0x3a, 0x7a, 0x76, 0x58, 0xe8,
-	0xc0, 0x42, 0x82, 0x20, 0x04, 0xb1, 0xc4, 0x44, 0x72, 0xd0, 0x4b, 0xd9, 0xcc, 0x83, 0xc6, 0x44,
-	0x6f, 0x3c, 0x9b, 0xa0, 0x28, 0x54, 0x46, 0x43, 0xfd, 0x6d, 0xb8, 0xe6, 0x4e, 0x5d, 0xe2, 0xda,
-	0xc4, 0x0b, 0x18, 0x01, 0xb8, 0xb5, 0xcc, 0x56, 0xac, 0xc7, 0x60, 0x4a, 0x04, 0xe6, 0xc9, 0xcb,
-	0x28, 0xf0, 0x66, 0x3e, 0x0b, 0x9f, 0x0d, 0x9a, 0xbc, 0x7c, 0x87, 0x0e, 0x4d, 0x17, 0x0c, 0x15,
-	0xef, 0x65, 0x04, 0x81, 0x5f, 0x57, 0x60, 0x5b, 0x08, 0xca, 0x02, 0x36, 0x6e, 0x13, 0xf7, 0x60,
-	0x1d, 0x33, 0xa8, 0x15, 0x0a, 0x28, 0xb2, 0x8b, 0x35, 0x2c, 0xae, 0xa5, 0x89, 0xa2, 0x20, 0xd3,
-	0x28, 0x2b, 0x69, 0x26, 0x42, 0xc5, 0x99, 0xac, 0xa8, 0x2a, 0x67, 0x45, 0xf2, 0xcd, 0x2d, 0xa9,
-	0x6e, 0x4e, 0xcc, 0x5f, 0x6a, 0x99, 0xfc, 0xe5, 0xab, 0xca, 0x55, 0xfe, 0xac, 0x41, 0x3b, 0x47,
-	0x2c, 0x65, 0x18, 0xc1, 0x77, 0x61, 0x83, 0x8a, 0x46, 0x94, 0xb3, 0x90, 0xb8, 0xdc, 0x12, 0x13,
-	0x17, 0x81, 0x94, 0xde, 0x75, 0x9c, 0x1a, 0x2f, 0x94, 0xc4, 0x1c, 0x82, 0x11, 0x87, 0xb9, 0x2f,
-	0x7b, 0xdb, 0xe6, 0x0b, 0xd8, 0x52, 0x1e, 0x52, 0x86, 0x86, 0x1e, 0x82, 0xf1, 0xe1, 0xd4, 0xee,
-	0x8f, 0xdf, 0x94, 0x60, 0xe5, 0x21, 0x65, 0x10, 0x7c, 0x04, 0x5b, 0x47, 0x2e, 0x7e, 0x53, 0x8a,
-	0x5f, 0xc2, 0xb6, 0xfa, 0x94, 0x32, 0x48, 0xfe, 0xa7, 0x06, 0xfb, 0x71, 0xc2, 0x29, 0x20, 0x7b,
-	0x44, 0x48, 0xe0, 0xf6, 0x67, 0x04, 0x71, 0xda, 0xe9, 0xe3, 0x43, 0xa4, 0x9d, 0xe3, 0x5e, 0x15,
-	0x49, 0xd7, 0xb7, 0xa1, 0x41, 0x9f, 0xa1, 0x36, 0x23, 0x2e, 0xf4, 0xbe, 0x09, 0x40, 0xe5, 0x1f,
-	0xab, 0x4a, 0xff, 0xb8, 0x03, 0xe0, 0xdb, 0x81, 0x3d, 0x41, 0x84, 0x06, 0xe3, 0x25, 0xb6, 0x46,
-	0x80, 0xa4, 0xfc, 0x67, 0x2d, 0xe5, 0x3f, 0x65, 0x3f, 0xb2, 0x2c, 0xfb, 0x11, 0xf3, 0x77, 0x15,
-	0xb8, 0x5b, 0xcc, 0x6f, 0x19, 0x56, 0xee, 0xc8, 0xd2, 0x0b, 0xcd, 0xfb, 0x83, 0xd8, 0xbc, 0x17,
-	0x21, 0xa9, 0x23, 0x4e, 0x7e, 0x38, 0x25, 0xc1, 0x45, 0x5a, 0xfc, 0xc6, 0x07, 0x70, 0x3d, 0xb3,
-	0x44, 0x7f, 0x0b, 0xaa, 0x2f, 0xd1, 0x05, 0x67, 0x82, 0xfe, 0x65, 0x69, 0x81, 0x3d, 0x9e, 0xa1,
-	0x38, 0x2d, 0xa0, 0x83, 0xf7, 0x2b, 0xef, 0x69, 0xe6, 0x73, 0xd8, 0x7a, 0x44, 0x88, 0x3d, 0x38,
-	0x3b, 0xf5, 0x54, 0xb1, 0x77, 0x21, 0x1d, 0x10, 0xe2, 0x63, 0x25, 0x15, 0x1f, 0xa9, 0x5e, 0xab,
-	0x4f, 0x2f, 0x43, 0xaf, 0x7f, 0x48, 0xbd, 0x38, 0x45, 0xf6, 0x38, 0xf0, 0x26, 0x25, 0x30, 0x33,
-	0x81, 0x9d, 0xbc, 0xf3, 0x4b, 0x09, 0xd6, 0x1a, 0xec, 0x25, 0x51, 0xe9, 0x08, 0x0d, 0xed, 0xd9,
-	0x98, 0x9c, 0xc4, 0x26, 0x11, 0xb2, 0x24, 0x97, 0x6c, 0xb4, 0x6c, 0xc9, 0x46, 0x4a, 0x80, 0x2a,
-	0x99, 0x04, 0x28, 0x09, 0x96, 0x55, 0x75, 0xb0, 0x5c, 0x12, 0x83, 0xe5, 0x9f, 0xaa, 0x70, 0xa7,
-	0x80, 0xac, 0x32, 0x4c, 0x29, 0x80, 0xdb, 0xb8, 0x6b, 0x39, 0x21, 0x2a, 0x2b, 0xf1, 0x0a, 0x42,
-	0xd4, 0x7c, 0x37, 0x36, 0xab, 0xb9, 0xb4, 0x75, 0x7a, 0x08, 0xfb, 0xde, 0x14, 0xa3, 0x63, 0x82,
-	0x26, 0xbd, 0x9b, 0x38, 0xbb, 0x6e, 0x91, 0xd0, 0x6a, 0xfc, 0x41, 0x83, 0x55, 0xf1, 0xa4, 0xaf,
-	0xe4, 0x2a, 0xda, 0xdc, 0x0d, 0x5a, 0x42, 0x91, 0xad, 0xc1, 0x20, 0x2c, 0x23, 0xda, 0x87, 0xb5,
-	0x48, 0x0a, 0xa1, 0x39, 0xf3, 0x42, 0x1b, 0x07, 0x3e, 0xa3, 0x30, 0x39, 0x9f, 0xad, 0x65, 0x0b,
-	0x0e, 0xbf, 0xd1, 0x40, 0x8f, 0x52, 0x4e, 0xe6, 0x43, 0xe3, 0x07, 0x11, 0x73, 0xb0, 0x22, 0xf9,
-	0x0d, 0x06, 0x89, 0x68, 0x0b, 0xa7, 0x85, 0x44, 0x3b, 0x9c, 0x8e, 0xb3, 0xb5, 0xae, 0x65, 0x0f,
-	0x98, 0xbc, 0x22, 0x37, 0x0f, 0xb8, 0xfb, 0x88, 0x43, 0xe6, 0xe7, 0xd9, 0xe6, 0xcf, 0x84, 0x92,
-	0x25, 0xa3, 0xab, 0x0c, 0x65, 0xda, 0x61, 0x74, 0x86, 0x9c, 0xc4, 0xef, 0x90, 0x06, 0x0f, 0x26,
-	0xc7, 0x8e, 0xf9, 0x57, 0x0d, 0x36, 0x13, 0x1d, 0x62, 0xd0, 0x54, 0xa9, 0x84, 0xed, 0x8c, 0xc2,
-	0xf8, 0x0a, 0xdf, 0xc7, 0x8a, 0x6d, 0x89, 0xf0, 0x22, 0xd7, 0x01, 0xb1, 0xf4, 0x58, 0xce, 0xcc,
-	0x85, 0x23, 0x5e, 0x6e, 0x93, 0xc3, 0x54, 0x09, 0xef, 0x52, 0x51, 0xc2, 0x5b, 0xcb, 0x4b, 0x78,
-	0x97, 0xd5, 0x36, 0x5c, 0x4f, 0x15, 0xe7, 0xaa, 0x62, 0x41, 0x32, 0xe4, 0xa0, 0x0c, 0x59, 0x7f,
-	0xcc, 0x1e, 0x01, 0xa1, 0x5c, 0x12, 0x5b, 0x7d, 0xa8, 0xb0, 0x55, 0x91, 0x86, 0xb4, 0x81, 0x02,
-	0x17, 0xf1, 0x42, 0x46, 0xf9, 0x37, 0xd9, 0x28, 0x6f, 0xc3, 0x4a, 0x7c, 0xd5, 0xbc, 0xda, 0x3d,
-	0x0a, 0x2f, 0x5a, 0x52, 0xf7, 0x8a, 0x42, 0xdd, 0x5d, 0x1c, 0x39, 0x1d, 0xee, 0x19, 0x1b, 0x2e,
-	0xe6, 0xce, 0x62, 0x81, 0x57, 0x63, 0xda, 0x5e, 0x6a, 0xb2, 0xbd, 0x7c, 0x13, 0x9a, 0x03, 0xa6,
-	0xeb, 0x16, 0x71, 0x79, 0xda, 0xd2, 0xec, 0x1a, 0x9d, 0xb0, 0x03, 0xd0, 0x89, 0x3a, 0x00, 0x9d,
-	0xd3, 0xa8, 0x03, 0xd0, 0x83, 0x70, 0x39, 0x05, 0x98, 0xbf, 0xd2, 0x40, 0x8f, 0xf2, 0x07, 0xc1,
-	0x82, 0xc5, 0x2c, 0x49, 0x4b, 0x67, 0x49, 0xe5, 0x5b, 0x6f, 0x3f, 0x29, 0x98, 0x96, 0x65, 0xbc,
-	0x66, 0x17, 0x6e, 0x44, 0x4f, 0x91, 0x45, 0x2d, 0xd3, 0x1c, 0x24, 0x15, 0xc2, 0xd2, 0x34, 0xdd,
-	0xfc, 0x45, 0x35, 0xe9, 0x40, 0x70, 0x99, 0xc5, 0x01, 0x3a, 0x32, 0x7b, 0x31, 0x2a, 0x70, 0x18,
-	0xd3, 0x34, 0xd9, 0x33, 0x54, 0xb2, 0x9e, 0x81, 0x5e, 0xec, 0xa4, 0x2f, 0x3a, 0x8e, 0x3a, 0x9e,
-	0xf4, 0xd9, 0x54, 0x1b, 0x80, 0x4e, 0xf9, 0x36, 0xc6, 0xe7, 0x89, 0x3b, 0x9b, 0xf4, 0x4f, 0x18,
-	0x80, 0x4e, 0x4f, 0x87, 0xd8, 0x72, 0x7d, 0xdb, 0x71, 0x82, 0x48, 0x0b, 0xa7, 0x43, 0x7c, 0xcc,
-	0x00, 0xfa, 0x63, 0x51, 0x72, 0xa1, 0x0e, 0x3e, 0x88, 0xcd, 0x53, 0xc5, 0x50, 0x27, 0x52, 0x38,
-	0x6a, 0x9b, 0x89, 0xfb, 0xbb, 0x07, 0xeb, 0x9e, 0x2f, 0xc6, 0x66, 0x5e, 0xe5, 0x58, 0xf3, 0x7c,
-	0x21, 0xb0, 0xca, 0x5a, 0xb4, 0x92, 0xd1, 0x22, 0xe3, 0x11, 0x34, 0x05, 0x0c, 0x45, 0xf6, 0x7b,
-	0x0b, 0xea, 0xc1, 0xb9, 0x35, 0x1c, 0xdb, 0x23, 0x2e, 0xb1, 0xe5, 0xe0, 0xfc, 0xf1, 0xd8, 0x1e,
-	0x99, 0x3f, 0xd7, 0x60, 0x53, 0x22, 0xbd, 0x0c, 0xe7, 0x66, 0xb2, 0xc6, 0x43, 0x74, 0x73, 0x71,
-	0x28, 0x69, 0xc6, 0x46, 0x73, 0xec, 0x98, 0xff, 0x48, 0x75, 0x41, 0x22, 0x63, 0x0a, 0x35, 0x43,
-	0x32, 0x39, 0x2d, 0x63, 0x72, 0xfb, 0xb0, 0x26, 0xaa, 0x4e, 0xdc, 0xfc, 0x11, 0x74, 0xe7, 0x7f,
-	0x2b, 0xac, 0xfc, 0xbb, 0x0a, 0xad, 0x2c, 0xb7, 0x65, 0xc8, 0xfe, 0x94, 0x35, 0x26, 0x22, 0xc6,
-	0x93, 0xd0, 0xd2, 0x51, 0x84, 0x96, 0x34, 0x1d, 0xe9, 0xe0, 0xb2, 0x1a, 0x8b, 0x7b, 0xa1, 0xf0,
-	0xf2, 0xdb, 0x8a, 0x14, 0x5e, 0xb2, 0x6a, 0xaf, 0xa9, 0xd4, 0x5e, 0x76, 0x02, 0x95, 0xac, 0x13,
-	0x68, 0x03, 0x08, 0xaa, 0xc4, 0x33, 0x3f, 0x3b, 0x52, 0xa4, 0x05, 0xc2, 0x8d, 0xac, 0x08, 0xb5,
-	0xac, 0x22, 0xa4, 0x7d, 0xc1, 0xb2, 0xec, 0x0b, 0xa4, 0x88, 0x54, 0xbf, 0x54, 0x44, 0xfa, 0x8b,
-	0x96, 0x74, 0xb1, 0x52, 0x0e, 0x30, 0x2c, 0xb3, 0x73, 0x32, 0xa2, 0xac, 0x32, 0x16, 0xbb, 0x42,
-	0x82, 0x95, 0x39, 0x12, 0xcc, 0x53, 0xf3, 0x37, 0x73, 0x84, 0x73, 0xfb, 0xcf, 0xa6, 0x03, 0x9b,
-	0x12, 0x83, 0x65, 0x04, 0x92, 0xf7, 0x92, 0xc6, 0xd4, 0xe5, 0xdc, 0x85, 0x89, 0x68, 0x4e, 0x97,
-	0xde, 0x59, 0x06, 0x81, 0xcf, 0x61, 0xfb, 0x11, 0xc6, 0xde, 0xc0, 0x15, 0xfd, 0xab, 0x90, 0x83,
-	0xcc, 0xcb, 0x92, 0x45, 0x26, 0x2a, 0x19, 0x26, 0xc6, 0xd0, 0xce, 0x39, 0xbd, 0x0c, 0x5e, 0x76,
-	0xa1, 0x7d, 0xe4, 0x16, 0x30, 0xc3, 0x9e, 0xfc, 0xee, 0x95, 0xd1, 0xd3, 0xfd, 0xd7, 0x06, 0x34,
-	0xe2, 0xef, 0x3b, 0xf4, 0x27, 0xb0, 0x9e, 0xfe, 0xa8, 0x41, 0xdf, 0xce, 0x84, 0x66, 0xa1, 0x35,
-	0x6d, 0xb4, 0x73, 0x66, 0x39, 0xa5, 0xcf, 0xe0, 0x7a, 0xa6, 0x21, 0xaf, 0xef, 0x2a, 0x1c, 0xa6,
-	0xd8, 0x25, 0x33, 0xf6, 0xf2, 0x17, 0xf0, 0x73, 0x9f, 0xc0, 0x7a, 0xba, 0x7d, 0x2d, 0x90, 0xa9,
-	0xe8, 0xa0, 0x0b, 0x64, 0x2a, 0xbb, 0xde, 0x27, 0x70, 0x4d, 0xea, 0x26, 0xeb, 0xc9, 0x0e, 0x55,
-	0x0b, 0xdb, 0xd8, 0xc9, 0x9b, 0x4e, 0x4e, 0x94, 0x7a, 0xbd, 0xc2, 0x89, 0xaa, 0xe6, 0xb1, 0x70,
-	0xa2, 0xba, 0x49, 0xfc, 0x14, 0xde, 0x92, 0x1b, 0xb1, 0x7a, 0xb2, 0x47, 0xd9, 0xdb, 0x35, 0x76,
-	0x73, 0xe7, 0x93, 0xfb, 0xc9, 0xb4, 0x49, 0x75, 0x79, 0x97, 0xdc, 0x7b, 0x15, 0xee, 0x27, 0xaf,
-	0xc7, 0x7a, 0x02, 0xd7, 0xa4, 0x46, 0xa6, 0xc0, 0xbe, 0xaa, 0x33, 0x2a, 0xb0, 0xaf, 0xee, 0x80,
-	0x3e, 0x87, 0x1b, 0x8a, 0x7e, 0xa1, 0x7e, 0x27, 0xd1, 0xbf, 0x9c, 0xde, 0xa5, 0x61, 0x16, 0x2d,
-	0xe1, 0xa7, 0x5b, 0xc2, 0xb7, 0x3c, 0x62, 0x61, 0xce, 0xcc, 0xaa, 0xb7, 0x5c, 0xe1, 0x33, 0xf6,
-	0x0b, 0xd7, 0x70, 0x04, 0x67, 0xa9, 0x2f, 0x53, 0x52, 0x8d, 0xad, 0x7b, 0x2a, 0x6d, 0xcf, 0x54,
-	0xf5, 0x8d, 0xff, 0x9b, 0xb7, 0x8c, 0x63, 0xea, 0x0b, 0x5f, 0x19, 0xa4, 0xf0, 0xec, 0x67, 0x15,
-	0x2c, 0x8b, 0xe5, 0x6e, 0xf1, 0xa2, 0x04, 0x87, 0xb2, 0xd9, 0x21, 0xe0, 0xc8, 0xef, 0xa8, 0x08,
-	0x38, 0x8a, 0x3a, 0x26, 0x34, 0xb4, 0x28, 0xdb, 0x13, 0xba, 0x40, 0x63, 0x7e, 0x17, 0xc4, 0xb8,
-	0x37, 0x67, 0x15, 0x47, 0xf3, 0x39, 0xec, 0x14, 0x17, 0xc5, 0xf5, 0x87, 0x0b, 0x56, 0xcf, 0x43,
-	0xb4, 0x5f, 0xbb, 0x54, 0xad, 0x9d, 0x72, 0xa9, 0x2e, 0x56, 0x0b, 0x5c, 0x16, 0xd4, 0xca, 0x05,
-	0x2e, 0x0b, 0x6b, 0xde, 0x2f, 0x69, 0x92, 0xac, 0x2e, 0x23, 0xeb, 0xa2, 0x62, 0x15, 0x54, 0xb2,
-	0x8d, 0xb7, 0xe7, 0xae, 0xe3, 0xc8, 0x08, 0x6c, 0x15, 0x14, 0x44, 0xf5, 0x07, 0x8b, 0x94, 0x4d,
-	0x43, 0x94, 0xff, 0xbf, 0x78, 0x85, 0x55, 0xff, 0x08, 0xd6, 0x52, 0x75, 0x3c, 0x7d, 0x2b, 0x63,
-	0x97, 0x49, 0x90, 0x35, 0xb6, 0xd5, 0x93, 0x89, 0xaf, 0x95, 0xcb, 0x44, 0xfa, 0x4e, 0x6e, 0x05,
-	0x49, 0xf6, 0xb5, 0x39, 0x55, 0xae, 0x8f, 0x60, 0x2d, 0x55, 0xab, 0x10, 0x08, 0xcc, 0x96, 0x55,
-	0x8c, 0x6d, 0xf5, 0x64, 0x12, 0xff, 0xd2, 0xf5, 0x05, 0x21, 0xfe, 0x29, 0x8a, 0x15, 0x46, 0x3b,
-	0x67, 0x36, 0x71, 0xd7, 0xd2, 0xe3, 0x55, 0x6f, 0x17, 0xbe, 0xc8, 0x05, 0x77, 0xad, 0x7e, 0xf5,
-	0x7e, 0x0a, 0x7a, 0xf6, 0x35, 0xa4, 0xef, 0x15, 0x3c, 0x95, 0xc2, 0x73, 0xef, 0xcc, 0x7d, 0x4c,
-	0x51, 0x62, 0xa5, 0x9c, 0x58, 0xcf, 0x86, 0xf7, 0x1c, 0x62, 0xd5, 0xc9, 0x34, 0xbb, 0xee, 0x74,
-	0x16, 0xab, 0x67, 0xc3, 0x71, 0x9a, 0xd0, 0xdd, 0xdc, 0xf9, 0xc4, 0xe3, 0xe7, 0x64, 0x95, 0x82,
-	0xc7, 0x2f, 0xca, 0x6a, 0x05, 0x8f, 0x5f, 0x9c, 0x9e, 0x52, 0xe3, 0xce, 0x49, 0x18, 0x45, 0xe3,
-	0x2e, 0x4a, 0x3a, 0x45, 0xe3, 0x2e, 0xcc, 0x3d, 0x8d, 0x6f, 0xff, 0xf2, 0x8b, 0xa5, 0x6f, 0xc1,
-	0xc3, 0x33, 0x42, 0x7c, 0xfc, 0xfe, 0xc1, 0x81, 0xe3, 0x0d, 0x70, 0x27, 0xfe, 0xc0, 0xb8, 0x33,
-	0xf0, 0x26, 0x07, 0xb6, 0xef, 0x1e, 0xe0, 0xee, 0x81, 0x3b, 0x75, 0xd0, 0xeb, 0xce, 0x19, 0x99,
-	0x8c, 0xf5, 0xd5, 0xef, 0xb9, 0xd3, 0xd1, 0x21, 0x5b, 0xf0, 0xb4, 0xdb, 0x5f, 0x66, 0xaf, 0xba,
-	0xaf, 0xff, 0x37, 0x00, 0x00, 0xff, 0xff, 0xef, 0x62, 0x9c, 0x6e, 0xb8, 0x2c, 0x00, 0x00,
+	// 2392 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x1a, 0xdf, 0x6f, 0x1b, 0x49,
+	0x59, 0x6b, 0xc7, 0x71, 0xfc, 0x39, 0x49, 0xaf, 0xdb, 0xa4, 0x75, 0x37, 0x71, 0x92, 0x6e, 0x5a,
+	0xae, 0x45, 0xc5, 0x91, 0x2c, 0x1d, 0x77, 0x3a, 0x90, 0x8e, 0x2a, 0xb9, 0x42, 0x4e, 0xea, 0x5d,
+	0x70, 0x43, 0xd1, 0x49, 0x15, 0xab, 0xb5, 0x77, 0xec, 0x6c, 0x6b, 0x7b, 0x97, 0x9d, 0x71, 0xd3,
+	0x1c, 0x9c, 0x90, 0x78, 0x02, 0xde, 0x90, 0x40, 0x42, 0x88, 0x3f, 0x84, 0x27, 0xc4, 0x7f, 0xc1,
+	0x23, 0xe2, 0x81, 0x07, 0x84, 0x40, 0xba, 0x47, 0x78, 0x42, 0x33, 0x3b, 0xbb, 0x3b, 0x3b, 0x3b,
+	0xbb, 0x76, 0xae, 0xb7, 0x11, 0x2f, 0x96, 0xe7, 0x9b, 0x1f, 0xdf, 0x8f, 0xf9, 0x7e, 0xcd, 0xf7,
+	0x2d, 0xac, 0xe0, 0x6e, 0xc7, 0x0f, 0x3c, 0xe2, 0xe9, 0x75, 0x8c, 0x82, 0x57, 0xee, 0x00, 0x19,
+	0x4d, 0x72, 0xe1, 0x23, 0x1c, 0x42, 0x8d, 0xf6, 0x8f, 0xdd, 0xe9, 0x68, 0x30, 0xf6, 0x66, 0x8e,
+	0x85, 0x9d, 0x97, 0x56, 0x30, 0x1b, 0xa3, 0x03, 0xfa, 0xc3, 0xa7, 0x77, 0x47, 0x9e, 0x37, 0x1a,
+	0xa3, 0x03, 0x36, 0xea, 0xcf, 0x86, 0x07, 0xc4, 0x9d, 0x20, 0x4c, 0xec, 0x89, 0x1f, 0x2e, 0x30,
+	0x1f, 0xc0, 0x8d, 0xa7, 0xdd, 0xa7, 0xe1, 0xc9, 0x27, 0x81, 0xe7, 0xa3, 0x80, 0xb8, 0x08, 0xeb,
+	0x3a, 0x2c, 0x7d, 0xe6, 0x4d, 0x51, 0x4b, 0xdb, 0xd3, 0xee, 0x37, 0x7a, 0xec, 0xbf, 0xf9, 0x0f,
+	0x0d, 0x6e, 0x1c, 0x06, 0xc8, 0x26, 0x28, 0xdc, 0x81, 0x82, 0xe3, 0xa9, 0x3f, 0x23, 0xfa, 0x6d,
+	0x58, 0x79, 0xf5, 0x7a, 0x8a, 0x88, 0xe5, 0x3a, 0x7c, 0x7d, 0x9d, 0x8d, 0x8f, 0x1d, 0xfd, 0x0e,
+	0xac, 0x72, 0xaa, 0x2d, 0x4a, 0x74, 0xab, 0xc2, 0xa6, 0x9b, 0x1c, 0x76, 0x7a, 0xe1, 0x23, 0x8a,
+	0x69, 0x6a, 0x4f, 0x50, 0xab, 0x1a, 0x62, 0xa2, 0xff, 0xf5, 0xbb, 0xb0, 0x8e, 0xbb, 0x16, 0x66,
+	0x38, 0xc2, 0x8d, 0x4b, 0x6c, 0x76, 0x15, 0x73, 0xc4, 0x6c, 0x67, 0x1b, 0xc0, 0x0f, 0xdc, 0x57,
+	0x36, 0x41, 0x96, 0xeb, 0xb7, 0x6a, 0x6c, 0x45, 0x83, 0x43, 0x8e, 0x7d, 0x7d, 0x0f, 0x9a, 0x0e,
+	0xc2, 0x83, 0xc0, 0xf5, 0x89, 0xeb, 0x4d, 0x5b, 0xcb, 0x21, 0x6a, 0x01, 0x44, 0x09, 0xc7, 0x5d,
+	0x6b, 0x30, 0xb6, 0x31, 0x6e, 0xd5, 0xf7, 0xb4, 0xfb, 0xb5, 0x5e, 0x1d, 0x77, 0x0f, 0xe9, 0xd0,
+	0xfc, 0x83, 0x06, 0x1b, 0x69, 0x5e, 0x3f, 0x99, 0x11, 0xca, 0xec, 0x4d, 0x58, 0xb6, 0x07, 0xec,
+	0xc0, 0x90, 0x55, 0x3e, 0xa2, 0x67, 0x05, 0x88, 0x58, 0x03, 0xcf, 0x09, 0xb9, 0xac, 0xf5, 0xea,
+	0x01, 0x22, 0x87, 0x9e, 0x83, 0xf4, 0x16, 0xd4, 0x27, 0x08, 0x63, 0x7b, 0x14, 0x31, 0x19, 0x0d,
+	0xf5, 0x4d, 0x58, 0x7e, 0xe1, 0xf5, 0xa9, 0xdc, 0x42, 0xfe, 0x6a, 0x2f, 0xbc, 0xfe, 0xb1, 0xa3,
+	0xef, 0xc1, 0x6a, 0xc2, 0xbe, 0xeb, 0x70, 0xd6, 0x20, 0x62, 0xfe, 0xd8, 0x31, 0xbf, 0xd0, 0xe0,
+	0xe6, 0x11, 0xe3, 0xa4, 0x1f, 0x13, 0x88, 0xc3, 0xdb, 0x68, 0x03, 0xc4, 0x9b, 0x71, 0x4b, 0xdb,
+	0xab, 0x52, 0xa9, 0x44, 0x5b, 0xb1, 0xbe, 0x0f, 0x6b, 0xe2, 0x8d, 0xe0, 0x56, 0x85, 0xad, 0x58,
+	0x15, 0xae, 0x04, 0x53, 0x26, 0x31, 0xb1, 0xc9, 0x0c, 0xb7, 0xaa, 0x6c, 0x96, 0x8f, 0xf4, 0x5d,
+	0x68, 0x62, 0x64, 0x07, 0x83, 0x33, 0xeb, 0xdc, 0x0b, 0x22, 0xa2, 0x21, 0x04, 0xfd, 0xd0, 0x0b,
+	0x1c, 0x7a, 0x99, 0xc4, 0x1e, 0xe1, 0x56, 0x8d, 0x6d, 0x63, 0xff, 0x29, 0xfb, 0xaf, 0x50, 0xd0,
+	0xf7, 0x30, 0x62, 0x77, 0x50, 0xeb, 0x45, 0x43, 0x8a, 0xc6, 0x1b, 0x0e, 0x31, 0x22, 0x5c, 0xfa,
+	0x7c, 0xa4, 0x6f, 0x40, 0x6d, 0xec, 0x4e, 0x5c, 0xd2, 0x5a, 0x61, 0xe0, 0x70, 0x60, 0xfe, 0x49,
+	0x83, 0x5b, 0x19, 0x9e, 0xcb, 0xb8, 0x95, 0x77, 0x60, 0x2d, 0x11, 0x3f, 0xa5, 0x6e, 0x69, 0xaf,
+	0x7a, 0xbf, 0xd9, 0xbd, 0xde, 0xe1, 0x32, 0xea, 0x44, 0xd8, 0x7b, 0xcd, 0x48, 0xae, 0x4f, 0x11,
+	0xa1, 0xc2, 0x21, 0x1e, 0xb1, 0xc7, 0xd6, 0xc0, 0x9b, 0x4d, 0x09, 0xbb, 0xb4, 0x5a, 0x0f, 0x18,
+	0xe8, 0x90, 0x42, 0xcc, 0x33, 0xb8, 0xf1, 0xc4, 0x73, 0xdc, 0xe1, 0x45, 0xda, 0x7c, 0xb6, 0xa0,
+	0x11, 0xa3, 0xe3, 0xe4, 0xaf, 0x44, 0xe7, 0xc6, 0xd6, 0x51, 0x11, 0xac, 0x43, 0x52, 0xec, 0x6a,
+	0x46, 0xb1, 0xcd, 0x01, 0x6c, 0xa4, 0x31, 0x95, 0x20, 0x26, 0xf3, 0x53, 0xd8, 0xe8, 0x21, 0xec,
+	0x7e, 0x26, 0x2b, 0x60, 0x21, 0x3f, 0x59, 0xcb, 0x0e, 0xf1, 0xa5, 0x2c, 0xdb, 0xfc, 0x09, 0x6c,
+	0x4a, 0x47, 0x5f, 0x9d, 0xf5, 0x99, 0xef, 0xc0, 0xc6, 0x11, 0x1a, 0x23, 0x72, 0x39, 0xc3, 0xa2,
+	0x34, 0x4b, 0xdb, 0xae, 0x90, 0xe6, 0x6f, 0xc2, 0xe6, 0x89, 0x77, 0x8e, 0x82, 0x4f, 0xa6, 0x97,
+	0x23, 0xfa, 0xa7, 0x70, 0x53, 0xde, 0x77, 0x85, 0x54, 0xbf, 0x1b, 0x61, 0x1f, 0x0e, 0x2f, 0x47,
+	0xf6, 0xe7, 0x70, 0x2b, 0xb3, 0xf1, 0x6a, 0x35, 0xe4, 0x07, 0xbe, 0x63, 0x7f, 0x09, 0x0d, 0x91,
+	0xb6, 0x5d, 0x21, 0xcd, 0x63, 0x68, 0x1d, 0x9e, 0xd9, 0xd3, 0x51, 0x8c, 0xfc, 0x19, 0x0b, 0xd1,
+	0xf3, 0x2d, 0x76, 0x03, 0x6a, 0x2c, 0x9a, 0x73, 0x17, 0x14, 0x0e, 0xa4, 0xd8, 0x5b, 0x95, 0x62,
+	0xaf, 0xf9, 0x33, 0xb8, 0xad, 0xc0, 0x76, 0x85, 0xec, 0xfe, 0x57, 0x83, 0xdb, 0x71, 0xfc, 0x3e,
+	0xb3, 0x03, 0xe4, 0x9c, 0xda, 0xc1, 0x68, 0x21, 0x86, 0x77, 0xa1, 0x89, 0x5e, 0xfb, 0x5e, 0x40,
+	0x2c, 0xc1, 0xf3, 0x42, 0x08, 0xfa, 0x98, 0xfa, 0x5f, 0xea, 0xe8, 0xd9, 0x61, 0xa1, 0x03, 0x0b,
+	0x09, 0x82, 0x10, 0xc4, 0x12, 0x13, 0xc9, 0x41, 0x2f, 0x65, 0x33, 0x0f, 0x1a, 0x13, 0xbd, 0xf1,
+	0x6c, 0x82, 0xa2, 0x50, 0x19, 0x0d, 0xf5, 0xb7, 0xe1, 0x9a, 0x3b, 0x75, 0x89, 0x6b, 0x13, 0x2f,
+	0x60, 0x04, 0xe0, 0xd6, 0x32, 0x5b, 0xb1, 0x1e, 0x83, 0x29, 0x11, 0x98, 0x27, 0x2f, 0xa3, 0xc0,
+	0x9b, 0xf9, 0x2c, 0x7c, 0x36, 0x68, 0xf2, 0xf2, 0x5d, 0x3a, 0x34, 0x5d, 0x30, 0x54, 0xbc, 0x97,
+	0x11, 0x04, 0x7e, 0x53, 0x81, 0x6d, 0x21, 0x28, 0x0b, 0xd8, 0xb8, 0x4d, 0xdc, 0x83, 0x75, 0xcc,
+	0xa0, 0x56, 0x28, 0xa0, 0xc8, 0x2e, 0xd6, 0xb0, 0xb8, 0x96, 0x26, 0x8a, 0x82, 0x4c, 0xa3, 0xac,
+	0xa4, 0x99, 0x08, 0x15, 0x67, 0xb2, 0xa2, 0xaa, 0x9c, 0x15, 0xc9, 0x37, 0xb7, 0xa4, 0xba, 0x39,
+	0x31, 0x7f, 0xa9, 0x65, 0xf2, 0x97, 0xaf, 0x2a, 0x57, 0xf9, 0x8b, 0x06, 0xed, 0x1c, 0xb1, 0x94,
+	0x61, 0x04, 0xdf, 0x83, 0x0d, 0x2a, 0x1a, 0x51, 0xce, 0x42, 0xe2, 0x72, 0x4b, 0x4c, 0x5c, 0x04,
+	0x52, 0x7a, 0xd7, 0x71, 0x6a, 0xbc, 0x50, 0x12, 0x73, 0x08, 0x46, 0x1c, 0xe6, 0xbe, 0xec, 0x6d,
+	0x9b, 0x2f, 0x60, 0x4b, 0x79, 0x48, 0x19, 0x1a, 0x7a, 0x08, 0xc6, 0x87, 0x53, 0xbb, 0x3f, 0x7e,
+	0x53, 0x82, 0x95, 0x87, 0x94, 0x41, 0xf0, 0x11, 0x6c, 0x1d, 0xb9, 0xf8, 0x4d, 0x29, 0x7e, 0x09,
+	0xdb, 0xea, 0x53, 0xca, 0x20, 0xf9, 0x5f, 0x1a, 0xec, 0xc7, 0x09, 0xa7, 0x80, 0xec, 0x11, 0x21,
+	0x81, 0xdb, 0x9f, 0x11, 0xc4, 0x69, 0xa7, 0x8f, 0x0f, 0x91, 0x76, 0x8e, 0x7b, 0x55, 0x24, 0x5d,
+	0xdf, 0x86, 0x06, 0x7d, 0x86, 0xda, 0x8c, 0xb8, 0xd0, 0xfb, 0x26, 0x00, 0x95, 0x7f, 0xac, 0x2a,
+	0xfd, 0xe3, 0x0e, 0x80, 0x6f, 0x07, 0xf6, 0x04, 0x11, 0x1a, 0x8c, 0x97, 0xd8, 0x1a, 0x01, 0x92,
+	0xf2, 0x9f, 0xb5, 0x94, 0xff, 0x94, 0xfd, 0xc8, 0xb2, 0xec, 0x47, 0xcc, 0xdf, 0x57, 0xe0, 0x6e,
+	0x31, 0xbf, 0x65, 0x58, 0xb9, 0x23, 0x4b, 0x2f, 0x34, 0xef, 0x0f, 0x62, 0xf3, 0x5e, 0x84, 0xa4,
+	0x8e, 0x38, 0xf9, 0xe1, 0x94, 0x04, 0x17, 0x69, 0xf1, 0x1b, 0x1f, 0xc0, 0xf5, 0xcc, 0x12, 0xfd,
+	0x2d, 0xa8, 0xbe, 0x44, 0x17, 0x9c, 0x09, 0xfa, 0x97, 0xa5, 0x05, 0xf6, 0x78, 0x86, 0xe2, 0xb4,
+	0x80, 0x0e, 0xde, 0xaf, 0xbc, 0xa7, 0x99, 0xcf, 0x61, 0xeb, 0x11, 0x21, 0xf6, 0xe0, 0xec, 0xd4,
+	0x53, 0xc5, 0xde, 0x85, 0x74, 0x40, 0x88, 0x8f, 0x95, 0x54, 0x7c, 0xa4, 0x7a, 0xad, 0x3e, 0xbd,
+	0x0c, 0xbd, 0xfe, 0x11, 0xf5, 0xe2, 0x14, 0xd9, 0xe3, 0xc0, 0x9b, 0x94, 0xc0, 0xcc, 0x04, 0x76,
+	0xf2, 0xce, 0x2f, 0x25, 0x58, 0x6b, 0xb0, 0x97, 0x44, 0xa5, 0x23, 0x34, 0xb4, 0x67, 0x63, 0x72,
+	0x12, 0x9b, 0x44, 0xc8, 0x92, 0x5c, 0xb2, 0xd1, 0xb2, 0x25, 0x1b, 0x29, 0x01, 0xaa, 0x64, 0x12,
+	0xa0, 0x24, 0x58, 0x56, 0xd5, 0xc1, 0x72, 0x49, 0x0c, 0x96, 0x7f, 0xae, 0xc2, 0x9d, 0x02, 0xb2,
+	0xca, 0x30, 0xa5, 0x00, 0x6e, 0xe3, 0xae, 0xe5, 0x84, 0xa8, 0xac, 0xc4, 0x2b, 0x08, 0x51, 0xf3,
+	0xdd, 0xd8, 0xac, 0xe6, 0xd2, 0xd6, 0xe9, 0x21, 0xec, 0x7b, 0x53, 0x8c, 0x8e, 0x09, 0x9a, 0xf4,
+	0x6e, 0xe2, 0xec, 0xba, 0x45, 0x42, 0xab, 0xf1, 0x47, 0x0d, 0x56, 0xc5, 0x93, 0xbe, 0x92, 0xab,
+	0x68, 0x73, 0x37, 0x68, 0x09, 0x45, 0xb6, 0x06, 0x83, 0xb0, 0x8c, 0x68, 0x1f, 0xd6, 0x22, 0x29,
+	0x84, 0xe6, 0xcc, 0x0b, 0x6d, 0x1c, 0xf8, 0x8c, 0xc2, 0xe4, 0x7c, 0xb6, 0x96, 0x2d, 0x38, 0xfc,
+	0x56, 0x03, 0x3d, 0x4a, 0x39, 0x99, 0x0f, 0x8d, 0x1f, 0x44, 0xcc, 0xc1, 0x8a, 0xe4, 0x37, 0x18,
+	0x24, 0xa2, 0x2d, 0x9c, 0x16, 0x12, 0xed, 0x70, 0x3a, 0xce, 0xd6, 0xba, 0x96, 0x3d, 0x60, 0xf2,
+	0x8a, 0xdc, 0x3c, 0xe0, 0xee, 0x23, 0x0e, 0x99, 0x9f, 0x67, 0x9b, 0x3f, 0x17, 0x4a, 0x96, 0x8c,
+	0xae, 0x32, 0x94, 0x69, 0x87, 0xd1, 0x19, 0x72, 0x12, 0xbf, 0x43, 0x1a, 0x3c, 0x98, 0x1c, 0x3b,
+	0xe6, 0xdf, 0x34, 0xd8, 0x4c, 0x74, 0x88, 0x41, 0x53, 0xa5, 0x12, 0xb6, 0x33, 0x0a, 0xe3, 0x2b,
+	0x7c, 0x1f, 0x2b, 0xb6, 0x25, 0xc2, 0x8b, 0x5c, 0x07, 0xc4, 0xd2, 0x63, 0x39, 0x33, 0x17, 0x8e,
+	0x78, 0xb9, 0x4d, 0x0e, 0x53, 0x25, 0xbc, 0x4b, 0x45, 0x09, 0x6f, 0x2d, 0x2f, 0xe1, 0x5d, 0x56,
+	0xdb, 0x70, 0x3d, 0x55, 0x9c, 0xab, 0x8a, 0x05, 0xc9, 0x90, 0x83, 0x32, 0x64, 0xfd, 0x31, 0x7b,
+	0x04, 0x84, 0x72, 0x49, 0x6c, 0xf5, 0xa1, 0xc2, 0x56, 0x45, 0x1a, 0xd2, 0x06, 0x0a, 0x5c, 0xc4,
+	0x0b, 0x19, 0xe5, 0xdf, 0x65, 0xa3, 0xbc, 0x0d, 0x2b, 0xf1, 0x55, 0xf3, 0x6a, 0xf7, 0x28, 0xbc,
+	0x68, 0x49, 0xdd, 0x2b, 0x0a, 0x75, 0x77, 0x71, 0xe4, 0x74, 0xb8, 0x67, 0x6c, 0xb8, 0x98, 0x3b,
+	0x8b, 0x05, 0x5e, 0x8d, 0x69, 0x7b, 0xa9, 0xc9, 0xf6, 0xf2, 0x2d, 0x68, 0x0e, 0x98, 0xae, 0x5b,
+	0xc4, 0xe5, 0x69, 0x4b, 0xb3, 0x6b, 0x74, 0xc2, 0x0e, 0x40, 0x27, 0xea, 0x00, 0x74, 0x4e, 0xa3,
+	0x0e, 0x40, 0x0f, 0xc2, 0xe5, 0x14, 0x60, 0xfe, 0x5a, 0x03, 0x3d, 0xca, 0x1f, 0x04, 0x0b, 0x16,
+	0xb3, 0x24, 0x2d, 0x9d, 0x25, 0x95, 0x6f, 0xbd, 0xfd, 0xa4, 0x60, 0x5a, 0x96, 0xf1, 0x9a, 0x5d,
+	0xb8, 0x11, 0x3d, 0x45, 0x16, 0xb5, 0x4c, 0x73, 0x90, 0x54, 0x08, 0x4b, 0xd3, 0x74, 0xf3, 0x97,
+	0xd5, 0xa4, 0x03, 0xc1, 0x65, 0x16, 0x07, 0xe8, 0xc8, 0xec, 0xc5, 0xa8, 0xc0, 0x61, 0x4c, 0xd3,
+	0x64, 0xcf, 0x50, 0xc9, 0x7a, 0x06, 0x7a, 0xb1, 0x93, 0xbe, 0xe8, 0x38, 0xea, 0x78, 0xd2, 0x67,
+	0x53, 0x6d, 0x00, 0x3a, 0xe5, 0xdb, 0x18, 0x9f, 0x27, 0xee, 0x6c, 0xd2, 0x3f, 0x61, 0x00, 0x3a,
+	0x3d, 0x1d, 0x62, 0xcb, 0xf5, 0x6d, 0xc7, 0x09, 0x22, 0x2d, 0x9c, 0x0e, 0xf1, 0x31, 0x03, 0xe8,
+	0x8f, 0x45, 0xc9, 0x85, 0x3a, 0xf8, 0x20, 0x36, 0x4f, 0x15, 0x43, 0x9d, 0x48, 0xe1, 0xa8, 0x6d,
+	0x26, 0xee, 0xef, 0x1e, 0xac, 0x7b, 0xbe, 0x18, 0x9b, 0x79, 0x95, 0x63, 0xcd, 0xf3, 0x85, 0xc0,
+	0x2a, 0x6b, 0xd1, 0x4a, 0x46, 0x8b, 0x8c, 0x47, 0xd0, 0x14, 0x30, 0x14, 0xd9, 0xef, 0x2d, 0xa8,
+	0x07, 0xe7, 0xd6, 0x70, 0x6c, 0x8f, 0xb8, 0xc4, 0x96, 0x83, 0xf3, 0xc7, 0x63, 0x7b, 0x64, 0xfe,
+	0x42, 0x83, 0x4d, 0x89, 0xf4, 0x32, 0x9c, 0x9b, 0xc9, 0x1a, 0x0f, 0xd1, 0xcd, 0xc5, 0xa1, 0xa4,
+	0x19, 0x1b, 0xcd, 0xb1, 0x63, 0xfe, 0x33, 0xd5, 0x05, 0x89, 0x8c, 0x29, 0xd4, 0x0c, 0xc9, 0xe4,
+	0xb4, 0x8c, 0xc9, 0xed, 0xc3, 0x9a, 0xa8, 0x3a, 0x71, 0xf3, 0x47, 0xd0, 0x9d, 0xff, 0xaf, 0xb0,
+	0xf2, 0x9f, 0x2a, 0xb4, 0xb2, 0xdc, 0x96, 0x21, 0xfb, 0x53, 0xd6, 0x98, 0x88, 0x18, 0x4f, 0x42,
+	0x4b, 0x47, 0x11, 0x5a, 0xd2, 0x74, 0xa4, 0x83, 0xcb, 0x6a, 0x2c, 0xee, 0x85, 0xc2, 0xcb, 0xef,
+	0x2a, 0x52, 0x78, 0xc9, 0xaa, 0xbd, 0xa6, 0x52, 0x7b, 0xd9, 0x09, 0x54, 0xb2, 0x4e, 0xa0, 0x0d,
+	0x20, 0xa8, 0x12, 0xcf, 0xfc, 0xec, 0x48, 0x91, 0x16, 0x08, 0x37, 0xb2, 0x22, 0xd4, 0xb2, 0x8a,
+	0x90, 0xf6, 0x05, 0xcb, 0xb2, 0x2f, 0x90, 0x22, 0x52, 0xfd, 0x52, 0x11, 0xe9, 0xaf, 0x5a, 0xd2,
+	0xc5, 0x4a, 0x39, 0xc0, 0xb0, 0xcc, 0xce, 0xc9, 0x88, 0xb2, 0xca, 0x58, 0xec, 0x0a, 0x09, 0x56,
+	0xe6, 0x48, 0x30, 0x4f, 0xcd, 0xdf, 0xcc, 0x11, 0xce, 0xed, 0x3f, 0x9b, 0x0e, 0x6c, 0x4a, 0x0c,
+	0x96, 0x11, 0x48, 0xde, 0x4b, 0x1a, 0x53, 0x97, 0x73, 0x17, 0x26, 0xa2, 0x39, 0x5d, 0x7a, 0x67,
+	0x19, 0x04, 0x3e, 0x87, 0xed, 0x47, 0x18, 0x7b, 0x03, 0x57, 0xf4, 0xaf, 0x42, 0x0e, 0x32, 0x2f,
+	0x4b, 0x16, 0x99, 0xa8, 0x64, 0x98, 0x18, 0x43, 0x3b, 0xe7, 0xf4, 0x32, 0x78, 0xd9, 0x85, 0xf6,
+	0x91, 0x5b, 0xc0, 0x0c, 0x7b, 0xf2, 0xbb, 0x57, 0x46, 0x4f, 0xf7, 0xdf, 0x1b, 0xd0, 0x88, 0xbf,
+	0xef, 0xd0, 0x9f, 0xc0, 0x7a, 0xfa, 0xa3, 0x06, 0x7d, 0x3b, 0x13, 0x9a, 0x85, 0xd6, 0xb4, 0xd1,
+	0xce, 0x99, 0xe5, 0x94, 0x3e, 0x83, 0xeb, 0x99, 0x86, 0xbc, 0xbe, 0xab, 0x70, 0x98, 0x62, 0x97,
+	0xcc, 0xd8, 0xcb, 0x5f, 0xc0, 0xcf, 0x7d, 0x02, 0xeb, 0xe9, 0xf6, 0xb5, 0x40, 0xa6, 0xa2, 0x83,
+	0x2e, 0x90, 0xa9, 0xec, 0x7a, 0x9f, 0xc0, 0x35, 0xa9, 0x9b, 0xac, 0x27, 0x3b, 0x54, 0x2d, 0x6c,
+	0x63, 0x27, 0x6f, 0x3a, 0x39, 0x51, 0xea, 0xf5, 0x0a, 0x27, 0xaa, 0x9a, 0xc7, 0xc2, 0x89, 0xea,
+	0x26, 0xf1, 0x53, 0x78, 0x4b, 0x6e, 0xc4, 0xea, 0xc9, 0x1e, 0x65, 0x6f, 0xd7, 0xd8, 0xcd, 0x9d,
+	0x4f, 0xee, 0x27, 0xd3, 0x26, 0xd5, 0xe5, 0x5d, 0x72, 0xef, 0x55, 0xb8, 0x9f, 0xbc, 0x1e, 0xeb,
+	0x09, 0x5c, 0x93, 0x1a, 0x99, 0x02, 0xfb, 0xaa, 0xce, 0xa8, 0xc0, 0xbe, 0xba, 0x03, 0xfa, 0x1c,
+	0x6e, 0x28, 0xfa, 0x85, 0xfa, 0x9d, 0x44, 0xff, 0x72, 0x7a, 0x97, 0x86, 0x59, 0xb4, 0x84, 0x9f,
+	0x6e, 0x09, 0xdf, 0xf2, 0x88, 0x85, 0x39, 0x33, 0xab, 0xde, 0x72, 0x85, 0xcf, 0xd8, 0x2f, 0x5c,
+	0xc3, 0x11, 0x9c, 0xa5, 0xbe, 0x4c, 0x49, 0x35, 0xb6, 0xee, 0xa9, 0xb4, 0x3d, 0x53, 0xd5, 0x37,
+	0xbe, 0x36, 0x6f, 0x19, 0xc7, 0xd4, 0x17, 0xbe, 0x32, 0x48, 0xe1, 0xd9, 0xcf, 0x2a, 0x58, 0x16,
+	0xcb, 0xdd, 0xe2, 0x45, 0x09, 0x0e, 0x65, 0xb3, 0x43, 0xc0, 0x91, 0xdf, 0x51, 0x11, 0x70, 0x14,
+	0x75, 0x4c, 0x68, 0x68, 0x51, 0xb6, 0x27, 0x74, 0x81, 0xc6, 0xfc, 0x2e, 0x88, 0x71, 0x6f, 0xce,
+	0x2a, 0x8e, 0xe6, 0x73, 0xd8, 0x29, 0x2e, 0x8a, 0xeb, 0x0f, 0x17, 0xac, 0x9e, 0x87, 0x68, 0xbf,
+	0x71, 0xa9, 0x5a, 0x3b, 0xe5, 0x52, 0x5d, 0xac, 0x16, 0xb8, 0x2c, 0xa8, 0x95, 0x0b, 0x5c, 0x16,
+	0xd6, 0xbc, 0x5f, 0xd2, 0x24, 0x59, 0x5d, 0x46, 0xd6, 0x45, 0xc5, 0x2a, 0xa8, 0x64, 0x1b, 0x6f,
+	0xcf, 0x5d, 0xc7, 0x91, 0x11, 0xd8, 0x2a, 0x28, 0x88, 0xea, 0x0f, 0x16, 0x29, 0x9b, 0x86, 0x28,
+	0xbf, 0xbe, 0x78, 0x85, 0x55, 0xff, 0x08, 0xd6, 0x52, 0x75, 0x3c, 0x7d, 0x2b, 0x63, 0x97, 0x49,
+	0x90, 0x35, 0xb6, 0xd5, 0x93, 0x89, 0xaf, 0x95, 0xcb, 0x44, 0xfa, 0x4e, 0x6e, 0x05, 0x49, 0xf6,
+	0xb5, 0x39, 0x55, 0xae, 0x8f, 0x60, 0x2d, 0x55, 0xab, 0x10, 0x08, 0xcc, 0x96, 0x55, 0x8c, 0x6d,
+	0xf5, 0x64, 0x12, 0xff, 0xd2, 0xf5, 0x05, 0x21, 0xfe, 0x29, 0x8a, 0x15, 0x46, 0x3b, 0x67, 0x36,
+	0x71, 0xd7, 0xd2, 0xe3, 0x55, 0x6f, 0x17, 0xbe, 0xc8, 0x05, 0x77, 0xad, 0x7e, 0xf5, 0x7e, 0x0a,
+	0x7a, 0xf6, 0x35, 0xa4, 0xef, 0x15, 0x3c, 0x95, 0xc2, 0x73, 0xef, 0xcc, 0x7d, 0x4c, 0x51, 0x62,
+	0xa5, 0x9c, 0x58, 0xcf, 0x86, 0xf7, 0x1c, 0x62, 0xd5, 0xc9, 0x34, 0xbb, 0xee, 0x74, 0x16, 0xab,
+	0x67, 0xc3, 0x71, 0x9a, 0xd0, 0xdd, 0xdc, 0xf9, 0xc4, 0xe3, 0xe7, 0x64, 0x95, 0x82, 0xc7, 0x2f,
+	0xca, 0x6a, 0x05, 0x8f, 0x5f, 0x9c, 0x9e, 0x52, 0xe3, 0xce, 0x49, 0x18, 0x45, 0xe3, 0x2e, 0x4a,
+	0x3a, 0x45, 0xe3, 0x2e, 0xcc, 0x3d, 0x8d, 0xef, 0xfc, 0xea, 0x8b, 0xa5, 0x6f, 0xc3, 0xc3, 0x33,
+	0x42, 0x7c, 0xfc, 0xfe, 0xc1, 0x81, 0xe3, 0x0d, 0x70, 0x27, 0xfe, 0xc0, 0xb8, 0x33, 0xf0, 0x26,
+	0x07, 0xb6, 0xef, 0x1e, 0xe0, 0xee, 0x81, 0x3b, 0x75, 0xd0, 0xeb, 0xce, 0x19, 0x99, 0x8c, 0xf5,
+	0xd5, 0xef, 0xbb, 0xd3, 0xd1, 0x21, 0x5b, 0xf0, 0xb4, 0xfb, 0xbf, 0x00, 0x00, 0x00, 0xff, 0xff,
+	0x71, 0xb7, 0x93, 0x7d, 0xb0, 0x2c, 0x00, 0x00,
 }
