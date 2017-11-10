@@ -21,7 +21,7 @@ type ZoneServiceProperties struct {
 func (m *ZoneServiceProperties) Reset()                    { *m = ZoneServiceProperties{} }
 func (m *ZoneServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ZoneServiceProperties) ProtoMessage()               {}
-func (*ZoneServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor31, []int{0} }
+func (*ZoneServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{0} }
 
 func (m *ZoneServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -39,7 +39,7 @@ type DescribeZonesInput struct {
 func (m *DescribeZonesInput) Reset()                    { *m = DescribeZonesInput{} }
 func (m *DescribeZonesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeZonesInput) ProtoMessage()               {}
-func (*DescribeZonesInput) Descriptor() ([]byte, []int) { return fileDescriptor31, []int{1} }
+func (*DescribeZonesInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{1} }
 
 func (m *DescribeZonesInput) GetZones() []string {
 	if m != nil {
@@ -67,7 +67,7 @@ type DescribeZonesOutput struct {
 func (m *DescribeZonesOutput) Reset()                    { *m = DescribeZonesOutput{} }
 func (m *DescribeZonesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeZonesOutput) ProtoMessage()               {}
-func (*DescribeZonesOutput) Descriptor() ([]byte, []int) { return fileDescriptor31, []int{2} }
+func (*DescribeZonesOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{2} }
 
 func (m *DescribeZonesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -110,9 +110,9 @@ func init() {
 	proto.RegisterType((*DescribeZonesOutput)(nil), "service.DescribeZonesOutput")
 }
 
-func init() { proto.RegisterFile("zone.proto", fileDescriptor31) }
+func init() { proto.RegisterFile("zone.proto", fileDescriptor30) }
 
-var fileDescriptor31 = []byte{
+var fileDescriptor30 = []byte{
 	// 353 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x51, 0x4b, 0x6e, 0xdb, 0x30,
 	0x10, 0x85, 0xfc, 0x93, 0x3d, 0x82, 0xbb, 0x60, 0x5b, 0x83, 0x55, 0x5b, 0x54, 0xf0, 0x4a, 0x40,

@@ -22,15 +22,7 @@ func main() {
 	conf.JSONDisableUnknownFields = false
 	conf.LogLevel = "debug" // debug/warn
 
-	qcService, err := pb.Init(conf)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	nicService, err := qcService.Nic("pek3a")
-	if err != nil {
-		log.Fatal(err)
-	}
+	nicService := pb.NewNicService(conf, "pek3a")
 
 	reply, err := nicService.DescribeNics(&pb.DescribeNicsInput{})
 	if err != nil {

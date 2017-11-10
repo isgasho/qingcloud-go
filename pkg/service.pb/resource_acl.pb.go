@@ -22,7 +22,7 @@ type ResourceACLServiceProperties struct {
 func (m *ResourceACLServiceProperties) Reset()                    { *m = ResourceACLServiceProperties{} }
 func (m *ResourceACLServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*ResourceACLServiceProperties) ProtoMessage()               {}
-func (*ResourceACLServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
+func (*ResourceACLServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{0} }
 
 func (m *ResourceACLServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -41,7 +41,7 @@ func (m *DescribeSharedResourceGroupsInput) Reset()         { *m = DescribeShare
 func (m *DescribeSharedResourceGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSharedResourceGroupsInput) ProtoMessage()    {}
 func (*DescribeSharedResourceGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{1}
+	return fileDescriptor17, []int{1}
 }
 
 func (m *DescribeSharedResourceGroupsInput) GetResourceGroups() []string {
@@ -71,7 +71,7 @@ func (m *DescribeSharedResourceGroupsOutput) Reset()         { *m = DescribeShar
 func (m *DescribeSharedResourceGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSharedResourceGroupsOutput) ProtoMessage()    {}
 func (*DescribeSharedResourceGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{2}
+	return fileDescriptor17, []int{2}
 }
 
 func (m *DescribeSharedResourceGroupsOutput) GetAction() string {
@@ -123,7 +123,7 @@ type DescribeResourceGroupsInput struct {
 func (m *DescribeResourceGroupsInput) Reset()                    { *m = DescribeResourceGroupsInput{} }
 func (m *DescribeResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeResourceGroupsInput) ProtoMessage()               {}
-func (*DescribeResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{3} }
+func (*DescribeResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{3} }
 
 func (m *DescribeResourceGroupsInput) GetResourceGroups() []string {
 	if m != nil {
@@ -186,7 +186,7 @@ type DescribeResourceGroupsOutput struct {
 func (m *DescribeResourceGroupsOutput) Reset()                    { *m = DescribeResourceGroupsOutput{} }
 func (m *DescribeResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeResourceGroupsOutput) ProtoMessage()               {}
-func (*DescribeResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{4} }
+func (*DescribeResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{4} }
 
 func (m *DescribeResourceGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -233,7 +233,7 @@ type CreateResourceGroupsInput struct {
 func (m *CreateResourceGroupsInput) Reset()                    { *m = CreateResourceGroupsInput{} }
 func (m *CreateResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateResourceGroupsInput) ProtoMessage()               {}
-func (*CreateResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{5} }
+func (*CreateResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{5} }
 
 func (m *CreateResourceGroupsInput) GetResourceGroupName() string {
 	if m != nil && m.ResourceGroupName != nil {
@@ -267,7 +267,7 @@ type CreateResourceGroupsOutput struct {
 func (m *CreateResourceGroupsOutput) Reset()                    { *m = CreateResourceGroupsOutput{} }
 func (m *CreateResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateResourceGroupsOutput) ProtoMessage()               {}
-func (*CreateResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{6} }
+func (*CreateResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{6} }
 
 func (m *CreateResourceGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -308,7 +308,7 @@ func (m *ModifyResourceGroupAttributesInput) Reset()         { *m = ModifyResour
 func (m *ModifyResourceGroupAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyResourceGroupAttributesInput) ProtoMessage()    {}
 func (*ModifyResourceGroupAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{7}
+	return fileDescriptor17, []int{7}
 }
 
 func (m *ModifyResourceGroupAttributesInput) GetResourceGroup() string {
@@ -345,7 +345,7 @@ func (m *ModifyResourceGroupAttributesOutput) Reset()         { *m = ModifyResou
 func (m *ModifyResourceGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyResourceGroupAttributesOutput) ProtoMessage()    {}
 func (*ModifyResourceGroupAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{8}
+	return fileDescriptor17, []int{8}
 }
 
 func (m *ModifyResourceGroupAttributesOutput) GetAction() string {
@@ -391,7 +391,7 @@ type DeleteResourceGroupsInput struct {
 func (m *DeleteResourceGroupsInput) Reset()                    { *m = DeleteResourceGroupsInput{} }
 func (m *DeleteResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteResourceGroupsInput) ProtoMessage()               {}
-func (*DeleteResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{9} }
+func (*DeleteResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{9} }
 
 func (m *DeleteResourceGroupsInput) GetResourceGroups() []string {
 	if m != nil {
@@ -411,7 +411,7 @@ type DeleteResourceGroupsOutput struct {
 func (m *DeleteResourceGroupsOutput) Reset()                    { *m = DeleteResourceGroupsOutput{} }
 func (m *DeleteResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteResourceGroupsOutput) ProtoMessage()               {}
-func (*DeleteResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{10} }
+func (*DeleteResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{10} }
 
 func (m *DeleteResourceGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -456,7 +456,7 @@ func (m *DescribeResourceGroupItemsInput) Reset()         { *m = DescribeResourc
 func (m *DescribeResourceGroupItemsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceGroupItemsInput) ProtoMessage()    {}
 func (*DescribeResourceGroupItemsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{11}
+	return fileDescriptor17, []int{11}
 }
 
 func (m *DescribeResourceGroupItemsInput) GetResourceGroups() []string {
@@ -522,7 +522,7 @@ func (m *DescribeResourceGroupItemsOutput) Reset()         { *m = DescribeResour
 func (m *DescribeResourceGroupItemsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceGroupItemsOutput) ProtoMessage()    {}
 func (*DescribeResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{12}
+	return fileDescriptor17, []int{12}
 }
 
 func (m *DescribeResourceGroupItemsOutput) GetAction() string {
@@ -576,7 +576,7 @@ type AddResourceGroupItemsInput struct {
 func (m *AddResourceGroupItemsInput) Reset()                    { *m = AddResourceGroupItemsInput{} }
 func (m *AddResourceGroupItemsInput) String() string            { return proto.CompactTextString(m) }
 func (*AddResourceGroupItemsInput) ProtoMessage()               {}
-func (*AddResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{13} }
+func (*AddResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{13} }
 
 func (m *AddResourceGroupItemsInput) GetResourceGroup() string {
 	if m != nil && m.ResourceGroup != nil {
@@ -604,7 +604,7 @@ type AddResourceGroupItemsOutput struct {
 func (m *AddResourceGroupItemsOutput) Reset()                    { *m = AddResourceGroupItemsOutput{} }
 func (m *AddResourceGroupItemsOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddResourceGroupItemsOutput) ProtoMessage()               {}
-func (*AddResourceGroupItemsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{14} }
+func (*AddResourceGroupItemsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{14} }
 
 func (m *AddResourceGroupItemsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -650,7 +650,7 @@ type DeleteResourceGroupItemsInput struct {
 func (m *DeleteResourceGroupItemsInput) Reset()                    { *m = DeleteResourceGroupItemsInput{} }
 func (m *DeleteResourceGroupItemsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteResourceGroupItemsInput) ProtoMessage()               {}
-func (*DeleteResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{15} }
+func (*DeleteResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{15} }
 
 func (m *DeleteResourceGroupItemsInput) GetResourceGroup() string {
 	if m != nil && m.ResourceGroup != nil {
@@ -678,7 +678,7 @@ func (m *DeleteResourceGroupItemsOutput) Reset()         { *m = DeleteResourceGr
 func (m *DeleteResourceGroupItemsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteResourceGroupItemsOutput) ProtoMessage()    {}
 func (*DeleteResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{16}
+	return fileDescriptor17, []int{16}
 }
 
 func (m *DeleteResourceGroupItemsOutput) GetAction() string {
@@ -724,7 +724,7 @@ type DescribeUserGroupsInput struct {
 func (m *DescribeUserGroupsInput) Reset()                    { *m = DescribeUserGroupsInput{} }
 func (m *DescribeUserGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeUserGroupsInput) ProtoMessage()               {}
-func (*DescribeUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{17} }
+func (*DescribeUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{17} }
 
 func (m *DescribeUserGroupsInput) GetUserGroups() []string {
 	if m != nil {
@@ -794,7 +794,7 @@ type DescribeUserGroupsOutput struct {
 func (m *DescribeUserGroupsOutput) Reset()                    { *m = DescribeUserGroupsOutput{} }
 func (m *DescribeUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeUserGroupsOutput) ProtoMessage()               {}
-func (*DescribeUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{18} }
+func (*DescribeUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{18} }
 
 func (m *DescribeUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -841,7 +841,7 @@ type CreateUserGroupsInput struct {
 func (m *CreateUserGroupsInput) Reset()                    { *m = CreateUserGroupsInput{} }
 func (m *CreateUserGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateUserGroupsInput) ProtoMessage()               {}
-func (*CreateUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{19} }
+func (*CreateUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{19} }
 
 func (m *CreateUserGroupsInput) GetUserGroupName() string {
 	if m != nil && m.UserGroupName != nil {
@@ -875,7 +875,7 @@ type CreateUserGroupsOutput struct {
 func (m *CreateUserGroupsOutput) Reset()                    { *m = CreateUserGroupsOutput{} }
 func (m *CreateUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateUserGroupsOutput) ProtoMessage()               {}
-func (*CreateUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{20} }
+func (*CreateUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{20} }
 
 func (m *CreateUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -917,7 +917,7 @@ func (m *ModifyUserGroupAttributesInput) Reset()         { *m = ModifyUserGroupA
 func (m *ModifyUserGroupAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupAttributesInput) ProtoMessage()    {}
 func (*ModifyUserGroupAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{21}
+	return fileDescriptor17, []int{21}
 }
 
 func (m *ModifyUserGroupAttributesInput) GetUserGroup() string {
@@ -962,7 +962,7 @@ func (m *ModifyUserGroupAttributesOutput) Reset()         { *m = ModifyUserGroup
 func (m *ModifyUserGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupAttributesOutput) ProtoMessage()    {}
 func (*ModifyUserGroupAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{22}
+	return fileDescriptor17, []int{22}
 }
 
 func (m *ModifyUserGroupAttributesOutput) GetAction() string {
@@ -1015,7 +1015,7 @@ type DeleteUserGroupsInput struct {
 func (m *DeleteUserGroupsInput) Reset()                    { *m = DeleteUserGroupsInput{} }
 func (m *DeleteUserGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteUserGroupsInput) ProtoMessage()               {}
-func (*DeleteUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{23} }
+func (*DeleteUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{23} }
 
 func (m *DeleteUserGroupsInput) GetUserGroups() []string {
 	if m != nil {
@@ -1035,7 +1035,7 @@ type DeleteUserGroupsOutput struct {
 func (m *DeleteUserGroupsOutput) Reset()                    { *m = DeleteUserGroupsOutput{} }
 func (m *DeleteUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteUserGroupsOutput) ProtoMessage()               {}
-func (*DeleteUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{24} }
+func (*DeleteUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{24} }
 
 func (m *DeleteUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1081,7 +1081,7 @@ type DescribeUserGroupMembersInput struct {
 func (m *DescribeUserGroupMembersInput) Reset()                    { *m = DescribeUserGroupMembersInput{} }
 func (m *DescribeUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeUserGroupMembersInput) ProtoMessage()               {}
-func (*DescribeUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{25} }
+func (*DescribeUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{25} }
 
 func (m *DescribeUserGroupMembersInput) GetUserGroups() []string {
 	if m != nil {
@@ -1160,7 +1160,7 @@ func (m *DescribeUserGroupMembersOutput) Reset()         { *m = DescribeUserGrou
 func (m *DescribeUserGroupMembersOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeUserGroupMembersOutput) ProtoMessage()    {}
 func (*DescribeUserGroupMembersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{26}
+	return fileDescriptor17, []int{26}
 }
 
 func (m *DescribeUserGroupMembersOutput) GetAction() string {
@@ -1214,7 +1214,7 @@ type AddUserGroupMembersInput struct {
 func (m *AddUserGroupMembersInput) Reset()                    { *m = AddUserGroupMembersInput{} }
 func (m *AddUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
 func (*AddUserGroupMembersInput) ProtoMessage()               {}
-func (*AddUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{27} }
+func (*AddUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{27} }
 
 func (m *AddUserGroupMembersInput) GetUserGroup() string {
 	if m != nil && m.UserGroup != nil {
@@ -1242,7 +1242,7 @@ type AddUserGroupMembersOutput struct {
 func (m *AddUserGroupMembersOutput) Reset()                    { *m = AddUserGroupMembersOutput{} }
 func (m *AddUserGroupMembersOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddUserGroupMembersOutput) ProtoMessage()               {}
-func (*AddUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{28} }
+func (*AddUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{28} }
 
 func (m *AddUserGroupMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1291,7 +1291,7 @@ func (m *ModifyUserGroupMemberAttributesInput) Reset()         { *m = ModifyUser
 func (m *ModifyUserGroupMemberAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupMemberAttributesInput) ProtoMessage()    {}
 func (*ModifyUserGroupMemberAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{29}
+	return fileDescriptor17, []int{29}
 }
 
 func (m *ModifyUserGroupMemberAttributesInput) GetUserGroup() string {
@@ -1338,7 +1338,7 @@ func (m *ModifyUserGroupMemberAttributesOutput) Reset()         { *m = ModifyUse
 func (m *ModifyUserGroupMemberAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupMemberAttributesOutput) ProtoMessage()    {}
 func (*ModifyUserGroupMemberAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{30}
+	return fileDescriptor17, []int{30}
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetAction() string {
@@ -1406,7 +1406,7 @@ type DeleteUserGroupMembersInput struct {
 func (m *DeleteUserGroupMembersInput) Reset()                    { *m = DeleteUserGroupMembersInput{} }
 func (m *DeleteUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteUserGroupMembersInput) ProtoMessage()               {}
-func (*DeleteUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{31} }
+func (*DeleteUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{31} }
 
 func (m *DeleteUserGroupMembersInput) GetUserGroup() string {
 	if m != nil && m.UserGroup != nil {
@@ -1434,7 +1434,7 @@ type DeleteUserGroupMembersOutput struct {
 func (m *DeleteUserGroupMembersOutput) Reset()                    { *m = DeleteUserGroupMembersOutput{} }
 func (m *DeleteUserGroupMembersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteUserGroupMembersOutput) ProtoMessage()               {}
-func (*DeleteUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{32} }
+func (*DeleteUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{32} }
 
 func (m *DeleteUserGroupMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1486,7 +1486,7 @@ type DescribeGroupRolesInput struct {
 func (m *DescribeGroupRolesInput) Reset()                    { *m = DescribeGroupRolesInput{} }
 func (m *DescribeGroupRolesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeGroupRolesInput) ProtoMessage()               {}
-func (*DescribeGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{33} }
+func (*DescribeGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{33} }
 
 func (m *DescribeGroupRolesInput) GetGroupRoles() []string {
 	if m != nil {
@@ -1556,7 +1556,7 @@ type DescribeGroupRolesOutput struct {
 func (m *DescribeGroupRolesOutput) Reset()                    { *m = DescribeGroupRolesOutput{} }
 func (m *DescribeGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeGroupRolesOutput) ProtoMessage()               {}
-func (*DescribeGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{34} }
+func (*DescribeGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{34} }
 
 func (m *DescribeGroupRolesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1604,7 +1604,7 @@ type CreateGroupRolesInput struct {
 func (m *CreateGroupRolesInput) Reset()                    { *m = CreateGroupRolesInput{} }
 func (m *CreateGroupRolesInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateGroupRolesInput) ProtoMessage()               {}
-func (*CreateGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{35} }
+func (*CreateGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{35} }
 
 func (m *CreateGroupRolesInput) GetRoleType() string {
 	if m != nil && m.RoleType != nil {
@@ -1645,7 +1645,7 @@ type CreateGroupRolesOutput struct {
 func (m *CreateGroupRolesOutput) Reset()                    { *m = CreateGroupRolesOutput{} }
 func (m *CreateGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateGroupRolesOutput) ProtoMessage()               {}
-func (*CreateGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{36} }
+func (*CreateGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{36} }
 
 func (m *CreateGroupRolesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1688,7 +1688,7 @@ func (m *ModifyGroupRoleAttributesInput) Reset()         { *m = ModifyGroupRoleA
 func (m *ModifyGroupRoleAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleAttributesInput) ProtoMessage()    {}
 func (*ModifyGroupRoleAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{37}
+	return fileDescriptor17, []int{37}
 }
 
 func (m *ModifyGroupRoleAttributesInput) GetGroupRole() string {
@@ -1739,7 +1739,7 @@ func (m *ModifyGroupRoleAttributesOutput) Reset()         { *m = ModifyGroupRole
 func (m *ModifyGroupRoleAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleAttributesOutput) ProtoMessage()    {}
 func (*ModifyGroupRoleAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{38}
+	return fileDescriptor17, []int{38}
 }
 
 func (m *ModifyGroupRoleAttributesOutput) GetAction() string {
@@ -1785,7 +1785,7 @@ type DeleteGroupRolesInput struct {
 func (m *DeleteGroupRolesInput) Reset()                    { *m = DeleteGroupRolesInput{} }
 func (m *DeleteGroupRolesInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteGroupRolesInput) ProtoMessage()               {}
-func (*DeleteGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{39} }
+func (*DeleteGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{39} }
 
 func (m *DeleteGroupRolesInput) GetGroupRoles() []string {
 	if m != nil {
@@ -1805,7 +1805,7 @@ type DeleteGroupRolesOutput struct {
 func (m *DeleteGroupRolesOutput) Reset()                    { *m = DeleteGroupRolesOutput{} }
 func (m *DeleteGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteGroupRolesOutput) ProtoMessage()               {}
-func (*DeleteGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{40} }
+func (*DeleteGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{40} }
 
 func (m *DeleteGroupRolesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1850,7 +1850,7 @@ type DescribeGroupRoleRulesInput struct {
 func (m *DescribeGroupRoleRulesInput) Reset()                    { *m = DescribeGroupRoleRulesInput{} }
 func (m *DescribeGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeGroupRoleRulesInput) ProtoMessage()               {}
-func (*DescribeGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{41} }
+func (*DescribeGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{41} }
 
 func (m *DescribeGroupRoleRulesInput) GetGroupRoleRules() []string {
 	if m != nil {
@@ -1921,7 +1921,7 @@ type DescribeGroupRoleRulesOutput struct {
 func (m *DescribeGroupRoleRulesOutput) Reset()                    { *m = DescribeGroupRoleRulesOutput{} }
 func (m *DescribeGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeGroupRoleRulesOutput) ProtoMessage()               {}
-func (*DescribeGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{42} }
+func (*DescribeGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{42} }
 
 func (m *DescribeGroupRoleRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1975,7 +1975,7 @@ type AddGroupRoleRulesInput struct {
 func (m *AddGroupRoleRulesInput) Reset()                    { *m = AddGroupRoleRulesInput{} }
 func (m *AddGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
 func (*AddGroupRoleRulesInput) ProtoMessage()               {}
-func (*AddGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{43} }
+func (*AddGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{43} }
 
 func (m *AddGroupRoleRulesInput) GetGroupRole() string {
 	if m != nil && m.GroupRole != nil {
@@ -2019,7 +2019,7 @@ type AddGroupRoleRulesOutput struct {
 func (m *AddGroupRoleRulesOutput) Reset()                    { *m = AddGroupRoleRulesOutput{} }
 func (m *AddGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddGroupRoleRulesOutput) ProtoMessage()               {}
-func (*AddGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{44} }
+func (*AddGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{44} }
 
 func (m *AddGroupRoleRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2130,7 +2130,7 @@ func (m *ModifyGroupRoleRuleAttributesInput) Reset()         { *m = ModifyGroupR
 func (m *ModifyGroupRoleRuleAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleRuleAttributesInput) ProtoMessage()    {}
 func (*ModifyGroupRoleRuleAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{45}
+	return fileDescriptor17, []int{45}
 }
 
 func (m *ModifyGroupRoleRuleAttributesInput) GetGroupRoleRule() string {
@@ -2167,7 +2167,7 @@ func (m *ModifyGroupRoleRuleAttributesOutput) Reset()         { *m = ModifyGroup
 func (m *ModifyGroupRoleRuleAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleRuleAttributesOutput) ProtoMessage()    {}
 func (*ModifyGroupRoleRuleAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{46}
+	return fileDescriptor17, []int{46}
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) GetAction() string {
@@ -2214,7 +2214,7 @@ type DeleteGroupRoleRulesInput struct {
 func (m *DeleteGroupRoleRulesInput) Reset()                    { *m = DeleteGroupRoleRulesInput{} }
 func (m *DeleteGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteGroupRoleRulesInput) ProtoMessage()               {}
-func (*DeleteGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{47} }
+func (*DeleteGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{47} }
 
 func (m *DeleteGroupRoleRulesInput) GetGroupRoleRules() []string {
 	if m != nil {
@@ -2241,7 +2241,7 @@ type DeleteGroupRoleRulesOutput struct {
 func (m *DeleteGroupRoleRulesOutput) Reset()                    { *m = DeleteGroupRoleRulesOutput{} }
 func (m *DeleteGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteGroupRoleRulesOutput) ProtoMessage()               {}
-func (*DeleteGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{48} }
+func (*DeleteGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{48} }
 
 func (m *DeleteGroupRoleRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2280,7 +2280,7 @@ func (m *GrantResourceGroupsToUserGroupsInput) Reset()         { *m = GrantResou
 func (m *GrantResourceGroupsToUserGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*GrantResourceGroupsToUserGroupsInput) ProtoMessage()    {}
 func (*GrantResourceGroupsToUserGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{49}
+	return fileDescriptor17, []int{49}
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput) GetRurSet() []*GrantResourceGroupsToUserGroupsInput_RequestItem {
@@ -2305,7 +2305,7 @@ func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) String() string {
 }
 func (*GrantResourceGroupsToUserGroupsInput_RequestItem) ProtoMessage() {}
 func (*GrantResourceGroupsToUserGroupsInput_RequestItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{49, 0}
+	return fileDescriptor17, []int{49, 0}
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) GetResourceGroup() string {
@@ -2341,7 +2341,7 @@ func (m *GrantResourceGroupsToUserGroupsOutput) Reset()         { *m = GrantReso
 func (m *GrantResourceGroupsToUserGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*GrantResourceGroupsToUserGroupsOutput) ProtoMessage()    {}
 func (*GrantResourceGroupsToUserGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{50}
+	return fileDescriptor17, []int{50}
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput) GetAction() string {
@@ -2387,7 +2387,7 @@ func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) String() string {
 }
 func (*GrantResourceGroupsToUserGroupsOutput_ResponseItem) ProtoMessage() {}
 func (*GrantResourceGroupsToUserGroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{50, 0}
+	return fileDescriptor17, []int{50, 0}
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) GetGroupRole() string {
@@ -2425,7 +2425,7 @@ func (m *RevokeResourceGroupsFromUserGroupsInput) Reset() {
 func (m *RevokeResourceGroupsFromUserGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*RevokeResourceGroupsFromUserGroupsInput) ProtoMessage()    {}
 func (*RevokeResourceGroupsFromUserGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{51}
+	return fileDescriptor17, []int{51}
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput) GetRuSet() []*RevokeResourceGroupsFromUserGroupsInput_RequestItem {
@@ -2470,7 +2470,7 @@ func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) String() string {
 }
 func (*RevokeResourceGroupsFromUserGroupsInput_RequestItem) ProtoMessage() {}
 func (*RevokeResourceGroupsFromUserGroupsInput_RequestItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{51, 0}
+	return fileDescriptor17, []int{51, 0}
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) GetResourceGroup() string {
@@ -2501,7 +2501,7 @@ func (m *RevokeResourceGroupsFromUserGroupsOutput) Reset() {
 func (m *RevokeResourceGroupsFromUserGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*RevokeResourceGroupsFromUserGroupsOutput) ProtoMessage()    {}
 func (*RevokeResourceGroupsFromUserGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{52}
+	return fileDescriptor17, []int{52}
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput) GetAction() string {
@@ -2547,7 +2547,7 @@ func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) String() string 
 }
 func (*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) ProtoMessage() {}
 func (*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{52, 0}
+	return fileDescriptor17, []int{52, 0}
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) GetGroupRole() string {
@@ -2587,7 +2587,7 @@ func (m *DescribeResourceUserGroupsInput) Reset()         { *m = DescribeResourc
 func (m *DescribeResourceUserGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceUserGroupsInput) ProtoMessage()    {}
 func (*DescribeResourceUserGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{53}
+	return fileDescriptor17, []int{53}
 }
 
 func (m *DescribeResourceUserGroupsInput) GetResourceGroups() []string {
@@ -2659,7 +2659,7 @@ func (m *DescribeResourceUserGroupsOutput) Reset()         { *m = DescribeResour
 func (m *DescribeResourceUserGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceUserGroupsOutput) ProtoMessage()    {}
 func (*DescribeResourceUserGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{54}
+	return fileDescriptor17, []int{54}
 }
 
 func (m *DescribeResourceUserGroupsOutput) GetAction() string {
@@ -2716,7 +2716,7 @@ func (m *DescribeResourceUserGroupsOutput_ResponseItem) String() string {
 }
 func (*DescribeResourceUserGroupsOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeResourceUserGroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{54, 0}
+	return fileDescriptor17, []int{54, 0}
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetResourceGroupId() string {
@@ -2831,9 +2831,9 @@ func init() {
 	proto.RegisterType((*DescribeResourceUserGroupsOutput_ResponseItem)(nil), "service.DescribeResourceUserGroupsOutput.ResponseItem")
 }
 
-func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor18) }
+func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor17) }
 
-var fileDescriptor18 = []byte{
+var fileDescriptor17 = []byte{
 	// 2406 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x5b, 0xcd, 0x6f, 0x1c, 0x49,
 	0x15, 0x57, 0xf7, 0x7c, 0x79, 0xde, 0x38, 0x4e, 0xd2, 0x89, 0xed, 0x71, 0x3b, 0xce, 0x38, 0x1d,

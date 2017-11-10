@@ -66,6 +66,7 @@ extend google.protobuf.MessageOptions {
 	optional MessageOptionsRule message_rule = 10001;
 }
 
+// 通过扩展信息给 message 成员增加约束
 extend google.protobuf.FieldOptions {
 	optional FieldOptionsRule field_rule = 10001;
 }

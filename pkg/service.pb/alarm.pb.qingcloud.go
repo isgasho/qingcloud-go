@@ -61,15 +61,6 @@ func NewAlarmService(conf *config.Config, zone string) (p *AlarmService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/alarm/index.html
-func (s *QingCloudService) Alarm(zone string) (*AlarmService, error) {
-	properties := &AlarmServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &AlarmService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *AlarmService) DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (out *DescribeAlarmPoliciesOutput, err error) {
 	if in == nil {
 		in = &DescribeAlarmPoliciesInput{}

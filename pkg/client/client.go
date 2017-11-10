@@ -66,18 +66,8 @@ type QingCloudClient interface {
 
 // NewClient return a new QingCloudClient
 func NewClient(config *config.Config, zone string) (QingCloudClient, error) {
-	qcService, err := service.Init(config)
-	if err != nil {
-		return nil, err
-	}
-	instanceService, err := qcService.Instance(zone)
-	if err != nil {
-		return nil, err
-	}
-	jobService, err := qcService.Job(zone)
-	if err != nil {
-		return nil, err
-	}
+	instanceService := service.NewInstanceService(config, zone)
+	jobService := service.NewJobService(config, zone)
 
 	c := &client{
 		InstanceService:  instanceService,

@@ -50,15 +50,6 @@ func NewNicService(conf *config.Config, zone string) (p *NicService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/nic/index.html
-func (s *QingCloudService) Nic(zone string) (*NicService, error) {
-	properties := &NicServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &NicService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error) {
 	if in == nil {
 		in = &CreateNicsInput{}

@@ -21,7 +21,7 @@ type SparkServiceProperties struct {
 func (m *SparkServiceProperties) Reset()                    { *m = SparkServiceProperties{} }
 func (m *SparkServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SparkServiceProperties) ProtoMessage()               {}
-func (*SparkServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{0} }
+func (*SparkServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{0} }
 
 func (m *SparkServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -47,7 +47,7 @@ type CreateSparkInput struct {
 func (m *CreateSparkInput) Reset()                    { *m = CreateSparkInput{} }
 func (m *CreateSparkInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSparkInput) ProtoMessage()               {}
-func (*CreateSparkInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{1} }
+func (*CreateSparkInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{1} }
 
 func (m *CreateSparkInput) GetSparkVersion() string {
 	if m != nil && m.SparkVersion != nil {
@@ -134,7 +134,7 @@ type CreateSparkOutput struct {
 func (m *CreateSparkOutput) Reset()                    { *m = CreateSparkOutput{} }
 func (m *CreateSparkOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSparkOutput) ProtoMessage()               {}
-func (*CreateSparkOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{2} }
+func (*CreateSparkOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{2} }
 
 func (m *CreateSparkOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -206,7 +206,7 @@ type DescribeSparksInput struct {
 func (m *DescribeSparksInput) Reset()                    { *m = DescribeSparksInput{} }
 func (m *DescribeSparksInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSparksInput) ProtoMessage()               {}
-func (*DescribeSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{3} }
+func (*DescribeSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{3} }
 
 func (m *DescribeSparksInput) GetSparks() []string {
 	if m != nil {
@@ -269,7 +269,7 @@ type DescribeSparksOutput struct {
 func (m *DescribeSparksOutput) Reset()                    { *m = DescribeSparksOutput{} }
 func (m *DescribeSparksOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSparksOutput) ProtoMessage()               {}
-func (*DescribeSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{4} }
+func (*DescribeSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{4} }
 
 func (m *DescribeSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -317,7 +317,7 @@ type AddSparkNodesInput struct {
 func (m *AddSparkNodesInput) Reset()                    { *m = AddSparkNodesInput{} }
 func (m *AddSparkNodesInput) String() string            { return proto.CompactTextString(m) }
 func (*AddSparkNodesInput) ProtoMessage()               {}
-func (*AddSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{5} }
+func (*AddSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{5} }
 
 func (m *AddSparkNodesInput) GetSpark() string {
 	if m != nil && m.Spark != nil {
@@ -359,7 +359,7 @@ type AddSparkNodesOutput struct {
 func (m *AddSparkNodesOutput) Reset()                    { *m = AddSparkNodesOutput{} }
 func (m *AddSparkNodesOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddSparkNodesOutput) ProtoMessage()               {}
-func (*AddSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{6} }
+func (*AddSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{6} }
 
 func (m *AddSparkNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -405,7 +405,7 @@ type DeleteSparkNodesInput struct {
 func (m *DeleteSparkNodesInput) Reset()                    { *m = DeleteSparkNodesInput{} }
 func (m *DeleteSparkNodesInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSparkNodesInput) ProtoMessage()               {}
-func (*DeleteSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{7} }
+func (*DeleteSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{7} }
 
 func (m *DeleteSparkNodesInput) GetSpark() string {
 	if m != nil && m.Spark != nil {
@@ -432,7 +432,7 @@ type DeleteSparkNodesOutput struct {
 func (m *DeleteSparkNodesOutput) Reset()                    { *m = DeleteSparkNodesOutput{} }
 func (m *DeleteSparkNodesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSparkNodesOutput) ProtoMessage()               {}
-func (*DeleteSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{8} }
+func (*DeleteSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{8} }
 
 func (m *DeleteSparkNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -470,7 +470,7 @@ type StartSparksInput struct {
 func (m *StartSparksInput) Reset()                    { *m = StartSparksInput{} }
 func (m *StartSparksInput) String() string            { return proto.CompactTextString(m) }
 func (*StartSparksInput) ProtoMessage()               {}
-func (*StartSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{9} }
+func (*StartSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{9} }
 
 func (m *StartSparksInput) GetSparks() []string {
 	if m != nil {
@@ -490,7 +490,7 @@ type StartSparksOutput struct {
 func (m *StartSparksOutput) Reset()                    { *m = StartSparksOutput{} }
 func (m *StartSparksOutput) String() string            { return proto.CompactTextString(m) }
 func (*StartSparksOutput) ProtoMessage()               {}
-func (*StartSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{10} }
+func (*StartSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{10} }
 
 func (m *StartSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -528,7 +528,7 @@ type StopSparksInput struct {
 func (m *StopSparksInput) Reset()                    { *m = StopSparksInput{} }
 func (m *StopSparksInput) String() string            { return proto.CompactTextString(m) }
 func (*StopSparksInput) ProtoMessage()               {}
-func (*StopSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{11} }
+func (*StopSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{11} }
 
 func (m *StopSparksInput) GetSparks() []string {
 	if m != nil {
@@ -548,7 +548,7 @@ type StopSparksOutput struct {
 func (m *StopSparksOutput) Reset()                    { *m = StopSparksOutput{} }
 func (m *StopSparksOutput) String() string            { return proto.CompactTextString(m) }
 func (*StopSparksOutput) ProtoMessage()               {}
-func (*StopSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{12} }
+func (*StopSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{12} }
 
 func (m *StopSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -586,7 +586,7 @@ type DeleteSparksInput struct {
 func (m *DeleteSparksInput) Reset()                    { *m = DeleteSparksInput{} }
 func (m *DeleteSparksInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSparksInput) ProtoMessage()               {}
-func (*DeleteSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{13} }
+func (*DeleteSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{13} }
 
 func (m *DeleteSparksInput) GetSparks() []string {
 	if m != nil {
@@ -607,7 +607,7 @@ type DeleteSparksOutput struct {
 func (m *DeleteSparksOutput) Reset()                    { *m = DeleteSparksOutput{} }
 func (m *DeleteSparksOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSparksOutput) ProtoMessage()               {}
-func (*DeleteSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{14} }
+func (*DeleteSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{14} }
 
 func (m *DeleteSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -662,9 +662,9 @@ func init() {
 	proto.RegisterType((*DeleteSparksOutput)(nil), "service.DeleteSparksOutput")
 }
 
-func init() { proto.RegisterFile("spark.proto", fileDescriptor24) }
+func init() { proto.RegisterFile("spark.proto", fileDescriptor23) }
 
-var fileDescriptor24 = []byte{
+var fileDescriptor23 = []byte{
 	// 936 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xcf, 0x72, 0x1b, 0xc5,
 	0x13, 0xae, 0xb5, 0xb5, 0x92, 0xd5, 0xb2, 0x63, 0x7b, 0xe2, 0xb8, 0xd6, 0xeb, 0xf8, 0x17, 0xfd,

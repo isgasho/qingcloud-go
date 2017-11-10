@@ -75,15 +75,6 @@ func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerSe
 	}
 }
 
-// See https://docs.qingcloud.com/api/lb/index.html
-func (s *QingCloudService) LoadBalancer(zone string) (*LoadBalancerService, error) {
-	properties := &LoadBalancerServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &LoadBalancerService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *LoadBalancerService) CreateLoadBalancer(in *CreateLoadBalancerInput) (out *CreateLoadBalancerOutput, err error) {
 	if in == nil {
 		in = &CreateLoadBalancerInput{}

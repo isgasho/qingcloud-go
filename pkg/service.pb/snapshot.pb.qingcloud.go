@@ -51,15 +51,6 @@ func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/snapshot/index.html
-func (s *QingCloudService) Snapshot(zone string) (*SnapshotService, error) {
-	properties := &SnapshotServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &SnapshotService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *SnapshotService) DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error) {
 	if in == nil {
 		in = &DescribeSnapshotsInput{}

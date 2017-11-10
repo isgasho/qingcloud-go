@@ -22,7 +22,7 @@ type SnapshotServiceProperties struct {
 func (m *SnapshotServiceProperties) Reset()                    { *m = SnapshotServiceProperties{} }
 func (m *SnapshotServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotServiceProperties) ProtoMessage()               {}
-func (*SnapshotServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{0} }
+func (*SnapshotServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{0} }
 
 func (m *SnapshotServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -47,7 +47,7 @@ type DescribeSnapshotsInput struct {
 func (m *DescribeSnapshotsInput) Reset()                    { *m = DescribeSnapshotsInput{} }
 func (m *DescribeSnapshotsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSnapshotsInput) ProtoMessage()               {}
-func (*DescribeSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{1} }
+func (*DescribeSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{1} }
 
 func (m *DescribeSnapshotsInput) GetSnapshots() []string {
 	if m != nil {
@@ -123,7 +123,7 @@ type DescribeSnapshotsOutput struct {
 func (m *DescribeSnapshotsOutput) Reset()                    { *m = DescribeSnapshotsOutput{} }
 func (m *DescribeSnapshotsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSnapshotsOutput) ProtoMessage()               {}
-func (*DescribeSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{2} }
+func (*DescribeSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{2} }
 
 func (m *DescribeSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -178,7 +178,7 @@ func (m *DescribeSnapshotsOutput_ResponseItem) Reset()         { *m = DescribeSn
 func (m *DescribeSnapshotsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeSnapshotsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeSnapshotsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor22, []int{2, 0}
+	return fileDescriptor21, []int{2, 0}
 }
 
 func (m *DescribeSnapshotsOutput_ResponseItem) GetSnapshotId() string {
@@ -310,7 +310,7 @@ type CreateSnapshotsInput struct {
 func (m *CreateSnapshotsInput) Reset()                    { *m = CreateSnapshotsInput{} }
 func (m *CreateSnapshotsInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSnapshotsInput) ProtoMessage()               {}
-func (*CreateSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{3} }
+func (*CreateSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{3} }
 
 func (m *CreateSnapshotsInput) GetResources() []string {
 	if m != nil {
@@ -345,7 +345,7 @@ type CreateSnapshotsOutput struct {
 func (m *CreateSnapshotsOutput) Reset()                    { *m = CreateSnapshotsOutput{} }
 func (m *CreateSnapshotsOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSnapshotsOutput) ProtoMessage()               {}
-func (*CreateSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{4} }
+func (*CreateSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{4} }
 
 func (m *CreateSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -390,7 +390,7 @@ type DeleteSnapshotsInput struct {
 func (m *DeleteSnapshotsInput) Reset()                    { *m = DeleteSnapshotsInput{} }
 func (m *DeleteSnapshotsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSnapshotsInput) ProtoMessage()               {}
-func (*DeleteSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{5} }
+func (*DeleteSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{5} }
 
 func (m *DeleteSnapshotsInput) GetSnapshots() []string {
 	if m != nil {
@@ -410,7 +410,7 @@ type DeleteSnapshotsOutput struct {
 func (m *DeleteSnapshotsOutput) Reset()                    { *m = DeleteSnapshotsOutput{} }
 func (m *DeleteSnapshotsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSnapshotsOutput) ProtoMessage()               {}
-func (*DeleteSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{6} }
+func (*DeleteSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{6} }
 
 func (m *DeleteSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -448,7 +448,7 @@ type ApplySnapshotsInput struct {
 func (m *ApplySnapshotsInput) Reset()                    { *m = ApplySnapshotsInput{} }
 func (m *ApplySnapshotsInput) String() string            { return proto.CompactTextString(m) }
 func (*ApplySnapshotsInput) ProtoMessage()               {}
-func (*ApplySnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{7} }
+func (*ApplySnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{7} }
 
 func (m *ApplySnapshotsInput) GetSnapshots() []string {
 	if m != nil {
@@ -468,7 +468,7 @@ type ApplySnapshotsOutput struct {
 func (m *ApplySnapshotsOutput) Reset()                    { *m = ApplySnapshotsOutput{} }
 func (m *ApplySnapshotsOutput) String() string            { return proto.CompactTextString(m) }
 func (*ApplySnapshotsOutput) ProtoMessage()               {}
-func (*ApplySnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{8} }
+func (*ApplySnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{8} }
 
 func (m *ApplySnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -508,7 +508,7 @@ type ModifySnapshotAttributesInput struct {
 func (m *ModifySnapshotAttributesInput) Reset()                    { *m = ModifySnapshotAttributesInput{} }
 func (m *ModifySnapshotAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifySnapshotAttributesInput) ProtoMessage()               {}
-func (*ModifySnapshotAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{9} }
+func (*ModifySnapshotAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{9} }
 
 func (m *ModifySnapshotAttributesInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -542,7 +542,7 @@ func (m *ModifySnapshotAttributesOutput) Reset()         { *m = ModifySnapshotAt
 func (m *ModifySnapshotAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifySnapshotAttributesOutput) ProtoMessage()    {}
 func (*ModifySnapshotAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor22, []int{10}
+	return fileDescriptor21, []int{10}
 }
 
 func (m *ModifySnapshotAttributesOutput) GetAction() string {
@@ -576,7 +576,7 @@ func (m *CaptureInstanceFromSnapshotInput) Reset()         { *m = CaptureInstanc
 func (m *CaptureInstanceFromSnapshotInput) String() string { return proto.CompactTextString(m) }
 func (*CaptureInstanceFromSnapshotInput) ProtoMessage()    {}
 func (*CaptureInstanceFromSnapshotInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor22, []int{11}
+	return fileDescriptor21, []int{11}
 }
 
 func (m *CaptureInstanceFromSnapshotInput) GetSnapshot() string {
@@ -606,7 +606,7 @@ func (m *CaptureInstanceFromSnapshotOutput) Reset()         { *m = CaptureInstan
 func (m *CaptureInstanceFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CaptureInstanceFromSnapshotOutput) ProtoMessage()    {}
 func (*CaptureInstanceFromSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor22, []int{12}
+	return fileDescriptor21, []int{12}
 }
 
 func (m *CaptureInstanceFromSnapshotOutput) GetAction() string {
@@ -653,7 +653,7 @@ type CreateVolumeFromSnapshotInput struct {
 func (m *CreateVolumeFromSnapshotInput) Reset()                    { *m = CreateVolumeFromSnapshotInput{} }
 func (m *CreateVolumeFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateVolumeFromSnapshotInput) ProtoMessage()               {}
-func (*CreateVolumeFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{13} }
+func (*CreateVolumeFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{13} }
 
 func (m *CreateVolumeFromSnapshotInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -682,7 +682,7 @@ func (m *CreateVolumeFromSnapshotOutput) Reset()         { *m = CreateVolumeFrom
 func (m *CreateVolumeFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateVolumeFromSnapshotOutput) ProtoMessage()    {}
 func (*CreateVolumeFromSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor22, []int{14}
+	return fileDescriptor21, []int{14}
 }
 
 func (m *CreateVolumeFromSnapshotOutput) GetAction() string {
@@ -739,9 +739,9 @@ func init() {
 	proto.RegisterType((*CreateVolumeFromSnapshotOutput)(nil), "service.CreateVolumeFromSnapshotOutput")
 }
 
-func init() { proto.RegisterFile("snapshot.proto", fileDescriptor22) }
+func init() { proto.RegisterFile("snapshot.proto", fileDescriptor21) }
 
-var fileDescriptor22 = []byte{
+var fileDescriptor21 = []byte{
 	// 1055 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0xcf, 0x6f, 0x1b, 0xc5,
 	0x17, 0x97, 0xdb, 0xf8, 0xd7, 0x73, 0x9a, 0x34, 0xd3, 0x24, 0xdd, 0x6c, 0xea, 0xc4, 0xdf, 0xfd,

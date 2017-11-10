@@ -31,7 +31,7 @@ type Tag struct {
 func (m *Tag) Reset()                    { *m = Tag{} }
 func (m *Tag) String() string            { return proto.CompactTextString(m) }
 func (*Tag) ProtoMessage()               {}
-func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0} }
+func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0} }
 
 func (m *Tag) GetColor() string {
 	if m != nil && m.Color != nil {
@@ -115,7 +115,7 @@ type ResourceTagPair struct {
 func (m *ResourceTagPair) Reset()                    { *m = ResourceTagPair{} }
 func (m *ResourceTagPair) String() string            { return proto.CompactTextString(m) }
 func (*ResourceTagPair) ProtoMessage()               {}
-func (*ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1} }
+func (*ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1} }
 
 func (m *ResourceTagPair) GetResourceId() string {
 	if m != nil && m.ResourceId != nil {
@@ -161,7 +161,7 @@ type ResourceTypeCount struct {
 func (m *ResourceTypeCount) Reset()                    { *m = ResourceTypeCount{} }
 func (m *ResourceTypeCount) String() string            { return proto.CompactTextString(m) }
 func (*ResourceTypeCount) ProtoMessage()               {}
-func (*ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{2} }
+func (*ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{2} }
 
 func (m *ResourceTypeCount) GetCount() int32 {
 	if m != nil && m.Count != nil {
@@ -202,7 +202,7 @@ type EIP struct {
 func (m *EIP) Reset()                    { *m = EIP{} }
 func (m *EIP) String() string            { return proto.CompactTextString(m) }
 func (*EIP) ProtoMessage()               {}
-func (*EIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{3} }
+func (*EIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{3} }
 
 func (m *EIP) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -340,7 +340,7 @@ type Resource struct {
 func (m *Resource) Reset()                    { *m = Resource{} }
 func (m *Resource) String() string            { return proto.CompactTextString(m) }
 func (*Resource) ProtoMessage()               {}
-func (*Resource) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{4} }
+func (*Resource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{4} }
 
 func (m *Resource) GetResourceId() string {
 	if m != nil && m.ResourceId != nil {
@@ -377,7 +377,7 @@ type Job struct {
 func (m *Job) Reset()                    { *m = Job{} }
 func (m *Job) String() string            { return proto.CompactTextString(m) }
 func (*Job) ProtoMessage()               {}
-func (*Job) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{5} }
+func (*Job) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{5} }
 
 func (m *Job) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -452,7 +452,7 @@ type Volume struct {
 func (m *Volume) Reset()                    { *m = Volume{} }
 func (m *Volume) String() string            { return proto.CompactTextString(m) }
 func (*Volume) ProtoMessage()               {}
-func (*Volume) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{6} }
+func (*Volume) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{6} }
 
 func (m *Volume) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -600,7 +600,7 @@ type NIC struct {
 func (m *NIC) Reset()                    { *m = NIC{} }
 func (m *NIC) String() string            { return proto.CompactTextString(m) }
 func (*NIC) ProtoMessage()               {}
-func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{7} }
+func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{7} }
 
 func (m *NIC) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -756,7 +756,7 @@ type KeyPair struct {
 func (m *KeyPair) Reset()                    { *m = KeyPair{} }
 func (m *KeyPair) String() string            { return proto.CompactTextString(m) }
 func (*KeyPair) ProtoMessage()               {}
-func (*KeyPair) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{8} }
+func (*KeyPair) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{8} }
 
 func (m *KeyPair) GetDescription() string {
 	if m != nil && m.Description != nil {
@@ -825,7 +825,7 @@ type VxNet struct {
 func (m *VxNet) Reset()                    { *m = VxNet{} }
 func (m *VxNet) String() string            { return proto.CompactTextString(m) }
 func (*VxNet) ProtoMessage()               {}
-func (*VxNet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{9} }
+func (*VxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{9} }
 
 func (m *VxNet) GetAvailableIpCount() int32 {
 	if m != nil && m.AvailableIpCount != nil {
@@ -930,7 +930,7 @@ type Router struct {
 func (m *Router) Reset()                    { *m = Router{} }
 func (m *Router) String() string            { return proto.CompactTextString(m) }
 func (*Router) ProtoMessage()               {}
-func (*Router) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{10} }
+func (*Router) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{10} }
 
 func (m *Router) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -1102,7 +1102,7 @@ type Instance struct {
 func (m *Instance) Reset()                    { *m = Instance{} }
 func (m *Instance) String() string            { return proto.CompactTextString(m) }
 func (*Instance) ProtoMessage()               {}
-func (*Instance) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{11} }
+func (*Instance) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{11} }
 
 func (m *Instance) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -1299,7 +1299,7 @@ type InstanceVxNet struct {
 func (m *InstanceVxNet) Reset()                    { *m = InstanceVxNet{} }
 func (m *InstanceVxNet) String() string            { return proto.CompactTextString(m) }
 func (*InstanceVxNet) ProtoMessage()               {}
-func (*InstanceVxNet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{12} }
+func (*InstanceVxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{12} }
 
 func (m *InstanceVxNet) GetNicId() string {
 	if m != nil && m.NicId != nil {
@@ -1378,7 +1378,7 @@ type Image struct {
 func (m *Image) Reset()                    { *m = Image{} }
 func (m *Image) String() string            { return proto.CompactTextString(m) }
 func (*Image) ProtoMessage()               {}
-func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{13} }
+func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{13} }
 
 func (m *Image) GetAppBillingId() string {
 	if m != nil && m.AppBillingId != nil {
@@ -1586,7 +1586,7 @@ type ImageUser struct {
 func (m *ImageUser) Reset()                    { *m = ImageUser{} }
 func (m *ImageUser) String() string            { return proto.CompactTextString(m) }
 func (*ImageUser) ProtoMessage()               {}
-func (*ImageUser) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{14} }
+func (*ImageUser) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{14} }
 
 func (m *ImageUser) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -1632,7 +1632,7 @@ type Mongo struct {
 func (m *Mongo) Reset()                    { *m = Mongo{} }
 func (m *Mongo) String() string            { return proto.CompactTextString(m) }
 func (*Mongo) ProtoMessage()               {}
-func (*Mongo) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{15} }
+func (*Mongo) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{15} }
 
 func (m *Mongo) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -1759,7 +1759,7 @@ type MongoNode struct {
 func (m *MongoNode) Reset()                    { *m = MongoNode{} }
 func (m *MongoNode) String() string            { return proto.CompactTextString(m) }
 func (*MongoNode) ProtoMessage()               {}
-func (*MongoNode) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{16} }
+func (*MongoNode) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{16} }
 
 func (m *MongoNode) GetIp() string {
 	if m != nil && m.Ip != nil {
@@ -1825,7 +1825,7 @@ type LoadBalancer struct {
 func (m *LoadBalancer) Reset()                    { *m = LoadBalancer{} }
 func (m *LoadBalancer) String() string            { return proto.CompactTextString(m) }
 func (*LoadBalancer) ProtoMessage()               {}
-func (*LoadBalancer) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{17} }
+func (*LoadBalancer) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{17} }
 
 func (m *LoadBalancer) GetCluster() []*EIP {
 	if m != nil {
@@ -1954,7 +1954,7 @@ type LoadBalancerListener struct {
 func (m *LoadBalancerListener) Reset()                    { *m = LoadBalancerListener{} }
 func (m *LoadBalancerListener) String() string            { return proto.CompactTextString(m) }
 func (*LoadBalancerListener) ProtoMessage()               {}
-func (*LoadBalancerListener) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{18} }
+func (*LoadBalancerListener) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{18} }
 
 func (m *LoadBalancerListener) GetBackendProtocol() string {
 	if m != nil && m.BackendProtocol != nil {
@@ -2078,7 +2078,7 @@ type LoadBalancerBackend struct {
 func (m *LoadBalancerBackend) Reset()                    { *m = LoadBalancerBackend{} }
 func (m *LoadBalancerBackend) String() string            { return proto.CompactTextString(m) }
 func (*LoadBalancerBackend) ProtoMessage()               {}
-func (*LoadBalancerBackend) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{19} }
+func (*LoadBalancerBackend) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{19} }
 
 func (m *LoadBalancerBackend) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -2180,7 +2180,7 @@ type Cache struct {
 func (m *Cache) Reset()                    { *m = Cache{} }
 func (m *Cache) String() string            { return proto.CompactTextString(m) }
 func (*Cache) ProtoMessage()               {}
-func (*Cache) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{20} }
+func (*Cache) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{20} }
 
 func (m *Cache) GetCacheClass() int32 {
 	if m != nil && m.CacheClass != nil {
@@ -2362,7 +2362,7 @@ type CacheNode struct {
 func (m *CacheNode) Reset()                    { *m = CacheNode{} }
 func (m *CacheNode) String() string            { return proto.CompactTextString(m) }
 func (*CacheNode) ProtoMessage()               {}
-func (*CacheNode) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{21} }
+func (*CacheNode) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{21} }
 
 func (m *CacheNode) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -2465,7 +2465,7 @@ type CacheParameter struct {
 func (m *CacheParameter) Reset()                    { *m = CacheParameter{} }
 func (m *CacheParameter) String() string            { return proto.CompactTextString(m) }
 func (*CacheParameter) ProtoMessage()               {}
-func (*CacheParameter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{22} }
+func (*CacheParameter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{22} }
 
 func (m *CacheParameter) GetCacheParameterName() string {
 	if m != nil && m.CacheParameterName != nil {
@@ -2552,7 +2552,7 @@ type CacheParameterGroup struct {
 func (m *CacheParameterGroup) Reset()                    { *m = CacheParameterGroup{} }
 func (m *CacheParameterGroup) String() string            { return proto.CompactTextString(m) }
 func (*CacheParameterGroup) ProtoMessage()               {}
-func (*CacheParameterGroup) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{23} }
+func (*CacheParameterGroup) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{23} }
 
 func (m *CacheParameterGroup) GetCacheParameterGroupId() string {
 	if m != nil && m.CacheParameterGroupId != nil {
@@ -2620,7 +2620,7 @@ type CachePrivateIP struct {
 func (m *CachePrivateIP) Reset()                    { *m = CachePrivateIP{} }
 func (m *CachePrivateIP) String() string            { return proto.CompactTextString(m) }
 func (*CachePrivateIP) ProtoMessage()               {}
-func (*CachePrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{24} }
+func (*CachePrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{24} }
 
 func (m *CachePrivateIP) GetCacheNodeId() string {
 	if m != nil && m.CacheNodeId != nil {
@@ -2652,7 +2652,7 @@ type SparkPrivateIps struct {
 func (m *SparkPrivateIps) Reset()                    { *m = SparkPrivateIps{} }
 func (m *SparkPrivateIps) String() string            { return proto.CompactTextString(m) }
 func (*SparkPrivateIps) ProtoMessage()               {}
-func (*SparkPrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{25} }
+func (*SparkPrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{25} }
 
 func (m *SparkPrivateIps) GetRole() string {
 	if m != nil && m.Role != nil {
@@ -2677,7 +2677,7 @@ type Data struct {
 func (m *Data) Reset()                    { *m = Data{} }
 func (m *Data) String() string            { return proto.CompactTextString(m) }
 func (*Data) ProtoMessage()               {}
-func (*Data) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{26} }
+func (*Data) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{26} }
 
 func (m *Data) GetData() string {
 	if m != nil && m.Data != nil {
@@ -2702,7 +2702,7 @@ type DHCPOption struct {
 func (m *DHCPOption) Reset()                    { *m = DHCPOption{} }
 func (m *DHCPOption) String() string            { return proto.CompactTextString(m) }
 func (*DHCPOption) ProtoMessage()               {}
-func (*DHCPOption) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{27} }
+func (*DHCPOption) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{27} }
 
 func (m *DHCPOption) GetRouterStaticId() string {
 	if m != nil && m.RouterStaticId != nil {
@@ -2732,7 +2732,7 @@ type DNSAlias struct {
 func (m *DNSAlias) Reset()                    { *m = DNSAlias{} }
 func (m *DNSAlias) String() string            { return proto.CompactTextString(m) }
 func (*DNSAlias) ProtoMessage()               {}
-func (*DNSAlias) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{28} }
+func (*DNSAlias) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{28} }
 
 func (m *DNSAlias) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -2792,7 +2792,7 @@ type EIPGroup struct {
 func (m *EIPGroup) Reset()                    { *m = EIPGroup{} }
 func (m *EIPGroup) String() string            { return proto.CompactTextString(m) }
 func (*EIPGroup) ProtoMessage()               {}
-func (*EIPGroup) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{29} }
+func (*EIPGroup) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{29} }
 
 func (m *EIPGroup) GetEipGroupId() string {
 	if m != nil && m.EipGroupId != nil {
@@ -2818,7 +2818,7 @@ type EIPResource struct {
 func (m *EIPResource) Reset()                    { *m = EIPResource{} }
 func (m *EIPResource) String() string            { return proto.CompactTextString(m) }
 func (*EIPResource) ProtoMessage()               {}
-func (*EIPResource) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{30} }
+func (*EIPResource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{30} }
 
 func (m *EIPResource) GetResourceId() string {
 	if m != nil && m.ResourceId != nil {
@@ -2860,7 +2860,7 @@ type Extra struct {
 func (m *Extra) Reset()                    { *m = Extra{} }
 func (m *Extra) String() string            { return proto.CompactTextString(m) }
 func (*Extra) ProtoMessage()               {}
-func (*Extra) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{31} }
+func (*Extra) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{31} }
 
 func (m *Extra) GetBlockBus() string {
 	if m != nil && m.BlockBus != nil {
@@ -2956,7 +2956,7 @@ type File struct {
 func (m *File) Reset()                    { *m = File{} }
 func (m *File) String() string            { return proto.CompactTextString(m) }
 func (*File) ProtoMessage()               {}
-func (*File) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{32} }
+func (*File) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{32} }
 
 func (m *File) GetFile() string {
 	if m != nil && m.File != nil {
@@ -2993,7 +2993,7 @@ type InstanceType struct {
 func (m *InstanceType) Reset()                    { *m = InstanceType{} }
 func (m *InstanceType) String() string            { return proto.CompactTextString(m) }
 func (*InstanceType) ProtoMessage()               {}
-func (*InstanceType) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{33} }
+func (*InstanceType) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{33} }
 
 func (m *InstanceType) GetDescription() string {
 	if m != nil && m.Description != nil {
@@ -3056,7 +3056,7 @@ type LoadBalancerPolicy struct {
 func (m *LoadBalancerPolicy) Reset()                    { *m = LoadBalancerPolicy{} }
 func (m *LoadBalancerPolicy) String() string            { return proto.CompactTextString(m) }
 func (*LoadBalancerPolicy) ProtoMessage()               {}
-func (*LoadBalancerPolicy) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{34} }
+func (*LoadBalancerPolicy) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{34} }
 
 func (m *LoadBalancerPolicy) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -3104,7 +3104,7 @@ type LoadBalancerPolicyRule struct {
 func (m *LoadBalancerPolicyRule) Reset()                    { *m = LoadBalancerPolicyRule{} }
 func (m *LoadBalancerPolicyRule) String() string            { return proto.CompactTextString(m) }
 func (*LoadBalancerPolicyRule) ProtoMessage()               {}
-func (*LoadBalancerPolicyRule) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{35} }
+func (*LoadBalancerPolicyRule) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{35} }
 
 func (m *LoadBalancerPolicyRule) GetLoadbalancerPolicyRuleId() string {
 	if m != nil && m.LoadbalancerPolicyRuleId != nil {
@@ -3146,7 +3146,7 @@ type Meter struct {
 func (m *Meter) Reset()                    { *m = Meter{} }
 func (m *Meter) String() string            { return proto.CompactTextString(m) }
 func (*Meter) ProtoMessage()               {}
-func (*Meter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{36} }
+func (*Meter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{36} }
 
 func (m *Meter) GetMeterId() string {
 	if m != nil && m.MeterId != nil {
@@ -3183,7 +3183,7 @@ type MongoParameter struct {
 func (m *MongoParameter) Reset()                    { *m = MongoParameter{} }
 func (m *MongoParameter) String() string            { return proto.CompactTextString(m) }
 func (*MongoParameter) ProtoMessage()               {}
-func (*MongoParameter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{37} }
+func (*MongoParameter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{37} }
 
 func (m *MongoParameter) GetIsReadonly() int32 {
 	if m != nil && m.IsReadonly != nil {
@@ -3243,7 +3243,7 @@ type MongoPrivateIP struct {
 func (m *MongoPrivateIP) Reset()                    { *m = MongoPrivateIP{} }
 func (m *MongoPrivateIP) String() string            { return proto.CompactTextString(m) }
 func (*MongoPrivateIP) ProtoMessage()               {}
-func (*MongoPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{38} }
+func (*MongoPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{38} }
 
 func (m *MongoPrivateIP) GetPriority0() string {
 	if m != nil && m.Priority0 != nil {
@@ -3268,7 +3268,7 @@ type NICIP struct {
 func (m *NICIP) Reset()                    { *m = NICIP{} }
 func (m *NICIP) String() string            { return proto.CompactTextString(m) }
 func (*NICIP) ProtoMessage()               {}
-func (*NICIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{39} }
+func (*NICIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{39} }
 
 func (m *NICIP) GetNicId() string {
 	if m != nil && m.NicId != nil {
@@ -3308,7 +3308,7 @@ type RDB struct {
 func (m *RDB) Reset()                    { *m = RDB{} }
 func (m *RDB) String() string            { return proto.CompactTextString(m) }
 func (*RDB) ProtoMessage()               {}
-func (*RDB) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{40} }
+func (*RDB) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{40} }
 
 func (m *RDB) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -3439,7 +3439,7 @@ type RDBFile struct {
 func (m *RDBFile) Reset()                    { *m = RDBFile{} }
 func (m *RDBFile) String() string            { return proto.CompactTextString(m) }
 func (*RDBFile) ProtoMessage()               {}
-func (*RDBFile) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{41} }
+func (*RDBFile) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{41} }
 
 func (m *RDBFile) GetBinaryLog() []*File {
 	if m != nil {
@@ -3479,7 +3479,7 @@ type RDBParameter struct {
 func (m *RDBParameter) Reset()                    { *m = RDBParameter{} }
 func (m *RDBParameter) String() string            { return proto.CompactTextString(m) }
 func (*RDBParameter) ProtoMessage()               {}
-func (*RDBParameter) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{42} }
+func (*RDBParameter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{42} }
 
 func (m *RDBParameter) GetFamily() string {
 	if m != nil && m.Family != nil {
@@ -3613,7 +3613,7 @@ type RDBParameters struct {
 func (m *RDBParameters) Reset()                    { *m = RDBParameters{} }
 func (m *RDBParameters) String() string            { return proto.CompactTextString(m) }
 func (*RDBParameters) ProtoMessage()               {}
-func (*RDBParameters) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{43} }
+func (*RDBParameters) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{43} }
 
 func (m *RDBParameters) GetBindAddress() string {
 	if m != nil && m.BindAddress != nil {
@@ -3995,7 +3995,7 @@ type RDBPrivateIP struct {
 func (m *RDBPrivateIP) Reset()                    { *m = RDBPrivateIP{} }
 func (m *RDBPrivateIP) String() string            { return proto.CompactTextString(m) }
 func (*RDBPrivateIP) ProtoMessage()               {}
-func (*RDBPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{44} }
+func (*RDBPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{44} }
 
 func (m *RDBPrivateIP) GetMaster() string {
 	if m != nil && m.Master != nil {
@@ -4028,7 +4028,7 @@ type RouterStatic struct {
 func (m *RouterStatic) Reset()                    { *m = RouterStatic{} }
 func (m *RouterStatic) String() string            { return proto.CompactTextString(m) }
 func (*RouterStatic) ProtoMessage()               {}
-func (*RouterStatic) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{45} }
+func (*RouterStatic) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{45} }
 
 func (m *RouterStatic) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4112,7 +4112,7 @@ type RouterStaticEntry struct {
 func (m *RouterStaticEntry) Reset()                    { *m = RouterStaticEntry{} }
 func (m *RouterStaticEntry) String() string            { return proto.CompactTextString(m) }
 func (*RouterStaticEntry) ProtoMessage()               {}
-func (*RouterStaticEntry) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{46} }
+func (*RouterStaticEntry) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{46} }
 
 func (m *RouterStaticEntry) GetRouterId() string {
 	if m != nil && m.RouterId != nil {
@@ -4164,7 +4164,7 @@ type RouterVxNet struct {
 func (m *RouterVxNet) Reset()                    { *m = RouterVxNet{} }
 func (m *RouterVxNet) String() string            { return proto.CompactTextString(m) }
 func (*RouterVxNet) ProtoMessage()               {}
-func (*RouterVxNet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{47} }
+func (*RouterVxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{47} }
 
 func (m *RouterVxNet) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4234,7 +4234,7 @@ type S2DefaultParameters struct {
 func (m *S2DefaultParameters) Reset()                    { *m = S2DefaultParameters{} }
 func (m *S2DefaultParameters) String() string            { return proto.CompactTextString(m) }
 func (*S2DefaultParameters) ProtoMessage()               {}
-func (*S2DefaultParameters) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{48} }
+func (*S2DefaultParameters) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{48} }
 
 func (m *S2DefaultParameters) GetDefaultValue() string {
 	if m != nil && m.DefaultValue != nil {
@@ -4291,7 +4291,7 @@ type S2Server struct {
 func (m *S2Server) Reset()                    { *m = S2Server{} }
 func (m *S2Server) String() string            { return proto.CompactTextString(m) }
 func (*S2Server) ProtoMessage()               {}
-func (*S2Server) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{49} }
+func (*S2Server) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{49} }
 
 func (m *S2Server) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4400,7 +4400,7 @@ type S2SharedTarget struct {
 func (m *S2SharedTarget) Reset()                    { *m = S2SharedTarget{} }
 func (m *S2SharedTarget) String() string            { return proto.CompactTextString(m) }
 func (*S2SharedTarget) ProtoMessage()               {}
-func (*S2SharedTarget) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{50} }
+func (*S2SharedTarget) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{50} }
 
 func (m *S2SharedTarget) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4480,7 +4480,7 @@ type SecurityGroup struct {
 func (m *SecurityGroup) Reset()                    { *m = SecurityGroup{} }
 func (m *SecurityGroup) String() string            { return proto.CompactTextString(m) }
 func (*SecurityGroup) ProtoMessage()               {}
-func (*SecurityGroup) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{51} }
+func (*SecurityGroup) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{51} }
 
 func (m *SecurityGroup) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4551,7 +4551,7 @@ type SecurityGroupIPSet struct {
 func (m *SecurityGroupIPSet) Reset()                    { *m = SecurityGroupIPSet{} }
 func (m *SecurityGroupIPSet) String() string            { return proto.CompactTextString(m) }
 func (*SecurityGroupIPSet) ProtoMessage()               {}
-func (*SecurityGroupIPSet) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{52} }
+func (*SecurityGroupIPSet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{52} }
 
 func (m *SecurityGroupIPSet) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4610,7 +4610,7 @@ type SecurityGroupRule struct {
 func (m *SecurityGroupRule) Reset()                    { *m = SecurityGroupRule{} }
 func (m *SecurityGroupRule) String() string            { return proto.CompactTextString(m) }
 func (*SecurityGroupRule) ProtoMessage()               {}
-func (*SecurityGroupRule) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{53} }
+func (*SecurityGroupRule) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{53} }
 
 func (m *SecurityGroupRule) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -4678,7 +4678,7 @@ type SecurityGroupSnapshot struct {
 func (m *SecurityGroupSnapshot) Reset()                    { *m = SecurityGroupSnapshot{} }
 func (m *SecurityGroupSnapshot) String() string            { return proto.CompactTextString(m) }
 func (*SecurityGroupSnapshot) ProtoMessage()               {}
-func (*SecurityGroupSnapshot) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{54} }
+func (*SecurityGroupSnapshot) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{54} }
 
 func (m *SecurityGroupSnapshot) GetGroupId() string {
 	if m != nil && m.GroupId != nil {
@@ -4714,7 +4714,7 @@ type ServerCertificate struct {
 func (m *ServerCertificate) Reset()                    { *m = ServerCertificate{} }
 func (m *ServerCertificate) String() string            { return proto.CompactTextString(m) }
 func (*ServerCertificate) ProtoMessage()               {}
-func (*ServerCertificate) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{55} }
+func (*ServerCertificate) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{55} }
 
 func (m *ServerCertificate) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4790,7 +4790,7 @@ type Snapshot struct {
 func (m *Snapshot) Reset()                    { *m = Snapshot{} }
 func (m *Snapshot) String() string            { return proto.CompactTextString(m) }
 func (*Snapshot) ProtoMessage()               {}
-func (*Snapshot) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{56} }
+func (*Snapshot) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{56} }
 
 func (m *Snapshot) GetCreateTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -4976,7 +4976,7 @@ type SnapshotResource struct {
 func (m *SnapshotResource) Reset()                    { *m = SnapshotResource{} }
 func (m *SnapshotResource) String() string            { return proto.CompactTextString(m) }
 func (*SnapshotResource) ProtoMessage()               {}
-func (*SnapshotResource) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{57} }
+func (*SnapshotResource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{57} }
 
 func (m *SnapshotResource) GetOsFamily() string {
 	if m != nil && m.OsFamily != nil {
@@ -5001,7 +5001,7 @@ type User struct {
 func (m *User) Reset()                    { *m = User{} }
 func (m *User) String() string            { return proto.CompactTextString(m) }
 func (*User) ProtoMessage()               {}
-func (*User) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{58} }
+func (*User) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{58} }
 
 func (m *User) GetEmail() string {
 	if m != nil && m.Email != nil {
@@ -5026,7 +5026,7 @@ type Zone struct {
 func (m *Zone) Reset()                    { *m = Zone{} }
 func (m *Zone) String() string            { return proto.CompactTextString(m) }
 func (*Zone) ProtoMessage()               {}
-func (*Zone) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{59} }
+func (*Zone) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{59} }
 
 func (m *Zone) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -5092,7 +5092,7 @@ type Cluster struct {
 func (m *Cluster) Reset()                    { *m = Cluster{} }
 func (m *Cluster) String() string            { return proto.CompactTextString(m) }
 func (*Cluster) ProtoMessage()               {}
-func (*Cluster) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60} }
+func (*Cluster) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{60} }
 
 func (m *Cluster) GetGlobalUuid() string {
 	if m != nil && m.GlobalUuid != nil {
@@ -5350,7 +5350,7 @@ func (m *Cluster_HealthCheckEnablement) Reset()         { *m = Cluster_HealthChe
 func (m *Cluster_HealthCheckEnablement) String() string { return proto.CompactTextString(m) }
 func (*Cluster_HealthCheckEnablement) ProtoMessage()    {}
 func (*Cluster_HealthCheckEnablement) Descriptor() ([]byte, []int) {
-	return fileDescriptor27, []int{60, 0}
+	return fileDescriptor26, []int{60, 0}
 }
 
 func (m *Cluster_HealthCheckEnablement) GetCa() bool {
@@ -5381,7 +5381,7 @@ type Cluster_CustomService struct {
 func (m *Cluster_CustomService) Reset()                    { *m = Cluster_CustomService{} }
 func (m *Cluster_CustomService) String() string            { return proto.CompactTextString(m) }
 func (*Cluster_CustomService) ProtoMessage()               {}
-func (*Cluster_CustomService) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60, 1} }
+func (*Cluster_CustomService) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{60, 1} }
 
 type Cluster_AdvancedActions struct {
 	XXX_unrecognized []byte `json:"-"`
@@ -5390,7 +5390,7 @@ type Cluster_AdvancedActions struct {
 func (m *Cluster_AdvancedActions) Reset()                    { *m = Cluster_AdvancedActions{} }
 func (m *Cluster_AdvancedActions) String() string            { return proto.CompactTextString(m) }
 func (*Cluster_AdvancedActions) ProtoMessage()               {}
-func (*Cluster_AdvancedActions) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60, 2} }
+func (*Cluster_AdvancedActions) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{60, 2} }
 
 type Cluster_AppInfo struct {
 	Icon             *string `protobuf:"bytes,1,opt,name=icon" json:"icon,omitempty"`
@@ -5402,7 +5402,7 @@ type Cluster_AppInfo struct {
 func (m *Cluster_AppInfo) Reset()                    { *m = Cluster_AppInfo{} }
 func (m *Cluster_AppInfo) String() string            { return proto.CompactTextString(m) }
 func (*Cluster_AppInfo) ProtoMessage()               {}
-func (*Cluster_AppInfo) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60, 3} }
+func (*Cluster_AppInfo) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{60, 3} }
 
 func (m *Cluster_AppInfo) GetIcon() string {
 	if m != nil && m.Icon != nil {
@@ -5436,7 +5436,7 @@ type Cluster_AppVersionInfo struct {
 func (m *Cluster_AppVersionInfo) Reset()                    { *m = Cluster_AppVersionInfo{} }
 func (m *Cluster_AppVersionInfo) String() string            { return proto.CompactTextString(m) }
 func (*Cluster_AppVersionInfo) ProtoMessage()               {}
-func (*Cluster_AppVersionInfo) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{60, 4} }
+func (*Cluster_AppVersionInfo) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{60, 4} }
 
 func (m *Cluster_AppVersionInfo) GetStatusTime() *google_protobuf1.Timestamp {
 	if m != nil {
@@ -5532,7 +5532,7 @@ type ClasterNode struct {
 func (m *ClasterNode) Reset()                    { *m = ClasterNode{} }
 func (m *ClasterNode) String() string            { return proto.CompactTextString(m) }
 func (*ClasterNode) ProtoMessage()               {}
-func (*ClasterNode) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{61} }
+func (*ClasterNode) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{61} }
 
 func (m *ClasterNode) GetVerticalScalingPolicy() string {
 	if m != nil && m.VerticalScalingPolicy != nil {
@@ -5869,7 +5869,7 @@ type ResourceGroupsItem struct {
 func (m *ResourceGroupsItem) Reset()                    { *m = ResourceGroupsItem{} }
 func (m *ResourceGroupsItem) String() string            { return proto.CompactTextString(m) }
 func (*ResourceGroupsItem) ProtoMessage()               {}
-func (*ResourceGroupsItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{62} }
+func (*ResourceGroupsItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{62} }
 
 func (m *ResourceGroupsItem) GetResourceGroupId() string {
 	if m != nil && m.ResourceGroupId != nil {
@@ -5928,7 +5928,7 @@ type UserGroupItem struct {
 func (m *UserGroupItem) Reset()                    { *m = UserGroupItem{} }
 func (m *UserGroupItem) String() string            { return proto.CompactTextString(m) }
 func (*UserGroupItem) ProtoMessage()               {}
-func (*UserGroupItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{63} }
+func (*UserGroupItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{63} }
 
 func (m *UserGroupItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -6000,7 +6000,7 @@ type GroupRoleItem struct {
 func (m *GroupRoleItem) Reset()                    { *m = GroupRoleItem{} }
 func (m *GroupRoleItem) String() string            { return proto.CompactTextString(m) }
 func (*GroupRoleItem) ProtoMessage()               {}
-func (*GroupRoleItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{64} }
+func (*GroupRoleItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{64} }
 
 func (m *GroupRoleItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -6066,7 +6066,7 @@ type GroupRoleRuleItem struct {
 func (m *GroupRoleRuleItem) Reset()                    { *m = GroupRoleRuleItem{} }
 func (m *GroupRoleRuleItem) String() string            { return proto.CompactTextString(m) }
 func (*GroupRoleRuleItem) ProtoMessage()               {}
-func (*GroupRoleRuleItem) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{65} }
+func (*GroupRoleRuleItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{65} }
 
 func (m *GroupRoleRuleItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -6198,9 +6198,9 @@ func init() {
 	proto.RegisterType((*GroupRoleRuleItem)(nil), "service.GroupRoleRuleItem")
 }
 
-func init() { proto.RegisterFile("types.proto", fileDescriptor27) }
+func init() { proto.RegisterFile("types.proto", fileDescriptor26) }
 
-var fileDescriptor27 = []byte{
+var fileDescriptor26 = []byte{
 	// 7719 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x7d, 0x4d, 0x8f, 0x24, 0x49,
 	0x96, 0x90, 0x32, 0x22, 0xe3, 0xeb, 0xc5, 0x47, 0x46, 0x7a, 0x7e, 0x45, 0x66, 0x7d, 0x47, 0x7d,

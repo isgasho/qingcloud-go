@@ -48,15 +48,6 @@ func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/dns_alias/index.html
-func (s *QingCloudService) DNSAlias(zone string) (*DNSAliasService, error) {
-	properties := &DNSAliasServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &DNSAliasService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error) {
 	if in == nil {
 		in = &DescribeDNSAliasesInput{}

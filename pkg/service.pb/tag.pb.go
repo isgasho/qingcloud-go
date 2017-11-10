@@ -21,7 +21,7 @@ type TagServiceProperties struct {
 func (m *TagServiceProperties) Reset()                    { *m = TagServiceProperties{} }
 func (m *TagServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*TagServiceProperties) ProtoMessage()               {}
-func (*TagServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0} }
+func (*TagServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{0} }
 
 func (m *TagServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -42,7 +42,7 @@ type DescribeTagsInput struct {
 func (m *DescribeTagsInput) Reset()                    { *m = DescribeTagsInput{} }
 func (m *DescribeTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeTagsInput) ProtoMessage()               {}
-func (*DescribeTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1} }
+func (*DescribeTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{1} }
 
 func (m *DescribeTagsInput) GetTags() []string {
 	if m != nil {
@@ -91,7 +91,7 @@ type DescribeTagsOutput struct {
 func (m *DescribeTagsOutput) Reset()                    { *m = DescribeTagsOutput{} }
 func (m *DescribeTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeTagsOutput) ProtoMessage()               {}
-func (*DescribeTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{2} }
+func (*DescribeTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{2} }
 
 func (m *DescribeTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -142,7 +142,7 @@ func (m *DescribeTagsOutput_ResponseItem) Reset()         { *m = DescribeTagsOut
 func (m *DescribeTagsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeTagsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeTagsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor26, []int{2, 0}
+	return fileDescriptor25, []int{2, 0}
 }
 
 func (m *DescribeTagsOutput_ResponseItem) GetTagId() string {
@@ -195,7 +195,7 @@ type CreateTagInput struct {
 func (m *CreateTagInput) Reset()                    { *m = CreateTagInput{} }
 func (m *CreateTagInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateTagInput) ProtoMessage()               {}
-func (*CreateTagInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{3} }
+func (*CreateTagInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{3} }
 
 func (m *CreateTagInput) GetTagName() string {
 	if m != nil && m.TagName != nil {
@@ -215,7 +215,7 @@ type CreateTagOutput struct {
 func (m *CreateTagOutput) Reset()                    { *m = CreateTagOutput{} }
 func (m *CreateTagOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateTagOutput) ProtoMessage()               {}
-func (*CreateTagOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{4} }
+func (*CreateTagOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{4} }
 
 func (m *CreateTagOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -253,7 +253,7 @@ type DeleteTagsInput struct {
 func (m *DeleteTagsInput) Reset()                    { *m = DeleteTagsInput{} }
 func (m *DeleteTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteTagsInput) ProtoMessage()               {}
-func (*DeleteTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{5} }
+func (*DeleteTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{5} }
 
 func (m *DeleteTagsInput) GetTags() []string {
 	if m != nil {
@@ -273,7 +273,7 @@ type DeleteTagsOutput struct {
 func (m *DeleteTagsOutput) Reset()                    { *m = DeleteTagsOutput{} }
 func (m *DeleteTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteTagsOutput) ProtoMessage()               {}
-func (*DeleteTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{6} }
+func (*DeleteTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{6} }
 
 func (m *DeleteTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -313,7 +313,7 @@ type ModifyTagAttributesInput struct {
 func (m *ModifyTagAttributesInput) Reset()                    { *m = ModifyTagAttributesInput{} }
 func (m *ModifyTagAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyTagAttributesInput) ProtoMessage()               {}
-func (*ModifyTagAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{7} }
+func (*ModifyTagAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{7} }
 
 func (m *ModifyTagAttributesInput) GetTag() string {
 	if m != nil && m.Tag != nil {
@@ -346,7 +346,7 @@ type ModifyTagAttributesOutput struct {
 func (m *ModifyTagAttributesOutput) Reset()                    { *m = ModifyTagAttributesOutput{} }
 func (m *ModifyTagAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyTagAttributesOutput) ProtoMessage()               {}
-func (*ModifyTagAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{8} }
+func (*ModifyTagAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{8} }
 
 func (m *ModifyTagAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -377,7 +377,7 @@ type AttachTagsInput struct {
 func (m *AttachTagsInput) Reset()                    { *m = AttachTagsInput{} }
 func (m *AttachTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*AttachTagsInput) ProtoMessage()               {}
-func (*AttachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{9} }
+func (*AttachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{9} }
 
 func (m *AttachTagsInput) GetResourceTagPairs() []*ResourceTagPair {
 	if m != nil {
@@ -396,7 +396,7 @@ type AttachTagsOutput struct {
 func (m *AttachTagsOutput) Reset()                    { *m = AttachTagsOutput{} }
 func (m *AttachTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*AttachTagsOutput) ProtoMessage()               {}
-func (*AttachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{10} }
+func (*AttachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{10} }
 
 func (m *AttachTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -427,7 +427,7 @@ type DetachTagsInput struct {
 func (m *DetachTagsInput) Reset()                    { *m = DetachTagsInput{} }
 func (m *DetachTagsInput) String() string            { return proto.CompactTextString(m) }
 func (*DetachTagsInput) ProtoMessage()               {}
-func (*DetachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{11} }
+func (*DetachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{11} }
 
 func (m *DetachTagsInput) GetResourceTagPairs() []*ResourceTagPair {
 	if m != nil {
@@ -446,7 +446,7 @@ type DetachTagsOutput struct {
 func (m *DetachTagsOutput) Reset()                    { *m = DetachTagsOutput{} }
 func (m *DetachTagsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DetachTagsOutput) ProtoMessage()               {}
-func (*DetachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{12} }
+func (*DetachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{12} }
 
 func (m *DetachTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -486,9 +486,9 @@ func init() {
 	proto.RegisterType((*DetachTagsOutput)(nil), "service.DetachTagsOutput")
 }
 
-func init() { proto.RegisterFile("tag.proto", fileDescriptor26) }
+func init() { proto.RegisterFile("tag.proto", fileDescriptor25) }
 
-var fileDescriptor26 = []byte{
+var fileDescriptor25 = []byte{
 	// 713 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x55, 0x4d, 0x6f, 0xd3, 0x4c,
 	0x10, 0x96, 0xdf, 0x7c, 0xbd, 0x99, 0xf4, 0x23, 0xdd, 0xf6, 0xed, 0xeb, 0x1a, 0x21, 0x82, 0xa5,

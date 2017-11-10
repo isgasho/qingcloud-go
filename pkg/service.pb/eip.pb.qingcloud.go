@@ -52,15 +52,6 @@ func NewEIPService(conf *config.Config, zone string) (p *EIPService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/eip/index.html
-func (s *QingCloudService) EIP(zone string) (*EIPService, error) {
-	properties := &EIPServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &EIPService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *EIPService) DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutput, err error) {
 	if in == nil {
 		in = &DescribeEipsInput{}

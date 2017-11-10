@@ -22,7 +22,7 @@ type RouterServiceProperties struct {
 func (m *RouterServiceProperties) Reset()                    { *m = RouterServiceProperties{} }
 func (m *RouterServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*RouterServiceProperties) ProtoMessage()               {}
-func (*RouterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{0} }
+func (*RouterServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
 
 func (m *RouterServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -46,7 +46,7 @@ type DescribeRoutersInput struct {
 func (m *DescribeRoutersInput) Reset()                    { *m = DescribeRoutersInput{} }
 func (m *DescribeRoutersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRoutersInput) ProtoMessage()               {}
-func (*DescribeRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{1} }
+func (*DescribeRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{1} }
 
 func (m *DescribeRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -116,7 +116,7 @@ type DescribeRoutersOutput struct {
 func (m *DescribeRoutersOutput) Reset()                    { *m = DescribeRoutersOutput{} }
 func (m *DescribeRoutersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRoutersOutput) ProtoMessage()               {}
-func (*DescribeRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{2} }
+func (*DescribeRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{2} }
 
 func (m *DescribeRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -174,7 +174,7 @@ func (m *DescribeRoutersOutput_ResponseItem) Reset()         { *m = DescribeRout
 func (m *DescribeRoutersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRoutersOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRoutersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{2, 0}
+	return fileDescriptor18, []int{2, 0}
 }
 
 func (m *DescribeRoutersOutput_ResponseItem) GetRouterId() string {
@@ -281,7 +281,7 @@ type CreateRoutersInput struct {
 func (m *CreateRoutersInput) Reset()                    { *m = CreateRoutersInput{} }
 func (m *CreateRoutersInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateRoutersInput) ProtoMessage()               {}
-func (*CreateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{3} }
+func (*CreateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{3} }
 
 func (m *CreateRoutersInput) GetRouterName() string {
 	if m != nil && m.RouterName != nil {
@@ -337,7 +337,7 @@ type CreateRoutersOutput struct {
 func (m *CreateRoutersOutput) Reset()                    { *m = CreateRoutersOutput{} }
 func (m *CreateRoutersOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateRoutersOutput) ProtoMessage()               {}
-func (*CreateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{4} }
+func (*CreateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{4} }
 
 func (m *CreateRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -382,7 +382,7 @@ type DeleteRoutersInput struct {
 func (m *DeleteRoutersInput) Reset()                    { *m = DeleteRoutersInput{} }
 func (m *DeleteRoutersInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteRoutersInput) ProtoMessage()               {}
-func (*DeleteRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{5} }
+func (*DeleteRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{5} }
 
 func (m *DeleteRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -402,7 +402,7 @@ type DeleteRoutersOutput struct {
 func (m *DeleteRoutersOutput) Reset()                    { *m = DeleteRoutersOutput{} }
 func (m *DeleteRoutersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteRoutersOutput) ProtoMessage()               {}
-func (*DeleteRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{6} }
+func (*DeleteRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{6} }
 
 func (m *DeleteRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -440,7 +440,7 @@ type UpdateRoutersInput struct {
 func (m *UpdateRoutersInput) Reset()                    { *m = UpdateRoutersInput{} }
 func (m *UpdateRoutersInput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateRoutersInput) ProtoMessage()               {}
-func (*UpdateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{7} }
+func (*UpdateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{7} }
 
 func (m *UpdateRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -460,7 +460,7 @@ type UpdateRoutersOutput struct {
 func (m *UpdateRoutersOutput) Reset()                    { *m = UpdateRoutersOutput{} }
 func (m *UpdateRoutersOutput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateRoutersOutput) ProtoMessage()               {}
-func (*UpdateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{8} }
+func (*UpdateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{8} }
 
 func (m *UpdateRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -498,7 +498,7 @@ type PowerOffRoutersInput struct {
 func (m *PowerOffRoutersInput) Reset()                    { *m = PowerOffRoutersInput{} }
 func (m *PowerOffRoutersInput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOffRoutersInput) ProtoMessage()               {}
-func (*PowerOffRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{9} }
+func (*PowerOffRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{9} }
 
 func (m *PowerOffRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -518,7 +518,7 @@ type PowerOffRoutersOutput struct {
 func (m *PowerOffRoutersOutput) Reset()                    { *m = PowerOffRoutersOutput{} }
 func (m *PowerOffRoutersOutput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOffRoutersOutput) ProtoMessage()               {}
-func (*PowerOffRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{10} }
+func (*PowerOffRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{10} }
 
 func (m *PowerOffRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -556,7 +556,7 @@ type PowerOnRoutersInput struct {
 func (m *PowerOnRoutersInput) Reset()                    { *m = PowerOnRoutersInput{} }
 func (m *PowerOnRoutersInput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOnRoutersInput) ProtoMessage()               {}
-func (*PowerOnRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{11} }
+func (*PowerOnRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{11} }
 
 func (m *PowerOnRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -576,7 +576,7 @@ type PowerOnRoutersOutput struct {
 func (m *PowerOnRoutersOutput) Reset()                    { *m = PowerOnRoutersOutput{} }
 func (m *PowerOnRoutersOutput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOnRoutersOutput) ProtoMessage()               {}
-func (*PowerOnRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{12} }
+func (*PowerOnRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{12} }
 
 func (m *PowerOnRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -620,7 +620,7 @@ type JoinRouterInput struct {
 func (m *JoinRouterInput) Reset()                    { *m = JoinRouterInput{} }
 func (m *JoinRouterInput) String() string            { return proto.CompactTextString(m) }
 func (*JoinRouterInput) ProtoMessage()               {}
-func (*JoinRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{13} }
+func (*JoinRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{13} }
 
 func (m *JoinRouterInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -682,7 +682,7 @@ type JoinRouterOutput struct {
 func (m *JoinRouterOutput) Reset()                    { *m = JoinRouterOutput{} }
 func (m *JoinRouterOutput) String() string            { return proto.CompactTextString(m) }
 func (*JoinRouterOutput) ProtoMessage()               {}
-func (*JoinRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{14} }
+func (*JoinRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{14} }
 
 func (m *JoinRouterOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -721,7 +721,7 @@ type LeaveRouterInput struct {
 func (m *LeaveRouterInput) Reset()                    { *m = LeaveRouterInput{} }
 func (m *LeaveRouterInput) String() string            { return proto.CompactTextString(m) }
 func (*LeaveRouterInput) ProtoMessage()               {}
-func (*LeaveRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{15} }
+func (*LeaveRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{15} }
 
 func (m *LeaveRouterInput) GetVxnets() []string {
 	if m != nil {
@@ -748,7 +748,7 @@ type LeaveRouterOutput struct {
 func (m *LeaveRouterOutput) Reset()                    { *m = LeaveRouterOutput{} }
 func (m *LeaveRouterOutput) String() string            { return proto.CompactTextString(m) }
 func (*LeaveRouterOutput) ProtoMessage()               {}
-func (*LeaveRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{16} }
+func (*LeaveRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{16} }
 
 func (m *LeaveRouterOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -794,7 +794,7 @@ type ModifyRouterAttributesInput struct {
 func (m *ModifyRouterAttributesInput) Reset()                    { *m = ModifyRouterAttributesInput{} }
 func (m *ModifyRouterAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyRouterAttributesInput) ProtoMessage()               {}
-func (*ModifyRouterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{17} }
+func (*ModifyRouterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{17} }
 
 func (m *ModifyRouterAttributesInput) GetRouter() string {
 	if m != nil && m.Router != nil {
@@ -869,7 +869,7 @@ type ModifyRouterAttributesOutput struct {
 func (m *ModifyRouterAttributesOutput) Reset()                    { *m = ModifyRouterAttributesOutput{} }
 func (m *ModifyRouterAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyRouterAttributesOutput) ProtoMessage()               {}
-func (*ModifyRouterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{18} }
+func (*ModifyRouterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{18} }
 
 func (m *ModifyRouterAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -900,7 +900,7 @@ type DescribeRouterStaticsInput struct {
 func (m *DescribeRouterStaticsInput) Reset()                    { *m = DescribeRouterStaticsInput{} }
 func (m *DescribeRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRouterStaticsInput) ProtoMessage()               {}
-func (*DescribeRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{19} }
+func (*DescribeRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{19} }
 
 func (m *DescribeRouterStaticsInput) GetRouterStatics() []string {
 	if m != nil {
@@ -920,7 +920,7 @@ type DescribeRouterStaticsOutput struct {
 func (m *DescribeRouterStaticsOutput) Reset()                    { *m = DescribeRouterStaticsOutput{} }
 func (m *DescribeRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRouterStaticsOutput) ProtoMessage()               {}
-func (*DescribeRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{20} }
+func (*DescribeRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{20} }
 
 func (m *DescribeRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -960,7 +960,7 @@ type AddRouterStaticsInput struct {
 func (m *AddRouterStaticsInput) Reset()                    { *m = AddRouterStaticsInput{} }
 func (m *AddRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
 func (*AddRouterStaticsInput) ProtoMessage()               {}
-func (*AddRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{21} }
+func (*AddRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{21} }
 
 func (m *AddRouterStaticsInput) GetRouter() string {
 	if m != nil && m.Router != nil {
@@ -994,7 +994,7 @@ type AddRouterStaticsOutput struct {
 func (m *AddRouterStaticsOutput) Reset()                    { *m = AddRouterStaticsOutput{} }
 func (m *AddRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddRouterStaticsOutput) ProtoMessage()               {}
-func (*AddRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{22} }
+func (*AddRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{22} }
 
 func (m *AddRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1040,7 +1040,7 @@ func (m *ModifyRouterStaticAttributesInput) Reset()         { *m = ModifyRouterS
 func (m *ModifyRouterStaticAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticAttributesInput) ProtoMessage()    {}
 func (*ModifyRouterStaticAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{23}
+	return fileDescriptor18, []int{23}
 }
 
 func (m *ModifyRouterStaticAttributesInput) GetRouterStatic() string {
@@ -1111,7 +1111,7 @@ func (m *ModifyRouterStaticAttributesOutput) Reset()         { *m = ModifyRouter
 func (m *ModifyRouterStaticAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticAttributesOutput) ProtoMessage()    {}
 func (*ModifyRouterStaticAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{24}
+	return fileDescriptor18, []int{24}
 }
 
 func (m *ModifyRouterStaticAttributesOutput) GetAction() string {
@@ -1150,7 +1150,7 @@ type DeleteRouterStaticsInput struct {
 func (m *DeleteRouterStaticsInput) Reset()                    { *m = DeleteRouterStaticsInput{} }
 func (m *DeleteRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteRouterStaticsInput) ProtoMessage()               {}
-func (*DeleteRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{25} }
+func (*DeleteRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{25} }
 
 func (m *DeleteRouterStaticsInput) GetRouterStatics() []string {
 	if m != nil {
@@ -1170,7 +1170,7 @@ type DeleteRouterStaticsOutput struct {
 func (m *DeleteRouterStaticsOutput) Reset()                    { *m = DeleteRouterStaticsOutput{} }
 func (m *DeleteRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteRouterStaticsOutput) ProtoMessage()               {}
-func (*DeleteRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{26} }
+func (*DeleteRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{26} }
 
 func (m *DeleteRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1207,7 +1207,7 @@ type CopyRouterStaticsInput struct {
 func (m *CopyRouterStaticsInput) Reset()                    { *m = CopyRouterStaticsInput{} }
 func (m *CopyRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
 func (*CopyRouterStaticsInput) ProtoMessage()               {}
-func (*CopyRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{27} }
+func (*CopyRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{27} }
 
 type CopyRouterStaticsOutput struct {
 	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -1219,7 +1219,7 @@ type CopyRouterStaticsOutput struct {
 func (m *CopyRouterStaticsOutput) Reset()                    { *m = CopyRouterStaticsOutput{} }
 func (m *CopyRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
 func (*CopyRouterStaticsOutput) ProtoMessage()               {}
-func (*CopyRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{28} }
+func (*CopyRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{28} }
 
 func (m *CopyRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1254,7 +1254,7 @@ type DescribeRouterVxnetsInput struct {
 func (m *DescribeRouterVxnetsInput) Reset()                    { *m = DescribeRouterVxnetsInput{} }
 func (m *DescribeRouterVxnetsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRouterVxnetsInput) ProtoMessage()               {}
-func (*DescribeRouterVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{29} }
+func (*DescribeRouterVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{29} }
 
 func (m *DescribeRouterVxnetsInput) GetRouter() string {
 	if m != nil && m.Router != nil {
@@ -1303,7 +1303,7 @@ type DescribeRouterVxnetsOutput struct {
 func (m *DescribeRouterVxnetsOutput) Reset()                    { *m = DescribeRouterVxnetsOutput{} }
 func (m *DescribeRouterVxnetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRouterVxnetsOutput) ProtoMessage()               {}
-func (*DescribeRouterVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{30} }
+func (*DescribeRouterVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{30} }
 
 func (m *DescribeRouterVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1358,7 +1358,7 @@ func (m *DescribeRouterVxnetsOutput_ResponseItem) Reset() {
 func (m *DescribeRouterVxnetsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRouterVxnetsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRouterVxnetsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{30, 0}
+	return fileDescriptor18, []int{30, 0}
 }
 
 func (m *DescribeRouterVxnetsOutput_ResponseItem) GetRouterId() string {
@@ -1426,7 +1426,7 @@ type AddRouterStaticEntriesInput struct {
 func (m *AddRouterStaticEntriesInput) Reset()                    { *m = AddRouterStaticEntriesInput{} }
 func (m *AddRouterStaticEntriesInput) String() string            { return proto.CompactTextString(m) }
 func (*AddRouterStaticEntriesInput) ProtoMessage()               {}
-func (*AddRouterStaticEntriesInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{31} }
+func (*AddRouterStaticEntriesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{31} }
 
 func (m *AddRouterStaticEntriesInput) GetRouterStatic() string {
 	if m != nil && m.RouterStatic != nil {
@@ -1454,7 +1454,7 @@ func (m *AddRouterStaticEntriesInput_EntriesItem) Reset() {
 func (m *AddRouterStaticEntriesInput_EntriesItem) String() string { return proto.CompactTextString(m) }
 func (*AddRouterStaticEntriesInput_EntriesItem) ProtoMessage()    {}
 func (*AddRouterStaticEntriesInput_EntriesItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{31, 0}
+	return fileDescriptor18, []int{31, 0}
 }
 
 func (m *AddRouterStaticEntriesInput_EntriesItem) GetVal1() string {
@@ -1482,7 +1482,7 @@ type AddRouterStaticEntriesOutput struct {
 func (m *AddRouterStaticEntriesOutput) Reset()                    { *m = AddRouterStaticEntriesOutput{} }
 func (m *AddRouterStaticEntriesOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddRouterStaticEntriesOutput) ProtoMessage()               {}
-func (*AddRouterStaticEntriesOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{32} }
+func (*AddRouterStaticEntriesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{32} }
 
 func (m *AddRouterStaticEntriesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1521,7 +1521,7 @@ func (m *DeleteRouterStaticEntriesInput) Reset()         { *m = DeleteRouterStat
 func (m *DeleteRouterStaticEntriesInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteRouterStaticEntriesInput) ProtoMessage()    {}
 func (*DeleteRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{33}
+	return fileDescriptor18, []int{33}
 }
 
 func (m *DeleteRouterStaticEntriesInput) GetRouterStaticEntries() []string {
@@ -1543,7 +1543,7 @@ func (m *DeleteRouterStaticEntriesOutput) Reset()         { *m = DeleteRouterSta
 func (m *DeleteRouterStaticEntriesOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteRouterStaticEntriesOutput) ProtoMessage()    {}
 func (*DeleteRouterStaticEntriesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{34}
+	return fileDescriptor18, []int{34}
 }
 
 func (m *DeleteRouterStaticEntriesOutput) GetAction() string {
@@ -1588,7 +1588,7 @@ func (m *ModifyRouterStaticEntryAttributesInput) Reset() {
 func (m *ModifyRouterStaticEntryAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticEntryAttributesInput) ProtoMessage()    {}
 func (*ModifyRouterStaticEntryAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{35}
+	return fileDescriptor18, []int{35}
 }
 
 func (m *ModifyRouterStaticEntryAttributesInput) GetRouterStaticEntry() string {
@@ -1633,7 +1633,7 @@ func (m *ModifyRouterStaticEntryAttributesOutput) Reset() {
 func (m *ModifyRouterStaticEntryAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticEntryAttributesOutput) ProtoMessage()    {}
 func (*ModifyRouterStaticEntryAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{36}
+	return fileDescriptor18, []int{36}
 }
 
 func (m *ModifyRouterStaticEntryAttributesOutput) GetAction() string {
@@ -1676,7 +1676,7 @@ func (m *DescribeRouterStaticEntriesInput) Reset()         { *m = DescribeRouter
 func (m *DescribeRouterStaticEntriesInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeRouterStaticEntriesInput) ProtoMessage()    {}
 func (*DescribeRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{37}
+	return fileDescriptor18, []int{37}
 }
 
 func (m *DescribeRouterStaticEntriesInput) GetRouterStaticEntryId() string {
@@ -1720,7 +1720,7 @@ func (m *DescribeRouterStaticEntriesOutput) Reset()         { *m = DescribeRoute
 func (m *DescribeRouterStaticEntriesOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeRouterStaticEntriesOutput) ProtoMessage()    {}
 func (*DescribeRouterStaticEntriesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{38}
+	return fileDescriptor18, []int{38}
 }
 
 func (m *DescribeRouterStaticEntriesOutput) GetAction() string {
@@ -1803,9 +1803,9 @@ func init() {
 	proto.RegisterType((*DescribeRouterStaticEntriesOutput)(nil), "service.DescribeRouterStaticEntriesOutput")
 }
 
-func init() { proto.RegisterFile("router.proto", fileDescriptor19) }
+func init() { proto.RegisterFile("router.proto", fileDescriptor18) }
 
-var fileDescriptor19 = []byte{
+var fileDescriptor18 = []byte{
 	// 1927 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x19, 0x4d, 0x6f, 0x23, 0x49,
 	0x55, 0x1d, 0xdb, 0xb1, 0xfd, 0x9c, 0x64, 0x92, 0xca, 0xc7, 0x74, 0x3a, 0x5f, 0x9e, 0x9e, 0x1d,

@@ -21,7 +21,6 @@ It is generated from these files:
 	monitor.proto
 	nic.proto
 	notification_center.proto
-	qingcloud.proto
 	rdb.proto
 	resource_acl.proto
 	router.proto
@@ -389,7 +388,6 @@ It has these top-level messages:
 	NotificationCenterServiceProperties
 	DescribeNotificationCenterUserPostsInput
 	DescribeNotificationCenterUserPostsOutput
-	QingCloudServiceProperties
 	RDBServiceProperties
 	CreateRDBInput
 	CreateRDBOutput

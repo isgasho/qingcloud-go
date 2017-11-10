@@ -50,15 +50,6 @@ func NewTagService(conf *config.Config, zone string) (p *TagService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/tag/index.html
-func (s *QingCloudService) Tag(zone string) (*TagService, error) {
-	properties := &TagServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &TagService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error) {
 	if in == nil {
 		in = &DescribeTagsInput{}

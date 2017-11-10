@@ -22,7 +22,7 @@ type S2ServiceProperties struct {
 func (m *S2ServiceProperties) Reset()                    { *m = S2ServiceProperties{} }
 func (m *S2ServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*S2ServiceProperties) ProtoMessage()               {}
-func (*S2ServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
+func (*S2ServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{0} }
 
 func (m *S2ServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -45,7 +45,7 @@ type CreateS2ServerInput struct {
 func (m *CreateS2ServerInput) Reset()                    { *m = CreateS2ServerInput{} }
 func (m *CreateS2ServerInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2ServerInput) ProtoMessage()               {}
-func (*CreateS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{1} }
+func (*CreateS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{1} }
 
 func (m *CreateS2ServerInput) GetVxnetId() string {
 	if m != nil && m.VxnetId != nil {
@@ -108,7 +108,7 @@ type CreateS2ServerOutput struct {
 func (m *CreateS2ServerOutput) Reset()                    { *m = CreateS2ServerOutput{} }
 func (m *CreateS2ServerOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2ServerOutput) ProtoMessage()               {}
-func (*CreateS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{2} }
+func (*CreateS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{2} }
 
 func (m *CreateS2ServerOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -160,7 +160,7 @@ type DescribeS2ServersInput struct {
 func (m *DescribeS2ServersInput) Reset()                    { *m = DescribeS2ServersInput{} }
 func (m *DescribeS2ServersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2ServersInput) ProtoMessage()               {}
-func (*DescribeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{3} }
+func (*DescribeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{3} }
 
 func (m *DescribeS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -230,7 +230,7 @@ type DescribeS2ServersOutput struct {
 func (m *DescribeS2ServersOutput) Reset()                    { *m = DescribeS2ServersOutput{} }
 func (m *DescribeS2ServersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2ServersOutput) ProtoMessage()               {}
-func (*DescribeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{4} }
+func (*DescribeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{4} }
 
 func (m *DescribeS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -277,7 +277,7 @@ type ModifyS2ServerInput struct {
 func (m *ModifyS2ServerInput) Reset()                    { *m = ModifyS2ServerInput{} }
 func (m *ModifyS2ServerInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2ServerInput) ProtoMessage()               {}
-func (*ModifyS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{5} }
+func (*ModifyS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{5} }
 
 func (m *ModifyS2ServerInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -310,7 +310,7 @@ type ModifyS2ServerOutput struct {
 func (m *ModifyS2ServerOutput) Reset()                    { *m = ModifyS2ServerOutput{} }
 func (m *ModifyS2ServerOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2ServerOutput) ProtoMessage()               {}
-func (*ModifyS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{6} }
+func (*ModifyS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{6} }
 
 func (m *ModifyS2ServerOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -342,7 +342,7 @@ type ResizeS2ServersInput struct {
 func (m *ResizeS2ServersInput) Reset()                    { *m = ResizeS2ServersInput{} }
 func (m *ResizeS2ServersInput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeS2ServersInput) ProtoMessage()               {}
-func (*ResizeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{7} }
+func (*ResizeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{7} }
 
 func (m *ResizeS2ServersInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -369,7 +369,7 @@ type ResizeS2ServersOutput struct {
 func (m *ResizeS2ServersOutput) Reset()                    { *m = ResizeS2ServersOutput{} }
 func (m *ResizeS2ServersOutput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeS2ServersOutput) ProtoMessage()               {}
-func (*ResizeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{8} }
+func (*ResizeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{8} }
 
 func (m *ResizeS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -407,7 +407,7 @@ type DeleteS2ServersInput struct {
 func (m *DeleteS2ServersInput) Reset()                    { *m = DeleteS2ServersInput{} }
 func (m *DeleteS2ServersInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2ServersInput) ProtoMessage()               {}
-func (*DeleteS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{9} }
+func (*DeleteS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{9} }
 
 func (m *DeleteS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -427,7 +427,7 @@ type DeleteS2ServersOutput struct {
 func (m *DeleteS2ServersOutput) Reset()                    { *m = DeleteS2ServersOutput{} }
 func (m *DeleteS2ServersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2ServersOutput) ProtoMessage()               {}
-func (*DeleteS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{10} }
+func (*DeleteS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{10} }
 
 func (m *DeleteS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -465,7 +465,7 @@ type PowerOnS2ServersInput struct {
 func (m *PowerOnS2ServersInput) Reset()                    { *m = PowerOnS2ServersInput{} }
 func (m *PowerOnS2ServersInput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOnS2ServersInput) ProtoMessage()               {}
-func (*PowerOnS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{11} }
+func (*PowerOnS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{11} }
 
 func (m *PowerOnS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -485,7 +485,7 @@ type PowerOnS2ServersOutput struct {
 func (m *PowerOnS2ServersOutput) Reset()                    { *m = PowerOnS2ServersOutput{} }
 func (m *PowerOnS2ServersOutput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOnS2ServersOutput) ProtoMessage()               {}
-func (*PowerOnS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{12} }
+func (*PowerOnS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{12} }
 
 func (m *PowerOnS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -523,7 +523,7 @@ type PowerOffS2ServersInput struct {
 func (m *PowerOffS2ServersInput) Reset()                    { *m = PowerOffS2ServersInput{} }
 func (m *PowerOffS2ServersInput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOffS2ServersInput) ProtoMessage()               {}
-func (*PowerOffS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{13} }
+func (*PowerOffS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{13} }
 
 func (m *PowerOffS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -543,7 +543,7 @@ type PowerOffS2ServersOutput struct {
 func (m *PowerOffS2ServersOutput) Reset()                    { *m = PowerOffS2ServersOutput{} }
 func (m *PowerOffS2ServersOutput) String() string            { return proto.CompactTextString(m) }
 func (*PowerOffS2ServersOutput) ProtoMessage()               {}
-func (*PowerOffS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{14} }
+func (*PowerOffS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{14} }
 
 func (m *PowerOffS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -581,7 +581,7 @@ type UpdateS2ServersInput struct {
 func (m *UpdateS2ServersInput) Reset()                    { *m = UpdateS2ServersInput{} }
 func (m *UpdateS2ServersInput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateS2ServersInput) ProtoMessage()               {}
-func (*UpdateS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{15} }
+func (*UpdateS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{15} }
 
 func (m *UpdateS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -601,7 +601,7 @@ type UpdateS2ServersOutput struct {
 func (m *UpdateS2ServersOutput) Reset()                    { *m = UpdateS2ServersOutput{} }
 func (m *UpdateS2ServersOutput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateS2ServersOutput) ProtoMessage()               {}
-func (*UpdateS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{16} }
+func (*UpdateS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{16} }
 
 func (m *UpdateS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -641,7 +641,7 @@ type ChangeS2ServerVxnetInput struct {
 func (m *ChangeS2ServerVxnetInput) Reset()                    { *m = ChangeS2ServerVxnetInput{} }
 func (m *ChangeS2ServerVxnetInput) String() string            { return proto.CompactTextString(m) }
 func (*ChangeS2ServerVxnetInput) ProtoMessage()               {}
-func (*ChangeS2ServerVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{17} }
+func (*ChangeS2ServerVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{17} }
 
 func (m *ChangeS2ServerVxnetInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -675,7 +675,7 @@ type ChangeS2ServerVxnetOutput struct {
 func (m *ChangeS2ServerVxnetOutput) Reset()                    { *m = ChangeS2ServerVxnetOutput{} }
 func (m *ChangeS2ServerVxnetOutput) String() string            { return proto.CompactTextString(m) }
 func (*ChangeS2ServerVxnetOutput) ProtoMessage()               {}
-func (*ChangeS2ServerVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{18} }
+func (*ChangeS2ServerVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{18} }
 
 func (m *ChangeS2ServerVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -719,7 +719,7 @@ type CreateS2SharedTargetInput struct {
 func (m *CreateS2SharedTargetInput) Reset()                    { *m = CreateS2SharedTargetInput{} }
 func (m *CreateS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2SharedTargetInput) ProtoMessage()               {}
-func (*CreateS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{19} }
+func (*CreateS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{19} }
 
 func (m *CreateS2SharedTargetInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -780,7 +780,7 @@ type CreateS2SharedTargetOutput struct {
 func (m *CreateS2SharedTargetOutput) Reset()                    { *m = CreateS2SharedTargetOutput{} }
 func (m *CreateS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2SharedTargetOutput) ProtoMessage()               {}
-func (*CreateS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{20} }
+func (*CreateS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{20} }
 
 func (m *CreateS2SharedTargetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -818,7 +818,7 @@ type DescribeS2SharedTargetsInput struct {
 func (m *DescribeS2SharedTargetsInput) Reset()                    { *m = DescribeS2SharedTargetsInput{} }
 func (m *DescribeS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2SharedTargetsInput) ProtoMessage()               {}
-func (*DescribeS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{21} }
+func (*DescribeS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{21} }
 
 func (m *DescribeS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -888,7 +888,7 @@ type DescribeS2SharedTargetsOutput struct {
 func (m *DescribeS2SharedTargetsOutput) Reset()                    { *m = DescribeS2SharedTargetsOutput{} }
 func (m *DescribeS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2SharedTargetsOutput) ProtoMessage()               {}
-func (*DescribeS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{22} }
+func (*DescribeS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{22} }
 
 func (m *DescribeS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -933,7 +933,7 @@ type DeleteS2SharedTargetsInput struct {
 func (m *DeleteS2SharedTargetsInput) Reset()                    { *m = DeleteS2SharedTargetsInput{} }
 func (m *DeleteS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2SharedTargetsInput) ProtoMessage()               {}
-func (*DeleteS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{23} }
+func (*DeleteS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{23} }
 
 func (m *DeleteS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -952,7 +952,7 @@ type DeleteS2SharedTargetsOutput struct {
 func (m *DeleteS2SharedTargetsOutput) Reset()                    { *m = DeleteS2SharedTargetsOutput{} }
 func (m *DeleteS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2SharedTargetsOutput) ProtoMessage()               {}
-func (*DeleteS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{24} }
+func (*DeleteS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{24} }
 
 func (m *DeleteS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -983,7 +983,7 @@ type EnableS2SharedTargetsInput struct {
 func (m *EnableS2SharedTargetsInput) Reset()                    { *m = EnableS2SharedTargetsInput{} }
 func (m *EnableS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
 func (*EnableS2SharedTargetsInput) ProtoMessage()               {}
-func (*EnableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{25} }
+func (*EnableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{25} }
 
 func (m *EnableS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -1002,7 +1002,7 @@ type EnableS2SharedTargetsOutput struct {
 func (m *EnableS2SharedTargetsOutput) Reset()                    { *m = EnableS2SharedTargetsOutput{} }
 func (m *EnableS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*EnableS2SharedTargetsOutput) ProtoMessage()               {}
-func (*EnableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{26} }
+func (*EnableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{26} }
 
 func (m *EnableS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1033,7 +1033,7 @@ type DisableS2SharedTargetsInput struct {
 func (m *DisableS2SharedTargetsInput) Reset()                    { *m = DisableS2SharedTargetsInput{} }
 func (m *DisableS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
 func (*DisableS2SharedTargetsInput) ProtoMessage()               {}
-func (*DisableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{27} }
+func (*DisableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{27} }
 
 func (m *DisableS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -1052,7 +1052,7 @@ type DisableS2SharedTargetsOutput struct {
 func (m *DisableS2SharedTargetsOutput) Reset()                    { *m = DisableS2SharedTargetsOutput{} }
 func (m *DisableS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DisableS2SharedTargetsOutput) ProtoMessage()               {}
-func (*DisableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{28} }
+func (*DisableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{28} }
 
 func (m *DisableS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1089,7 +1089,7 @@ func (m *ModifyS2SharedTargetAttributesInput) Reset()         { *m = ModifyS2Sha
 func (m *ModifyS2SharedTargetAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyS2SharedTargetAttributesInput) ProtoMessage()    {}
 func (*ModifyS2SharedTargetAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{29}
+	return fileDescriptor19, []int{29}
 }
 
 func (m *ModifyS2SharedTargetAttributesInput) GetSharedTarget() string {
@@ -1146,7 +1146,7 @@ func (m *ModifyS2SharedTargetAttributesOutput) Reset()         { *m = ModifyS2Sh
 func (m *ModifyS2SharedTargetAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyS2SharedTargetAttributesOutput) ProtoMessage()    {}
 func (*ModifyS2SharedTargetAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{30}
+	return fileDescriptor19, []int{30}
 }
 
 func (m *ModifyS2SharedTargetAttributesOutput) GetAction() string {
@@ -1186,7 +1186,7 @@ type AttachToS2SharedTargetInput struct {
 func (m *AttachToS2SharedTargetInput) Reset()                    { *m = AttachToS2SharedTargetInput{} }
 func (m *AttachToS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
 func (*AttachToS2SharedTargetInput) ProtoMessage()               {}
-func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{31} }
+func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{31} }
 
 func (m *AttachToS2SharedTargetInput) GetSharedTarget() string {
 	if m != nil && m.SharedTarget != nil {
@@ -1212,7 +1212,7 @@ type AttachToS2SharedTargetOutput struct {
 func (m *AttachToS2SharedTargetOutput) Reset()                    { *m = AttachToS2SharedTargetOutput{} }
 func (m *AttachToS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
 func (*AttachToS2SharedTargetOutput) ProtoMessage()               {}
-func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{32} }
+func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{32} }
 
 func (m *AttachToS2SharedTargetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1244,7 +1244,7 @@ type DetachFromS2SharedTargetInput struct {
 func (m *DetachFromS2SharedTargetInput) Reset()                    { *m = DetachFromS2SharedTargetInput{} }
 func (m *DetachFromS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
 func (*DetachFromS2SharedTargetInput) ProtoMessage()               {}
-func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{33} }
+func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{33} }
 
 func (m *DetachFromS2SharedTargetInput) GetSharedTarget() string {
 	if m != nil && m.SharedTarget != nil {
@@ -1271,7 +1271,7 @@ func (m *DetachFromS2SharedTargetOutput) Reset()         { *m = DetachFromS2Shar
 func (m *DetachFromS2SharedTargetOutput) String() string { return proto.CompactTextString(m) }
 func (*DetachFromS2SharedTargetOutput) ProtoMessage()    {}
 func (*DetachFromS2SharedTargetOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{34}
+	return fileDescriptor19, []int{34}
 }
 
 func (m *DetachFromS2SharedTargetOutput) GetAction() string {
@@ -1307,7 +1307,7 @@ func (m *DescribeS2DefaultParametersInput) Reset()         { *m = DescribeS2Defa
 func (m *DescribeS2DefaultParametersInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2DefaultParametersInput) ProtoMessage()    {}
 func (*DescribeS2DefaultParametersInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{35}
+	return fileDescriptor19, []int{35}
 }
 
 func (m *DescribeS2DefaultParametersInput) GetServiceType() string {
@@ -1351,7 +1351,7 @@ func (m *DescribeS2DefaultParametersOutput) Reset()         { *m = DescribeS2Def
 func (m *DescribeS2DefaultParametersOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2DefaultParametersOutput) ProtoMessage()    {}
 func (*DescribeS2DefaultParametersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{36}
+	return fileDescriptor19, []int{36}
 }
 
 func (m *DescribeS2DefaultParametersOutput) GetAction() string {
@@ -1406,7 +1406,7 @@ func (m *DescribeS2DefaultParametersOutput_ResponseItem) String() string {
 }
 func (*DescribeS2DefaultParametersOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeS2DefaultParametersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{36, 0}
+	return fileDescriptor19, []int{36, 0}
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetServiceType() string {
@@ -1455,7 +1455,7 @@ type CreateS2GroupInput struct {
 func (m *CreateS2GroupInput) Reset()                    { *m = CreateS2GroupInput{} }
 func (m *CreateS2GroupInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2GroupInput) ProtoMessage()               {}
-func (*CreateS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{37} }
+func (*CreateS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{37} }
 
 func (m *CreateS2GroupInput) GetGroupType() string {
 	if m != nil && m.GroupType != nil {
@@ -1496,7 +1496,7 @@ type CreateS2GroupOutput struct {
 func (m *CreateS2GroupOutput) Reset()                    { *m = CreateS2GroupOutput{} }
 func (m *CreateS2GroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2GroupOutput) ProtoMessage()               {}
-func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{38} }
+func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{38} }
 
 func (m *CreateS2GroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1540,7 +1540,7 @@ type DescribeS2GroupsInput struct {
 func (m *DescribeS2GroupsInput) Reset()                    { *m = DescribeS2GroupsInput{} }
 func (m *DescribeS2GroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2GroupsInput) ProtoMessage()               {}
-func (*DescribeS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{39} }
+func (*DescribeS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{39} }
 
 func (m *DescribeS2GroupsInput) GetS2Groups() []string {
 	if m != nil {
@@ -1603,7 +1603,7 @@ type DescribeS2GroupsOutput struct {
 func (m *DescribeS2GroupsOutput) Reset()                    { *m = DescribeS2GroupsOutput{} }
 func (m *DescribeS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2GroupsOutput) ProtoMessage()               {}
-func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{40} }
+func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{40} }
 
 func (m *DescribeS2GroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1654,7 +1654,7 @@ func (m *DescribeS2GroupsOutput_ResponseItem) Reset()         { *m = DescribeS2G
 func (m *DescribeS2GroupsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2GroupsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeS2GroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{40, 0}
+	return fileDescriptor19, []int{40, 0}
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) GetGroupId() string {
@@ -1710,7 +1710,7 @@ type ModifyS2GroupInput struct {
 func (m *ModifyS2GroupInput) Reset()                    { *m = ModifyS2GroupInput{} }
 func (m *ModifyS2GroupInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2GroupInput) ProtoMessage()               {}
-func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{41} }
+func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{41} }
 
 func (m *ModifyS2GroupInput) GetS2Group() string {
 	if m != nil && m.S2Group != nil {
@@ -1750,7 +1750,7 @@ type ModifyS2GroupOutput struct {
 func (m *ModifyS2GroupOutput) Reset()                    { *m = ModifyS2GroupOutput{} }
 func (m *ModifyS2GroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2GroupOutput) ProtoMessage()               {}
-func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{42} }
+func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{42} }
 
 func (m *ModifyS2GroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1781,7 +1781,7 @@ type DeleteS2GroupsInput struct {
 func (m *DeleteS2GroupsInput) Reset()                    { *m = DeleteS2GroupsInput{} }
 func (m *DeleteS2GroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2GroupsInput) ProtoMessage()               {}
-func (*DeleteS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{43} }
+func (*DeleteS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{43} }
 
 func (m *DeleteS2GroupsInput) GetS2Groups() []string {
 	if m != nil {
@@ -1800,7 +1800,7 @@ type DeleteS2GroupsOutput struct {
 func (m *DeleteS2GroupsOutput) Reset()                    { *m = DeleteS2GroupsOutput{} }
 func (m *DeleteS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2GroupsOutput) ProtoMessage()               {}
-func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{44} }
+func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{44} }
 
 func (m *DeleteS2GroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1838,7 +1838,7 @@ type CreateS2AccountInput struct {
 func (m *CreateS2AccountInput) Reset()                    { *m = CreateS2AccountInput{} }
 func (m *CreateS2AccountInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2AccountInput) ProtoMessage()               {}
-func (*CreateS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{45} }
+func (*CreateS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{45} }
 
 func (m *CreateS2AccountInput) GetAccountType() string {
 	if m != nil && m.AccountType != nil {
@@ -1906,7 +1906,7 @@ func (m *CreateS2AccountInput_S2GroupItem) Reset()         { *m = CreateS2Accoun
 func (m *CreateS2AccountInput_S2GroupItem) String() string { return proto.CompactTextString(m) }
 func (*CreateS2AccountInput_S2GroupItem) ProtoMessage()    {}
 func (*CreateS2AccountInput_S2GroupItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{45, 0}
+	return fileDescriptor19, []int{45, 0}
 }
 
 func (m *CreateS2AccountInput_S2GroupItem) GetGroupId() string {
@@ -1934,7 +1934,7 @@ type CreateS2AccountOutput struct {
 func (m *CreateS2AccountOutput) Reset()                    { *m = CreateS2AccountOutput{} }
 func (m *CreateS2AccountOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateS2AccountOutput) ProtoMessage()               {}
-func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{46} }
+func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{46} }
 
 func (m *CreateS2AccountOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1978,7 +1978,7 @@ type DescribeS2AccountsInput struct {
 func (m *DescribeS2AccountsInput) Reset()                    { *m = DescribeS2AccountsInput{} }
 func (m *DescribeS2AccountsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2AccountsInput) ProtoMessage()               {}
-func (*DescribeS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{47} }
+func (*DescribeS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{47} }
 
 func (m *DescribeS2AccountsInput) GetS2Accounts() []string {
 	if m != nil {
@@ -2041,7 +2041,7 @@ type DescribeS2AccountsOutput struct {
 func (m *DescribeS2AccountsOutput) Reset()                    { *m = DescribeS2AccountsOutput{} }
 func (m *DescribeS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeS2AccountsOutput) ProtoMessage()               {}
-func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{48} }
+func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{48} }
 
 func (m *DescribeS2AccountsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2093,7 +2093,7 @@ func (m *DescribeS2AccountsOutput_ResponseItem) Reset()         { *m = DescribeS
 func (m *DescribeS2AccountsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2AccountsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeS2AccountsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{48, 0}
+	return fileDescriptor19, []int{48, 0}
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetOptParameters() string {
@@ -2158,7 +2158,7 @@ type ModifyS2AccountInput struct {
 func (m *ModifyS2AccountInput) Reset()                    { *m = ModifyS2AccountInput{} }
 func (m *ModifyS2AccountInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2AccountInput) ProtoMessage()               {}
-func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{49} }
+func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{49} }
 
 func (m *ModifyS2AccountInput) GetS2Account() string {
 	if m != nil && m.S2Account != nil {
@@ -2212,7 +2212,7 @@ type ModifyS2AccountOutput struct {
 func (m *ModifyS2AccountOutput) Reset()                    { *m = ModifyS2AccountOutput{} }
 func (m *ModifyS2AccountOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyS2AccountOutput) ProtoMessage()               {}
-func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{50} }
+func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{50} }
 
 func (m *ModifyS2AccountOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2243,7 +2243,7 @@ type DeleteS2AccountsInput struct {
 func (m *DeleteS2AccountsInput) Reset()                    { *m = DeleteS2AccountsInput{} }
 func (m *DeleteS2AccountsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2AccountsInput) ProtoMessage()               {}
-func (*DeleteS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{51} }
+func (*DeleteS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{51} }
 
 func (m *DeleteS2AccountsInput) GetS2Accounts() []string {
 	if m != nil {
@@ -2262,7 +2262,7 @@ type DeleteS2AccountsOutput struct {
 func (m *DeleteS2AccountsOutput) Reset()                    { *m = DeleteS2AccountsOutput{} }
 func (m *DeleteS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteS2AccountsOutput) ProtoMessage()               {}
-func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{52} }
+func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{52} }
 
 func (m *DeleteS2AccountsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2294,7 +2294,7 @@ type AssociateS2AccountGroupInput struct {
 func (m *AssociateS2AccountGroupInput) Reset()                    { *m = AssociateS2AccountGroupInput{} }
 func (m *AssociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*AssociateS2AccountGroupInput) ProtoMessage()               {}
-func (*AssociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{53} }
+func (*AssociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{53} }
 
 func (m *AssociateS2AccountGroupInput) GetS2Groups() []string {
 	if m != nil {
@@ -2320,7 +2320,7 @@ type AssociateS2AccountGroupOutput struct {
 func (m *AssociateS2AccountGroupOutput) Reset()                    { *m = AssociateS2AccountGroupOutput{} }
 func (m *AssociateS2AccountGroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*AssociateS2AccountGroupOutput) ProtoMessage()               {}
-func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{54} }
+func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{54} }
 
 func (m *AssociateS2AccountGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2350,7 +2350,7 @@ type DissociateS2AccountGroupInput struct {
 func (m *DissociateS2AccountGroupInput) Reset()                    { *m = DissociateS2AccountGroupInput{} }
 func (m *DissociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*DissociateS2AccountGroupInput) ProtoMessage()               {}
-func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{55} }
+func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{55} }
 
 type DissociateS2AccountGroupOutput struct {
 	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -2363,7 +2363,7 @@ func (m *DissociateS2AccountGroupOutput) Reset()         { *m = DissociateS2Acco
 func (m *DissociateS2AccountGroupOutput) String() string { return proto.CompactTextString(m) }
 func (*DissociateS2AccountGroupOutput) ProtoMessage()    {}
 func (*DissociateS2AccountGroupOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{56}
+	return fileDescriptor19, []int{56}
 }
 
 func (m *DissociateS2AccountGroupOutput) GetAction() string {
@@ -2451,9 +2451,9 @@ func init() {
 	proto.RegisterType((*DissociateS2AccountGroupOutput)(nil), "service.DissociateS2AccountGroupOutput")
 }
 
-func init() { proto.RegisterFile("s2.proto", fileDescriptor20) }
+func init() { proto.RegisterFile("s2.proto", fileDescriptor19) }
 
-var fileDescriptor20 = []byte{
+var fileDescriptor19 = []byte{
 	// 2392 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x1a, 0xdf, 0x6f, 0x1b, 0x49,
 	0x59, 0x6b, 0xc7, 0x71, 0xfc, 0x39, 0x49, 0xaf, 0xdb, 0xa4, 0x75, 0x37, 0x71, 0x92, 0x6e, 0x5a,

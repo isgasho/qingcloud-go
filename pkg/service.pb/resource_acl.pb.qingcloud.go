@@ -71,15 +71,6 @@ func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLServ
 	}
 }
 
-// See https://docs.qingcloud.com/api/resource_acl/index.html
-func (s *QingCloudService) ResourceACL(zone string) (*ResourceACLService, error) {
-	properties := &ResourceACLServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &ResourceACLService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *ResourceACLService) DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error) {
 	if in == nil {
 		in = &DescribeSharedResourceGroupsInput{}

@@ -51,15 +51,6 @@ func NewSparkService(conf *config.Config, zone string) (p *SparkService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/spark/index.html
-func (s *QingCloudService) Spark(zone string) (*SparkService, error) {
-	properties := &SparkServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &SparkService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *SparkService) CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error) {
 	if in == nil {
 		in = &CreateSparkInput{}

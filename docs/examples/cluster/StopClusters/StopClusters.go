@@ -22,15 +22,7 @@ func main() {
 	conf.JSONDisableUnknownFields = false
 	conf.LogLevel = "debug" // debug/warn
 
-	qcService, err := pb.Init(conf)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	clusterService, err := qcService.Cluster("pek3a")
-	if err != nil {
-		log.Fatal(err)
-	}
+	clusterService := pb.NewClusterService(conf, "pek3a")
 
 	reply, err := clusterService.StopClusters(&pb.StopClustersInput{
 		Clusters: []string{"cl-hvyhfuwl"},

@@ -45,15 +45,6 @@ func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/userdata/index.html
-func (s *QingCloudService) UserData(zone string) (*UserDataService, error) {
-	properties := &UserDataServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &UserDataService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error) {
 	if in == nil {
 		in = &UploadUserDataAttachmentInput{}

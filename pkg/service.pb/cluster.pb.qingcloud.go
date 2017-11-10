@@ -65,15 +65,6 @@ func NewClusterService(conf *config.Config, zone string) (p *ClusterService) {
 	}
 }
 
-// See https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md
-func (s *QingCloudService) Cluster(zone string) (*ClusterService, error) {
-	properties := &ClusterServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &ClusterService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *ClusterService) CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error) {
 	if in == nil {
 		in = &CreateClusterInput{}

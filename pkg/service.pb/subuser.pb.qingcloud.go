@@ -49,15 +49,6 @@ func NewSubuserService(conf *config.Config, zone string) (p *SubuserService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/subuser/index.html
-func (s *QingCloudService) Subuser(zone string) (*SubuserService, error) {
-	properties := &SubuserServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &SubuserService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error) {
 	if in == nil {
 		in = &DescribeSubUsersInput{}

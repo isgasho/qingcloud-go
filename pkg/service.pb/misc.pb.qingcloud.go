@@ -47,15 +47,6 @@ func NewMiscService(conf *config.Config, zone string) (p *MiscService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/misc/index.html
-func (s *QingCloudService) Misc(zone string) (*MiscService, error) {
-	properties := &MiscServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &MiscService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error) {
 	if in == nil {
 		in = &GrantQuotaIndepInput{}

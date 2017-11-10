@@ -22,7 +22,7 @@ type SpanServiceProperties struct {
 func (m *SpanServiceProperties) Reset()                    { *m = SpanServiceProperties{} }
 func (m *SpanServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SpanServiceProperties) ProtoMessage()               {}
-func (*SpanServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{0} }
+func (*SpanServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{0} }
 
 func (m *SpanServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -43,7 +43,7 @@ type CreateSpanInput struct {
 func (m *CreateSpanInput) Reset()                    { *m = CreateSpanInput{} }
 func (m *CreateSpanInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSpanInput) ProtoMessage()               {}
-func (*CreateSpanInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{1} }
+func (*CreateSpanInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{1} }
 
 func (m *CreateSpanInput) GetSpanName() string {
 	if m != nil && m.SpanName != nil {
@@ -91,7 +91,7 @@ type CreateSpanOutput struct {
 func (m *CreateSpanOutput) Reset()                    { *m = CreateSpanOutput{} }
 func (m *CreateSpanOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSpanOutput) ProtoMessage()               {}
-func (*CreateSpanOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{2} }
+func (*CreateSpanOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{2} }
 
 func (m *CreateSpanOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -134,7 +134,7 @@ type DescribeSpansInput struct {
 func (m *DescribeSpansInput) Reset()                    { *m = DescribeSpansInput{} }
 func (m *DescribeSpansInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSpansInput) ProtoMessage()               {}
-func (*DescribeSpansInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{3} }
+func (*DescribeSpansInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{3} }
 
 func (m *DescribeSpansInput) GetSpans() []string {
 	if m != nil {
@@ -190,7 +190,7 @@ type DescribeSpansOutput struct {
 func (m *DescribeSpansOutput) Reset()                    { *m = DescribeSpansOutput{} }
 func (m *DescribeSpansOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSpansOutput) ProtoMessage()               {}
-func (*DescribeSpansOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{4} }
+func (*DescribeSpansOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{4} }
 
 func (m *DescribeSpansOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -246,7 +246,7 @@ func (m *DescribeSpansOutput_ResponseItem) Reset()         { *m = DescribeSpansO
 func (m *DescribeSpansOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeSpansOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeSpansOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor23, []int{4, 0}
+	return fileDescriptor22, []int{4, 0}
 }
 
 func (m *DescribeSpansOutput_ResponseItem) GetIsApplied() int32 {
@@ -343,7 +343,7 @@ func (m *DescribeSpansOutput_ResponseItem_MemberItem) String() string {
 }
 func (*DescribeSpansOutput_ResponseItem_MemberItem) ProtoMessage() {}
 func (*DescribeSpansOutput_ResponseItem_MemberItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor23, []int{4, 0, 0}
+	return fileDescriptor22, []int{4, 0, 0}
 }
 
 func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetSpanId() string {
@@ -389,7 +389,7 @@ type DeleteSpansInput struct {
 func (m *DeleteSpansInput) Reset()                    { *m = DeleteSpansInput{} }
 func (m *DeleteSpansInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSpansInput) ProtoMessage()               {}
-func (*DeleteSpansInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{5} }
+func (*DeleteSpansInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{5} }
 
 func (m *DeleteSpansInput) GetSpans() []string {
 	if m != nil {
@@ -408,7 +408,7 @@ type DeleteSpansOutput struct {
 func (m *DeleteSpansOutput) Reset()                    { *m = DeleteSpansOutput{} }
 func (m *DeleteSpansOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSpansOutput) ProtoMessage()               {}
-func (*DeleteSpansOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{6} }
+func (*DeleteSpansOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{6} }
 
 func (m *DeleteSpansOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -440,7 +440,7 @@ type AddSpanMembersInput struct {
 func (m *AddSpanMembersInput) Reset()                    { *m = AddSpanMembersInput{} }
 func (m *AddSpanMembersInput) String() string            { return proto.CompactTextString(m) }
 func (*AddSpanMembersInput) ProtoMessage()               {}
-func (*AddSpanMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{7} }
+func (*AddSpanMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{7} }
 
 func (m *AddSpanMembersInput) GetSpan() string {
 	if m != nil && m.Span != nil {
@@ -467,7 +467,7 @@ type AddSpanMembersOutput struct {
 func (m *AddSpanMembersOutput) Reset()                    { *m = AddSpanMembersOutput{} }
 func (m *AddSpanMembersOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddSpanMembersOutput) ProtoMessage()               {}
-func (*AddSpanMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{8} }
+func (*AddSpanMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{8} }
 
 func (m *AddSpanMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -506,7 +506,7 @@ type RemoveSpanMembersInput struct {
 func (m *RemoveSpanMembersInput) Reset()                    { *m = RemoveSpanMembersInput{} }
 func (m *RemoveSpanMembersInput) String() string            { return proto.CompactTextString(m) }
 func (*RemoveSpanMembersInput) ProtoMessage()               {}
-func (*RemoveSpanMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{9} }
+func (*RemoveSpanMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{9} }
 
 func (m *RemoveSpanMembersInput) GetSpan() string {
 	if m != nil && m.Span != nil {
@@ -533,7 +533,7 @@ type RemoveSpanMembersOutput struct {
 func (m *RemoveSpanMembersOutput) Reset()                    { *m = RemoveSpanMembersOutput{} }
 func (m *RemoveSpanMembersOutput) String() string            { return proto.CompactTextString(m) }
 func (*RemoveSpanMembersOutput) ProtoMessage()               {}
-func (*RemoveSpanMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{10} }
+func (*RemoveSpanMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{10} }
 
 func (m *RemoveSpanMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -576,7 +576,7 @@ type ModifySpanAttributesInput struct {
 func (m *ModifySpanAttributesInput) Reset()                    { *m = ModifySpanAttributesInput{} }
 func (m *ModifySpanAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifySpanAttributesInput) ProtoMessage()               {}
-func (*ModifySpanAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{11} }
+func (*ModifySpanAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{11} }
 
 func (m *ModifySpanAttributesInput) GetSpanId() string {
 	if m != nil && m.SpanId != nil {
@@ -630,7 +630,7 @@ type ModifySpanAttributesOutput struct {
 func (m *ModifySpanAttributesOutput) Reset()                    { *m = ModifySpanAttributesOutput{} }
 func (m *ModifySpanAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifySpanAttributesOutput) ProtoMessage()               {}
-func (*ModifySpanAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{12} }
+func (*ModifySpanAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{12} }
 
 func (m *ModifySpanAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -661,7 +661,7 @@ type UpdateSpanInput struct {
 func (m *UpdateSpanInput) Reset()                    { *m = UpdateSpanInput{} }
 func (m *UpdateSpanInput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateSpanInput) ProtoMessage()               {}
-func (*UpdateSpanInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{13} }
+func (*UpdateSpanInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{13} }
 
 func (m *UpdateSpanInput) GetSpan() string {
 	if m != nil && m.Span != nil {
@@ -681,7 +681,7 @@ type UpdateSpanOutput struct {
 func (m *UpdateSpanOutput) Reset()                    { *m = UpdateSpanOutput{} }
 func (m *UpdateSpanOutput) String() string            { return proto.CompactTextString(m) }
 func (*UpdateSpanOutput) ProtoMessage()               {}
-func (*UpdateSpanOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{14} }
+func (*UpdateSpanOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{14} }
 
 func (m *UpdateSpanOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -731,9 +731,9 @@ func init() {
 	proto.RegisterType((*UpdateSpanOutput)(nil), "service.UpdateSpanOutput")
 }
 
-func init() { proto.RegisterFile("span.proto", fileDescriptor23) }
+func init() { proto.RegisterFile("span.proto", fileDescriptor22) }
 
-var fileDescriptor23 = []byte{
+var fileDescriptor22 = []byte{
 	// 941 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0x5d, 0x6e, 0xdb, 0x46,
 	0x10, 0x06, 0x6d, 0xfd, 0x58, 0xa3, 0x36, 0x71, 0x36, 0x4e, 0x42, 0x33, 0x31, 0x2c, 0xb0, 0x28,

@@ -21,7 +21,7 @@ type SecurityGroupServiceProperties struct {
 func (m *SecurityGroupServiceProperties) Reset()                    { *m = SecurityGroupServiceProperties{} }
 func (m *SecurityGroupServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*SecurityGroupServiceProperties) ProtoMessage()               {}
-func (*SecurityGroupServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{0} }
+func (*SecurityGroupServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
 
 func (m *SecurityGroupServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -43,7 +43,7 @@ type DescribeSecurityGroupsInput struct {
 func (m *DescribeSecurityGroupsInput) Reset()                    { *m = DescribeSecurityGroupsInput{} }
 func (m *DescribeSecurityGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupsInput) ProtoMessage()               {}
-func (*DescribeSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{1} }
+func (*DescribeSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{1} }
 
 func (m *DescribeSecurityGroupsInput) GetSecurityGroups() []string {
 	if m != nil {
@@ -99,7 +99,7 @@ type DescribeSecurityGroupsOutput struct {
 func (m *DescribeSecurityGroupsOutput) Reset()                    { *m = DescribeSecurityGroupsOutput{} }
 func (m *DescribeSecurityGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupsOutput) ProtoMessage()               {}
-func (*DescribeSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{2} }
+func (*DescribeSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{2} }
 
 func (m *DescribeSecurityGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -144,7 +144,7 @@ type CreateSecurityGroupInput struct {
 func (m *CreateSecurityGroupInput) Reset()                    { *m = CreateSecurityGroupInput{} }
 func (m *CreateSecurityGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupInput) ProtoMessage()               {}
-func (*CreateSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{3} }
+func (*CreateSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{3} }
 
 func (m *CreateSecurityGroupInput) GetSecurityGroupName() string {
 	if m != nil && m.SecurityGroupName != nil {
@@ -164,7 +164,7 @@ type CreateSecurityGroupOutput struct {
 func (m *CreateSecurityGroupOutput) Reset()                    { *m = CreateSecurityGroupOutput{} }
 func (m *CreateSecurityGroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupOutput) ProtoMessage()               {}
-func (*CreateSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{4} }
+func (*CreateSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{4} }
 
 func (m *CreateSecurityGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -202,7 +202,7 @@ type DeleteSecurityGroupsInput struct {
 func (m *DeleteSecurityGroupsInput) Reset()                    { *m = DeleteSecurityGroupsInput{} }
 func (m *DeleteSecurityGroupsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupsInput) ProtoMessage()               {}
-func (*DeleteSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{5} }
+func (*DeleteSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{5} }
 
 func (m *DeleteSecurityGroupsInput) GetSecurityGroups() []string {
 	if m != nil {
@@ -222,7 +222,7 @@ type DeleteSecurityGroupsOutput struct {
 func (m *DeleteSecurityGroupsOutput) Reset()                    { *m = DeleteSecurityGroupsOutput{} }
 func (m *DeleteSecurityGroupsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupsOutput) ProtoMessage()               {}
-func (*DeleteSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{6} }
+func (*DeleteSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{6} }
 
 func (m *DeleteSecurityGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -261,7 +261,7 @@ type ApplySecurityGroupInput struct {
 func (m *ApplySecurityGroupInput) Reset()                    { *m = ApplySecurityGroupInput{} }
 func (m *ApplySecurityGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*ApplySecurityGroupInput) ProtoMessage()               {}
-func (*ApplySecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{7} }
+func (*ApplySecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{7} }
 
 func (m *ApplySecurityGroupInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -288,7 +288,7 @@ type ApplySecurityGroupOutpu struct {
 func (m *ApplySecurityGroupOutpu) Reset()                    { *m = ApplySecurityGroupOutpu{} }
 func (m *ApplySecurityGroupOutpu) String() string            { return proto.CompactTextString(m) }
 func (*ApplySecurityGroupOutpu) ProtoMessage()               {}
-func (*ApplySecurityGroupOutpu) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{8} }
+func (*ApplySecurityGroupOutpu) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{8} }
 
 func (m *ApplySecurityGroupOutpu) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -329,7 +329,7 @@ func (m *ModifySecurityGroupAttributesInput) Reset()         { *m = ModifySecuri
 func (m *ModifySecurityGroupAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupAttributesInput) ProtoMessage()    {}
 func (*ModifySecurityGroupAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{9}
+	return fileDescriptor20, []int{9}
 }
 
 func (m *ModifySecurityGroupAttributesInput) GetSecurityGroup() string {
@@ -365,7 +365,7 @@ func (m *ModifySecurityGroupAttributesOutput) Reset()         { *m = ModifySecur
 func (m *ModifySecurityGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupAttributesOutput) ProtoMessage()    {}
 func (*ModifySecurityGroupAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{10}
+	return fileDescriptor20, []int{10}
 }
 
 func (m *ModifySecurityGroupAttributesOutput) GetAction() string {
@@ -409,7 +409,7 @@ func (m *DescribeSecurityGroupRulesInput) Reset()         { *m = DescribeSecurit
 func (m *DescribeSecurityGroupRulesInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupRulesInput) ProtoMessage()    {}
 func (*DescribeSecurityGroupRulesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{11}
+	return fileDescriptor20, []int{11}
 }
 
 func (m *DescribeSecurityGroupRulesInput) GetSecurityGroup() string {
@@ -460,7 +460,7 @@ func (m *DescribeSecurityGroupRulesOutput) Reset()         { *m = DescribeSecuri
 func (m *DescribeSecurityGroupRulesOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupRulesOutput) ProtoMessage()    {}
 func (*DescribeSecurityGroupRulesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{12}
+	return fileDescriptor20, []int{12}
 }
 
 func (m *DescribeSecurityGroupRulesOutput) GetAction() string {
@@ -507,7 +507,7 @@ type AddSecurityGroupRulesInput struct {
 func (m *AddSecurityGroupRulesInput) Reset()                    { *m = AddSecurityGroupRulesInput{} }
 func (m *AddSecurityGroupRulesInput) String() string            { return proto.CompactTextString(m) }
 func (*AddSecurityGroupRulesInput) ProtoMessage()               {}
-func (*AddSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{13} }
+func (*AddSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{13} }
 
 func (m *AddSecurityGroupRulesInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -534,7 +534,7 @@ type AddSecurityGroupRulesOutput struct {
 func (m *AddSecurityGroupRulesOutput) Reset()                    { *m = AddSecurityGroupRulesOutput{} }
 func (m *AddSecurityGroupRulesOutput) String() string            { return proto.CompactTextString(m) }
 func (*AddSecurityGroupRulesOutput) ProtoMessage()               {}
-func (*AddSecurityGroupRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{14} }
+func (*AddSecurityGroupRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{14} }
 
 func (m *AddSecurityGroupRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -572,7 +572,7 @@ type DeleteSecurityGroupRulesInput struct {
 func (m *DeleteSecurityGroupRulesInput) Reset()                    { *m = DeleteSecurityGroupRulesInput{} }
 func (m *DeleteSecurityGroupRulesInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupRulesInput) ProtoMessage()               {}
-func (*DeleteSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{15} }
+func (*DeleteSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{15} }
 
 func (m *DeleteSecurityGroupRulesInput) GetSecurityGroupRules() []string {
 	if m != nil {
@@ -593,7 +593,7 @@ func (m *DeleteSecurityGroupRulesOutput) Reset()         { *m = DeleteSecurityGr
 func (m *DeleteSecurityGroupRulesOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupRulesOutput) ProtoMessage()    {}
 func (*DeleteSecurityGroupRulesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{16}
+	return fileDescriptor20, []int{16}
 }
 
 func (m *DeleteSecurityGroupRulesOutput) GetAction() string {
@@ -643,7 +643,7 @@ func (m *ModifySecurityGroupRuleAttributesInput) Reset() {
 func (m *ModifySecurityGroupRuleAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupRuleAttributesInput) ProtoMessage()    {}
 func (*ModifySecurityGroupRuleAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{17}
+	return fileDescriptor20, []int{17}
 }
 
 func (m *ModifySecurityGroupRuleAttributesInput) GetSecurityGroupRule() string {
@@ -723,7 +723,7 @@ func (m *ModifySecurityGroupRuleAttributesOutput) Reset() {
 func (m *ModifySecurityGroupRuleAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupRuleAttributesOutput) ProtoMessage()    {}
 func (*ModifySecurityGroupRuleAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{18}
+	return fileDescriptor20, []int{18}
 }
 
 func (m *ModifySecurityGroupRuleAttributesOutput) GetAction() string {
@@ -764,7 +764,7 @@ func (m *CreateSecurityGroupSnapshotInput) Reset()         { *m = CreateSecurity
 func (m *CreateSecurityGroupSnapshotInput) String() string { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupSnapshotInput) ProtoMessage()    {}
 func (*CreateSecurityGroupSnapshotInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{19}
+	return fileDescriptor20, []int{19}
 }
 
 func (m *CreateSecurityGroupSnapshotInput) GetSecurityGroup() string {
@@ -794,7 +794,7 @@ func (m *CreateSecurityGroupSnapshotOutput) Reset()         { *m = CreateSecurit
 func (m *CreateSecurityGroupSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupSnapshotOutput) ProtoMessage()    {}
 func (*CreateSecurityGroupSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{20}
+	return fileDescriptor20, []int{20}
 }
 
 func (m *CreateSecurityGroupSnapshotOutput) GetAction() string {
@@ -844,7 +844,7 @@ func (m *DescribeSecurityGroupSnapshotsInput) Reset()         { *m = DescribeSec
 func (m *DescribeSecurityGroupSnapshotsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupSnapshotsInput) ProtoMessage()    {}
 func (*DescribeSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{21}
+	return fileDescriptor20, []int{21}
 }
 
 func (m *DescribeSecurityGroupSnapshotsInput) GetSecurityGroup() string {
@@ -888,7 +888,7 @@ func (m *DescribeSecurityGroupSnapshotsOutput) Reset()         { *m = DescribeSe
 func (m *DescribeSecurityGroupSnapshotsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupSnapshotsOutput) ProtoMessage()    {}
 func (*DescribeSecurityGroupSnapshotsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{22}
+	return fileDescriptor20, []int{22}
 }
 
 func (m *DescribeSecurityGroupSnapshotsOutput) GetAction() string {
@@ -941,7 +941,7 @@ func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) String() string {
 }
 func (*DescribeSecurityGroupSnapshotsOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeSecurityGroupSnapshotsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{22, 0}
+	return fileDescriptor20, []int{22, 0}
 }
 
 func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) GetGroupId() string {
@@ -974,7 +974,7 @@ func (m *DeleteSecurityGroupSnapshotsInput) Reset()         { *m = DeleteSecurit
 func (m *DeleteSecurityGroupSnapshotsInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupSnapshotsInput) ProtoMessage()    {}
 func (*DeleteSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{23}
+	return fileDescriptor20, []int{23}
 }
 
 func (m *DeleteSecurityGroupSnapshotsInput) GetSecurityGroupSnapshots() []string {
@@ -996,7 +996,7 @@ func (m *DeleteSecurityGroupSnapshotsOutput) Reset()         { *m = DeleteSecuri
 func (m *DeleteSecurityGroupSnapshotsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupSnapshotsOutput) ProtoMessage()    {}
 func (*DeleteSecurityGroupSnapshotsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{24}
+	return fileDescriptor20, []int{24}
 }
 
 func (m *DeleteSecurityGroupSnapshotsOutput) GetAction() string {
@@ -1036,7 +1036,7 @@ type RollbackSecurityGroupInput struct {
 func (m *RollbackSecurityGroupInput) Reset()                    { *m = RollbackSecurityGroupInput{} }
 func (m *RollbackSecurityGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*RollbackSecurityGroupInput) ProtoMessage()               {}
-func (*RollbackSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{25} }
+func (*RollbackSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{25} }
 
 func (m *RollbackSecurityGroupInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -1064,7 +1064,7 @@ type RollbackSecurityGroupOutput struct {
 func (m *RollbackSecurityGroupOutput) Reset()                    { *m = RollbackSecurityGroupOutput{} }
 func (m *RollbackSecurityGroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*RollbackSecurityGroupOutput) ProtoMessage()               {}
-func (*RollbackSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{26} }
+func (*RollbackSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{26} }
 
 func (m *RollbackSecurityGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1116,7 +1116,7 @@ func (m *DescribeSecurityGroupIPSetsInput) Reset()         { *m = DescribeSecuri
 func (m *DescribeSecurityGroupIPSetsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupIPSetsInput) ProtoMessage()    {}
 func (*DescribeSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{27}
+	return fileDescriptor20, []int{27}
 }
 
 func (m *DescribeSecurityGroupIPSetsInput) GetSecurityGroupIpsets() []string {
@@ -1181,7 +1181,7 @@ func (m *DescribeSecurityGroupIPSetsOutput) Reset()         { *m = DescribeSecur
 func (m *DescribeSecurityGroupIPSetsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupIPSetsOutput) ProtoMessage()    {}
 func (*DescribeSecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{28}
+	return fileDescriptor20, []int{28}
 }
 
 func (m *DescribeSecurityGroupIPSetsOutput) GetAction() string {
@@ -1229,7 +1229,7 @@ type CreateSecurityGroupIPSetInput struct {
 func (m *CreateSecurityGroupIPSetInput) Reset()                    { *m = CreateSecurityGroupIPSetInput{} }
 func (m *CreateSecurityGroupIPSetInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupIPSetInput) ProtoMessage()               {}
-func (*CreateSecurityGroupIPSetInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{29} }
+func (*CreateSecurityGroupIPSetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{29} }
 
 func (m *CreateSecurityGroupIPSetInput) GetSecurityGroupIpsetName() string {
 	if m != nil && m.SecurityGroupIpsetName != nil {
@@ -1264,7 +1264,7 @@ func (m *CreateSecurityGroupIPSetOutput) Reset()         { *m = CreateSecurityGr
 func (m *CreateSecurityGroupIPSetOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupIPSetOutput) ProtoMessage()    {}
 func (*CreateSecurityGroupIPSetOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{30}
+	return fileDescriptor20, []int{30}
 }
 
 func (m *CreateSecurityGroupIPSetOutput) GetAction() string {
@@ -1304,7 +1304,7 @@ func (m *DeleteSecurityGroupIPSetsInput) Reset()         { *m = DeleteSecurityGr
 func (m *DeleteSecurityGroupIPSetsInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupIPSetsInput) ProtoMessage()    {}
 func (*DeleteSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{31}
+	return fileDescriptor20, []int{31}
 }
 
 func (m *DeleteSecurityGroupIPSetsInput) GetSecurityGroupIpsets() []string {
@@ -1326,7 +1326,7 @@ func (m *DeleteSecurityGroupIPSetsOutput) Reset()         { *m = DeleteSecurityG
 func (m *DeleteSecurityGroupIPSetsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupIPSetsOutput) ProtoMessage()    {}
 func (*DeleteSecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{32}
+	return fileDescriptor20, []int{32}
 }
 
 func (m *DeleteSecurityGroupIPSetsOutput) GetAction() string {
@@ -1371,7 +1371,7 @@ func (m *ModifySecurityGroupIPSetAttributesInput) Reset() {
 func (m *ModifySecurityGroupIPSetAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupIPSetAttributesInput) ProtoMessage()    {}
 func (*ModifySecurityGroupIPSetAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{33}
+	return fileDescriptor20, []int{33}
 }
 
 func (m *ModifySecurityGroupIPSetAttributesInput) GetSecurityGroupIpset() string {
@@ -1416,7 +1416,7 @@ func (m *ModifySecurityGroupIPSetAttributesOutput) Reset() {
 func (m *ModifySecurityGroupIPSetAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupIPSetAttributesOutput) ProtoMessage()    {}
 func (*ModifySecurityGroupIPSetAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{34}
+	return fileDescriptor20, []int{34}
 }
 
 func (m *ModifySecurityGroupIPSetAttributesOutput) GetAction() string {
@@ -1456,7 +1456,7 @@ type CopySecurityGroupIPSetsInput struct {
 func (m *CopySecurityGroupIPSetsInput) Reset()                    { *m = CopySecurityGroupIPSetsInput{} }
 func (m *CopySecurityGroupIPSetsInput) String() string            { return proto.CompactTextString(m) }
 func (*CopySecurityGroupIPSetsInput) ProtoMessage()               {}
-func (*CopySecurityGroupIPSetsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{35} }
+func (*CopySecurityGroupIPSetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{35} }
 
 func (m *CopySecurityGroupIPSetsInput) GetIpsets() []string {
 	if m != nil {
@@ -1482,7 +1482,7 @@ type CopySecurityGroupIPSetsOutput struct {
 func (m *CopySecurityGroupIPSetsOutput) Reset()                    { *m = CopySecurityGroupIPSetsOutput{} }
 func (m *CopySecurityGroupIPSetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*CopySecurityGroupIPSetsOutput) ProtoMessage()               {}
-func (*CopySecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{36} }
+func (*CopySecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{36} }
 
 func (m *CopySecurityGroupIPSetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1546,9 +1546,9 @@ func init() {
 	proto.RegisterType((*CopySecurityGroupIPSetsOutput)(nil), "service.CopySecurityGroupIPSetsOutput")
 }
 
-func init() { proto.RegisterFile("security_group.proto", fileDescriptor21) }
+func init() { proto.RegisterFile("security_group.proto", fileDescriptor20) }
 
-var fileDescriptor21 = []byte{
+var fileDescriptor20 = []byte{
 	// 1664 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x59, 0xcb, 0x6f, 0x1c, 0x45,
 	0x13, 0xd7, 0x78, 0x77, 0xfd, 0x28, 0x7f, 0x5f, 0x1e, 0x1d, 0x7b, 0x3d, 0x1e, 0xdb, 0xc9, 0x7a,

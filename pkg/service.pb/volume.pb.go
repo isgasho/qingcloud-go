@@ -21,7 +21,7 @@ type VolumesServiceProperties struct {
 func (m *VolumesServiceProperties) Reset()                    { *m = VolumesServiceProperties{} }
 func (m *VolumesServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*VolumesServiceProperties) ProtoMessage()               {}
-func (*VolumesServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
+func (*VolumesServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{0} }
 
 func (m *VolumesServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -45,7 +45,7 @@ type DescribeVolumesInput struct {
 func (m *DescribeVolumesInput) Reset()                    { *m = DescribeVolumesInput{} }
 func (m *DescribeVolumesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeVolumesInput) ProtoMessage()               {}
-func (*DescribeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{1} }
+func (*DescribeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{1} }
 
 func (m *DescribeVolumesInput) GetLimit() int32 {
 	if m != nil && m.Limit != nil {
@@ -115,7 +115,7 @@ type DescribeVolumesOutput struct {
 func (m *DescribeVolumesOutput) Reset()                    { *m = DescribeVolumesOutput{} }
 func (m *DescribeVolumesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeVolumesOutput) ProtoMessage()               {}
-func (*DescribeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{2} }
+func (*DescribeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{2} }
 
 func (m *DescribeVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -163,7 +163,7 @@ type CreateVolumesInput struct {
 func (m *CreateVolumesInput) Reset()                    { *m = CreateVolumesInput{} }
 func (m *CreateVolumesInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateVolumesInput) ProtoMessage()               {}
-func (*CreateVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{3} }
+func (*CreateVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{3} }
 
 func (m *CreateVolumesInput) GetCount() int32 {
 	if m != nil && m.Count != nil {
@@ -205,7 +205,7 @@ type CreateVolumesOutput struct {
 func (m *CreateVolumesOutput) Reset()                    { *m = CreateVolumesOutput{} }
 func (m *CreateVolumesOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateVolumesOutput) ProtoMessage()               {}
-func (*CreateVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{4} }
+func (*CreateVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{4} }
 
 func (m *CreateVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -250,7 +250,7 @@ type DeleteVolumesInput struct {
 func (m *DeleteVolumesInput) Reset()                    { *m = DeleteVolumesInput{} }
 func (m *DeleteVolumesInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteVolumesInput) ProtoMessage()               {}
-func (*DeleteVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{5} }
+func (*DeleteVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{5} }
 
 func (m *DeleteVolumesInput) GetVolumes() []string {
 	if m != nil {
@@ -270,7 +270,7 @@ type DeleteVolumesOutput struct {
 func (m *DeleteVolumesOutput) Reset()                    { *m = DeleteVolumesOutput{} }
 func (m *DeleteVolumesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteVolumesOutput) ProtoMessage()               {}
-func (*DeleteVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{6} }
+func (*DeleteVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{6} }
 
 func (m *DeleteVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -309,7 +309,7 @@ type AttachVolumesInput struct {
 func (m *AttachVolumesInput) Reset()                    { *m = AttachVolumesInput{} }
 func (m *AttachVolumesInput) String() string            { return proto.CompactTextString(m) }
 func (*AttachVolumesInput) ProtoMessage()               {}
-func (*AttachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{7} }
+func (*AttachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{7} }
 
 func (m *AttachVolumesInput) GetInstance() string {
 	if m != nil && m.Instance != nil {
@@ -336,7 +336,7 @@ type AttachVolumesOutput struct {
 func (m *AttachVolumesOutput) Reset()                    { *m = AttachVolumesOutput{} }
 func (m *AttachVolumesOutput) String() string            { return proto.CompactTextString(m) }
 func (*AttachVolumesOutput) ProtoMessage()               {}
-func (*AttachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{8} }
+func (*AttachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{8} }
 
 func (m *AttachVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -375,7 +375,7 @@ type DetachVolumesInput struct {
 func (m *DetachVolumesInput) Reset()                    { *m = DetachVolumesInput{} }
 func (m *DetachVolumesInput) String() string            { return proto.CompactTextString(m) }
 func (*DetachVolumesInput) ProtoMessage()               {}
-func (*DetachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{9} }
+func (*DetachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{9} }
 
 func (m *DetachVolumesInput) GetInstance() string {
 	if m != nil && m.Instance != nil {
@@ -402,7 +402,7 @@ type DetachVolumesOutput struct {
 func (m *DetachVolumesOutput) Reset()                    { *m = DetachVolumesOutput{} }
 func (m *DetachVolumesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DetachVolumesOutput) ProtoMessage()               {}
-func (*DetachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{10} }
+func (*DetachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{10} }
 
 func (m *DetachVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -441,7 +441,7 @@ type ResizeVolumesInput struct {
 func (m *ResizeVolumesInput) Reset()                    { *m = ResizeVolumesInput{} }
 func (m *ResizeVolumesInput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeVolumesInput) ProtoMessage()               {}
-func (*ResizeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{11} }
+func (*ResizeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{11} }
 
 func (m *ResizeVolumesInput) GetSize() int32 {
 	if m != nil && m.Size != nil {
@@ -468,7 +468,7 @@ type ResizeVolumesOutput struct {
 func (m *ResizeVolumesOutput) Reset()                    { *m = ResizeVolumesOutput{} }
 func (m *ResizeVolumesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeVolumesOutput) ProtoMessage()               {}
-func (*ResizeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{12} }
+func (*ResizeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{12} }
 
 func (m *ResizeVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -508,7 +508,7 @@ type ModifyVolumeAttributesInput struct {
 func (m *ModifyVolumeAttributesInput) Reset()                    { *m = ModifyVolumeAttributesInput{} }
 func (m *ModifyVolumeAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyVolumeAttributesInput) ProtoMessage()               {}
-func (*ModifyVolumeAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{13} }
+func (*ModifyVolumeAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{13} }
 
 func (m *ModifyVolumeAttributesInput) GetDescription() string {
 	if m != nil && m.Description != nil {
@@ -541,7 +541,7 @@ type ModifyVolumeAttributesOutput struct {
 func (m *ModifyVolumeAttributesOutput) Reset()                    { *m = ModifyVolumeAttributesOutput{} }
 func (m *ModifyVolumeAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyVolumeAttributesOutput) ProtoMessage()               {}
-func (*ModifyVolumeAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{14} }
+func (*ModifyVolumeAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{14} }
 
 func (m *ModifyVolumeAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -582,9 +582,9 @@ func init() {
 	proto.RegisterType((*ModifyVolumeAttributesOutput)(nil), "service.ModifyVolumeAttributesOutput")
 }
 
-func init() { proto.RegisterFile("volume.proto", fileDescriptor29) }
+func init() { proto.RegisterFile("volume.proto", fileDescriptor28) }
 
-var fileDescriptor29 = []byte{
+var fileDescriptor28 = []byte{
 	// 723 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0x4d, 0x6f, 0xd3, 0x4c,
 	0x10, 0x96, 0xdb, 0x7c, 0x34, 0x93, 0xb7, 0x6f, 0xf5, 0x6e, 0x3f, 0xe4, 0x37, 0x6d, 0x21, 0x8a,

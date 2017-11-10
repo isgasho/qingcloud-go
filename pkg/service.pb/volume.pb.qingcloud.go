@@ -51,15 +51,6 @@ func NewVolumesService(conf *config.Config, zone string) (p *VolumesService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/volume/index.html
-func (s *QingCloudService) Volumes(zone string) (*VolumesService, error) {
-	properties := &VolumesServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &VolumesService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *VolumesService) DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error) {
 	if in == nil {
 		in = &DescribeVolumesInput{}

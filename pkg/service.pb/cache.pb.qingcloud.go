@@ -68,15 +68,6 @@ func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/cache/index.html
-func (s *QingCloudService) Cache(zone string) (*CacheService, error) {
-	properties := &CacheServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &CacheService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *CacheService) DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error) {
 	if in == nil {
 		in = &DescribeCachesInput{}

@@ -50,15 +50,6 @@ func NewMonitorService(conf *config.Config, zone string) (p *MonitorService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/monitor/index.html
-func (s *QingCloudService) Monitor(zone string) (*MonitorService, error) {
-	properties := &MonitorServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &MonitorService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *MonitorService) GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error) {
 	if in == nil {
 		in = &GetMonitorInput{}

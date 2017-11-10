@@ -22,15 +22,7 @@ func main() {
 	conf.JSONDisableUnknownFields = false
 	conf.LogLevel = "debug" // debug/warn
 
-	qcService, err := pb.Init(conf)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	mgoService, err := qcService.Mongo("pek3a")
-	if err != nil {
-		log.Fatal(err)
-	}
+	mgoService := pb.NewMongoService(conf, "pek3a")
 
 	reply, err := mgoService.DescribeMongos(nil)
 	if err != nil {

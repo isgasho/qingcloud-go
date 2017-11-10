@@ -22,7 +22,7 @@ type VxnetServiceProperties struct {
 func (m *VxnetServiceProperties) Reset()                    { *m = VxnetServiceProperties{} }
 func (m *VxnetServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*VxnetServiceProperties) ProtoMessage()               {}
-func (*VxnetServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{0} }
+func (*VxnetServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
 
 func (m *VxnetServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -45,7 +45,7 @@ type DescribeVxnetsInput struct {
 func (m *DescribeVxnetsInput) Reset()                    { *m = DescribeVxnetsInput{} }
 func (m *DescribeVxnetsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeVxnetsInput) ProtoMessage()               {}
-func (*DescribeVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{1} }
+func (*DescribeVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{1} }
 
 func (m *DescribeVxnetsInput) GetVxnets() []string {
 	if m != nil {
@@ -108,7 +108,7 @@ type DescribeVxnetsOutput struct {
 func (m *DescribeVxnetsOutput) Reset()                    { *m = DescribeVxnetsOutput{} }
 func (m *DescribeVxnetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeVxnetsOutput) ProtoMessage()               {}
-func (*DescribeVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{2} }
+func (*DescribeVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{2} }
 
 func (m *DescribeVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -160,7 +160,7 @@ func (m *DescribeVxnetsOutput_ResponseItem) Reset()         { *m = DescribeVxnet
 func (m *DescribeVxnetsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeVxnetsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeVxnetsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor30, []int{2, 0}
+	return fileDescriptor29, []int{2, 0}
 }
 
 func (m *DescribeVxnetsOutput_ResponseItem) GetVxnetType() int32 {
@@ -223,7 +223,7 @@ type CreateVxnetsInput struct {
 func (m *CreateVxnetsInput) Reset()                    { *m = CreateVxnetsInput{} }
 func (m *CreateVxnetsInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateVxnetsInput) ProtoMessage()               {}
-func (*CreateVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{3} }
+func (*CreateVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{3} }
 
 func (m *CreateVxnetsInput) GetVxnetName() string {
 	if m != nil && m.VxnetName != nil {
@@ -264,7 +264,7 @@ type CreateVxnetsOutput struct {
 func (m *CreateVxnetsOutput) Reset()                    { *m = CreateVxnetsOutput{} }
 func (m *CreateVxnetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateVxnetsOutput) ProtoMessage()               {}
-func (*CreateVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{4} }
+func (*CreateVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{4} }
 
 func (m *CreateVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -302,7 +302,7 @@ type DeleteVxnetsInput struct {
 func (m *DeleteVxnetsInput) Reset()                    { *m = DeleteVxnetsInput{} }
 func (m *DeleteVxnetsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteVxnetsInput) ProtoMessage()               {}
-func (*DeleteVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{5} }
+func (*DeleteVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{5} }
 
 func (m *DeleteVxnetsInput) GetVxnets() []string {
 	if m != nil {
@@ -322,7 +322,7 @@ type DeleteVxnetsOutput struct {
 func (m *DeleteVxnetsOutput) Reset()                    { *m = DeleteVxnetsOutput{} }
 func (m *DeleteVxnetsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteVxnetsOutput) ProtoMessage()               {}
-func (*DeleteVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{6} }
+func (*DeleteVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{6} }
 
 func (m *DeleteVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -361,7 +361,7 @@ type JoinVxnetInput struct {
 func (m *JoinVxnetInput) Reset()                    { *m = JoinVxnetInput{} }
 func (m *JoinVxnetInput) String() string            { return proto.CompactTextString(m) }
 func (*JoinVxnetInput) ProtoMessage()               {}
-func (*JoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{7} }
+func (*JoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{7} }
 
 func (m *JoinVxnetInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -388,7 +388,7 @@ type JoinVxnetOutput struct {
 func (m *JoinVxnetOutput) Reset()                    { *m = JoinVxnetOutput{} }
 func (m *JoinVxnetOutput) String() string            { return proto.CompactTextString(m) }
 func (*JoinVxnetOutput) ProtoMessage()               {}
-func (*JoinVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{8} }
+func (*JoinVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{8} }
 
 func (m *JoinVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -427,7 +427,7 @@ type LeaveVxnetInput struct {
 func (m *LeaveVxnetInput) Reset()                    { *m = LeaveVxnetInput{} }
 func (m *LeaveVxnetInput) String() string            { return proto.CompactTextString(m) }
 func (*LeaveVxnetInput) ProtoMessage()               {}
-func (*LeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{9} }
+func (*LeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{9} }
 
 func (m *LeaveVxnetInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -454,7 +454,7 @@ type LeaveVxnetOutput struct {
 func (m *LeaveVxnetOutput) Reset()                    { *m = LeaveVxnetOutput{} }
 func (m *LeaveVxnetOutput) String() string            { return proto.CompactTextString(m) }
 func (*LeaveVxnetOutput) ProtoMessage()               {}
-func (*LeaveVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{10} }
+func (*LeaveVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{10} }
 
 func (m *LeaveVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -494,7 +494,7 @@ type ModifyVxnetAttributesInput struct {
 func (m *ModifyVxnetAttributesInput) Reset()                    { *m = ModifyVxnetAttributesInput{} }
 func (m *ModifyVxnetAttributesInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyVxnetAttributesInput) ProtoMessage()               {}
-func (*ModifyVxnetAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{11} }
+func (*ModifyVxnetAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{11} }
 
 func (m *ModifyVxnetAttributesInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -527,7 +527,7 @@ type ModifyVxnetAttributesOutput struct {
 func (m *ModifyVxnetAttributesOutput) Reset()                    { *m = ModifyVxnetAttributesOutput{} }
 func (m *ModifyVxnetAttributesOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyVxnetAttributesOutput) ProtoMessage()               {}
-func (*ModifyVxnetAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{12} }
+func (*ModifyVxnetAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{12} }
 
 func (m *ModifyVxnetAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -564,7 +564,7 @@ type DescribeVxnetInstancesInput struct {
 func (m *DescribeVxnetInstancesInput) Reset()                    { *m = DescribeVxnetInstancesInput{} }
 func (m *DescribeVxnetInstancesInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeVxnetInstancesInput) ProtoMessage()               {}
-func (*DescribeVxnetInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{13} }
+func (*DescribeVxnetInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{13} }
 
 func (m *DescribeVxnetInstancesInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -627,7 +627,7 @@ type DescribeVxnetInstancesOutput struct {
 func (m *DescribeVxnetInstancesOutput) Reset()                    { *m = DescribeVxnetInstancesOutput{} }
 func (m *DescribeVxnetInstancesOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeVxnetInstancesOutput) ProtoMessage()               {}
-func (*DescribeVxnetInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{14} }
+func (*DescribeVxnetInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{14} }
 
 func (m *DescribeVxnetInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -688,7 +688,7 @@ func (m *DescribeVxnetInstancesOutput_ResponseItem) Reset() {
 func (m *DescribeVxnetInstancesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeVxnetInstancesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeVxnetInstancesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor30, []int{14, 0}
+	return fileDescriptor29, []int{14, 0}
 }
 
 func (m *DescribeVxnetInstancesOutput_ResponseItem) GetVxnetId() string {
@@ -809,9 +809,9 @@ func init() {
 	proto.RegisterType((*DescribeVxnetInstancesOutput_ResponseItem)(nil), "service.DescribeVxnetInstancesOutput.ResponseItem")
 }
 
-func init() { proto.RegisterFile("vxnet.proto", fileDescriptor30) }
+func init() { proto.RegisterFile("vxnet.proto", fileDescriptor29) }
 
-var fileDescriptor30 = []byte{
+var fileDescriptor29 = []byte{
 	// 1149 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0xdb, 0x6e, 0xdb, 0x46,
 	0x10, 0x05, 0xad, 0x9b, 0x35, 0x94, 0x2f, 0xd9, 0x3a, 0x2e, 0x4d, 0xdb, 0xb0, 0x2b, 0x27, 0xa8,

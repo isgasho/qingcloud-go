@@ -22,7 +22,7 @@ type RDBServiceProperties struct {
 func (m *RDBServiceProperties) Reset()                    { *m = RDBServiceProperties{} }
 func (m *RDBServiceProperties) String() string            { return proto.CompactTextString(m) }
 func (*RDBServiceProperties) ProtoMessage()               {}
-func (*RDBServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{0} }
+func (*RDBServiceProperties) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{0} }
 
 func (m *RDBServiceProperties) GetZone() string {
 	if m != nil && m.Zone != nil {
@@ -49,7 +49,7 @@ type CreateRDBInput struct {
 func (m *CreateRDBInput) Reset()                    { *m = CreateRDBInput{} }
 func (m *CreateRDBInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateRDBInput) ProtoMessage()               {}
-func (*CreateRDBInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{1} }
+func (*CreateRDBInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{1} }
 
 func (m *CreateRDBInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -137,7 +137,7 @@ type CreateRDBInput_PrivateIps struct {
 func (m *CreateRDBInput_PrivateIps) Reset()                    { *m = CreateRDBInput_PrivateIps{} }
 func (m *CreateRDBInput_PrivateIps) String() string            { return proto.CompactTextString(m) }
 func (*CreateRDBInput_PrivateIps) ProtoMessage()               {}
-func (*CreateRDBInput_PrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{1, 0} }
+func (*CreateRDBInput_PrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{1, 0} }
 
 func (m *CreateRDBInput_PrivateIps) GetMaster() string {
 	if m != nil && m.Master != nil {
@@ -164,7 +164,7 @@ type CreateRDBOutput struct {
 func (m *CreateRDBOutput) Reset()                    { *m = CreateRDBOutput{} }
 func (m *CreateRDBOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateRDBOutput) ProtoMessage()               {}
-func (*CreateRDBOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{2} }
+func (*CreateRDBOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{2} }
 
 func (m *CreateRDBOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -209,7 +209,7 @@ type DescribeRDBsInput struct {
 func (m *DescribeRDBsInput) Reset()                    { *m = DescribeRDBsInput{} }
 func (m *DescribeRDBsInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRDBsInput) ProtoMessage()               {}
-func (*DescribeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{3} }
+func (*DescribeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{3} }
 
 func (m *DescribeRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -279,7 +279,7 @@ type DescribeRDBsOutput struct {
 func (m *DescribeRDBsOutput) Reset()                    { *m = DescribeRDBsOutput{} }
 func (m *DescribeRDBsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRDBsOutput) ProtoMessage()               {}
-func (*DescribeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{4} }
+func (*DescribeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{4} }
 
 func (m *DescribeRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -341,7 +341,7 @@ func (m *DescribeRDBsOutput_ResponseItem) Reset()         { *m = DescribeRDBsOut
 func (m *DescribeRDBsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRDBsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRDBsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{4, 0}
+	return fileDescriptor16, []int{4, 0}
 }
 
 func (m *DescribeRDBsOutput_ResponseItem) GetRdbId() string {
@@ -475,7 +475,7 @@ func (m *DescribeRDBsOutput_ResponseItem_Vxnets) Reset() {
 func (m *DescribeRDBsOutput_ResponseItem_Vxnets) String() string { return proto.CompactTextString(m) }
 func (*DescribeRDBsOutput_ResponseItem_Vxnets) ProtoMessage()    {}
 func (*DescribeRDBsOutput_ResponseItem_Vxnets) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{4, 0, 0}
+	return fileDescriptor16, []int{4, 0, 0}
 }
 
 func (m *DescribeRDBsOutput_ResponseItem_Vxnets) GetVxnetName() string {
@@ -500,7 +500,7 @@ type DeleteRDBsInput struct {
 func (m *DeleteRDBsInput) Reset()                    { *m = DeleteRDBsInput{} }
 func (m *DeleteRDBsInput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteRDBsInput) ProtoMessage()               {}
-func (*DeleteRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{5} }
+func (*DeleteRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{5} }
 
 func (m *DeleteRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -520,7 +520,7 @@ type DeleteRDBsOutput struct {
 func (m *DeleteRDBsOutput) Reset()                    { *m = DeleteRDBsOutput{} }
 func (m *DeleteRDBsOutput) String() string            { return proto.CompactTextString(m) }
 func (*DeleteRDBsOutput) ProtoMessage()               {}
-func (*DeleteRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{6} }
+func (*DeleteRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{6} }
 
 func (m *DeleteRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -558,7 +558,7 @@ type StartRDBsInput struct {
 func (m *StartRDBsInput) Reset()                    { *m = StartRDBsInput{} }
 func (m *StartRDBsInput) String() string            { return proto.CompactTextString(m) }
 func (*StartRDBsInput) ProtoMessage()               {}
-func (*StartRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{7} }
+func (*StartRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{7} }
 
 func (m *StartRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -578,7 +578,7 @@ type StartRDBsOutput struct {
 func (m *StartRDBsOutput) Reset()                    { *m = StartRDBsOutput{} }
 func (m *StartRDBsOutput) String() string            { return proto.CompactTextString(m) }
 func (*StartRDBsOutput) ProtoMessage()               {}
-func (*StartRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{8} }
+func (*StartRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{8} }
 
 func (m *StartRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -616,7 +616,7 @@ type StopRDBsInput struct {
 func (m *StopRDBsInput) Reset()                    { *m = StopRDBsInput{} }
 func (m *StopRDBsInput) String() string            { return proto.CompactTextString(m) }
 func (*StopRDBsInput) ProtoMessage()               {}
-func (*StopRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{9} }
+func (*StopRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{9} }
 
 func (m *StopRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -636,7 +636,7 @@ type StopRDBsOutput struct {
 func (m *StopRDBsOutput) Reset()                    { *m = StopRDBsOutput{} }
 func (m *StopRDBsOutput) String() string            { return proto.CompactTextString(m) }
 func (*StopRDBsOutput) ProtoMessage()               {}
-func (*StopRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{10} }
+func (*StopRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{10} }
 
 func (m *StopRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -676,7 +676,7 @@ type ResizeRDBsInput struct {
 func (m *ResizeRDBsInput) Reset()                    { *m = ResizeRDBsInput{} }
 func (m *ResizeRDBsInput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeRDBsInput) ProtoMessage()               {}
-func (*ResizeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{11} }
+func (*ResizeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{11} }
 
 func (m *ResizeRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -710,7 +710,7 @@ type ResizeRDBsOutput struct {
 func (m *ResizeRDBsOutput) Reset()                    { *m = ResizeRDBsOutput{} }
 func (m *ResizeRDBsOutput) String() string            { return proto.CompactTextString(m) }
 func (*ResizeRDBsOutput) ProtoMessage()               {}
-func (*ResizeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{12} }
+func (*ResizeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{12} }
 
 func (m *ResizeRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -749,7 +749,7 @@ type RDBsLeaveVxnetInput struct {
 func (m *RDBsLeaveVxnetInput) Reset()                    { *m = RDBsLeaveVxnetInput{} }
 func (m *RDBsLeaveVxnetInput) String() string            { return proto.CompactTextString(m) }
 func (*RDBsLeaveVxnetInput) ProtoMessage()               {}
-func (*RDBsLeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{13} }
+func (*RDBsLeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{13} }
 
 func (m *RDBsLeaveVxnetInput) GetRdbs() []string {
 	if m != nil {
@@ -776,7 +776,7 @@ type RDBsLeaveVxnetOutput struct {
 func (m *RDBsLeaveVxnetOutput) Reset()                    { *m = RDBsLeaveVxnetOutput{} }
 func (m *RDBsLeaveVxnetOutput) String() string            { return proto.CompactTextString(m) }
 func (*RDBsLeaveVxnetOutput) ProtoMessage()               {}
-func (*RDBsLeaveVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{14} }
+func (*RDBsLeaveVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{14} }
 
 func (m *RDBsLeaveVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -815,7 +815,7 @@ type RDBsJoinVxnetInput struct {
 func (m *RDBsJoinVxnetInput) Reset()                    { *m = RDBsJoinVxnetInput{} }
 func (m *RDBsJoinVxnetInput) String() string            { return proto.CompactTextString(m) }
 func (*RDBsJoinVxnetInput) ProtoMessage()               {}
-func (*RDBsJoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{15} }
+func (*RDBsJoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{15} }
 
 func (m *RDBsJoinVxnetInput) GetRdbs() []string {
 	if m != nil {
@@ -842,7 +842,7 @@ type RDBsJoinVxnetOutput struct {
 func (m *RDBsJoinVxnetOutput) Reset()                    { *m = RDBsJoinVxnetOutput{} }
 func (m *RDBsJoinVxnetOutput) String() string            { return proto.CompactTextString(m) }
 func (*RDBsJoinVxnetOutput) ProtoMessage()               {}
-func (*RDBsJoinVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{16} }
+func (*RDBsJoinVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{16} }
 
 func (m *RDBsJoinVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -888,7 +888,7 @@ type CreateRDBFromSnapshotInput struct {
 func (m *CreateRDBFromSnapshotInput) Reset()                    { *m = CreateRDBFromSnapshotInput{} }
 func (m *CreateRDBFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
 func (*CreateRDBFromSnapshotInput) ProtoMessage()               {}
-func (*CreateRDBFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{17} }
+func (*CreateRDBFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{17} }
 
 func (m *CreateRDBFromSnapshotInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -963,7 +963,7 @@ func (m *CreateRDBFromSnapshotInput_PrivateIps) Reset()         { *m = CreateRDB
 func (m *CreateRDBFromSnapshotInput_PrivateIps) String() string { return proto.CompactTextString(m) }
 func (*CreateRDBFromSnapshotInput_PrivateIps) ProtoMessage()    {}
 func (*CreateRDBFromSnapshotInput_PrivateIps) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{17, 0}
+	return fileDescriptor16, []int{17, 0}
 }
 
 func (m *CreateRDBFromSnapshotInput_PrivateIps) GetMaster() string {
@@ -991,7 +991,7 @@ type CreateRDBFromSnapshotOutput struct {
 func (m *CreateRDBFromSnapshotOutput) Reset()                    { *m = CreateRDBFromSnapshotOutput{} }
 func (m *CreateRDBFromSnapshotOutput) String() string            { return proto.CompactTextString(m) }
 func (*CreateRDBFromSnapshotOutput) ProtoMessage()               {}
-func (*CreateRDBFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{18} }
+func (*CreateRDBFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{18} }
 
 func (m *CreateRDBFromSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1033,7 +1033,7 @@ func (m *CreateTempRDBInstanceFromSnapshotInput) Reset() {
 func (m *CreateTempRDBInstanceFromSnapshotInput) String() string { return proto.CompactTextString(m) }
 func (*CreateTempRDBInstanceFromSnapshotInput) ProtoMessage()    {}
 func (*CreateTempRDBInstanceFromSnapshotInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{19}
+	return fileDescriptor16, []int{19}
 }
 
 func (m *CreateTempRDBInstanceFromSnapshotInput) GetRdb() string {
@@ -1064,7 +1064,7 @@ func (m *CreateTempRDBInstanceFromSnapshotOutput) Reset() {
 func (m *CreateTempRDBInstanceFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateTempRDBInstanceFromSnapshotOutput) ProtoMessage()    {}
 func (*CreateTempRDBInstanceFromSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{20}
+	return fileDescriptor16, []int{20}
 }
 
 func (m *CreateTempRDBInstanceFromSnapshotOutput) GetAction() string {
@@ -1103,7 +1103,7 @@ type GetRDBInstanceFilesInput struct {
 func (m *GetRDBInstanceFilesInput) Reset()                    { *m = GetRDBInstanceFilesInput{} }
 func (m *GetRDBInstanceFilesInput) String() string            { return proto.CompactTextString(m) }
 func (*GetRDBInstanceFilesInput) ProtoMessage()               {}
-func (*GetRDBInstanceFilesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{21} }
+func (*GetRDBInstanceFilesInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{21} }
 
 func (m *GetRDBInstanceFilesInput) GetRdbInstance() string {
 	if m != nil && m.RdbInstance != nil {
@@ -1122,7 +1122,7 @@ type GetRDBInstanceFilesOutput struct {
 func (m *GetRDBInstanceFilesOutput) Reset()                    { *m = GetRDBInstanceFilesOutput{} }
 func (m *GetRDBInstanceFilesOutput) String() string            { return proto.CompactTextString(m) }
 func (*GetRDBInstanceFilesOutput) ProtoMessage()               {}
-func (*GetRDBInstanceFilesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{22} }
+func (*GetRDBInstanceFilesOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{22} }
 
 func (m *GetRDBInstanceFilesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1155,7 +1155,7 @@ func (m *CopyRDBInstanceFilesToFTPInput) Reset()         { *m = CopyRDBInstanceF
 func (m *CopyRDBInstanceFilesToFTPInput) String() string { return proto.CompactTextString(m) }
 func (*CopyRDBInstanceFilesToFTPInput) ProtoMessage()    {}
 func (*CopyRDBInstanceFilesToFTPInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{23}
+	return fileDescriptor16, []int{23}
 }
 
 func (m *CopyRDBInstanceFilesToFTPInput) GetRdbInstance() string {
@@ -1184,7 +1184,7 @@ func (m *CopyRDBInstanceFilesToFTPOutput) Reset()         { *m = CopyRDBInstance
 func (m *CopyRDBInstanceFilesToFTPOutput) String() string { return proto.CompactTextString(m) }
 func (*CopyRDBInstanceFilesToFTPOutput) ProtoMessage()    {}
 func (*CopyRDBInstanceFilesToFTPOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{24}
+	return fileDescriptor16, []int{24}
 }
 
 func (m *CopyRDBInstanceFilesToFTPOutput) GetAction() string {
@@ -1226,7 +1226,7 @@ type PurgeRDBLogsInput struct {
 func (m *PurgeRDBLogsInput) Reset()                    { *m = PurgeRDBLogsInput{} }
 func (m *PurgeRDBLogsInput) String() string            { return proto.CompactTextString(m) }
 func (*PurgeRDBLogsInput) ProtoMessage()               {}
-func (*PurgeRDBLogsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{25} }
+func (*PurgeRDBLogsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{25} }
 
 func (m *PurgeRDBLogsInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1267,7 +1267,7 @@ type PurgeRDBLogsOutput struct {
 func (m *PurgeRDBLogsOutput) Reset()                    { *m = PurgeRDBLogsOutput{} }
 func (m *PurgeRDBLogsOutput) String() string            { return proto.CompactTextString(m) }
 func (*PurgeRDBLogsOutput) ProtoMessage()               {}
-func (*PurgeRDBLogsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{26} }
+func (*PurgeRDBLogsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{26} }
 
 func (m *PurgeRDBLogsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1306,7 +1306,7 @@ type CeaseRDBInstanceInput struct {
 func (m *CeaseRDBInstanceInput) Reset()                    { *m = CeaseRDBInstanceInput{} }
 func (m *CeaseRDBInstanceInput) String() string            { return proto.CompactTextString(m) }
 func (*CeaseRDBInstanceInput) ProtoMessage()               {}
-func (*CeaseRDBInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{27} }
+func (*CeaseRDBInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{27} }
 
 func (m *CeaseRDBInstanceInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1333,7 +1333,7 @@ type CeaseRDBInstanceOutput struct {
 func (m *CeaseRDBInstanceOutput) Reset()                    { *m = CeaseRDBInstanceOutput{} }
 func (m *CeaseRDBInstanceOutput) String() string            { return proto.CompactTextString(m) }
 func (*CeaseRDBInstanceOutput) ProtoMessage()               {}
-func (*CeaseRDBInstanceOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{28} }
+func (*CeaseRDBInstanceOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{28} }
 
 func (m *CeaseRDBInstanceOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1372,7 +1372,7 @@ type ModifyRDBParametersInput struct {
 func (m *ModifyRDBParametersInput) Reset()                    { *m = ModifyRDBParametersInput{} }
 func (m *ModifyRDBParametersInput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyRDBParametersInput) ProtoMessage()               {}
-func (*ModifyRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{29} }
+func (*ModifyRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{29} }
 
 func (m *ModifyRDBParametersInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1398,7 +1398,7 @@ func (m *ModifyRDBParametersInput_ParametersItem) Reset() {
 func (m *ModifyRDBParametersInput_ParametersItem) String() string { return proto.CompactTextString(m) }
 func (*ModifyRDBParametersInput_ParametersItem) ProtoMessage()    {}
 func (*ModifyRDBParametersInput_ParametersItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{29, 0}
+	return fileDescriptor16, []int{29, 0}
 }
 
 type ModifyRDBParametersOutput struct {
@@ -1412,7 +1412,7 @@ type ModifyRDBParametersOutput struct {
 func (m *ModifyRDBParametersOutput) Reset()                    { *m = ModifyRDBParametersOutput{} }
 func (m *ModifyRDBParametersOutput) String() string            { return proto.CompactTextString(m) }
 func (*ModifyRDBParametersOutput) ProtoMessage()               {}
-func (*ModifyRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{30} }
+func (*ModifyRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{30} }
 
 func (m *ModifyRDBParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1450,7 +1450,7 @@ type ApplyRDBParameterGroupInput struct {
 func (m *ApplyRDBParameterGroupInput) Reset()                    { *m = ApplyRDBParameterGroupInput{} }
 func (m *ApplyRDBParameterGroupInput) String() string            { return proto.CompactTextString(m) }
 func (*ApplyRDBParameterGroupInput) ProtoMessage()               {}
-func (*ApplyRDBParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{31} }
+func (*ApplyRDBParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{31} }
 
 func (m *ApplyRDBParameterGroupInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1470,7 +1470,7 @@ type ApplyRDBParameterGroupOutput struct {
 func (m *ApplyRDBParameterGroupOutput) Reset()                    { *m = ApplyRDBParameterGroupOutput{} }
 func (m *ApplyRDBParameterGroupOutput) String() string            { return proto.CompactTextString(m) }
 func (*ApplyRDBParameterGroupOutput) ProtoMessage()               {}
-func (*ApplyRDBParameterGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{32} }
+func (*ApplyRDBParameterGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{32} }
 
 func (m *ApplyRDBParameterGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1510,7 +1510,7 @@ type DescribeRDBParametersInput struct {
 func (m *DescribeRDBParametersInput) Reset()                    { *m = DescribeRDBParametersInput{} }
 func (m *DescribeRDBParametersInput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRDBParametersInput) ProtoMessage()               {}
-func (*DescribeRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{33} }
+func (*DescribeRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{33} }
 
 func (m *DescribeRDBParametersInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1545,7 +1545,7 @@ type DescribeRDBParametersOutput struct {
 func (m *DescribeRDBParametersOutput) Reset()                    { *m = DescribeRDBParametersOutput{} }
 func (m *DescribeRDBParametersOutput) String() string            { return proto.CompactTextString(m) }
 func (*DescribeRDBParametersOutput) ProtoMessage()               {}
-func (*DescribeRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{34} }
+func (*DescribeRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{34} }
 
 func (m *DescribeRDBParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1602,7 +1602,7 @@ func (m *DescribeRDBParametersOutput_ResponseItem) Reset() {
 func (m *DescribeRDBParametersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRDBParametersOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRDBParametersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{34, 0}
+	return fileDescriptor16, []int{34, 0}
 }
 
 func (m *DescribeRDBParametersOutput_ResponseItem) GetIsStatic() int32 {
@@ -1719,9 +1719,9 @@ func init() {
 	proto.RegisterType((*DescribeRDBParametersOutput_ResponseItem)(nil), "service.DescribeRDBParametersOutput.ResponseItem")
 }
 
-func init() { proto.RegisterFile("rdb.proto", fileDescriptor17) }
+func init() { proto.RegisterFile("rdb.proto", fileDescriptor16) }
 
-var fileDescriptor17 = []byte{
+var fileDescriptor16 = []byte{
 	// 1878 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x39, 0x49, 0x6f, 0x23, 0xc7,
 	0xd5, 0x20, 0x29, 0x6e, 0x8f, 0xda, 0xa6, 0xc6, 0x92, 0x5b, 0xad, 0x19, 0x4b, 0xd3, 0xf6, 0x7c,

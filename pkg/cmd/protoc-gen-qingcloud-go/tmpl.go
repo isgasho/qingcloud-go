@@ -157,15 +157,6 @@ type {{.ServiceName}}Service struct {
 	LastResponseBody string
 }
 
-{{if not .MainServiceName}}
-func Init(c *config.Config) (*{{.ServiceName}}Service, error) {
-	properties := &{{.ServiceName}}ServiceProperties{}
-	logger.SetLevel(c.LogLevel)
-	return &{{.ServiceName}}Service{Config: c, Properties: properties}, nil
-}
-{{end}}
-
-{{if .MainServiceName}}
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}
 func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.ServiceName}}Service) {
 	return &{{.ServiceName}}Service{
@@ -173,16 +164,6 @@ func New{{.ServiceName}}Service(conf *config.Config, zone string) (p *{{.Service
 		Properties: &{{.ServiceName}}ServiceProperties{ Zone: {{if .IsProto3}}zone{{else}}proto.String(zone){{end}} },
 	}
 }
-
-{{if .DocUrl}}// See {{.DocUrl}}{{end}}
-func (s *{{.MainServiceName}}Service) {{.ServiceName}}(zone string) (*{{.ServiceName}}Service, error) {
-	properties := &{{.ServiceName}}ServiceProperties{
-		Zone: {{if .IsProto3}}zone{{else}}proto.String(zone){{end}},
-	}
-
-	return &{{.ServiceName}}Service{Config: s.Config, Properties: properties}, nil
-}
-{{end}}
 
 {{range $_, $m := .MethodList}}
 {{if .DocUrl}}// See {{.DocUrl}}{{end}}

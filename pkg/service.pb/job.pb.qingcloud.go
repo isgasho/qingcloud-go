@@ -45,15 +45,6 @@ func NewJobService(conf *config.Config, zone string) (p *JobService) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/job/index.html
-func (s *QingCloudService) Job(zone string) (*JobService, error) {
-	properties := &JobServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &JobService{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *JobService) DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutput, err error) {
 	if in == nil {
 		in = &DescribeJobsInput{}

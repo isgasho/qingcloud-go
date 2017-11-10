@@ -72,15 +72,6 @@ func NewS2Service(conf *config.Config, zone string) (p *S2Service) {
 	}
 }
 
-// See https://docs.qingcloud.com/api/s2/index.html
-func (s *QingCloudService) S2(zone string) (*S2Service, error) {
-	properties := &S2ServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &S2Service{Config: s.Config, Properties: properties}, nil
-}
-
 func (p *S2Service) CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error) {
 	if in == nil {
 		in = &CreateS2ServerInput{}
