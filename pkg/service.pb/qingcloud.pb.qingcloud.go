@@ -69,7 +69,3 @@ func (p *QingCloudService) DescribeZones(in *DescribeZonesInput) (out *DescribeZ
 
 	return x, err
 }
-
-func (p *QingCloudServiceProperties) Validate() error {
-	return nil
-}

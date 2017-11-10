@@ -164,39 +164,3 @@ func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOut
 
 	return x, err
 }
-
-func (p *DNSAliasServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *DescribeDNSAliasesInput) Validate() error {
-	return nil
-}
-
-func (p *DescribeDNSAliasesOutput) Validate() error {
-	return nil
-}
-
-func (p *AssociateDNSAliasInput) Validate() error {
-	return nil
-}
-
-func (p *AssociateDNSAliasOutput) Validate() error {
-	return nil
-}
-
-func (p *DissociateDNSAliasesInput) Validate() error {
-	return nil
-}
-
-func (p *DissociateDNSAliasesOutput) Validate() error {
-	return nil
-}
-
-func (p *GetDNSLabelInput) Validate() error {
-	return nil
-}
-
-func (p *GetDNSLabelOutput) Validate() error {
-	return nil
-}

@@ -80,15 +80,3 @@ func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *Desc
 
 	return x, err
 }
-
-func (p *NotificationCenterServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *DescribeNotificationCenterUserPostsInput) Validate() error {
-	return nil
-}
-
-func (p *DescribeNotificationCenterUserPostsOutput) Validate() error {
-	return nil
-}

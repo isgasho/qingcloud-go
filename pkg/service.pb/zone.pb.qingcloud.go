@@ -80,15 +80,3 @@ func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesO
 
 	return x, err
 }
-
-func (p *ZoneServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *DescribeZonesInput) Validate() error {
-	return nil
-}
-
-func (p *DescribeZonesOutput) Validate() error {
-	return nil
-}

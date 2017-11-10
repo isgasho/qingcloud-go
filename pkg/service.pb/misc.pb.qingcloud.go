@@ -136,31 +136,3 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 
 	return x, err
 }
-
-func (p *MiscServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *GrantQuotaIndepInput) Validate() error {
-	return nil
-}
-
-func (p *GrantQuotaIndepOutput) Validate() error {
-	return nil
-}
-
-func (p *RevokeQuotaIndepInput) Validate() error {
-	return nil
-}
-
-func (p *RevokeQuotaIndepOutput) Validate() error {
-	return nil
-}
-
-func (p *GetQuotaLeftInput) Validate() error {
-	return nil
-}
-
-func (p *GetQuotaLeftOutput) Validate() error {
-	return nil
-}

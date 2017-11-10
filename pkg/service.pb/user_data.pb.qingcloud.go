@@ -80,20 +80,3 @@ func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentI
 
 	return x, err
 }
-
-func (p *UserDataServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *UploadUserDataAttachmentInput) Validate() error {
-
-	if len(p.GetAttachmentContent()) == 0 {
-		return fmt.Errorf("UploadUserDataAttachmentInput.AttachmentContent required field missing!")
-	}
-
-	return nil
-}
-
-func (p *UploadUserDataAttachmentOutput) Validate() error {
-	return nil
-}

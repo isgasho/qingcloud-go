@@ -164,39 +164,3 @@ func (p *HadoopService) StopHadoops(in *StopHadoopsInput) (out *StopHadoopsOutpu
 
 	return x, err
 }
-
-func (p *HadoopServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *AddHadoopNodesInput) Validate() error {
-	return nil
-}
-
-func (p *AddHadoopNodesOutput) Validate() error {
-	return nil
-}
-
-func (p *DeleteHadoopNodesInput) Validate() error {
-	return nil
-}
-
-func (p *DeleteHadoopNodesOutput) Validate() error {
-	return nil
-}
-
-func (p *StartHadoopsInput) Validate() error {
-	return nil
-}
-
-func (p *StartHadoopsOutput) Validate() error {
-	return nil
-}
-
-func (p *StopHadoopsInput) Validate() error {
-	return nil
-}
-
-func (p *StopHadoopsOutput) Validate() error {
-	return nil
-}

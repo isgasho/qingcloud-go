@@ -80,15 +80,3 @@ func (p *JobService) DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutpu
 
 	return x, err
 }
-
-func (p *JobServiceProperties) Validate() error {
-	return nil
-}
-
-func (p *DescribeJobsInput) Validate() error {
-	return nil
-}
-
-func (p *DescribeJobsOutput) Validate() error {
-	return nil
-}
