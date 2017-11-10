@@ -9,13 +9,13 @@ default:
 	go fmt ./...
 	go test ./...
 
-docker: Dockerfile
+build-docker: Dockerfile
 	$(GO) fmt ./...
-	$(GO) build $(GO_LDFLAGS) -o qingcloud-cli.linux.exe ./cmds/qingcloud-cli
 	docker build -t qingcloud-cli .
+	@docker image prune -f 1>/dev/null 2>&1
 
-docker-run:
-	docker run --rm -v $(HOME):$(HOME) -w `pwd` qingcloud-cli
+run-docker:
+	docker run --rm -it -v `pwd`:/root -w /root qingcloud-cli
 
 hello:
 	go fmt ./...

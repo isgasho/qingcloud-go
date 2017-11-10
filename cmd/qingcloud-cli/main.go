@@ -5,5 +5,5 @@
 package main
 
 func main() {
-	println("TODO")
+	println("qingcloud-cli: TODO")
 }
