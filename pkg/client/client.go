@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/golang/protobuf/proto"
+
 	"github.com/chai2010/qingcloud-go/pkg/config"
 	service "github.com/chai2010/qingcloud-go/pkg/service.pb"
 )
@@ -105,7 +107,7 @@ func (c *client) RunInstance(input *service.RunInstancesInput) (*service.Instanc
 	if len(output.Instances) == 0 {
 		return nil, errors.New("Create instance response error")
 	}
-	jobID := output.JobId
+	jobID := output.GetJobId()
 	jobErr := c.waitJob(jobID)
 	if jobErr != nil {
 		return nil, jobErr
@@ -142,7 +144,7 @@ func (c *client) StartInstance(instanceID string) error {
 	if err != nil {
 		return err
 	}
-	jobID := output.JobId
+	jobID := output.GetJobId()
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr
@@ -159,12 +161,15 @@ func (c *client) StopInstance(instanceID string, force bool) error {
 	} else {
 		forceParam = 0
 	}
-	input := &service.StopInstancesInput{Instances: []string{instanceID}, Force: int32(forceParam)}
+	input := &service.StopInstancesInput{
+		Instances: []string{instanceID},
+		Force:     proto.Int32(int32(forceParam)),
+	}
 	output, err := c.InstanceService.StopInstances(input)
 	if err != nil {
 		return err
 	}
-	jobID := output.JobId
+	jobID := output.GetJobId()
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr
@@ -180,7 +185,7 @@ func (c *client) RestartInstance(instanceID string) error {
 	if err != nil {
 		return err
 	}
-	jobID := output.JobId
+	jobID := output.GetJobId()
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr
@@ -196,7 +201,7 @@ func (c *client) TerminateInstance(instanceID string) error {
 	if err != nil {
 		return err
 	}
-	jobID := output.JobId
+	jobID := output.GetJobId()
 	waitErr := c.waitJob(jobID)
 	if waitErr != nil {
 		return waitErr

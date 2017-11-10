@@ -2,10 +2,11 @@ package client
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/chai2010/qingcloud-go/pkg/logger"
 	service "github.com/chai2010/qingcloud-go/pkg/service.pb"
 	"github.com/chai2010/qingcloud-go/pkg/utils"
-	"time"
 )
 
 // WaitJob wait the job with this jobID finish
@@ -22,17 +23,17 @@ func WaitJob(jobService *service.JobService, jobID string, timeout time.Duration
 			return false, fmt.Errorf("Can not find job [%s]", jobID)
 		}
 		j := output.JobSet[0]
-		if j.Status == "" {
+		if j.GetStatus() == "" {
 			logger.Error("Job [%s] status is nil ", jobID)
 			return false, nil
 		}
-		if j.Status == "working" || j.Status == "pending" {
+		if j.GetStatus() == "working" || j.GetStatus() == "pending" {
 			return false, nil
 		}
-		if j.Status == "successful" {
+		if j.GetStatus() == "successful" {
 			return true, nil
 		}
-		if j.Status == "failed" {
+		if j.GetStatus() == "failed" {
 			return false, fmt.Errorf("Job [%s] failed", jobID)
 		}
 		logger.Error("Unknow status [%s] for job [%s]", j.Status, jobID)
@@ -51,11 +52,11 @@ func CheckJobStatus(jobService *service.JobService, jobID string) (string, error
 		return "", fmt.Errorf("Can not find job [%s]", jobID)
 	}
 	j := output.JobSet[0]
-	if j.Status == "" {
+	if j.GetStatus() == "" {
 		logger.Error("Job [%s] status is nil ", jobID)
 		return JobStatusUnknown, nil
 	}
-	return j.Status, nil
+	return j.GetStatus(), nil
 }
 
 func describeInstance(instanceService *service.InstanceService, instanceID string) (*service.Instance, error) {
@@ -84,8 +85,8 @@ func WaitInstanceStatus(instanceService *service.InstanceService, instanceID str
 			}
 			return false, nil
 		}
-		if i.Status != "" && i.Status == status {
-			if i.TransitionStatus != "" {
+		if i.GetStatus() != "" && i.GetStatus() == status {
+			if i.GetTransitionStatus() != "" {
 				//wait transition to finished
 				return false, nil
 			}
@@ -106,7 +107,7 @@ func WaitInstanceNetwork(instanceService *service.InstanceService, instanceID st
 		if err != nil {
 			return false, err
 		}
-		if len(i.Vxnets) == 0 || i.Vxnets[0] == nil || i.Vxnets[0].PrivateIp == "" {
+		if len(i.Vxnets) == 0 || i.Vxnets[0] == nil || i.Vxnets[0].GetPrivateIp() == "" {
 			return false, nil
 		}
 		ins = i
@@ -144,8 +145,8 @@ func WaitLoadBalancerStatus(lbService *service.LoadBalancerService, loadBalancer
 			}
 			return false, nil
 		}
-		if i.Status != "" && i.Status == status {
-			if i.TransitionStatus != "" {
+		if i.GetStatus() != "" && i.GetStatus() == status {
+			if i.GetTransitionStatus() != "" {
 				//wait transition to finished
 				return false, nil
 			}
