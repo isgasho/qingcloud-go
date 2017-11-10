@@ -57,14 +57,14 @@ type AlarmService struct {
 func NewAlarmService(conf *config.Config, zone string) (p *AlarmService) {
 	return &AlarmService{
 		Config:     conf,
-		Properties: &AlarmServiceProperties{Zone: zone},
+		Properties: &AlarmServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/alarm/index.html
 func (s *QingCloudService) Alarm(zone string) (*AlarmService, error) {
 	properties := &AlarmServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &AlarmService{Config: s.Config, Properties: properties}, nil

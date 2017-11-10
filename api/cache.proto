@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
@@ -16,7 +16,7 @@ import "google/protobuf/timestamp.proto";
 // ----------------------------------------------------------------------------
 
 message CacheServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service CacheService {
@@ -57,61 +57,61 @@ message DescribeCachesInput {
 	repeated string caches = 1;
 	repeated string status = 2;
 	repeated string cache_type = 3;
-	string search_word = 4;
+	optional string search_word = 4;
 	repeated string tags = 5;
-	int32 verbose = 6;
-	int32 offset = 7;
-	int32 limit = 8;
+	optional int32 verbose = 6;
+	optional int32 offset = 7;
+	optional int32 limit = 8;
 }
 message DescribeCachesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem cache_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string cache_id = 1;
-		string cache_name = 2;
-		string cache_type = 3;
-		int32 cache_port = 4;
-		int32 cache_size = 5;
-		int32 node_count = 6;
-		int32 description = 7;
+		optional string cache_id = 1;
+		optional string cache_name = 2;
+		optional string cache_type = 3;
+		optional int32 cache_port = 4;
+		optional int32 cache_size = 5;
+		optional int32 node_count = 6;
+		optional int32 description = 7;
 		repeated CacheNode nodes = 8;
-		int32 auto_backup_time = 9;
-		int32 is_applied = 10;
-		string status = 11;
-		string transition_status = 12;
+		optional int32 auto_backup_time = 9;
+		optional int32 is_applied = 10;
+		optional string status = 11;
+		optional string transition_status = 12;
 		map<string,string> vxnet = 13;
-		google.protobuf.Timestamp create_time = 14;
-		google.protobuf.Timestamp status_time = 15;
-		string security_group_id = 16;
-		string cache_parameter_group_id = 17;
-		double max_memory = 18;
+		optional google.protobuf.Timestamp create_time = 14;
+		optional google.protobuf.Timestamp status_time = 15;
+		optional string security_group_id = 16;
+		optional string cache_parameter_group_id = 17;
+		optional double max_memory = 18;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateCacheInput {
-	string vxnet = 1;
-	int32 cache_size = 2;
-	string cache_type = 3;
-	int32 node_count = 4;
-	string cache_name = 5;
-	string cache_parameter_group = 6;
+	optional string vxnet = 1;
+	optional int32 cache_size = 2;
+	optional string cache_type = 3;
+	optional int32 node_count = 4;
+	optional string cache_name = 5;
+	optional string cache_parameter_group = 6;
 	repeated CachePrivateIP private_ips = 7;
-	int32 auto_backup_time = 8;
-	int32 cache_class = 9;
+	optional int32 auto_backup_time = 8;
+	optional int32 cache_class = 9;
 }
 message CreateCacheOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string cache_id = 4;
+	optional string cache_id = 4;
 	repeated string cache_nodes = 5;
 }
 
@@ -121,11 +121,11 @@ message StopCachesInput {
 	repeated string caches = 1;
 }
 message StopCachesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -134,11 +134,11 @@ message StartCachesInput {
 	repeated string caches = 1;
 }
 message StartCachesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -147,11 +147,11 @@ message RestartCachesInput {
 	repeated string caches = 1;
 }
 message RestartCachesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -160,114 +160,114 @@ message DeleteCachesInput {
 	repeated string caches = 1;
 }
 message DeleteCachesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ResizeCachesInput {
 	repeated string caches = 1;
-	int32 cache_size = 2;
+	optional int32 cache_size = 2;
 }
 message ResizeCachesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message UpdateCacheInput {
-	string cache = 1;
+	optional string cache = 1;
 	repeated CachePrivateIP private_ips = 2;
 }
 message UpdateCacheOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ChangeCacheVxnetInput {
-	string cache = 1;
-	string vxnet = 2;
+	optional string cache = 1;
+	optional string vxnet = 2;
 	repeated CachePrivateIP private_ips = 3;
 }
 message ChangeCacheVxnetOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyCacheAttributesInput {
-	string cache = 1;
-	string cache_name = 2;
-	string description = 3;
-	int32 auto_backup_time = 4;
+	optional string cache = 1;
+	optional string cache_name = 2;
+	optional string description = 3;
+	optional int32 auto_backup_time = 4;
 }
 message ModifyCacheAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeCacheNodesInput {
-	string cache = 1;
+	optional string cache = 1;
 	repeated string cache_nodes = 2;
 	repeated string status = 3;
-	string search_word = 4;
-	int32 verbose = 5;
-	int32 offset = 6;
-	int32 limit = 7;
+	optional string search_word = 4;
+	optional int32 verbose = 5;
+	optional int32 offset = 6;
+	optional int32 limit = 7;
 }
 message DescribeCacheNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem cache_node_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string cache_node_id = 1;
-		string cache_id = 2;
-		string cache_node_name = 3;
-		string cache_role = 4;
-		string cache_type = 5;
-		string private_ip = 6;
-		string status = 7;
-		string transition_status = 8;
-		google.protobuf.Timestamp create_time = 9;
-		google.protobuf.Timestamp status_time = 10;
+		optional string cache_node_id = 1;
+		optional string cache_id = 2;
+		optional string cache_node_name = 3;
+		optional string cache_role = 4;
+		optional string cache_type = 5;
+		optional string private_ip = 6;
+		optional string status = 7;
+		optional string transition_status = 8;
+		optional google.protobuf.Timestamp create_time = 9;
+		optional google.protobuf.Timestamp status_time = 10;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message AddCacheNodesInput {
-	string cache = 1;
-	int32 node_count = 2;
+	optional string cache = 1;
+	optional int32 node_count = 2;
 	repeated CachePrivateIP private_ips = 3;
 }
 message AddCacheNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated string cache_nodes = 4;
 }
@@ -275,59 +275,59 @@ message AddCacheNodesOutput {
 // ----------------------------------------------------------------------------
 
 message DeleteCacheNodesInput {
-	string cache = 1;
+	optional string cache = 1;
 	repeated string cache_nodes = 2;
 }
 message DeleteCacheNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message RestartCacheNodesInput {
-	string cache = 1;
+	optional string cache = 1;
 	repeated string cache_nodes = 2;
 }
 message RestartCacheNodesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyCacheNodeAttributesInput {
-	string cache_node = 1;
-	string cache_node_name = 2;
+	optional string cache_node = 1;
+	optional string cache_node_name = 2;
 }
 message ModifyCacheNodeAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateCacheFromSnapshotInput {
-	string snapshot = 1;
-	string vxnet = 2;
-	int32 node_count = 3;
-	string cache_name = 4;
-	string cache_parameter_group = 5;
-	int32 auto_backup_time = 6;
+	optional string snapshot = 1;
+	optional string vxnet = 2;
+	optional int32 node_count = 3;
+	optional string cache_name = 4;
+	optional string cache_parameter_group = 5;
+	optional int32 auto_backup_time = 6;
 	repeated CachePrivateIP private_ips = 7;
-	int32 cache_class = 8;
+	optional int32 cache_class = 8;
 }
 message CreateCacheFromSnapshotOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string cache_id = 4;
+	optional string cache_id = 4;
 	repeated string cache_nodes = 5;
 }
 
@@ -335,55 +335,55 @@ message CreateCacheFromSnapshotOutput {
 
 message DescribeCacheParameterGroupsInput {
 	repeated string cache_parameter_groups = 1;
-	string cache_type = 2;
-	int32 search_word = 3;
-	int32 verbose = 4;
-	int32 offset = 5;
-	int32 limit = 6;
+	optional string cache_type = 2;
+	optional int32 search_word = 3;
+	optional int32 verbose = 4;
+	optional int32 offset = 5;
+	optional int32 limit = 6;
 }
 message DescribeCacheParameterGroupsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem cache_parameter_group_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string cache_parameter_group_id = 1;
-		string cache_type = 2;
-		string cache_parameter_group_name = 3;
-		string description = 4;
-		int32 is_applied = 5;
+		optional string cache_parameter_group_id = 1;
+		optional string cache_type = 2;
+		optional string cache_parameter_group_name = 3;
+		optional string description = 4;
+		optional int32 is_applied = 5;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message CreateCacheParameterGroupInput {
-	string cache_type = 1;
-	string cache_parameter_group_name = 2;
+	optional string cache_type = 1;
+	optional string cache_parameter_group_name = 2;
 }
 message CreateCacheParameterGroupOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string cache_parameter_group_id = 4;
+	optional string cache_parameter_group_id = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message ApplyCacheParameterGroupInput {
-	string cache_parameter_group = 1;
+	optional string cache_parameter_group = 1;
 	repeated string caches = 2;
 }
 message ApplyCacheParameterGroupOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string job_id = 4;
+	optional string job_id = 4;
 }
 
 // ----------------------------------------------------------------------------
@@ -392,68 +392,68 @@ message DeleteCacheParameterGroupsInput {
 	repeated string cache_parameter_groups = 1;
 }
 message DeleteCacheParameterGroupsOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message ModifyCacheParameterGroupAttributesInput {
-	string cache_parameter_group = 1;
-	string cache_parameter_group_name = 2;
-	string description = 3;
+	optional string cache_parameter_group = 1;
+	optional string cache_parameter_group_name = 2;
+	optional string description = 3;
 }
 message ModifyCacheParameterGroupAttributesOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeCacheParametersInput {
-	string cache_parameter_group = 1;
+	optional string cache_parameter_group = 1;
 }
 message DescribeCacheParametersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
 	repeated ResponseItem cache_parameter_set = 4;
-	int32 total_count = 5;
+	optional int32 total_count = 5;
 
 	message ResponseItem {
-		string cache_parameter_type = 1;
-		string cache_parameter_name = 2;
-		string cache_parameter_value = 3;
-		string value_range = 4;
-		int32 is_readonly = 5;
+		optional string cache_parameter_type = 1;
+		optional string cache_parameter_name = 2;
+		optional string cache_parameter_value = 3;
+		optional string value_range = 4;
+		optional int32 is_readonly = 5;
 	}
 }
 
 // ----------------------------------------------------------------------------
 
 message UpdateCacheParametersInput {
-	string cache_parameter_group = 1;
+	optional string cache_parameter_group = 1;
 	repeated CacheParameter parameters = 2;
 }
 message UpdateCacheParametersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 // ----------------------------------------------------------------------------
 
 message ResetCacheParametersInput {
-	string cache_parameter_group = 1;
+	optional string cache_parameter_group = 1;
 	repeated string cache_parameter_names = 2;
 }
 message ResetCacheParametersOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 }
 
 

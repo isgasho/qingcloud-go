@@ -64,14 +64,14 @@ type CacheService struct {
 func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
 	return &CacheService{
 		Config:     conf,
-		Properties: &CacheServiceProperties{Zone: zone},
+		Properties: &CacheServiceProperties{Zone: proto.String(zone)},
 	}
 }
 
 // See https://docs.qingcloud.com/api/cache/index.html
 func (s *QingCloudService) Cache(zone string) (*CacheService, error) {
 	properties := &CacheServiceProperties{
-		Zone: zone,
+		Zone: proto.String(zone),
 	}
 
 	return &CacheService{Config: s.Config, Properties: properties}, nil
