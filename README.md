@@ -1,4 +1,4 @@
-<p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/logo.jpg" alt="QingCloud"></a></p>
+<p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/docs/images/logo.jpg" alt="QingCloud"></a></p>
 
 # 青云 SDK Go Version
 
@@ -50,7 +50,7 @@ log_level: 'warn'
 
 ## 快速入门
 
-以下为 [hello.go](./hello.go) 的内容:
+以下为 [docs/hello.go](./docs/hello.go) 的内容:
 
 ```go
 package main
@@ -115,7 +115,7 @@ nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
 
 运行例子:
 
-	go run hello.go
+	go run ./docs/hello.go
 
 [更多例子](docs/examples).
 
