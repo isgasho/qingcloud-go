@@ -2,8 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-// Package qingcloud outputs qingcloud stub code.
-package qingcloud
+package qingcloud_plugin
 
 import (
 	"bytes"

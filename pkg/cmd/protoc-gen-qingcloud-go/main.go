@@ -46,14 +46,13 @@
 //
 // See the README and documentation for protocol buffers to learn more:
 // 	https://developers.google.com/protocol-buffers/
-package plugin_main
+package qingcloud_plugin
 
 import (
 	"io/ioutil"
 	"os"
 	"strings"
 
-	qcPlugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud-go/qingcloud"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 )
@@ -81,7 +80,7 @@ func Main() {
 	// protoc --qingcloud-go_out=plugins=qingcloud+plugin1+plugin2,aa=11,bb=22:. x.proto
 	parameter := g.Request.GetParameter()
 	if plugins := getCommandLineParameterValue(parameter, "plugins"); plugins == "" {
-		parameter += ",plugins=" + qcPlugin.PluginName
+		parameter += ",plugins=" + PluginName
 	}
 
 	// parse command line parameters
@@ -99,7 +98,7 @@ func Main() {
 	// skip non *.pb.qingcloud.go
 	respFileList := g.Response.File[:0]
 	for _, file := range g.Response.File {
-		if strings.HasSuffix(file.GetName(), qcPlugin.FileNameExt) {
+		if strings.HasSuffix(file.GetName(), FileNameExt) {
 			respFileList = append(respFileList, file)
 		}
 	}
