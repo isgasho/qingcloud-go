@@ -1,0 +1,31 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto2";
+
+package qingcloud.api.spec_metadata;
+
+option go_package = "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata;spec_metadata";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FileOptions {
+	optional FileOption file_option = 10001;
+}
+
+extend google.protobuf.ServiceOptions {
+	optional ServiceOption service_option = 10001;
+}
+
+extend google.protobuf.MethodOptions {
+	optional MethodOption method_option = 10001;
+}
+
+extend google.protobuf.MessageOptions {
+	optional MessageOption message_option = 10001;
+}
+
+extend google.protobuf.FieldOptions {
+	optional FieldOption field_option = 10001;
+}
