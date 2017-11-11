@@ -11,7 +11,7 @@ RUN go install ./cmd/...
 FROM alpine
 
 COPY --from=builder /go/bin/qingcloud-cli /usr/local/bin/
-COPY --from=builder /go/bin/protoc-gen-qingcloud-go /usr/local/bin/
+COPY --from=builder /go/bin/protoc-gen-qingcloud /usr/local/bin/
 
 ENTRYPOINT ["/usr/local/bin/qingcloud-cli"]
 CMD []

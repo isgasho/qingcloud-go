@@ -6,7 +6,7 @@ package go_sdk_v1
 
 import (
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud-go"
+	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud"
 )
 
 func init() {
