@@ -15,23 +15,23 @@ import "google/protobuf/descriptor.proto";
 // ----------------------------------------------------------------------------
 
 extend google.protobuf.FileOptions {
-	optional FileOption file_option = 10001;
+	optional FileOption file_option = 20171111;
 }
 
 extend google.protobuf.ServiceOptions {
-	optional ServiceOption service_option = 10001;
+	optional ServiceOption service_option = 20171111;
 }
 
 extend google.protobuf.MethodOptions {
-	optional MethodOption method_option = 10001;
+	optional MethodOption method_option = 20171111;
 }
 
 extend google.protobuf.MessageOptions {
-	optional MessageOption message_option = 10001;
+	optional MessageOption message_option = 20171111;
 }
 
 extend google.protobuf.FieldOptions {
-	optional FieldOption field_option = 10001;
+	optional FieldOption field_option = 20171111;
 }
 
 // ----------------------------------------------------------------------------
@@ -41,16 +41,6 @@ extend google.protobuf.FieldOptions {
 // 只针对 service 部分, 因此 message 的很多信息并未包含
 // message 的合法性验证由运行时负责, 这里只有修饰信息
 // ----------------------------------------------------------------------------
-
-// 模板引擎
-message TemplateEngineSpec {
-	required string name = 1;
-	required string file_name_ext = 2;
-
-	optional string file_header_template = 3;
-	optional string file_tail_template = 4;
-	optional string service_template = 5;
-}
 
 // proto 文件信息
 message FileSpec {
