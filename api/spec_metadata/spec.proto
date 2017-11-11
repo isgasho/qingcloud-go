@@ -8,6 +8,32 @@ package qingcloud.api.spec_metadata;
 
 option go_package = "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata;spec_metadata";
 
+import "google/protobuf/descriptor.proto";
+
+// ----------------------------------------------------------------------------
+// proto 注解
+// ----------------------------------------------------------------------------
+
+extend google.protobuf.FileOptions {
+	optional FileOption file_option = 10001;
+}
+
+extend google.protobuf.ServiceOptions {
+	optional ServiceOption service_option = 10001;
+}
+
+extend google.protobuf.MethodOptions {
+	optional MethodOption method_option = 10001;
+}
+
+extend google.protobuf.MessageOptions {
+	optional MessageOption message_option = 10001;
+}
+
+extend google.protobuf.FieldOptions {
+	optional FieldOption field_option = 10001;
+}
+
 // ----------------------------------------------------------------------------
 // Spec 用语渲染生成代码的模板
 // 为了兼容 proto2 和 proto3 语法, 建议采用 msg.GetFieldName() 方式渲染模板
@@ -16,8 +42,18 @@ option go_package = "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata;spec
 // message 的合法性验证由运行时负责, 这里只有修饰信息
 // ----------------------------------------------------------------------------
 
+// 模板引擎
+message TemplateEngineSpec {
+	required string name = 1;
+	required string file_name_ext = 2;
+
+	optional string file_header_template = 3;
+	optional string file_tail_template = 4;
+	optional string service_template = 5;
+}
+
 // proto 文件信息
-message FileSpec struct {
+message FileSpec {
 	required string file_name = 1;
 	required string package_name = 2;
 	optional ExternalDocumentation external_docs = 3;
@@ -35,7 +71,7 @@ message ServiceMethodSpec {
 	required string method_name = 1;
 	required string input_type_name = 2;
 	required string output_type_name = 3;
-	optional string http_method = 4 [deault = "GET"];
+	optional string http_method = 4 [default = "GET"];
 	optional ExternalDocumentation external_docs = 5;
 }
 
