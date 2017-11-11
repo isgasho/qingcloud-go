@@ -5,6 +5,8 @@
 package qingcloud_plugin
 
 import (
+	"strings"
+
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
 )
 
@@ -26,6 +28,11 @@ func RegisterGenerater(g GeneratorInterface) {
 func getGenerater(name string) GeneratorInterface {
 	for _, g := range pkgGeneratorList {
 		if g.Name() == name {
+			return g
+		}
+	}
+	for _, g := range pkgGeneratorList {
+		if strings.HasPrefix(g.Name(), name) {
 			return g
 		}
 	}
