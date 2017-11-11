@@ -18,24 +18,24 @@ option go_package = "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata;spec
 
 // proto 文件信息
 message FileSpec struct {
-	optional string file_name = 1;
-	optional string package_name = 2;
+	required string file_name = 1;
+	required string package_name = 2;
 	optional ExternalDocumentation external_docs = 3;
 }
 
 // 服务信息
 message ServiceSpec {
-	optional string service_name = 1;
+	required string service_name = 1;
 	repeated ServiceMethodSpec method_list = 2;
 	optional ExternalDocumentation external_docs = 3;
 }
 
 // 服务方法列表
 message ServiceMethodSpec {
-	optional string method_name = 1;
-	optional string input_type_name = 2;
-	optional string output_type_name = 3;
-	optional string http_method = 4;
+	required string method_name = 1;
+	required string input_type_name = 2;
+	required string output_type_name = 3;
+	optional string http_method = 4 [deault = "GET"];
 	optional ExternalDocumentation external_docs = 5;
 }
 
@@ -53,24 +53,18 @@ message FileOption {
 
 // 服务的扩展信息
 message ServiceOption {
-	optional string host = 1;
-	optional string base_path = 2;
-
 	optional ExternalDocumentation external_docs = 3;
 }
 
 // 服务方法的扩展信息
 message MethodOption {
-	optional string method_name = 1;
-	optional string input_type_name = 2;
-	optional string output_type_name = 3;
-	optional string http_method = 4;
-	optional ExternalDocumentation external_docs = 5;
+	optional string http_method = 1;
+	optional ExternalDocumentation external_docs = 2;
 }
 
 // 消息的扩展信息
 message MessageOption {
-	optional ExternalDocumentation external_docs = 5;
+	optional ExternalDocumentation external_docs = 1;
 }
 
 // 消息成员的扩展信息
@@ -86,6 +80,7 @@ message FieldOption {
 	optional string regexp_value = 8;
 	repeated string enum_value = 9;
 	optional ExternalDocumentation external_docs = 10;
+	optional string struct_tag = 11;
 }
 
 // 扩展文档
