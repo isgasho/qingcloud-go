@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package go_sdk_v1
+package golang_sdk_v1
 
 import (
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
@@ -15,18 +15,15 @@ func init() {
 
 type pkgGenerator struct{}
 
-func (p pkgGenerator) Name() string        { return "go.v1" }
+func (p pkgGenerator) Name() string        { return "golang" }
 func (p pkgGenerator) FileNameExt() string { return ".pb.qingcloud.go" }
 
-func (p pkgGenerator) GenFileHeaderCode(spec *spec_metadata.FileSpec) (code string, err error) {
-	panic("")
-}
-func (p pkgGenerator) GenFileTailCode(spec *spec_metadata.FileSpec) (code string, err error) {
-	return "", nil
+func (p pkgGenerator) HeaderCode(spec *spec_metadata.FileSpec) string {
+	return ""
 }
 
-func (p pkgGenerator) GenServiceCode(spec *spec_metadata.ServiceSpec) (code string, err error) {
-	panic("")
+func (p pkgGenerator) ServiceCode(spec *spec_metadata.ServiceSpec) string {
+	return ""
 }
 
 const FileHeaderTemplate = `

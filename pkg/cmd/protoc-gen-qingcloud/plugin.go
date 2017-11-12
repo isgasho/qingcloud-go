@@ -16,9 +16,8 @@ type GeneratorInterface interface {
 	Name() string
 	FileNameExt() string
 
-	GenFileHeaderCode(spec *spec_metadata.FileSpec) (code string, err error)
-	GenFileTailCode(spec *spec_metadata.FileSpec) (code string, err error)
-	GenServiceCode(spec *spec_metadata.ServiceSpec) (code string, err error)
+	HeaderCode(spec *spec_metadata.FileSpec) string
+	ServiceCode(spec *spec_metadata.ServiceSpec) string
 }
 
 func RegisterGenerater(g GeneratorInterface) {
