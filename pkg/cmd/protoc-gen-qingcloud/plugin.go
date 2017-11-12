@@ -38,13 +38,3 @@ func getGenerater(name string) GeneratorInterface {
 	}
 	return nil
 }
-
-func genFileHeaderCode(name string, spec *spec_metadata.FileSpec) (code string, err error) {
-	return getGenerater(name).GenFileHeaderCode(spec)
-}
-func genFileTailCode(name string, spec *spec_metadata.FileSpec) (code string, err error) {
-	return getGenerater(name).GenFileTailCode(spec)
-}
-func genServiceCode(name string, spec *spec_metadata.ServiceSpec) (code string, err error) {
-	return getGenerater(name).GenServiceCode(spec)
-}

@@ -58,6 +58,9 @@ import (
 )
 
 func Main() {
+	qcPlugin := new(qingcloudPlugin)
+	generator.RegisterPlugin(qcPlugin)
+
 	// Begin by allocating a generator. The request and response structures are stored there
 	// so we can do error handling easily - the response structure contains the field to
 	// report failure.
@@ -77,11 +80,25 @@ func Main() {
 	}
 
 	// set default plugins: qingcloud
-	// protoc --qingcloud-go_out=plugins=qingcloud+plugin1+plugin2,aa=11,bb=22:. x.proto
+	// protoc --qingcloud_out=plugins=qingcloud+plugin1+plugin2,aa=11,bb=22:. x.proto
 	parameter := g.Request.GetParameter()
 	if plugins := getCommandLineParameterValue(parameter, "plugins"); plugins == "" {
-		parameter += ",plugins=" + PluginName
+		parameter += ",plugins=" + qcPlugin.Name()
 	}
+
+	// parse qingloud service generator command line
+	// protoc --qingcloud_out=qingcloud_plugin=go:. x.proto
+	svcGeneratorName := getCommandLineParameterValue(parameter, "qingcloud_plugin")
+	if svcGeneratorName == "" {
+		g.Fail("no qingcloud_plugin")
+	}
+
+	svcGenerator := getGenerater(svcGeneratorName)
+	if svcGenerator == nil {
+		g.Fail("invalid qingcloud_plugin:", svcGeneratorName)
+	}
+
+	qcPlugin.InitService(svcGenerator)
 
 	// parse command line parameters
 	g.CommandLineParameters(parameter)
@@ -98,7 +115,7 @@ func Main() {
 	// skip non *.pb.qingcloud.go
 	respFileList := g.Response.File[:0]
 	for _, file := range g.Response.File {
-		if strings.HasSuffix(file.GetName(), FileNameExt) {
+		if strings.HasSuffix(file.GetName(), qcPlugin.FileNameExt()) {
 			respFileList = append(respFileList, file)
 		}
 	}
