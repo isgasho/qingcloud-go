@@ -7,10 +7,7 @@ FROM golang:alpine as builder
 RUN apk add --no-cache git
 
 RUN go get github.com/golang/protobuf/protoc-gen-go
-
-WORKDIR /go/src/github.com/chai2010/qingcloud-go/
-COPY . .
-RUN go install ./cmd/...
+RUN go get github.com/chai2010/qingcloud-go/cmd/...
 
 FROM alpine
 
