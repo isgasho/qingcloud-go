@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	plugin.RegisterGenerater(new(pkgGenerator))
+	plugin.RegisterServiceGenerater(new(pkgGenerator))
 }
 
 type pkgGenerator struct{}

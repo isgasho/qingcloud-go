@@ -10,9 +10,9 @@ import (
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
 )
 
-var pkgGeneratorList []GeneratorInterface
+var pkgServiceGeneratorList []ServiceGenerator
 
-type GeneratorInterface interface {
+type ServiceGenerator interface {
 	Name() string
 	FileNameExt() string
 
@@ -20,17 +20,17 @@ type GeneratorInterface interface {
 	ServiceCode(spec *spec_metadata.ServiceSpec) string
 }
 
-func RegisterGenerater(g GeneratorInterface) {
-	pkgGeneratorList = append(pkgGeneratorList, g)
+func RegisterServiceGenerater(g ServiceGenerator) {
+	pkgServiceGeneratorList = append(pkgServiceGeneratorList, g)
 }
 
-func getGenerater(name string) GeneratorInterface {
-	for _, g := range pkgGeneratorList {
+func getServiceGenerater(name string) ServiceGenerator {
+	for _, g := range pkgServiceGeneratorList {
 		if g.Name() == name {
 			return g
 		}
 	}
-	for _, g := range pkgGeneratorList {
+	for _, g := range pkgServiceGeneratorList {
 		if strings.HasPrefix(g.Name(), name) {
 			return g
 		}
