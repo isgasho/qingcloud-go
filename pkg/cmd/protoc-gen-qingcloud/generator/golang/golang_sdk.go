@@ -58,7 +58,7 @@ var _ = math.Inf
 
 var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.SetLevel
+var _ = logger.Info
 var _ = request.Request{}
 var _ = data.Operation{}
 

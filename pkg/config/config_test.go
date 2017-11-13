@@ -19,7 +19,6 @@ package config
 import (
 	"testing"
 
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -46,7 +45,6 @@ func TestConfig_LoadDefaultConfig(t *testing.T) {
 	assert.Equal(t, "", config.AccessKeyID)
 	assert.Equal(t, "", config.SecretAccessKey)
 	assert.Equal(t, "https", config.Protocol)
-	assert.Equal(t, "warning", logger.GetLevel())
 }
 
 func TestConfig_LoadUserConfig(t *testing.T) {
@@ -70,7 +68,6 @@ log_level: 'debug'
 	assert.Equal(t, "access_key_id", config.AccessKeyID)
 	assert.Equal(t, "secret_access_key", config.SecretAccessKey)
 	assert.Equal(t, "https", config.Protocol)
-	assert.Equal(t, "debug", logger.GetLevel())
 }
 
 func TestNewDefault(t *testing.T) {

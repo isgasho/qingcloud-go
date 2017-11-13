@@ -90,7 +90,7 @@ func NewDefault() (*Config, error) {
 func LoadUserConfig() (*Config, error) {
 	_, err := os.Stat(GetUserConfigFilePath())
 	if err != nil {
-		logger.Warn("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
+		logger.Warning("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
 		InstallDefaultUserConfig()
 	}
 
@@ -147,7 +147,6 @@ func LoadConfigFromContent(content []byte) (*Config, error) {
 		Transport: transport,
 	}
 
-	logger.SetLevel(c.LogLevel)
 	return c, nil
 }
 
@@ -160,8 +159,6 @@ func (c *Config) LoadDefaultConfig() error {
 		return err
 	}
 
-	logger.SetLevel(c.LogLevel)
-
 	return nil
 }
 
@@ -170,7 +167,7 @@ func (c *Config) LoadDefaultConfig() error {
 func (c *Config) LoadUserConfig() error {
 	_, err := os.Stat(GetUserConfigFilePath())
 	if err != nil {
-		logger.Warn("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
+		logger.Warning("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
 		InstallDefaultUserConfig()
 	}
 
@@ -203,8 +200,6 @@ func (c *Config) LoadConfigFromContent(content []byte) error {
 		logger.Error("Config parse error: " + err.Error())
 		return err
 	}
-
-	logger.SetLevel(c.LogLevel)
 
 	timeout := time.Duration(c.ConnectionTimeout) * time.Second
 	transport := &http.Transport{

@@ -11,7 +11,7 @@ import (
 
 // WaitJob wait the job with this jobID finish
 func WaitJob(jobService *service.JobService, jobID string, timeout time.Duration, waitInterval time.Duration) error {
-	logger.Debug("Waiting for Job [%s] finished", jobID)
+	logger.Info("Waiting for Job [%s] finished", jobID)
 	return utils.WaitForSpecificOrError(func() (bool, error) {
 		input := &service.DescribeJobsInput{Jobs: []string{jobID}}
 		output, err := jobService.DescribeJobs(input)
@@ -73,7 +73,7 @@ func describeInstance(instanceService *service.InstanceService, instanceID strin
 
 // WaitInstanceStatus wait the instance with this instanceID to expect status
 func WaitInstanceStatus(instanceService *service.InstanceService, instanceID string, status string, timeout time.Duration, waitInterval time.Duration) (ins *service.Instance, err error) {
-	logger.Debug("Waiting for Instance [%s] status [%s] ", instanceID, status)
+	logger.Info("Waiting for Instance [%s] status [%s] ", instanceID, status)
 	errorTimes := 0
 	err = utils.WaitForSpecificOrError(func() (bool, error) {
 		i, err := describeInstance(instanceService, instanceID)
@@ -90,7 +90,7 @@ func WaitInstanceStatus(instanceService *service.InstanceService, instanceID str
 				//wait transition to finished
 				return false, nil
 			}
-			logger.Debug("Instance [%s] status is [%s] ", instanceID, i.Status)
+			logger.Info("Instance [%s] status is [%s] ", instanceID, i.Status)
 			ins = i
 			return true, nil
 		}
@@ -101,7 +101,7 @@ func WaitInstanceStatus(instanceService *service.InstanceService, instanceID str
 
 // WaitInstanceNetwork wait the instance with this instanceID network become ready
 func WaitInstanceNetwork(instanceService *service.InstanceService, instanceID string, timeout time.Duration, waitInterval time.Duration) (ins *service.Instance, err error) {
-	logger.Debug("Waiting for IP address to be assigned to Instance [%s]", instanceID)
+	logger.Info("Waiting for IP address to be assigned to Instance [%s]", instanceID)
 	err = utils.WaitForSpecificOrError(func() (bool, error) {
 		i, err := describeInstance(instanceService, instanceID)
 		if err != nil {
@@ -111,7 +111,7 @@ func WaitInstanceNetwork(instanceService *service.InstanceService, instanceID st
 			return false, nil
 		}
 		ins = i
-		logger.Debug("Instance [%s] get IP address [%s]", instanceID, ins.Vxnets[0].PrivateIp)
+		logger.Info("Instance [%s] get IP address [%s]", instanceID, ins.Vxnets[0].PrivateIp)
 		return true, nil
 	}, timeout, waitInterval)
 	return
@@ -133,7 +133,7 @@ func describeLoadBalancer(lbService *service.LoadBalancerService, loadBalancerID
 
 // WaitLoadBalancerStatus wait the loadBalancer with this loadBalancerID to expect status
 func WaitLoadBalancerStatus(lbService *service.LoadBalancerService, loadBalancerID string, status string, timeout time.Duration, waitInterval time.Duration) (lb *service.LoadBalancer, err error) {
-	logger.Debug("Waiting for LoadBalancer [%s] status [%s] ", loadBalancerID, status)
+	logger.Info("Waiting for LoadBalancer [%s] status [%s] ", loadBalancerID, status)
 	errorTimes := 0
 	err = utils.WaitForSpecificOrError(func() (bool, error) {
 		i, err := describeLoadBalancer(lbService, loadBalancerID)
@@ -151,7 +151,7 @@ func WaitLoadBalancerStatus(lbService *service.LoadBalancerService, loadBalancer
 				return false, nil
 			}
 			lb = i
-			logger.Debug("LoadBalancer [%s] status is [%s] ", loadBalancerID, i.Status)
+			logger.Info("LoadBalancer [%s] status is [%s] ", loadBalancerID, i.Status)
 			return true, nil
 		}
 		return false, nil
