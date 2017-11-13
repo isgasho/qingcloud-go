@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"log"
 
+	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	pb "github.com/chai2010/qingcloud-go/pkg/service.pb"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )

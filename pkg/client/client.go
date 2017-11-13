@@ -7,8 +7,8 @@ import (
 
 	"github.com/golang/protobuf/proto"
 
+	service "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	service "github.com/chai2010/qingcloud-go/pkg/service.pb"
 )
 
 const (

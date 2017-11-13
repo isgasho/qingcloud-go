@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	service "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/logger"
-	service "github.com/chai2010/qingcloud-go/pkg/service.pb"
 	"github.com/chai2010/qingcloud-go/pkg/utils"
 )
 

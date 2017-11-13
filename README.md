@@ -61,7 +61,7 @@ import (
 	"log"
 
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	pb "github.com/chai2010/qingcloud-go/pkg/service.pb"
+	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )
@@ -125,8 +125,8 @@ nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
 使用青云SDK一般是以下步骤:
 
 1. 用 [pkg/config](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/config) 包构造一个配置对象, 里面含有最重要的 API密钥, 还包含日志级别等信息.
-2. 基于配置对象调用 [pkg/service.pb](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb) 包的 [`Init`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb#Init) 函数构造一个青云主服务对象 [`qcService`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb#QingCloudService), 其中会根据配置文件设置日志级别.
-3. 假设有一个 [UserData](./api/user_data.proto) 子服务, 那么调用 [`qcService.UserData("pek3a")`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/service.pb#QingCloudService.UserData) 方法将返回子服务对象, 其中参数是区域
+2. 基于配置对象调用 [pkg/api](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/api) 包的 [`Init`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/api#Init) 函数构造一个青云主服务对象 [`qcService`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/api#QingCloudService), 其中会根据配置文件设置日志级别.
+3. 假设有一个 [UserData](./api/user_data.proto) 子服务, 那么调用 [`qcService.UserData("pek3a")`](https://godoc.org/github.com/chai2010/qingcloud-go/pkg/api#QingCloudService.UserData) 方法将返回子服务对象, 其中参数是区域
 4. 使用子服务对象就可以调用每个子对象的方法了
 
 我们可以查看子服务对应的接口规范, 在 [api/user_data.proto](./api/user_data.proto) 文件定义 ([青云文档](https://docs.qingcloud.com/api/userdata/index.html)):
