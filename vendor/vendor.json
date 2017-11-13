@@ -101,6 +101,12 @@
 			"revisionTime": "2017-10-04T06:46:40Z"
 		},
 		{
+			"checksumSHA1": "HmbftipkadrLlCfzzVQ+iFHbl6g=",
+			"path": "github.com/golang/glog",
+			"revision": "23def4e6c14b4da8ac2ed8007337bc5eb5007998",
+			"revisionTime": "2016-01-25T20:49:56Z"
+		},
+		{
 			"checksumSHA1": "t/sQ9OAykIvWiNL6sL994a2uEYo=",
 			"path": "github.com/golang/protobuf/descriptor",
 			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
