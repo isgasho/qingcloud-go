@@ -1,119 +1,266 @@
-// +-------------------------------------------------------------------------
-// | Copyright (C) 2016 Yunify, Inc.
-// +-------------------------------------------------------------------------
-// | Licensed under the Apache License, Version 2.0 (the "License");
-// | you may not use this work except in compliance with the License.
-// | You may obtain a copy of the License in the LICENSE file, or at:
-// |
-// | http://www.apache.org/licenses/LICENSE-2.0
-// |
-// | Unless required by applicable law or agreed to in writing, software
-// | distributed under the License is distributed on an "AS IS" BASIS,
-// | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// | See the License for the specific language governing permissions and
-// | limitations under the License.
-// +-------------------------------------------------------------------------
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
 
-// Package logger provides support for logging to stdout and stderr.
-// Log entries will be logged with format: $timestamp $hostname [$pid]: $severity $message.
 package logger
 
 import (
 	"fmt"
 	"io"
+	"io/ioutil"
+	"log"
 	"os"
-	"strings"
-	"time"
-
-	"github.com/sirupsen/logrus"
+	"strconv"
 )
 
-var instance *logrus.Logger
+var logger = newLogger()
 
-// LogFormatter is used to format log entry.
-type LogFormatter struct{}
+// V reports whether verbosity level l is at least the requested verbose level.
+func V(l int) bool {
+	return logger.V(l)
+}
 
-// Format formats a given log entry, returns byte slice and error.
-func (c *LogFormatter) Format(entry *logrus.Entry) ([]byte, error) {
-	level := strings.ToUpper(entry.Level.String())
-	if level == "WARNING" {
-		level = "WARN"
+// Info logs to the INFO log.
+func Info(args ...interface{}) {
+	logger.Info(args...)
+}
+
+// Infof logs to the INFO log. Arguments are handled in the manner of fmt.Printf.
+func Infof(format string, args ...interface{}) {
+	logger.Infof(format, args...)
+}
+
+// Infoln logs to the INFO log. Arguments are handled in the manner of fmt.Println.
+func Infoln(args ...interface{}) {
+	logger.Infoln(args...)
+}
+
+// Warning logs to the WARNING log.
+func Warning(args ...interface{}) {
+	logger.Warning(args...)
+}
+
+// Warningf logs to the WARNING log. Arguments are handled in the manner of fmt.Printf.
+func Warningf(format string, args ...interface{}) {
+	logger.Warningf(format, args...)
+}
+
+// Warningln logs to the WARNING log. Arguments are handled in the manner of fmt.Println.
+func Warningln(args ...interface{}) {
+	logger.Warningln(args...)
+}
+
+// Error logs to the ERROR log.
+func Error(args ...interface{}) {
+	logger.Error(args...)
+}
+
+// Errorf logs to the ERROR log. Arguments are handled in the manner of fmt.Printf.
+func Errorf(format string, args ...interface{}) {
+	logger.Errorf(format, args...)
+}
+
+// Errorln logs to the ERROR log. Arguments are handled in the manner of fmt.Println.
+func Errorln(args ...interface{}) {
+	logger.Errorln(args...)
+}
+
+// Fatal logs to the FATAL log. Arguments are handled in the manner of fmt.Print.
+// It calls os.Exit() with exit code 1.
+func Fatal(args ...interface{}) {
+	logger.Fatal(args...)
+	// Make sure fatal logs will exit.
+	os.Exit(1)
+}
+
+// Fatalf logs to the FATAL log. Arguments are handled in the manner of fmt.Printf.
+// It calles os.Exit() with exit code 1.
+func Fatalf(format string, args ...interface{}) {
+	logger.Fatalf(format, args...)
+	// Make sure fatal logs will exit.
+	os.Exit(1)
+}
+
+// Fatalln logs to the FATAL log. Arguments are handled in the manner of fmt.Println.
+// It calle os.Exit()) with exit code 1.
+func Fatalln(args ...interface{}) {
+	logger.Fatalln(args...)
+	// Make sure fatal logs will exit.
+	os.Exit(1)
+}
+
+// Print prints to the standard logger.
+func Print(args ...interface{}) {
+	log.Output(2, fmt.Sprint(args...))
+}
+
+// Printf prints to the standard logger.
+func Printf(format string, args ...interface{}) {
+	log.Output(2, fmt.Sprintf(format, args...))
+}
+
+// Println prints to the standard logger.
+func Println(args ...interface{}) {
+	log.Output(2, fmt.Sprintln(args...))
+}
+
+// Logger does underlying logging work for logger.
+type Logger interface {
+	// Info logs to INFO log. Arguments are handled in the manner of fmt.Print.
+	Info(args ...interface{})
+	// Infoln logs to INFO log. Arguments are handled in the manner of fmt.Println.
+	Infoln(args ...interface{})
+	// Infof logs to INFO log. Arguments are handled in the manner of fmt.Printf.
+	Infof(format string, args ...interface{})
+	// Warning logs to WARNING log. Arguments are handled in the manner of fmt.Print.
+	Warning(args ...interface{})
+	// Warningln logs to WARNING log. Arguments are handled in the manner of fmt.Println.
+	Warningln(args ...interface{})
+	// Warningf logs to WARNING log. Arguments are handled in the manner of fmt.Printf.
+	Warningf(format string, args ...interface{})
+	// Error logs to ERROR log. Arguments are handled in the manner of fmt.Print.
+	Error(args ...interface{})
+	// Errorln logs to ERROR log. Arguments are handled in the manner of fmt.Println.
+	Errorln(args ...interface{})
+	// Errorf logs to ERROR log. Arguments are handled in the manner of fmt.Printf.
+	Errorf(format string, args ...interface{})
+	// Fatal logs to ERROR log. Arguments are handled in the manner of fmt.Print.
+	Fatal(args ...interface{})
+	// Fatalln logs to ERROR log. Arguments are handled in the manner of fmt.Println.
+	Fatalln(args ...interface{})
+	// Fatalf logs to ERROR log. Arguments are handled in the manner of fmt.Printf.
+	Fatalf(format string, args ...interface{})
+	// V reports whether verbosity level l is at least the requested verbose level.
+	V(l int) bool
+}
+
+// SetLogger sets logger that is used in qingcloud-go to a logger.
+func SetLogger(l Logger) {
+	logger = l
+}
+
+const (
+	// infoLog indicates Info severity.
+	infoLog int = iota
+	// warningLog indicates Warning severity.
+	warningLog
+	// errorLog indicates Error severity.
+	errorLog
+	// fatalLog indicates Fatal severity.
+	fatalLog
+)
+
+// severityName contains the string representation of each severity.
+var severityName = []string{
+	infoLog:    "INFO",
+	warningLog: "WARNING",
+	errorLog:   "ERROR",
+	fatalLog:   "FATAL",
+}
+
+// loggerT is the default logger.
+type loggerT struct {
+	m []*log.Logger
+	v int
+}
+
+// NewLogger creates a logger with the provided writers.
+// Fatal logs will be written to errorW, warningW, infoW, followed by exit(1).
+// Error logs will be written to errorW, warningW and infoW.
+// Warning logs will be written to warningW and infoW.
+// Info logs will be written to infoW.
+func NewLogger(infoW, warningW, errorW io.Writer) Logger {
+	return NewLoggerWithVerbosity(infoW, warningW, errorW, 0)
+}
+
+// NewLoggerV2WithVerbosity creates a loggerV2 with the provided writers and
+// verbosity level.
+func NewLoggerWithVerbosity(infoW, warningW, errorW io.Writer, v int) Logger {
+	var m []*log.Logger
+	m = append(m, log.New(infoW, severityName[infoLog]+": ", log.LstdFlags))
+	m = append(m, log.New(io.MultiWriter(infoW, warningW), severityName[warningLog]+": ", log.LstdFlags))
+	ew := io.MultiWriter(infoW, warningW, errorW) // ew will be used for error and fatal.
+	m = append(m, log.New(ew, severityName[errorLog]+": ", log.LstdFlags))
+	m = append(m, log.New(ew, severityName[fatalLog]+": ", log.LstdFlags))
+	return &loggerT{m: m, v: v}
+}
+
+// newLogger creates a logger to be used as default logger.
+// All logs are written to stderr.
+func newLogger() Logger {
+	errorW := ioutil.Discard
+	warningW := ioutil.Discard
+	infoW := ioutil.Discard
+
+	logLevel := os.Getenv("QINGCLOUD_GO_LOG_SEVERITY_LEVEL")
+	switch logLevel {
+	case "", "ERROR", "error": // If env is unset, set level to ERROR.
+		errorW = os.Stderr
+	case "WARNING", "warning":
+		warningW = os.Stderr
+	case "INFO", "info":
+		infoW = os.Stderr
 	}
-	if len(level) < 5 {
-		level = strings.Repeat(" ", 5-len(level)) + level
+
+	var v int
+	vLevel := os.Getenv("QINGCLOUD_GO_LOG_VERBOSITY_LEVEL")
+	if vl, err := strconv.Atoi(vLevel); err == nil {
+		v = vl
 	}
-
-	return []byte(fmt.Sprintf(
-		"[%s #%d] %s -- : %s\n",
-		time.Now().Format("2006-01-02T15:04:05.000Z"),
-		os.Getpid(),
-		level,
-		entry.Message)), nil
+	return NewLoggerWithVerbosity(infoW, warningW, errorW, v)
 }
 
-// SetOutput set the destination for the log output
-func SetOutput(out io.Writer) {
-	instance.Out = out
+func (g *loggerT) Info(args ...interface{}) {
+	g.m[infoLog].Print(args...)
 }
 
-// CheckLevel checks whether the log level is valid.
-func CheckLevel(level string) error {
-	if _, err := logrus.ParseLevel(level); err != nil {
-		return fmt.Errorf(`log level not valid: "%s"`, level)
-	}
-	return nil
+func (g *loggerT) Infoln(args ...interface{}) {
+	g.m[infoLog].Println(args...)
 }
 
-// GetLevel get the log level string.
-func GetLevel() string {
-	return instance.Level.String()
+func (g *loggerT) Infof(format string, args ...interface{}) {
+	g.m[infoLog].Printf(format, args...)
 }
 
-// SetLevel sets the log level. Valid levels are "debug", "info", "warn", "error", and "fatal".
-func SetLevel(level string) {
-	lvl, err := logrus.ParseLevel(level)
-	if err != nil {
-		Fatal(fmt.Sprintf(`log level not valid: "%s"`, level))
-	}
-	instance.Level = lvl
+func (g *loggerT) Warning(args ...interface{}) {
+	g.m[warningLog].Print(args...)
 }
 
-// Debug logs a message with severity DEBUG.
-func Debug(format string, v ...interface{}) {
-	output(instance.Debug, format, v...)
+func (g *loggerT) Warningln(args ...interface{}) {
+	g.m[warningLog].Println(args...)
 }
 
-// Info logs a message with severity INFO.
-func Info(format string, v ...interface{}) {
-	output(instance.Info, format, v...)
+func (g *loggerT) Warningf(format string, args ...interface{}) {
+	g.m[warningLog].Printf(format, args...)
 }
 
-// Warn logs a message with severity WARN.
-func Warn(format string, v ...interface{}) {
-	output(instance.Warn, format, v...)
+func (g *loggerT) Error(args ...interface{}) {
+	g.m[errorLog].Print(args...)
 }
 
-// Error logs a message with severity ERROR.
-func Error(format string, v ...interface{}) {
-	output(instance.Error, format, v...)
+func (g *loggerT) Errorln(args ...interface{}) {
+	g.m[errorLog].Println(args...)
 }
 
-// Fatal logs a message with severity ERROR followed by a call to os.Exit().
-func Fatal(format string, v ...interface{}) {
-	output(instance.Fatal, format, v...)
+func (g *loggerT) Errorf(format string, args ...interface{}) {
+	g.m[errorLog].Printf(format, args...)
 }
 
-func output(origin func(...interface{}), format string, v ...interface{}) {
-	if len(v) > 0 {
-		origin(fmt.Sprintf(format, v...))
-	} else {
-		origin(format)
-	}
+func (g *loggerT) Fatal(args ...interface{}) {
+	g.m[fatalLog].Fatal(args...)
+	// No need to call os.Exit() again because log.Logger.Fatal() calls os.Exit().
 }
 
-func init() {
-	instance = logrus.New()
-	instance.Formatter = &LogFormatter{}
-	instance.Out = os.Stderr
-	instance.Level = logrus.WarnLevel
+func (g *loggerT) Fatalln(args ...interface{}) {
+	g.m[fatalLog].Fatalln(args...)
+	// No need to call os.Exit() again because log.Logger.Fatal() calls os.Exit().
+}
+
+func (g *loggerT) Fatalf(format string, args ...interface{}) {
+	g.m[fatalLog].Fatalf(format, args...)
+	// No need to call os.Exit() again because log.Logger.Fatal() calls os.Exit().
+}
+
+func (g *loggerT) V(l int) bool {
+	return l <= g.v
 }
