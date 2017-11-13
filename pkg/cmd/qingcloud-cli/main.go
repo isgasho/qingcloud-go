@@ -4,6 +4,10 @@
 
 package qingcloud_cli
 
+import (
+	_ "github.com/chai2010/qingcloud-go/pkg/internal/glogger"
+)
+
 func Main() {
 	println("qingcloud-cli: TODO")
 }
