@@ -174,6 +174,17 @@ func (p *qingcloudPlugin) getServiceOption(svc *descriptor.ServiceDescriptorProt
 	return nil
 }
 
+func (p *qingcloudPlugin) getServiceMethodOption(m *descriptor.MethodDescriptorProto) *spec_metadata.MethodOption {
+	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_MethodOption) {
+		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_MethodOption); ext != nil {
+			if x, _ := ext.(*spec_metadata.MethodOption); x != nil {
+				return x
+			}
+		}
+	}
+	return nil
+}
+
 func (p *qingcloudPlugin) getMessageOption(m *descriptor.DescriptorProto) *spec_metadata.MessageOption {
 	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_MessageOption) {
 		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_MessageOption); ext != nil {
@@ -185,10 +196,10 @@ func (p *qingcloudPlugin) getMessageOption(m *descriptor.DescriptorProto) *spec_
 	return nil
 }
 
-func (p *qingcloudPlugin) getServiceMethodOption(m *descriptor.MethodDescriptorProto) *spec_metadata.MethodOption {
-	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_MethodOption) {
-		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_MethodOption); ext != nil {
-			if x, _ := ext.(*spec_metadata.MethodOption); x != nil {
+func (p *qingcloudPlugin) getMessageFieldOption(m *descriptor.FieldDescriptorProto) *spec_metadata.FieldOption {
+	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_FieldOption) {
+		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_FieldOption); ext != nil {
+			if x, _ := ext.(*spec_metadata.FieldOption); x != nil {
 				return x
 			}
 		}
