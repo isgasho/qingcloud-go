@@ -23,6 +23,7 @@ package qingcloud_plugin
 
 import (
 	"io/ioutil"
+	"log"
 	"os"
 	"strings"
 
@@ -52,16 +53,26 @@ func Main() {
 		g.Fail("no files to generate")
 	}
 
+	if len(getAllServiceGenerator()) == 0 {
+		g.Fail("no service generator plugin")
+	}
+
 	// set default plugins: qingcloud
 	// protoc --qingcloud_out=plugin=golang:. x.proto
 	if s := getParameterValue(g.Request.GetParameter(), "plugin"); s != "" {
-		if x := getServiceGenerater(s); x != nil {
+		if x := getServiceGenerator(s); x != nil {
 			qcPlugin.InitService(x)
 		} else {
+			log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
 			g.Fail("invalid plugin:", s)
 		}
 	} else {
-		g.Fail("no plugin")
+		if x := getAllServiceGenerator(); len(x) == 1 {
+			qcPlugin.InitService(x[0])
+		} else {
+			log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
+			g.Fail("no plugin")
+		}
 	}
 
 	// parse command line parameters

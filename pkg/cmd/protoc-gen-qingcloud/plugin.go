@@ -20,11 +20,22 @@ type ServiceGenerator interface {
 	ServiceCode(spec *spec_metadata.ServiceSpec) string
 }
 
-func RegisterServiceGenerater(g ServiceGenerator) {
+func RegisterServiceGenerator(g ServiceGenerator) {
 	pkgServiceGeneratorList = append(pkgServiceGeneratorList, g)
 }
 
-func getServiceGenerater(name string) ServiceGenerator {
+func getAllServiceGenerator() []ServiceGenerator {
+	return pkgServiceGeneratorList
+}
+
+func getAllServiceGeneratorNames() (names []string) {
+	for _, g := range pkgServiceGeneratorList {
+		names = append(names, g.Name())
+	}
+	return
+}
+
+func getServiceGenerator(name string) ServiceGenerator {
 	for _, g := range pkgServiceGeneratorList {
 		if g.Name() == name {
 			return g
