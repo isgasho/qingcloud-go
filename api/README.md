@@ -16,8 +16,8 @@
 
 用针对青云定制的插件生成青云SDK相关代码:
 
-1. 安装定制的`protoc-gen-qingcloud-go`插件, 命令: `go install github.com/chai2010/qingcloud-go/cmd/protoc-gen-qingcloud-go`
-1. 用定制的`protoc-gen-qingcloud-go`插件编译 spec.pb 目录下全部的 proto 文件(生成的文件后缀名为`*.pb.qingcloud.go`, 含有青云SDK代码), 参考 `make` 命令
+1. 安装定制的`protoc-gen-qingcloud`插件, 命令: `go install github.com/chai2010/qingcloud-go/cmd/protoc-gen-qingcloud`
+1. 用定制的`protoc-gen-qingcloud`插件编译 spec.pb 目录下全部的 proto 文件(默认是Go语言, 生成的文件后缀名为`*.pb.qingcloud.go`, 含有青云SDK代码), 参考 `make` 命令
 1. 在上级目录运行单元测试 `make test ./...`
 1. OK
 
@@ -29,104 +29,101 @@
 
 ## Protobuf 扩展信息
 
-扩展类型在 [api/qingcloud_sdk_rule/rule.proto](./qingcloud_sdk_rule/rule.proto) 文件中定义:
+扩展类型在 [api/spec_metadata/spec.proto](./spec_metadata/spec.proto) 文件中定义:
 
 ```proto
-// 服务规则
-// 有主服务和子服务之分, 子服务隶属于某个主服务
-message ServiceOptionsRule {
-	string doc_url = 1;          // 文档链接
-	string service_name = 2;     // 服务名, 格式: QingCloud, QingCloud.Alarm
+// 文件的扩展信息
+message FileOption {
+	optional ExternalDocumentation external_docs = 1;
 }
 
-// 方法规则
-message MethodOptionsRule {
-	string doc_url = 1;          // 文档链接
-	string http_method = 2;      // http 行为有 GET 和 POST 之分, 默认是 GET
-	string input_type = 3;       // 输入参数类型
-	string output_type = 4;      // 输出参数类型
+// 服务的扩展信息
+message ServiceOption {
+	optional ExternalDocumentation external_docs = 3;
 }
 
-// 输入参数规则
-// 输入参数成员只有数值类型和字符串, 以及对应的数组, 不含嵌套结构
-// 元信息部分只能包含 字符串/数字/链接符号 等普通的字符
-message MessageOptionsRule {
-	string required_fileds = 1;   // 格式: "a; b; ..."
-	string default_value = 2;     // 格式: "a:v; b:v; ..."
-	string enum_value = 3;        // 格式: "a:a1,a2,a3; b:b1,b2; ..."
-	string min_value = 4;         // 格式: "a:v; b:v ...", 最小值, 仅数值类型或数组
-	string max_value = 5;         // 格式: "a:v; b:v; ...", 最大值, 仅数值类型或数组
-	string multiple_of_value = 6; // 格式: "a:v; b:v; ...", 整倍数, 仅整数类型或数组
-	string regexp_value = 7;      // 格式: "a:{{...}}; b:{{...}};", 简单正则, 不要挑战复杂格式
+// 服务方法的扩展信息
+message MethodOption {
+	optional string http_method = 1;
+	optional ExternalDocumentation external_docs = 2;
 }
 
-// 通过扩展信息给 method 增加约束
-extend google.protobuf.ServiceOptions {
-	ServiceOptionsRule service_rule = 10001;
+// 消息的扩展信息
+message MessageOption {
+	optional ExternalDocumentation external_docs = 1;
 }
 
-// 通过扩展信息给 method 增加约束
-extend google.protobuf.MethodOptions {
-	MethodOptionsRule method_rule = 10001;
+// 消息成员的扩展信息
+// 这是重要信息, 在运行时可动态获取改信息对 message 做合法性验证
+message FieldOption {
+	optional double min_value = 1;
+	optional double max_value = 2;
+	optional double multiple_of_value = 3;
+	optional double exclusive_min_value = 4;
+	optional double exclusive_max_value = 5;
+	optional int32 min_length = 6;
+	optional int32 max_length = 7;
+	optional string regexp_value = 8;
+	repeated string enum_value = 9;
+	optional ExternalDocumentation external_docs = 10;
+	optional string struct_tag = 11;
 }
 
-// 通过扩展信息给 message 增加约束
-extend google.protobuf.MessageOptions {
-	MessageOptionsRule message_rule = 10001;
+// 扩展文档
+message ExternalDocumentation {
+	optional string title = 1;
+	optional string description = 2;
+	optional string url = 3;
 }
 ```
 
 通过扩展数据可以改变方法的行为, [user_data.proto](./user_data.proto) 指定了 POST 方法:
 
 ```proto
-syntax = "proto3";
+syntax = "proto2";
 
 package service;
 
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 // https://docs.qingcloud.com/api/userdata/index.html
 
 message UserDataServiceProperties {
-	string zone = 1;
+	optional string zone = 1;
 }
 
 service UserDataService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		service_name: "QingCloud.UserData"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/userdata/index.html"
+		}
 	};
 
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
-		option (qingcloud.sdk.rule.method_rule) = {
+		option (qingcloud.api.spec_metadata.method_option) = {
 			http_method: "POST"
 		};
 	}
 }
 
 message UploadUserDataAttachmentInput {
-	bytes attachment_content = 2;
-	string attachment_name = 1;
-
-	option (qingcloud.sdk.rule.message_rule) = {
-		required_fileds: "attachment_content"
-		default_value: ""
-		enum_value: ""
-	};
+	optional string attachment_name = 1;
+	required bytes attachment_content = 2;
 }
 
 message UploadUserDataAttachmentOutput {
-	string action = 1;
-	int32 ret_code = 2;
-	string message = 3;
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
 
-	string attachment_id = 4;
+	optional string attachment_id = 4;
 }
 ```
 
 扩展信息中的 `http_method` 用于表示 HTTP 方法, 默认是 GET, 极少数的API是 POST ([UploadUserDataAttachment](https://docs.qingcloud.com/api/userdata/upload_userdata_attachment.html)). 当采用 POST 方法时,
 需要明确指定 `http_method`.
 
-输入的参数可以通过 `option (qingcloud.sdk.rule.message_rule)` 扩展来定义额外的约束, 用于验证整个结构体.
+输入的参数可以通过 `(qingcloud.api.spec_metadata.field_option)` 扩展来定义额外的约束, 用于验证整个结构体.
+
 目前生成的代码还没有使用该信息.
 
-注意: 文档已经滞后, 需要同步!
