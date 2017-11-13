@@ -101,6 +101,12 @@
 			"revisionTime": "2017-10-04T06:46:40Z"
 		},
 		{
+			"checksumSHA1": "t/sQ9OAykIvWiNL6sL994a2uEYo=",
+			"path": "github.com/golang/protobuf/descriptor",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
 			"checksumSHA1": "URkBh8mU7cUyCnePKDsPKzGreps=",
 			"path": "github.com/golang/protobuf/jsonpb",
 			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
