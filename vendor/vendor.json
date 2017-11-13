@@ -3,12 +3,6 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "5Sl71Blb1YD+8SpQNVoDS6AixrU=",
-			"path": "github.com/chai2010/assert",
-			"revision": "f369707aa50c0aec2d23ada706953117f8499fab",
-			"revisionTime": "2016-09-09T08:20:15Z"
-		},
-		{
 			"checksumSHA1": "OFu4xJEIjiI8Suu+j/gabfp+y6Q=",
 			"origin": "github.com/stretchr/testify/vendor/github.com/davecgh/go-spew/spew",
 			"path": "github.com/davecgh/go-spew/spew",

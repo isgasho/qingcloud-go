@@ -17,37 +17,58 @@
 package request
 
 import (
+	"fmt"
 	"testing"
 	"time"
-
-	. "github.com/chai2010/assert"
 )
+
+func tAssert(tb testing.TB, condition bool, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprint(a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
+	}
+}
+
+func tAssertf(tb testing.TB, condition bool, format string, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprintf(format, a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
+	}
+}
 
 func TestTimeToString(t *testing.T) {
 	tz, err := time.LoadLocation("Asia/Shanghai")
-	AssertNil(t, err)
+	tAssert(t, err == nil)
 
 	someTime := time.Date(2016, 9, 1, 15, 30, 0, 0, tz)
-	AssertEqual(t, "Thu, 01 Sep 2016 07:30:00 GMT", TimeToString(someTime, "RFC 822"))
-	AssertEqual(t, "2016-09-01T07:30:00Z", TimeToString(someTime, "ISO 8601"))
+	tAssert(t, "Thu, 01 Sep 2016 07:30:00 GMT" == TimeToString(someTime, "RFC 822"))
+	tAssert(t, "2016-09-01T07:30:00Z" == TimeToString(someTime, "ISO 8601"))
 }
 
 func TestStringToTime(t *testing.T) {
 	tz, err := time.LoadLocation("Asia/Shanghai")
-	AssertNil(t, err)
+	tAssert(t, err == nil)
 	someTime := time.Date(2016, 9, 1, 15, 30, 0, 0, tz)
 
 	parsedTime, err := StringToTime("Thu, 01 Sep 2016 07:30:00 GMT", "RFC 822")
-	AssertNil(t, err)
-	AssertEqual(t, someTime.UTC(), parsedTime)
+	tAssert(t, err == nil)
+	tAssert(t, someTime.UTC() == parsedTime)
 
 	parsedTime, err = StringToTime("2016-09-01T07:30:00Z", "ISO 8601")
-	AssertNil(t, err)
-	AssertEqual(t, someTime.UTC(), parsedTime)
+	tAssert(t, err == nil)
+	tAssert(t, someTime.UTC() == parsedTime)
 
 	parsedTime, err = StringToTime("2016-09-01T07:30:00.000Z", "ISO 8601")
-	AssertNil(t, err)
-	AssertEqual(t, someTime.UTC(), parsedTime)
+	tAssert(t, err == nil)
+	tAssert(t, someTime.UTC() == parsedTime)
 }
 
 func TestStringToUnixString(t *testing.T) {

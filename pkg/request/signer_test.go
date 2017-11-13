@@ -21,26 +21,24 @@ import (
 	"strings"
 	"testing"
 	"time"
-
-	. "github.com/chai2010/assert"
 )
 
 func TestSigner0(t *testing.T) {
 	url := "https://api.qc.dev/iaas?instance.0=i-xxxxxxxx&action=DescribeInstance&verbose=1"
 	httpRequest, err := http.NewRequest("GET", url, nil)
 	httpRequest.Header.Set("Date", TimeToString(time.Time{}, "RFC 822"))
-	AssertNil(t, err)
+	tAssert(t, err == nil)
 
 	s := Signer{
 		AccessKeyID:     "ENV_ACCESS_KEY_ID",
 		SecretAccessKey: "ENV_SECRET_ACCESS_KEY",
 	}
 	err = s.WriteSignature(httpRequest)
-	AssertNil(t, err)
-	AssertTrue(t, strings.Contains(httpRequest.URL.String(), "https://api.qc.dev/iaas?"))
-	AssertTrue(t, strings.Contains(
+	tAssert(t, err == nil)
+	tAssert(t, strings.Contains(httpRequest.URL.String(), "https://api.qc.dev/iaas?"))
+	tAssert(t, strings.Contains(
 		httpRequest.URL.String(), "time_stamp=0001-01-01T00%3A00%3A00Z"))
-	AssertTrue(t, strings.Contains(
+	tAssert(t, strings.Contains(
 		httpRequest.URL.String(), "signature=ZHa2iQ8PeyP1ktMF9C%2BDjOQBl537ti9RnYZ1Qqr6KRg%3D"))
 }
 
