@@ -60,24 +60,16 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/chai2010/qingcloud-go/pkg/config"
-	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/config"
+	pb "github.com/chai2010/qingcloud-go/pkg/api"
 )
 
 func main() {
-	// 初始化 青云 服务对象
-	qcService, err := pb.Init(config.MustLoadUserConfig())
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// 返回 NIC 子服务, pek3a 为 北京3区-A
-	nicService, err := qcService.Nic("pek3a")
-	if err != nil {
-		log.Fatal(err)
-	}
+	// 返回 NIC 服务, pek3a 为 北京3区-A
+	nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
 
 	// 列出所有网卡
 	reply, err := nicService.DescribeNics(nil)
