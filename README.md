@@ -216,16 +216,11 @@ type XXXInput struct {
 
 可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比:
 
-- proto3 格式: [chai2010/qingcloud-go/api/volume.proto](./api/volume.proto)
+- protobuf 格式: [chai2010/qingcloud-go/api/volume.proto](./api/volume.proto)
 - snips 格式: [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
 
 对比可发现, protobuf 比 json 更容易维护.
 
-<!-- 以后或许可以通过pb自动生成json规范 -->
-
-## 外部依赖
-
-- Protobuf: [https://github.com/golang/protobuf](https://github.com/golang/protobuf)
 
 ## 版权
 

@@ -10,7 +10,7 @@
 
 基于标准的 protobuf 插件生成代码:
 
-1. 安装官方的 [`protoc`](https://github.com/google/protobuf/releases) 程序, V3版本, 带了官方的扩展类型
+1. 安装官方的 [`protoc`](https://github.com/google/protobuf/releases) 程序, V3版本(也支持V2), 带了官方的扩展类型
 1. 安装官方的 `protoc-gen-go` 插件, `go install github.com/golang/protobuf/protoc-gen-go`
 1. 用官方的 `protoc-gen-go` 插件编译当前目录下全部的 proto 文件(生成的文件后缀名为`*.pb.go`, 不含青云SDK代码)
 
@@ -107,7 +107,11 @@ service UserDataService {
 }
 
 message UploadUserDataAttachmentInput {
-	optional string attachment_name = 1;
+	optional string attachment_name = 1 [
+		(qingcloud.api.spec_metadata.field_option) = {
+			regexp_value: "[a-zA-Z0-9_-.]+"
+		}
+	];
 	required bytes attachment_content = 2;
 }
 
