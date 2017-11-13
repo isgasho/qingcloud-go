@@ -42,6 +42,10 @@ update-vendor:
 	govendor list
 	@echo "ok"
 
+remove-unused-vendor:
+	govendor remove +u
+	@echo "ok"
+
 tools:
 	go get github.com/kardianos/govendor
 	docker pull golang:alpine
