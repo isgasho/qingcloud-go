@@ -178,41 +178,11 @@ func (p *UserDataService) UploadUserDataAttachment(
 
 规范文件的语法细节可以参考 [spec.pb/README.md](./api/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
 
-## 与官方SDK的兼容性
-
-因为 protobuf 语法的限制, 它无法实现对 多维数组/字典数组/异构数据 对支持. 目前对于异构数据对处理思路是, 避免用 protobuf 实现异构数据, 采用纯Go语言对结构体实现(内部不得使用protobuf定义对时间类型). 青云的服务中绝大部分参数都是对 protobuf 友好对. 我们尽量做到以下几点:
-
-- 即使有不兼容的地方, API 也是非常相似的
-- 该 SDK 和 官方 SDK 的 API 保持最大的兼容性
-
-假设青云的REST规范的文档中有一个名为 `job_id` 的输入参数, 对应 `XXXInput` 结构体的成员.
-
-官方文档是根据 [json定义的规范](https://github.com/yunify/qingcloud-api-specs/tree/master/2013-08-30/swagger), 然后通过一个名为 [snips](https://github.com/yunify/snips) 的工具加自己定义的 [模板](https://github.com/yunify/qingcloud-sdk-go/tree/master/template) 生成的代码, `XXXInput` 输入参数生成的代码可能类似以下结构:
-
-```go
-type XXXInput struct {
-	JobID *string `json:"job_id" name:"job_id" location:"elements"`
-}
-```
-
-而我们的SDK采用Protobuf3标准工具生成的代码:
-
-```go
-type XXXInput struct {
-	JobId string   `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-}
-```
-
-其中有两个大的差异: 一个是成员名称不同, 分别为 `JobID` 和 `JobId`; 另一个为类型不同, 分别为 `*string` 和 `string`.
-
-[snips](https://github.com/yunify/snips) 采用和 Protobuf-V2 类似的生成规则, 零值是 `nil`, 空值是空字符串, 二者是不等价的. 在 Protobuf3 的生成规则中, 默认将零值和空值等价.
-
-注意: 经过慎重考虑, 我们绝对转为 Protobuf-V2 语法, 实现对默认值的支持.
-
-
 ## 为何不用官方SDK, 为何要重新做一个?
 
-官方的 SDK 对青云的服务支持还不完全, 也没有发布正式的版本. 原因之一是, 官方SDK采用json格式定义规范很难维护, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 目前官方SDK已经落后于当前服务(官方的json规范共有约1.9万行, 我们的proto规范文件不到8千行). 另外还要花很大精力维护 snips 本身的开发, 完善各种语言多各种复合数据类型的支持. 而使用protobuf标准, 可以很容易编写服务规范文件, 官方的编译工具可以针对各种主流编程语言生成代码(我们只需要定制服务部分的代码生成规则), 也便于以后和docker和k8s等平台互联网(它们都是提供的grpc接口, 也是protobuf规范定义的).
+官方 SDK 是针对各种语言的, 在Go语言的版本中很多地方不符合 Go 语言的简洁的设计思路. 我们希望提供一个针对 Go 语言高度定制好用的SDK.
+
+同时, 官方的 SDK 对青云的服务支持还不完全, 也没有发布正式的版本. 原因之一是, 官方SDK采用json格式定义规范很难维护, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 目前官方SDK已经落后于当前服务(官方的json规范共有约1.9万行, 我们的proto规范文件不到8千行). 另外还要花很大精力维护 snips 本身的开发, 完善各种语言多各种复合数据类型的支持. 而使用protobuf标准, 可以很容易编写服务规范文件, 官方的编译工具可以针对各种主流编程语言生成代码(我们只需要定制服务部分的代码生成规则), 也便于以后和docker和k8s等平台互联网(它们都是提供的grpc接口, 也是protobuf规范定义的).
 
 可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比:
 
@@ -220,7 +190,6 @@ type XXXInput struct {
 - snips 格式: [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
 
 对比可发现, protobuf 比 json 更容易维护.
-
 
 ## 版权
 
