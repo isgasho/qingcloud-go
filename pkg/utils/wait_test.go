@@ -2,7 +2,6 @@ package utils
 
 import (
 	"errors"
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
 )
@@ -20,8 +19,8 @@ func TestWaitForSpecificOrError(t *testing.T) {
 		}
 		return false, nil
 	}, timeout, waitInterval)
-	assert.NoError(t, err)
-	assert.Equal(t, 3, times)
+	tAssert(t, err == nil)
+	tAssert(t, 3 == times)
 
 	times = 0
 	err = WaitForSpecificOrError(func() (bool, error) {
@@ -32,8 +31,8 @@ func TestWaitForSpecificOrError(t *testing.T) {
 		}
 		return false, nil
 	}, timeout, waitInterval)
-	assert.Error(t, err)
-	assert.Equal(t, 3, times)
+	tAssert(t, err != nil)
+	tAssert(t, 3 == times)
 
 	times = 0
 	err = WaitForSpecificOrError(func() (bool, error) {
@@ -41,9 +40,9 @@ func TestWaitForSpecificOrError(t *testing.T) {
 		println("times", times)
 		return false, nil
 	}, timeout, waitInterval)
-	assert.Error(t, err)
+	tAssert(t, err != nil)
 	tErr, ok := err.(*TimeoutError)
-	assert.True(t, ok)
-	assert.Equal(t, timeout, tErr.timeout)
-	assert.Equal(t, 10, times)
+	tAssert(t, ok)
+	tAssert(t, timeout == tErr.timeout)
+	tAssert(t, 10 == times)
 }

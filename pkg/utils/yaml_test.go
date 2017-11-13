@@ -18,8 +18,6 @@ package utils
 
 import (
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestYAMLDecode_Unknown(t *testing.T) {
@@ -32,9 +30,9 @@ key3:
 `
 
 	anyData, err := YAMLDecode([]byte(yamlString))
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 	data := anyData.(map[interface{}]interface{})
-	assert.Equal(t, 10.50, data["key2"])
+	tAssert(t, 10.50 == data["key2"])
 }
 
 func TestYAMLDecode_Known(t *testing.T) {
@@ -46,20 +44,20 @@ func TestYAMLDecode_Known(t *testing.T) {
 
 	sample := SampleYAML{Name: "NaMe", Description: "DeScRiPtIoN"}
 	anyDataPointer, err := YAMLDecode([]byte(sampleYAMLString), &sample)
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 	data := anyDataPointer.(*SampleYAML)
-	assert.Equal(t, "NAME", sample.Name)
-	assert.Equal(t, "DeScRiPtIoN", sample.Description)
-	assert.Equal(t, "NAME", (*data).Name)
-	assert.Equal(t, "DeScRiPtIoN", (*data).Description)
+	tAssert(t, "NAME" == sample.Name)
+	tAssert(t, "DeScRiPtIoN" == sample.Description)
+	tAssert(t, "NAME" == (*data).Name)
+	tAssert(t, "DeScRiPtIoN" == (*data).Description)
 }
 
 func TestYAMLDecode_Empty(t *testing.T) {
 	yamlString := ""
 
 	anyData, err := YAMLDecode([]byte(yamlString))
-	assert.Nil(t, err)
-	assert.Nil(t, anyData)
+	tAssert(t, err == nil)
+	tAssert(t, anyData == nil)
 }
 
 func TestYAMLEncode(t *testing.T) {
@@ -70,6 +68,6 @@ func TestYAMLEncode(t *testing.T) {
 	sample := SampleYAML{Name: "NaMe", Description: "DeScRiPtIoN"}
 
 	yamlBytes, err := YAMLEncode(sample)
-	assert.Nil(t, err)
-	assert.Equal(t, "name: NaMe\ndescription: DeScRiPtIoN\n", string(yamlBytes))
+	tAssert(t, err == nil)
+	tAssert(t, "name: NaMe\ndescription: DeScRiPtIoN\n" == string(yamlBytes))
 }

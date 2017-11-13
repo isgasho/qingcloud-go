@@ -72,7 +72,7 @@ func TestStringToTime(t *testing.T) {
 }
 
 func TestStringToUnixString(t *testing.T) {
-	AssertEqual(t, 1472715000, StringToUnixInt("Thu, 01 Sep 2016 07:30:00 GMT", "RFC 822"))
-	AssertEqual(t, 1472715000, StringToUnixInt("2016-09-01T07:30:00Z", "ISO 8601"))
-	AssertEqual(t, 1472715000, StringToUnixInt("2016-09-01T07:30:00.000Z", "ISO 8601"))
+	tAssert(t, 1472715000 == StringToUnixInt("Thu, 01 Sep 2016 07:30:00 GMT", "RFC 822"))
+	tAssert(t, 1472715000 == StringToUnixInt("2016-09-01T07:30:00Z", "ISO 8601"))
+	tAssert(t, 1472715000 == StringToUnixInt("2016-09-01T07:30:00.000Z", "ISO 8601"))
 }

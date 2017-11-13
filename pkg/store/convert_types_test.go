@@ -14,13 +14,14 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
+// +build ignore
+
 package store
 
 import (
+	"fmt"
 	"testing"
 	"time"
-
-	"github.com/stretchr/testify/assert"
 )
 
 var testCasesStringSlice = [][]string{
@@ -307,5 +308,27 @@ func TestTimeMap(t *testing.T) {
 		out2 := TimeValueMap(out)
 		assert.Len(t, out2, len(in), "Unexpected len at idx %d", idx)
 		assert.Equal(t, in, out2, "Unexpected value at idx %d", idx)
+	}
+}
+
+func tAssert(tb testing.TB, condition bool, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprint(a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
+	}
+}
+
+func tAssertf(tb testing.TB, condition bool, format string, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprintf(format, a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
 	}
 }

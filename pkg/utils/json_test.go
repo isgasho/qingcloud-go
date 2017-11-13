@@ -17,10 +17,31 @@
 package utils
 
 import (
+	"fmt"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
+
+func tAssert(tb testing.TB, condition bool, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprint(a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
+	}
+}
+
+func tAssertf(tb testing.TB, condition bool, format string, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprintf(format, a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
+	}
+}
 
 func TestJSONDecode_Unknown(t *testing.T) {
 	jsonString := `{
@@ -30,15 +51,15 @@ func TestJSONDecode_Unknown(t *testing.T) {
 	}`
 
 	anyData, err := JSONDecode([]byte(jsonString))
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 	data := anyData.(map[string]interface{})
-	assert.Equal(t, 10.50, data["key2"])
+	tAssert(t, 10.50 == data["key2"])
 
 	var anotherData interface{}
 	_, err = JSONDecode([]byte(jsonString), &anotherData)
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 	data = anyData.(map[string]interface{})
-	assert.Equal(t, 10.50, data["key2"])
+	tAssert(t, 10.50 == data["key2"])
 }
 
 func TestJSONDecode_Known(t *testing.T) {
@@ -50,12 +71,12 @@ func TestJSONDecode_Known(t *testing.T) {
 
 	sample := SampleJSON{Name: "NaMe", Description: "DeScRiPtIoN"}
 	anyDataPointer, err := JSONDecode([]byte(sampleJSONString), &sample)
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 	data := anyDataPointer.(*SampleJSON)
-	assert.Equal(t, "NAME", sample.Name)
-	assert.Equal(t, "DeScRiPtIoN", sample.Description)
-	assert.Equal(t, "NAME", (*data).Name)
-	assert.Equal(t, "DeScRiPtIoN", (*data).Description)
+	tAssert(t, "NAME" == sample.Name)
+	tAssert(t, "DeScRiPtIoN" == sample.Description)
+	tAssert(t, "NAME" == (*data).Name)
+	tAssert(t, "DeScRiPtIoN" == (*data).Description)
 }
 
 func TestJSONEncode(t *testing.T) {
@@ -66,14 +87,14 @@ func TestJSONEncode(t *testing.T) {
 	sample := SampleJSON{Name: "NaMe", Description: "DeScRiPtIoN"}
 
 	jsonBytes, err := JSONEncode(sample, true)
-	assert.Nil(t, err)
-	assert.Equal(t, `{"name":"NaMe","description":"DeScRiPtIoN"}`, string(jsonBytes))
+	tAssert(t, err == nil)
+	tAssert(t, `{"name":"NaMe","description":"DeScRiPtIoN"}` == string(jsonBytes))
 }
 
 func TestJSONFormatToReadable(t *testing.T) {
 	sampleJSONString := `{"name": "NAME"}`
 
 	jsonBytes, err := JSONFormatToReadable([]byte(sampleJSONString))
-	assert.Nil(t, err)
-	assert.Equal(t, "{\n  \"name\": \"NAME\"\n}", string(jsonBytes))
+	tAssert(t, err == nil)
+	tAssert(t, "{\n  \"name\": \"NAME\"\n}" == string(jsonBytes))
 }

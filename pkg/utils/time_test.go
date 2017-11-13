@@ -19,39 +19,37 @@ package utils
 import (
 	"testing"
 	"time"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestTimeToString(t *testing.T) {
 	tz, err := time.LoadLocation("Asia/Shanghai")
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 
 	someTime := time.Date(2016, 9, 1, 15, 30, 0, 0, tz)
-	assert.Equal(t, "Thu, 01 Sep 2016 07:30:00 GMT", TimeToString(someTime, "RFC 822"))
-	assert.Equal(t, "2016-09-01T07:30:00Z", TimeToString(someTime, "ISO 8601"))
+	tAssert(t, "Thu, 01 Sep 2016 07:30:00 GMT" == TimeToString(someTime, "RFC 822"))
+	tAssert(t, "2016-09-01T07:30:00Z" == TimeToString(someTime, "ISO 8601"))
 }
 
 func TestStringToTime(t *testing.T) {
 	tz, err := time.LoadLocation("Asia/Shanghai")
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 	someTime := time.Date(2016, 9, 1, 15, 30, 0, 0, tz)
 
 	parsedTime, err := StringToTime("Thu, 01 Sep 2016 07:30:00 GMT", "RFC 822")
-	assert.Nil(t, err)
-	assert.Equal(t, someTime.UTC(), parsedTime)
+	tAssert(t, err == nil)
+	tAssert(t, someTime.UTC() == parsedTime)
 
 	parsedTime, err = StringToTime("2016-09-01T07:30:00Z", "ISO 8601")
-	assert.Nil(t, err)
-	assert.Equal(t, someTime.UTC(), parsedTime)
+	tAssert(t, err == nil)
+	tAssert(t, someTime.UTC() == parsedTime)
 
 	parsedTime, err = StringToTime("2016-09-01T07:30:00.000Z", "ISO 8601")
-	assert.Nil(t, err)
-	assert.Equal(t, someTime.UTC(), parsedTime)
+	tAssert(t, err == nil)
+	tAssert(t, someTime.UTC() == parsedTime)
 }
 
 func TestStringToUnixString(t *testing.T) {
-	assert.Equal(t, 1472715000, StringToUnixInt("Thu, 01 Sep 2016 07:30:00 GMT", "RFC 822"))
-	assert.Equal(t, 1472715000, StringToUnixInt("2016-09-01T07:30:00Z", "ISO 8601"))
-	assert.Equal(t, 1472715000, StringToUnixInt("2016-09-01T07:30:00.000Z", "ISO 8601"))
+	tAssert(t, 1472715000 == StringToUnixInt("Thu, 01 Sep 2016 07:30:00 GMT", "RFC 822"))
+	tAssert(t, 1472715000 == StringToUnixInt("2016-09-01T07:30:00Z", "ISO 8601"))
+	tAssert(t, 1472715000 == StringToUnixInt("2016-09-01T07:30:00.000Z", "ISO 8601"))
 }

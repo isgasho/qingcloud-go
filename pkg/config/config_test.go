@@ -17,10 +17,31 @@
 package config
 
 import (
+	"fmt"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
+
+func tAssert(tb testing.TB, condition bool, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprint(a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
+	}
+}
+
+func tAssertf(tb testing.TB, condition bool, format string, a ...interface{}) {
+	tb.Helper()
+	if !condition {
+		if msg := fmt.Sprintf(format, a...); msg != "" {
+			tb.Fatal("Assert failed: " + msg)
+		} else {
+			tb.Fatal("Assert failed")
+		}
+	}
+}
 
 func TestConfig(t *testing.T) {
 	config := Config{
@@ -31,27 +52,27 @@ func TestConfig(t *testing.T) {
 		LogLevel:          "warn",
 	}
 
-	assert.Equal(t, "AccessKeyID", config.AccessKeyID)
-	assert.Equal(t, "SecretAccessKey", config.SecretAccessKey)
-	assert.Equal(t, "http", config.Protocol)
-	assert.Equal(t, 10, config.ConnectionRetries)
-	assert.Equal(t, "warn", config.LogLevel)
+	tAssert(t, "AccessKeyID" == config.AccessKeyID)
+	tAssert(t, "SecretAccessKey" == config.SecretAccessKey)
+	tAssert(t, "http" == config.Protocol)
+	tAssert(t, 10 == config.ConnectionRetries)
+	tAssert(t, "warn" == config.LogLevel)
 }
 
 func TestConfig_LoadDefaultConfig(t *testing.T) {
 	config := Config{}
 	config.LoadDefaultConfig()
 
-	assert.Equal(t, "", config.AccessKeyID)
-	assert.Equal(t, "", config.SecretAccessKey)
-	assert.Equal(t, "https", config.Protocol)
+	tAssert(t, "" == config.AccessKeyID)
+	tAssert(t, "" == config.SecretAccessKey)
+	tAssert(t, "https" == config.Protocol)
 }
 
 func TestConfig_LoadUserConfig(t *testing.T) {
 	config := Config{}
 	config.LoadUserConfig()
 
-	assert.Equal(t, "https", config.Protocol)
+	tAssert(t, "https" == config.Protocol)
 }
 
 func TestConfig_LoadConfigFromContent(t *testing.T) {
@@ -65,26 +86,26 @@ log_level: 'debug'
 	config := Config{}
 	config.LoadConfigFromContent([]byte(fileContent))
 
-	assert.Equal(t, "access_key_id", config.AccessKeyID)
-	assert.Equal(t, "secret_access_key", config.SecretAccessKey)
-	assert.Equal(t, "https", config.Protocol)
+	tAssert(t, "access_key_id" == config.AccessKeyID)
+	tAssert(t, "secret_access_key" == config.SecretAccessKey)
+	tAssert(t, "https" == config.Protocol)
 }
 
 func TestNewDefault(t *testing.T) {
 	config, err := NewDefault()
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 
-	assert.Equal(t, "", config.AccessKeyID)
-	assert.Equal(t, "", config.SecretAccessKey)
-	assert.Equal(t, "https", config.Protocol)
-	assert.Equal(t, 3, config.ConnectionRetries)
+	tAssert(t, "" == config.AccessKeyID)
+	tAssert(t, "" == config.SecretAccessKey)
+	tAssert(t, "https" == config.Protocol)
+	tAssert(t, 3 == config.ConnectionRetries)
 }
 
 func TestNew(t *testing.T) {
 	config, err := New("AccessKeyID", "SecretAccessKey")
-	assert.Nil(t, err)
+	tAssert(t, err == nil)
 
-	assert.Equal(t, "AccessKeyID", config.AccessKeyID)
-	assert.Equal(t, "SecretAccessKey", config.SecretAccessKey)
-	assert.Equal(t, "https", config.Protocol)
+	tAssert(t, "AccessKeyID" == config.AccessKeyID)
+	tAssert(t, "SecretAccessKey" == config.SecretAccessKey)
+	tAssert(t, "https" == config.Protocol)
 }
