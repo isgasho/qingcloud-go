@@ -67,27 +67,27 @@ var _ = data.Operation{}
 const tmplService = `
 {{$service := .}}
 
-type {{.GetServiceName}}ServiceInterface interface {
+type {{.GetServiceName}}Interface interface {
 	{{- range $_, $m := .GetMethodList}}
 		{{$m.GetMethodName}}(in *{{$m.GetInputTypeName}}) (out *{{$m.GetOutputTypeName}}, err error)
 	{{- end}}
 }
 
-type {{.GetServiceName}}Service struct {
+type {{.GetServiceName}} struct {
 	Config           *config.Config
-	Properties       *{{.GetServiceName}}ServiceProperties
+	Properties       *{{.GetServiceName}}Properties
 	LastResponseBody string
 }
 
-func New{{.GetServiceName}}Service(conf *config.Config, zone string) (p *{{.GetServiceName}}Service) {
-	return &{{.GetServiceName}}Service{
+func New{{.GetServiceName}}(conf *config.Config, zone string) (p *{{.GetServiceName}}) {
+	return &{{.GetServiceName}}{
 		Config:     conf,
-		Properties: &{{.GetServiceName}}ServiceProperties{ Zone: proto.String(zone) },
+		Properties: &{{.GetServiceName}}Properties{ Zone: proto.String(zone) },
 	}
 }
 
 {{range $_, $m := .GetMethodList}}
-func (p *{{$service.GetServiceName}}Service) {{$m.GetMethodName}}(in *{{$m.GetInputTypeName}}) (out *{{$m.OutputTypeName}}, err error) {
+func (p *{{$service.GetServiceName}}) {{$m.GetMethodName}}(in *{{$m.GetInputTypeName}}) (out *{{$m.OutputTypeName}}, err error) {
 	if in == nil {
 		in = &{{$m.GetInputTypeName}}{}
 	}

@@ -5,8 +5,6 @@
 package qingcloud_plugin
 
 import (
-	"strings"
-
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
 )
 
@@ -38,11 +36,6 @@ func getAllServiceGeneratorNames() (names []string) {
 func getServiceGenerator(name string) ServiceGenerator {
 	for _, g := range pkgServiceGeneratorList {
 		if g.Name() == name {
-			return g
-		}
-	}
-	for _, g := range pkgServiceGeneratorList {
-		if strings.HasPrefix(g.Name(), name) {
 			return g
 		}
 	}

@@ -16,7 +16,7 @@ default: $(SOURCES) Makefile spec_metadata api
 api: $(PROTO_API_FILES)
 	go install ../cmd/protoc-gen-qingcloud
 	protoc --go_out=../pkg/api $(PROTO_API_FILES)
-	protoc --qingcloud_out=../pkg/api $(PROTO_API_FILES)
+	protoc --qingcloud_out=plugin=golang:../pkg/api $(PROTO_API_FILES)
 
 .PHONY: spec_metadata
 spec_metadata: $(PROTO_API_METADATA_FILES)

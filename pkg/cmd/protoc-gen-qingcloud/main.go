@@ -64,14 +64,14 @@ func Main() {
 			qcPlugin.InitService(x)
 		} else {
 			log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
-			g.Fail("invalid plugin:", s)
+			g.Fail("invalid plugin option:", s)
 		}
 	} else {
 		if x := getAllServiceGenerator(); len(x) == 1 {
 			qcPlugin.InitService(x[0])
 		} else {
 			log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
-			g.Fail("no plugin")
+			g.Fail("no plugin option")
 		}
 	}
 
