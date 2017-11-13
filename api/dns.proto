@@ -6,7 +6,7 @@ syntax = "proto2";
 
 package service;
 
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 import "google/protobuf/timestamp.proto";
 
@@ -19,9 +19,10 @@ message DNSAliasServiceProperties {
 }
 
 service DNSAliasService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://docs.qingcloud.com/api/dns_alias/index.html"
-		service_name: "QingCloud.DNSAlias"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/dns_alias/index.html"
+		}
 	};
 
 	rpc DescribeDNSAliases(DescribeDNSAliasesInput) returns (DescribeDNSAliasesOutput);

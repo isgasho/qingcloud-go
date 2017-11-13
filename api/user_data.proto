@@ -6,7 +6,7 @@ syntax = "proto2";
 
 package service;
 
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/userdata/index.html
@@ -17,13 +17,14 @@ message UserDataServiceProperties {
 }
 
 service UserDataService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://docs.qingcloud.com/api/userdata/index.html"
-		service_name: "QingCloud.UserData"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/userdata/index.html"
+		}
 	};
 
 	rpc UploadUserDataAttachment(UploadUserDataAttachmentInput) returns (UploadUserDataAttachmentOutput) {
-		option (qingcloud.sdk.rule.method_rule) = {
+		option (qingcloud.api.spec_metadata.method_option) = {
 			http_method: "POST"
 		};
 	}
@@ -32,14 +33,8 @@ service UserDataService {
 // ----------------------------------------------------------------------------
 
 message UploadUserDataAttachmentInput {
-	optional bytes attachment_content = 2;
 	optional string attachment_name = 1;
-
-	option (qingcloud.sdk.rule.message_rule) = {
-		required_fileds: "attachment_content"
-		default_value: ""
-		enum_value: ""
-	};
+	required bytes attachment_content = 2;
 }
 
 message UploadUserDataAttachmentOutput {

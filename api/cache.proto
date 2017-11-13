@@ -7,7 +7,7 @@ syntax = "proto2";
 package service;
 
 import "types.proto";
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 import "google/protobuf/timestamp.proto";
 
@@ -20,9 +20,10 @@ message CacheServiceProperties {
 }
 
 service CacheService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://docs.qingcloud.com/api/cache/index.html"
-		service_name: "QingCloud.Cache"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/cache/index.html"
+		}
 	};
 
 	rpc DescribeCaches(DescribeCachesInput) returns (DescribeCachesOutput);

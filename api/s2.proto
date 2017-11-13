@@ -7,7 +7,7 @@ syntax = "proto2";
 package service;
 
 import "types.proto";
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 import "google/protobuf/timestamp.proto";
 
@@ -20,9 +20,10 @@ message S2ServiceProperties {
 }
 
 service S2Service {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://docs.qingcloud.com/api/s2/index.html"
-		service_name: "QingCloud.S2"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/s2/index.html"
+		}
 	};
 
 	rpc CreateS2Server(CreateS2ServerInput) returns (CreateS2ServerOutput);

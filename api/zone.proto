@@ -7,7 +7,7 @@ syntax = "proto2";
 package service;
 
 import "types.proto";
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/zone/index.html
@@ -18,9 +18,10 @@ message ZoneServiceProperties {
 }
 
 service ZoneService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://docs.qingcloud.com/api/zone/index.html"
-		service_name: "QingCloud.Zone"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/zone/index.html"
+		}
 	};
 
 	rpc DescribeZones(DescribeZonesInput) returns (DescribeZonesOutput);

@@ -6,7 +6,7 @@ syntax = "proto2";
 
 package service;
 
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 import "google/protobuf/timestamp.proto";
 
@@ -19,9 +19,10 @@ message AlarmServiceProperties {
 }
 
 service AlarmService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://docs.qingcloud.com/api/alarm/index.html"
-		service_name: "QingCloud.Alarm"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/alarm/index.html"
+		}
 	};
 
 	rpc DescribeAlarmPolicies(DescribeAlarmPoliciesInput) returns (DescribeAlarmPoliciesOutput);
@@ -46,45 +47,38 @@ service AlarmService {
 // ----------------------------------------------------------------------------
 
 message DescribeAlarmPoliciesInput {
-	repeated string alarm_policies = 1; // 告警策略ID
-	optional string alarm_policy_name = 2;       // 告警策略名称
-	optional string alarm_policy_type = 3;       // 支持告警策略类型
-	optional string search_word = 4;             // 搜索关键词，支持告警策略名称
-	optional int32 verbose = 5;                  // 是否返回冗长的信息，若为1，则返回绑定了该告警策略的资源的信息
-	optional int32 offset = 6;                   // 数据偏移量
-	optional int32 limit = 7;                    // 返回数据长度
-
-	option (qingcloud.sdk.rule.message_rule) = {
-		required_fileds:
-			""
-		default_value:
-			"verbose:0;"
-			"offset:0;"
-			"limit:20;"
-		enum_value:
-			"alarm_policy_type:"
-				"instance,"
-				"eip,"
-				"router,"
-				"loadbalancer_listener_tcp,"
-				"loadbalancer_listener_https,"
-				"loadbalancer_listener_http,"
-				"loadbalancer_backend_http,"
-				"loadbalancer_backend_tcp,"
-				"rdb_mysql,"
-				"rdb_psql,"
-				"elasticsearch_node,"
-				"cache_node_memcached,"
-				"cache_node_redis,"
-				"queue_node_kafka,"
-				"spark_node,"
-				"hadoop_node,"
-				"zookeeper_node,"
-				"hbase_node,"
-				"mongo_instance,"
-				"storm_node,"
-			";"
-	};
+	repeated string alarm_policies = 1;
+	optional string alarm_policy_name = 2;
+	optional string alarm_policy_type = 3 [
+		(qingcloud.api.spec_metadata.field_option) = {
+			enum_value: [
+				"instance",
+				"eip",
+				"router",
+				"loadbalancer_listener_tcp",
+				"loadbalancer_listener_https",
+				"loadbalancer_listener_http",
+				"loadbalancer_backend_http",
+				"loadbalancer_backend_tcp",
+				"rdb_mysql",
+				"rdb_psql",
+				"elasticsearch_node",
+				"cache_node_memcached",
+				"cache_node_redis",
+				"queue_node_kafka",
+				"spark_node",
+				"hadoop_node",
+				"zookeeper_node",
+				"hbase_node",
+				"mongo_instance",
+				"storm_node"
+			]
+		}
+	];
+	optional string search_word = 4;
+	optional int32 verbose = 5;
+	optional int32 offset = 6;
+	optional int32 limit = 7 [default = 20];
 }
 message DescribeAlarmPoliciesOutput {
 	optional string action = 1;
@@ -139,29 +133,23 @@ message ModifyAlarmPolicyAttributesOutput {
 // ----------------------------------------------------------------------------
 
 message DeleteAlarmPoliciesInput {
-	repeated string alarm_policies = 1; // 告警策略 ID
+	repeated string alarm_policies = 1;
 }
 message DeleteAlarmPoliciesOutput {
 	optional string action = 1;
 	optional int32 ret_code = 2;
 	optional string message = 3;
 
-	repeated string alarm_policies = 4; // 删除的告警策略 ID 列表
+	repeated string alarm_policies = 4;
 }
 
 // ----------------------------------------------------------------------------
 
 message DescribeAlarmPolicyRulesInput {
-	optional string alarm_policy = 1;                // 告警策略 ID
-	repeated string alarm_policy_rules = 2; // 告警策略规则ID
-	optional int32 offset = 3;                       // 数据偏移量
-	optional int32 limit = 4;                        // 返回数据长度
-
-	option (qingcloud.sdk.rule.message_rule) = {
-		default_value:
-			"offset:0;"
-			"limit:20;"
-	};
+	optional string alarm_policy = 1;
+	repeated string alarm_policy_rules = 2;
+	optional int32 offset = 3;
+	optional int32 limit = 4 [default = 20];
 }
 message DescribeAlarmPolicyRulesOutput {
 	optional string action = 1;

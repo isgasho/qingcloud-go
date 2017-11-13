@@ -6,7 +6,7 @@ syntax = "proto2";
 
 package service;
 
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/misc/index.html
@@ -17,9 +17,10 @@ message MiscServiceProperties {
 }
 
 service MiscService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://docs.qingcloud.com/api/misc/index.html"
-		service_name: "QingCloud.Misc"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://docs.qingcloud.com/api/misc/index.html"
+		}
 	};
 
 	rpc GrantQuotaIndep(GrantQuotaIndepInput) returns (GrantQuotaIndepOutput);

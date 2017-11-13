@@ -7,7 +7,7 @@ syntax = "proto2";
 package service;
 
 import "types.proto";
-import "qingcloud_sdk_rule/rule.proto";
+import "spec_metadata/spec.proto";
 
 // ----------------------------------------------------------------------------
 
@@ -16,9 +16,10 @@ message ClusterServiceProperties {
 }
 
 service ClusterService {
-	option (qingcloud.sdk.rule.service_rule) = {
-		doc_url: "https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md"
-		service_name: "QingCloud.Cluster"
+	option (qingcloud.api.spec_metadata.service_option) = {
+		external_docs: {
+			url: "https://git.internal.yunify.com/ray/pitrix-appcenter-docs/blob/master/internal/docs/cluster-lifecycle-APIs.md"
+		}
 	};
 
 	rpc CreateCluster(CreateClusterInput) returns (CreateClusterOutput);
@@ -125,10 +126,6 @@ message CreateClusterInput_Conf {
 
 message CreateClusterInput {
 	required string conf = 1; // 配置信息, JSON 字符串
-
-	option (qingcloud.sdk.rule.message_rule) = {
-		required_fileds: "conf"
-	};
 }
 message CreateClusterOutput {
 	required string action = 1;
@@ -140,15 +137,15 @@ message CreateClusterOutput {
 
 message DescribeClustersInput {
 	repeated string clusters = 1;
-	required string scope = 2;
+	required string scope = 2 [
+		(qingcloud.api.spec_metadata.field_option) = {
+			enum_value: [ "all", "cfgmgmt" ];
+		}
+	];
 	optional string role = 3;
 	repeated string app_id = 4;
 	repeated string app_version = 5;
 	repeated string users = 6;
-
-	option (qingcloud.sdk.rule.message_rule) = {
-		enum_value: "scope:all,cfgmgmt;"
-	};
 }
 
 message DescribeClustersOutput {
