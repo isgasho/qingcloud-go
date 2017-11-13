@@ -24,7 +24,7 @@ func WaitJob(jobService *service.JobService, jobID string, timeout time.Duration
 		}
 		j := output.JobSet[0]
 		if j.GetStatus() == "" {
-			logger.Error("Job [%s] status is nil ", jobID)
+			logger.Errorf("Job [%s] status is nil ", jobID)
 			return false, nil
 		}
 		if j.GetStatus() == "working" || j.GetStatus() == "pending" {
@@ -36,7 +36,7 @@ func WaitJob(jobService *service.JobService, jobID string, timeout time.Duration
 		if j.GetStatus() == "failed" {
 			return false, fmt.Errorf("Job [%s] failed", jobID)
 		}
-		logger.Error("Unknow status [%s] for job [%s]", j.Status, jobID)
+		logger.Errorf("Unknow status [%s] for job [%s]", j.GetStatus(), jobID)
 		return false, nil
 	}, timeout, waitInterval)
 }
@@ -53,7 +53,7 @@ func CheckJobStatus(jobService *service.JobService, jobID string) (string, error
 	}
 	j := output.JobSet[0]
 	if j.GetStatus() == "" {
-		logger.Error("Job [%s] status is nil ", jobID)
+		logger.Errorf("Job [%s] status is nil ", jobID)
 		return JobStatusUnknown, nil
 	}
 	return j.GetStatus(), nil
@@ -78,7 +78,7 @@ func WaitInstanceStatus(instanceService *service.InstanceService, instanceID str
 	err = utils.WaitForSpecificOrError(func() (bool, error) {
 		i, err := describeInstance(instanceService, instanceID)
 		if err != nil {
-			logger.Error("DescribeInstance [%s] error : [%s]", instanceID, err.Error())
+			logger.Errorf("DescribeInstance [%s] error : [%s]", instanceID, err.Error())
 			errorTimes++
 			if errorTimes > 3 {
 				return false, err
@@ -138,7 +138,7 @@ func WaitLoadBalancerStatus(lbService *service.LoadBalancerService, loadBalancer
 	err = utils.WaitForSpecificOrError(func() (bool, error) {
 		i, err := describeLoadBalancer(lbService, loadBalancerID)
 		if err != nil {
-			logger.Error("DescribeLoadBalancer [%s] error : [%s]", loadBalancerID, err.Error())
+			logger.Errorf("DescribeLoadBalancer [%s] error : [%s]", loadBalancerID, err.Error())
 			errorTimes++
 			if errorTimes > 3 {
 				return false, err
