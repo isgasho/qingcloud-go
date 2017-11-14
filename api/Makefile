@@ -6,8 +6,8 @@
 # go install github.com/golang/protobuf/protoc-gen-go
 # go install github.com/chai2010/qingcloud-go/protoc-gen-qingcloud-go
 
-PROTO_API_FILES=$(wildcard ./*.proto)
-PROTO_API_METADATA_FILES=$(wildcard ./*.proto)
+PROTO_API_FILES=$(sort $(wildcard ./*.proto))
+PROTO_API_METADATA_FILES=$(sort $(wildcard ./*.proto))
 
 .PHONY: default
 default: $(SOURCES) Makefile spec_metadata api
