@@ -49,6 +49,17 @@ func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
 	}
 }
 
+func (s *QingCloudService) Span(zone string) (*SpanService, error) {
+	properties := &SpanServiceProperties{
+		Zone: proto.String(zone),
+	}
+
+	return &SpanService{
+		Config:     s.Config,
+		Properties: properties,
+	}, nil
+}
+
 func (p *SpanService) CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error) {
 	if in == nil {
 		in = &CreateSpanInput{}

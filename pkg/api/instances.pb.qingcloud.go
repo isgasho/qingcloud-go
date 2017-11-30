@@ -54,6 +54,17 @@ func NewInstanceService(conf *config.Config, zone string) (p *InstanceService) {
 	}
 }
 
+func (s *QingCloudService) Instance(zone string) (*InstanceService, error) {
+	properties := &InstanceServiceProperties{
+		Zone: proto.String(zone),
+	}
+
+	return &InstanceService{
+		Config:     s.Config,
+		Properties: properties,
+	}, nil
+}
+
 func (p *InstanceService) DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error) {
 	if in == nil {
 		in = &DescribeInstancesInput{}

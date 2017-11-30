@@ -43,6 +43,17 @@ func NewNotificationCenterService(conf *config.Config, zone string) (p *Notifica
 	}
 }
 
+func (s *QingCloudService) NotificationCenter(zone string) (*NotificationCenterService, error) {
+	properties := &NotificationCenterServiceProperties{
+		Zone: proto.String(zone),
+	}
+
+	return &NotificationCenterService{
+		Config:     s.Config,
+		Properties: properties,
+	}, nil
+}
+
 func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(in *DescribeNotificationCenterUserPostsInput) (out *DescribeNotificationCenterUserPostsOutput, err error) {
 	if in == nil {
 		in = &DescribeNotificationCenterUserPostsInput{}

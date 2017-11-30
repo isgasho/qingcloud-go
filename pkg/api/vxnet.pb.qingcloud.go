@@ -49,6 +49,17 @@ func NewVxnetService(conf *config.Config, zone string) (p *VxnetService) {
 	}
 }
 
+func (s *QingCloudService) Vxnet(zone string) (*VxnetService, error) {
+	properties := &VxnetServiceProperties{
+		Zone: proto.String(zone),
+	}
+
+	return &VxnetService{
+		Config:     s.Config,
+		Properties: properties,
+	}, nil
+}
+
 func (p *VxnetService) DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxnetsOutput, err error) {
 	if in == nil {
 		in = &DescribeVxnetsInput{}

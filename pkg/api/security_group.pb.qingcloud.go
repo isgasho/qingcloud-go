@@ -60,6 +60,17 @@ func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroup
 	}
 }
 
+func (s *QingCloudService) SecurityGroup(zone string) (*SecurityGroupService, error) {
+	properties := &SecurityGroupServiceProperties{
+		Zone: proto.String(zone),
+	}
+
+	return &SecurityGroupService{
+		Config:     s.Config,
+		Properties: properties,
+	}, nil
+}
+
 func (p *SecurityGroupService) DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error) {
 	if in == nil {
 		in = &DescribeSecurityGroupsInput{}

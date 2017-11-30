@@ -11,7 +11,6 @@ import (
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 
-	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
 	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud-validate"
 )
 

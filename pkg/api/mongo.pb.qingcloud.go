@@ -56,6 +56,17 @@ func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
 	}
 }
 
+func (s *QingCloudService) Mongo(zone string) (*MongoService, error) {
+	properties := &MongoServiceProperties{
+		Zone: proto.String(zone),
+	}
+
+	return &MongoService{
+		Config:     s.Config,
+		Properties: properties,
+	}, nil
+}
+
 func (p *MongoService) DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error) {
 	if in == nil {
 		in = &DescribeMongoNodesInput{}

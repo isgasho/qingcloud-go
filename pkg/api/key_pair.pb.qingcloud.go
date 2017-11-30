@@ -48,6 +48,17 @@ func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService) {
 	}
 }
 
+func (s *QingCloudService) KeyPair(zone string) (*KeyPairService, error) {
+	properties := &KeyPairServiceProperties{
+		Zone: proto.String(zone),
+	}
+
+	return &KeyPairService{
+		Config:     s.Config,
+		Properties: properties,
+	}, nil
+}
+
 func (p *KeyPairService) DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error) {
 	if in == nil {
 		in = &DescribeKeyPairsInput{}
