@@ -6,6 +6,7 @@ syntax = "proto2";
 
 package service;
 
+import "types.proto";
 import "spec_metadata/spec.proto";
 
 // ----------------------------------------------------------------------------
@@ -49,17 +50,8 @@ message DescribeKeyPairsOutput {
 	optional int32 ret_code = 2;
 	optional string message = 3;
 
-	repeated ResponseItem keypair_set = 4;
+	repeated KeyPair keypair_set = 4;
 	optional int32 total_count = 5;
-
-	message ResponseItem {
-		optional string keypair_id = 1;
-		optional string keypair_name = 2;
-		optional string description = 3;
-		optional string encrypt_method = 4;
-		optional string pub_key = 5;
-		repeated string instance_ids = 6;
-	}
 }
 
 // ----------------------------------------------------------------------------

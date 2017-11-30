@@ -9,8 +9,6 @@ package service;
 import "types.proto";
 import "spec_metadata/spec.proto";
 
-import "google/protobuf/timestamp.proto";
-
 // ----------------------------------------------------------------------------
 // https://docs.qingcloud.com/api/eip/index.html
 // ----------------------------------------------------------------------------
@@ -53,24 +51,8 @@ message DescribeEipsOutput {
 	optional int32 ret_code = 2;
 	optional string message = 3;
 
-	repeated ResponseItem eip_set = 4;
+	repeated EIP eip_set = 4;
 	optional int32 total_count = 5;
-
-	message ResponseItem {
-		optional string eip_id = 1;
-		optional string eip_name = 2;
-		optional string description = 3;
-		optional int32 bandwidth = 4;
-		optional string billing_mode = 5;
-		optional string status = 6;
-		optional string transition_status = 7;
-		optional string icp_codes = 8;
-		optional google.protobuf.Timestamp create_time = 9;
-		optional google.protobuf.Timestamp status_time = 10;
-		optional Resource resource = 11;
-		optional EIPGroup eip_group = 12;
-		optional string eip_addr = 13;
-	}
 }
 
 // ----------------------------------------------------------------------------
