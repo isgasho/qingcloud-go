@@ -12,6 +12,15 @@ import (
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
 )
 
+func hasFieldOptions(message *protobuf.DescriptorProto) bool {
+	for _, field := range message.GetField() {
+		if getMessageFieldOption(field) != nil {
+			return true
+		}
+	}
+	return false
+}
+
 func getMessageDescriptor(msg proto.Message) (fd *protobuf.FileDescriptorProto, md *protobuf.DescriptorProto) {
 	if msg, ok := msg.(descriptor.Message); ok {
 		return descriptor.ForMessage(msg)
@@ -43,8 +52,16 @@ func getMessageFieldOption(m *protobuf.FieldDescriptorProto) *spec_metadata.Fiel
 	return nil
 }
 
+func pkgIsSupportedBool(field *protobuf.FieldDescriptorProto) bool {
+	switch field.GetType() {
+	case protobuf.FieldDescriptorProto_TYPE_BOOL:
+		return true
+	}
+	return false
+}
+
 func pkgIsSupportedInt(field *protobuf.FieldDescriptorProto) bool {
-	switch *(field.Type) {
+	switch field.GetType() {
 	case protobuf.FieldDescriptorProto_TYPE_INT32, protobuf.FieldDescriptorProto_TYPE_INT64:
 		return true
 	case protobuf.FieldDescriptorProto_TYPE_UINT32, protobuf.FieldDescriptorProto_TYPE_UINT64:
@@ -56,12 +73,20 @@ func pkgIsSupportedInt(field *protobuf.FieldDescriptorProto) bool {
 }
 
 func pkgIsSupportedFloat(field *protobuf.FieldDescriptorProto) bool {
-	switch *(field.Type) {
+	switch field.GetType() {
 	case protobuf.FieldDescriptorProto_TYPE_FLOAT, protobuf.FieldDescriptorProto_TYPE_DOUBLE:
 		return true
 	case protobuf.FieldDescriptorProto_TYPE_FIXED32, protobuf.FieldDescriptorProto_TYPE_FIXED64:
 		return true
 	case protobuf.FieldDescriptorProto_TYPE_SFIXED32, protobuf.FieldDescriptorProto_TYPE_SFIXED64:
+		return true
+	}
+	return false
+}
+
+func pkgIsSupportedString(field *protobuf.FieldDescriptorProto) bool {
+	switch field.GetType() {
+	case protobuf.FieldDescriptorProto_TYPE_STRING:
 		return true
 	}
 	return false

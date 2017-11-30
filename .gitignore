@@ -16,3 +16,4 @@
 *.exe
 
 *.pb.validate.go.txt
+*.pb.validate.go
