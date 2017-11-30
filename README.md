@@ -191,6 +191,10 @@ func (p *UserDataService) UploadUserDataAttachment(
 
 对比可发现, protobuf 比 json 更容易维护.
 
+## 应用案例
+
+- [docker-machine 驱动插件](https://github.com/chai2010/docker-machine-driver-qingcloud) - 测试中
+
 ## 版权
 
 The Apache License.
