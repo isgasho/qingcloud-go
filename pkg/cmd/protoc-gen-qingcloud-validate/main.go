@@ -6,62 +6,97 @@ package qingcloud_plugin_validate
 
 import (
 	"io/ioutil"
+	"log"
 	"os"
-	"strconv"
 	"strings"
 
-	"github.com/gogo/protobuf/proto"
-	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
+	"github.com/golang/protobuf/proto"
+	"github.com/golang/protobuf/protoc-gen-go/generator"
 )
 
 func Main() {
-	gen := generator.New()
+	qcPlugin := new(validatePlugin)
+	generator.RegisterPlugin(qcPlugin)
+
+	// Begin by allocating a generator. The request and response structures are stored there
+	// so we can do error handling easily - the response structure contains the field to
+	// report failure.
+	g := generator.New()
 
 	data, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
-		gen.Error(err, "reading input")
+		g.Error(err, "reading input")
 	}
 
-	if err := proto.Unmarshal(data, gen.Request); err != nil {
-		gen.Error(err, "parsing input proto")
+	if err := proto.Unmarshal(data, g.Request); err != nil {
+		g.Error(err, "parsing input proto")
 	}
 
-	if len(gen.Request.FileToGenerate) == 0 {
-		gen.Fail("no files to generate")
+	if len(g.Request.FileToGenerate) == 0 {
+		g.Fail("no files to generate")
 	}
 
-	useGogoImport := false
-	// Match parsing algorithm from Generator.CommandLineParameters
-	for _, parameter := range strings.Split(gen.Request.GetParameter(), ",") {
-		kvp := strings.SplitN(parameter, "=", 2)
-		// We only care about key-value pairs where the key is "gogoimport"
-		if len(kvp) != 2 || kvp[0] != "gogoimport" {
-			continue
+	if len(getAllValidateGenerator()) == 0 {
+		g.Fail("no validate generator plugin")
+	}
+
+	// set default plugins: qingcloud
+	// protoc --qingcloud_out=plugin=golang:. x.proto
+	if s := getParameterValue(g.Request.GetParameter(), "plugin"); s != "" {
+		if x := getValidateGenerator(s); x != nil {
+			qcPlugin.InitValidateGenerator(x)
+		} else {
+			log.Print("protoc-gen-qingcloud-validate: registor plugins:", getAllValidateGeneratorNames())
+			g.Fail("invalid plugin option:", s)
 		}
-		useGogoImport, err = strconv.ParseBool(kvp[1])
-		if err != nil {
-			gen.Error(err, "parsing gogoimport option")
+	} else {
+		if x := getAllValidateGenerator(); len(x) == 1 {
+			qcPlugin.InitValidateGenerator(x[0])
+		} else {
+			log.Print("protoc-gen-qingcloud-validate: registor plugins:", getAllValidateGeneratorNames())
+			g.Fail("no plugin option")
 		}
 	}
 
-	gen.CommandLineParameters(gen.Request.GetParameter())
+	// parse command line parameters
+	g.CommandLineParameters("plugins=" + qcPlugin.Name())
 
-	gen.WrapTypes()
-	gen.SetPackageNames()
-	gen.BuildTypeNameMap()
-	gen.GeneratePlugin(NewPlugin(useGogoImport))
+	// Create a wrapped version of the Descriptors and EnumDescriptors that
+	// point to the file that defines them.
+	g.WrapTypes()
 
-	for i := 0; i < len(gen.Response.File); i++ {
-		gen.Response.File[i].Name = proto.String(strings.Replace(*gen.Response.File[i].Name, ".pb.go", ".pb.qingcloud-validate.go", -1))
+	g.SetPackageNames()
+	g.BuildTypeNameMap()
+
+	g.GenerateAllFiles()
+
+	// skip *.pb.go
+	respFileList := g.Response.File[:0]
+	for _, file := range g.Response.File {
+		if !strings.HasSuffix(file.GetName(), ".pb.go") {
+			respFileList = append(respFileList, file)
+		}
 	}
+	g.Response.File = respFileList
 
 	// Send back the results.
-	data, err = proto.Marshal(gen.Response)
+	data, err = proto.Marshal(g.Response)
 	if err != nil {
-		gen.Error(err, "failed to marshal output proto")
+		g.Error(err, "failed to marshal output proto")
 	}
 	_, err = os.Stdout.Write(data)
 	if err != nil {
-		gen.Error(err, "failed to write output proto")
+		g.Error(err, "failed to write output proto")
 	}
+}
+
+func getParameterValue(parameter, key string) string {
+	for _, p := range strings.Split(parameter, ",") {
+		if i := strings.Index(p, "="); i > 0 {
+			if p[0:i] == key {
+				return p[i+1:]
+			}
+		}
+	}
+	return ""
 }

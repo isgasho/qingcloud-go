@@ -14,3 +14,5 @@
 .glide/
 
 *.exe
+
+*.pb.validate.go.txt

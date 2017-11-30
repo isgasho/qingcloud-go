@@ -6,6 +6,7 @@ package main
 
 import (
 	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud-validate"
+	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud-validate/generator/golang"
 )
 
 func main() {

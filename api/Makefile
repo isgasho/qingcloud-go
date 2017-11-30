@@ -20,6 +20,7 @@ api: $(PROTO_API_FILES)
 	go install ../cmd/protoc-gen-qingcloud-validate
 	protoc --go_out=../pkg/api $(PROTO_API_FILES)
 	protoc --qingcloud_out=plugin=golang:../pkg/api $(PROTO_API_FILES)
+	protoc --qingcloud-validate_out=plugin=golang:../pkg/api $(PROTO_API_FILES)
 
 .PHONY: spec_metadata
 spec_metadata: $(PROTO_API_METADATA_FILES)
@@ -27,7 +28,7 @@ spec_metadata: $(PROTO_API_METADATA_FILES)
 
 .PHONY: validate
 validate: $(PROTO_API_VALIDATE_FILES)
-	protoc --gogo_out=../../../.. $(PROTO_API_VALIDATE_FILES)
+	protoc --go_out=../../../.. $(PROTO_API_VALIDATE_FILES)
 
 
 clean:
