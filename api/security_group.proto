@@ -172,9 +172,9 @@ message ModifySecurityGroupRuleAttributesInput {
 	optional string rule_action = 4;
 	optional int32 direction = 5;
 	optional string protocol = 6;
-	optional int32 val1 = 7;
-	optional int32 val2 = 8;
-	optional int32 val3 = 9;
+	optional string val1 = 7;
+	optional string val2 = 8;
+	optional string val3 = 9;
 }
 message ModifySecurityGroupRuleAttributesOutput {
 	optional string action = 1;

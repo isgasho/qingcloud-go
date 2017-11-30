@@ -610,7 +610,9 @@ message RouterStatic {
 	optional string val2 = 7;
 	optional string val3 = 8;
 	optional string val4 = 9;
-	optional string vxnet_id = 10;
+	optional string val5 = 10;
+	optional string val6 = 11;
+	optional string vxnet_id = 12;
 }
 
 message RouterStaticEntry {
@@ -690,13 +692,15 @@ message SecurityGroupIPSet {
 
 message SecurityGroupRule {
 	optional string action = 1;
-	optional int32 priority = 2;
-	optional string protocol = 3;
-	optional string security_group_id = 4;
-	optional string security_group_rule_id = 5;
-	optional string val1 = 6;
-	optional string val2 = 7;
-	optional string val3 = 8;
+	optional int32 direction = 2;
+	optional int32 priority = 3;
+	optional string protocol = 4;
+	optional string security_group_id = 5;
+	optional string security_group_rule_id = 6;
+	optional string security_group_rule_name = 7;
+	optional string val1 = 8;
+	optional string val2 = 9;
+	optional string val3 = 10;
 }
 
 message SecurityGroupSnapshot {
