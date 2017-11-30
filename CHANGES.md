@@ -4,6 +4,11 @@
 
 TODO
 
+### v0.2.0
+
+- 重构插件代码
+- 临时移除生成 `Validate` 代码, 稍后会重现加入
+
 ### v0.1.0
 
 - 实现 `protoMessage.Validate` 方法, 可用户输入参数验证
