@@ -16,81 +16,81 @@ var cmdSecurityGroup = cli.Command{
 	Usage:   "manage security group",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-security-groups",
-			Aliases: []string{},
-			Usage:   "add a new template",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe security groups",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-security-group-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify security group attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "create-security-group",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "create",
+			Aliases: []string{"new"},
+			Usage:   "create security group",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-security-groups",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete",
+			Aliases: []string{"del"},
+			Usage:   "delete security groups",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "describe-security-group-rules",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "describe-rules",
+			Aliases: []string{"desc-rules"},
+			Usage:   "describe security group rules",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-security-group-rule-attributes",
+			Name:    "modify-rule",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "modify security group rule attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "add-security-group-rules",
+			Name:    "add-rules",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "add security group rules",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-security-group-rules",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete-rules",
+			Aliases: []string{"del-rules"},
+			Usage:   "delete security group rules",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "apply-security-group",
+			Name:    "apply",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "apply security group",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

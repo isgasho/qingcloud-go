@@ -16,63 +16,63 @@ var cmdSnapshot = cli.Command{
 	Usage:   "manage snapshot",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-snapshots",
-			Aliases: []string{},
-			Usage:   "add a new template",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe-snapshots",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-snapshot-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify snapshot attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "create-snapshots",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "create",
+			Aliases: []string{"new"},
+			Usage:   "create snapshots",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-snapshots",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete",
+			Aliases: []string{"del"},
+			Usage:   "delete snapshots",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "create-volume-from-snapshot",
+			Name:    "create-from-snapshot",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "create volume from snapshot",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "capture-instance-from-snapshot",
+			Name:    "capture-instance",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "capture instance from snapshot",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "apply-snapshots",
+			Name:    "apply",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "apply snapshots",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

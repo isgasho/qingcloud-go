@@ -16,63 +16,63 @@ var cmdVolume = cli.Command{
 	Usage:   "manage volume",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-volumes",
-			Aliases: []string{},
-			Usage:   "add a new template",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe volumes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "create-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "create",
+			Aliases: []string{"new"},
+			Usage:   "create volumes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "attach-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "attach",
+			Aliases: []string{"bind"},
+			Usage:   "attach volumes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "detach-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "detach",
+			Aliases: []string{"unbind"},
+			Usage:   "detach volumes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "resize-volumes",
+			Name:    "resize",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "resize volumes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-volume-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify volume attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete",
+			Aliases: []string{"del"},
+			Usage:   "delete volumes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

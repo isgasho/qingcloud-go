@@ -16,81 +16,81 @@ var cmdInstance = cli.Command{
 	Usage:   "manage instance",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-instances",
-			Aliases: []string{},
-			Usage:   "describe-instances",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "run-instances",
+			Name:    "run",
 			Aliases: []string{},
-			Usage:   "run-instances",
+			Usage:   "run instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "start-instances",
+			Name:    "start",
 			Aliases: []string{},
-			Usage:   "start-instances",
+			Usage:   "start instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "stop-instances",
+			Name:    "stop",
 			Aliases: []string{},
-			Usage:   "stop-instances",
+			Usage:   "stop instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "restart-instances",
+			Name:    "restart",
 			Aliases: []string{},
-			Usage:   "restart-instances",
+			Usage:   "restart instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "terminate-instances",
+			Name:    "terminate",
 			Aliases: []string{},
-			Usage:   "terminate-instances",
+			Usage:   "terminate instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "resize-instances",
+			Name:    "resize",
 			Aliases: []string{},
-			Usage:   "resize-instances",
+			Usage:   "resize instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "reset-instances",
+			Name:    "reset",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "reset instances",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-instance-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify instance attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

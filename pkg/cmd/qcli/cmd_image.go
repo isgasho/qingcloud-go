@@ -35,7 +35,7 @@ var cmdImage = cli.Command{
 		},
 		{
 			Name:    "modify",
-			Aliases: []string{"update", "set"},
+			Aliases: []string{"set"},
 			Usage:   "modify image attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())

@@ -16,54 +16,54 @@ var cmdKeyPair = cli.Command{
 	Usage:   "manage keypair",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-keypairs",
-			Aliases: []string{},
-			Usage:   "add a new template",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe keypairs",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-keypair-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify keypair attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "create-keypair",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "create",
+			Aliases: []string{"new"},
+			Usage:   "create keypair",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-keypairs",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete",
+			Aliases: []string{"del"},
+			Usage:   "delete keypairs",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "attach-keypairs",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "attach",
+			Aliases: []string{"bind"},
+			Usage:   "attach keypairs",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "detach-keypairs",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "detach",
+			Aliases: []string{"unbind"},
+			Usage:   "detach keypairs",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

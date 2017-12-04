@@ -16,27 +16,27 @@ var cmdRouter = cli.Command{
 	Usage:   "manage router",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-routers",
-			Aliases: []string{},
-			Usage:   "add a new template",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe routers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "describe-router-vxnets",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "describe-vxnets",
+			Aliases: []string{"desc-vxnets"},
+			Usage:   "describe router vxnets",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "create-routers",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "create",
+			Aliases: []string{"new"},
+			Usage:   "create routers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
@@ -44,89 +44,89 @@ var cmdRouter = cli.Command{
 		},
 		{
 			Name:    "delete-routers",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Aliases: []string{"del"},
+			Usage:   "delete routers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "join-router",
+			Name:    "join",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "join router",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "leave-router",
+			Name:    "leave",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "leave router",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "poweron-routers",
+			Name:    "power-on",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "power on routers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "poweroff-routers",
+			Name:    "power-off",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "power off routers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-router-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify router attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "update-routers",
+			Name:    "update",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "update routers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "describe-router-statics",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "describe-statics",
+			Aliases: []string{"desc-statics"},
+			Usage:   "describe router statics",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "add-router-statics",
+			Name:    "add-statics",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "add router statics",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-router-static-attributes",
+			Name:    "modify-static-attributes",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "modify router static attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

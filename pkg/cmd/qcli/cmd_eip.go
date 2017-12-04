@@ -25,63 +25,63 @@ var cmdEip = cli.Command{
 			},
 		},
 		{
-			Name:    "allocate-eips",
-			Aliases: []string{},
-			Usage:   "allocate-eips",
+			Name:    "allocate",
+			Aliases: []string{"new"},
+			Usage:   "allocate eips",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "associate-eip",
-			Aliases: []string{},
-			Usage:   "associate-eip",
+			Name:    "associate",
+			Aliases: []string{"bind"},
+			Usage:   "associate eip",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "dissociate-eips",
-			Aliases: []string{},
-			Usage:   "dissociate-eips",
+			Name:    "dissociate",
+			Aliases: []string{"unbind"},
+			Usage:   "dissociate eips",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "change-eips-bandwidth",
+			Name:    "change-bandwidth",
 			Aliases: []string{},
-			Usage:   "change-eips-bandwidth",
+			Usage:   "change eips bandwidth",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "change-eips-billing-mode",
+			Name:    "change-billing-mode",
 			Aliases: []string{},
-			Usage:   "change-eips-billing-mode",
+			Usage:   "change eips billing mode",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-eip-attributes",
-			Aliases: []string{},
-			Usage:   "modify-eip-attributes",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify eip attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "release-eips",
+			Name:    "release",
 			Aliases: []string{},
-			Usage:   "release-eips",
+			Usage:   "release eips",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

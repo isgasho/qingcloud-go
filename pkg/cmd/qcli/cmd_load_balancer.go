@@ -11,158 +11,158 @@ import (
 )
 
 var cmdLoadBalancer = cli.Command{
-	Name:    "load-balancer",
+	Name:    "loadbalancer",
 	Aliases: []string{"ld"},
-	Usage:   "manage load balancer",
+	Usage:   "manage loadbalancer",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-loadbalancers",
-			Aliases: []string{},
-			Usage:   "add a new template",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe loadbalancers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-loadbalancer-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "modify",
+			Aliases: []string{"set"},
+			Usage:   "modify loadbalancer attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "create-loadbalancer",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "create",
+			Aliases: []string{"new"},
+			Usage:   "create loadbalancer",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-loadbalancers",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete",
+			Aliases: []string{"del"},
+			Usage:   "delete loadbalancers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "start-loadbalancers",
+			Name:    "start",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "start loadbalancers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "stop-loadbalancers",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "stop",
+			Aliases: []string{"stop"},
+			Usage:   "stop loadbalancers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "associate-eips-to-loadbalancer",
+			Name:    "associate-eips",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "associate eips to loadbalancer",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "dissociate-eips-from-loadbalancer",
+			Name:    "dissociate-eips",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "dissociate eips from loadbalancer",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "add-loadbalancer-listeners",
+			Name:    "add-listeners",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "add loadbalancer listeners",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-loadbalancer-listeners",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete-listeners",
+			Aliases: []string{"del-listeners"},
+			Usage:   "delete loadbalancer listeners",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "add-loadbalancer-backends",
+			Name:    "add-backends",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "add loadbalancer backends",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "delete-loadbalancer-backends",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "delete-backends",
+			Aliases: []string{"del-backends"},
+			Usage:   "delete loadbalancer backends",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "describe-loadbalancer-listeners",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "describe-listeners",
+			Aliases: []string{"desc-listeners"},
+			Usage:   "describe loadbalancer listeners",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "describe-loadbalancer-backends",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:    "describe-backends",
+			Aliases: []string{"desc-backends"},
+			Usage:   "describe loadbalancer backends",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-loadbalancer-listener-attributes",
+			Name:    "modify-listener-attributes",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "modify loadbalancer listener attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-loadbalancer-backend-attributes",
+			Name:    "modify-backend-attributes",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "modify loadbalancer backend attributes",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "update-loadbalancers",
+			Name:    "update",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "update loadbalancers",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
