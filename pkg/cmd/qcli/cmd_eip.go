@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package qctl
+package qcli
 
 import (
 	"fmt"
@@ -10,76 +10,78 @@ import (
 	"github.com/urfave/cli"
 )
 
-/*
-describe-snapshots	获取备份列表	modify-snapshot-attributes	修改备份的基本属性
-create-snapshots	创建备份	delete-snapshots	删除备份
-create-volume-from-snapshot	从备份创建硬盘	capture-instance-from-snapshot	从备份创建自有映像
-apply-snapshots	回滚到指定备份点
-*/
-
-var cmdSnapshot = cli.Command{
-	Name:    "snapshot",
-	Aliases: []string{"snap"},
-	Usage:   "manage snapshot",
+var cmdEip = cli.Command{
+	Name:    "eip",
+	Aliases: []string{},
+	Usage:   "manage EIP",
 	Subcommands: []cli.Command{
 		{
-			Name:    "add",
-			Aliases: []string{},
-			Usage:   "add a new template",
+			Name:    "describe",
+			Aliases: []string{"desc"},
+			Usage:   "describe eips",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "allocate-eips",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "allocate-eips",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "associate-eip",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "associate-eip",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "dissociate-eips",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "dissociate-eips",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "change-eips-bandwidth",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "change-eips-bandwidth",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "change-eips-billing-mode",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "change-eips-billing-mode",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "modify-eip-attributes",
 			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Usage:   "modify-eip-attributes",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "release-eips",
+			Aliases: []string{},
+			Usage:   "release-eips",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

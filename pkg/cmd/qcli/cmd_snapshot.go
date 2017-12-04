@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package qctl
+package qcli
 
 import (
 	"fmt"
@@ -10,13 +10,20 @@ import (
 	"github.com/urfave/cli"
 )
 
-var cmdVxnet = cli.Command{
-	Name:    "vxnet",
-	Aliases: []string{},
-	Usage:   "manage VxNet",
+/*
+describe-snapshots	获取备份列表	modify-snapshot-attributes	修改备份的基本属性
+create-snapshots	创建备份	delete-snapshots	删除备份
+create-volume-from-snapshot	从备份创建硬盘	capture-instance-from-snapshot	从备份创建自有映像
+apply-snapshots	回滚到指定备份点
+*/
+
+var cmdSnapshot = cli.Command{
+	Name:    "snapshot",
+	Aliases: []string{"snap"},
+	Usage:   "manage snapshot",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-vxnets",
+			Name:    "add",
 			Aliases: []string{},
 			Usage:   "add a new template",
 			Action: func(c *cli.Context) error {
@@ -25,7 +32,7 @@ var cmdVxnet = cli.Command{
 			},
 		},
 		{
-			Name:    "describe-vxnet-instances",
+			Name:    "remove",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -34,7 +41,7 @@ var cmdVxnet = cli.Command{
 			},
 		},
 		{
-			Name:    "join-vxnet",
+			Name:    "remove",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -43,7 +50,7 @@ var cmdVxnet = cli.Command{
 			},
 		},
 		{
-			Name:    "leave-vxnet",
+			Name:    "remove",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -52,7 +59,7 @@ var cmdVxnet = cli.Command{
 			},
 		},
 		{
-			Name:    "create-vxnets",
+			Name:    "remove",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -61,7 +68,7 @@ var cmdVxnet = cli.Command{
 			},
 		},
 		{
-			Name:    "delete-vxnets",
+			Name:    "remove",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -70,7 +77,7 @@ var cmdVxnet = cli.Command{
 			},
 		},
 		{
-			Name:    "modify-vxnet-attributes",
+			Name:    "remove",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {

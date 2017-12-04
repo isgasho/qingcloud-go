@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package qctl
+package qcli
 
 import (
 	"fmt"
@@ -10,13 +10,19 @@ import (
 	"github.com/urfave/cli"
 )
 
-var cmdVolume = cli.Command{
-	Name:    "volume",
-	Aliases: []string{"vol"},
-	Usage:   "manage volume",
+/*
+describe-keypairs	获取密钥列表	modify-keypair-attributes	修改密钥基本属性
+create-keypair	新加密钥对	delete-keypairs	删除密钥
+attach-keypairs	加载密钥到主机	detach-keypairs
+*/
+
+var cmdKeyPair = cli.Command{
+	Name:    "keypair",
+	Aliases: []string{"ssh"},
+	Usage:   "manage keypair",
 	Subcommands: []cli.Command{
 		{
-			Name:    "describe-volumes",
+			Name:    "add",
 			Aliases: []string{},
 			Usage:   "add a new template",
 			Action: func(c *cli.Context) error {
@@ -25,54 +31,40 @@ var cmdVolume = cli.Command{
 			},
 		},
 		{
-			Name:    "create-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:  "remove",
+			Usage: "remove an existing template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "attach-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:  "remove",
+			Usage: "remove an existing template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "detach-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:  "remove",
+			Usage: "remove an existing template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "resize-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:  "remove",
+			Usage: "remove an existing template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:    "modify-volume-attributes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
-			Action: func(c *cli.Context) error {
-				fmt.Println("removed task template: ", c.Args().First())
-				return nil
-			},
-		},
-		{
-			Name:    "delete-volumes",
-			Aliases: []string{},
-			Usage:   "remove an existing template",
+			Name:  "remove",
+			Usage: "remove an existing template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package qctl
+package qcli
 
 import (
 	"fmt"
@@ -16,8 +16,8 @@ import (
 
 func Main() {
 	app := cli.NewApp()
-	app.Name = "qctl"
-	app.Usage = "Query or send control commands to the QingCloud"
+	app.Name = "qcli"
+	app.Usage = "QingCloud Command Line Interface"
 	app.Version = verpkg.Version
 
 	app.Authors = []cli.Author{

@@ -5,9 +5,9 @@
 package main
 
 import (
-	"github.com/chai2010/qingcloud-go/pkg/cmd/qctl"
+	"github.com/chai2010/qingcloud-go/pkg/cmd/qcli"
 )
 
 func main() {
-	qctl.Main()
+	qcli.Main()
 }

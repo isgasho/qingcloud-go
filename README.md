@@ -49,19 +49,19 @@ log_level: 'warn'
 
 其中 `json_disable_unknown_fields` 是新加的变量, 表示在JSON解码时忽略 proto.Message 遇到未定义成员的错误.
 
-## qctl 命令行(开发中)
+## qcli 命令行(开发中)
 
-安装: `go get github.com/chai2010/qingcloud-go/cmd/qctl`
+安装: `go get github.com/chai2010/qingcloud-go/cmd/qcli`
 
-输出 `qctl` 或 `qctl -h` 查看命令提示:
+输入 `qcli` 或 `qcli -h` 查看命令提示:
 
 ```
-chai-mba:qingcloud-go chai$ qctl
+chai-mba:qingcloud-go chai$ qcli
 NAME:
-   qctl - Query or send control commands to the QingCloud
+   qcli - QingCloud Command Line Interface
 
 USAGE:
-   qctl [global options] command [command options] [arguments...]
+   qcli [global options] command [command options] [arguments...]
 
 VERSION:
    0.1.0
