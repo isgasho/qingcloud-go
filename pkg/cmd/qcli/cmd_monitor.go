@@ -10,10 +10,6 @@ import (
 	"github.com/urfave/cli"
 )
 
-/*
-get-monitoring-data	获取主机、公网、路由器的监控	get-loadbalancer-monitoring-data
-*/
-
 var cmdMonitor = cli.Command{
 	Name:    "monitor",
 	Aliases: []string{},

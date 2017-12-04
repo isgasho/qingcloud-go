@@ -10,14 +10,6 @@ import (
 	"github.com/urfave/cli"
 )
 
-/*
-describe-instances	获取主机列表	run-instances	创建主机
-start-instances	开启主机	stop-instances	关闭主机
-restart-instances	重启主机	terminate-instances	销毁主机
-resize-instances	修改主机配置	reset-instances	重置操作系统
-modify-instance-attributes	修改主机基本属性
-*/
-
 var cmdInstance = cli.Command{
 	Name:    "instance",
 	Aliases: []string{"ins"},

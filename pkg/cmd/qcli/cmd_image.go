@@ -10,11 +10,6 @@ import (
 	"github.com/urfave/cli"
 )
 
-/*
-describe-images	获取自有映像列表	modify-image-attributes	修改自有映像的基本属性
-capture-instance	将关闭的主机捕获为自有映像	delete-images
-*/
-
 var cmdImage = cli.Command{
 	Name:    "image",
 	Aliases: []string{"img"},

@@ -10,23 +10,13 @@ import (
 	"github.com/urfave/cli"
 )
 
-/*
-describe-routers	获取路由器列表	describe-router-vxnets	获取与路由器相连的私有网络列表
-create-routers	创建路由器	delete-routers	销毁路由器
-join-router	将私有网络连接到路由器	leave-router	将私有网络从路由器上断开
-poweron-routers	启动路由器	poweroff-routers	关闭路由器
-modify-router-attributes	修改路由器基本属性	update-routers	更新路由器配置
-describe-router-statics	获取路由器规则	add-router-statics	给路由器添加 DHCP，VPN，端口转发等规则
-modify-router-static-attributes	修改路由器规则的内容
-*/
-
 var cmdRouter = cli.Command{
 	Name:    "router",
 	Aliases: []string{},
 	Usage:   "manage router",
 	Subcommands: []cli.Command{
 		{
-			Name:    "add",
+			Name:    "describe-routers",
 			Aliases: []string{},
 			Usage:   "add a new template",
 			Action: func(c *cli.Context) error {
@@ -35,7 +25,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "describe-router-vxnets",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -44,7 +34,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "create-routers",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -53,7 +43,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "delete-routers",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -62,7 +52,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "join-router",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -71,7 +61,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "leave-router",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -80,7 +70,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "poweron-routers",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -89,7 +79,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "poweroff-routers",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -98,7 +88,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "modify-router-attributes",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -107,7 +97,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "update-routers",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -116,7 +106,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "describe-router-statics",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -125,7 +115,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "add-router-statics",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
@@ -134,7 +124,7 @@ var cmdRouter = cli.Command{
 			},
 		},
 		{
-			Name:    "remove",
+			Name:    "modify-router-static-attributes",
 			Aliases: []string{},
 			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
