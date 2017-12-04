@@ -19,6 +19,10 @@
 - https://docs.qingcloud.com
 - https://godoc.org/github.com/chai2010/qingcloud-go
 
+国内镜像:
+
+- https://gitee.com/chai2010/qingcloud-go
+
 接口规范:
 
 - [api](api)
