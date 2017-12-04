@@ -2,12 +2,12 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package qingcloud_cli
+package main
 
 import (
-	_ "github.com/chai2010/qingcloud-go/pkg/internal/glogger"
+	"github.com/chai2010/qingcloud-go/pkg/cmd/qctl"
 )
 
-func Main() {
-	println("qingcloud-cli: TODO")
+func main() {
+	qctl.Main()
 }
