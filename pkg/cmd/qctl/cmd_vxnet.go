@@ -16,16 +16,63 @@ var cmdVxnet = cli.Command{
 	Usage:   "manage VxNet",
 	Subcommands: []cli.Command{
 		{
-			Name:  "add",
-			Usage: "add a new template",
+			Name:    "describe-vxnets",
+			Aliases: []string{},
+			Usage:   "add a new template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:  "remove",
-			Usage: "remove an existing template",
+			Name:    "describe-vxnet-instances",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "join-vxnet",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "leave-vxnet",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "create-vxnets",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "delete-vxnets",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "modify-vxnet-attributes",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

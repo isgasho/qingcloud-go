@@ -49,6 +49,51 @@ log_level: 'warn'
 
 其中 `json_disable_unknown_fields` 是新加的变量, 表示在JSON解码时忽略 proto.Message 遇到未定义成员的错误.
 
+## qctl 命令行(开发中)
+
+安装: `go get github.com/chai2010/qingcloud-go/cmd/qctl`
+
+输出 `qctl` 或 `qctl -h` 查看命令提示:
+
+```
+chai-mba:qingcloud-go chai$ qctl
+NAME:
+   qctl - Query or send control commands to the QingCloud
+
+USAGE:
+   qctl [global options] command [command options] [arguments...]
+
+VERSION:
+   0.1.0
+
+AUTHOR:
+   ChaiShushan <chaishushan@gmail.com>
+
+COMMANDS:
+     instance, ins       manage instance
+     cluster             manage cluster
+     volume, vol         manage volume
+     nic                 manage NIC
+     vxnet               manage VxNet
+     router              manage router
+     eip                 manage EIP
+     security-group, sg  manage security group
+     keypair, ssh        manage keypair
+     image, img          manage image
+     load-balancer, ld   manage load balancer
+     monitor             manage monitor
+     snapshot, snap      manage snapshot
+     job                 manage jobs
+     help, h             Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --help, -h     show help
+   --version, -v  print the version
+chai-mba:qingcloud-go chai$
+```
+
+*注意: 命令行还在开发中, 欢迎参与完善!*
+
 ## 快速入门
 
 以下为 [docs/hello.go](./docs/hello.go) 的内容:

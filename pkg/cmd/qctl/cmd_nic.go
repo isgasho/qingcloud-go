@@ -16,16 +16,54 @@ var cmdNic = cli.Command{
 	Usage:   "manage NIC",
 	Subcommands: []cli.Command{
 		{
-			Name:  "add",
-			Usage: "add a new template",
+			Name:    "describe-nics",
+			Aliases: []string{},
+			Usage:   "add a new template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("new task template: ", c.Args().First())
 				return nil
 			},
 		},
 		{
-			Name:  "remove",
-			Usage: "remove an existing template",
+			Name:    "create-nics",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "attach-nics",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "detach-nics",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "delete-nics",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
+			Action: func(c *cli.Context) error {
+				fmt.Println("removed task template: ", c.Args().First())
+				return nil
+			},
+		},
+		{
+			Name:    "modify-nic-attributes",
+			Aliases: []string{},
+			Usage:   "remove an existing template",
 			Action: func(c *cli.Context) error {
 				fmt.Println("removed task template: ", c.Args().First())
 				return nil

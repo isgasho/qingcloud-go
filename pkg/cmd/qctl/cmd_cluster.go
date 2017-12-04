@@ -16,18 +16,11 @@ var cmdCluster = cli.Command{
 	Usage:   "manage cluster",
 	Subcommands: []cli.Command{
 		{
-			Name:  "add",
-			Usage: "add a new template",
+			Name:    "todo",
+			Aliases: []string{},
+			Usage:   "cluster todo ...",
 			Action: func(c *cli.Context) error {
-				fmt.Println("new task template: ", c.Args().First())
-				return nil
-			},
-		},
-		{
-			Name:  "remove",
-			Usage: "remove an existing template",
-			Action: func(c *cli.Context) error {
-				fmt.Println("removed task template: ", c.Args().First())
+				fmt.Println("todo: ", c.Args().First())
 				return nil
 			},
 		},
