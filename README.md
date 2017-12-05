@@ -60,7 +60,7 @@ log_level: 'warn'
 输入 `qcli` 或 `qcli -h` 查看命令提示:
 
 ```
-chai-mba:qingcloud-go chai$ qcli
+chai-mba:api chai$ qcli
 NAME:
    qcli - QingCloud Command Line Interface
 
@@ -74,25 +74,42 @@ AUTHOR:
    ChaiShushan <chaishushan@gmail.com>
 
 COMMANDS:
-     instance, ins       manage instance
-     cluster             manage cluster
-     volume, vol         manage volume
-     nic                 manage NIC
-     vxnet               manage VxNet
-     router              manage router
-     eip                 manage EIP
-     security-group, sg  manage security group
-     keypair, ssh        manage keypair
-     image, img          manage image
-     load-balancer, ld   manage load balancer
-     monitor             manage monitor
-     snapshot, snap      manage snapshot
-     job                 manage jobs
+     alarm               manage AlarmService
+     cache               manage CacheService
+     cluster             manage ClusterService
+     dnsalias            manage DNSAliasService
+     eip                 manage EIPService
+     hadoop              manage HadoopService
+     image               manage ImageService
+     instance            manage InstanceService
+     job                 manage JobService
+     keypair             manage KeyPairService
+     loadbalancer        manage LoadBalancerService
+     misc                manage MiscService
+     mongo               manage MongoService
+     monitor             manage MonitorService
+     nic                 manage NicService
+     notificationcenter  manage NotificationCenterService
+     rdb                 manage RDBService
+     resourceacl         manage ResourceACLService
+     router              manage RouterService
+     s2                  manage S2Service
+     securitygroup       manage SecurityGroupService
+     snapshot            manage SnapshotService
+     span                manage SpanService
+     spark               manage SparkService
+     subuser             manage SubuserService
+     tag                 manage TagService
+     userdata            manage UserDataService
+     volumes             manage VolumesService
+     vxnet               manage VxnetService
+     zone                manage ZoneService
      help, h             Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --help, -h     show help
-   --version, -v  print the version
+   --config value, -c value  config file (default: "~/.qingcloud/config.yaml") [$QCLI_CONFIG_FILE]
+   --help, -h                show help
+   --version, -v             print the version
 chai-mba:qingcloud-go chai$
 ```
 
