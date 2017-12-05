@@ -44,24 +44,6 @@ func Main() {
 		fmt.Fprintf(c.App.Writer, "ERR: command %q not found!\n", command)
 	}
 
-	app.Commands = []cli.Command{
-		cmdInstance,
-		cmdCluster,
-		cmdVolume,
-		cmdNic,
-		cmdVxnet,
-		cmdRouter,
-		cmdEip,
-		cmdSecurityGroup,
-		cmdKeyPair,
-		cmdImage,
-		cmdLoadBalancer,
-		cmdMonitor,
-		cmdSnapshot,
-		cmdJob,
-	}
-
 	app.Commands = pb.AllCommands
-
 	app.Run(os.Args)
 }
