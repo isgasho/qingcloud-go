@@ -122,6 +122,13 @@ func LoadConfigFromFilepath(filepath string) (*Config, error) {
 
 	return LoadConfigFromContent(configYAML)
 }
+func MustLoadConfigFromFilepath(filepath string) *Config {
+	cfg, err := LoadConfigFromFilepath(filepath)
+	if err != nil {
+		logger.Fatal(err)
+	}
+	return cfg
+}
 
 // LoadConfigFromContent loads configuration from a given byte slice.
 // It returns error if yaml decode failed.
@@ -148,6 +155,13 @@ func LoadConfigFromContent(content []byte) (*Config, error) {
 	}
 
 	return c, nil
+}
+func MustLoadConfigFromContent(content []byte) *Config {
+	cfg, err := LoadConfigFromContent(content)
+	if err != nil {
+		logger.Fatal(err)
+	}
+	return cfg
 }
 
 // LoadDefaultConfig loads the default configuration for Config.
