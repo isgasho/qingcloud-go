@@ -65,3 +65,5 @@ test:
 	go test ./...
 
 clean:
+	make -C ./pkg/api clean
+	make -C ./pkg/cmd/qcli/api clean
