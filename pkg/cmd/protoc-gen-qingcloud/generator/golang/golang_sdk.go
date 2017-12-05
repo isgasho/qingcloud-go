@@ -13,6 +13,7 @@ import (
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 
 	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud"
+	"github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/utils"
 )
 
 func init() {
@@ -25,7 +26,7 @@ func (p pkgGenerator) Name() string        { return "golang" }
 func (p pkgGenerator) FileNameExt() string { return ".pb.qingcloud.go" }
 
 func (pkgGenerator) HeaderCode(g *generator.Generator, file *generator.FileDescriptor) string {
-	spec := pkgBuildFileSpec(g, file)
+	spec := utils.BuildFileSpec(g, file)
 
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(tmplFileHeader))
@@ -34,7 +35,7 @@ func (pkgGenerator) HeaderCode(g *generator.Generator, file *generator.FileDescr
 }
 
 func (pkgGenerator) ServiceCode(g *generator.Generator, file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) string {
-	spec := pkgBuildServiceSpec(g, file, svc)
+	spec := utils.BuildServiceSpec(g, file, svc)
 
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Funcs(tmplFuncMap).Parse(tmplService))

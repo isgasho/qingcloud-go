@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package golang_sdk_v1
+package utils
 
 import (
 	"github.com/golang/protobuf/proto"
@@ -12,19 +12,19 @@ import (
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
 )
 
-func pkgBuildFileSpec(p *generator.Generator, file *generator.FileDescriptor) *spec_metadata.FileSpec {
+func BuildFileSpec(p *generator.Generator, file *generator.FileDescriptor) *spec_metadata.FileSpec {
 	return &spec_metadata.FileSpec{
 		FileName:    proto.String(file.GetName()),
 		PackageName: proto.String(file.PackageName()),
 	}
 }
 
-func pkgBuildServiceSpec(p *generator.Generator, file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceSpec {
+func BuildServiceSpec(p *generator.Generator, file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceSpec {
 	spec := new(spec_metadata.ServiceSpec)
 
 	spec.ServiceName = proto.String(generator.CamelCase(svc.GetName()))
 
-	if opt := pkgGetFileOption(file.FileDescriptorProto); opt != nil {
+	if opt := GetFileOption(file.FileDescriptorProto); opt != nil {
 		_ = opt
 	}
 
@@ -35,7 +35,7 @@ func pkgBuildServiceSpec(p *generator.Generator, file *generator.FileDescriptor,
 			OutputTypeName: proto.String(p.TypeName(p.ObjectNamed(m.GetOutputType()))),
 		}
 
-		if opt := pkgGetServiceMethodOption(m); opt != nil {
+		if opt := GetServiceMethodOption(m); opt != nil {
 			methodSpec.HttpMethod = proto.String(opt.GetHttpMethod())
 		}
 
@@ -45,7 +45,7 @@ func pkgBuildServiceSpec(p *generator.Generator, file *generator.FileDescriptor,
 	return spec
 }
 
-func pkgGetFileOption(file *descriptor.FileDescriptorProto) *spec_metadata.FileOption {
+func GetFileOption(file *descriptor.FileDescriptorProto) *spec_metadata.FileOption {
 	if file.Options != nil && proto.HasExtension(file.Options, spec_metadata.E_FileOption) {
 		if ext, _ := proto.GetExtension(file.Options, spec_metadata.E_FileOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.FileOption); x != nil {
@@ -56,7 +56,7 @@ func pkgGetFileOption(file *descriptor.FileDescriptorProto) *spec_metadata.FileO
 	return nil
 }
 
-func pkgGetServiceOption(svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceOption {
+func GetServiceOption(svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceOption {
 	if svc.Options != nil && proto.HasExtension(svc.Options, spec_metadata.E_FileOption) {
 		if ext, _ := proto.GetExtension(svc.Options, spec_metadata.E_FileOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.ServiceOption); x != nil {
@@ -67,7 +67,7 @@ func pkgGetServiceOption(svc *descriptor.ServiceDescriptorProto) *spec_metadata.
 	return nil
 }
 
-func pkgGetServiceMethodOption(m *descriptor.MethodDescriptorProto) *spec_metadata.MethodOption {
+func GetServiceMethodOption(m *descriptor.MethodDescriptorProto) *spec_metadata.MethodOption {
 	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_MethodOption) {
 		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_MethodOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.MethodOption); x != nil {
@@ -78,7 +78,7 @@ func pkgGetServiceMethodOption(m *descriptor.MethodDescriptorProto) *spec_metada
 	return nil
 }
 
-func pkgGetMessageOption(m *descriptor.DescriptorProto) *spec_metadata.MessageOption {
+func GetMessageOption(m *descriptor.DescriptorProto) *spec_metadata.MessageOption {
 	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_MessageOption) {
 		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_MessageOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.MessageOption); x != nil {
@@ -89,7 +89,7 @@ func pkgGetMessageOption(m *descriptor.DescriptorProto) *spec_metadata.MessageOp
 	return nil
 }
 
-func pkgGetMessageFieldOption(m *descriptor.FieldDescriptorProto) *spec_metadata.FieldOption {
+func GetMessageFieldOption(m *descriptor.FieldDescriptorProto) *spec_metadata.FieldOption {
 	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_FieldOption) {
 		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_FieldOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.FieldOption); x != nil {
@@ -100,9 +100,9 @@ func pkgGetMessageFieldOption(m *descriptor.FieldDescriptorProto) *spec_metadata
 	return nil
 }
 
-func pkgGetMethodInputDescriptor(p *generator.Generator, m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
+func GetMethodInputDescriptor(p *generator.Generator, m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
 	return p.ObjectNamed(m.GetInputType()).(*generator.Descriptor).DescriptorProto
 }
-func pkgGetMethodOutputDescriptor(p *generator.Generator, m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
+func GetMethodOutputDescriptor(p *generator.Generator, m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
 	return p.ObjectNamed(m.GetOutputType()).(*generator.Descriptor).DescriptorProto
 }
