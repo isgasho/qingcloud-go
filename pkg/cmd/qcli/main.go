@@ -32,6 +32,12 @@ func Main() {
 			Value:  "~/.qingcloud/config.yaml",
 			EnvVar: "QCLI_CONFIG_FILE",
 		},
+		cli.StringFlag{
+			Name:   "zone, z",
+			Usage:  "zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...)",
+			Value:  "pk3a",
+			EnvVar: "QCLI_ZONE",
+		},
 	}
 
 	app.CommandNotFound = func(c *cli.Context, command string) {
