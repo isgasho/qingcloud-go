@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package golang_validate_v1
+package golang_validator
 
 import (
 	"github.com/golang/protobuf/descriptor"

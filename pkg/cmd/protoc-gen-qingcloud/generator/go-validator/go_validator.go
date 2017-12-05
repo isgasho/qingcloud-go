@@ -2,7 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-package golang_validate_v1
+package golang_validator
 
 import (
 	"bytes"
@@ -11,19 +11,19 @@ import (
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 
-	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud-validate"
+	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud"
 )
 
 func init() {
-	plugin.RegisterValidateGenerator(new(pkgGenerator))
+	plugin.RegisterServiceGenerator(new(pkgGenerator))
 }
 
 type pkgGenerator struct{}
 
-func (p pkgGenerator) Name() string        { return "golang" }
+func (p pkgGenerator) Name() string        { return "go-validator" }
 func (p pkgGenerator) FileNameExt() string { return ".pb.validate.go" }
 
-func (p pkgGenerator) HeaderCode(file *generator.FileDescriptor) string {
+func (p pkgGenerator) HeaderCode(g *generator.Generator, file *generator.FileDescriptor) string {
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Funcs(tmplFuncMap).Parse(tmplFileHeader))
 	t.Execute(&buf,
@@ -36,7 +36,11 @@ func (p pkgGenerator) HeaderCode(file *generator.FileDescriptor) string {
 	return buf.String()
 }
 
-func (p pkgGenerator) ValidateCode(file *generator.FileDescriptor, message *descriptor.DescriptorProto) string {
+func (p pkgGenerator) ServiceCode(g *generator.Generator, file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) string {
+	return ""
+}
+
+func (p pkgGenerator) MessageCode(g *generator.Generator, file *generator.FileDescriptor, message *descriptor.DescriptorProto) string {
 	var fieldValidate []string
 	for _, field := range message.GetField() {
 		if s := p.FieldValidateCode(file, message, field); s != "" {
