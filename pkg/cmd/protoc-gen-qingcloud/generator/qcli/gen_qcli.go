@@ -107,16 +107,16 @@ var Cmd{{.GetServiceName}} = cli.Command{
 			Name:    "{{$m.GetMethodName}}",
 			Aliases: []string{},
 			Usage:   "{{$m.GetMethodName}}",
-			Action: cmd{{$m.GetMethodName}},
+			Action: _cmd_{{$service.GetServiceName}}_{{$m.GetMethodName}},
 		},
 		{{end}}
 	},
 }
 
 {{range $_, $m := .GetMethodList}}
-func cmd{{$m.GetMethodName}}(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+func _cmd_{{$service.GetServiceName}}_{{$m.GetMethodName}}(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.New{{$service.GetServiceName}}(conf, zone)
 
 	in := new(pb.{{$m.GetInputTypeName}})
