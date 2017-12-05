@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -135,7 +137,15 @@ func _cmd_InstanceService_DescribeInstances(c *cli.Context) error {
 
 	in := new(pb.DescribeInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeInstances(in)
 	if err != nil {
@@ -166,7 +176,15 @@ func _cmd_InstanceService_RunInstances(c *cli.Context) error {
 
 	in := new(pb.RunInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RunInstances(in)
 	if err != nil {
@@ -197,7 +215,15 @@ func _cmd_InstanceService_TerminateInstances(c *cli.Context) error {
 
 	in := new(pb.TerminateInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.TerminateInstances(in)
 	if err != nil {
@@ -228,7 +254,15 @@ func _cmd_InstanceService_StartInstances(c *cli.Context) error {
 
 	in := new(pb.StartInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StartInstances(in)
 	if err != nil {
@@ -259,7 +293,15 @@ func _cmd_InstanceService_StopInstances(c *cli.Context) error {
 
 	in := new(pb.StopInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StopInstances(in)
 	if err != nil {
@@ -290,7 +332,15 @@ func _cmd_InstanceService_RestartInstances(c *cli.Context) error {
 
 	in := new(pb.RestartInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RestartInstances(in)
 	if err != nil {
@@ -321,7 +371,15 @@ func _cmd_InstanceService_ResetInstances(c *cli.Context) error {
 
 	in := new(pb.ResetInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResetInstances(in)
 	if err != nil {
@@ -352,7 +410,15 @@ func _cmd_InstanceService_ResizeInstances(c *cli.Context) error {
 
 	in := new(pb.ResizeInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResizeInstances(in)
 	if err != nil {
@@ -383,7 +449,15 @@ func _cmd_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyInstanceAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyInstanceAttributes(in)
 	if err != nil {
@@ -414,7 +488,15 @@ func _cmd_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
 
 	in := new(pb.DescribeInstanceTypesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeInstanceTypes(in)
 	if err != nil {
@@ -445,7 +527,15 @@ func _cmd_InstanceService_CreateBrokers(c *cli.Context) error {
 
 	in := new(pb.CreateBrokersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateBrokers(in)
 	if err != nil {
@@ -476,7 +566,15 @@ func _cmd_InstanceService_DeleteBrokers(c *cli.Context) error {
 
 	in := new(pb.DeleteBrokersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteBrokers(in)
 	if err != nil {

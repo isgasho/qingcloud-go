@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -184,7 +186,15 @@ func _cmd_RouterService_DescribeRouters(c *cli.Context) error {
 
 	in := new(pb.DescribeRoutersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeRouters(in)
 	if err != nil {
@@ -215,7 +225,15 @@ func _cmd_RouterService_CreateRouters(c *cli.Context) error {
 
 	in := new(pb.CreateRoutersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateRouters(in)
 	if err != nil {
@@ -246,7 +264,15 @@ func _cmd_RouterService_DeleteRouters(c *cli.Context) error {
 
 	in := new(pb.DeleteRoutersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteRouters(in)
 	if err != nil {
@@ -277,7 +303,15 @@ func _cmd_RouterService_UpdateRouters(c *cli.Context) error {
 
 	in := new(pb.UpdateRoutersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpdateRouters(in)
 	if err != nil {
@@ -308,7 +342,15 @@ func _cmd_RouterService_PowerOffRouters(c *cli.Context) error {
 
 	in := new(pb.PowerOffRoutersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.PowerOffRouters(in)
 	if err != nil {
@@ -339,7 +381,15 @@ func _cmd_RouterService_PowerOnRouters(c *cli.Context) error {
 
 	in := new(pb.PowerOnRoutersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.PowerOnRouters(in)
 	if err != nil {
@@ -370,7 +420,15 @@ func _cmd_RouterService_JoinRouter(c *cli.Context) error {
 
 	in := new(pb.JoinRouterInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.JoinRouter(in)
 	if err != nil {
@@ -401,7 +459,15 @@ func _cmd_RouterService_LeaveRouter(c *cli.Context) error {
 
 	in := new(pb.LeaveRouterInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.LeaveRouter(in)
 	if err != nil {
@@ -432,7 +498,15 @@ func _cmd_RouterService_ModifyRouterAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyRouterAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyRouterAttributes(in)
 	if err != nil {
@@ -463,7 +537,15 @@ func _cmd_RouterService_DescribeRouterStatics(c *cli.Context) error {
 
 	in := new(pb.DescribeRouterStaticsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeRouterStatics(in)
 	if err != nil {
@@ -494,7 +576,15 @@ func _cmd_RouterService_AddRouterStatics(c *cli.Context) error {
 
 	in := new(pb.AddRouterStaticsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddRouterStatics(in)
 	if err != nil {
@@ -525,7 +615,15 @@ func _cmd_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyRouterStaticAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyRouterStaticAttributes(in)
 	if err != nil {
@@ -556,7 +654,15 @@ func _cmd_RouterService_DeleteRouterStatics(c *cli.Context) error {
 
 	in := new(pb.DeleteRouterStaticsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteRouterStatics(in)
 	if err != nil {
@@ -587,7 +693,15 @@ func _cmd_RouterService_CopyRouterStatics(c *cli.Context) error {
 
 	in := new(pb.CopyRouterStaticsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CopyRouterStatics(in)
 	if err != nil {
@@ -618,7 +732,15 @@ func _cmd_RouterService_DescribeRouterVxnets(c *cli.Context) error {
 
 	in := new(pb.DescribeRouterVxnetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeRouterVxnets(in)
 	if err != nil {
@@ -649,7 +771,15 @@ func _cmd_RouterService_AddRouterStaticEntries(c *cli.Context) error {
 
 	in := new(pb.AddRouterStaticEntriesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddRouterStaticEntries(in)
 	if err != nil {
@@ -680,7 +810,15 @@ func _cmd_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
 
 	in := new(pb.DeleteRouterStaticEntriesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteRouterStaticEntries(in)
 	if err != nil {
@@ -711,7 +849,15 @@ func _cmd_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error 
 
 	in := new(pb.ModifyRouterStaticEntryAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyRouterStaticEntryAttributes(in)
 	if err != nil {
@@ -742,7 +888,15 @@ func _cmd_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
 
 	in := new(pb.DescribeRouterStaticEntriesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeRouterStaticEntries(in)
 	if err != nil {

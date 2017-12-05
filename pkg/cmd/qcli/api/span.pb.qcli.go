@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -100,7 +102,15 @@ func _cmd_SpanService_CreateSpan(c *cli.Context) error {
 
 	in := new(pb.CreateSpanInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateSpan(in)
 	if err != nil {
@@ -131,7 +141,15 @@ func _cmd_SpanService_DescribeSpans(c *cli.Context) error {
 
 	in := new(pb.DescribeSpansInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSpans(in)
 	if err != nil {
@@ -162,7 +180,15 @@ func _cmd_SpanService_DeleteSpans(c *cli.Context) error {
 
 	in := new(pb.DeleteSpansInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSpans(in)
 	if err != nil {
@@ -193,7 +219,15 @@ func _cmd_SpanService_AddSpanMembers(c *cli.Context) error {
 
 	in := new(pb.AddSpanMembersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddSpanMembers(in)
 	if err != nil {
@@ -224,7 +258,15 @@ func _cmd_SpanService_RemoveSpanMembers(c *cli.Context) error {
 
 	in := new(pb.RemoveSpanMembersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RemoveSpanMembers(in)
 	if err != nil {
@@ -255,7 +297,15 @@ func _cmd_SpanService_ModifySpanAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifySpanAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifySpanAttributes(in)
 	if err != nil {
@@ -286,7 +336,15 @@ func _cmd_SpanService_UpdateSpan(c *cli.Context) error {
 
 	in := new(pb.UpdateSpanInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpdateSpan(in)
 	if err != nil {

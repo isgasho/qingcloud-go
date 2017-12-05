@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -219,7 +221,15 @@ func _cmd_CacheService_DescribeCaches(c *cli.Context) error {
 
 	in := new(pb.DescribeCachesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeCaches(in)
 	if err != nil {
@@ -250,7 +260,15 @@ func _cmd_CacheService_CreateCache(c *cli.Context) error {
 
 	in := new(pb.CreateCacheInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateCache(in)
 	if err != nil {
@@ -281,7 +299,15 @@ func _cmd_CacheService_StopCaches(c *cli.Context) error {
 
 	in := new(pb.StopCachesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StopCaches(in)
 	if err != nil {
@@ -312,7 +338,15 @@ func _cmd_CacheService_StartCaches(c *cli.Context) error {
 
 	in := new(pb.StartCachesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StartCaches(in)
 	if err != nil {
@@ -343,7 +377,15 @@ func _cmd_CacheService_RestartCaches(c *cli.Context) error {
 
 	in := new(pb.RestartCachesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RestartCaches(in)
 	if err != nil {
@@ -374,7 +416,15 @@ func _cmd_CacheService_DeleteCaches(c *cli.Context) error {
 
 	in := new(pb.DeleteCachesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteCaches(in)
 	if err != nil {
@@ -405,7 +455,15 @@ func _cmd_CacheService_ResizeCaches(c *cli.Context) error {
 
 	in := new(pb.ResizeCachesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResizeCaches(in)
 	if err != nil {
@@ -436,7 +494,15 @@ func _cmd_CacheService_UpdateCache(c *cli.Context) error {
 
 	in := new(pb.UpdateCacheInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpdateCache(in)
 	if err != nil {
@@ -467,7 +533,15 @@ func _cmd_CacheService_ChangeCacheVxnet(c *cli.Context) error {
 
 	in := new(pb.ChangeCacheVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ChangeCacheVxnet(in)
 	if err != nil {
@@ -498,7 +572,15 @@ func _cmd_CacheService_ModifyCacheAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyCacheAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyCacheAttributes(in)
 	if err != nil {
@@ -529,7 +611,15 @@ func _cmd_CacheService_DescribeCacheNodes(c *cli.Context) error {
 
 	in := new(pb.DescribeCacheNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeCacheNodes(in)
 	if err != nil {
@@ -560,7 +650,15 @@ func _cmd_CacheService_AddCacheNodes(c *cli.Context) error {
 
 	in := new(pb.AddCacheNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddCacheNodes(in)
 	if err != nil {
@@ -591,7 +689,15 @@ func _cmd_CacheService_DeleteCacheNodes(c *cli.Context) error {
 
 	in := new(pb.DeleteCacheNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteCacheNodes(in)
 	if err != nil {
@@ -622,7 +728,15 @@ func _cmd_CacheService_RestartCacheNodes(c *cli.Context) error {
 
 	in := new(pb.RestartCacheNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RestartCacheNodes(in)
 	if err != nil {
@@ -653,7 +767,15 @@ func _cmd_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyCacheNodeAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyCacheNodeAttributes(in)
 	if err != nil {
@@ -684,7 +806,15 @@ func _cmd_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 
 	in := new(pb.CreateCacheFromSnapshotInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateCacheFromSnapshot(in)
 	if err != nil {
@@ -715,7 +845,15 @@ func _cmd_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
 
 	in := new(pb.DescribeCacheParameterGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeCacheParameterGroups(in)
 	if err != nil {
@@ -746,7 +884,15 @@ func _cmd_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
 
 	in := new(pb.CreateCacheParameterGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateCacheParameterGroup(in)
 	if err != nil {
@@ -777,7 +923,15 @@ func _cmd_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
 
 	in := new(pb.ApplyCacheParameterGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ApplyCacheParameterGroup(in)
 	if err != nil {
@@ -808,7 +962,15 @@ func _cmd_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
 
 	in := new(pb.DeleteCacheParameterGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteCacheParameterGroups(in)
 	if err != nil {
@@ -839,7 +1001,15 @@ func _cmd_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) error
 
 	in := new(pb.ModifyCacheParameterGroupAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyCacheParameterGroupAttributes(in)
 	if err != nil {
@@ -870,7 +1040,15 @@ func _cmd_CacheService_DescribeCacheParameters(c *cli.Context) error {
 
 	in := new(pb.DescribeCacheParametersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeCacheParameters(in)
 	if err != nil {
@@ -901,7 +1079,15 @@ func _cmd_CacheService_UpdateCacheParameters(c *cli.Context) error {
 
 	in := new(pb.UpdateCacheParametersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpdateCacheParameters(in)
 	if err != nil {
@@ -932,7 +1118,15 @@ func _cmd_CacheService_ResetCacheParameters(c *cli.Context) error {
 
 	in := new(pb.ResetCacheParametersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResetCacheParameters(in)
 	if err != nil {

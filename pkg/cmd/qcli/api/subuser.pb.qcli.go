@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -86,7 +88,15 @@ func _cmd_SubuserService_DescribeSubUsers(c *cli.Context) error {
 
 	in := new(pb.DescribeSubUsersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSubUsers(in)
 	if err != nil {
@@ -117,7 +127,15 @@ func _cmd_SubuserService_CreateSubUser(c *cli.Context) error {
 
 	in := new(pb.CreateSubUserInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateSubUser(in)
 	if err != nil {
@@ -148,7 +166,15 @@ func _cmd_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifySubUserAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifySubUserAttributes(in)
 	if err != nil {
@@ -179,7 +205,15 @@ func _cmd_SubuserService_DeleteSubUsers(c *cli.Context) error {
 
 	in := new(pb.DeleteSubUsersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSubUsers(in)
 	if err != nil {
@@ -210,7 +244,15 @@ func _cmd_SubuserService_RestoreSubUsers(c *cli.Context) error {
 
 	in := new(pb.RestoreSubUsersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RestoreSubUsers(in)
 	if err != nil {

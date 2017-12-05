@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -107,7 +109,15 @@ func _cmd_EIPService_DescribeEips(c *cli.Context) error {
 
 	in := new(pb.DescribeEipsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeEips(in)
 	if err != nil {
@@ -138,7 +148,15 @@ func _cmd_EIPService_AllocateEips(c *cli.Context) error {
 
 	in := new(pb.AllocateEipsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AllocateEips(in)
 	if err != nil {
@@ -169,7 +187,15 @@ func _cmd_EIPService_ReleaseEips(c *cli.Context) error {
 
 	in := new(pb.ReleaseEipsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ReleaseEips(in)
 	if err != nil {
@@ -200,7 +226,15 @@ func _cmd_EIPService_AssociateEip(c *cli.Context) error {
 
 	in := new(pb.AssociateEipInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AssociateEip(in)
 	if err != nil {
@@ -231,7 +265,15 @@ func _cmd_EIPService_DissociateEips(c *cli.Context) error {
 
 	in := new(pb.DissociateEipsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DissociateEips(in)
 	if err != nil {
@@ -262,7 +304,15 @@ func _cmd_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
 
 	in := new(pb.ChangeEipsBandwidthInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ChangeEipsBandwidth(in)
 	if err != nil {
@@ -293,7 +343,15 @@ func _cmd_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
 
 	in := new(pb.ChangeEipsBillingModeInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ChangeEipsBillingMode(in)
 	if err != nil {
@@ -324,7 +382,15 @@ func _cmd_EIPService_ModifyEipAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyEipAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyEipAttributes(in)
 	if err != nil {

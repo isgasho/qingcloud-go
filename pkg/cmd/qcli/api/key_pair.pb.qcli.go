@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -93,7 +95,15 @@ func _cmd_KeyPairService_DescribeKeyPairs(c *cli.Context) error {
 
 	in := new(pb.DescribeKeyPairsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeKeyPairs(in)
 	if err != nil {
@@ -124,7 +134,15 @@ func _cmd_KeyPairService_CreateKeyPair(c *cli.Context) error {
 
 	in := new(pb.CreateKeyPairInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateKeyPair(in)
 	if err != nil {
@@ -155,7 +173,15 @@ func _cmd_KeyPairService_DeleteKeyPairs(c *cli.Context) error {
 
 	in := new(pb.DeleteKeyPairsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteKeyPairs(in)
 	if err != nil {
@@ -186,7 +212,15 @@ func _cmd_KeyPairService_AttachKeyPairs(c *cli.Context) error {
 
 	in := new(pb.AttachKeyPairsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AttachKeyPairs(in)
 	if err != nil {
@@ -217,7 +251,15 @@ func _cmd_KeyPairService_DetachKeyPairs(c *cli.Context) error {
 
 	in := new(pb.DetachKeyPairsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DetachKeyPairs(in)
 	if err != nil {
@@ -248,7 +290,15 @@ func _cmd_KeyPairService_ModifyKeyPairAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyKeyPairAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyKeyPairAttributes(in)
 	if err != nil {

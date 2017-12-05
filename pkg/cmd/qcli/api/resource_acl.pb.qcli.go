@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -240,7 +242,15 @@ func _cmd_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error 
 
 	in := new(pb.DescribeSharedResourceGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSharedResourceGroups(in)
 	if err != nil {
@@ -271,7 +281,15 @@ func _cmd_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
 
 	in := new(pb.DescribeResourceGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeResourceGroups(in)
 	if err != nil {
@@ -302,7 +320,15 @@ func _cmd_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
 
 	in := new(pb.CreateResourceGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateResourceGroups(in)
 	if err != nil {
@@ -333,7 +359,15 @@ func _cmd_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error
 
 	in := new(pb.ModifyResourceGroupAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyResourceGroupAttributes(in)
 	if err != nil {
@@ -364,7 +398,15 @@ func _cmd_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
 
 	in := new(pb.DeleteResourceGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteResourceGroups(in)
 	if err != nil {
@@ -395,7 +437,15 @@ func _cmd_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
 
 	in := new(pb.DescribeResourceGroupItemsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeResourceGroupItems(in)
 	if err != nil {
@@ -426,7 +476,15 @@ func _cmd_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
 
 	in := new(pb.AddResourceGroupItemsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddResourceGroupItems(in)
 	if err != nil {
@@ -457,7 +515,15 @@ func _cmd_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
 
 	in := new(pb.DeleteResourceGroupItemsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteResourceGroupItems(in)
 	if err != nil {
@@ -488,7 +554,15 @@ func _cmd_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
 
 	in := new(pb.DescribeUserGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeUserGroups(in)
 	if err != nil {
@@ -519,7 +593,15 @@ func _cmd_ResourceACLService_CreateUserGroups(c *cli.Context) error {
 
 	in := new(pb.CreateUserGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateUserGroups(in)
 	if err != nil {
@@ -550,7 +632,15 @@ func _cmd_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyUserGroupAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyUserGroupAttributes(in)
 	if err != nil {
@@ -581,7 +671,15 @@ func _cmd_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
 
 	in := new(pb.DeleteUserGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteUserGroups(in)
 	if err != nil {
@@ -612,7 +710,15 @@ func _cmd_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
 
 	in := new(pb.DescribeUserGroupMembersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeUserGroupMembers(in)
 	if err != nil {
@@ -643,7 +749,15 @@ func _cmd_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
 
 	in := new(pb.AddUserGroupMembersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddUserGroupMembers(in)
 	if err != nil {
@@ -674,7 +788,15 @@ func _cmd_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) err
 
 	in := new(pb.ModifyUserGroupMemberAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyUserGroupMemberAttributes(in)
 	if err != nil {
@@ -705,7 +827,15 @@ func _cmd_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
 
 	in := new(pb.DeleteUserGroupMembersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteUserGroupMembers(in)
 	if err != nil {
@@ -736,7 +866,15 @@ func _cmd_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
 
 	in := new(pb.DescribeGroupRolesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeGroupRoles(in)
 	if err != nil {
@@ -767,7 +905,15 @@ func _cmd_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
 
 	in := new(pb.CreateGroupRolesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateGroupRoles(in)
 	if err != nil {
@@ -798,7 +944,15 @@ func _cmd_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyGroupRoleAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyGroupRoleAttributes(in)
 	if err != nil {
@@ -829,7 +983,15 @@ func _cmd_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
 
 	in := new(pb.DeleteGroupRolesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteGroupRoles(in)
 	if err != nil {
@@ -860,7 +1022,15 @@ func _cmd_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
 
 	in := new(pb.DescribeGroupRoleRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeGroupRoleRules(in)
 	if err != nil {
@@ -891,7 +1061,15 @@ func _cmd_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
 
 	in := new(pb.AddGroupRoleRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddGroupRoleRules(in)
 	if err != nil {
@@ -922,7 +1100,15 @@ func _cmd_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error
 
 	in := new(pb.ModifyGroupRoleRuleAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyGroupRoleRuleAttributes(in)
 	if err != nil {
@@ -953,7 +1139,15 @@ func _cmd_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
 
 	in := new(pb.DeleteGroupRoleRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteGroupRoleRules(in)
 	if err != nil {
@@ -984,7 +1178,15 @@ func _cmd_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) err
 
 	in := new(pb.GrantResourceGroupsToUserGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GrantResourceGroupsToUserGroups(in)
 	if err != nil {
@@ -1015,7 +1217,15 @@ func _cmd_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) 
 
 	in := new(pb.RevokeResourceGroupsFromUserGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RevokeResourceGroupsFromUserGroups(in)
 	if err != nil {
@@ -1046,7 +1256,15 @@ func _cmd_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
 
 	in := new(pb.DescribeResourceUserGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeResourceUserGroups(in)
 	if err != nil {

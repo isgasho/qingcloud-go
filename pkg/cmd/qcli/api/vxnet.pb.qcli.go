@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -100,7 +102,15 @@ func _cmd_VxnetService_DescribeVxnets(c *cli.Context) error {
 
 	in := new(pb.DescribeVxnetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeVxnets(in)
 	if err != nil {
@@ -131,7 +141,15 @@ func _cmd_VxnetService_CreateVxnets(c *cli.Context) error {
 
 	in := new(pb.CreateVxnetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateVxnets(in)
 	if err != nil {
@@ -162,7 +180,15 @@ func _cmd_VxnetService_DeleteVxnets(c *cli.Context) error {
 
 	in := new(pb.DeleteVxnetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteVxnets(in)
 	if err != nil {
@@ -193,7 +219,15 @@ func _cmd_VxnetService_JoinVxnet(c *cli.Context) error {
 
 	in := new(pb.JoinVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.JoinVxnet(in)
 	if err != nil {
@@ -224,7 +258,15 @@ func _cmd_VxnetService_LeaveVxnet(c *cli.Context) error {
 
 	in := new(pb.LeaveVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.LeaveVxnet(in)
 	if err != nil {
@@ -255,7 +297,15 @@ func _cmd_VxnetService_ModifyVxnetAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyVxnetAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyVxnetAttributes(in)
 	if err != nil {
@@ -286,7 +336,15 @@ func _cmd_VxnetService_DescribeVxnetInstances(c *cli.Context) error {
 
 	in := new(pb.DescribeVxnetInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeVxnetInstances(in)
 	if err != nil {

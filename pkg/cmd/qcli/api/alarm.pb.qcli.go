@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -170,7 +172,15 @@ func _cmd_AlarmService_DescribeAlarmPolicies(c *cli.Context) error {
 
 	in := new(pb.DescribeAlarmPoliciesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeAlarmPolicies(in)
 	if err != nil {
@@ -201,7 +211,15 @@ func _cmd_AlarmService_CreateAlarmPolicy(c *cli.Context) error {
 
 	in := new(pb.CreateAlarmPolicyInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateAlarmPolicy(in)
 	if err != nil {
@@ -232,7 +250,15 @@ func _cmd_AlarmService_ModifyAlarmPolicyAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyAlarmPolicyAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyAlarmPolicyAttributes(in)
 	if err != nil {
@@ -263,7 +289,15 @@ func _cmd_AlarmService_DeleteAlarmPolicies(c *cli.Context) error {
 
 	in := new(pb.DeleteAlarmPoliciesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteAlarmPolicies(in)
 	if err != nil {
@@ -294,7 +328,15 @@ func _cmd_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
 
 	in := new(pb.DescribeAlarmPolicyRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeAlarmPolicyRules(in)
 	if err != nil {
@@ -325,7 +367,15 @@ func _cmd_AlarmService_AddAlarmPolicyRules(c *cli.Context) error {
 
 	in := new(pb.AddAlarmPolicyRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddAlarmPolicyRules(in)
 	if err != nil {
@@ -356,7 +406,15 @@ func _cmd_AlarmService_ModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyAlarmPolicyRuleAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyAlarmPolicyRuleAttributes(in)
 	if err != nil {
@@ -387,7 +445,15 @@ func _cmd_AlarmService_DeleteAlarmPolicyRules(c *cli.Context) error {
 
 	in := new(pb.DeleteAlarmPolicyRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteAlarmPolicyRules(in)
 	if err != nil {
@@ -418,7 +484,15 @@ func _cmd_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
 
 	in := new(pb.DescribeAlarmPolicyActionsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeAlarmPolicyActions(in)
 	if err != nil {
@@ -449,7 +523,15 @@ func _cmd_AlarmService_AddAlarmPolicyActions(c *cli.Context) error {
 
 	in := new(pb.AddAlarmPolicyActionsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddAlarmPolicyActions(in)
 	if err != nil {
@@ -480,7 +562,15 @@ func _cmd_AlarmService_ModifyAlarmPolicyActionAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyAlarmPolicyActionAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyAlarmPolicyActionAttributes(in)
 	if err != nil {
@@ -511,7 +601,15 @@ func _cmd_AlarmService_DeleteAlarmPolicyActions(c *cli.Context) error {
 
 	in := new(pb.DeleteAlarmPolicyActionsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteAlarmPolicyActions(in)
 	if err != nil {
@@ -542,7 +640,15 @@ func _cmd_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
 
 	in := new(pb.AssociateAlarmPolicyInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AssociateAlarmPolicy(in)
 	if err != nil {
@@ -573,7 +679,15 @@ func _cmd_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
 
 	in := new(pb.DissociateAlarmPolicyInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DissociateAlarmPolicy(in)
 	if err != nil {
@@ -604,7 +718,15 @@ func _cmd_AlarmService_ApplyAlarmPolicy(c *cli.Context) error {
 
 	in := new(pb.ApplyAlarmPolicyInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ApplyAlarmPolicy(in)
 	if err != nil {
@@ -635,7 +757,15 @@ func _cmd_AlarmService_DescribeAlarms(c *cli.Context) error {
 
 	in := new(pb.DescribeAlarmsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeAlarms(in)
 	if err != nil {
@@ -666,7 +796,15 @@ func _cmd_AlarmService_DescribeAlarmHistory(c *cli.Context) error {
 
 	in := new(pb.DescribeAlarmHistoryInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeAlarmHistory(in)
 	if err != nil {

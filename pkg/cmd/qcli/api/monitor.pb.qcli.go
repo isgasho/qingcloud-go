@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -93,7 +95,15 @@ func _cmd_MonitorService_GetMonitor(c *cli.Context) error {
 
 	in := new(pb.GetMonitorInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetMonitor(in)
 	if err != nil {
@@ -124,7 +134,15 @@ func _cmd_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 
 	in := new(pb.GetLoadBalancerMonitorInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetLoadBalancerMonitor(in)
 	if err != nil {
@@ -155,7 +173,15 @@ func _cmd_MonitorService_GetRDBMonitor(c *cli.Context) error {
 
 	in := new(pb.GetRDBMonitorInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetRDBMonitor(in)
 	if err != nil {
@@ -186,7 +212,15 @@ func _cmd_MonitorService_GetCacheMonitor(c *cli.Context) error {
 
 	in := new(pb.GetCacheMonitorInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetCacheMonitor(in)
 	if err != nil {
@@ -217,7 +251,15 @@ func _cmd_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 
 	in := new(pb.GetZooKeeperMonitorInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetZooKeeperMonitor(in)
 	if err != nil {
@@ -248,7 +290,15 @@ func _cmd_MonitorService_GetQueueMonitor(c *cli.Context) error {
 
 	in := new(pb.GetQueueMonitorInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetQueueMonitor(in)
 	if err != nil {

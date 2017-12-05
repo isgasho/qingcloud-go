@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -100,7 +102,15 @@ func _cmd_SparkService_CreateSpark(c *cli.Context) error {
 
 	in := new(pb.CreateSparkInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateSpark(in)
 	if err != nil {
@@ -131,7 +141,15 @@ func _cmd_SparkService_DescribeSparks(c *cli.Context) error {
 
 	in := new(pb.DescribeSparksInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSparks(in)
 	if err != nil {
@@ -162,7 +180,15 @@ func _cmd_SparkService_AddSparkNodes(c *cli.Context) error {
 
 	in := new(pb.AddSparkNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddSparkNodes(in)
 	if err != nil {
@@ -193,7 +219,15 @@ func _cmd_SparkService_DeleteSparkNodes(c *cli.Context) error {
 
 	in := new(pb.DeleteSparkNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSparkNodes(in)
 	if err != nil {
@@ -224,7 +258,15 @@ func _cmd_SparkService_StartSparks(c *cli.Context) error {
 
 	in := new(pb.StartSparksInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StartSparks(in)
 	if err != nil {
@@ -255,7 +297,15 @@ func _cmd_SparkService_StopSparks(c *cli.Context) error {
 
 	in := new(pb.StopSparksInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StopSparks(in)
 	if err != nil {
@@ -286,7 +336,15 @@ func _cmd_SparkService_DeleteSparks(c *cli.Context) error {
 
 	in := new(pb.DeleteSparksInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSparks(in)
 	if err != nil {

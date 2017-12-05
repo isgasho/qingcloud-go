@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -100,7 +102,15 @@ func _cmd_SnapshotService_DescribeSnapshots(c *cli.Context) error {
 
 	in := new(pb.DescribeSnapshotsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSnapshots(in)
 	if err != nil {
@@ -131,7 +141,15 @@ func _cmd_SnapshotService_CreateSnapshots(c *cli.Context) error {
 
 	in := new(pb.CreateSnapshotsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateSnapshots(in)
 	if err != nil {
@@ -162,7 +180,15 @@ func _cmd_SnapshotService_DeleteSnapshots(c *cli.Context) error {
 
 	in := new(pb.DeleteSnapshotsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSnapshots(in)
 	if err != nil {
@@ -193,7 +219,15 @@ func _cmd_SnapshotService_ApplySnapshots(c *cli.Context) error {
 
 	in := new(pb.ApplySnapshotsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ApplySnapshots(in)
 	if err != nil {
@@ -224,7 +258,15 @@ func _cmd_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifySnapshotAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifySnapshotAttributes(in)
 	if err != nil {
@@ -255,7 +297,15 @@ func _cmd_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
 
 	in := new(pb.CaptureInstanceFromSnapshotInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CaptureInstanceFromSnapshot(in)
 	if err != nil {
@@ -286,7 +336,15 @@ func _cmd_SnapshotService_CreateVolumeFromSnapshot(c *cli.Context) error {
 
 	in := new(pb.CreateVolumeFromSnapshotInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateVolumeFromSnapshot(in)
 	if err != nil {

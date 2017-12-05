@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -149,7 +151,15 @@ func _cmd_MongoService_DescribeMongoNodes(c *cli.Context) error {
 
 	in := new(pb.DescribeMongoNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeMongoNodes(in)
 	if err != nil {
@@ -180,7 +190,15 @@ func _cmd_MongoService_DescribeMongoParameters(c *cli.Context) error {
 
 	in := new(pb.DescribeMongoParametersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeMongoParameters(in)
 	if err != nil {
@@ -211,7 +229,15 @@ func _cmd_MongoService_ResizeMongos(c *cli.Context) error {
 
 	in := new(pb.ResizeMongosInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResizeMongos(in)
 	if err != nil {
@@ -242,7 +268,15 @@ func _cmd_MongoService_CreateMongo(c *cli.Context) error {
 
 	in := new(pb.CreateMongoInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateMongo(in)
 	if err != nil {
@@ -273,7 +307,15 @@ func _cmd_MongoService_StopMongos(c *cli.Context) error {
 
 	in := new(pb.StopMongosInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StopMongos(in)
 	if err != nil {
@@ -304,7 +346,15 @@ func _cmd_MongoService_StartMongos(c *cli.Context) error {
 
 	in := new(pb.StartMongosInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StartMongos(in)
 	if err != nil {
@@ -335,7 +385,15 @@ func _cmd_MongoService_DescribeMongos(c *cli.Context) error {
 
 	in := new(pb.DescribeMongosInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeMongos(in)
 	if err != nil {
@@ -366,7 +424,15 @@ func _cmd_MongoService_DeleteMongos(c *cli.Context) error {
 
 	in := new(pb.DeleteMongosInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteMongos(in)
 	if err != nil {
@@ -397,7 +463,15 @@ func _cmd_MongoService_CreateMongoFromSnapshot(c *cli.Context) error {
 
 	in := new(pb.CreateMongoFromSnapshotInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateMongoFromSnapshot(in)
 	if err != nil {
@@ -428,7 +502,15 @@ func _cmd_MongoService_ChangeMongoVxnet(c *cli.Context) error {
 
 	in := new(pb.ChangeMongoVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ChangeMongoVxnet(in)
 	if err != nil {
@@ -459,7 +541,15 @@ func _cmd_MongoService_AddMongoInstances(c *cli.Context) error {
 
 	in := new(pb.AddMongoInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddMongoInstances(in)
 	if err != nil {
@@ -490,7 +580,15 @@ func _cmd_MongoService_RemoveMongoInstances(c *cli.Context) error {
 
 	in := new(pb.RemoveMongoInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RemoveMongoInstances(in)
 	if err != nil {
@@ -521,7 +619,15 @@ func _cmd_MongoService_ModifyMongoAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyMongoAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyMongoAttributes(in)
 	if err != nil {
@@ -552,7 +658,15 @@ func _cmd_MongoService_ModifyMongoInstances(c *cli.Context) error {
 
 	in := new(pb.ModifyMongoInstancesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyMongoInstances(in)
 	if err != nil {

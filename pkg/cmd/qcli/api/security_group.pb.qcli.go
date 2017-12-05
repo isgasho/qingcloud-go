@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -177,7 +179,15 @@ func _cmd_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 
 	in := new(pb.DescribeSecurityGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSecurityGroups(in)
 	if err != nil {
@@ -208,7 +218,15 @@ func _cmd_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
 
 	in := new(pb.CreateSecurityGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateSecurityGroup(in)
 	if err != nil {
@@ -239,7 +257,15 @@ func _cmd_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
 
 	in := new(pb.DeleteSecurityGroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSecurityGroups(in)
 	if err != nil {
@@ -270,7 +296,15 @@ func _cmd_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
 
 	in := new(pb.ApplySecurityGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ApplySecurityGroup(in)
 	if err != nil {
@@ -301,7 +335,15 @@ func _cmd_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) err
 
 	in := new(pb.ModifySecurityGroupAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifySecurityGroupAttributes(in)
 	if err != nil {
@@ -332,7 +374,15 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error 
 
 	in := new(pb.DescribeSecurityGroupRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSecurityGroupRules(in)
 	if err != nil {
@@ -363,7 +413,15 @@ func _cmd_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
 
 	in := new(pb.AddSecurityGroupRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddSecurityGroupRules(in)
 	if err != nil {
@@ -394,7 +452,15 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
 
 	in := new(pb.DeleteSecurityGroupRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSecurityGroupRules(in)
 	if err != nil {
@@ -425,7 +491,15 @@ func _cmd_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context)
 
 	in := new(pb.ModifySecurityGroupRuleAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifySecurityGroupRuleAttributes(in)
 	if err != nil {
@@ -456,7 +530,15 @@ func _cmd_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error
 
 	in := new(pb.CreateSecurityGroupSnapshotInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateSecurityGroupSnapshot(in)
 	if err != nil {
@@ -487,7 +569,15 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) er
 
 	in := new(pb.DescribeSecurityGroupSnapshotsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSecurityGroupSnapshots(in)
 	if err != nil {
@@ -518,7 +608,15 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) erro
 
 	in := new(pb.DeleteSecurityGroupSnapshotsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSecurityGroupSnapshots(in)
 	if err != nil {
@@ -549,7 +647,15 @@ func _cmd_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
 
 	in := new(pb.RollbackSecurityGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RollbackSecurityGroup(in)
 	if err != nil {
@@ -580,7 +686,15 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error
 
 	in := new(pb.DescribeSecurityGroupIPSetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeSecurityGroupIPSets(in)
 	if err != nil {
@@ -611,7 +725,15 @@ func _cmd_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
 
 	in := new(pb.CreateSecurityGroupIPSetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateSecurityGroupIPSet(in)
 	if err != nil {
@@ -642,7 +764,15 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
 
 	in := new(pb.DeleteSecurityGroupIPSetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteSecurityGroupIPSets(in)
 	if err != nil {
@@ -673,7 +803,15 @@ func _cmd_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context
 
 	in := new(pb.ModifySecurityGroupIPSetAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifySecurityGroupIPSetAttributes(in)
 	if err != nil {
@@ -704,7 +842,15 @@ func _cmd_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
 
 	in := new(pb.CopySecurityGroupIPSetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CopySecurityGroupIPSets(in)
 	if err != nil {

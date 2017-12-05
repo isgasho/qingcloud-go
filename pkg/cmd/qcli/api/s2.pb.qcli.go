@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -247,7 +249,15 @@ func _cmd_S2Service_CreateS2Server(c *cli.Context) error {
 
 	in := new(pb.CreateS2ServerInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateS2Server(in)
 	if err != nil {
@@ -278,7 +288,15 @@ func _cmd_S2Service_DescribeS2Servers(c *cli.Context) error {
 
 	in := new(pb.DescribeS2ServersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeS2Servers(in)
 	if err != nil {
@@ -309,7 +327,15 @@ func _cmd_S2Service_ModifyS2Server(c *cli.Context) error {
 
 	in := new(pb.ModifyS2ServerInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyS2Server(in)
 	if err != nil {
@@ -340,7 +366,15 @@ func _cmd_S2Service_ResizeS2Servers(c *cli.Context) error {
 
 	in := new(pb.ResizeS2ServersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResizeS2Servers(in)
 	if err != nil {
@@ -371,7 +405,15 @@ func _cmd_S2Service_DeleteS2Servers(c *cli.Context) error {
 
 	in := new(pb.DeleteS2ServersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteS2Servers(in)
 	if err != nil {
@@ -402,7 +444,15 @@ func _cmd_S2Service_PowerOnS2Servers(c *cli.Context) error {
 
 	in := new(pb.PowerOnS2ServersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.PowerOnS2Servers(in)
 	if err != nil {
@@ -433,7 +483,15 @@ func _cmd_S2Service_PowerOffS2Servers(c *cli.Context) error {
 
 	in := new(pb.PowerOffS2ServersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.PowerOffS2Servers(in)
 	if err != nil {
@@ -464,7 +522,15 @@ func _cmd_S2Service_UpdateS2Servers(c *cli.Context) error {
 
 	in := new(pb.UpdateS2ServersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpdateS2Servers(in)
 	if err != nil {
@@ -495,7 +561,15 @@ func _cmd_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
 
 	in := new(pb.ChangeS2ServerVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ChangeS2ServerVxnet(in)
 	if err != nil {
@@ -526,7 +600,15 @@ func _cmd_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 
 	in := new(pb.CreateS2SharedTargetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateS2SharedTarget(in)
 	if err != nil {
@@ -557,7 +639,15 @@ func _cmd_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
 
 	in := new(pb.DescribeS2SharedTargetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeS2SharedTargets(in)
 	if err != nil {
@@ -588,7 +678,15 @@ func _cmd_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
 
 	in := new(pb.DeleteS2SharedTargetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteS2SharedTargets(in)
 	if err != nil {
@@ -619,7 +717,15 @@ func _cmd_S2Service_EnableS2SharedTargets(c *cli.Context) error {
 
 	in := new(pb.EnableS2SharedTargetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.EnableS2SharedTargets(in)
 	if err != nil {
@@ -650,7 +756,15 @@ func _cmd_S2Service_DisableS2SharedTargets(c *cli.Context) error {
 
 	in := new(pb.DisableS2SharedTargetsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DisableS2SharedTargets(in)
 	if err != nil {
@@ -681,7 +795,15 @@ func _cmd_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyS2SharedTargetAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyS2SharedTargetAttributes(in)
 	if err != nil {
@@ -712,7 +834,15 @@ func _cmd_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
 
 	in := new(pb.AttachToS2SharedTargetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AttachToS2SharedTarget(in)
 	if err != nil {
@@ -743,7 +873,15 @@ func _cmd_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
 
 	in := new(pb.DetachFromS2SharedTargetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DetachFromS2SharedTarget(in)
 	if err != nil {
@@ -774,7 +912,15 @@ func _cmd_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
 
 	in := new(pb.DescribeS2DefaultParametersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeS2DefaultParameters(in)
 	if err != nil {
@@ -805,7 +951,15 @@ func _cmd_S2Service_CreateS2Group(c *cli.Context) error {
 
 	in := new(pb.CreateS2GroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateS2Group(in)
 	if err != nil {
@@ -836,7 +990,15 @@ func _cmd_S2Service_DescribeS2Groups(c *cli.Context) error {
 
 	in := new(pb.DescribeS2GroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeS2Groups(in)
 	if err != nil {
@@ -867,7 +1029,15 @@ func _cmd_S2Service_ModifyS2Group(c *cli.Context) error {
 
 	in := new(pb.ModifyS2GroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyS2Group(in)
 	if err != nil {
@@ -898,7 +1068,15 @@ func _cmd_S2Service_DeleteS2Groups(c *cli.Context) error {
 
 	in := new(pb.DeleteS2GroupsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteS2Groups(in)
 	if err != nil {
@@ -929,7 +1107,15 @@ func _cmd_S2Service_CreateS2Account(c *cli.Context) error {
 
 	in := new(pb.CreateS2AccountInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateS2Account(in)
 	if err != nil {
@@ -960,7 +1146,15 @@ func _cmd_S2Service_DescribeS2Accounts(c *cli.Context) error {
 
 	in := new(pb.DescribeS2AccountsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeS2Accounts(in)
 	if err != nil {
@@ -991,7 +1185,15 @@ func _cmd_S2Service_ModifyS2Account(c *cli.Context) error {
 
 	in := new(pb.ModifyS2AccountInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyS2Account(in)
 	if err != nil {
@@ -1022,7 +1224,15 @@ func _cmd_S2Service_DeleteS2Accounts(c *cli.Context) error {
 
 	in := new(pb.DeleteS2AccountsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteS2Accounts(in)
 	if err != nil {
@@ -1053,7 +1263,15 @@ func _cmd_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 
 	in := new(pb.AssociateS2AccountGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AssociateS2AccountGroup(in)
 	if err != nil {
@@ -1084,7 +1302,15 @@ func _cmd_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
 
 	in := new(pb.DissociateS2AccountGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DissociateS2AccountGroup(in)
 	if err != nil {

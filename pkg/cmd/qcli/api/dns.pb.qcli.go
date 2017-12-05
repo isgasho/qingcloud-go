@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -79,7 +81,15 @@ func _cmd_DNSAliasService_DescribeDNSAliases(c *cli.Context) error {
 
 	in := new(pb.DescribeDNSAliasesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeDNSAliases(in)
 	if err != nil {
@@ -110,7 +120,15 @@ func _cmd_DNSAliasService_AssociateDNSAlias(c *cli.Context) error {
 
 	in := new(pb.AssociateDNSAliasInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AssociateDNSAlias(in)
 	if err != nil {
@@ -141,7 +159,15 @@ func _cmd_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
 
 	in := new(pb.DissociateDNSAliasesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DissociateDNSAliases(in)
 	if err != nil {
@@ -172,7 +198,15 @@ func _cmd_DNSAliasService_GetDNSLabel(c *cli.Context) error {
 
 	in := new(pb.GetDNSLabelInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetDNSLabel(in)
 	if err != nil {

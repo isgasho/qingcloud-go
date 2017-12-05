@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -198,7 +200,15 @@ func _cmd_ClusterService_CreateCluster(c *cli.Context) error {
 
 	in := new(pb.CreateClusterInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateCluster(in)
 	if err != nil {
@@ -229,7 +239,15 @@ func _cmd_ClusterService_DescribeClusters(c *cli.Context) error {
 
 	in := new(pb.DescribeClustersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeClusters(in)
 	if err != nil {
@@ -260,7 +278,15 @@ func _cmd_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 
 	in := new(pb.DescribeClusterNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeClusterNodes(in)
 	if err != nil {
@@ -291,7 +317,15 @@ func _cmd_ClusterService_StopClusters(c *cli.Context) error {
 
 	in := new(pb.StopClustersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StopClusters(in)
 	if err != nil {
@@ -322,7 +356,15 @@ func _cmd_ClusterService_StartClusters(c *cli.Context) error {
 
 	in := new(pb.StartClustersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StartClusters(in)
 	if err != nil {
@@ -353,7 +395,15 @@ func _cmd_ClusterService_DeleteClusters(c *cli.Context) error {
 
 	in := new(pb.DeleteClustersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteClusters(in)
 	if err != nil {
@@ -384,7 +434,15 @@ func _cmd_ClusterService_Lease(c *cli.Context) error {
 
 	in := new(pb.LeaseInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.Lease(in)
 	if err != nil {
@@ -415,7 +473,15 @@ func _cmd_ClusterService_AddClusterNodes(c *cli.Context) error {
 
 	in := new(pb.AddClusterNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddClusterNodes(in)
 	if err != nil {
@@ -446,7 +512,15 @@ func _cmd_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 
 	in := new(pb.DeleteClusterNodesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteClusterNodes(in)
 	if err != nil {
@@ -477,7 +551,15 @@ func _cmd_ClusterService_ResizeCluster(c *cli.Context) error {
 
 	in := new(pb.ResizeClusterInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResizeCluster(in)
 	if err != nil {
@@ -508,7 +590,15 @@ func _cmd_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
 
 	in := new(pb.ChangeClusterVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ChangeClusterVxnet(in)
 	if err != nil {
@@ -539,7 +629,15 @@ func _cmd_ClusterService_SuspendClusters(c *cli.Context) error {
 
 	in := new(pb.SuspendClustersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.SuspendClusters(in)
 	if err != nil {
@@ -570,7 +668,15 @@ func _cmd_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
 
 	in := new(pb.UpdateClusterEnvironmentInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpdateClusterEnvironment(in)
 	if err != nil {
@@ -601,7 +707,15 @@ func _cmd_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyClusterAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyClusterAttributes(in)
 	if err != nil {
@@ -632,7 +746,15 @@ func _cmd_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyClusterNodeAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyClusterNodeAttributes(in)
 	if err != nil {
@@ -663,7 +785,15 @@ func _cmd_ClusterService_GetClustersStats(c *cli.Context) error {
 
 	in := new(pb.GetClustersStatsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetClustersStats(in)
 	if err != nil {
@@ -694,7 +824,15 @@ func _cmd_ClusterService_DescribeClusterUsers(c *cli.Context) error {
 
 	in := new(pb.DescribeClusterUsersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeClusterUsers(in)
 	if err != nil {
@@ -725,7 +863,15 @@ func _cmd_ClusterService_RestartClusterService(c *cli.Context) error {
 
 	in := new(pb.RestartClusterServiceInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RestartClusterService(in)
 	if err != nil {
@@ -756,7 +902,15 @@ func _cmd_ClusterService_UpgradeClusters(c *cli.Context) error {
 
 	in := new(pb.UpgradeClustersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpgradeClusters(in)
 	if err != nil {
@@ -787,7 +941,15 @@ func _cmd_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) erro
 
 	in := new(pb.AuthorizeClustersBrokerToDeveloperInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AuthorizeClustersBrokerToDeveloper(in)
 	if err != nil {
@@ -818,7 +980,15 @@ func _cmd_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) error
 
 	in := new(pb.RevokeClustersBrokerFromDeveloperInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RevokeClustersBrokerFromDeveloper(in)
 	if err != nil {

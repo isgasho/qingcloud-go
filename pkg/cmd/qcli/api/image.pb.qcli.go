@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -107,7 +109,15 @@ func _cmd_ImageService_DescribeImages(c *cli.Context) error {
 
 	in := new(pb.DescribeImagesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeImages(in)
 	if err != nil {
@@ -138,7 +148,15 @@ func _cmd_ImageService_CaptureInstance(c *cli.Context) error {
 
 	in := new(pb.CaptureInstanceInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CaptureInstance(in)
 	if err != nil {
@@ -169,7 +187,15 @@ func _cmd_ImageService_DeleteImages(c *cli.Context) error {
 
 	in := new(pb.DeleteImagesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteImages(in)
 	if err != nil {
@@ -200,7 +226,15 @@ func _cmd_ImageService_ModifyImageAttributes(c *cli.Context) error {
 
 	in := new(pb.ModifyImageAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyImageAttributes(in)
 	if err != nil {
@@ -231,7 +265,15 @@ func _cmd_ImageService_GrantImageToUsers(c *cli.Context) error {
 
 	in := new(pb.GrantImageToUsersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GrantImageToUsers(in)
 	if err != nil {
@@ -262,7 +304,15 @@ func _cmd_ImageService_RevokeImageFromUsers(c *cli.Context) error {
 
 	in := new(pb.RevokeImageFromUsersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RevokeImageFromUsers(in)
 	if err != nil {
@@ -293,7 +343,15 @@ func _cmd_ImageService_DescribeImageUsers(c *cli.Context) error {
 
 	in := new(pb.DescribeImageUsersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeImageUsers(in)
 	if err != nil {
@@ -324,7 +382,15 @@ func _cmd_ImageService_CloneImages(c *cli.Context) error {
 
 	in := new(pb.CloneImagesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CloneImages(in)
 	if err != nil {

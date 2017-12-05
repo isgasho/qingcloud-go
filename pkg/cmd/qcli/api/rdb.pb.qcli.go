@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -170,7 +172,15 @@ func _cmd_RDBService_CreateRDB(c *cli.Context) error {
 
 	in := new(pb.CreateRDBInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateRDB(in)
 	if err != nil {
@@ -201,7 +211,15 @@ func _cmd_RDBService_DescribeRDBs(c *cli.Context) error {
 
 	in := new(pb.DescribeRDBsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeRDBs(in)
 	if err != nil {
@@ -232,7 +250,15 @@ func _cmd_RDBService_DeleteRDBs(c *cli.Context) error {
 
 	in := new(pb.DeleteRDBsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteRDBs(in)
 	if err != nil {
@@ -263,7 +289,15 @@ func _cmd_RDBService_StartRDBs(c *cli.Context) error {
 
 	in := new(pb.StartRDBsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StartRDBs(in)
 	if err != nil {
@@ -294,7 +328,15 @@ func _cmd_RDBService_StopRDBs(c *cli.Context) error {
 
 	in := new(pb.StopRDBsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StopRDBs(in)
 	if err != nil {
@@ -325,7 +367,15 @@ func _cmd_RDBService_ResizeRDBs(c *cli.Context) error {
 
 	in := new(pb.ResizeRDBsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResizeRDBs(in)
 	if err != nil {
@@ -356,7 +406,15 @@ func _cmd_RDBService_RDBsLeaveVxnet(c *cli.Context) error {
 
 	in := new(pb.RDBsLeaveVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RDBsLeaveVxnet(in)
 	if err != nil {
@@ -387,7 +445,15 @@ func _cmd_RDBService_RDBsJoinVxnet(c *cli.Context) error {
 
 	in := new(pb.RDBsJoinVxnetInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.RDBsJoinVxnet(in)
 	if err != nil {
@@ -418,7 +484,15 @@ func _cmd_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
 
 	in := new(pb.CreateRDBFromSnapshotInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateRDBFromSnapshot(in)
 	if err != nil {
@@ -449,7 +523,15 @@ func _cmd_RDBService_CreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
 
 	in := new(pb.CreateTempRDBInstanceFromSnapshotInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateTempRDBInstanceFromSnapshot(in)
 	if err != nil {
@@ -480,7 +562,15 @@ func _cmd_RDBService_GetRDBInstanceFiles(c *cli.Context) error {
 
 	in := new(pb.GetRDBInstanceFilesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.GetRDBInstanceFiles(in)
 	if err != nil {
@@ -511,7 +601,15 @@ func _cmd_RDBService_CopyRDBInstanceFilesToFTP(c *cli.Context) error {
 
 	in := new(pb.CopyRDBInstanceFilesToFTPInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CopyRDBInstanceFilesToFTP(in)
 	if err != nil {
@@ -542,7 +640,15 @@ func _cmd_RDBService_PurgeRDBLogs(c *cli.Context) error {
 
 	in := new(pb.PurgeRDBLogsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.PurgeRDBLogs(in)
 	if err != nil {
@@ -573,7 +679,15 @@ func _cmd_RDBService_CeaseRDBInstance(c *cli.Context) error {
 
 	in := new(pb.CeaseRDBInstanceInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CeaseRDBInstance(in)
 	if err != nil {
@@ -604,7 +718,15 @@ func _cmd_RDBService_ModifyRDBParameters(c *cli.Context) error {
 
 	in := new(pb.ModifyRDBParametersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyRDBParameters(in)
 	if err != nil {
@@ -635,7 +757,15 @@ func _cmd_RDBService_ApplyRDBParameterGroup(c *cli.Context) error {
 
 	in := new(pb.ApplyRDBParameterGroupInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ApplyRDBParameterGroup(in)
 	if err != nil {
@@ -666,7 +796,15 @@ func _cmd_RDBService_DescribeRDBParameters(c *cli.Context) error {
 
 	in := new(pb.DescribeRDBParametersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeRDBParameters(in)
 	if err != nil {

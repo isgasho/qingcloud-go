@@ -7,6 +7,7 @@ package qcli_pb
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -20,6 +21,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = os.Stdin
 
 	_ = cli.Command{}
 	_ = jsonpb.Unmarshal
@@ -268,7 +270,15 @@ func _cmd_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 
 	in := new(pb.CreateLoadBalancerInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateLoadBalancer(in)
 	if err != nil {
@@ -299,7 +309,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 
 	in := new(pb.DescribeLoadBalancersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeLoadBalancers(in)
 	if err != nil {
@@ -330,7 +348,15 @@ func _cmd_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
 
 	in := new(pb.DeleteLoadBalancersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteLoadBalancers(in)
 	if err != nil {
@@ -361,7 +387,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error
 
 	in := new(pb.ModifyLoadBalancerAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyLoadBalancerAttributes(in)
 	if err != nil {
@@ -392,7 +426,15 @@ func _cmd_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
 
 	in := new(pb.StartLoadBalancersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StartLoadBalancers(in)
 	if err != nil {
@@ -423,7 +465,15 @@ func _cmd_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
 
 	in := new(pb.StopLoadBalancersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.StopLoadBalancers(in)
 	if err != nil {
@@ -454,7 +504,15 @@ func _cmd_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
 
 	in := new(pb.UpdateLoadBalancersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.UpdateLoadBalancers(in)
 	if err != nil {
@@ -485,7 +543,15 @@ func _cmd_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
 
 	in := new(pb.ResizeLoadBalancersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ResizeLoadBalancers(in)
 	if err != nil {
@@ -516,7 +582,15 @@ func _cmd_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error 
 
 	in := new(pb.AssociateEipsToLoadBalancerInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AssociateEipsToLoadBalancer(in)
 	if err != nil {
@@ -547,7 +621,15 @@ func _cmd_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) err
 
 	in := new(pb.DissociateEipsFromLoadBalancerInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DissociateEipsFromLoadBalancer(in)
 	if err != nil {
@@ -578,7 +660,15 @@ func _cmd_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
 
 	in := new(pb.AddLoadBalancerListenersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddLoadBalancerListeners(in)
 	if err != nil {
@@ -609,7 +699,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) erro
 
 	in := new(pb.DescribeLoadBalancerListenersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeLoadBalancerListeners(in)
 	if err != nil {
@@ -640,7 +738,15 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error 
 
 	in := new(pb.DeleteLoadBalancerListenersInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteLoadBalancerListeners(in)
 	if err != nil {
@@ -671,7 +777,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Contex
 
 	in := new(pb.ModifyLoadBalancerListenerAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyLoadBalancerListenerAttributes(in)
 	if err != nil {
@@ -702,7 +816,15 @@ func _cmd_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
 
 	in := new(pb.AddLoadBalancerBackendsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddLoadBalancerBackends(in)
 	if err != nil {
@@ -733,7 +855,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error
 
 	in := new(pb.DescribeLoadBalancerBackendsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeLoadBalancerBackends(in)
 	if err != nil {
@@ -764,7 +894,15 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
 
 	in := new(pb.DeleteLoadBalancerBackendsInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteLoadBalancerBackends(in)
 	if err != nil {
@@ -795,7 +933,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context
 
 	in := new(pb.ModifyLoadBalancerBackendAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyLoadBalancerBackendAttributes(in)
 	if err != nil {
@@ -826,7 +972,15 @@ func _cmd_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
 
 	in := new(pb.CreateLoadBalancerPolicyInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateLoadBalancerPolicy(in)
 	if err != nil {
@@ -857,7 +1011,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error
 
 	in := new(pb.DescribeLoadBalancerPoliciesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeLoadBalancerPolicies(in)
 	if err != nil {
@@ -888,7 +1050,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context)
 
 	in := new(pb.ModifyLoadBalancerPolicyAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyLoadBalancerPolicyAttributes(in)
 	if err != nil {
@@ -919,7 +1089,15 @@ func _cmd_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
 
 	in := new(pb.ApplyLoadBalancerPolicyInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ApplyLoadBalancerPolicy(in)
 	if err != nil {
@@ -950,7 +1128,15 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
 
 	in := new(pb.DeleteLoadBalancerPoliciesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteLoadBalancerPolicies(in)
 	if err != nil {
@@ -981,7 +1167,15 @@ func _cmd_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
 
 	in := new(pb.AddLoadBalancerPolicyRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.AddLoadBalancerPolicyRules(in)
 	if err != nil {
@@ -1012,7 +1206,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) er
 
 	in := new(pb.DescribeLoadBalancerPolicyRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeLoadBalancerPolicyRules(in)
 	if err != nil {
@@ -1043,7 +1245,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Cont
 
 	in := new(pb.ModifyLoadBalancerPolicyRuleAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyLoadBalancerPolicyRuleAttributes(in)
 	if err != nil {
@@ -1074,7 +1284,15 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) erro
 
 	in := new(pb.DeleteLoadBalancerPolicyRulesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteLoadBalancerPolicyRules(in)
 	if err != nil {
@@ -1105,7 +1323,15 @@ func _cmd_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
 
 	in := new(pb.CreateServerCertificateInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.CreateServerCertificate(in)
 	if err != nil {
@@ -1136,7 +1362,15 @@ func _cmd_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
 
 	in := new(pb.DescribeServerCertificatesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DescribeServerCertificates(in)
 	if err != nil {
@@ -1167,7 +1401,15 @@ func _cmd_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) 
 
 	in := new(pb.ModifyServerCertificateAttributesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.ModifyServerCertificateAttributes(in)
 	if err != nil {
@@ -1198,7 +1440,15 @@ func _cmd_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
 
 	in := new(pb.DeleteServerCertificatesInput)
 
-	// TODO: fill field from flags
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			logger.Fatal(err)
+		}
+	} else {
+		// read from flags
+	}
 
 	out, err := qc.DeleteServerCertificates(in)
 	if err != nil {
