@@ -51,10 +51,10 @@ func (p *qingcloudPlugin) Generate(file *generator.FileDescriptor) {
 	}
 
 	var buf bytes.Buffer
-	fmt.Fprintln(&buf, p.HeaderCode(p.buildFileSpec(file)))
+	fmt.Fprintln(&buf, p.HeaderCode(p.Generator, file))
 
-	for _, v := range file.Service {
-		fmt.Fprintln(&buf, p.ServiceCode(p.buildServiceSpec(file, v)))
+	for _, svc := range file.Service {
+		fmt.Fprintln(&buf, p.ServiceCode(p.Generator, file, svc))
 	}
 
 	fileContent := buf.String()
@@ -119,19 +119,19 @@ func (p *qingcloudPlugin) goPackageOption(file *generator.FileDescriptor) (impPa
 	return
 }
 
-func (p *qingcloudPlugin) buildFileSpec(file *generator.FileDescriptor) *spec_metadata.FileSpec {
+func (p *qingcloudPlugin) _buildFileSpec(file *generator.FileDescriptor) *spec_metadata.FileSpec {
 	return &spec_metadata.FileSpec{
 		FileName:    proto.String(file.GetName()),
 		PackageName: proto.String(file.PackageName()),
 	}
 }
 
-func (p *qingcloudPlugin) buildServiceSpec(file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceSpec {
+func (p *qingcloudPlugin) _buildServiceSpec(file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceSpec {
 	spec := new(spec_metadata.ServiceSpec)
 
 	spec.ServiceName = proto.String(generator.CamelCase(svc.GetName()))
 
-	if opt := p.getFileOption(file.FileDescriptorProto); opt != nil {
+	if opt := p._getFileOption(file.FileDescriptorProto); opt != nil {
 		_ = opt
 	}
 
@@ -142,7 +142,7 @@ func (p *qingcloudPlugin) buildServiceSpec(file *generator.FileDescriptor, svc *
 			OutputTypeName: proto.String(p.TypeName(p.ObjectNamed(m.GetOutputType()))),
 		}
 
-		if opt := p.getServiceMethodOption(m); opt != nil {
+		if opt := p._getServiceMethodOption(m); opt != nil {
 			methodSpec.HttpMethod = proto.String(opt.GetHttpMethod())
 		}
 
@@ -152,7 +152,7 @@ func (p *qingcloudPlugin) buildServiceSpec(file *generator.FileDescriptor, svc *
 	return spec
 }
 
-func (p *qingcloudPlugin) getFileOption(file *descriptor.FileDescriptorProto) *spec_metadata.FileOption {
+func (p *qingcloudPlugin) _getFileOption(file *descriptor.FileDescriptorProto) *spec_metadata.FileOption {
 	if file.Options != nil && proto.HasExtension(file.Options, spec_metadata.E_FileOption) {
 		if ext, _ := proto.GetExtension(file.Options, spec_metadata.E_FileOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.FileOption); x != nil {
@@ -163,7 +163,7 @@ func (p *qingcloudPlugin) getFileOption(file *descriptor.FileDescriptorProto) *s
 	return nil
 }
 
-func (p *qingcloudPlugin) getServiceOption(svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceOption {
+func (p *qingcloudPlugin) _getServiceOption(svc *descriptor.ServiceDescriptorProto) *spec_metadata.ServiceOption {
 	if svc.Options != nil && proto.HasExtension(svc.Options, spec_metadata.E_FileOption) {
 		if ext, _ := proto.GetExtension(svc.Options, spec_metadata.E_FileOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.ServiceOption); x != nil {
@@ -174,7 +174,7 @@ func (p *qingcloudPlugin) getServiceOption(svc *descriptor.ServiceDescriptorProt
 	return nil
 }
 
-func (p *qingcloudPlugin) getServiceMethodOption(m *descriptor.MethodDescriptorProto) *spec_metadata.MethodOption {
+func (p *qingcloudPlugin) _getServiceMethodOption(m *descriptor.MethodDescriptorProto) *spec_metadata.MethodOption {
 	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_MethodOption) {
 		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_MethodOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.MethodOption); x != nil {
@@ -185,7 +185,7 @@ func (p *qingcloudPlugin) getServiceMethodOption(m *descriptor.MethodDescriptorP
 	return nil
 }
 
-func (p *qingcloudPlugin) getMessageOption(m *descriptor.DescriptorProto) *spec_metadata.MessageOption {
+func (p *qingcloudPlugin) _getMessageOption(m *descriptor.DescriptorProto) *spec_metadata.MessageOption {
 	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_MessageOption) {
 		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_MessageOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.MessageOption); x != nil {
@@ -196,7 +196,7 @@ func (p *qingcloudPlugin) getMessageOption(m *descriptor.DescriptorProto) *spec_
 	return nil
 }
 
-func (p *qingcloudPlugin) getMessageFieldOption(m *descriptor.FieldDescriptorProto) *spec_metadata.FieldOption {
+func (p *qingcloudPlugin) _getMessageFieldOption(m *descriptor.FieldDescriptorProto) *spec_metadata.FieldOption {
 	if m.Options != nil && proto.HasExtension(m.Options, spec_metadata.E_FieldOption) {
 		if ext, _ := proto.GetExtension(m.Options, spec_metadata.E_FieldOption); ext != nil {
 			if x, _ := ext.(*spec_metadata.FieldOption); x != nil {
@@ -207,9 +207,9 @@ func (p *qingcloudPlugin) getMessageFieldOption(m *descriptor.FieldDescriptorPro
 	return nil
 }
 
-func (p *qingcloudPlugin) getMethodInputDescriptor(m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
+func (p *qingcloudPlugin) _getMethodInputDescriptor(m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
 	return p.ObjectNamed(m.GetInputType()).(*generator.Descriptor).DescriptorProto
 }
-func (p *qingcloudPlugin) getMethodOutputDescriptor(m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
+func (p *qingcloudPlugin) _getMethodOutputDescriptor(m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
 	return p.ObjectNamed(m.GetOutputType()).(*generator.Descriptor).DescriptorProto
 }

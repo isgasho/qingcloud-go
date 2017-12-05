@@ -9,7 +9,9 @@ import (
 	"strings"
 	"text/template"
 
-	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
+	"github.com/golang/protobuf/protoc-gen-go/descriptor"
+	"github.com/golang/protobuf/protoc-gen-go/generator"
+
 	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud"
 )
 
@@ -22,14 +24,18 @@ type pkgGenerator struct{}
 func (p pkgGenerator) Name() string        { return "golang" }
 func (p pkgGenerator) FileNameExt() string { return ".pb.qingcloud.go" }
 
-func (p pkgGenerator) HeaderCode(spec *spec_metadata.FileSpec) string {
+func (pkgGenerator) HeaderCode(g *generator.Generator, file *generator.FileDescriptor) string {
+	spec := pkgBuildFileSpec(g, file)
+
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(tmplFileHeader))
 	t.Execute(&buf, spec)
 	return buf.String()
 }
 
-func (p pkgGenerator) ServiceCode(spec *spec_metadata.ServiceSpec) string {
+func (pkgGenerator) ServiceCode(g *generator.Generator, file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) string {
+	spec := pkgBuildServiceSpec(g, file, svc)
+
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Funcs(tmplFuncMap).Parse(tmplService))
 	t.Execute(&buf, spec)

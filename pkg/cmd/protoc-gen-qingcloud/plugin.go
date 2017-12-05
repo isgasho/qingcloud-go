@@ -5,7 +5,8 @@
 package qingcloud_plugin
 
 import (
-	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
+	"github.com/golang/protobuf/protoc-gen-go/descriptor"
+	"github.com/golang/protobuf/protoc-gen-go/generator"
 )
 
 var pkgServiceGeneratorList []ServiceGenerator
@@ -14,8 +15,8 @@ type ServiceGenerator interface {
 	Name() string
 	FileNameExt() string
 
-	HeaderCode(spec *spec_metadata.FileSpec) string
-	ServiceCode(spec *spec_metadata.ServiceSpec) string
+	HeaderCode(g *generator.Generator, file *generator.FileDescriptor) string
+	ServiceCode(p *generator.Generator, file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) string
 }
 
 func RegisterServiceGenerator(g ServiceGenerator) {
