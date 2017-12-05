@@ -22,7 +22,7 @@ func init() {
 
 type pkgGenerator struct{}
 
-func (p pkgGenerator) Name() string        { return "golang" }
+func (p pkgGenerator) Name() string        { return "go-sdk" }
 func (p pkgGenerator) FileNameExt() string { return ".pb.qingcloud.go" }
 
 func (pkgGenerator) HeaderCode(g *generator.Generator, file *generator.FileDescriptor) string {

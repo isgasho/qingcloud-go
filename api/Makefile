@@ -18,7 +18,7 @@ default: $(SOURCES) Makefile spec_metadata validate api
 api: $(PROTO_API_FILES)
 	go install ../cmd/protoc-gen-qingcloud
 	protoc --go_out=../pkg/api $(PROTO_API_FILES)
-	protoc --qingcloud_out=plugin=golang:../pkg/api $(PROTO_API_FILES)
+	protoc --qingcloud_out=plugin=go-sdk:../pkg/api $(PROTO_API_FILES)
 	protoc --qingcloud_out=plugin=go-validator:../pkg/api $(PROTO_API_FILES)
 	protoc --qingcloud_out=plugin=go-server:../pkg/api $(PROTO_API_FILES)
 	protoc --qingcloud_out=plugin=qcli:../pkg/cmd/qcli/api $(PROTO_API_FILES)

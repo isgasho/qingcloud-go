@@ -6,9 +6,9 @@ package main
 
 import (
 	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud"
+	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/generator/go-sdk"
 	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/generator/go-server"
 	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/generator/go-validator"
-	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/generator/golang"
 	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/generator/qcli"
 )
 
