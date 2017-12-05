@@ -108,6 +108,7 @@ COMMANDS:
 
 GLOBAL OPTIONS:
    --config value, -c value  config file (default: "~/.qingcloud/config.yaml") [$QCLI_CONFIG_FILE]
+   --zone value, -z value    zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...) (default: "pk3a") [$QCLI_ZONE]
    --help, -h                show help
    --version, -v             print the version
 chai-mba:qingcloud-go chai$
