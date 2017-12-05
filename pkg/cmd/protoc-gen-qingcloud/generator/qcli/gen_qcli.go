@@ -107,13 +107,16 @@ var Cmd{{.GetServiceName}} = cli.Command{
 			Name:    "{{$m.GetMethodName}}",
 			Aliases: []string{},
 			Usage:   "{{$m.GetMethodName}}",
-			Action: _cmd_{{$service.GetServiceName}}_{{$m.GetMethodName}},
+			Flags:   _flag_{{$service.GetServiceName}}_{{$m.GetMethodName}},
+			Action:  _cmd_{{$service.GetServiceName}}_{{$m.GetMethodName}},
 		},
 		{{end}}
 	},
 }
 
 {{range $_, $m := .GetMethodList}}
+var _flag_{{$service.GetServiceName}}_{{$m.GetMethodName}} = []cli.Flag{ /* fields */ }
+
 func _cmd_{{$service.GetServiceName}}_{{$m.GetMethodName}}(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
