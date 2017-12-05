@@ -7,6 +7,7 @@ package main
 import (
 	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud"
 	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/generator/golang"
+	_ "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/generator/qcli"
 )
 
 func main() {

@@ -17,3 +17,6 @@
 
 *.pb.validate.go.txt
 *.pb.validate.go
+
+*.pb.qcli.go.txt
+*.pb.qcli.go
