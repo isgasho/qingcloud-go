@@ -79,13 +79,15 @@ message FileOption {
 
 // 服务的扩展信息
 message ServiceOption {
-	optional ExternalDocumentation external_docs = 3;
+	optional ExternalDocumentation external_docs = 1;
+	optional CommandInfo cmd_info = 2;
 }
 
 // 服务方法的扩展信息
 message MethodOption {
 	optional string http_method = 1;
 	optional ExternalDocumentation external_docs = 2;
+	optional CommandInfo cmd_info = 3;
 }
 
 // 消息的扩展信息
@@ -114,6 +116,13 @@ message ExternalDocumentation {
 	optional string title = 1;
 	optional string description = 2;
 	optional string url = 3;
+}
+
+// 命令行扩展
+message CommandInfo {
+	optional string name = 1;
+	repeated string aliases = 2;
+	optional string usage = 3;
 }
 
 // ----------------------------------------------------------------------------
