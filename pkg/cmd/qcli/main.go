@@ -24,6 +24,15 @@ func Main() {
 		{Name: "ChaiShushan", Email: "chaishushan@gmail.com"},
 	}
 
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:   "config, c",
+			Usage:  "config file",
+			Value:  "~/.qingcloud/config.yaml",
+			EnvVar: "QCLI_CONFIG_FILE",
+		},
+	}
+
 	app.CommandNotFound = func(c *cli.Context, command string) {
 		fmt.Fprintf(c.App.Writer, "ERR: command %q not found!\n", command)
 	}
