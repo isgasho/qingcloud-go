@@ -17,6 +17,7 @@ type ServiceGenerator interface {
 
 	HeaderCode(g *generator.Generator, file *generator.FileDescriptor) string
 	ServiceCode(p *generator.Generator, file *generator.FileDescriptor, svc *descriptor.ServiceDescriptorProto) string
+	MessageCode(p *generator.Generator, file *generator.FileDescriptor, msg *descriptor.DescriptorProto) string
 }
 
 func RegisterServiceGenerator(g ServiceGenerator) {

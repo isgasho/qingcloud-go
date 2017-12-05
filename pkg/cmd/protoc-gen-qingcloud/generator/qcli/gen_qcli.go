@@ -43,6 +43,10 @@ func (pkgGenerator) ServiceCode(g *generator.Generator, file *generator.FileDesc
 	return buf.String()
 }
 
+func (pkgGenerator) MessageCode(p *generator.Generator, file *generator.FileDescriptor, msg *descriptor.DescriptorProto) string {
+	return ""
+}
+
 var tmplFuncMap = template.FuncMap{
 	"strings_Title":   strings.Title,
 	"strings_ToLower": strings.ToLower,

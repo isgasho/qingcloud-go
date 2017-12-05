@@ -53,6 +53,10 @@ func (p *qingcloudPlugin) Generate(file *generator.FileDescriptor) {
 	var buf bytes.Buffer
 	fmt.Fprintln(&buf, p.HeaderCode(p.Generator, file))
 
+	for _, msg := range file.MessageType {
+		fmt.Fprintln(&buf, p.MessageCode(p.Generator, file, msg))
+	}
+
 	for _, svc := range file.Service {
 		fmt.Fprintln(&buf, p.ServiceCode(p.Generator, file, svc))
 	}
