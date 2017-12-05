@@ -20,3 +20,6 @@
 
 *.pb.qcli.go.txt
 *.pb.qcli.go
+
+*.pb.qingcloud-server.go.txt
+*.pb.qingcloud-server.go

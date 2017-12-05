@@ -20,6 +20,7 @@ api: $(PROTO_API_FILES)
 	protoc --go_out=../pkg/api $(PROTO_API_FILES)
 	protoc --qingcloud_out=plugin=golang:../pkg/api $(PROTO_API_FILES)
 	protoc --qingcloud_out=plugin=go-validator:../pkg/api $(PROTO_API_FILES)
+	protoc --qingcloud_out=plugin=go-server:../pkg/api $(PROTO_API_FILES)
 	protoc --qingcloud_out=plugin=qcli:../pkg/api $(PROTO_API_FILES)
 
 .PHONY: spec_metadata
