@@ -43,26 +43,31 @@ var CmdMiscService = cli.Command{
 			Name:    "GrantQuotaIndep",
 			Aliases: []string{},
 			Usage:   "GrantQuotaIndep",
-			Action:  cmdGrantQuotaIndep,
+			Flags:   _flag_MiscService_GrantQuotaIndep,
+			Action:  _cmd_MiscService_GrantQuotaIndep,
 		},
 		{
 			Name:    "RevokeQuotaIndep",
 			Aliases: []string{},
 			Usage:   "RevokeQuotaIndep",
-			Action:  cmdRevokeQuotaIndep,
+			Flags:   _flag_MiscService_RevokeQuotaIndep,
+			Action:  _cmd_MiscService_RevokeQuotaIndep,
 		},
 		{
 			Name:    "GetQuotaLeft",
 			Aliases: []string{},
 			Usage:   "GetQuotaLeft",
-			Action:  cmdGetQuotaLeft,
+			Flags:   _flag_MiscService_GetQuotaLeft,
+			Action:  _cmd_MiscService_GetQuotaLeft,
 		},
 	},
 }
 
-func cmdGrantQuotaIndep(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MiscService_GrantQuotaIndep = []cli.Flag{ /* fields */ }
+
+func _cmd_MiscService_GrantQuotaIndep(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMiscService(conf, zone)
 
 	in := new(pb.GrantQuotaIndepInput)
@@ -89,9 +94,11 @@ func cmdGrantQuotaIndep(c *cli.Context) error {
 	return nil
 }
 
-func cmdRevokeQuotaIndep(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MiscService_RevokeQuotaIndep = []cli.Flag{ /* fields */ }
+
+func _cmd_MiscService_RevokeQuotaIndep(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMiscService(conf, zone)
 
 	in := new(pb.RevokeQuotaIndepInput)
@@ -118,9 +125,11 @@ func cmdRevokeQuotaIndep(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetQuotaLeft(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MiscService_GetQuotaLeft = []cli.Flag{ /* fields */ }
+
+func _cmd_MiscService_GetQuotaLeft(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMiscService(conf, zone)
 
 	in := new(pb.GetQuotaLeftInput)

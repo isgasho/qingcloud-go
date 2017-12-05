@@ -43,50 +43,59 @@ var CmdSparkService = cli.Command{
 			Name:    "CreateSpark",
 			Aliases: []string{},
 			Usage:   "CreateSpark",
-			Action:  cmdCreateSpark,
+			Flags:   _flag_SparkService_CreateSpark,
+			Action:  _cmd_SparkService_CreateSpark,
 		},
 		{
 			Name:    "DescribeSparks",
 			Aliases: []string{},
 			Usage:   "DescribeSparks",
-			Action:  cmdDescribeSparks,
+			Flags:   _flag_SparkService_DescribeSparks,
+			Action:  _cmd_SparkService_DescribeSparks,
 		},
 		{
 			Name:    "AddSparkNodes",
 			Aliases: []string{},
 			Usage:   "AddSparkNodes",
-			Action:  cmdAddSparkNodes,
+			Flags:   _flag_SparkService_AddSparkNodes,
+			Action:  _cmd_SparkService_AddSparkNodes,
 		},
 		{
 			Name:    "DeleteSparkNodes",
 			Aliases: []string{},
 			Usage:   "DeleteSparkNodes",
-			Action:  cmdDeleteSparkNodes,
+			Flags:   _flag_SparkService_DeleteSparkNodes,
+			Action:  _cmd_SparkService_DeleteSparkNodes,
 		},
 		{
 			Name:    "StartSparks",
 			Aliases: []string{},
 			Usage:   "StartSparks",
-			Action:  cmdStartSparks,
+			Flags:   _flag_SparkService_StartSparks,
+			Action:  _cmd_SparkService_StartSparks,
 		},
 		{
 			Name:    "StopSparks",
 			Aliases: []string{},
 			Usage:   "StopSparks",
-			Action:  cmdStopSparks,
+			Flags:   _flag_SparkService_StopSparks,
+			Action:  _cmd_SparkService_StopSparks,
 		},
 		{
 			Name:    "DeleteSparks",
 			Aliases: []string{},
 			Usage:   "DeleteSparks",
-			Action:  cmdDeleteSparks,
+			Flags:   _flag_SparkService_DeleteSparks,
+			Action:  _cmd_SparkService_DeleteSparks,
 		},
 	},
 }
 
-func cmdCreateSpark(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SparkService_CreateSpark = []cli.Flag{ /* fields */ }
+
+func _cmd_SparkService_CreateSpark(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
 	in := new(pb.CreateSparkInput)
@@ -113,9 +122,11 @@ func cmdCreateSpark(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeSparks(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SparkService_DescribeSparks = []cli.Flag{ /* fields */ }
+
+func _cmd_SparkService_DescribeSparks(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
 	in := new(pb.DescribeSparksInput)
@@ -142,9 +153,11 @@ func cmdDescribeSparks(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddSparkNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SparkService_AddSparkNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_SparkService_AddSparkNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
 	in := new(pb.AddSparkNodesInput)
@@ -171,9 +184,11 @@ func cmdAddSparkNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSparkNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SparkService_DeleteSparkNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_SparkService_DeleteSparkNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
 	in := new(pb.DeleteSparkNodesInput)
@@ -200,9 +215,11 @@ func cmdDeleteSparkNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdStartSparks(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SparkService_StartSparks = []cli.Flag{ /* fields */ }
+
+func _cmd_SparkService_StartSparks(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
 	in := new(pb.StartSparksInput)
@@ -229,9 +246,11 @@ func cmdStartSparks(c *cli.Context) error {
 	return nil
 }
 
-func cmdStopSparks(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SparkService_StopSparks = []cli.Flag{ /* fields */ }
+
+func _cmd_SparkService_StopSparks(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
 	in := new(pb.StopSparksInput)
@@ -258,9 +277,11 @@ func cmdStopSparks(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSparks(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SparkService_DeleteSparks = []cli.Flag{ /* fields */ }
+
+func _cmd_SparkService_DeleteSparks(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
 	in := new(pb.DeleteSparksInput)

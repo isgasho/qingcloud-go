@@ -43,50 +43,59 @@ var CmdSpanService = cli.Command{
 			Name:    "CreateSpan",
 			Aliases: []string{},
 			Usage:   "CreateSpan",
-			Action:  cmdCreateSpan,
+			Flags:   _flag_SpanService_CreateSpan,
+			Action:  _cmd_SpanService_CreateSpan,
 		},
 		{
 			Name:    "DescribeSpans",
 			Aliases: []string{},
 			Usage:   "DescribeSpans",
-			Action:  cmdDescribeSpans,
+			Flags:   _flag_SpanService_DescribeSpans,
+			Action:  _cmd_SpanService_DescribeSpans,
 		},
 		{
 			Name:    "DeleteSpans",
 			Aliases: []string{},
 			Usage:   "DeleteSpans",
-			Action:  cmdDeleteSpans,
+			Flags:   _flag_SpanService_DeleteSpans,
+			Action:  _cmd_SpanService_DeleteSpans,
 		},
 		{
 			Name:    "AddSpanMembers",
 			Aliases: []string{},
 			Usage:   "AddSpanMembers",
-			Action:  cmdAddSpanMembers,
+			Flags:   _flag_SpanService_AddSpanMembers,
+			Action:  _cmd_SpanService_AddSpanMembers,
 		},
 		{
 			Name:    "RemoveSpanMembers",
 			Aliases: []string{},
 			Usage:   "RemoveSpanMembers",
-			Action:  cmdRemoveSpanMembers,
+			Flags:   _flag_SpanService_RemoveSpanMembers,
+			Action:  _cmd_SpanService_RemoveSpanMembers,
 		},
 		{
 			Name:    "ModifySpanAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySpanAttributes",
-			Action:  cmdModifySpanAttributes,
+			Flags:   _flag_SpanService_ModifySpanAttributes,
+			Action:  _cmd_SpanService_ModifySpanAttributes,
 		},
 		{
 			Name:    "UpdateSpan",
 			Aliases: []string{},
 			Usage:   "UpdateSpan",
-			Action:  cmdUpdateSpan,
+			Flags:   _flag_SpanService_UpdateSpan,
+			Action:  _cmd_SpanService_UpdateSpan,
 		},
 	},
 }
 
-func cmdCreateSpan(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SpanService_CreateSpan = []cli.Flag{ /* fields */ }
+
+func _cmd_SpanService_CreateSpan(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
 	in := new(pb.CreateSpanInput)
@@ -113,9 +122,11 @@ func cmdCreateSpan(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeSpans(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SpanService_DescribeSpans = []cli.Flag{ /* fields */ }
+
+func _cmd_SpanService_DescribeSpans(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
 	in := new(pb.DescribeSpansInput)
@@ -142,9 +153,11 @@ func cmdDescribeSpans(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSpans(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SpanService_DeleteSpans = []cli.Flag{ /* fields */ }
+
+func _cmd_SpanService_DeleteSpans(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
 	in := new(pb.DeleteSpansInput)
@@ -171,9 +184,11 @@ func cmdDeleteSpans(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddSpanMembers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SpanService_AddSpanMembers = []cli.Flag{ /* fields */ }
+
+func _cmd_SpanService_AddSpanMembers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
 	in := new(pb.AddSpanMembersInput)
@@ -200,9 +215,11 @@ func cmdAddSpanMembers(c *cli.Context) error {
 	return nil
 }
 
-func cmdRemoveSpanMembers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SpanService_RemoveSpanMembers = []cli.Flag{ /* fields */ }
+
+func _cmd_SpanService_RemoveSpanMembers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
 	in := new(pb.RemoveSpanMembersInput)
@@ -229,9 +246,11 @@ func cmdRemoveSpanMembers(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifySpanAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SpanService_ModifySpanAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_SpanService_ModifySpanAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
 	in := new(pb.ModifySpanAttributesInput)
@@ -258,9 +277,11 @@ func cmdModifySpanAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpdateSpan(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SpanService_UpdateSpan = []cli.Flag{ /* fields */ }
+
+func _cmd_SpanService_UpdateSpan(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
 	in := new(pb.UpdateSpanInput)

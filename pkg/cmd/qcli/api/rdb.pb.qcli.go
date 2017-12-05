@@ -43,110 +43,129 @@ var CmdRDBService = cli.Command{
 			Name:    "CreateRDB",
 			Aliases: []string{},
 			Usage:   "CreateRDB",
-			Action:  cmdCreateRDB,
+			Flags:   _flag_RDBService_CreateRDB,
+			Action:  _cmd_RDBService_CreateRDB,
 		},
 		{
 			Name:    "DescribeRDBs",
 			Aliases: []string{},
 			Usage:   "DescribeRDBs",
-			Action:  cmdDescribeRDBs,
+			Flags:   _flag_RDBService_DescribeRDBs,
+			Action:  _cmd_RDBService_DescribeRDBs,
 		},
 		{
 			Name:    "DeleteRDBs",
 			Aliases: []string{},
 			Usage:   "DeleteRDBs",
-			Action:  cmdDeleteRDBs,
+			Flags:   _flag_RDBService_DeleteRDBs,
+			Action:  _cmd_RDBService_DeleteRDBs,
 		},
 		{
 			Name:    "StartRDBs",
 			Aliases: []string{},
 			Usage:   "StartRDBs",
-			Action:  cmdStartRDBs,
+			Flags:   _flag_RDBService_StartRDBs,
+			Action:  _cmd_RDBService_StartRDBs,
 		},
 		{
 			Name:    "StopRDBs",
 			Aliases: []string{},
 			Usage:   "StopRDBs",
-			Action:  cmdStopRDBs,
+			Flags:   _flag_RDBService_StopRDBs,
+			Action:  _cmd_RDBService_StopRDBs,
 		},
 		{
 			Name:    "ResizeRDBs",
 			Aliases: []string{},
 			Usage:   "ResizeRDBs",
-			Action:  cmdResizeRDBs,
+			Flags:   _flag_RDBService_ResizeRDBs,
+			Action:  _cmd_RDBService_ResizeRDBs,
 		},
 		{
 			Name:    "RDBsLeaveVxnet",
 			Aliases: []string{},
 			Usage:   "RDBsLeaveVxnet",
-			Action:  cmdRDBsLeaveVxnet,
+			Flags:   _flag_RDBService_RDBsLeaveVxnet,
+			Action:  _cmd_RDBService_RDBsLeaveVxnet,
 		},
 		{
 			Name:    "RDBsJoinVxnet",
 			Aliases: []string{},
 			Usage:   "RDBsJoinVxnet",
-			Action:  cmdRDBsJoinVxnet,
+			Flags:   _flag_RDBService_RDBsJoinVxnet,
+			Action:  _cmd_RDBService_RDBsJoinVxnet,
 		},
 		{
 			Name:    "CreateRDBFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateRDBFromSnapshot",
-			Action:  cmdCreateRDBFromSnapshot,
+			Flags:   _flag_RDBService_CreateRDBFromSnapshot,
+			Action:  _cmd_RDBService_CreateRDBFromSnapshot,
 		},
 		{
 			Name:    "CreateTempRDBInstanceFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateTempRDBInstanceFromSnapshot",
-			Action:  cmdCreateTempRDBInstanceFromSnapshot,
+			Flags:   _flag_RDBService_CreateTempRDBInstanceFromSnapshot,
+			Action:  _cmd_RDBService_CreateTempRDBInstanceFromSnapshot,
 		},
 		{
 			Name:    "GetRDBInstanceFiles",
 			Aliases: []string{},
 			Usage:   "GetRDBInstanceFiles",
-			Action:  cmdGetRDBInstanceFiles,
+			Flags:   _flag_RDBService_GetRDBInstanceFiles,
+			Action:  _cmd_RDBService_GetRDBInstanceFiles,
 		},
 		{
 			Name:    "CopyRDBInstanceFilesToFTP",
 			Aliases: []string{},
 			Usage:   "CopyRDBInstanceFilesToFTP",
-			Action:  cmdCopyRDBInstanceFilesToFTP,
+			Flags:   _flag_RDBService_CopyRDBInstanceFilesToFTP,
+			Action:  _cmd_RDBService_CopyRDBInstanceFilesToFTP,
 		},
 		{
 			Name:    "PurgeRDBLogs",
 			Aliases: []string{},
 			Usage:   "PurgeRDBLogs",
-			Action:  cmdPurgeRDBLogs,
+			Flags:   _flag_RDBService_PurgeRDBLogs,
+			Action:  _cmd_RDBService_PurgeRDBLogs,
 		},
 		{
 			Name:    "CeaseRDBInstance",
 			Aliases: []string{},
 			Usage:   "CeaseRDBInstance",
-			Action:  cmdCeaseRDBInstance,
+			Flags:   _flag_RDBService_CeaseRDBInstance,
+			Action:  _cmd_RDBService_CeaseRDBInstance,
 		},
 		{
 			Name:    "ModifyRDBParameters",
 			Aliases: []string{},
 			Usage:   "ModifyRDBParameters",
-			Action:  cmdModifyRDBParameters,
+			Flags:   _flag_RDBService_ModifyRDBParameters,
+			Action:  _cmd_RDBService_ModifyRDBParameters,
 		},
 		{
 			Name:    "ApplyRDBParameterGroup",
 			Aliases: []string{},
 			Usage:   "ApplyRDBParameterGroup",
-			Action:  cmdApplyRDBParameterGroup,
+			Flags:   _flag_RDBService_ApplyRDBParameterGroup,
+			Action:  _cmd_RDBService_ApplyRDBParameterGroup,
 		},
 		{
 			Name:    "DescribeRDBParameters",
 			Aliases: []string{},
 			Usage:   "DescribeRDBParameters",
-			Action:  cmdDescribeRDBParameters,
+			Flags:   _flag_RDBService_DescribeRDBParameters,
+			Action:  _cmd_RDBService_DescribeRDBParameters,
 		},
 	},
 }
 
-func cmdCreateRDB(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_CreateRDB = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_CreateRDB(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.CreateRDBInput)
@@ -173,9 +192,11 @@ func cmdCreateRDB(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeRDBs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_DescribeRDBs = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_DescribeRDBs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.DescribeRDBsInput)
@@ -202,9 +223,11 @@ func cmdDescribeRDBs(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteRDBs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_DeleteRDBs = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_DeleteRDBs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.DeleteRDBsInput)
@@ -231,9 +254,11 @@ func cmdDeleteRDBs(c *cli.Context) error {
 	return nil
 }
 
-func cmdStartRDBs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_StartRDBs = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_StartRDBs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.StartRDBsInput)
@@ -260,9 +285,11 @@ func cmdStartRDBs(c *cli.Context) error {
 	return nil
 }
 
-func cmdStopRDBs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_StopRDBs = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_StopRDBs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.StopRDBsInput)
@@ -289,9 +316,11 @@ func cmdStopRDBs(c *cli.Context) error {
 	return nil
 }
 
-func cmdResizeRDBs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_ResizeRDBs = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_ResizeRDBs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.ResizeRDBsInput)
@@ -318,9 +347,11 @@ func cmdResizeRDBs(c *cli.Context) error {
 	return nil
 }
 
-func cmdRDBsLeaveVxnet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_RDBsLeaveVxnet = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_RDBsLeaveVxnet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.RDBsLeaveVxnetInput)
@@ -347,9 +378,11 @@ func cmdRDBsLeaveVxnet(c *cli.Context) error {
 	return nil
 }
 
-func cmdRDBsJoinVxnet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_RDBsJoinVxnet = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_RDBsJoinVxnet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.RDBsJoinVxnetInput)
@@ -376,9 +409,11 @@ func cmdRDBsJoinVxnet(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateRDBFromSnapshot(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_CreateRDBFromSnapshot = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.CreateRDBFromSnapshotInput)
@@ -405,9 +440,11 @@ func cmdCreateRDBFromSnapshot(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_CreateTempRDBInstanceFromSnapshot = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_CreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.CreateTempRDBInstanceFromSnapshotInput)
@@ -434,9 +471,11 @@ func cmdCreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetRDBInstanceFiles(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_GetRDBInstanceFiles = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_GetRDBInstanceFiles(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.GetRDBInstanceFilesInput)
@@ -463,9 +502,11 @@ func cmdGetRDBInstanceFiles(c *cli.Context) error {
 	return nil
 }
 
-func cmdCopyRDBInstanceFilesToFTP(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_CopyRDBInstanceFilesToFTP = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_CopyRDBInstanceFilesToFTP(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.CopyRDBInstanceFilesToFTPInput)
@@ -492,9 +533,11 @@ func cmdCopyRDBInstanceFilesToFTP(c *cli.Context) error {
 	return nil
 }
 
-func cmdPurgeRDBLogs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_PurgeRDBLogs = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_PurgeRDBLogs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.PurgeRDBLogsInput)
@@ -521,9 +564,11 @@ func cmdPurgeRDBLogs(c *cli.Context) error {
 	return nil
 }
 
-func cmdCeaseRDBInstance(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_CeaseRDBInstance = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_CeaseRDBInstance(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.CeaseRDBInstanceInput)
@@ -550,9 +595,11 @@ func cmdCeaseRDBInstance(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyRDBParameters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_ModifyRDBParameters = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_ModifyRDBParameters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.ModifyRDBParametersInput)
@@ -579,9 +626,11 @@ func cmdModifyRDBParameters(c *cli.Context) error {
 	return nil
 }
 
-func cmdApplyRDBParameterGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_ApplyRDBParameterGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_ApplyRDBParameterGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.ApplyRDBParameterGroupInput)
@@ -608,9 +657,11 @@ func cmdApplyRDBParameterGroup(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeRDBParameters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RDBService_DescribeRDBParameters = []cli.Flag{ /* fields */ }
+
+func _cmd_RDBService_DescribeRDBParameters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRDBService(conf, zone)
 
 	in := new(pb.DescribeRDBParametersInput)

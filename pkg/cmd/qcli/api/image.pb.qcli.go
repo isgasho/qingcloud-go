@@ -43,56 +43,66 @@ var CmdImageService = cli.Command{
 			Name:    "DescribeImages",
 			Aliases: []string{},
 			Usage:   "DescribeImages",
-			Action:  cmdDescribeImages,
+			Flags:   _flag_ImageService_DescribeImages,
+			Action:  _cmd_ImageService_DescribeImages,
 		},
 		{
 			Name:    "CaptureInstance",
 			Aliases: []string{},
 			Usage:   "CaptureInstance",
-			Action:  cmdCaptureInstance,
+			Flags:   _flag_ImageService_CaptureInstance,
+			Action:  _cmd_ImageService_CaptureInstance,
 		},
 		{
 			Name:    "DeleteImages",
 			Aliases: []string{},
 			Usage:   "DeleteImages",
-			Action:  cmdDeleteImages,
+			Flags:   _flag_ImageService_DeleteImages,
+			Action:  _cmd_ImageService_DeleteImages,
 		},
 		{
 			Name:    "ModifyImageAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyImageAttributes",
-			Action:  cmdModifyImageAttributes,
+			Flags:   _flag_ImageService_ModifyImageAttributes,
+			Action:  _cmd_ImageService_ModifyImageAttributes,
 		},
 		{
 			Name:    "GrantImageToUsers",
 			Aliases: []string{},
 			Usage:   "GrantImageToUsers",
-			Action:  cmdGrantImageToUsers,
+			Flags:   _flag_ImageService_GrantImageToUsers,
+			Action:  _cmd_ImageService_GrantImageToUsers,
 		},
 		{
 			Name:    "RevokeImageFromUsers",
 			Aliases: []string{},
 			Usage:   "RevokeImageFromUsers",
-			Action:  cmdRevokeImageFromUsers,
+			Flags:   _flag_ImageService_RevokeImageFromUsers,
+			Action:  _cmd_ImageService_RevokeImageFromUsers,
 		},
 		{
 			Name:    "DescribeImageUsers",
 			Aliases: []string{},
 			Usage:   "DescribeImageUsers",
-			Action:  cmdDescribeImageUsers,
+			Flags:   _flag_ImageService_DescribeImageUsers,
+			Action:  _cmd_ImageService_DescribeImageUsers,
 		},
 		{
 			Name:    "CloneImages",
 			Aliases: []string{},
 			Usage:   "CloneImages",
-			Action:  cmdCloneImages,
+			Flags:   _flag_ImageService_CloneImages,
+			Action:  _cmd_ImageService_CloneImages,
 		},
 	},
 }
 
-func cmdDescribeImages(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_DescribeImages = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_DescribeImages(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.DescribeImagesInput)
@@ -119,9 +129,11 @@ func cmdDescribeImages(c *cli.Context) error {
 	return nil
 }
 
-func cmdCaptureInstance(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_CaptureInstance = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_CaptureInstance(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.CaptureInstanceInput)
@@ -148,9 +160,11 @@ func cmdCaptureInstance(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteImages(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_DeleteImages = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_DeleteImages(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.DeleteImagesInput)
@@ -177,9 +191,11 @@ func cmdDeleteImages(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyImageAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_ModifyImageAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_ModifyImageAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.ModifyImageAttributesInput)
@@ -206,9 +222,11 @@ func cmdModifyImageAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdGrantImageToUsers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_GrantImageToUsers = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_GrantImageToUsers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.GrantImageToUsersInput)
@@ -235,9 +253,11 @@ func cmdGrantImageToUsers(c *cli.Context) error {
 	return nil
 }
 
-func cmdRevokeImageFromUsers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_RevokeImageFromUsers = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_RevokeImageFromUsers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.RevokeImageFromUsersInput)
@@ -264,9 +284,11 @@ func cmdRevokeImageFromUsers(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeImageUsers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_DescribeImageUsers = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_DescribeImageUsers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.DescribeImageUsersInput)
@@ -293,9 +315,11 @@ func cmdDescribeImageUsers(c *cli.Context) error {
 	return nil
 }
 
-func cmdCloneImages(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ImageService_CloneImages = []cli.Flag{ /* fields */ }
+
+func _cmd_ImageService_CloneImages(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
 	in := new(pb.CloneImagesInput)

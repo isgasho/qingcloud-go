@@ -43,50 +43,59 @@ var CmdVolumesService = cli.Command{
 			Name:    "DescribeVolumes",
 			Aliases: []string{},
 			Usage:   "DescribeVolumes",
-			Action:  cmdDescribeVolumes,
+			Flags:   _flag_VolumesService_DescribeVolumes,
+			Action:  _cmd_VolumesService_DescribeVolumes,
 		},
 		{
 			Name:    "CreateVolumes",
 			Aliases: []string{},
 			Usage:   "CreateVolumes",
-			Action:  cmdCreateVolumes,
+			Flags:   _flag_VolumesService_CreateVolumes,
+			Action:  _cmd_VolumesService_CreateVolumes,
 		},
 		{
 			Name:    "DeleteVolumes",
 			Aliases: []string{},
 			Usage:   "DeleteVolumes",
-			Action:  cmdDeleteVolumes,
+			Flags:   _flag_VolumesService_DeleteVolumes,
+			Action:  _cmd_VolumesService_DeleteVolumes,
 		},
 		{
 			Name:    "AttachVolumes",
 			Aliases: []string{},
 			Usage:   "AttachVolumes",
-			Action:  cmdAttachVolumes,
+			Flags:   _flag_VolumesService_AttachVolumes,
+			Action:  _cmd_VolumesService_AttachVolumes,
 		},
 		{
 			Name:    "DetachVolumes",
 			Aliases: []string{},
 			Usage:   "DetachVolumes",
-			Action:  cmdDetachVolumes,
+			Flags:   _flag_VolumesService_DetachVolumes,
+			Action:  _cmd_VolumesService_DetachVolumes,
 		},
 		{
 			Name:    "ResizeVolumes",
 			Aliases: []string{},
 			Usage:   "ResizeVolumes",
-			Action:  cmdResizeVolumes,
+			Flags:   _flag_VolumesService_ResizeVolumes,
+			Action:  _cmd_VolumesService_ResizeVolumes,
 		},
 		{
 			Name:    "ModifyVolumeAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyVolumeAttributes",
-			Action:  cmdModifyVolumeAttributes,
+			Flags:   _flag_VolumesService_ModifyVolumeAttributes,
+			Action:  _cmd_VolumesService_ModifyVolumeAttributes,
 		},
 	},
 }
 
-func cmdDescribeVolumes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VolumesService_DescribeVolumes = []cli.Flag{ /* fields */ }
+
+func _cmd_VolumesService_DescribeVolumes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
 	in := new(pb.DescribeVolumesInput)
@@ -113,9 +122,11 @@ func cmdDescribeVolumes(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateVolumes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VolumesService_CreateVolumes = []cli.Flag{ /* fields */ }
+
+func _cmd_VolumesService_CreateVolumes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
 	in := new(pb.CreateVolumesInput)
@@ -142,9 +153,11 @@ func cmdCreateVolumes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteVolumes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VolumesService_DeleteVolumes = []cli.Flag{ /* fields */ }
+
+func _cmd_VolumesService_DeleteVolumes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
 	in := new(pb.DeleteVolumesInput)
@@ -171,9 +184,11 @@ func cmdDeleteVolumes(c *cli.Context) error {
 	return nil
 }
 
-func cmdAttachVolumes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VolumesService_AttachVolumes = []cli.Flag{ /* fields */ }
+
+func _cmd_VolumesService_AttachVolumes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
 	in := new(pb.AttachVolumesInput)
@@ -200,9 +215,11 @@ func cmdAttachVolumes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDetachVolumes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VolumesService_DetachVolumes = []cli.Flag{ /* fields */ }
+
+func _cmd_VolumesService_DetachVolumes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
 	in := new(pb.DetachVolumesInput)
@@ -229,9 +246,11 @@ func cmdDetachVolumes(c *cli.Context) error {
 	return nil
 }
 
-func cmdResizeVolumes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VolumesService_ResizeVolumes = []cli.Flag{ /* fields */ }
+
+func _cmd_VolumesService_ResizeVolumes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
 	in := new(pb.ResizeVolumesInput)
@@ -258,9 +277,11 @@ func cmdResizeVolumes(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyVolumeAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VolumesService_ModifyVolumeAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_VolumesService_ModifyVolumeAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
 	in := new(pb.ModifyVolumeAttributesInput)

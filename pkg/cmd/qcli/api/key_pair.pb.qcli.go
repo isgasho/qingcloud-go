@@ -43,44 +43,52 @@ var CmdKeyPairService = cli.Command{
 			Name:    "DescribeKeyPairs",
 			Aliases: []string{},
 			Usage:   "DescribeKeyPairs",
-			Action:  cmdDescribeKeyPairs,
+			Flags:   _flag_KeyPairService_DescribeKeyPairs,
+			Action:  _cmd_KeyPairService_DescribeKeyPairs,
 		},
 		{
 			Name:    "CreateKeyPair",
 			Aliases: []string{},
 			Usage:   "CreateKeyPair",
-			Action:  cmdCreateKeyPair,
+			Flags:   _flag_KeyPairService_CreateKeyPair,
+			Action:  _cmd_KeyPairService_CreateKeyPair,
 		},
 		{
 			Name:    "DeleteKeyPairs",
 			Aliases: []string{},
 			Usage:   "DeleteKeyPairs",
-			Action:  cmdDeleteKeyPairs,
+			Flags:   _flag_KeyPairService_DeleteKeyPairs,
+			Action:  _cmd_KeyPairService_DeleteKeyPairs,
 		},
 		{
 			Name:    "AttachKeyPairs",
 			Aliases: []string{},
 			Usage:   "AttachKeyPairs",
-			Action:  cmdAttachKeyPairs,
+			Flags:   _flag_KeyPairService_AttachKeyPairs,
+			Action:  _cmd_KeyPairService_AttachKeyPairs,
 		},
 		{
 			Name:    "DetachKeyPairs",
 			Aliases: []string{},
 			Usage:   "DetachKeyPairs",
-			Action:  cmdDetachKeyPairs,
+			Flags:   _flag_KeyPairService_DetachKeyPairs,
+			Action:  _cmd_KeyPairService_DetachKeyPairs,
 		},
 		{
 			Name:    "ModifyKeyPairAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyKeyPairAttributes",
-			Action:  cmdModifyKeyPairAttributes,
+			Flags:   _flag_KeyPairService_ModifyKeyPairAttributes,
+			Action:  _cmd_KeyPairService_ModifyKeyPairAttributes,
 		},
 	},
 }
 
-func cmdDescribeKeyPairs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_KeyPairService_DescribeKeyPairs = []cli.Flag{ /* fields */ }
+
+func _cmd_KeyPairService_DescribeKeyPairs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewKeyPairService(conf, zone)
 
 	in := new(pb.DescribeKeyPairsInput)
@@ -107,9 +115,11 @@ func cmdDescribeKeyPairs(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateKeyPair(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_KeyPairService_CreateKeyPair = []cli.Flag{ /* fields */ }
+
+func _cmd_KeyPairService_CreateKeyPair(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewKeyPairService(conf, zone)
 
 	in := new(pb.CreateKeyPairInput)
@@ -136,9 +146,11 @@ func cmdCreateKeyPair(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteKeyPairs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_KeyPairService_DeleteKeyPairs = []cli.Flag{ /* fields */ }
+
+func _cmd_KeyPairService_DeleteKeyPairs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewKeyPairService(conf, zone)
 
 	in := new(pb.DeleteKeyPairsInput)
@@ -165,9 +177,11 @@ func cmdDeleteKeyPairs(c *cli.Context) error {
 	return nil
 }
 
-func cmdAttachKeyPairs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_KeyPairService_AttachKeyPairs = []cli.Flag{ /* fields */ }
+
+func _cmd_KeyPairService_AttachKeyPairs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewKeyPairService(conf, zone)
 
 	in := new(pb.AttachKeyPairsInput)
@@ -194,9 +208,11 @@ func cmdAttachKeyPairs(c *cli.Context) error {
 	return nil
 }
 
-func cmdDetachKeyPairs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_KeyPairService_DetachKeyPairs = []cli.Flag{ /* fields */ }
+
+func _cmd_KeyPairService_DetachKeyPairs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewKeyPairService(conf, zone)
 
 	in := new(pb.DetachKeyPairsInput)
@@ -223,9 +239,11 @@ func cmdDetachKeyPairs(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyKeyPairAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_KeyPairService_ModifyKeyPairAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_KeyPairService_ModifyKeyPairAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewKeyPairService(conf, zone)
 
 	in := new(pb.ModifyKeyPairAttributesInput)

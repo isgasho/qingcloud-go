@@ -43,50 +43,59 @@ var CmdSnapshotService = cli.Command{
 			Name:    "DescribeSnapshots",
 			Aliases: []string{},
 			Usage:   "DescribeSnapshots",
-			Action:  cmdDescribeSnapshots,
+			Flags:   _flag_SnapshotService_DescribeSnapshots,
+			Action:  _cmd_SnapshotService_DescribeSnapshots,
 		},
 		{
 			Name:    "CreateSnapshots",
 			Aliases: []string{},
 			Usage:   "CreateSnapshots",
-			Action:  cmdCreateSnapshots,
+			Flags:   _flag_SnapshotService_CreateSnapshots,
+			Action:  _cmd_SnapshotService_CreateSnapshots,
 		},
 		{
 			Name:    "DeleteSnapshots",
 			Aliases: []string{},
 			Usage:   "DeleteSnapshots",
-			Action:  cmdDeleteSnapshots,
+			Flags:   _flag_SnapshotService_DeleteSnapshots,
+			Action:  _cmd_SnapshotService_DeleteSnapshots,
 		},
 		{
 			Name:    "ApplySnapshots",
 			Aliases: []string{},
 			Usage:   "ApplySnapshots",
-			Action:  cmdApplySnapshots,
+			Flags:   _flag_SnapshotService_ApplySnapshots,
+			Action:  _cmd_SnapshotService_ApplySnapshots,
 		},
 		{
 			Name:    "ModifySnapshotAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySnapshotAttributes",
-			Action:  cmdModifySnapshotAttributes,
+			Flags:   _flag_SnapshotService_ModifySnapshotAttributes,
+			Action:  _cmd_SnapshotService_ModifySnapshotAttributes,
 		},
 		{
 			Name:    "CaptureInstanceFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CaptureInstanceFromSnapshot",
-			Action:  cmdCaptureInstanceFromSnapshot,
+			Flags:   _flag_SnapshotService_CaptureInstanceFromSnapshot,
+			Action:  _cmd_SnapshotService_CaptureInstanceFromSnapshot,
 		},
 		{
 			Name:    "CreateVolumeFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateVolumeFromSnapshot",
-			Action:  cmdCreateVolumeFromSnapshot,
+			Flags:   _flag_SnapshotService_CreateVolumeFromSnapshot,
+			Action:  _cmd_SnapshotService_CreateVolumeFromSnapshot,
 		},
 	},
 }
 
-func cmdDescribeSnapshots(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SnapshotService_DescribeSnapshots = []cli.Flag{ /* fields */ }
+
+func _cmd_SnapshotService_DescribeSnapshots(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
 
 	in := new(pb.DescribeSnapshotsInput)
@@ -113,9 +122,11 @@ func cmdDescribeSnapshots(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateSnapshots(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SnapshotService_CreateSnapshots = []cli.Flag{ /* fields */ }
+
+func _cmd_SnapshotService_CreateSnapshots(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
 
 	in := new(pb.CreateSnapshotsInput)
@@ -142,9 +153,11 @@ func cmdCreateSnapshots(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSnapshots(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SnapshotService_DeleteSnapshots = []cli.Flag{ /* fields */ }
+
+func _cmd_SnapshotService_DeleteSnapshots(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
 
 	in := new(pb.DeleteSnapshotsInput)
@@ -171,9 +184,11 @@ func cmdDeleteSnapshots(c *cli.Context) error {
 	return nil
 }
 
-func cmdApplySnapshots(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SnapshotService_ApplySnapshots = []cli.Flag{ /* fields */ }
+
+func _cmd_SnapshotService_ApplySnapshots(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
 
 	in := new(pb.ApplySnapshotsInput)
@@ -200,9 +215,11 @@ func cmdApplySnapshots(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifySnapshotAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SnapshotService_ModifySnapshotAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
 
 	in := new(pb.ModifySnapshotAttributesInput)
@@ -229,9 +246,11 @@ func cmdModifySnapshotAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdCaptureInstanceFromSnapshot(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SnapshotService_CaptureInstanceFromSnapshot = []cli.Flag{ /* fields */ }
+
+func _cmd_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
 
 	in := new(pb.CaptureInstanceFromSnapshotInput)
@@ -258,9 +277,11 @@ func cmdCaptureInstanceFromSnapshot(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateVolumeFromSnapshot(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SnapshotService_CreateVolumeFromSnapshot = []cli.Flag{ /* fields */ }
+
+func _cmd_SnapshotService_CreateVolumeFromSnapshot(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
 
 	in := new(pb.CreateVolumeFromSnapshotInput)

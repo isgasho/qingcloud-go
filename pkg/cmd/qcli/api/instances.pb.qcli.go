@@ -43,80 +43,94 @@ var CmdInstanceService = cli.Command{
 			Name:    "DescribeInstances",
 			Aliases: []string{},
 			Usage:   "DescribeInstances",
-			Action:  cmdDescribeInstances,
+			Flags:   _flag_InstanceService_DescribeInstances,
+			Action:  _cmd_InstanceService_DescribeInstances,
 		},
 		{
 			Name:    "RunInstances",
 			Aliases: []string{},
 			Usage:   "RunInstances",
-			Action:  cmdRunInstances,
+			Flags:   _flag_InstanceService_RunInstances,
+			Action:  _cmd_InstanceService_RunInstances,
 		},
 		{
 			Name:    "TerminateInstances",
 			Aliases: []string{},
 			Usage:   "TerminateInstances",
-			Action:  cmdTerminateInstances,
+			Flags:   _flag_InstanceService_TerminateInstances,
+			Action:  _cmd_InstanceService_TerminateInstances,
 		},
 		{
 			Name:    "StartInstances",
 			Aliases: []string{},
 			Usage:   "StartInstances",
-			Action:  cmdStartInstances,
+			Flags:   _flag_InstanceService_StartInstances,
+			Action:  _cmd_InstanceService_StartInstances,
 		},
 		{
 			Name:    "StopInstances",
 			Aliases: []string{},
 			Usage:   "StopInstances",
-			Action:  cmdStopInstances,
+			Flags:   _flag_InstanceService_StopInstances,
+			Action:  _cmd_InstanceService_StopInstances,
 		},
 		{
 			Name:    "RestartInstances",
 			Aliases: []string{},
 			Usage:   "RestartInstances",
-			Action:  cmdRestartInstances,
+			Flags:   _flag_InstanceService_RestartInstances,
+			Action:  _cmd_InstanceService_RestartInstances,
 		},
 		{
 			Name:    "ResetInstances",
 			Aliases: []string{},
 			Usage:   "ResetInstances",
-			Action:  cmdResetInstances,
+			Flags:   _flag_InstanceService_ResetInstances,
+			Action:  _cmd_InstanceService_ResetInstances,
 		},
 		{
 			Name:    "ResizeInstances",
 			Aliases: []string{},
 			Usage:   "ResizeInstances",
-			Action:  cmdResizeInstances,
+			Flags:   _flag_InstanceService_ResizeInstances,
+			Action:  _cmd_InstanceService_ResizeInstances,
 		},
 		{
 			Name:    "ModifyInstanceAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyInstanceAttributes",
-			Action:  cmdModifyInstanceAttributes,
+			Flags:   _flag_InstanceService_ModifyInstanceAttributes,
+			Action:  _cmd_InstanceService_ModifyInstanceAttributes,
 		},
 		{
 			Name:    "DescribeInstanceTypes",
 			Aliases: []string{},
 			Usage:   "DescribeInstanceTypes",
-			Action:  cmdDescribeInstanceTypes,
+			Flags:   _flag_InstanceService_DescribeInstanceTypes,
+			Action:  _cmd_InstanceService_DescribeInstanceTypes,
 		},
 		{
 			Name:    "CreateBrokers",
 			Aliases: []string{},
 			Usage:   "CreateBrokers",
-			Action:  cmdCreateBrokers,
+			Flags:   _flag_InstanceService_CreateBrokers,
+			Action:  _cmd_InstanceService_CreateBrokers,
 		},
 		{
 			Name:    "DeleteBrokers",
 			Aliases: []string{},
 			Usage:   "DeleteBrokers",
-			Action:  cmdDeleteBrokers,
+			Flags:   _flag_InstanceService_DeleteBrokers,
+			Action:  _cmd_InstanceService_DeleteBrokers,
 		},
 	},
 }
 
-func cmdDescribeInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_DescribeInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_DescribeInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.DescribeInstancesInput)
@@ -143,9 +157,11 @@ func cmdDescribeInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdRunInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_RunInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_RunInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.RunInstancesInput)
@@ -172,9 +188,11 @@ func cmdRunInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdTerminateInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_TerminateInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_TerminateInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.TerminateInstancesInput)
@@ -201,9 +219,11 @@ func cmdTerminateInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdStartInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_StartInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_StartInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.StartInstancesInput)
@@ -230,9 +250,11 @@ func cmdStartInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdStopInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_StopInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_StopInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.StopInstancesInput)
@@ -259,9 +281,11 @@ func cmdStopInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdRestartInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_RestartInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_RestartInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.RestartInstancesInput)
@@ -288,9 +312,11 @@ func cmdRestartInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdResetInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_ResetInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_ResetInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.ResetInstancesInput)
@@ -317,9 +343,11 @@ func cmdResetInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdResizeInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_ResizeInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_ResizeInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.ResizeInstancesInput)
@@ -346,9 +374,11 @@ func cmdResizeInstances(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyInstanceAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_ModifyInstanceAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.ModifyInstanceAttributesInput)
@@ -375,9 +405,11 @@ func cmdModifyInstanceAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeInstanceTypes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_DescribeInstanceTypes = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.DescribeInstanceTypesInput)
@@ -404,9 +436,11 @@ func cmdDescribeInstanceTypes(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateBrokers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_CreateBrokers = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_CreateBrokers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.CreateBrokersInput)
@@ -433,9 +467,11 @@ func cmdCreateBrokers(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteBrokers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_InstanceService_DeleteBrokers = []cli.Flag{ /* fields */ }
+
+func _cmd_InstanceService_DeleteBrokers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
 	in := new(pb.DeleteBrokersInput)

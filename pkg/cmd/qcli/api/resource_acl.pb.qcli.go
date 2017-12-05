@@ -43,170 +43,199 @@ var CmdResourceACLService = cli.Command{
 			Name:    "DescribeSharedResourceGroups",
 			Aliases: []string{},
 			Usage:   "DescribeSharedResourceGroups",
-			Action:  cmdDescribeSharedResourceGroups,
+			Flags:   _flag_ResourceACLService_DescribeSharedResourceGroups,
+			Action:  _cmd_ResourceACLService_DescribeSharedResourceGroups,
 		},
 		{
 			Name:    "DescribeResourceGroups",
 			Aliases: []string{},
 			Usage:   "DescribeResourceGroups",
-			Action:  cmdDescribeResourceGroups,
+			Flags:   _flag_ResourceACLService_DescribeResourceGroups,
+			Action:  _cmd_ResourceACLService_DescribeResourceGroups,
 		},
 		{
 			Name:    "CreateResourceGroups",
 			Aliases: []string{},
 			Usage:   "CreateResourceGroups",
-			Action:  cmdCreateResourceGroups,
+			Flags:   _flag_ResourceACLService_CreateResourceGroups,
+			Action:  _cmd_ResourceACLService_CreateResourceGroups,
 		},
 		{
 			Name:    "ModifyResourceGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyResourceGroupAttributes",
-			Action:  cmdModifyResourceGroupAttributes,
+			Flags:   _flag_ResourceACLService_ModifyResourceGroupAttributes,
+			Action:  _cmd_ResourceACLService_ModifyResourceGroupAttributes,
 		},
 		{
 			Name:    "DeleteResourceGroups",
 			Aliases: []string{},
 			Usage:   "DeleteResourceGroups",
-			Action:  cmdDeleteResourceGroups,
+			Flags:   _flag_ResourceACLService_DeleteResourceGroups,
+			Action:  _cmd_ResourceACLService_DeleteResourceGroups,
 		},
 		{
 			Name:    "DescribeResourceGroupItems",
 			Aliases: []string{},
 			Usage:   "DescribeResourceGroupItems",
-			Action:  cmdDescribeResourceGroupItems,
+			Flags:   _flag_ResourceACLService_DescribeResourceGroupItems,
+			Action:  _cmd_ResourceACLService_DescribeResourceGroupItems,
 		},
 		{
 			Name:    "AddResourceGroupItems",
 			Aliases: []string{},
 			Usage:   "AddResourceGroupItems",
-			Action:  cmdAddResourceGroupItems,
+			Flags:   _flag_ResourceACLService_AddResourceGroupItems,
+			Action:  _cmd_ResourceACLService_AddResourceGroupItems,
 		},
 		{
 			Name:    "DeleteResourceGroupItems",
 			Aliases: []string{},
 			Usage:   "DeleteResourceGroupItems",
-			Action:  cmdDeleteResourceGroupItems,
+			Flags:   _flag_ResourceACLService_DeleteResourceGroupItems,
+			Action:  _cmd_ResourceACLService_DeleteResourceGroupItems,
 		},
 		{
 			Name:    "DescribeUserGroups",
 			Aliases: []string{},
 			Usage:   "DescribeUserGroups",
-			Action:  cmdDescribeUserGroups,
+			Flags:   _flag_ResourceACLService_DescribeUserGroups,
+			Action:  _cmd_ResourceACLService_DescribeUserGroups,
 		},
 		{
 			Name:    "CreateUserGroups",
 			Aliases: []string{},
 			Usage:   "CreateUserGroups",
-			Action:  cmdCreateUserGroups,
+			Flags:   _flag_ResourceACLService_CreateUserGroups,
+			Action:  _cmd_ResourceACLService_CreateUserGroups,
 		},
 		{
 			Name:    "ModifyUserGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyUserGroupAttributes",
-			Action:  cmdModifyUserGroupAttributes,
+			Flags:   _flag_ResourceACLService_ModifyUserGroupAttributes,
+			Action:  _cmd_ResourceACLService_ModifyUserGroupAttributes,
 		},
 		{
 			Name:    "DeleteUserGroups",
 			Aliases: []string{},
 			Usage:   "DeleteUserGroups",
-			Action:  cmdDeleteUserGroups,
+			Flags:   _flag_ResourceACLService_DeleteUserGroups,
+			Action:  _cmd_ResourceACLService_DeleteUserGroups,
 		},
 		{
 			Name:    "DescribeUserGroupMembers",
 			Aliases: []string{},
 			Usage:   "DescribeUserGroupMembers",
-			Action:  cmdDescribeUserGroupMembers,
+			Flags:   _flag_ResourceACLService_DescribeUserGroupMembers,
+			Action:  _cmd_ResourceACLService_DescribeUserGroupMembers,
 		},
 		{
 			Name:    "AddUserGroupMembers",
 			Aliases: []string{},
 			Usage:   "AddUserGroupMembers",
-			Action:  cmdAddUserGroupMembers,
+			Flags:   _flag_ResourceACLService_AddUserGroupMembers,
+			Action:  _cmd_ResourceACLService_AddUserGroupMembers,
 		},
 		{
 			Name:    "ModifyUserGroupMemberAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyUserGroupMemberAttributes",
-			Action:  cmdModifyUserGroupMemberAttributes,
+			Flags:   _flag_ResourceACLService_ModifyUserGroupMemberAttributes,
+			Action:  _cmd_ResourceACLService_ModifyUserGroupMemberAttributes,
 		},
 		{
 			Name:    "DeleteUserGroupMembers",
 			Aliases: []string{},
 			Usage:   "DeleteUserGroupMembers",
-			Action:  cmdDeleteUserGroupMembers,
+			Flags:   _flag_ResourceACLService_DeleteUserGroupMembers,
+			Action:  _cmd_ResourceACLService_DeleteUserGroupMembers,
 		},
 		{
 			Name:    "DescribeGroupRoles",
 			Aliases: []string{},
 			Usage:   "DescribeGroupRoles",
-			Action:  cmdDescribeGroupRoles,
+			Flags:   _flag_ResourceACLService_DescribeGroupRoles,
+			Action:  _cmd_ResourceACLService_DescribeGroupRoles,
 		},
 		{
 			Name:    "CreateGroupRoles",
 			Aliases: []string{},
 			Usage:   "CreateGroupRoles",
-			Action:  cmdCreateGroupRoles,
+			Flags:   _flag_ResourceACLService_CreateGroupRoles,
+			Action:  _cmd_ResourceACLService_CreateGroupRoles,
 		},
 		{
 			Name:    "ModifyGroupRoleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyGroupRoleAttributes",
-			Action:  cmdModifyGroupRoleAttributes,
+			Flags:   _flag_ResourceACLService_ModifyGroupRoleAttributes,
+			Action:  _cmd_ResourceACLService_ModifyGroupRoleAttributes,
 		},
 		{
 			Name:    "DeleteGroupRoles",
 			Aliases: []string{},
 			Usage:   "DeleteGroupRoles",
-			Action:  cmdDeleteGroupRoles,
+			Flags:   _flag_ResourceACLService_DeleteGroupRoles,
+			Action:  _cmd_ResourceACLService_DeleteGroupRoles,
 		},
 		{
 			Name:    "DescribeGroupRoleRules",
 			Aliases: []string{},
 			Usage:   "DescribeGroupRoleRules",
-			Action:  cmdDescribeGroupRoleRules,
+			Flags:   _flag_ResourceACLService_DescribeGroupRoleRules,
+			Action:  _cmd_ResourceACLService_DescribeGroupRoleRules,
 		},
 		{
 			Name:    "AddGroupRoleRules",
 			Aliases: []string{},
 			Usage:   "AddGroupRoleRules",
-			Action:  cmdAddGroupRoleRules,
+			Flags:   _flag_ResourceACLService_AddGroupRoleRules,
+			Action:  _cmd_ResourceACLService_AddGroupRoleRules,
 		},
 		{
 			Name:    "ModifyGroupRoleRuleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyGroupRoleRuleAttributes",
-			Action:  cmdModifyGroupRoleRuleAttributes,
+			Flags:   _flag_ResourceACLService_ModifyGroupRoleRuleAttributes,
+			Action:  _cmd_ResourceACLService_ModifyGroupRoleRuleAttributes,
 		},
 		{
 			Name:    "DeleteGroupRoleRules",
 			Aliases: []string{},
 			Usage:   "DeleteGroupRoleRules",
-			Action:  cmdDeleteGroupRoleRules,
+			Flags:   _flag_ResourceACLService_DeleteGroupRoleRules,
+			Action:  _cmd_ResourceACLService_DeleteGroupRoleRules,
 		},
 		{
 			Name:    "GrantResourceGroupsToUserGroups",
 			Aliases: []string{},
 			Usage:   "GrantResourceGroupsToUserGroups",
-			Action:  cmdGrantResourceGroupsToUserGroups,
+			Flags:   _flag_ResourceACLService_GrantResourceGroupsToUserGroups,
+			Action:  _cmd_ResourceACLService_GrantResourceGroupsToUserGroups,
 		},
 		{
 			Name:    "RevokeResourceGroupsFromUserGroups",
 			Aliases: []string{},
 			Usage:   "RevokeResourceGroupsFromUserGroups",
-			Action:  cmdRevokeResourceGroupsFromUserGroups,
+			Flags:   _flag_ResourceACLService_RevokeResourceGroupsFromUserGroups,
+			Action:  _cmd_ResourceACLService_RevokeResourceGroupsFromUserGroups,
 		},
 		{
 			Name:    "DescribeResourceUserGroups",
 			Aliases: []string{},
 			Usage:   "DescribeResourceUserGroups",
-			Action:  cmdDescribeResourceUserGroups,
+			Flags:   _flag_ResourceACLService_DescribeResourceUserGroups,
+			Action:  _cmd_ResourceACLService_DescribeResourceUserGroups,
 		},
 	},
 }
 
-func cmdDescribeSharedResourceGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeSharedResourceGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeSharedResourceGroupsInput)
@@ -233,9 +262,11 @@ func cmdDescribeSharedResourceGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeResourceGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeResourceGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeResourceGroupsInput)
@@ -262,9 +293,11 @@ func cmdDescribeResourceGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateResourceGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_CreateResourceGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.CreateResourceGroupsInput)
@@ -291,9 +324,11 @@ func cmdCreateResourceGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyResourceGroupAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_ModifyResourceGroupAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.ModifyResourceGroupAttributesInput)
@@ -320,9 +355,11 @@ func cmdModifyResourceGroupAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteResourceGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DeleteResourceGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DeleteResourceGroupsInput)
@@ -349,9 +386,11 @@ func cmdDeleteResourceGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeResourceGroupItems(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeResourceGroupItems = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeResourceGroupItemsInput)
@@ -378,9 +417,11 @@ func cmdDescribeResourceGroupItems(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddResourceGroupItems(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_AddResourceGroupItems = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.AddResourceGroupItemsInput)
@@ -407,9 +448,11 @@ func cmdAddResourceGroupItems(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteResourceGroupItems(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DeleteResourceGroupItems = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DeleteResourceGroupItemsInput)
@@ -436,9 +479,11 @@ func cmdDeleteResourceGroupItems(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeUserGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeUserGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeUserGroupsInput)
@@ -465,9 +510,11 @@ func cmdDescribeUserGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateUserGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_CreateUserGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_CreateUserGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.CreateUserGroupsInput)
@@ -494,9 +541,11 @@ func cmdCreateUserGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyUserGroupAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_ModifyUserGroupAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.ModifyUserGroupAttributesInput)
@@ -523,9 +572,11 @@ func cmdModifyUserGroupAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteUserGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DeleteUserGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DeleteUserGroupsInput)
@@ -552,9 +603,11 @@ func cmdDeleteUserGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeUserGroupMembers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeUserGroupMembers = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeUserGroupMembersInput)
@@ -581,9 +634,11 @@ func cmdDescribeUserGroupMembers(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddUserGroupMembers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_AddUserGroupMembers = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.AddUserGroupMembersInput)
@@ -610,9 +665,11 @@ func cmdAddUserGroupMembers(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyUserGroupMemberAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_ModifyUserGroupMemberAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.ModifyUserGroupMemberAttributesInput)
@@ -639,9 +696,11 @@ func cmdModifyUserGroupMemberAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteUserGroupMembers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DeleteUserGroupMembers = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DeleteUserGroupMembersInput)
@@ -668,9 +727,11 @@ func cmdDeleteUserGroupMembers(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeGroupRoles(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeGroupRoles = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeGroupRolesInput)
@@ -697,9 +758,11 @@ func cmdDescribeGroupRoles(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateGroupRoles(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_CreateGroupRoles = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.CreateGroupRolesInput)
@@ -726,9 +789,11 @@ func cmdCreateGroupRoles(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyGroupRoleAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_ModifyGroupRoleAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.ModifyGroupRoleAttributesInput)
@@ -755,9 +820,11 @@ func cmdModifyGroupRoleAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteGroupRoles(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DeleteGroupRoles = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DeleteGroupRolesInput)
@@ -784,9 +851,11 @@ func cmdDeleteGroupRoles(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeGroupRoleRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeGroupRoleRules = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeGroupRoleRulesInput)
@@ -813,9 +882,11 @@ func cmdDescribeGroupRoleRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddGroupRoleRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_AddGroupRoleRules = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.AddGroupRoleRulesInput)
@@ -842,9 +913,11 @@ func cmdAddGroupRoleRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyGroupRoleRuleAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_ModifyGroupRoleRuleAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.ModifyGroupRoleRuleAttributesInput)
@@ -871,9 +944,11 @@ func cmdModifyGroupRoleRuleAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteGroupRoleRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DeleteGroupRoleRules = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DeleteGroupRoleRulesInput)
@@ -900,9 +975,11 @@ func cmdDeleteGroupRoleRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdGrantResourceGroupsToUserGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_GrantResourceGroupsToUserGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.GrantResourceGroupsToUserGroupsInput)
@@ -929,9 +1006,11 @@ func cmdGrantResourceGroupsToUserGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdRevokeResourceGroupsFromUserGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_RevokeResourceGroupsFromUserGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.RevokeResourceGroupsFromUserGroupsInput)
@@ -958,9 +1037,11 @@ func cmdRevokeResourceGroupsFromUserGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeResourceUserGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ResourceACLService_DescribeResourceUserGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
 
 	in := new(pb.DescribeResourceUserGroupsInput)

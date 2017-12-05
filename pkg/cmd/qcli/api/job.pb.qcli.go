@@ -43,14 +43,17 @@ var CmdJobService = cli.Command{
 			Name:    "DescribeJobs",
 			Aliases: []string{},
 			Usage:   "DescribeJobs",
-			Action:  cmdDescribeJobs,
+			Flags:   _flag_JobService_DescribeJobs,
+			Action:  _cmd_JobService_DescribeJobs,
 		},
 	},
 }
 
-func cmdDescribeJobs(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_JobService_DescribeJobs = []cli.Flag{ /* fields */ }
+
+func _cmd_JobService_DescribeJobs(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewJobService(conf, zone)
 
 	in := new(pb.DescribeJobsInput)

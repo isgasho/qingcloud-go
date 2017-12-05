@@ -43,122 +43,143 @@ var CmdRouterService = cli.Command{
 			Name:    "DescribeRouters",
 			Aliases: []string{},
 			Usage:   "DescribeRouters",
-			Action:  cmdDescribeRouters,
+			Flags:   _flag_RouterService_DescribeRouters,
+			Action:  _cmd_RouterService_DescribeRouters,
 		},
 		{
 			Name:    "CreateRouters",
 			Aliases: []string{},
 			Usage:   "CreateRouters",
-			Action:  cmdCreateRouters,
+			Flags:   _flag_RouterService_CreateRouters,
+			Action:  _cmd_RouterService_CreateRouters,
 		},
 		{
 			Name:    "DeleteRouters",
 			Aliases: []string{},
 			Usage:   "DeleteRouters",
-			Action:  cmdDeleteRouters,
+			Flags:   _flag_RouterService_DeleteRouters,
+			Action:  _cmd_RouterService_DeleteRouters,
 		},
 		{
 			Name:    "UpdateRouters",
 			Aliases: []string{},
 			Usage:   "UpdateRouters",
-			Action:  cmdUpdateRouters,
+			Flags:   _flag_RouterService_UpdateRouters,
+			Action:  _cmd_RouterService_UpdateRouters,
 		},
 		{
 			Name:    "PowerOffRouters",
 			Aliases: []string{},
 			Usage:   "PowerOffRouters",
-			Action:  cmdPowerOffRouters,
+			Flags:   _flag_RouterService_PowerOffRouters,
+			Action:  _cmd_RouterService_PowerOffRouters,
 		},
 		{
 			Name:    "PowerOnRouters",
 			Aliases: []string{},
 			Usage:   "PowerOnRouters",
-			Action:  cmdPowerOnRouters,
+			Flags:   _flag_RouterService_PowerOnRouters,
+			Action:  _cmd_RouterService_PowerOnRouters,
 		},
 		{
 			Name:    "JoinRouter",
 			Aliases: []string{},
 			Usage:   "JoinRouter",
-			Action:  cmdJoinRouter,
+			Flags:   _flag_RouterService_JoinRouter,
+			Action:  _cmd_RouterService_JoinRouter,
 		},
 		{
 			Name:    "LeaveRouter",
 			Aliases: []string{},
 			Usage:   "LeaveRouter",
-			Action:  cmdLeaveRouter,
+			Flags:   _flag_RouterService_LeaveRouter,
+			Action:  _cmd_RouterService_LeaveRouter,
 		},
 		{
 			Name:    "ModifyRouterAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyRouterAttributes",
-			Action:  cmdModifyRouterAttributes,
+			Flags:   _flag_RouterService_ModifyRouterAttributes,
+			Action:  _cmd_RouterService_ModifyRouterAttributes,
 		},
 		{
 			Name:    "DescribeRouterStatics",
 			Aliases: []string{},
 			Usage:   "DescribeRouterStatics",
-			Action:  cmdDescribeRouterStatics,
+			Flags:   _flag_RouterService_DescribeRouterStatics,
+			Action:  _cmd_RouterService_DescribeRouterStatics,
 		},
 		{
 			Name:    "AddRouterStatics",
 			Aliases: []string{},
 			Usage:   "AddRouterStatics",
-			Action:  cmdAddRouterStatics,
+			Flags:   _flag_RouterService_AddRouterStatics,
+			Action:  _cmd_RouterService_AddRouterStatics,
 		},
 		{
 			Name:    "ModifyRouterStaticAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyRouterStaticAttributes",
-			Action:  cmdModifyRouterStaticAttributes,
+			Flags:   _flag_RouterService_ModifyRouterStaticAttributes,
+			Action:  _cmd_RouterService_ModifyRouterStaticAttributes,
 		},
 		{
 			Name:    "DeleteRouterStatics",
 			Aliases: []string{},
 			Usage:   "DeleteRouterStatics",
-			Action:  cmdDeleteRouterStatics,
+			Flags:   _flag_RouterService_DeleteRouterStatics,
+			Action:  _cmd_RouterService_DeleteRouterStatics,
 		},
 		{
 			Name:    "CopyRouterStatics",
 			Aliases: []string{},
 			Usage:   "CopyRouterStatics",
-			Action:  cmdCopyRouterStatics,
+			Flags:   _flag_RouterService_CopyRouterStatics,
+			Action:  _cmd_RouterService_CopyRouterStatics,
 		},
 		{
 			Name:    "DescribeRouterVxnets",
 			Aliases: []string{},
 			Usage:   "DescribeRouterVxnets",
-			Action:  cmdDescribeRouterVxnets,
+			Flags:   _flag_RouterService_DescribeRouterVxnets,
+			Action:  _cmd_RouterService_DescribeRouterVxnets,
 		},
 		{
 			Name:    "AddRouterStaticEntries",
 			Aliases: []string{},
 			Usage:   "AddRouterStaticEntries",
-			Action:  cmdAddRouterStaticEntries,
+			Flags:   _flag_RouterService_AddRouterStaticEntries,
+			Action:  _cmd_RouterService_AddRouterStaticEntries,
 		},
 		{
 			Name:    "DeleteRouterStaticEntries",
 			Aliases: []string{},
 			Usage:   "DeleteRouterStaticEntries",
-			Action:  cmdDeleteRouterStaticEntries,
+			Flags:   _flag_RouterService_DeleteRouterStaticEntries,
+			Action:  _cmd_RouterService_DeleteRouterStaticEntries,
 		},
 		{
 			Name:    "ModifyRouterStaticEntryAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyRouterStaticEntryAttributes",
-			Action:  cmdModifyRouterStaticEntryAttributes,
+			Flags:   _flag_RouterService_ModifyRouterStaticEntryAttributes,
+			Action:  _cmd_RouterService_ModifyRouterStaticEntryAttributes,
 		},
 		{
 			Name:    "DescribeRouterStaticEntries",
 			Aliases: []string{},
 			Usage:   "DescribeRouterStaticEntries",
-			Action:  cmdDescribeRouterStaticEntries,
+			Flags:   _flag_RouterService_DescribeRouterStaticEntries,
+			Action:  _cmd_RouterService_DescribeRouterStaticEntries,
 		},
 	},
 }
 
-func cmdDescribeRouters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_DescribeRouters = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_DescribeRouters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.DescribeRoutersInput)
@@ -185,9 +206,11 @@ func cmdDescribeRouters(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateRouters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_CreateRouters = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_CreateRouters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.CreateRoutersInput)
@@ -214,9 +237,11 @@ func cmdCreateRouters(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteRouters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_DeleteRouters = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_DeleteRouters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.DeleteRoutersInput)
@@ -243,9 +268,11 @@ func cmdDeleteRouters(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpdateRouters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_UpdateRouters = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_UpdateRouters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.UpdateRoutersInput)
@@ -272,9 +299,11 @@ func cmdUpdateRouters(c *cli.Context) error {
 	return nil
 }
 
-func cmdPowerOffRouters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_PowerOffRouters = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_PowerOffRouters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.PowerOffRoutersInput)
@@ -301,9 +330,11 @@ func cmdPowerOffRouters(c *cli.Context) error {
 	return nil
 }
 
-func cmdPowerOnRouters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_PowerOnRouters = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_PowerOnRouters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.PowerOnRoutersInput)
@@ -330,9 +361,11 @@ func cmdPowerOnRouters(c *cli.Context) error {
 	return nil
 }
 
-func cmdJoinRouter(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_JoinRouter = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_JoinRouter(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.JoinRouterInput)
@@ -359,9 +392,11 @@ func cmdJoinRouter(c *cli.Context) error {
 	return nil
 }
 
-func cmdLeaveRouter(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_LeaveRouter = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_LeaveRouter(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.LeaveRouterInput)
@@ -388,9 +423,11 @@ func cmdLeaveRouter(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyRouterAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_ModifyRouterAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_ModifyRouterAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.ModifyRouterAttributesInput)
@@ -417,9 +454,11 @@ func cmdModifyRouterAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeRouterStatics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_DescribeRouterStatics = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_DescribeRouterStatics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.DescribeRouterStaticsInput)
@@ -446,9 +485,11 @@ func cmdDescribeRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddRouterStatics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_AddRouterStatics = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_AddRouterStatics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.AddRouterStaticsInput)
@@ -475,9 +516,11 @@ func cmdAddRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyRouterStaticAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_ModifyRouterStaticAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.ModifyRouterStaticAttributesInput)
@@ -504,9 +547,11 @@ func cmdModifyRouterStaticAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteRouterStatics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_DeleteRouterStatics = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_DeleteRouterStatics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.DeleteRouterStaticsInput)
@@ -533,9 +578,11 @@ func cmdDeleteRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-func cmdCopyRouterStatics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_CopyRouterStatics = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_CopyRouterStatics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.CopyRouterStaticsInput)
@@ -562,9 +609,11 @@ func cmdCopyRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeRouterVxnets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_DescribeRouterVxnets = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_DescribeRouterVxnets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.DescribeRouterVxnetsInput)
@@ -591,9 +640,11 @@ func cmdDescribeRouterVxnets(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddRouterStaticEntries(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_AddRouterStaticEntries = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_AddRouterStaticEntries(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.AddRouterStaticEntriesInput)
@@ -620,9 +671,11 @@ func cmdAddRouterStaticEntries(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteRouterStaticEntries(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_DeleteRouterStaticEntries = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.DeleteRouterStaticEntriesInput)
@@ -649,9 +702,11 @@ func cmdDeleteRouterStaticEntries(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyRouterStaticEntryAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_ModifyRouterStaticEntryAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.ModifyRouterStaticEntryAttributesInput)
@@ -678,9 +733,11 @@ func cmdModifyRouterStaticEntryAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeRouterStaticEntries(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_RouterService_DescribeRouterStaticEntries = []cli.Flag{ /* fields */ }
+
+func _cmd_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
 	in := new(pb.DescribeRouterStaticEntriesInput)

@@ -43,116 +43,136 @@ var CmdSecurityGroupService = cli.Command{
 			Name:    "DescribeSecurityGroups",
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroups",
-			Action:  cmdDescribeSecurityGroups,
+			Flags:   _flag_SecurityGroupService_DescribeSecurityGroups,
+			Action:  _cmd_SecurityGroupService_DescribeSecurityGroups,
 		},
 		{
 			Name:    "CreateSecurityGroup",
 			Aliases: []string{},
 			Usage:   "CreateSecurityGroup",
-			Action:  cmdCreateSecurityGroup,
+			Flags:   _flag_SecurityGroupService_CreateSecurityGroup,
+			Action:  _cmd_SecurityGroupService_CreateSecurityGroup,
 		},
 		{
 			Name:    "DeleteSecurityGroups",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroups",
-			Action:  cmdDeleteSecurityGroups,
+			Flags:   _flag_SecurityGroupService_DeleteSecurityGroups,
+			Action:  _cmd_SecurityGroupService_DeleteSecurityGroups,
 		},
 		{
 			Name:    "ApplySecurityGroup",
 			Aliases: []string{},
 			Usage:   "ApplySecurityGroup",
-			Action:  cmdApplySecurityGroup,
+			Flags:   _flag_SecurityGroupService_ApplySecurityGroup,
+			Action:  _cmd_SecurityGroupService_ApplySecurityGroup,
 		},
 		{
 			Name:    "ModifySecurityGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySecurityGroupAttributes",
-			Action:  cmdModifySecurityGroupAttributes,
+			Flags:   _flag_SecurityGroupService_ModifySecurityGroupAttributes,
+			Action:  _cmd_SecurityGroupService_ModifySecurityGroupAttributes,
 		},
 		{
 			Name:    "DescribeSecurityGroupRules",
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroupRules",
-			Action:  cmdDescribeSecurityGroupRules,
+			Flags:   _flag_SecurityGroupService_DescribeSecurityGroupRules,
+			Action:  _cmd_SecurityGroupService_DescribeSecurityGroupRules,
 		},
 		{
 			Name:    "AddSecurityGroupRules",
 			Aliases: []string{},
 			Usage:   "AddSecurityGroupRules",
-			Action:  cmdAddSecurityGroupRules,
+			Flags:   _flag_SecurityGroupService_AddSecurityGroupRules,
+			Action:  _cmd_SecurityGroupService_AddSecurityGroupRules,
 		},
 		{
 			Name:    "DeleteSecurityGroupRules",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroupRules",
-			Action:  cmdDeleteSecurityGroupRules,
+			Flags:   _flag_SecurityGroupService_DeleteSecurityGroupRules,
+			Action:  _cmd_SecurityGroupService_DeleteSecurityGroupRules,
 		},
 		{
 			Name:    "ModifySecurityGroupRuleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySecurityGroupRuleAttributes",
-			Action:  cmdModifySecurityGroupRuleAttributes,
+			Flags:   _flag_SecurityGroupService_ModifySecurityGroupRuleAttributes,
+			Action:  _cmd_SecurityGroupService_ModifySecurityGroupRuleAttributes,
 		},
 		{
 			Name:    "CreateSecurityGroupSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateSecurityGroupSnapshot",
-			Action:  cmdCreateSecurityGroupSnapshot,
+			Flags:   _flag_SecurityGroupService_CreateSecurityGroupSnapshot,
+			Action:  _cmd_SecurityGroupService_CreateSecurityGroupSnapshot,
 		},
 		{
 			Name:    "DescribeSecurityGroupSnapshots",
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroupSnapshots",
-			Action:  cmdDescribeSecurityGroupSnapshots,
+			Flags:   _flag_SecurityGroupService_DescribeSecurityGroupSnapshots,
+			Action:  _cmd_SecurityGroupService_DescribeSecurityGroupSnapshots,
 		},
 		{
 			Name:    "DeleteSecurityGroupSnapshots",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroupSnapshots",
-			Action:  cmdDeleteSecurityGroupSnapshots,
+			Flags:   _flag_SecurityGroupService_DeleteSecurityGroupSnapshots,
+			Action:  _cmd_SecurityGroupService_DeleteSecurityGroupSnapshots,
 		},
 		{
 			Name:    "RollbackSecurityGroup",
 			Aliases: []string{},
 			Usage:   "RollbackSecurityGroup",
-			Action:  cmdRollbackSecurityGroup,
+			Flags:   _flag_SecurityGroupService_RollbackSecurityGroup,
+			Action:  _cmd_SecurityGroupService_RollbackSecurityGroup,
 		},
 		{
 			Name:    "DescribeSecurityGroupIPSets",
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroupIPSets",
-			Action:  cmdDescribeSecurityGroupIPSets,
+			Flags:   _flag_SecurityGroupService_DescribeSecurityGroupIPSets,
+			Action:  _cmd_SecurityGroupService_DescribeSecurityGroupIPSets,
 		},
 		{
 			Name:    "CreateSecurityGroupIPSet",
 			Aliases: []string{},
 			Usage:   "CreateSecurityGroupIPSet",
-			Action:  cmdCreateSecurityGroupIPSet,
+			Flags:   _flag_SecurityGroupService_CreateSecurityGroupIPSet,
+			Action:  _cmd_SecurityGroupService_CreateSecurityGroupIPSet,
 		},
 		{
 			Name:    "DeleteSecurityGroupIPSets",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroupIPSets",
-			Action:  cmdDeleteSecurityGroupIPSets,
+			Flags:   _flag_SecurityGroupService_DeleteSecurityGroupIPSets,
+			Action:  _cmd_SecurityGroupService_DeleteSecurityGroupIPSets,
 		},
 		{
 			Name:    "ModifySecurityGroupIPSetAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySecurityGroupIPSetAttributes",
-			Action:  cmdModifySecurityGroupIPSetAttributes,
+			Flags:   _flag_SecurityGroupService_ModifySecurityGroupIPSetAttributes,
+			Action:  _cmd_SecurityGroupService_ModifySecurityGroupIPSetAttributes,
 		},
 		{
 			Name:    "CopySecurityGroupIPSets",
 			Aliases: []string{},
 			Usage:   "CopySecurityGroupIPSets",
-			Action:  cmdCopySecurityGroupIPSets,
+			Flags:   _flag_SecurityGroupService_CopySecurityGroupIPSets,
+			Action:  _cmd_SecurityGroupService_CopySecurityGroupIPSets,
 		},
 	},
 }
 
-func cmdDescribeSecurityGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DescribeSecurityGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DescribeSecurityGroupsInput)
@@ -179,9 +199,11 @@ func cmdDescribeSecurityGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateSecurityGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_CreateSecurityGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.CreateSecurityGroupInput)
@@ -208,9 +230,11 @@ func cmdCreateSecurityGroup(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSecurityGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DeleteSecurityGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DeleteSecurityGroupsInput)
@@ -237,9 +261,11 @@ func cmdDeleteSecurityGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdApplySecurityGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_ApplySecurityGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.ApplySecurityGroupInput)
@@ -266,9 +292,11 @@ func cmdApplySecurityGroup(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifySecurityGroupAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_ModifySecurityGroupAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.ModifySecurityGroupAttributesInput)
@@ -295,9 +323,11 @@ func cmdModifySecurityGroupAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeSecurityGroupRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DescribeSecurityGroupRules = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DescribeSecurityGroupRulesInput)
@@ -324,9 +354,11 @@ func cmdDescribeSecurityGroupRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddSecurityGroupRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_AddSecurityGroupRules = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.AddSecurityGroupRulesInput)
@@ -353,9 +385,11 @@ func cmdAddSecurityGroupRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSecurityGroupRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DeleteSecurityGroupRules = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DeleteSecurityGroupRulesInput)
@@ -382,9 +416,11 @@ func cmdDeleteSecurityGroupRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifySecurityGroupRuleAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_ModifySecurityGroupRuleAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.ModifySecurityGroupRuleAttributesInput)
@@ -411,9 +447,11 @@ func cmdModifySecurityGroupRuleAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateSecurityGroupSnapshot(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_CreateSecurityGroupSnapshot = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.CreateSecurityGroupSnapshotInput)
@@ -440,9 +478,11 @@ func cmdCreateSecurityGroupSnapshot(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeSecurityGroupSnapshots(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DescribeSecurityGroupSnapshots = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DescribeSecurityGroupSnapshotsInput)
@@ -469,9 +509,11 @@ func cmdDescribeSecurityGroupSnapshots(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSecurityGroupSnapshots(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DeleteSecurityGroupSnapshots = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DeleteSecurityGroupSnapshotsInput)
@@ -498,9 +540,11 @@ func cmdDeleteSecurityGroupSnapshots(c *cli.Context) error {
 	return nil
 }
 
-func cmdRollbackSecurityGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_RollbackSecurityGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.RollbackSecurityGroupInput)
@@ -527,9 +571,11 @@ func cmdRollbackSecurityGroup(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeSecurityGroupIPSets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DescribeSecurityGroupIPSets = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DescribeSecurityGroupIPSetsInput)
@@ -556,9 +602,11 @@ func cmdDescribeSecurityGroupIPSets(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateSecurityGroupIPSet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_CreateSecurityGroupIPSet = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.CreateSecurityGroupIPSetInput)
@@ -585,9 +633,11 @@ func cmdCreateSecurityGroupIPSet(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSecurityGroupIPSets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_DeleteSecurityGroupIPSets = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.DeleteSecurityGroupIPSetsInput)
@@ -614,9 +664,11 @@ func cmdDeleteSecurityGroupIPSets(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifySecurityGroupIPSetAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_ModifySecurityGroupIPSetAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.ModifySecurityGroupIPSetAttributesInput)
@@ -643,9 +695,11 @@ func cmdModifySecurityGroupIPSetAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdCopySecurityGroupIPSets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SecurityGroupService_CopySecurityGroupIPSets = []cli.Flag{ /* fields */ }
+
+func _cmd_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
 
 	in := new(pb.CopySecurityGroupIPSetsInput)

@@ -43,152 +43,178 @@ var CmdCacheService = cli.Command{
 			Name:    "DescribeCaches",
 			Aliases: []string{},
 			Usage:   "DescribeCaches",
-			Action:  cmdDescribeCaches,
+			Flags:   _flag_CacheService_DescribeCaches,
+			Action:  _cmd_CacheService_DescribeCaches,
 		},
 		{
 			Name:    "CreateCache",
 			Aliases: []string{},
 			Usage:   "CreateCache",
-			Action:  cmdCreateCache,
+			Flags:   _flag_CacheService_CreateCache,
+			Action:  _cmd_CacheService_CreateCache,
 		},
 		{
 			Name:    "StopCaches",
 			Aliases: []string{},
 			Usage:   "StopCaches",
-			Action:  cmdStopCaches,
+			Flags:   _flag_CacheService_StopCaches,
+			Action:  _cmd_CacheService_StopCaches,
 		},
 		{
 			Name:    "StartCaches",
 			Aliases: []string{},
 			Usage:   "StartCaches",
-			Action:  cmdStartCaches,
+			Flags:   _flag_CacheService_StartCaches,
+			Action:  _cmd_CacheService_StartCaches,
 		},
 		{
 			Name:    "RestartCaches",
 			Aliases: []string{},
 			Usage:   "RestartCaches",
-			Action:  cmdRestartCaches,
+			Flags:   _flag_CacheService_RestartCaches,
+			Action:  _cmd_CacheService_RestartCaches,
 		},
 		{
 			Name:    "DeleteCaches",
 			Aliases: []string{},
 			Usage:   "DeleteCaches",
-			Action:  cmdDeleteCaches,
+			Flags:   _flag_CacheService_DeleteCaches,
+			Action:  _cmd_CacheService_DeleteCaches,
 		},
 		{
 			Name:    "ResizeCaches",
 			Aliases: []string{},
 			Usage:   "ResizeCaches",
-			Action:  cmdResizeCaches,
+			Flags:   _flag_CacheService_ResizeCaches,
+			Action:  _cmd_CacheService_ResizeCaches,
 		},
 		{
 			Name:    "UpdateCache",
 			Aliases: []string{},
 			Usage:   "UpdateCache",
-			Action:  cmdUpdateCache,
+			Flags:   _flag_CacheService_UpdateCache,
+			Action:  _cmd_CacheService_UpdateCache,
 		},
 		{
 			Name:    "ChangeCacheVxnet",
 			Aliases: []string{},
 			Usage:   "ChangeCacheVxnet",
-			Action:  cmdChangeCacheVxnet,
+			Flags:   _flag_CacheService_ChangeCacheVxnet,
+			Action:  _cmd_CacheService_ChangeCacheVxnet,
 		},
 		{
 			Name:    "ModifyCacheAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyCacheAttributes",
-			Action:  cmdModifyCacheAttributes,
+			Flags:   _flag_CacheService_ModifyCacheAttributes,
+			Action:  _cmd_CacheService_ModifyCacheAttributes,
 		},
 		{
 			Name:    "DescribeCacheNodes",
 			Aliases: []string{},
 			Usage:   "DescribeCacheNodes",
-			Action:  cmdDescribeCacheNodes,
+			Flags:   _flag_CacheService_DescribeCacheNodes,
+			Action:  _cmd_CacheService_DescribeCacheNodes,
 		},
 		{
 			Name:    "AddCacheNodes",
 			Aliases: []string{},
 			Usage:   "AddCacheNodes",
-			Action:  cmdAddCacheNodes,
+			Flags:   _flag_CacheService_AddCacheNodes,
+			Action:  _cmd_CacheService_AddCacheNodes,
 		},
 		{
 			Name:    "DeleteCacheNodes",
 			Aliases: []string{},
 			Usage:   "DeleteCacheNodes",
-			Action:  cmdDeleteCacheNodes,
+			Flags:   _flag_CacheService_DeleteCacheNodes,
+			Action:  _cmd_CacheService_DeleteCacheNodes,
 		},
 		{
 			Name:    "RestartCacheNodes",
 			Aliases: []string{},
 			Usage:   "RestartCacheNodes",
-			Action:  cmdRestartCacheNodes,
+			Flags:   _flag_CacheService_RestartCacheNodes,
+			Action:  _cmd_CacheService_RestartCacheNodes,
 		},
 		{
 			Name:    "ModifyCacheNodeAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyCacheNodeAttributes",
-			Action:  cmdModifyCacheNodeAttributes,
+			Flags:   _flag_CacheService_ModifyCacheNodeAttributes,
+			Action:  _cmd_CacheService_ModifyCacheNodeAttributes,
 		},
 		{
 			Name:    "CreateCacheFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateCacheFromSnapshot",
-			Action:  cmdCreateCacheFromSnapshot,
+			Flags:   _flag_CacheService_CreateCacheFromSnapshot,
+			Action:  _cmd_CacheService_CreateCacheFromSnapshot,
 		},
 		{
 			Name:    "DescribeCacheParameterGroups",
 			Aliases: []string{},
 			Usage:   "DescribeCacheParameterGroups",
-			Action:  cmdDescribeCacheParameterGroups,
+			Flags:   _flag_CacheService_DescribeCacheParameterGroups,
+			Action:  _cmd_CacheService_DescribeCacheParameterGroups,
 		},
 		{
 			Name:    "CreateCacheParameterGroup",
 			Aliases: []string{},
 			Usage:   "CreateCacheParameterGroup",
-			Action:  cmdCreateCacheParameterGroup,
+			Flags:   _flag_CacheService_CreateCacheParameterGroup,
+			Action:  _cmd_CacheService_CreateCacheParameterGroup,
 		},
 		{
 			Name:    "ApplyCacheParameterGroup",
 			Aliases: []string{},
 			Usage:   "ApplyCacheParameterGroup",
-			Action:  cmdApplyCacheParameterGroup,
+			Flags:   _flag_CacheService_ApplyCacheParameterGroup,
+			Action:  _cmd_CacheService_ApplyCacheParameterGroup,
 		},
 		{
 			Name:    "DeleteCacheParameterGroups",
 			Aliases: []string{},
 			Usage:   "DeleteCacheParameterGroups",
-			Action:  cmdDeleteCacheParameterGroups,
+			Flags:   _flag_CacheService_DeleteCacheParameterGroups,
+			Action:  _cmd_CacheService_DeleteCacheParameterGroups,
 		},
 		{
 			Name:    "ModifyCacheParameterGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyCacheParameterGroupAttributes",
-			Action:  cmdModifyCacheParameterGroupAttributes,
+			Flags:   _flag_CacheService_ModifyCacheParameterGroupAttributes,
+			Action:  _cmd_CacheService_ModifyCacheParameterGroupAttributes,
 		},
 		{
 			Name:    "DescribeCacheParameters",
 			Aliases: []string{},
 			Usage:   "DescribeCacheParameters",
-			Action:  cmdDescribeCacheParameters,
+			Flags:   _flag_CacheService_DescribeCacheParameters,
+			Action:  _cmd_CacheService_DescribeCacheParameters,
 		},
 		{
 			Name:    "UpdateCacheParameters",
 			Aliases: []string{},
 			Usage:   "UpdateCacheParameters",
-			Action:  cmdUpdateCacheParameters,
+			Flags:   _flag_CacheService_UpdateCacheParameters,
+			Action:  _cmd_CacheService_UpdateCacheParameters,
 		},
 		{
 			Name:    "ResetCacheParameters",
 			Aliases: []string{},
 			Usage:   "ResetCacheParameters",
-			Action:  cmdResetCacheParameters,
+			Flags:   _flag_CacheService_ResetCacheParameters,
+			Action:  _cmd_CacheService_ResetCacheParameters,
 		},
 	},
 }
 
-func cmdDescribeCaches(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_DescribeCaches = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_DescribeCaches(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.DescribeCachesInput)
@@ -215,9 +241,11 @@ func cmdDescribeCaches(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateCache(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_CreateCache = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_CreateCache(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.CreateCacheInput)
@@ -244,9 +272,11 @@ func cmdCreateCache(c *cli.Context) error {
 	return nil
 }
 
-func cmdStopCaches(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_StopCaches = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_StopCaches(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.StopCachesInput)
@@ -273,9 +303,11 @@ func cmdStopCaches(c *cli.Context) error {
 	return nil
 }
 
-func cmdStartCaches(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_StartCaches = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_StartCaches(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.StartCachesInput)
@@ -302,9 +334,11 @@ func cmdStartCaches(c *cli.Context) error {
 	return nil
 }
 
-func cmdRestartCaches(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_RestartCaches = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_RestartCaches(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.RestartCachesInput)
@@ -331,9 +365,11 @@ func cmdRestartCaches(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteCaches(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_DeleteCaches = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_DeleteCaches(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.DeleteCachesInput)
@@ -360,9 +396,11 @@ func cmdDeleteCaches(c *cli.Context) error {
 	return nil
 }
 
-func cmdResizeCaches(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_ResizeCaches = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_ResizeCaches(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.ResizeCachesInput)
@@ -389,9 +427,11 @@ func cmdResizeCaches(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpdateCache(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_UpdateCache = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_UpdateCache(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.UpdateCacheInput)
@@ -418,9 +458,11 @@ func cmdUpdateCache(c *cli.Context) error {
 	return nil
 }
 
-func cmdChangeCacheVxnet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_ChangeCacheVxnet = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_ChangeCacheVxnet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.ChangeCacheVxnetInput)
@@ -447,9 +489,11 @@ func cmdChangeCacheVxnet(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyCacheAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_ModifyCacheAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_ModifyCacheAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.ModifyCacheAttributesInput)
@@ -476,9 +520,11 @@ func cmdModifyCacheAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeCacheNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_DescribeCacheNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_DescribeCacheNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.DescribeCacheNodesInput)
@@ -505,9 +551,11 @@ func cmdDescribeCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddCacheNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_AddCacheNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_AddCacheNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.AddCacheNodesInput)
@@ -534,9 +582,11 @@ func cmdAddCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteCacheNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_DeleteCacheNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_DeleteCacheNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.DeleteCacheNodesInput)
@@ -563,9 +613,11 @@ func cmdDeleteCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdRestartCacheNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_RestartCacheNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_RestartCacheNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.RestartCacheNodesInput)
@@ -592,9 +644,11 @@ func cmdRestartCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyCacheNodeAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_ModifyCacheNodeAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.ModifyCacheNodeAttributesInput)
@@ -621,9 +675,11 @@ func cmdModifyCacheNodeAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateCacheFromSnapshot(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_CreateCacheFromSnapshot = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.CreateCacheFromSnapshotInput)
@@ -650,9 +706,11 @@ func cmdCreateCacheFromSnapshot(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeCacheParameterGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_DescribeCacheParameterGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.DescribeCacheParameterGroupsInput)
@@ -679,9 +737,11 @@ func cmdDescribeCacheParameterGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateCacheParameterGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_CreateCacheParameterGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.CreateCacheParameterGroupInput)
@@ -708,9 +768,11 @@ func cmdCreateCacheParameterGroup(c *cli.Context) error {
 	return nil
 }
 
-func cmdApplyCacheParameterGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_ApplyCacheParameterGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.ApplyCacheParameterGroupInput)
@@ -737,9 +799,11 @@ func cmdApplyCacheParameterGroup(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteCacheParameterGroups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_DeleteCacheParameterGroups = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.DeleteCacheParameterGroupsInput)
@@ -766,9 +830,11 @@ func cmdDeleteCacheParameterGroups(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyCacheParameterGroupAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_ModifyCacheParameterGroupAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.ModifyCacheParameterGroupAttributesInput)
@@ -795,9 +861,11 @@ func cmdModifyCacheParameterGroupAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeCacheParameters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_DescribeCacheParameters = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_DescribeCacheParameters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.DescribeCacheParametersInput)
@@ -824,9 +892,11 @@ func cmdDescribeCacheParameters(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpdateCacheParameters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_UpdateCacheParameters = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_UpdateCacheParameters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.UpdateCacheParametersInput)
@@ -853,9 +923,11 @@ func cmdUpdateCacheParameters(c *cli.Context) error {
 	return nil
 }
 
-func cmdResetCacheParameters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_CacheService_ResetCacheParameters = []cli.Flag{ /* fields */ }
+
+func _cmd_CacheService_ResetCacheParameters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
 	in := new(pb.ResetCacheParametersInput)

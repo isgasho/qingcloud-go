@@ -43,44 +43,52 @@ var CmdNicService = cli.Command{
 			Name:    "CreateNics",
 			Aliases: []string{},
 			Usage:   "CreateNics",
-			Action:  cmdCreateNics,
+			Flags:   _flag_NicService_CreateNics,
+			Action:  _cmd_NicService_CreateNics,
 		},
 		{
 			Name:    "DescribeNics",
 			Aliases: []string{},
 			Usage:   "DescribeNics",
-			Action:  cmdDescribeNics,
+			Flags:   _flag_NicService_DescribeNics,
+			Action:  _cmd_NicService_DescribeNics,
 		},
 		{
 			Name:    "AttachNics",
 			Aliases: []string{},
 			Usage:   "AttachNics",
-			Action:  cmdAttachNics,
+			Flags:   _flag_NicService_AttachNics,
+			Action:  _cmd_NicService_AttachNics,
 		},
 		{
 			Name:    "DetachNics",
 			Aliases: []string{},
 			Usage:   "DetachNics",
-			Action:  cmdDetachNics,
+			Flags:   _flag_NicService_DetachNics,
+			Action:  _cmd_NicService_DetachNics,
 		},
 		{
 			Name:    "ModifyNicAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyNicAttributes",
-			Action:  cmdModifyNicAttributes,
+			Flags:   _flag_NicService_ModifyNicAttributes,
+			Action:  _cmd_NicService_ModifyNicAttributes,
 		},
 		{
 			Name:    "DeleteNics",
 			Aliases: []string{},
 			Usage:   "DeleteNics",
-			Action:  cmdDeleteNics,
+			Flags:   _flag_NicService_DeleteNics,
+			Action:  _cmd_NicService_DeleteNics,
 		},
 	},
 }
 
-func cmdCreateNics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_NicService_CreateNics = []cli.Flag{ /* fields */ }
+
+func _cmd_NicService_CreateNics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
 	in := new(pb.CreateNicsInput)
@@ -107,9 +115,11 @@ func cmdCreateNics(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeNics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_NicService_DescribeNics = []cli.Flag{ /* fields */ }
+
+func _cmd_NicService_DescribeNics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
 	in := new(pb.DescribeNicsInput)
@@ -136,9 +146,11 @@ func cmdDescribeNics(c *cli.Context) error {
 	return nil
 }
 
-func cmdAttachNics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_NicService_AttachNics = []cli.Flag{ /* fields */ }
+
+func _cmd_NicService_AttachNics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
 	in := new(pb.AttachNicsInput)
@@ -165,9 +177,11 @@ func cmdAttachNics(c *cli.Context) error {
 	return nil
 }
 
-func cmdDetachNics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_NicService_DetachNics = []cli.Flag{ /* fields */ }
+
+func _cmd_NicService_DetachNics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
 	in := new(pb.DetachNicsInput)
@@ -194,9 +208,11 @@ func cmdDetachNics(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyNicAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_NicService_ModifyNicAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_NicService_ModifyNicAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
 	in := new(pb.ModifyNicAttributesInput)
@@ -223,9 +239,11 @@ func cmdModifyNicAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteNics(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_NicService_DeleteNics = []cli.Flag{ /* fields */ }
+
+func _cmd_NicService_DeleteNics(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
 	in := new(pb.DeleteNicsInput)

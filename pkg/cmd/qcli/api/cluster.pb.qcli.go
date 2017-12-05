@@ -43,134 +43,157 @@ var CmdClusterService = cli.Command{
 			Name:    "CreateCluster",
 			Aliases: []string{},
 			Usage:   "CreateCluster",
-			Action:  cmdCreateCluster,
+			Flags:   _flag_ClusterService_CreateCluster,
+			Action:  _cmd_ClusterService_CreateCluster,
 		},
 		{
 			Name:    "DescribeClusters",
 			Aliases: []string{},
 			Usage:   "DescribeClusters",
-			Action:  cmdDescribeClusters,
+			Flags:   _flag_ClusterService_DescribeClusters,
+			Action:  _cmd_ClusterService_DescribeClusters,
 		},
 		{
 			Name:    "DescribeClusterNodes",
 			Aliases: []string{},
 			Usage:   "DescribeClusterNodes",
-			Action:  cmdDescribeClusterNodes,
+			Flags:   _flag_ClusterService_DescribeClusterNodes,
+			Action:  _cmd_ClusterService_DescribeClusterNodes,
 		},
 		{
 			Name:    "StopClusters",
 			Aliases: []string{},
 			Usage:   "StopClusters",
-			Action:  cmdStopClusters,
+			Flags:   _flag_ClusterService_StopClusters,
+			Action:  _cmd_ClusterService_StopClusters,
 		},
 		{
 			Name:    "StartClusters",
 			Aliases: []string{},
 			Usage:   "StartClusters",
-			Action:  cmdStartClusters,
+			Flags:   _flag_ClusterService_StartClusters,
+			Action:  _cmd_ClusterService_StartClusters,
 		},
 		{
 			Name:    "DeleteClusters",
 			Aliases: []string{},
 			Usage:   "DeleteClusters",
-			Action:  cmdDeleteClusters,
+			Flags:   _flag_ClusterService_DeleteClusters,
+			Action:  _cmd_ClusterService_DeleteClusters,
 		},
 		{
 			Name:    "Lease",
 			Aliases: []string{},
 			Usage:   "Lease",
-			Action:  cmdLease,
+			Flags:   _flag_ClusterService_Lease,
+			Action:  _cmd_ClusterService_Lease,
 		},
 		{
 			Name:    "AddClusterNodes",
 			Aliases: []string{},
 			Usage:   "AddClusterNodes",
-			Action:  cmdAddClusterNodes,
+			Flags:   _flag_ClusterService_AddClusterNodes,
+			Action:  _cmd_ClusterService_AddClusterNodes,
 		},
 		{
 			Name:    "DeleteClusterNodes",
 			Aliases: []string{},
 			Usage:   "DeleteClusterNodes",
-			Action:  cmdDeleteClusterNodes,
+			Flags:   _flag_ClusterService_DeleteClusterNodes,
+			Action:  _cmd_ClusterService_DeleteClusterNodes,
 		},
 		{
 			Name:    "ResizeCluster",
 			Aliases: []string{},
 			Usage:   "ResizeCluster",
-			Action:  cmdResizeCluster,
+			Flags:   _flag_ClusterService_ResizeCluster,
+			Action:  _cmd_ClusterService_ResizeCluster,
 		},
 		{
 			Name:    "ChangeClusterVxnet",
 			Aliases: []string{},
 			Usage:   "ChangeClusterVxnet",
-			Action:  cmdChangeClusterVxnet,
+			Flags:   _flag_ClusterService_ChangeClusterVxnet,
+			Action:  _cmd_ClusterService_ChangeClusterVxnet,
 		},
 		{
 			Name:    "SuspendClusters",
 			Aliases: []string{},
 			Usage:   "SuspendClusters",
-			Action:  cmdSuspendClusters,
+			Flags:   _flag_ClusterService_SuspendClusters,
+			Action:  _cmd_ClusterService_SuspendClusters,
 		},
 		{
 			Name:    "UpdateClusterEnvironment",
 			Aliases: []string{},
 			Usage:   "UpdateClusterEnvironment",
-			Action:  cmdUpdateClusterEnvironment,
+			Flags:   _flag_ClusterService_UpdateClusterEnvironment,
+			Action:  _cmd_ClusterService_UpdateClusterEnvironment,
 		},
 		{
 			Name:    "ModifyClusterAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyClusterAttributes",
-			Action:  cmdModifyClusterAttributes,
+			Flags:   _flag_ClusterService_ModifyClusterAttributes,
+			Action:  _cmd_ClusterService_ModifyClusterAttributes,
 		},
 		{
 			Name:    "ModifyClusterNodeAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyClusterNodeAttributes",
-			Action:  cmdModifyClusterNodeAttributes,
+			Flags:   _flag_ClusterService_ModifyClusterNodeAttributes,
+			Action:  _cmd_ClusterService_ModifyClusterNodeAttributes,
 		},
 		{
 			Name:    "GetClustersStats",
 			Aliases: []string{},
 			Usage:   "GetClustersStats",
-			Action:  cmdGetClustersStats,
+			Flags:   _flag_ClusterService_GetClustersStats,
+			Action:  _cmd_ClusterService_GetClustersStats,
 		},
 		{
 			Name:    "DescribeClusterUsers",
 			Aliases: []string{},
 			Usage:   "DescribeClusterUsers",
-			Action:  cmdDescribeClusterUsers,
+			Flags:   _flag_ClusterService_DescribeClusterUsers,
+			Action:  _cmd_ClusterService_DescribeClusterUsers,
 		},
 		{
 			Name:    "RestartClusterService",
 			Aliases: []string{},
 			Usage:   "RestartClusterService",
-			Action:  cmdRestartClusterService,
+			Flags:   _flag_ClusterService_RestartClusterService,
+			Action:  _cmd_ClusterService_RestartClusterService,
 		},
 		{
 			Name:    "UpgradeClusters",
 			Aliases: []string{},
 			Usage:   "UpgradeClusters",
-			Action:  cmdUpgradeClusters,
+			Flags:   _flag_ClusterService_UpgradeClusters,
+			Action:  _cmd_ClusterService_UpgradeClusters,
 		},
 		{
 			Name:    "AuthorizeClustersBrokerToDeveloper",
 			Aliases: []string{},
 			Usage:   "AuthorizeClustersBrokerToDeveloper",
-			Action:  cmdAuthorizeClustersBrokerToDeveloper,
+			Flags:   _flag_ClusterService_AuthorizeClustersBrokerToDeveloper,
+			Action:  _cmd_ClusterService_AuthorizeClustersBrokerToDeveloper,
 		},
 		{
 			Name:    "RevokeClustersBrokerFromDeveloper",
 			Aliases: []string{},
 			Usage:   "RevokeClustersBrokerFromDeveloper",
-			Action:  cmdRevokeClustersBrokerFromDeveloper,
+			Flags:   _flag_ClusterService_RevokeClustersBrokerFromDeveloper,
+			Action:  _cmd_ClusterService_RevokeClustersBrokerFromDeveloper,
 		},
 	},
 }
 
-func cmdCreateCluster(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_CreateCluster = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_CreateCluster(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.CreateClusterInput)
@@ -197,9 +220,11 @@ func cmdCreateCluster(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeClusters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_DescribeClusters = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_DescribeClusters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.DescribeClustersInput)
@@ -226,9 +251,11 @@ func cmdDescribeClusters(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeClusterNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_DescribeClusterNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_DescribeClusterNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.DescribeClusterNodesInput)
@@ -255,9 +282,11 @@ func cmdDescribeClusterNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdStopClusters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_StopClusters = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_StopClusters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.StopClustersInput)
@@ -284,9 +313,11 @@ func cmdStopClusters(c *cli.Context) error {
 	return nil
 }
 
-func cmdStartClusters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_StartClusters = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_StartClusters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.StartClustersInput)
@@ -313,9 +344,11 @@ func cmdStartClusters(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteClusters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_DeleteClusters = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_DeleteClusters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.DeleteClustersInput)
@@ -342,9 +375,11 @@ func cmdDeleteClusters(c *cli.Context) error {
 	return nil
 }
 
-func cmdLease(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_Lease = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_Lease(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.LeaseInput)
@@ -371,9 +406,11 @@ func cmdLease(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddClusterNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_AddClusterNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_AddClusterNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.AddClusterNodesInput)
@@ -400,9 +437,11 @@ func cmdAddClusterNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteClusterNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_DeleteClusterNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_DeleteClusterNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.DeleteClusterNodesInput)
@@ -429,9 +468,11 @@ func cmdDeleteClusterNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdResizeCluster(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_ResizeCluster = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_ResizeCluster(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.ResizeClusterInput)
@@ -458,9 +499,11 @@ func cmdResizeCluster(c *cli.Context) error {
 	return nil
 }
 
-func cmdChangeClusterVxnet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_ChangeClusterVxnet = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.ChangeClusterVxnetInput)
@@ -487,9 +530,11 @@ func cmdChangeClusterVxnet(c *cli.Context) error {
 	return nil
 }
 
-func cmdSuspendClusters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_SuspendClusters = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_SuspendClusters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.SuspendClustersInput)
@@ -516,9 +561,11 @@ func cmdSuspendClusters(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpdateClusterEnvironment(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_UpdateClusterEnvironment = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.UpdateClusterEnvironmentInput)
@@ -545,9 +592,11 @@ func cmdUpdateClusterEnvironment(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyClusterAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_ModifyClusterAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.ModifyClusterAttributesInput)
@@ -574,9 +623,11 @@ func cmdModifyClusterAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyClusterNodeAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_ModifyClusterNodeAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.ModifyClusterNodeAttributesInput)
@@ -603,9 +654,11 @@ func cmdModifyClusterNodeAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetClustersStats(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_GetClustersStats = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_GetClustersStats(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.GetClustersStatsInput)
@@ -632,9 +685,11 @@ func cmdGetClustersStats(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeClusterUsers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_DescribeClusterUsers = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_DescribeClusterUsers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.DescribeClusterUsersInput)
@@ -661,9 +716,11 @@ func cmdDescribeClusterUsers(c *cli.Context) error {
 	return nil
 }
 
-func cmdRestartClusterService(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_RestartClusterService = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_RestartClusterService(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.RestartClusterServiceInput)
@@ -690,9 +747,11 @@ func cmdRestartClusterService(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpgradeClusters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_UpgradeClusters = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_UpgradeClusters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.UpgradeClustersInput)
@@ -719,9 +778,11 @@ func cmdUpgradeClusters(c *cli.Context) error {
 	return nil
 }
 
-func cmdAuthorizeClustersBrokerToDeveloper(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_AuthorizeClustersBrokerToDeveloper = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.AuthorizeClustersBrokerToDeveloperInput)
@@ -748,9 +809,11 @@ func cmdAuthorizeClustersBrokerToDeveloper(c *cli.Context) error {
 	return nil
 }
 
-func cmdRevokeClustersBrokerFromDeveloper(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ClusterService_RevokeClustersBrokerFromDeveloper = []cli.Flag{ /* fields */ }
+
+func _cmd_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
 
 	in := new(pb.RevokeClustersBrokerFromDeveloperInput)

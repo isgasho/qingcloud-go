@@ -43,194 +43,227 @@ var CmdLoadBalancerService = cli.Command{
 			Name:    "CreateLoadBalancer",
 			Aliases: []string{},
 			Usage:   "CreateLoadBalancer",
-			Action:  cmdCreateLoadBalancer,
+			Flags:   _flag_LoadBalancerService_CreateLoadBalancer,
+			Action:  _cmd_LoadBalancerService_CreateLoadBalancer,
 		},
 		{
 			Name:    "DescribeLoadBalancers",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancers",
-			Action:  cmdDescribeLoadBalancers,
+			Flags:   _flag_LoadBalancerService_DescribeLoadBalancers,
+			Action:  _cmd_LoadBalancerService_DescribeLoadBalancers,
 		},
 		{
 			Name:    "DeleteLoadBalancers",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancers",
-			Action:  cmdDeleteLoadBalancers,
+			Flags:   _flag_LoadBalancerService_DeleteLoadBalancers,
+			Action:  _cmd_LoadBalancerService_DeleteLoadBalancers,
 		},
 		{
 			Name:    "ModifyLoadBalancerAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerAttributes",
-			Action:  cmdModifyLoadBalancerAttributes,
+			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerAttributes,
+			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerAttributes,
 		},
 		{
 			Name:    "StartLoadBalancers",
 			Aliases: []string{},
 			Usage:   "StartLoadBalancers",
-			Action:  cmdStartLoadBalancers,
+			Flags:   _flag_LoadBalancerService_StartLoadBalancers,
+			Action:  _cmd_LoadBalancerService_StartLoadBalancers,
 		},
 		{
 			Name:    "StopLoadBalancers",
 			Aliases: []string{},
 			Usage:   "StopLoadBalancers",
-			Action:  cmdStopLoadBalancers,
+			Flags:   _flag_LoadBalancerService_StopLoadBalancers,
+			Action:  _cmd_LoadBalancerService_StopLoadBalancers,
 		},
 		{
 			Name:    "UpdateLoadBalancers",
 			Aliases: []string{},
 			Usage:   "UpdateLoadBalancers",
-			Action:  cmdUpdateLoadBalancers,
+			Flags:   _flag_LoadBalancerService_UpdateLoadBalancers,
+			Action:  _cmd_LoadBalancerService_UpdateLoadBalancers,
 		},
 		{
 			Name:    "ResizeLoadBalancers",
 			Aliases: []string{},
 			Usage:   "ResizeLoadBalancers",
-			Action:  cmdResizeLoadBalancers,
+			Flags:   _flag_LoadBalancerService_ResizeLoadBalancers,
+			Action:  _cmd_LoadBalancerService_ResizeLoadBalancers,
 		},
 		{
 			Name:    "AssociateEipsToLoadBalancer",
 			Aliases: []string{},
 			Usage:   "AssociateEipsToLoadBalancer",
-			Action:  cmdAssociateEipsToLoadBalancer,
+			Flags:   _flag_LoadBalancerService_AssociateEipsToLoadBalancer,
+			Action:  _cmd_LoadBalancerService_AssociateEipsToLoadBalancer,
 		},
 		{
 			Name:    "DissociateEipsFromLoadBalancer",
 			Aliases: []string{},
 			Usage:   "DissociateEipsFromLoadBalancer",
-			Action:  cmdDissociateEipsFromLoadBalancer,
+			Flags:   _flag_LoadBalancerService_DissociateEipsFromLoadBalancer,
+			Action:  _cmd_LoadBalancerService_DissociateEipsFromLoadBalancer,
 		},
 		{
 			Name:    "AddLoadBalancerListeners",
 			Aliases: []string{},
 			Usage:   "AddLoadBalancerListeners",
-			Action:  cmdAddLoadBalancerListeners,
+			Flags:   _flag_LoadBalancerService_AddLoadBalancerListeners,
+			Action:  _cmd_LoadBalancerService_AddLoadBalancerListeners,
 		},
 		{
 			Name:    "DescribeLoadBalancerListeners",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerListeners",
-			Action:  cmdDescribeLoadBalancerListeners,
+			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerListeners,
+			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerListeners,
 		},
 		{
 			Name:    "DeleteLoadBalancerListeners",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerListeners",
-			Action:  cmdDeleteLoadBalancerListeners,
+			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerListeners,
+			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerListeners,
 		},
 		{
 			Name:    "ModifyLoadBalancerListenerAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerListenerAttributes",
-			Action:  cmdModifyLoadBalancerListenerAttributes,
+			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerListenerAttributes,
+			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerListenerAttributes,
 		},
 		{
 			Name:    "AddLoadBalancerBackends",
 			Aliases: []string{},
 			Usage:   "AddLoadBalancerBackends",
-			Action:  cmdAddLoadBalancerBackends,
+			Flags:   _flag_LoadBalancerService_AddLoadBalancerBackends,
+			Action:  _cmd_LoadBalancerService_AddLoadBalancerBackends,
 		},
 		{
 			Name:    "DescribeLoadBalancerBackends",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerBackends",
-			Action:  cmdDescribeLoadBalancerBackends,
+			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerBackends,
+			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerBackends,
 		},
 		{
 			Name:    "DeleteLoadBalancerBackends",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerBackends",
-			Action:  cmdDeleteLoadBalancerBackends,
+			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerBackends,
+			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerBackends,
 		},
 		{
 			Name:    "ModifyLoadBalancerBackendAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerBackendAttributes",
-			Action:  cmdModifyLoadBalancerBackendAttributes,
+			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerBackendAttributes,
+			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerBackendAttributes,
 		},
 		{
 			Name:    "CreateLoadBalancerPolicy",
 			Aliases: []string{},
 			Usage:   "CreateLoadBalancerPolicy",
-			Action:  cmdCreateLoadBalancerPolicy,
+			Flags:   _flag_LoadBalancerService_CreateLoadBalancerPolicy,
+			Action:  _cmd_LoadBalancerService_CreateLoadBalancerPolicy,
 		},
 		{
 			Name:    "DescribeLoadBalancerPolicies",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerPolicies",
-			Action:  cmdDescribeLoadBalancerPolicies,
+			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerPolicies,
+			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerPolicies,
 		},
 		{
 			Name:    "ModifyLoadBalancerPolicyAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerPolicyAttributes",
-			Action:  cmdModifyLoadBalancerPolicyAttributes,
+			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerPolicyAttributes,
+			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerPolicyAttributes,
 		},
 		{
 			Name:    "ApplyLoadBalancerPolicy",
 			Aliases: []string{},
 			Usage:   "ApplyLoadBalancerPolicy",
-			Action:  cmdApplyLoadBalancerPolicy,
+			Flags:   _flag_LoadBalancerService_ApplyLoadBalancerPolicy,
+			Action:  _cmd_LoadBalancerService_ApplyLoadBalancerPolicy,
 		},
 		{
 			Name:    "DeleteLoadBalancerPolicies",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerPolicies",
-			Action:  cmdDeleteLoadBalancerPolicies,
+			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerPolicies,
+			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerPolicies,
 		},
 		{
 			Name:    "AddLoadBalancerPolicyRules",
 			Aliases: []string{},
 			Usage:   "AddLoadBalancerPolicyRules",
-			Action:  cmdAddLoadBalancerPolicyRules,
+			Flags:   _flag_LoadBalancerService_AddLoadBalancerPolicyRules,
+			Action:  _cmd_LoadBalancerService_AddLoadBalancerPolicyRules,
 		},
 		{
 			Name:    "DescribeLoadBalancerPolicyRules",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerPolicyRules",
-			Action:  cmdDescribeLoadBalancerPolicyRules,
+			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerPolicyRules,
+			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerPolicyRules,
 		},
 		{
 			Name:    "ModifyLoadBalancerPolicyRuleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerPolicyRuleAttributes",
-			Action:  cmdModifyLoadBalancerPolicyRuleAttributes,
+			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes,
+			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes,
 		},
 		{
 			Name:    "DeleteLoadBalancerPolicyRules",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerPolicyRules",
-			Action:  cmdDeleteLoadBalancerPolicyRules,
+			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerPolicyRules,
+			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerPolicyRules,
 		},
 		{
 			Name:    "CreateServerCertificate",
 			Aliases: []string{},
 			Usage:   "CreateServerCertificate",
-			Action:  cmdCreateServerCertificate,
+			Flags:   _flag_LoadBalancerService_CreateServerCertificate,
+			Action:  _cmd_LoadBalancerService_CreateServerCertificate,
 		},
 		{
 			Name:    "DescribeServerCertificates",
 			Aliases: []string{},
 			Usage:   "DescribeServerCertificates",
-			Action:  cmdDescribeServerCertificates,
+			Flags:   _flag_LoadBalancerService_DescribeServerCertificates,
+			Action:  _cmd_LoadBalancerService_DescribeServerCertificates,
 		},
 		{
 			Name:    "ModifyServerCertificateAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyServerCertificateAttributes",
-			Action:  cmdModifyServerCertificateAttributes,
+			Flags:   _flag_LoadBalancerService_ModifyServerCertificateAttributes,
+			Action:  _cmd_LoadBalancerService_ModifyServerCertificateAttributes,
 		},
 		{
 			Name:    "DeleteServerCertificates",
 			Aliases: []string{},
 			Usage:   "DeleteServerCertificates",
-			Action:  cmdDeleteServerCertificates,
+			Flags:   _flag_LoadBalancerService_DeleteServerCertificates,
+			Action:  _cmd_LoadBalancerService_DeleteServerCertificates,
 		},
 	},
 }
 
-func cmdCreateLoadBalancer(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.CreateLoadBalancerInput)
@@ -257,9 +290,11 @@ func cmdCreateLoadBalancer(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeLoadBalancers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DescribeLoadBalancers = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DescribeLoadBalancersInput)
@@ -286,9 +321,11 @@ func cmdDescribeLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteLoadBalancers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DeleteLoadBalancers = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DeleteLoadBalancersInput)
@@ -315,9 +352,11 @@ func cmdDeleteLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyLoadBalancerAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ModifyLoadBalancerAttributesInput)
@@ -344,9 +383,11 @@ func cmdModifyLoadBalancerAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdStartLoadBalancers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_StartLoadBalancers = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.StartLoadBalancersInput)
@@ -373,9 +414,11 @@ func cmdStartLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-func cmdStopLoadBalancers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_StopLoadBalancers = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.StopLoadBalancersInput)
@@ -402,9 +445,11 @@ func cmdStopLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpdateLoadBalancers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_UpdateLoadBalancers = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.UpdateLoadBalancersInput)
@@ -431,9 +476,11 @@ func cmdUpdateLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-func cmdResizeLoadBalancers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ResizeLoadBalancers = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ResizeLoadBalancersInput)
@@ -460,9 +507,11 @@ func cmdResizeLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-func cmdAssociateEipsToLoadBalancer(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_AssociateEipsToLoadBalancer = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.AssociateEipsToLoadBalancerInput)
@@ -489,9 +538,11 @@ func cmdAssociateEipsToLoadBalancer(c *cli.Context) error {
 	return nil
 }
 
-func cmdDissociateEipsFromLoadBalancer(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DissociateEipsFromLoadBalancer = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DissociateEipsFromLoadBalancerInput)
@@ -518,9 +569,11 @@ func cmdDissociateEipsFromLoadBalancer(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddLoadBalancerListeners(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_AddLoadBalancerListeners = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.AddLoadBalancerListenersInput)
@@ -547,9 +600,11 @@ func cmdAddLoadBalancerListeners(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeLoadBalancerListeners(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DescribeLoadBalancerListeners = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DescribeLoadBalancerListenersInput)
@@ -576,9 +631,11 @@ func cmdDescribeLoadBalancerListeners(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteLoadBalancerListeners(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DeleteLoadBalancerListeners = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DeleteLoadBalancerListenersInput)
@@ -605,9 +662,11 @@ func cmdDeleteLoadBalancerListeners(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyLoadBalancerListenerAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ModifyLoadBalancerListenerAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ModifyLoadBalancerListenerAttributesInput)
@@ -634,9 +693,11 @@ func cmdModifyLoadBalancerListenerAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddLoadBalancerBackends(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_AddLoadBalancerBackends = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.AddLoadBalancerBackendsInput)
@@ -663,9 +724,11 @@ func cmdAddLoadBalancerBackends(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeLoadBalancerBackends(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DescribeLoadBalancerBackends = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DescribeLoadBalancerBackendsInput)
@@ -692,9 +755,11 @@ func cmdDescribeLoadBalancerBackends(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteLoadBalancerBackends(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DeleteLoadBalancerBackends = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DeleteLoadBalancerBackendsInput)
@@ -721,9 +786,11 @@ func cmdDeleteLoadBalancerBackends(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyLoadBalancerBackendAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ModifyLoadBalancerBackendAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ModifyLoadBalancerBackendAttributesInput)
@@ -750,9 +817,11 @@ func cmdModifyLoadBalancerBackendAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateLoadBalancerPolicy(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_CreateLoadBalancerPolicy = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.CreateLoadBalancerPolicyInput)
@@ -779,9 +848,11 @@ func cmdCreateLoadBalancerPolicy(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeLoadBalancerPolicies(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DescribeLoadBalancerPolicies = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DescribeLoadBalancerPoliciesInput)
@@ -808,9 +879,11 @@ func cmdDescribeLoadBalancerPolicies(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyLoadBalancerPolicyAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ModifyLoadBalancerPolicyAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ModifyLoadBalancerPolicyAttributesInput)
@@ -837,9 +910,11 @@ func cmdModifyLoadBalancerPolicyAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdApplyLoadBalancerPolicy(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ApplyLoadBalancerPolicy = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ApplyLoadBalancerPolicyInput)
@@ -866,9 +941,11 @@ func cmdApplyLoadBalancerPolicy(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteLoadBalancerPolicies(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DeleteLoadBalancerPolicies = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DeleteLoadBalancerPoliciesInput)
@@ -895,9 +972,11 @@ func cmdDeleteLoadBalancerPolicies(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddLoadBalancerPolicyRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_AddLoadBalancerPolicyRules = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.AddLoadBalancerPolicyRulesInput)
@@ -924,9 +1003,11 @@ func cmdAddLoadBalancerPolicyRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeLoadBalancerPolicyRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DescribeLoadBalancerPolicyRules = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DescribeLoadBalancerPolicyRulesInput)
@@ -953,9 +1034,11 @@ func cmdDescribeLoadBalancerPolicyRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyLoadBalancerPolicyRuleAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ModifyLoadBalancerPolicyRuleAttributesInput)
@@ -982,9 +1065,11 @@ func cmdModifyLoadBalancerPolicyRuleAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteLoadBalancerPolicyRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DeleteLoadBalancerPolicyRules = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DeleteLoadBalancerPolicyRulesInput)
@@ -1011,9 +1096,11 @@ func cmdDeleteLoadBalancerPolicyRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateServerCertificate(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_CreateServerCertificate = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.CreateServerCertificateInput)
@@ -1040,9 +1127,11 @@ func cmdCreateServerCertificate(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeServerCertificates(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DescribeServerCertificates = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DescribeServerCertificatesInput)
@@ -1069,9 +1158,11 @@ func cmdDescribeServerCertificates(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyServerCertificateAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_ModifyServerCertificateAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.ModifyServerCertificateAttributesInput)
@@ -1098,9 +1189,11 @@ func cmdModifyServerCertificateAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteServerCertificates(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_LoadBalancerService_DeleteServerCertificates = []cli.Flag{ /* fields */ }
+
+func _cmd_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
 	in := new(pb.DeleteServerCertificatesInput)

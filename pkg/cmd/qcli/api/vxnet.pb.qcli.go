@@ -43,50 +43,59 @@ var CmdVxnetService = cli.Command{
 			Name:    "DescribeVxnets",
 			Aliases: []string{},
 			Usage:   "DescribeVxnets",
-			Action:  cmdDescribeVxnets,
+			Flags:   _flag_VxnetService_DescribeVxnets,
+			Action:  _cmd_VxnetService_DescribeVxnets,
 		},
 		{
 			Name:    "CreateVxnets",
 			Aliases: []string{},
 			Usage:   "CreateVxnets",
-			Action:  cmdCreateVxnets,
+			Flags:   _flag_VxnetService_CreateVxnets,
+			Action:  _cmd_VxnetService_CreateVxnets,
 		},
 		{
 			Name:    "DeleteVxnets",
 			Aliases: []string{},
 			Usage:   "DeleteVxnets",
-			Action:  cmdDeleteVxnets,
+			Flags:   _flag_VxnetService_DeleteVxnets,
+			Action:  _cmd_VxnetService_DeleteVxnets,
 		},
 		{
 			Name:    "JoinVxnet",
 			Aliases: []string{},
 			Usage:   "JoinVxnet",
-			Action:  cmdJoinVxnet,
+			Flags:   _flag_VxnetService_JoinVxnet,
+			Action:  _cmd_VxnetService_JoinVxnet,
 		},
 		{
 			Name:    "LeaveVxnet",
 			Aliases: []string{},
 			Usage:   "LeaveVxnet",
-			Action:  cmdLeaveVxnet,
+			Flags:   _flag_VxnetService_LeaveVxnet,
+			Action:  _cmd_VxnetService_LeaveVxnet,
 		},
 		{
 			Name:    "ModifyVxnetAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyVxnetAttributes",
-			Action:  cmdModifyVxnetAttributes,
+			Flags:   _flag_VxnetService_ModifyVxnetAttributes,
+			Action:  _cmd_VxnetService_ModifyVxnetAttributes,
 		},
 		{
 			Name:    "DescribeVxnetInstances",
 			Aliases: []string{},
 			Usage:   "DescribeVxnetInstances",
-			Action:  cmdDescribeVxnetInstances,
+			Flags:   _flag_VxnetService_DescribeVxnetInstances,
+			Action:  _cmd_VxnetService_DescribeVxnetInstances,
 		},
 	},
 }
 
-func cmdDescribeVxnets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VxnetService_DescribeVxnets = []cli.Flag{ /* fields */ }
+
+func _cmd_VxnetService_DescribeVxnets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
 	in := new(pb.DescribeVxnetsInput)
@@ -113,9 +122,11 @@ func cmdDescribeVxnets(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateVxnets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VxnetService_CreateVxnets = []cli.Flag{ /* fields */ }
+
+func _cmd_VxnetService_CreateVxnets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
 	in := new(pb.CreateVxnetsInput)
@@ -142,9 +153,11 @@ func cmdCreateVxnets(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteVxnets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VxnetService_DeleteVxnets = []cli.Flag{ /* fields */ }
+
+func _cmd_VxnetService_DeleteVxnets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
 	in := new(pb.DeleteVxnetsInput)
@@ -171,9 +184,11 @@ func cmdDeleteVxnets(c *cli.Context) error {
 	return nil
 }
 
-func cmdJoinVxnet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VxnetService_JoinVxnet = []cli.Flag{ /* fields */ }
+
+func _cmd_VxnetService_JoinVxnet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
 	in := new(pb.JoinVxnetInput)
@@ -200,9 +215,11 @@ func cmdJoinVxnet(c *cli.Context) error {
 	return nil
 }
 
-func cmdLeaveVxnet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VxnetService_LeaveVxnet = []cli.Flag{ /* fields */ }
+
+func _cmd_VxnetService_LeaveVxnet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
 	in := new(pb.LeaveVxnetInput)
@@ -229,9 +246,11 @@ func cmdLeaveVxnet(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyVxnetAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VxnetService_ModifyVxnetAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_VxnetService_ModifyVxnetAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
 	in := new(pb.ModifyVxnetAttributesInput)
@@ -258,9 +277,11 @@ func cmdModifyVxnetAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeVxnetInstances(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_VxnetService_DescribeVxnetInstances = []cli.Flag{ /* fields */ }
+
+func _cmd_VxnetService_DescribeVxnetInstances(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
 	in := new(pb.DescribeVxnetInstancesInput)

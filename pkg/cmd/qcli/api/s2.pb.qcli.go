@@ -43,176 +43,206 @@ var CmdS2Service = cli.Command{
 			Name:    "CreateS2Server",
 			Aliases: []string{},
 			Usage:   "CreateS2Server",
-			Action:  cmdCreateS2Server,
+			Flags:   _flag_S2Service_CreateS2Server,
+			Action:  _cmd_S2Service_CreateS2Server,
 		},
 		{
 			Name:    "DescribeS2Servers",
 			Aliases: []string{},
 			Usage:   "DescribeS2Servers",
-			Action:  cmdDescribeS2Servers,
+			Flags:   _flag_S2Service_DescribeS2Servers,
+			Action:  _cmd_S2Service_DescribeS2Servers,
 		},
 		{
 			Name:    "ModifyS2Server",
 			Aliases: []string{},
 			Usage:   "ModifyS2Server",
-			Action:  cmdModifyS2Server,
+			Flags:   _flag_S2Service_ModifyS2Server,
+			Action:  _cmd_S2Service_ModifyS2Server,
 		},
 		{
 			Name:    "ResizeS2Servers",
 			Aliases: []string{},
 			Usage:   "ResizeS2Servers",
-			Action:  cmdResizeS2Servers,
+			Flags:   _flag_S2Service_ResizeS2Servers,
+			Action:  _cmd_S2Service_ResizeS2Servers,
 		},
 		{
 			Name:    "DeleteS2Servers",
 			Aliases: []string{},
 			Usage:   "DeleteS2Servers",
-			Action:  cmdDeleteS2Servers,
+			Flags:   _flag_S2Service_DeleteS2Servers,
+			Action:  _cmd_S2Service_DeleteS2Servers,
 		},
 		{
 			Name:    "PowerOnS2Servers",
 			Aliases: []string{},
 			Usage:   "PowerOnS2Servers",
-			Action:  cmdPowerOnS2Servers,
+			Flags:   _flag_S2Service_PowerOnS2Servers,
+			Action:  _cmd_S2Service_PowerOnS2Servers,
 		},
 		{
 			Name:    "PowerOffS2Servers",
 			Aliases: []string{},
 			Usage:   "PowerOffS2Servers",
-			Action:  cmdPowerOffS2Servers,
+			Flags:   _flag_S2Service_PowerOffS2Servers,
+			Action:  _cmd_S2Service_PowerOffS2Servers,
 		},
 		{
 			Name:    "UpdateS2Servers",
 			Aliases: []string{},
 			Usage:   "UpdateS2Servers",
-			Action:  cmdUpdateS2Servers,
+			Flags:   _flag_S2Service_UpdateS2Servers,
+			Action:  _cmd_S2Service_UpdateS2Servers,
 		},
 		{
 			Name:    "ChangeS2ServerVxnet",
 			Aliases: []string{},
 			Usage:   "ChangeS2ServerVxnet",
-			Action:  cmdChangeS2ServerVxnet,
+			Flags:   _flag_S2Service_ChangeS2ServerVxnet,
+			Action:  _cmd_S2Service_ChangeS2ServerVxnet,
 		},
 		{
 			Name:    "CreateS2SharedTarget",
 			Aliases: []string{},
 			Usage:   "CreateS2SharedTarget",
-			Action:  cmdCreateS2SharedTarget,
+			Flags:   _flag_S2Service_CreateS2SharedTarget,
+			Action:  _cmd_S2Service_CreateS2SharedTarget,
 		},
 		{
 			Name:    "DescribeS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "DescribeS2SharedTargets",
-			Action:  cmdDescribeS2SharedTargets,
+			Flags:   _flag_S2Service_DescribeS2SharedTargets,
+			Action:  _cmd_S2Service_DescribeS2SharedTargets,
 		},
 		{
 			Name:    "DeleteS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "DeleteS2SharedTargets",
-			Action:  cmdDeleteS2SharedTargets,
+			Flags:   _flag_S2Service_DeleteS2SharedTargets,
+			Action:  _cmd_S2Service_DeleteS2SharedTargets,
 		},
 		{
 			Name:    "EnableS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "EnableS2SharedTargets",
-			Action:  cmdEnableS2SharedTargets,
+			Flags:   _flag_S2Service_EnableS2SharedTargets,
+			Action:  _cmd_S2Service_EnableS2SharedTargets,
 		},
 		{
 			Name:    "DisableS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "DisableS2SharedTargets",
-			Action:  cmdDisableS2SharedTargets,
+			Flags:   _flag_S2Service_DisableS2SharedTargets,
+			Action:  _cmd_S2Service_DisableS2SharedTargets,
 		},
 		{
 			Name:    "ModifyS2SharedTargetAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyS2SharedTargetAttributes",
-			Action:  cmdModifyS2SharedTargetAttributes,
+			Flags:   _flag_S2Service_ModifyS2SharedTargetAttributes,
+			Action:  _cmd_S2Service_ModifyS2SharedTargetAttributes,
 		},
 		{
 			Name:    "AttachToS2SharedTarget",
 			Aliases: []string{},
 			Usage:   "AttachToS2SharedTarget",
-			Action:  cmdAttachToS2SharedTarget,
+			Flags:   _flag_S2Service_AttachToS2SharedTarget,
+			Action:  _cmd_S2Service_AttachToS2SharedTarget,
 		},
 		{
 			Name:    "DetachFromS2SharedTarget",
 			Aliases: []string{},
 			Usage:   "DetachFromS2SharedTarget",
-			Action:  cmdDetachFromS2SharedTarget,
+			Flags:   _flag_S2Service_DetachFromS2SharedTarget,
+			Action:  _cmd_S2Service_DetachFromS2SharedTarget,
 		},
 		{
 			Name:    "DescribeS2DefaultParameters",
 			Aliases: []string{},
 			Usage:   "DescribeS2DefaultParameters",
-			Action:  cmdDescribeS2DefaultParameters,
+			Flags:   _flag_S2Service_DescribeS2DefaultParameters,
+			Action:  _cmd_S2Service_DescribeS2DefaultParameters,
 		},
 		{
 			Name:    "CreateS2Group",
 			Aliases: []string{},
 			Usage:   "CreateS2Group",
-			Action:  cmdCreateS2Group,
+			Flags:   _flag_S2Service_CreateS2Group,
+			Action:  _cmd_S2Service_CreateS2Group,
 		},
 		{
 			Name:    "DescribeS2Groups",
 			Aliases: []string{},
 			Usage:   "DescribeS2Groups",
-			Action:  cmdDescribeS2Groups,
+			Flags:   _flag_S2Service_DescribeS2Groups,
+			Action:  _cmd_S2Service_DescribeS2Groups,
 		},
 		{
 			Name:    "ModifyS2Group",
 			Aliases: []string{},
 			Usage:   "ModifyS2Group",
-			Action:  cmdModifyS2Group,
+			Flags:   _flag_S2Service_ModifyS2Group,
+			Action:  _cmd_S2Service_ModifyS2Group,
 		},
 		{
 			Name:    "DeleteS2Groups",
 			Aliases: []string{},
 			Usage:   "DeleteS2Groups",
-			Action:  cmdDeleteS2Groups,
+			Flags:   _flag_S2Service_DeleteS2Groups,
+			Action:  _cmd_S2Service_DeleteS2Groups,
 		},
 		{
 			Name:    "CreateS2Account",
 			Aliases: []string{},
 			Usage:   "CreateS2Account",
-			Action:  cmdCreateS2Account,
+			Flags:   _flag_S2Service_CreateS2Account,
+			Action:  _cmd_S2Service_CreateS2Account,
 		},
 		{
 			Name:    "DescribeS2Accounts",
 			Aliases: []string{},
 			Usage:   "DescribeS2Accounts",
-			Action:  cmdDescribeS2Accounts,
+			Flags:   _flag_S2Service_DescribeS2Accounts,
+			Action:  _cmd_S2Service_DescribeS2Accounts,
 		},
 		{
 			Name:    "ModifyS2Account",
 			Aliases: []string{},
 			Usage:   "ModifyS2Account",
-			Action:  cmdModifyS2Account,
+			Flags:   _flag_S2Service_ModifyS2Account,
+			Action:  _cmd_S2Service_ModifyS2Account,
 		},
 		{
 			Name:    "DeleteS2Accounts",
 			Aliases: []string{},
 			Usage:   "DeleteS2Accounts",
-			Action:  cmdDeleteS2Accounts,
+			Flags:   _flag_S2Service_DeleteS2Accounts,
+			Action:  _cmd_S2Service_DeleteS2Accounts,
 		},
 		{
 			Name:    "AssociateS2AccountGroup",
 			Aliases: []string{},
 			Usage:   "AssociateS2AccountGroup",
-			Action:  cmdAssociateS2AccountGroup,
+			Flags:   _flag_S2Service_AssociateS2AccountGroup,
+			Action:  _cmd_S2Service_AssociateS2AccountGroup,
 		},
 		{
 			Name:    "DissociateS2AccountGroup",
 			Aliases: []string{},
 			Usage:   "DissociateS2AccountGroup",
-			Action:  cmdDissociateS2AccountGroup,
+			Flags:   _flag_S2Service_DissociateS2AccountGroup,
+			Action:  _cmd_S2Service_DissociateS2AccountGroup,
 		},
 	},
 }
 
-func cmdCreateS2Server(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_CreateS2Server = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_CreateS2Server(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.CreateS2ServerInput)
@@ -239,9 +269,11 @@ func cmdCreateS2Server(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeS2Servers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DescribeS2Servers = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DescribeS2Servers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DescribeS2ServersInput)
@@ -268,9 +300,11 @@ func cmdDescribeS2Servers(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyS2Server(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_ModifyS2Server = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_ModifyS2Server(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.ModifyS2ServerInput)
@@ -297,9 +331,11 @@ func cmdModifyS2Server(c *cli.Context) error {
 	return nil
 }
 
-func cmdResizeS2Servers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_ResizeS2Servers = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_ResizeS2Servers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.ResizeS2ServersInput)
@@ -326,9 +362,11 @@ func cmdResizeS2Servers(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteS2Servers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DeleteS2Servers = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DeleteS2Servers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DeleteS2ServersInput)
@@ -355,9 +393,11 @@ func cmdDeleteS2Servers(c *cli.Context) error {
 	return nil
 }
 
-func cmdPowerOnS2Servers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_PowerOnS2Servers = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_PowerOnS2Servers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.PowerOnS2ServersInput)
@@ -384,9 +424,11 @@ func cmdPowerOnS2Servers(c *cli.Context) error {
 	return nil
 }
 
-func cmdPowerOffS2Servers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_PowerOffS2Servers = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_PowerOffS2Servers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.PowerOffS2ServersInput)
@@ -413,9 +455,11 @@ func cmdPowerOffS2Servers(c *cli.Context) error {
 	return nil
 }
 
-func cmdUpdateS2Servers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_UpdateS2Servers = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_UpdateS2Servers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.UpdateS2ServersInput)
@@ -442,9 +486,11 @@ func cmdUpdateS2Servers(c *cli.Context) error {
 	return nil
 }
 
-func cmdChangeS2ServerVxnet(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_ChangeS2ServerVxnet = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.ChangeS2ServerVxnetInput)
@@ -471,9 +517,11 @@ func cmdChangeS2ServerVxnet(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateS2SharedTarget(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_CreateS2SharedTarget = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_CreateS2SharedTarget(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.CreateS2SharedTargetInput)
@@ -500,9 +548,11 @@ func cmdCreateS2SharedTarget(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeS2SharedTargets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DescribeS2SharedTargets = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DescribeS2SharedTargetsInput)
@@ -529,9 +579,11 @@ func cmdDescribeS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteS2SharedTargets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DeleteS2SharedTargets = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DeleteS2SharedTargetsInput)
@@ -558,9 +610,11 @@ func cmdDeleteS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-func cmdEnableS2SharedTargets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_EnableS2SharedTargets = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_EnableS2SharedTargets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.EnableS2SharedTargetsInput)
@@ -587,9 +641,11 @@ func cmdEnableS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-func cmdDisableS2SharedTargets(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DisableS2SharedTargets = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DisableS2SharedTargets(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DisableS2SharedTargetsInput)
@@ -616,9 +672,11 @@ func cmdDisableS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyS2SharedTargetAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_ModifyS2SharedTargetAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.ModifyS2SharedTargetAttributesInput)
@@ -645,9 +703,11 @@ func cmdModifyS2SharedTargetAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdAttachToS2SharedTarget(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_AttachToS2SharedTarget = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.AttachToS2SharedTargetInput)
@@ -674,9 +734,11 @@ func cmdAttachToS2SharedTarget(c *cli.Context) error {
 	return nil
 }
 
-func cmdDetachFromS2SharedTarget(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DetachFromS2SharedTarget = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DetachFromS2SharedTargetInput)
@@ -703,9 +765,11 @@ func cmdDetachFromS2SharedTarget(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeS2DefaultParameters(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DescribeS2DefaultParameters = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DescribeS2DefaultParametersInput)
@@ -732,9 +796,11 @@ func cmdDescribeS2DefaultParameters(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateS2Group(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_CreateS2Group = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_CreateS2Group(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.CreateS2GroupInput)
@@ -761,9 +827,11 @@ func cmdCreateS2Group(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeS2Groups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DescribeS2Groups = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DescribeS2Groups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DescribeS2GroupsInput)
@@ -790,9 +858,11 @@ func cmdDescribeS2Groups(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyS2Group(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_ModifyS2Group = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_ModifyS2Group(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.ModifyS2GroupInput)
@@ -819,9 +889,11 @@ func cmdModifyS2Group(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteS2Groups(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DeleteS2Groups = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DeleteS2Groups(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DeleteS2GroupsInput)
@@ -848,9 +920,11 @@ func cmdDeleteS2Groups(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateS2Account(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_CreateS2Account = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_CreateS2Account(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.CreateS2AccountInput)
@@ -877,9 +951,11 @@ func cmdCreateS2Account(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeS2Accounts(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DescribeS2Accounts = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DescribeS2Accounts(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DescribeS2AccountsInput)
@@ -906,9 +982,11 @@ func cmdDescribeS2Accounts(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyS2Account(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_ModifyS2Account = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_ModifyS2Account(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.ModifyS2AccountInput)
@@ -935,9 +1013,11 @@ func cmdModifyS2Account(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteS2Accounts(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DeleteS2Accounts = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DeleteS2Accounts(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DeleteS2AccountsInput)
@@ -964,9 +1044,11 @@ func cmdDeleteS2Accounts(c *cli.Context) error {
 	return nil
 }
 
-func cmdAssociateS2AccountGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_AssociateS2AccountGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.AssociateS2AccountGroupInput)
@@ -993,9 +1075,11 @@ func cmdAssociateS2AccountGroup(c *cli.Context) error {
 	return nil
 }
 
-func cmdDissociateS2AccountGroup(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_S2Service_DissociateS2AccountGroup = []cli.Flag{ /* fields */ }
+
+func _cmd_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
 
 	in := new(pb.DissociateS2AccountGroupInput)

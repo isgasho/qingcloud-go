@@ -43,14 +43,17 @@ var CmdNotificationCenterService = cli.Command{
 			Name:    "DescribeNotificationCenterUserPosts",
 			Aliases: []string{},
 			Usage:   "DescribeNotificationCenterUserPosts",
-			Action:  cmdDescribeNotificationCenterUserPosts,
+			Flags:   _flag_NotificationCenterService_DescribeNotificationCenterUserPosts,
+			Action:  _cmd_NotificationCenterService_DescribeNotificationCenterUserPosts,
 		},
 	},
 }
 
-func cmdDescribeNotificationCenterUserPosts(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_NotificationCenterService_DescribeNotificationCenterUserPosts = []cli.Flag{ /* fields */ }
+
+func _cmd_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewNotificationCenterService(conf, zone)
 
 	in := new(pb.DescribeNotificationCenterUserPostsInput)

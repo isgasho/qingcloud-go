@@ -43,32 +43,38 @@ var CmdDNSAliasService = cli.Command{
 			Name:    "DescribeDNSAliases",
 			Aliases: []string{},
 			Usage:   "DescribeDNSAliases",
-			Action:  cmdDescribeDNSAliases,
+			Flags:   _flag_DNSAliasService_DescribeDNSAliases,
+			Action:  _cmd_DNSAliasService_DescribeDNSAliases,
 		},
 		{
 			Name:    "AssociateDNSAlias",
 			Aliases: []string{},
 			Usage:   "AssociateDNSAlias",
-			Action:  cmdAssociateDNSAlias,
+			Flags:   _flag_DNSAliasService_AssociateDNSAlias,
+			Action:  _cmd_DNSAliasService_AssociateDNSAlias,
 		},
 		{
 			Name:    "DissociateDNSAliases",
 			Aliases: []string{},
 			Usage:   "DissociateDNSAliases",
-			Action:  cmdDissociateDNSAliases,
+			Flags:   _flag_DNSAliasService_DissociateDNSAliases,
+			Action:  _cmd_DNSAliasService_DissociateDNSAliases,
 		},
 		{
 			Name:    "GetDNSLabel",
 			Aliases: []string{},
 			Usage:   "GetDNSLabel",
-			Action:  cmdGetDNSLabel,
+			Flags:   _flag_DNSAliasService_GetDNSLabel,
+			Action:  _cmd_DNSAliasService_GetDNSLabel,
 		},
 	},
 }
 
-func cmdDescribeDNSAliases(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_DNSAliasService_DescribeDNSAliases = []cli.Flag{ /* fields */ }
+
+func _cmd_DNSAliasService_DescribeDNSAliases(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)
 
 	in := new(pb.DescribeDNSAliasesInput)
@@ -95,9 +101,11 @@ func cmdDescribeDNSAliases(c *cli.Context) error {
 	return nil
 }
 
-func cmdAssociateDNSAlias(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_DNSAliasService_AssociateDNSAlias = []cli.Flag{ /* fields */ }
+
+func _cmd_DNSAliasService_AssociateDNSAlias(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)
 
 	in := new(pb.AssociateDNSAliasInput)
@@ -124,9 +132,11 @@ func cmdAssociateDNSAlias(c *cli.Context) error {
 	return nil
 }
 
-func cmdDissociateDNSAliases(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_DNSAliasService_DissociateDNSAliases = []cli.Flag{ /* fields */ }
+
+func _cmd_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)
 
 	in := new(pb.DissociateDNSAliasesInput)
@@ -153,9 +163,11 @@ func cmdDissociateDNSAliases(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetDNSLabel(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_DNSAliasService_GetDNSLabel = []cli.Flag{ /* fields */ }
+
+func _cmd_DNSAliasService_GetDNSLabel(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)
 
 	in := new(pb.GetDNSLabelInput)

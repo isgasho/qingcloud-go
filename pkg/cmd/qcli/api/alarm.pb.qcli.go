@@ -43,110 +43,129 @@ var CmdAlarmService = cli.Command{
 			Name:    "DescribeAlarmPolicies",
 			Aliases: []string{},
 			Usage:   "DescribeAlarmPolicies",
-			Action:  cmdDescribeAlarmPolicies,
+			Flags:   _flag_AlarmService_DescribeAlarmPolicies,
+			Action:  _cmd_AlarmService_DescribeAlarmPolicies,
 		},
 		{
 			Name:    "CreateAlarmPolicy",
 			Aliases: []string{},
 			Usage:   "CreateAlarmPolicy",
-			Action:  cmdCreateAlarmPolicy,
+			Flags:   _flag_AlarmService_CreateAlarmPolicy,
+			Action:  _cmd_AlarmService_CreateAlarmPolicy,
 		},
 		{
 			Name:    "ModifyAlarmPolicyAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyAlarmPolicyAttributes",
-			Action:  cmdModifyAlarmPolicyAttributes,
+			Flags:   _flag_AlarmService_ModifyAlarmPolicyAttributes,
+			Action:  _cmd_AlarmService_ModifyAlarmPolicyAttributes,
 		},
 		{
 			Name:    "DeleteAlarmPolicies",
 			Aliases: []string{},
 			Usage:   "DeleteAlarmPolicies",
-			Action:  cmdDeleteAlarmPolicies,
+			Flags:   _flag_AlarmService_DeleteAlarmPolicies,
+			Action:  _cmd_AlarmService_DeleteAlarmPolicies,
 		},
 		{
 			Name:    "DescribeAlarmPolicyRules",
 			Aliases: []string{},
 			Usage:   "DescribeAlarmPolicyRules",
-			Action:  cmdDescribeAlarmPolicyRules,
+			Flags:   _flag_AlarmService_DescribeAlarmPolicyRules,
+			Action:  _cmd_AlarmService_DescribeAlarmPolicyRules,
 		},
 		{
 			Name:    "AddAlarmPolicyRules",
 			Aliases: []string{},
 			Usage:   "AddAlarmPolicyRules",
-			Action:  cmdAddAlarmPolicyRules,
+			Flags:   _flag_AlarmService_AddAlarmPolicyRules,
+			Action:  _cmd_AlarmService_AddAlarmPolicyRules,
 		},
 		{
 			Name:    "ModifyAlarmPolicyRuleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyAlarmPolicyRuleAttributes",
-			Action:  cmdModifyAlarmPolicyRuleAttributes,
+			Flags:   _flag_AlarmService_ModifyAlarmPolicyRuleAttributes,
+			Action:  _cmd_AlarmService_ModifyAlarmPolicyRuleAttributes,
 		},
 		{
 			Name:    "DeleteAlarmPolicyRules",
 			Aliases: []string{},
 			Usage:   "DeleteAlarmPolicyRules",
-			Action:  cmdDeleteAlarmPolicyRules,
+			Flags:   _flag_AlarmService_DeleteAlarmPolicyRules,
+			Action:  _cmd_AlarmService_DeleteAlarmPolicyRules,
 		},
 		{
 			Name:    "DescribeAlarmPolicyActions",
 			Aliases: []string{},
 			Usage:   "DescribeAlarmPolicyActions",
-			Action:  cmdDescribeAlarmPolicyActions,
+			Flags:   _flag_AlarmService_DescribeAlarmPolicyActions,
+			Action:  _cmd_AlarmService_DescribeAlarmPolicyActions,
 		},
 		{
 			Name:    "AddAlarmPolicyActions",
 			Aliases: []string{},
 			Usage:   "AddAlarmPolicyActions",
-			Action:  cmdAddAlarmPolicyActions,
+			Flags:   _flag_AlarmService_AddAlarmPolicyActions,
+			Action:  _cmd_AlarmService_AddAlarmPolicyActions,
 		},
 		{
 			Name:    "ModifyAlarmPolicyActionAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyAlarmPolicyActionAttributes",
-			Action:  cmdModifyAlarmPolicyActionAttributes,
+			Flags:   _flag_AlarmService_ModifyAlarmPolicyActionAttributes,
+			Action:  _cmd_AlarmService_ModifyAlarmPolicyActionAttributes,
 		},
 		{
 			Name:    "DeleteAlarmPolicyActions",
 			Aliases: []string{},
 			Usage:   "DeleteAlarmPolicyActions",
-			Action:  cmdDeleteAlarmPolicyActions,
+			Flags:   _flag_AlarmService_DeleteAlarmPolicyActions,
+			Action:  _cmd_AlarmService_DeleteAlarmPolicyActions,
 		},
 		{
 			Name:    "AssociateAlarmPolicy",
 			Aliases: []string{},
 			Usage:   "AssociateAlarmPolicy",
-			Action:  cmdAssociateAlarmPolicy,
+			Flags:   _flag_AlarmService_AssociateAlarmPolicy,
+			Action:  _cmd_AlarmService_AssociateAlarmPolicy,
 		},
 		{
 			Name:    "DissociateAlarmPolicy",
 			Aliases: []string{},
 			Usage:   "DissociateAlarmPolicy",
-			Action:  cmdDissociateAlarmPolicy,
+			Flags:   _flag_AlarmService_DissociateAlarmPolicy,
+			Action:  _cmd_AlarmService_DissociateAlarmPolicy,
 		},
 		{
 			Name:    "ApplyAlarmPolicy",
 			Aliases: []string{},
 			Usage:   "ApplyAlarmPolicy",
-			Action:  cmdApplyAlarmPolicy,
+			Flags:   _flag_AlarmService_ApplyAlarmPolicy,
+			Action:  _cmd_AlarmService_ApplyAlarmPolicy,
 		},
 		{
 			Name:    "DescribeAlarms",
 			Aliases: []string{},
 			Usage:   "DescribeAlarms",
-			Action:  cmdDescribeAlarms,
+			Flags:   _flag_AlarmService_DescribeAlarms,
+			Action:  _cmd_AlarmService_DescribeAlarms,
 		},
 		{
 			Name:    "DescribeAlarmHistory",
 			Aliases: []string{},
 			Usage:   "DescribeAlarmHistory",
-			Action:  cmdDescribeAlarmHistory,
+			Flags:   _flag_AlarmService_DescribeAlarmHistory,
+			Action:  _cmd_AlarmService_DescribeAlarmHistory,
 		},
 	},
 }
 
-func cmdDescribeAlarmPolicies(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DescribeAlarmPolicies = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DescribeAlarmPolicies(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DescribeAlarmPoliciesInput)
@@ -173,9 +192,11 @@ func cmdDescribeAlarmPolicies(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateAlarmPolicy(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_CreateAlarmPolicy = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_CreateAlarmPolicy(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.CreateAlarmPolicyInput)
@@ -202,9 +223,11 @@ func cmdCreateAlarmPolicy(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyAlarmPolicyAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_ModifyAlarmPolicyAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_ModifyAlarmPolicyAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.ModifyAlarmPolicyAttributesInput)
@@ -231,9 +254,11 @@ func cmdModifyAlarmPolicyAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteAlarmPolicies(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DeleteAlarmPolicies = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DeleteAlarmPolicies(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DeleteAlarmPoliciesInput)
@@ -260,9 +285,11 @@ func cmdDeleteAlarmPolicies(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeAlarmPolicyRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DescribeAlarmPolicyRules = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DescribeAlarmPolicyRulesInput)
@@ -289,9 +316,11 @@ func cmdDescribeAlarmPolicyRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddAlarmPolicyRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_AddAlarmPolicyRules = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_AddAlarmPolicyRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.AddAlarmPolicyRulesInput)
@@ -318,9 +347,11 @@ func cmdAddAlarmPolicyRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_ModifyAlarmPolicyRuleAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_ModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.ModifyAlarmPolicyRuleAttributesInput)
@@ -347,9 +378,11 @@ func cmdModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteAlarmPolicyRules(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DeleteAlarmPolicyRules = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DeleteAlarmPolicyRules(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DeleteAlarmPolicyRulesInput)
@@ -376,9 +409,11 @@ func cmdDeleteAlarmPolicyRules(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeAlarmPolicyActions(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DescribeAlarmPolicyActions = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DescribeAlarmPolicyActionsInput)
@@ -405,9 +440,11 @@ func cmdDescribeAlarmPolicyActions(c *cli.Context) error {
 	return nil
 }
 
-func cmdAddAlarmPolicyActions(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_AddAlarmPolicyActions = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_AddAlarmPolicyActions(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.AddAlarmPolicyActionsInput)
@@ -434,9 +471,11 @@ func cmdAddAlarmPolicyActions(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyAlarmPolicyActionAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_ModifyAlarmPolicyActionAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_ModifyAlarmPolicyActionAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.ModifyAlarmPolicyActionAttributesInput)
@@ -463,9 +502,11 @@ func cmdModifyAlarmPolicyActionAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteAlarmPolicyActions(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DeleteAlarmPolicyActions = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DeleteAlarmPolicyActions(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DeleteAlarmPolicyActionsInput)
@@ -492,9 +533,11 @@ func cmdDeleteAlarmPolicyActions(c *cli.Context) error {
 	return nil
 }
 
-func cmdAssociateAlarmPolicy(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_AssociateAlarmPolicy = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.AssociateAlarmPolicyInput)
@@ -521,9 +564,11 @@ func cmdAssociateAlarmPolicy(c *cli.Context) error {
 	return nil
 }
 
-func cmdDissociateAlarmPolicy(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DissociateAlarmPolicy = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DissociateAlarmPolicyInput)
@@ -550,9 +595,11 @@ func cmdDissociateAlarmPolicy(c *cli.Context) error {
 	return nil
 }
 
-func cmdApplyAlarmPolicy(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_ApplyAlarmPolicy = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_ApplyAlarmPolicy(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.ApplyAlarmPolicyInput)
@@ -579,9 +626,11 @@ func cmdApplyAlarmPolicy(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeAlarms(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DescribeAlarms = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DescribeAlarms(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DescribeAlarmsInput)
@@ -608,9 +657,11 @@ func cmdDescribeAlarms(c *cli.Context) error {
 	return nil
 }
 
-func cmdDescribeAlarmHistory(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_AlarmService_DescribeAlarmHistory = []cli.Flag{ /* fields */ }
+
+func _cmd_AlarmService_DescribeAlarmHistory(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewAlarmService(conf, zone)
 
 	in := new(pb.DescribeAlarmHistoryInput)

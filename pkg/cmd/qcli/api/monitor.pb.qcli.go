@@ -43,44 +43,52 @@ var CmdMonitorService = cli.Command{
 			Name:    "GetMonitor",
 			Aliases: []string{},
 			Usage:   "GetMonitor",
-			Action:  cmdGetMonitor,
+			Flags:   _flag_MonitorService_GetMonitor,
+			Action:  _cmd_MonitorService_GetMonitor,
 		},
 		{
 			Name:    "GetLoadBalancerMonitor",
 			Aliases: []string{},
 			Usage:   "GetLoadBalancerMonitor",
-			Action:  cmdGetLoadBalancerMonitor,
+			Flags:   _flag_MonitorService_GetLoadBalancerMonitor,
+			Action:  _cmd_MonitorService_GetLoadBalancerMonitor,
 		},
 		{
 			Name:    "GetRDBMonitor",
 			Aliases: []string{},
 			Usage:   "GetRDBMonitor",
-			Action:  cmdGetRDBMonitor,
+			Flags:   _flag_MonitorService_GetRDBMonitor,
+			Action:  _cmd_MonitorService_GetRDBMonitor,
 		},
 		{
 			Name:    "GetCacheMonitor",
 			Aliases: []string{},
 			Usage:   "GetCacheMonitor",
-			Action:  cmdGetCacheMonitor,
+			Flags:   _flag_MonitorService_GetCacheMonitor,
+			Action:  _cmd_MonitorService_GetCacheMonitor,
 		},
 		{
 			Name:    "GetZooKeeperMonitor",
 			Aliases: []string{},
 			Usage:   "GetZooKeeperMonitor",
-			Action:  cmdGetZooKeeperMonitor,
+			Flags:   _flag_MonitorService_GetZooKeeperMonitor,
+			Action:  _cmd_MonitorService_GetZooKeeperMonitor,
 		},
 		{
 			Name:    "GetQueueMonitor",
 			Aliases: []string{},
 			Usage:   "GetQueueMonitor",
-			Action:  cmdGetQueueMonitor,
+			Flags:   _flag_MonitorService_GetQueueMonitor,
+			Action:  _cmd_MonitorService_GetQueueMonitor,
 		},
 	},
 }
 
-func cmdGetMonitor(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MonitorService_GetMonitor = []cli.Flag{ /* fields */ }
+
+func _cmd_MonitorService_GetMonitor(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
 	in := new(pb.GetMonitorInput)
@@ -107,9 +115,11 @@ func cmdGetMonitor(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetLoadBalancerMonitor(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MonitorService_GetLoadBalancerMonitor = []cli.Flag{ /* fields */ }
+
+func _cmd_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
 	in := new(pb.GetLoadBalancerMonitorInput)
@@ -136,9 +146,11 @@ func cmdGetLoadBalancerMonitor(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetRDBMonitor(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MonitorService_GetRDBMonitor = []cli.Flag{ /* fields */ }
+
+func _cmd_MonitorService_GetRDBMonitor(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
 	in := new(pb.GetRDBMonitorInput)
@@ -165,9 +177,11 @@ func cmdGetRDBMonitor(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetCacheMonitor(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MonitorService_GetCacheMonitor = []cli.Flag{ /* fields */ }
+
+func _cmd_MonitorService_GetCacheMonitor(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
 	in := new(pb.GetCacheMonitorInput)
@@ -194,9 +208,11 @@ func cmdGetCacheMonitor(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetZooKeeperMonitor(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MonitorService_GetZooKeeperMonitor = []cli.Flag{ /* fields */ }
+
+func _cmd_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
 	in := new(pb.GetZooKeeperMonitorInput)
@@ -223,9 +239,11 @@ func cmdGetZooKeeperMonitor(c *cli.Context) error {
 	return nil
 }
 
-func cmdGetQueueMonitor(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_MonitorService_GetQueueMonitor = []cli.Flag{ /* fields */ }
+
+func _cmd_MonitorService_GetQueueMonitor(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
 	in := new(pb.GetQueueMonitorInput)

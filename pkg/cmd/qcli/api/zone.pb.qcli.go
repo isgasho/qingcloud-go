@@ -43,14 +43,17 @@ var CmdZoneService = cli.Command{
 			Name:    "DescribeZones",
 			Aliases: []string{},
 			Usage:   "DescribeZones",
-			Action:  cmdDescribeZones,
+			Flags:   _flag_ZoneService_DescribeZones,
+			Action:  _cmd_ZoneService_DescribeZones,
 		},
 	},
 }
 
-func cmdDescribeZones(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_ZoneService_DescribeZones = []cli.Flag{ /* fields */ }
+
+func _cmd_ZoneService_DescribeZones(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewZoneService(conf, zone)
 
 	in := new(pb.DescribeZonesInput)

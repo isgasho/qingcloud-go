@@ -43,38 +43,45 @@ var CmdSubuserService = cli.Command{
 			Name:    "DescribeSubUsers",
 			Aliases: []string{},
 			Usage:   "DescribeSubUsers",
-			Action:  cmdDescribeSubUsers,
+			Flags:   _flag_SubuserService_DescribeSubUsers,
+			Action:  _cmd_SubuserService_DescribeSubUsers,
 		},
 		{
 			Name:    "CreateSubUser",
 			Aliases: []string{},
 			Usage:   "CreateSubUser",
-			Action:  cmdCreateSubUser,
+			Flags:   _flag_SubuserService_CreateSubUser,
+			Action:  _cmd_SubuserService_CreateSubUser,
 		},
 		{
 			Name:    "ModifySubUserAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySubUserAttributes",
-			Action:  cmdModifySubUserAttributes,
+			Flags:   _flag_SubuserService_ModifySubUserAttributes,
+			Action:  _cmd_SubuserService_ModifySubUserAttributes,
 		},
 		{
 			Name:    "DeleteSubUsers",
 			Aliases: []string{},
 			Usage:   "DeleteSubUsers",
-			Action:  cmdDeleteSubUsers,
+			Flags:   _flag_SubuserService_DeleteSubUsers,
+			Action:  _cmd_SubuserService_DeleteSubUsers,
 		},
 		{
 			Name:    "RestoreSubUsers",
 			Aliases: []string{},
 			Usage:   "RestoreSubUsers",
-			Action:  cmdRestoreSubUsers,
+			Flags:   _flag_SubuserService_RestoreSubUsers,
+			Action:  _cmd_SubuserService_RestoreSubUsers,
 		},
 	},
 }
 
-func cmdDescribeSubUsers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SubuserService_DescribeSubUsers = []cli.Flag{ /* fields */ }
+
+func _cmd_SubuserService_DescribeSubUsers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
 	in := new(pb.DescribeSubUsersInput)
@@ -101,9 +108,11 @@ func cmdDescribeSubUsers(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateSubUser(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SubuserService_CreateSubUser = []cli.Flag{ /* fields */ }
+
+func _cmd_SubuserService_CreateSubUser(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
 	in := new(pb.CreateSubUserInput)
@@ -130,9 +139,11 @@ func cmdCreateSubUser(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifySubUserAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SubuserService_ModifySubUserAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
 	in := new(pb.ModifySubUserAttributesInput)
@@ -159,9 +170,11 @@ func cmdModifySubUserAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteSubUsers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SubuserService_DeleteSubUsers = []cli.Flag{ /* fields */ }
+
+func _cmd_SubuserService_DeleteSubUsers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
 	in := new(pb.DeleteSubUsersInput)
@@ -188,9 +201,11 @@ func cmdDeleteSubUsers(c *cli.Context) error {
 	return nil
 }
 
-func cmdRestoreSubUsers(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_SubuserService_RestoreSubUsers = []cli.Flag{ /* fields */ }
+
+func _cmd_SubuserService_RestoreSubUsers(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
 	in := new(pb.RestoreSubUsersInput)

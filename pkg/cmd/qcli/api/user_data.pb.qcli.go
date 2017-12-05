@@ -43,14 +43,17 @@ var CmdUserDataService = cli.Command{
 			Name:    "UploadUserDataAttachment",
 			Aliases: []string{},
 			Usage:   "UploadUserDataAttachment",
-			Action:  cmdUploadUserDataAttachment,
+			Flags:   _flag_UserDataService_UploadUserDataAttachment,
+			Action:  _cmd_UserDataService_UploadUserDataAttachment,
 		},
 	},
 }
 
-func cmdUploadUserDataAttachment(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_UserDataService_UploadUserDataAttachment = []cli.Flag{ /* fields */ }
+
+func _cmd_UserDataService_UploadUserDataAttachment(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewUserDataService(conf, zone)
 
 	in := new(pb.UploadUserDataAttachmentInput)

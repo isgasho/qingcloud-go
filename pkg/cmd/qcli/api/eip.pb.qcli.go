@@ -43,56 +43,66 @@ var CmdEIPService = cli.Command{
 			Name:    "DescribeEips",
 			Aliases: []string{},
 			Usage:   "DescribeEips",
-			Action:  cmdDescribeEips,
+			Flags:   _flag_EIPService_DescribeEips,
+			Action:  _cmd_EIPService_DescribeEips,
 		},
 		{
 			Name:    "AllocateEips",
 			Aliases: []string{},
 			Usage:   "AllocateEips",
-			Action:  cmdAllocateEips,
+			Flags:   _flag_EIPService_AllocateEips,
+			Action:  _cmd_EIPService_AllocateEips,
 		},
 		{
 			Name:    "ReleaseEips",
 			Aliases: []string{},
 			Usage:   "ReleaseEips",
-			Action:  cmdReleaseEips,
+			Flags:   _flag_EIPService_ReleaseEips,
+			Action:  _cmd_EIPService_ReleaseEips,
 		},
 		{
 			Name:    "AssociateEip",
 			Aliases: []string{},
 			Usage:   "AssociateEip",
-			Action:  cmdAssociateEip,
+			Flags:   _flag_EIPService_AssociateEip,
+			Action:  _cmd_EIPService_AssociateEip,
 		},
 		{
 			Name:    "DissociateEips",
 			Aliases: []string{},
 			Usage:   "DissociateEips",
-			Action:  cmdDissociateEips,
+			Flags:   _flag_EIPService_DissociateEips,
+			Action:  _cmd_EIPService_DissociateEips,
 		},
 		{
 			Name:    "ChangeEipsBandwidth",
 			Aliases: []string{},
 			Usage:   "ChangeEipsBandwidth",
-			Action:  cmdChangeEipsBandwidth,
+			Flags:   _flag_EIPService_ChangeEipsBandwidth,
+			Action:  _cmd_EIPService_ChangeEipsBandwidth,
 		},
 		{
 			Name:    "ChangeEipsBillingMode",
 			Aliases: []string{},
 			Usage:   "ChangeEipsBillingMode",
-			Action:  cmdChangeEipsBillingMode,
+			Flags:   _flag_EIPService_ChangeEipsBillingMode,
+			Action:  _cmd_EIPService_ChangeEipsBillingMode,
 		},
 		{
 			Name:    "ModifyEipAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyEipAttributes",
-			Action:  cmdModifyEipAttributes,
+			Flags:   _flag_EIPService_ModifyEipAttributes,
+			Action:  _cmd_EIPService_ModifyEipAttributes,
 		},
 	},
 }
 
-func cmdDescribeEips(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_DescribeEips = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_DescribeEips(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.DescribeEipsInput)
@@ -119,9 +129,11 @@ func cmdDescribeEips(c *cli.Context) error {
 	return nil
 }
 
-func cmdAllocateEips(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_AllocateEips = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_AllocateEips(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.AllocateEipsInput)
@@ -148,9 +160,11 @@ func cmdAllocateEips(c *cli.Context) error {
 	return nil
 }
 
-func cmdReleaseEips(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_ReleaseEips = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_ReleaseEips(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.ReleaseEipsInput)
@@ -177,9 +191,11 @@ func cmdReleaseEips(c *cli.Context) error {
 	return nil
 }
 
-func cmdAssociateEip(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_AssociateEip = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_AssociateEip(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.AssociateEipInput)
@@ -206,9 +222,11 @@ func cmdAssociateEip(c *cli.Context) error {
 	return nil
 }
 
-func cmdDissociateEips(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_DissociateEips = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_DissociateEips(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.DissociateEipsInput)
@@ -235,9 +253,11 @@ func cmdDissociateEips(c *cli.Context) error {
 	return nil
 }
 
-func cmdChangeEipsBandwidth(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_ChangeEipsBandwidth = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.ChangeEipsBandwidthInput)
@@ -264,9 +284,11 @@ func cmdChangeEipsBandwidth(c *cli.Context) error {
 	return nil
 }
 
-func cmdChangeEipsBillingMode(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_ChangeEipsBillingMode = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.ChangeEipsBillingModeInput)
@@ -293,9 +315,11 @@ func cmdChangeEipsBillingMode(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyEipAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_EIPService_ModifyEipAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_EIPService_ModifyEipAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
 	in := new(pb.ModifyEipAttributesInput)

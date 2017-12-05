@@ -43,44 +43,52 @@ var CmdTagService = cli.Command{
 			Name:    "DescribeTags",
 			Aliases: []string{},
 			Usage:   "DescribeTags",
-			Action:  cmdDescribeTags,
+			Flags:   _flag_TagService_DescribeTags,
+			Action:  _cmd_TagService_DescribeTags,
 		},
 		{
 			Name:    "CreateTag",
 			Aliases: []string{},
 			Usage:   "CreateTag",
-			Action:  cmdCreateTag,
+			Flags:   _flag_TagService_CreateTag,
+			Action:  _cmd_TagService_CreateTag,
 		},
 		{
 			Name:    "DeleteTags",
 			Aliases: []string{},
 			Usage:   "DeleteTags",
-			Action:  cmdDeleteTags,
+			Flags:   _flag_TagService_DeleteTags,
+			Action:  _cmd_TagService_DeleteTags,
 		},
 		{
 			Name:    "ModifyTagAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyTagAttributes",
-			Action:  cmdModifyTagAttributes,
+			Flags:   _flag_TagService_ModifyTagAttributes,
+			Action:  _cmd_TagService_ModifyTagAttributes,
 		},
 		{
 			Name:    "AttachTags",
 			Aliases: []string{},
 			Usage:   "AttachTags",
-			Action:  cmdAttachTags,
+			Flags:   _flag_TagService_AttachTags,
+			Action:  _cmd_TagService_AttachTags,
 		},
 		{
 			Name:    "DetachTags",
 			Aliases: []string{},
 			Usage:   "DetachTags",
-			Action:  cmdDetachTags,
+			Flags:   _flag_TagService_DetachTags,
+			Action:  _cmd_TagService_DetachTags,
 		},
 	},
 }
 
-func cmdDescribeTags(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_TagService_DescribeTags = []cli.Flag{ /* fields */ }
+
+func _cmd_TagService_DescribeTags(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
 	in := new(pb.DescribeTagsInput)
@@ -107,9 +115,11 @@ func cmdDescribeTags(c *cli.Context) error {
 	return nil
 }
 
-func cmdCreateTag(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_TagService_CreateTag = []cli.Flag{ /* fields */ }
+
+func _cmd_TagService_CreateTag(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
 	in := new(pb.CreateTagInput)
@@ -136,9 +146,11 @@ func cmdCreateTag(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteTags(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_TagService_DeleteTags = []cli.Flag{ /* fields */ }
+
+func _cmd_TagService_DeleteTags(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
 	in := new(pb.DeleteTagsInput)
@@ -165,9 +177,11 @@ func cmdDeleteTags(c *cli.Context) error {
 	return nil
 }
 
-func cmdModifyTagAttributes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_TagService_ModifyTagAttributes = []cli.Flag{ /* fields */ }
+
+func _cmd_TagService_ModifyTagAttributes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
 	in := new(pb.ModifyTagAttributesInput)
@@ -194,9 +208,11 @@ func cmdModifyTagAttributes(c *cli.Context) error {
 	return nil
 }
 
-func cmdAttachTags(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_TagService_AttachTags = []cli.Flag{ /* fields */ }
+
+func _cmd_TagService_AttachTags(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
 	in := new(pb.AttachTagsInput)
@@ -223,9 +239,11 @@ func cmdAttachTags(c *cli.Context) error {
 	return nil
 }
 
-func cmdDetachTags(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_TagService_DetachTags = []cli.Flag{ /* fields */ }
+
+func _cmd_TagService_DetachTags(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
 	in := new(pb.DetachTagsInput)

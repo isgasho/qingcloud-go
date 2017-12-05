@@ -43,32 +43,38 @@ var CmdHadoopService = cli.Command{
 			Name:    "AddHadoopNodes",
 			Aliases: []string{},
 			Usage:   "AddHadoopNodes",
-			Action:  cmdAddHadoopNodes,
+			Flags:   _flag_HadoopService_AddHadoopNodes,
+			Action:  _cmd_HadoopService_AddHadoopNodes,
 		},
 		{
 			Name:    "DeleteHadoopNodes",
 			Aliases: []string{},
 			Usage:   "DeleteHadoopNodes",
-			Action:  cmdDeleteHadoopNodes,
+			Flags:   _flag_HadoopService_DeleteHadoopNodes,
+			Action:  _cmd_HadoopService_DeleteHadoopNodes,
 		},
 		{
 			Name:    "StartHadoops",
 			Aliases: []string{},
 			Usage:   "StartHadoops",
-			Action:  cmdStartHadoops,
+			Flags:   _flag_HadoopService_StartHadoops,
+			Action:  _cmd_HadoopService_StartHadoops,
 		},
 		{
 			Name:    "StopHadoops",
 			Aliases: []string{},
 			Usage:   "StopHadoops",
-			Action:  cmdStopHadoops,
+			Flags:   _flag_HadoopService_StopHadoops,
+			Action:  _cmd_HadoopService_StopHadoops,
 		},
 	},
 }
 
-func cmdAddHadoopNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_HadoopService_AddHadoopNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_HadoopService_AddHadoopNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
 	in := new(pb.AddHadoopNodesInput)
@@ -95,9 +101,11 @@ func cmdAddHadoopNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdDeleteHadoopNodes(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_HadoopService_DeleteHadoopNodes = []cli.Flag{ /* fields */ }
+
+func _cmd_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
 	in := new(pb.DeleteHadoopNodesInput)
@@ -124,9 +132,11 @@ func cmdDeleteHadoopNodes(c *cli.Context) error {
 	return nil
 }
 
-func cmdStartHadoops(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_HadoopService_StartHadoops = []cli.Flag{ /* fields */ }
+
+func _cmd_HadoopService_StartHadoops(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
 	in := new(pb.StartHadoopsInput)
@@ -153,9 +163,11 @@ func cmdStartHadoops(c *cli.Context) error {
 	return nil
 }
 
-func cmdStopHadoops(c *cli.Context) error {
-	var conf *config.Config
-	var zone string
+var _flag_HadoopService_StopHadoops = []cli.Flag{ /* fields */ }
+
+func _cmd_HadoopService_StopHadoops(c *cli.Context) error {
+	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
 	in := new(pb.StopHadoopsInput)
