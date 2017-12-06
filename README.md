@@ -12,8 +12,8 @@
 
 - 官方 SDK 迟迟没有 release, 项目活跃度较低
 - 官方 SDK 的近2万行手写的json维护极其困难, 已经失去继续进化的可能
-- 官方 SDK 需要用 Go 语言的模板语言维护 snips 自定义的复杂的判断逻辑, 这是错误的!
-- 基于 Ptotobuf 构建, 解决方案简单优美, 稳定性和可扩展性足够好, Docker/k8s 都它
+- 官方 SDK 需要用 Go 语言的模板语言维护 snips 自定义的极其复杂的判断逻辑, 这是错误的!
+- 基于 Ptotobuf 构建, 解决方案简单优美, 稳定性和可扩展性足够好, Docker/Kubernetes 都用它
 - 其它通过非主流的工具构建的方式, 除了作者本人根本没有投入的必要
 - 缺少一个完备的和 SDK 基本等价的命令行工具
 
@@ -260,20 +260,15 @@ func (p *UserDataService) UploadUserDataAttachment(
 }
 ```
 
-规范文件的语法细节可以参考 [spec.pb/README.md](./api/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
+规范文件的语法细节可以参考 [api/README.md](./api/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
 
-## 为何不用官方SDK, 为何要重新做一个?
+## 官方 SDK 对比
 
-官方 SDK 是针对各种语言的, 在Go语言的版本中很多地方不符合 Go 语言的简洁的设计思路. 我们希望提供一个针对 Go 语言高度定制好用的SDK.
-
-同时, 官方的 SDK 对青云的服务支持还不完全, 也没有发布正式的版本. 原因之一是, 官方SDK采用json格式定义规范很难维护, 特别是有几十甚至上百个成员时, 手工维护json规范极其困难, 目前官方SDK已经落后于当前服务(官方的json规范共有约1.9万行, 我们的proto规范文件不到8千行). 另外还要花很大精力维护 snips 本身的开发, 完善各种语言多各种复合数据类型的支持. 而使用protobuf标准, 可以很容易编写服务规范文件, 官方的编译工具可以针对各种主流编程语言生成代码(我们只需要定制服务部分的代码生成规则), 也便于以后和docker和k8s等平台互联网(它们都是提供的grpc接口, 也是protobuf规范定义的).
-
-可以看看 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务规范的对比:
+[Volume](https://docs.qingcloud.com/api/volume/index.html) 服务接口规范文件对比:
 
 - protobuf 格式: [chai2010/qingcloud-go/api/volume.proto](./api/volume.proto)
 - snips 格式: [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
 
-对比可发现, protobuf 比 json 更容易维护.
 
 ## 版权
 
