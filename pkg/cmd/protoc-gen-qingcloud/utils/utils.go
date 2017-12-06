@@ -116,6 +116,9 @@ func IsSupportedRepeated(field *descriptor.FieldDescriptorProto) bool {
 }
 
 func IsSupportedBool(field *descriptor.FieldDescriptorProto) bool {
+	if IsSupportedRepeated(field) {
+		return false
+	}
 	switch field.GetType() {
 	case descriptor.FieldDescriptorProto_TYPE_BOOL:
 		return true
@@ -124,6 +127,9 @@ func IsSupportedBool(field *descriptor.FieldDescriptorProto) bool {
 }
 
 func IsSupportedInt(field *descriptor.FieldDescriptorProto) bool {
+	if IsSupportedRepeated(field) {
+		return false
+	}
 	switch field.GetType() {
 	case descriptor.FieldDescriptorProto_TYPE_INT32, descriptor.FieldDescriptorProto_TYPE_INT64:
 		return true
@@ -136,18 +142,20 @@ func IsSupportedInt(field *descriptor.FieldDescriptorProto) bool {
 }
 
 func IsSupportedFloat(field *descriptor.FieldDescriptorProto) bool {
+	if IsSupportedRepeated(field) {
+		return false
+	}
 	switch field.GetType() {
 	case descriptor.FieldDescriptorProto_TYPE_FLOAT, descriptor.FieldDescriptorProto_TYPE_DOUBLE:
-		return true
-	case descriptor.FieldDescriptorProto_TYPE_FIXED32, descriptor.FieldDescriptorProto_TYPE_FIXED64:
-		return true
-	case descriptor.FieldDescriptorProto_TYPE_SFIXED32, descriptor.FieldDescriptorProto_TYPE_SFIXED64:
 		return true
 	}
 	return false
 }
 
 func IsSupportedString(field *descriptor.FieldDescriptorProto) bool {
+	if IsSupportedRepeated(field) {
+		return false
+	}
 	switch field.GetType() {
 	case descriptor.FieldDescriptorProto_TYPE_STRING:
 		return true
@@ -155,6 +163,9 @@ func IsSupportedString(field *descriptor.FieldDescriptorProto) bool {
 	return false
 }
 
-func IsSupportedMap(field *descriptor.FieldDescriptorProto) bool {
+func _IsSupportedMap(field *descriptor.FieldDescriptorProto) bool {
+	if IsSupportedRepeated(field) {
+		return false
+	}
 	return false
 }

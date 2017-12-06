@@ -6,6 +6,7 @@ package gen_qcli
 
 import (
 	"bytes"
+	"fmt"
 	"log"
 	"strings"
 	"text/template"
@@ -86,7 +87,7 @@ var tmplFuncMap = template.FuncMap{
 	"pkgGenCmdFlagUsage":               pkgGenCmdFlagUsage,
 	"pkgGenCmdFlagDefaultValue":        pkgGenCmdFlagDefaultValue,
 	"pkgGenCmdFlagDefaultValueComment": pkgGenCmdFlagDefaultValueComment,
-	"pkgGenCmdFlagParser":              pkgGenCmdFlagParser,
+	"pkgGenCmdFlagFillField":           pkgGenCmdFlagFillField,
 }
 
 func pkgGenCmdFlagType(field *descriptor.FieldDescriptorProto) string {
@@ -138,12 +139,92 @@ func pkgGenCmdFlagDefaultValueComment(field *descriptor.FieldDescriptorProto) st
 	case utils.IsSupportedString(field):
 		return ""
 	default:
-		return `// json: slice/message/map`
+		return `// json: slice/message/map/time`
 	}
 }
 
-func pkgGenCmdFlagParser(field *descriptor.FieldDescriptorProto) string {
-	return ""
+func pkgGenCmdFlagFillField(field *descriptor.FieldDescriptorProto) string {
+	if utils.IsSupportedRepeated(field) {
+		return fmt.Sprintf(
+			`if err := json.Unmarshal([]byte(c.String("%s")), &in.%s); err != nil {
+				logger.Fatal(err)
+			}`,
+			field.GetName(),
+			generator.CamelCase(field.GetName()),
+		)
+	}
+	switch {
+	case utils.IsSupportedBool(field):
+		return fmt.Sprintf(
+			`in.%s = proto.Bool(c.Bool("%s"))`,
+			generator.CamelCase(field.GetName()),
+			field.GetName(),
+		)
+	case utils.IsSupportedInt(field):
+		switch _type := field.GetType(); _type {
+		case descriptor.FieldDescriptorProto_TYPE_INT32,
+			descriptor.FieldDescriptorProto_TYPE_SINT32,
+			descriptor.FieldDescriptorProto_TYPE_FIXED32:
+			return fmt.Sprintf(
+				`in.%s = proto.Int32(int32(c.Int("%s")))`,
+				generator.CamelCase(field.GetName()),
+				field.GetName(),
+			)
+		case descriptor.FieldDescriptorProto_TYPE_INT64,
+			descriptor.FieldDescriptorProto_TYPE_SINT64,
+			descriptor.FieldDescriptorProto_TYPE_FIXED64:
+			return fmt.Sprintf(
+				`in.%s = proto.Int64(int64(c.Int64("%s")))`,
+				generator.CamelCase(field.GetName()),
+				field.GetName(),
+			)
+		case descriptor.FieldDescriptorProto_TYPE_UINT32:
+			return fmt.Sprintf(
+				`in.%s = proto.Uint32(uint32(c.Int("%s")))`,
+				generator.CamelCase(field.GetName()),
+				field.GetName(),
+			)
+		case descriptor.FieldDescriptorProto_TYPE_UINT64:
+			return fmt.Sprintf(
+				`in.%s = proto.Uint64(uint64(c.Int64("%s")))`,
+				generator.CamelCase(field.GetName()),
+				field.GetName(),
+			)
+		default:
+			return fmt.Sprintf("unknown type: %v", _type)
+		}
+	case utils.IsSupportedFloat(field):
+		switch _type := field.GetType(); _type {
+		case descriptor.FieldDescriptorProto_TYPE_FLOAT:
+			return fmt.Sprintf(
+				`in.%s = proto.Float32(float32(c.Float64("%s")))`,
+				generator.CamelCase(field.GetName()),
+				field.GetName(),
+			)
+		case descriptor.FieldDescriptorProto_TYPE_DOUBLE:
+			return fmt.Sprintf(
+				`in.%s = proto.Float64(float64(c.Float64("%s")))`,
+				generator.CamelCase(field.GetName()),
+				field.GetName(),
+			)
+		default:
+			return fmt.Sprintf("unknown type: %v", _type)
+		}
+	case utils.IsSupportedString(field):
+		return fmt.Sprintf(
+			`in.%s = proto.String(c.String("%s"))`,
+			generator.CamelCase(field.GetName()),
+			field.GetName(),
+		)
+	default:
+		return fmt.Sprintf(
+			`if err := json.Unmarshal([]byte(c.String("%s")), &in.%s); err != nil {
+				logger.Fatal(err)
+			}`,
+			field.GetName(),
+			generator.CamelCase(field.GetName()),
+		)
+	}
 }
 
 const tmplFileHeader = `
@@ -158,6 +239,7 @@ const tmplFileHeader = `
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -173,6 +255,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -245,17 +328,6 @@ var Cmd{{$ServiceName}} = cli.Command{
 	}
 {{end}}
 
-{{/*
-
-	cli.StringFlag{
-		Name:   "zone, z",
-		Usage:  "zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...)",
-		Value:  "pk3a",
-		EnvVar: "QCLI_ZONE",
-	},
-*/}}
-
-
 {{/* generate command functions */}}
 {{range $_, $Method := $Service.Method}}
 
@@ -281,6 +353,11 @@ func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		{{range $_, $MethodInputField := $MethodInput.Field -}}
+			if c.IsSet("{{pkgGenCmdFlagName $MethodInputField}}") {
+				{{pkgGenCmdFlagFillField $MethodInputField}}
+			}
+		{{end -}}
 	}
 
 	out, err := qc.{{$MethodName}}(in)
