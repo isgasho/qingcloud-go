@@ -9,10 +9,9 @@
 
 PROTO_API_FILES=$(sort $(wildcard ./*.proto))
 PROTO_API_METADATA_FILES=$(sort $(wildcard ./spec_metadata/*.proto))
-PROTO_API_VALIDATE_FILES=$(sort $(wildcard ./validate/*.proto))
 
 .PHONY: default
-default: $(SOURCES) Makefile spec_metadata validate api
+default: $(SOURCES) Makefile spec_metadata api
 
 .PHONY: api
 api: $(PROTO_API_FILES)
@@ -26,10 +25,5 @@ api: $(PROTO_API_FILES)
 .PHONY: spec_metadata
 spec_metadata: $(PROTO_API_METADATA_FILES)
 	protoc -I. --go_out=../../../.. $(PROTO_API_METADATA_FILES)
-
-.PHONY: validate
-validate: $(PROTO_API_VALIDATE_FILES)
-	protoc -I. --go_out=../../../.. $(PROTO_API_VALIDATE_FILES)
-
 
 clean:
