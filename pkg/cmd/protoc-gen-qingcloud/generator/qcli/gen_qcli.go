@@ -305,30 +305,7 @@ var Cmd{{$ServiceName}} = cli.Command{
 	},
 }
 
-{{/* generate flags */}}
-{{range $_, $Method := $Service.Method}}
-	{{- $MethodName := generator_CamelCase $Method.GetName -}}
-	{{- $MethodInput := utils_GetMethodInputDescriptor $G $Method -}}
-	{{- $MethodOutput := utils_GetMethodOutputDescriptor $G $Method -}}
-
-	{{- $MethodInputName := generator_CamelCase $MethodInput.GetName -}}
-	{{- $MethodOutputName := generator_CamelCase $MethodOutput.GetName -}}
-
-	var _flag_{{$ServiceName}}_{{$MethodName}} = []cli.Flag{
-		{{range $_, $MethodInputField := $MethodInput.Field -}}
-			cli.{{pkgGenCmdFlagType $MethodInputField}}{
-				Name:  "{{pkgGenCmdFlagName $MethodInputField}}",
-				Usage: "{{pkgGenCmdFlagUsage $MethodInputField}}",
-
-				{{- if $v := pkgGenCmdFlagDefaultValue $MethodInputField}}
-				Value: {{$v}}, {{pkgGenCmdFlagDefaultValueComment $MethodInputField}}
-				{{- end}}
-			},
-		{{end}}
-	}
-{{end}}
-
-{{/* generate command functions */}}
+{{/* generate command flags and functions */}}
 {{range $_, $Method := $Service.Method}}
 
 {{- $MethodName := generator_CamelCase $Method.GetName -}}
@@ -337,6 +314,19 @@ var Cmd{{$ServiceName}} = cli.Command{
 
 {{- $MethodInputName := generator_CamelCase $MethodInput.GetName -}}
 {{- $MethodOutputName := generator_CamelCase $MethodOutput.GetName -}}
+
+var _flag_{{$ServiceName}}_{{$MethodName}} = []cli.Flag{
+	{{range $_, $MethodInputField := $MethodInput.Field -}}
+		cli.{{pkgGenCmdFlagType $MethodInputField}}{
+			Name:  "{{pkgGenCmdFlagName $MethodInputField}}",
+			Usage: "{{pkgGenCmdFlagUsage $MethodInputField}}",
+
+			{{- if $v := pkgGenCmdFlagDefaultValue $MethodInputField}}
+			Value: {{$v}}, {{pkgGenCmdFlagDefaultValueComment $MethodInputField}}
+			{{- end}}
+		},
+	{{end}}
+}
 
 func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
