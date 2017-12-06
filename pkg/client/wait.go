@@ -1,4 +1,4 @@
-package utils
+package client
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ func NewTimeoutError(timeout time.Duration) *TimeoutError {
 }
 
 // WaitForSpecificOrError wait a function return true or error.
-func WaitForSpecificOrError(f func() (bool, error), timeout time.Duration, waitInterval time.Duration) error {
+func pkgWaitForSpecificOrError(f func() (bool, error), timeout time.Duration, waitInterval time.Duration) error {
 	ticker := time.NewTicker(waitInterval)
 	defer ticker.Stop()
 	timer := time.NewTimer(timeout)
@@ -46,7 +46,7 @@ func WaitForSpecificOrError(f func() (bool, error), timeout time.Duration, waitI
 
 // WaitForSpecific wait a function return true.
 func WaitForSpecific(f func() bool, timeout time.Duration, waitInterval time.Duration) error {
-	return WaitForSpecificOrError(func() (bool, error) {
+	return pkgWaitForSpecificOrError(func() (bool, error) {
 		return f(), nil
 	}, timeout, waitInterval)
 }

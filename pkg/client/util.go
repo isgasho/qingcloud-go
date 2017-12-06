@@ -6,13 +6,12 @@ import (
 
 	service "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/logger"
-	"github.com/chai2010/qingcloud-go/pkg/utils"
 )
 
 // WaitJob wait the job with this jobID finish
 func WaitJob(jobService *service.JobService, jobID string, timeout time.Duration, waitInterval time.Duration) error {
 	logger.Info("Waiting for Job [%s] finished", jobID)
-	return utils.WaitForSpecificOrError(func() (bool, error) {
+	return pkgWaitForSpecificOrError(func() (bool, error) {
 		input := &service.DescribeJobsInput{Jobs: []string{jobID}}
 		output, err := jobService.DescribeJobs(input)
 		if err != nil {
@@ -75,7 +74,7 @@ func describeInstance(instanceService *service.InstanceService, instanceID strin
 func WaitInstanceStatus(instanceService *service.InstanceService, instanceID string, status string, timeout time.Duration, waitInterval time.Duration) (ins *service.Instance, err error) {
 	logger.Info("Waiting for Instance [%s] status [%s] ", instanceID, status)
 	errorTimes := 0
-	err = utils.WaitForSpecificOrError(func() (bool, error) {
+	err = pkgWaitForSpecificOrError(func() (bool, error) {
 		i, err := describeInstance(instanceService, instanceID)
 		if err != nil {
 			logger.Errorf("DescribeInstance [%s] error : [%s]", instanceID, err.Error())
@@ -102,7 +101,7 @@ func WaitInstanceStatus(instanceService *service.InstanceService, instanceID str
 // WaitInstanceNetwork wait the instance with this instanceID network become ready
 func WaitInstanceNetwork(instanceService *service.InstanceService, instanceID string, timeout time.Duration, waitInterval time.Duration) (ins *service.Instance, err error) {
 	logger.Info("Waiting for IP address to be assigned to Instance [%s]", instanceID)
-	err = utils.WaitForSpecificOrError(func() (bool, error) {
+	err = pkgWaitForSpecificOrError(func() (bool, error) {
 		i, err := describeInstance(instanceService, instanceID)
 		if err != nil {
 			return false, err
@@ -135,7 +134,7 @@ func describeLoadBalancer(lbService *service.LoadBalancerService, loadBalancerID
 func WaitLoadBalancerStatus(lbService *service.LoadBalancerService, loadBalancerID string, status string, timeout time.Duration, waitInterval time.Duration) (lb *service.LoadBalancer, err error) {
 	logger.Info("Waiting for LoadBalancer [%s] status [%s] ", loadBalancerID, status)
 	errorTimes := 0
-	err = utils.WaitForSpecificOrError(func() (bool, error) {
+	err = pkgWaitForSpecificOrError(func() (bool, error) {
 		i, err := describeLoadBalancer(lbService, loadBalancerID)
 		if err != nil {
 			logger.Errorf("DescribeLoadBalancer [%s] error : [%s]", loadBalancerID, err.Error())

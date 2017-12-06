@@ -25,8 +25,9 @@ import (
 	"strings"
 	"time"
 
+	"gopkg.in/yaml.v2"
+
 	"github.com/chai2010/qingcloud-go/pkg/logger"
-	"github.com/chai2010/qingcloud-go/pkg/utils"
 )
 
 // A Config stores a configuration of this sdk.
@@ -67,7 +68,7 @@ func New(accessKeyID, secretAccessKey string) (*Config, error) {
 func NewDefault() (*Config, error) {
 	c := &Config{}
 
-	_, err := utils.YAMLDecode([]byte(DefaultConfigFileContent), c)
+	err := yaml.Unmarshal([]byte(DefaultConfigFileContent), c)
 	if err != nil {
 		return nil, err
 	}
@@ -138,7 +139,7 @@ func LoadConfigFromContent(content []byte) (*Config, error) {
 		return nil, err
 	}
 
-	_, err = utils.YAMLDecode(content, c)
+	err = yaml.Unmarshal(content, c)
 	if err != nil {
 		logger.Error("Config parse error: " + err.Error())
 		return nil, err
@@ -167,7 +168,7 @@ func MustLoadConfigFromContent(content []byte) *Config {
 // LoadDefaultConfig loads the default configuration for Config.
 // It returns error if yaml decode failed.
 func (c *Config) LoadDefaultConfig() error {
-	_, err := utils.YAMLDecode([]byte(DefaultConfigFileContent), c)
+	err := yaml.Unmarshal([]byte(DefaultConfigFileContent), c)
 	if err != nil {
 		logger.Error("Config parse error: " + err.Error())
 		return err
@@ -209,7 +210,7 @@ func (c *Config) LoadConfigFromFilepath(filepath string) error {
 func (c *Config) LoadConfigFromContent(content []byte) error {
 	c.LoadDefaultConfig()
 
-	_, err := utils.YAMLDecode(content, c)
+	err := yaml.Unmarshal(content, c)
 	if err != nil {
 		logger.Error("Config parse error: " + err.Error())
 		return err
