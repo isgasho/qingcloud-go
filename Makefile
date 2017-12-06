@@ -11,11 +11,11 @@ default:
 
 build-docker: Dockerfile
 	$(GO) fmt ./...
-	docker build -t qingcloud-cli .
+	docker build -t chai2010/qingcloud-go .
 	@docker image prune -f 1>/dev/null 2>&1
 
 run-docker:
-	docker run --rm -it -v `pwd`:/root -w /root qingcloud-cli
+	docker run --rm -it -v `pwd`:/root -w /root chai2010/qingcloud-go qcli
 
 hello:
 	go fmt ./...

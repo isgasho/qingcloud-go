@@ -2,15 +2,17 @@
 # Use of this source code is governed by a Apache
 # license that can be found in the LICENSE file.
 
-FROM golang:alpine as builder
+# docker run --rm -it -v `pwd`:/root -w /root chai2010/qingcloud-go qcli
+
+FROM golang:1.9.2-alpine3.6 as builder
 
 WORKDIR /go/src/github.com/chai2010/qingcloud-go/
 COPY . .
 RUN go install ./cmd/...
 
-FROM alpine
+FROM alpine:3.6
 
-COPY --from=builder /go/bin/* /usr/local/bin/
+COPY --from=builder /go/bin/qcli /usr/local/bin/qcli
 
-ENTRYPOINT ["/usr/local/bin/qingcloud-cli"]
-CMD []
+ENTRYPOINT []
+CMD ["/usr/local/bin/qcli"]

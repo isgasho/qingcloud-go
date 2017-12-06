@@ -53,9 +53,15 @@ log_level: 'warn'
 
 其中 `json_disable_unknown_fields` 是新加的变量, 表示在JSON解码时忽略 proto.Message 遇到未定义成员的错误.
 
-## qcli 命令行(开发中)
+## qcli 命令行
 
-安装: `go get github.com/chai2010/qingcloud-go/cmd/qcli`
+Docker 运行:
+
+- `docker run --rm -it -v `pwd`:/root -w /root chai2010/qingcloud-go qcli`
+
+从Go源码安装:
+
+- `go get github.com/chai2010/qingcloud-go/cmd/qcli`
 
 输入 `qcli` 或 `qcli -h` 查看命令提示:
 
