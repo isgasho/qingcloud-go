@@ -20,7 +20,7 @@ func Main() {
 	app := cli.NewApp()
 	app.Name = "qcli"
 	app.Usage = "QingCloud Command Line Interface"
-	app.Version = verpkg.Version
+	app.Version = verpkg.ShortVersion
 
 	app.Authors = []cli.Author{
 		{Name: "ChaiShushan", Email: "chaishushan@gmail.com"},

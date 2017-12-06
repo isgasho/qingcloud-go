@@ -4,5 +4,11 @@
 
 package version
 
-// Version number.
-const Version = "0.1.0"
+//go:generate go run gen_helper.go
+//go:generate go fmt
+
+var (
+	ShortVersion   = "dev"
+	GitSha1Version = "git-sha1"
+	BuildDate      = "2017-01-01"
+)
