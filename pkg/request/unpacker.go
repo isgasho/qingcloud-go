@@ -72,15 +72,11 @@ func (u *Unpacker) parseResponse() (respBody string, err error) {
 }
 
 func (u *Unpacker) parseError() error {
-	if x, ok := u.output.(errors.QingCloudErrorInterface); ok {
+	if x, ok := u.output.(errors.Error); ok {
 		if x.GetRetCode() != 0 {
-			return &errors.QingCloudError{
-				RetCode: int(x.GetRetCode()),
-				Message: x.GetMessage(),
-			}
+			return errors.New(x.GetRetCode(), x.GetMessage())
 		}
 	}
-
 	return nil
 }
 
