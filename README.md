@@ -11,8 +11,8 @@
 新开 SDK 的原因:
 
 - 官方 SDK 迟迟没有 release, 项目活跃度较低
-- 官方 SDK 的近2万行手写的json维护极其困难, 已经失去继续进化的可能
-- 官方 SDK 需要用 Go 语言的模板语言维护 snips 自定义的极其复杂的判断逻辑, 这是错误的!
+- 官方 SDK 的 [近2万行手写的json](https://github.com/yunify/qingcloud-api-specs/tree/master/2013-08-30/swagger) 维护极其困难, 已经失去继续进化的可能
+- 官方 SDK 需要用 Go 语言的模板语言维护 snips 自定义的 [极其复杂的判断逻辑](https://github.com/yunify/qingcloud-sdk-go/blob/master/template/shared.tmpl) , 这是错误的!
 - 基于 Ptotobuf 构建, 解决方案简单优美, 稳定性和可扩展性足够好, Docker/Kubernetes 都用它
 - 其它通过非主流的工具构建的方式, 除了作者本人根本没有投入的必要
 - 缺少一个完备的和 SDK 基本等价的命令行工具
