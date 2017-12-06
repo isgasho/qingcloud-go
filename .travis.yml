@@ -3,3 +3,22 @@ language: go
 go:
   - 1.9
   - tip
+
+go_import_path: github.com/chai2010/qingcloud-go
+
+script:
+  - make generate
+  - make test
+  - make dist
+
+#deploy:
+#  provider: releases
+#  api_key:
+#    secure: ...todo...
+#  file:
+#    - ./bin/qingcloud-cli-windows-amd64.zip
+#    - ./bin/qingcloud-cli-linux-amd64.zip
+#    - ./bin/qingcloud-cli-darwin-amd64.zip
+#  skip_cleanup: true
+#  on:
+#    tags: true

@@ -22,3 +22,5 @@
 
 *.pb.qingcloud-server.go.txt
 *.pb.qingcloud-server.go
+
+/bin
