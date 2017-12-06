@@ -122,14 +122,7 @@ func (r *Request) sign() error {
 }
 
 func (r *Request) send() error {
-	var response *http.Response
-	var err error
-
-	if r.Operation.Config.Connection == nil {
-		return errors.New("connection not initialized")
-	}
-
-	response, err = r.Operation.Config.Connection.Do(r.HTTPRequest)
+	response, err := http.DefaultClient.Do(r.HTTPRequest)
 	if err != nil {
 		return err
 	}

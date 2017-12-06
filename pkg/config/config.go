@@ -19,12 +19,9 @@ package config
 
 import (
 	"io/ioutil"
-	"net"
-	"net/http"
 	"os"
 	"runtime"
 	"strings"
-	"time"
 
 	"gopkg.in/yaml.v2"
 
@@ -45,8 +42,6 @@ type Config struct {
 	JSONDisableUnknownFields bool   `yaml:"json_disable_unknown_fields"`
 	LogLevel                 string `yaml:"log_level"`
 	Zone                     string `yaml:"zone"`
-
-	Connection *http.Client
 }
 
 // NewDefault loads the default configuration for Config.
@@ -56,16 +51,6 @@ func NewDefault() (*Config, error) {
 	err := yaml.Unmarshal([]byte(DefaultConfigFileContent), c)
 	if err != nil {
 		return nil, err
-	}
-
-	timeout := time.Duration(c.ConnectionTimeout) * time.Second
-	transport := &http.Transport{
-		Dial: func(network, addr string) (net.Conn, error) {
-			return net.DialTimeout(network, addr, timeout)
-		},
-	}
-	c.Connection = &http.Client{
-		Transport: transport,
 	}
 
 	return c, nil
@@ -122,16 +107,6 @@ func LoadConfigFromContent(content []byte) (*Config, error) {
 	if err != nil {
 		logger.Error("Config parse error: " + err.Error())
 		return nil, err
-	}
-
-	timeout := time.Duration(c.ConnectionTimeout) * time.Second
-	transport := &http.Transport{
-		Dial: func(network, addr string) (net.Conn, error) {
-			return net.DialTimeout(network, addr, timeout)
-		},
-	}
-	c.Connection = &http.Client{
-		Transport: transport,
 	}
 
 	return c, nil
