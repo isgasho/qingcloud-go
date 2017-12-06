@@ -9,7 +9,7 @@ go_import_path: github.com/chai2010/qingcloud-go
 script:
   - make generate
   - make test
-  - make dist
+#  - make dist
 
 #deploy:
 #  provider: releases
