@@ -81,16 +81,65 @@ var tmplFuncMap = template.FuncMap{
 	"utils_GetMethodInputDescriptor":  utils.GetMethodInputDescriptor,
 	"utils_GetMethodOutputDescriptor": utils.GetMethodOutputDescriptor,
 
-	"pkgGenCmdFlagName":   pkgGenCmdFlagName,
-	"pkgGenCmdFlagUsage":  pkgGenCmdFlagUsage,
-	"pkgGenCmdFlagParser": pkgGenCmdFlagParser,
+	"pkgGenCmdFlagType":                pkgGenCmdFlagType,
+	"pkgGenCmdFlagName":                pkgGenCmdFlagName,
+	"pkgGenCmdFlagUsage":               pkgGenCmdFlagUsage,
+	"pkgGenCmdFlagDefaultValue":        pkgGenCmdFlagDefaultValue,
+	"pkgGenCmdFlagDefaultValueComment": pkgGenCmdFlagDefaultValueComment,
+	"pkgGenCmdFlagParser":              pkgGenCmdFlagParser,
+}
+
+func pkgGenCmdFlagType(field *descriptor.FieldDescriptorProto) string {
+	switch {
+	case utils.IsSupportedBool(field):
+		return "BoolFlag"
+	case utils.IsSupportedInt(field):
+		return "IntFlag"
+	case utils.IsSupportedFloat(field):
+		return "Float64Flag"
+	case utils.IsSupportedString(field):
+		return "StringFlag"
+	default: // json: slice/message/map
+		return "StringFlag"
+	}
 }
 
 func pkgGenCmdFlagName(field *descriptor.FieldDescriptorProto) string {
-	return ""
+	return field.GetName()
 }
 func pkgGenCmdFlagUsage(field *descriptor.FieldDescriptorProto) string {
-	return ""
+	s := field.GetName()
+	s = strings.Replace(s, "_", " ", -1)
+	return s
+}
+
+func pkgGenCmdFlagDefaultValue(field *descriptor.FieldDescriptorProto) string {
+	switch {
+	case utils.IsSupportedBool(field):
+		return "false"
+	case utils.IsSupportedInt(field):
+		return "0"
+	case utils.IsSupportedFloat(field):
+		return "0"
+	case utils.IsSupportedString(field):
+		return `""`
+	default: // json: slice/message/map
+		return `""`
+	}
+}
+func pkgGenCmdFlagDefaultValueComment(field *descriptor.FieldDescriptorProto) string {
+	switch {
+	case utils.IsSupportedBool(field):
+		return ""
+	case utils.IsSupportedInt(field):
+		return ""
+	case utils.IsSupportedFloat(field):
+		return ""
+	case utils.IsSupportedString(field):
+		return ""
+	default:
+		return `// json: slice/message/map`
+	}
 }
 
 func pkgGenCmdFlagParser(field *descriptor.FieldDescriptorProto) string {
@@ -183,8 +232,15 @@ var Cmd{{$ServiceName}} = cli.Command{
 	{{- $MethodOutputName := generator_CamelCase $MethodOutput.GetName -}}
 
 	var _flag_{{$ServiceName}}_{{$MethodName}} = []cli.Flag{
-		{{range $_, $field := $MethodInput.Field}}
-			{{/* todo */}}
+		{{range $_, $MethodInputField := $MethodInput.Field -}}
+			cli.{{pkgGenCmdFlagType $MethodInputField}}{
+				Name:  "{{pkgGenCmdFlagName $MethodInputField}}",
+				Usage: "{{pkgGenCmdFlagUsage $MethodInputField}}",
+
+				{{- if $v := pkgGenCmdFlagDefaultValue $MethodInputField}}
+				Value: {{$v}}, {{pkgGenCmdFlagDefaultValueComment $MethodInputField}}
+				{{- end}}
+			},
 		{{end}}
 	}
 {{end}}
