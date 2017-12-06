@@ -6,6 +6,11 @@ go:
 
 go_import_path: github.com/chai2010/qingcloud-go
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install protobuf-compiler
+  - go get github.com/golang/protobuf/protoc-gen-go
+
 script:
   - make generate
   - make test
