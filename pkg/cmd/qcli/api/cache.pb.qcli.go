@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,175 +48,216 @@ var CmdCacheService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeCaches",
 			Flags:   _flag_CacheService_DescribeCaches,
-			Action:  _cmd_CacheService_DescribeCaches,
+			Action:  _func_CacheService_DescribeCaches,
 		},
 		{
 			Name:    "CreateCache",
 			Aliases: []string{},
 			Usage:   "CreateCache",
 			Flags:   _flag_CacheService_CreateCache,
-			Action:  _cmd_CacheService_CreateCache,
+			Action:  _func_CacheService_CreateCache,
 		},
 		{
 			Name:    "StopCaches",
 			Aliases: []string{},
 			Usage:   "StopCaches",
 			Flags:   _flag_CacheService_StopCaches,
-			Action:  _cmd_CacheService_StopCaches,
+			Action:  _func_CacheService_StopCaches,
 		},
 		{
 			Name:    "StartCaches",
 			Aliases: []string{},
 			Usage:   "StartCaches",
 			Flags:   _flag_CacheService_StartCaches,
-			Action:  _cmd_CacheService_StartCaches,
+			Action:  _func_CacheService_StartCaches,
 		},
 		{
 			Name:    "RestartCaches",
 			Aliases: []string{},
 			Usage:   "RestartCaches",
 			Flags:   _flag_CacheService_RestartCaches,
-			Action:  _cmd_CacheService_RestartCaches,
+			Action:  _func_CacheService_RestartCaches,
 		},
 		{
 			Name:    "DeleteCaches",
 			Aliases: []string{},
 			Usage:   "DeleteCaches",
 			Flags:   _flag_CacheService_DeleteCaches,
-			Action:  _cmd_CacheService_DeleteCaches,
+			Action:  _func_CacheService_DeleteCaches,
 		},
 		{
 			Name:    "ResizeCaches",
 			Aliases: []string{},
 			Usage:   "ResizeCaches",
 			Flags:   _flag_CacheService_ResizeCaches,
-			Action:  _cmd_CacheService_ResizeCaches,
+			Action:  _func_CacheService_ResizeCaches,
 		},
 		{
 			Name:    "UpdateCache",
 			Aliases: []string{},
 			Usage:   "UpdateCache",
 			Flags:   _flag_CacheService_UpdateCache,
-			Action:  _cmd_CacheService_UpdateCache,
+			Action:  _func_CacheService_UpdateCache,
 		},
 		{
 			Name:    "ChangeCacheVxnet",
 			Aliases: []string{},
 			Usage:   "ChangeCacheVxnet",
 			Flags:   _flag_CacheService_ChangeCacheVxnet,
-			Action:  _cmd_CacheService_ChangeCacheVxnet,
+			Action:  _func_CacheService_ChangeCacheVxnet,
 		},
 		{
 			Name:    "ModifyCacheAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyCacheAttributes",
 			Flags:   _flag_CacheService_ModifyCacheAttributes,
-			Action:  _cmd_CacheService_ModifyCacheAttributes,
+			Action:  _func_CacheService_ModifyCacheAttributes,
 		},
 		{
 			Name:    "DescribeCacheNodes",
 			Aliases: []string{},
 			Usage:   "DescribeCacheNodes",
 			Flags:   _flag_CacheService_DescribeCacheNodes,
-			Action:  _cmd_CacheService_DescribeCacheNodes,
+			Action:  _func_CacheService_DescribeCacheNodes,
 		},
 		{
 			Name:    "AddCacheNodes",
 			Aliases: []string{},
 			Usage:   "AddCacheNodes",
 			Flags:   _flag_CacheService_AddCacheNodes,
-			Action:  _cmd_CacheService_AddCacheNodes,
+			Action:  _func_CacheService_AddCacheNodes,
 		},
 		{
 			Name:    "DeleteCacheNodes",
 			Aliases: []string{},
 			Usage:   "DeleteCacheNodes",
 			Flags:   _flag_CacheService_DeleteCacheNodes,
-			Action:  _cmd_CacheService_DeleteCacheNodes,
+			Action:  _func_CacheService_DeleteCacheNodes,
 		},
 		{
 			Name:    "RestartCacheNodes",
 			Aliases: []string{},
 			Usage:   "RestartCacheNodes",
 			Flags:   _flag_CacheService_RestartCacheNodes,
-			Action:  _cmd_CacheService_RestartCacheNodes,
+			Action:  _func_CacheService_RestartCacheNodes,
 		},
 		{
 			Name:    "ModifyCacheNodeAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyCacheNodeAttributes",
 			Flags:   _flag_CacheService_ModifyCacheNodeAttributes,
-			Action:  _cmd_CacheService_ModifyCacheNodeAttributes,
+			Action:  _func_CacheService_ModifyCacheNodeAttributes,
 		},
 		{
 			Name:    "CreateCacheFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateCacheFromSnapshot",
 			Flags:   _flag_CacheService_CreateCacheFromSnapshot,
-			Action:  _cmd_CacheService_CreateCacheFromSnapshot,
+			Action:  _func_CacheService_CreateCacheFromSnapshot,
 		},
 		{
 			Name:    "DescribeCacheParameterGroups",
 			Aliases: []string{},
 			Usage:   "DescribeCacheParameterGroups",
 			Flags:   _flag_CacheService_DescribeCacheParameterGroups,
-			Action:  _cmd_CacheService_DescribeCacheParameterGroups,
+			Action:  _func_CacheService_DescribeCacheParameterGroups,
 		},
 		{
 			Name:    "CreateCacheParameterGroup",
 			Aliases: []string{},
 			Usage:   "CreateCacheParameterGroup",
 			Flags:   _flag_CacheService_CreateCacheParameterGroup,
-			Action:  _cmd_CacheService_CreateCacheParameterGroup,
+			Action:  _func_CacheService_CreateCacheParameterGroup,
 		},
 		{
 			Name:    "ApplyCacheParameterGroup",
 			Aliases: []string{},
 			Usage:   "ApplyCacheParameterGroup",
 			Flags:   _flag_CacheService_ApplyCacheParameterGroup,
-			Action:  _cmd_CacheService_ApplyCacheParameterGroup,
+			Action:  _func_CacheService_ApplyCacheParameterGroup,
 		},
 		{
 			Name:    "DeleteCacheParameterGroups",
 			Aliases: []string{},
 			Usage:   "DeleteCacheParameterGroups",
 			Flags:   _flag_CacheService_DeleteCacheParameterGroups,
-			Action:  _cmd_CacheService_DeleteCacheParameterGroups,
+			Action:  _func_CacheService_DeleteCacheParameterGroups,
 		},
 		{
 			Name:    "ModifyCacheParameterGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyCacheParameterGroupAttributes",
 			Flags:   _flag_CacheService_ModifyCacheParameterGroupAttributes,
-			Action:  _cmd_CacheService_ModifyCacheParameterGroupAttributes,
+			Action:  _func_CacheService_ModifyCacheParameterGroupAttributes,
 		},
 		{
 			Name:    "DescribeCacheParameters",
 			Aliases: []string{},
 			Usage:   "DescribeCacheParameters",
 			Flags:   _flag_CacheService_DescribeCacheParameters,
-			Action:  _cmd_CacheService_DescribeCacheParameters,
+			Action:  _func_CacheService_DescribeCacheParameters,
 		},
 		{
 			Name:    "UpdateCacheParameters",
 			Aliases: []string{},
 			Usage:   "UpdateCacheParameters",
 			Flags:   _flag_CacheService_UpdateCacheParameters,
-			Action:  _cmd_CacheService_UpdateCacheParameters,
+			Action:  _func_CacheService_UpdateCacheParameters,
 		},
 		{
 			Name:    "ResetCacheParameters",
 			Aliases: []string{},
 			Usage:   "ResetCacheParameters",
 			Flags:   _flag_CacheService_ResetCacheParameters,
-			Action:  _cmd_CacheService_ResetCacheParameters,
+			Action:  _func_CacheService_ResetCacheParameters,
 		},
 	},
 }
 
-var _flag_CacheService_DescribeCaches = []cli.Flag{ /* fields */ }
+var _flag_CacheService_DescribeCaches = []cli.Flag{
+	cli.StringFlag{
+		Name:  "caches",
+		Usage: "caches",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "cache_type",
+		Usage: "cache type",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_CacheService_DescribeCaches(c *cli.Context) error {
+func _func_CacheService_DescribeCaches(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -229,6 +272,38 @@ func _cmd_CacheService_DescribeCaches(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("caches") {
+			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("cache_type") {
+			if err := json.Unmarshal([]byte(c.String("cache_type")), &in.CacheType); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeCaches(in)
@@ -251,9 +326,55 @@ func _cmd_CacheService_DescribeCaches(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_CreateCache = []cli.Flag{ /* fields */ }
+var _flag_CacheService_CreateCache = []cli.Flag{
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "cache_size",
+		Usage: "cache size",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "cache_type",
+		Usage: "cache type",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "node_count",
+		Usage: "node count",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "cache_name",
+		Usage: "cache name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_parameter_group",
+		Usage: "cache parameter group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "auto_backup_time",
+		Usage: "auto backup time",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "cache_class",
+		Usage: "cache class",
+		Value: 0,
+	},
+}
 
-func _cmd_CacheService_CreateCache(c *cli.Context) error {
+func _func_CacheService_CreateCache(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -268,6 +389,35 @@ func _cmd_CacheService_CreateCache(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("cache_size") {
+			in.CacheSize = proto.Int32(int32(c.Int("cache_size")))
+		}
+		if c.IsSet("cache_type") {
+			in.CacheType = proto.String(c.String("cache_type"))
+		}
+		if c.IsSet("node_count") {
+			in.NodeCount = proto.Int32(int32(c.Int("node_count")))
+		}
+		if c.IsSet("cache_name") {
+			in.CacheName = proto.String(c.String("cache_name"))
+		}
+		if c.IsSet("cache_parameter_group") {
+			in.CacheParameterGroup = proto.String(c.String("cache_parameter_group"))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("auto_backup_time") {
+			in.AutoBackupTime = proto.Int32(int32(c.Int("auto_backup_time")))
+		}
+		if c.IsSet("cache_class") {
+			in.CacheClass = proto.Int32(int32(c.Int("cache_class")))
+		}
 	}
 
 	out, err := qc.CreateCache(in)
@@ -290,9 +440,15 @@ func _cmd_CacheService_CreateCache(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_StopCaches = []cli.Flag{ /* fields */ }
+var _flag_CacheService_StopCaches = []cli.Flag{
+	cli.StringFlag{
+		Name:  "caches",
+		Usage: "caches",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_StopCaches(c *cli.Context) error {
+func _func_CacheService_StopCaches(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -307,6 +463,11 @@ func _cmd_CacheService_StopCaches(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("caches") {
+			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StopCaches(in)
@@ -329,9 +490,15 @@ func _cmd_CacheService_StopCaches(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_StartCaches = []cli.Flag{ /* fields */ }
+var _flag_CacheService_StartCaches = []cli.Flag{
+	cli.StringFlag{
+		Name:  "caches",
+		Usage: "caches",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_StartCaches(c *cli.Context) error {
+func _func_CacheService_StartCaches(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -346,6 +513,11 @@ func _cmd_CacheService_StartCaches(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("caches") {
+			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StartCaches(in)
@@ -368,9 +540,15 @@ func _cmd_CacheService_StartCaches(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_RestartCaches = []cli.Flag{ /* fields */ }
+var _flag_CacheService_RestartCaches = []cli.Flag{
+	cli.StringFlag{
+		Name:  "caches",
+		Usage: "caches",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_RestartCaches(c *cli.Context) error {
+func _func_CacheService_RestartCaches(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -385,6 +563,11 @@ func _cmd_CacheService_RestartCaches(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("caches") {
+			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RestartCaches(in)
@@ -407,9 +590,15 @@ func _cmd_CacheService_RestartCaches(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_DeleteCaches = []cli.Flag{ /* fields */ }
+var _flag_CacheService_DeleteCaches = []cli.Flag{
+	cli.StringFlag{
+		Name:  "caches",
+		Usage: "caches",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_DeleteCaches(c *cli.Context) error {
+func _func_CacheService_DeleteCaches(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -424,6 +613,11 @@ func _cmd_CacheService_DeleteCaches(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("caches") {
+			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteCaches(in)
@@ -446,9 +640,20 @@ func _cmd_CacheService_DeleteCaches(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_ResizeCaches = []cli.Flag{ /* fields */ }
+var _flag_CacheService_ResizeCaches = []cli.Flag{
+	cli.StringFlag{
+		Name:  "caches",
+		Usage: "caches",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "cache_size",
+		Usage: "cache size",
+		Value: 0,
+	},
+}
 
-func _cmd_CacheService_ResizeCaches(c *cli.Context) error {
+func _func_CacheService_ResizeCaches(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -463,6 +668,14 @@ func _cmd_CacheService_ResizeCaches(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("caches") {
+			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("cache_size") {
+			in.CacheSize = proto.Int32(int32(c.Int("cache_size")))
+		}
 	}
 
 	out, err := qc.ResizeCaches(in)
@@ -485,9 +698,20 @@ func _cmd_CacheService_ResizeCaches(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_UpdateCache = []cli.Flag{ /* fields */ }
+var _flag_CacheService_UpdateCache = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache",
+		Usage: "cache",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_UpdateCache(c *cli.Context) error {
+func _func_CacheService_UpdateCache(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -502,6 +726,14 @@ func _cmd_CacheService_UpdateCache(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache") {
+			in.Cache = proto.String(c.String("cache"))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.UpdateCache(in)
@@ -524,9 +756,25 @@ func _cmd_CacheService_UpdateCache(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_ChangeCacheVxnet = []cli.Flag{ /* fields */ }
+var _flag_CacheService_ChangeCacheVxnet = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache",
+		Usage: "cache",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_ChangeCacheVxnet(c *cli.Context) error {
+func _func_CacheService_ChangeCacheVxnet(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -541,6 +789,17 @@ func _cmd_CacheService_ChangeCacheVxnet(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache") {
+			in.Cache = proto.String(c.String("cache"))
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ChangeCacheVxnet(in)
@@ -563,9 +822,30 @@ func _cmd_CacheService_ChangeCacheVxnet(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_ModifyCacheAttributes = []cli.Flag{ /* fields */ }
+var _flag_CacheService_ModifyCacheAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache",
+		Usage: "cache",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_name",
+		Usage: "cache name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "auto_backup_time",
+		Usage: "auto backup time",
+		Value: 0,
+	},
+}
 
-func _cmd_CacheService_ModifyCacheAttributes(c *cli.Context) error {
+func _func_CacheService_ModifyCacheAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -580,6 +860,18 @@ func _cmd_CacheService_ModifyCacheAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache") {
+			in.Cache = proto.String(c.String("cache"))
+		}
+		if c.IsSet("cache_name") {
+			in.CacheName = proto.String(c.String("cache_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("auto_backup_time") {
+			in.AutoBackupTime = proto.Int32(int32(c.Int("auto_backup_time")))
+		}
 	}
 
 	out, err := qc.ModifyCacheAttributes(in)
@@ -602,9 +894,45 @@ func _cmd_CacheService_ModifyCacheAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_DescribeCacheNodes = []cli.Flag{ /* fields */ }
+var _flag_CacheService_DescribeCacheNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache",
+		Usage: "cache",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_nodes",
+		Usage: "cache nodes",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_CacheService_DescribeCacheNodes(c *cli.Context) error {
+func _func_CacheService_DescribeCacheNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -619,6 +947,31 @@ func _cmd_CacheService_DescribeCacheNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache") {
+			in.Cache = proto.String(c.String("cache"))
+		}
+		if c.IsSet("cache_nodes") {
+			if err := json.Unmarshal([]byte(c.String("cache_nodes")), &in.CacheNodes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeCacheNodes(in)
@@ -641,9 +994,25 @@ func _cmd_CacheService_DescribeCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_AddCacheNodes = []cli.Flag{ /* fields */ }
+var _flag_CacheService_AddCacheNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache",
+		Usage: "cache",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "node_count",
+		Usage: "node count",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_AddCacheNodes(c *cli.Context) error {
+func _func_CacheService_AddCacheNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -658,6 +1027,17 @@ func _cmd_CacheService_AddCacheNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache") {
+			in.Cache = proto.String(c.String("cache"))
+		}
+		if c.IsSet("node_count") {
+			in.NodeCount = proto.Int32(int32(c.Int("node_count")))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddCacheNodes(in)
@@ -680,9 +1060,20 @@ func _cmd_CacheService_AddCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_DeleteCacheNodes = []cli.Flag{ /* fields */ }
+var _flag_CacheService_DeleteCacheNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache",
+		Usage: "cache",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_nodes",
+		Usage: "cache nodes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_DeleteCacheNodes(c *cli.Context) error {
+func _func_CacheService_DeleteCacheNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -697,6 +1088,14 @@ func _cmd_CacheService_DeleteCacheNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache") {
+			in.Cache = proto.String(c.String("cache"))
+		}
+		if c.IsSet("cache_nodes") {
+			if err := json.Unmarshal([]byte(c.String("cache_nodes")), &in.CacheNodes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteCacheNodes(in)
@@ -719,9 +1118,20 @@ func _cmd_CacheService_DeleteCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_RestartCacheNodes = []cli.Flag{ /* fields */ }
+var _flag_CacheService_RestartCacheNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache",
+		Usage: "cache",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_nodes",
+		Usage: "cache nodes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_RestartCacheNodes(c *cli.Context) error {
+func _func_CacheService_RestartCacheNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -736,6 +1146,14 @@ func _cmd_CacheService_RestartCacheNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache") {
+			in.Cache = proto.String(c.String("cache"))
+		}
+		if c.IsSet("cache_nodes") {
+			if err := json.Unmarshal([]byte(c.String("cache_nodes")), &in.CacheNodes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RestartCacheNodes(in)
@@ -758,9 +1176,20 @@ func _cmd_CacheService_RestartCacheNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_ModifyCacheNodeAttributes = []cli.Flag{ /* fields */ }
+var _flag_CacheService_ModifyCacheNodeAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_node",
+		Usage: "cache node",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_node_name",
+		Usage: "cache node name",
+		Value: "",
+	},
+}
 
-func _cmd_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
+func _func_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -775,6 +1204,12 @@ func _cmd_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_node") {
+			in.CacheNode = proto.String(c.String("cache_node"))
+		}
+		if c.IsSet("cache_node_name") {
+			in.CacheNodeName = proto.String(c.String("cache_node_name"))
+		}
 	}
 
 	out, err := qc.ModifyCacheNodeAttributes(in)
@@ -797,9 +1232,50 @@ func _cmd_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_CreateCacheFromSnapshot = []cli.Flag{ /* fields */ }
+var _flag_CacheService_CreateCacheFromSnapshot = []cli.Flag{
+	cli.StringFlag{
+		Name:  "snapshot",
+		Usage: "snapshot",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "node_count",
+		Usage: "node count",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "cache_name",
+		Usage: "cache name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_parameter_group",
+		Usage: "cache parameter group",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "auto_backup_time",
+		Usage: "auto backup time",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "cache_class",
+		Usage: "cache class",
+		Value: 0,
+	},
+}
 
-func _cmd_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
+func _func_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -814,6 +1290,32 @@ func _cmd_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("snapshot") {
+			in.Snapshot = proto.String(c.String("snapshot"))
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("node_count") {
+			in.NodeCount = proto.Int32(int32(c.Int("node_count")))
+		}
+		if c.IsSet("cache_name") {
+			in.CacheName = proto.String(c.String("cache_name"))
+		}
+		if c.IsSet("cache_parameter_group") {
+			in.CacheParameterGroup = proto.String(c.String("cache_parameter_group"))
+		}
+		if c.IsSet("auto_backup_time") {
+			in.AutoBackupTime = proto.Int32(int32(c.Int("auto_backup_time")))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("cache_class") {
+			in.CacheClass = proto.Int32(int32(c.Int("cache_class")))
+		}
 	}
 
 	out, err := qc.CreateCacheFromSnapshot(in)
@@ -836,9 +1338,40 @@ func _cmd_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_DescribeCacheParameterGroups = []cli.Flag{ /* fields */ }
+var _flag_CacheService_DescribeCacheParameterGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_parameter_groups",
+		Usage: "cache parameter groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "cache_type",
+		Usage: "cache type",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
+func _func_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -853,6 +1386,26 @@ func _cmd_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_parameter_groups") {
+			if err := json.Unmarshal([]byte(c.String("cache_parameter_groups")), &in.CacheParameterGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("cache_type") {
+			in.CacheType = proto.String(c.String("cache_type"))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.Int32(int32(c.Int("search_word")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeCacheParameterGroups(in)
@@ -875,9 +1428,20 @@ func _cmd_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_CreateCacheParameterGroup = []cli.Flag{ /* fields */ }
+var _flag_CacheService_CreateCacheParameterGroup = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_type",
+		Usage: "cache type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_parameter_group_name",
+		Usage: "cache parameter group name",
+		Value: "",
+	},
+}
 
-func _cmd_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
+func _func_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -892,6 +1456,12 @@ func _cmd_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_type") {
+			in.CacheType = proto.String(c.String("cache_type"))
+		}
+		if c.IsSet("cache_parameter_group_name") {
+			in.CacheParameterGroupName = proto.String(c.String("cache_parameter_group_name"))
+		}
 	}
 
 	out, err := qc.CreateCacheParameterGroup(in)
@@ -914,9 +1484,20 @@ func _cmd_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_ApplyCacheParameterGroup = []cli.Flag{ /* fields */ }
+var _flag_CacheService_ApplyCacheParameterGroup = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_parameter_group",
+		Usage: "cache parameter group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "caches",
+		Usage: "caches",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
+func _func_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -931,6 +1512,14 @@ func _cmd_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_parameter_group") {
+			in.CacheParameterGroup = proto.String(c.String("cache_parameter_group"))
+		}
+		if c.IsSet("caches") {
+			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ApplyCacheParameterGroup(in)
@@ -953,9 +1542,15 @@ func _cmd_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_DeleteCacheParameterGroups = []cli.Flag{ /* fields */ }
+var _flag_CacheService_DeleteCacheParameterGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_parameter_groups",
+		Usage: "cache parameter groups",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
+func _func_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -970,6 +1565,11 @@ func _cmd_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_parameter_groups") {
+			if err := json.Unmarshal([]byte(c.String("cache_parameter_groups")), &in.CacheParameterGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteCacheParameterGroups(in)
@@ -992,9 +1592,25 @@ func _cmd_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_ModifyCacheParameterGroupAttributes = []cli.Flag{ /* fields */ }
+var _flag_CacheService_ModifyCacheParameterGroupAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_parameter_group",
+		Usage: "cache parameter group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_parameter_group_name",
+		Usage: "cache parameter group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) error {
+func _func_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -1009,6 +1625,15 @@ func _cmd_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_parameter_group") {
+			in.CacheParameterGroup = proto.String(c.String("cache_parameter_group"))
+		}
+		if c.IsSet("cache_parameter_group_name") {
+			in.CacheParameterGroupName = proto.String(c.String("cache_parameter_group_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyCacheParameterGroupAttributes(in)
@@ -1031,9 +1656,15 @@ func _cmd_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) error
 	return nil
 }
 
-var _flag_CacheService_DescribeCacheParameters = []cli.Flag{ /* fields */ }
+var _flag_CacheService_DescribeCacheParameters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_parameter_group",
+		Usage: "cache parameter group",
+		Value: "",
+	},
+}
 
-func _cmd_CacheService_DescribeCacheParameters(c *cli.Context) error {
+func _func_CacheService_DescribeCacheParameters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -1048,6 +1679,9 @@ func _cmd_CacheService_DescribeCacheParameters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_parameter_group") {
+			in.CacheParameterGroup = proto.String(c.String("cache_parameter_group"))
+		}
 	}
 
 	out, err := qc.DescribeCacheParameters(in)
@@ -1070,9 +1704,20 @@ func _cmd_CacheService_DescribeCacheParameters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_UpdateCacheParameters = []cli.Flag{ /* fields */ }
+var _flag_CacheService_UpdateCacheParameters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_parameter_group",
+		Usage: "cache parameter group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "parameters",
+		Usage: "parameters",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_UpdateCacheParameters(c *cli.Context) error {
+func _func_CacheService_UpdateCacheParameters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -1087,6 +1732,14 @@ func _cmd_CacheService_UpdateCacheParameters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_parameter_group") {
+			in.CacheParameterGroup = proto.String(c.String("cache_parameter_group"))
+		}
+		if c.IsSet("parameters") {
+			if err := json.Unmarshal([]byte(c.String("parameters")), &in.Parameters); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.UpdateCacheParameters(in)
@@ -1109,9 +1762,20 @@ func _cmd_CacheService_UpdateCacheParameters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_CacheService_ResetCacheParameters = []cli.Flag{ /* fields */ }
+var _flag_CacheService_ResetCacheParameters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cache_parameter_group",
+		Usage: "cache parameter group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cache_parameter_names",
+		Usage: "cache parameter names",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_CacheService_ResetCacheParameters(c *cli.Context) error {
+func _func_CacheService_ResetCacheParameters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
@@ -1126,6 +1790,14 @@ func _cmd_CacheService_ResetCacheParameters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cache_parameter_group") {
+			in.CacheParameterGroup = proto.String(c.String("cache_parameter_group"))
+		}
+		if c.IsSet("cache_parameter_names") {
+			if err := json.Unmarshal([]byte(c.String("cache_parameter_names")), &in.CacheParameterNames); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ResetCacheParameters(in)

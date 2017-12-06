@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,91 +48,147 @@ var CmdInstanceService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeInstances",
 			Flags:   _flag_InstanceService_DescribeInstances,
-			Action:  _cmd_InstanceService_DescribeInstances,
+			Action:  _func_InstanceService_DescribeInstances,
 		},
 		{
 			Name:    "RunInstances",
 			Aliases: []string{},
 			Usage:   "RunInstances",
 			Flags:   _flag_InstanceService_RunInstances,
-			Action:  _cmd_InstanceService_RunInstances,
+			Action:  _func_InstanceService_RunInstances,
 		},
 		{
 			Name:    "TerminateInstances",
 			Aliases: []string{},
 			Usage:   "TerminateInstances",
 			Flags:   _flag_InstanceService_TerminateInstances,
-			Action:  _cmd_InstanceService_TerminateInstances,
+			Action:  _func_InstanceService_TerminateInstances,
 		},
 		{
 			Name:    "StartInstances",
 			Aliases: []string{},
 			Usage:   "StartInstances",
 			Flags:   _flag_InstanceService_StartInstances,
-			Action:  _cmd_InstanceService_StartInstances,
+			Action:  _func_InstanceService_StartInstances,
 		},
 		{
 			Name:    "StopInstances",
 			Aliases: []string{},
 			Usage:   "StopInstances",
 			Flags:   _flag_InstanceService_StopInstances,
-			Action:  _cmd_InstanceService_StopInstances,
+			Action:  _func_InstanceService_StopInstances,
 		},
 		{
 			Name:    "RestartInstances",
 			Aliases: []string{},
 			Usage:   "RestartInstances",
 			Flags:   _flag_InstanceService_RestartInstances,
-			Action:  _cmd_InstanceService_RestartInstances,
+			Action:  _func_InstanceService_RestartInstances,
 		},
 		{
 			Name:    "ResetInstances",
 			Aliases: []string{},
 			Usage:   "ResetInstances",
 			Flags:   _flag_InstanceService_ResetInstances,
-			Action:  _cmd_InstanceService_ResetInstances,
+			Action:  _func_InstanceService_ResetInstances,
 		},
 		{
 			Name:    "ResizeInstances",
 			Aliases: []string{},
 			Usage:   "ResizeInstances",
 			Flags:   _flag_InstanceService_ResizeInstances,
-			Action:  _cmd_InstanceService_ResizeInstances,
+			Action:  _func_InstanceService_ResizeInstances,
 		},
 		{
 			Name:    "ModifyInstanceAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyInstanceAttributes",
 			Flags:   _flag_InstanceService_ModifyInstanceAttributes,
-			Action:  _cmd_InstanceService_ModifyInstanceAttributes,
+			Action:  _func_InstanceService_ModifyInstanceAttributes,
 		},
 		{
 			Name:    "DescribeInstanceTypes",
 			Aliases: []string{},
 			Usage:   "DescribeInstanceTypes",
 			Flags:   _flag_InstanceService_DescribeInstanceTypes,
-			Action:  _cmd_InstanceService_DescribeInstanceTypes,
+			Action:  _func_InstanceService_DescribeInstanceTypes,
 		},
 		{
 			Name:    "CreateBrokers",
 			Aliases: []string{},
 			Usage:   "CreateBrokers",
 			Flags:   _flag_InstanceService_CreateBrokers,
-			Action:  _cmd_InstanceService_CreateBrokers,
+			Action:  _func_InstanceService_CreateBrokers,
 		},
 		{
 			Name:    "DeleteBrokers",
 			Aliases: []string{},
 			Usage:   "DeleteBrokers",
 			Flags:   _flag_InstanceService_DeleteBrokers,
-			Action:  _cmd_InstanceService_DeleteBrokers,
+			Action:  _func_InstanceService_DeleteBrokers,
 		},
 	},
 }
 
-var _flag_InstanceService_DescribeInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_DescribeInstances = []cli.Flag{
+	cli.StringFlag{
+		Name:  "image_id",
+		Usage: "image id",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "instance_class",
+		Usage: "instance class",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "instance_type",
+		Usage: "instance type",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "is_cluster_node",
+		Usage: "is cluster node",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+}
 
-func _cmd_InstanceService_DescribeInstances(c *cli.Context) error {
+func _func_InstanceService_DescribeInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -145,6 +203,49 @@ func _cmd_InstanceService_DescribeInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("image_id") {
+			if err := json.Unmarshal([]byte(c.String("image_id")), &in.ImageId); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("instance_class") {
+			in.InstanceClass = proto.Int32(int32(c.Int("instance_class")))
+		}
+		if c.IsSet("instance_type") {
+			if err := json.Unmarshal([]byte(c.String("instance_type")), &in.InstanceType); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("is_cluster_node") {
+			in.IsClusterNode = proto.Int32(int32(c.Int("is_cluster_node")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
 	}
 
 	out, err := qc.DescribeInstances(in)
@@ -167,9 +268,120 @@ func _cmd_InstanceService_DescribeInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_RunInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_RunInstances = []cli.Flag{
+	cli.StringFlag{
+		Name:  "billing_id",
+		Usage: "billing id",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "count",
+		Usage: "count",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "cpu",
+		Usage: "cpu",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "hostname",
+		Usage: "hostname",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "image_id",
+		Usage: "image id",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "instance_class",
+		Usage: "instance class",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "instance_name",
+		Usage: "instance name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "instance_type",
+		Usage: "instance type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "login_keypair",
+		Usage: "login keypair",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "login_mode",
+		Usage: "login mode",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "login_passwd",
+		Usage: "login passwd",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "memory",
+		Usage: "memory",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "need_newsid",
+		Usage: "need newsid",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "need_userdata",
+		Usage: "need userdata",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "ui_type",
+		Usage: "ui type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "userdata_file",
+		Usage: "userdata file",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "userdata_path",
+		Usage: "userdata path",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "userdata_type",
+		Usage: "userdata type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "userdata_value",
+		Usage: "userdata value",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "vxnets",
+		Usage: "vxnets",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_RunInstances(c *cli.Context) error {
+func _func_InstanceService_RunInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -184,6 +396,76 @@ func _cmd_InstanceService_RunInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("billing_id") {
+			in.BillingId = proto.String(c.String("billing_id"))
+		}
+		if c.IsSet("count") {
+			in.Count = proto.Int32(int32(c.Int("count")))
+		}
+		if c.IsSet("cpu") {
+			in.Cpu = proto.Int32(int32(c.Int("cpu")))
+		}
+		if c.IsSet("hostname") {
+			in.Hostname = proto.String(c.String("hostname"))
+		}
+		if c.IsSet("image_id") {
+			in.ImageId = proto.String(c.String("image_id"))
+		}
+		if c.IsSet("instance_class") {
+			in.InstanceClass = proto.Int32(int32(c.Int("instance_class")))
+		}
+		if c.IsSet("instance_name") {
+			in.InstanceName = proto.String(c.String("instance_name"))
+		}
+		if c.IsSet("instance_type") {
+			in.InstanceType = proto.String(c.String("instance_type"))
+		}
+		if c.IsSet("login_keypair") {
+			in.LoginKeypair = proto.String(c.String("login_keypair"))
+		}
+		if c.IsSet("login_mode") {
+			in.LoginMode = proto.String(c.String("login_mode"))
+		}
+		if c.IsSet("login_passwd") {
+			in.LoginPasswd = proto.String(c.String("login_passwd"))
+		}
+		if c.IsSet("memory") {
+			in.Memory = proto.Int32(int32(c.Int("memory")))
+		}
+		if c.IsSet("need_newsid") {
+			in.NeedNewsid = proto.Int32(int32(c.Int("need_newsid")))
+		}
+		if c.IsSet("need_userdata") {
+			in.NeedUserdata = proto.Int32(int32(c.Int("need_userdata")))
+		}
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("ui_type") {
+			in.UiType = proto.String(c.String("ui_type"))
+		}
+		if c.IsSet("userdata_file") {
+			in.UserdataFile = proto.String(c.String("userdata_file"))
+		}
+		if c.IsSet("userdata_path") {
+			in.UserdataPath = proto.String(c.String("userdata_path"))
+		}
+		if c.IsSet("userdata_type") {
+			in.UserdataType = proto.String(c.String("userdata_type"))
+		}
+		if c.IsSet("userdata_value") {
+			in.UserdataValue = proto.String(c.String("userdata_value"))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("vxnets") {
+			if err := json.Unmarshal([]byte(c.String("vxnets")), &in.Vxnets); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RunInstances(in)
@@ -206,9 +488,15 @@ func _cmd_InstanceService_RunInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_TerminateInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_TerminateInstances = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_TerminateInstances(c *cli.Context) error {
+func _func_InstanceService_TerminateInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -223,6 +511,11 @@ func _cmd_InstanceService_TerminateInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.TerminateInstances(in)
@@ -245,9 +538,15 @@ func _cmd_InstanceService_TerminateInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_StartInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_StartInstances = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_StartInstances(c *cli.Context) error {
+func _func_InstanceService_StartInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -262,6 +561,11 @@ func _cmd_InstanceService_StartInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StartInstances(in)
@@ -284,9 +588,20 @@ func _cmd_InstanceService_StartInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_StopInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_StopInstances = []cli.Flag{
+	cli.IntFlag{
+		Name:  "force",
+		Usage: "force",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_StopInstances(c *cli.Context) error {
+func _func_InstanceService_StopInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -301,6 +616,14 @@ func _cmd_InstanceService_StopInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("force") {
+			in.Force = proto.Int32(int32(c.Int("force")))
+		}
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StopInstances(in)
@@ -323,9 +646,15 @@ func _cmd_InstanceService_StopInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_RestartInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_RestartInstances = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_RestartInstances(c *cli.Context) error {
+func _func_InstanceService_RestartInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -340,6 +669,11 @@ func _cmd_InstanceService_RestartInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RestartInstances(in)
@@ -362,9 +696,35 @@ func _cmd_InstanceService_RestartInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_ResetInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_ResetInstances = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "login_mode",
+		Usage: "login mode",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "login_keypair",
+		Usage: "login keypair",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "login_passwd",
+		Usage: "login passwd",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "need_newsid",
+		Usage: "need newsid",
+		Value: 0,
+	},
+}
 
-func _cmd_InstanceService_ResetInstances(c *cli.Context) error {
+func _func_InstanceService_ResetInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -379,6 +739,23 @@ func _cmd_InstanceService_ResetInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("login_mode") {
+			in.LoginMode = proto.String(c.String("login_mode"))
+		}
+		if c.IsSet("login_keypair") {
+			in.LoginKeypair = proto.String(c.String("login_keypair"))
+		}
+		if c.IsSet("login_passwd") {
+			in.LoginPasswd = proto.String(c.String("login_passwd"))
+		}
+		if c.IsSet("need_newsid") {
+			in.NeedNewsid = proto.Int32(int32(c.Int("need_newsid")))
+		}
 	}
 
 	out, err := qc.ResetInstances(in)
@@ -401,9 +778,30 @@ func _cmd_InstanceService_ResetInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_ResizeInstances = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_ResizeInstances = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "instance_type",
+		Usage: "instance type",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "cpu",
+		Usage: "cpu",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "memory",
+		Usage: "memory",
+		Value: 0,
+	},
+}
 
-func _cmd_InstanceService_ResizeInstances(c *cli.Context) error {
+func _func_InstanceService_ResizeInstances(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -418,6 +816,20 @@ func _cmd_InstanceService_ResizeInstances(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("instance_type") {
+			in.InstanceType = proto.String(c.String("instance_type"))
+		}
+		if c.IsSet("cpu") {
+			in.Cpu = proto.Int32(int32(c.Int("cpu")))
+		}
+		if c.IsSet("memory") {
+			in.Memory = proto.Int32(int32(c.Int("memory")))
+		}
 	}
 
 	out, err := qc.ResizeInstances(in)
@@ -440,9 +852,30 @@ func _cmd_InstanceService_ResizeInstances(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_ModifyInstanceAttributes = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_ModifyInstanceAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instance",
+		Usage: "instance",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "instance_name",
+		Usage: "instance name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "nic_mqueue",
+		Usage: "nic mqueue",
+		Value: 0,
+	},
+}
 
-func _cmd_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
+func _func_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -457,6 +890,18 @@ func _cmd_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instance") {
+			in.Instance = proto.String(c.String("instance"))
+		}
+		if c.IsSet("instance_name") {
+			in.InstanceName = proto.String(c.String("instance_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("nic_mqueue") {
+			in.NicMqueue = proto.Int32(int32(c.Int("nic_mqueue")))
+		}
 	}
 
 	out, err := qc.ModifyInstanceAttributes(in)
@@ -479,9 +924,25 @@ func _cmd_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_DescribeInstanceTypes = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_DescribeInstanceTypes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "action",
+		Usage: "action",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "zone",
+		Usage: "zone",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "instance_types",
+		Usage: "instance types",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
+func _func_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -496,6 +957,17 @@ func _cmd_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("action") {
+			in.Action = proto.String(c.String("action"))
+		}
+		if c.IsSet("zone") {
+			in.Zone = proto.String(c.String("zone"))
+		}
+		if c.IsSet("instance_types") {
+			if err := json.Unmarshal([]byte(c.String("instance_types")), &in.InstanceTypes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DescribeInstanceTypes(in)
@@ -518,9 +990,15 @@ func _cmd_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_CreateBrokers = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_CreateBrokers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_CreateBrokers(c *cli.Context) error {
+func _func_InstanceService_CreateBrokers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -535,6 +1013,11 @@ func _cmd_InstanceService_CreateBrokers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.CreateBrokers(in)
@@ -557,9 +1040,15 @@ func _cmd_InstanceService_CreateBrokers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_InstanceService_DeleteBrokers = []cli.Flag{ /* fields */ }
+var _flag_InstanceService_DeleteBrokers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_InstanceService_DeleteBrokers(c *cli.Context) error {
+func _func_InstanceService_DeleteBrokers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
@@ -574,6 +1063,11 @@ func _cmd_InstanceService_DeleteBrokers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteBrokers(in)

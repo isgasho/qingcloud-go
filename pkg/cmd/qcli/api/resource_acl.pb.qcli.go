@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,196 +48,207 @@ var CmdResourceACLService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeSharedResourceGroups",
 			Flags:   _flag_ResourceACLService_DescribeSharedResourceGroups,
-			Action:  _cmd_ResourceACLService_DescribeSharedResourceGroups,
+			Action:  _func_ResourceACLService_DescribeSharedResourceGroups,
 		},
 		{
 			Name:    "DescribeResourceGroups",
 			Aliases: []string{},
 			Usage:   "DescribeResourceGroups",
 			Flags:   _flag_ResourceACLService_DescribeResourceGroups,
-			Action:  _cmd_ResourceACLService_DescribeResourceGroups,
+			Action:  _func_ResourceACLService_DescribeResourceGroups,
 		},
 		{
 			Name:    "CreateResourceGroups",
 			Aliases: []string{},
 			Usage:   "CreateResourceGroups",
 			Flags:   _flag_ResourceACLService_CreateResourceGroups,
-			Action:  _cmd_ResourceACLService_CreateResourceGroups,
+			Action:  _func_ResourceACLService_CreateResourceGroups,
 		},
 		{
 			Name:    "ModifyResourceGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyResourceGroupAttributes",
 			Flags:   _flag_ResourceACLService_ModifyResourceGroupAttributes,
-			Action:  _cmd_ResourceACLService_ModifyResourceGroupAttributes,
+			Action:  _func_ResourceACLService_ModifyResourceGroupAttributes,
 		},
 		{
 			Name:    "DeleteResourceGroups",
 			Aliases: []string{},
 			Usage:   "DeleteResourceGroups",
 			Flags:   _flag_ResourceACLService_DeleteResourceGroups,
-			Action:  _cmd_ResourceACLService_DeleteResourceGroups,
+			Action:  _func_ResourceACLService_DeleteResourceGroups,
 		},
 		{
 			Name:    "DescribeResourceGroupItems",
 			Aliases: []string{},
 			Usage:   "DescribeResourceGroupItems",
 			Flags:   _flag_ResourceACLService_DescribeResourceGroupItems,
-			Action:  _cmd_ResourceACLService_DescribeResourceGroupItems,
+			Action:  _func_ResourceACLService_DescribeResourceGroupItems,
 		},
 		{
 			Name:    "AddResourceGroupItems",
 			Aliases: []string{},
 			Usage:   "AddResourceGroupItems",
 			Flags:   _flag_ResourceACLService_AddResourceGroupItems,
-			Action:  _cmd_ResourceACLService_AddResourceGroupItems,
+			Action:  _func_ResourceACLService_AddResourceGroupItems,
 		},
 		{
 			Name:    "DeleteResourceGroupItems",
 			Aliases: []string{},
 			Usage:   "DeleteResourceGroupItems",
 			Flags:   _flag_ResourceACLService_DeleteResourceGroupItems,
-			Action:  _cmd_ResourceACLService_DeleteResourceGroupItems,
+			Action:  _func_ResourceACLService_DeleteResourceGroupItems,
 		},
 		{
 			Name:    "DescribeUserGroups",
 			Aliases: []string{},
 			Usage:   "DescribeUserGroups",
 			Flags:   _flag_ResourceACLService_DescribeUserGroups,
-			Action:  _cmd_ResourceACLService_DescribeUserGroups,
+			Action:  _func_ResourceACLService_DescribeUserGroups,
 		},
 		{
 			Name:    "CreateUserGroups",
 			Aliases: []string{},
 			Usage:   "CreateUserGroups",
 			Flags:   _flag_ResourceACLService_CreateUserGroups,
-			Action:  _cmd_ResourceACLService_CreateUserGroups,
+			Action:  _func_ResourceACLService_CreateUserGroups,
 		},
 		{
 			Name:    "ModifyUserGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyUserGroupAttributes",
 			Flags:   _flag_ResourceACLService_ModifyUserGroupAttributes,
-			Action:  _cmd_ResourceACLService_ModifyUserGroupAttributes,
+			Action:  _func_ResourceACLService_ModifyUserGroupAttributes,
 		},
 		{
 			Name:    "DeleteUserGroups",
 			Aliases: []string{},
 			Usage:   "DeleteUserGroups",
 			Flags:   _flag_ResourceACLService_DeleteUserGroups,
-			Action:  _cmd_ResourceACLService_DeleteUserGroups,
+			Action:  _func_ResourceACLService_DeleteUserGroups,
 		},
 		{
 			Name:    "DescribeUserGroupMembers",
 			Aliases: []string{},
 			Usage:   "DescribeUserGroupMembers",
 			Flags:   _flag_ResourceACLService_DescribeUserGroupMembers,
-			Action:  _cmd_ResourceACLService_DescribeUserGroupMembers,
+			Action:  _func_ResourceACLService_DescribeUserGroupMembers,
 		},
 		{
 			Name:    "AddUserGroupMembers",
 			Aliases: []string{},
 			Usage:   "AddUserGroupMembers",
 			Flags:   _flag_ResourceACLService_AddUserGroupMembers,
-			Action:  _cmd_ResourceACLService_AddUserGroupMembers,
+			Action:  _func_ResourceACLService_AddUserGroupMembers,
 		},
 		{
 			Name:    "ModifyUserGroupMemberAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyUserGroupMemberAttributes",
 			Flags:   _flag_ResourceACLService_ModifyUserGroupMemberAttributes,
-			Action:  _cmd_ResourceACLService_ModifyUserGroupMemberAttributes,
+			Action:  _func_ResourceACLService_ModifyUserGroupMemberAttributes,
 		},
 		{
 			Name:    "DeleteUserGroupMembers",
 			Aliases: []string{},
 			Usage:   "DeleteUserGroupMembers",
 			Flags:   _flag_ResourceACLService_DeleteUserGroupMembers,
-			Action:  _cmd_ResourceACLService_DeleteUserGroupMembers,
+			Action:  _func_ResourceACLService_DeleteUserGroupMembers,
 		},
 		{
 			Name:    "DescribeGroupRoles",
 			Aliases: []string{},
 			Usage:   "DescribeGroupRoles",
 			Flags:   _flag_ResourceACLService_DescribeGroupRoles,
-			Action:  _cmd_ResourceACLService_DescribeGroupRoles,
+			Action:  _func_ResourceACLService_DescribeGroupRoles,
 		},
 		{
 			Name:    "CreateGroupRoles",
 			Aliases: []string{},
 			Usage:   "CreateGroupRoles",
 			Flags:   _flag_ResourceACLService_CreateGroupRoles,
-			Action:  _cmd_ResourceACLService_CreateGroupRoles,
+			Action:  _func_ResourceACLService_CreateGroupRoles,
 		},
 		{
 			Name:    "ModifyGroupRoleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyGroupRoleAttributes",
 			Flags:   _flag_ResourceACLService_ModifyGroupRoleAttributes,
-			Action:  _cmd_ResourceACLService_ModifyGroupRoleAttributes,
+			Action:  _func_ResourceACLService_ModifyGroupRoleAttributes,
 		},
 		{
 			Name:    "DeleteGroupRoles",
 			Aliases: []string{},
 			Usage:   "DeleteGroupRoles",
 			Flags:   _flag_ResourceACLService_DeleteGroupRoles,
-			Action:  _cmd_ResourceACLService_DeleteGroupRoles,
+			Action:  _func_ResourceACLService_DeleteGroupRoles,
 		},
 		{
 			Name:    "DescribeGroupRoleRules",
 			Aliases: []string{},
 			Usage:   "DescribeGroupRoleRules",
 			Flags:   _flag_ResourceACLService_DescribeGroupRoleRules,
-			Action:  _cmd_ResourceACLService_DescribeGroupRoleRules,
+			Action:  _func_ResourceACLService_DescribeGroupRoleRules,
 		},
 		{
 			Name:    "AddGroupRoleRules",
 			Aliases: []string{},
 			Usage:   "AddGroupRoleRules",
 			Flags:   _flag_ResourceACLService_AddGroupRoleRules,
-			Action:  _cmd_ResourceACLService_AddGroupRoleRules,
+			Action:  _func_ResourceACLService_AddGroupRoleRules,
 		},
 		{
 			Name:    "ModifyGroupRoleRuleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyGroupRoleRuleAttributes",
 			Flags:   _flag_ResourceACLService_ModifyGroupRoleRuleAttributes,
-			Action:  _cmd_ResourceACLService_ModifyGroupRoleRuleAttributes,
+			Action:  _func_ResourceACLService_ModifyGroupRoleRuleAttributes,
 		},
 		{
 			Name:    "DeleteGroupRoleRules",
 			Aliases: []string{},
 			Usage:   "DeleteGroupRoleRules",
 			Flags:   _flag_ResourceACLService_DeleteGroupRoleRules,
-			Action:  _cmd_ResourceACLService_DeleteGroupRoleRules,
+			Action:  _func_ResourceACLService_DeleteGroupRoleRules,
 		},
 		{
 			Name:    "GrantResourceGroupsToUserGroups",
 			Aliases: []string{},
 			Usage:   "GrantResourceGroupsToUserGroups",
 			Flags:   _flag_ResourceACLService_GrantResourceGroupsToUserGroups,
-			Action:  _cmd_ResourceACLService_GrantResourceGroupsToUserGroups,
+			Action:  _func_ResourceACLService_GrantResourceGroupsToUserGroups,
 		},
 		{
 			Name:    "RevokeResourceGroupsFromUserGroups",
 			Aliases: []string{},
 			Usage:   "RevokeResourceGroupsFromUserGroups",
 			Flags:   _flag_ResourceACLService_RevokeResourceGroupsFromUserGroups,
-			Action:  _cmd_ResourceACLService_RevokeResourceGroupsFromUserGroups,
+			Action:  _func_ResourceACLService_RevokeResourceGroupsFromUserGroups,
 		},
 		{
 			Name:    "DescribeResourceUserGroups",
 			Aliases: []string{},
 			Usage:   "DescribeResourceUserGroups",
 			Flags:   _flag_ResourceACLService_DescribeResourceUserGroups,
-			Action:  _cmd_ResourceACLService_DescribeResourceUserGroups,
+			Action:  _func_ResourceACLService_DescribeResourceUserGroups,
 		},
 	},
 }
 
-var _flag_ResourceACLService_DescribeSharedResourceGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeSharedResourceGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_groups",
+		Usage: "resource groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "owner",
+		Usage: "owner",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error {
+func _func_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -250,6 +263,14 @@ func _cmd_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error 
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_groups") {
+			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("owner") {
+			in.Owner = proto.String(c.String("owner"))
+		}
 	}
 
 	out, err := qc.DescribeSharedResourceGroups(in)
@@ -272,9 +293,45 @@ func _cmd_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error 
 	return nil
 }
 
-var _flag_ResourceACLService_DescribeResourceGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeResourceGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_groups",
+		Usage: "resource groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "sort_key",
+		Usage: "sort key",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "reverse",
+		Usage: "reverse",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
+func _func_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -289,6 +346,29 @@ func _cmd_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_groups") {
+			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("sort_key") {
+			in.SortKey = proto.String(c.String("sort_key"))
+		}
+		if c.IsSet("reverse") {
+			in.Reverse = proto.Int32(int32(c.Int("reverse")))
+		}
 	}
 
 	out, err := qc.DescribeResourceGroups(in)
@@ -311,9 +391,25 @@ func _cmd_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_CreateResourceGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_CreateResourceGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_group_name",
+		Usage: "resource group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "count",
+		Usage: "count",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
+func _func_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -328,6 +424,15 @@ func _cmd_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_group_name") {
+			in.ResourceGroupName = proto.String(c.String("resource_group_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("count") {
+			in.Count = proto.Int32(int32(c.Int("count")))
+		}
 	}
 
 	out, err := qc.CreateResourceGroups(in)
@@ -350,9 +455,25 @@ func _cmd_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_ModifyResourceGroupAttributes = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_ModifyResourceGroupAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_group",
+		Usage: "resource group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "resource_group_name",
+		Usage: "resource group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error {
+func _func_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -367,6 +488,15 @@ func _cmd_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_group") {
+			in.ResourceGroup = proto.String(c.String("resource_group"))
+		}
+		if c.IsSet("resource_group_name") {
+			in.ResourceGroupName = proto.String(c.String("resource_group_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyResourceGroupAttributes(in)
@@ -389,9 +519,15 @@ func _cmd_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error
 	return nil
 }
 
-var _flag_ResourceACLService_DeleteResourceGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DeleteResourceGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_groups",
+		Usage: "resource groups",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
+func _func_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -406,6 +542,11 @@ func _cmd_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_groups") {
+			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteResourceGroups(in)
@@ -428,9 +569,45 @@ func _cmd_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DescribeResourceGroupItems = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeResourceGroupItems = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_groups",
+		Usage: "resource groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "resources",
+		Usage: "resources",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "sort_key",
+		Usage: "sort key",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "reverse",
+		Usage: "reverse",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
+func _func_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -445,6 +622,31 @@ func _cmd_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_groups") {
+			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("resources") {
+			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("sort_key") {
+			in.SortKey = proto.String(c.String("sort_key"))
+		}
+		if c.IsSet("reverse") {
+			in.Reverse = proto.Int32(int32(c.Int("reverse")))
+		}
 	}
 
 	out, err := qc.DescribeResourceGroupItems(in)
@@ -467,9 +669,20 @@ func _cmd_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_AddResourceGroupItems = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_AddResourceGroupItems = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_group",
+		Usage: "resource group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "resources",
+		Usage: "resources",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
+func _func_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -484,6 +697,14 @@ func _cmd_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_group") {
+			in.ResourceGroup = proto.String(c.String("resource_group"))
+		}
+		if c.IsSet("resources") {
+			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddResourceGroupItems(in)
@@ -506,9 +727,20 @@ func _cmd_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DeleteResourceGroupItems = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DeleteResourceGroupItems = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_group",
+		Usage: "resource group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "resources",
+		Usage: "resources",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
+func _func_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -523,6 +755,14 @@ func _cmd_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_group") {
+			in.ResourceGroup = proto.String(c.String("resource_group"))
+		}
+		if c.IsSet("resources") {
+			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteResourceGroupItems(in)
@@ -545,9 +785,50 @@ func _cmd_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DescribeUserGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeUserGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_groups",
+		Usage: "user groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "sort_key",
+		Usage: "sort key",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "reverse",
+		Usage: "reverse",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
+func _func_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -562,6 +843,34 @@ func _cmd_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_groups") {
+			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("sort_key") {
+			in.SortKey = proto.String(c.String("sort_key"))
+		}
+		if c.IsSet("reverse") {
+			in.Reverse = proto.Int32(int32(c.Int("reverse")))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
 	}
 
 	out, err := qc.DescribeUserGroups(in)
@@ -584,9 +893,25 @@ func _cmd_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_CreateUserGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_CreateUserGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_group_name",
+		Usage: "user group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "count",
+		Usage: "count",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_CreateUserGroups(c *cli.Context) error {
+func _func_ResourceACLService_CreateUserGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -601,6 +926,15 @@ func _cmd_ResourceACLService_CreateUserGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_group_name") {
+			in.UserGroupName = proto.String(c.String("user_group_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("count") {
+			in.Count = proto.Int32(int32(c.Int("count")))
+		}
 	}
 
 	out, err := qc.CreateUserGroups(in)
@@ -623,9 +957,30 @@ func _cmd_ResourceACLService_CreateUserGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_ModifyUserGroupAttributes = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_ModifyUserGroupAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_group",
+		Usage: "user group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "user_group_name",
+		Usage: "user group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
+func _func_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -640,6 +995,18 @@ func _cmd_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_group") {
+			in.UserGroup = proto.String(c.String("user_group"))
+		}
+		if c.IsSet("user_group_name") {
+			in.UserGroupName = proto.String(c.String("user_group_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("status") {
+			in.Status = proto.String(c.String("status"))
+		}
 	}
 
 	out, err := qc.ModifyUserGroupAttributes(in)
@@ -662,9 +1029,15 @@ func _cmd_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DeleteUserGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DeleteUserGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_groups",
+		Usage: "user groups",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
+func _func_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -679,6 +1052,11 @@ func _cmd_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_groups") {
+			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteUserGroups(in)
@@ -701,9 +1079,55 @@ func _cmd_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DescribeUserGroupMembers = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeUserGroupMembers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_groups",
+		Usage: "user groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "sort_key",
+		Usage: "sort key",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "reverse",
+		Usage: "reverse",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
+func _func_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -718,6 +1142,39 @@ func _cmd_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_groups") {
+			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("sort_key") {
+			in.SortKey = proto.String(c.String("sort_key"))
+		}
+		if c.IsSet("reverse") {
+			in.Reverse = proto.Int32(int32(c.Int("reverse")))
+		}
 	}
 
 	out, err := qc.DescribeUserGroupMembers(in)
@@ -740,9 +1197,20 @@ func _cmd_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_AddUserGroupMembers = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_AddUserGroupMembers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_group",
+		Usage: "user group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
+func _func_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -757,6 +1225,14 @@ func _cmd_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_group") {
+			in.UserGroup = proto.String(c.String("user_group"))
+		}
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddUserGroupMembers(in)
@@ -779,9 +1255,30 @@ func _cmd_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_ModifyUserGroupMemberAttributes = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_ModifyUserGroupMemberAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_group",
+		Usage: "user group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "user",
+		Usage: "user",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "remarks",
+		Usage: "remarks",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) error {
+func _func_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -796,6 +1293,18 @@ func _cmd_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) err
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_group") {
+			in.UserGroup = proto.String(c.String("user_group"))
+		}
+		if c.IsSet("user") {
+			in.User = proto.String(c.String("user"))
+		}
+		if c.IsSet("remarks") {
+			in.Remarks = proto.String(c.String("remarks"))
+		}
+		if c.IsSet("status") {
+			in.Status = proto.String(c.String("status"))
+		}
 	}
 
 	out, err := qc.ModifyUserGroupMemberAttributes(in)
@@ -818,9 +1327,20 @@ func _cmd_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) err
 	return nil
 }
 
-var _flag_ResourceACLService_DeleteUserGroupMembers = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DeleteUserGroupMembers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user_group",
+		Usage: "user group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
+func _func_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -835,6 +1355,14 @@ func _cmd_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user_group") {
+			in.UserGroup = proto.String(c.String("user_group"))
+		}
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteUserGroupMembers(in)
@@ -857,9 +1385,50 @@ func _cmd_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DescribeGroupRoles = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeGroupRoles = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_roles",
+		Usage: "group roles",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "sort_key",
+		Usage: "sort key",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "reverse",
+		Usage: "reverse",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
+func _func_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -874,6 +1443,34 @@ func _cmd_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_roles") {
+			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("sort_key") {
+			in.SortKey = proto.String(c.String("sort_key"))
+		}
+		if c.IsSet("reverse") {
+			in.Reverse = proto.Int32(int32(c.Int("reverse")))
+		}
 	}
 
 	out, err := qc.DescribeGroupRoles(in)
@@ -896,9 +1493,30 @@ func _cmd_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_CreateGroupRoles = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_CreateGroupRoles = []cli.Flag{
+	cli.StringFlag{
+		Name:  "role_type",
+		Usage: "role type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "group_role_name",
+		Usage: "group role name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "count",
+		Usage: "count",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
+func _func_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -913,6 +1531,18 @@ func _cmd_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("role_type") {
+			in.RoleType = proto.String(c.String("role_type"))
+		}
+		if c.IsSet("group_role_name") {
+			in.GroupRoleName = proto.String(c.String("group_role_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("count") {
+			in.Count = proto.Int32(int32(c.Int("count")))
+		}
 	}
 
 	out, err := qc.CreateGroupRoles(in)
@@ -935,9 +1565,35 @@ func _cmd_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_ModifyGroupRoleAttributes = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_ModifyGroupRoleAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_role",
+		Usage: "group role",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "role_type",
+		Usage: "role type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "group_role_name",
+		Usage: "group role name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
+func _func_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -952,6 +1608,21 @@ func _cmd_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_role") {
+			in.GroupRole = proto.String(c.String("group_role"))
+		}
+		if c.IsSet("role_type") {
+			in.RoleType = proto.String(c.String("role_type"))
+		}
+		if c.IsSet("group_role_name") {
+			in.GroupRoleName = proto.String(c.String("group_role_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("status") {
+			in.Status = proto.String(c.String("status"))
+		}
 	}
 
 	out, err := qc.ModifyGroupRoleAttributes(in)
@@ -974,9 +1645,15 @@ func _cmd_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DeleteGroupRoles = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DeleteGroupRoles = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_roles",
+		Usage: "group roles",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
+func _func_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -991,6 +1668,11 @@ func _cmd_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_roles") {
+			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteGroupRoles(in)
@@ -1013,9 +1695,50 @@ func _cmd_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_DescribeGroupRoleRules = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeGroupRoleRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_role_rules",
+		Usage: "group role rules",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "group_roles",
+		Usage: "group roles",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "sort_key",
+		Usage: "sort key",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "reverse",
+		Usage: "reverse",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
+func _func_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -1030,6 +1753,36 @@ func _cmd_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_role_rules") {
+			if err := json.Unmarshal([]byte(c.String("group_role_rules")), &in.GroupRoleRules); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("group_roles") {
+			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("sort_key") {
+			in.SortKey = proto.String(c.String("sort_key"))
+		}
+		if c.IsSet("reverse") {
+			in.Reverse = proto.Int32(int32(c.Int("reverse")))
+		}
 	}
 
 	out, err := qc.DescribeGroupRoleRules(in)
@@ -1052,9 +1805,25 @@ func _cmd_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_AddGroupRoleRules = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_AddGroupRoleRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_role",
+		Usage: "group role",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "policy",
+		Usage: "policy",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
+func _func_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -1069,6 +1838,15 @@ func _cmd_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_role") {
+			in.GroupRole = proto.String(c.String("group_role"))
+		}
+		if c.IsSet("policy") {
+			in.Policy = proto.String(c.String("policy"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.AddGroupRoleRules(in)
@@ -1091,9 +1869,25 @@ func _cmd_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_ModifyGroupRoleRuleAttributes = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_ModifyGroupRoleRuleAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_role_rule",
+		Usage: "group role rule",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "policy",
+		Usage: "policy",
+		Value: "",
+	},
+}
 
-func _cmd_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error {
+func _func_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -1108,6 +1902,15 @@ func _cmd_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_role_rule") {
+			in.GroupRoleRule = proto.String(c.String("group_role_rule"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("policy") {
+			in.Policy = proto.String(c.String("policy"))
+		}
 	}
 
 	out, err := qc.ModifyGroupRoleRuleAttributes(in)
@@ -1130,9 +1933,20 @@ func _cmd_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error
 	return nil
 }
 
-var _flag_ResourceACLService_DeleteGroupRoleRules = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DeleteGroupRoleRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_role_rules",
+		Usage: "group role rules",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "group_roles",
+		Usage: "group roles",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
+func _func_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -1147,6 +1961,16 @@ func _cmd_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_role_rules") {
+			if err := json.Unmarshal([]byte(c.String("group_role_rules")), &in.GroupRoleRules); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("group_roles") {
+			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteGroupRoleRules(in)
@@ -1169,9 +1993,15 @@ func _cmd_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ResourceACLService_GrantResourceGroupsToUserGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_GrantResourceGroupsToUserGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "rur_set",
+		Usage: "rur set",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) error {
+func _func_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -1186,6 +2016,11 @@ func _cmd_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) err
 		}
 	} else {
 		// read from flags
+		if c.IsSet("rur_set") {
+			if err := json.Unmarshal([]byte(c.String("rur_set")), &in.RurSet); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.GrantResourceGroupsToUserGroups(in)
@@ -1208,9 +2043,30 @@ func _cmd_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) err
 	return nil
 }
 
-var _flag_ResourceACLService_RevokeResourceGroupsFromUserGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_RevokeResourceGroupsFromUserGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "ru_set",
+		Usage: "ru set",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "resource_groups",
+		Usage: "resource groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "user_groups",
+		Usage: "user groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "group_roles",
+		Usage: "group roles",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) error {
+func _func_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -1225,6 +2081,26 @@ func _cmd_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) 
 		}
 	} else {
 		// read from flags
+		if c.IsSet("ru_set") {
+			if err := json.Unmarshal([]byte(c.String("ru_set")), &in.RuSet); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("resource_groups") {
+			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("user_groups") {
+			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("group_roles") {
+			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RevokeResourceGroupsFromUserGroups(in)
@@ -1247,9 +2123,50 @@ func _cmd_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) 
 	return nil
 }
 
-var _flag_ResourceACLService_DescribeResourceUserGroups = []cli.Flag{ /* fields */ }
+var _flag_ResourceACLService_DescribeResourceUserGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_groups",
+		Usage: "resource groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "user_groups",
+		Usage: "user groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "group_roles",
+		Usage: "group roles",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "sort_key",
+		Usage: "sort key",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "reverse",
+		Usage: "reverse",
+		Value: 0,
+	},
+}
 
-func _cmd_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
+func _func_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewResourceACLService(conf, zone)
@@ -1264,6 +2181,36 @@ func _cmd_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_groups") {
+			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("user_groups") {
+			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("group_roles") {
+			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("sort_key") {
+			in.SortKey = proto.String(c.String("sort_key"))
+		}
+		if c.IsSet("reverse") {
+			in.Reverse = proto.Int32(int32(c.Int("reverse")))
+		}
 	}
 
 	out, err := qc.DescribeResourceUserGroups(in)

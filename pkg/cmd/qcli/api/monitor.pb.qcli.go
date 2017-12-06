@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,49 +48,75 @@ var CmdMonitorService = cli.Command{
 			Aliases: []string{},
 			Usage:   "GetMonitor",
 			Flags:   _flag_MonitorService_GetMonitor,
-			Action:  _cmd_MonitorService_GetMonitor,
+			Action:  _func_MonitorService_GetMonitor,
 		},
 		{
 			Name:    "GetLoadBalancerMonitor",
 			Aliases: []string{},
 			Usage:   "GetLoadBalancerMonitor",
 			Flags:   _flag_MonitorService_GetLoadBalancerMonitor,
-			Action:  _cmd_MonitorService_GetLoadBalancerMonitor,
+			Action:  _func_MonitorService_GetLoadBalancerMonitor,
 		},
 		{
 			Name:    "GetRDBMonitor",
 			Aliases: []string{},
 			Usage:   "GetRDBMonitor",
 			Flags:   _flag_MonitorService_GetRDBMonitor,
-			Action:  _cmd_MonitorService_GetRDBMonitor,
+			Action:  _func_MonitorService_GetRDBMonitor,
 		},
 		{
 			Name:    "GetCacheMonitor",
 			Aliases: []string{},
 			Usage:   "GetCacheMonitor",
 			Flags:   _flag_MonitorService_GetCacheMonitor,
-			Action:  _cmd_MonitorService_GetCacheMonitor,
+			Action:  _func_MonitorService_GetCacheMonitor,
 		},
 		{
 			Name:    "GetZooKeeperMonitor",
 			Aliases: []string{},
 			Usage:   "GetZooKeeperMonitor",
 			Flags:   _flag_MonitorService_GetZooKeeperMonitor,
-			Action:  _cmd_MonitorService_GetZooKeeperMonitor,
+			Action:  _func_MonitorService_GetZooKeeperMonitor,
 		},
 		{
 			Name:    "GetQueueMonitor",
 			Aliases: []string{},
 			Usage:   "GetQueueMonitor",
 			Flags:   _flag_MonitorService_GetQueueMonitor,
-			Action:  _cmd_MonitorService_GetQueueMonitor,
+			Action:  _func_MonitorService_GetQueueMonitor,
 		},
 	},
 }
 
-var _flag_MonitorService_GetMonitor = []cli.Flag{ /* fields */ }
+var _flag_MonitorService_GetMonitor = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource",
+		Usage: "resource",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "meters",
+		Usage: "meters",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "step",
+		Usage: "step",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "start_time",
+		Usage: "start time",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "end_time",
+		Usage: "end time",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_MonitorService_GetMonitor(c *cli.Context) error {
+func _func_MonitorService_GetMonitor(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
@@ -103,6 +131,27 @@ func _cmd_MonitorService_GetMonitor(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource") {
+			in.Resource = proto.String(c.String("resource"))
+		}
+		if c.IsSet("meters") {
+			if err := json.Unmarshal([]byte(c.String("meters")), &in.Meters); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("step") {
+			in.Step = proto.String(c.String("step"))
+		}
+		if c.IsSet("start_time") {
+			if err := json.Unmarshal([]byte(c.String("start_time")), &in.StartTime); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("end_time") {
+			if err := json.Unmarshal([]byte(c.String("end_time")), &in.EndTime); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.GetMonitor(in)
@@ -125,9 +174,35 @@ func _cmd_MonitorService_GetMonitor(c *cli.Context) error {
 	return nil
 }
 
-var _flag_MonitorService_GetLoadBalancerMonitor = []cli.Flag{ /* fields */ }
+var _flag_MonitorService_GetLoadBalancerMonitor = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource",
+		Usage: "resource",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "meters",
+		Usage: "meters",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "step",
+		Usage: "step",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "start_time",
+		Usage: "start time",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "end_time",
+		Usage: "end time",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
+func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
@@ -142,6 +217,27 @@ func _cmd_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource") {
+			in.Resource = proto.String(c.String("resource"))
+		}
+		if c.IsSet("meters") {
+			if err := json.Unmarshal([]byte(c.String("meters")), &in.Meters); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("step") {
+			in.Step = proto.String(c.String("step"))
+		}
+		if c.IsSet("start_time") {
+			if err := json.Unmarshal([]byte(c.String("start_time")), &in.StartTime); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("end_time") {
+			if err := json.Unmarshal([]byte(c.String("end_time")), &in.EndTime); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.GetLoadBalancerMonitor(in)
@@ -164,9 +260,9 @@ func _cmd_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 	return nil
 }
 
-var _flag_MonitorService_GetRDBMonitor = []cli.Flag{ /* fields */ }
+var _flag_MonitorService_GetRDBMonitor = []cli.Flag{}
 
-func _cmd_MonitorService_GetRDBMonitor(c *cli.Context) error {
+func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
@@ -203,9 +299,9 @@ func _cmd_MonitorService_GetRDBMonitor(c *cli.Context) error {
 	return nil
 }
 
-var _flag_MonitorService_GetCacheMonitor = []cli.Flag{ /* fields */ }
+var _flag_MonitorService_GetCacheMonitor = []cli.Flag{}
 
-func _cmd_MonitorService_GetCacheMonitor(c *cli.Context) error {
+func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
@@ -242,9 +338,9 @@ func _cmd_MonitorService_GetCacheMonitor(c *cli.Context) error {
 	return nil
 }
 
-var _flag_MonitorService_GetZooKeeperMonitor = []cli.Flag{ /* fields */ }
+var _flag_MonitorService_GetZooKeeperMonitor = []cli.Flag{}
 
-func _cmd_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
+func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
@@ -281,9 +377,9 @@ func _cmd_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 	return nil
 }
 
-var _flag_MonitorService_GetQueueMonitor = []cli.Flag{ /* fields */ }
+var _flag_MonitorService_GetQueueMonitor = []cli.Flag{}
 
-func _cmd_MonitorService_GetQueueMonitor(c *cli.Context) error {
+func _func_MonitorService_GetQueueMonitor(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)

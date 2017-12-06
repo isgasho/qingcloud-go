@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,203 +48,239 @@ var CmdS2Service = cli.Command{
 			Aliases: []string{},
 			Usage:   "CreateS2Server",
 			Flags:   _flag_S2Service_CreateS2Server,
-			Action:  _cmd_S2Service_CreateS2Server,
+			Action:  _func_S2Service_CreateS2Server,
 		},
 		{
 			Name:    "DescribeS2Servers",
 			Aliases: []string{},
 			Usage:   "DescribeS2Servers",
 			Flags:   _flag_S2Service_DescribeS2Servers,
-			Action:  _cmd_S2Service_DescribeS2Servers,
+			Action:  _func_S2Service_DescribeS2Servers,
 		},
 		{
 			Name:    "ModifyS2Server",
 			Aliases: []string{},
 			Usage:   "ModifyS2Server",
 			Flags:   _flag_S2Service_ModifyS2Server,
-			Action:  _cmd_S2Service_ModifyS2Server,
+			Action:  _func_S2Service_ModifyS2Server,
 		},
 		{
 			Name:    "ResizeS2Servers",
 			Aliases: []string{},
 			Usage:   "ResizeS2Servers",
 			Flags:   _flag_S2Service_ResizeS2Servers,
-			Action:  _cmd_S2Service_ResizeS2Servers,
+			Action:  _func_S2Service_ResizeS2Servers,
 		},
 		{
 			Name:    "DeleteS2Servers",
 			Aliases: []string{},
 			Usage:   "DeleteS2Servers",
 			Flags:   _flag_S2Service_DeleteS2Servers,
-			Action:  _cmd_S2Service_DeleteS2Servers,
+			Action:  _func_S2Service_DeleteS2Servers,
 		},
 		{
 			Name:    "PowerOnS2Servers",
 			Aliases: []string{},
 			Usage:   "PowerOnS2Servers",
 			Flags:   _flag_S2Service_PowerOnS2Servers,
-			Action:  _cmd_S2Service_PowerOnS2Servers,
+			Action:  _func_S2Service_PowerOnS2Servers,
 		},
 		{
 			Name:    "PowerOffS2Servers",
 			Aliases: []string{},
 			Usage:   "PowerOffS2Servers",
 			Flags:   _flag_S2Service_PowerOffS2Servers,
-			Action:  _cmd_S2Service_PowerOffS2Servers,
+			Action:  _func_S2Service_PowerOffS2Servers,
 		},
 		{
 			Name:    "UpdateS2Servers",
 			Aliases: []string{},
 			Usage:   "UpdateS2Servers",
 			Flags:   _flag_S2Service_UpdateS2Servers,
-			Action:  _cmd_S2Service_UpdateS2Servers,
+			Action:  _func_S2Service_UpdateS2Servers,
 		},
 		{
 			Name:    "ChangeS2ServerVxnet",
 			Aliases: []string{},
 			Usage:   "ChangeS2ServerVxnet",
 			Flags:   _flag_S2Service_ChangeS2ServerVxnet,
-			Action:  _cmd_S2Service_ChangeS2ServerVxnet,
+			Action:  _func_S2Service_ChangeS2ServerVxnet,
 		},
 		{
 			Name:    "CreateS2SharedTarget",
 			Aliases: []string{},
 			Usage:   "CreateS2SharedTarget",
 			Flags:   _flag_S2Service_CreateS2SharedTarget,
-			Action:  _cmd_S2Service_CreateS2SharedTarget,
+			Action:  _func_S2Service_CreateS2SharedTarget,
 		},
 		{
 			Name:    "DescribeS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "DescribeS2SharedTargets",
 			Flags:   _flag_S2Service_DescribeS2SharedTargets,
-			Action:  _cmd_S2Service_DescribeS2SharedTargets,
+			Action:  _func_S2Service_DescribeS2SharedTargets,
 		},
 		{
 			Name:    "DeleteS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "DeleteS2SharedTargets",
 			Flags:   _flag_S2Service_DeleteS2SharedTargets,
-			Action:  _cmd_S2Service_DeleteS2SharedTargets,
+			Action:  _func_S2Service_DeleteS2SharedTargets,
 		},
 		{
 			Name:    "EnableS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "EnableS2SharedTargets",
 			Flags:   _flag_S2Service_EnableS2SharedTargets,
-			Action:  _cmd_S2Service_EnableS2SharedTargets,
+			Action:  _func_S2Service_EnableS2SharedTargets,
 		},
 		{
 			Name:    "DisableS2SharedTargets",
 			Aliases: []string{},
 			Usage:   "DisableS2SharedTargets",
 			Flags:   _flag_S2Service_DisableS2SharedTargets,
-			Action:  _cmd_S2Service_DisableS2SharedTargets,
+			Action:  _func_S2Service_DisableS2SharedTargets,
 		},
 		{
 			Name:    "ModifyS2SharedTargetAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyS2SharedTargetAttributes",
 			Flags:   _flag_S2Service_ModifyS2SharedTargetAttributes,
-			Action:  _cmd_S2Service_ModifyS2SharedTargetAttributes,
+			Action:  _func_S2Service_ModifyS2SharedTargetAttributes,
 		},
 		{
 			Name:    "AttachToS2SharedTarget",
 			Aliases: []string{},
 			Usage:   "AttachToS2SharedTarget",
 			Flags:   _flag_S2Service_AttachToS2SharedTarget,
-			Action:  _cmd_S2Service_AttachToS2SharedTarget,
+			Action:  _func_S2Service_AttachToS2SharedTarget,
 		},
 		{
 			Name:    "DetachFromS2SharedTarget",
 			Aliases: []string{},
 			Usage:   "DetachFromS2SharedTarget",
 			Flags:   _flag_S2Service_DetachFromS2SharedTarget,
-			Action:  _cmd_S2Service_DetachFromS2SharedTarget,
+			Action:  _func_S2Service_DetachFromS2SharedTarget,
 		},
 		{
 			Name:    "DescribeS2DefaultParameters",
 			Aliases: []string{},
 			Usage:   "DescribeS2DefaultParameters",
 			Flags:   _flag_S2Service_DescribeS2DefaultParameters,
-			Action:  _cmd_S2Service_DescribeS2DefaultParameters,
+			Action:  _func_S2Service_DescribeS2DefaultParameters,
 		},
 		{
 			Name:    "CreateS2Group",
 			Aliases: []string{},
 			Usage:   "CreateS2Group",
 			Flags:   _flag_S2Service_CreateS2Group,
-			Action:  _cmd_S2Service_CreateS2Group,
+			Action:  _func_S2Service_CreateS2Group,
 		},
 		{
 			Name:    "DescribeS2Groups",
 			Aliases: []string{},
 			Usage:   "DescribeS2Groups",
 			Flags:   _flag_S2Service_DescribeS2Groups,
-			Action:  _cmd_S2Service_DescribeS2Groups,
+			Action:  _func_S2Service_DescribeS2Groups,
 		},
 		{
 			Name:    "ModifyS2Group",
 			Aliases: []string{},
 			Usage:   "ModifyS2Group",
 			Flags:   _flag_S2Service_ModifyS2Group,
-			Action:  _cmd_S2Service_ModifyS2Group,
+			Action:  _func_S2Service_ModifyS2Group,
 		},
 		{
 			Name:    "DeleteS2Groups",
 			Aliases: []string{},
 			Usage:   "DeleteS2Groups",
 			Flags:   _flag_S2Service_DeleteS2Groups,
-			Action:  _cmd_S2Service_DeleteS2Groups,
+			Action:  _func_S2Service_DeleteS2Groups,
 		},
 		{
 			Name:    "CreateS2Account",
 			Aliases: []string{},
 			Usage:   "CreateS2Account",
 			Flags:   _flag_S2Service_CreateS2Account,
-			Action:  _cmd_S2Service_CreateS2Account,
+			Action:  _func_S2Service_CreateS2Account,
 		},
 		{
 			Name:    "DescribeS2Accounts",
 			Aliases: []string{},
 			Usage:   "DescribeS2Accounts",
 			Flags:   _flag_S2Service_DescribeS2Accounts,
-			Action:  _cmd_S2Service_DescribeS2Accounts,
+			Action:  _func_S2Service_DescribeS2Accounts,
 		},
 		{
 			Name:    "ModifyS2Account",
 			Aliases: []string{},
 			Usage:   "ModifyS2Account",
 			Flags:   _flag_S2Service_ModifyS2Account,
-			Action:  _cmd_S2Service_ModifyS2Account,
+			Action:  _func_S2Service_ModifyS2Account,
 		},
 		{
 			Name:    "DeleteS2Accounts",
 			Aliases: []string{},
 			Usage:   "DeleteS2Accounts",
 			Flags:   _flag_S2Service_DeleteS2Accounts,
-			Action:  _cmd_S2Service_DeleteS2Accounts,
+			Action:  _func_S2Service_DeleteS2Accounts,
 		},
 		{
 			Name:    "AssociateS2AccountGroup",
 			Aliases: []string{},
 			Usage:   "AssociateS2AccountGroup",
 			Flags:   _flag_S2Service_AssociateS2AccountGroup,
-			Action:  _cmd_S2Service_AssociateS2AccountGroup,
+			Action:  _func_S2Service_AssociateS2AccountGroup,
 		},
 		{
 			Name:    "DissociateS2AccountGroup",
 			Aliases: []string{},
 			Usage:   "DissociateS2AccountGroup",
 			Flags:   _flag_S2Service_DissociateS2AccountGroup,
-			Action:  _cmd_S2Service_DissociateS2AccountGroup,
+			Action:  _func_S2Service_DissociateS2AccountGroup,
 		},
 	},
 }
 
-var _flag_S2Service_CreateS2Server = []cli.Flag{ /* fields */ }
+var _flag_S2Service_CreateS2Server = []cli.Flag{
+	cli.StringFlag{
+		Name:  "vxnet_id",
+		Usage: "vxnet id",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "service_type",
+		Usage: "service type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "name",
+		Usage: "name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "s2_server_type",
+		Usage: "s2 server type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ip",
+		Usage: "private ip",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "s2_class",
+		Usage: "s2 class",
+		Value: 0,
+	},
+}
 
-func _cmd_S2Service_CreateS2Server(c *cli.Context) error {
+func _func_S2Service_CreateS2Server(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -257,6 +295,27 @@ func _cmd_S2Service_CreateS2Server(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("vxnet_id") {
+			in.VxnetId = proto.String(c.String("vxnet_id"))
+		}
+		if c.IsSet("service_type") {
+			in.ServiceType = proto.String(c.String("service_type"))
+		}
+		if c.IsSet("name") {
+			in.Name = proto.String(c.String("name"))
+		}
+		if c.IsSet("s2_server_type") {
+			in.S2ServerType = proto.String(c.String("s2_server_type"))
+		}
+		if c.IsSet("private_ip") {
+			in.PrivateIp = proto.String(c.String("private_ip"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("s2_class") {
+			in.S2Class = proto.Int32(int32(c.Int("s2_class")))
+		}
 	}
 
 	out, err := qc.CreateS2Server(in)
@@ -279,9 +338,50 @@ func _cmd_S2Service_CreateS2Server(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DescribeS2Servers = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DescribeS2Servers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_servers",
+		Usage: "s2 servers",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "service_types",
+		Usage: "service types",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_S2Service_DescribeS2Servers(c *cli.Context) error {
+func _func_S2Service_DescribeS2Servers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -296,6 +396,38 @@ func _cmd_S2Service_DescribeS2Servers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_servers") {
+			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("service_types") {
+			if err := json.Unmarshal([]byte(c.String("service_types")), &in.ServiceTypes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeS2Servers(in)
@@ -318,9 +450,25 @@ func _cmd_S2Service_DescribeS2Servers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_ModifyS2Server = []cli.Flag{ /* fields */ }
+var _flag_S2Service_ModifyS2Server = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_server",
+		Usage: "s2 server",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "name",
+		Usage: "name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_ModifyS2Server(c *cli.Context) error {
+func _func_S2Service_ModifyS2Server(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -335,6 +483,15 @@ func _cmd_S2Service_ModifyS2Server(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_server") {
+			in.S2Server = proto.String(c.String("s2_server"))
+		}
+		if c.IsSet("name") {
+			in.Name = proto.String(c.String("name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyS2Server(in)
@@ -357,9 +514,20 @@ func _cmd_S2Service_ModifyS2Server(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_ResizeS2Servers = []cli.Flag{ /* fields */ }
+var _flag_S2Service_ResizeS2Servers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_server",
+		Usage: "s2 server",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "s2_server_type",
+		Usage: "s2 server type",
+		Value: 0,
+	},
+}
 
-func _cmd_S2Service_ResizeS2Servers(c *cli.Context) error {
+func _func_S2Service_ResizeS2Servers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -374,6 +542,12 @@ func _cmd_S2Service_ResizeS2Servers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_server") {
+			in.S2Server = proto.String(c.String("s2_server"))
+		}
+		if c.IsSet("s2_server_type") {
+			in.S2ServerType = proto.Int32(int32(c.Int("s2_server_type")))
+		}
 	}
 
 	out, err := qc.ResizeS2Servers(in)
@@ -396,9 +570,15 @@ func _cmd_S2Service_ResizeS2Servers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DeleteS2Servers = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DeleteS2Servers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_servers",
+		Usage: "s2 servers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_DeleteS2Servers(c *cli.Context) error {
+func _func_S2Service_DeleteS2Servers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -413,6 +593,11 @@ func _cmd_S2Service_DeleteS2Servers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_servers") {
+			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteS2Servers(in)
@@ -435,9 +620,15 @@ func _cmd_S2Service_DeleteS2Servers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_PowerOnS2Servers = []cli.Flag{ /* fields */ }
+var _flag_S2Service_PowerOnS2Servers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_servers",
+		Usage: "s2 servers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_PowerOnS2Servers(c *cli.Context) error {
+func _func_S2Service_PowerOnS2Servers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -452,6 +643,11 @@ func _cmd_S2Service_PowerOnS2Servers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_servers") {
+			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.PowerOnS2Servers(in)
@@ -474,9 +670,15 @@ func _cmd_S2Service_PowerOnS2Servers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_PowerOffS2Servers = []cli.Flag{ /* fields */ }
+var _flag_S2Service_PowerOffS2Servers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_servers",
+		Usage: "s2 servers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_PowerOffS2Servers(c *cli.Context) error {
+func _func_S2Service_PowerOffS2Servers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -491,6 +693,11 @@ func _cmd_S2Service_PowerOffS2Servers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_servers") {
+			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.PowerOffS2Servers(in)
@@ -513,9 +720,15 @@ func _cmd_S2Service_PowerOffS2Servers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_UpdateS2Servers = []cli.Flag{ /* fields */ }
+var _flag_S2Service_UpdateS2Servers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_servers",
+		Usage: "s2 servers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_UpdateS2Servers(c *cli.Context) error {
+func _func_S2Service_UpdateS2Servers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -530,6 +743,11 @@ func _cmd_S2Service_UpdateS2Servers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_servers") {
+			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.UpdateS2Servers(in)
@@ -552,9 +770,25 @@ func _cmd_S2Service_UpdateS2Servers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_ChangeS2ServerVxnet = []cli.Flag{ /* fields */ }
+var _flag_S2Service_ChangeS2ServerVxnet = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_server",
+		Usage: "s2 server",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ip",
+		Usage: "private ip",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
+func _func_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -569,6 +803,15 @@ func _cmd_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_server") {
+			in.S2Server = proto.String(c.String("s2_server"))
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("private_ip") {
+			in.PrivateIp = proto.String(c.String("private_ip"))
+		}
 	}
 
 	out, err := qc.ChangeS2ServerVxnet(in)
@@ -591,9 +834,45 @@ func _cmd_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_CreateS2SharedTarget = []cli.Flag{ /* fields */ }
+var _flag_S2Service_CreateS2SharedTarget = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_server",
+		Usage: "s2 server",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "export_name",
+		Usage: "export name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "target_type",
+		Usage: "target type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "initiator_names",
+		Usage: "initiator names",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "s2_group",
+		Usage: "s2 group",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_CreateS2SharedTarget(c *cli.Context) error {
+func _func_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -608,6 +887,31 @@ func _cmd_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_server") {
+			in.S2Server = proto.String(c.String("s2_server"))
+		}
+		if c.IsSet("export_name") {
+			in.ExportName = proto.String(c.String("export_name"))
+		}
+		if c.IsSet("target_type") {
+			in.TargetType = proto.String(c.String("target_type"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("initiator_names") {
+			if err := json.Unmarshal([]byte(c.String("initiator_names")), &in.InitiatorNames); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("s2_group") {
+			in.S2Group = proto.String(c.String("s2_group"))
+		}
 	}
 
 	out, err := qc.CreateS2SharedTarget(in)
@@ -630,9 +934,50 @@ func _cmd_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DescribeS2SharedTargets = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DescribeS2SharedTargets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "shared_targets",
+		Usage: "shared targets",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "target_types",
+		Usage: "target types",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "s2_server_id",
+		Usage: "s2 server id",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "export_name",
+		Usage: "export name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
+func _func_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -647,6 +992,34 @@ func _cmd_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("shared_targets") {
+			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("target_types") {
+			if err := json.Unmarshal([]byte(c.String("target_types")), &in.TargetTypes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("s2_server_id") {
+			in.S2ServerId = proto.String(c.String("s2_server_id"))
+		}
+		if c.IsSet("export_name") {
+			in.ExportName = proto.String(c.String("export_name"))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeS2SharedTargets(in)
@@ -669,9 +1042,15 @@ func _cmd_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DeleteS2SharedTargets = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DeleteS2SharedTargets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "shared_targets",
+		Usage: "shared targets",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
+func _func_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -686,6 +1065,11 @@ func _cmd_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("shared_targets") {
+			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteS2SharedTargets(in)
@@ -708,9 +1092,15 @@ func _cmd_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_EnableS2SharedTargets = []cli.Flag{ /* fields */ }
+var _flag_S2Service_EnableS2SharedTargets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "shared_targets",
+		Usage: "shared targets",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_EnableS2SharedTargets(c *cli.Context) error {
+func _func_S2Service_EnableS2SharedTargets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -725,6 +1115,11 @@ func _cmd_S2Service_EnableS2SharedTargets(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("shared_targets") {
+			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.EnableS2SharedTargets(in)
@@ -747,9 +1142,15 @@ func _cmd_S2Service_EnableS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DisableS2SharedTargets = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DisableS2SharedTargets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "shared_targets",
+		Usage: "shared targets",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_DisableS2SharedTargets(c *cli.Context) error {
+func _func_S2Service_DisableS2SharedTargets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -764,6 +1165,11 @@ func _cmd_S2Service_DisableS2SharedTargets(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("shared_targets") {
+			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DisableS2SharedTargets(in)
@@ -786,9 +1192,40 @@ func _cmd_S2Service_DisableS2SharedTargets(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_ModifyS2SharedTargetAttributes = []cli.Flag{ /* fields */ }
+var _flag_S2Service_ModifyS2SharedTargetAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "shared_target",
+		Usage: "shared target",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "operation",
+		Usage: "operation",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "initiator_names",
+		Usage: "initiator names",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "parameters",
+		Usage: "parameters",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "s2_group",
+		Usage: "s2 group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "export_name",
+		Usage: "export name",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
+func _func_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -803,6 +1240,28 @@ func _cmd_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("shared_target") {
+			in.SharedTarget = proto.String(c.String("shared_target"))
+		}
+		if c.IsSet("operation") {
+			in.Operation = proto.String(c.String("operation"))
+		}
+		if c.IsSet("initiator_names") {
+			if err := json.Unmarshal([]byte(c.String("initiator_names")), &in.InitiatorNames); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("parameters") {
+			if err := json.Unmarshal([]byte(c.String("parameters")), &in.Parameters); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("s2_group") {
+			in.S2Group = proto.String(c.String("s2_group"))
+		}
+		if c.IsSet("export_name") {
+			in.ExportName = proto.String(c.String("export_name"))
+		}
 	}
 
 	out, err := qc.ModifyS2SharedTargetAttributes(in)
@@ -825,9 +1284,20 @@ func _cmd_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_AttachToS2SharedTarget = []cli.Flag{ /* fields */ }
+var _flag_S2Service_AttachToS2SharedTarget = []cli.Flag{
+	cli.StringFlag{
+		Name:  "shared_target",
+		Usage: "shared target",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
+func _func_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -842,6 +1312,14 @@ func _cmd_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("shared_target") {
+			in.SharedTarget = proto.String(c.String("shared_target"))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AttachToS2SharedTarget(in)
@@ -864,9 +1342,20 @@ func _cmd_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DetachFromS2SharedTarget = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DetachFromS2SharedTarget = []cli.Flag{
+	cli.StringFlag{
+		Name:  "shared_target",
+		Usage: "shared target",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
+func _func_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -881,6 +1370,14 @@ func _cmd_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("shared_target") {
+			in.SharedTarget = proto.String(c.String("shared_target"))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DetachFromS2SharedTarget(in)
@@ -903,9 +1400,30 @@ func _cmd_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DescribeS2DefaultParameters = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DescribeS2DefaultParameters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "service_type",
+		Usage: "service type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "target_type",
+		Usage: "target type",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
+func _func_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -920,6 +1438,18 @@ func _cmd_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("service_type") {
+			in.ServiceType = proto.String(c.String("service_type"))
+		}
+		if c.IsSet("target_type") {
+			in.TargetType = proto.String(c.String("target_type"))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeS2DefaultParameters(in)
@@ -942,9 +1472,30 @@ func _cmd_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_CreateS2Group = []cli.Flag{ /* fields */ }
+var _flag_S2Service_CreateS2Group = []cli.Flag{
+	cli.StringFlag{
+		Name:  "group_type",
+		Usage: "group type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "group_name",
+		Usage: "group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "s2_accounts",
+		Usage: "s2 accounts",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_CreateS2Group(c *cli.Context) error {
+func _func_S2Service_CreateS2Group(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -959,6 +1510,20 @@ func _cmd_S2Service_CreateS2Group(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("group_type") {
+			in.GroupType = proto.String(c.String("group_type"))
+		}
+		if c.IsSet("group_name") {
+			in.GroupName = proto.String(c.String("group_name"))
+		}
+		if c.IsSet("s2_accounts") {
+			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.CreateS2Group(in)
@@ -981,9 +1546,45 @@ func _cmd_S2Service_CreateS2Group(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DescribeS2Groups = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DescribeS2Groups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_groups",
+		Usage: "s2 groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "group_types",
+		Usage: "group types",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "account_name",
+		Usage: "account name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_S2Service_DescribeS2Groups(c *cli.Context) error {
+func _func_S2Service_DescribeS2Groups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -998,6 +1599,31 @@ func _cmd_S2Service_DescribeS2Groups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_groups") {
+			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("group_types") {
+			if err := json.Unmarshal([]byte(c.String("group_types")), &in.GroupTypes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("account_name") {
+			in.AccountName = proto.String(c.String("account_name"))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeS2Groups(in)
@@ -1020,9 +1646,30 @@ func _cmd_S2Service_DescribeS2Groups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_ModifyS2Group = []cli.Flag{ /* fields */ }
+var _flag_S2Service_ModifyS2Group = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_group",
+		Usage: "s2 group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "group_name",
+		Usage: "group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "s2_accounts",
+		Usage: "s2 accounts",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_ModifyS2Group(c *cli.Context) error {
+func _func_S2Service_ModifyS2Group(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -1037,6 +1684,20 @@ func _cmd_S2Service_ModifyS2Group(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_group") {
+			in.S2Group = proto.String(c.String("s2_group"))
+		}
+		if c.IsSet("group_name") {
+			in.GroupName = proto.String(c.String("group_name"))
+		}
+		if c.IsSet("s2_accounts") {
+			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyS2Group(in)
@@ -1059,9 +1720,15 @@ func _cmd_S2Service_ModifyS2Group(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DeleteS2Groups = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DeleteS2Groups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_groups",
+		Usage: "s2 groups",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_DeleteS2Groups(c *cli.Context) error {
+func _func_S2Service_DeleteS2Groups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -1076,6 +1743,11 @@ func _cmd_S2Service_DeleteS2Groups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_groups") {
+			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteS2Groups(in)
@@ -1098,9 +1770,50 @@ func _cmd_S2Service_DeleteS2Groups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_CreateS2Account = []cli.Flag{ /* fields */ }
+var _flag_S2Service_CreateS2Account = []cli.Flag{
+	cli.StringFlag{
+		Name:  "account_type",
+		Usage: "account type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "account_name",
+		Usage: "account name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "smb_name",
+		Usage: "smb name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "smb_passwd",
+		Usage: "smb passwd",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "nfs_ipaddr",
+		Usage: "nfs ipaddr",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "s2_groups",
+		Usage: "s2 groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "opt_parameters",
+		Usage: "opt parameters",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_CreateS2Account(c *cli.Context) error {
+func _func_S2Service_CreateS2Account(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -1115,6 +1828,32 @@ func _cmd_S2Service_CreateS2Account(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("account_type") {
+			in.AccountType = proto.String(c.String("account_type"))
+		}
+		if c.IsSet("account_name") {
+			in.AccountName = proto.String(c.String("account_name"))
+		}
+		if c.IsSet("smb_name") {
+			in.SmbName = proto.String(c.String("smb_name"))
+		}
+		if c.IsSet("smb_passwd") {
+			in.SmbPasswd = proto.String(c.String("smb_passwd"))
+		}
+		if c.IsSet("nfs_ipaddr") {
+			in.NfsIpaddr = proto.String(c.String("nfs_ipaddr"))
+		}
+		if c.IsSet("s2_groups") {
+			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("opt_parameters") {
+			in.OptParameters = proto.String(c.String("opt_parameters"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.CreateS2Account(in)
@@ -1137,9 +1876,45 @@ func _cmd_S2Service_CreateS2Account(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DescribeS2Accounts = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DescribeS2Accounts = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_accounts",
+		Usage: "s2 accounts",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "account_types",
+		Usage: "account types",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "account_name",
+		Usage: "account name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_S2Service_DescribeS2Accounts(c *cli.Context) error {
+func _func_S2Service_DescribeS2Accounts(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -1154,6 +1929,31 @@ func _cmd_S2Service_DescribeS2Accounts(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_accounts") {
+			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("account_types") {
+			if err := json.Unmarshal([]byte(c.String("account_types")), &in.AccountTypes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("account_name") {
+			in.AccountName = proto.String(c.String("account_name"))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeS2Accounts(in)
@@ -1176,9 +1976,40 @@ func _cmd_S2Service_DescribeS2Accounts(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_ModifyS2Account = []cli.Flag{ /* fields */ }
+var _flag_S2Service_ModifyS2Account = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_account",
+		Usage: "s2 account",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "opt_parameters",
+		Usage: "opt parameters",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "account_name",
+		Usage: "account name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "smb_passwd",
+		Usage: "smb passwd",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "nfs_ipaddr",
+		Usage: "nfs ipaddr",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_S2Service_ModifyS2Account(c *cli.Context) error {
+func _func_S2Service_ModifyS2Account(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -1193,6 +2024,24 @@ func _cmd_S2Service_ModifyS2Account(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_account") {
+			in.S2Account = proto.String(c.String("s2_account"))
+		}
+		if c.IsSet("opt_parameters") {
+			in.OptParameters = proto.String(c.String("opt_parameters"))
+		}
+		if c.IsSet("account_name") {
+			in.AccountName = proto.String(c.String("account_name"))
+		}
+		if c.IsSet("smb_passwd") {
+			in.SmbPasswd = proto.String(c.String("smb_passwd"))
+		}
+		if c.IsSet("nfs_ipaddr") {
+			in.NfsIpaddr = proto.String(c.String("nfs_ipaddr"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyS2Account(in)
@@ -1215,9 +2064,15 @@ func _cmd_S2Service_ModifyS2Account(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DeleteS2Accounts = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DeleteS2Accounts = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_accounts",
+		Usage: "s2 accounts",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_DeleteS2Accounts(c *cli.Context) error {
+func _func_S2Service_DeleteS2Accounts(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -1232,6 +2087,11 @@ func _cmd_S2Service_DeleteS2Accounts(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_accounts") {
+			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteS2Accounts(in)
@@ -1254,9 +2114,20 @@ func _cmd_S2Service_DeleteS2Accounts(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_AssociateS2AccountGroup = []cli.Flag{ /* fields */ }
+var _flag_S2Service_AssociateS2AccountGroup = []cli.Flag{
+	cli.StringFlag{
+		Name:  "s2_groups",
+		Usage: "s2 groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "s2_accounts",
+		Usage: "s2 accounts",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
+func _func_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)
@@ -1271,6 +2142,16 @@ func _cmd_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("s2_groups") {
+			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("s2_accounts") {
+			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AssociateS2AccountGroup(in)
@@ -1293,9 +2174,9 @@ func _cmd_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 	return nil
 }
 
-var _flag_S2Service_DissociateS2AccountGroup = []cli.Flag{ /* fields */ }
+var _flag_S2Service_DissociateS2AccountGroup = []cli.Flag{}
 
-func _cmd_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
+func _func_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewS2Service(conf, zone)

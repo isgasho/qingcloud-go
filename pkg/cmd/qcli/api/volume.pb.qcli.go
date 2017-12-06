@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,56 +48,97 @@ var CmdVolumesService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeVolumes",
 			Flags:   _flag_VolumesService_DescribeVolumes,
-			Action:  _cmd_VolumesService_DescribeVolumes,
+			Action:  _func_VolumesService_DescribeVolumes,
 		},
 		{
 			Name:    "CreateVolumes",
 			Aliases: []string{},
 			Usage:   "CreateVolumes",
 			Flags:   _flag_VolumesService_CreateVolumes,
-			Action:  _cmd_VolumesService_CreateVolumes,
+			Action:  _func_VolumesService_CreateVolumes,
 		},
 		{
 			Name:    "DeleteVolumes",
 			Aliases: []string{},
 			Usage:   "DeleteVolumes",
 			Flags:   _flag_VolumesService_DeleteVolumes,
-			Action:  _cmd_VolumesService_DeleteVolumes,
+			Action:  _func_VolumesService_DeleteVolumes,
 		},
 		{
 			Name:    "AttachVolumes",
 			Aliases: []string{},
 			Usage:   "AttachVolumes",
 			Flags:   _flag_VolumesService_AttachVolumes,
-			Action:  _cmd_VolumesService_AttachVolumes,
+			Action:  _func_VolumesService_AttachVolumes,
 		},
 		{
 			Name:    "DetachVolumes",
 			Aliases: []string{},
 			Usage:   "DetachVolumes",
 			Flags:   _flag_VolumesService_DetachVolumes,
-			Action:  _cmd_VolumesService_DetachVolumes,
+			Action:  _func_VolumesService_DetachVolumes,
 		},
 		{
 			Name:    "ResizeVolumes",
 			Aliases: []string{},
 			Usage:   "ResizeVolumes",
 			Flags:   _flag_VolumesService_ResizeVolumes,
-			Action:  _cmd_VolumesService_ResizeVolumes,
+			Action:  _func_VolumesService_ResizeVolumes,
 		},
 		{
 			Name:    "ModifyVolumeAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyVolumeAttributes",
 			Flags:   _flag_VolumesService_ModifyVolumeAttributes,
-			Action:  _cmd_VolumesService_ModifyVolumeAttributes,
+			Action:  _func_VolumesService_ModifyVolumeAttributes,
 		},
 	},
 }
 
-var _flag_VolumesService_DescribeVolumes = []cli.Flag{ /* fields */ }
+var _flag_VolumesService_DescribeVolumes = []cli.Flag{
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "volume_type",
+		Usage: "volume type",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_VolumesService_DescribeVolumes(c *cli.Context) error {
+func _func_VolumesService_DescribeVolumes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
@@ -110,6 +153,36 @@ func _cmd_VolumesService_DescribeVolumes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("volume_type") {
+			in.VolumeType = proto.Int32(int32(c.Int("volume_type")))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DescribeVolumes(in)
@@ -132,9 +205,30 @@ func _cmd_VolumesService_DescribeVolumes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_VolumesService_CreateVolumes = []cli.Flag{ /* fields */ }
+var _flag_VolumesService_CreateVolumes = []cli.Flag{
+	cli.IntFlag{
+		Name:  "count",
+		Usage: "count",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "size",
+		Usage: "size",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "volume_name",
+		Usage: "volume name",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "volume_type",
+		Usage: "volume type",
+		Value: 0,
+	},
+}
 
-func _cmd_VolumesService_CreateVolumes(c *cli.Context) error {
+func _func_VolumesService_CreateVolumes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
@@ -149,6 +243,18 @@ func _cmd_VolumesService_CreateVolumes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("count") {
+			in.Count = proto.Int32(int32(c.Int("count")))
+		}
+		if c.IsSet("size") {
+			in.Size = proto.Int32(int32(c.Int("size")))
+		}
+		if c.IsSet("volume_name") {
+			in.VolumeName = proto.String(c.String("volume_name"))
+		}
+		if c.IsSet("volume_type") {
+			in.VolumeType = proto.Int32(int32(c.Int("volume_type")))
+		}
 	}
 
 	out, err := qc.CreateVolumes(in)
@@ -171,9 +277,15 @@ func _cmd_VolumesService_CreateVolumes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_VolumesService_DeleteVolumes = []cli.Flag{ /* fields */ }
+var _flag_VolumesService_DeleteVolumes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_VolumesService_DeleteVolumes(c *cli.Context) error {
+func _func_VolumesService_DeleteVolumes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
@@ -188,6 +300,11 @@ func _cmd_VolumesService_DeleteVolumes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteVolumes(in)
@@ -210,9 +327,20 @@ func _cmd_VolumesService_DeleteVolumes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_VolumesService_AttachVolumes = []cli.Flag{ /* fields */ }
+var _flag_VolumesService_AttachVolumes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instance",
+		Usage: "instance",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_VolumesService_AttachVolumes(c *cli.Context) error {
+func _func_VolumesService_AttachVolumes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
@@ -227,6 +355,14 @@ func _cmd_VolumesService_AttachVolumes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instance") {
+			in.Instance = proto.String(c.String("instance"))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AttachVolumes(in)
@@ -249,9 +385,20 @@ func _cmd_VolumesService_AttachVolumes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_VolumesService_DetachVolumes = []cli.Flag{ /* fields */ }
+var _flag_VolumesService_DetachVolumes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instance",
+		Usage: "instance",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_VolumesService_DetachVolumes(c *cli.Context) error {
+func _func_VolumesService_DetachVolumes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
@@ -266,6 +413,14 @@ func _cmd_VolumesService_DetachVolumes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instance") {
+			in.Instance = proto.String(c.String("instance"))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DetachVolumes(in)
@@ -288,9 +443,20 @@ func _cmd_VolumesService_DetachVolumes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_VolumesService_ResizeVolumes = []cli.Flag{ /* fields */ }
+var _flag_VolumesService_ResizeVolumes = []cli.Flag{
+	cli.IntFlag{
+		Name:  "size",
+		Usage: "size",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "volumes",
+		Usage: "volumes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_VolumesService_ResizeVolumes(c *cli.Context) error {
+func _func_VolumesService_ResizeVolumes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
@@ -305,6 +471,14 @@ func _cmd_VolumesService_ResizeVolumes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("size") {
+			in.Size = proto.Int32(int32(c.Int("size")))
+		}
+		if c.IsSet("volumes") {
+			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ResizeVolumes(in)
@@ -327,9 +501,25 @@ func _cmd_VolumesService_ResizeVolumes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_VolumesService_ModifyVolumeAttributes = []cli.Flag{ /* fields */ }
+var _flag_VolumesService_ModifyVolumeAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volume",
+		Usage: "volume",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volume_name",
+		Usage: "volume name",
+		Value: "",
+	},
+}
 
-func _cmd_VolumesService_ModifyVolumeAttributes(c *cli.Context) error {
+func _func_VolumesService_ModifyVolumeAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
@@ -344,6 +534,15 @@ func _cmd_VolumesService_ModifyVolumeAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("volume") {
+			in.Volume = proto.String(c.String("volume"))
+		}
+		if c.IsSet("volume_name") {
+			in.VolumeName = proto.String(c.String("volume_name"))
+		}
 	}
 
 	out, err := qc.ModifyVolumeAttributes(in)

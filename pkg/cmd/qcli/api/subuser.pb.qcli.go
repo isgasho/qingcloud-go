@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,42 +48,63 @@ var CmdSubuserService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeSubUsers",
 			Flags:   _flag_SubuserService_DescribeSubUsers,
-			Action:  _cmd_SubuserService_DescribeSubUsers,
+			Action:  _func_SubuserService_DescribeSubUsers,
 		},
 		{
 			Name:    "CreateSubUser",
 			Aliases: []string{},
 			Usage:   "CreateSubUser",
 			Flags:   _flag_SubuserService_CreateSubUser,
-			Action:  _cmd_SubuserService_CreateSubUser,
+			Action:  _func_SubuserService_CreateSubUser,
 		},
 		{
 			Name:    "ModifySubUserAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySubUserAttributes",
 			Flags:   _flag_SubuserService_ModifySubUserAttributes,
-			Action:  _cmd_SubuserService_ModifySubUserAttributes,
+			Action:  _func_SubuserService_ModifySubUserAttributes,
 		},
 		{
 			Name:    "DeleteSubUsers",
 			Aliases: []string{},
 			Usage:   "DeleteSubUsers",
 			Flags:   _flag_SubuserService_DeleteSubUsers,
-			Action:  _cmd_SubuserService_DeleteSubUsers,
+			Action:  _func_SubuserService_DeleteSubUsers,
 		},
 		{
 			Name:    "RestoreSubUsers",
 			Aliases: []string{},
 			Usage:   "RestoreSubUsers",
 			Flags:   _flag_SubuserService_RestoreSubUsers,
-			Action:  _cmd_SubuserService_RestoreSubUsers,
+			Action:  _func_SubuserService_RestoreSubUsers,
 		},
 	},
 }
 
-var _flag_SubuserService_DescribeSubUsers = []cli.Flag{ /* fields */ }
+var _flag_SubuserService_DescribeSubUsers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_SubuserService_DescribeSubUsers(c *cli.Context) error {
+func _func_SubuserService_DescribeSubUsers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
@@ -96,6 +119,20 @@ func _cmd_SubuserService_DescribeSubUsers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			in.Status = proto.String(c.String("status"))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeSubUsers(in)
@@ -118,9 +155,30 @@ func _cmd_SubuserService_DescribeSubUsers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SubuserService_CreateSubUser = []cli.Flag{ /* fields */ }
+var _flag_SubuserService_CreateSubUser = []cli.Flag{
+	cli.StringFlag{
+		Name:  "email",
+		Usage: "email",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "user_name",
+		Usage: "user name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "passwd",
+		Usage: "passwd",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "notify_email",
+		Usage: "notify email",
+		Value: "",
+	},
+}
 
-func _cmd_SubuserService_CreateSubUser(c *cli.Context) error {
+func _func_SubuserService_CreateSubUser(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
@@ -135,6 +193,18 @@ func _cmd_SubuserService_CreateSubUser(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("email") {
+			in.Email = proto.String(c.String("email"))
+		}
+		if c.IsSet("user_name") {
+			in.UserName = proto.String(c.String("user_name"))
+		}
+		if c.IsSet("passwd") {
+			in.Passwd = proto.String(c.String("passwd"))
+		}
+		if c.IsSet("notify_email") {
+			in.NotifyEmail = proto.String(c.String("notify_email"))
+		}
 	}
 
 	out, err := qc.CreateSubUser(in)
@@ -157,9 +227,30 @@ func _cmd_SubuserService_CreateSubUser(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SubuserService_ModifySubUserAttributes = []cli.Flag{ /* fields */ }
+var _flag_SubuserService_ModifySubUserAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "user",
+		Usage: "user",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "user_name",
+		Usage: "user name",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "nologin",
+		Usage: "nologin",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "notify_email",
+		Usage: "notify email",
+		Value: "",
+	},
+}
 
-func _cmd_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
+func _func_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
@@ -174,6 +265,18 @@ func _cmd_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("user") {
+			in.User = proto.String(c.String("user"))
+		}
+		if c.IsSet("user_name") {
+			in.UserName = proto.String(c.String("user_name"))
+		}
+		if c.IsSet("nologin") {
+			in.Nologin = proto.Int32(int32(c.Int("nologin")))
+		}
+		if c.IsSet("notify_email") {
+			in.NotifyEmail = proto.String(c.String("notify_email"))
+		}
 	}
 
 	out, err := qc.ModifySubUserAttributes(in)
@@ -196,9 +299,15 @@ func _cmd_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SubuserService_DeleteSubUsers = []cli.Flag{ /* fields */ }
+var _flag_SubuserService_DeleteSubUsers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SubuserService_DeleteSubUsers(c *cli.Context) error {
+func _func_SubuserService_DeleteSubUsers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
@@ -213,6 +322,11 @@ func _cmd_SubuserService_DeleteSubUsers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteSubUsers(in)
@@ -235,9 +349,15 @@ func _cmd_SubuserService_DeleteSubUsers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SubuserService_RestoreSubUsers = []cli.Flag{ /* fields */ }
+var _flag_SubuserService_RestoreSubUsers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SubuserService_RestoreSubUsers(c *cli.Context) error {
+func _func_SubuserService_RestoreSubUsers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
@@ -252,6 +372,11 @@ func _cmd_SubuserService_RestoreSubUsers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RestoreSubUsers(in)

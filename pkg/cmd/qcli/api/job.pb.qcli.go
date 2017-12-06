@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,14 +48,40 @@ var CmdJobService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeJobs",
 			Flags:   _flag_JobService_DescribeJobs,
-			Action:  _cmd_JobService_DescribeJobs,
+			Action:  _func_JobService_DescribeJobs,
 		},
 	},
 }
 
-var _flag_JobService_DescribeJobs = []cli.Flag{ /* fields */ }
+var _flag_JobService_DescribeJobs = []cli.Flag{
+	cli.StringFlag{
+		Name:  "jobs",
+		Usage: "jobs",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+}
 
-func _cmd_JobService_DescribeJobs(c *cli.Context) error {
+func _func_JobService_DescribeJobs(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewJobService(conf, zone)
@@ -68,6 +96,25 @@ func _cmd_JobService_DescribeJobs(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("jobs") {
+			if err := json.Unmarshal([]byte(c.String("jobs")), &in.Jobs); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
 	}
 
 	out, err := qc.DescribeJobs(in)

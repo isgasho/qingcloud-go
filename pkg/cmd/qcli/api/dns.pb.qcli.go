@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,35 +48,61 @@ var CmdDNSAliasService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeDNSAliases",
 			Flags:   _flag_DNSAliasService_DescribeDNSAliases,
-			Action:  _cmd_DNSAliasService_DescribeDNSAliases,
+			Action:  _func_DNSAliasService_DescribeDNSAliases,
 		},
 		{
 			Name:    "AssociateDNSAlias",
 			Aliases: []string{},
 			Usage:   "AssociateDNSAlias",
 			Flags:   _flag_DNSAliasService_AssociateDNSAlias,
-			Action:  _cmd_DNSAliasService_AssociateDNSAlias,
+			Action:  _func_DNSAliasService_AssociateDNSAlias,
 		},
 		{
 			Name:    "DissociateDNSAliases",
 			Aliases: []string{},
 			Usage:   "DissociateDNSAliases",
 			Flags:   _flag_DNSAliasService_DissociateDNSAliases,
-			Action:  _cmd_DNSAliasService_DissociateDNSAliases,
+			Action:  _func_DNSAliasService_DissociateDNSAliases,
 		},
 		{
 			Name:    "GetDNSLabel",
 			Aliases: []string{},
 			Usage:   "GetDNSLabel",
 			Flags:   _flag_DNSAliasService_GetDNSLabel,
-			Action:  _cmd_DNSAliasService_GetDNSLabel,
+			Action:  _func_DNSAliasService_GetDNSLabel,
 		},
 	},
 }
 
-var _flag_DNSAliasService_DescribeDNSAliases = []cli.Flag{ /* fields */ }
+var _flag_DNSAliasService_DescribeDNSAliases = []cli.Flag{
+	cli.StringFlag{
+		Name:  "dns_aliases",
+		Usage: "dns aliases",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "resource_id",
+		Usage: "resource id",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_DNSAliasService_DescribeDNSAliases(c *cli.Context) error {
+func _func_DNSAliasService_DescribeDNSAliases(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)
@@ -89,6 +117,23 @@ func _cmd_DNSAliasService_DescribeDNSAliases(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("dns_aliases") {
+			if err := json.Unmarshal([]byte(c.String("dns_aliases")), &in.DnsAliases); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("resource_id") {
+			in.ResourceId = proto.String(c.String("resource_id"))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeDNSAliases(in)
@@ -111,9 +156,25 @@ func _cmd_DNSAliasService_DescribeDNSAliases(c *cli.Context) error {
 	return nil
 }
 
-var _flag_DNSAliasService_AssociateDNSAlias = []cli.Flag{ /* fields */ }
+var _flag_DNSAliasService_AssociateDNSAlias = []cli.Flag{
+	cli.StringFlag{
+		Name:  "prefix",
+		Usage: "prefix",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "resource",
+		Usage: "resource",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "dns_alias_name",
+		Usage: "dns alias name",
+		Value: "",
+	},
+}
 
-func _cmd_DNSAliasService_AssociateDNSAlias(c *cli.Context) error {
+func _func_DNSAliasService_AssociateDNSAlias(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)
@@ -128,6 +189,15 @@ func _cmd_DNSAliasService_AssociateDNSAlias(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("prefix") {
+			in.Prefix = proto.String(c.String("prefix"))
+		}
+		if c.IsSet("resource") {
+			in.Resource = proto.String(c.String("resource"))
+		}
+		if c.IsSet("dns_alias_name") {
+			in.DnsAliasName = proto.String(c.String("dns_alias_name"))
+		}
 	}
 
 	out, err := qc.AssociateDNSAlias(in)
@@ -150,9 +220,15 @@ func _cmd_DNSAliasService_AssociateDNSAlias(c *cli.Context) error {
 	return nil
 }
 
-var _flag_DNSAliasService_DissociateDNSAliases = []cli.Flag{ /* fields */ }
+var _flag_DNSAliasService_DissociateDNSAliases = []cli.Flag{
+	cli.StringFlag{
+		Name:  "dns_aliases",
+		Usage: "dns aliases",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
+func _func_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)
@@ -167,6 +243,11 @@ func _cmd_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("dns_aliases") {
+			if err := json.Unmarshal([]byte(c.String("dns_aliases")), &in.DnsAliases); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DissociateDNSAliases(in)
@@ -189,9 +270,9 @@ func _cmd_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
 	return nil
 }
 
-var _flag_DNSAliasService_GetDNSLabel = []cli.Flag{ /* fields */ }
+var _flag_DNSAliasService_GetDNSLabel = []cli.Flag{}
 
-func _cmd_DNSAliasService_GetDNSLabel(c *cli.Context) error {
+func _func_DNSAliasService_GetDNSLabel(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewDNSAliasService(conf, zone)

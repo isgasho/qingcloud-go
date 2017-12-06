@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,49 +48,75 @@ var CmdTagService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeTags",
 			Flags:   _flag_TagService_DescribeTags,
-			Action:  _cmd_TagService_DescribeTags,
+			Action:  _func_TagService_DescribeTags,
 		},
 		{
 			Name:    "CreateTag",
 			Aliases: []string{},
 			Usage:   "CreateTag",
 			Flags:   _flag_TagService_CreateTag,
-			Action:  _cmd_TagService_CreateTag,
+			Action:  _func_TagService_CreateTag,
 		},
 		{
 			Name:    "DeleteTags",
 			Aliases: []string{},
 			Usage:   "DeleteTags",
 			Flags:   _flag_TagService_DeleteTags,
-			Action:  _cmd_TagService_DeleteTags,
+			Action:  _func_TagService_DeleteTags,
 		},
 		{
 			Name:    "ModifyTagAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyTagAttributes",
 			Flags:   _flag_TagService_ModifyTagAttributes,
-			Action:  _cmd_TagService_ModifyTagAttributes,
+			Action:  _func_TagService_ModifyTagAttributes,
 		},
 		{
 			Name:    "AttachTags",
 			Aliases: []string{},
 			Usage:   "AttachTags",
 			Flags:   _flag_TagService_AttachTags,
-			Action:  _cmd_TagService_AttachTags,
+			Action:  _func_TagService_AttachTags,
 		},
 		{
 			Name:    "DetachTags",
 			Aliases: []string{},
 			Usage:   "DetachTags",
 			Flags:   _flag_TagService_DetachTags,
-			Action:  _cmd_TagService_DetachTags,
+			Action:  _func_TagService_DetachTags,
 		},
 	},
 }
 
-var _flag_TagService_DescribeTags = []cli.Flag{ /* fields */ }
+var _flag_TagService_DescribeTags = []cli.Flag{
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_TagService_DescribeTags(c *cli.Context) error {
+func _func_TagService_DescribeTags(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
@@ -103,6 +131,23 @@ func _cmd_TagService_DescribeTags(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeTags(in)
@@ -125,9 +170,15 @@ func _cmd_TagService_DescribeTags(c *cli.Context) error {
 	return nil
 }
 
-var _flag_TagService_CreateTag = []cli.Flag{ /* fields */ }
+var _flag_TagService_CreateTag = []cli.Flag{
+	cli.StringFlag{
+		Name:  "tag_name",
+		Usage: "tag name",
+		Value: "",
+	},
+}
 
-func _cmd_TagService_CreateTag(c *cli.Context) error {
+func _func_TagService_CreateTag(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
@@ -142,6 +193,9 @@ func _cmd_TagService_CreateTag(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("tag_name") {
+			in.TagName = proto.String(c.String("tag_name"))
+		}
 	}
 
 	out, err := qc.CreateTag(in)
@@ -164,9 +218,15 @@ func _cmd_TagService_CreateTag(c *cli.Context) error {
 	return nil
 }
 
-var _flag_TagService_DeleteTags = []cli.Flag{ /* fields */ }
+var _flag_TagService_DeleteTags = []cli.Flag{
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_TagService_DeleteTags(c *cli.Context) error {
+func _func_TagService_DeleteTags(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
@@ -181,6 +241,11 @@ func _cmd_TagService_DeleteTags(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteTags(in)
@@ -203,9 +268,25 @@ func _cmd_TagService_DeleteTags(c *cli.Context) error {
 	return nil
 }
 
-var _flag_TagService_ModifyTagAttributes = []cli.Flag{ /* fields */ }
+var _flag_TagService_ModifyTagAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "tag",
+		Usage: "tag",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "tag_name",
+		Usage: "tag name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_TagService_ModifyTagAttributes(c *cli.Context) error {
+func _func_TagService_ModifyTagAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
@@ -220,6 +301,15 @@ func _cmd_TagService_ModifyTagAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("tag") {
+			in.Tag = proto.String(c.String("tag"))
+		}
+		if c.IsSet("tag_name") {
+			in.TagName = proto.String(c.String("tag_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyTagAttributes(in)
@@ -242,9 +332,15 @@ func _cmd_TagService_ModifyTagAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_TagService_AttachTags = []cli.Flag{ /* fields */ }
+var _flag_TagService_AttachTags = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_tag_pairs",
+		Usage: "resource tag pairs",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_TagService_AttachTags(c *cli.Context) error {
+func _func_TagService_AttachTags(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
@@ -259,6 +355,11 @@ func _cmd_TagService_AttachTags(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_tag_pairs") {
+			if err := json.Unmarshal([]byte(c.String("resource_tag_pairs")), &in.ResourceTagPairs); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AttachTags(in)
@@ -281,9 +382,15 @@ func _cmd_TagService_AttachTags(c *cli.Context) error {
 	return nil
 }
 
-var _flag_TagService_DetachTags = []cli.Flag{ /* fields */ }
+var _flag_TagService_DetachTags = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resource_tag_pairs",
+		Usage: "resource tag pairs",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_TagService_DetachTags(c *cli.Context) error {
+func _func_TagService_DetachTags(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
@@ -298,6 +405,11 @@ func _cmd_TagService_DetachTags(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resource_tag_pairs") {
+			if err := json.Unmarshal([]byte(c.String("resource_tag_pairs")), &in.ResourceTagPairs); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DetachTags(in)

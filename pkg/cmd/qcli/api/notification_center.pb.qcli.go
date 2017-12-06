@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,14 +48,35 @@ var CmdNotificationCenterService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeNotificationCenterUserPosts",
 			Flags:   _flag_NotificationCenterService_DescribeNotificationCenterUserPosts,
-			Action:  _cmd_NotificationCenterService_DescribeNotificationCenterUserPosts,
+			Action:  _func_NotificationCenterService_DescribeNotificationCenterUserPosts,
 		},
 	},
 }
 
-var _flag_NotificationCenterService_DescribeNotificationCenterUserPosts = []cli.Flag{ /* fields */ }
+var _flag_NotificationCenterService_DescribeNotificationCenterUserPosts = []cli.Flag{
+	cli.StringFlag{
+		Name:  "post_type",
+		Usage: "post type",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.Context) error {
+func _func_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNotificationCenterService(conf, zone)
@@ -68,6 +91,22 @@ func _cmd_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.C
 		}
 	} else {
 		// read from flags
+		if c.IsSet("post_type") {
+			if err := json.Unmarshal([]byte(c.String("post_type")), &in.PostType); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeNotificationCenterUserPosts(in)

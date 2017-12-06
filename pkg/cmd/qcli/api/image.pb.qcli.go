@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,63 +48,114 @@ var CmdImageService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeImages",
 			Flags:   _flag_ImageService_DescribeImages,
-			Action:  _cmd_ImageService_DescribeImages,
+			Action:  _func_ImageService_DescribeImages,
 		},
 		{
 			Name:    "CaptureInstance",
 			Aliases: []string{},
 			Usage:   "CaptureInstance",
 			Flags:   _flag_ImageService_CaptureInstance,
-			Action:  _cmd_ImageService_CaptureInstance,
+			Action:  _func_ImageService_CaptureInstance,
 		},
 		{
 			Name:    "DeleteImages",
 			Aliases: []string{},
 			Usage:   "DeleteImages",
 			Flags:   _flag_ImageService_DeleteImages,
-			Action:  _cmd_ImageService_DeleteImages,
+			Action:  _func_ImageService_DeleteImages,
 		},
 		{
 			Name:    "ModifyImageAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyImageAttributes",
 			Flags:   _flag_ImageService_ModifyImageAttributes,
-			Action:  _cmd_ImageService_ModifyImageAttributes,
+			Action:  _func_ImageService_ModifyImageAttributes,
 		},
 		{
 			Name:    "GrantImageToUsers",
 			Aliases: []string{},
 			Usage:   "GrantImageToUsers",
 			Flags:   _flag_ImageService_GrantImageToUsers,
-			Action:  _cmd_ImageService_GrantImageToUsers,
+			Action:  _func_ImageService_GrantImageToUsers,
 		},
 		{
 			Name:    "RevokeImageFromUsers",
 			Aliases: []string{},
 			Usage:   "RevokeImageFromUsers",
 			Flags:   _flag_ImageService_RevokeImageFromUsers,
-			Action:  _cmd_ImageService_RevokeImageFromUsers,
+			Action:  _func_ImageService_RevokeImageFromUsers,
 		},
 		{
 			Name:    "DescribeImageUsers",
 			Aliases: []string{},
 			Usage:   "DescribeImageUsers",
 			Flags:   _flag_ImageService_DescribeImageUsers,
-			Action:  _cmd_ImageService_DescribeImageUsers,
+			Action:  _func_ImageService_DescribeImageUsers,
 		},
 		{
 			Name:    "CloneImages",
 			Aliases: []string{},
 			Usage:   "CloneImages",
 			Flags:   _flag_ImageService_CloneImages,
-			Action:  _cmd_ImageService_CloneImages,
+			Action:  _func_ImageService_CloneImages,
 		},
 	},
 }
 
-var _flag_ImageService_DescribeImages = []cli.Flag{ /* fields */ }
+var _flag_ImageService_DescribeImages = []cli.Flag{
+	cli.StringFlag{
+		Name:  "images",
+		Usage: "images",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "processor_type",
+		Usage: "processor type",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "os_family",
+		Usage: "os family",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "visibility",
+		Usage: "visibility",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "provider",
+		Usage: "provider",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_ImageService_DescribeImages(c *cli.Context) error {
+func _func_ImageService_DescribeImages(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -117,6 +170,40 @@ func _cmd_ImageService_DescribeImages(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("images") {
+			if err := json.Unmarshal([]byte(c.String("images")), &in.Images); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("processor_type") {
+			in.ProcessorType = proto.String(c.String("processor_type"))
+		}
+		if c.IsSet("os_family") {
+			in.OsFamily = proto.String(c.String("os_family"))
+		}
+		if c.IsSet("visibility") {
+			in.Visibility = proto.String(c.String("visibility"))
+		}
+		if c.IsSet("provider") {
+			in.Provider = proto.String(c.String("provider"))
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeImages(in)
@@ -139,9 +226,25 @@ func _cmd_ImageService_DescribeImages(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ImageService_CaptureInstance = []cli.Flag{ /* fields */ }
+var _flag_ImageService_CaptureInstance = []cli.Flag{
+	cli.StringFlag{
+		Name:  "instance",
+		Usage: "instance",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "image_name",
+		Usage: "image name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "target_user",
+		Usage: "target user",
+		Value: "",
+	},
+}
 
-func _cmd_ImageService_CaptureInstance(c *cli.Context) error {
+func _func_ImageService_CaptureInstance(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -156,6 +259,15 @@ func _cmd_ImageService_CaptureInstance(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("instance") {
+			in.Instance = proto.String(c.String("instance"))
+		}
+		if c.IsSet("image_name") {
+			in.ImageName = proto.String(c.String("image_name"))
+		}
+		if c.IsSet("target_user") {
+			in.TargetUser = proto.String(c.String("target_user"))
+		}
 	}
 
 	out, err := qc.CaptureInstance(in)
@@ -178,9 +290,15 @@ func _cmd_ImageService_CaptureInstance(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ImageService_DeleteImages = []cli.Flag{ /* fields */ }
+var _flag_ImageService_DeleteImages = []cli.Flag{
+	cli.StringFlag{
+		Name:  "images",
+		Usage: "images",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ImageService_DeleteImages(c *cli.Context) error {
+func _func_ImageService_DeleteImages(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -195,6 +313,11 @@ func _cmd_ImageService_DeleteImages(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("images") {
+			if err := json.Unmarshal([]byte(c.String("images")), &in.Images); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteImages(in)
@@ -217,9 +340,25 @@ func _cmd_ImageService_DeleteImages(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ImageService_ModifyImageAttributes = []cli.Flag{ /* fields */ }
+var _flag_ImageService_ModifyImageAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "image",
+		Usage: "image",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "image_name",
+		Usage: "image name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_ImageService_ModifyImageAttributes(c *cli.Context) error {
+func _func_ImageService_ModifyImageAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -234,6 +373,15 @@ func _cmd_ImageService_ModifyImageAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("image") {
+			in.Image = proto.String(c.String("image"))
+		}
+		if c.IsSet("image_name") {
+			in.ImageName = proto.String(c.String("image_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyImageAttributes(in)
@@ -256,9 +404,20 @@ func _cmd_ImageService_ModifyImageAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ImageService_GrantImageToUsers = []cli.Flag{ /* fields */ }
+var _flag_ImageService_GrantImageToUsers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "image",
+		Usage: "image",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ImageService_GrantImageToUsers(c *cli.Context) error {
+func _func_ImageService_GrantImageToUsers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -273,6 +432,14 @@ func _cmd_ImageService_GrantImageToUsers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("image") {
+			in.Image = proto.String(c.String("image"))
+		}
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.GrantImageToUsers(in)
@@ -295,9 +462,20 @@ func _cmd_ImageService_GrantImageToUsers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ImageService_RevokeImageFromUsers = []cli.Flag{ /* fields */ }
+var _flag_ImageService_RevokeImageFromUsers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "image",
+		Usage: "image",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ImageService_RevokeImageFromUsers(c *cli.Context) error {
+func _func_ImageService_RevokeImageFromUsers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -312,6 +490,14 @@ func _cmd_ImageService_RevokeImageFromUsers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("image") {
+			in.Image = proto.String(c.String("image"))
+		}
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RevokeImageFromUsers(in)
@@ -334,9 +520,25 @@ func _cmd_ImageService_RevokeImageFromUsers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ImageService_DescribeImageUsers = []cli.Flag{ /* fields */ }
+var _flag_ImageService_DescribeImageUsers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "image_id",
+		Usage: "image id",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_ImageService_DescribeImageUsers(c *cli.Context) error {
+func _func_ImageService_DescribeImageUsers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -351,6 +553,15 @@ func _cmd_ImageService_DescribeImageUsers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("image_id") {
+			in.ImageId = proto.String(c.String("image_id"))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeImageUsers(in)
@@ -373,9 +584,25 @@ func _cmd_ImageService_DescribeImageUsers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ImageService_CloneImages = []cli.Flag{ /* fields */ }
+var _flag_ImageService_CloneImages = []cli.Flag{
+	cli.StringFlag{
+		Name:  "image",
+		Usage: "image",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "count",
+		Usage: "count",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "image_name",
+		Usage: "image name",
+		Value: "",
+	},
+}
 
-func _cmd_ImageService_CloneImages(c *cli.Context) error {
+func _func_ImageService_CloneImages(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
@@ -390,6 +617,15 @@ func _cmd_ImageService_CloneImages(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("image") {
+			in.Image = proto.String(c.String("image"))
+		}
+		if c.IsSet("count") {
+			in.Count = proto.Int32(int32(c.Int("count")))
+		}
+		if c.IsSet("image_name") {
+			in.ImageName = proto.String(c.String("image_name"))
+		}
 	}
 
 	out, err := qc.CloneImages(in)

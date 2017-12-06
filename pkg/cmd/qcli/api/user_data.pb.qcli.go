@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,14 +48,25 @@ var CmdUserDataService = cli.Command{
 			Aliases: []string{},
 			Usage:   "UploadUserDataAttachment",
 			Flags:   _flag_UserDataService_UploadUserDataAttachment,
-			Action:  _cmd_UserDataService_UploadUserDataAttachment,
+			Action:  _func_UserDataService_UploadUserDataAttachment,
 		},
 	},
 }
 
-var _flag_UserDataService_UploadUserDataAttachment = []cli.Flag{ /* fields */ }
+var _flag_UserDataService_UploadUserDataAttachment = []cli.Flag{
+	cli.StringFlag{
+		Name:  "attachment_name",
+		Usage: "attachment name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "attachment_content",
+		Usage: "attachment content",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_UserDataService_UploadUserDataAttachment(c *cli.Context) error {
+func _func_UserDataService_UploadUserDataAttachment(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewUserDataService(conf, zone)
@@ -68,6 +81,14 @@ func _cmd_UserDataService_UploadUserDataAttachment(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("attachment_name") {
+			in.AttachmentName = proto.String(c.String("attachment_name"))
+		}
+		if c.IsSet("attachment_content") {
+			if err := json.Unmarshal([]byte(c.String("attachment_content")), &in.AttachmentContent); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.UploadUserDataAttachment(in)

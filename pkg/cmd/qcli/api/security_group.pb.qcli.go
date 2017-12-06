@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,133 +48,164 @@ var CmdSecurityGroupService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroups",
 			Flags:   _flag_SecurityGroupService_DescribeSecurityGroups,
-			Action:  _cmd_SecurityGroupService_DescribeSecurityGroups,
+			Action:  _func_SecurityGroupService_DescribeSecurityGroups,
 		},
 		{
 			Name:    "CreateSecurityGroup",
 			Aliases: []string{},
 			Usage:   "CreateSecurityGroup",
 			Flags:   _flag_SecurityGroupService_CreateSecurityGroup,
-			Action:  _cmd_SecurityGroupService_CreateSecurityGroup,
+			Action:  _func_SecurityGroupService_CreateSecurityGroup,
 		},
 		{
 			Name:    "DeleteSecurityGroups",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroups",
 			Flags:   _flag_SecurityGroupService_DeleteSecurityGroups,
-			Action:  _cmd_SecurityGroupService_DeleteSecurityGroups,
+			Action:  _func_SecurityGroupService_DeleteSecurityGroups,
 		},
 		{
 			Name:    "ApplySecurityGroup",
 			Aliases: []string{},
 			Usage:   "ApplySecurityGroup",
 			Flags:   _flag_SecurityGroupService_ApplySecurityGroup,
-			Action:  _cmd_SecurityGroupService_ApplySecurityGroup,
+			Action:  _func_SecurityGroupService_ApplySecurityGroup,
 		},
 		{
 			Name:    "ModifySecurityGroupAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySecurityGroupAttributes",
 			Flags:   _flag_SecurityGroupService_ModifySecurityGroupAttributes,
-			Action:  _cmd_SecurityGroupService_ModifySecurityGroupAttributes,
+			Action:  _func_SecurityGroupService_ModifySecurityGroupAttributes,
 		},
 		{
 			Name:    "DescribeSecurityGroupRules",
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroupRules",
 			Flags:   _flag_SecurityGroupService_DescribeSecurityGroupRules,
-			Action:  _cmd_SecurityGroupService_DescribeSecurityGroupRules,
+			Action:  _func_SecurityGroupService_DescribeSecurityGroupRules,
 		},
 		{
 			Name:    "AddSecurityGroupRules",
 			Aliases: []string{},
 			Usage:   "AddSecurityGroupRules",
 			Flags:   _flag_SecurityGroupService_AddSecurityGroupRules,
-			Action:  _cmd_SecurityGroupService_AddSecurityGroupRules,
+			Action:  _func_SecurityGroupService_AddSecurityGroupRules,
 		},
 		{
 			Name:    "DeleteSecurityGroupRules",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroupRules",
 			Flags:   _flag_SecurityGroupService_DeleteSecurityGroupRules,
-			Action:  _cmd_SecurityGroupService_DeleteSecurityGroupRules,
+			Action:  _func_SecurityGroupService_DeleteSecurityGroupRules,
 		},
 		{
 			Name:    "ModifySecurityGroupRuleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySecurityGroupRuleAttributes",
 			Flags:   _flag_SecurityGroupService_ModifySecurityGroupRuleAttributes,
-			Action:  _cmd_SecurityGroupService_ModifySecurityGroupRuleAttributes,
+			Action:  _func_SecurityGroupService_ModifySecurityGroupRuleAttributes,
 		},
 		{
 			Name:    "CreateSecurityGroupSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateSecurityGroupSnapshot",
 			Flags:   _flag_SecurityGroupService_CreateSecurityGroupSnapshot,
-			Action:  _cmd_SecurityGroupService_CreateSecurityGroupSnapshot,
+			Action:  _func_SecurityGroupService_CreateSecurityGroupSnapshot,
 		},
 		{
 			Name:    "DescribeSecurityGroupSnapshots",
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroupSnapshots",
 			Flags:   _flag_SecurityGroupService_DescribeSecurityGroupSnapshots,
-			Action:  _cmd_SecurityGroupService_DescribeSecurityGroupSnapshots,
+			Action:  _func_SecurityGroupService_DescribeSecurityGroupSnapshots,
 		},
 		{
 			Name:    "DeleteSecurityGroupSnapshots",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroupSnapshots",
 			Flags:   _flag_SecurityGroupService_DeleteSecurityGroupSnapshots,
-			Action:  _cmd_SecurityGroupService_DeleteSecurityGroupSnapshots,
+			Action:  _func_SecurityGroupService_DeleteSecurityGroupSnapshots,
 		},
 		{
 			Name:    "RollbackSecurityGroup",
 			Aliases: []string{},
 			Usage:   "RollbackSecurityGroup",
 			Flags:   _flag_SecurityGroupService_RollbackSecurityGroup,
-			Action:  _cmd_SecurityGroupService_RollbackSecurityGroup,
+			Action:  _func_SecurityGroupService_RollbackSecurityGroup,
 		},
 		{
 			Name:    "DescribeSecurityGroupIPSets",
 			Aliases: []string{},
 			Usage:   "DescribeSecurityGroupIPSets",
 			Flags:   _flag_SecurityGroupService_DescribeSecurityGroupIPSets,
-			Action:  _cmd_SecurityGroupService_DescribeSecurityGroupIPSets,
+			Action:  _func_SecurityGroupService_DescribeSecurityGroupIPSets,
 		},
 		{
 			Name:    "CreateSecurityGroupIPSet",
 			Aliases: []string{},
 			Usage:   "CreateSecurityGroupIPSet",
 			Flags:   _flag_SecurityGroupService_CreateSecurityGroupIPSet,
-			Action:  _cmd_SecurityGroupService_CreateSecurityGroupIPSet,
+			Action:  _func_SecurityGroupService_CreateSecurityGroupIPSet,
 		},
 		{
 			Name:    "DeleteSecurityGroupIPSets",
 			Aliases: []string{},
 			Usage:   "DeleteSecurityGroupIPSets",
 			Flags:   _flag_SecurityGroupService_DeleteSecurityGroupIPSets,
-			Action:  _cmd_SecurityGroupService_DeleteSecurityGroupIPSets,
+			Action:  _func_SecurityGroupService_DeleteSecurityGroupIPSets,
 		},
 		{
 			Name:    "ModifySecurityGroupIPSetAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySecurityGroupIPSetAttributes",
 			Flags:   _flag_SecurityGroupService_ModifySecurityGroupIPSetAttributes,
-			Action:  _cmd_SecurityGroupService_ModifySecurityGroupIPSetAttributes,
+			Action:  _func_SecurityGroupService_ModifySecurityGroupIPSetAttributes,
 		},
 		{
 			Name:    "CopySecurityGroupIPSets",
 			Aliases: []string{},
 			Usage:   "CopySecurityGroupIPSets",
 			Flags:   _flag_SecurityGroupService_CopySecurityGroupIPSets,
-			Action:  _cmd_SecurityGroupService_CopySecurityGroupIPSets,
+			Action:  _func_SecurityGroupService_CopySecurityGroupIPSets,
 		},
 	},
 }
 
-var _flag_SecurityGroupService_DescribeSecurityGroups = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DescribeSecurityGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_groups",
+		Usage: "security groups",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
+func _func_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -187,6 +220,28 @@ func _cmd_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_groups") {
+			if err := json.Unmarshal([]byte(c.String("security_groups")), &in.SecurityGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeSecurityGroups(in)
@@ -209,9 +264,15 @@ func _cmd_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_CreateSecurityGroup = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_CreateSecurityGroup = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_name",
+		Usage: "security group name",
+		Value: "",
+	},
+}
 
-func _cmd_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
+func _func_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -226,6 +287,9 @@ func _cmd_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_name") {
+			in.SecurityGroupName = proto.String(c.String("security_group_name"))
+		}
 	}
 
 	out, err := qc.CreateSecurityGroup(in)
@@ -248,9 +312,15 @@ func _cmd_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_DeleteSecurityGroups = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DeleteSecurityGroups = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_groups",
+		Usage: "security groups",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
+func _func_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -265,6 +335,11 @@ func _cmd_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_groups") {
+			if err := json.Unmarshal([]byte(c.String("security_groups")), &in.SecurityGroups); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteSecurityGroups(in)
@@ -287,9 +362,20 @@ func _cmd_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_ApplySecurityGroup = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_ApplySecurityGroup = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "instances",
+		Usage: "instances",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
+func _func_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -304,6 +390,14 @@ func _cmd_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("instances") {
+			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ApplySecurityGroup(in)
@@ -326,9 +420,25 @@ func _cmd_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_ModifySecurityGroupAttributes = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_ModifySecurityGroupAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group_name",
+		Usage: "security group name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) error {
+func _func_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -343,6 +453,15 @@ func _cmd_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) err
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("security_group_name") {
+			in.SecurityGroupName = proto.String(c.String("security_group_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifySecurityGroupAttributes(in)
@@ -365,9 +484,35 @@ func _cmd_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) err
 	return nil
 }
 
-var _flag_SecurityGroupService_DescribeSecurityGroupRules = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DescribeSecurityGroupRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group_rules",
+		Usage: "security group rules",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "direction",
+		Usage: "direction",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error {
+func _func_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -382,6 +527,21 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error 
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("security_group_rules") {
+			in.SecurityGroupRules = proto.String(c.String("security_group_rules"))
+		}
+		if c.IsSet("direction") {
+			in.Direction = proto.Int32(int32(c.Int("direction")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeSecurityGroupRules(in)
@@ -404,9 +564,20 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error 
 	return nil
 }
 
-var _flag_SecurityGroupService_AddSecurityGroupRules = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_AddSecurityGroupRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "rules",
+		Usage: "rules",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
+func _func_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -421,6 +592,14 @@ func _cmd_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("rules") {
+			if err := json.Unmarshal([]byte(c.String("rules")), &in.Rules); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddSecurityGroupRules(in)
@@ -443,9 +622,15 @@ func _cmd_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_DeleteSecurityGroupRules = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DeleteSecurityGroupRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_rules",
+		Usage: "security group rules",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
+func _func_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -460,6 +645,11 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_rules") {
+			if err := json.Unmarshal([]byte(c.String("security_group_rules")), &in.SecurityGroupRules); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteSecurityGroupRules(in)
@@ -482,9 +672,55 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_ModifySecurityGroupRuleAttributes = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_ModifySecurityGroupRuleAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_rule",
+		Usage: "security group rule",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group_rule_name",
+		Usage: "security group rule name",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "priority",
+		Usage: "priority",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "rule_action",
+		Usage: "rule action",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "direction",
+		Usage: "direction",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "protocol",
+		Usage: "protocol",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val1",
+		Usage: "val1",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val2",
+		Usage: "val2",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val3",
+		Usage: "val3",
+		Value: "",
+	},
+}
 
-func _cmd_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context) error {
+func _func_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -499,6 +735,33 @@ func _cmd_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context)
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_rule") {
+			in.SecurityGroupRule = proto.String(c.String("security_group_rule"))
+		}
+		if c.IsSet("security_group_rule_name") {
+			in.SecurityGroupRuleName = proto.String(c.String("security_group_rule_name"))
+		}
+		if c.IsSet("priority") {
+			in.Priority = proto.Int32(int32(c.Int("priority")))
+		}
+		if c.IsSet("rule_action") {
+			in.RuleAction = proto.String(c.String("rule_action"))
+		}
+		if c.IsSet("direction") {
+			in.Direction = proto.Int32(int32(c.Int("direction")))
+		}
+		if c.IsSet("protocol") {
+			in.Protocol = proto.String(c.String("protocol"))
+		}
+		if c.IsSet("val1") {
+			in.Val1 = proto.String(c.String("val1"))
+		}
+		if c.IsSet("val2") {
+			in.Val2 = proto.String(c.String("val2"))
+		}
+		if c.IsSet("val3") {
+			in.Val3 = proto.String(c.String("val3"))
+		}
 	}
 
 	out, err := qc.ModifySecurityGroupRuleAttributes(in)
@@ -521,9 +784,20 @@ func _cmd_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context)
 	return nil
 }
 
-var _flag_SecurityGroupService_CreateSecurityGroupSnapshot = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_CreateSecurityGroupSnapshot = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "name",
+		Usage: "name",
+		Value: "",
+	},
+}
 
-func _cmd_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error {
+func _func_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -538,6 +812,12 @@ func _cmd_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("name") {
+			in.Name = proto.String(c.String("name"))
+		}
 	}
 
 	out, err := qc.CreateSecurityGroupSnapshot(in)
@@ -560,9 +840,30 @@ func _cmd_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error
 	return nil
 }
 
-var _flag_SecurityGroupService_DescribeSecurityGroupSnapshots = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DescribeSecurityGroupSnapshots = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group_snapshots",
+		Usage: "security group snapshots",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) error {
+func _func_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -577,6 +878,20 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) er
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("security_group_snapshots") {
+			if err := json.Unmarshal([]byte(c.String("security_group_snapshots")), &in.SecurityGroupSnapshots); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeSecurityGroupSnapshots(in)
@@ -599,9 +914,15 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) er
 	return nil
 }
 
-var _flag_SecurityGroupService_DeleteSecurityGroupSnapshots = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DeleteSecurityGroupSnapshots = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_snapshots",
+		Usage: "security group snapshots",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) error {
+func _func_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -616,6 +937,11 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) erro
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_snapshots") {
+			if err := json.Unmarshal([]byte(c.String("security_group_snapshots")), &in.SecurityGroupSnapshots); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteSecurityGroupSnapshots(in)
@@ -638,9 +964,20 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) erro
 	return nil
 }
 
-var _flag_SecurityGroupService_RollbackSecurityGroup = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_RollbackSecurityGroup = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group_snapshot",
+		Usage: "security group snapshot",
+		Value: "",
+	},
+}
 
-func _cmd_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
+func _func_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -655,6 +992,12 @@ func _cmd_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("security_group_snapshot") {
+			in.SecurityGroupSnapshot = proto.String(c.String("security_group_snapshot"))
+		}
 	}
 
 	out, err := qc.RollbackSecurityGroup(in)
@@ -677,9 +1020,45 @@ func _cmd_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_DescribeSecurityGroupIPSets = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DescribeSecurityGroupIPSets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_ipsets",
+		Usage: "security group ipsets",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "ipset_type",
+		Usage: "ipset type",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "security_group_ipset_name",
+		Usage: "security group ipset name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error {
+func _func_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -694,6 +1073,31 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_ipsets") {
+			if err := json.Unmarshal([]byte(c.String("security_group_ipsets")), &in.SecurityGroupIpsets); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("ipset_type") {
+			in.IpsetType = proto.Int32(int32(c.Int("ipset_type")))
+		}
+		if c.IsSet("security_group_ipset_name") {
+			in.SecurityGroupIpsetName = proto.String(c.String("security_group_ipset_name"))
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeSecurityGroupIPSets(in)
@@ -716,9 +1120,25 @@ func _cmd_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error
 	return nil
 }
 
-var _flag_SecurityGroupService_CreateSecurityGroupIPSet = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_CreateSecurityGroupIPSet = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_ipset_name",
+		Usage: "security group ipset name",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "ipset_type",
+		Usage: "ipset type",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "val",
+		Usage: "val",
+		Value: "",
+	},
+}
 
-func _cmd_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
+func _func_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -733,6 +1153,15 @@ func _cmd_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_ipset_name") {
+			in.SecurityGroupIpsetName = proto.String(c.String("security_group_ipset_name"))
+		}
+		if c.IsSet("ipset_type") {
+			in.IpsetType = proto.Int32(int32(c.Int("ipset_type")))
+		}
+		if c.IsSet("val") {
+			in.Val = proto.String(c.String("val"))
+		}
 	}
 
 	out, err := qc.CreateSecurityGroupIPSet(in)
@@ -755,9 +1184,15 @@ func _cmd_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_DeleteSecurityGroupIPSets = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_DeleteSecurityGroupIPSets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_ipsets",
+		Usage: "security group ipsets",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
+func _func_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -772,6 +1207,11 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_ipsets") {
+			if err := json.Unmarshal([]byte(c.String("security_group_ipsets")), &in.SecurityGroupIpsets); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteSecurityGroupIPSets(in)
@@ -794,9 +1234,30 @@ func _cmd_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SecurityGroupService_ModifySecurityGroupIPSetAttributes = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_ModifySecurityGroupIPSetAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "security_group_ipset",
+		Usage: "security group ipset",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group_ipset_name",
+		Usage: "security group ipset name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val",
+		Usage: "val",
+		Value: "",
+	},
+}
 
-func _cmd_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context) error {
+func _func_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -811,6 +1272,18 @@ func _cmd_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context
 		}
 	} else {
 		// read from flags
+		if c.IsSet("security_group_ipset") {
+			in.SecurityGroupIpset = proto.String(c.String("security_group_ipset"))
+		}
+		if c.IsSet("security_group_ipset_name") {
+			in.SecurityGroupIpsetName = proto.String(c.String("security_group_ipset_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("val") {
+			in.Val = proto.String(c.String("val"))
+		}
 	}
 
 	out, err := qc.ModifySecurityGroupIPSetAttributes(in)
@@ -833,9 +1306,20 @@ func _cmd_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context
 	return nil
 }
 
-var _flag_SecurityGroupService_CopySecurityGroupIPSets = []cli.Flag{ /* fields */ }
+var _flag_SecurityGroupService_CopySecurityGroupIPSets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "ipsets",
+		Usage: "ipsets",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "dest_zones",
+		Usage: "dest zones",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
+func _func_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSecurityGroupService(conf, zone)
@@ -850,6 +1334,16 @@ func _cmd_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("ipsets") {
+			if err := json.Unmarshal([]byte(c.String("ipsets")), &in.Ipsets); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("dest_zones") {
+			if err := json.Unmarshal([]byte(c.String("dest_zones")), &in.DestZones); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.CopySecurityGroupIPSets(in)

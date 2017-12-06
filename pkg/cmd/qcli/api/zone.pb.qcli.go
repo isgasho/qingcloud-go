@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,14 +48,25 @@ var CmdZoneService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeZones",
 			Flags:   _flag_ZoneService_DescribeZones,
-			Action:  _cmd_ZoneService_DescribeZones,
+			Action:  _func_ZoneService_DescribeZones,
 		},
 	},
 }
 
-var _flag_ZoneService_DescribeZones = []cli.Flag{ /* fields */ }
+var _flag_ZoneService_DescribeZones = []cli.Flag{
+	cli.StringFlag{
+		Name:  "zones",
+		Usage: "zones",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ZoneService_DescribeZones(c *cli.Context) error {
+func _func_ZoneService_DescribeZones(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewZoneService(conf, zone)
@@ -68,6 +81,16 @@ func _cmd_ZoneService_DescribeZones(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("zones") {
+			if err := json.Unmarshal([]byte(c.String("zones")), &in.Zones); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DescribeZones(in)

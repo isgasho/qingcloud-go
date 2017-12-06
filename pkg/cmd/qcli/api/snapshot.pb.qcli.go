@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,56 +48,102 @@ var CmdSnapshotService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeSnapshots",
 			Flags:   _flag_SnapshotService_DescribeSnapshots,
-			Action:  _cmd_SnapshotService_DescribeSnapshots,
+			Action:  _func_SnapshotService_DescribeSnapshots,
 		},
 		{
 			Name:    "CreateSnapshots",
 			Aliases: []string{},
 			Usage:   "CreateSnapshots",
 			Flags:   _flag_SnapshotService_CreateSnapshots,
-			Action:  _cmd_SnapshotService_CreateSnapshots,
+			Action:  _func_SnapshotService_CreateSnapshots,
 		},
 		{
 			Name:    "DeleteSnapshots",
 			Aliases: []string{},
 			Usage:   "DeleteSnapshots",
 			Flags:   _flag_SnapshotService_DeleteSnapshots,
-			Action:  _cmd_SnapshotService_DeleteSnapshots,
+			Action:  _func_SnapshotService_DeleteSnapshots,
 		},
 		{
 			Name:    "ApplySnapshots",
 			Aliases: []string{},
 			Usage:   "ApplySnapshots",
 			Flags:   _flag_SnapshotService_ApplySnapshots,
-			Action:  _cmd_SnapshotService_ApplySnapshots,
+			Action:  _func_SnapshotService_ApplySnapshots,
 		},
 		{
 			Name:    "ModifySnapshotAttributes",
 			Aliases: []string{},
 			Usage:   "ModifySnapshotAttributes",
 			Flags:   _flag_SnapshotService_ModifySnapshotAttributes,
-			Action:  _cmd_SnapshotService_ModifySnapshotAttributes,
+			Action:  _func_SnapshotService_ModifySnapshotAttributes,
 		},
 		{
 			Name:    "CaptureInstanceFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CaptureInstanceFromSnapshot",
 			Flags:   _flag_SnapshotService_CaptureInstanceFromSnapshot,
-			Action:  _cmd_SnapshotService_CaptureInstanceFromSnapshot,
+			Action:  _func_SnapshotService_CaptureInstanceFromSnapshot,
 		},
 		{
 			Name:    "CreateVolumeFromSnapshot",
 			Aliases: []string{},
 			Usage:   "CreateVolumeFromSnapshot",
 			Flags:   _flag_SnapshotService_CreateVolumeFromSnapshot,
-			Action:  _cmd_SnapshotService_CreateVolumeFromSnapshot,
+			Action:  _func_SnapshotService_CreateVolumeFromSnapshot,
 		},
 	},
 }
 
-var _flag_SnapshotService_DescribeSnapshots = []cli.Flag{ /* fields */ }
+var _flag_SnapshotService_DescribeSnapshots = []cli.Flag{
+	cli.StringFlag{
+		Name:  "snapshots",
+		Usage: "snapshots",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "resource_id",
+		Usage: "resource id",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "snapshot_type",
+		Usage: "snapshot type",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_SnapshotService_DescribeSnapshots(c *cli.Context) error {
+func _func_SnapshotService_DescribeSnapshots(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
@@ -110,6 +158,39 @@ func _cmd_SnapshotService_DescribeSnapshots(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("snapshots") {
+			if err := json.Unmarshal([]byte(c.String("snapshots")), &in.Snapshots); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("resource_id") {
+			in.ResourceId = proto.String(c.String("resource_id"))
+		}
+		if c.IsSet("snapshot_type") {
+			in.SnapshotType = proto.Int32(int32(c.Int("snapshot_type")))
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeSnapshots(in)
@@ -132,9 +213,25 @@ func _cmd_SnapshotService_DescribeSnapshots(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SnapshotService_CreateSnapshots = []cli.Flag{ /* fields */ }
+var _flag_SnapshotService_CreateSnapshots = []cli.Flag{
+	cli.StringFlag{
+		Name:  "resources",
+		Usage: "resources",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "snapshot_name",
+		Usage: "snapshot name",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "is_full",
+		Usage: "is full",
+		Value: 0,
+	},
+}
 
-func _cmd_SnapshotService_CreateSnapshots(c *cli.Context) error {
+func _func_SnapshotService_CreateSnapshots(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
@@ -149,6 +246,17 @@ func _cmd_SnapshotService_CreateSnapshots(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("resources") {
+			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("snapshot_name") {
+			in.SnapshotName = proto.String(c.String("snapshot_name"))
+		}
+		if c.IsSet("is_full") {
+			in.IsFull = proto.Int32(int32(c.Int("is_full")))
+		}
 	}
 
 	out, err := qc.CreateSnapshots(in)
@@ -171,9 +279,15 @@ func _cmd_SnapshotService_CreateSnapshots(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SnapshotService_DeleteSnapshots = []cli.Flag{ /* fields */ }
+var _flag_SnapshotService_DeleteSnapshots = []cli.Flag{
+	cli.StringFlag{
+		Name:  "snapshots",
+		Usage: "snapshots",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SnapshotService_DeleteSnapshots(c *cli.Context) error {
+func _func_SnapshotService_DeleteSnapshots(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
@@ -188,6 +302,11 @@ func _cmd_SnapshotService_DeleteSnapshots(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("snapshots") {
+			if err := json.Unmarshal([]byte(c.String("snapshots")), &in.Snapshots); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteSnapshots(in)
@@ -210,9 +329,15 @@ func _cmd_SnapshotService_DeleteSnapshots(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SnapshotService_ApplySnapshots = []cli.Flag{ /* fields */ }
+var _flag_SnapshotService_ApplySnapshots = []cli.Flag{
+	cli.StringFlag{
+		Name:  "snapshots",
+		Usage: "snapshots",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_SnapshotService_ApplySnapshots(c *cli.Context) error {
+func _func_SnapshotService_ApplySnapshots(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
@@ -227,6 +352,11 @@ func _cmd_SnapshotService_ApplySnapshots(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("snapshots") {
+			if err := json.Unmarshal([]byte(c.String("snapshots")), &in.Snapshots); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ApplySnapshots(in)
@@ -249,9 +379,25 @@ func _cmd_SnapshotService_ApplySnapshots(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SnapshotService_ModifySnapshotAttributes = []cli.Flag{ /* fields */ }
+var _flag_SnapshotService_ModifySnapshotAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "snapshot",
+		Usage: "snapshot",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "snapshot_name",
+		Usage: "snapshot name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
+func _func_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
@@ -266,6 +412,15 @@ func _cmd_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("snapshot") {
+			in.Snapshot = proto.String(c.String("snapshot"))
+		}
+		if c.IsSet("snapshot_name") {
+			in.SnapshotName = proto.String(c.String("snapshot_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifySnapshotAttributes(in)
@@ -288,9 +443,20 @@ func _cmd_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SnapshotService_CaptureInstanceFromSnapshot = []cli.Flag{ /* fields */ }
+var _flag_SnapshotService_CaptureInstanceFromSnapshot = []cli.Flag{
+	cli.StringFlag{
+		Name:  "snapshot",
+		Usage: "snapshot",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "image_name",
+		Usage: "image name",
+		Value: "",
+	},
+}
 
-func _cmd_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
+func _func_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
@@ -305,6 +471,12 @@ func _cmd_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("snapshot") {
+			in.Snapshot = proto.String(c.String("snapshot"))
+		}
+		if c.IsSet("image_name") {
+			in.ImageName = proto.String(c.String("image_name"))
+		}
 	}
 
 	out, err := qc.CaptureInstanceFromSnapshot(in)
@@ -327,9 +499,20 @@ func _cmd_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
 	return nil
 }
 
-var _flag_SnapshotService_CreateVolumeFromSnapshot = []cli.Flag{ /* fields */ }
+var _flag_SnapshotService_CreateVolumeFromSnapshot = []cli.Flag{
+	cli.StringFlag{
+		Name:  "snapshot",
+		Usage: "snapshot",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "volume_name",
+		Usage: "volume name",
+		Value: "",
+	},
+}
 
-func _cmd_SnapshotService_CreateVolumeFromSnapshot(c *cli.Context) error {
+func _func_SnapshotService_CreateVolumeFromSnapshot(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSnapshotService(conf, zone)
@@ -344,6 +527,12 @@ func _cmd_SnapshotService_CreateVolumeFromSnapshot(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("snapshot") {
+			in.Snapshot = proto.String(c.String("snapshot"))
+		}
+		if c.IsSet("volume_name") {
+			in.VolumeName = proto.String(c.String("volume_name"))
+		}
 	}
 
 	out, err := qc.CreateVolumeFromSnapshot(in)

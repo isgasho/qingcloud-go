@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,140 +48,181 @@ var CmdRouterService = cli.Command{
 			Aliases: []string{},
 			Usage:   "DescribeRouters",
 			Flags:   _flag_RouterService_DescribeRouters,
-			Action:  _cmd_RouterService_DescribeRouters,
+			Action:  _func_RouterService_DescribeRouters,
 		},
 		{
 			Name:    "CreateRouters",
 			Aliases: []string{},
 			Usage:   "CreateRouters",
 			Flags:   _flag_RouterService_CreateRouters,
-			Action:  _cmd_RouterService_CreateRouters,
+			Action:  _func_RouterService_CreateRouters,
 		},
 		{
 			Name:    "DeleteRouters",
 			Aliases: []string{},
 			Usage:   "DeleteRouters",
 			Flags:   _flag_RouterService_DeleteRouters,
-			Action:  _cmd_RouterService_DeleteRouters,
+			Action:  _func_RouterService_DeleteRouters,
 		},
 		{
 			Name:    "UpdateRouters",
 			Aliases: []string{},
 			Usage:   "UpdateRouters",
 			Flags:   _flag_RouterService_UpdateRouters,
-			Action:  _cmd_RouterService_UpdateRouters,
+			Action:  _func_RouterService_UpdateRouters,
 		},
 		{
 			Name:    "PowerOffRouters",
 			Aliases: []string{},
 			Usage:   "PowerOffRouters",
 			Flags:   _flag_RouterService_PowerOffRouters,
-			Action:  _cmd_RouterService_PowerOffRouters,
+			Action:  _func_RouterService_PowerOffRouters,
 		},
 		{
 			Name:    "PowerOnRouters",
 			Aliases: []string{},
 			Usage:   "PowerOnRouters",
 			Flags:   _flag_RouterService_PowerOnRouters,
-			Action:  _cmd_RouterService_PowerOnRouters,
+			Action:  _func_RouterService_PowerOnRouters,
 		},
 		{
 			Name:    "JoinRouter",
 			Aliases: []string{},
 			Usage:   "JoinRouter",
 			Flags:   _flag_RouterService_JoinRouter,
-			Action:  _cmd_RouterService_JoinRouter,
+			Action:  _func_RouterService_JoinRouter,
 		},
 		{
 			Name:    "LeaveRouter",
 			Aliases: []string{},
 			Usage:   "LeaveRouter",
 			Flags:   _flag_RouterService_LeaveRouter,
-			Action:  _cmd_RouterService_LeaveRouter,
+			Action:  _func_RouterService_LeaveRouter,
 		},
 		{
 			Name:    "ModifyRouterAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyRouterAttributes",
 			Flags:   _flag_RouterService_ModifyRouterAttributes,
-			Action:  _cmd_RouterService_ModifyRouterAttributes,
+			Action:  _func_RouterService_ModifyRouterAttributes,
 		},
 		{
 			Name:    "DescribeRouterStatics",
 			Aliases: []string{},
 			Usage:   "DescribeRouterStatics",
 			Flags:   _flag_RouterService_DescribeRouterStatics,
-			Action:  _cmd_RouterService_DescribeRouterStatics,
+			Action:  _func_RouterService_DescribeRouterStatics,
 		},
 		{
 			Name:    "AddRouterStatics",
 			Aliases: []string{},
 			Usage:   "AddRouterStatics",
 			Flags:   _flag_RouterService_AddRouterStatics,
-			Action:  _cmd_RouterService_AddRouterStatics,
+			Action:  _func_RouterService_AddRouterStatics,
 		},
 		{
 			Name:    "ModifyRouterStaticAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyRouterStaticAttributes",
 			Flags:   _flag_RouterService_ModifyRouterStaticAttributes,
-			Action:  _cmd_RouterService_ModifyRouterStaticAttributes,
+			Action:  _func_RouterService_ModifyRouterStaticAttributes,
 		},
 		{
 			Name:    "DeleteRouterStatics",
 			Aliases: []string{},
 			Usage:   "DeleteRouterStatics",
 			Flags:   _flag_RouterService_DeleteRouterStatics,
-			Action:  _cmd_RouterService_DeleteRouterStatics,
+			Action:  _func_RouterService_DeleteRouterStatics,
 		},
 		{
 			Name:    "CopyRouterStatics",
 			Aliases: []string{},
 			Usage:   "CopyRouterStatics",
 			Flags:   _flag_RouterService_CopyRouterStatics,
-			Action:  _cmd_RouterService_CopyRouterStatics,
+			Action:  _func_RouterService_CopyRouterStatics,
 		},
 		{
 			Name:    "DescribeRouterVxnets",
 			Aliases: []string{},
 			Usage:   "DescribeRouterVxnets",
 			Flags:   _flag_RouterService_DescribeRouterVxnets,
-			Action:  _cmd_RouterService_DescribeRouterVxnets,
+			Action:  _func_RouterService_DescribeRouterVxnets,
 		},
 		{
 			Name:    "AddRouterStaticEntries",
 			Aliases: []string{},
 			Usage:   "AddRouterStaticEntries",
 			Flags:   _flag_RouterService_AddRouterStaticEntries,
-			Action:  _cmd_RouterService_AddRouterStaticEntries,
+			Action:  _func_RouterService_AddRouterStaticEntries,
 		},
 		{
 			Name:    "DeleteRouterStaticEntries",
 			Aliases: []string{},
 			Usage:   "DeleteRouterStaticEntries",
 			Flags:   _flag_RouterService_DeleteRouterStaticEntries,
-			Action:  _cmd_RouterService_DeleteRouterStaticEntries,
+			Action:  _func_RouterService_DeleteRouterStaticEntries,
 		},
 		{
 			Name:    "ModifyRouterStaticEntryAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyRouterStaticEntryAttributes",
 			Flags:   _flag_RouterService_ModifyRouterStaticEntryAttributes,
-			Action:  _cmd_RouterService_ModifyRouterStaticEntryAttributes,
+			Action:  _func_RouterService_ModifyRouterStaticEntryAttributes,
 		},
 		{
 			Name:    "DescribeRouterStaticEntries",
 			Aliases: []string{},
 			Usage:   "DescribeRouterStaticEntries",
 			Flags:   _flag_RouterService_DescribeRouterStaticEntries,
-			Action:  _cmd_RouterService_DescribeRouterStaticEntries,
+			Action:  _func_RouterService_DescribeRouterStaticEntries,
 		},
 	},
 }
 
-var _flag_RouterService_DescribeRouters = []cli.Flag{ /* fields */ }
+var _flag_RouterService_DescribeRouters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "routers",
+		Usage: "routers",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_RouterService_DescribeRouters(c *cli.Context) error {
+func _func_RouterService_DescribeRouters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -194,6 +237,36 @@ func _cmd_RouterService_DescribeRouters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("routers") {
+			if err := json.Unmarshal([]byte(c.String("routers")), &in.Routers); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeRouters(in)
@@ -216,9 +289,40 @@ func _cmd_RouterService_DescribeRouters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_CreateRouters = []cli.Flag{ /* fields */ }
+var _flag_RouterService_CreateRouters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_name",
+		Usage: "router name",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "router_type",
+		Usage: "router type",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "vpc_network",
+		Usage: "vpc network",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "count",
+		Usage: "count",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "target_user",
+		Usage: "target user",
+		Value: "",
+	},
+}
 
-func _cmd_RouterService_CreateRouters(c *cli.Context) error {
+func _func_RouterService_CreateRouters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -233,6 +337,24 @@ func _cmd_RouterService_CreateRouters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_name") {
+			in.RouterName = proto.String(c.String("router_name"))
+		}
+		if c.IsSet("router_type") {
+			in.RouterType = proto.Int32(int32(c.Int("router_type")))
+		}
+		if c.IsSet("vpc_network") {
+			in.VpcNetwork = proto.String(c.String("vpc_network"))
+		}
+		if c.IsSet("count") {
+			in.Count = proto.Int32(int32(c.Int("count")))
+		}
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("target_user") {
+			in.TargetUser = proto.String(c.String("target_user"))
+		}
 	}
 
 	out, err := qc.CreateRouters(in)
@@ -255,9 +377,15 @@ func _cmd_RouterService_CreateRouters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_DeleteRouters = []cli.Flag{ /* fields */ }
+var _flag_RouterService_DeleteRouters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "routers",
+		Usage: "routers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_DeleteRouters(c *cli.Context) error {
+func _func_RouterService_DeleteRouters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -272,6 +400,11 @@ func _cmd_RouterService_DeleteRouters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("routers") {
+			if err := json.Unmarshal([]byte(c.String("routers")), &in.Routers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteRouters(in)
@@ -294,9 +427,15 @@ func _cmd_RouterService_DeleteRouters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_UpdateRouters = []cli.Flag{ /* fields */ }
+var _flag_RouterService_UpdateRouters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "routers",
+		Usage: "routers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_UpdateRouters(c *cli.Context) error {
+func _func_RouterService_UpdateRouters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -311,6 +450,11 @@ func _cmd_RouterService_UpdateRouters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("routers") {
+			if err := json.Unmarshal([]byte(c.String("routers")), &in.Routers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.UpdateRouters(in)
@@ -333,9 +477,15 @@ func _cmd_RouterService_UpdateRouters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_PowerOffRouters = []cli.Flag{ /* fields */ }
+var _flag_RouterService_PowerOffRouters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "routers",
+		Usage: "routers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_PowerOffRouters(c *cli.Context) error {
+func _func_RouterService_PowerOffRouters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -350,6 +500,11 @@ func _cmd_RouterService_PowerOffRouters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("routers") {
+			if err := json.Unmarshal([]byte(c.String("routers")), &in.Routers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.PowerOffRouters(in)
@@ -372,9 +527,15 @@ func _cmd_RouterService_PowerOffRouters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_PowerOnRouters = []cli.Flag{ /* fields */ }
+var _flag_RouterService_PowerOnRouters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "routers",
+		Usage: "routers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_PowerOnRouters(c *cli.Context) error {
+func _func_RouterService_PowerOnRouters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -389,6 +550,11 @@ func _cmd_RouterService_PowerOnRouters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("routers") {
+			if err := json.Unmarshal([]byte(c.String("routers")), &in.Routers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.PowerOnRouters(in)
@@ -411,9 +577,45 @@ func _cmd_RouterService_PowerOnRouters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_JoinRouter = []cli.Flag{ /* fields */ }
+var _flag_RouterService_JoinRouter = []cli.Flag{
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "router",
+		Usage: "router",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "ip_network",
+		Usage: "ip network",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "features",
+		Usage: "features",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "manager_ip",
+		Usage: "manager ip",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "dyn_ip_start",
+		Usage: "dyn ip start",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "dyn_ip_end",
+		Usage: "dyn ip end",
+		Value: "",
+	},
+}
 
-func _cmd_RouterService_JoinRouter(c *cli.Context) error {
+func _func_RouterService_JoinRouter(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -428,6 +630,27 @@ func _cmd_RouterService_JoinRouter(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("router") {
+			in.Router = proto.String(c.String("router"))
+		}
+		if c.IsSet("ip_network") {
+			in.IpNetwork = proto.String(c.String("ip_network"))
+		}
+		if c.IsSet("features") {
+			in.Features = proto.Int32(int32(c.Int("features")))
+		}
+		if c.IsSet("manager_ip") {
+			in.ManagerIp = proto.String(c.String("manager_ip"))
+		}
+		if c.IsSet("dyn_ip_start") {
+			in.DynIpStart = proto.String(c.String("dyn_ip_start"))
+		}
+		if c.IsSet("dyn_ip_end") {
+			in.DynIpEnd = proto.String(c.String("dyn_ip_end"))
+		}
 	}
 
 	out, err := qc.JoinRouter(in)
@@ -450,9 +673,20 @@ func _cmd_RouterService_JoinRouter(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_LeaveRouter = []cli.Flag{ /* fields */ }
+var _flag_RouterService_LeaveRouter = []cli.Flag{
+	cli.StringFlag{
+		Name:  "vxnets",
+		Usage: "vxnets",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "router",
+		Usage: "router",
+		Value: "",
+	},
+}
 
-func _cmd_RouterService_LeaveRouter(c *cli.Context) error {
+func _func_RouterService_LeaveRouter(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -467,6 +701,14 @@ func _cmd_RouterService_LeaveRouter(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("vxnets") {
+			if err := json.Unmarshal([]byte(c.String("vxnets")), &in.Vxnets); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("router") {
+			in.Router = proto.String(c.String("router"))
+		}
 	}
 
 	out, err := qc.LeaveRouter(in)
@@ -489,9 +731,55 @@ func _cmd_RouterService_LeaveRouter(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_ModifyRouterAttributes = []cli.Flag{ /* fields */ }
+var _flag_RouterService_ModifyRouterAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router",
+		Usage: "router",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "eip",
+		Usage: "eip",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "router_name",
+		Usage: "router name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "features",
+		Usage: "features",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "dyn_ip_start",
+		Usage: "dyn ip start",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "dyn_ip_end",
+		Usage: "dyn ip end",
+		Value: "",
+	},
+}
 
-func _cmd_RouterService_ModifyRouterAttributes(c *cli.Context) error {
+func _func_RouterService_ModifyRouterAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -506,6 +794,33 @@ func _cmd_RouterService_ModifyRouterAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router") {
+			in.Router = proto.String(c.String("router"))
+		}
+		if c.IsSet("eip") {
+			in.Eip = proto.String(c.String("eip"))
+		}
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("router_name") {
+			in.RouterName = proto.String(c.String("router_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("features") {
+			in.Features = proto.Int32(int32(c.Int("features")))
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("dyn_ip_start") {
+			in.DynIpStart = proto.String(c.String("dyn_ip_start"))
+		}
+		if c.IsSet("dyn_ip_end") {
+			in.DynIpEnd = proto.String(c.String("dyn_ip_end"))
+		}
 	}
 
 	out, err := qc.ModifyRouterAttributes(in)
@@ -528,9 +843,15 @@ func _cmd_RouterService_ModifyRouterAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_DescribeRouterStatics = []cli.Flag{ /* fields */ }
+var _flag_RouterService_DescribeRouterStatics = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_statics",
+		Usage: "router statics",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_DescribeRouterStatics(c *cli.Context) error {
+func _func_RouterService_DescribeRouterStatics(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -545,6 +866,11 @@ func _cmd_RouterService_DescribeRouterStatics(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_statics") {
+			if err := json.Unmarshal([]byte(c.String("router_statics")), &in.RouterStatics); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DescribeRouterStatics(in)
@@ -567,9 +893,25 @@ func _cmd_RouterService_DescribeRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_AddRouterStatics = []cli.Flag{ /* fields */ }
+var _flag_RouterService_AddRouterStatics = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router",
+		Usage: "router",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "statics",
+		Usage: "statics",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+}
 
-func _cmd_RouterService_AddRouterStatics(c *cli.Context) error {
+func _func_RouterService_AddRouterStatics(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -584,6 +926,17 @@ func _cmd_RouterService_AddRouterStatics(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router") {
+			in.Router = proto.String(c.String("router"))
+		}
+		if c.IsSet("statics") {
+			if err := json.Unmarshal([]byte(c.String("statics")), &in.Statics); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
 	}
 
 	out, err := qc.AddRouterStatics(in)
@@ -606,9 +959,50 @@ func _cmd_RouterService_AddRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_ModifyRouterStaticAttributes = []cli.Flag{ /* fields */ }
+var _flag_RouterService_ModifyRouterStaticAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_static",
+		Usage: "router static",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "router_static_name",
+		Usage: "router static name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val1",
+		Usage: "val1",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val2",
+		Usage: "val2",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val3",
+		Usage: "val3",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val4",
+		Usage: "val4",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val5",
+		Usage: "val5",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val6",
+		Usage: "val6",
+		Value: "",
+	},
+}
 
-func _cmd_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
+func _func_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -623,6 +1017,30 @@ func _cmd_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_static") {
+			in.RouterStatic = proto.String(c.String("router_static"))
+		}
+		if c.IsSet("router_static_name") {
+			in.RouterStaticName = proto.String(c.String("router_static_name"))
+		}
+		if c.IsSet("val1") {
+			in.Val1 = proto.String(c.String("val1"))
+		}
+		if c.IsSet("val2") {
+			in.Val2 = proto.String(c.String("val2"))
+		}
+		if c.IsSet("val3") {
+			in.Val3 = proto.String(c.String("val3"))
+		}
+		if c.IsSet("val4") {
+			in.Val4 = proto.String(c.String("val4"))
+		}
+		if c.IsSet("val5") {
+			in.Val5 = proto.String(c.String("val5"))
+		}
+		if c.IsSet("val6") {
+			in.Val6 = proto.String(c.String("val6"))
+		}
 	}
 
 	out, err := qc.ModifyRouterStaticAttributes(in)
@@ -645,9 +1063,15 @@ func _cmd_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_DeleteRouterStatics = []cli.Flag{ /* fields */ }
+var _flag_RouterService_DeleteRouterStatics = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_statics",
+		Usage: "router statics",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_DeleteRouterStatics(c *cli.Context) error {
+func _func_RouterService_DeleteRouterStatics(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -662,6 +1086,11 @@ func _cmd_RouterService_DeleteRouterStatics(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_statics") {
+			if err := json.Unmarshal([]byte(c.String("router_statics")), &in.RouterStatics); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteRouterStatics(in)
@@ -684,9 +1113,9 @@ func _cmd_RouterService_DeleteRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_CopyRouterStatics = []cli.Flag{ /* fields */ }
+var _flag_RouterService_CopyRouterStatics = []cli.Flag{}
 
-func _cmd_RouterService_CopyRouterStatics(c *cli.Context) error {
+func _func_RouterService_CopyRouterStatics(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -723,9 +1152,35 @@ func _cmd_RouterService_CopyRouterStatics(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_DescribeRouterVxnets = []cli.Flag{ /* fields */ }
+var _flag_RouterService_DescribeRouterVxnets = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router",
+		Usage: "router",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_RouterService_DescribeRouterVxnets(c *cli.Context) error {
+func _func_RouterService_DescribeRouterVxnets(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -740,6 +1195,21 @@ func _cmd_RouterService_DescribeRouterVxnets(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router") {
+			in.Router = proto.String(c.String("router"))
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeRouterVxnets(in)
@@ -762,9 +1232,20 @@ func _cmd_RouterService_DescribeRouterVxnets(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_AddRouterStaticEntries = []cli.Flag{ /* fields */ }
+var _flag_RouterService_AddRouterStaticEntries = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_static",
+		Usage: "router static",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "entries",
+		Usage: "entries",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_AddRouterStaticEntries(c *cli.Context) error {
+func _func_RouterService_AddRouterStaticEntries(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -779,6 +1260,14 @@ func _cmd_RouterService_AddRouterStaticEntries(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_static") {
+			in.RouterStatic = proto.String(c.String("router_static"))
+		}
+		if c.IsSet("entries") {
+			if err := json.Unmarshal([]byte(c.String("entries")), &in.Entries); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddRouterStaticEntries(in)
@@ -801,9 +1290,15 @@ func _cmd_RouterService_AddRouterStaticEntries(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_DeleteRouterStaticEntries = []cli.Flag{ /* fields */ }
+var _flag_RouterService_DeleteRouterStaticEntries = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_static_entries",
+		Usage: "router static entries",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
+func _func_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -818,6 +1313,11 @@ func _cmd_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_static_entries") {
+			if err := json.Unmarshal([]byte(c.String("router_static_entries")), &in.RouterStaticEntries); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteRouterStaticEntries(in)
@@ -840,9 +1340,30 @@ func _cmd_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
 	return nil
 }
 
-var _flag_RouterService_ModifyRouterStaticEntryAttributes = []cli.Flag{ /* fields */ }
+var _flag_RouterService_ModifyRouterStaticEntryAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_static_entry",
+		Usage: "router static entry",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "router_static_entry_name",
+		Usage: "router static entry name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val1",
+		Usage: "val1",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val2",
+		Usage: "val2",
+		Value: "",
+	},
+}
 
-func _cmd_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error {
+func _func_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -857,6 +1378,18 @@ func _cmd_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error 
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_static_entry") {
+			in.RouterStaticEntry = proto.String(c.String("router_static_entry"))
+		}
+		if c.IsSet("router_static_entry_name") {
+			in.RouterStaticEntryName = proto.String(c.String("router_static_entry_name"))
+		}
+		if c.IsSet("val1") {
+			in.Val1 = proto.String(c.String("val1"))
+		}
+		if c.IsSet("val2") {
+			in.Val2 = proto.String(c.String("val2"))
+		}
 	}
 
 	out, err := qc.ModifyRouterStaticEntryAttributes(in)
@@ -879,9 +1412,30 @@ func _cmd_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error 
 	return nil
 }
 
-var _flag_RouterService_DescribeRouterStaticEntries = []cli.Flag{ /* fields */ }
+var _flag_RouterService_DescribeRouterStaticEntries = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router_static_entry_id",
+		Usage: "router static entry id",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "router_static",
+		Usage: "router static",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
+func _func_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
@@ -896,6 +1450,18 @@ func _cmd_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("router_static_entry_id") {
+			in.RouterStaticEntryId = proto.String(c.String("router_static_entry_id"))
+		}
+		if c.IsSet("router_static") {
+			in.RouterStatic = proto.String(c.String("router_static"))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeRouterStaticEntries(in)

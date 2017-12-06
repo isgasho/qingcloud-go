@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,154 +48,160 @@ var CmdClusterService = cli.Command{
 			Aliases: []string{},
 			Usage:   "CreateCluster",
 			Flags:   _flag_ClusterService_CreateCluster,
-			Action:  _cmd_ClusterService_CreateCluster,
+			Action:  _func_ClusterService_CreateCluster,
 		},
 		{
 			Name:    "DescribeClusters",
 			Aliases: []string{},
 			Usage:   "DescribeClusters",
 			Flags:   _flag_ClusterService_DescribeClusters,
-			Action:  _cmd_ClusterService_DescribeClusters,
+			Action:  _func_ClusterService_DescribeClusters,
 		},
 		{
 			Name:    "DescribeClusterNodes",
 			Aliases: []string{},
 			Usage:   "DescribeClusterNodes",
 			Flags:   _flag_ClusterService_DescribeClusterNodes,
-			Action:  _cmd_ClusterService_DescribeClusterNodes,
+			Action:  _func_ClusterService_DescribeClusterNodes,
 		},
 		{
 			Name:    "StopClusters",
 			Aliases: []string{},
 			Usage:   "StopClusters",
 			Flags:   _flag_ClusterService_StopClusters,
-			Action:  _cmd_ClusterService_StopClusters,
+			Action:  _func_ClusterService_StopClusters,
 		},
 		{
 			Name:    "StartClusters",
 			Aliases: []string{},
 			Usage:   "StartClusters",
 			Flags:   _flag_ClusterService_StartClusters,
-			Action:  _cmd_ClusterService_StartClusters,
+			Action:  _func_ClusterService_StartClusters,
 		},
 		{
 			Name:    "DeleteClusters",
 			Aliases: []string{},
 			Usage:   "DeleteClusters",
 			Flags:   _flag_ClusterService_DeleteClusters,
-			Action:  _cmd_ClusterService_DeleteClusters,
+			Action:  _func_ClusterService_DeleteClusters,
 		},
 		{
 			Name:    "Lease",
 			Aliases: []string{},
 			Usage:   "Lease",
 			Flags:   _flag_ClusterService_Lease,
-			Action:  _cmd_ClusterService_Lease,
+			Action:  _func_ClusterService_Lease,
 		},
 		{
 			Name:    "AddClusterNodes",
 			Aliases: []string{},
 			Usage:   "AddClusterNodes",
 			Flags:   _flag_ClusterService_AddClusterNodes,
-			Action:  _cmd_ClusterService_AddClusterNodes,
+			Action:  _func_ClusterService_AddClusterNodes,
 		},
 		{
 			Name:    "DeleteClusterNodes",
 			Aliases: []string{},
 			Usage:   "DeleteClusterNodes",
 			Flags:   _flag_ClusterService_DeleteClusterNodes,
-			Action:  _cmd_ClusterService_DeleteClusterNodes,
+			Action:  _func_ClusterService_DeleteClusterNodes,
 		},
 		{
 			Name:    "ResizeCluster",
 			Aliases: []string{},
 			Usage:   "ResizeCluster",
 			Flags:   _flag_ClusterService_ResizeCluster,
-			Action:  _cmd_ClusterService_ResizeCluster,
+			Action:  _func_ClusterService_ResizeCluster,
 		},
 		{
 			Name:    "ChangeClusterVxnet",
 			Aliases: []string{},
 			Usage:   "ChangeClusterVxnet",
 			Flags:   _flag_ClusterService_ChangeClusterVxnet,
-			Action:  _cmd_ClusterService_ChangeClusterVxnet,
+			Action:  _func_ClusterService_ChangeClusterVxnet,
 		},
 		{
 			Name:    "SuspendClusters",
 			Aliases: []string{},
 			Usage:   "SuspendClusters",
 			Flags:   _flag_ClusterService_SuspendClusters,
-			Action:  _cmd_ClusterService_SuspendClusters,
+			Action:  _func_ClusterService_SuspendClusters,
 		},
 		{
 			Name:    "UpdateClusterEnvironment",
 			Aliases: []string{},
 			Usage:   "UpdateClusterEnvironment",
 			Flags:   _flag_ClusterService_UpdateClusterEnvironment,
-			Action:  _cmd_ClusterService_UpdateClusterEnvironment,
+			Action:  _func_ClusterService_UpdateClusterEnvironment,
 		},
 		{
 			Name:    "ModifyClusterAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyClusterAttributes",
 			Flags:   _flag_ClusterService_ModifyClusterAttributes,
-			Action:  _cmd_ClusterService_ModifyClusterAttributes,
+			Action:  _func_ClusterService_ModifyClusterAttributes,
 		},
 		{
 			Name:    "ModifyClusterNodeAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyClusterNodeAttributes",
 			Flags:   _flag_ClusterService_ModifyClusterNodeAttributes,
-			Action:  _cmd_ClusterService_ModifyClusterNodeAttributes,
+			Action:  _func_ClusterService_ModifyClusterNodeAttributes,
 		},
 		{
 			Name:    "GetClustersStats",
 			Aliases: []string{},
 			Usage:   "GetClustersStats",
 			Flags:   _flag_ClusterService_GetClustersStats,
-			Action:  _cmd_ClusterService_GetClustersStats,
+			Action:  _func_ClusterService_GetClustersStats,
 		},
 		{
 			Name:    "DescribeClusterUsers",
 			Aliases: []string{},
 			Usage:   "DescribeClusterUsers",
 			Flags:   _flag_ClusterService_DescribeClusterUsers,
-			Action:  _cmd_ClusterService_DescribeClusterUsers,
+			Action:  _func_ClusterService_DescribeClusterUsers,
 		},
 		{
 			Name:    "RestartClusterService",
 			Aliases: []string{},
 			Usage:   "RestartClusterService",
 			Flags:   _flag_ClusterService_RestartClusterService,
-			Action:  _cmd_ClusterService_RestartClusterService,
+			Action:  _func_ClusterService_RestartClusterService,
 		},
 		{
 			Name:    "UpgradeClusters",
 			Aliases: []string{},
 			Usage:   "UpgradeClusters",
 			Flags:   _flag_ClusterService_UpgradeClusters,
-			Action:  _cmd_ClusterService_UpgradeClusters,
+			Action:  _func_ClusterService_UpgradeClusters,
 		},
 		{
 			Name:    "AuthorizeClustersBrokerToDeveloper",
 			Aliases: []string{},
 			Usage:   "AuthorizeClustersBrokerToDeveloper",
 			Flags:   _flag_ClusterService_AuthorizeClustersBrokerToDeveloper,
-			Action:  _cmd_ClusterService_AuthorizeClustersBrokerToDeveloper,
+			Action:  _func_ClusterService_AuthorizeClustersBrokerToDeveloper,
 		},
 		{
 			Name:    "RevokeClustersBrokerFromDeveloper",
 			Aliases: []string{},
 			Usage:   "RevokeClustersBrokerFromDeveloper",
 			Flags:   _flag_ClusterService_RevokeClustersBrokerFromDeveloper,
-			Action:  _cmd_ClusterService_RevokeClustersBrokerFromDeveloper,
+			Action:  _func_ClusterService_RevokeClustersBrokerFromDeveloper,
 		},
 	},
 }
 
-var _flag_ClusterService_CreateCluster = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_CreateCluster = []cli.Flag{
+	cli.StringFlag{
+		Name:  "conf",
+		Usage: "conf",
+		Value: "",
+	},
+}
 
-func _cmd_ClusterService_CreateCluster(c *cli.Context) error {
+func _func_ClusterService_CreateCluster(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -208,6 +216,9 @@ func _cmd_ClusterService_CreateCluster(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("conf") {
+			in.Conf = proto.String(c.String("conf"))
+		}
 	}
 
 	out, err := qc.CreateCluster(in)
@@ -230,9 +241,40 @@ func _cmd_ClusterService_CreateCluster(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_DescribeClusters = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_DescribeClusters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "scope",
+		Usage: "scope",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "role",
+		Usage: "role",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "app_id",
+		Usage: "app id",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "app_version",
+		Usage: "app version",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_DescribeClusters(c *cli.Context) error {
+func _func_ClusterService_DescribeClusters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -247,6 +289,32 @@ func _cmd_ClusterService_DescribeClusters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("scope") {
+			in.Scope = proto.String(c.String("scope"))
+		}
+		if c.IsSet("role") {
+			in.Role = proto.String(c.String("role"))
+		}
+		if c.IsSet("app_id") {
+			if err := json.Unmarshal([]byte(c.String("app_id")), &in.AppId); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("app_version") {
+			if err := json.Unmarshal([]byte(c.String("app_version")), &in.AppVersion); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DescribeClusters(in)
@@ -269,9 +337,25 @@ func _cmd_ClusterService_DescribeClusters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_DescribeClusterNodes = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_DescribeClusterNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cluster_nodes",
+		Usage: "cluster nodes",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "role",
+		Usage: "role",
+		Value: "",
+	},
+}
 
-func _cmd_ClusterService_DescribeClusterNodes(c *cli.Context) error {
+func _func_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -286,6 +370,17 @@ func _cmd_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("cluster_nodes") {
+			if err := json.Unmarshal([]byte(c.String("cluster_nodes")), &in.ClusterNodes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("role") {
+			in.Role = proto.String(c.String("role"))
+		}
 	}
 
 	out, err := qc.DescribeClusterNodes(in)
@@ -308,9 +403,20 @@ func _cmd_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_StopClusters = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_StopClusters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "force",
+		Usage: "force",
+		Value: 0,
+	},
+}
 
-func _cmd_ClusterService_StopClusters(c *cli.Context) error {
+func _func_ClusterService_StopClusters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -325,6 +431,14 @@ func _cmd_ClusterService_StopClusters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("force") {
+			in.Force = proto.Int32(int32(c.Int("force")))
+		}
 	}
 
 	out, err := qc.StopClusters(in)
@@ -347,9 +461,15 @@ func _cmd_ClusterService_StopClusters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_StartClusters = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_StartClusters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_StartClusters(c *cli.Context) error {
+func _func_ClusterService_StartClusters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -364,6 +484,11 @@ func _cmd_ClusterService_StartClusters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StartClusters(in)
@@ -386,9 +511,15 @@ func _cmd_ClusterService_StartClusters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_DeleteClusters = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_DeleteClusters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_DeleteClusters(c *cli.Context) error {
+func _func_ClusterService_DeleteClusters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -403,6 +534,11 @@ func _cmd_ClusterService_DeleteClusters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteClusters(in)
@@ -425,9 +561,15 @@ func _cmd_ClusterService_DeleteClusters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_Lease = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_Lease = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_Lease(c *cli.Context) error {
+func _func_ClusterService_Lease(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -442,6 +584,11 @@ func _cmd_ClusterService_Lease(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.Lease(in)
@@ -464,9 +611,35 @@ func _cmd_ClusterService_Lease(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_AddClusterNodes = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_AddClusterNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "node_count",
+		Usage: "node count",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "node_role",
+		Usage: "node role",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "node_name",
+		Usage: "node name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_AddClusterNodes(c *cli.Context) error {
+func _func_ClusterService_AddClusterNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -481,6 +654,23 @@ func _cmd_ClusterService_AddClusterNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("node_count") {
+			in.NodeCount = proto.Int32(int32(c.Int("node_count")))
+		}
+		if c.IsSet("node_role") {
+			in.NodeRole = proto.String(c.String("node_role"))
+		}
+		if c.IsSet("node_name") {
+			in.NodeName = proto.String(c.String("node_name"))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddClusterNodes(in)
@@ -503,9 +693,25 @@ func _cmd_ClusterService_AddClusterNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_DeleteClusterNodes = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_DeleteClusterNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "nodes",
+		Usage: "nodes",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "force",
+		Usage: "force",
+		Value: 0,
+	},
+}
 
-func _cmd_ClusterService_DeleteClusterNodes(c *cli.Context) error {
+func _func_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -520,6 +726,17 @@ func _cmd_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("nodes") {
+			if err := json.Unmarshal([]byte(c.String("nodes")), &in.Nodes); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("force") {
+			in.Force = proto.Int32(int32(c.Int("force")))
+		}
 	}
 
 	out, err := qc.DeleteClusterNodes(in)
@@ -542,9 +759,35 @@ func _cmd_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_ResizeCluster = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_ResizeCluster = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "node_role",
+		Usage: "node role",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "cpu",
+		Usage: "cpu",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "memory",
+		Usage: "memory",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "storage_size",
+		Usage: "storage size",
+		Value: 0,
+	},
+}
 
-func _cmd_ClusterService_ResizeCluster(c *cli.Context) error {
+func _func_ClusterService_ResizeCluster(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -559,6 +802,21 @@ func _cmd_ClusterService_ResizeCluster(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("node_role") {
+			in.NodeRole = proto.String(c.String("node_role"))
+		}
+		if c.IsSet("cpu") {
+			in.Cpu = proto.Int32(int32(c.Int("cpu")))
+		}
+		if c.IsSet("memory") {
+			in.Memory = proto.Int32(int32(c.Int("memory")))
+		}
+		if c.IsSet("storage_size") {
+			in.StorageSize = proto.Int32(int32(c.Int("storage_size")))
+		}
 	}
 
 	out, err := qc.ResizeCluster(in)
@@ -581,9 +839,30 @@ func _cmd_ClusterService_ResizeCluster(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_ChangeClusterVxnet = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_ChangeClusterVxnet = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "roles",
+		Usage: "roles",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
+func _func_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -598,6 +877,22 @@ func _cmd_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("roles") {
+			if err := json.Unmarshal([]byte(c.String("roles")), &in.Roles); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ChangeClusterVxnet(in)
@@ -620,9 +915,15 @@ func _cmd_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_SuspendClusters = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_SuspendClusters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_SuspendClusters(c *cli.Context) error {
+func _func_ClusterService_SuspendClusters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -637,6 +938,11 @@ func _cmd_ClusterService_SuspendClusters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.SuspendClusters(in)
@@ -659,9 +965,25 @@ func _cmd_ClusterService_SuspendClusters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_UpdateClusterEnvironment = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_UpdateClusterEnvironment = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "roles",
+		Usage: "roles",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "env",
+		Usage: "env",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
+func _func_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -676,6 +998,19 @@ func _cmd_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("roles") {
+			if err := json.Unmarshal([]byte(c.String("roles")), &in.Roles); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("env") {
+			if err := json.Unmarshal([]byte(c.String("env")), &in.Env); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.UpdateClusterEnvironment(in)
@@ -698,9 +1033,25 @@ func _cmd_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_ModifyClusterAttributes = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_ModifyClusterAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "name",
+		Usage: "name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
+func _func_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -715,6 +1066,15 @@ func _cmd_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("name") {
+			in.Name = proto.String(c.String("name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyClusterAttributes(in)
@@ -737,9 +1097,25 @@ func _cmd_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_ModifyClusterNodeAttributes = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_ModifyClusterNodeAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "cluster_node",
+		Usage: "cluster node",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "name",
+		Usage: "name",
+		Value: "",
+	},
+}
 
-func _cmd_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
+func _func_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -754,6 +1130,15 @@ func _cmd_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("cluster_node") {
+			in.ClusterNode = proto.String(c.String("cluster_node"))
+		}
+		if c.IsSet("name") {
+			in.Name = proto.String(c.String("name"))
+		}
 	}
 
 	out, err := qc.ModifyClusterNodeAttributes(in)
@@ -776,9 +1161,15 @@ func _cmd_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_GetClustersStats = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_GetClustersStats = []cli.Flag{
+	cli.StringFlag{
+		Name:  "zones",
+		Usage: "zones",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_GetClustersStats(c *cli.Context) error {
+func _func_ClusterService_GetClustersStats(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -793,6 +1184,11 @@ func _cmd_ClusterService_GetClustersStats(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("zones") {
+			if err := json.Unmarshal([]byte(c.String("zones")), &in.Zones); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.GetClustersStats(in)
@@ -815,9 +1211,35 @@ func _cmd_ClusterService_GetClustersStats(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_DescribeClusterUsers = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_DescribeClusterUsers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "zones",
+		Usage: "zones",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "apps",
+		Usage: "apps",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "app_versions",
+		Usage: "app versions",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "users",
+		Usage: "users",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "cluster_status",
+		Usage: "cluster status",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_DescribeClusterUsers(c *cli.Context) error {
+func _func_ClusterService_DescribeClusterUsers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -832,6 +1254,31 @@ func _cmd_ClusterService_DescribeClusterUsers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("zones") {
+			if err := json.Unmarshal([]byte(c.String("zones")), &in.Zones); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("apps") {
+			if err := json.Unmarshal([]byte(c.String("apps")), &in.Apps); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("app_versions") {
+			if err := json.Unmarshal([]byte(c.String("app_versions")), &in.AppVersions); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("users") {
+			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("cluster_status") {
+			if err := json.Unmarshal([]byte(c.String("cluster_status")), &in.ClusterStatus); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DescribeClusterUsers(in)
@@ -854,9 +1301,20 @@ func _cmd_ClusterService_DescribeClusterUsers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_RestartClusterService = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_RestartClusterService = []cli.Flag{
+	cli.StringFlag{
+		Name:  "cluster",
+		Usage: "cluster",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "role",
+		Usage: "role",
+		Value: "",
+	},
+}
 
-func _cmd_ClusterService_RestartClusterService(c *cli.Context) error {
+func _func_ClusterService_RestartClusterService(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -871,6 +1329,12 @@ func _cmd_ClusterService_RestartClusterService(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("cluster") {
+			in.Cluster = proto.String(c.String("cluster"))
+		}
+		if c.IsSet("role") {
+			in.Role = proto.String(c.String("role"))
+		}
 	}
 
 	out, err := qc.RestartClusterService(in)
@@ -893,9 +1357,20 @@ func _cmd_ClusterService_RestartClusterService(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_UpgradeClusters = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_UpgradeClusters = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "app_version",
+		Usage: "app version",
+		Value: "",
+	},
+}
 
-func _cmd_ClusterService_UpgradeClusters(c *cli.Context) error {
+func _func_ClusterService_UpgradeClusters(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -910,6 +1385,14 @@ func _cmd_ClusterService_UpgradeClusters(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("app_version") {
+			in.AppVersion = proto.String(c.String("app_version"))
+		}
 	}
 
 	out, err := qc.UpgradeClusters(in)
@@ -932,9 +1415,15 @@ func _cmd_ClusterService_UpgradeClusters(c *cli.Context) error {
 	return nil
 }
 
-var _flag_ClusterService_AuthorizeClustersBrokerToDeveloper = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_AuthorizeClustersBrokerToDeveloper = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) error {
+func _func_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -949,6 +1438,11 @@ func _cmd_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) erro
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AuthorizeClustersBrokerToDeveloper(in)
@@ -971,9 +1465,15 @@ func _cmd_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) erro
 	return nil
 }
 
-var _flag_ClusterService_RevokeClustersBrokerFromDeveloper = []cli.Flag{ /* fields */ }
+var _flag_ClusterService_RevokeClustersBrokerFromDeveloper = []cli.Flag{
+	cli.StringFlag{
+		Name:  "clusters",
+		Usage: "clusters",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) error {
+func _func_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewClusterService(conf, zone)
@@ -988,6 +1488,11 @@ func _cmd_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("clusters") {
+			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.RevokeClustersBrokerFromDeveloper(in)

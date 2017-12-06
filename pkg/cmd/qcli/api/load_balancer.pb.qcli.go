@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,224 +48,265 @@ var CmdLoadBalancerService = cli.Command{
 			Aliases: []string{},
 			Usage:   "CreateLoadBalancer",
 			Flags:   _flag_LoadBalancerService_CreateLoadBalancer,
-			Action:  _cmd_LoadBalancerService_CreateLoadBalancer,
+			Action:  _func_LoadBalancerService_CreateLoadBalancer,
 		},
 		{
 			Name:    "DescribeLoadBalancers",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancers",
 			Flags:   _flag_LoadBalancerService_DescribeLoadBalancers,
-			Action:  _cmd_LoadBalancerService_DescribeLoadBalancers,
+			Action:  _func_LoadBalancerService_DescribeLoadBalancers,
 		},
 		{
 			Name:    "DeleteLoadBalancers",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancers",
 			Flags:   _flag_LoadBalancerService_DeleteLoadBalancers,
-			Action:  _cmd_LoadBalancerService_DeleteLoadBalancers,
+			Action:  _func_LoadBalancerService_DeleteLoadBalancers,
 		},
 		{
 			Name:    "ModifyLoadBalancerAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerAttributes",
 			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerAttributes,
-			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerAttributes,
+			Action:  _func_LoadBalancerService_ModifyLoadBalancerAttributes,
 		},
 		{
 			Name:    "StartLoadBalancers",
 			Aliases: []string{},
 			Usage:   "StartLoadBalancers",
 			Flags:   _flag_LoadBalancerService_StartLoadBalancers,
-			Action:  _cmd_LoadBalancerService_StartLoadBalancers,
+			Action:  _func_LoadBalancerService_StartLoadBalancers,
 		},
 		{
 			Name:    "StopLoadBalancers",
 			Aliases: []string{},
 			Usage:   "StopLoadBalancers",
 			Flags:   _flag_LoadBalancerService_StopLoadBalancers,
-			Action:  _cmd_LoadBalancerService_StopLoadBalancers,
+			Action:  _func_LoadBalancerService_StopLoadBalancers,
 		},
 		{
 			Name:    "UpdateLoadBalancers",
 			Aliases: []string{},
 			Usage:   "UpdateLoadBalancers",
 			Flags:   _flag_LoadBalancerService_UpdateLoadBalancers,
-			Action:  _cmd_LoadBalancerService_UpdateLoadBalancers,
+			Action:  _func_LoadBalancerService_UpdateLoadBalancers,
 		},
 		{
 			Name:    "ResizeLoadBalancers",
 			Aliases: []string{},
 			Usage:   "ResizeLoadBalancers",
 			Flags:   _flag_LoadBalancerService_ResizeLoadBalancers,
-			Action:  _cmd_LoadBalancerService_ResizeLoadBalancers,
+			Action:  _func_LoadBalancerService_ResizeLoadBalancers,
 		},
 		{
 			Name:    "AssociateEipsToLoadBalancer",
 			Aliases: []string{},
 			Usage:   "AssociateEipsToLoadBalancer",
 			Flags:   _flag_LoadBalancerService_AssociateEipsToLoadBalancer,
-			Action:  _cmd_LoadBalancerService_AssociateEipsToLoadBalancer,
+			Action:  _func_LoadBalancerService_AssociateEipsToLoadBalancer,
 		},
 		{
 			Name:    "DissociateEipsFromLoadBalancer",
 			Aliases: []string{},
 			Usage:   "DissociateEipsFromLoadBalancer",
 			Flags:   _flag_LoadBalancerService_DissociateEipsFromLoadBalancer,
-			Action:  _cmd_LoadBalancerService_DissociateEipsFromLoadBalancer,
+			Action:  _func_LoadBalancerService_DissociateEipsFromLoadBalancer,
 		},
 		{
 			Name:    "AddLoadBalancerListeners",
 			Aliases: []string{},
 			Usage:   "AddLoadBalancerListeners",
 			Flags:   _flag_LoadBalancerService_AddLoadBalancerListeners,
-			Action:  _cmd_LoadBalancerService_AddLoadBalancerListeners,
+			Action:  _func_LoadBalancerService_AddLoadBalancerListeners,
 		},
 		{
 			Name:    "DescribeLoadBalancerListeners",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerListeners",
 			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerListeners,
-			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerListeners,
+			Action:  _func_LoadBalancerService_DescribeLoadBalancerListeners,
 		},
 		{
 			Name:    "DeleteLoadBalancerListeners",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerListeners",
 			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerListeners,
-			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerListeners,
+			Action:  _func_LoadBalancerService_DeleteLoadBalancerListeners,
 		},
 		{
 			Name:    "ModifyLoadBalancerListenerAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerListenerAttributes",
 			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerListenerAttributes,
-			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerListenerAttributes,
+			Action:  _func_LoadBalancerService_ModifyLoadBalancerListenerAttributes,
 		},
 		{
 			Name:    "AddLoadBalancerBackends",
 			Aliases: []string{},
 			Usage:   "AddLoadBalancerBackends",
 			Flags:   _flag_LoadBalancerService_AddLoadBalancerBackends,
-			Action:  _cmd_LoadBalancerService_AddLoadBalancerBackends,
+			Action:  _func_LoadBalancerService_AddLoadBalancerBackends,
 		},
 		{
 			Name:    "DescribeLoadBalancerBackends",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerBackends",
 			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerBackends,
-			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerBackends,
+			Action:  _func_LoadBalancerService_DescribeLoadBalancerBackends,
 		},
 		{
 			Name:    "DeleteLoadBalancerBackends",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerBackends",
 			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerBackends,
-			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerBackends,
+			Action:  _func_LoadBalancerService_DeleteLoadBalancerBackends,
 		},
 		{
 			Name:    "ModifyLoadBalancerBackendAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerBackendAttributes",
 			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerBackendAttributes,
-			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerBackendAttributes,
+			Action:  _func_LoadBalancerService_ModifyLoadBalancerBackendAttributes,
 		},
 		{
 			Name:    "CreateLoadBalancerPolicy",
 			Aliases: []string{},
 			Usage:   "CreateLoadBalancerPolicy",
 			Flags:   _flag_LoadBalancerService_CreateLoadBalancerPolicy,
-			Action:  _cmd_LoadBalancerService_CreateLoadBalancerPolicy,
+			Action:  _func_LoadBalancerService_CreateLoadBalancerPolicy,
 		},
 		{
 			Name:    "DescribeLoadBalancerPolicies",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerPolicies",
 			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerPolicies,
-			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerPolicies,
+			Action:  _func_LoadBalancerService_DescribeLoadBalancerPolicies,
 		},
 		{
 			Name:    "ModifyLoadBalancerPolicyAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerPolicyAttributes",
 			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerPolicyAttributes,
-			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerPolicyAttributes,
+			Action:  _func_LoadBalancerService_ModifyLoadBalancerPolicyAttributes,
 		},
 		{
 			Name:    "ApplyLoadBalancerPolicy",
 			Aliases: []string{},
 			Usage:   "ApplyLoadBalancerPolicy",
 			Flags:   _flag_LoadBalancerService_ApplyLoadBalancerPolicy,
-			Action:  _cmd_LoadBalancerService_ApplyLoadBalancerPolicy,
+			Action:  _func_LoadBalancerService_ApplyLoadBalancerPolicy,
 		},
 		{
 			Name:    "DeleteLoadBalancerPolicies",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerPolicies",
 			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerPolicies,
-			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerPolicies,
+			Action:  _func_LoadBalancerService_DeleteLoadBalancerPolicies,
 		},
 		{
 			Name:    "AddLoadBalancerPolicyRules",
 			Aliases: []string{},
 			Usage:   "AddLoadBalancerPolicyRules",
 			Flags:   _flag_LoadBalancerService_AddLoadBalancerPolicyRules,
-			Action:  _cmd_LoadBalancerService_AddLoadBalancerPolicyRules,
+			Action:  _func_LoadBalancerService_AddLoadBalancerPolicyRules,
 		},
 		{
 			Name:    "DescribeLoadBalancerPolicyRules",
 			Aliases: []string{},
 			Usage:   "DescribeLoadBalancerPolicyRules",
 			Flags:   _flag_LoadBalancerService_DescribeLoadBalancerPolicyRules,
-			Action:  _cmd_LoadBalancerService_DescribeLoadBalancerPolicyRules,
+			Action:  _func_LoadBalancerService_DescribeLoadBalancerPolicyRules,
 		},
 		{
 			Name:    "ModifyLoadBalancerPolicyRuleAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyLoadBalancerPolicyRuleAttributes",
 			Flags:   _flag_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes,
-			Action:  _cmd_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes,
+			Action:  _func_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes,
 		},
 		{
 			Name:    "DeleteLoadBalancerPolicyRules",
 			Aliases: []string{},
 			Usage:   "DeleteLoadBalancerPolicyRules",
 			Flags:   _flag_LoadBalancerService_DeleteLoadBalancerPolicyRules,
-			Action:  _cmd_LoadBalancerService_DeleteLoadBalancerPolicyRules,
+			Action:  _func_LoadBalancerService_DeleteLoadBalancerPolicyRules,
 		},
 		{
 			Name:    "CreateServerCertificate",
 			Aliases: []string{},
 			Usage:   "CreateServerCertificate",
 			Flags:   _flag_LoadBalancerService_CreateServerCertificate,
-			Action:  _cmd_LoadBalancerService_CreateServerCertificate,
+			Action:  _func_LoadBalancerService_CreateServerCertificate,
 		},
 		{
 			Name:    "DescribeServerCertificates",
 			Aliases: []string{},
 			Usage:   "DescribeServerCertificates",
 			Flags:   _flag_LoadBalancerService_DescribeServerCertificates,
-			Action:  _cmd_LoadBalancerService_DescribeServerCertificates,
+			Action:  _func_LoadBalancerService_DescribeServerCertificates,
 		},
 		{
 			Name:    "ModifyServerCertificateAttributes",
 			Aliases: []string{},
 			Usage:   "ModifyServerCertificateAttributes",
 			Flags:   _flag_LoadBalancerService_ModifyServerCertificateAttributes,
-			Action:  _cmd_LoadBalancerService_ModifyServerCertificateAttributes,
+			Action:  _func_LoadBalancerService_ModifyServerCertificateAttributes,
 		},
 		{
 			Name:    "DeleteServerCertificates",
 			Aliases: []string{},
 			Usage:   "DeleteServerCertificates",
 			Flags:   _flag_LoadBalancerService_DeleteServerCertificates,
-			Action:  _cmd_LoadBalancerService_DeleteServerCertificates,
+			Action:  _func_LoadBalancerService_DeleteServerCertificates,
 		},
 	},
 }
 
-var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{
+	cli.StringFlag{
+		Name:  "eips",
+		Usage: "eips",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "vxnet",
+		Usage: "vxnet",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ip",
+		Usage: "private ip",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "loadbalancer_type",
+		Usage: "loadbalancer type",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_name",
+		Usage: "loadbalancer name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "http_header_size",
+		Usage: "http header size",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "target_user",
+		Usage: "target user",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
+func _func_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -278,6 +321,32 @@ func _cmd_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("eips") {
+			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
+		}
+		if c.IsSet("private_ip") {
+			in.PrivateIp = proto.String(c.String("private_ip"))
+		}
+		if c.IsSet("loadbalancer_type") {
+			in.LoadbalancerType = proto.Int32(int32(c.Int("loadbalancer_type")))
+		}
+		if c.IsSet("loadbalancer_name") {
+			in.LoadbalancerName = proto.String(c.String("loadbalancer_name"))
+		}
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("http_header_size") {
+			in.HttpHeaderSize = proto.Int32(int32(c.Int("http_header_size")))
+		}
+		if c.IsSet("target_user") {
+			in.TargetUser = proto.String(c.String("target_user"))
+		}
 	}
 
 	out, err := qc.CreateLoadBalancer(in)
@@ -300,9 +369,45 @@ func _cmd_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DescribeLoadBalancers = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DescribeLoadBalancers = []cli.Flag{
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "loadbalancers",
+		Usage: "loadbalancers",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "status",
+		Usage: "status",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "tags",
+		Usage: "tags",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
+func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -317,6 +422,33 @@ func _cmd_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
+		if c.IsSet("loadbalancers") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("status") {
+			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("tags") {
+			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
 	}
 
 	out, err := qc.DescribeLoadBalancers(in)
@@ -339,9 +471,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DeleteLoadBalancers = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DeleteLoadBalancers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancers",
+		Usage: "loadbalancers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
+func _func_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -356,6 +494,11 @@ func _cmd_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancers") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteLoadBalancers(in)
@@ -378,9 +521,40 @@ func _cmd_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer",
+		Usage: "loadbalancer",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_name",
+		Usage: "loadbalancer name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ip",
+		Usage: "private ip",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "http_header_size",
+		Usage: "http header size",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error {
+func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -395,6 +569,24 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer") {
+			in.Loadbalancer = proto.String(c.String("loadbalancer"))
+		}
+		if c.IsSet("loadbalancer_name") {
+			in.LoadbalancerName = proto.String(c.String("loadbalancer_name"))
+		}
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
+		if c.IsSet("private_ip") {
+			in.PrivateIp = proto.String(c.String("private_ip"))
+		}
+		if c.IsSet("http_header_size") {
+			in.HttpHeaderSize = proto.Int32(int32(c.Int("http_header_size")))
+		}
 	}
 
 	out, err := qc.ModifyLoadBalancerAttributes(in)
@@ -417,9 +609,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error
 	return nil
 }
 
-var _flag_LoadBalancerService_StartLoadBalancers = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_StartLoadBalancers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancers",
+		Usage: "loadbalancers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
+func _func_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -434,6 +632,11 @@ func _cmd_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancers") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StartLoadBalancers(in)
@@ -456,9 +659,15 @@ func _cmd_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_StopLoadBalancers = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_StopLoadBalancers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancers",
+		Usage: "loadbalancers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
+func _func_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -473,6 +682,11 @@ func _cmd_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancers") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StopLoadBalancers(in)
@@ -495,9 +709,15 @@ func _cmd_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_UpdateLoadBalancers = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_UpdateLoadBalancers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancers",
+		Usage: "loadbalancers",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
+func _func_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -512,6 +732,11 @@ func _cmd_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancers") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.UpdateLoadBalancers(in)
@@ -534,9 +759,20 @@ func _cmd_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_ResizeLoadBalancers = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ResizeLoadBalancers = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancers",
+		Usage: "loadbalancers",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "loadbalancer_type",
+		Usage: "loadbalancer type",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
+func _func_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -551,6 +787,14 @@ func _cmd_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancers") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("loadbalancer_type") {
+			in.LoadbalancerType = proto.Int32(int32(c.Int("loadbalancer_type")))
+		}
 	}
 
 	out, err := qc.ResizeLoadBalancers(in)
@@ -573,9 +817,20 @@ func _cmd_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_AssociateEipsToLoadBalancer = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_AssociateEipsToLoadBalancer = []cli.Flag{
+	cli.StringFlag{
+		Name:  "eips",
+		Usage: "eips",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer",
+		Usage: "loadbalancer",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error {
+func _func_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -590,6 +845,14 @@ func _cmd_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error 
 		}
 	} else {
 		// read from flags
+		if c.IsSet("eips") {
+			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("loadbalancer") {
+			in.Loadbalancer = proto.String(c.String("loadbalancer"))
+		}
 	}
 
 	out, err := qc.AssociateEipsToLoadBalancer(in)
@@ -612,9 +875,20 @@ func _cmd_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error 
 	return nil
 }
 
-var _flag_LoadBalancerService_DissociateEipsFromLoadBalancer = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DissociateEipsFromLoadBalancer = []cli.Flag{
+	cli.StringFlag{
+		Name:  "eips",
+		Usage: "eips",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer",
+		Usage: "loadbalancer",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) error {
+func _func_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -629,6 +903,14 @@ func _cmd_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) err
 		}
 	} else {
 		// read from flags
+		if c.IsSet("eips") {
+			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("loadbalancer") {
+			in.Loadbalancer = proto.String(c.String("loadbalancer"))
+		}
 	}
 
 	out, err := qc.DissociateEipsFromLoadBalancer(in)
@@ -651,9 +933,20 @@ func _cmd_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) err
 	return nil
 }
 
-var _flag_LoadBalancerService_AddLoadBalancerListeners = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_AddLoadBalancerListeners = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer",
+		Usage: "loadbalancer",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "listeners",
+		Usage: "listeners",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
+func _func_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -668,6 +961,14 @@ func _cmd_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer") {
+			in.Loadbalancer = proto.String(c.String("loadbalancer"))
+		}
+		if c.IsSet("listeners") {
+			if err := json.Unmarshal([]byte(c.String("listeners")), &in.Listeners); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddLoadBalancerListeners(in)
@@ -690,9 +991,35 @@ func _cmd_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DescribeLoadBalancerListeners = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DescribeLoadBalancerListeners = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_listeners",
+		Usage: "loadbalancer listeners",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer",
+		Usage: "loadbalancer",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) error {
+func _func_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -707,6 +1034,23 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) erro
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_listeners") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_listeners")), &in.LoadbalancerListeners); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("loadbalancer") {
+			in.Loadbalancer = proto.String(c.String("loadbalancer"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeLoadBalancerListeners(in)
@@ -729,9 +1073,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) erro
 	return nil
 }
 
-var _flag_LoadBalancerService_DeleteLoadBalancerListeners = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DeleteLoadBalancerListeners = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_listeners",
+		Usage: "loadbalancer listeners",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error {
+func _func_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -746,6 +1096,11 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error 
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_listeners") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_listeners")), &in.LoadbalancerListeners); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteLoadBalancerListeners(in)
@@ -768,9 +1123,55 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error 
 	return nil
 }
 
-var _flag_LoadBalancerService_ModifyLoadBalancerListenerAttributes = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ModifyLoadBalancerListenerAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_listener",
+		Usage: "loadbalancer listener",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_listener_name",
+		Usage: "loadbalancer listener name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "server_certificate_id",
+		Usage: "server certificate id",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "balance_mode",
+		Usage: "balance mode",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "session_sticky",
+		Usage: "session sticky",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "forwardfor",
+		Usage: "forwardfor",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "healthy_check_method",
+		Usage: "healthy check method",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "healthy_check_option",
+		Usage: "healthy check option",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "listener_option",
+		Usage: "listener option",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Context) error {
+func _func_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -785,6 +1186,35 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Contex
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_listener") {
+			in.LoadbalancerListener = proto.String(c.String("loadbalancer_listener"))
+		}
+		if c.IsSet("loadbalancer_listener_name") {
+			in.LoadbalancerListenerName = proto.String(c.String("loadbalancer_listener_name"))
+		}
+		if c.IsSet("server_certificate_id") {
+			in.ServerCertificateId = proto.String(c.String("server_certificate_id"))
+		}
+		if c.IsSet("balance_mode") {
+			in.BalanceMode = proto.String(c.String("balance_mode"))
+		}
+		if c.IsSet("session_sticky") {
+			in.SessionSticky = proto.String(c.String("session_sticky"))
+		}
+		if c.IsSet("forwardfor") {
+			in.Forwardfor = proto.Int32(int32(c.Int("forwardfor")))
+		}
+		if c.IsSet("healthy_check_method") {
+			in.HealthyCheckMethod = proto.String(c.String("healthy_check_method"))
+		}
+		if c.IsSet("healthy_check_option") {
+			in.HealthyCheckOption = proto.String(c.String("healthy_check_option"))
+		}
+		if c.IsSet("listener_option") {
+			if err := json.Unmarshal([]byte(c.String("listener_option")), &in.ListenerOption); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.ModifyLoadBalancerListenerAttributes(in)
@@ -807,9 +1237,20 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Contex
 	return nil
 }
 
-var _flag_LoadBalancerService_AddLoadBalancerBackends = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_AddLoadBalancerBackends = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_listener",
+		Usage: "loadbalancer listener",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "backends",
+		Usage: "backends",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
+func _func_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -824,6 +1265,14 @@ func _cmd_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_listener") {
+			in.LoadbalancerListener = proto.String(c.String("loadbalancer_listener"))
+		}
+		if c.IsSet("backends") {
+			if err := json.Unmarshal([]byte(c.String("backends")), &in.Backends); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddLoadBalancerBackends(in)
@@ -846,9 +1295,40 @@ func _cmd_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DescribeLoadBalancerBackends = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DescribeLoadBalancerBackends = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_backends",
+		Usage: "loadbalancer backends",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_listener",
+		Usage: "loadbalancer listener",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer",
+		Usage: "loadbalancer",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error {
+func _func_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -863,6 +1343,26 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_backends") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_backends")), &in.LoadbalancerBackends); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("loadbalancer_listener") {
+			in.LoadbalancerListener = proto.String(c.String("loadbalancer_listener"))
+		}
+		if c.IsSet("loadbalancer") {
+			in.Loadbalancer = proto.String(c.String("loadbalancer"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeLoadBalancerBackends(in)
@@ -885,9 +1385,15 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error
 	return nil
 }
 
-var _flag_LoadBalancerService_DeleteLoadBalancerBackends = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DeleteLoadBalancerBackends = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_backends",
+		Usage: "loadbalancer backends",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
+func _func_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -902,6 +1408,11 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_backends") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_backends")), &in.LoadbalancerBackends); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteLoadBalancerBackends(in)
@@ -924,9 +1435,35 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_ModifyLoadBalancerBackendAttributes = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ModifyLoadBalancerBackendAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_backend",
+		Usage: "loadbalancer backend",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "port",
+		Usage: "port",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "weight",
+		Usage: "weight",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "disabled",
+		Usage: "disabled",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_policy_id",
+		Usage: "loadbalancer policy id",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context) error {
+func _func_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -941,6 +1478,21 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_backend") {
+			in.LoadbalancerBackend = proto.String(c.String("loadbalancer_backend"))
+		}
+		if c.IsSet("port") {
+			in.Port = proto.String(c.String("port"))
+		}
+		if c.IsSet("weight") {
+			in.Weight = proto.String(c.String("weight"))
+		}
+		if c.IsSet("disabled") {
+			in.Disabled = proto.Int32(int32(c.Int("disabled")))
+		}
+		if c.IsSet("loadbalancer_policy_id") {
+			in.LoadbalancerPolicyId = proto.String(c.String("loadbalancer_policy_id"))
+		}
 	}
 
 	out, err := qc.ModifyLoadBalancerBackendAttributes(in)
@@ -963,9 +1515,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context
 	return nil
 }
 
-var _flag_LoadBalancerService_CreateLoadBalancerPolicy = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_CreateLoadBalancerPolicy = []cli.Flag{
+	cli.StringFlag{
+		Name:  "operator",
+		Usage: "operator",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
+func _func_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -980,6 +1538,9 @@ func _cmd_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("operator") {
+			in.Operator = proto.String(c.String("operator"))
+		}
 	}
 
 	out, err := qc.CreateLoadBalancerPolicy(in)
@@ -1002,9 +1563,30 @@ func _cmd_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DescribeLoadBalancerPolicies = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DescribeLoadBalancerPolicies = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policies",
+		Usage: "loadbalancer policies",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error {
+func _func_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1019,6 +1601,20 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policies") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_policies")), &in.LoadbalancerPolicies); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeLoadBalancerPolicies(in)
@@ -1041,9 +1637,25 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error
 	return nil
 }
 
-var _flag_LoadBalancerService_ModifyLoadBalancerPolicyAttributes = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ModifyLoadBalancerPolicyAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policy",
+		Usage: "loadbalancer policy",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_policy_name",
+		Usage: "loadbalancer policy name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "operator",
+		Usage: "operator",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context) error {
+func _func_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1058,6 +1670,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context)
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policy") {
+			in.LoadbalancerPolicy = proto.String(c.String("loadbalancer_policy"))
+		}
+		if c.IsSet("loadbalancer_policy_name") {
+			in.LoadbalancerPolicyName = proto.String(c.String("loadbalancer_policy_name"))
+		}
+		if c.IsSet("operator") {
+			in.Operator = proto.String(c.String("operator"))
+		}
 	}
 
 	out, err := qc.ModifyLoadBalancerPolicyAttributes(in)
@@ -1080,9 +1701,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context)
 	return nil
 }
 
-var _flag_LoadBalancerService_ApplyLoadBalancerPolicy = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ApplyLoadBalancerPolicy = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policy",
+		Usage: "loadbalancer policy",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
+func _func_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1097,6 +1724,9 @@ func _cmd_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policy") {
+			in.LoadbalancerPolicy = proto.String(c.String("loadbalancer_policy"))
+		}
 	}
 
 	out, err := qc.ApplyLoadBalancerPolicy(in)
@@ -1119,9 +1749,15 @@ func _cmd_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DeleteLoadBalancerPolicies = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DeleteLoadBalancerPolicies = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policies",
+		Usage: "loadbalancer policies",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
+func _func_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1136,6 +1772,11 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policies") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_policies")), &in.LoadbalancerPolicies); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteLoadBalancerPolicies(in)
@@ -1158,9 +1799,20 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_AddLoadBalancerPolicyRules = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_AddLoadBalancerPolicyRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policy",
+		Usage: "loadbalancer policy",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "rules",
+		Usage: "rules",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
+func _func_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1175,6 +1827,14 @@ func _cmd_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policy") {
+			in.LoadbalancerPolicy = proto.String(c.String("loadbalancer_policy"))
+		}
+		if c.IsSet("rules") {
+			if err := json.Unmarshal([]byte(c.String("rules")), &in.Rules); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddLoadBalancerPolicyRules(in)
@@ -1197,9 +1857,30 @@ func _cmd_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DescribeLoadBalancerPolicyRules = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DescribeLoadBalancerPolicyRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policy_rules",
+		Usage: "loadbalancer policy rules",
+		Value: "", // json: slice/message/map/time
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_policy",
+		Usage: "loadbalancer policy",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) error {
+func _func_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1214,6 +1895,20 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) er
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policy_rules") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_policy_rules")), &in.LoadbalancerPolicyRules); err != nil {
+				logger.Fatal(err)
+			}
+		}
+		if c.IsSet("loadbalancer_policy") {
+			in.LoadbalancerPolicy = proto.String(c.String("loadbalancer_policy"))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeLoadBalancerPolicyRules(in)
@@ -1236,9 +1931,25 @@ func _cmd_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) er
 	return nil
 }
 
-var _flag_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policy_rule",
+		Usage: "loadbalancer policy rule",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "loadbalancer_policy_rule_name",
+		Usage: "loadbalancer policy rule name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "val",
+		Usage: "val",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Context) error {
+func _func_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1253,6 +1964,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Cont
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policy_rule") {
+			in.LoadbalancerPolicyRule = proto.String(c.String("loadbalancer_policy_rule"))
+		}
+		if c.IsSet("loadbalancer_policy_rule_name") {
+			in.LoadbalancerPolicyRuleName = proto.String(c.String("loadbalancer_policy_rule_name"))
+		}
+		if c.IsSet("val") {
+			in.Val = proto.String(c.String("val"))
+		}
 	}
 
 	out, err := qc.ModifyLoadBalancerPolicyRuleAttributes(in)
@@ -1275,9 +1995,15 @@ func _cmd_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Cont
 	return nil
 }
 
-var _flag_LoadBalancerService_DeleteLoadBalancerPolicyRules = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DeleteLoadBalancerPolicyRules = []cli.Flag{
+	cli.StringFlag{
+		Name:  "loadbalancer_policy_rules",
+		Usage: "loadbalancer policy rules",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) error {
+func _func_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1292,6 +2018,11 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) erro
 		}
 	} else {
 		// read from flags
+		if c.IsSet("loadbalancer_policy_rules") {
+			if err := json.Unmarshal([]byte(c.String("loadbalancer_policy_rules")), &in.LoadbalancerPolicyRules); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteLoadBalancerPolicyRules(in)
@@ -1314,9 +2045,25 @@ func _cmd_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) erro
 	return nil
 }
 
-var _flag_LoadBalancerService_CreateServerCertificate = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_CreateServerCertificate = []cli.Flag{
+	cli.StringFlag{
+		Name:  "server_certificate_name",
+		Usage: "server certificate name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "certificate_content",
+		Usage: "certificate content",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_key",
+		Usage: "private key",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
+func _func_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1331,6 +2078,15 @@ func _cmd_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("server_certificate_name") {
+			in.ServerCertificateName = proto.String(c.String("server_certificate_name"))
+		}
+		if c.IsSet("certificate_content") {
+			in.CertificateContent = proto.String(c.String("certificate_content"))
+		}
+		if c.IsSet("private_key") {
+			in.PrivateKey = proto.String(c.String("private_key"))
+		}
 	}
 
 	out, err := qc.CreateServerCertificate(in)
@@ -1353,9 +2109,35 @@ func _cmd_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_DescribeServerCertificates = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DescribeServerCertificates = []cli.Flag{
+	cli.StringFlag{
+		Name:  "server_certificates",
+		Usage: "server certificates",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "search_word",
+		Usage: "search word",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "verbose",
+		Usage: "verbose",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "offset",
+		Usage: "offset",
+		Value: 0,
+	},
+	cli.IntFlag{
+		Name:  "limit",
+		Usage: "limit",
+		Value: 0,
+	},
+}
 
-func _cmd_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
+func _func_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1370,6 +2152,21 @@ func _cmd_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("server_certificates") {
+			in.ServerCertificates = proto.String(c.String("server_certificates"))
+		}
+		if c.IsSet("search_word") {
+			in.SearchWord = proto.String(c.String("search_word"))
+		}
+		if c.IsSet("verbose") {
+			in.Verbose = proto.Int32(int32(c.Int("verbose")))
+		}
+		if c.IsSet("offset") {
+			in.Offset = proto.Int32(int32(c.Int("offset")))
+		}
+		if c.IsSet("limit") {
+			in.Limit = proto.Int32(int32(c.Int("limit")))
+		}
 	}
 
 	out, err := qc.DescribeServerCertificates(in)
@@ -1392,9 +2189,25 @@ func _cmd_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
 	return nil
 }
 
-var _flag_LoadBalancerService_ModifyServerCertificateAttributes = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_ModifyServerCertificateAttributes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "server_certificate",
+		Usage: "server certificate",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "server_certificate_name",
+		Usage: "server certificate name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+}
 
-func _cmd_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) error {
+func _func_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1409,6 +2222,15 @@ func _cmd_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) 
 		}
 	} else {
 		// read from flags
+		if c.IsSet("server_certificate") {
+			in.ServerCertificate = proto.String(c.String("server_certificate"))
+		}
+		if c.IsSet("server_certificate_name") {
+			in.ServerCertificateName = proto.String(c.String("server_certificate_name"))
+		}
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 	}
 
 	out, err := qc.ModifyServerCertificateAttributes(in)
@@ -1431,9 +2253,15 @@ func _cmd_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) 
 	return nil
 }
 
-var _flag_LoadBalancerService_DeleteServerCertificates = []cli.Flag{ /* fields */ }
+var _flag_LoadBalancerService_DeleteServerCertificates = []cli.Flag{
+	cli.StringFlag{
+		Name:  "server_certificates",
+		Usage: "server certificates",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
+func _func_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
@@ -1448,6 +2276,11 @@ func _cmd_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("server_certificates") {
+			if err := json.Unmarshal([]byte(c.String("server_certificates")), &in.ServerCertificates); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteServerCertificates(in)

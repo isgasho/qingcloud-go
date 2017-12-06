@@ -6,6 +6,7 @@
 package qcli_pb
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -21,6 +22,7 @@ import (
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
+	_ = json.Marshal
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -46,35 +48,56 @@ var CmdHadoopService = cli.Command{
 			Aliases: []string{},
 			Usage:   "AddHadoopNodes",
 			Flags:   _flag_HadoopService_AddHadoopNodes,
-			Action:  _cmd_HadoopService_AddHadoopNodes,
+			Action:  _func_HadoopService_AddHadoopNodes,
 		},
 		{
 			Name:    "DeleteHadoopNodes",
 			Aliases: []string{},
 			Usage:   "DeleteHadoopNodes",
 			Flags:   _flag_HadoopService_DeleteHadoopNodes,
-			Action:  _cmd_HadoopService_DeleteHadoopNodes,
+			Action:  _func_HadoopService_DeleteHadoopNodes,
 		},
 		{
 			Name:    "StartHadoops",
 			Aliases: []string{},
 			Usage:   "StartHadoops",
 			Flags:   _flag_HadoopService_StartHadoops,
-			Action:  _cmd_HadoopService_StartHadoops,
+			Action:  _func_HadoopService_StartHadoops,
 		},
 		{
 			Name:    "StopHadoops",
 			Aliases: []string{},
 			Usage:   "StopHadoops",
 			Flags:   _flag_HadoopService_StopHadoops,
-			Action:  _cmd_HadoopService_StopHadoops,
+			Action:  _func_HadoopService_StopHadoops,
 		},
 	},
 }
 
-var _flag_HadoopService_AddHadoopNodes = []cli.Flag{ /* fields */ }
+var _flag_HadoopService_AddHadoopNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "hadoop",
+		Usage: "hadoop",
+		Value: "",
+	},
+	cli.IntFlag{
+		Name:  "node_count",
+		Usage: "node count",
+		Value: 0,
+	},
+	cli.StringFlag{
+		Name:  "hadoop_node_name",
+		Usage: "hadoop node name",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "private_ips",
+		Usage: "private ips",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_HadoopService_AddHadoopNodes(c *cli.Context) error {
+func _func_HadoopService_AddHadoopNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
@@ -89,6 +112,20 @@ func _cmd_HadoopService_AddHadoopNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("hadoop") {
+			in.Hadoop = proto.String(c.String("hadoop"))
+		}
+		if c.IsSet("node_count") {
+			in.NodeCount = proto.Int32(int32(c.Int("node_count")))
+		}
+		if c.IsSet("hadoop_node_name") {
+			in.HadoopNodeName = proto.String(c.String("hadoop_node_name"))
+		}
+		if c.IsSet("private_ips") {
+			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.AddHadoopNodes(in)
@@ -111,9 +148,20 @@ func _cmd_HadoopService_AddHadoopNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_HadoopService_DeleteHadoopNodes = []cli.Flag{ /* fields */ }
+var _flag_HadoopService_DeleteHadoopNodes = []cli.Flag{
+	cli.StringFlag{
+		Name:  "hadoop",
+		Usage: "hadoop",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "hadoop_nodes",
+		Usage: "hadoop nodes",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
+func _func_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
@@ -128,6 +176,14 @@ func _cmd_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("hadoop") {
+			in.Hadoop = proto.String(c.String("hadoop"))
+		}
+		if c.IsSet("hadoop_nodes") {
+			if err := json.Unmarshal([]byte(c.String("hadoop_nodes")), &in.HadoopNodes); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.DeleteHadoopNodes(in)
@@ -150,9 +206,15 @@ func _cmd_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
 	return nil
 }
 
-var _flag_HadoopService_StartHadoops = []cli.Flag{ /* fields */ }
+var _flag_HadoopService_StartHadoops = []cli.Flag{
+	cli.StringFlag{
+		Name:  "hadoops",
+		Usage: "hadoops",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_HadoopService_StartHadoops(c *cli.Context) error {
+func _func_HadoopService_StartHadoops(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
@@ -167,6 +229,11 @@ func _cmd_HadoopService_StartHadoops(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("hadoops") {
+			if err := json.Unmarshal([]byte(c.String("hadoops")), &in.Hadoops); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StartHadoops(in)
@@ -189,9 +256,15 @@ func _cmd_HadoopService_StartHadoops(c *cli.Context) error {
 	return nil
 }
 
-var _flag_HadoopService_StopHadoops = []cli.Flag{ /* fields */ }
+var _flag_HadoopService_StopHadoops = []cli.Flag{
+	cli.StringFlag{
+		Name:  "hadoops",
+		Usage: "hadoops",
+		Value: "", // json: slice/message/map/time
+	},
+}
 
-func _cmd_HadoopService_StopHadoops(c *cli.Context) error {
+func _func_HadoopService_StopHadoops(c *cli.Context) error {
 	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
@@ -206,6 +279,11 @@ func _cmd_HadoopService_StopHadoops(c *cli.Context) error {
 		}
 	} else {
 		// read from flags
+		if c.IsSet("hadoops") {
+			if err := json.Unmarshal([]byte(c.String("hadoops")), &in.Hadoops); err != nil {
+				logger.Fatal(err)
+			}
+		}
 	}
 
 	out, err := qc.StopHadoops(in)
