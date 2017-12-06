@@ -44,6 +44,7 @@ func Main() {
 		fmt.Fprintf(c.App.Writer, "ERR: command %q not found!\n", command)
 	}
 
+	app.EnableBashCompletion = true
 	app.Commands = pb.AllCommands
 	app.Run(os.Args)
 }
