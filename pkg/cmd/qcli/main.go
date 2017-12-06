@@ -5,6 +5,7 @@
 package qcli
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
@@ -38,8 +39,21 @@ func Main() {
 			Value:  "pk3a",
 			EnvVar: "QCLI_ZONE",
 		},
+		cli.StringFlag{
+			Name:   "glog_level",
+			Usage:  "glog level to stderr (INFO,WARNING,ERROR,FATAL)",
+			Value:  "WARNING",
+			EnvVar: "QCLI_GLOG_LEVEL",
+		},
 	}
 
+	app.Before = func(c *cli.Context) error {
+		flag.Parse()
+		if c.IsSet("glog_level") {
+			flag.CommandLine.Set("stderrthreshold", c.String("glog_level"))
+		}
+		return nil
+	}
 	app.CommandNotFound = func(c *cli.Context, command string) {
 		fmt.Fprintf(c.App.Writer, "ERR: command %q not found!\n", command)
 	}
