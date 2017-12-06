@@ -8,9 +8,19 @@
 [![API Reference](http://img.shields.io/badge/api-reference-green.svg)](http://docs.qingcloud.com)
 [![License](http://img.shields.io/badge/license-apache%20v2-blue.svg)](https://github.com/chai2010/qingcloud-go/blob/master/LICENSE)
 
+新开 SDK 的原因:
+
+- 官方 SDK 迟迟没有 release, 项目活跃度较低
+- 官方 SDK 的近2万行手写的json维护极其困难, 已经失去继续进化的可能
+- 官方 SDK 需要用 Go 语言的模板语言维护 snips 自定义的复杂的判断逻辑, 这是错误的!
+- 基于 Ptotobuf 构建, 解决方案简单优美, 稳定性和可扩展性足够好, Docker/k8s 都它
+- 其它通过非主流的工具构建的方式, 除了作者本人根本没有投入的必要
+- 缺少一个完备的和 SDK 基本等价的命令行工具
+
 项目目标:
 
 - Go语言风格的接口, 简单好用是第一目标
+- 一个好用的命令行工具, 希望一切可以通过命令行脚本化
 - 基于 Protobuf-V2 语法维护规范, 便于升级和维护
 - 更完备的接口, 更多的测试 ....
 
