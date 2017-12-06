@@ -22,6 +22,7 @@ import (
 	"net"
 	"net/http"
 	"os"
+	"runtime"
 	"strings"
 	"time"
 
@@ -46,21 +47,6 @@ type Config struct {
 	Zone                     string `yaml:"zone"`
 
 	Connection *http.Client
-}
-
-// New create a Config with given AccessKeyID and SecretAccessKey.
-func New(accessKeyID, secretAccessKey string) (*Config, error) {
-	config, err := NewDefault()
-	if err != nil {
-		return nil, err
-	}
-
-	config.AccessKeyID = accessKeyID
-	config.SecretAccessKey = secretAccessKey
-
-	config.Connection = &http.Client{}
-
-	return config, nil
 }
 
 // NewDefault loads the default configuration for Config.
@@ -88,13 +74,7 @@ func NewDefault() (*Config, error) {
 // LoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
 // It returns error if file not found.
 func LoadUserConfig() (*Config, error) {
-	_, err := os.Stat(GetUserConfigFilePath())
-	if err != nil {
-		logger.Warning("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
-		InstallDefaultUserConfig()
-	}
-
-	return LoadConfigFromFilepath(GetUserConfigFilePath())
+	return LoadConfigFromFilepath(strings.Replace(DefaultConfigFile, "~/", getHome()+"/", 1))
 }
 
 // MustLoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
@@ -156,74 +136,38 @@ func LoadConfigFromContent(content []byte) (*Config, error) {
 
 	return c, nil
 }
-func MustLoadConfigFromContent(content []byte) *Config {
-	cfg, err := LoadConfigFromContent(content)
-	if err != nil {
-		logger.Fatal(err)
+
+func getHome() string {
+	home := os.Getenv("HOME")
+	if runtime.GOOS == "windows" {
+		home = os.Getenv("HOMEDRIVE") + os.Getenv("HOMEPATH")
+		if home == "" {
+			home = os.Getenv("USERPROFILE")
+		}
 	}
-	return cfg
+
+	return home
 }
 
-// LoadDefaultConfig loads the default configuration for Config.
-// It returns error if yaml decode failed.
-func (c *Config) LoadDefaultConfig() error {
-	err := yaml.Unmarshal([]byte(DefaultConfigFileContent), c)
-	if err != nil {
-		logger.Error("Config parse error: " + err.Error())
-		return err
-	}
+// DefaultConfigFile is the default config file.
+const DefaultConfigFile = "~/.qingcloud/config.yaml"
 
-	return nil
-}
+// DefaultConfigFileContent is the default config file content.
+const DefaultConfigFileContent = `# QingCloud services configuration
 
-// LoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
-// It returns error if file not found.
-func (c *Config) LoadUserConfig() error {
-	_, err := os.Stat(GetUserConfigFilePath())
-	if err != nil {
-		logger.Warning("Installing default config file to \"" + GetUserConfigFilePath() + "\"")
-		InstallDefaultUserConfig()
-	}
+#qy_access_key_id: 'ACCESS_KEY_ID'
+#qy_secret_access_key: 'SECRET_ACCESS_KEY'
 
-	return c.LoadConfigFromFilepath(GetUserConfigFilePath())
-}
+host: 'api.qingcloud.com'
+port: 443
+protocol: 'https'
+uri: '/iaas'
+connection_retries: 3
+connection_timeout: 30
 
-// LoadConfigFromFilepath loads configuration from a specified local path.
-// It returns error if file not found or yaml decode failed.
-func (c *Config) LoadConfigFromFilepath(filepath string) error {
-	if strings.Index(filepath, "~/") == 0 {
-		filepath = strings.Replace(filepath, "~/", getHome()+"/", 1)
-	}
+json_allow_unknown_fields: false
 
-	configYAML, err := ioutil.ReadFile(filepath)
-	if err != nil {
-		logger.Error("File not found: " + filepath)
-		return err
-	}
+# Valid log levels are "debug", "info", "warn", "error", and "fatal".
+log_level: 'warn'
 
-	return c.LoadConfigFromContent(configYAML)
-}
-
-// LoadConfigFromContent loads configuration from a given byte slice.
-// It returns error if yaml decode failed.
-func (c *Config) LoadConfigFromContent(content []byte) error {
-	c.LoadDefaultConfig()
-
-	err := yaml.Unmarshal(content, c)
-	if err != nil {
-		logger.Error("Config parse error: " + err.Error())
-		return err
-	}
-
-	timeout := time.Duration(c.ConnectionTimeout) * time.Second
-	transport := &http.Transport{
-		Dial: func(network, addr string) (net.Conn, error) {
-			return net.DialTimeout(network, addr, timeout)
-		},
-	}
-	c.Connection = &http.Client{
-		Transport: transport,
-	}
-
-	return nil
-}
+`
