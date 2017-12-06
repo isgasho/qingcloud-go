@@ -39,7 +39,6 @@ type Config struct {
 	Port              int    `yaml:"port"`
 	Protocol          string `yaml:"protocol"`
 	URI               string `yaml:"uri"`
-	ConnectionRetries int    `yaml:"connection_retries"`
 	ConnectionTimeout int    `yaml:"connection_timeout"`
 
 	JSONDisableUnknownFields bool   `yaml:"json_disable_unknown_fields"`

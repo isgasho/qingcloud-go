@@ -45,17 +45,15 @@ func tAssertf(tb testing.TB, condition bool, format string, a ...interface{}) {
 
 func TestConfig(t *testing.T) {
 	config := Config{
-		AccessKeyID:       "AccessKeyID",
-		SecretAccessKey:   "SecretAccessKey",
-		Protocol:          "http",
-		ConnectionRetries: 10,
-		LogLevel:          "warn",
+		AccessKeyID:     "AccessKeyID",
+		SecretAccessKey: "SecretAccessKey",
+		Protocol:        "http",
+		LogLevel:        "warn",
 	}
 
 	tAssert(t, "AccessKeyID" == config.AccessKeyID)
 	tAssert(t, "SecretAccessKey" == config.SecretAccessKey)
 	tAssert(t, "http" == config.Protocol)
-	tAssert(t, 10 == config.ConnectionRetries)
 	tAssert(t, "warn" == config.LogLevel)
 }
 
@@ -98,7 +96,6 @@ func TestNewDefault(t *testing.T) {
 	tAssert(t, "" == config.AccessKeyID)
 	tAssert(t, "" == config.SecretAccessKey)
 	tAssert(t, "https" == config.Protocol)
-	tAssert(t, 3 == config.ConnectionRetries)
 }
 
 func TestNew(t *testing.T) {

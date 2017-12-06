@@ -20,7 +20,6 @@ package request
 import (
 	"errors"
 	"net/http"
-	"time"
 
 	"github.com/chai2010/qingcloud-go/pkg/request/data"
 )
@@ -130,26 +129,12 @@ func (r *Request) send() error {
 		return errors.New("connection not initialized")
 	}
 
-	retries := r.Operation.Config.ConnectionRetries + 1
-	for {
-		if retries > 0 {
-			response, err = r.Operation.Config.Connection.Do(r.HTTPRequest)
-			if err == nil {
-				retries = 0
-			} else {
-				retries--
-				time.Sleep(time.Second)
-			}
-		} else {
-			break
-		}
-	}
+	response, err = r.Operation.Config.Connection.Do(r.HTTPRequest)
 	if err != nil {
 		return err
 	}
 
 	r.HTTPResponse = response
-
 	return nil
 }
 
