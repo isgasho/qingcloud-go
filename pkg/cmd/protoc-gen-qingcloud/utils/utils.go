@@ -106,3 +106,55 @@ func GetMethodInputDescriptor(p *generator.Generator, m *descriptor.MethodDescri
 func GetMethodOutputDescriptor(p *generator.Generator, m *descriptor.MethodDescriptorProto) *descriptor.DescriptorProto {
 	return p.ObjectNamed(m.GetOutputType()).(*generator.Descriptor).DescriptorProto
 }
+
+func IsSupportedRepeated(field *descriptor.FieldDescriptorProto) bool {
+	switch field.GetLabel() {
+	case descriptor.FieldDescriptorProto_LABEL_REPEATED:
+		return true
+	}
+	return false
+}
+
+func IsSupportedBool(field *descriptor.FieldDescriptorProto) bool {
+	switch field.GetType() {
+	case descriptor.FieldDescriptorProto_TYPE_BOOL:
+		return true
+	}
+	return false
+}
+
+func IsSupportedInt(field *descriptor.FieldDescriptorProto) bool {
+	switch field.GetType() {
+	case descriptor.FieldDescriptorProto_TYPE_INT32, descriptor.FieldDescriptorProto_TYPE_INT64:
+		return true
+	case descriptor.FieldDescriptorProto_TYPE_UINT32, descriptor.FieldDescriptorProto_TYPE_UINT64:
+		return true
+	case descriptor.FieldDescriptorProto_TYPE_SINT32, descriptor.FieldDescriptorProto_TYPE_SINT64:
+		return true
+	}
+	return false
+}
+
+func IsSupportedFloat(field *descriptor.FieldDescriptorProto) bool {
+	switch field.GetType() {
+	case descriptor.FieldDescriptorProto_TYPE_FLOAT, descriptor.FieldDescriptorProto_TYPE_DOUBLE:
+		return true
+	case descriptor.FieldDescriptorProto_TYPE_FIXED32, descriptor.FieldDescriptorProto_TYPE_FIXED64:
+		return true
+	case descriptor.FieldDescriptorProto_TYPE_SFIXED32, descriptor.FieldDescriptorProto_TYPE_SFIXED64:
+		return true
+	}
+	return false
+}
+
+func IsSupportedString(field *descriptor.FieldDescriptorProto) bool {
+	switch field.GetType() {
+	case descriptor.FieldDescriptorProto_TYPE_STRING:
+		return true
+	}
+	return false
+}
+
+func IsSupportedMap(field *descriptor.FieldDescriptorProto) bool {
+	return false
+}
