@@ -20,14 +20,11 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
-	"fmt"
 	"net/http"
 	"net/url"
 	"sort"
 	"strings"
 	"time"
-
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Signer is the http request signer for IaaS service.
@@ -51,12 +48,6 @@ func (is *Signer) WriteSignature(request *http.Request) error {
 		return err
 	}
 	request.URL = newRequest.URL
-
-	logger.Info(fmt.Sprintf(
-		"Signed QingCloud request: [%d] %s",
-		StringToUnixInt(request.Header.Get("Date"), "RFC 822"),
-		request.URL.String()))
-
 	return nil
 }
 
@@ -74,11 +65,6 @@ func (is *Signer) BuildSignature(request *http.Request) (string, error) {
 	signature = strings.Replace(signature, " ", "+", -1)
 	signature = url.QueryEscape(signature)
 
-	logger.Info(fmt.Sprintf(
-		"QingCloud signature: [%d] %s",
-		StringToUnixInt(request.Header.Get("Date"), "RFC 822"),
-		signature))
-
 	is.BuiltURL += "&signature=" + signature
 
 	return signature, nil
@@ -92,17 +78,8 @@ func (is *Signer) BuildStringToSign(request *http.Request) (string, error) {
 	query.Set("signature_method", "HmacSHA256")
 	query.Set("signature_version", "1")
 
-	var timeValue time.Time
-	if request.Header.Get("Date") != "" {
-		var err error
-		timeValue, err = StringToTime(request.Header.Get("Date"), "RFC 822")
-		if err != nil {
-			return "", err
-		}
-	} else {
-		timeValue = time.Now()
-	}
-	query.Set("time_stamp", TimeToString(timeValue, "ISO 8601"))
+	var timeValue = time.Now()
+	query.Set("time_stamp", timeValue.UTC().Format("2006-01-02T15:04:05Z"))
 
 	keys := []string{}
 	for key := range query {
@@ -131,12 +108,6 @@ func (is *Signer) BuildStringToSign(request *http.Request) (string, error) {
 	urlParams := strings.Join(parts, "&")
 
 	stringToSign := request.Method + "\n" + request.URL.Path + "\n" + urlParams
-
-	logger.Info(fmt.Sprintf(
-		"QingCloud string to sign: [%d] %s",
-		StringToUnixInt(request.Header.Get("Date"), "RFC 822"),
-		stringToSign))
-
 	is.BuiltURL = request.URL.Path + "?" + urlParams
 
 	return stringToSign, nil

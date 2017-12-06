@@ -19,11 +19,9 @@ package request
 
 import (
 	"errors"
-	"fmt"
 	"net/http"
 	"time"
 
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 	"github.com/chai2010/qingcloud-go/pkg/request/data"
 )
 
@@ -132,11 +130,6 @@ func (r *Request) send() error {
 	retries := r.Operation.Config.ConnectionRetries + 1
 	for {
 		if retries > 0 {
-			logger.Info(fmt.Sprintf(
-				"Sending request: [%d] %s",
-				StringToUnixInt(r.HTTPRequest.Header.Get("Date"), "RFC 822"),
-				r.HTTPRequest.Host))
-
 			response, err = r.Operation.Config.Connection.Do(r.HTTPRequest)
 			if err == nil {
 				retries = 0

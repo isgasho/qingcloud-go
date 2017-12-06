@@ -19,11 +19,9 @@ package request
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/chai2010/qingcloud-go/pkg/errors"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 	"github.com/chai2010/qingcloud-go/pkg/request/data"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
@@ -63,11 +61,6 @@ func (u *Unpacker) parseResponse() (respBody string, err error) {
 			u.httpResponse.Body.Close()
 
 			respBody = string(buffer.Bytes())
-			logger.Info(fmt.Sprintf(
-				"Response json string: [%d] %s",
-				StringToUnixInt(u.httpResponse.Header.Get("Date"), "RFC 822"),
-				respBody))
-
 			err := u.decodeJson(buffer.Bytes(), u.output)
 			if err != nil {
 				return respBody, err
