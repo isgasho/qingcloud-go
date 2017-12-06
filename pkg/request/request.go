@@ -38,7 +38,10 @@ type Request struct {
 // New create a Request from given Operation, Input and Output.
 // It returns a Request.
 func New(o *data.Operation, i, x interface{}) (*Request, error) {
-	if x, ok := i.(data.Validation); ok {
+	type Validator interface {
+		Validate() error
+	}
+	if x, ok := i.(Validator); ok {
 		if err := x.Validate(); err != nil {
 			return nil, err
 		}
