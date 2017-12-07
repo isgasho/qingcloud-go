@@ -3,7 +3,7 @@
 # license that can be found in the LICENSE file.
 
 GO_LDFLAGS:=--ldflags '-w -s -extldflags "-static"'
-GO:=docker run --rm -v $(shell go env GOPATH):/go -w /go/src/$(shell go list) golang:alpine go
+GO:=docker run --rm -v $(shell go env GOPATH):/go -w /go/src/$(shell go list) golang:1.9.2-alpine3.6 go
 
 default:
 	go generate ./pkg/...
@@ -17,21 +17,6 @@ build-docker: Dockerfile
 
 run-docker:
 	docker run --rm -it -v `pwd`:/root -w /root chai2010/qingcloud-go qcli
-
-hello:
-	go fmt ./...
-	go run hello.go
-
-demo_mgo:
-	go run examples/mongo/DescribeMongos/DescribeMongos.go
-
-demo_cluster:
-	go run examples/cluster/DescribeClusterNodes/DescribeClusterNodes.go
-
-# go run examples/cluster/DescribeClusters/DescribeClusters.go
-
-demo:
-	go run examples/nic/DescribeNics/DescribeNics.go
 
 init-vendor:
 	govendor init
