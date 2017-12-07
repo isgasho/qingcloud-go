@@ -20,7 +20,24 @@ package request
 import (
 	"errors"
 	"net/http"
+
+	"github.com/chai2010/qingcloud-go/pkg/config"
 )
+
+// Operation stores information of an operation.
+type Operation struct {
+	Config     *config.Config
+	Properties interface{}
+
+	APIName     string
+	ServiceName string
+
+	RequestMethod string
+	RequestURI    string
+	ResponseBody  string
+
+	StatusCodes []int
+}
 
 // A Request can build, sign, send and unpack API request.
 type Request struct {
