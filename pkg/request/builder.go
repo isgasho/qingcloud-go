@@ -17,8 +17,6 @@
 package request
 
 import (
-	"bytes"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -26,8 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/golang/protobuf/jsonpb"
-	"github.com/golang/protobuf/proto"
+	"github.com/chai2010/qingcloud-go/pkg/pbencoding"
 )
 
 // Builder is the request builder for QingCloud service.
@@ -81,7 +78,7 @@ func (b *Builder) parse() error {
 }
 
 func (b *Builder) parseRequestProperties() error {
-	propertiesMap, err := protoMessageToMap(b.operation.Properties)
+	propertiesMap, err := pbencoding.ProtoMessageToMap(b.operation.Properties)
 	if err != nil {
 		return err
 	}
@@ -91,7 +88,7 @@ func (b *Builder) parseRequestProperties() error {
 }
 
 func (b *Builder) parseRequestParams() error {
-	requestParams, err := protoMessageToMap(b.input)
+	requestParams, err := pbencoding.ProtoMessageToMap(b.input)
 	if err != nil {
 		return err
 	}
@@ -127,79 +124,4 @@ func (b *Builder) parseRequestURL() error {
 	}
 
 	return nil
-}
-
-func protoMessageToMap(msg interface{}) (m map[string]string, err error) {
-	defer func() {
-		if x := recover(); x != nil {
-			err = fmt.Errorf("protoMessageToMap failed: %v", x)
-		}
-	}()
-
-	d, err := encodeJson(msg)
-	if err != nil {
-		return nil, err
-	}
-
-	var mapx map[string]interface{}
-	if err := json.Unmarshal(d, &mapx); err != nil {
-		return nil, err
-	}
-
-	m = unpackMapXToMapString(mapx)
-	return m, nil
-}
-
-// X is oneof string/float64/[]interface/map[string]interface{}
-func unpackMapXToMapString(mapx map[string]interface{}) map[string]string {
-	var m = map[string]string{}
-	for k, v := range mapx {
-		switch v := v.(type) {
-		case string:
-			m[k] = v
-		case float64:
-			m[k] = fmt.Sprintf("%v", v)
-		case []interface{}:
-			for i := 0; i < len(v); i++ {
-				ki := k + "." + strconv.Itoa(i+1)
-				switch vi := v[i].(type) {
-				case string:
-					m[ki] = vi
-				case float64:
-					m[ki] = fmt.Sprintf("%v", vi)
-				case map[string]interface{}:
-					for kk, vv := range unpackMapXToMapString(vi) {
-						m[ki+"."+kk] = vv
-					}
-				default:
-					// unreachable
-				}
-			}
-		case map[string]interface{}:
-			for kk, vv := range unpackMapXToMapString(v) {
-				m[k+"."+kk] = vv
-			}
-		default:
-			// unreachable
-		}
-	}
-	return m
-}
-
-func encodeJson(x interface{}) ([]byte, error) {
-	if x, ok := x.(proto.Message); ok {
-		jsonMarshaler := &jsonpb.Marshaler{
-			OrigName: true,
-			Indent:   "",
-		}
-
-		var buf bytes.Buffer
-		err := jsonMarshaler.Marshal(&buf, x)
-		if err != nil {
-			return nil, err
-		}
-		return buf.Bytes(), nil
-	}
-
-	return json.Marshal(x)
 }
