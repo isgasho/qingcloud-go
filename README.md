@@ -51,7 +51,6 @@ host: 'api.qingcloud.com'
 port: 443
 protocol: 'https'
 uri: '/iaas'
-connection_retries: 3
 
 json_disable_unknown_fields: false
 
@@ -67,7 +66,7 @@ log_level: 'warn'
 
 Docker 运行:
 
-- `docker run --rm -it -v `pwd`:/root -w /root chai2010/qingcloud-go qcli`
+- `docker run --rm -it -v $HOME:/root -w /root chai2010/qingcloud-go qcli`
 
 从Go源码安装:
 
