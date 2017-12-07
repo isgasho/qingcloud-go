@@ -14,6 +14,21 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+func DecodeJson(data []byte, x interface{}) error {
+	if x, ok := x.(proto.Message); ok {
+		decoder := &jsonpb.Unmarshaler{
+			AllowUnknownFields: true,
+		}
+		err := decoder.Unmarshal(bytes.NewReader(data), x)
+		if err != nil {
+			return err
+		}
+		return nil
+	}
+
+	return json.Unmarshal(data, x)
+}
+
 func ProtoMessageToMap(msg interface{}) (m map[string]string, err error) {
 	defer func() {
 		if x := recover(); x != nil {

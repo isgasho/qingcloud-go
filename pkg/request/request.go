@@ -18,9 +18,12 @@
 package request
 
 import (
+	"bytes"
 	"net/http"
 
 	"github.com/chai2010/qingcloud-go/pkg/config"
+	"github.com/chai2010/qingcloud-go/pkg/errors"
+	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 )
 
 // Operation stores information of an operation.
@@ -87,7 +90,7 @@ func (r *Request) Send() error {
 	}
 	r.HTTPResponse = response
 
-	respBody, err := new(Unpacker).UnpackHTTPRequest(r.Operation, r.HTTPResponse, r.Output)
+	respBody, err := UnpackHTTPRequest(r.HTTPResponse, r.Output)
 	if err != nil {
 		return err
 	}
@@ -98,4 +101,29 @@ func (r *Request) Send() error {
 	}
 
 	return nil
+}
+
+// UnpackHTTPRequest unpack the http response with an operation, http response and an output.
+func UnpackHTTPRequest(httpResponse *http.Response, output interface{}) (respBody string, err error) {
+	if httpResponse.StatusCode == 200 {
+		if httpResponse.Header.Get("Content-Type") == "application/json" {
+			buffer := &bytes.Buffer{}
+			buffer.ReadFrom(httpResponse.Body)
+			httpResponse.Body.Close()
+
+			respBody = string(buffer.Bytes())
+			err := pbutil.DecodeJson(buffer.Bytes(), output)
+			if err != nil {
+				return respBody, err
+			}
+		}
+	}
+
+	if x, ok := output.(errors.Error); ok {
+		if x.GetRetCode() != 0 {
+			return respBody, errors.New(x.GetRetCode(), x.GetMessage())
+		}
+	}
+
+	return respBody, nil
 }
