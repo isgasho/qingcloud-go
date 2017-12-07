@@ -33,10 +33,10 @@ type Config struct {
 	AccessKeyID     string `yaml:"qy_access_key_id"`
 	SecretAccessKey string `yaml:"qy_secret_access_key"`
 
-	Host              string `yaml:"host"`
-	Port              int    `yaml:"port"`
-	Protocol          string `yaml:"protocol"`
-	URI               string `yaml:"uri"`
+	Host     string `yaml:"host"`
+	Port     int    `yaml:"port"`
+	Protocol string `yaml:"protocol"`
+	URI      string `yaml:"uri"`
 
 	JSONDisableUnknownFields bool   `yaml:"json_disable_unknown_fields"`
 	LogLevel                 string `yaml:"log_level"`

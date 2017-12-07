@@ -116,17 +116,6 @@ func New{{.GetServiceName}}(conf *config.Config, zone string) (p *{{.GetServiceN
 	}
 }
 
-func (s *QingCloudService) {{strings_TrimSuffix .GetServiceName "Service"}}(zone string) (*{{.GetServiceName}}, error) {
-	properties := &{{.GetServiceName}}Properties{
-		Zone: proto.String(zone),
-	}
-
-	return &{{.GetServiceName}}{
-		Config: s.Config,
-		Properties: properties,
-	}, nil
-}
-
 {{range $_, $m := .GetMethodList}}
 func (p *{{$service.GetServiceName}}) {{$m.GetMethodName}}(in *{{$m.GetInputTypeName}}) (out *{{$m.OutputTypeName}}, err error) {
 	if in == nil {
