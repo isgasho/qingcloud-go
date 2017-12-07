@@ -72,6 +72,11 @@ Docker 运行:
 
 - `go get github.com/chai2010/qingcloud-go/cmd/qcli`
 
+或生成版本号后安装:
+
+- `go generate github.com/chai2010/qingcloud-go/pkg/version`
+- `go install  github.com/chai2010/qingcloud-go/cmd/qcli`
+
 输入 `qcli` 或 `qcli -h` 查看命令提示:
 
 ```
