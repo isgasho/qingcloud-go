@@ -70,29 +70,29 @@ test:
 dist:
 	go generate ./pkg/...
 
-	mkdir -p ./bin/qingcloud-cli-windows-amd64
-	mkdir -p ./bin/qingcloud-cli-linux-amd64
-	mkdir -p ./bin/qingcloud-cli-darwin-amd64
+	mkdir -p ./_dist/qingcloud-cli-windows-amd64
+	mkdir -p ./_dist/qingcloud-cli-linux-amd64
+	mkdir -p ./_dist/qingcloud-cli-darwin-amd64
 
-	GOOS=windows GOARCH=amd64 go build -o ./bin/qingcloud-cli-windows-amd64/qcli.exe ./cmd/qcli
-	GOOS=linux   GOARCH=amd64 go build -o ./bin/qingcloud-cli-linux-amd64/qcli       ./cmd/qcli
-	GOOS=darwin  GOARCH=amd64 go build -o ./bin/qingcloud-cli-darwin-amd64/qcli      ./cmd/qcli
+	GOOS=windows GOARCH=amd64 go build -o ./_dist/qingcloud-cli-windows-amd64/qcli.exe ./cmd/qcli
+	GOOS=linux   GOARCH=amd64 go build -o ./_dist/qingcloud-cli-linux-amd64/qcli       ./cmd/qcli
+	GOOS=darwin  GOARCH=amd64 go build -o ./_dist/qingcloud-cli-darwin-amd64/qcli      ./cmd/qcli
 
-	cp README.md ./bin/qingcloud-cli-windows-amd64/
-	cp README.md ./bin/qingcloud-cli-linux-amd64/
-	cp README.md ./bin/qingcloud-cli-darwin-amd64/
+	cp README.md ./_dist/qingcloud-cli-windows-amd64/
+	cp README.md ./_dist/qingcloud-cli-linux-amd64/
+	cp README.md ./_dist/qingcloud-cli-darwin-amd64/
 
-	cp CHANGES.md ./bin/qingcloud-cli-windows-amd64/
-	cp CHANGES.md ./bin/qingcloud-cli-linux-amd64/
-	cp CHANGES.md ./bin/qingcloud-cli-darwin-amd64/
+	cp CHANGES.md ./_dist/qingcloud-cli-windows-amd64/
+	cp CHANGES.md ./_dist/qingcloud-cli-linux-amd64/
+	cp CHANGES.md ./_dist/qingcloud-cli-darwin-amd64/
 
-	cp LICENSE ./bin/qingcloud-cli-windows-amd64/
-	cp LICENSE ./bin/qingcloud-cli-linux-amd64/
-	cp LICENSE ./bin/qingcloud-cli-darwin-amd64/
+	cp LICENSE ./_dist/qingcloud-cli-windows-amd64/
+	cp LICENSE ./_dist/qingcloud-cli-linux-amd64/
+	cp LICENSE ./_dist/qingcloud-cli-darwin-amd64/
 
-	cd ./bin && zip -r qingcloud-cli-windows-amd64.zip qingcloud-cli-windows-amd64
-	cd ./bin && zip -r qingcloud-cli-linux-amd64.zip   qingcloud-cli-linux-amd64
-	cd ./bin && zip -r qingcloud-cli-darwin-amd64.zip  qingcloud-cli-darwin-amd64
+	cd ./_dist && zip -r qingcloud-cli-windows-amd64.zip qingcloud-cli-windows-amd64
+	cd ./_dist && zip -r qingcloud-cli-linux-amd64.zip   qingcloud-cli-linux-amd64
+	cd ./_dist && zip -r qingcloud-cli-darwin-amd64.zip  qingcloud-cli-darwin-amd64
 
 	@echo "ok"
 
