@@ -42,61 +42,30 @@ func (b *Builder) BuildHTTPRequest(o *Operation, i interface{}) (*http.Request, 
 	b.operation = o
 	b.input = i
 
-	err := b.parse()
+	propertiesMap, err := pbencoding.ProtoMessageToMap(b.operation.Properties)
+	if err != nil {
+		return nil, err
+	}
+	b.parsedProperties = &propertiesMap
+
+	requestParams, err := pbencoding.ProtoMessageToMap(b.input)
+	if err != nil {
+		return nil, err
+	}
+	requestParams["action"] = b.operation.APIName
+	b.parsedParams = &requestParams
+
+	err = b.parseRequestURL()
 	if err != nil {
 		return nil, err
 	}
 
-	return b.build()
-}
-
-func (b *Builder) build() (*http.Request, error) {
 	httpRequest, err := http.NewRequest(b.operation.RequestMethod, b.parsedURL, nil)
 	if err != nil {
 		return nil, err
 	}
 
 	return httpRequest, nil
-}
-
-func (b *Builder) parse() error {
-
-	err := b.parseRequestProperties()
-	if err != nil {
-		return err
-	}
-	err = b.parseRequestParams()
-	if err != nil {
-		return err
-	}
-	err = b.parseRequestURL()
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (b *Builder) parseRequestProperties() error {
-	propertiesMap, err := pbencoding.ProtoMessageToMap(b.operation.Properties)
-	if err != nil {
-		return err
-	}
-
-	b.parsedProperties = &propertiesMap
-	return nil
-}
-
-func (b *Builder) parseRequestParams() error {
-	requestParams, err := pbencoding.ProtoMessageToMap(b.input)
-	if err != nil {
-		return err
-	}
-
-	requestParams["action"] = b.operation.APIName
-
-	b.parsedParams = &requestParams
-	return nil
 }
 
 func (b *Builder) parseRequestURL() error {

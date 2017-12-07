@@ -18,7 +18,6 @@
 package request
 
 import (
-	"errors"
 	"net/http"
 
 	"github.com/chai2010/qingcloud-go/pkg/config"
@@ -29,14 +28,10 @@ type Operation struct {
 	Config     *config.Config
 	Properties interface{}
 
-	APIName     string
-	ServiceName string
-
+	APIName       string
 	RequestMethod string
 	RequestURI    string
 	ResponseBody  string
-
-	StatusCodes []int
 }
 
 // A Request can build, sign, send and unpack API request.
@@ -71,88 +66,36 @@ func New(o *Operation, i, x interface{}) (*Request, error) {
 // Send sends API request.
 // It returns error if error occurred.
 func (r *Request) Send() error {
-	err := r.check()
+	httpRequest, err := new(Builder).BuildHTTPRequest(r.Operation, r.Input)
+	if err != nil {
+		return err
+	}
+	r.HTTPRequest = httpRequest
+
+	s := &Signer{
+		AccessKeyID:     r.Operation.Config.AccessKeyID,
+		SecretAccessKey: r.Operation.Config.SecretAccessKey,
+	}
+	err = s.WriteSignature(r.HTTPRequest)
 	if err != nil {
 		return err
 	}
 
-	err = r.build()
+	response, err := http.DefaultClient.Do(r.HTTPRequest)
+	if err != nil {
+		return err
+	}
+	r.HTTPResponse = response
+
+	respBody, err := new(Unpacker).UnpackHTTPRequest(r.Operation, r.HTTPResponse, r.Output)
 	if err != nil {
 		return err
 	}
 
-	err = r.sign()
-	if err != nil {
-		return err
-	}
-
-	err = r.send()
-	if err != nil {
-		return err
-	}
-
-	respBody, err := r.unpack()
 	r.Operation.ResponseBody = respBody
 	if err != nil {
 		return err
 	}
 
 	return nil
-}
-
-func (r *Request) check() error {
-	if r.Operation.Config.AccessKeyID == "" {
-		return errors.New("access key not provided")
-	}
-
-	if r.Operation.Config.SecretAccessKey == "" {
-		return errors.New("secret access key not provided")
-	}
-
-	return nil
-}
-
-func (r *Request) build() error {
-	b := &Builder{}
-	httpRequest, err := b.BuildHTTPRequest(r.Operation, r.Input)
-	if err != nil {
-		return err
-	}
-
-	r.HTTPRequest = httpRequest
-	return nil
-}
-
-func (r *Request) sign() error {
-	s := &Signer{
-		AccessKeyID:     r.Operation.Config.AccessKeyID,
-		SecretAccessKey: r.Operation.Config.SecretAccessKey,
-	}
-	err := s.WriteSignature(r.HTTPRequest)
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (r *Request) send() error {
-	response, err := http.DefaultClient.Do(r.HTTPRequest)
-	if err != nil {
-		return err
-	}
-
-	r.HTTPResponse = response
-	return nil
-}
-
-func (r *Request) unpack() (respBody string, err error) {
-	u := &Unpacker{}
-
-	respBody, err = u.UnpackHTTPRequest(r.Operation, r.HTTPResponse, r.Output)
-	if err != nil {
-		return respBody, err
-	}
-
-	return respBody, nil
 }
