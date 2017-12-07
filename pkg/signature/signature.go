@@ -46,31 +46,19 @@ func makeStringToSign(method, urlpath, sortedQueryString string) string {
 }
 
 func makeSortedUrlQueryString(m map[string]string) string {
-	keys, values := getMapSortedKeyValues(m)
-
-	var parts []string
-	for i := 0; i < len(keys) && i < len(values); i++ {
-		ki, vi := keys[i], values[i]
-		vi = strings.Replace(url.QueryEscape(vi), "+", "%20", -1)
-		parts = append(parts, ki+"="+vi)
-	}
-	return strings.Join(parts, "&")
-}
-
-func getMapSortedKeyValues(m map[string]string) (keys, values []string) {
-	keys = make([]string, 0, len(m))
-	values = make([]string, 0, len(m))
-
+	keys := make([]string, 0, len(m))
 	for k, _ := range m {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
 
-	for _, k := range keys {
-		values = append(values, m[k])
+	parts := make([]string, 0, len(keys))
+	for _, ki := range keys {
+		vi := strings.Replace(url.QueryEscape(m[ki]), "+", "%20", -1)
+		parts = append(parts, ki+"="+vi)
 	}
 
-	return
+	return strings.Join(parts, "&")
 }
 
 func cloneMapStringString(m0 map[string]string) map[string]string {
