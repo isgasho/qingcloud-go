@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/chai2010/qingcloud-go/pkg/pbencoding"
+	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 )
 
 // Builder is the request builder for QingCloud service.
@@ -42,13 +42,13 @@ func (b *Builder) BuildHTTPRequest(o *Operation, i interface{}) (*http.Request, 
 	b.operation = o
 	b.input = i
 
-	propertiesMap, err := pbencoding.ProtoMessageToMap(b.operation.Properties)
+	propertiesMap, err := pbutil.ProtoMessageToMap(b.operation.Properties)
 	if err != nil {
 		return nil, err
 	}
 	b.parsedProperties = &propertiesMap
 
-	requestParams, err := pbencoding.ProtoMessageToMap(b.input)
+	requestParams, err := pbutil.ProtoMessageToMap(b.input)
 	if err != nil {
 		return nil, err
 	}
