@@ -59,17 +59,6 @@ func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
 	}
 }
 
-func (s *QingCloudService) RDB(zone string) (*RDBService, error) {
-	properties := &RDBServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &RDBService{
-		Config:     s.Config,
-		Properties: properties,
-	}, nil
-}
-
 func (p *RDBService) CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error) {
 	if in == nil {
 		in = &CreateRDBInput{}

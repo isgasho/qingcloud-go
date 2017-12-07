@@ -50,17 +50,6 @@ func NewImageService(conf *config.Config, zone string) (p *ImageService) {
 	}
 }
 
-func (s *QingCloudService) Image(zone string) (*ImageService, error) {
-	properties := &ImageServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &ImageService{
-		Config:     s.Config,
-		Properties: properties,
-	}, nil
-}
-
 func (p *ImageService) DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error) {
 	if in == nil {
 		in = &DescribeImagesInput{}

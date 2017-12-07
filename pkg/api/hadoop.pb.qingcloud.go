@@ -46,17 +46,6 @@ func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
 	}
 }
 
-func (s *QingCloudService) Hadoop(zone string) (*HadoopService, error) {
-	properties := &HadoopServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &HadoopService{
-		Config:     s.Config,
-		Properties: properties,
-	}, nil
-}
-
 func (p *HadoopService) AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error) {
 	if in == nil {
 		in = &AddHadoopNodesInput{}

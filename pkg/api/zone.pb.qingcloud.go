@@ -43,17 +43,6 @@ func NewZoneService(conf *config.Config, zone string) (p *ZoneService) {
 	}
 }
 
-func (s *QingCloudService) Zone(zone string) (*ZoneService, error) {
-	properties := &ZoneServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &ZoneService{
-		Config:     s.Config,
-		Properties: properties,
-	}, nil
-}
-
 func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error) {
 	if in == nil {
 		in = &DescribeZonesInput{}

@@ -61,17 +61,6 @@ func NewRouterService(conf *config.Config, zone string) (p *RouterService) {
 	}
 }
 
-func (s *QingCloudService) Router(zone string) (*RouterService, error) {
-	properties := &RouterServiceProperties{
-		Zone: proto.String(zone),
-	}
-
-	return &RouterService{
-		Config:     s.Config,
-		Properties: properties,
-	}, nil
-}
-
 func (p *RouterService) DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error) {
 	if in == nil {
 		in = &DescribeRoutersInput{}
