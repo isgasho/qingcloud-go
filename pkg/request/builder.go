@@ -26,7 +26,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/chai2010/qingcloud-go/pkg/request/data"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 )
@@ -37,12 +36,12 @@ type Builder struct {
 	parsedProperties *map[string]string
 	parsedParams     *map[string]string
 
-	operation *data.Operation
+	operation *Operation
 	input     interface{}
 }
 
 // BuildHTTPRequest builds http request with an operation and an input.
-func (b *Builder) BuildHTTPRequest(o *data.Operation, i interface{}) (*http.Request, error) {
+func (b *Builder) BuildHTTPRequest(o *Operation, i interface{}) (*http.Request, error) {
 	b.operation = o
 	b.input = i
 

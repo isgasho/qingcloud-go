@@ -14,7 +14,7 @@
 // | limitations under the License.
 // +-------------------------------------------------------------------------
 
-package data
+package request
 
 import (
 	"github.com/chai2010/qingcloud-go/pkg/config"

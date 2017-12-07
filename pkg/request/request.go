@@ -20,13 +20,11 @@ package request
 import (
 	"errors"
 	"net/http"
-
-	"github.com/chai2010/qingcloud-go/pkg/request/data"
 )
 
 // A Request can build, sign, send and unpack API request.
 type Request struct {
-	Operation *data.Operation
+	Operation *Operation
 	Input     interface{}
 	Output    interface{}
 
@@ -36,7 +34,7 @@ type Request struct {
 
 // New create a Request from given Operation, Input and Output.
 // It returns a Request.
-func New(o *data.Operation, i, x interface{}) (*Request, error) {
+func New(o *Operation, i, x interface{}) (*Request, error) {
 	type Validator interface {
 		Validate() error
 	}
