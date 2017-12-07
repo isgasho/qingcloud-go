@@ -2,6 +2,8 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
+// go test -bench=.* ./...
+
 package signature
 
 import (
@@ -18,6 +20,19 @@ func TestBuild(t *testing.T) {
 		t.Fatalf("expected = %s, got = %s", tSignature, signature)
 	}
 }
+
+func BenchmarkBuild(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_, signature := Build(
+			"QYACCESSKEYIDEXAMPLE", "SECRETACCESSKEY",
+			"GET", "/iaas/", tMap1_unsorted,
+		)
+		if signature != tSignature {
+			b.Fatalf("expected = %s, got = %s", tSignature, signature)
+		}
+	}
+}
+
 func TestUtils(t *testing.T) {
 	sortedQueryString := makeSortedUrlQueryString(tMap1_unsorted)
 	if sortedQueryString != tSortedQueryString {
