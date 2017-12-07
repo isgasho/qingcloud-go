@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type S2ServiceInterface interface {
 	CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error)
@@ -74,7 +72,7 @@ func (p *S2Service) CreateS2Server(in *CreateS2ServerInput) (out *CreateS2Server
 	if in == nil {
 		in = &CreateS2ServerInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2Server",
@@ -101,7 +99,7 @@ func (p *S2Service) DescribeS2Servers(in *DescribeS2ServersInput) (out *Describe
 	if in == nil {
 		in = &DescribeS2ServersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2Servers",
@@ -128,7 +126,7 @@ func (p *S2Service) ModifyS2Server(in *ModifyS2ServerInput) (out *ModifyS2Server
 	if in == nil {
 		in = &ModifyS2ServerInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2Server",
@@ -155,7 +153,7 @@ func (p *S2Service) ResizeS2Servers(in *ResizeS2ServersInput) (out *ResizeS2Serv
 	if in == nil {
 		in = &ResizeS2ServersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeS2Servers",
@@ -182,7 +180,7 @@ func (p *S2Service) DeleteS2Servers(in *DeleteS2ServersInput) (out *DeleteS2Serv
 	if in == nil {
 		in = &DeleteS2ServersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2Servers",
@@ -209,7 +207,7 @@ func (p *S2Service) PowerOnS2Servers(in *PowerOnS2ServersInput) (out *PowerOnS2S
 	if in == nil {
 		in = &PowerOnS2ServersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOnS2Servers",
@@ -236,7 +234,7 @@ func (p *S2Service) PowerOffS2Servers(in *PowerOffS2ServersInput) (out *PowerOff
 	if in == nil {
 		in = &PowerOffS2ServersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOffS2Servers",
@@ -263,7 +261,7 @@ func (p *S2Service) UpdateS2Servers(in *UpdateS2ServersInput) (out *UpdateS2Serv
 	if in == nil {
 		in = &UpdateS2ServersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateS2Servers",
@@ -290,7 +288,7 @@ func (p *S2Service) ChangeS2ServerVxnet(in *ChangeS2ServerVxnetInput) (out *Chan
 	if in == nil {
 		in = &ChangeS2ServerVxnetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeS2ServerVxnet",
@@ -317,7 +315,7 @@ func (p *S2Service) CreateS2SharedTarget(in *CreateS2SharedTargetInput) (out *Cr
 	if in == nil {
 		in = &CreateS2SharedTargetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2SharedTarget",
@@ -344,7 +342,7 @@ func (p *S2Service) DescribeS2SharedTargets(in *DescribeS2SharedTargetsInput) (o
 	if in == nil {
 		in = &DescribeS2SharedTargetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2SharedTargets",
@@ -371,7 +369,7 @@ func (p *S2Service) DeleteS2SharedTargets(in *DeleteS2SharedTargetsInput) (out *
 	if in == nil {
 		in = &DeleteS2SharedTargetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2SharedTargets",
@@ -398,7 +396,7 @@ func (p *S2Service) EnableS2SharedTargets(in *EnableS2SharedTargetsInput) (out *
 	if in == nil {
 		in = &EnableS2SharedTargetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "EnableS2SharedTargets",
@@ -425,7 +423,7 @@ func (p *S2Service) DisableS2SharedTargets(in *DisableS2SharedTargetsInput) (out
 	if in == nil {
 		in = &DisableS2SharedTargetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DisableS2SharedTargets",
@@ -452,7 +450,7 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttri
 	if in == nil {
 		in = &ModifyS2SharedTargetAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2SharedTargetAttributes",
@@ -479,7 +477,7 @@ func (p *S2Service) AttachToS2SharedTarget(in *AttachToS2SharedTargetInput) (out
 	if in == nil {
 		in = &AttachToS2SharedTargetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachToS2SharedTarget",
@@ -506,7 +504,7 @@ func (p *S2Service) DetachFromS2SharedTarget(in *DetachFromS2SharedTargetInput) 
 	if in == nil {
 		in = &DetachFromS2SharedTargetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachFromS2SharedTarget",
@@ -533,7 +531,7 @@ func (p *S2Service) DescribeS2DefaultParameters(in *DescribeS2DefaultParametersI
 	if in == nil {
 		in = &DescribeS2DefaultParametersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2DefaultParameters",
@@ -560,7 +558,7 @@ func (p *S2Service) CreateS2Group(in *CreateS2GroupInput) (out *CreateS2GroupOut
 	if in == nil {
 		in = &CreateS2GroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2Group",
@@ -587,7 +585,7 @@ func (p *S2Service) DescribeS2Groups(in *DescribeS2GroupsInput) (out *DescribeS2
 	if in == nil {
 		in = &DescribeS2GroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2Groups",
@@ -614,7 +612,7 @@ func (p *S2Service) ModifyS2Group(in *ModifyS2GroupInput) (out *ModifyS2GroupOut
 	if in == nil {
 		in = &ModifyS2GroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2Group",
@@ -641,7 +639,7 @@ func (p *S2Service) DeleteS2Groups(in *DeleteS2GroupsInput) (out *DeleteS2Groups
 	if in == nil {
 		in = &DeleteS2GroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2Groups",
@@ -668,7 +666,7 @@ func (p *S2Service) CreateS2Account(in *CreateS2AccountInput) (out *CreateS2Acco
 	if in == nil {
 		in = &CreateS2AccountInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateS2Account",
@@ -695,7 +693,7 @@ func (p *S2Service) DescribeS2Accounts(in *DescribeS2AccountsInput) (out *Descri
 	if in == nil {
 		in = &DescribeS2AccountsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeS2Accounts",
@@ -722,7 +720,7 @@ func (p *S2Service) ModifyS2Account(in *ModifyS2AccountInput) (out *ModifyS2Acco
 	if in == nil {
 		in = &ModifyS2AccountInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyS2Account",
@@ -749,7 +747,7 @@ func (p *S2Service) DeleteS2Accounts(in *DeleteS2AccountsInput) (out *DeleteS2Ac
 	if in == nil {
 		in = &DeleteS2AccountsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteS2Accounts",
@@ -776,7 +774,7 @@ func (p *S2Service) AssociateS2AccountGroup(in *AssociateS2AccountGroupInput) (o
 	if in == nil {
 		in = &AssociateS2AccountGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateS2AccountGroup",
@@ -803,7 +801,7 @@ func (p *S2Service) DissociateS2AccountGroup(in *DissociateS2AccountGroupInput) 
 	if in == nil {
 		in = &DissociateS2AccountGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateS2AccountGroup",

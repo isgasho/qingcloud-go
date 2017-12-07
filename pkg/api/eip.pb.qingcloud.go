@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type EIPServiceInterface interface {
 	DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutput, err error)
@@ -54,7 +52,7 @@ func (p *EIPService) DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutpu
 	if in == nil {
 		in = &DescribeEipsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeEips",
@@ -81,7 +79,7 @@ func (p *EIPService) AllocateEips(in *AllocateEipsInput) (out *AllocateEipsOutpu
 	if in == nil {
 		in = &AllocateEipsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AllocateEips",
@@ -108,7 +106,7 @@ func (p *EIPService) ReleaseEips(in *ReleaseEipsInput) (out *ReleaseEipsOutput, 
 	if in == nil {
 		in = &ReleaseEipsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ReleaseEips",
@@ -135,7 +133,7 @@ func (p *EIPService) AssociateEip(in *AssociateEipInput) (out *AssociateEipOutpu
 	if in == nil {
 		in = &AssociateEipInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateEip",
@@ -162,7 +160,7 @@ func (p *EIPService) DissociateEips(in *DissociateEipsInput) (out *DissociateEip
 	if in == nil {
 		in = &DissociateEipsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateEips",
@@ -189,7 +187,7 @@ func (p *EIPService) ChangeEipsBandwidth(in *ChangeEipsBandwidthInput) (out *Cha
 	if in == nil {
 		in = &ChangeEipsBandwidthInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeEipsBandwidth",
@@ -216,7 +214,7 @@ func (p *EIPService) ChangeEipsBillingMode(in *ChangeEipsBillingModeInput) (out 
 	if in == nil {
 		in = &ChangeEipsBillingModeInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeEipsBillingMode",
@@ -243,7 +241,7 @@ func (p *EIPService) ModifyEipAttributes(in *ModifyEipAttributesInput) (out *Mod
 	if in == nil {
 		in = &ModifyEipAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyEipAttributes",

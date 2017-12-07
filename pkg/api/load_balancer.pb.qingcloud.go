@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type LoadBalancerServiceInterface interface {
 	CreateLoadBalancer(in *CreateLoadBalancerInput) (out *CreateLoadBalancerOutput, err error)
@@ -77,7 +75,7 @@ func (p *LoadBalancerService) CreateLoadBalancer(in *CreateLoadBalancerInput) (o
 	if in == nil {
 		in = &CreateLoadBalancerInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateLoadBalancer",
@@ -104,7 +102,7 @@ func (p *LoadBalancerService) DescribeLoadBalancers(in *DescribeLoadBalancersInp
 	if in == nil {
 		in = &DescribeLoadBalancersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancers",
@@ -131,7 +129,7 @@ func (p *LoadBalancerService) DeleteLoadBalancers(in *DeleteLoadBalancersInput) 
 	if in == nil {
 		in = &DeleteLoadBalancersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancers",
@@ -158,7 +156,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *ModifyLoadBalance
 	if in == nil {
 		in = &ModifyLoadBalancerAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerAttributes",
@@ -185,7 +183,7 @@ func (p *LoadBalancerService) StartLoadBalancers(in *StartLoadBalancersInput) (o
 	if in == nil {
 		in = &StartLoadBalancersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartLoadBalancers",
@@ -212,7 +210,7 @@ func (p *LoadBalancerService) StopLoadBalancers(in *StopLoadBalancersInput) (out
 	if in == nil {
 		in = &StopLoadBalancersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopLoadBalancers",
@@ -239,7 +237,7 @@ func (p *LoadBalancerService) UpdateLoadBalancers(in *UpdateLoadBalancersInput) 
 	if in == nil {
 		in = &UpdateLoadBalancersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateLoadBalancers",
@@ -266,7 +264,7 @@ func (p *LoadBalancerService) ResizeLoadBalancers(in *ResizeLoadBalancersInput) 
 	if in == nil {
 		in = &ResizeLoadBalancersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeLoadBalancers",
@@ -293,7 +291,7 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *AssociateEipsToLoa
 	if in == nil {
 		in = &AssociateEipsToLoadBalancerInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateEipsToLoadBalancer",
@@ -320,7 +318,7 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *DissociateEipsF
 	if in == nil {
 		in = &DissociateEipsFromLoadBalancerInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateEipsFromLoadBalancer",
@@ -347,7 +345,7 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(in *AddLoadBalancerListen
 	if in == nil {
 		in = &AddLoadBalancerListenersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddLoadBalancerListeners",
@@ -374,7 +372,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *DescribeLoadBala
 	if in == nil {
 		in = &DescribeLoadBalancerListenersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerListeners",
@@ -401,7 +399,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *DeleteLoadBalancer
 	if in == nil {
 		in = &DeleteLoadBalancerListenersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerListeners",
@@ -428,7 +426,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *ModifyLoa
 	if in == nil {
 		in = &ModifyLoadBalancerListenerAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerListenerAttributes",
@@ -455,7 +453,7 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(in *AddLoadBalancerBackend
 	if in == nil {
 		in = &AddLoadBalancerBackendsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddLoadBalancerBackends",
@@ -482,7 +480,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *DescribeLoadBalan
 	if in == nil {
 		in = &DescribeLoadBalancerBackendsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerBackends",
@@ -509,7 +507,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *DeleteLoadBalancerB
 	if in == nil {
 		in = &DeleteLoadBalancerBackendsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerBackends",
@@ -536,7 +534,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *ModifyLoad
 	if in == nil {
 		in = &ModifyLoadBalancerBackendAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerBackendAttributes",
@@ -563,7 +561,7 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *CreateLoadBalancerPol
 	if in == nil {
 		in = &CreateLoadBalancerPolicyInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateLoadBalancerPolicy",
@@ -590,7 +588,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *DescribeLoadBalan
 	if in == nil {
 		in = &DescribeLoadBalancerPoliciesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerPolicies",
@@ -617,7 +615,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *ModifyLoadB
 	if in == nil {
 		in = &ModifyLoadBalancerPolicyAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerPolicyAttributes",
@@ -644,7 +642,7 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *ApplyLoadBalancerPolic
 	if in == nil {
 		in = &ApplyLoadBalancerPolicyInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyLoadBalancerPolicy",
@@ -671,7 +669,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *DeleteLoadBalancerP
 	if in == nil {
 		in = &DeleteLoadBalancerPoliciesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerPolicies",
@@ -698,7 +696,7 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *AddLoadBalancerPoli
 	if in == nil {
 		in = &AddLoadBalancerPolicyRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddLoadBalancerPolicyRules",
@@ -725,7 +723,7 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *DescribeLoadBa
 	if in == nil {
 		in = &DescribeLoadBalancerPolicyRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeLoadBalancerPolicyRules",
@@ -752,7 +750,7 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *ModifyL
 	if in == nil {
 		in = &ModifyLoadBalancerPolicyRuleAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyLoadBalancerPolicyRuleAttributes",
@@ -779,7 +777,7 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *DeleteLoadBalanc
 	if in == nil {
 		in = &DeleteLoadBalancerPolicyRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteLoadBalancerPolicyRules",
@@ -806,7 +804,7 @@ func (p *LoadBalancerService) CreateServerCertificate(in *CreateServerCertificat
 	if in == nil {
 		in = &CreateServerCertificateInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateServerCertificate",
@@ -833,7 +831,7 @@ func (p *LoadBalancerService) DescribeServerCertificates(in *DescribeServerCerti
 	if in == nil {
 		in = &DescribeServerCertificatesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeServerCertificates",
@@ -860,7 +858,7 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *ModifyServer
 	if in == nil {
 		in = &ModifyServerCertificateAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyServerCertificateAttributes",
@@ -887,7 +885,7 @@ func (p *LoadBalancerService) DeleteServerCertificates(in *DeleteServerCertifica
 	if in == nil {
 		in = &DeleteServerCertificatesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteServerCertificates",

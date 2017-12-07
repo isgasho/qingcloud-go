@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type SnapshotServiceInterface interface {
 	DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error)
@@ -53,7 +51,7 @@ func (p *SnapshotService) DescribeSnapshots(in *DescribeSnapshotsInput) (out *De
 	if in == nil {
 		in = &DescribeSnapshotsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSnapshots",
@@ -80,7 +78,7 @@ func (p *SnapshotService) CreateSnapshots(in *CreateSnapshotsInput) (out *Create
 	if in == nil {
 		in = &CreateSnapshotsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSnapshots",
@@ -107,7 +105,7 @@ func (p *SnapshotService) DeleteSnapshots(in *DeleteSnapshotsInput) (out *Delete
 	if in == nil {
 		in = &DeleteSnapshotsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSnapshots",
@@ -134,7 +132,7 @@ func (p *SnapshotService) ApplySnapshots(in *ApplySnapshotsInput) (out *ApplySna
 	if in == nil {
 		in = &ApplySnapshotsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplySnapshots",
@@ -161,7 +159,7 @@ func (p *SnapshotService) ModifySnapshotAttributes(in *ModifySnapshotAttributesI
 	if in == nil {
 		in = &ModifySnapshotAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySnapshotAttributes",
@@ -188,7 +186,7 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(in *CaptureInstanceFromSna
 	if in == nil {
 		in = &CaptureInstanceFromSnapshotInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CaptureInstanceFromSnapshot",
@@ -215,7 +213,7 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(in *CreateVolumeFromSnapshotI
 	if in == nil {
 		in = &CreateVolumeFromSnapshotInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateVolumeFromSnapshot",

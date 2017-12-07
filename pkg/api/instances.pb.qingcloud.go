@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type InstanceServiceInterface interface {
 	DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error)
@@ -58,7 +56,7 @@ func (p *InstanceService) DescribeInstances(in *DescribeInstancesInput) (out *De
 	if in == nil {
 		in = &DescribeInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeInstances",
@@ -85,7 +83,7 @@ func (p *InstanceService) RunInstances(in *RunInstancesInput) (out *RunInstances
 	if in == nil {
 		in = &RunInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RunInstances",
@@ -112,7 +110,7 @@ func (p *InstanceService) TerminateInstances(in *TerminateInstancesInput) (out *
 	if in == nil {
 		in = &TerminateInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "TerminateInstances",
@@ -139,7 +137,7 @@ func (p *InstanceService) StartInstances(in *StartInstancesInput) (out *StartIns
 	if in == nil {
 		in = &StartInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartInstances",
@@ -166,7 +164,7 @@ func (p *InstanceService) StopInstances(in *StopInstancesInput) (out *StopInstan
 	if in == nil {
 		in = &StopInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopInstances",
@@ -193,7 +191,7 @@ func (p *InstanceService) RestartInstances(in *RestartInstancesInput) (out *Rest
 	if in == nil {
 		in = &RestartInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestartInstances",
@@ -220,7 +218,7 @@ func (p *InstanceService) ResetInstances(in *ResetInstancesInput) (out *ResetIns
 	if in == nil {
 		in = &ResetInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResetInstances",
@@ -247,7 +245,7 @@ func (p *InstanceService) ResizeInstances(in *ResizeInstancesInput) (out *Resize
 	if in == nil {
 		in = &ResizeInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeInstances",
@@ -274,7 +272,7 @@ func (p *InstanceService) ModifyInstanceAttributes(in *ModifyInstanceAttributesI
 	if in == nil {
 		in = &ModifyInstanceAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyInstanceAttributes",
@@ -301,7 +299,7 @@ func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) 
 	if in == nil {
 		in = &DescribeInstanceTypesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeInstanceTypes",
@@ -328,7 +326,7 @@ func (p *InstanceService) CreateBrokers(in *CreateBrokersInput) (out *CreateBrok
 	if in == nil {
 		in = &CreateBrokersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateBrokers",
@@ -355,7 +353,7 @@ func (p *InstanceService) DeleteBrokers(in *DeleteBrokersInput) (out *DeleteBrok
 	if in == nil {
 		in = &DeleteBrokersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteBrokers",

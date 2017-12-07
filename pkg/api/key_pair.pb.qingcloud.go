@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type KeyPairServiceInterface interface {
 	DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error)
@@ -52,7 +50,7 @@ func (p *KeyPairService) DescribeKeyPairs(in *DescribeKeyPairsInput) (out *Descr
 	if in == nil {
 		in = &DescribeKeyPairsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeKeyPairs",
@@ -79,7 +77,7 @@ func (p *KeyPairService) CreateKeyPair(in *CreateKeyPairInput) (out *CreateKeyPa
 	if in == nil {
 		in = &CreateKeyPairInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateKeyPair",
@@ -106,7 +104,7 @@ func (p *KeyPairService) DeleteKeyPairs(in *DeleteKeyPairsInput) (out *DeleteKey
 	if in == nil {
 		in = &DeleteKeyPairsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteKeyPairs",
@@ -133,7 +131,7 @@ func (p *KeyPairService) AttachKeyPairs(in *AttachKeyPairsInput) (out *AttachKey
 	if in == nil {
 		in = &AttachKeyPairsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachKeyPairs",
@@ -160,7 +158,7 @@ func (p *KeyPairService) DetachKeyPairs(in *DetachKeyPairsInput) (out *DetachKey
 	if in == nil {
 		in = &DetachKeyPairsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachKeyPairs",
@@ -187,7 +185,7 @@ func (p *KeyPairService) ModifyKeyPairAttributes(in *ModifyKeyPairAttributesInpu
 	if in == nil {
 		in = &ModifyKeyPairAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyKeyPairAttributes",

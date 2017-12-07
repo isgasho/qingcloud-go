@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type DNSAliasServiceInterface interface {
 	DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error)
@@ -50,7 +48,7 @@ func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *
 	if in == nil {
 		in = &DescribeDNSAliasesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeDNSAliases",
@@ -77,7 +75,7 @@ func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *As
 	if in == nil {
 		in = &AssociateDNSAliasInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateDNSAlias",
@@ -104,7 +102,7 @@ func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (o
 	if in == nil {
 		in = &DissociateDNSAliasesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateDNSAliases",
@@ -131,7 +129,7 @@ func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOut
 	if in == nil {
 		in = &GetDNSLabelInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetDNSLabel",

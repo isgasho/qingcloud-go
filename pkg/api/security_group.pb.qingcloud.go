@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type SecurityGroupServiceInterface interface {
 	DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error)
@@ -64,7 +62,7 @@ func (p *SecurityGroupService) DescribeSecurityGroups(in *DescribeSecurityGroups
 	if in == nil {
 		in = &DescribeSecurityGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroups",
@@ -91,7 +89,7 @@ func (p *SecurityGroupService) CreateSecurityGroup(in *CreateSecurityGroupInput)
 	if in == nil {
 		in = &CreateSecurityGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSecurityGroup",
@@ -118,7 +116,7 @@ func (p *SecurityGroupService) DeleteSecurityGroups(in *DeleteSecurityGroupsInpu
 	if in == nil {
 		in = &DeleteSecurityGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroups",
@@ -145,7 +143,7 @@ func (p *SecurityGroupService) ApplySecurityGroup(in *ApplySecurityGroupInput) (
 	if in == nil {
 		in = &ApplySecurityGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplySecurityGroup",
@@ -172,7 +170,7 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *ModifySecurityG
 	if in == nil {
 		in = &ModifySecurityGroupAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySecurityGroupAttributes",
@@ -199,7 +197,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(in *DescribeSecurityGr
 	if in == nil {
 		in = &DescribeSecurityGroupRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroupRules",
@@ -226,7 +224,7 @@ func (p *SecurityGroupService) AddSecurityGroupRules(in *AddSecurityGroupRulesIn
 	if in == nil {
 		in = &AddSecurityGroupRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddSecurityGroupRules",
@@ -253,7 +251,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(in *DeleteSecurityGroupR
 	if in == nil {
 		in = &DeleteSecurityGroupRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroupRules",
@@ -280,7 +278,7 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *ModifySecur
 	if in == nil {
 		in = &ModifySecurityGroupRuleAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySecurityGroupRuleAttributes",
@@ -307,7 +305,7 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *CreateSecurityGro
 	if in == nil {
 		in = &CreateSecurityGroupSnapshotInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSecurityGroupSnapshot",
@@ -334,7 +332,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *DescribeSecuri
 	if in == nil {
 		in = &DescribeSecurityGroupSnapshotsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroupSnapshots",
@@ -361,7 +359,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *DeleteSecurityGr
 	if in == nil {
 		in = &DeleteSecurityGroupSnapshotsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroupSnapshots",
@@ -388,7 +386,7 @@ func (p *SecurityGroupService) RollbackSecurityGroup(in *RollbackSecurityGroupIn
 	if in == nil {
 		in = &RollbackSecurityGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RollbackSecurityGroup",
@@ -415,7 +413,7 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *DescribeSecurityG
 	if in == nil {
 		in = &DescribeSecurityGroupIPSetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSecurityGroupIPSets",
@@ -442,7 +440,7 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *CreateSecurityGroupI
 	if in == nil {
 		in = &CreateSecurityGroupIPSetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSecurityGroupIPSet",
@@ -469,7 +467,7 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *DeleteSecurityGroup
 	if in == nil {
 		in = &DeleteSecurityGroupIPSetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSecurityGroupIPSets",
@@ -496,7 +494,7 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *ModifySecu
 	if in == nil {
 		in = &ModifySecurityGroupIPSetAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySecurityGroupIPSetAttributes",
@@ -523,7 +521,7 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(in *CopySecurityGroupIPSe
 	if in == nil {
 		in = &CopySecurityGroupIPSetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CopySecurityGroupIPSets",

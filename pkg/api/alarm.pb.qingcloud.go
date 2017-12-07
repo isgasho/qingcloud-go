@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type AlarmServiceInterface interface {
 	DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (out *DescribeAlarmPoliciesOutput, err error)
@@ -63,7 +61,7 @@ func (p *AlarmService) DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (ou
 	if in == nil {
 		in = &DescribeAlarmPoliciesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmPolicies",
@@ -90,7 +88,7 @@ func (p *AlarmService) CreateAlarmPolicy(in *CreateAlarmPolicyInput) (out *Creat
 	if in == nil {
 		in = &CreateAlarmPolicyInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateAlarmPolicy",
@@ -117,7 +115,7 @@ func (p *AlarmService) ModifyAlarmPolicyAttributes(in *ModifyAlarmPolicyAttribut
 	if in == nil {
 		in = &ModifyAlarmPolicyAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyAlarmPolicyAttributes",
@@ -144,7 +142,7 @@ func (p *AlarmService) DeleteAlarmPolicies(in *DeleteAlarmPoliciesInput) (out *D
 	if in == nil {
 		in = &DeleteAlarmPoliciesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteAlarmPolicies",
@@ -171,7 +169,7 @@ func (p *AlarmService) DescribeAlarmPolicyRules(in *DescribeAlarmPolicyRulesInpu
 	if in == nil {
 		in = &DescribeAlarmPolicyRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmPolicyRules",
@@ -198,7 +196,7 @@ func (p *AlarmService) AddAlarmPolicyRules(in *AddAlarmPolicyRulesInput) (out *A
 	if in == nil {
 		in = &AddAlarmPolicyRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddAlarmPolicyRules",
@@ -225,7 +223,7 @@ func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *ModifyAlarmPolicyRule
 	if in == nil {
 		in = &ModifyAlarmPolicyRuleAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyAlarmPolicyRuleAttributes",
@@ -252,7 +250,7 @@ func (p *AlarmService) DeleteAlarmPolicyRules(in *DeleteAlarmPolicyRulesInput) (
 	if in == nil {
 		in = &DeleteAlarmPolicyRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteAlarmPolicyRules",
@@ -279,7 +277,7 @@ func (p *AlarmService) DescribeAlarmPolicyActions(in *DescribeAlarmPolicyActions
 	if in == nil {
 		in = &DescribeAlarmPolicyActionsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmPolicyActions",
@@ -306,7 +304,7 @@ func (p *AlarmService) AddAlarmPolicyActions(in *AddAlarmPolicyActionsInput) (ou
 	if in == nil {
 		in = &AddAlarmPolicyActionsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddAlarmPolicyActions",
@@ -333,7 +331,7 @@ func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *ModifyAlarmPolicyAc
 	if in == nil {
 		in = &ModifyAlarmPolicyActionAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyAlarmPolicyActionAttributes",
@@ -360,7 +358,7 @@ func (p *AlarmService) DeleteAlarmPolicyActions(in *DeleteAlarmPolicyActionsInpu
 	if in == nil {
 		in = &DeleteAlarmPolicyActionsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteAlarmPolicyActions",
@@ -387,7 +385,7 @@ func (p *AlarmService) AssociateAlarmPolicy(in *AssociateAlarmPolicyInput) (out 
 	if in == nil {
 		in = &AssociateAlarmPolicyInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AssociateAlarmPolicy",
@@ -414,7 +412,7 @@ func (p *AlarmService) DissociateAlarmPolicy(in *DissociateAlarmPolicyInput) (ou
 	if in == nil {
 		in = &DissociateAlarmPolicyInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DissociateAlarmPolicy",
@@ -441,7 +439,7 @@ func (p *AlarmService) ApplyAlarmPolicy(in *ApplyAlarmPolicyInput) (out *ApplyAl
 	if in == nil {
 		in = &ApplyAlarmPolicyInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyAlarmPolicy",
@@ -468,7 +466,7 @@ func (p *AlarmService) DescribeAlarms(in *DescribeAlarmsInput) (out *DescribeAla
 	if in == nil {
 		in = &DescribeAlarmsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarms",
@@ -495,7 +493,7 @@ func (p *AlarmService) DescribeAlarmHistory(in *DescribeAlarmHistoryInput) (out 
 	if in == nil {
 		in = &DescribeAlarmHistoryInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeAlarmHistory",

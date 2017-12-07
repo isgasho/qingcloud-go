@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type SpanServiceInterface interface {
 	CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error)
@@ -53,7 +51,7 @@ func (p *SpanService) CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, er
 	if in == nil {
 		in = &CreateSpanInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSpan",
@@ -80,7 +78,7 @@ func (p *SpanService) DescribeSpans(in *DescribeSpansInput) (out *DescribeSpansO
 	if in == nil {
 		in = &DescribeSpansInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSpans",
@@ -107,7 +105,7 @@ func (p *SpanService) DeleteSpans(in *DeleteSpansInput) (out *DeleteSpansOutput,
 	if in == nil {
 		in = &DeleteSpansInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSpans",
@@ -134,7 +132,7 @@ func (p *SpanService) AddSpanMembers(in *AddSpanMembersInput) (out *AddSpanMembe
 	if in == nil {
 		in = &AddSpanMembersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddSpanMembers",
@@ -161,7 +159,7 @@ func (p *SpanService) RemoveSpanMembers(in *RemoveSpanMembersInput) (out *Remove
 	if in == nil {
 		in = &RemoveSpanMembersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RemoveSpanMembers",
@@ -188,7 +186,7 @@ func (p *SpanService) ModifySpanAttributes(in *ModifySpanAttributesInput) (out *
 	if in == nil {
 		in = &ModifySpanAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySpanAttributes",
@@ -215,7 +213,7 @@ func (p *SpanService) UpdateSpan(in *UpdateSpanInput) (out *UpdateSpanOutput, er
 	if in == nil {
 		in = &UpdateSpanInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateSpan",

@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type NicServiceInterface interface {
 	CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error)
@@ -52,7 +50,7 @@ func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err
 	if in == nil {
 		in = &CreateNicsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateNics",
@@ -79,7 +77,7 @@ func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutpu
 	if in == nil {
 		in = &DescribeNicsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeNics",
@@ -106,7 +104,7 @@ func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err
 	if in == nil {
 		in = &AttachNicsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachNics",
@@ -133,7 +131,7 @@ func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err
 	if in == nil {
 		in = &DetachNicsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachNics",
@@ -160,7 +158,7 @@ func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *Mod
 	if in == nil {
 		in = &ModifyNicAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyNicAttributes",
@@ -187,7 +185,7 @@ func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err
 	if in == nil {
 		in = &DeleteNicsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteNics",

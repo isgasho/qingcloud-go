@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type ClusterServiceInterface interface {
 	CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error)
@@ -67,7 +65,7 @@ func (p *ClusterService) CreateCluster(in *CreateClusterInput) (out *CreateClust
 	if in == nil {
 		in = &CreateClusterInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateCluster",
@@ -94,7 +92,7 @@ func (p *ClusterService) DescribeClusters(in *DescribeClustersInput) (out *Descr
 	if in == nil {
 		in = &DescribeClustersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeClusters",
@@ -121,7 +119,7 @@ func (p *ClusterService) DescribeClusterNodes(in *DescribeClusterNodesInput) (ou
 	if in == nil {
 		in = &DescribeClusterNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeClusterNodes",
@@ -148,7 +146,7 @@ func (p *ClusterService) StopClusters(in *StopClustersInput) (out *StopClustersO
 	if in == nil {
 		in = &StopClustersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopClusters",
@@ -175,7 +173,7 @@ func (p *ClusterService) StartClusters(in *StartClustersInput) (out *StartCluste
 	if in == nil {
 		in = &StartClustersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartClusters",
@@ -202,7 +200,7 @@ func (p *ClusterService) DeleteClusters(in *DeleteClustersInput) (out *DeleteClu
 	if in == nil {
 		in = &DeleteClustersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteClusters",
@@ -229,7 +227,7 @@ func (p *ClusterService) Lease(in *LeaseInput) (out *LeaseOutput, err error) {
 	if in == nil {
 		in = &LeaseInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "Lease",
@@ -256,7 +254,7 @@ func (p *ClusterService) AddClusterNodes(in *AddClusterNodesInput) (out *AddClus
 	if in == nil {
 		in = &AddClusterNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddClusterNodes",
@@ -283,7 +281,7 @@ func (p *ClusterService) DeleteClusterNodes(in *DeleteClusterNodesInput) (out *D
 	if in == nil {
 		in = &DeleteClusterNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteClusterNodes",
@@ -310,7 +308,7 @@ func (p *ClusterService) ResizeCluster(in *ResizeClusterInput) (out *ResizeClust
 	if in == nil {
 		in = &ResizeClusterInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeCluster",
@@ -337,7 +335,7 @@ func (p *ClusterService) ChangeClusterVxnet(in *ChangeClusterVxnetInput) (out *C
 	if in == nil {
 		in = &ChangeClusterVxnetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeClusterVxnet",
@@ -364,7 +362,7 @@ func (p *ClusterService) SuspendClusters(in *SuspendClustersInput) (out *Suspend
 	if in == nil {
 		in = &SuspendClustersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "SuspendClusters",
@@ -391,7 +389,7 @@ func (p *ClusterService) UpdateClusterEnvironment(in *UpdateClusterEnvironmentIn
 	if in == nil {
 		in = &UpdateClusterEnvironmentInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateClusterEnvironment",
@@ -418,7 +416,7 @@ func (p *ClusterService) ModifyClusterAttributes(in *ModifyClusterAttributesInpu
 	if in == nil {
 		in = &ModifyClusterAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyClusterAttributes",
@@ -445,7 +443,7 @@ func (p *ClusterService) ModifyClusterNodeAttributes(in *ModifyClusterNodeAttrib
 	if in == nil {
 		in = &ModifyClusterNodeAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyClusterNodeAttributes",
@@ -472,7 +470,7 @@ func (p *ClusterService) GetClustersStats(in *GetClustersStatsInput) (out *GetCl
 	if in == nil {
 		in = &GetClustersStatsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetClustersStats",
@@ -499,7 +497,7 @@ func (p *ClusterService) DescribeClusterUsers(in *DescribeClusterUsersInput) (ou
 	if in == nil {
 		in = &DescribeClusterUsersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeClusterUsers",
@@ -526,7 +524,7 @@ func (p *ClusterService) RestartClusterService(in *RestartClusterServiceInput) (
 	if in == nil {
 		in = &RestartClusterServiceInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestartClusterService",
@@ -553,7 +551,7 @@ func (p *ClusterService) UpgradeClusters(in *UpgradeClustersInput) (out *Upgrade
 	if in == nil {
 		in = &UpgradeClustersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpgradeClusters",
@@ -580,7 +578,7 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *AuthorizeCluster
 	if in == nil {
 		in = &AuthorizeClustersBrokerToDeveloperInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AuthorizeClustersBrokerToDeveloper",
@@ -607,7 +605,7 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBro
 	if in == nil {
 		in = &RevokeClustersBrokerFromDeveloperInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RevokeClustersBrokerFromDeveloper",

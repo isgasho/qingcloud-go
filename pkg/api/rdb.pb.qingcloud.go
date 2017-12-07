@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type RDBServiceInterface interface {
 	CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error)
@@ -63,7 +61,7 @@ func (p *RDBService) CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err er
 	if in == nil {
 		in = &CreateRDBInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateRDB",
@@ -90,7 +88,7 @@ func (p *RDBService) DescribeRDBs(in *DescribeRDBsInput) (out *DescribeRDBsOutpu
 	if in == nil {
 		in = &DescribeRDBsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRDBs",
@@ -117,7 +115,7 @@ func (p *RDBService) DeleteRDBs(in *DeleteRDBsInput) (out *DeleteRDBsOutput, err
 	if in == nil {
 		in = &DeleteRDBsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRDBs",
@@ -144,7 +142,7 @@ func (p *RDBService) StartRDBs(in *StartRDBsInput) (out *StartRDBsOutput, err er
 	if in == nil {
 		in = &StartRDBsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartRDBs",
@@ -171,7 +169,7 @@ func (p *RDBService) StopRDBs(in *StopRDBsInput) (out *StopRDBsOutput, err error
 	if in == nil {
 		in = &StopRDBsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopRDBs",
@@ -198,7 +196,7 @@ func (p *RDBService) ResizeRDBs(in *ResizeRDBsInput) (out *ResizeRDBsOutput, err
 	if in == nil {
 		in = &ResizeRDBsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeRDBs",
@@ -225,7 +223,7 @@ func (p *RDBService) RDBsLeaveVxnet(in *RDBsLeaveVxnetInput) (out *RDBsLeaveVxne
 	if in == nil {
 		in = &RDBsLeaveVxnetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RDBsLeaveVxnet",
@@ -252,7 +250,7 @@ func (p *RDBService) RDBsJoinVxnet(in *RDBsJoinVxnetInput) (out *RDBsJoinVxnetOu
 	if in == nil {
 		in = &RDBsJoinVxnetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RDBsJoinVxnet",
@@ -279,7 +277,7 @@ func (p *RDBService) CreateRDBFromSnapshot(in *CreateRDBFromSnapshotInput) (out 
 	if in == nil {
 		in = &CreateRDBFromSnapshotInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateRDBFromSnapshot",
@@ -306,7 +304,7 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *CreateTempRDBInstance
 	if in == nil {
 		in = &CreateTempRDBInstanceFromSnapshotInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateTempRDBInstanceFromSnapshot",
@@ -333,7 +331,7 @@ func (p *RDBService) GetRDBInstanceFiles(in *GetRDBInstanceFilesInput) (out *Get
 	if in == nil {
 		in = &GetRDBInstanceFilesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetRDBInstanceFiles",
@@ -360,7 +358,7 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(in *CopyRDBInstanceFilesToFTPInpu
 	if in == nil {
 		in = &CopyRDBInstanceFilesToFTPInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CopyRDBInstanceFilesToFTP",
@@ -387,7 +385,7 @@ func (p *RDBService) PurgeRDBLogs(in *PurgeRDBLogsInput) (out *PurgeRDBLogsOutpu
 	if in == nil {
 		in = &PurgeRDBLogsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PurgeRDBLogs",
@@ -414,7 +412,7 @@ func (p *RDBService) CeaseRDBInstance(in *CeaseRDBInstanceInput) (out *CeaseRDBI
 	if in == nil {
 		in = &CeaseRDBInstanceInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CeaseRDBInstance",
@@ -441,7 +439,7 @@ func (p *RDBService) ModifyRDBParameters(in *ModifyRDBParametersInput) (out *Mod
 	if in == nil {
 		in = &ModifyRDBParametersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRDBParameters",
@@ -468,7 +466,7 @@ func (p *RDBService) ApplyRDBParameterGroup(in *ApplyRDBParameterGroupInput) (ou
 	if in == nil {
 		in = &ApplyRDBParameterGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyRDBParameterGroup",
@@ -495,7 +493,7 @@ func (p *RDBService) DescribeRDBParameters(in *DescribeRDBParametersInput) (out 
 	if in == nil {
 		in = &DescribeRDBParametersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRDBParameters",

@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type SubuserServiceInterface interface {
 	DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error)
@@ -51,7 +49,7 @@ func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *Descr
 	if in == nil {
 		in = &DescribeSubUsersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSubUsers",
@@ -78,7 +76,7 @@ func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUs
 	if in == nil {
 		in = &CreateSubUserInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSubUser",
@@ -105,7 +103,7 @@ func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInpu
 	if in == nil {
 		in = &ModifySubUserAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifySubUserAttributes",
@@ -132,7 +130,7 @@ func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSub
 	if in == nil {
 		in = &DeleteSubUsersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSubUsers",
@@ -159,7 +157,7 @@ func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *Restore
 	if in == nil {
 		in = &RestoreSubUsersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestoreSubUsers",

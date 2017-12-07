@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type TagServiceInterface interface {
 	DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error)
@@ -52,7 +50,7 @@ func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutpu
 	if in == nil {
 		in = &DescribeTagsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeTags",
@@ -79,7 +77,7 @@ func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err er
 	if in == nil {
 		in = &CreateTagInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateTag",
@@ -106,7 +104,7 @@ func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err
 	if in == nil {
 		in = &DeleteTagsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteTags",
@@ -133,7 +131,7 @@ func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *Mod
 	if in == nil {
 		in = &ModifyTagAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyTagAttributes",
@@ -160,7 +158,7 @@ func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err
 	if in == nil {
 		in = &AttachTagsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AttachTags",
@@ -187,7 +185,7 @@ func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err
 	if in == nil {
 		in = &DetachTagsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DetachTags",

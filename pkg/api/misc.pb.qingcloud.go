@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type MiscServiceInterface interface {
 	GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error)
@@ -49,7 +47,7 @@ func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuota
 	if in == nil {
 		in = &GrantQuotaIndepInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GrantQuotaIndep",
@@ -76,7 +74,7 @@ func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQu
 	if in == nil {
 		in = &RevokeQuotaIndepInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RevokeQuotaIndep",
@@ -103,7 +101,7 @@ func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutp
 	if in == nil {
 		in = &GetQuotaLeftInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetQuotaLeft",

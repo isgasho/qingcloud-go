@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type CacheServiceInterface interface {
 	DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error)
@@ -70,7 +68,7 @@ func (p *CacheService) DescribeCaches(in *DescribeCachesInput) (out *DescribeCac
 	if in == nil {
 		in = &DescribeCachesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCaches",
@@ -97,7 +95,7 @@ func (p *CacheService) CreateCache(in *CreateCacheInput) (out *CreateCacheOutput
 	if in == nil {
 		in = &CreateCacheInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateCache",
@@ -124,7 +122,7 @@ func (p *CacheService) StopCaches(in *StopCachesInput) (out *StopCachesOutput, e
 	if in == nil {
 		in = &StopCachesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopCaches",
@@ -151,7 +149,7 @@ func (p *CacheService) StartCaches(in *StartCachesInput) (out *StartCachesOutput
 	if in == nil {
 		in = &StartCachesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartCaches",
@@ -178,7 +176,7 @@ func (p *CacheService) RestartCaches(in *RestartCachesInput) (out *RestartCaches
 	if in == nil {
 		in = &RestartCachesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestartCaches",
@@ -205,7 +203,7 @@ func (p *CacheService) DeleteCaches(in *DeleteCachesInput) (out *DeleteCachesOut
 	if in == nil {
 		in = &DeleteCachesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteCaches",
@@ -232,7 +230,7 @@ func (p *CacheService) ResizeCaches(in *ResizeCachesInput) (out *ResizeCachesOut
 	if in == nil {
 		in = &ResizeCachesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResizeCaches",
@@ -259,7 +257,7 @@ func (p *CacheService) UpdateCache(in *UpdateCacheInput) (out *UpdateCacheOutput
 	if in == nil {
 		in = &UpdateCacheInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateCache",
@@ -286,7 +284,7 @@ func (p *CacheService) ChangeCacheVxnet(in *ChangeCacheVxnetInput) (out *ChangeC
 	if in == nil {
 		in = &ChangeCacheVxnetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ChangeCacheVxnet",
@@ -313,7 +311,7 @@ func (p *CacheService) ModifyCacheAttributes(in *ModifyCacheAttributesInput) (ou
 	if in == nil {
 		in = &ModifyCacheAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyCacheAttributes",
@@ -340,7 +338,7 @@ func (p *CacheService) DescribeCacheNodes(in *DescribeCacheNodesInput) (out *Des
 	if in == nil {
 		in = &DescribeCacheNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCacheNodes",
@@ -367,7 +365,7 @@ func (p *CacheService) AddCacheNodes(in *AddCacheNodesInput) (out *AddCacheNodes
 	if in == nil {
 		in = &AddCacheNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddCacheNodes",
@@ -394,7 +392,7 @@ func (p *CacheService) DeleteCacheNodes(in *DeleteCacheNodesInput) (out *DeleteC
 	if in == nil {
 		in = &DeleteCacheNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteCacheNodes",
@@ -421,7 +419,7 @@ func (p *CacheService) RestartCacheNodes(in *RestartCacheNodesInput) (out *Resta
 	if in == nil {
 		in = &RestartCacheNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RestartCacheNodes",
@@ -448,7 +446,7 @@ func (p *CacheService) ModifyCacheNodeAttributes(in *ModifyCacheNodeAttributesIn
 	if in == nil {
 		in = &ModifyCacheNodeAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyCacheNodeAttributes",
@@ -475,7 +473,7 @@ func (p *CacheService) CreateCacheFromSnapshot(in *CreateCacheFromSnapshotInput)
 	if in == nil {
 		in = &CreateCacheFromSnapshotInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateCacheFromSnapshot",
@@ -502,7 +500,7 @@ func (p *CacheService) DescribeCacheParameterGroups(in *DescribeCacheParameterGr
 	if in == nil {
 		in = &DescribeCacheParameterGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCacheParameterGroups",
@@ -529,7 +527,7 @@ func (p *CacheService) CreateCacheParameterGroup(in *CreateCacheParameterGroupIn
 	if in == nil {
 		in = &CreateCacheParameterGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateCacheParameterGroup",
@@ -556,7 +554,7 @@ func (p *CacheService) ApplyCacheParameterGroup(in *ApplyCacheParameterGroupInpu
 	if in == nil {
 		in = &ApplyCacheParameterGroupInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ApplyCacheParameterGroup",
@@ -583,7 +581,7 @@ func (p *CacheService) DeleteCacheParameterGroups(in *DeleteCacheParameterGroups
 	if in == nil {
 		in = &DeleteCacheParameterGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteCacheParameterGroups",
@@ -610,7 +608,7 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(in *ModifyCacheParame
 	if in == nil {
 		in = &ModifyCacheParameterGroupAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyCacheParameterGroupAttributes",
@@ -637,7 +635,7 @@ func (p *CacheService) DescribeCacheParameters(in *DescribeCacheParametersInput)
 	if in == nil {
 		in = &DescribeCacheParametersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeCacheParameters",
@@ -664,7 +662,7 @@ func (p *CacheService) UpdateCacheParameters(in *UpdateCacheParametersInput) (ou
 	if in == nil {
 		in = &UpdateCacheParametersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateCacheParameters",
@@ -691,7 +689,7 @@ func (p *CacheService) ResetCacheParameters(in *ResetCacheParametersInput) (out 
 	if in == nil {
 		in = &ResetCacheParametersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ResetCacheParameters",

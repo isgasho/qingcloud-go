@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type SparkServiceInterface interface {
 	CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error)
@@ -53,7 +51,7 @@ func (p *SparkService) CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput
 	if in == nil {
 		in = &CreateSparkInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateSpark",
@@ -80,7 +78,7 @@ func (p *SparkService) DescribeSparks(in *DescribeSparksInput) (out *DescribeSpa
 	if in == nil {
 		in = &DescribeSparksInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSparks",
@@ -107,7 +105,7 @@ func (p *SparkService) AddSparkNodes(in *AddSparkNodesInput) (out *AddSparkNodes
 	if in == nil {
 		in = &AddSparkNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddSparkNodes",
@@ -134,7 +132,7 @@ func (p *SparkService) DeleteSparkNodes(in *DeleteSparkNodesInput) (out *DeleteS
 	if in == nil {
 		in = &DeleteSparkNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSparkNodes",
@@ -161,7 +159,7 @@ func (p *SparkService) StartSparks(in *StartSparksInput) (out *StartSparksOutput
 	if in == nil {
 		in = &StartSparksInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartSparks",
@@ -188,7 +186,7 @@ func (p *SparkService) StopSparks(in *StopSparksInput) (out *StopSparksOutput, e
 	if in == nil {
 		in = &StopSparksInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopSparks",
@@ -215,7 +213,7 @@ func (p *SparkService) DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOut
 	if in == nil {
 		in = &DeleteSparksInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteSparks",

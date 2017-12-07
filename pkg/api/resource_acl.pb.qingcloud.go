@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type ResourceACLServiceInterface interface {
 	DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error)
@@ -73,7 +71,7 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(in *DescribeSharedReso
 	if in == nil {
 		in = &DescribeSharedResourceGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeSharedResourceGroups",
@@ -100,7 +98,7 @@ func (p *ResourceACLService) DescribeResourceGroups(in *DescribeResourceGroupsIn
 	if in == nil {
 		in = &DescribeResourceGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeResourceGroups",
@@ -127,7 +125,7 @@ func (p *ResourceACLService) CreateResourceGroups(in *CreateResourceGroupsInput)
 	if in == nil {
 		in = &CreateResourceGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateResourceGroups",
@@ -154,7 +152,7 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(in *ModifyResourceGro
 	if in == nil {
 		in = &ModifyResourceGroupAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyResourceGroupAttributes",
@@ -181,7 +179,7 @@ func (p *ResourceACLService) DeleteResourceGroups(in *DeleteResourceGroupsInput)
 	if in == nil {
 		in = &DeleteResourceGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteResourceGroups",
@@ -208,7 +206,7 @@ func (p *ResourceACLService) DescribeResourceGroupItems(in *DescribeResourceGrou
 	if in == nil {
 		in = &DescribeResourceGroupItemsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeResourceGroupItems",
@@ -235,7 +233,7 @@ func (p *ResourceACLService) AddResourceGroupItems(in *AddResourceGroupItemsInpu
 	if in == nil {
 		in = &AddResourceGroupItemsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddResourceGroupItems",
@@ -262,7 +260,7 @@ func (p *ResourceACLService) DeleteResourceGroupItems(in *DeleteResourceGroupIte
 	if in == nil {
 		in = &DeleteResourceGroupItemsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteResourceGroupItems",
@@ -289,7 +287,7 @@ func (p *ResourceACLService) DescribeUserGroups(in *DescribeUserGroupsInput) (ou
 	if in == nil {
 		in = &DescribeUserGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeUserGroups",
@@ -316,7 +314,7 @@ func (p *ResourceACLService) CreateUserGroups(in *CreateUserGroupsInput) (out *C
 	if in == nil {
 		in = &CreateUserGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateUserGroups",
@@ -343,7 +341,7 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(in *ModifyUserGroupAttrib
 	if in == nil {
 		in = &ModifyUserGroupAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyUserGroupAttributes",
@@ -370,7 +368,7 @@ func (p *ResourceACLService) DeleteUserGroups(in *DeleteUserGroupsInput) (out *D
 	if in == nil {
 		in = &DeleteUserGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteUserGroups",
@@ -397,7 +395,7 @@ func (p *ResourceACLService) DescribeUserGroupMembers(in *DescribeUserGroupMembe
 	if in == nil {
 		in = &DescribeUserGroupMembersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeUserGroupMembers",
@@ -424,7 +422,7 @@ func (p *ResourceACLService) AddUserGroupMembers(in *AddUserGroupMembersInput) (
 	if in == nil {
 		in = &AddUserGroupMembersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddUserGroupMembers",
@@ -451,7 +449,7 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *ModifyUserGroup
 	if in == nil {
 		in = &ModifyUserGroupMemberAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyUserGroupMemberAttributes",
@@ -478,7 +476,7 @@ func (p *ResourceACLService) DeleteUserGroupMembers(in *DeleteUserGroupMembersIn
 	if in == nil {
 		in = &DeleteUserGroupMembersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteUserGroupMembers",
@@ -505,7 +503,7 @@ func (p *ResourceACLService) DescribeGroupRoles(in *DescribeGroupRolesInput) (ou
 	if in == nil {
 		in = &DescribeGroupRolesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeGroupRoles",
@@ -532,7 +530,7 @@ func (p *ResourceACLService) CreateGroupRoles(in *CreateGroupRolesInput) (out *C
 	if in == nil {
 		in = &CreateGroupRolesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateGroupRoles",
@@ -559,7 +557,7 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(in *ModifyGroupRoleAttrib
 	if in == nil {
 		in = &ModifyGroupRoleAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyGroupRoleAttributes",
@@ -586,7 +584,7 @@ func (p *ResourceACLService) DeleteGroupRoles(in *DeleteGroupRolesInput) (out *D
 	if in == nil {
 		in = &DeleteGroupRolesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteGroupRoles",
@@ -613,7 +611,7 @@ func (p *ResourceACLService) DescribeGroupRoleRules(in *DescribeGroupRoleRulesIn
 	if in == nil {
 		in = &DescribeGroupRoleRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeGroupRoleRules",
@@ -640,7 +638,7 @@ func (p *ResourceACLService) AddGroupRoleRules(in *AddGroupRoleRulesInput) (out 
 	if in == nil {
 		in = &AddGroupRoleRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddGroupRoleRules",
@@ -667,7 +665,7 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *ModifyGroupRoleRu
 	if in == nil {
 		in = &ModifyGroupRoleRuleAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyGroupRoleRuleAttributes",
@@ -694,7 +692,7 @@ func (p *ResourceACLService) DeleteGroupRoleRules(in *DeleteGroupRoleRulesInput)
 	if in == nil {
 		in = &DeleteGroupRoleRulesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteGroupRoleRules",
@@ -721,7 +719,7 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *GrantResourceGr
 	if in == nil {
 		in = &GrantResourceGroupsToUserGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GrantResourceGroupsToUserGroups",
@@ -748,7 +746,7 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *RevokeResour
 	if in == nil {
 		in = &RevokeResourceGroupsFromUserGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RevokeResourceGroupsFromUserGroups",
@@ -775,7 +773,7 @@ func (p *ResourceACLService) DescribeResourceUserGroups(in *DescribeResourceUser
 	if in == nil {
 		in = &DescribeResourceUserGroupsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeResourceUserGroups",

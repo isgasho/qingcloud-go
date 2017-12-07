@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type HadoopServiceInterface interface {
 	AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error)
@@ -50,7 +48,7 @@ func (p *HadoopService) AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopN
 	if in == nil {
 		in = &AddHadoopNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddHadoopNodes",
@@ -77,7 +75,7 @@ func (p *HadoopService) DeleteHadoopNodes(in *DeleteHadoopNodesInput) (out *Dele
 	if in == nil {
 		in = &DeleteHadoopNodesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteHadoopNodes",
@@ -104,7 +102,7 @@ func (p *HadoopService) StartHadoops(in *StartHadoopsInput) (out *StartHadoopsOu
 	if in == nil {
 		in = &StartHadoopsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StartHadoops",
@@ -131,7 +129,7 @@ func (p *HadoopService) StopHadoops(in *StopHadoopsInput) (out *StopHadoopsOutpu
 	if in == nil {
 		in = &StopHadoopsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "StopHadoops",

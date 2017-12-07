@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type VxnetServiceInterface interface {
 	DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxnetsOutput, err error)
@@ -53,7 +51,7 @@ func (p *VxnetService) DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxn
 	if in == nil {
 		in = &DescribeVxnetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeVxnets",
@@ -80,7 +78,7 @@ func (p *VxnetService) CreateVxnets(in *CreateVxnetsInput) (out *CreateVxnetsOut
 	if in == nil {
 		in = &CreateVxnetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateVxnets",
@@ -107,7 +105,7 @@ func (p *VxnetService) DeleteVxnets(in *DeleteVxnetsInput) (out *DeleteVxnetsOut
 	if in == nil {
 		in = &DeleteVxnetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteVxnets",
@@ -134,7 +132,7 @@ func (p *VxnetService) JoinVxnet(in *JoinVxnetInput) (out *JoinVxnetOutput, err 
 	if in == nil {
 		in = &JoinVxnetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "JoinVxnet",
@@ -161,7 +159,7 @@ func (p *VxnetService) LeaveVxnet(in *LeaveVxnetInput) (out *LeaveVxnetOutput, e
 	if in == nil {
 		in = &LeaveVxnetInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "LeaveVxnet",
@@ -188,7 +186,7 @@ func (p *VxnetService) ModifyVxnetAttributes(in *ModifyVxnetAttributesInput) (ou
 	if in == nil {
 		in = &ModifyVxnetAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyVxnetAttributes",
@@ -215,7 +213,7 @@ func (p *VxnetService) DescribeVxnetInstances(in *DescribeVxnetInstancesInput) (
 	if in == nil {
 		in = &DescribeVxnetInstancesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeVxnetInstances",

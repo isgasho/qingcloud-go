@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type MonitorServiceInterface interface {
 	GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error)
@@ -52,7 +50,7 @@ func (p *MonitorService) GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput,
 	if in == nil {
 		in = &GetMonitorInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetMonitor",
@@ -79,7 +77,7 @@ func (p *MonitorService) GetLoadBalancerMonitor(in *GetLoadBalancerMonitorInput)
 	if in == nil {
 		in = &GetLoadBalancerMonitorInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetLoadBalancerMonitor",
@@ -106,7 +104,7 @@ func (p *MonitorService) GetRDBMonitor(in *GetRDBMonitorInput) (out *GetRDBMonit
 	if in == nil {
 		in = &GetRDBMonitorInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetRDBMonitor",
@@ -133,7 +131,7 @@ func (p *MonitorService) GetCacheMonitor(in *GetCacheMonitorInput) (out *GetCach
 	if in == nil {
 		in = &GetCacheMonitorInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetCacheMonitor",
@@ -160,7 +158,7 @@ func (p *MonitorService) GetZooKeeperMonitor(in *GetZooKeeperMonitorInput) (out 
 	if in == nil {
 		in = &GetZooKeeperMonitorInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetZooKeeperMonitor",
@@ -187,7 +185,7 @@ func (p *MonitorService) GetQueueMonitor(in *GetQueueMonitorInput) (out *GetQueu
 	if in == nil {
 		in = &GetQueueMonitorInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GetQueueMonitor",

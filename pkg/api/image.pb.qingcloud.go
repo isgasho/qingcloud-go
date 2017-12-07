@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type ImageServiceInterface interface {
 	DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error)
@@ -54,7 +52,7 @@ func (p *ImageService) DescribeImages(in *DescribeImagesInput) (out *DescribeIma
 	if in == nil {
 		in = &DescribeImagesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeImages",
@@ -81,7 +79,7 @@ func (p *ImageService) CaptureInstance(in *CaptureInstanceInput) (out *CaptureIn
 	if in == nil {
 		in = &CaptureInstanceInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CaptureInstance",
@@ -108,7 +106,7 @@ func (p *ImageService) DeleteImages(in *DeleteImagesInput) (out *DeleteImagesOut
 	if in == nil {
 		in = &DeleteImagesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteImages",
@@ -135,7 +133,7 @@ func (p *ImageService) ModifyImageAttributes(in *ModifyImageAttributesInput) (ou
 	if in == nil {
 		in = &ModifyImageAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyImageAttributes",
@@ -162,7 +160,7 @@ func (p *ImageService) GrantImageToUsers(in *GrantImageToUsersInput) (out *Grant
 	if in == nil {
 		in = &GrantImageToUsersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "GrantImageToUsers",
@@ -189,7 +187,7 @@ func (p *ImageService) RevokeImageFromUsers(in *RevokeImageFromUsersInput) (out 
 	if in == nil {
 		in = &RevokeImageFromUsersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "RevokeImageFromUsers",
@@ -216,7 +214,7 @@ func (p *ImageService) DescribeImageUsers(in *DescribeImageUsersInput) (out *Des
 	if in == nil {
 		in = &DescribeImageUsersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeImageUsers",
@@ -243,7 +241,7 @@ func (p *ImageService) CloneImages(in *CloneImagesInput) (out *CloneImagesOutput
 	if in == nil {
 		in = &CloneImagesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CloneImages",

@@ -13,7 +13,6 @@ import "regexp"
 import "github.com/chai2010/qingcloud-go/pkg/config"
 import "github.com/chai2010/qingcloud-go/pkg/logger"
 import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,7 +23,6 @@ var _ = regexp.Match
 var _ = config.Config{}
 var _ = logger.Info
 var _ = request.Request{}
-var _ = data.Operation{}
 
 type RouterServiceInterface interface {
 	DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error)
@@ -65,7 +63,7 @@ func (p *RouterService) DescribeRouters(in *DescribeRoutersInput) (out *Describe
 	if in == nil {
 		in = &DescribeRoutersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouters",
@@ -92,7 +90,7 @@ func (p *RouterService) CreateRouters(in *CreateRoutersInput) (out *CreateRouter
 	if in == nil {
 		in = &CreateRoutersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CreateRouters",
@@ -119,7 +117,7 @@ func (p *RouterService) DeleteRouters(in *DeleteRoutersInput) (out *DeleteRouter
 	if in == nil {
 		in = &DeleteRoutersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRouters",
@@ -146,7 +144,7 @@ func (p *RouterService) UpdateRouters(in *UpdateRoutersInput) (out *UpdateRouter
 	if in == nil {
 		in = &UpdateRoutersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "UpdateRouters",
@@ -173,7 +171,7 @@ func (p *RouterService) PowerOffRouters(in *PowerOffRoutersInput) (out *PowerOff
 	if in == nil {
 		in = &PowerOffRoutersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOffRouters",
@@ -200,7 +198,7 @@ func (p *RouterService) PowerOnRouters(in *PowerOnRoutersInput) (out *PowerOnRou
 	if in == nil {
 		in = &PowerOnRoutersInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "PowerOnRouters",
@@ -227,7 +225,7 @@ func (p *RouterService) JoinRouter(in *JoinRouterInput) (out *JoinRouterOutput, 
 	if in == nil {
 		in = &JoinRouterInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "JoinRouter",
@@ -254,7 +252,7 @@ func (p *RouterService) LeaveRouter(in *LeaveRouterInput) (out *LeaveRouterOutpu
 	if in == nil {
 		in = &LeaveRouterInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "LeaveRouter",
@@ -281,7 +279,7 @@ func (p *RouterService) ModifyRouterAttributes(in *ModifyRouterAttributesInput) 
 	if in == nil {
 		in = &ModifyRouterAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRouterAttributes",
@@ -308,7 +306,7 @@ func (p *RouterService) DescribeRouterStatics(in *DescribeRouterStaticsInput) (o
 	if in == nil {
 		in = &DescribeRouterStaticsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouterStatics",
@@ -335,7 +333,7 @@ func (p *RouterService) AddRouterStatics(in *AddRouterStaticsInput) (out *AddRou
 	if in == nil {
 		in = &AddRouterStaticsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddRouterStatics",
@@ -362,7 +360,7 @@ func (p *RouterService) ModifyRouterStaticAttributes(in *ModifyRouterStaticAttri
 	if in == nil {
 		in = &ModifyRouterStaticAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRouterStaticAttributes",
@@ -389,7 +387,7 @@ func (p *RouterService) DeleteRouterStatics(in *DeleteRouterStaticsInput) (out *
 	if in == nil {
 		in = &DeleteRouterStaticsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRouterStatics",
@@ -416,7 +414,7 @@ func (p *RouterService) CopyRouterStatics(in *CopyRouterStaticsInput) (out *Copy
 	if in == nil {
 		in = &CopyRouterStaticsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "CopyRouterStatics",
@@ -443,7 +441,7 @@ func (p *RouterService) DescribeRouterVxnets(in *DescribeRouterVxnetsInput) (out
 	if in == nil {
 		in = &DescribeRouterVxnetsInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouterVxnets",
@@ -470,7 +468,7 @@ func (p *RouterService) AddRouterStaticEntries(in *AddRouterStaticEntriesInput) 
 	if in == nil {
 		in = &AddRouterStaticEntriesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "AddRouterStaticEntries",
@@ -497,7 +495,7 @@ func (p *RouterService) DeleteRouterStaticEntries(in *DeleteRouterStaticEntriesI
 	if in == nil {
 		in = &DeleteRouterStaticEntriesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DeleteRouterStaticEntries",
@@ -524,7 +522,7 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(in *ModifyRouterStatic
 	if in == nil {
 		in = &ModifyRouterStaticEntryAttributesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "ModifyRouterStaticEntryAttributes",
@@ -551,7 +549,7 @@ func (p *RouterService) DescribeRouterStaticEntries(in *DescribeRouterStaticEntr
 	if in == nil {
 		in = &DescribeRouterStaticEntriesInput{}
 	}
-	o := &data.Operation{
+	o := &request.Operation{
 		Config:        p.Config,
 		Properties:    p.Properties,
 		APIName:       "DescribeRouterStaticEntries",
