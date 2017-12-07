@@ -37,35 +37,16 @@ type Config struct {
 	Port              int    `yaml:"port"`
 	Protocol          string `yaml:"protocol"`
 	URI               string `yaml:"uri"`
-	ConnectionTimeout int    `yaml:"connection_timeout"`
 
 	JSONDisableUnknownFields bool   `yaml:"json_disable_unknown_fields"`
 	LogLevel                 string `yaml:"log_level"`
 	Zone                     string `yaml:"zone"`
 }
 
-// NewDefault loads the default configuration for Config.
-func NewDefault() (*Config, error) {
-	c := &Config{}
-
-	err := yaml.Unmarshal([]byte(DefaultConfigFileContent), c)
-	if err != nil {
-		return nil, err
-	}
-
-	return c, nil
-}
-
-// LoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
-// It returns error if file not found.
-func LoadUserConfig() (*Config, error) {
-	return LoadConfigFromFilepath(strings.Replace(DefaultConfigFile, "~/", getHome()+"/", 1))
-}
-
 // MustLoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
 // It panic if failed.
 func MustLoadUserConfig() *Config {
-	c, err := LoadUserConfig()
+	c, err := LoadConfigFromFilepath(strings.Replace(DefaultConfigFile, "~/", getHome()+"/", 1))
 	if err != nil {
 		panic(err)
 	}
@@ -98,11 +79,15 @@ func MustLoadConfigFromFilepath(filepath string) *Config {
 // LoadConfigFromContent loads configuration from a given byte slice.
 // It returns error if yaml decode failed.
 func LoadConfigFromContent(content []byte) (*Config, error) {
-	c, err := NewDefault()
+	c := new(Config)
+
+	// load default
+	err := yaml.Unmarshal([]byte(DefaultConfigFileContent), c)
 	if err != nil {
 		return nil, err
 	}
 
+	// load user config
 	err = yaml.Unmarshal(content, c)
 	if err != nil {
 		logger.Error("Config parse error: " + err.Error())
@@ -137,8 +122,6 @@ host: 'api.qingcloud.com'
 port: 443
 protocol: 'https'
 uri: '/iaas'
-connection_retries: 3
-connection_timeout: 30
 
 json_allow_unknown_fields: false
 
