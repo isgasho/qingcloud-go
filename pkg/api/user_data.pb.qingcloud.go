@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type UserDataServiceInterface interface {
 	UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error)
@@ -41,29 +35,14 @@ func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
 	}
 }
 
-func (p *UserDataService) UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error) {
-	if in == nil {
-		in = &UploadUserDataAttachmentInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UploadUserDataAttachment",
-		RequestMethod: "POST",
-	}
+func (p *UserDataService) UploadUserDataAttachment(input *UploadUserDataAttachmentInput) (output *UploadUserDataAttachmentOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UploadUserDataAttachmentOutput)
 
-	x := &UploadUserDataAttachmentOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UploadUserDataAttachment", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

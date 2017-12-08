@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type RDBServiceInterface interface {
 	CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error)
@@ -57,461 +51,206 @@ func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
 	}
 }
 
-func (p *RDBService) CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error) {
-	if in == nil {
-		in = &CreateRDBInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateRDB",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) CreateRDB(input *CreateRDBInput) (output *CreateRDBOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateRDBOutput)
 
-	x := &CreateRDBOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateRDB", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) DescribeRDBs(in *DescribeRDBsInput) (out *DescribeRDBsOutput, err error) {
-	if in == nil {
-		in = &DescribeRDBsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeRDBs",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) DescribeRDBs(input *DescribeRDBsInput) (output *DescribeRDBsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeRDBsOutput)
 
-	x := &DescribeRDBsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeRDBs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) DeleteRDBs(in *DeleteRDBsInput) (out *DeleteRDBsOutput, err error) {
-	if in == nil {
-		in = &DeleteRDBsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteRDBs",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) DeleteRDBs(input *DeleteRDBsInput) (output *DeleteRDBsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteRDBsOutput)
 
-	x := &DeleteRDBsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteRDBs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) StartRDBs(in *StartRDBsInput) (out *StartRDBsOutput, err error) {
-	if in == nil {
-		in = &StartRDBsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartRDBs",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) StartRDBs(input *StartRDBsInput) (output *StartRDBsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartRDBsOutput)
 
-	x := &StartRDBsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartRDBs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) StopRDBs(in *StopRDBsInput) (out *StopRDBsOutput, err error) {
-	if in == nil {
-		in = &StopRDBsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopRDBs",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) StopRDBs(input *StopRDBsInput) (output *StopRDBsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopRDBsOutput)
 
-	x := &StopRDBsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopRDBs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) ResizeRDBs(in *ResizeRDBsInput) (out *ResizeRDBsOutput, err error) {
-	if in == nil {
-		in = &ResizeRDBsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeRDBs",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) ResizeRDBs(input *ResizeRDBsInput) (output *ResizeRDBsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeRDBsOutput)
 
-	x := &ResizeRDBsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeRDBs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) RDBsLeaveVxnet(in *RDBsLeaveVxnetInput) (out *RDBsLeaveVxnetOutput, err error) {
-	if in == nil {
-		in = &RDBsLeaveVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RDBsLeaveVxnet",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) RDBsLeaveVxnet(input *RDBsLeaveVxnetInput) (output *RDBsLeaveVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RDBsLeaveVxnetOutput)
 
-	x := &RDBsLeaveVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RDBsLeaveVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) RDBsJoinVxnet(in *RDBsJoinVxnetInput) (out *RDBsJoinVxnetOutput, err error) {
-	if in == nil {
-		in = &RDBsJoinVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RDBsJoinVxnet",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) RDBsJoinVxnet(input *RDBsJoinVxnetInput) (output *RDBsJoinVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RDBsJoinVxnetOutput)
 
-	x := &RDBsJoinVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RDBsJoinVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) CreateRDBFromSnapshot(in *CreateRDBFromSnapshotInput) (out *CreateRDBFromSnapshotOutput, err error) {
-	if in == nil {
-		in = &CreateRDBFromSnapshotInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateRDBFromSnapshot",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) CreateRDBFromSnapshot(input *CreateRDBFromSnapshotInput) (output *CreateRDBFromSnapshotOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateRDBFromSnapshotOutput)
 
-	x := &CreateRDBFromSnapshotOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateRDBFromSnapshot", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) CreateTempRDBInstanceFromSnapshot(in *CreateTempRDBInstanceFromSnapshotInput) (out *CreateTempRDBInstanceFromSnapshotOutput, err error) {
-	if in == nil {
-		in = &CreateTempRDBInstanceFromSnapshotInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateTempRDBInstanceFromSnapshot",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) CreateTempRDBInstanceFromSnapshot(input *CreateTempRDBInstanceFromSnapshotInput) (output *CreateTempRDBInstanceFromSnapshotOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateTempRDBInstanceFromSnapshotOutput)
 
-	x := &CreateTempRDBInstanceFromSnapshotOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateTempRDBInstanceFromSnapshot", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) GetRDBInstanceFiles(in *GetRDBInstanceFilesInput) (out *GetRDBInstanceFilesOutput, err error) {
-	if in == nil {
-		in = &GetRDBInstanceFilesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetRDBInstanceFiles",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) GetRDBInstanceFiles(input *GetRDBInstanceFilesInput) (output *GetRDBInstanceFilesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetRDBInstanceFilesOutput)
 
-	x := &GetRDBInstanceFilesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetRDBInstanceFiles", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) CopyRDBInstanceFilesToFTP(in *CopyRDBInstanceFilesToFTPInput) (out *CopyRDBInstanceFilesToFTPOutput, err error) {
-	if in == nil {
-		in = &CopyRDBInstanceFilesToFTPInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CopyRDBInstanceFilesToFTP",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) CopyRDBInstanceFilesToFTP(input *CopyRDBInstanceFilesToFTPInput) (output *CopyRDBInstanceFilesToFTPOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CopyRDBInstanceFilesToFTPOutput)
 
-	x := &CopyRDBInstanceFilesToFTPOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CopyRDBInstanceFilesToFTP", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) PurgeRDBLogs(in *PurgeRDBLogsInput) (out *PurgeRDBLogsOutput, err error) {
-	if in == nil {
-		in = &PurgeRDBLogsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "PurgeRDBLogs",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) PurgeRDBLogs(input *PurgeRDBLogsInput) (output *PurgeRDBLogsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(PurgeRDBLogsOutput)
 
-	x := &PurgeRDBLogsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "PurgeRDBLogs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) CeaseRDBInstance(in *CeaseRDBInstanceInput) (out *CeaseRDBInstanceOutput, err error) {
-	if in == nil {
-		in = &CeaseRDBInstanceInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CeaseRDBInstance",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) CeaseRDBInstance(input *CeaseRDBInstanceInput) (output *CeaseRDBInstanceOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CeaseRDBInstanceOutput)
 
-	x := &CeaseRDBInstanceOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CeaseRDBInstance", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) ModifyRDBParameters(in *ModifyRDBParametersInput) (out *ModifyRDBParametersOutput, err error) {
-	if in == nil {
-		in = &ModifyRDBParametersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyRDBParameters",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) ModifyRDBParameters(input *ModifyRDBParametersInput) (output *ModifyRDBParametersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyRDBParametersOutput)
 
-	x := &ModifyRDBParametersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyRDBParameters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) ApplyRDBParameterGroup(in *ApplyRDBParameterGroupInput) (out *ApplyRDBParameterGroupOutput, err error) {
-	if in == nil {
-		in = &ApplyRDBParameterGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ApplyRDBParameterGroup",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) ApplyRDBParameterGroup(input *ApplyRDBParameterGroupInput) (output *ApplyRDBParameterGroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ApplyRDBParameterGroupOutput)
 
-	x := &ApplyRDBParameterGroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ApplyRDBParameterGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RDBService) DescribeRDBParameters(in *DescribeRDBParametersInput) (out *DescribeRDBParametersOutput, err error) {
-	if in == nil {
-		in = &DescribeRDBParametersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeRDBParameters",
-		RequestMethod: "GET",
-	}
+func (p *RDBService) DescribeRDBParameters(input *DescribeRDBParametersInput) (output *DescribeRDBParametersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeRDBParametersOutput)
 
-	x := &DescribeRDBParametersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeRDBParameters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

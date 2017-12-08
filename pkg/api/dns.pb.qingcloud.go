@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type DNSAliasServiceInterface interface {
 	DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error)
@@ -44,110 +38,50 @@ func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
 	}
 }
 
-func (p *DNSAliasService) DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error) {
-	if in == nil {
-		in = &DescribeDNSAliasesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeDNSAliases",
-		RequestMethod: "GET",
-	}
+func (p *DNSAliasService) DescribeDNSAliases(input *DescribeDNSAliasesInput) (output *DescribeDNSAliasesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeDNSAliasesOutput)
 
-	x := &DescribeDNSAliasesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeDNSAliases", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *DNSAliasService) AssociateDNSAlias(in *AssociateDNSAliasInput) (out *AssociateDNSAliasOutput, err error) {
-	if in == nil {
-		in = &AssociateDNSAliasInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AssociateDNSAlias",
-		RequestMethod: "GET",
-	}
+func (p *DNSAliasService) AssociateDNSAlias(input *AssociateDNSAliasInput) (output *AssociateDNSAliasOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AssociateDNSAliasOutput)
 
-	x := &AssociateDNSAliasOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AssociateDNSAlias", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *DNSAliasService) DissociateDNSAliases(in *DissociateDNSAliasesInput) (out *DissociateDNSAliasesOutput, err error) {
-	if in == nil {
-		in = &DissociateDNSAliasesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DissociateDNSAliases",
-		RequestMethod: "GET",
-	}
+func (p *DNSAliasService) DissociateDNSAliases(input *DissociateDNSAliasesInput) (output *DissociateDNSAliasesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DissociateDNSAliasesOutput)
 
-	x := &DissociateDNSAliasesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DissociateDNSAliases", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *DNSAliasService) GetDNSLabel(in *GetDNSLabelInput) (out *GetDNSLabelOutput, err error) {
-	if in == nil {
-		in = &GetDNSLabelInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetDNSLabel",
-		RequestMethod: "GET",
-	}
+func (p *DNSAliasService) GetDNSLabel(input *GetDNSLabelInput) (output *GetDNSLabelOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetDNSLabelOutput)
 
-	x := &GetDNSLabelOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetDNSLabel", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

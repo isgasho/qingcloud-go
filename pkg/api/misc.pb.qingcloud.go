@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type MiscServiceInterface interface {
 	GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error)
@@ -43,83 +37,38 @@ func NewMiscService(conf *config.Config, zone string) (p *MiscService) {
 	}
 }
 
-func (p *MiscService) GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error) {
-	if in == nil {
-		in = &GrantQuotaIndepInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GrantQuotaIndep",
-		RequestMethod: "GET",
-	}
+func (p *MiscService) GrantQuotaIndep(input *GrantQuotaIndepInput) (output *GrantQuotaIndepOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GrantQuotaIndepOutput)
 
-	x := &GrantQuotaIndepOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GrantQuotaIndep", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MiscService) RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQuotaIndepOutput, err error) {
-	if in == nil {
-		in = &RevokeQuotaIndepInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RevokeQuotaIndep",
-		RequestMethod: "GET",
-	}
+func (p *MiscService) RevokeQuotaIndep(input *RevokeQuotaIndepInput) (output *RevokeQuotaIndepOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RevokeQuotaIndepOutput)
 
-	x := &RevokeQuotaIndepOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RevokeQuotaIndep", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MiscService) GetQuotaLeft(in *GetQuotaLeftInput) (out *GetQuotaLeftOutput, err error) {
-	if in == nil {
-		in = &GetQuotaLeftInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetQuotaLeft",
-		RequestMethod: "GET",
-	}
+func (p *MiscService) GetQuotaLeft(input *GetQuotaLeftInput) (output *GetQuotaLeftOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetQuotaLeftOutput)
 
-	x := &GetQuotaLeftOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetQuotaLeft", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

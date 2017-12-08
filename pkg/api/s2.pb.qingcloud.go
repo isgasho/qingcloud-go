@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type S2ServiceInterface interface {
 	CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error)
@@ -68,758 +62,338 @@ func NewS2Service(conf *config.Config, zone string) (p *S2Service) {
 	}
 }
 
-func (p *S2Service) CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error) {
-	if in == nil {
-		in = &CreateS2ServerInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateS2Server",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) CreateS2Server(input *CreateS2ServerInput) (output *CreateS2ServerOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateS2ServerOutput)
 
-	x := &CreateS2ServerOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateS2Server", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DescribeS2Servers(in *DescribeS2ServersInput) (out *DescribeS2ServersOutput, err error) {
-	if in == nil {
-		in = &DescribeS2ServersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeS2Servers",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DescribeS2Servers(input *DescribeS2ServersInput) (output *DescribeS2ServersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeS2ServersOutput)
 
-	x := &DescribeS2ServersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeS2Servers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) ModifyS2Server(in *ModifyS2ServerInput) (out *ModifyS2ServerOutput, err error) {
-	if in == nil {
-		in = &ModifyS2ServerInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyS2Server",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) ModifyS2Server(input *ModifyS2ServerInput) (output *ModifyS2ServerOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyS2ServerOutput)
 
-	x := &ModifyS2ServerOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyS2Server", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) ResizeS2Servers(in *ResizeS2ServersInput) (out *ResizeS2ServersOutput, err error) {
-	if in == nil {
-		in = &ResizeS2ServersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeS2Servers",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) ResizeS2Servers(input *ResizeS2ServersInput) (output *ResizeS2ServersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeS2ServersOutput)
 
-	x := &ResizeS2ServersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeS2Servers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DeleteS2Servers(in *DeleteS2ServersInput) (out *DeleteS2ServersOutput, err error) {
-	if in == nil {
-		in = &DeleteS2ServersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteS2Servers",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DeleteS2Servers(input *DeleteS2ServersInput) (output *DeleteS2ServersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteS2ServersOutput)
 
-	x := &DeleteS2ServersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteS2Servers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) PowerOnS2Servers(in *PowerOnS2ServersInput) (out *PowerOnS2ServersOutput, err error) {
-	if in == nil {
-		in = &PowerOnS2ServersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "PowerOnS2Servers",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) PowerOnS2Servers(input *PowerOnS2ServersInput) (output *PowerOnS2ServersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(PowerOnS2ServersOutput)
 
-	x := &PowerOnS2ServersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "PowerOnS2Servers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) PowerOffS2Servers(in *PowerOffS2ServersInput) (out *PowerOffS2ServersOutput, err error) {
-	if in == nil {
-		in = &PowerOffS2ServersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "PowerOffS2Servers",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) PowerOffS2Servers(input *PowerOffS2ServersInput) (output *PowerOffS2ServersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(PowerOffS2ServersOutput)
 
-	x := &PowerOffS2ServersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "PowerOffS2Servers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) UpdateS2Servers(in *UpdateS2ServersInput) (out *UpdateS2ServersOutput, err error) {
-	if in == nil {
-		in = &UpdateS2ServersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpdateS2Servers",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) UpdateS2Servers(input *UpdateS2ServersInput) (output *UpdateS2ServersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpdateS2ServersOutput)
 
-	x := &UpdateS2ServersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpdateS2Servers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) ChangeS2ServerVxnet(in *ChangeS2ServerVxnetInput) (out *ChangeS2ServerVxnetOutput, err error) {
-	if in == nil {
-		in = &ChangeS2ServerVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ChangeS2ServerVxnet",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) ChangeS2ServerVxnet(input *ChangeS2ServerVxnetInput) (output *ChangeS2ServerVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ChangeS2ServerVxnetOutput)
 
-	x := &ChangeS2ServerVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ChangeS2ServerVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) CreateS2SharedTarget(in *CreateS2SharedTargetInput) (out *CreateS2SharedTargetOutput, err error) {
-	if in == nil {
-		in = &CreateS2SharedTargetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateS2SharedTarget",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) CreateS2SharedTarget(input *CreateS2SharedTargetInput) (output *CreateS2SharedTargetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateS2SharedTargetOutput)
 
-	x := &CreateS2SharedTargetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateS2SharedTarget", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DescribeS2SharedTargets(in *DescribeS2SharedTargetsInput) (out *DescribeS2SharedTargetsOutput, err error) {
-	if in == nil {
-		in = &DescribeS2SharedTargetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeS2SharedTargets",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DescribeS2SharedTargets(input *DescribeS2SharedTargetsInput) (output *DescribeS2SharedTargetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeS2SharedTargetsOutput)
 
-	x := &DescribeS2SharedTargetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeS2SharedTargets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DeleteS2SharedTargets(in *DeleteS2SharedTargetsInput) (out *DeleteS2SharedTargetsOutput, err error) {
-	if in == nil {
-		in = &DeleteS2SharedTargetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteS2SharedTargets",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DeleteS2SharedTargets(input *DeleteS2SharedTargetsInput) (output *DeleteS2SharedTargetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteS2SharedTargetsOutput)
 
-	x := &DeleteS2SharedTargetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteS2SharedTargets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) EnableS2SharedTargets(in *EnableS2SharedTargetsInput) (out *EnableS2SharedTargetsOutput, err error) {
-	if in == nil {
-		in = &EnableS2SharedTargetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "EnableS2SharedTargets",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) EnableS2SharedTargets(input *EnableS2SharedTargetsInput) (output *EnableS2SharedTargetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(EnableS2SharedTargetsOutput)
 
-	x := &EnableS2SharedTargetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "EnableS2SharedTargets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DisableS2SharedTargets(in *DisableS2SharedTargetsInput) (out *DisableS2SharedTargetsOutput, err error) {
-	if in == nil {
-		in = &DisableS2SharedTargetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DisableS2SharedTargets",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DisableS2SharedTargets(input *DisableS2SharedTargetsInput) (output *DisableS2SharedTargetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DisableS2SharedTargetsOutput)
 
-	x := &DisableS2SharedTargetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DisableS2SharedTargets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) ModifyS2SharedTargetAttributes(in *ModifyS2SharedTargetAttributesInput) (out *ModifyS2SharedTargetAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyS2SharedTargetAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyS2SharedTargetAttributes",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) ModifyS2SharedTargetAttributes(input *ModifyS2SharedTargetAttributesInput) (output *ModifyS2SharedTargetAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyS2SharedTargetAttributesOutput)
 
-	x := &ModifyS2SharedTargetAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyS2SharedTargetAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) AttachToS2SharedTarget(in *AttachToS2SharedTargetInput) (out *AttachToS2SharedTargetOutput, err error) {
-	if in == nil {
-		in = &AttachToS2SharedTargetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AttachToS2SharedTarget",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) AttachToS2SharedTarget(input *AttachToS2SharedTargetInput) (output *AttachToS2SharedTargetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AttachToS2SharedTargetOutput)
 
-	x := &AttachToS2SharedTargetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AttachToS2SharedTarget", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DetachFromS2SharedTarget(in *DetachFromS2SharedTargetInput) (out *DetachFromS2SharedTargetOutput, err error) {
-	if in == nil {
-		in = &DetachFromS2SharedTargetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DetachFromS2SharedTarget",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DetachFromS2SharedTarget(input *DetachFromS2SharedTargetInput) (output *DetachFromS2SharedTargetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DetachFromS2SharedTargetOutput)
 
-	x := &DetachFromS2SharedTargetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DetachFromS2SharedTarget", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DescribeS2DefaultParameters(in *DescribeS2DefaultParametersInput) (out *DescribeS2DefaultParametersOutput, err error) {
-	if in == nil {
-		in = &DescribeS2DefaultParametersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeS2DefaultParameters",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DescribeS2DefaultParameters(input *DescribeS2DefaultParametersInput) (output *DescribeS2DefaultParametersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeS2DefaultParametersOutput)
 
-	x := &DescribeS2DefaultParametersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeS2DefaultParameters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) CreateS2Group(in *CreateS2GroupInput) (out *CreateS2GroupOutput, err error) {
-	if in == nil {
-		in = &CreateS2GroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateS2Group",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) CreateS2Group(input *CreateS2GroupInput) (output *CreateS2GroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateS2GroupOutput)
 
-	x := &CreateS2GroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateS2Group", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DescribeS2Groups(in *DescribeS2GroupsInput) (out *DescribeS2GroupsOutput, err error) {
-	if in == nil {
-		in = &DescribeS2GroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeS2Groups",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DescribeS2Groups(input *DescribeS2GroupsInput) (output *DescribeS2GroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeS2GroupsOutput)
 
-	x := &DescribeS2GroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeS2Groups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) ModifyS2Group(in *ModifyS2GroupInput) (out *ModifyS2GroupOutput, err error) {
-	if in == nil {
-		in = &ModifyS2GroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyS2Group",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) ModifyS2Group(input *ModifyS2GroupInput) (output *ModifyS2GroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyS2GroupOutput)
 
-	x := &ModifyS2GroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyS2Group", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DeleteS2Groups(in *DeleteS2GroupsInput) (out *DeleteS2GroupsOutput, err error) {
-	if in == nil {
-		in = &DeleteS2GroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteS2Groups",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DeleteS2Groups(input *DeleteS2GroupsInput) (output *DeleteS2GroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteS2GroupsOutput)
 
-	x := &DeleteS2GroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteS2Groups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) CreateS2Account(in *CreateS2AccountInput) (out *CreateS2AccountOutput, err error) {
-	if in == nil {
-		in = &CreateS2AccountInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateS2Account",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) CreateS2Account(input *CreateS2AccountInput) (output *CreateS2AccountOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateS2AccountOutput)
 
-	x := &CreateS2AccountOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateS2Account", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DescribeS2Accounts(in *DescribeS2AccountsInput) (out *DescribeS2AccountsOutput, err error) {
-	if in == nil {
-		in = &DescribeS2AccountsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeS2Accounts",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DescribeS2Accounts(input *DescribeS2AccountsInput) (output *DescribeS2AccountsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeS2AccountsOutput)
 
-	x := &DescribeS2AccountsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeS2Accounts", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) ModifyS2Account(in *ModifyS2AccountInput) (out *ModifyS2AccountOutput, err error) {
-	if in == nil {
-		in = &ModifyS2AccountInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyS2Account",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) ModifyS2Account(input *ModifyS2AccountInput) (output *ModifyS2AccountOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyS2AccountOutput)
 
-	x := &ModifyS2AccountOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyS2Account", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DeleteS2Accounts(in *DeleteS2AccountsInput) (out *DeleteS2AccountsOutput, err error) {
-	if in == nil {
-		in = &DeleteS2AccountsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteS2Accounts",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DeleteS2Accounts(input *DeleteS2AccountsInput) (output *DeleteS2AccountsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteS2AccountsOutput)
 
-	x := &DeleteS2AccountsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteS2Accounts", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) AssociateS2AccountGroup(in *AssociateS2AccountGroupInput) (out *AssociateS2AccountGroupOutput, err error) {
-	if in == nil {
-		in = &AssociateS2AccountGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AssociateS2AccountGroup",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) AssociateS2AccountGroup(input *AssociateS2AccountGroupInput) (output *AssociateS2AccountGroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AssociateS2AccountGroupOutput)
 
-	x := &AssociateS2AccountGroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AssociateS2AccountGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *S2Service) DissociateS2AccountGroup(in *DissociateS2AccountGroupInput) (out *DissociateS2AccountGroupOutput, err error) {
-	if in == nil {
-		in = &DissociateS2AccountGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DissociateS2AccountGroup",
-		RequestMethod: "GET",
-	}
+func (p *S2Service) DissociateS2AccountGroup(input *DissociateS2AccountGroupInput) (output *DissociateS2AccountGroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DissociateS2AccountGroupOutput)
 
-	x := &DissociateS2AccountGroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DissociateS2AccountGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

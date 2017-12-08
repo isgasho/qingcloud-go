@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type SecurityGroupServiceInterface interface {
 	DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error)
@@ -58,488 +52,218 @@ func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroup
 	}
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error) {
-	if in == nil {
-		in = &DescribeSecurityGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSecurityGroups",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DescribeSecurityGroups(input *DescribeSecurityGroupsInput) (output *DescribeSecurityGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSecurityGroupsOutput)
 
-	x := &DescribeSecurityGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSecurityGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) CreateSecurityGroup(in *CreateSecurityGroupInput) (out *CreateSecurityGroupOutput, err error) {
-	if in == nil {
-		in = &CreateSecurityGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateSecurityGroup",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) CreateSecurityGroup(input *CreateSecurityGroupInput) (output *CreateSecurityGroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateSecurityGroupOutput)
 
-	x := &CreateSecurityGroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateSecurityGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroups(in *DeleteSecurityGroupsInput) (out *DeleteSecurityGroupsOutput, err error) {
-	if in == nil {
-		in = &DeleteSecurityGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSecurityGroups",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DeleteSecurityGroups(input *DeleteSecurityGroupsInput) (output *DeleteSecurityGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSecurityGroupsOutput)
 
-	x := &DeleteSecurityGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSecurityGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) ApplySecurityGroup(in *ApplySecurityGroupInput) (out *ApplySecurityGroupOutpu, err error) {
-	if in == nil {
-		in = &ApplySecurityGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ApplySecurityGroup",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) ApplySecurityGroup(input *ApplySecurityGroupInput) (output *ApplySecurityGroupOutpu, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ApplySecurityGroupOutpu)
 
-	x := &ApplySecurityGroupOutpu{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ApplySecurityGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupAttributes(in *ModifySecurityGroupAttributesInput) (out *ModifySecurityGroupAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifySecurityGroupAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifySecurityGroupAttributes",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) ModifySecurityGroupAttributes(input *ModifySecurityGroupAttributesInput) (output *ModifySecurityGroupAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifySecurityGroupAttributesOutput)
 
-	x := &ModifySecurityGroupAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifySecurityGroupAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupRules(in *DescribeSecurityGroupRulesInput) (out *DescribeSecurityGroupRulesOutput, err error) {
-	if in == nil {
-		in = &DescribeSecurityGroupRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSecurityGroupRules",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DescribeSecurityGroupRules(input *DescribeSecurityGroupRulesInput) (output *DescribeSecurityGroupRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSecurityGroupRulesOutput)
 
-	x := &DescribeSecurityGroupRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSecurityGroupRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) AddSecurityGroupRules(in *AddSecurityGroupRulesInput) (out *AddSecurityGroupRulesOutput, err error) {
-	if in == nil {
-		in = &AddSecurityGroupRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddSecurityGroupRules",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) AddSecurityGroupRules(input *AddSecurityGroupRulesInput) (output *AddSecurityGroupRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddSecurityGroupRulesOutput)
 
-	x := &AddSecurityGroupRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddSecurityGroupRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupRules(in *DeleteSecurityGroupRulesInput) (out *DeleteSecurityGroupRulesOutput, err error) {
-	if in == nil {
-		in = &DeleteSecurityGroupRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSecurityGroupRules",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DeleteSecurityGroupRules(input *DeleteSecurityGroupRulesInput) (output *DeleteSecurityGroupRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSecurityGroupRulesOutput)
 
-	x := &DeleteSecurityGroupRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSecurityGroupRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(in *ModifySecurityGroupRuleAttributesInput) (out *ModifySecurityGroupRuleAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifySecurityGroupRuleAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifySecurityGroupRuleAttributes",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(input *ModifySecurityGroupRuleAttributesInput) (output *ModifySecurityGroupRuleAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifySecurityGroupRuleAttributesOutput)
 
-	x := &ModifySecurityGroupRuleAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifySecurityGroupRuleAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) CreateSecurityGroupSnapshot(in *CreateSecurityGroupSnapshotInput) (out *CreateSecurityGroupSnapshotOutput, err error) {
-	if in == nil {
-		in = &CreateSecurityGroupSnapshotInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateSecurityGroupSnapshot",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) CreateSecurityGroupSnapshot(input *CreateSecurityGroupSnapshotInput) (output *CreateSecurityGroupSnapshotOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateSecurityGroupSnapshotOutput)
 
-	x := &CreateSecurityGroupSnapshotOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateSecurityGroupSnapshot", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(in *DescribeSecurityGroupSnapshotsInput) (out *DescribeSecurityGroupSnapshotsOutput, err error) {
-	if in == nil {
-		in = &DescribeSecurityGroupSnapshotsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSecurityGroupSnapshots",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(input *DescribeSecurityGroupSnapshotsInput) (output *DescribeSecurityGroupSnapshotsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSecurityGroupSnapshotsOutput)
 
-	x := &DescribeSecurityGroupSnapshotsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSecurityGroupSnapshots", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(in *DeleteSecurityGroupSnapshotsInput) (out *DeleteSecurityGroupSnapshotsOutput, err error) {
-	if in == nil {
-		in = &DeleteSecurityGroupSnapshotsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSecurityGroupSnapshots",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(input *DeleteSecurityGroupSnapshotsInput) (output *DeleteSecurityGroupSnapshotsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSecurityGroupSnapshotsOutput)
 
-	x := &DeleteSecurityGroupSnapshotsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSecurityGroupSnapshots", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) RollbackSecurityGroup(in *RollbackSecurityGroupInput) (out *RollbackSecurityGroupOutput, err error) {
-	if in == nil {
-		in = &RollbackSecurityGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RollbackSecurityGroup",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) RollbackSecurityGroup(input *RollbackSecurityGroupInput) (output *RollbackSecurityGroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RollbackSecurityGroupOutput)
 
-	x := &RollbackSecurityGroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RollbackSecurityGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) DescribeSecurityGroupIPSets(in *DescribeSecurityGroupIPSetsInput) (out *DescribeSecurityGroupIPSetsOutput, err error) {
-	if in == nil {
-		in = &DescribeSecurityGroupIPSetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSecurityGroupIPSets",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DescribeSecurityGroupIPSets(input *DescribeSecurityGroupIPSetsInput) (output *DescribeSecurityGroupIPSetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSecurityGroupIPSetsOutput)
 
-	x := &DescribeSecurityGroupIPSetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSecurityGroupIPSets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) CreateSecurityGroupIPSet(in *CreateSecurityGroupIPSetInput) (out *CreateSecurityGroupIPSetOutput, err error) {
-	if in == nil {
-		in = &CreateSecurityGroupIPSetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateSecurityGroupIPSet",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) CreateSecurityGroupIPSet(input *CreateSecurityGroupIPSetInput) (output *CreateSecurityGroupIPSetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateSecurityGroupIPSetOutput)
 
-	x := &CreateSecurityGroupIPSetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateSecurityGroupIPSet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) DeleteSecurityGroupIPSets(in *DeleteSecurityGroupIPSetsInput) (out *DeleteSecurityGroupIPSetsOutput, err error) {
-	if in == nil {
-		in = &DeleteSecurityGroupIPSetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSecurityGroupIPSets",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) DeleteSecurityGroupIPSets(input *DeleteSecurityGroupIPSetsInput) (output *DeleteSecurityGroupIPSetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSecurityGroupIPSetsOutput)
 
-	x := &DeleteSecurityGroupIPSetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSecurityGroupIPSets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(in *ModifySecurityGroupIPSetAttributesInput) (out *ModifySecurityGroupIPSetAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifySecurityGroupIPSetAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifySecurityGroupIPSetAttributes",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(input *ModifySecurityGroupIPSetAttributesInput) (output *ModifySecurityGroupIPSetAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifySecurityGroupIPSetAttributesOutput)
 
-	x := &ModifySecurityGroupIPSetAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifySecurityGroupIPSetAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SecurityGroupService) CopySecurityGroupIPSets(in *CopySecurityGroupIPSetsInput) (out *CopySecurityGroupIPSetsOutput, err error) {
-	if in == nil {
-		in = &CopySecurityGroupIPSetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CopySecurityGroupIPSets",
-		RequestMethod: "GET",
-	}
+func (p *SecurityGroupService) CopySecurityGroupIPSets(input *CopySecurityGroupIPSetsInput) (output *CopySecurityGroupIPSetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CopySecurityGroupIPSetsOutput)
 
-	x := &CopySecurityGroupIPSetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CopySecurityGroupIPSets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

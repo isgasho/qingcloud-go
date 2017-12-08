@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type SubuserServiceInterface interface {
 	DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error)
@@ -45,137 +39,62 @@ func NewSubuserService(conf *config.Config, zone string) (p *SubuserService) {
 	}
 }
 
-func (p *SubuserService) DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error) {
-	if in == nil {
-		in = &DescribeSubUsersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSubUsers",
-		RequestMethod: "GET",
-	}
+func (p *SubuserService) DescribeSubUsers(input *DescribeSubUsersInput) (output *DescribeSubUsersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSubUsersOutput)
 
-	x := &DescribeSubUsersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSubUsers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SubuserService) CreateSubUser(in *CreateSubUserInput) (out *CreateSubUserOutput, err error) {
-	if in == nil {
-		in = &CreateSubUserInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateSubUser",
-		RequestMethod: "GET",
-	}
+func (p *SubuserService) CreateSubUser(input *CreateSubUserInput) (output *CreateSubUserOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateSubUserOutput)
 
-	x := &CreateSubUserOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateSubUser", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SubuserService) ModifySubUserAttributes(in *ModifySubUserAttributesInput) (out *ModifySubUserAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifySubUserAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifySubUserAttributes",
-		RequestMethod: "GET",
-	}
+func (p *SubuserService) ModifySubUserAttributes(input *ModifySubUserAttributesInput) (output *ModifySubUserAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifySubUserAttributesOutput)
 
-	x := &ModifySubUserAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifySubUserAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SubuserService) DeleteSubUsers(in *DeleteSubUsersInput) (out *DeleteSubUsersOutput, err error) {
-	if in == nil {
-		in = &DeleteSubUsersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSubUsers",
-		RequestMethod: "GET",
-	}
+func (p *SubuserService) DeleteSubUsers(input *DeleteSubUsersInput) (output *DeleteSubUsersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSubUsersOutput)
 
-	x := &DeleteSubUsersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSubUsers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SubuserService) RestoreSubUsers(in *RestoreSubUsersInput) (out *RestoreSubUsersOutput, err error) {
-	if in == nil {
-		in = &RestoreSubUsersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RestoreSubUsers",
-		RequestMethod: "GET",
-	}
+func (p *SubuserService) RestoreSubUsers(input *RestoreSubUsersInput) (output *RestoreSubUsersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RestoreSubUsersOutput)
 
-	x := &RestoreSubUsersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RestoreSubUsers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type KeyPairServiceInterface interface {
 	DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error)
@@ -46,164 +40,74 @@ func NewKeyPairService(conf *config.Config, zone string) (p *KeyPairService) {
 	}
 }
 
-func (p *KeyPairService) DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error) {
-	if in == nil {
-		in = &DescribeKeyPairsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeKeyPairs",
-		RequestMethod: "GET",
-	}
+func (p *KeyPairService) DescribeKeyPairs(input *DescribeKeyPairsInput) (output *DescribeKeyPairsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeKeyPairsOutput)
 
-	x := &DescribeKeyPairsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeKeyPairs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *KeyPairService) CreateKeyPair(in *CreateKeyPairInput) (out *CreateKeyPairOutput, err error) {
-	if in == nil {
-		in = &CreateKeyPairInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateKeyPair",
-		RequestMethod: "GET",
-	}
+func (p *KeyPairService) CreateKeyPair(input *CreateKeyPairInput) (output *CreateKeyPairOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateKeyPairOutput)
 
-	x := &CreateKeyPairOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateKeyPair", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *KeyPairService) DeleteKeyPairs(in *DeleteKeyPairsInput) (out *DeleteKeyPairsOutput, err error) {
-	if in == nil {
-		in = &DeleteKeyPairsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteKeyPairs",
-		RequestMethod: "GET",
-	}
+func (p *KeyPairService) DeleteKeyPairs(input *DeleteKeyPairsInput) (output *DeleteKeyPairsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteKeyPairsOutput)
 
-	x := &DeleteKeyPairsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteKeyPairs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *KeyPairService) AttachKeyPairs(in *AttachKeyPairsInput) (out *AttachKeyPairsOutput, err error) {
-	if in == nil {
-		in = &AttachKeyPairsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AttachKeyPairs",
-		RequestMethod: "GET",
-	}
+func (p *KeyPairService) AttachKeyPairs(input *AttachKeyPairsInput) (output *AttachKeyPairsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AttachKeyPairsOutput)
 
-	x := &AttachKeyPairsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AttachKeyPairs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *KeyPairService) DetachKeyPairs(in *DetachKeyPairsInput) (out *DetachKeyPairsOutput, err error) {
-	if in == nil {
-		in = &DetachKeyPairsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DetachKeyPairs",
-		RequestMethod: "GET",
-	}
+func (p *KeyPairService) DetachKeyPairs(input *DetachKeyPairsInput) (output *DetachKeyPairsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DetachKeyPairsOutput)
 
-	x := &DetachKeyPairsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DetachKeyPairs", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *KeyPairService) ModifyKeyPairAttributes(in *ModifyKeyPairAttributesInput) (out *ModifyKeyPairAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyKeyPairAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyKeyPairAttributes",
-		RequestMethod: "GET",
-	}
+func (p *KeyPairService) ModifyKeyPairAttributes(input *ModifyKeyPairAttributesInput) (output *ModifyKeyPairAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyKeyPairAttributesOutput)
 
-	x := &ModifyKeyPairAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyKeyPairAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

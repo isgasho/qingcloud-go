@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type TagServiceInterface interface {
 	DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error)
@@ -46,164 +40,74 @@ func NewTagService(conf *config.Config, zone string) (p *TagService) {
 	}
 }
 
-func (p *TagService) DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error) {
-	if in == nil {
-		in = &DescribeTagsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeTags",
-		RequestMethod: "GET",
-	}
+func (p *TagService) DescribeTags(input *DescribeTagsInput) (output *DescribeTagsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeTagsOutput)
 
-	x := &DescribeTagsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeTags", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *TagService) CreateTag(in *CreateTagInput) (out *CreateTagOutput, err error) {
-	if in == nil {
-		in = &CreateTagInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateTag",
-		RequestMethod: "GET",
-	}
+func (p *TagService) CreateTag(input *CreateTagInput) (output *CreateTagOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateTagOutput)
 
-	x := &CreateTagOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateTag", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *TagService) DeleteTags(in *DeleteTagsInput) (out *DeleteTagsOutput, err error) {
-	if in == nil {
-		in = &DeleteTagsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteTags",
-		RequestMethod: "GET",
-	}
+func (p *TagService) DeleteTags(input *DeleteTagsInput) (output *DeleteTagsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteTagsOutput)
 
-	x := &DeleteTagsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteTags", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *TagService) ModifyTagAttributes(in *ModifyTagAttributesInput) (out *ModifyTagAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyTagAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyTagAttributes",
-		RequestMethod: "GET",
-	}
+func (p *TagService) ModifyTagAttributes(input *ModifyTagAttributesInput) (output *ModifyTagAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyTagAttributesOutput)
 
-	x := &ModifyTagAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyTagAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *TagService) AttachTags(in *AttachTagsInput) (out *AttachTagsOutput, err error) {
-	if in == nil {
-		in = &AttachTagsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AttachTags",
-		RequestMethod: "GET",
-	}
+func (p *TagService) AttachTags(input *AttachTagsInput) (output *AttachTagsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AttachTagsOutput)
 
-	x := &AttachTagsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AttachTags", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *TagService) DetachTags(in *DetachTagsInput) (out *DetachTagsOutput, err error) {
-	if in == nil {
-		in = &DetachTagsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DetachTags",
-		RequestMethod: "GET",
-	}
+func (p *TagService) DetachTags(input *DetachTagsInput) (output *DetachTagsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DetachTagsOutput)
 
-	x := &DetachTagsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DetachTags", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

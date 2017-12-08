@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type SnapshotServiceInterface interface {
 	DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error)
@@ -47,191 +41,86 @@ func NewSnapshotService(conf *config.Config, zone string) (p *SnapshotService) {
 	}
 }
 
-func (p *SnapshotService) DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error) {
-	if in == nil {
-		in = &DescribeSnapshotsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSnapshots",
-		RequestMethod: "GET",
-	}
+func (p *SnapshotService) DescribeSnapshots(input *DescribeSnapshotsInput) (output *DescribeSnapshotsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSnapshotsOutput)
 
-	x := &DescribeSnapshotsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSnapshots", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SnapshotService) CreateSnapshots(in *CreateSnapshotsInput) (out *CreateSnapshotsOutput, err error) {
-	if in == nil {
-		in = &CreateSnapshotsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateSnapshots",
-		RequestMethod: "GET",
-	}
+func (p *SnapshotService) CreateSnapshots(input *CreateSnapshotsInput) (output *CreateSnapshotsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateSnapshotsOutput)
 
-	x := &CreateSnapshotsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateSnapshots", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SnapshotService) DeleteSnapshots(in *DeleteSnapshotsInput) (out *DeleteSnapshotsOutput, err error) {
-	if in == nil {
-		in = &DeleteSnapshotsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSnapshots",
-		RequestMethod: "GET",
-	}
+func (p *SnapshotService) DeleteSnapshots(input *DeleteSnapshotsInput) (output *DeleteSnapshotsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSnapshotsOutput)
 
-	x := &DeleteSnapshotsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSnapshots", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SnapshotService) ApplySnapshots(in *ApplySnapshotsInput) (out *ApplySnapshotsOutput, err error) {
-	if in == nil {
-		in = &ApplySnapshotsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ApplySnapshots",
-		RequestMethod: "GET",
-	}
+func (p *SnapshotService) ApplySnapshots(input *ApplySnapshotsInput) (output *ApplySnapshotsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ApplySnapshotsOutput)
 
-	x := &ApplySnapshotsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ApplySnapshots", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SnapshotService) ModifySnapshotAttributes(in *ModifySnapshotAttributesInput) (out *ModifySnapshotAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifySnapshotAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifySnapshotAttributes",
-		RequestMethod: "GET",
-	}
+func (p *SnapshotService) ModifySnapshotAttributes(input *ModifySnapshotAttributesInput) (output *ModifySnapshotAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifySnapshotAttributesOutput)
 
-	x := &ModifySnapshotAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifySnapshotAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SnapshotService) CaptureInstanceFromSnapshot(in *CaptureInstanceFromSnapshotInput) (out *CaptureInstanceFromSnapshotOutput, err error) {
-	if in == nil {
-		in = &CaptureInstanceFromSnapshotInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CaptureInstanceFromSnapshot",
-		RequestMethod: "GET",
-	}
+func (p *SnapshotService) CaptureInstanceFromSnapshot(input *CaptureInstanceFromSnapshotInput) (output *CaptureInstanceFromSnapshotOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CaptureInstanceFromSnapshotOutput)
 
-	x := &CaptureInstanceFromSnapshotOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CaptureInstanceFromSnapshot", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SnapshotService) CreateVolumeFromSnapshot(in *CreateVolumeFromSnapshotInput) (out *CreateVolumeFromSnapshotOutput, err error) {
-	if in == nil {
-		in = &CreateVolumeFromSnapshotInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateVolumeFromSnapshot",
-		RequestMethod: "GET",
-	}
+func (p *SnapshotService) CreateVolumeFromSnapshot(input *CreateVolumeFromSnapshotInput) (output *CreateVolumeFromSnapshotOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateVolumeFromSnapshotOutput)
 
-	x := &CreateVolumeFromSnapshotOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateVolumeFromSnapshot", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

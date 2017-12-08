@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type CacheServiceInterface interface {
 	DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error)
@@ -64,650 +58,290 @@ func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
 	}
 }
 
-func (p *CacheService) DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error) {
-	if in == nil {
-		in = &DescribeCachesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeCaches",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) DescribeCaches(input *DescribeCachesInput) (output *DescribeCachesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeCachesOutput)
 
-	x := &DescribeCachesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeCaches", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) CreateCache(in *CreateCacheInput) (out *CreateCacheOutput, err error) {
-	if in == nil {
-		in = &CreateCacheInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateCache",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) CreateCache(input *CreateCacheInput) (output *CreateCacheOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateCacheOutput)
 
-	x := &CreateCacheOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateCache", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) StopCaches(in *StopCachesInput) (out *StopCachesOutput, err error) {
-	if in == nil {
-		in = &StopCachesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopCaches",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) StopCaches(input *StopCachesInput) (output *StopCachesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopCachesOutput)
 
-	x := &StopCachesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopCaches", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) StartCaches(in *StartCachesInput) (out *StartCachesOutput, err error) {
-	if in == nil {
-		in = &StartCachesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartCaches",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) StartCaches(input *StartCachesInput) (output *StartCachesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartCachesOutput)
 
-	x := &StartCachesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartCaches", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) RestartCaches(in *RestartCachesInput) (out *RestartCachesOutput, err error) {
-	if in == nil {
-		in = &RestartCachesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RestartCaches",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) RestartCaches(input *RestartCachesInput) (output *RestartCachesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RestartCachesOutput)
 
-	x := &RestartCachesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RestartCaches", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) DeleteCaches(in *DeleteCachesInput) (out *DeleteCachesOutput, err error) {
-	if in == nil {
-		in = &DeleteCachesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteCaches",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) DeleteCaches(input *DeleteCachesInput) (output *DeleteCachesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteCachesOutput)
 
-	x := &DeleteCachesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteCaches", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) ResizeCaches(in *ResizeCachesInput) (out *ResizeCachesOutput, err error) {
-	if in == nil {
-		in = &ResizeCachesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeCaches",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) ResizeCaches(input *ResizeCachesInput) (output *ResizeCachesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeCachesOutput)
 
-	x := &ResizeCachesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeCaches", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) UpdateCache(in *UpdateCacheInput) (out *UpdateCacheOutput, err error) {
-	if in == nil {
-		in = &UpdateCacheInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpdateCache",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) UpdateCache(input *UpdateCacheInput) (output *UpdateCacheOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpdateCacheOutput)
 
-	x := &UpdateCacheOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpdateCache", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) ChangeCacheVxnet(in *ChangeCacheVxnetInput) (out *ChangeCacheVxnetOutput, err error) {
-	if in == nil {
-		in = &ChangeCacheVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ChangeCacheVxnet",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) ChangeCacheVxnet(input *ChangeCacheVxnetInput) (output *ChangeCacheVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ChangeCacheVxnetOutput)
 
-	x := &ChangeCacheVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ChangeCacheVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) ModifyCacheAttributes(in *ModifyCacheAttributesInput) (out *ModifyCacheAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyCacheAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyCacheAttributes",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) ModifyCacheAttributes(input *ModifyCacheAttributesInput) (output *ModifyCacheAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyCacheAttributesOutput)
 
-	x := &ModifyCacheAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyCacheAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) DescribeCacheNodes(in *DescribeCacheNodesInput) (out *DescribeCacheNodesOutput, err error) {
-	if in == nil {
-		in = &DescribeCacheNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeCacheNodes",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) DescribeCacheNodes(input *DescribeCacheNodesInput) (output *DescribeCacheNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeCacheNodesOutput)
 
-	x := &DescribeCacheNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeCacheNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) AddCacheNodes(in *AddCacheNodesInput) (out *AddCacheNodesOutput, err error) {
-	if in == nil {
-		in = &AddCacheNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddCacheNodes",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) AddCacheNodes(input *AddCacheNodesInput) (output *AddCacheNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddCacheNodesOutput)
 
-	x := &AddCacheNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddCacheNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) DeleteCacheNodes(in *DeleteCacheNodesInput) (out *DeleteCacheNodesOutput, err error) {
-	if in == nil {
-		in = &DeleteCacheNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteCacheNodes",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) DeleteCacheNodes(input *DeleteCacheNodesInput) (output *DeleteCacheNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteCacheNodesOutput)
 
-	x := &DeleteCacheNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteCacheNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) RestartCacheNodes(in *RestartCacheNodesInput) (out *RestartCacheNodesOutput, err error) {
-	if in == nil {
-		in = &RestartCacheNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RestartCacheNodes",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) RestartCacheNodes(input *RestartCacheNodesInput) (output *RestartCacheNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RestartCacheNodesOutput)
 
-	x := &RestartCacheNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RestartCacheNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) ModifyCacheNodeAttributes(in *ModifyCacheNodeAttributesInput) (out *ModifyCacheNodeAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyCacheNodeAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyCacheNodeAttributes",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) ModifyCacheNodeAttributes(input *ModifyCacheNodeAttributesInput) (output *ModifyCacheNodeAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyCacheNodeAttributesOutput)
 
-	x := &ModifyCacheNodeAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyCacheNodeAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) CreateCacheFromSnapshot(in *CreateCacheFromSnapshotInput) (out *CreateCacheFromSnapshotOutput, err error) {
-	if in == nil {
-		in = &CreateCacheFromSnapshotInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateCacheFromSnapshot",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) CreateCacheFromSnapshot(input *CreateCacheFromSnapshotInput) (output *CreateCacheFromSnapshotOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateCacheFromSnapshotOutput)
 
-	x := &CreateCacheFromSnapshotOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateCacheFromSnapshot", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) DescribeCacheParameterGroups(in *DescribeCacheParameterGroupsInput) (out *DescribeCacheParameterGroupsOutput, err error) {
-	if in == nil {
-		in = &DescribeCacheParameterGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeCacheParameterGroups",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) DescribeCacheParameterGroups(input *DescribeCacheParameterGroupsInput) (output *DescribeCacheParameterGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeCacheParameterGroupsOutput)
 
-	x := &DescribeCacheParameterGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeCacheParameterGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) CreateCacheParameterGroup(in *CreateCacheParameterGroupInput) (out *CreateCacheParameterGroupOutput, err error) {
-	if in == nil {
-		in = &CreateCacheParameterGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateCacheParameterGroup",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) CreateCacheParameterGroup(input *CreateCacheParameterGroupInput) (output *CreateCacheParameterGroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateCacheParameterGroupOutput)
 
-	x := &CreateCacheParameterGroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateCacheParameterGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) ApplyCacheParameterGroup(in *ApplyCacheParameterGroupInput) (out *ApplyCacheParameterGroupOutput, err error) {
-	if in == nil {
-		in = &ApplyCacheParameterGroupInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ApplyCacheParameterGroup",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) ApplyCacheParameterGroup(input *ApplyCacheParameterGroupInput) (output *ApplyCacheParameterGroupOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ApplyCacheParameterGroupOutput)
 
-	x := &ApplyCacheParameterGroupOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ApplyCacheParameterGroup", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) DeleteCacheParameterGroups(in *DeleteCacheParameterGroupsInput) (out *DeleteCacheParameterGroupsOutput, err error) {
-	if in == nil {
-		in = &DeleteCacheParameterGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteCacheParameterGroups",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) DeleteCacheParameterGroups(input *DeleteCacheParameterGroupsInput) (output *DeleteCacheParameterGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteCacheParameterGroupsOutput)
 
-	x := &DeleteCacheParameterGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteCacheParameterGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) ModifyCacheParameterGroupAttributes(in *ModifyCacheParameterGroupAttributesInput) (out *ModifyCacheParameterGroupAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyCacheParameterGroupAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyCacheParameterGroupAttributes",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) ModifyCacheParameterGroupAttributes(input *ModifyCacheParameterGroupAttributesInput) (output *ModifyCacheParameterGroupAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyCacheParameterGroupAttributesOutput)
 
-	x := &ModifyCacheParameterGroupAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyCacheParameterGroupAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) DescribeCacheParameters(in *DescribeCacheParametersInput) (out *DescribeCacheParametersOutput, err error) {
-	if in == nil {
-		in = &DescribeCacheParametersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeCacheParameters",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) DescribeCacheParameters(input *DescribeCacheParametersInput) (output *DescribeCacheParametersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeCacheParametersOutput)
 
-	x := &DescribeCacheParametersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeCacheParameters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) UpdateCacheParameters(in *UpdateCacheParametersInput) (out *UpdateCacheParametersOutput, err error) {
-	if in == nil {
-		in = &UpdateCacheParametersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpdateCacheParameters",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) UpdateCacheParameters(input *UpdateCacheParametersInput) (output *UpdateCacheParametersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpdateCacheParametersOutput)
 
-	x := &UpdateCacheParametersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpdateCacheParameters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *CacheService) ResetCacheParameters(in *ResetCacheParametersInput) (out *ResetCacheParametersOutput, err error) {
-	if in == nil {
-		in = &ResetCacheParametersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResetCacheParameters",
-		RequestMethod: "GET",
-	}
+func (p *CacheService) ResetCacheParameters(input *ResetCacheParametersInput) (output *ResetCacheParametersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResetCacheParametersOutput)
 
-	x := &ResetCacheParametersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResetCacheParameters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

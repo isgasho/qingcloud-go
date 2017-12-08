@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type HadoopServiceInterface interface {
 	AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error)
@@ -44,110 +38,50 @@ func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
 	}
 }
 
-func (p *HadoopService) AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error) {
-	if in == nil {
-		in = &AddHadoopNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddHadoopNodes",
-		RequestMethod: "GET",
-	}
+func (p *HadoopService) AddHadoopNodes(input *AddHadoopNodesInput) (output *AddHadoopNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddHadoopNodesOutput)
 
-	x := &AddHadoopNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddHadoopNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *HadoopService) DeleteHadoopNodes(in *DeleteHadoopNodesInput) (out *DeleteHadoopNodesOutput, err error) {
-	if in == nil {
-		in = &DeleteHadoopNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteHadoopNodes",
-		RequestMethod: "GET",
-	}
+func (p *HadoopService) DeleteHadoopNodes(input *DeleteHadoopNodesInput) (output *DeleteHadoopNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteHadoopNodesOutput)
 
-	x := &DeleteHadoopNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteHadoopNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *HadoopService) StartHadoops(in *StartHadoopsInput) (out *StartHadoopsOutput, err error) {
-	if in == nil {
-		in = &StartHadoopsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartHadoops",
-		RequestMethod: "GET",
-	}
+func (p *HadoopService) StartHadoops(input *StartHadoopsInput) (output *StartHadoopsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartHadoopsOutput)
 
-	x := &StartHadoopsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartHadoops", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *HadoopService) StopHadoops(in *StopHadoopsInput) (out *StopHadoopsOutput, err error) {
-	if in == nil {
-		in = &StopHadoopsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopHadoops",
-		RequestMethod: "GET",
-	}
+func (p *HadoopService) StopHadoops(input *StopHadoopsInput) (output *StopHadoopsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopHadoopsOutput)
 
-	x := &StopHadoopsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopHadoops", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

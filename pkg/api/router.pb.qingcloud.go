@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type RouterServiceInterface interface {
 	DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error)
@@ -59,515 +53,230 @@ func NewRouterService(conf *config.Config, zone string) (p *RouterService) {
 	}
 }
 
-func (p *RouterService) DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error) {
-	if in == nil {
-		in = &DescribeRoutersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeRouters",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) DescribeRouters(input *DescribeRoutersInput) (output *DescribeRoutersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeRoutersOutput)
 
-	x := &DescribeRoutersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeRouters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) CreateRouters(in *CreateRoutersInput) (out *CreateRoutersOutput, err error) {
-	if in == nil {
-		in = &CreateRoutersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateRouters",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) CreateRouters(input *CreateRoutersInput) (output *CreateRoutersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateRoutersOutput)
 
-	x := &CreateRoutersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateRouters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) DeleteRouters(in *DeleteRoutersInput) (out *DeleteRoutersOutput, err error) {
-	if in == nil {
-		in = &DeleteRoutersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteRouters",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) DeleteRouters(input *DeleteRoutersInput) (output *DeleteRoutersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteRoutersOutput)
 
-	x := &DeleteRoutersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteRouters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) UpdateRouters(in *UpdateRoutersInput) (out *UpdateRoutersOutput, err error) {
-	if in == nil {
-		in = &UpdateRoutersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpdateRouters",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) UpdateRouters(input *UpdateRoutersInput) (output *UpdateRoutersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpdateRoutersOutput)
 
-	x := &UpdateRoutersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpdateRouters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) PowerOffRouters(in *PowerOffRoutersInput) (out *PowerOffRoutersOutput, err error) {
-	if in == nil {
-		in = &PowerOffRoutersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "PowerOffRouters",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) PowerOffRouters(input *PowerOffRoutersInput) (output *PowerOffRoutersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(PowerOffRoutersOutput)
 
-	x := &PowerOffRoutersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "PowerOffRouters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) PowerOnRouters(in *PowerOnRoutersInput) (out *PowerOnRoutersOutput, err error) {
-	if in == nil {
-		in = &PowerOnRoutersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "PowerOnRouters",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) PowerOnRouters(input *PowerOnRoutersInput) (output *PowerOnRoutersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(PowerOnRoutersOutput)
 
-	x := &PowerOnRoutersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "PowerOnRouters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) JoinRouter(in *JoinRouterInput) (out *JoinRouterOutput, err error) {
-	if in == nil {
-		in = &JoinRouterInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "JoinRouter",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) JoinRouter(input *JoinRouterInput) (output *JoinRouterOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(JoinRouterOutput)
 
-	x := &JoinRouterOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "JoinRouter", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) LeaveRouter(in *LeaveRouterInput) (out *LeaveRouterOutput, err error) {
-	if in == nil {
-		in = &LeaveRouterInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "LeaveRouter",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) LeaveRouter(input *LeaveRouterInput) (output *LeaveRouterOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(LeaveRouterOutput)
 
-	x := &LeaveRouterOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "LeaveRouter", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) ModifyRouterAttributes(in *ModifyRouterAttributesInput) (out *ModifyRouterAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyRouterAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyRouterAttributes",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) ModifyRouterAttributes(input *ModifyRouterAttributesInput) (output *ModifyRouterAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyRouterAttributesOutput)
 
-	x := &ModifyRouterAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyRouterAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) DescribeRouterStatics(in *DescribeRouterStaticsInput) (out *DescribeRouterStaticsOutput, err error) {
-	if in == nil {
-		in = &DescribeRouterStaticsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeRouterStatics",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) DescribeRouterStatics(input *DescribeRouterStaticsInput) (output *DescribeRouterStaticsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeRouterStaticsOutput)
 
-	x := &DescribeRouterStaticsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeRouterStatics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) AddRouterStatics(in *AddRouterStaticsInput) (out *AddRouterStaticsOutput, err error) {
-	if in == nil {
-		in = &AddRouterStaticsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddRouterStatics",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) AddRouterStatics(input *AddRouterStaticsInput) (output *AddRouterStaticsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddRouterStaticsOutput)
 
-	x := &AddRouterStaticsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddRouterStatics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) ModifyRouterStaticAttributes(in *ModifyRouterStaticAttributesInput) (out *ModifyRouterStaticAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyRouterStaticAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyRouterStaticAttributes",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) ModifyRouterStaticAttributes(input *ModifyRouterStaticAttributesInput) (output *ModifyRouterStaticAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyRouterStaticAttributesOutput)
 
-	x := &ModifyRouterStaticAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyRouterStaticAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) DeleteRouterStatics(in *DeleteRouterStaticsInput) (out *DeleteRouterStaticsOutput, err error) {
-	if in == nil {
-		in = &DeleteRouterStaticsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteRouterStatics",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) DeleteRouterStatics(input *DeleteRouterStaticsInput) (output *DeleteRouterStaticsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteRouterStaticsOutput)
 
-	x := &DeleteRouterStaticsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteRouterStatics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) CopyRouterStatics(in *CopyRouterStaticsInput) (out *CopyRouterStaticsOutput, err error) {
-	if in == nil {
-		in = &CopyRouterStaticsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CopyRouterStatics",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) CopyRouterStatics(input *CopyRouterStaticsInput) (output *CopyRouterStaticsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CopyRouterStaticsOutput)
 
-	x := &CopyRouterStaticsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CopyRouterStatics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) DescribeRouterVxnets(in *DescribeRouterVxnetsInput) (out *DescribeRouterVxnetsOutput, err error) {
-	if in == nil {
-		in = &DescribeRouterVxnetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeRouterVxnets",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) DescribeRouterVxnets(input *DescribeRouterVxnetsInput) (output *DescribeRouterVxnetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeRouterVxnetsOutput)
 
-	x := &DescribeRouterVxnetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeRouterVxnets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) AddRouterStaticEntries(in *AddRouterStaticEntriesInput) (out *AddRouterStaticEntriesOutput, err error) {
-	if in == nil {
-		in = &AddRouterStaticEntriesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddRouterStaticEntries",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) AddRouterStaticEntries(input *AddRouterStaticEntriesInput) (output *AddRouterStaticEntriesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddRouterStaticEntriesOutput)
 
-	x := &AddRouterStaticEntriesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddRouterStaticEntries", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) DeleteRouterStaticEntries(in *DeleteRouterStaticEntriesInput) (out *DeleteRouterStaticEntriesOutput, err error) {
-	if in == nil {
-		in = &DeleteRouterStaticEntriesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteRouterStaticEntries",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) DeleteRouterStaticEntries(input *DeleteRouterStaticEntriesInput) (output *DeleteRouterStaticEntriesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteRouterStaticEntriesOutput)
 
-	x := &DeleteRouterStaticEntriesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteRouterStaticEntries", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) ModifyRouterStaticEntryAttributes(in *ModifyRouterStaticEntryAttributesInput) (out *ModifyRouterStaticEntryAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyRouterStaticEntryAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyRouterStaticEntryAttributes",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) ModifyRouterStaticEntryAttributes(input *ModifyRouterStaticEntryAttributesInput) (output *ModifyRouterStaticEntryAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyRouterStaticEntryAttributesOutput)
 
-	x := &ModifyRouterStaticEntryAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyRouterStaticEntryAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *RouterService) DescribeRouterStaticEntries(in *DescribeRouterStaticEntriesInput) (out *DescribeRouterStaticEntriesOutput, err error) {
-	if in == nil {
-		in = &DescribeRouterStaticEntriesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeRouterStaticEntries",
-		RequestMethod: "GET",
-	}
+func (p *RouterService) DescribeRouterStaticEntries(input *DescribeRouterStaticEntriesInput) (output *DescribeRouterStaticEntriesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeRouterStaticEntriesOutput)
 
-	x := &DescribeRouterStaticEntriesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeRouterStaticEntries", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

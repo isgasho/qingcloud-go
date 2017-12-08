@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type VxnetServiceInterface interface {
 	DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxnetsOutput, err error)
@@ -47,191 +41,86 @@ func NewVxnetService(conf *config.Config, zone string) (p *VxnetService) {
 	}
 }
 
-func (p *VxnetService) DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxnetsOutput, err error) {
-	if in == nil {
-		in = &DescribeVxnetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeVxnets",
-		RequestMethod: "GET",
-	}
+func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *DescribeVxnetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeVxnetsOutput)
 
-	x := &DescribeVxnetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeVxnets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VxnetService) CreateVxnets(in *CreateVxnetsInput) (out *CreateVxnetsOutput, err error) {
-	if in == nil {
-		in = &CreateVxnetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateVxnets",
-		RequestMethod: "GET",
-	}
+func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxnetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateVxnetsOutput)
 
-	x := &CreateVxnetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateVxnets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VxnetService) DeleteVxnets(in *DeleteVxnetsInput) (out *DeleteVxnetsOutput, err error) {
-	if in == nil {
-		in = &DeleteVxnetsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteVxnets",
-		RequestMethod: "GET",
-	}
+func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxnetsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteVxnetsOutput)
 
-	x := &DeleteVxnetsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteVxnets", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VxnetService) JoinVxnet(in *JoinVxnetInput) (out *JoinVxnetOutput, err error) {
-	if in == nil {
-		in = &JoinVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "JoinVxnet",
-		RequestMethod: "GET",
-	}
+func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(JoinVxnetOutput)
 
-	x := &JoinVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "JoinVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VxnetService) LeaveVxnet(in *LeaveVxnetInput) (out *LeaveVxnetOutput, err error) {
-	if in == nil {
-		in = &LeaveVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "LeaveVxnet",
-		RequestMethod: "GET",
-	}
+func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(LeaveVxnetOutput)
 
-	x := &LeaveVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "LeaveVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VxnetService) ModifyVxnetAttributes(in *ModifyVxnetAttributesInput) (out *ModifyVxnetAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyVxnetAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyVxnetAttributes",
-		RequestMethod: "GET",
-	}
+func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) (output *ModifyVxnetAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyVxnetAttributesOutput)
 
-	x := &ModifyVxnetAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyVxnetAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VxnetService) DescribeVxnetInstances(in *DescribeVxnetInstancesInput) (out *DescribeVxnetInstancesOutput, err error) {
-	if in == nil {
-		in = &DescribeVxnetInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeVxnetInstances",
-		RequestMethod: "GET",
-	}
+func (p *VxnetService) DescribeVxnetInstances(input *DescribeVxnetInstancesInput) (output *DescribeVxnetInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeVxnetInstancesOutput)
 
-	x := &DescribeVxnetInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeVxnetInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

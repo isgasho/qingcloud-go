@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type MonitorServiceInterface interface {
 	GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error)
@@ -46,164 +40,74 @@ func NewMonitorService(conf *config.Config, zone string) (p *MonitorService) {
 	}
 }
 
-func (p *MonitorService) GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error) {
-	if in == nil {
-		in = &GetMonitorInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetMonitor",
-		RequestMethod: "GET",
-	}
+func (p *MonitorService) GetMonitor(input *GetMonitorInput) (output *GetMonitorOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetMonitorOutput)
 
-	x := &GetMonitorOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetMonitor", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MonitorService) GetLoadBalancerMonitor(in *GetLoadBalancerMonitorInput) (out *GetLoadBalancerMonitorOutput, err error) {
-	if in == nil {
-		in = &GetLoadBalancerMonitorInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetLoadBalancerMonitor",
-		RequestMethod: "GET",
-	}
+func (p *MonitorService) GetLoadBalancerMonitor(input *GetLoadBalancerMonitorInput) (output *GetLoadBalancerMonitorOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetLoadBalancerMonitorOutput)
 
-	x := &GetLoadBalancerMonitorOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetLoadBalancerMonitor", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MonitorService) GetRDBMonitor(in *GetRDBMonitorInput) (out *GetRDBMonitorOutput, err error) {
-	if in == nil {
-		in = &GetRDBMonitorInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetRDBMonitor",
-		RequestMethod: "GET",
-	}
+func (p *MonitorService) GetRDBMonitor(input *GetRDBMonitorInput) (output *GetRDBMonitorOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetRDBMonitorOutput)
 
-	x := &GetRDBMonitorOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetRDBMonitor", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MonitorService) GetCacheMonitor(in *GetCacheMonitorInput) (out *GetCacheMonitorOutput, err error) {
-	if in == nil {
-		in = &GetCacheMonitorInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetCacheMonitor",
-		RequestMethod: "GET",
-	}
+func (p *MonitorService) GetCacheMonitor(input *GetCacheMonitorInput) (output *GetCacheMonitorOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetCacheMonitorOutput)
 
-	x := &GetCacheMonitorOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetCacheMonitor", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MonitorService) GetZooKeeperMonitor(in *GetZooKeeperMonitorInput) (out *GetZooKeeperMonitorOutput, err error) {
-	if in == nil {
-		in = &GetZooKeeperMonitorInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetZooKeeperMonitor",
-		RequestMethod: "GET",
-	}
+func (p *MonitorService) GetZooKeeperMonitor(input *GetZooKeeperMonitorInput) (output *GetZooKeeperMonitorOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetZooKeeperMonitorOutput)
 
-	x := &GetZooKeeperMonitorOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetZooKeeperMonitor", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MonitorService) GetQueueMonitor(in *GetQueueMonitorInput) (out *GetQueueMonitorOutput, err error) {
-	if in == nil {
-		in = &GetQueueMonitorInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetQueueMonitor",
-		RequestMethod: "GET",
-	}
+func (p *MonitorService) GetQueueMonitor(input *GetQueueMonitorInput) (output *GetQueueMonitorOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetQueueMonitorOutput)
 
-	x := &GetQueueMonitorOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetQueueMonitor", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

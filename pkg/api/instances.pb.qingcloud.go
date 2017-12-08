@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type InstanceServiceInterface interface {
 	DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error)
@@ -52,326 +46,146 @@ func NewInstanceService(conf *config.Config, zone string) (p *InstanceService) {
 	}
 }
 
-func (p *InstanceService) DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error) {
-	if in == nil {
-		in = &DescribeInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) DescribeInstances(input *DescribeInstancesInput) (output *DescribeInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeInstancesOutput)
 
-	x := &DescribeInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) RunInstances(in *RunInstancesInput) (out *RunInstancesOutput, err error) {
-	if in == nil {
-		in = &RunInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RunInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) RunInstances(input *RunInstancesInput) (output *RunInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RunInstancesOutput)
 
-	x := &RunInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RunInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) TerminateInstances(in *TerminateInstancesInput) (out *TerminateInstancesOutput, err error) {
-	if in == nil {
-		in = &TerminateInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "TerminateInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) TerminateInstances(input *TerminateInstancesInput) (output *TerminateInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(TerminateInstancesOutput)
 
-	x := &TerminateInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "TerminateInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) StartInstances(in *StartInstancesInput) (out *StartInstancesOutput, err error) {
-	if in == nil {
-		in = &StartInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) StartInstances(input *StartInstancesInput) (output *StartInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartInstancesOutput)
 
-	x := &StartInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) StopInstances(in *StopInstancesInput) (out *StopInstancesOutput, err error) {
-	if in == nil {
-		in = &StopInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) StopInstances(input *StopInstancesInput) (output *StopInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopInstancesOutput)
 
-	x := &StopInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) RestartInstances(in *RestartInstancesInput) (out *RestartInstancesOutput, err error) {
-	if in == nil {
-		in = &RestartInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RestartInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) RestartInstances(input *RestartInstancesInput) (output *RestartInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RestartInstancesOutput)
 
-	x := &RestartInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RestartInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) ResetInstances(in *ResetInstancesInput) (out *ResetInstancesOutput, err error) {
-	if in == nil {
-		in = &ResetInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResetInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) ResetInstances(input *ResetInstancesInput) (output *ResetInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResetInstancesOutput)
 
-	x := &ResetInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResetInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) ResizeInstances(in *ResizeInstancesInput) (out *ResizeInstancesOutput, err error) {
-	if in == nil {
-		in = &ResizeInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeInstances",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) ResizeInstances(input *ResizeInstancesInput) (output *ResizeInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeInstancesOutput)
 
-	x := &ResizeInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) ModifyInstanceAttributes(in *ModifyInstanceAttributesInput) (out *ModifyInstanceAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyInstanceAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyInstanceAttributes",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) ModifyInstanceAttributes(input *ModifyInstanceAttributesInput) (output *ModifyInstanceAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyInstanceAttributesOutput)
 
-	x := &ModifyInstanceAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyInstanceAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) DescribeInstanceTypes(in *DescribeInstanceTypesInput) (out *DescribeInstanceTypesOutput, err error) {
-	if in == nil {
-		in = &DescribeInstanceTypesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeInstanceTypes",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) DescribeInstanceTypes(input *DescribeInstanceTypesInput) (output *DescribeInstanceTypesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeInstanceTypesOutput)
 
-	x := &DescribeInstanceTypesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeInstanceTypes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) CreateBrokers(in *CreateBrokersInput) (out *CreateBrokersOutput, err error) {
-	if in == nil {
-		in = &CreateBrokersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateBrokers",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) CreateBrokers(input *CreateBrokersInput) (output *CreateBrokersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateBrokersOutput)
 
-	x := &CreateBrokersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateBrokers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *InstanceService) DeleteBrokers(in *DeleteBrokersInput) (out *DeleteBrokersOutput, err error) {
-	if in == nil {
-		in = &DeleteBrokersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteBrokers",
-		RequestMethod: "GET",
-	}
+func (p *InstanceService) DeleteBrokers(input *DeleteBrokersInput) (output *DeleteBrokersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteBrokersOutput)
 
-	x := &DeleteBrokersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteBrokers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

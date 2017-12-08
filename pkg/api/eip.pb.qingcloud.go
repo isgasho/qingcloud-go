@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type EIPServiceInterface interface {
 	DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutput, err error)
@@ -48,218 +42,98 @@ func NewEIPService(conf *config.Config, zone string) (p *EIPService) {
 	}
 }
 
-func (p *EIPService) DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutput, err error) {
-	if in == nil {
-		in = &DescribeEipsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeEips",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) DescribeEips(input *DescribeEipsInput) (output *DescribeEipsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeEipsOutput)
 
-	x := &DescribeEipsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeEips", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *EIPService) AllocateEips(in *AllocateEipsInput) (out *AllocateEipsOutput, err error) {
-	if in == nil {
-		in = &AllocateEipsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AllocateEips",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) AllocateEips(input *AllocateEipsInput) (output *AllocateEipsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AllocateEipsOutput)
 
-	x := &AllocateEipsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AllocateEips", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *EIPService) ReleaseEips(in *ReleaseEipsInput) (out *ReleaseEipsOutput, err error) {
-	if in == nil {
-		in = &ReleaseEipsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ReleaseEips",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) ReleaseEips(input *ReleaseEipsInput) (output *ReleaseEipsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ReleaseEipsOutput)
 
-	x := &ReleaseEipsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ReleaseEips", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *EIPService) AssociateEip(in *AssociateEipInput) (out *AssociateEipOutput, err error) {
-	if in == nil {
-		in = &AssociateEipInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AssociateEip",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) AssociateEip(input *AssociateEipInput) (output *AssociateEipOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AssociateEipOutput)
 
-	x := &AssociateEipOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AssociateEip", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *EIPService) DissociateEips(in *DissociateEipsInput) (out *DissociateEipsOutput, err error) {
-	if in == nil {
-		in = &DissociateEipsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DissociateEips",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) DissociateEips(input *DissociateEipsInput) (output *DissociateEipsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DissociateEipsOutput)
 
-	x := &DissociateEipsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DissociateEips", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *EIPService) ChangeEipsBandwidth(in *ChangeEipsBandwidthInput) (out *ChangeEipsBandwidthOutput, err error) {
-	if in == nil {
-		in = &ChangeEipsBandwidthInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ChangeEipsBandwidth",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) ChangeEipsBandwidth(input *ChangeEipsBandwidthInput) (output *ChangeEipsBandwidthOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ChangeEipsBandwidthOutput)
 
-	x := &ChangeEipsBandwidthOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ChangeEipsBandwidth", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *EIPService) ChangeEipsBillingMode(in *ChangeEipsBillingModeInput) (out *ChangeEipsBillingModeOutput, err error) {
-	if in == nil {
-		in = &ChangeEipsBillingModeInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ChangeEipsBillingMode",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) ChangeEipsBillingMode(input *ChangeEipsBillingModeInput) (output *ChangeEipsBillingModeOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ChangeEipsBillingModeOutput)
 
-	x := &ChangeEipsBillingModeOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ChangeEipsBillingMode", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *EIPService) ModifyEipAttributes(in *ModifyEipAttributesInput) (out *ModifyEipAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyEipAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyEipAttributes",
-		RequestMethod: "GET",
-	}
+func (p *EIPService) ModifyEipAttributes(input *ModifyEipAttributesInput) (output *ModifyEipAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyEipAttributesOutput)
 
-	x := &ModifyEipAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyEipAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type AlarmServiceInterface interface {
 	DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (out *DescribeAlarmPoliciesOutput, err error)
@@ -57,461 +51,206 @@ func NewAlarmService(conf *config.Config, zone string) (p *AlarmService) {
 	}
 }
 
-func (p *AlarmService) DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (out *DescribeAlarmPoliciesOutput, err error) {
-	if in == nil {
-		in = &DescribeAlarmPoliciesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeAlarmPolicies",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DescribeAlarmPolicies(input *DescribeAlarmPoliciesInput) (output *DescribeAlarmPoliciesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeAlarmPoliciesOutput)
 
-	x := &DescribeAlarmPoliciesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeAlarmPolicies", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) CreateAlarmPolicy(in *CreateAlarmPolicyInput) (out *CreateAlarmPolicyOutput, err error) {
-	if in == nil {
-		in = &CreateAlarmPolicyInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateAlarmPolicy",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) CreateAlarmPolicy(input *CreateAlarmPolicyInput) (output *CreateAlarmPolicyOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateAlarmPolicyOutput)
 
-	x := &CreateAlarmPolicyOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateAlarmPolicy", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) ModifyAlarmPolicyAttributes(in *ModifyAlarmPolicyAttributesInput) (out *ModifyAlarmPolicyAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyAlarmPolicyAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyAlarmPolicyAttributes",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) ModifyAlarmPolicyAttributes(input *ModifyAlarmPolicyAttributesInput) (output *ModifyAlarmPolicyAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyAlarmPolicyAttributesOutput)
 
-	x := &ModifyAlarmPolicyAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyAlarmPolicyAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DeleteAlarmPolicies(in *DeleteAlarmPoliciesInput) (out *DeleteAlarmPoliciesOutput, err error) {
-	if in == nil {
-		in = &DeleteAlarmPoliciesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteAlarmPolicies",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DeleteAlarmPolicies(input *DeleteAlarmPoliciesInput) (output *DeleteAlarmPoliciesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteAlarmPoliciesOutput)
 
-	x := &DeleteAlarmPoliciesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteAlarmPolicies", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DescribeAlarmPolicyRules(in *DescribeAlarmPolicyRulesInput) (out *DescribeAlarmPolicyRulesOutput, err error) {
-	if in == nil {
-		in = &DescribeAlarmPolicyRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeAlarmPolicyRules",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DescribeAlarmPolicyRules(input *DescribeAlarmPolicyRulesInput) (output *DescribeAlarmPolicyRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeAlarmPolicyRulesOutput)
 
-	x := &DescribeAlarmPolicyRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeAlarmPolicyRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) AddAlarmPolicyRules(in *AddAlarmPolicyRulesInput) (out *AddAlarmPolicyRulesOutput, err error) {
-	if in == nil {
-		in = &AddAlarmPolicyRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddAlarmPolicyRules",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) AddAlarmPolicyRules(input *AddAlarmPolicyRulesInput) (output *AddAlarmPolicyRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddAlarmPolicyRulesOutput)
 
-	x := &AddAlarmPolicyRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddAlarmPolicyRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(in *ModifyAlarmPolicyRuleAttributesInput) (out *ModifyAlarmPolicyRuleAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyAlarmPolicyRuleAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyAlarmPolicyRuleAttributes",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(input *ModifyAlarmPolicyRuleAttributesInput) (output *ModifyAlarmPolicyRuleAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyAlarmPolicyRuleAttributesOutput)
 
-	x := &ModifyAlarmPolicyRuleAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyAlarmPolicyRuleAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DeleteAlarmPolicyRules(in *DeleteAlarmPolicyRulesInput) (out *DeleteAlarmPolicyRulesOutput, err error) {
-	if in == nil {
-		in = &DeleteAlarmPolicyRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteAlarmPolicyRules",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DeleteAlarmPolicyRules(input *DeleteAlarmPolicyRulesInput) (output *DeleteAlarmPolicyRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteAlarmPolicyRulesOutput)
 
-	x := &DeleteAlarmPolicyRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteAlarmPolicyRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DescribeAlarmPolicyActions(in *DescribeAlarmPolicyActionsInput) (out *DescribeAlarmPolicyActionsOutput, err error) {
-	if in == nil {
-		in = &DescribeAlarmPolicyActionsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeAlarmPolicyActions",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DescribeAlarmPolicyActions(input *DescribeAlarmPolicyActionsInput) (output *DescribeAlarmPolicyActionsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeAlarmPolicyActionsOutput)
 
-	x := &DescribeAlarmPolicyActionsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeAlarmPolicyActions", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) AddAlarmPolicyActions(in *AddAlarmPolicyActionsInput) (out *AddAlarmPolicyActionsOutput, err error) {
-	if in == nil {
-		in = &AddAlarmPolicyActionsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddAlarmPolicyActions",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) AddAlarmPolicyActions(input *AddAlarmPolicyActionsInput) (output *AddAlarmPolicyActionsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddAlarmPolicyActionsOutput)
 
-	x := &AddAlarmPolicyActionsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddAlarmPolicyActions", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) ModifyAlarmPolicyActionAttributes(in *ModifyAlarmPolicyActionAttributesInput) (out *ModifyAlarmPolicyActionAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyAlarmPolicyActionAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyAlarmPolicyActionAttributes",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) ModifyAlarmPolicyActionAttributes(input *ModifyAlarmPolicyActionAttributesInput) (output *ModifyAlarmPolicyActionAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyAlarmPolicyActionAttributesOutput)
 
-	x := &ModifyAlarmPolicyActionAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyAlarmPolicyActionAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DeleteAlarmPolicyActions(in *DeleteAlarmPolicyActionsInput) (out *DeleteAlarmPolicyActionsOutput, err error) {
-	if in == nil {
-		in = &DeleteAlarmPolicyActionsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteAlarmPolicyActions",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DeleteAlarmPolicyActions(input *DeleteAlarmPolicyActionsInput) (output *DeleteAlarmPolicyActionsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteAlarmPolicyActionsOutput)
 
-	x := &DeleteAlarmPolicyActionsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteAlarmPolicyActions", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) AssociateAlarmPolicy(in *AssociateAlarmPolicyInput) (out *AssociateAlarmPolicyOutput, err error) {
-	if in == nil {
-		in = &AssociateAlarmPolicyInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AssociateAlarmPolicy",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) AssociateAlarmPolicy(input *AssociateAlarmPolicyInput) (output *AssociateAlarmPolicyOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AssociateAlarmPolicyOutput)
 
-	x := &AssociateAlarmPolicyOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AssociateAlarmPolicy", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DissociateAlarmPolicy(in *DissociateAlarmPolicyInput) (out *DissociateAlarmPolicyOutput, err error) {
-	if in == nil {
-		in = &DissociateAlarmPolicyInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DissociateAlarmPolicy",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DissociateAlarmPolicy(input *DissociateAlarmPolicyInput) (output *DissociateAlarmPolicyOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DissociateAlarmPolicyOutput)
 
-	x := &DissociateAlarmPolicyOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DissociateAlarmPolicy", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) ApplyAlarmPolicy(in *ApplyAlarmPolicyInput) (out *ApplyAlarmPolicyOutput, err error) {
-	if in == nil {
-		in = &ApplyAlarmPolicyInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ApplyAlarmPolicy",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) ApplyAlarmPolicy(input *ApplyAlarmPolicyInput) (output *ApplyAlarmPolicyOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ApplyAlarmPolicyOutput)
 
-	x := &ApplyAlarmPolicyOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ApplyAlarmPolicy", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DescribeAlarms(in *DescribeAlarmsInput) (out *DescribeAlarmsOutput, err error) {
-	if in == nil {
-		in = &DescribeAlarmsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeAlarms",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DescribeAlarms(input *DescribeAlarmsInput) (output *DescribeAlarmsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeAlarmsOutput)
 
-	x := &DescribeAlarmsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeAlarms", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *AlarmService) DescribeAlarmHistory(in *DescribeAlarmHistoryInput) (out *DescribeAlarmHistoryOutput, err error) {
-	if in == nil {
-		in = &DescribeAlarmHistoryInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeAlarmHistory",
-		RequestMethod: "GET",
-	}
+func (p *AlarmService) DescribeAlarmHistory(input *DescribeAlarmHistoryInput) (output *DescribeAlarmHistoryOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeAlarmHistoryOutput)
 
-	x := &DescribeAlarmHistoryOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeAlarmHistory", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

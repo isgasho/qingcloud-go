@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type SparkServiceInterface interface {
 	CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error)
@@ -47,191 +41,86 @@ func NewSparkService(conf *config.Config, zone string) (p *SparkService) {
 	}
 }
 
-func (p *SparkService) CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error) {
-	if in == nil {
-		in = &CreateSparkInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateSpark",
-		RequestMethod: "GET",
-	}
+func (p *SparkService) CreateSpark(input *CreateSparkInput) (output *CreateSparkOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateSparkOutput)
 
-	x := &CreateSparkOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateSpark", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SparkService) DescribeSparks(in *DescribeSparksInput) (out *DescribeSparksOutput, err error) {
-	if in == nil {
-		in = &DescribeSparksInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSparks",
-		RequestMethod: "GET",
-	}
+func (p *SparkService) DescribeSparks(input *DescribeSparksInput) (output *DescribeSparksOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSparksOutput)
 
-	x := &DescribeSparksOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSparks", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SparkService) AddSparkNodes(in *AddSparkNodesInput) (out *AddSparkNodesOutput, err error) {
-	if in == nil {
-		in = &AddSparkNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddSparkNodes",
-		RequestMethod: "GET",
-	}
+func (p *SparkService) AddSparkNodes(input *AddSparkNodesInput) (output *AddSparkNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddSparkNodesOutput)
 
-	x := &AddSparkNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddSparkNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SparkService) DeleteSparkNodes(in *DeleteSparkNodesInput) (out *DeleteSparkNodesOutput, err error) {
-	if in == nil {
-		in = &DeleteSparkNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSparkNodes",
-		RequestMethod: "GET",
-	}
+func (p *SparkService) DeleteSparkNodes(input *DeleteSparkNodesInput) (output *DeleteSparkNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSparkNodesOutput)
 
-	x := &DeleteSparkNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSparkNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SparkService) StartSparks(in *StartSparksInput) (out *StartSparksOutput, err error) {
-	if in == nil {
-		in = &StartSparksInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartSparks",
-		RequestMethod: "GET",
-	}
+func (p *SparkService) StartSparks(input *StartSparksInput) (output *StartSparksOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartSparksOutput)
 
-	x := &StartSparksOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartSparks", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SparkService) StopSparks(in *StopSparksInput) (out *StopSparksOutput, err error) {
-	if in == nil {
-		in = &StopSparksInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopSparks",
-		RequestMethod: "GET",
-	}
+func (p *SparkService) StopSparks(input *StopSparksInput) (output *StopSparksOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopSparksOutput)
 
-	x := &StopSparksOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopSparks", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SparkService) DeleteSparks(in *DeleteSparksInput) (out *DeleteSparksOutput, err error) {
-	if in == nil {
-		in = &DeleteSparksInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSparks",
-		RequestMethod: "GET",
-	}
+func (p *SparkService) DeleteSparks(input *DeleteSparksInput) (output *DeleteSparksOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSparksOutput)
 
-	x := &DeleteSparksOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSparks", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

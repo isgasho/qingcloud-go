@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type ZoneServiceInterface interface {
 	DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error)
@@ -41,29 +35,14 @@ func NewZoneService(conf *config.Config, zone string) (p *ZoneService) {
 	}
 }
 
-func (p *ZoneService) DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error) {
-	if in == nil {
-		in = &DescribeZonesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeZones",
-		RequestMethod: "GET",
-	}
+func (p *ZoneService) DescribeZones(input *DescribeZonesInput) (output *DescribeZonesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeZonesOutput)
 
-	x := &DescribeZonesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeZones", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

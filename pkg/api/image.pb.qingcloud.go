@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type ImageServiceInterface interface {
 	DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error)
@@ -48,218 +42,98 @@ func NewImageService(conf *config.Config, zone string) (p *ImageService) {
 	}
 }
 
-func (p *ImageService) DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error) {
-	if in == nil {
-		in = &DescribeImagesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeImages",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) DescribeImages(input *DescribeImagesInput) (output *DescribeImagesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeImagesOutput)
 
-	x := &DescribeImagesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeImages", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ImageService) CaptureInstance(in *CaptureInstanceInput) (out *CaptureInstanceOutput, err error) {
-	if in == nil {
-		in = &CaptureInstanceInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CaptureInstance",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) CaptureInstance(input *CaptureInstanceInput) (output *CaptureInstanceOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CaptureInstanceOutput)
 
-	x := &CaptureInstanceOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CaptureInstance", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ImageService) DeleteImages(in *DeleteImagesInput) (out *DeleteImagesOutput, err error) {
-	if in == nil {
-		in = &DeleteImagesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteImages",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) DeleteImages(input *DeleteImagesInput) (output *DeleteImagesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteImagesOutput)
 
-	x := &DeleteImagesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteImages", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ImageService) ModifyImageAttributes(in *ModifyImageAttributesInput) (out *ModifyImageAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyImageAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyImageAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) ModifyImageAttributes(input *ModifyImageAttributesInput) (output *ModifyImageAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyImageAttributesOutput)
 
-	x := &ModifyImageAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyImageAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ImageService) GrantImageToUsers(in *GrantImageToUsersInput) (out *GrantImageToUsersOutput, err error) {
-	if in == nil {
-		in = &GrantImageToUsersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GrantImageToUsers",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) GrantImageToUsers(input *GrantImageToUsersInput) (output *GrantImageToUsersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GrantImageToUsersOutput)
 
-	x := &GrantImageToUsersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GrantImageToUsers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ImageService) RevokeImageFromUsers(in *RevokeImageFromUsersInput) (out *RevokeImageFromUsersOutput, err error) {
-	if in == nil {
-		in = &RevokeImageFromUsersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RevokeImageFromUsers",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) RevokeImageFromUsers(input *RevokeImageFromUsersInput) (output *RevokeImageFromUsersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RevokeImageFromUsersOutput)
 
-	x := &RevokeImageFromUsersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RevokeImageFromUsers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ImageService) DescribeImageUsers(in *DescribeImageUsersInput) (out *DescribeImageUsersOutput, err error) {
-	if in == nil {
-		in = &DescribeImageUsersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeImageUsers",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) DescribeImageUsers(input *DescribeImageUsersInput) (output *DescribeImageUsersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeImageUsersOutput)
 
-	x := &DescribeImageUsersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeImageUsers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ImageService) CloneImages(in *CloneImagesInput) (out *CloneImagesOutput, err error) {
-	if in == nil {
-		in = &CloneImagesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CloneImages",
-		RequestMethod: "GET",
-	}
+func (p *ImageService) CloneImages(input *CloneImagesInput) (output *CloneImagesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CloneImagesOutput)
 
-	x := &CloneImagesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CloneImages", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

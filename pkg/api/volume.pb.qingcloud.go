@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type VolumesServiceInterface interface {
 	DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error)
@@ -47,191 +41,86 @@ func NewVolumesService(conf *config.Config, zone string) (p *VolumesService) {
 	}
 }
 
-func (p *VolumesService) DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error) {
-	if in == nil {
-		in = &DescribeVolumesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeVolumes",
-		RequestMethod: "GET",
-	}
+func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *DescribeVolumesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeVolumesOutput)
 
-	x := &DescribeVolumesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeVolumes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VolumesService) CreateVolumes(in *CreateVolumesInput) (out *CreateVolumesOutput, err error) {
-	if in == nil {
-		in = &CreateVolumesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateVolumes",
-		RequestMethod: "GET",
-	}
+func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *CreateVolumesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateVolumesOutput)
 
-	x := &CreateVolumesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateVolumes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VolumesService) DeleteVolumes(in *DeleteVolumesInput) (out *DeleteVolumesOutput, err error) {
-	if in == nil {
-		in = &DeleteVolumesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteVolumes",
-		RequestMethod: "GET",
-	}
+func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *DeleteVolumesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteVolumesOutput)
 
-	x := &DeleteVolumesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteVolumes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VolumesService) AttachVolumes(in *AttachVolumesInput) (out *AttachVolumesOutput, err error) {
-	if in == nil {
-		in = &AttachVolumesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AttachVolumes",
-		RequestMethod: "GET",
-	}
+func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *AttachVolumesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AttachVolumesOutput)
 
-	x := &AttachVolumesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AttachVolumes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VolumesService) DetachVolumes(in *DetachVolumesInput) (out *DetachVolumesOutput, err error) {
-	if in == nil {
-		in = &DetachVolumesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DetachVolumes",
-		RequestMethod: "GET",
-	}
+func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *DetachVolumesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DetachVolumesOutput)
 
-	x := &DetachVolumesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DetachVolumes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VolumesService) ResizeVolumes(in *ResizeVolumesInput) (out *ResizeVolumesOutput, err error) {
-	if in == nil {
-		in = &ResizeVolumesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeVolumes",
-		RequestMethod: "GET",
-	}
+func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *ResizeVolumesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeVolumesOutput)
 
-	x := &ResizeVolumesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeVolumes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *VolumesService) ModifyVolumeAttributes(in *ModifyVolumeAttributesInput) (out *ModifyVolumeAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyVolumeAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyVolumeAttributes",
-		RequestMethod: "GET",
-	}
+func (p *VolumesService) ModifyVolumeAttributes(input *ModifyVolumeAttributesInput) (output *ModifyVolumeAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyVolumeAttributesOutput)
 
-	x := &ModifyVolumeAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyVolumeAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type NicServiceInterface interface {
 	CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error)
@@ -46,164 +40,74 @@ func NewNicService(conf *config.Config, zone string) (p *NicService) {
 	}
 }
 
-func (p *NicService) CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error) {
-	if in == nil {
-		in = &CreateNicsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateNics",
-		RequestMethod: "GET",
-	}
+func (p *NicService) CreateNics(input *CreateNicsInput) (output *CreateNicsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateNicsOutput)
 
-	x := &CreateNicsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateNics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *NicService) DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutput, err error) {
-	if in == nil {
-		in = &DescribeNicsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeNics",
-		RequestMethod: "GET",
-	}
+func (p *NicService) DescribeNics(input *DescribeNicsInput) (output *DescribeNicsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeNicsOutput)
 
-	x := &DescribeNicsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeNics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *NicService) AttachNics(in *AttachNicsInput) (out *AttachNicsOutput, err error) {
-	if in == nil {
-		in = &AttachNicsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AttachNics",
-		RequestMethod: "GET",
-	}
+func (p *NicService) AttachNics(input *AttachNicsInput) (output *AttachNicsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AttachNicsOutput)
 
-	x := &AttachNicsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AttachNics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *NicService) DetachNics(in *DetachNicsInput) (out *DetachNicsOutput, err error) {
-	if in == nil {
-		in = &DetachNicsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DetachNics",
-		RequestMethod: "GET",
-	}
+func (p *NicService) DetachNics(input *DetachNicsInput) (output *DetachNicsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DetachNicsOutput)
 
-	x := &DetachNicsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DetachNics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *NicService) ModifyNicAttributes(in *ModifyNicAttributesInput) (out *ModifyNicAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyNicAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyNicAttributes",
-		RequestMethod: "GET",
-	}
+func (p *NicService) ModifyNicAttributes(input *ModifyNicAttributesInput) (output *ModifyNicAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyNicAttributesOutput)
 
-	x := &ModifyNicAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyNicAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *NicService) DeleteNics(in *DeleteNicsInput) (out *DeleteNicsOutput, err error) {
-	if in == nil {
-		in = &DeleteNicsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteNics",
-		RequestMethod: "GET",
-	}
+func (p *NicService) DeleteNics(input *DeleteNicsInput) (output *DeleteNicsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteNicsOutput)
 
-	x := &DeleteNicsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteNics", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type SpanServiceInterface interface {
 	CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error)
@@ -47,191 +41,86 @@ func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
 	}
 }
 
-func (p *SpanService) CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error) {
-	if in == nil {
-		in = &CreateSpanInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateSpan",
-		RequestMethod: "GET",
-	}
+func (p *SpanService) CreateSpan(input *CreateSpanInput) (output *CreateSpanOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateSpanOutput)
 
-	x := &CreateSpanOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateSpan", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SpanService) DescribeSpans(in *DescribeSpansInput) (out *DescribeSpansOutput, err error) {
-	if in == nil {
-		in = &DescribeSpansInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSpans",
-		RequestMethod: "GET",
-	}
+func (p *SpanService) DescribeSpans(input *DescribeSpansInput) (output *DescribeSpansOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSpansOutput)
 
-	x := &DescribeSpansOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSpans", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SpanService) DeleteSpans(in *DeleteSpansInput) (out *DeleteSpansOutput, err error) {
-	if in == nil {
-		in = &DeleteSpansInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteSpans",
-		RequestMethod: "GET",
-	}
+func (p *SpanService) DeleteSpans(input *DeleteSpansInput) (output *DeleteSpansOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteSpansOutput)
 
-	x := &DeleteSpansOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteSpans", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SpanService) AddSpanMembers(in *AddSpanMembersInput) (out *AddSpanMembersOutput, err error) {
-	if in == nil {
-		in = &AddSpanMembersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddSpanMembers",
-		RequestMethod: "GET",
-	}
+func (p *SpanService) AddSpanMembers(input *AddSpanMembersInput) (output *AddSpanMembersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddSpanMembersOutput)
 
-	x := &AddSpanMembersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddSpanMembers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SpanService) RemoveSpanMembers(in *RemoveSpanMembersInput) (out *RemoveSpanMembersOutput, err error) {
-	if in == nil {
-		in = &RemoveSpanMembersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RemoveSpanMembers",
-		RequestMethod: "GET",
-	}
+func (p *SpanService) RemoveSpanMembers(input *RemoveSpanMembersInput) (output *RemoveSpanMembersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RemoveSpanMembersOutput)
 
-	x := &RemoveSpanMembersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RemoveSpanMembers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SpanService) ModifySpanAttributes(in *ModifySpanAttributesInput) (out *ModifySpanAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifySpanAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifySpanAttributes",
-		RequestMethod: "GET",
-	}
+func (p *SpanService) ModifySpanAttributes(input *ModifySpanAttributesInput) (output *ModifySpanAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifySpanAttributesOutput)
 
-	x := &ModifySpanAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifySpanAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *SpanService) UpdateSpan(in *UpdateSpanInput) (out *UpdateSpanOutput, err error) {
-	if in == nil {
-		in = &UpdateSpanInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpdateSpan",
-		RequestMethod: "GET",
-	}
+func (p *SpanService) UpdateSpan(input *UpdateSpanInput) (output *UpdateSpanOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpdateSpanOutput)
 
-	x := &UpdateSpanOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpdateSpan", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

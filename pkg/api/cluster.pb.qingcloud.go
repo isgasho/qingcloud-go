@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type ClusterServiceInterface interface {
 	CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error)
@@ -61,569 +55,254 @@ func NewClusterService(conf *config.Config, zone string) (p *ClusterService) {
 	}
 }
 
-func (p *ClusterService) CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error) {
-	if in == nil {
-		in = &CreateClusterInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateCluster",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) CreateCluster(input *CreateClusterInput) (output *CreateClusterOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateClusterOutput)
 
-	x := &CreateClusterOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateCluster", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) DescribeClusters(in *DescribeClustersInput) (out *DescribeClustersOutput, err error) {
-	if in == nil {
-		in = &DescribeClustersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeClusters",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) DescribeClusters(input *DescribeClustersInput) (output *DescribeClustersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeClustersOutput)
 
-	x := &DescribeClustersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeClusters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) DescribeClusterNodes(in *DescribeClusterNodesInput) (out *DescribeClusterNodesOutput, err error) {
-	if in == nil {
-		in = &DescribeClusterNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeClusterNodes",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) DescribeClusterNodes(input *DescribeClusterNodesInput) (output *DescribeClusterNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeClusterNodesOutput)
 
-	x := &DescribeClusterNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeClusterNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) StopClusters(in *StopClustersInput) (out *StopClustersOutput, err error) {
-	if in == nil {
-		in = &StopClustersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopClusters",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) StopClusters(input *StopClustersInput) (output *StopClustersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopClustersOutput)
 
-	x := &StopClustersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopClusters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) StartClusters(in *StartClustersInput) (out *StartClustersOutput, err error) {
-	if in == nil {
-		in = &StartClustersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartClusters",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) StartClusters(input *StartClustersInput) (output *StartClustersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartClustersOutput)
 
-	x := &StartClustersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartClusters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) DeleteClusters(in *DeleteClustersInput) (out *DeleteClustersOutput, err error) {
-	if in == nil {
-		in = &DeleteClustersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteClusters",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) DeleteClusters(input *DeleteClustersInput) (output *DeleteClustersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteClustersOutput)
 
-	x := &DeleteClustersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteClusters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) Lease(in *LeaseInput) (out *LeaseOutput, err error) {
-	if in == nil {
-		in = &LeaseInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "Lease",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) Lease(input *LeaseInput) (output *LeaseOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(LeaseOutput)
 
-	x := &LeaseOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "Lease", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) AddClusterNodes(in *AddClusterNodesInput) (out *AddClusterNodesOutput, err error) {
-	if in == nil {
-		in = &AddClusterNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddClusterNodes",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) AddClusterNodes(input *AddClusterNodesInput) (output *AddClusterNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddClusterNodesOutput)
 
-	x := &AddClusterNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddClusterNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) DeleteClusterNodes(in *DeleteClusterNodesInput) (out *DeleteClusterNodesOutput, err error) {
-	if in == nil {
-		in = &DeleteClusterNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteClusterNodes",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) DeleteClusterNodes(input *DeleteClusterNodesInput) (output *DeleteClusterNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteClusterNodesOutput)
 
-	x := &DeleteClusterNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteClusterNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) ResizeCluster(in *ResizeClusterInput) (out *ResizeClusterOutput, err error) {
-	if in == nil {
-		in = &ResizeClusterInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeCluster",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) ResizeCluster(input *ResizeClusterInput) (output *ResizeClusterOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeClusterOutput)
 
-	x := &ResizeClusterOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeCluster", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) ChangeClusterVxnet(in *ChangeClusterVxnetInput) (out *ChangeClusterVxnetOutput, err error) {
-	if in == nil {
-		in = &ChangeClusterVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ChangeClusterVxnet",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) ChangeClusterVxnet(input *ChangeClusterVxnetInput) (output *ChangeClusterVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ChangeClusterVxnetOutput)
 
-	x := &ChangeClusterVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ChangeClusterVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) SuspendClusters(in *SuspendClustersInput) (out *SuspendClustersOutput, err error) {
-	if in == nil {
-		in = &SuspendClustersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "SuspendClusters",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) SuspendClusters(input *SuspendClustersInput) (output *SuspendClustersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(SuspendClustersOutput)
 
-	x := &SuspendClustersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "SuspendClusters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) UpdateClusterEnvironment(in *UpdateClusterEnvironmentInput) (out *UpdateClusterEnvironmentOutput, err error) {
-	if in == nil {
-		in = &UpdateClusterEnvironmentInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpdateClusterEnvironment",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) UpdateClusterEnvironment(input *UpdateClusterEnvironmentInput) (output *UpdateClusterEnvironmentOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpdateClusterEnvironmentOutput)
 
-	x := &UpdateClusterEnvironmentOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpdateClusterEnvironment", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) ModifyClusterAttributes(in *ModifyClusterAttributesInput) (out *ModifyClusterAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyClusterAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyClusterAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) ModifyClusterAttributes(input *ModifyClusterAttributesInput) (output *ModifyClusterAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyClusterAttributesOutput)
 
-	x := &ModifyClusterAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyClusterAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) ModifyClusterNodeAttributes(in *ModifyClusterNodeAttributesInput) (out *ModifyClusterNodeAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyClusterNodeAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyClusterNodeAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) ModifyClusterNodeAttributes(input *ModifyClusterNodeAttributesInput) (output *ModifyClusterNodeAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyClusterNodeAttributesOutput)
 
-	x := &ModifyClusterNodeAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyClusterNodeAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) GetClustersStats(in *GetClustersStatsInput) (out *GetClustersStatsOutput, err error) {
-	if in == nil {
-		in = &GetClustersStatsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GetClustersStats",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) GetClustersStats(input *GetClustersStatsInput) (output *GetClustersStatsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GetClustersStatsOutput)
 
-	x := &GetClustersStatsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GetClustersStats", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) DescribeClusterUsers(in *DescribeClusterUsersInput) (out *DescribeClusterUsersOutput, err error) {
-	if in == nil {
-		in = &DescribeClusterUsersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeClusterUsers",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) DescribeClusterUsers(input *DescribeClusterUsersInput) (output *DescribeClusterUsersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeClusterUsersOutput)
 
-	x := &DescribeClusterUsersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeClusterUsers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) RestartClusterService(in *RestartClusterServiceInput) (out *RestartClusterServiceOutput, err error) {
-	if in == nil {
-		in = &RestartClusterServiceInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RestartClusterService",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) RestartClusterService(input *RestartClusterServiceInput) (output *RestartClusterServiceOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RestartClusterServiceOutput)
 
-	x := &RestartClusterServiceOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RestartClusterService", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) UpgradeClusters(in *UpgradeClustersInput) (out *UpgradeClustersOutput, err error) {
-	if in == nil {
-		in = &UpgradeClustersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpgradeClusters",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) UpgradeClusters(input *UpgradeClustersInput) (output *UpgradeClustersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpgradeClustersOutput)
 
-	x := &UpgradeClustersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpgradeClusters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(in *AuthorizeClustersBrokerToDeveloperInput) (out *AuthorizeClustersBrokerToDeveloperOutput, err error) {
-	if in == nil {
-		in = &AuthorizeClustersBrokerToDeveloperInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AuthorizeClustersBrokerToDeveloper",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(input *AuthorizeClustersBrokerToDeveloperInput) (output *AuthorizeClustersBrokerToDeveloperOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AuthorizeClustersBrokerToDeveloperOutput)
 
-	x := &AuthorizeClustersBrokerToDeveloperOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AuthorizeClustersBrokerToDeveloper", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ClusterService) RevokeClustersBrokerFromDeveloper(in *RevokeClustersBrokerFromDeveloperInput) (out *RevokeClustersBrokerFromDeveloperOutput, err error) {
-	if in == nil {
-		in = &RevokeClustersBrokerFromDeveloperInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RevokeClustersBrokerFromDeveloper",
-		RequestMethod: "GET",
-	}
+func (p *ClusterService) RevokeClustersBrokerFromDeveloper(input *RevokeClustersBrokerFromDeveloperInput) (output *RevokeClustersBrokerFromDeveloperOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RevokeClustersBrokerFromDeveloperOutput)
 
-	x := &RevokeClustersBrokerFromDeveloperOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RevokeClustersBrokerFromDeveloper", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type ResourceACLServiceInterface interface {
 	DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error)
@@ -67,731 +61,326 @@ func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLServ
 	}
 }
 
-func (p *ResourceACLService) DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error) {
-	if in == nil {
-		in = &DescribeSharedResourceGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeSharedResourceGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeSharedResourceGroups(input *DescribeSharedResourceGroupsInput) (output *DescribeSharedResourceGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeSharedResourceGroupsOutput)
 
-	x := &DescribeSharedResourceGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeSharedResourceGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DescribeResourceGroups(in *DescribeResourceGroupsInput) (out *DescribeResourceGroupsOutput, err error) {
-	if in == nil {
-		in = &DescribeResourceGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeResourceGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeResourceGroups(input *DescribeResourceGroupsInput) (output *DescribeResourceGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeResourceGroupsOutput)
 
-	x := &DescribeResourceGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeResourceGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) CreateResourceGroups(in *CreateResourceGroupsInput) (out *CreateResourceGroupsOutput, err error) {
-	if in == nil {
-		in = &CreateResourceGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateResourceGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) CreateResourceGroups(input *CreateResourceGroupsInput) (output *CreateResourceGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateResourceGroupsOutput)
 
-	x := &CreateResourceGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateResourceGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) ModifyResourceGroupAttributes(in *ModifyResourceGroupAttributesInput) (out *ModifyResourceGroupAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyResourceGroupAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyResourceGroupAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) ModifyResourceGroupAttributes(input *ModifyResourceGroupAttributesInput) (output *ModifyResourceGroupAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyResourceGroupAttributesOutput)
 
-	x := &ModifyResourceGroupAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyResourceGroupAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DeleteResourceGroups(in *DeleteResourceGroupsInput) (out *DeleteResourceGroupsOutput, err error) {
-	if in == nil {
-		in = &DeleteResourceGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteResourceGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DeleteResourceGroups(input *DeleteResourceGroupsInput) (output *DeleteResourceGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteResourceGroupsOutput)
 
-	x := &DeleteResourceGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteResourceGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DescribeResourceGroupItems(in *DescribeResourceGroupItemsInput) (out *DescribeResourceGroupItemsOutput, err error) {
-	if in == nil {
-		in = &DescribeResourceGroupItemsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeResourceGroupItems",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeResourceGroupItems(input *DescribeResourceGroupItemsInput) (output *DescribeResourceGroupItemsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeResourceGroupItemsOutput)
 
-	x := &DescribeResourceGroupItemsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeResourceGroupItems", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) AddResourceGroupItems(in *AddResourceGroupItemsInput) (out *AddResourceGroupItemsOutput, err error) {
-	if in == nil {
-		in = &AddResourceGroupItemsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddResourceGroupItems",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) AddResourceGroupItems(input *AddResourceGroupItemsInput) (output *AddResourceGroupItemsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddResourceGroupItemsOutput)
 
-	x := &AddResourceGroupItemsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddResourceGroupItems", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DeleteResourceGroupItems(in *DeleteResourceGroupItemsInput) (out *DeleteResourceGroupItemsOutput, err error) {
-	if in == nil {
-		in = &DeleteResourceGroupItemsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteResourceGroupItems",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DeleteResourceGroupItems(input *DeleteResourceGroupItemsInput) (output *DeleteResourceGroupItemsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteResourceGroupItemsOutput)
 
-	x := &DeleteResourceGroupItemsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteResourceGroupItems", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DescribeUserGroups(in *DescribeUserGroupsInput) (out *DescribeUserGroupsOutput, err error) {
-	if in == nil {
-		in = &DescribeUserGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeUserGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeUserGroups(input *DescribeUserGroupsInput) (output *DescribeUserGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeUserGroupsOutput)
 
-	x := &DescribeUserGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeUserGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) CreateUserGroups(in *CreateUserGroupsInput) (out *CreateUserGroupsOutput, err error) {
-	if in == nil {
-		in = &CreateUserGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateUserGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) CreateUserGroups(input *CreateUserGroupsInput) (output *CreateUserGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateUserGroupsOutput)
 
-	x := &CreateUserGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateUserGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) ModifyUserGroupAttributes(in *ModifyUserGroupAttributesInput) (out *ModifyUserGroupAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyUserGroupAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyUserGroupAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) ModifyUserGroupAttributes(input *ModifyUserGroupAttributesInput) (output *ModifyUserGroupAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyUserGroupAttributesOutput)
 
-	x := &ModifyUserGroupAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyUserGroupAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DeleteUserGroups(in *DeleteUserGroupsInput) (out *DeleteUserGroupsOutput, err error) {
-	if in == nil {
-		in = &DeleteUserGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteUserGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DeleteUserGroups(input *DeleteUserGroupsInput) (output *DeleteUserGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteUserGroupsOutput)
 
-	x := &DeleteUserGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteUserGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DescribeUserGroupMembers(in *DescribeUserGroupMembersInput) (out *DescribeUserGroupMembersOutput, err error) {
-	if in == nil {
-		in = &DescribeUserGroupMembersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeUserGroupMembers",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeUserGroupMembers(input *DescribeUserGroupMembersInput) (output *DescribeUserGroupMembersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeUserGroupMembersOutput)
 
-	x := &DescribeUserGroupMembersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeUserGroupMembers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) AddUserGroupMembers(in *AddUserGroupMembersInput) (out *AddUserGroupMembersOutput, err error) {
-	if in == nil {
-		in = &AddUserGroupMembersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddUserGroupMembers",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) AddUserGroupMembers(input *AddUserGroupMembersInput) (output *AddUserGroupMembersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddUserGroupMembersOutput)
 
-	x := &AddUserGroupMembersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddUserGroupMembers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) ModifyUserGroupMemberAttributes(in *ModifyUserGroupMemberAttributesInput) (out *ModifyUserGroupMemberAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyUserGroupMemberAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyUserGroupMemberAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) ModifyUserGroupMemberAttributes(input *ModifyUserGroupMemberAttributesInput) (output *ModifyUserGroupMemberAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyUserGroupMemberAttributesOutput)
 
-	x := &ModifyUserGroupMemberAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyUserGroupMemberAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DeleteUserGroupMembers(in *DeleteUserGroupMembersInput) (out *DeleteUserGroupMembersOutput, err error) {
-	if in == nil {
-		in = &DeleteUserGroupMembersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteUserGroupMembers",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DeleteUserGroupMembers(input *DeleteUserGroupMembersInput) (output *DeleteUserGroupMembersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteUserGroupMembersOutput)
 
-	x := &DeleteUserGroupMembersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteUserGroupMembers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DescribeGroupRoles(in *DescribeGroupRolesInput) (out *DescribeGroupRolesOutput, err error) {
-	if in == nil {
-		in = &DescribeGroupRolesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeGroupRoles",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeGroupRoles(input *DescribeGroupRolesInput) (output *DescribeGroupRolesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeGroupRolesOutput)
 
-	x := &DescribeGroupRolesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeGroupRoles", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) CreateGroupRoles(in *CreateGroupRolesInput) (out *CreateGroupRolesOutput, err error) {
-	if in == nil {
-		in = &CreateGroupRolesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateGroupRoles",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) CreateGroupRoles(input *CreateGroupRolesInput) (output *CreateGroupRolesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateGroupRolesOutput)
 
-	x := &CreateGroupRolesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateGroupRoles", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) ModifyGroupRoleAttributes(in *ModifyGroupRoleAttributesInput) (out *ModifyGroupRoleAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyGroupRoleAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyGroupRoleAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) ModifyGroupRoleAttributes(input *ModifyGroupRoleAttributesInput) (output *ModifyGroupRoleAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyGroupRoleAttributesOutput)
 
-	x := &ModifyGroupRoleAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyGroupRoleAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DeleteGroupRoles(in *DeleteGroupRolesInput) (out *DeleteGroupRolesOutput, err error) {
-	if in == nil {
-		in = &DeleteGroupRolesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteGroupRoles",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DeleteGroupRoles(input *DeleteGroupRolesInput) (output *DeleteGroupRolesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteGroupRolesOutput)
 
-	x := &DeleteGroupRolesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteGroupRoles", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DescribeGroupRoleRules(in *DescribeGroupRoleRulesInput) (out *DescribeGroupRoleRulesOutput, err error) {
-	if in == nil {
-		in = &DescribeGroupRoleRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeGroupRoleRules",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeGroupRoleRules(input *DescribeGroupRoleRulesInput) (output *DescribeGroupRoleRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeGroupRoleRulesOutput)
 
-	x := &DescribeGroupRoleRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeGroupRoleRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) AddGroupRoleRules(in *AddGroupRoleRulesInput) (out *AddGroupRoleRulesOutput, err error) {
-	if in == nil {
-		in = &AddGroupRoleRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddGroupRoleRules",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) AddGroupRoleRules(input *AddGroupRoleRulesInput) (output *AddGroupRoleRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddGroupRoleRulesOutput)
 
-	x := &AddGroupRoleRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddGroupRoleRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(in *ModifyGroupRoleRuleAttributesInput) (out *ModifyGroupRoleRuleAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyGroupRoleRuleAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyGroupRoleRuleAttributes",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(input *ModifyGroupRoleRuleAttributesInput) (output *ModifyGroupRoleRuleAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyGroupRoleRuleAttributesOutput)
 
-	x := &ModifyGroupRoleRuleAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyGroupRoleRuleAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DeleteGroupRoleRules(in *DeleteGroupRoleRulesInput) (out *DeleteGroupRoleRulesOutput, err error) {
-	if in == nil {
-		in = &DeleteGroupRoleRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteGroupRoleRules",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DeleteGroupRoleRules(input *DeleteGroupRoleRulesInput) (output *DeleteGroupRoleRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteGroupRoleRulesOutput)
 
-	x := &DeleteGroupRoleRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteGroupRoleRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) GrantResourceGroupsToUserGroups(in *GrantResourceGroupsToUserGroupsInput) (out *GrantResourceGroupsToUserGroupsOutput, err error) {
-	if in == nil {
-		in = &GrantResourceGroupsToUserGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "GrantResourceGroupsToUserGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) GrantResourceGroupsToUserGroups(input *GrantResourceGroupsToUserGroupsInput) (output *GrantResourceGroupsToUserGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(GrantResourceGroupsToUserGroupsOutput)
 
-	x := &GrantResourceGroupsToUserGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "GrantResourceGroupsToUserGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(in *RevokeResourceGroupsFromUserGroupsInput) (out *RevokeResourceGroupsFromUserGroupsOutput, err error) {
-	if in == nil {
-		in = &RevokeResourceGroupsFromUserGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RevokeResourceGroupsFromUserGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(input *RevokeResourceGroupsFromUserGroupsInput) (output *RevokeResourceGroupsFromUserGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RevokeResourceGroupsFromUserGroupsOutput)
 
-	x := &RevokeResourceGroupsFromUserGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RevokeResourceGroupsFromUserGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *ResourceACLService) DescribeResourceUserGroups(in *DescribeResourceUserGroupsInput) (out *DescribeResourceUserGroupsOutput, err error) {
-	if in == nil {
-		in = &DescribeResourceUserGroupsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeResourceUserGroups",
-		RequestMethod: "GET",
-	}
+func (p *ResourceACLService) DescribeResourceUserGroups(input *DescribeResourceUserGroupsInput) (output *DescribeResourceUserGroupsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeResourceUserGroupsOutput)
 
-	x := &DescribeResourceUserGroupsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeResourceUserGroups", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type MongoServiceInterface interface {
 	DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error)
@@ -54,380 +48,170 @@ func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
 	}
 }
 
-func (p *MongoService) DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error) {
-	if in == nil {
-		in = &DescribeMongoNodesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeMongoNodes",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) DescribeMongoNodes(input *DescribeMongoNodesInput) (output *DescribeMongoNodesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeMongoNodesOutput)
 
-	x := &DescribeMongoNodesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeMongoNodes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) DescribeMongoParameters(in *DescribeMongoParametersInput) (out *DescribeMongoParametersOutput, err error) {
-	if in == nil {
-		in = &DescribeMongoParametersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeMongoParameters",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) DescribeMongoParameters(input *DescribeMongoParametersInput) (output *DescribeMongoParametersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeMongoParametersOutput)
 
-	x := &DescribeMongoParametersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeMongoParameters", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) ResizeMongos(in *ResizeMongosInput) (out *ResizeMongosOutput, err error) {
-	if in == nil {
-		in = &ResizeMongosInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeMongos",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) ResizeMongos(input *ResizeMongosInput) (output *ResizeMongosOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeMongosOutput)
 
-	x := &ResizeMongosOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeMongos", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) CreateMongo(in *CreateMongoInput) (out *CreateMongoOutput, err error) {
-	if in == nil {
-		in = &CreateMongoInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateMongo",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) CreateMongo(input *CreateMongoInput) (output *CreateMongoOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateMongoOutput)
 
-	x := &CreateMongoOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateMongo", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) StopMongos(in *StopMongosInput) (out *StopMongosOutput, err error) {
-	if in == nil {
-		in = &StopMongosInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopMongos",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) StopMongos(input *StopMongosInput) (output *StopMongosOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopMongosOutput)
 
-	x := &StopMongosOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopMongos", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) StartMongos(in *StartMongosInput) (out *StartMongosOutput, err error) {
-	if in == nil {
-		in = &StartMongosInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartMongos",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) StartMongos(input *StartMongosInput) (output *StartMongosOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartMongosOutput)
 
-	x := &StartMongosOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartMongos", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) DescribeMongos(in *DescribeMongosInput) (out *DescribeMongosOutput, err error) {
-	if in == nil {
-		in = &DescribeMongosInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeMongos",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) DescribeMongos(input *DescribeMongosInput) (output *DescribeMongosOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeMongosOutput)
 
-	x := &DescribeMongosOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeMongos", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) DeleteMongos(in *DeleteMongosInput) (out *DeleteMongosOutput, err error) {
-	if in == nil {
-		in = &DeleteMongosInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteMongos",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) DeleteMongos(input *DeleteMongosInput) (output *DeleteMongosOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteMongosOutput)
 
-	x := &DeleteMongosOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteMongos", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) CreateMongoFromSnapshot(in *CreateMongoFromSnapshotInput) (out *CreateMongoFromSnapshotOutput, err error) {
-	if in == nil {
-		in = &CreateMongoFromSnapshotInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateMongoFromSnapshot",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) CreateMongoFromSnapshot(input *CreateMongoFromSnapshotInput) (output *CreateMongoFromSnapshotOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateMongoFromSnapshotOutput)
 
-	x := &CreateMongoFromSnapshotOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateMongoFromSnapshot", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) ChangeMongoVxnet(in *ChangeMongoVxnetInput) (out *ChangeMongoVxnetOutput, err error) {
-	if in == nil {
-		in = &ChangeMongoVxnetInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ChangeMongoVxnet",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) ChangeMongoVxnet(input *ChangeMongoVxnetInput) (output *ChangeMongoVxnetOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ChangeMongoVxnetOutput)
 
-	x := &ChangeMongoVxnetOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ChangeMongoVxnet", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) AddMongoInstances(in *AddMongoInstancesInput) (out *AddMongoInstancesOutput, err error) {
-	if in == nil {
-		in = &AddMongoInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddMongoInstances",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) AddMongoInstances(input *AddMongoInstancesInput) (output *AddMongoInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddMongoInstancesOutput)
 
-	x := &AddMongoInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddMongoInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) RemoveMongoInstances(in *RemoveMongoInstancesInput) (out *RemoveMongoInstancesOutput, err error) {
-	if in == nil {
-		in = &RemoveMongoInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "RemoveMongoInstances",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) RemoveMongoInstances(input *RemoveMongoInstancesInput) (output *RemoveMongoInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(RemoveMongoInstancesOutput)
 
-	x := &RemoveMongoInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "RemoveMongoInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) ModifyMongoAttributes(in *ModifyMongoAttributesInput) (out *ModifyMongoAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyMongoAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyMongoAttributes",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) ModifyMongoAttributes(input *ModifyMongoAttributesInput) (output *ModifyMongoAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyMongoAttributesOutput)
 
-	x := &ModifyMongoAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyMongoAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *MongoService) ModifyMongoInstances(in *ModifyMongoInstancesInput) (out *ModifyMongoInstancesOutput, err error) {
-	if in == nil {
-		in = &ModifyMongoInstancesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyMongoInstances",
-		RequestMethod: "GET",
-	}
+func (p *MongoService) ModifyMongoInstances(input *ModifyMongoInstancesInput) (output *ModifyMongoInstancesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyMongoInstancesOutput)
 
-	x := &ModifyMongoInstancesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyMongoInstances", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }

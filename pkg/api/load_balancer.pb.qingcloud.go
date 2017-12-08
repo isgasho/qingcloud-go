@@ -6,23 +6,17 @@
 package service
 
 import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import "regexp"
+import "fmt"
 
+import "github.com/chai2010/qingcloud-go/pkg/client"
 import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/logger"
-import "github.com/chai2010/qingcloud-go/pkg/request"
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
+var _ = proto.Marshal
 
-var _ = regexp.Match
 var _ = config.Config{}
-var _ = logger.Info
-var _ = request.Request{}
+var _ = client.NewClient
 
 type LoadBalancerServiceInterface interface {
 	CreateLoadBalancer(in *CreateLoadBalancerInput) (out *CreateLoadBalancerOutput, err error)
@@ -71,839 +65,374 @@ func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerSe
 	}
 }
 
-func (p *LoadBalancerService) CreateLoadBalancer(in *CreateLoadBalancerInput) (out *CreateLoadBalancerOutput, err error) {
-	if in == nil {
-		in = &CreateLoadBalancerInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateLoadBalancer",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) CreateLoadBalancer(input *CreateLoadBalancerInput) (output *CreateLoadBalancerOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateLoadBalancerOutput)
 
-	x := &CreateLoadBalancerOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateLoadBalancer", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancers(in *DescribeLoadBalancersInput) (out *DescribeLoadBalancersOutput, err error) {
-	if in == nil {
-		in = &DescribeLoadBalancersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeLoadBalancers",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DescribeLoadBalancers(input *DescribeLoadBalancersInput) (output *DescribeLoadBalancersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeLoadBalancersOutput)
 
-	x := &DescribeLoadBalancersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeLoadBalancers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancers(in *DeleteLoadBalancersInput) (out *DeleteLoadBalancersOutput, err error) {
-	if in == nil {
-		in = &DeleteLoadBalancersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteLoadBalancers",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DeleteLoadBalancers(input *DeleteLoadBalancersInput) (output *DeleteLoadBalancersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteLoadBalancersOutput)
 
-	x := &DeleteLoadBalancersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteLoadBalancers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerAttributes(in *ModifyLoadBalancerAttributesInput) (out *ModifyLoadBalancerAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyLoadBalancerAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyLoadBalancerAttributes",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ModifyLoadBalancerAttributes(input *ModifyLoadBalancerAttributesInput) (output *ModifyLoadBalancerAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyLoadBalancerAttributesOutput)
 
-	x := &ModifyLoadBalancerAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyLoadBalancerAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) StartLoadBalancers(in *StartLoadBalancersInput) (out *StartLoadBalancersOutput, err error) {
-	if in == nil {
-		in = &StartLoadBalancersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StartLoadBalancers",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) StartLoadBalancers(input *StartLoadBalancersInput) (output *StartLoadBalancersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StartLoadBalancersOutput)
 
-	x := &StartLoadBalancersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StartLoadBalancers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) StopLoadBalancers(in *StopLoadBalancersInput) (out *StopLoadBalancersOutput, err error) {
-	if in == nil {
-		in = &StopLoadBalancersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "StopLoadBalancers",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) StopLoadBalancers(input *StopLoadBalancersInput) (output *StopLoadBalancersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(StopLoadBalancersOutput)
 
-	x := &StopLoadBalancersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "StopLoadBalancers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) UpdateLoadBalancers(in *UpdateLoadBalancersInput) (out *UpdateLoadBalancersOutput, err error) {
-	if in == nil {
-		in = &UpdateLoadBalancersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "UpdateLoadBalancers",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) UpdateLoadBalancers(input *UpdateLoadBalancersInput) (output *UpdateLoadBalancersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(UpdateLoadBalancersOutput)
 
-	x := &UpdateLoadBalancersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "UpdateLoadBalancers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ResizeLoadBalancers(in *ResizeLoadBalancersInput) (out *ResizeLoadBalancersOutput, err error) {
-	if in == nil {
-		in = &ResizeLoadBalancersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ResizeLoadBalancers",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ResizeLoadBalancers(input *ResizeLoadBalancersInput) (output *ResizeLoadBalancersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ResizeLoadBalancersOutput)
 
-	x := &ResizeLoadBalancersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ResizeLoadBalancers", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) AssociateEipsToLoadBalancer(in *AssociateEipsToLoadBalancerInput) (out *AssociateEipsToLoadBalancerOutput, err error) {
-	if in == nil {
-		in = &AssociateEipsToLoadBalancerInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AssociateEipsToLoadBalancer",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) AssociateEipsToLoadBalancer(input *AssociateEipsToLoadBalancerInput) (output *AssociateEipsToLoadBalancerOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AssociateEipsToLoadBalancerOutput)
 
-	x := &AssociateEipsToLoadBalancerOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AssociateEipsToLoadBalancer", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(in *DissociateEipsFromLoadBalancerInput) (out *DissociateEipsFromLoadBalancerOutput, err error) {
-	if in == nil {
-		in = &DissociateEipsFromLoadBalancerInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DissociateEipsFromLoadBalancer",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(input *DissociateEipsFromLoadBalancerInput) (output *DissociateEipsFromLoadBalancerOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DissociateEipsFromLoadBalancerOutput)
 
-	x := &DissociateEipsFromLoadBalancerOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DissociateEipsFromLoadBalancer", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) AddLoadBalancerListeners(in *AddLoadBalancerListenersInput) (out *AddLoadBalancerListenersOutput, err error) {
-	if in == nil {
-		in = &AddLoadBalancerListenersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddLoadBalancerListeners",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) AddLoadBalancerListeners(input *AddLoadBalancerListenersInput) (output *AddLoadBalancerListenersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddLoadBalancerListenersOutput)
 
-	x := &AddLoadBalancerListenersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddLoadBalancerListeners", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerListeners(in *DescribeLoadBalancerListenersInput) (out *DescribeLoadBalancerListenersOutput, err error) {
-	if in == nil {
-		in = &DescribeLoadBalancerListenersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeLoadBalancerListeners",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DescribeLoadBalancerListeners(input *DescribeLoadBalancerListenersInput) (output *DescribeLoadBalancerListenersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeLoadBalancerListenersOutput)
 
-	x := &DescribeLoadBalancerListenersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeLoadBalancerListeners", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerListeners(in *DeleteLoadBalancerListenersInput) (out *DeleteLoadBalancerListenersOutput, err error) {
-	if in == nil {
-		in = &DeleteLoadBalancerListenersInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteLoadBalancerListeners",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DeleteLoadBalancerListeners(input *DeleteLoadBalancerListenersInput) (output *DeleteLoadBalancerListenersOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteLoadBalancerListenersOutput)
 
-	x := &DeleteLoadBalancerListenersOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteLoadBalancerListeners", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(in *ModifyLoadBalancerListenerAttributesInput) (out *ModifyLoadBalancerListenerAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyLoadBalancerListenerAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyLoadBalancerListenerAttributes",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(input *ModifyLoadBalancerListenerAttributesInput) (output *ModifyLoadBalancerListenerAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyLoadBalancerListenerAttributesOutput)
 
-	x := &ModifyLoadBalancerListenerAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyLoadBalancerListenerAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) AddLoadBalancerBackends(in *AddLoadBalancerBackendsInput) (out *AddLoadBalancerBackendsOutput, err error) {
-	if in == nil {
-		in = &AddLoadBalancerBackendsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddLoadBalancerBackends",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) AddLoadBalancerBackends(input *AddLoadBalancerBackendsInput) (output *AddLoadBalancerBackendsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddLoadBalancerBackendsOutput)
 
-	x := &AddLoadBalancerBackendsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddLoadBalancerBackends", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerBackends(in *DescribeLoadBalancerBackendsInput) (out *DescribeLoadBalancerBackendsOutput, err error) {
-	if in == nil {
-		in = &DescribeLoadBalancerBackendsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeLoadBalancerBackends",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DescribeLoadBalancerBackends(input *DescribeLoadBalancerBackendsInput) (output *DescribeLoadBalancerBackendsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeLoadBalancerBackendsOutput)
 
-	x := &DescribeLoadBalancerBackendsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeLoadBalancerBackends", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerBackends(in *DeleteLoadBalancerBackendsInput) (out *DeleteLoadBalancerBackendsOutput, err error) {
-	if in == nil {
-		in = &DeleteLoadBalancerBackendsInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteLoadBalancerBackends",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DeleteLoadBalancerBackends(input *DeleteLoadBalancerBackendsInput) (output *DeleteLoadBalancerBackendsOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteLoadBalancerBackendsOutput)
 
-	x := &DeleteLoadBalancerBackendsOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteLoadBalancerBackends", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(in *ModifyLoadBalancerBackendAttributesInput) (out *ModifyLoadBalancerBackendAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyLoadBalancerBackendAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyLoadBalancerBackendAttributes",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(input *ModifyLoadBalancerBackendAttributesInput) (output *ModifyLoadBalancerBackendAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyLoadBalancerBackendAttributesOutput)
 
-	x := &ModifyLoadBalancerBackendAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyLoadBalancerBackendAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) CreateLoadBalancerPolicy(in *CreateLoadBalancerPolicyInput) (out *CreateLoadBalancerPolicyOutput, err error) {
-	if in == nil {
-		in = &CreateLoadBalancerPolicyInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateLoadBalancerPolicy",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) CreateLoadBalancerPolicy(input *CreateLoadBalancerPolicyInput) (output *CreateLoadBalancerPolicyOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateLoadBalancerPolicyOutput)
 
-	x := &CreateLoadBalancerPolicyOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateLoadBalancerPolicy", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerPolicies(in *DescribeLoadBalancerPoliciesInput) (out *DescribeLoadBalancerPoliciesOutput, err error) {
-	if in == nil {
-		in = &DescribeLoadBalancerPoliciesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeLoadBalancerPolicies",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DescribeLoadBalancerPolicies(input *DescribeLoadBalancerPoliciesInput) (output *DescribeLoadBalancerPoliciesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeLoadBalancerPoliciesOutput)
 
-	x := &DescribeLoadBalancerPoliciesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeLoadBalancerPolicies", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(in *ModifyLoadBalancerPolicyAttributesInput) (out *ModifyLoadBalancerPolicyAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyLoadBalancerPolicyAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyLoadBalancerPolicyAttributes",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(input *ModifyLoadBalancerPolicyAttributesInput) (output *ModifyLoadBalancerPolicyAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyLoadBalancerPolicyAttributesOutput)
 
-	x := &ModifyLoadBalancerPolicyAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyLoadBalancerPolicyAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ApplyLoadBalancerPolicy(in *ApplyLoadBalancerPolicyInput) (out *ApplyLoadBalancerPolicyOutput, err error) {
-	if in == nil {
-		in = &ApplyLoadBalancerPolicyInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ApplyLoadBalancerPolicy",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ApplyLoadBalancerPolicy(input *ApplyLoadBalancerPolicyInput) (output *ApplyLoadBalancerPolicyOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ApplyLoadBalancerPolicyOutput)
 
-	x := &ApplyLoadBalancerPolicyOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ApplyLoadBalancerPolicy", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerPolicies(in *DeleteLoadBalancerPoliciesInput) (out *DeleteLoadBalancerPoliciesOutput, err error) {
-	if in == nil {
-		in = &DeleteLoadBalancerPoliciesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteLoadBalancerPolicies",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DeleteLoadBalancerPolicies(input *DeleteLoadBalancerPoliciesInput) (output *DeleteLoadBalancerPoliciesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteLoadBalancerPoliciesOutput)
 
-	x := &DeleteLoadBalancerPoliciesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteLoadBalancerPolicies", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) AddLoadBalancerPolicyRules(in *AddLoadBalancerPolicyRulesInput) (out *AddLoadBalancerPolicyRulesOutput, err error) {
-	if in == nil {
-		in = &AddLoadBalancerPolicyRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "AddLoadBalancerPolicyRules",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) AddLoadBalancerPolicyRules(input *AddLoadBalancerPolicyRulesInput) (output *AddLoadBalancerPolicyRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(AddLoadBalancerPolicyRulesOutput)
 
-	x := &AddLoadBalancerPolicyRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "AddLoadBalancerPolicyRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(in *DescribeLoadBalancerPolicyRulesInput) (out *DescribeLoadBalancerPolicyRulesOutput, err error) {
-	if in == nil {
-		in = &DescribeLoadBalancerPolicyRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeLoadBalancerPolicyRules",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(input *DescribeLoadBalancerPolicyRulesInput) (output *DescribeLoadBalancerPolicyRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeLoadBalancerPolicyRulesOutput)
 
-	x := &DescribeLoadBalancerPolicyRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeLoadBalancerPolicyRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(in *ModifyLoadBalancerPolicyRuleAttributesInput) (out *ModifyLoadBalancerPolicyRuleAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyLoadBalancerPolicyRuleAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyLoadBalancerPolicyRuleAttributes",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(input *ModifyLoadBalancerPolicyRuleAttributesInput) (output *ModifyLoadBalancerPolicyRuleAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyLoadBalancerPolicyRuleAttributesOutput)
 
-	x := &ModifyLoadBalancerPolicyRuleAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyLoadBalancerPolicyRuleAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(in *DeleteLoadBalancerPolicyRulesInput) (out *DeleteLoadBalancerPolicyRulesOutput, err error) {
-	if in == nil {
-		in = &DeleteLoadBalancerPolicyRulesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteLoadBalancerPolicyRules",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(input *DeleteLoadBalancerPolicyRulesInput) (output *DeleteLoadBalancerPolicyRulesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteLoadBalancerPolicyRulesOutput)
 
-	x := &DeleteLoadBalancerPolicyRulesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteLoadBalancerPolicyRules", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) CreateServerCertificate(in *CreateServerCertificateInput) (out *CreateServerCertificateOutput, err error) {
-	if in == nil {
-		in = &CreateServerCertificateInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "CreateServerCertificate",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) CreateServerCertificate(input *CreateServerCertificateInput) (output *CreateServerCertificateOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(CreateServerCertificateOutput)
 
-	x := &CreateServerCertificateOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "CreateServerCertificate", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DescribeServerCertificates(in *DescribeServerCertificatesInput) (out *DescribeServerCertificatesOutput, err error) {
-	if in == nil {
-		in = &DescribeServerCertificatesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DescribeServerCertificates",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DescribeServerCertificates(input *DescribeServerCertificatesInput) (output *DescribeServerCertificatesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DescribeServerCertificatesOutput)
 
-	x := &DescribeServerCertificatesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DescribeServerCertificates", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) ModifyServerCertificateAttributes(in *ModifyServerCertificateAttributesInput) (out *ModifyServerCertificateAttributesOutput, err error) {
-	if in == nil {
-		in = &ModifyServerCertificateAttributesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "ModifyServerCertificateAttributes",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) ModifyServerCertificateAttributes(input *ModifyServerCertificateAttributesInput) (output *ModifyServerCertificateAttributesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(ModifyServerCertificateAttributesOutput)
 
-	x := &ModifyServerCertificateAttributesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "ModifyServerCertificateAttributes", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
 
-func (p *LoadBalancerService) DeleteServerCertificates(in *DeleteServerCertificatesInput) (out *DeleteServerCertificatesOutput, err error) {
-	if in == nil {
-		in = &DeleteServerCertificatesInput{}
-	}
-	o := &request.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "DeleteServerCertificates",
-		RequestMethod: "GET",
-	}
+func (p *LoadBalancerService) DeleteServerCertificates(input *DeleteServerCertificatesInput) (output *DeleteServerCertificatesOutput, err error) {
+	client := client.NewClient("", "", nil)
+	output = new(DeleteServerCertificatesOutput)
 
-	x := &DeleteServerCertificatesOutput{}
-	r, err := request.New(o, in, x)
+	err = client.CallMethod(nil, "DeleteServerCertificates", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	return
 }
