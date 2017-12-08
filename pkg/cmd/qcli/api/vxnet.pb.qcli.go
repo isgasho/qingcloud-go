@@ -134,7 +134,7 @@ var _flag_VxnetService_DescribeVxnets = []cli.Flag{
 }
 
 func _func_VxnetService_DescribeVxnets(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
@@ -219,7 +219,7 @@ var _flag_VxnetService_CreateVxnets = []cli.Flag{
 }
 
 func _func_VxnetService_CreateVxnets(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
@@ -276,7 +276,7 @@ var _flag_VxnetService_DeleteVxnets = []cli.Flag{
 }
 
 func _func_VxnetService_DeleteVxnets(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
@@ -331,7 +331,7 @@ var _flag_VxnetService_JoinVxnet = []cli.Flag{
 }
 
 func _func_VxnetService_JoinVxnet(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
@@ -389,7 +389,7 @@ var _flag_VxnetService_LeaveVxnet = []cli.Flag{
 }
 
 func _func_VxnetService_LeaveVxnet(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
@@ -452,7 +452,7 @@ var _flag_VxnetService_ModifyVxnetAttributes = []cli.Flag{
 }
 
 func _func_VxnetService_ModifyVxnetAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 
@@ -536,7 +536,7 @@ var _flag_VxnetService_DescribeVxnetInstances = []cli.Flag{
 }
 
 func _func_VxnetService_DescribeVxnetInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVxnetService(conf, zone)
 

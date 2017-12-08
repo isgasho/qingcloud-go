@@ -117,7 +117,7 @@ var _flag_TagService_DescribeTags = []cli.Flag{
 }
 
 func _func_TagService_DescribeTags(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
@@ -179,7 +179,7 @@ var _flag_TagService_CreateTag = []cli.Flag{
 }
 
 func _func_TagService_CreateTag(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
@@ -227,7 +227,7 @@ var _flag_TagService_DeleteTags = []cli.Flag{
 }
 
 func _func_TagService_DeleteTags(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
@@ -287,7 +287,7 @@ var _flag_TagService_ModifyTagAttributes = []cli.Flag{
 }
 
 func _func_TagService_ModifyTagAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
@@ -341,7 +341,7 @@ var _flag_TagService_AttachTags = []cli.Flag{
 }
 
 func _func_TagService_AttachTags(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 
@@ -391,7 +391,7 @@ var _flag_TagService_DetachTags = []cli.Flag{
 }
 
 func _func_TagService_DetachTags(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewTagService(conf, zone)
 

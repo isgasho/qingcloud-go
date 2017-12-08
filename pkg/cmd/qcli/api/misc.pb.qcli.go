@@ -206,7 +206,7 @@ var _flag_MiscService_GrantQuotaIndep = []cli.Flag{
 }
 
 func _func_MiscService_GrantQuotaIndep(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMiscService(conf, zone)
 
@@ -337,7 +337,7 @@ var _flag_MiscService_RevokeQuotaIndep = []cli.Flag{
 }
 
 func _func_MiscService_RevokeQuotaIndep(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMiscService(conf, zone)
 
@@ -388,7 +388,7 @@ var _flag_MiscService_GetQuotaLeft = []cli.Flag{
 }
 
 func _func_MiscService_GetQuotaLeft(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMiscService(conf, zone)
 

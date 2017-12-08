@@ -258,7 +258,7 @@ var _flag_CacheService_DescribeCaches = []cli.Flag{
 }
 
 func _func_CacheService_DescribeCaches(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -375,7 +375,7 @@ var _flag_CacheService_CreateCache = []cli.Flag{
 }
 
 func _func_CacheService_CreateCache(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -449,7 +449,7 @@ var _flag_CacheService_StopCaches = []cli.Flag{
 }
 
 func _func_CacheService_StopCaches(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -499,7 +499,7 @@ var _flag_CacheService_StartCaches = []cli.Flag{
 }
 
 func _func_CacheService_StartCaches(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -549,7 +549,7 @@ var _flag_CacheService_RestartCaches = []cli.Flag{
 }
 
 func _func_CacheService_RestartCaches(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -599,7 +599,7 @@ var _flag_CacheService_DeleteCaches = []cli.Flag{
 }
 
 func _func_CacheService_DeleteCaches(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -654,7 +654,7 @@ var _flag_CacheService_ResizeCaches = []cli.Flag{
 }
 
 func _func_CacheService_ResizeCaches(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -712,7 +712,7 @@ var _flag_CacheService_UpdateCache = []cli.Flag{
 }
 
 func _func_CacheService_UpdateCache(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -775,7 +775,7 @@ var _flag_CacheService_ChangeCacheVxnet = []cli.Flag{
 }
 
 func _func_CacheService_ChangeCacheVxnet(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -846,7 +846,7 @@ var _flag_CacheService_ModifyCacheAttributes = []cli.Flag{
 }
 
 func _func_CacheService_ModifyCacheAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -933,7 +933,7 @@ var _flag_CacheService_DescribeCacheNodes = []cli.Flag{
 }
 
 func _func_CacheService_DescribeCacheNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1013,7 +1013,7 @@ var _flag_CacheService_AddCacheNodes = []cli.Flag{
 }
 
 func _func_CacheService_AddCacheNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1074,7 +1074,7 @@ var _flag_CacheService_DeleteCacheNodes = []cli.Flag{
 }
 
 func _func_CacheService_DeleteCacheNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1132,7 +1132,7 @@ var _flag_CacheService_RestartCacheNodes = []cli.Flag{
 }
 
 func _func_CacheService_RestartCacheNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1190,7 +1190,7 @@ var _flag_CacheService_ModifyCacheNodeAttributes = []cli.Flag{
 }
 
 func _func_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1276,7 +1276,7 @@ var _flag_CacheService_CreateCacheFromSnapshot = []cli.Flag{
 }
 
 func _func_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1372,7 +1372,7 @@ var _flag_CacheService_DescribeCacheParameterGroups = []cli.Flag{
 }
 
 func _func_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1442,7 +1442,7 @@ var _flag_CacheService_CreateCacheParameterGroup = []cli.Flag{
 }
 
 func _func_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1498,7 +1498,7 @@ var _flag_CacheService_ApplyCacheParameterGroup = []cli.Flag{
 }
 
 func _func_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1551,7 +1551,7 @@ var _flag_CacheService_DeleteCacheParameterGroups = []cli.Flag{
 }
 
 func _func_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1611,7 +1611,7 @@ var _flag_CacheService_ModifyCacheParameterGroupAttributes = []cli.Flag{
 }
 
 func _func_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1665,7 +1665,7 @@ var _flag_CacheService_DescribeCacheParameters = []cli.Flag{
 }
 
 func _func_CacheService_DescribeCacheParameters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1718,7 +1718,7 @@ var _flag_CacheService_UpdateCacheParameters = []cli.Flag{
 }
 
 func _func_CacheService_UpdateCacheParameters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 
@@ -1776,7 +1776,7 @@ var _flag_CacheService_ResetCacheParameters = []cli.Flag{
 }
 
 func _func_CacheService_ResetCacheParameters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewCacheService(conf, zone)
 

@@ -67,7 +67,7 @@ var _flag_ZoneService_DescribeZones = []cli.Flag{
 }
 
 func _func_ZoneService_DescribeZones(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewZoneService(conf, zone)
 

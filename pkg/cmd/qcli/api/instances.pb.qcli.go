@@ -189,7 +189,7 @@ var _flag_InstanceService_DescribeInstances = []cli.Flag{
 }
 
 func _func_InstanceService_DescribeInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -382,7 +382,7 @@ var _flag_InstanceService_RunInstances = []cli.Flag{
 }
 
 func _func_InstanceService_RunInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -497,7 +497,7 @@ var _flag_InstanceService_TerminateInstances = []cli.Flag{
 }
 
 func _func_InstanceService_TerminateInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -547,7 +547,7 @@ var _flag_InstanceService_StartInstances = []cli.Flag{
 }
 
 func _func_InstanceService_StartInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -602,7 +602,7 @@ var _flag_InstanceService_StopInstances = []cli.Flag{
 }
 
 func _func_InstanceService_StopInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -655,7 +655,7 @@ var _flag_InstanceService_RestartInstances = []cli.Flag{
 }
 
 func _func_InstanceService_RestartInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -725,7 +725,7 @@ var _flag_InstanceService_ResetInstances = []cli.Flag{
 }
 
 func _func_InstanceService_ResetInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -802,7 +802,7 @@ var _flag_InstanceService_ResizeInstances = []cli.Flag{
 }
 
 func _func_InstanceService_ResizeInstances(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -876,7 +876,7 @@ var _flag_InstanceService_ModifyInstanceAttributes = []cli.Flag{
 }
 
 func _func_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -943,7 +943,7 @@ var _flag_InstanceService_DescribeInstanceTypes = []cli.Flag{
 }
 
 func _func_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -999,7 +999,7 @@ var _flag_InstanceService_CreateBrokers = []cli.Flag{
 }
 
 func _func_InstanceService_CreateBrokers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 
@@ -1049,7 +1049,7 @@ var _flag_InstanceService_DeleteBrokers = []cli.Flag{
 }
 
 func _func_InstanceService_DeleteBrokers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewInstanceService(conf, zone)
 

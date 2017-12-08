@@ -112,7 +112,7 @@ var _flag_NicService_CreateNics = []cli.Flag{
 }
 
 func _func_NicService_CreateNics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
@@ -206,7 +206,7 @@ var _flag_NicService_DescribeNics = []cli.Flag{
 }
 
 func _func_NicService_DescribeNics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
@@ -286,7 +286,7 @@ var _flag_NicService_AttachNics = []cli.Flag{
 }
 
 func _func_NicService_AttachNics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
@@ -339,7 +339,7 @@ var _flag_NicService_DetachNics = []cli.Flag{
 }
 
 func _func_NicService_DetachNics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
@@ -399,7 +399,7 @@ var _flag_NicService_ModifyNicAttributes = []cli.Flag{
 }
 
 func _func_NicService_ModifyNicAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 
@@ -453,7 +453,7 @@ var _flag_NicService_DeleteNics = []cli.Flag{
 }
 
 func _func_NicService_DeleteNics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNicService(conf, zone)
 

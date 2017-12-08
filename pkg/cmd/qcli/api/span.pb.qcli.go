@@ -124,7 +124,7 @@ var _flag_SpanService_CreateSpan = []cli.Flag{
 }
 
 func _func_SpanService_CreateSpan(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
@@ -209,7 +209,7 @@ var _flag_SpanService_DescribeSpans = []cli.Flag{
 }
 
 func _func_SpanService_DescribeSpans(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
@@ -276,7 +276,7 @@ var _flag_SpanService_DeleteSpans = []cli.Flag{
 }
 
 func _func_SpanService_DeleteSpans(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
@@ -331,7 +331,7 @@ var _flag_SpanService_AddSpanMembers = []cli.Flag{
 }
 
 func _func_SpanService_AddSpanMembers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
@@ -389,7 +389,7 @@ var _flag_SpanService_RemoveSpanMembers = []cli.Flag{
 }
 
 func _func_SpanService_RemoveSpanMembers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
@@ -467,7 +467,7 @@ var _flag_SpanService_ModifySpanAttributes = []cli.Flag{
 }
 
 func _func_SpanService_ModifySpanAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 
@@ -530,7 +530,7 @@ var _flag_SpanService_UpdateSpan = []cli.Flag{
 }
 
 func _func_SpanService_UpdateSpan(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSpanService(conf, zone)
 

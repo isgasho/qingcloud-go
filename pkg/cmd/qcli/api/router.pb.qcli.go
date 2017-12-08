@@ -223,7 +223,7 @@ var _flag_RouterService_DescribeRouters = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -323,7 +323,7 @@ var _flag_RouterService_CreateRouters = []cli.Flag{
 }
 
 func _func_RouterService_CreateRouters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -386,7 +386,7 @@ var _flag_RouterService_DeleteRouters = []cli.Flag{
 }
 
 func _func_RouterService_DeleteRouters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -436,7 +436,7 @@ var _flag_RouterService_UpdateRouters = []cli.Flag{
 }
 
 func _func_RouterService_UpdateRouters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -486,7 +486,7 @@ var _flag_RouterService_PowerOffRouters = []cli.Flag{
 }
 
 func _func_RouterService_PowerOffRouters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -536,7 +536,7 @@ var _flag_RouterService_PowerOnRouters = []cli.Flag{
 }
 
 func _func_RouterService_PowerOnRouters(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -616,7 +616,7 @@ var _flag_RouterService_JoinRouter = []cli.Flag{
 }
 
 func _func_RouterService_JoinRouter(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -687,7 +687,7 @@ var _flag_RouterService_LeaveRouter = []cli.Flag{
 }
 
 func _func_RouterService_LeaveRouter(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -780,7 +780,7 @@ var _flag_RouterService_ModifyRouterAttributes = []cli.Flag{
 }
 
 func _func_RouterService_ModifyRouterAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -852,7 +852,7 @@ var _flag_RouterService_DescribeRouterStatics = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouterStatics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -912,7 +912,7 @@ var _flag_RouterService_AddRouterStatics = []cli.Flag{
 }
 
 func _func_RouterService_AddRouterStatics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1003,7 +1003,7 @@ var _flag_RouterService_ModifyRouterStaticAttributes = []cli.Flag{
 }
 
 func _func_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1072,7 +1072,7 @@ var _flag_RouterService_DeleteRouterStatics = []cli.Flag{
 }
 
 func _func_RouterService_DeleteRouterStatics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1116,7 +1116,7 @@ func _func_RouterService_DeleteRouterStatics(c *cli.Context) error {
 var _flag_RouterService_CopyRouterStatics = []cli.Flag{}
 
 func _func_RouterService_CopyRouterStatics(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1181,7 +1181,7 @@ var _flag_RouterService_DescribeRouterVxnets = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouterVxnets(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1246,7 +1246,7 @@ var _flag_RouterService_AddRouterStaticEntries = []cli.Flag{
 }
 
 func _func_RouterService_AddRouterStaticEntries(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1299,7 +1299,7 @@ var _flag_RouterService_DeleteRouterStaticEntries = []cli.Flag{
 }
 
 func _func_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1364,7 +1364,7 @@ var _flag_RouterService_ModifyRouterStaticEntryAttributes = []cli.Flag{
 }
 
 func _func_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 
@@ -1436,7 +1436,7 @@ var _flag_RouterService_DescribeRouterStaticEntries = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewRouterService(conf, zone)
 

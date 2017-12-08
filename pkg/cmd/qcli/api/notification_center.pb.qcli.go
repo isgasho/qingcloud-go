@@ -77,7 +77,7 @@ var _flag_NotificationCenterService_DescribeNotificationCenterUserPosts = []cli.
 }
 
 func _func_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewNotificationCenterService(conf, zone)
 

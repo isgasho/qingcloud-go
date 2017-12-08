@@ -82,7 +82,7 @@ var _flag_JobService_DescribeJobs = []cli.Flag{
 }
 
 func _func_JobService_DescribeJobs(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewJobService(conf, zone)
 

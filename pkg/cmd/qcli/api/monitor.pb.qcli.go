@@ -117,7 +117,7 @@ var _flag_MonitorService_GetMonitor = []cli.Flag{
 }
 
 func _func_MonitorService_GetMonitor(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
@@ -203,7 +203,7 @@ var _flag_MonitorService_GetLoadBalancerMonitor = []cli.Flag{
 }
 
 func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
@@ -263,7 +263,7 @@ func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetRDBMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
@@ -302,7 +302,7 @@ func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetCacheMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
@@ -341,7 +341,7 @@ func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetZooKeeperMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 
@@ -380,7 +380,7 @@ func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetQueueMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetQueueMonitor(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewMonitorService(conf, zone)
 

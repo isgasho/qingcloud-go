@@ -139,7 +139,7 @@ var _flag_VolumesService_DescribeVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DescribeVolumes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
@@ -229,7 +229,7 @@ var _flag_VolumesService_CreateVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_CreateVolumes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
@@ -286,7 +286,7 @@ var _flag_VolumesService_DeleteVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DeleteVolumes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
@@ -341,7 +341,7 @@ var _flag_VolumesService_AttachVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_AttachVolumes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
@@ -399,7 +399,7 @@ var _flag_VolumesService_DetachVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DetachVolumes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
@@ -457,7 +457,7 @@ var _flag_VolumesService_ResizeVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_ResizeVolumes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 
@@ -520,7 +520,7 @@ var _flag_VolumesService_ModifyVolumeAttributes = []cli.Flag{
 }
 
 func _func_VolumesService_ModifyVolumeAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewVolumesService(conf, zone)
 

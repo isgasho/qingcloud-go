@@ -149,7 +149,7 @@ var _flag_SparkService_CreateSpark = []cli.Flag{
 }
 
 func _func_SparkService_CreateSpark(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
@@ -256,7 +256,7 @@ var _flag_SparkService_DescribeSparks = []cli.Flag{
 }
 
 func _func_SparkService_DescribeSparks(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
@@ -343,7 +343,7 @@ var _flag_SparkService_AddSparkNodes = []cli.Flag{
 }
 
 func _func_SparkService_AddSparkNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
@@ -407,7 +407,7 @@ var _flag_SparkService_DeleteSparkNodes = []cli.Flag{
 }
 
 func _func_SparkService_DeleteSparkNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
@@ -460,7 +460,7 @@ var _flag_SparkService_StartSparks = []cli.Flag{
 }
 
 func _func_SparkService_StartSparks(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
@@ -510,7 +510,7 @@ var _flag_SparkService_StopSparks = []cli.Flag{
 }
 
 func _func_SparkService_StopSparks(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 
@@ -560,7 +560,7 @@ var _flag_SparkService_DeleteSparks = []cli.Flag{
 }
 
 func _func_SparkService_DeleteSparks(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSparkService(conf, zone)
 

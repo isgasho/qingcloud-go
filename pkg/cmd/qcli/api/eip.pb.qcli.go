@@ -146,7 +146,7 @@ var _flag_EIPService_DescribeEips = []cli.Flag{
 }
 
 func _func_EIPService_DescribeEips(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
@@ -244,7 +244,7 @@ var _flag_EIPService_AllocateEips = []cli.Flag{
 }
 
 func _func_EIPService_AllocateEips(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
@@ -307,7 +307,7 @@ var _flag_EIPService_ReleaseEips = []cli.Flag{
 }
 
 func _func_EIPService_ReleaseEips(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
@@ -362,7 +362,7 @@ var _flag_EIPService_AssociateEip = []cli.Flag{
 }
 
 func _func_EIPService_AssociateEip(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
@@ -413,7 +413,7 @@ var _flag_EIPService_DissociateEips = []cli.Flag{
 }
 
 func _func_EIPService_DissociateEips(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
@@ -468,7 +468,7 @@ var _flag_EIPService_ChangeEipsBandwidth = []cli.Flag{
 }
 
 func _func_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
@@ -526,7 +526,7 @@ var _flag_EIPService_ChangeEipsBillingMode = []cli.Flag{
 }
 
 func _func_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 
@@ -589,7 +589,7 @@ var _flag_EIPService_ModifyEipAttributes = []cli.Flag{
 }
 
 func _func_EIPService_ModifyEipAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewEIPService(conf, zone)
 

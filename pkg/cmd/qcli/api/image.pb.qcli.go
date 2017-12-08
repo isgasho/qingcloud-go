@@ -156,7 +156,7 @@ var _flag_ImageService_DescribeImages = []cli.Flag{
 }
 
 func _func_ImageService_DescribeImages(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
@@ -245,7 +245,7 @@ var _flag_ImageService_CaptureInstance = []cli.Flag{
 }
 
 func _func_ImageService_CaptureInstance(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
@@ -299,7 +299,7 @@ var _flag_ImageService_DeleteImages = []cli.Flag{
 }
 
 func _func_ImageService_DeleteImages(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
@@ -359,7 +359,7 @@ var _flag_ImageService_ModifyImageAttributes = []cli.Flag{
 }
 
 func _func_ImageService_ModifyImageAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
@@ -418,7 +418,7 @@ var _flag_ImageService_GrantImageToUsers = []cli.Flag{
 }
 
 func _func_ImageService_GrantImageToUsers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
@@ -476,7 +476,7 @@ var _flag_ImageService_RevokeImageFromUsers = []cli.Flag{
 }
 
 func _func_ImageService_RevokeImageFromUsers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
@@ -539,7 +539,7 @@ var _flag_ImageService_DescribeImageUsers = []cli.Flag{
 }
 
 func _func_ImageService_DescribeImageUsers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 
@@ -603,7 +603,7 @@ var _flag_ImageService_CloneImages = []cli.Flag{
 }
 
 func _func_ImageService_CloneImages(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewImageService(conf, zone)
 

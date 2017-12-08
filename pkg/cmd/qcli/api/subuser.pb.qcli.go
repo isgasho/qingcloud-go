@@ -105,7 +105,7 @@ var _flag_SubuserService_DescribeSubUsers = []cli.Flag{
 }
 
 func _func_SubuserService_DescribeSubUsers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
@@ -179,7 +179,7 @@ var _flag_SubuserService_CreateSubUser = []cli.Flag{
 }
 
 func _func_SubuserService_CreateSubUser(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
@@ -251,7 +251,7 @@ var _flag_SubuserService_ModifySubUserAttributes = []cli.Flag{
 }
 
 func _func_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
@@ -308,7 +308,7 @@ var _flag_SubuserService_DeleteSubUsers = []cli.Flag{
 }
 
 func _func_SubuserService_DeleteSubUsers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 
@@ -358,7 +358,7 @@ var _flag_SubuserService_RestoreSubUsers = []cli.Flag{
 }
 
 func _func_SubuserService_RestoreSubUsers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewSubuserService(conf, zone)
 

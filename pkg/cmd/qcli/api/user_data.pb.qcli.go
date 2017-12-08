@@ -67,7 +67,7 @@ var _flag_UserDataService_UploadUserDataAttachment = []cli.Flag{
 }
 
 func _func_UserDataService_UploadUserDataAttachment(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewUserDataService(conf, zone)
 

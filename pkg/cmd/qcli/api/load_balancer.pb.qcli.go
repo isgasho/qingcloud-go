@@ -307,7 +307,7 @@ var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{
 }
 
 func _func_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -408,7 +408,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -480,7 +480,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -555,7 +555,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -618,7 +618,7 @@ var _flag_LoadBalancerService_StartLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -668,7 +668,7 @@ var _flag_LoadBalancerService_StopLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -718,7 +718,7 @@ var _flag_LoadBalancerService_UpdateLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -773,7 +773,7 @@ var _flag_LoadBalancerService_ResizeLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -831,7 +831,7 @@ var _flag_LoadBalancerService_AssociateEipsToLoadBalancer = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -889,7 +889,7 @@ var _flag_LoadBalancerService_DissociateEipsFromLoadBalancer = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -947,7 +947,7 @@ var _flag_LoadBalancerService_AddLoadBalancerListeners = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1020,7 +1020,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerListeners = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1082,7 +1082,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerListeners = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1172,7 +1172,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerListenerAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1251,7 +1251,7 @@ var _flag_LoadBalancerService_AddLoadBalancerBackends = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1329,7 +1329,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerBackends = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1394,7 +1394,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerBackends = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1464,7 +1464,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerBackendAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1524,7 +1524,7 @@ var _flag_LoadBalancerService_CreateLoadBalancerPolicy = []cli.Flag{
 }
 
 func _func_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1587,7 +1587,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerPolicies = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1656,7 +1656,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerPolicyAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1710,7 +1710,7 @@ var _flag_LoadBalancerService_ApplyLoadBalancerPolicy = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1758,7 +1758,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerPolicies = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1813,7 +1813,7 @@ var _flag_LoadBalancerService_AddLoadBalancerPolicyRules = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1881,7 +1881,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerPolicyRules = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -1950,7 +1950,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes = []cli.Fla
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -2004,7 +2004,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerPolicyRules = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -2064,7 +2064,7 @@ var _flag_LoadBalancerService_CreateServerCertificate = []cli.Flag{
 }
 
 func _func_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -2138,7 +2138,7 @@ var _flag_LoadBalancerService_DescribeServerCertificates = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -2208,7 +2208,7 @@ var _flag_LoadBalancerService_ModifyServerCertificateAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 
@@ -2262,7 +2262,7 @@ var _flag_LoadBalancerService_DeleteServerCertificates = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewLoadBalancerService(conf, zone)
 

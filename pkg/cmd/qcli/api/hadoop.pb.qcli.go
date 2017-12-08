@@ -98,7 +98,7 @@ var _flag_HadoopService_AddHadoopNodes = []cli.Flag{
 }
 
 func _func_HadoopService_AddHadoopNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
@@ -162,7 +162,7 @@ var _flag_HadoopService_DeleteHadoopNodes = []cli.Flag{
 }
 
 func _func_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
@@ -215,7 +215,7 @@ var _flag_HadoopService_StartHadoops = []cli.Flag{
 }
 
 func _func_HadoopService_StartHadoops(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
@@ -265,7 +265,7 @@ var _flag_HadoopService_StopHadoops = []cli.Flag{
 }
 
 func _func_HadoopService_StopHadoops(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.NewHadoopService(conf, zone)
 
