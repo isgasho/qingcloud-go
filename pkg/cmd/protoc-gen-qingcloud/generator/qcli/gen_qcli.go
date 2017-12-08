@@ -329,7 +329,7 @@ var _flag_{{$ServiceName}}_{{$MethodName}} = []cli.Flag{
 }
 
 func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
-	conf := config.MustLoadConfigFromFilepath(c.GlobalString("config"))
+	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
 	qc := pb.New{{$ServiceName}}(conf, zone)
 

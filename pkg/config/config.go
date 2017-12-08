@@ -1,131 +1,57 @@
-// +-------------------------------------------------------------------------
-// | Copyright (C) 2016 Yunify, Inc.
-// +-------------------------------------------------------------------------
-// | Licensed under the Apache License, Version 2.0 (the "License");
-// | you may not use this work except in compliance with the License.
-// | You may obtain a copy of the License in the LICENSE file, or at:
-// |
-// | http://www.apache.org/licenses/LICENSE-2.0
-// |
-// | Unless required by applicable law or agreed to in writing, software
-// | distributed under the License is distributed on an "AS IS" BASIS,
-// | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// | See the License for the specific language governing permissions and
-// | limitations under the License.
-// +-------------------------------------------------------------------------
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
 
-// Package config contains a Config struct for QingCloud SDK.
 package config
 
-import (
-	"io/ioutil"
-	"os"
-	"runtime"
-	"strings"
-
-	"gopkg.in/yaml.v2"
-
-	"github.com/chai2010/qingcloud-go/pkg/logger"
-)
-
-// A Config stores a configuration of this sdk.
 type Config struct {
-	AccessKeyID     string `yaml:"qy_access_key_id"`
-	SecretAccessKey string `yaml:"qy_secret_access_key"`
-
-	Host     string `yaml:"host"`
-	Port     int    `yaml:"port"`
-	Protocol string `yaml:"protocol"`
-	URI      string `yaml:"uri"`
-
-	JSONDisableUnknownFields bool   `yaml:"json_disable_unknown_fields"`
-	LogLevel                 string `yaml:"log_level"`
-	Zone                     string `yaml:"zone"`
+	AccessKeyID     string
+	SecretAccessKey string
+	ApiServerHost   string
+	LogLevel        string `yaml:"log_level"`
+	Zone            string `yaml:"zone"`
 }
 
-// MustLoadUserConfig loads user configuration in ~/.qingcloud/config.yaml for Config.
-// It panic if failed.
+func Default() *Config {
+	return &Config{}
+}
+
+func Load(path string) (*Config, error) {
+	panic("TODO")
+}
+
+func MustLoad(path string) *Config {
+	panic("TODO")
+}
+
+func IsUserConfigExists() bool {
+	panic("TODO")
+}
+
+func LoadUserConfig() (*Config, error) {
+	return &Config{}, nil
+}
+
 func MustLoadUserConfig() *Config {
-	c, err := LoadConfigFromFilepath(strings.Replace(DefaultConfigFile, "~/", getHome()+"/", 1))
-	if err != nil {
-		panic(err)
-	}
-	return c
+	return &Config{}
 }
 
-// LoadConfigFromFilepath loads configuration from a specified local path.
-// It returns error if file not found or yaml decode failed.
-func LoadConfigFromFilepath(filepath string) (*Config, error) {
-	if strings.Index(filepath, "~/") == 0 {
-		filepath = strings.Replace(filepath, "~/", getHome()+"/", 1)
-	}
-
-	configYAML, err := ioutil.ReadFile(filepath)
-	if err != nil {
-		logger.Error("File not found: " + filepath)
-		return nil, err
-	}
-
-	return LoadConfigFromContent(configYAML)
-}
-func MustLoadConfigFromFilepath(filepath string) *Config {
-	cfg, err := LoadConfigFromFilepath(filepath)
-	if err != nil {
-		logger.Fatal(err)
-	}
-	return cfg
+func Parse(content string) (*Config, error) {
+	panic("TODO")
 }
 
-// LoadConfigFromContent loads configuration from a given byte slice.
-// It returns error if yaml decode failed.
-func LoadConfigFromContent(content []byte) (*Config, error) {
-	c := new(Config)
-
-	// load default
-	err := yaml.Unmarshal([]byte(DefaultConfigFileContent), c)
-	if err != nil {
-		return nil, err
-	}
-
-	// load user config
-	err = yaml.Unmarshal(content, c)
-	if err != nil {
-		logger.Error("Config parse error: " + err.Error())
-		return nil, err
-	}
-
-	return c, nil
+func (p *Config) Clone() *Config {
+	panic("TODO")
 }
 
-func getHome() string {
-	home := os.Getenv("HOME")
-	if runtime.GOOS == "windows" {
-		home = os.Getenv("HOMEDRIVE") + os.Getenv("HOMEPATH")
-		if home == "" {
-			home = os.Getenv("USERPROFILE")
-		}
-	}
-
-	return home
+func (p *Config) Save(path string) error {
+	panic("TODO")
 }
 
-// DefaultConfigFile is the default config file.
-const DefaultConfigFile = "~/.qingcloud/config.yaml"
+func (p *Config) String() string {
+	return ""
+}
 
-// DefaultConfigFileContent is the default config file content.
-const DefaultConfigFileContent = `# QingCloud services configuration
-
-#qy_access_key_id: 'ACCESS_KEY_ID'
-#qy_secret_access_key: 'SECRET_ACCESS_KEY'
-
-host: 'api.qingcloud.com'
-port: 443
-protocol: 'https'
-uri: '/iaas'
-
-json_allow_unknown_fields: false
-
-# Valid log levels are "debug", "info", "warn", "error", and "fatal".
-log_level: 'warn'
-
-`
+func GetHomePath() string {
+	panic("TODO")
+}
