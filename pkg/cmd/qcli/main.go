@@ -29,20 +29,32 @@ func Main() {
 		cli.StringFlag{
 			Name:   "config, c",
 			Usage:  "config file",
-			Value:  "~/.qingcloud/config.yaml",
+			Value:  "~/.qingcloud/qcli.json",
 			EnvVar: "QCLI_CONFIG_FILE",
+		},
+		cli.StringFlag{
+			Name:   "api_server, s",
+			Usage:  "api server",
+			Value:  "https://api.qingcloud.com/iaas/",
+			EnvVar: "QCLI_API_SERVER",
+		},
+		cli.StringFlag{
+			Name:   "access_key_id, i",
+			Usage:  "access key id",
+			Value:  "",
+			EnvVar: "QCLI_ACCESS_KEY_ID",
+		},
+		cli.StringFlag{
+			Name:   "secret_access_key, k",
+			Usage:  "secret access key",
+			Value:  "",
+			EnvVar: "QCLI_SECRET_ACCESS_KEY",
 		},
 		cli.StringFlag{
 			Name:   "zone, z",
 			Usage:  "zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...)",
 			Value:  "pk3a",
 			EnvVar: "QCLI_ZONE",
-		},
-		cli.StringFlag{
-			Name:   "glog_level",
-			Usage:  "glog level to stderr (INFO,WARNING,ERROR,FATAL)",
-			Value:  "WARNING",
-			EnvVar: "QCLI_GLOG_LEVEL",
 		},
 	}
 
