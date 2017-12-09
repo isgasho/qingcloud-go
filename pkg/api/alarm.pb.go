@@ -680,6 +680,7 @@ It has these top-level messages:
 	AttachTagsOutput
 	DetachTagsInput
 	DetachTagsOutput
+	ServerInfo
 	Tag
 	ResourceTagPair
 	ResourceTypeCount

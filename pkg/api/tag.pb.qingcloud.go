@@ -26,13 +26,15 @@ type TagServiceInterface interface {
 }
 
 type TagService struct {
+	ServerInfo       *ServerInfo
 	Properties       *TagServiceProperties
 	LastResponseBody string
 }
 
-func NewTagService(accessKeyId, secretAccessKey, zone string) (p *TagService) {
+func NewTagService(server *ServerInfo, serviceProp *TagServiceProperties) (p *TagService) {
 	return &TagService{
-		Properties: &TagServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

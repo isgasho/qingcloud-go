@@ -222,9 +222,7 @@ var _flag_RDBService_CreateRDB = []cli.Flag{
 }
 
 func _func_RDBService_CreateRDB(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.CreateRDBInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -336,9 +334,7 @@ var _flag_RDBService_DescribeRDBs = []cli.Flag{
 }
 
 func _func_RDBService_DescribeRDBs(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.DescribeRDBsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -410,9 +406,7 @@ var _flag_RDBService_DeleteRDBs = []cli.Flag{
 }
 
 func _func_RDBService_DeleteRDBs(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.DeleteRDBsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -459,9 +453,7 @@ var _flag_RDBService_StartRDBs = []cli.Flag{
 }
 
 func _func_RDBService_StartRDBs(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.StartRDBsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -508,9 +500,7 @@ var _flag_RDBService_StopRDBs = []cli.Flag{
 }
 
 func _func_RDBService_StopRDBs(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.StopRDBsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -567,9 +557,7 @@ var _flag_RDBService_ResizeRDBs = []cli.Flag{
 }
 
 func _func_RDBService_ResizeRDBs(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.ResizeRDBsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -627,9 +615,7 @@ var _flag_RDBService_RDBsLeaveVxnet = []cli.Flag{
 }
 
 func _func_RDBService_RDBsLeaveVxnet(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.RDBsLeaveVxnetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -684,9 +670,7 @@ var _flag_RDBService_RDBsJoinVxnet = []cli.Flag{
 }
 
 func _func_RDBService_RDBsJoinVxnet(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.RDBsJoinVxnetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -776,9 +760,7 @@ var _flag_RDBService_CreateRDBFromSnapshot = []cli.Flag{
 }
 
 func _func_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.CreateRDBFromSnapshotInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -854,9 +836,7 @@ var _flag_RDBService_CreateTempRDBInstanceFromSnapshot = []cli.Flag{
 }
 
 func _func_RDBService_CreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.CreateTempRDBInstanceFromSnapshotInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -904,9 +884,7 @@ var _flag_RDBService_GetRDBInstanceFiles = []cli.Flag{
 }
 
 func _func_RDBService_GetRDBInstanceFiles(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.GetRDBInstanceFilesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -956,9 +934,7 @@ var _flag_RDBService_CopyRDBInstanceFilesToFTP = []cli.Flag{
 }
 
 func _func_RDBService_CopyRDBInstanceFilesToFTP(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.CopyRDBInstanceFilesToFTPInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1023,9 +999,7 @@ var _flag_RDBService_PurgeRDBLogs = []cli.Flag{
 }
 
 func _func_RDBService_PurgeRDBLogs(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.PurgeRDBLogsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1084,9 +1058,7 @@ var _flag_RDBService_CeaseRDBInstance = []cli.Flag{
 }
 
 func _func_RDBService_CeaseRDBInstance(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.CeaseRDBInstanceInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1139,9 +1111,7 @@ var _flag_RDBService_ModifyRDBParameters = []cli.Flag{
 }
 
 func _func_RDBService_ModifyRDBParameters(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.ModifyRDBParametersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1191,9 +1161,7 @@ var _flag_RDBService_ApplyRDBParameterGroup = []cli.Flag{
 }
 
 func _func_RDBService_ApplyRDBParameterGroup(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.ApplyRDBParameterGroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1248,9 +1216,7 @@ var _flag_RDBService_DescribeRDBParameters = []cli.Flag{
 }
 
 func _func_RDBService_DescribeRDBParameters(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService("", "", zone)
-
+	qc := pb.NewRDBService(nil, nil)
 	in := new(pb.DescribeRDBParametersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

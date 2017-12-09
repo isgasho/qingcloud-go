@@ -21,13 +21,15 @@ type UserDataServiceInterface interface {
 }
 
 type UserDataService struct {
+	ServerInfo       *ServerInfo
 	Properties       *UserDataServiceProperties
 	LastResponseBody string
 }
 
-func NewUserDataService(accessKeyId, secretAccessKey, zone string) (p *UserDataService) {
+func NewUserDataService(server *ServerInfo, serviceProp *UserDataServiceProperties) (p *UserDataService) {
 	return &UserDataService{
-		Properties: &UserDataServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

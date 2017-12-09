@@ -39,13 +39,15 @@ type RouterServiceInterface interface {
 }
 
 type RouterService struct {
+	ServerInfo       *ServerInfo
 	Properties       *RouterServiceProperties
 	LastResponseBody string
 }
 
-func NewRouterService(accessKeyId, secretAccessKey, zone string) (p *RouterService) {
+func NewRouterService(server *ServerInfo, serviceProp *RouterServiceProperties) (p *RouterService) {
 	return &RouterService{
-		Properties: &RouterServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

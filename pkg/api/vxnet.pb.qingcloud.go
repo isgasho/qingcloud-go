@@ -27,13 +27,15 @@ type VxnetServiceInterface interface {
 }
 
 type VxnetService struct {
+	ServerInfo       *ServerInfo
 	Properties       *VxnetServiceProperties
 	LastResponseBody string
 }
 
-func NewVxnetService(accessKeyId, secretAccessKey, zone string) (p *VxnetService) {
+func NewVxnetService(server *ServerInfo, serviceProp *VxnetServiceProperties) (p *VxnetService) {
 	return &VxnetService{
-		Properties: &VxnetServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

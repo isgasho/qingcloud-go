@@ -27,13 +27,15 @@ type SpanServiceInterface interface {
 }
 
 type SpanService struct {
+	ServerInfo       *ServerInfo
 	Properties       *SpanServiceProperties
 	LastResponseBody string
 }
 
-func NewSpanService(accessKeyId, secretAccessKey, zone string) (p *SpanService) {
+func NewSpanService(server *ServerInfo, serviceProp *SpanServiceProperties) (p *SpanService) {
 	return &SpanService{
-		Properties: &SpanServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

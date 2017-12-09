@@ -28,13 +28,15 @@ type EIPServiceInterface interface {
 }
 
 type EIPService struct {
+	ServerInfo       *ServerInfo
 	Properties       *EIPServiceProperties
 	LastResponseBody string
 }
 
-func NewEIPService(accessKeyId, secretAccessKey, zone string) (p *EIPService) {
+func NewEIPService(server *ServerInfo, serviceProp *EIPServiceProperties) (p *EIPService) {
 	return &EIPService{
-		Properties: &EIPServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

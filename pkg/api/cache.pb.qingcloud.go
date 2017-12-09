@@ -44,13 +44,15 @@ type CacheServiceInterface interface {
 }
 
 type CacheService struct {
+	ServerInfo       *ServerInfo
 	Properties       *CacheServiceProperties
 	LastResponseBody string
 }
 
-func NewCacheService(accessKeyId, secretAccessKey, zone string) (p *CacheService) {
+func NewCacheService(server *ServerInfo, serviceProp *CacheServiceProperties) (p *CacheService) {
 	return &CacheService{
-		Properties: &CacheServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

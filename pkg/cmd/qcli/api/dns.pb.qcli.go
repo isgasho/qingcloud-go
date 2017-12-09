@@ -101,9 +101,7 @@ var _flag_DNSAliasService_DescribeDNSAliases = []cli.Flag{
 }
 
 func _func_DNSAliasService_DescribeDNSAliases(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewDNSAliasService("", "", zone)
-
+	qc := pb.NewDNSAliasService(nil, nil)
 	in := new(pb.DescribeDNSAliasesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -172,9 +170,7 @@ var _flag_DNSAliasService_AssociateDNSAlias = []cli.Flag{
 }
 
 func _func_DNSAliasService_AssociateDNSAlias(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewDNSAliasService("", "", zone)
-
+	qc := pb.NewDNSAliasService(nil, nil)
 	in := new(pb.AssociateDNSAliasInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -225,9 +221,7 @@ var _flag_DNSAliasService_DissociateDNSAliases = []cli.Flag{
 }
 
 func _func_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewDNSAliasService("", "", zone)
-
+	qc := pb.NewDNSAliasService(nil, nil)
 	in := new(pb.DissociateDNSAliasesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -268,9 +262,7 @@ func _func_DNSAliasService_DissociateDNSAliases(c *cli.Context) error {
 var _flag_DNSAliasService_GetDNSLabel = []cli.Flag{}
 
 func _func_DNSAliasService_GetDNSLabel(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewDNSAliasService("", "", zone)
-
+	qc := pb.NewDNSAliasService(nil, nil)
 	in := new(pb.GetDNSLabelInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

@@ -37,13 +37,15 @@ type RDBServiceInterface interface {
 }
 
 type RDBService struct {
+	ServerInfo       *ServerInfo
 	Properties       *RDBServiceProperties
 	LastResponseBody string
 }
 
-func NewRDBService(accessKeyId, secretAccessKey, zone string) (p *RDBService) {
+func NewRDBService(server *ServerInfo, serviceProp *RDBServiceProperties) (p *RDBService) {
 	return &RDBService{
-		Properties: &RDBServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

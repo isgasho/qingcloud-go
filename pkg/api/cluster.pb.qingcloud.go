@@ -41,13 +41,15 @@ type ClusterServiceInterface interface {
 }
 
 type ClusterService struct {
+	ServerInfo       *ServerInfo
 	Properties       *ClusterServiceProperties
 	LastResponseBody string
 }
 
-func NewClusterService(accessKeyId, secretAccessKey, zone string) (p *ClusterService) {
+func NewClusterService(server *ServerInfo, serviceProp *ClusterServiceProperties) (p *ClusterService) {
 	return &ClusterService{
-		Properties: &ClusterServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

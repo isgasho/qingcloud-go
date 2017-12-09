@@ -204,9 +204,7 @@ var _flag_MiscService_GrantQuotaIndep = []cli.Flag{
 }
 
 func _func_MiscService_GrantQuotaIndep(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMiscService("", "", zone)
-
+	qc := pb.NewMiscService(nil, nil)
 	in := new(pb.GrantQuotaIndepInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -334,9 +332,7 @@ var _flag_MiscService_RevokeQuotaIndep = []cli.Flag{
 }
 
 func _func_MiscService_RevokeQuotaIndep(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMiscService("", "", zone)
-
+	qc := pb.NewMiscService(nil, nil)
 	in := new(pb.RevokeQuotaIndepInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -384,9 +380,7 @@ var _flag_MiscService_GetQuotaLeft = []cli.Flag{
 }
 
 func _func_MiscService_GetQuotaLeft(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMiscService("", "", zone)
-
+	qc := pb.NewMiscService(nil, nil)
 	in := new(pb.GetQuotaLeftInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

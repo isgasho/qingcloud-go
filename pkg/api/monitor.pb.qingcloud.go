@@ -26,13 +26,15 @@ type MonitorServiceInterface interface {
 }
 
 type MonitorService struct {
+	ServerInfo       *ServerInfo
 	Properties       *MonitorServiceProperties
 	LastResponseBody string
 }
 
-func NewMonitorService(accessKeyId, secretAccessKey, zone string) (p *MonitorService) {
+func NewMonitorService(server *ServerInfo, serviceProp *MonitorServiceProperties) (p *MonitorService) {
 	return &MonitorService{
-		Properties: &MonitorServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

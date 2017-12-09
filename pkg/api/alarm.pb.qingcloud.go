@@ -37,13 +37,15 @@ type AlarmServiceInterface interface {
 }
 
 type AlarmService struct {
+	ServerInfo       *ServerInfo
 	Properties       *AlarmServiceProperties
 	LastResponseBody string
 }
 
-func NewAlarmService(accessKeyId, secretAccessKey, zone string) (p *AlarmService) {
+func NewAlarmService(server *ServerInfo, serviceProp *AlarmServiceProperties) (p *AlarmService) {
 	return &AlarmService{
-		Properties: &AlarmServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

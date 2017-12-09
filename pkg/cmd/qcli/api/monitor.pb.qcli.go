@@ -115,9 +115,7 @@ var _flag_MonitorService_GetMonitor = []cli.Flag{
 }
 
 func _func_MonitorService_GetMonitor(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService("", "", zone)
-
+	qc := pb.NewMonitorService(nil, nil)
 	in := new(pb.GetMonitorInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -200,9 +198,7 @@ var _flag_MonitorService_GetLoadBalancerMonitor = []cli.Flag{
 }
 
 func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService("", "", zone)
-
+	qc := pb.NewMonitorService(nil, nil)
 	in := new(pb.GetLoadBalancerMonitorInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -259,9 +255,7 @@ func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetRDBMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService("", "", zone)
-
+	qc := pb.NewMonitorService(nil, nil)
 	in := new(pb.GetRDBMonitorInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -297,9 +291,7 @@ func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetCacheMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService("", "", zone)
-
+	qc := pb.NewMonitorService(nil, nil)
 	in := new(pb.GetCacheMonitorInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -335,9 +327,7 @@ func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetZooKeeperMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService("", "", zone)
-
+	qc := pb.NewMonitorService(nil, nil)
 	in := new(pb.GetZooKeeperMonitorInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -373,9 +363,7 @@ func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetQueueMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetQueueMonitor(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService("", "", zone)
-
+	qc := pb.NewMonitorService(nil, nil)
 	in := new(pb.GetQueueMonitorInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

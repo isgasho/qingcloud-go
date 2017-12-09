@@ -34,13 +34,15 @@ type MongoServiceInterface interface {
 }
 
 type MongoService struct {
+	ServerInfo       *ServerInfo
 	Properties       *MongoServiceProperties
 	LastResponseBody string
 }
 
-func NewMongoService(accessKeyId, secretAccessKey, zone string) (p *MongoService) {
+func NewMongoService(server *ServerInfo, serviceProp *MongoServiceProperties) (p *MongoService) {
 	return &MongoService{
-		Properties: &MongoServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

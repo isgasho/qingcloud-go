@@ -142,9 +142,7 @@ var _flag_SnapshotService_DescribeSnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_DescribeSnapshots(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService("", "", zone)
-
+	qc := pb.NewSnapshotService(nil, nil)
 	in := new(pb.DescribeSnapshotsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -229,9 +227,7 @@ var _flag_SnapshotService_CreateSnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_CreateSnapshots(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService("", "", zone)
-
+	qc := pb.NewSnapshotService(nil, nil)
 	in := new(pb.CreateSnapshotsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -284,9 +280,7 @@ var _flag_SnapshotService_DeleteSnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_DeleteSnapshots(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService("", "", zone)
-
+	qc := pb.NewSnapshotService(nil, nil)
 	in := new(pb.DeleteSnapshotsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -333,9 +327,7 @@ var _flag_SnapshotService_ApplySnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_ApplySnapshots(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService("", "", zone)
-
+	qc := pb.NewSnapshotService(nil, nil)
 	in := new(pb.ApplySnapshotsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -392,9 +384,7 @@ var _flag_SnapshotService_ModifySnapshotAttributes = []cli.Flag{
 }
 
 func _func_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService("", "", zone)
-
+	qc := pb.NewSnapshotService(nil, nil)
 	in := new(pb.ModifySnapshotAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -450,9 +440,7 @@ var _flag_SnapshotService_CaptureInstanceFromSnapshot = []cli.Flag{
 }
 
 func _func_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService("", "", zone)
-
+	qc := pb.NewSnapshotService(nil, nil)
 	in := new(pb.CaptureInstanceFromSnapshotInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -505,9 +493,7 @@ var _flag_SnapshotService_CreateVolumeFromSnapshot = []cli.Flag{
 }
 
 func _func_SnapshotService_CreateVolumeFromSnapshot(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService("", "", zone)
-
+	qc := pb.NewSnapshotService(nil, nil)
 	in := new(pb.CreateVolumeFromSnapshotInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

@@ -27,13 +27,15 @@ type SparkServiceInterface interface {
 }
 
 type SparkService struct {
+	ServerInfo       *ServerInfo
 	Properties       *SparkServiceProperties
 	LastResponseBody string
 }
 
-func NewSparkService(accessKeyId, secretAccessKey, zone string) (p *SparkService) {
+func NewSparkService(server *ServerInfo, serviceProp *SparkServiceProperties) (p *SparkService) {
 	return &SparkService{
-		Properties: &SparkServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

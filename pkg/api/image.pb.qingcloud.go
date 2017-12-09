@@ -28,13 +28,15 @@ type ImageServiceInterface interface {
 }
 
 type ImageService struct {
+	ServerInfo       *ServerInfo
 	Properties       *ImageServiceProperties
 	LastResponseBody string
 }
 
-func NewImageService(accessKeyId, secretAccessKey, zone string) (p *ImageService) {
+func NewImageService(server *ServerInfo, serviceProp *ImageServiceProperties) (p *ImageService) {
 	return &ImageService{
-		Properties: &ImageServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

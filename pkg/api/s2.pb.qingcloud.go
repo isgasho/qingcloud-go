@@ -48,13 +48,15 @@ type S2ServiceInterface interface {
 }
 
 type S2Service struct {
+	ServerInfo       *ServerInfo
 	Properties       *S2ServiceProperties
 	LastResponseBody string
 }
 
-func NewS2Service(accessKeyId, secretAccessKey, zone string) (p *S2Service) {
+func NewS2Service(server *ServerInfo, serviceProp *S2ServiceProperties) (p *S2Service) {
 	return &S2Service{
-		Properties: &S2ServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

@@ -47,13 +47,15 @@ type ResourceACLServiceInterface interface {
 }
 
 type ResourceACLService struct {
+	ServerInfo       *ServerInfo
 	Properties       *ResourceACLServiceProperties
 	LastResponseBody string
 }
 
-func NewResourceACLService(accessKeyId, secretAccessKey, zone string) (p *ResourceACLService) {
+func NewResourceACLService(server *ServerInfo, serviceProp *ResourceACLServiceProperties) (p *ResourceACLService) {
 	return &ResourceACLService{
-		Properties: &ResourceACLServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

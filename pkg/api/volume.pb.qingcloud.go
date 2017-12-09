@@ -27,13 +27,15 @@ type VolumesServiceInterface interface {
 }
 
 type VolumesService struct {
+	ServerInfo       *ServerInfo
 	Properties       *VolumesServiceProperties
 	LastResponseBody string
 }
 
-func NewVolumesService(accessKeyId, secretAccessKey, zone string) (p *VolumesService) {
+func NewVolumesService(server *ServerInfo, serviceProp *VolumesServiceProperties) (p *VolumesService) {
 	return &VolumesService{
-		Properties: &VolumesServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

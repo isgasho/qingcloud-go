@@ -38,13 +38,15 @@ type SecurityGroupServiceInterface interface {
 }
 
 type SecurityGroupService struct {
+	ServerInfo       *ServerInfo
 	Properties       *SecurityGroupServiceProperties
 	LastResponseBody string
 }
 
-func NewSecurityGroupService(accessKeyId, secretAccessKey, zone string) (p *SecurityGroupService) {
+func NewSecurityGroupService(server *ServerInfo, serviceProp *SecurityGroupServiceProperties) (p *SecurityGroupService) {
 	return &SecurityGroupService{
-		Properties: &SecurityGroupServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

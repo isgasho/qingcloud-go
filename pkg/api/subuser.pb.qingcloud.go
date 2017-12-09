@@ -25,13 +25,15 @@ type SubuserServiceInterface interface {
 }
 
 type SubuserService struct {
+	ServerInfo       *ServerInfo
 	Properties       *SubuserServiceProperties
 	LastResponseBody string
 }
 
-func NewSubuserService(accessKeyId, secretAccessKey, zone string) (p *SubuserService) {
+func NewSubuserService(server *ServerInfo, serviceProp *SubuserServiceProperties) (p *SubuserService) {
 	return &SubuserService{
-		Properties: &SubuserServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

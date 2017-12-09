@@ -23,13 +23,15 @@ type MiscServiceInterface interface {
 }
 
 type MiscService struct {
+	ServerInfo       *ServerInfo
 	Properties       *MiscServiceProperties
 	LastResponseBody string
 }
 
-func NewMiscService(accessKeyId, secretAccessKey, zone string) (p *MiscService) {
+func NewMiscService(server *ServerInfo, serviceProp *MiscServiceProperties) (p *MiscService) {
 	return &MiscService{
-		Properties: &MiscServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

@@ -147,9 +147,7 @@ var _flag_SparkService_CreateSpark = []cli.Flag{
 }
 
 func _func_SparkService_CreateSpark(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService("", "", zone)
-
+	qc := pb.NewSparkService(nil, nil)
 	in := new(pb.CreateSparkInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -253,9 +251,7 @@ var _flag_SparkService_DescribeSparks = []cli.Flag{
 }
 
 func _func_SparkService_DescribeSparks(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService("", "", zone)
-
+	qc := pb.NewSparkService(nil, nil)
 	in := new(pb.DescribeSparksInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -339,9 +335,7 @@ var _flag_SparkService_AddSparkNodes = []cli.Flag{
 }
 
 func _func_SparkService_AddSparkNodes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService("", "", zone)
-
+	qc := pb.NewSparkService(nil, nil)
 	in := new(pb.AddSparkNodesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -402,9 +396,7 @@ var _flag_SparkService_DeleteSparkNodes = []cli.Flag{
 }
 
 func _func_SparkService_DeleteSparkNodes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService("", "", zone)
-
+	qc := pb.NewSparkService(nil, nil)
 	in := new(pb.DeleteSparkNodesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -454,9 +446,7 @@ var _flag_SparkService_StartSparks = []cli.Flag{
 }
 
 func _func_SparkService_StartSparks(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService("", "", zone)
-
+	qc := pb.NewSparkService(nil, nil)
 	in := new(pb.StartSparksInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -503,9 +493,7 @@ var _flag_SparkService_StopSparks = []cli.Flag{
 }
 
 func _func_SparkService_StopSparks(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService("", "", zone)
-
+	qc := pb.NewSparkService(nil, nil)
 	in := new(pb.StopSparksInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -552,9 +540,7 @@ var _flag_SparkService_DeleteSparks = []cli.Flag{
 }
 
 func _func_SparkService_DeleteSparks(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService("", "", zone)
-
+	qc := pb.NewSparkService(nil, nil)
 	in := new(pb.DeleteSparksInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

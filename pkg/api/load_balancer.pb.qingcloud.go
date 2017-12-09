@@ -51,13 +51,15 @@ type LoadBalancerServiceInterface interface {
 }
 
 type LoadBalancerService struct {
+	ServerInfo       *ServerInfo
 	Properties       *LoadBalancerServiceProperties
 	LastResponseBody string
 }
 
-func NewLoadBalancerService(accessKeyId, secretAccessKey, zone string) (p *LoadBalancerService) {
+func NewLoadBalancerService(server *ServerInfo, serviceProp *LoadBalancerServiceProperties) (p *LoadBalancerService) {
 	return &LoadBalancerService{
-		Properties: &LoadBalancerServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

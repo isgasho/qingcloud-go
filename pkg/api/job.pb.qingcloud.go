@@ -21,13 +21,15 @@ type JobServiceInterface interface {
 }
 
 type JobService struct {
+	ServerInfo       *ServerInfo
 	Properties       *JobServiceProperties
 	LastResponseBody string
 }
 
-func NewJobService(accessKeyId, secretAccessKey, zone string) (p *JobService) {
+func NewJobService(server *ServerInfo, serviceProp *JobServiceProperties) (p *JobService) {
 	return &JobService{
-		Properties: &JobServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

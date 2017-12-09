@@ -21,13 +21,15 @@ type NotificationCenterServiceInterface interface {
 }
 
 type NotificationCenterService struct {
+	ServerInfo       *ServerInfo
 	Properties       *NotificationCenterServiceProperties
 	LastResponseBody string
 }
 
-func NewNotificationCenterService(accessKeyId, secretAccessKey, zone string) (p *NotificationCenterService) {
+func NewNotificationCenterService(server *ServerInfo, serviceProp *NotificationCenterServiceProperties) (p *NotificationCenterService) {
 	return &NotificationCenterService{
-		Properties: &NotificationCenterServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

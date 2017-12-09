@@ -27,13 +27,15 @@ type SnapshotServiceInterface interface {
 }
 
 type SnapshotService struct {
+	ServerInfo       *ServerInfo
 	Properties       *SnapshotServiceProperties
 	LastResponseBody string
 }
 
-func NewSnapshotService(accessKeyId, secretAccessKey, zone string) (p *SnapshotService) {
+func NewSnapshotService(server *ServerInfo, serviceProp *SnapshotServiceProperties) (p *SnapshotService) {
 	return &SnapshotService{
-		Properties: &SnapshotServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

@@ -75,9 +75,7 @@ var _flag_NotificationCenterService_DescribeNotificationCenterUserPosts = []cli.
 }
 
 func _func_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewNotificationCenterService("", "", zone)
-
+	qc := pb.NewNotificationCenterService(nil, nil)
 	in := new(pb.DescribeNotificationCenterUserPostsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

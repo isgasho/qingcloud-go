@@ -247,9 +247,7 @@ var _flag_ResourceACLService_DescribeSharedResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeSharedResourceGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -329,9 +327,7 @@ var _flag_ResourceACLService_DescribeResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeResourceGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -406,9 +402,7 @@ var _flag_ResourceACLService_CreateResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.CreateResourceGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -469,9 +463,7 @@ var _flag_ResourceACLService_ModifyResourceGroupAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.ModifyResourceGroupAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -522,9 +514,7 @@ var _flag_ResourceACLService_DeleteResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DeleteResourceGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -601,9 +591,7 @@ var _flag_ResourceACLService_DescribeResourceGroupItems = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeResourceGroupItemsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -675,9 +663,7 @@ var _flag_ResourceACLService_AddResourceGroupItems = []cli.Flag{
 }
 
 func _func_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.AddResourceGroupItemsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -732,9 +718,7 @@ var _flag_ResourceACLService_DeleteResourceGroupItems = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DeleteResourceGroupItemsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -819,9 +803,7 @@ var _flag_ResourceACLService_DescribeUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeUserGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -901,9 +883,7 @@ var _flag_ResourceACLService_CreateUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_CreateUserGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.CreateUserGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -969,9 +949,7 @@ var _flag_ResourceACLService_ModifyUserGroupAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.ModifyUserGroupAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1025,9 +1003,7 @@ var _flag_ResourceACLService_DeleteUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DeleteUserGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1114,9 +1090,7 @@ var _flag_ResourceACLService_DescribeUserGroupMembers = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeUserGroupMembersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1196,9 +1170,7 @@ var _flag_ResourceACLService_AddUserGroupMembers = []cli.Flag{
 }
 
 func _func_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.AddUserGroupMembersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1263,9 +1235,7 @@ var _flag_ResourceACLService_ModifyUserGroupMemberAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.ModifyUserGroupMemberAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1324,9 +1294,7 @@ var _flag_ResourceACLService_DeleteUserGroupMembers = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DeleteUserGroupMembersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1411,9 +1379,7 @@ var _flag_ResourceACLService_DescribeGroupRoles = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeGroupRolesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1498,9 +1464,7 @@ var _flag_ResourceACLService_CreateGroupRoles = []cli.Flag{
 }
 
 func _func_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.CreateGroupRolesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1574,9 +1538,7 @@ var _flag_ResourceACLService_ModifyGroupRoleAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.ModifyGroupRoleAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1633,9 +1595,7 @@ var _flag_ResourceACLService_DeleteGroupRoles = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DeleteGroupRolesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1717,9 +1677,7 @@ var _flag_ResourceACLService_DescribeGroupRoleRules = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeGroupRoleRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1801,9 +1759,7 @@ var _flag_ResourceACLService_AddGroupRoleRules = []cli.Flag{
 }
 
 func _func_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.AddGroupRoleRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1864,9 +1820,7 @@ var _flag_ResourceACLService_ModifyGroupRoleRuleAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.ModifyGroupRoleRuleAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1922,9 +1876,7 @@ var _flag_ResourceACLService_DeleteGroupRoleRules = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DeleteGroupRoleRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1976,9 +1928,7 @@ var _flag_ResourceACLService_GrantResourceGroupsToUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.GrantResourceGroupsToUserGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -2040,9 +1990,7 @@ var _flag_ResourceACLService_RevokeResourceGroupsFromUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.RevokeResourceGroupsFromUserGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -2139,9 +2087,7 @@ var _flag_ResourceACLService_DescribeResourceUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService("", "", zone)
-
+	qc := pb.NewResourceACLService(nil, nil)
 	in := new(pb.DescribeResourceUserGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

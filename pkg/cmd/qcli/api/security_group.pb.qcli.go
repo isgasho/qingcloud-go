@@ -204,9 +204,7 @@ var _flag_SecurityGroupService_DescribeSecurityGroups = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DescribeSecurityGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -270,9 +268,7 @@ var _flag_SecurityGroupService_CreateSecurityGroup = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.CreateSecurityGroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -317,9 +313,7 @@ var _flag_SecurityGroupService_DeleteSecurityGroups = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DeleteSecurityGroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -371,9 +365,7 @@ var _flag_SecurityGroupService_ApplySecurityGroup = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.ApplySecurityGroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -433,9 +425,7 @@ var _flag_SecurityGroupService_ModifySecurityGroupAttributes = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.ModifySecurityGroupAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -506,9 +496,7 @@ var _flag_SecurityGroupService_DescribeSecurityGroupRules = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DescribeSecurityGroupRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -570,9 +558,7 @@ var _flag_SecurityGroupService_AddSecurityGroupRules = []cli.Flag{
 }
 
 func _func_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.AddSecurityGroupRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -622,9 +608,7 @@ var _flag_SecurityGroupService_DeleteSecurityGroupRules = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DeleteSecurityGroupRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -711,9 +695,7 @@ var _flag_SecurityGroupService_ModifySecurityGroupRuleAttributes = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.ModifySecurityGroupRuleAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -787,9 +769,7 @@ var _flag_SecurityGroupService_CreateSecurityGroupSnapshot = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.CreateSecurityGroupSnapshotInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -852,9 +832,7 @@ var _flag_SecurityGroupService_DescribeSecurityGroupSnapshots = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DescribeSecurityGroupSnapshotsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -910,9 +888,7 @@ var _flag_SecurityGroupService_DeleteSecurityGroupSnapshots = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DeleteSecurityGroupSnapshotsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -964,9 +940,7 @@ var _flag_SecurityGroupService_RollbackSecurityGroup = []cli.Flag{
 }
 
 func _func_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.RollbackSecurityGroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1044,9 +1018,7 @@ var _flag_SecurityGroupService_DescribeSecurityGroupIPSets = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DescribeSecurityGroupIPSetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1123,9 +1095,7 @@ var _flag_SecurityGroupService_CreateSecurityGroupIPSet = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.CreateSecurityGroupIPSetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1176,9 +1146,7 @@ var _flag_SecurityGroupService_DeleteSecurityGroupIPSets = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.DeleteSecurityGroupIPSetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1240,9 +1208,7 @@ var _flag_SecurityGroupService_ModifySecurityGroupIPSetAttributes = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.ModifySecurityGroupIPSetAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1301,9 +1267,7 @@ var _flag_SecurityGroupService_CopySecurityGroupIPSets = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService("", "", zone)
-
+	qc := pb.NewSecurityGroupService(nil, nil)
 	in := new(pb.CopySecurityGroupIPSetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

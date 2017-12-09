@@ -24,13 +24,15 @@ type DNSAliasServiceInterface interface {
 }
 
 type DNSAliasService struct {
+	ServerInfo       *ServerInfo
 	Properties       *DNSAliasServiceProperties
 	LastResponseBody string
 }
 
-func NewDNSAliasService(accessKeyId, secretAccessKey, zone string) (p *DNSAliasService) {
+func NewDNSAliasService(server *ServerInfo, serviceProp *DNSAliasServiceProperties) (p *DNSAliasService) {
 	return &DNSAliasService{
-		Properties: &DNSAliasServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

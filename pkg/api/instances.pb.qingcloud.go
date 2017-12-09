@@ -32,13 +32,15 @@ type InstanceServiceInterface interface {
 }
 
 type InstanceService struct {
+	ServerInfo       *ServerInfo
 	Properties       *InstanceServiceProperties
 	LastResponseBody string
 }
 
-func NewInstanceService(accessKeyId, secretAccessKey, zone string) (p *InstanceService) {
+func NewInstanceService(server *ServerInfo, serviceProp *InstanceServiceProperties) (p *InstanceService) {
 	return &InstanceService{
-		Properties: &InstanceServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

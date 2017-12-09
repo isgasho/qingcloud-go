@@ -21,13 +21,15 @@ type ZoneServiceInterface interface {
 }
 
 type ZoneService struct {
+	ServerInfo       *ServerInfo
 	Properties       *ZoneServiceProperties
 	LastResponseBody string
 }
 
-func NewZoneService(accessKeyId, secretAccessKey, zone string) (p *ZoneService) {
+func NewZoneService(server *ServerInfo, serviceProp *ZoneServiceProperties) (p *ZoneService) {
 	return &ZoneService{
-		Properties: &ZoneServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

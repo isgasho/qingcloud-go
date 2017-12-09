@@ -24,13 +24,15 @@ type HadoopServiceInterface interface {
 }
 
 type HadoopService struct {
+	ServerInfo       *ServerInfo
 	Properties       *HadoopServiceProperties
 	LastResponseBody string
 }
 
-func NewHadoopService(accessKeyId, secretAccessKey, zone string) (p *HadoopService) {
+func NewHadoopService(server *ServerInfo, serviceProp *HadoopServiceProperties) (p *HadoopService) {
 	return &HadoopService{
-		Properties: &HadoopServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

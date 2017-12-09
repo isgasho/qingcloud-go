@@ -161,9 +161,7 @@ var _flag_MongoService_DescribeMongoNodes = []cli.Flag{
 }
 
 func _func_MongoService_DescribeMongoNodes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.DescribeMongoNodesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -224,9 +222,7 @@ var _flag_MongoService_DescribeMongoParameters = []cli.Flag{
 }
 
 func _func_MongoService_DescribeMongoParameters(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.DescribeMongoParametersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -287,9 +283,7 @@ var _flag_MongoService_ResizeMongos = []cli.Flag{
 }
 
 func _func_MongoService_ResizeMongos(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.ResizeMongosInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -377,9 +371,7 @@ var _flag_MongoService_CreateMongo = []cli.Flag{
 }
 
 func _func_MongoService_CreateMongo(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.CreateMongoInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -447,9 +439,7 @@ var _flag_MongoService_StopMongos = []cli.Flag{
 }
 
 func _func_MongoService_StopMongos(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.StopMongosInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -496,9 +486,7 @@ var _flag_MongoService_StartMongos = []cli.Flag{
 }
 
 func _func_MongoService_StartMongos(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.StartMongosInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -575,9 +563,7 @@ var _flag_MongoService_DescribeMongos = []cli.Flag{
 }
 
 func _func_MongoService_DescribeMongos(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.DescribeMongosInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -646,9 +632,7 @@ var _flag_MongoService_DeleteMongos = []cli.Flag{
 }
 
 func _func_MongoService_DeleteMongos(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.DeleteMongosInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -715,9 +699,7 @@ var _flag_MongoService_CreateMongoFromSnapshot = []cli.Flag{
 }
 
 func _func_MongoService_CreateMongoFromSnapshot(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.CreateMongoFromSnapshotInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -784,9 +766,7 @@ var _flag_MongoService_ChangeMongoVxnet = []cli.Flag{
 }
 
 func _func_MongoService_ChangeMongoVxnet(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.ChangeMongoVxnetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -849,9 +829,7 @@ var _flag_MongoService_AddMongoInstances = []cli.Flag{
 }
 
 func _func_MongoService_AddMongoInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.AddMongoInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -909,9 +887,7 @@ var _flag_MongoService_RemoveMongoInstances = []cli.Flag{
 }
 
 func _func_MongoService_RemoveMongoInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.RemoveMongoInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -976,9 +952,7 @@ var _flag_MongoService_ModifyMongoAttributes = []cli.Flag{
 }
 
 func _func_MongoService_ModifyMongoAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.ModifyMongoAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1032,9 +1006,7 @@ var _flag_MongoService_ModifyMongoInstances = []cli.Flag{
 }
 
 func _func_MongoService_ModifyMongoInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService("", "", zone)
-
+	qc := pb.NewMongoService(nil, nil)
 	in := new(pb.ModifyMongoInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

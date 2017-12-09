@@ -187,9 +187,7 @@ var _flag_InstanceService_DescribeInstances = []cli.Flag{
 }
 
 func _func_InstanceService_DescribeInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.DescribeInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -379,9 +377,7 @@ var _flag_InstanceService_RunInstances = []cli.Flag{
 }
 
 func _func_InstanceService_RunInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.RunInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -493,9 +489,7 @@ var _flag_InstanceService_TerminateInstances = []cli.Flag{
 }
 
 func _func_InstanceService_TerminateInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.TerminateInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -542,9 +536,7 @@ var _flag_InstanceService_StartInstances = []cli.Flag{
 }
 
 func _func_InstanceService_StartInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.StartInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -596,9 +588,7 @@ var _flag_InstanceService_StopInstances = []cli.Flag{
 }
 
 func _func_InstanceService_StopInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.StopInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -648,9 +638,7 @@ var _flag_InstanceService_RestartInstances = []cli.Flag{
 }
 
 func _func_InstanceService_RestartInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.RestartInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -717,9 +705,7 @@ var _flag_InstanceService_ResetInstances = []cli.Flag{
 }
 
 func _func_InstanceService_ResetInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.ResetInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -793,9 +779,7 @@ var _flag_InstanceService_ResizeInstances = []cli.Flag{
 }
 
 func _func_InstanceService_ResizeInstances(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.ResizeInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -866,9 +850,7 @@ var _flag_InstanceService_ModifyInstanceAttributes = []cli.Flag{
 }
 
 func _func_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.ModifyInstanceAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -932,9 +914,7 @@ var _flag_InstanceService_DescribeInstanceTypes = []cli.Flag{
 }
 
 func _func_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.DescribeInstanceTypesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -987,9 +967,7 @@ var _flag_InstanceService_CreateBrokers = []cli.Flag{
 }
 
 func _func_InstanceService_CreateBrokers(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.CreateBrokersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1036,9 +1014,7 @@ var _flag_InstanceService_DeleteBrokers = []cli.Flag{
 }
 
 func _func_InstanceService_DeleteBrokers(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService("", "", zone)
-
+	qc := pb.NewInstanceService(nil, nil)
 	in := new(pb.DeleteBrokersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

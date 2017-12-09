@@ -26,13 +26,15 @@ type NicServiceInterface interface {
 }
 
 type NicService struct {
+	ServerInfo       *ServerInfo
 	Properties       *NicServiceProperties
 	LastResponseBody string
 }
 
-func NewNicService(accessKeyId, secretAccessKey, zone string) (p *NicService) {
+func NewNicService(server *ServerInfo, serviceProp *NicServiceProperties) (p *NicService) {
 	return &NicService{
-		Properties: &NicServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

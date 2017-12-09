@@ -26,13 +26,15 @@ type KeyPairServiceInterface interface {
 }
 
 type KeyPairService struct {
+	ServerInfo       *ServerInfo
 	Properties       *KeyPairServiceProperties
 	LastResponseBody string
 }
 
-func NewKeyPairService(accessKeyId, secretAccessKey, zone string) (p *KeyPairService) {
+func NewKeyPairService(server *ServerInfo, serviceProp *KeyPairServiceProperties) (p *KeyPairService) {
 	return &KeyPairService{
-		Properties: &KeyPairServiceProperties{Zone: proto.String(zone)},
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

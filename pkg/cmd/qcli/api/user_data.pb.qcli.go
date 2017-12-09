@@ -65,9 +65,7 @@ var _flag_UserDataService_UploadUserDataAttachment = []cli.Flag{
 }
 
 func _func_UserDataService_UploadUserDataAttachment(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.NewUserDataService("", "", zone)
-
+	qc := pb.NewUserDataService(nil, nil)
 	in := new(pb.UploadUserDataAttachmentInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
