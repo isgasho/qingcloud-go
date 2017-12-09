@@ -9,6 +9,13 @@ package service;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/descriptor.proto";
 
+message ServerInfo {
+	optional string access_key_id = 1;
+	optional string secret_access_key = 2;
+	optional string api_server = 3 [default = "https://api.qingcloud.com/iaas/"];
+	optional string zone = 4 [default = "pk3a"];
+}
+
 message Tag {
 	optional string color = 1;
 	optional google.protobuf.Timestamp create_time = 2;

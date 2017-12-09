@@ -94,13 +94,15 @@ type {{.GetServiceName}}Interface interface {
 }
 
 type {{.GetServiceName}} struct {
+	ServerInfo       *ServerInfo
 	Properties       *{{.GetServiceName}}Properties
 	LastResponseBody string
 }
 
-func New{{.GetServiceName}}(accessKeyId, secretAccessKey, zone string) (p *{{.GetServiceName}}) {
+func New{{.GetServiceName}}(server *ServerInfo, serviceProp *{{.GetServiceName}}Properties) (p *{{.GetServiceName}}) {
 	return &{{.GetServiceName}}{
-		Properties: &{{.GetServiceName}}Properties{ Zone: proto.String(zone) },
+		ServerInfo: server,
+		Properties: serviceProp,
 	}
 }
 

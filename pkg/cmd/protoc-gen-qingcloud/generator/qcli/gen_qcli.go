@@ -327,9 +327,7 @@ var _flag_{{$ServiceName}}_{{$MethodName}} = []cli.Flag{
 }
 
 func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
-	zone := c.GlobalString("zone")
-	qc := pb.New{{$ServiceName}}("", "", zone)
-
+	qc := pb.New{{$ServiceName}}(nil, nil)
 	in := new(pb.{{$MethodInputName}})
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
