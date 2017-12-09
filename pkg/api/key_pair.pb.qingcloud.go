@@ -38,9 +38,9 @@ func NewKeyPairService(server *ServerInfo) (p *KeyPairService) {
 
 func (p *KeyPairService) DescribeKeyPairs(input *DescribeKeyPairsInput) (output *DescribeKeyPairsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeKeyPairsOutput)
 
@@ -54,9 +54,9 @@ func (p *KeyPairService) DescribeKeyPairs(input *DescribeKeyPairsInput) (output 
 
 func (p *KeyPairService) CreateKeyPair(input *CreateKeyPairInput) (output *CreateKeyPairOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateKeyPairOutput)
 
@@ -70,9 +70,9 @@ func (p *KeyPairService) CreateKeyPair(input *CreateKeyPairInput) (output *Creat
 
 func (p *KeyPairService) DeleteKeyPairs(input *DeleteKeyPairsInput) (output *DeleteKeyPairsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteKeyPairsOutput)
 
@@ -86,9 +86,9 @@ func (p *KeyPairService) DeleteKeyPairs(input *DeleteKeyPairsInput) (output *Del
 
 func (p *KeyPairService) AttachKeyPairs(input *AttachKeyPairsInput) (output *AttachKeyPairsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AttachKeyPairsOutput)
 
@@ -102,9 +102,9 @@ func (p *KeyPairService) AttachKeyPairs(input *AttachKeyPairsInput) (output *Att
 
 func (p *KeyPairService) DetachKeyPairs(input *DetachKeyPairsInput) (output *DetachKeyPairsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DetachKeyPairsOutput)
 
@@ -118,9 +118,9 @@ func (p *KeyPairService) DetachKeyPairs(input *DetachKeyPairsInput) (output *Det
 
 func (p *KeyPairService) ModifyKeyPairAttributes(input *ModifyKeyPairAttributesInput) (output *ModifyKeyPairAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyKeyPairAttributesOutput)
 

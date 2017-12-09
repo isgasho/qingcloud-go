@@ -110,7 +110,7 @@ var _flag_NicService_CreateNics = []cli.Flag{
 }
 
 func _func_NicService_CreateNics(c *cli.Context) error {
-	qc := pb.NewNicService(nil)
+	qc := pb.NewNicService(pkgGetServerInfo())
 	in := new(pb.CreateNicsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -201,7 +201,7 @@ var _flag_NicService_DescribeNics = []cli.Flag{
 }
 
 func _func_NicService_DescribeNics(c *cli.Context) error {
-	qc := pb.NewNicService(nil)
+	qc := pb.NewNicService(pkgGetServerInfo())
 	in := new(pb.DescribeNicsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -278,7 +278,7 @@ var _flag_NicService_AttachNics = []cli.Flag{
 }
 
 func _func_NicService_AttachNics(c *cli.Context) error {
-	qc := pb.NewNicService(nil)
+	qc := pb.NewNicService(pkgGetServerInfo())
 	in := new(pb.AttachNicsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -328,7 +328,7 @@ var _flag_NicService_DetachNics = []cli.Flag{
 }
 
 func _func_NicService_DetachNics(c *cli.Context) error {
-	qc := pb.NewNicService(nil)
+	qc := pb.NewNicService(pkgGetServerInfo())
 	in := new(pb.DetachNicsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -385,7 +385,7 @@ var _flag_NicService_ModifyNicAttributes = []cli.Flag{
 }
 
 func _func_NicService_ModifyNicAttributes(c *cli.Context) error {
-	qc := pb.NewNicService(nil)
+	qc := pb.NewNicService(pkgGetServerInfo())
 	in := new(pb.ModifyNicAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -436,7 +436,7 @@ var _flag_NicService_DeleteNics = []cli.Flag{
 }
 
 func _func_NicService_DeleteNics(c *cli.Context) error {
-	qc := pb.NewNicService(nil)
+	qc := pb.NewNicService(pkgGetServerInfo())
 	in := new(pb.DeleteNicsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

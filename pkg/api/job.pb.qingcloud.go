@@ -33,9 +33,9 @@ func NewJobService(server *ServerInfo) (p *JobService) {
 
 func (p *JobService) DescribeJobs(input *DescribeJobsInput) (output *DescribeJobsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeJobsOutput)
 

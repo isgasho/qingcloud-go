@@ -75,7 +75,7 @@ var _flag_NotificationCenterService_DescribeNotificationCenterUserPosts = []cli.
 }
 
 func _func_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.Context) error {
-	qc := pb.NewNotificationCenterService(nil)
+	qc := pb.NewNotificationCenterService(pkgGetServerInfo())
 	in := new(pb.DescribeNotificationCenterUserPostsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

@@ -53,9 +53,9 @@ func NewClusterService(server *ServerInfo) (p *ClusterService) {
 
 func (p *ClusterService) CreateCluster(input *CreateClusterInput) (output *CreateClusterOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateClusterOutput)
 
@@ -69,9 +69,9 @@ func (p *ClusterService) CreateCluster(input *CreateClusterInput) (output *Creat
 
 func (p *ClusterService) DescribeClusters(input *DescribeClustersInput) (output *DescribeClustersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeClustersOutput)
 
@@ -85,9 +85,9 @@ func (p *ClusterService) DescribeClusters(input *DescribeClustersInput) (output 
 
 func (p *ClusterService) DescribeClusterNodes(input *DescribeClusterNodesInput) (output *DescribeClusterNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeClusterNodesOutput)
 
@@ -101,9 +101,9 @@ func (p *ClusterService) DescribeClusterNodes(input *DescribeClusterNodesInput) 
 
 func (p *ClusterService) StopClusters(input *StopClustersInput) (output *StopClustersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopClustersOutput)
 
@@ -117,9 +117,9 @@ func (p *ClusterService) StopClusters(input *StopClustersInput) (output *StopClu
 
 func (p *ClusterService) StartClusters(input *StartClustersInput) (output *StartClustersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartClustersOutput)
 
@@ -133,9 +133,9 @@ func (p *ClusterService) StartClusters(input *StartClustersInput) (output *Start
 
 func (p *ClusterService) DeleteClusters(input *DeleteClustersInput) (output *DeleteClustersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteClustersOutput)
 
@@ -149,9 +149,9 @@ func (p *ClusterService) DeleteClusters(input *DeleteClustersInput) (output *Del
 
 func (p *ClusterService) Lease(input *LeaseInput) (output *LeaseOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(LeaseOutput)
 
@@ -165,9 +165,9 @@ func (p *ClusterService) Lease(input *LeaseInput) (output *LeaseOutput, err erro
 
 func (p *ClusterService) AddClusterNodes(input *AddClusterNodesInput) (output *AddClusterNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddClusterNodesOutput)
 
@@ -181,9 +181,9 @@ func (p *ClusterService) AddClusterNodes(input *AddClusterNodesInput) (output *A
 
 func (p *ClusterService) DeleteClusterNodes(input *DeleteClusterNodesInput) (output *DeleteClusterNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteClusterNodesOutput)
 
@@ -197,9 +197,9 @@ func (p *ClusterService) DeleteClusterNodes(input *DeleteClusterNodesInput) (out
 
 func (p *ClusterService) ResizeCluster(input *ResizeClusterInput) (output *ResizeClusterOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResizeClusterOutput)
 
@@ -213,9 +213,9 @@ func (p *ClusterService) ResizeCluster(input *ResizeClusterInput) (output *Resiz
 
 func (p *ClusterService) ChangeClusterVxnet(input *ChangeClusterVxnetInput) (output *ChangeClusterVxnetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ChangeClusterVxnetOutput)
 
@@ -229,9 +229,9 @@ func (p *ClusterService) ChangeClusterVxnet(input *ChangeClusterVxnetInput) (out
 
 func (p *ClusterService) SuspendClusters(input *SuspendClustersInput) (output *SuspendClustersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(SuspendClustersOutput)
 
@@ -245,9 +245,9 @@ func (p *ClusterService) SuspendClusters(input *SuspendClustersInput) (output *S
 
 func (p *ClusterService) UpdateClusterEnvironment(input *UpdateClusterEnvironmentInput) (output *UpdateClusterEnvironmentOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UpdateClusterEnvironmentOutput)
 
@@ -261,9 +261,9 @@ func (p *ClusterService) UpdateClusterEnvironment(input *UpdateClusterEnvironmen
 
 func (p *ClusterService) ModifyClusterAttributes(input *ModifyClusterAttributesInput) (output *ModifyClusterAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyClusterAttributesOutput)
 
@@ -277,9 +277,9 @@ func (p *ClusterService) ModifyClusterAttributes(input *ModifyClusterAttributesI
 
 func (p *ClusterService) ModifyClusterNodeAttributes(input *ModifyClusterNodeAttributesInput) (output *ModifyClusterNodeAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyClusterNodeAttributesOutput)
 
@@ -293,9 +293,9 @@ func (p *ClusterService) ModifyClusterNodeAttributes(input *ModifyClusterNodeAtt
 
 func (p *ClusterService) GetClustersStats(input *GetClustersStatsInput) (output *GetClustersStatsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetClustersStatsOutput)
 
@@ -309,9 +309,9 @@ func (p *ClusterService) GetClustersStats(input *GetClustersStatsInput) (output 
 
 func (p *ClusterService) DescribeClusterUsers(input *DescribeClusterUsersInput) (output *DescribeClusterUsersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeClusterUsersOutput)
 
@@ -325,9 +325,9 @@ func (p *ClusterService) DescribeClusterUsers(input *DescribeClusterUsersInput) 
 
 func (p *ClusterService) RestartClusterService(input *RestartClusterServiceInput) (output *RestartClusterServiceOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RestartClusterServiceOutput)
 
@@ -341,9 +341,9 @@ func (p *ClusterService) RestartClusterService(input *RestartClusterServiceInput
 
 func (p *ClusterService) UpgradeClusters(input *UpgradeClustersInput) (output *UpgradeClustersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UpgradeClustersOutput)
 
@@ -357,9 +357,9 @@ func (p *ClusterService) UpgradeClusters(input *UpgradeClustersInput) (output *U
 
 func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(input *AuthorizeClustersBrokerToDeveloperInput) (output *AuthorizeClustersBrokerToDeveloperOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AuthorizeClustersBrokerToDeveloperOutput)
 
@@ -373,9 +373,9 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(input *AuthorizeClus
 
 func (p *ClusterService) RevokeClustersBrokerFromDeveloper(input *RevokeClustersBrokerFromDeveloperInput) (output *RevokeClustersBrokerFromDeveloperOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RevokeClustersBrokerFromDeveloperOutput)
 

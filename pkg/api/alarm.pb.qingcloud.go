@@ -49,9 +49,9 @@ func NewAlarmService(server *ServerInfo) (p *AlarmService) {
 
 func (p *AlarmService) DescribeAlarmPolicies(input *DescribeAlarmPoliciesInput) (output *DescribeAlarmPoliciesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeAlarmPoliciesOutput)
 
@@ -65,9 +65,9 @@ func (p *AlarmService) DescribeAlarmPolicies(input *DescribeAlarmPoliciesInput) 
 
 func (p *AlarmService) CreateAlarmPolicy(input *CreateAlarmPolicyInput) (output *CreateAlarmPolicyOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateAlarmPolicyOutput)
 
@@ -81,9 +81,9 @@ func (p *AlarmService) CreateAlarmPolicy(input *CreateAlarmPolicyInput) (output 
 
 func (p *AlarmService) ModifyAlarmPolicyAttributes(input *ModifyAlarmPolicyAttributesInput) (output *ModifyAlarmPolicyAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyAlarmPolicyAttributesOutput)
 
@@ -97,9 +97,9 @@ func (p *AlarmService) ModifyAlarmPolicyAttributes(input *ModifyAlarmPolicyAttri
 
 func (p *AlarmService) DeleteAlarmPolicies(input *DeleteAlarmPoliciesInput) (output *DeleteAlarmPoliciesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteAlarmPoliciesOutput)
 
@@ -113,9 +113,9 @@ func (p *AlarmService) DeleteAlarmPolicies(input *DeleteAlarmPoliciesInput) (out
 
 func (p *AlarmService) DescribeAlarmPolicyRules(input *DescribeAlarmPolicyRulesInput) (output *DescribeAlarmPolicyRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeAlarmPolicyRulesOutput)
 
@@ -129,9 +129,9 @@ func (p *AlarmService) DescribeAlarmPolicyRules(input *DescribeAlarmPolicyRulesI
 
 func (p *AlarmService) AddAlarmPolicyRules(input *AddAlarmPolicyRulesInput) (output *AddAlarmPolicyRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddAlarmPolicyRulesOutput)
 
@@ -145,9 +145,9 @@ func (p *AlarmService) AddAlarmPolicyRules(input *AddAlarmPolicyRulesInput) (out
 
 func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(input *ModifyAlarmPolicyRuleAttributesInput) (output *ModifyAlarmPolicyRuleAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyAlarmPolicyRuleAttributesOutput)
 
@@ -161,9 +161,9 @@ func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(input *ModifyAlarmPolicyR
 
 func (p *AlarmService) DeleteAlarmPolicyRules(input *DeleteAlarmPolicyRulesInput) (output *DeleteAlarmPolicyRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteAlarmPolicyRulesOutput)
 
@@ -177,9 +177,9 @@ func (p *AlarmService) DeleteAlarmPolicyRules(input *DeleteAlarmPolicyRulesInput
 
 func (p *AlarmService) DescribeAlarmPolicyActions(input *DescribeAlarmPolicyActionsInput) (output *DescribeAlarmPolicyActionsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeAlarmPolicyActionsOutput)
 
@@ -193,9 +193,9 @@ func (p *AlarmService) DescribeAlarmPolicyActions(input *DescribeAlarmPolicyActi
 
 func (p *AlarmService) AddAlarmPolicyActions(input *AddAlarmPolicyActionsInput) (output *AddAlarmPolicyActionsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddAlarmPolicyActionsOutput)
 
@@ -209,9 +209,9 @@ func (p *AlarmService) AddAlarmPolicyActions(input *AddAlarmPolicyActionsInput) 
 
 func (p *AlarmService) ModifyAlarmPolicyActionAttributes(input *ModifyAlarmPolicyActionAttributesInput) (output *ModifyAlarmPolicyActionAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyAlarmPolicyActionAttributesOutput)
 
@@ -225,9 +225,9 @@ func (p *AlarmService) ModifyAlarmPolicyActionAttributes(input *ModifyAlarmPolic
 
 func (p *AlarmService) DeleteAlarmPolicyActions(input *DeleteAlarmPolicyActionsInput) (output *DeleteAlarmPolicyActionsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteAlarmPolicyActionsOutput)
 
@@ -241,9 +241,9 @@ func (p *AlarmService) DeleteAlarmPolicyActions(input *DeleteAlarmPolicyActionsI
 
 func (p *AlarmService) AssociateAlarmPolicy(input *AssociateAlarmPolicyInput) (output *AssociateAlarmPolicyOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AssociateAlarmPolicyOutput)
 
@@ -257,9 +257,9 @@ func (p *AlarmService) AssociateAlarmPolicy(input *AssociateAlarmPolicyInput) (o
 
 func (p *AlarmService) DissociateAlarmPolicy(input *DissociateAlarmPolicyInput) (output *DissociateAlarmPolicyOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DissociateAlarmPolicyOutput)
 
@@ -273,9 +273,9 @@ func (p *AlarmService) DissociateAlarmPolicy(input *DissociateAlarmPolicyInput) 
 
 func (p *AlarmService) ApplyAlarmPolicy(input *ApplyAlarmPolicyInput) (output *ApplyAlarmPolicyOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ApplyAlarmPolicyOutput)
 
@@ -289,9 +289,9 @@ func (p *AlarmService) ApplyAlarmPolicy(input *ApplyAlarmPolicyInput) (output *A
 
 func (p *AlarmService) DescribeAlarms(input *DescribeAlarmsInput) (output *DescribeAlarmsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeAlarmsOutput)
 
@@ -305,9 +305,9 @@ func (p *AlarmService) DescribeAlarms(input *DescribeAlarmsInput) (output *Descr
 
 func (p *AlarmService) DescribeAlarmHistory(input *DescribeAlarmHistoryInput) (output *DescribeAlarmHistoryOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeAlarmHistoryOutput)
 

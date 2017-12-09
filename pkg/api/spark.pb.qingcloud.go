@@ -39,9 +39,9 @@ func NewSparkService(server *ServerInfo) (p *SparkService) {
 
 func (p *SparkService) CreateSpark(input *CreateSparkInput) (output *CreateSparkOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateSparkOutput)
 
@@ -55,9 +55,9 @@ func (p *SparkService) CreateSpark(input *CreateSparkInput) (output *CreateSpark
 
 func (p *SparkService) DescribeSparks(input *DescribeSparksInput) (output *DescribeSparksOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSparksOutput)
 
@@ -71,9 +71,9 @@ func (p *SparkService) DescribeSparks(input *DescribeSparksInput) (output *Descr
 
 func (p *SparkService) AddSparkNodes(input *AddSparkNodesInput) (output *AddSparkNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddSparkNodesOutput)
 
@@ -87,9 +87,9 @@ func (p *SparkService) AddSparkNodes(input *AddSparkNodesInput) (output *AddSpar
 
 func (p *SparkService) DeleteSparkNodes(input *DeleteSparkNodesInput) (output *DeleteSparkNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSparkNodesOutput)
 
@@ -103,9 +103,9 @@ func (p *SparkService) DeleteSparkNodes(input *DeleteSparkNodesInput) (output *D
 
 func (p *SparkService) StartSparks(input *StartSparksInput) (output *StartSparksOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartSparksOutput)
 
@@ -119,9 +119,9 @@ func (p *SparkService) StartSparks(input *StartSparksInput) (output *StartSparks
 
 func (p *SparkService) StopSparks(input *StopSparksInput) (output *StopSparksOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopSparksOutput)
 
@@ -135,9 +135,9 @@ func (p *SparkService) StopSparks(input *StopSparksInput) (output *StopSparksOut
 
 func (p *SparkService) DeleteSparks(input *DeleteSparksInput) (output *DeleteSparksOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSparksOutput)
 

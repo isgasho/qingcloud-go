@@ -36,9 +36,9 @@ func NewDNSAliasService(server *ServerInfo) (p *DNSAliasService) {
 
 func (p *DNSAliasService) DescribeDNSAliases(input *DescribeDNSAliasesInput) (output *DescribeDNSAliasesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeDNSAliasesOutput)
 
@@ -52,9 +52,9 @@ func (p *DNSAliasService) DescribeDNSAliases(input *DescribeDNSAliasesInput) (ou
 
 func (p *DNSAliasService) AssociateDNSAlias(input *AssociateDNSAliasInput) (output *AssociateDNSAliasOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AssociateDNSAliasOutput)
 
@@ -68,9 +68,9 @@ func (p *DNSAliasService) AssociateDNSAlias(input *AssociateDNSAliasInput) (outp
 
 func (p *DNSAliasService) DissociateDNSAliases(input *DissociateDNSAliasesInput) (output *DissociateDNSAliasesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DissociateDNSAliasesOutput)
 
@@ -84,9 +84,9 @@ func (p *DNSAliasService) DissociateDNSAliases(input *DissociateDNSAliasesInput)
 
 func (p *DNSAliasService) GetDNSLabel(input *GetDNSLabelInput) (output *GetDNSLabelOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetDNSLabelOutput)
 

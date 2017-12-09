@@ -46,9 +46,9 @@ func NewMongoService(server *ServerInfo) (p *MongoService) {
 
 func (p *MongoService) DescribeMongoNodes(input *DescribeMongoNodesInput) (output *DescribeMongoNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeMongoNodesOutput)
 
@@ -62,9 +62,9 @@ func (p *MongoService) DescribeMongoNodes(input *DescribeMongoNodesInput) (outpu
 
 func (p *MongoService) DescribeMongoParameters(input *DescribeMongoParametersInput) (output *DescribeMongoParametersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeMongoParametersOutput)
 
@@ -78,9 +78,9 @@ func (p *MongoService) DescribeMongoParameters(input *DescribeMongoParametersInp
 
 func (p *MongoService) ResizeMongos(input *ResizeMongosInput) (output *ResizeMongosOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResizeMongosOutput)
 
@@ -94,9 +94,9 @@ func (p *MongoService) ResizeMongos(input *ResizeMongosInput) (output *ResizeMon
 
 func (p *MongoService) CreateMongo(input *CreateMongoInput) (output *CreateMongoOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateMongoOutput)
 
@@ -110,9 +110,9 @@ func (p *MongoService) CreateMongo(input *CreateMongoInput) (output *CreateMongo
 
 func (p *MongoService) StopMongos(input *StopMongosInput) (output *StopMongosOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopMongosOutput)
 
@@ -126,9 +126,9 @@ func (p *MongoService) StopMongos(input *StopMongosInput) (output *StopMongosOut
 
 func (p *MongoService) StartMongos(input *StartMongosInput) (output *StartMongosOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartMongosOutput)
 
@@ -142,9 +142,9 @@ func (p *MongoService) StartMongos(input *StartMongosInput) (output *StartMongos
 
 func (p *MongoService) DescribeMongos(input *DescribeMongosInput) (output *DescribeMongosOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeMongosOutput)
 
@@ -158,9 +158,9 @@ func (p *MongoService) DescribeMongos(input *DescribeMongosInput) (output *Descr
 
 func (p *MongoService) DeleteMongos(input *DeleteMongosInput) (output *DeleteMongosOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteMongosOutput)
 
@@ -174,9 +174,9 @@ func (p *MongoService) DeleteMongos(input *DeleteMongosInput) (output *DeleteMon
 
 func (p *MongoService) CreateMongoFromSnapshot(input *CreateMongoFromSnapshotInput) (output *CreateMongoFromSnapshotOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateMongoFromSnapshotOutput)
 
@@ -190,9 +190,9 @@ func (p *MongoService) CreateMongoFromSnapshot(input *CreateMongoFromSnapshotInp
 
 func (p *MongoService) ChangeMongoVxnet(input *ChangeMongoVxnetInput) (output *ChangeMongoVxnetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ChangeMongoVxnetOutput)
 
@@ -206,9 +206,9 @@ func (p *MongoService) ChangeMongoVxnet(input *ChangeMongoVxnetInput) (output *C
 
 func (p *MongoService) AddMongoInstances(input *AddMongoInstancesInput) (output *AddMongoInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddMongoInstancesOutput)
 
@@ -222,9 +222,9 @@ func (p *MongoService) AddMongoInstances(input *AddMongoInstancesInput) (output 
 
 func (p *MongoService) RemoveMongoInstances(input *RemoveMongoInstancesInput) (output *RemoveMongoInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RemoveMongoInstancesOutput)
 
@@ -238,9 +238,9 @@ func (p *MongoService) RemoveMongoInstances(input *RemoveMongoInstancesInput) (o
 
 func (p *MongoService) ModifyMongoAttributes(input *ModifyMongoAttributesInput) (output *ModifyMongoAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyMongoAttributesOutput)
 
@@ -254,9 +254,9 @@ func (p *MongoService) ModifyMongoAttributes(input *ModifyMongoAttributesInput) 
 
 func (p *MongoService) ModifyMongoInstances(input *ModifyMongoInstancesInput) (output *ModifyMongoInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyMongoInstancesOutput)
 

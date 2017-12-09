@@ -49,9 +49,9 @@ func NewRDBService(server *ServerInfo) (p *RDBService) {
 
 func (p *RDBService) CreateRDB(input *CreateRDBInput) (output *CreateRDBOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateRDBOutput)
 
@@ -65,9 +65,9 @@ func (p *RDBService) CreateRDB(input *CreateRDBInput) (output *CreateRDBOutput, 
 
 func (p *RDBService) DescribeRDBs(input *DescribeRDBsInput) (output *DescribeRDBsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeRDBsOutput)
 
@@ -81,9 +81,9 @@ func (p *RDBService) DescribeRDBs(input *DescribeRDBsInput) (output *DescribeRDB
 
 func (p *RDBService) DeleteRDBs(input *DeleteRDBsInput) (output *DeleteRDBsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteRDBsOutput)
 
@@ -97,9 +97,9 @@ func (p *RDBService) DeleteRDBs(input *DeleteRDBsInput) (output *DeleteRDBsOutpu
 
 func (p *RDBService) StartRDBs(input *StartRDBsInput) (output *StartRDBsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartRDBsOutput)
 
@@ -113,9 +113,9 @@ func (p *RDBService) StartRDBs(input *StartRDBsInput) (output *StartRDBsOutput, 
 
 func (p *RDBService) StopRDBs(input *StopRDBsInput) (output *StopRDBsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopRDBsOutput)
 
@@ -129,9 +129,9 @@ func (p *RDBService) StopRDBs(input *StopRDBsInput) (output *StopRDBsOutput, err
 
 func (p *RDBService) ResizeRDBs(input *ResizeRDBsInput) (output *ResizeRDBsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResizeRDBsOutput)
 
@@ -145,9 +145,9 @@ func (p *RDBService) ResizeRDBs(input *ResizeRDBsInput) (output *ResizeRDBsOutpu
 
 func (p *RDBService) RDBsLeaveVxnet(input *RDBsLeaveVxnetInput) (output *RDBsLeaveVxnetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RDBsLeaveVxnetOutput)
 
@@ -161,9 +161,9 @@ func (p *RDBService) RDBsLeaveVxnet(input *RDBsLeaveVxnetInput) (output *RDBsLea
 
 func (p *RDBService) RDBsJoinVxnet(input *RDBsJoinVxnetInput) (output *RDBsJoinVxnetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RDBsJoinVxnetOutput)
 
@@ -177,9 +177,9 @@ func (p *RDBService) RDBsJoinVxnet(input *RDBsJoinVxnetInput) (output *RDBsJoinV
 
 func (p *RDBService) CreateRDBFromSnapshot(input *CreateRDBFromSnapshotInput) (output *CreateRDBFromSnapshotOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateRDBFromSnapshotOutput)
 
@@ -193,9 +193,9 @@ func (p *RDBService) CreateRDBFromSnapshot(input *CreateRDBFromSnapshotInput) (o
 
 func (p *RDBService) CreateTempRDBInstanceFromSnapshot(input *CreateTempRDBInstanceFromSnapshotInput) (output *CreateTempRDBInstanceFromSnapshotOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateTempRDBInstanceFromSnapshotOutput)
 
@@ -209,9 +209,9 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(input *CreateTempRDBInsta
 
 func (p *RDBService) GetRDBInstanceFiles(input *GetRDBInstanceFilesInput) (output *GetRDBInstanceFilesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetRDBInstanceFilesOutput)
 
@@ -225,9 +225,9 @@ func (p *RDBService) GetRDBInstanceFiles(input *GetRDBInstanceFilesInput) (outpu
 
 func (p *RDBService) CopyRDBInstanceFilesToFTP(input *CopyRDBInstanceFilesToFTPInput) (output *CopyRDBInstanceFilesToFTPOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CopyRDBInstanceFilesToFTPOutput)
 
@@ -241,9 +241,9 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(input *CopyRDBInstanceFilesToFTPI
 
 func (p *RDBService) PurgeRDBLogs(input *PurgeRDBLogsInput) (output *PurgeRDBLogsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(PurgeRDBLogsOutput)
 
@@ -257,9 +257,9 @@ func (p *RDBService) PurgeRDBLogs(input *PurgeRDBLogsInput) (output *PurgeRDBLog
 
 func (p *RDBService) CeaseRDBInstance(input *CeaseRDBInstanceInput) (output *CeaseRDBInstanceOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CeaseRDBInstanceOutput)
 
@@ -273,9 +273,9 @@ func (p *RDBService) CeaseRDBInstance(input *CeaseRDBInstanceInput) (output *Cea
 
 func (p *RDBService) ModifyRDBParameters(input *ModifyRDBParametersInput) (output *ModifyRDBParametersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyRDBParametersOutput)
 
@@ -289,9 +289,9 @@ func (p *RDBService) ModifyRDBParameters(input *ModifyRDBParametersInput) (outpu
 
 func (p *RDBService) ApplyRDBParameterGroup(input *ApplyRDBParameterGroupInput) (output *ApplyRDBParameterGroupOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ApplyRDBParameterGroupOutput)
 
@@ -305,9 +305,9 @@ func (p *RDBService) ApplyRDBParameterGroup(input *ApplyRDBParameterGroupInput) 
 
 func (p *RDBService) DescribeRDBParameters(input *DescribeRDBParametersInput) (output *DescribeRDBParametersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeRDBParametersOutput)
 

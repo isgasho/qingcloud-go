@@ -39,9 +39,9 @@ func NewSnapshotService(server *ServerInfo) (p *SnapshotService) {
 
 func (p *SnapshotService) DescribeSnapshots(input *DescribeSnapshotsInput) (output *DescribeSnapshotsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSnapshotsOutput)
 
@@ -55,9 +55,9 @@ func (p *SnapshotService) DescribeSnapshots(input *DescribeSnapshotsInput) (outp
 
 func (p *SnapshotService) CreateSnapshots(input *CreateSnapshotsInput) (output *CreateSnapshotsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateSnapshotsOutput)
 
@@ -71,9 +71,9 @@ func (p *SnapshotService) CreateSnapshots(input *CreateSnapshotsInput) (output *
 
 func (p *SnapshotService) DeleteSnapshots(input *DeleteSnapshotsInput) (output *DeleteSnapshotsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSnapshotsOutput)
 
@@ -87,9 +87,9 @@ func (p *SnapshotService) DeleteSnapshots(input *DeleteSnapshotsInput) (output *
 
 func (p *SnapshotService) ApplySnapshots(input *ApplySnapshotsInput) (output *ApplySnapshotsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ApplySnapshotsOutput)
 
@@ -103,9 +103,9 @@ func (p *SnapshotService) ApplySnapshots(input *ApplySnapshotsInput) (output *Ap
 
 func (p *SnapshotService) ModifySnapshotAttributes(input *ModifySnapshotAttributesInput) (output *ModifySnapshotAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifySnapshotAttributesOutput)
 
@@ -119,9 +119,9 @@ func (p *SnapshotService) ModifySnapshotAttributes(input *ModifySnapshotAttribut
 
 func (p *SnapshotService) CaptureInstanceFromSnapshot(input *CaptureInstanceFromSnapshotInput) (output *CaptureInstanceFromSnapshotOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CaptureInstanceFromSnapshotOutput)
 
@@ -135,9 +135,9 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(input *CaptureInstanceFrom
 
 func (p *SnapshotService) CreateVolumeFromSnapshot(input *CreateVolumeFromSnapshotInput) (output *CreateVolumeFromSnapshotOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateVolumeFromSnapshotOutput)
 

@@ -65,7 +65,7 @@ var _flag_ZoneService_DescribeZones = []cli.Flag{
 }
 
 func _func_ZoneService_DescribeZones(c *cli.Context) error {
-	qc := pb.NewZoneService(nil)
+	qc := pb.NewZoneService(pkgGetServerInfo())
 	in := new(pb.DescribeZonesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

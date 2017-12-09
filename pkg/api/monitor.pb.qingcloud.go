@@ -38,9 +38,9 @@ func NewMonitorService(server *ServerInfo) (p *MonitorService) {
 
 func (p *MonitorService) GetMonitor(input *GetMonitorInput) (output *GetMonitorOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetMonitorOutput)
 
@@ -54,9 +54,9 @@ func (p *MonitorService) GetMonitor(input *GetMonitorInput) (output *GetMonitorO
 
 func (p *MonitorService) GetLoadBalancerMonitor(input *GetLoadBalancerMonitorInput) (output *GetLoadBalancerMonitorOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetLoadBalancerMonitorOutput)
 
@@ -70,9 +70,9 @@ func (p *MonitorService) GetLoadBalancerMonitor(input *GetLoadBalancerMonitorInp
 
 func (p *MonitorService) GetRDBMonitor(input *GetRDBMonitorInput) (output *GetRDBMonitorOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetRDBMonitorOutput)
 
@@ -86,9 +86,9 @@ func (p *MonitorService) GetRDBMonitor(input *GetRDBMonitorInput) (output *GetRD
 
 func (p *MonitorService) GetCacheMonitor(input *GetCacheMonitorInput) (output *GetCacheMonitorOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetCacheMonitorOutput)
 
@@ -102,9 +102,9 @@ func (p *MonitorService) GetCacheMonitor(input *GetCacheMonitorInput) (output *G
 
 func (p *MonitorService) GetZooKeeperMonitor(input *GetZooKeeperMonitorInput) (output *GetZooKeeperMonitorOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetZooKeeperMonitorOutput)
 
@@ -118,9 +118,9 @@ func (p *MonitorService) GetZooKeeperMonitor(input *GetZooKeeperMonitorInput) (o
 
 func (p *MonitorService) GetQueueMonitor(input *GetQueueMonitorInput) (output *GetQueueMonitorOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetQueueMonitorOutput)
 

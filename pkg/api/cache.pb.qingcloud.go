@@ -56,9 +56,9 @@ func NewCacheService(server *ServerInfo) (p *CacheService) {
 
 func (p *CacheService) DescribeCaches(input *DescribeCachesInput) (output *DescribeCachesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeCachesOutput)
 
@@ -72,9 +72,9 @@ func (p *CacheService) DescribeCaches(input *DescribeCachesInput) (output *Descr
 
 func (p *CacheService) CreateCache(input *CreateCacheInput) (output *CreateCacheOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateCacheOutput)
 
@@ -88,9 +88,9 @@ func (p *CacheService) CreateCache(input *CreateCacheInput) (output *CreateCache
 
 func (p *CacheService) StopCaches(input *StopCachesInput) (output *StopCachesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopCachesOutput)
 
@@ -104,9 +104,9 @@ func (p *CacheService) StopCaches(input *StopCachesInput) (output *StopCachesOut
 
 func (p *CacheService) StartCaches(input *StartCachesInput) (output *StartCachesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartCachesOutput)
 
@@ -120,9 +120,9 @@ func (p *CacheService) StartCaches(input *StartCachesInput) (output *StartCaches
 
 func (p *CacheService) RestartCaches(input *RestartCachesInput) (output *RestartCachesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RestartCachesOutput)
 
@@ -136,9 +136,9 @@ func (p *CacheService) RestartCaches(input *RestartCachesInput) (output *Restart
 
 func (p *CacheService) DeleteCaches(input *DeleteCachesInput) (output *DeleteCachesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteCachesOutput)
 
@@ -152,9 +152,9 @@ func (p *CacheService) DeleteCaches(input *DeleteCachesInput) (output *DeleteCac
 
 func (p *CacheService) ResizeCaches(input *ResizeCachesInput) (output *ResizeCachesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResizeCachesOutput)
 
@@ -168,9 +168,9 @@ func (p *CacheService) ResizeCaches(input *ResizeCachesInput) (output *ResizeCac
 
 func (p *CacheService) UpdateCache(input *UpdateCacheInput) (output *UpdateCacheOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UpdateCacheOutput)
 
@@ -184,9 +184,9 @@ func (p *CacheService) UpdateCache(input *UpdateCacheInput) (output *UpdateCache
 
 func (p *CacheService) ChangeCacheVxnet(input *ChangeCacheVxnetInput) (output *ChangeCacheVxnetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ChangeCacheVxnetOutput)
 
@@ -200,9 +200,9 @@ func (p *CacheService) ChangeCacheVxnet(input *ChangeCacheVxnetInput) (output *C
 
 func (p *CacheService) ModifyCacheAttributes(input *ModifyCacheAttributesInput) (output *ModifyCacheAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyCacheAttributesOutput)
 
@@ -216,9 +216,9 @@ func (p *CacheService) ModifyCacheAttributes(input *ModifyCacheAttributesInput) 
 
 func (p *CacheService) DescribeCacheNodes(input *DescribeCacheNodesInput) (output *DescribeCacheNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeCacheNodesOutput)
 
@@ -232,9 +232,9 @@ func (p *CacheService) DescribeCacheNodes(input *DescribeCacheNodesInput) (outpu
 
 func (p *CacheService) AddCacheNodes(input *AddCacheNodesInput) (output *AddCacheNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddCacheNodesOutput)
 
@@ -248,9 +248,9 @@ func (p *CacheService) AddCacheNodes(input *AddCacheNodesInput) (output *AddCach
 
 func (p *CacheService) DeleteCacheNodes(input *DeleteCacheNodesInput) (output *DeleteCacheNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteCacheNodesOutput)
 
@@ -264,9 +264,9 @@ func (p *CacheService) DeleteCacheNodes(input *DeleteCacheNodesInput) (output *D
 
 func (p *CacheService) RestartCacheNodes(input *RestartCacheNodesInput) (output *RestartCacheNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RestartCacheNodesOutput)
 
@@ -280,9 +280,9 @@ func (p *CacheService) RestartCacheNodes(input *RestartCacheNodesInput) (output 
 
 func (p *CacheService) ModifyCacheNodeAttributes(input *ModifyCacheNodeAttributesInput) (output *ModifyCacheNodeAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyCacheNodeAttributesOutput)
 
@@ -296,9 +296,9 @@ func (p *CacheService) ModifyCacheNodeAttributes(input *ModifyCacheNodeAttribute
 
 func (p *CacheService) CreateCacheFromSnapshot(input *CreateCacheFromSnapshotInput) (output *CreateCacheFromSnapshotOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateCacheFromSnapshotOutput)
 
@@ -312,9 +312,9 @@ func (p *CacheService) CreateCacheFromSnapshot(input *CreateCacheFromSnapshotInp
 
 func (p *CacheService) DescribeCacheParameterGroups(input *DescribeCacheParameterGroupsInput) (output *DescribeCacheParameterGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeCacheParameterGroupsOutput)
 
@@ -328,9 +328,9 @@ func (p *CacheService) DescribeCacheParameterGroups(input *DescribeCacheParamete
 
 func (p *CacheService) CreateCacheParameterGroup(input *CreateCacheParameterGroupInput) (output *CreateCacheParameterGroupOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateCacheParameterGroupOutput)
 
@@ -344,9 +344,9 @@ func (p *CacheService) CreateCacheParameterGroup(input *CreateCacheParameterGrou
 
 func (p *CacheService) ApplyCacheParameterGroup(input *ApplyCacheParameterGroupInput) (output *ApplyCacheParameterGroupOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ApplyCacheParameterGroupOutput)
 
@@ -360,9 +360,9 @@ func (p *CacheService) ApplyCacheParameterGroup(input *ApplyCacheParameterGroupI
 
 func (p *CacheService) DeleteCacheParameterGroups(input *DeleteCacheParameterGroupsInput) (output *DeleteCacheParameterGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteCacheParameterGroupsOutput)
 
@@ -376,9 +376,9 @@ func (p *CacheService) DeleteCacheParameterGroups(input *DeleteCacheParameterGro
 
 func (p *CacheService) ModifyCacheParameterGroupAttributes(input *ModifyCacheParameterGroupAttributesInput) (output *ModifyCacheParameterGroupAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyCacheParameterGroupAttributesOutput)
 
@@ -392,9 +392,9 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(input *ModifyCachePar
 
 func (p *CacheService) DescribeCacheParameters(input *DescribeCacheParametersInput) (output *DescribeCacheParametersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeCacheParametersOutput)
 
@@ -408,9 +408,9 @@ func (p *CacheService) DescribeCacheParameters(input *DescribeCacheParametersInp
 
 func (p *CacheService) UpdateCacheParameters(input *UpdateCacheParametersInput) (output *UpdateCacheParametersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UpdateCacheParametersOutput)
 
@@ -424,9 +424,9 @@ func (p *CacheService) UpdateCacheParameters(input *UpdateCacheParametersInput) 
 
 func (p *CacheService) ResetCacheParameters(input *ResetCacheParametersInput) (output *ResetCacheParametersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResetCacheParametersOutput)
 

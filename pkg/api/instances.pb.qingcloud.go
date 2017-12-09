@@ -44,9 +44,9 @@ func NewInstanceService(server *ServerInfo) (p *InstanceService) {
 
 func (p *InstanceService) DescribeInstances(input *DescribeInstancesInput) (output *DescribeInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeInstancesOutput)
 
@@ -60,9 +60,9 @@ func (p *InstanceService) DescribeInstances(input *DescribeInstancesInput) (outp
 
 func (p *InstanceService) RunInstances(input *RunInstancesInput) (output *RunInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RunInstancesOutput)
 
@@ -76,9 +76,9 @@ func (p *InstanceService) RunInstances(input *RunInstancesInput) (output *RunIns
 
 func (p *InstanceService) TerminateInstances(input *TerminateInstancesInput) (output *TerminateInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(TerminateInstancesOutput)
 
@@ -92,9 +92,9 @@ func (p *InstanceService) TerminateInstances(input *TerminateInstancesInput) (ou
 
 func (p *InstanceService) StartInstances(input *StartInstancesInput) (output *StartInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartInstancesOutput)
 
@@ -108,9 +108,9 @@ func (p *InstanceService) StartInstances(input *StartInstancesInput) (output *St
 
 func (p *InstanceService) StopInstances(input *StopInstancesInput) (output *StopInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopInstancesOutput)
 
@@ -124,9 +124,9 @@ func (p *InstanceService) StopInstances(input *StopInstancesInput) (output *Stop
 
 func (p *InstanceService) RestartInstances(input *RestartInstancesInput) (output *RestartInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RestartInstancesOutput)
 
@@ -140,9 +140,9 @@ func (p *InstanceService) RestartInstances(input *RestartInstancesInput) (output
 
 func (p *InstanceService) ResetInstances(input *ResetInstancesInput) (output *ResetInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResetInstancesOutput)
 
@@ -156,9 +156,9 @@ func (p *InstanceService) ResetInstances(input *ResetInstancesInput) (output *Re
 
 func (p *InstanceService) ResizeInstances(input *ResizeInstancesInput) (output *ResizeInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResizeInstancesOutput)
 
@@ -172,9 +172,9 @@ func (p *InstanceService) ResizeInstances(input *ResizeInstancesInput) (output *
 
 func (p *InstanceService) ModifyInstanceAttributes(input *ModifyInstanceAttributesInput) (output *ModifyInstanceAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyInstanceAttributesOutput)
 
@@ -188,9 +188,9 @@ func (p *InstanceService) ModifyInstanceAttributes(input *ModifyInstanceAttribut
 
 func (p *InstanceService) DescribeInstanceTypes(input *DescribeInstanceTypesInput) (output *DescribeInstanceTypesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeInstanceTypesOutput)
 
@@ -204,9 +204,9 @@ func (p *InstanceService) DescribeInstanceTypes(input *DescribeInstanceTypesInpu
 
 func (p *InstanceService) CreateBrokers(input *CreateBrokersInput) (output *CreateBrokersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateBrokersOutput)
 
@@ -220,9 +220,9 @@ func (p *InstanceService) CreateBrokers(input *CreateBrokersInput) (output *Crea
 
 func (p *InstanceService) DeleteBrokers(input *DeleteBrokersInput) (output *DeleteBrokersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteBrokersOutput)
 

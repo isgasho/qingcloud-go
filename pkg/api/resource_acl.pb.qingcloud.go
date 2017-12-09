@@ -59,9 +59,9 @@ func NewResourceACLService(server *ServerInfo) (p *ResourceACLService) {
 
 func (p *ResourceACLService) DescribeSharedResourceGroups(input *DescribeSharedResourceGroupsInput) (output *DescribeSharedResourceGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSharedResourceGroupsOutput)
 
@@ -75,9 +75,9 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(input *DescribeSharedR
 
 func (p *ResourceACLService) DescribeResourceGroups(input *DescribeResourceGroupsInput) (output *DescribeResourceGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeResourceGroupsOutput)
 
@@ -91,9 +91,9 @@ func (p *ResourceACLService) DescribeResourceGroups(input *DescribeResourceGroup
 
 func (p *ResourceACLService) CreateResourceGroups(input *CreateResourceGroupsInput) (output *CreateResourceGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateResourceGroupsOutput)
 
@@ -107,9 +107,9 @@ func (p *ResourceACLService) CreateResourceGroups(input *CreateResourceGroupsInp
 
 func (p *ResourceACLService) ModifyResourceGroupAttributes(input *ModifyResourceGroupAttributesInput) (output *ModifyResourceGroupAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyResourceGroupAttributesOutput)
 
@@ -123,9 +123,9 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(input *ModifyResource
 
 func (p *ResourceACLService) DeleteResourceGroups(input *DeleteResourceGroupsInput) (output *DeleteResourceGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteResourceGroupsOutput)
 
@@ -139,9 +139,9 @@ func (p *ResourceACLService) DeleteResourceGroups(input *DeleteResourceGroupsInp
 
 func (p *ResourceACLService) DescribeResourceGroupItems(input *DescribeResourceGroupItemsInput) (output *DescribeResourceGroupItemsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeResourceGroupItemsOutput)
 
@@ -155,9 +155,9 @@ func (p *ResourceACLService) DescribeResourceGroupItems(input *DescribeResourceG
 
 func (p *ResourceACLService) AddResourceGroupItems(input *AddResourceGroupItemsInput) (output *AddResourceGroupItemsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddResourceGroupItemsOutput)
 
@@ -171,9 +171,9 @@ func (p *ResourceACLService) AddResourceGroupItems(input *AddResourceGroupItemsI
 
 func (p *ResourceACLService) DeleteResourceGroupItems(input *DeleteResourceGroupItemsInput) (output *DeleteResourceGroupItemsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteResourceGroupItemsOutput)
 
@@ -187,9 +187,9 @@ func (p *ResourceACLService) DeleteResourceGroupItems(input *DeleteResourceGroup
 
 func (p *ResourceACLService) DescribeUserGroups(input *DescribeUserGroupsInput) (output *DescribeUserGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeUserGroupsOutput)
 
@@ -203,9 +203,9 @@ func (p *ResourceACLService) DescribeUserGroups(input *DescribeUserGroupsInput) 
 
 func (p *ResourceACLService) CreateUserGroups(input *CreateUserGroupsInput) (output *CreateUserGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateUserGroupsOutput)
 
@@ -219,9 +219,9 @@ func (p *ResourceACLService) CreateUserGroups(input *CreateUserGroupsInput) (out
 
 func (p *ResourceACLService) ModifyUserGroupAttributes(input *ModifyUserGroupAttributesInput) (output *ModifyUserGroupAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyUserGroupAttributesOutput)
 
@@ -235,9 +235,9 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(input *ModifyUserGroupAtt
 
 func (p *ResourceACLService) DeleteUserGroups(input *DeleteUserGroupsInput) (output *DeleteUserGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteUserGroupsOutput)
 
@@ -251,9 +251,9 @@ func (p *ResourceACLService) DeleteUserGroups(input *DeleteUserGroupsInput) (out
 
 func (p *ResourceACLService) DescribeUserGroupMembers(input *DescribeUserGroupMembersInput) (output *DescribeUserGroupMembersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeUserGroupMembersOutput)
 
@@ -267,9 +267,9 @@ func (p *ResourceACLService) DescribeUserGroupMembers(input *DescribeUserGroupMe
 
 func (p *ResourceACLService) AddUserGroupMembers(input *AddUserGroupMembersInput) (output *AddUserGroupMembersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddUserGroupMembersOutput)
 
@@ -283,9 +283,9 @@ func (p *ResourceACLService) AddUserGroupMembers(input *AddUserGroupMembersInput
 
 func (p *ResourceACLService) ModifyUserGroupMemberAttributes(input *ModifyUserGroupMemberAttributesInput) (output *ModifyUserGroupMemberAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyUserGroupMemberAttributesOutput)
 
@@ -299,9 +299,9 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(input *ModifyUserGr
 
 func (p *ResourceACLService) DeleteUserGroupMembers(input *DeleteUserGroupMembersInput) (output *DeleteUserGroupMembersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteUserGroupMembersOutput)
 
@@ -315,9 +315,9 @@ func (p *ResourceACLService) DeleteUserGroupMembers(input *DeleteUserGroupMember
 
 func (p *ResourceACLService) DescribeGroupRoles(input *DescribeGroupRolesInput) (output *DescribeGroupRolesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeGroupRolesOutput)
 
@@ -331,9 +331,9 @@ func (p *ResourceACLService) DescribeGroupRoles(input *DescribeGroupRolesInput) 
 
 func (p *ResourceACLService) CreateGroupRoles(input *CreateGroupRolesInput) (output *CreateGroupRolesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateGroupRolesOutput)
 
@@ -347,9 +347,9 @@ func (p *ResourceACLService) CreateGroupRoles(input *CreateGroupRolesInput) (out
 
 func (p *ResourceACLService) ModifyGroupRoleAttributes(input *ModifyGroupRoleAttributesInput) (output *ModifyGroupRoleAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyGroupRoleAttributesOutput)
 
@@ -363,9 +363,9 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(input *ModifyGroupRoleAtt
 
 func (p *ResourceACLService) DeleteGroupRoles(input *DeleteGroupRolesInput) (output *DeleteGroupRolesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteGroupRolesOutput)
 
@@ -379,9 +379,9 @@ func (p *ResourceACLService) DeleteGroupRoles(input *DeleteGroupRolesInput) (out
 
 func (p *ResourceACLService) DescribeGroupRoleRules(input *DescribeGroupRoleRulesInput) (output *DescribeGroupRoleRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeGroupRoleRulesOutput)
 
@@ -395,9 +395,9 @@ func (p *ResourceACLService) DescribeGroupRoleRules(input *DescribeGroupRoleRule
 
 func (p *ResourceACLService) AddGroupRoleRules(input *AddGroupRoleRulesInput) (output *AddGroupRoleRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddGroupRoleRulesOutput)
 
@@ -411,9 +411,9 @@ func (p *ResourceACLService) AddGroupRoleRules(input *AddGroupRoleRulesInput) (o
 
 func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(input *ModifyGroupRoleRuleAttributesInput) (output *ModifyGroupRoleRuleAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyGroupRoleRuleAttributesOutput)
 
@@ -427,9 +427,9 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(input *ModifyGroupRol
 
 func (p *ResourceACLService) DeleteGroupRoleRules(input *DeleteGroupRoleRulesInput) (output *DeleteGroupRoleRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteGroupRoleRulesOutput)
 
@@ -443,9 +443,9 @@ func (p *ResourceACLService) DeleteGroupRoleRules(input *DeleteGroupRoleRulesInp
 
 func (p *ResourceACLService) GrantResourceGroupsToUserGroups(input *GrantResourceGroupsToUserGroupsInput) (output *GrantResourceGroupsToUserGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GrantResourceGroupsToUserGroupsOutput)
 
@@ -459,9 +459,9 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(input *GrantResourc
 
 func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(input *RevokeResourceGroupsFromUserGroupsInput) (output *RevokeResourceGroupsFromUserGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RevokeResourceGroupsFromUserGroupsOutput)
 
@@ -475,9 +475,9 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(input *RevokeRes
 
 func (p *ResourceACLService) DescribeResourceUserGroups(input *DescribeResourceUserGroupsInput) (output *DescribeResourceUserGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeResourceUserGroupsOutput)
 

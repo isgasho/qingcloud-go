@@ -33,9 +33,9 @@ func NewZoneService(server *ServerInfo) (p *ZoneService) {
 
 func (p *ZoneService) DescribeZones(input *DescribeZonesInput) (output *DescribeZonesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeZonesOutput)
 

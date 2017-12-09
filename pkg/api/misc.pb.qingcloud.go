@@ -35,9 +35,9 @@ func NewMiscService(server *ServerInfo) (p *MiscService) {
 
 func (p *MiscService) GrantQuotaIndep(input *GrantQuotaIndepInput) (output *GrantQuotaIndepOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GrantQuotaIndepOutput)
 
@@ -51,9 +51,9 @@ func (p *MiscService) GrantQuotaIndep(input *GrantQuotaIndepInput) (output *Gran
 
 func (p *MiscService) RevokeQuotaIndep(input *RevokeQuotaIndepInput) (output *RevokeQuotaIndepOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RevokeQuotaIndepOutput)
 
@@ -67,9 +67,9 @@ func (p *MiscService) RevokeQuotaIndep(input *RevokeQuotaIndepInput) (output *Re
 
 func (p *MiscService) GetQuotaLeft(input *GetQuotaLeftInput) (output *GetQuotaLeftOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GetQuotaLeftOutput)
 

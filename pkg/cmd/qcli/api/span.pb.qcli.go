@@ -122,7 +122,7 @@ var _flag_SpanService_CreateSpan = []cli.Flag{
 }
 
 func _func_SpanService_CreateSpan(c *cli.Context) error {
-	qc := pb.NewSpanService(nil)
+	qc := pb.NewSpanService(pkgGetServerInfo())
 	in := new(pb.CreateSpanInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -204,7 +204,7 @@ var _flag_SpanService_DescribeSpans = []cli.Flag{
 }
 
 func _func_SpanService_DescribeSpans(c *cli.Context) error {
-	qc := pb.NewSpanService(nil)
+	qc := pb.NewSpanService(pkgGetServerInfo())
 	in := new(pb.DescribeSpansInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -268,7 +268,7 @@ var _flag_SpanService_DeleteSpans = []cli.Flag{
 }
 
 func _func_SpanService_DeleteSpans(c *cli.Context) error {
-	qc := pb.NewSpanService(nil)
+	qc := pb.NewSpanService(pkgGetServerInfo())
 	in := new(pb.DeleteSpansInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -320,7 +320,7 @@ var _flag_SpanService_AddSpanMembers = []cli.Flag{
 }
 
 func _func_SpanService_AddSpanMembers(c *cli.Context) error {
-	qc := pb.NewSpanService(nil)
+	qc := pb.NewSpanService(pkgGetServerInfo())
 	in := new(pb.AddSpanMembersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -375,7 +375,7 @@ var _flag_SpanService_RemoveSpanMembers = []cli.Flag{
 }
 
 func _func_SpanService_RemoveSpanMembers(c *cli.Context) error {
-	qc := pb.NewSpanService(nil)
+	qc := pb.NewSpanService(pkgGetServerInfo())
 	in := new(pb.RemoveSpanMembersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -450,7 +450,7 @@ var _flag_SpanService_ModifySpanAttributes = []cli.Flag{
 }
 
 func _func_SpanService_ModifySpanAttributes(c *cli.Context) error {
-	qc := pb.NewSpanService(nil)
+	qc := pb.NewSpanService(pkgGetServerInfo())
 	in := new(pb.ModifySpanAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -510,7 +510,7 @@ var _flag_SpanService_UpdateSpan = []cli.Flag{
 }
 
 func _func_SpanService_UpdateSpan(c *cli.Context) error {
-	qc := pb.NewSpanService(nil)
+	qc := pb.NewSpanService(pkgGetServerInfo())
 	in := new(pb.UpdateSpanInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

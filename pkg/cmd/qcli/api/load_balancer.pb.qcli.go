@@ -305,7 +305,7 @@ var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{
 }
 
 func _func_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.CreateLoadBalancerInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -403,7 +403,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DescribeLoadBalancersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -472,7 +472,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DeleteLoadBalancersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -544,7 +544,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ModifyLoadBalancerAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -604,7 +604,7 @@ var _flag_LoadBalancerService_StartLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.StartLoadBalancersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -651,7 +651,7 @@ var _flag_LoadBalancerService_StopLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.StopLoadBalancersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -698,7 +698,7 @@ var _flag_LoadBalancerService_UpdateLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.UpdateLoadBalancersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -750,7 +750,7 @@ var _flag_LoadBalancerService_ResizeLoadBalancers = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ResizeLoadBalancersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -805,7 +805,7 @@ var _flag_LoadBalancerService_AssociateEipsToLoadBalancer = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.AssociateEipsToLoadBalancerInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -860,7 +860,7 @@ var _flag_LoadBalancerService_DissociateEipsFromLoadBalancer = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DissociateEipsFromLoadBalancerInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -915,7 +915,7 @@ var _flag_LoadBalancerService_AddLoadBalancerListeners = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.AddLoadBalancerListenersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -985,7 +985,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerListeners = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DescribeLoadBalancerListenersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1044,7 +1044,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerListeners = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DeleteLoadBalancerListenersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1131,7 +1131,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerListenerAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ModifyLoadBalancerListenerAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1207,7 +1207,7 @@ var _flag_LoadBalancerService_AddLoadBalancerBackends = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.AddLoadBalancerBackendsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1282,7 +1282,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerBackends = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DescribeLoadBalancerBackendsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1344,7 +1344,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerBackends = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DeleteLoadBalancerBackendsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1411,7 +1411,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerBackendAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ModifyLoadBalancerBackendAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1468,7 +1468,7 @@ var _flag_LoadBalancerService_CreateLoadBalancerPolicy = []cli.Flag{
 }
 
 func _func_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.CreateLoadBalancerPolicyInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1528,7 +1528,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerPolicies = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DescribeLoadBalancerPoliciesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1594,7 +1594,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerPolicyAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ModifyLoadBalancerPolicyAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1645,7 +1645,7 @@ var _flag_LoadBalancerService_ApplyLoadBalancerPolicy = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ApplyLoadBalancerPolicyInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1690,7 +1690,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerPolicies = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DeleteLoadBalancerPoliciesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1742,7 +1742,7 @@ var _flag_LoadBalancerService_AddLoadBalancerPolicyRules = []cli.Flag{
 }
 
 func _func_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.AddLoadBalancerPolicyRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1807,7 +1807,7 @@ var _flag_LoadBalancerService_DescribeLoadBalancerPolicyRules = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DescribeLoadBalancerPolicyRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1873,7 +1873,7 @@ var _flag_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes = []cli.Fla
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ModifyLoadBalancerPolicyRuleAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1924,7 +1924,7 @@ var _flag_LoadBalancerService_DeleteLoadBalancerPolicyRules = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DeleteLoadBalancerPolicyRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1981,7 +1981,7 @@ var _flag_LoadBalancerService_CreateServerCertificate = []cli.Flag{
 }
 
 func _func_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.CreateServerCertificateInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -2052,7 +2052,7 @@ var _flag_LoadBalancerService_DescribeServerCertificates = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DescribeServerCertificatesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -2119,7 +2119,7 @@ var _flag_LoadBalancerService_ModifyServerCertificateAttributes = []cli.Flag{
 }
 
 func _func_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.ModifyServerCertificateAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -2170,7 +2170,7 @@ var _flag_LoadBalancerService_DeleteServerCertificates = []cli.Flag{
 }
 
 func _func_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
-	qc := pb.NewLoadBalancerService(nil)
+	qc := pb.NewLoadBalancerService(pkgGetServerInfo())
 	in := new(pb.DeleteServerCertificatesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

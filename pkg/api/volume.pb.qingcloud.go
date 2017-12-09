@@ -39,9 +39,9 @@ func NewVolumesService(server *ServerInfo) (p *VolumesService) {
 
 func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *DescribeVolumesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeVolumesOutput)
 
@@ -55,9 +55,9 @@ func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *D
 
 func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *CreateVolumesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateVolumesOutput)
 
@@ -71,9 +71,9 @@ func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *Creat
 
 func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *DeleteVolumesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteVolumesOutput)
 
@@ -87,9 +87,9 @@ func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *Delet
 
 func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *AttachVolumesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AttachVolumesOutput)
 
@@ -103,9 +103,9 @@ func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *Attac
 
 func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *DetachVolumesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DetachVolumesOutput)
 
@@ -119,9 +119,9 @@ func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *Detac
 
 func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *ResizeVolumesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResizeVolumesOutput)
 
@@ -135,9 +135,9 @@ func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *Resiz
 
 func (p *VolumesService) ModifyVolumeAttributes(input *ModifyVolumeAttributesInput) (output *ModifyVolumeAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyVolumeAttributesOutput)
 

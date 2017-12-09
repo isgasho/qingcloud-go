@@ -33,9 +33,9 @@ func NewNotificationCenterService(server *ServerInfo) (p *NotificationCenterServ
 
 func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(input *DescribeNotificationCenterUserPostsInput) (output *DescribeNotificationCenterUserPostsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeNotificationCenterUserPostsOutput)
 

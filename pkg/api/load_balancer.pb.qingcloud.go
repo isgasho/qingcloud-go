@@ -63,9 +63,9 @@ func NewLoadBalancerService(server *ServerInfo) (p *LoadBalancerService) {
 
 func (p *LoadBalancerService) CreateLoadBalancer(input *CreateLoadBalancerInput) (output *CreateLoadBalancerOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateLoadBalancerOutput)
 
@@ -79,9 +79,9 @@ func (p *LoadBalancerService) CreateLoadBalancer(input *CreateLoadBalancerInput)
 
 func (p *LoadBalancerService) DescribeLoadBalancers(input *DescribeLoadBalancersInput) (output *DescribeLoadBalancersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeLoadBalancersOutput)
 
@@ -95,9 +95,9 @@ func (p *LoadBalancerService) DescribeLoadBalancers(input *DescribeLoadBalancers
 
 func (p *LoadBalancerService) DeleteLoadBalancers(input *DeleteLoadBalancersInput) (output *DeleteLoadBalancersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteLoadBalancersOutput)
 
@@ -111,9 +111,9 @@ func (p *LoadBalancerService) DeleteLoadBalancers(input *DeleteLoadBalancersInpu
 
 func (p *LoadBalancerService) ModifyLoadBalancerAttributes(input *ModifyLoadBalancerAttributesInput) (output *ModifyLoadBalancerAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyLoadBalancerAttributesOutput)
 
@@ -127,9 +127,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(input *ModifyLoadBala
 
 func (p *LoadBalancerService) StartLoadBalancers(input *StartLoadBalancersInput) (output *StartLoadBalancersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartLoadBalancersOutput)
 
@@ -143,9 +143,9 @@ func (p *LoadBalancerService) StartLoadBalancers(input *StartLoadBalancersInput)
 
 func (p *LoadBalancerService) StopLoadBalancers(input *StopLoadBalancersInput) (output *StopLoadBalancersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopLoadBalancersOutput)
 
@@ -159,9 +159,9 @@ func (p *LoadBalancerService) StopLoadBalancers(input *StopLoadBalancersInput) (
 
 func (p *LoadBalancerService) UpdateLoadBalancers(input *UpdateLoadBalancersInput) (output *UpdateLoadBalancersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UpdateLoadBalancersOutput)
 
@@ -175,9 +175,9 @@ func (p *LoadBalancerService) UpdateLoadBalancers(input *UpdateLoadBalancersInpu
 
 func (p *LoadBalancerService) ResizeLoadBalancers(input *ResizeLoadBalancersInput) (output *ResizeLoadBalancersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ResizeLoadBalancersOutput)
 
@@ -191,9 +191,9 @@ func (p *LoadBalancerService) ResizeLoadBalancers(input *ResizeLoadBalancersInpu
 
 func (p *LoadBalancerService) AssociateEipsToLoadBalancer(input *AssociateEipsToLoadBalancerInput) (output *AssociateEipsToLoadBalancerOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AssociateEipsToLoadBalancerOutput)
 
@@ -207,9 +207,9 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(input *AssociateEipsTo
 
 func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(input *DissociateEipsFromLoadBalancerInput) (output *DissociateEipsFromLoadBalancerOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DissociateEipsFromLoadBalancerOutput)
 
@@ -223,9 +223,9 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(input *DissociateEi
 
 func (p *LoadBalancerService) AddLoadBalancerListeners(input *AddLoadBalancerListenersInput) (output *AddLoadBalancerListenersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddLoadBalancerListenersOutput)
 
@@ -239,9 +239,9 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(input *AddLoadBalancerLis
 
 func (p *LoadBalancerService) DescribeLoadBalancerListeners(input *DescribeLoadBalancerListenersInput) (output *DescribeLoadBalancerListenersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeLoadBalancerListenersOutput)
 
@@ -255,9 +255,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(input *DescribeLoadB
 
 func (p *LoadBalancerService) DeleteLoadBalancerListeners(input *DeleteLoadBalancerListenersInput) (output *DeleteLoadBalancerListenersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteLoadBalancerListenersOutput)
 
@@ -271,9 +271,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(input *DeleteLoadBalan
 
 func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(input *ModifyLoadBalancerListenerAttributesInput) (output *ModifyLoadBalancerListenerAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyLoadBalancerListenerAttributesOutput)
 
@@ -287,9 +287,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(input *Modify
 
 func (p *LoadBalancerService) AddLoadBalancerBackends(input *AddLoadBalancerBackendsInput) (output *AddLoadBalancerBackendsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddLoadBalancerBackendsOutput)
 
@@ -303,9 +303,9 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(input *AddLoadBalancerBack
 
 func (p *LoadBalancerService) DescribeLoadBalancerBackends(input *DescribeLoadBalancerBackendsInput) (output *DescribeLoadBalancerBackendsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeLoadBalancerBackendsOutput)
 
@@ -319,9 +319,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(input *DescribeLoadBa
 
 func (p *LoadBalancerService) DeleteLoadBalancerBackends(input *DeleteLoadBalancerBackendsInput) (output *DeleteLoadBalancerBackendsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteLoadBalancerBackendsOutput)
 
@@ -335,9 +335,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(input *DeleteLoadBalanc
 
 func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(input *ModifyLoadBalancerBackendAttributesInput) (output *ModifyLoadBalancerBackendAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyLoadBalancerBackendAttributesOutput)
 
@@ -351,9 +351,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(input *ModifyL
 
 func (p *LoadBalancerService) CreateLoadBalancerPolicy(input *CreateLoadBalancerPolicyInput) (output *CreateLoadBalancerPolicyOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateLoadBalancerPolicyOutput)
 
@@ -367,9 +367,9 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(input *CreateLoadBalancer
 
 func (p *LoadBalancerService) DescribeLoadBalancerPolicies(input *DescribeLoadBalancerPoliciesInput) (output *DescribeLoadBalancerPoliciesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeLoadBalancerPoliciesOutput)
 
@@ -383,9 +383,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(input *DescribeLoadBa
 
 func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(input *ModifyLoadBalancerPolicyAttributesInput) (output *ModifyLoadBalancerPolicyAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyLoadBalancerPolicyAttributesOutput)
 
@@ -399,9 +399,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(input *ModifyLo
 
 func (p *LoadBalancerService) ApplyLoadBalancerPolicy(input *ApplyLoadBalancerPolicyInput) (output *ApplyLoadBalancerPolicyOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ApplyLoadBalancerPolicyOutput)
 
@@ -415,9 +415,9 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(input *ApplyLoadBalancerPo
 
 func (p *LoadBalancerService) DeleteLoadBalancerPolicies(input *DeleteLoadBalancerPoliciesInput) (output *DeleteLoadBalancerPoliciesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteLoadBalancerPoliciesOutput)
 
@@ -431,9 +431,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(input *DeleteLoadBalanc
 
 func (p *LoadBalancerService) AddLoadBalancerPolicyRules(input *AddLoadBalancerPolicyRulesInput) (output *AddLoadBalancerPolicyRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddLoadBalancerPolicyRulesOutput)
 
@@ -447,9 +447,9 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(input *AddLoadBalancerP
 
 func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(input *DescribeLoadBalancerPolicyRulesInput) (output *DescribeLoadBalancerPolicyRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeLoadBalancerPolicyRulesOutput)
 
@@ -463,9 +463,9 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(input *DescribeLoa
 
 func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(input *ModifyLoadBalancerPolicyRuleAttributesInput) (output *ModifyLoadBalancerPolicyRuleAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyLoadBalancerPolicyRuleAttributesOutput)
 
@@ -479,9 +479,9 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(input *Modi
 
 func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(input *DeleteLoadBalancerPolicyRulesInput) (output *DeleteLoadBalancerPolicyRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteLoadBalancerPolicyRulesOutput)
 
@@ -495,9 +495,9 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(input *DeleteLoadBal
 
 func (p *LoadBalancerService) CreateServerCertificate(input *CreateServerCertificateInput) (output *CreateServerCertificateOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateServerCertificateOutput)
 
@@ -511,9 +511,9 @@ func (p *LoadBalancerService) CreateServerCertificate(input *CreateServerCertifi
 
 func (p *LoadBalancerService) DescribeServerCertificates(input *DescribeServerCertificatesInput) (output *DescribeServerCertificatesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeServerCertificatesOutput)
 
@@ -527,9 +527,9 @@ func (p *LoadBalancerService) DescribeServerCertificates(input *DescribeServerCe
 
 func (p *LoadBalancerService) ModifyServerCertificateAttributes(input *ModifyServerCertificateAttributesInput) (output *ModifyServerCertificateAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyServerCertificateAttributesOutput)
 
@@ -543,9 +543,9 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(input *ModifySer
 
 func (p *LoadBalancerService) DeleteServerCertificates(input *DeleteServerCertificatesInput) (output *DeleteServerCertificatesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteServerCertificatesOutput)
 

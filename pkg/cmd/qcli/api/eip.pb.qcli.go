@@ -144,7 +144,7 @@ var _flag_EIPService_DescribeEips = []cli.Flag{
 }
 
 func _func_EIPService_DescribeEips(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.DescribeEipsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -239,7 +239,7 @@ var _flag_EIPService_AllocateEips = []cli.Flag{
 }
 
 func _func_EIPService_AllocateEips(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.AllocateEipsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -299,7 +299,7 @@ var _flag_EIPService_ReleaseEips = []cli.Flag{
 }
 
 func _func_EIPService_ReleaseEips(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.ReleaseEipsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -351,7 +351,7 @@ var _flag_EIPService_AssociateEip = []cli.Flag{
 }
 
 func _func_EIPService_AssociateEip(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.AssociateEipInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -399,7 +399,7 @@ var _flag_EIPService_DissociateEips = []cli.Flag{
 }
 
 func _func_EIPService_DissociateEips(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.DissociateEipsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -451,7 +451,7 @@ var _flag_EIPService_ChangeEipsBandwidth = []cli.Flag{
 }
 
 func _func_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.ChangeEipsBandwidthInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -506,7 +506,7 @@ var _flag_EIPService_ChangeEipsBillingMode = []cli.Flag{
 }
 
 func _func_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.ChangeEipsBillingModeInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -566,7 +566,7 @@ var _flag_EIPService_ModifyEipAttributes = []cli.Flag{
 }
 
 func _func_EIPService_ModifyEipAttributes(c *cli.Context) error {
-	qc := pb.NewEIPService(nil)
+	qc := pb.NewEIPService(pkgGetServerInfo())
 	in := new(pb.ModifyEipAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

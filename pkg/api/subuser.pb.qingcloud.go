@@ -37,9 +37,9 @@ func NewSubuserService(server *ServerInfo) (p *SubuserService) {
 
 func (p *SubuserService) DescribeSubUsers(input *DescribeSubUsersInput) (output *DescribeSubUsersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSubUsersOutput)
 
@@ -53,9 +53,9 @@ func (p *SubuserService) DescribeSubUsers(input *DescribeSubUsersInput) (output 
 
 func (p *SubuserService) CreateSubUser(input *CreateSubUserInput) (output *CreateSubUserOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateSubUserOutput)
 
@@ -69,9 +69,9 @@ func (p *SubuserService) CreateSubUser(input *CreateSubUserInput) (output *Creat
 
 func (p *SubuserService) ModifySubUserAttributes(input *ModifySubUserAttributesInput) (output *ModifySubUserAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifySubUserAttributesOutput)
 
@@ -85,9 +85,9 @@ func (p *SubuserService) ModifySubUserAttributes(input *ModifySubUserAttributesI
 
 func (p *SubuserService) DeleteSubUsers(input *DeleteSubUsersInput) (output *DeleteSubUsersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSubUsersOutput)
 
@@ -101,9 +101,9 @@ func (p *SubuserService) DeleteSubUsers(input *DeleteSubUsersInput) (output *Del
 
 func (p *SubuserService) RestoreSubUsers(input *RestoreSubUsersInput) (output *RestoreSubUsersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RestoreSubUsersOutput)
 

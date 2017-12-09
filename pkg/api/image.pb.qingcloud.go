@@ -40,9 +40,9 @@ func NewImageService(server *ServerInfo) (p *ImageService) {
 
 func (p *ImageService) DescribeImages(input *DescribeImagesInput) (output *DescribeImagesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeImagesOutput)
 
@@ -56,9 +56,9 @@ func (p *ImageService) DescribeImages(input *DescribeImagesInput) (output *Descr
 
 func (p *ImageService) CaptureInstance(input *CaptureInstanceInput) (output *CaptureInstanceOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CaptureInstanceOutput)
 
@@ -72,9 +72,9 @@ func (p *ImageService) CaptureInstance(input *CaptureInstanceInput) (output *Cap
 
 func (p *ImageService) DeleteImages(input *DeleteImagesInput) (output *DeleteImagesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteImagesOutput)
 
@@ -88,9 +88,9 @@ func (p *ImageService) DeleteImages(input *DeleteImagesInput) (output *DeleteIma
 
 func (p *ImageService) ModifyImageAttributes(input *ModifyImageAttributesInput) (output *ModifyImageAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyImageAttributesOutput)
 
@@ -104,9 +104,9 @@ func (p *ImageService) ModifyImageAttributes(input *ModifyImageAttributesInput) 
 
 func (p *ImageService) GrantImageToUsers(input *GrantImageToUsersInput) (output *GrantImageToUsersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(GrantImageToUsersOutput)
 
@@ -120,9 +120,9 @@ func (p *ImageService) GrantImageToUsers(input *GrantImageToUsersInput) (output 
 
 func (p *ImageService) RevokeImageFromUsers(input *RevokeImageFromUsersInput) (output *RevokeImageFromUsersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RevokeImageFromUsersOutput)
 
@@ -136,9 +136,9 @@ func (p *ImageService) RevokeImageFromUsers(input *RevokeImageFromUsersInput) (o
 
 func (p *ImageService) DescribeImageUsers(input *DescribeImageUsersInput) (output *DescribeImageUsersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeImageUsersOutput)
 
@@ -152,9 +152,9 @@ func (p *ImageService) DescribeImageUsers(input *DescribeImageUsersInput) (outpu
 
 func (p *ImageService) CloneImages(input *CloneImagesInput) (output *CloneImagesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CloneImagesOutput)
 

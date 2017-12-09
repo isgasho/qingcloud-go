@@ -36,9 +36,9 @@ func NewHadoopService(server *ServerInfo) (p *HadoopService) {
 
 func (p *HadoopService) AddHadoopNodes(input *AddHadoopNodesInput) (output *AddHadoopNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddHadoopNodesOutput)
 
@@ -52,9 +52,9 @@ func (p *HadoopService) AddHadoopNodes(input *AddHadoopNodesInput) (output *AddH
 
 func (p *HadoopService) DeleteHadoopNodes(input *DeleteHadoopNodesInput) (output *DeleteHadoopNodesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteHadoopNodesOutput)
 
@@ -68,9 +68,9 @@ func (p *HadoopService) DeleteHadoopNodes(input *DeleteHadoopNodesInput) (output
 
 func (p *HadoopService) StartHadoops(input *StartHadoopsInput) (output *StartHadoopsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StartHadoopsOutput)
 
@@ -84,9 +84,9 @@ func (p *HadoopService) StartHadoops(input *StartHadoopsInput) (output *StartHad
 
 func (p *HadoopService) StopHadoops(input *StopHadoopsInput) (output *StopHadoopsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(StopHadoopsOutput)
 

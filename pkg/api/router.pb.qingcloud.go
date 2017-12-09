@@ -51,9 +51,9 @@ func NewRouterService(server *ServerInfo) (p *RouterService) {
 
 func (p *RouterService) DescribeRouters(input *DescribeRoutersInput) (output *DescribeRoutersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeRoutersOutput)
 
@@ -67,9 +67,9 @@ func (p *RouterService) DescribeRouters(input *DescribeRoutersInput) (output *De
 
 func (p *RouterService) CreateRouters(input *CreateRoutersInput) (output *CreateRoutersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateRoutersOutput)
 
@@ -83,9 +83,9 @@ func (p *RouterService) CreateRouters(input *CreateRoutersInput) (output *Create
 
 func (p *RouterService) DeleteRouters(input *DeleteRoutersInput) (output *DeleteRoutersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteRoutersOutput)
 
@@ -99,9 +99,9 @@ func (p *RouterService) DeleteRouters(input *DeleteRoutersInput) (output *Delete
 
 func (p *RouterService) UpdateRouters(input *UpdateRoutersInput) (output *UpdateRoutersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UpdateRoutersOutput)
 
@@ -115,9 +115,9 @@ func (p *RouterService) UpdateRouters(input *UpdateRoutersInput) (output *Update
 
 func (p *RouterService) PowerOffRouters(input *PowerOffRoutersInput) (output *PowerOffRoutersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(PowerOffRoutersOutput)
 
@@ -131,9 +131,9 @@ func (p *RouterService) PowerOffRouters(input *PowerOffRoutersInput) (output *Po
 
 func (p *RouterService) PowerOnRouters(input *PowerOnRoutersInput) (output *PowerOnRoutersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(PowerOnRoutersOutput)
 
@@ -147,9 +147,9 @@ func (p *RouterService) PowerOnRouters(input *PowerOnRoutersInput) (output *Powe
 
 func (p *RouterService) JoinRouter(input *JoinRouterInput) (output *JoinRouterOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(JoinRouterOutput)
 
@@ -163,9 +163,9 @@ func (p *RouterService) JoinRouter(input *JoinRouterInput) (output *JoinRouterOu
 
 func (p *RouterService) LeaveRouter(input *LeaveRouterInput) (output *LeaveRouterOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(LeaveRouterOutput)
 
@@ -179,9 +179,9 @@ func (p *RouterService) LeaveRouter(input *LeaveRouterInput) (output *LeaveRoute
 
 func (p *RouterService) ModifyRouterAttributes(input *ModifyRouterAttributesInput) (output *ModifyRouterAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyRouterAttributesOutput)
 
@@ -195,9 +195,9 @@ func (p *RouterService) ModifyRouterAttributes(input *ModifyRouterAttributesInpu
 
 func (p *RouterService) DescribeRouterStatics(input *DescribeRouterStaticsInput) (output *DescribeRouterStaticsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeRouterStaticsOutput)
 
@@ -211,9 +211,9 @@ func (p *RouterService) DescribeRouterStatics(input *DescribeRouterStaticsInput)
 
 func (p *RouterService) AddRouterStatics(input *AddRouterStaticsInput) (output *AddRouterStaticsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddRouterStaticsOutput)
 
@@ -227,9 +227,9 @@ func (p *RouterService) AddRouterStatics(input *AddRouterStaticsInput) (output *
 
 func (p *RouterService) ModifyRouterStaticAttributes(input *ModifyRouterStaticAttributesInput) (output *ModifyRouterStaticAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyRouterStaticAttributesOutput)
 
@@ -243,9 +243,9 @@ func (p *RouterService) ModifyRouterStaticAttributes(input *ModifyRouterStaticAt
 
 func (p *RouterService) DeleteRouterStatics(input *DeleteRouterStaticsInput) (output *DeleteRouterStaticsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteRouterStaticsOutput)
 
@@ -259,9 +259,9 @@ func (p *RouterService) DeleteRouterStatics(input *DeleteRouterStaticsInput) (ou
 
 func (p *RouterService) CopyRouterStatics(input *CopyRouterStaticsInput) (output *CopyRouterStaticsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CopyRouterStaticsOutput)
 
@@ -275,9 +275,9 @@ func (p *RouterService) CopyRouterStatics(input *CopyRouterStaticsInput) (output
 
 func (p *RouterService) DescribeRouterVxnets(input *DescribeRouterVxnetsInput) (output *DescribeRouterVxnetsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeRouterVxnetsOutput)
 
@@ -291,9 +291,9 @@ func (p *RouterService) DescribeRouterVxnets(input *DescribeRouterVxnetsInput) (
 
 func (p *RouterService) AddRouterStaticEntries(input *AddRouterStaticEntriesInput) (output *AddRouterStaticEntriesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddRouterStaticEntriesOutput)
 
@@ -307,9 +307,9 @@ func (p *RouterService) AddRouterStaticEntries(input *AddRouterStaticEntriesInpu
 
 func (p *RouterService) DeleteRouterStaticEntries(input *DeleteRouterStaticEntriesInput) (output *DeleteRouterStaticEntriesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteRouterStaticEntriesOutput)
 
@@ -323,9 +323,9 @@ func (p *RouterService) DeleteRouterStaticEntries(input *DeleteRouterStaticEntri
 
 func (p *RouterService) ModifyRouterStaticEntryAttributes(input *ModifyRouterStaticEntryAttributesInput) (output *ModifyRouterStaticEntryAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyRouterStaticEntryAttributesOutput)
 
@@ -339,9 +339,9 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(input *ModifyRouterSta
 
 func (p *RouterService) DescribeRouterStaticEntries(input *DescribeRouterStaticEntriesInput) (output *DescribeRouterStaticEntriesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeRouterStaticEntriesOutput)
 

@@ -39,9 +39,9 @@ func NewSpanService(server *ServerInfo) (p *SpanService) {
 
 func (p *SpanService) CreateSpan(input *CreateSpanInput) (output *CreateSpanOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateSpanOutput)
 
@@ -55,9 +55,9 @@ func (p *SpanService) CreateSpan(input *CreateSpanInput) (output *CreateSpanOutp
 
 func (p *SpanService) DescribeSpans(input *DescribeSpansInput) (output *DescribeSpansOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSpansOutput)
 
@@ -71,9 +71,9 @@ func (p *SpanService) DescribeSpans(input *DescribeSpansInput) (output *Describe
 
 func (p *SpanService) DeleteSpans(input *DeleteSpansInput) (output *DeleteSpansOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSpansOutput)
 
@@ -87,9 +87,9 @@ func (p *SpanService) DeleteSpans(input *DeleteSpansInput) (output *DeleteSpansO
 
 func (p *SpanService) AddSpanMembers(input *AddSpanMembersInput) (output *AddSpanMembersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddSpanMembersOutput)
 
@@ -103,9 +103,9 @@ func (p *SpanService) AddSpanMembers(input *AddSpanMembersInput) (output *AddSpa
 
 func (p *SpanService) RemoveSpanMembers(input *RemoveSpanMembersInput) (output *RemoveSpanMembersOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RemoveSpanMembersOutput)
 
@@ -119,9 +119,9 @@ func (p *SpanService) RemoveSpanMembers(input *RemoveSpanMembersInput) (output *
 
 func (p *SpanService) ModifySpanAttributes(input *ModifySpanAttributesInput) (output *ModifySpanAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifySpanAttributesOutput)
 
@@ -135,9 +135,9 @@ func (p *SpanService) ModifySpanAttributes(input *ModifySpanAttributesInput) (ou
 
 func (p *SpanService) UpdateSpan(input *UpdateSpanInput) (output *UpdateSpanOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UpdateSpanOutput)
 

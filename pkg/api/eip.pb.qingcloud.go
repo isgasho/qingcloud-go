@@ -40,9 +40,9 @@ func NewEIPService(server *ServerInfo) (p *EIPService) {
 
 func (p *EIPService) DescribeEips(input *DescribeEipsInput) (output *DescribeEipsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeEipsOutput)
 
@@ -56,9 +56,9 @@ func (p *EIPService) DescribeEips(input *DescribeEipsInput) (output *DescribeEip
 
 func (p *EIPService) AllocateEips(input *AllocateEipsInput) (output *AllocateEipsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AllocateEipsOutput)
 
@@ -72,9 +72,9 @@ func (p *EIPService) AllocateEips(input *AllocateEipsInput) (output *AllocateEip
 
 func (p *EIPService) ReleaseEips(input *ReleaseEipsInput) (output *ReleaseEipsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ReleaseEipsOutput)
 
@@ -88,9 +88,9 @@ func (p *EIPService) ReleaseEips(input *ReleaseEipsInput) (output *ReleaseEipsOu
 
 func (p *EIPService) AssociateEip(input *AssociateEipInput) (output *AssociateEipOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AssociateEipOutput)
 
@@ -104,9 +104,9 @@ func (p *EIPService) AssociateEip(input *AssociateEipInput) (output *AssociateEi
 
 func (p *EIPService) DissociateEips(input *DissociateEipsInput) (output *DissociateEipsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DissociateEipsOutput)
 
@@ -120,9 +120,9 @@ func (p *EIPService) DissociateEips(input *DissociateEipsInput) (output *Dissoci
 
 func (p *EIPService) ChangeEipsBandwidth(input *ChangeEipsBandwidthInput) (output *ChangeEipsBandwidthOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ChangeEipsBandwidthOutput)
 
@@ -136,9 +136,9 @@ func (p *EIPService) ChangeEipsBandwidth(input *ChangeEipsBandwidthInput) (outpu
 
 func (p *EIPService) ChangeEipsBillingMode(input *ChangeEipsBillingModeInput) (output *ChangeEipsBillingModeOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ChangeEipsBillingModeOutput)
 
@@ -152,9 +152,9 @@ func (p *EIPService) ChangeEipsBillingMode(input *ChangeEipsBillingModeInput) (o
 
 func (p *EIPService) ModifyEipAttributes(input *ModifyEipAttributesInput) (output *ModifyEipAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyEipAttributesOutput)
 

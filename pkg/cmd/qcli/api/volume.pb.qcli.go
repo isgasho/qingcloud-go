@@ -137,7 +137,7 @@ var _flag_VolumesService_DescribeVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DescribeVolumes(c *cli.Context) error {
-	qc := pb.NewVolumesService(nil)
+	qc := pb.NewVolumesService(pkgGetServerInfo())
 	in := new(pb.DescribeVolumesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -224,7 +224,7 @@ var _flag_VolumesService_CreateVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_CreateVolumes(c *cli.Context) error {
-	qc := pb.NewVolumesService(nil)
+	qc := pb.NewVolumesService(pkgGetServerInfo())
 	in := new(pb.CreateVolumesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -278,7 +278,7 @@ var _flag_VolumesService_DeleteVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DeleteVolumes(c *cli.Context) error {
-	qc := pb.NewVolumesService(nil)
+	qc := pb.NewVolumesService(pkgGetServerInfo())
 	in := new(pb.DeleteVolumesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -330,7 +330,7 @@ var _flag_VolumesService_AttachVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_AttachVolumes(c *cli.Context) error {
-	qc := pb.NewVolumesService(nil)
+	qc := pb.NewVolumesService(pkgGetServerInfo())
 	in := new(pb.AttachVolumesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -385,7 +385,7 @@ var _flag_VolumesService_DetachVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DetachVolumes(c *cli.Context) error {
-	qc := pb.NewVolumesService(nil)
+	qc := pb.NewVolumesService(pkgGetServerInfo())
 	in := new(pb.DetachVolumesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -440,7 +440,7 @@ var _flag_VolumesService_ResizeVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_ResizeVolumes(c *cli.Context) error {
-	qc := pb.NewVolumesService(nil)
+	qc := pb.NewVolumesService(pkgGetServerInfo())
 	in := new(pb.ResizeVolumesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -500,7 +500,7 @@ var _flag_VolumesService_ModifyVolumeAttributes = []cli.Flag{
 }
 
 func _func_VolumesService_ModifyVolumeAttributes(c *cli.Context) error {
-	qc := pb.NewVolumesService(nil)
+	qc := pb.NewVolumesService(pkgGetServerInfo())
 	in := new(pb.ModifyVolumeAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

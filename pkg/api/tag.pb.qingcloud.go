@@ -38,9 +38,9 @@ func NewTagService(server *ServerInfo) (p *TagService) {
 
 func (p *TagService) DescribeTags(input *DescribeTagsInput) (output *DescribeTagsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeTagsOutput)
 
@@ -54,9 +54,9 @@ func (p *TagService) DescribeTags(input *DescribeTagsInput) (output *DescribeTag
 
 func (p *TagService) CreateTag(input *CreateTagInput) (output *CreateTagOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateTagOutput)
 
@@ -70,9 +70,9 @@ func (p *TagService) CreateTag(input *CreateTagInput) (output *CreateTagOutput, 
 
 func (p *TagService) DeleteTags(input *DeleteTagsInput) (output *DeleteTagsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteTagsOutput)
 
@@ -86,9 +86,9 @@ func (p *TagService) DeleteTags(input *DeleteTagsInput) (output *DeleteTagsOutpu
 
 func (p *TagService) ModifyTagAttributes(input *ModifyTagAttributesInput) (output *ModifyTagAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyTagAttributesOutput)
 
@@ -102,9 +102,9 @@ func (p *TagService) ModifyTagAttributes(input *ModifyTagAttributesInput) (outpu
 
 func (p *TagService) AttachTags(input *AttachTagsInput) (output *AttachTagsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AttachTagsOutput)
 
@@ -118,9 +118,9 @@ func (p *TagService) AttachTags(input *AttachTagsInput) (output *AttachTagsOutpu
 
 func (p *TagService) DetachTags(input *DetachTagsInput) (output *DetachTagsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DetachTagsOutput)
 

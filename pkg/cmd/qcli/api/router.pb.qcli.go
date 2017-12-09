@@ -221,7 +221,7 @@ var _flag_RouterService_DescribeRouters = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouters(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.DescribeRoutersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -318,7 +318,7 @@ var _flag_RouterService_CreateRouters = []cli.Flag{
 }
 
 func _func_RouterService_CreateRouters(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.CreateRoutersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -378,7 +378,7 @@ var _flag_RouterService_DeleteRouters = []cli.Flag{
 }
 
 func _func_RouterService_DeleteRouters(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.DeleteRoutersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -425,7 +425,7 @@ var _flag_RouterService_UpdateRouters = []cli.Flag{
 }
 
 func _func_RouterService_UpdateRouters(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.UpdateRoutersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -472,7 +472,7 @@ var _flag_RouterService_PowerOffRouters = []cli.Flag{
 }
 
 func _func_RouterService_PowerOffRouters(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.PowerOffRoutersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -519,7 +519,7 @@ var _flag_RouterService_PowerOnRouters = []cli.Flag{
 }
 
 func _func_RouterService_PowerOnRouters(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.PowerOnRoutersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -596,7 +596,7 @@ var _flag_RouterService_JoinRouter = []cli.Flag{
 }
 
 func _func_RouterService_JoinRouter(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.JoinRouterInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -664,7 +664,7 @@ var _flag_RouterService_LeaveRouter = []cli.Flag{
 }
 
 func _func_RouterService_LeaveRouter(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.LeaveRouterInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -754,7 +754,7 @@ var _flag_RouterService_ModifyRouterAttributes = []cli.Flag{
 }
 
 func _func_RouterService_ModifyRouterAttributes(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.ModifyRouterAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -823,7 +823,7 @@ var _flag_RouterService_DescribeRouterStatics = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouterStatics(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.DescribeRouterStaticsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -880,7 +880,7 @@ var _flag_RouterService_AddRouterStatics = []cli.Flag{
 }
 
 func _func_RouterService_AddRouterStatics(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.AddRouterStaticsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -968,7 +968,7 @@ var _flag_RouterService_ModifyRouterStaticAttributes = []cli.Flag{
 }
 
 func _func_RouterService_ModifyRouterStaticAttributes(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.ModifyRouterStaticAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1034,7 +1034,7 @@ var _flag_RouterService_DeleteRouterStatics = []cli.Flag{
 }
 
 func _func_RouterService_DeleteRouterStatics(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.DeleteRouterStaticsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1075,7 +1075,7 @@ func _func_RouterService_DeleteRouterStatics(c *cli.Context) error {
 var _flag_RouterService_CopyRouterStatics = []cli.Flag{}
 
 func _func_RouterService_CopyRouterStatics(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.CopyRouterStaticsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1137,7 +1137,7 @@ var _flag_RouterService_DescribeRouterVxnets = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouterVxnets(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.DescribeRouterVxnetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1199,7 +1199,7 @@ var _flag_RouterService_AddRouterStaticEntries = []cli.Flag{
 }
 
 func _func_RouterService_AddRouterStaticEntries(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.AddRouterStaticEntriesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1249,7 +1249,7 @@ var _flag_RouterService_DeleteRouterStaticEntries = []cli.Flag{
 }
 
 func _func_RouterService_DeleteRouterStaticEntries(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.DeleteRouterStaticEntriesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1311,7 +1311,7 @@ var _flag_RouterService_ModifyRouterStaticEntryAttributes = []cli.Flag{
 }
 
 func _func_RouterService_ModifyRouterStaticEntryAttributes(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.ModifyRouterStaticEntryAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1380,7 +1380,7 @@ var _flag_RouterService_DescribeRouterStaticEntries = []cli.Flag{
 }
 
 func _func_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
-	qc := pb.NewRouterService(nil)
+	qc := pb.NewRouterService(pkgGetServerInfo())
 	in := new(pb.DescribeRouterStaticEntriesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

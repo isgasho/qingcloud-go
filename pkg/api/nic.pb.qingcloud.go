@@ -38,9 +38,9 @@ func NewNicService(server *ServerInfo) (p *NicService) {
 
 func (p *NicService) CreateNics(input *CreateNicsInput) (output *CreateNicsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateNicsOutput)
 
@@ -54,9 +54,9 @@ func (p *NicService) CreateNics(input *CreateNicsInput) (output *CreateNicsOutpu
 
 func (p *NicService) DescribeNics(input *DescribeNicsInput) (output *DescribeNicsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeNicsOutput)
 
@@ -70,9 +70,9 @@ func (p *NicService) DescribeNics(input *DescribeNicsInput) (output *DescribeNic
 
 func (p *NicService) AttachNics(input *AttachNicsInput) (output *AttachNicsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AttachNicsOutput)
 
@@ -86,9 +86,9 @@ func (p *NicService) AttachNics(input *AttachNicsInput) (output *AttachNicsOutpu
 
 func (p *NicService) DetachNics(input *DetachNicsInput) (output *DetachNicsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DetachNicsOutput)
 
@@ -102,9 +102,9 @@ func (p *NicService) DetachNics(input *DetachNicsInput) (output *DetachNicsOutpu
 
 func (p *NicService) ModifyNicAttributes(input *ModifyNicAttributesInput) (output *ModifyNicAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyNicAttributesOutput)
 
@@ -118,9 +118,9 @@ func (p *NicService) ModifyNicAttributes(input *ModifyNicAttributesInput) (outpu
 
 func (p *NicService) DeleteNics(input *DeleteNicsInput) (output *DeleteNicsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteNicsOutput)
 

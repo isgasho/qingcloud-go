@@ -33,9 +33,9 @@ func NewUserDataService(server *ServerInfo) (p *UserDataService) {
 
 func (p *UserDataService) UploadUserDataAttachment(input *UploadUserDataAttachmentInput) (output *UploadUserDataAttachmentOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(UploadUserDataAttachmentOutput)
 

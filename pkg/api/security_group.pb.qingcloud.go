@@ -50,9 +50,9 @@ func NewSecurityGroupService(server *ServerInfo) (p *SecurityGroupService) {
 
 func (p *SecurityGroupService) DescribeSecurityGroups(input *DescribeSecurityGroupsInput) (output *DescribeSecurityGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSecurityGroupsOutput)
 
@@ -66,9 +66,9 @@ func (p *SecurityGroupService) DescribeSecurityGroups(input *DescribeSecurityGro
 
 func (p *SecurityGroupService) CreateSecurityGroup(input *CreateSecurityGroupInput) (output *CreateSecurityGroupOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateSecurityGroupOutput)
 
@@ -82,9 +82,9 @@ func (p *SecurityGroupService) CreateSecurityGroup(input *CreateSecurityGroupInp
 
 func (p *SecurityGroupService) DeleteSecurityGroups(input *DeleteSecurityGroupsInput) (output *DeleteSecurityGroupsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSecurityGroupsOutput)
 
@@ -98,9 +98,9 @@ func (p *SecurityGroupService) DeleteSecurityGroups(input *DeleteSecurityGroupsI
 
 func (p *SecurityGroupService) ApplySecurityGroup(input *ApplySecurityGroupInput) (output *ApplySecurityGroupOutpu, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ApplySecurityGroupOutpu)
 
@@ -114,9 +114,9 @@ func (p *SecurityGroupService) ApplySecurityGroup(input *ApplySecurityGroupInput
 
 func (p *SecurityGroupService) ModifySecurityGroupAttributes(input *ModifySecurityGroupAttributesInput) (output *ModifySecurityGroupAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifySecurityGroupAttributesOutput)
 
@@ -130,9 +130,9 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(input *ModifySecuri
 
 func (p *SecurityGroupService) DescribeSecurityGroupRules(input *DescribeSecurityGroupRulesInput) (output *DescribeSecurityGroupRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSecurityGroupRulesOutput)
 
@@ -146,9 +146,9 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(input *DescribeSecurit
 
 func (p *SecurityGroupService) AddSecurityGroupRules(input *AddSecurityGroupRulesInput) (output *AddSecurityGroupRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(AddSecurityGroupRulesOutput)
 
@@ -162,9 +162,9 @@ func (p *SecurityGroupService) AddSecurityGroupRules(input *AddSecurityGroupRule
 
 func (p *SecurityGroupService) DeleteSecurityGroupRules(input *DeleteSecurityGroupRulesInput) (output *DeleteSecurityGroupRulesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSecurityGroupRulesOutput)
 
@@ -178,9 +178,9 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(input *DeleteSecurityGro
 
 func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(input *ModifySecurityGroupRuleAttributesInput) (output *ModifySecurityGroupRuleAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifySecurityGroupRuleAttributesOutput)
 
@@ -194,9 +194,9 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(input *ModifySe
 
 func (p *SecurityGroupService) CreateSecurityGroupSnapshot(input *CreateSecurityGroupSnapshotInput) (output *CreateSecurityGroupSnapshotOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateSecurityGroupSnapshotOutput)
 
@@ -210,9 +210,9 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(input *CreateSecurity
 
 func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(input *DescribeSecurityGroupSnapshotsInput) (output *DescribeSecurityGroupSnapshotsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSecurityGroupSnapshotsOutput)
 
@@ -226,9 +226,9 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(input *DescribeSec
 
 func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(input *DeleteSecurityGroupSnapshotsInput) (output *DeleteSecurityGroupSnapshotsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSecurityGroupSnapshotsOutput)
 
@@ -242,9 +242,9 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(input *DeleteSecurit
 
 func (p *SecurityGroupService) RollbackSecurityGroup(input *RollbackSecurityGroupInput) (output *RollbackSecurityGroupOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(RollbackSecurityGroupOutput)
 
@@ -258,9 +258,9 @@ func (p *SecurityGroupService) RollbackSecurityGroup(input *RollbackSecurityGrou
 
 func (p *SecurityGroupService) DescribeSecurityGroupIPSets(input *DescribeSecurityGroupIPSetsInput) (output *DescribeSecurityGroupIPSetsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeSecurityGroupIPSetsOutput)
 
@@ -274,9 +274,9 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(input *DescribeSecuri
 
 func (p *SecurityGroupService) CreateSecurityGroupIPSet(input *CreateSecurityGroupIPSetInput) (output *CreateSecurityGroupIPSetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateSecurityGroupIPSetOutput)
 
@@ -290,9 +290,9 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(input *CreateSecurityGro
 
 func (p *SecurityGroupService) DeleteSecurityGroupIPSets(input *DeleteSecurityGroupIPSetsInput) (output *DeleteSecurityGroupIPSetsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteSecurityGroupIPSetsOutput)
 
@@ -306,9 +306,9 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(input *DeleteSecurityGr
 
 func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(input *ModifySecurityGroupIPSetAttributesInput) (output *ModifySecurityGroupIPSetAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifySecurityGroupIPSetAttributesOutput)
 
@@ -322,9 +322,9 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(input *ModifyS
 
 func (p *SecurityGroupService) CopySecurityGroupIPSets(input *CopySecurityGroupIPSetsInput) (output *CopySecurityGroupIPSetsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CopySecurityGroupIPSetsOutput)
 

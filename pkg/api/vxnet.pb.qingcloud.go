@@ -39,9 +39,9 @@ func NewVxnetService(server *ServerInfo) (p *VxnetService) {
 
 func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *DescribeVxnetsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeVxnetsOutput)
 
@@ -55,9 +55,9 @@ func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *Descr
 
 func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxnetsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(CreateVxnetsOutput)
 
@@ -71,9 +71,9 @@ func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxn
 
 func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxnetsOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DeleteVxnetsOutput)
 
@@ -87,9 +87,9 @@ func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxn
 
 func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(JoinVxnetOutput)
 
@@ -103,9 +103,9 @@ func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput
 
 func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(LeaveVxnetOutput)
 
@@ -119,9 +119,9 @@ func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOut
 
 func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) (output *ModifyVxnetAttributesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(ModifyVxnetAttributesOutput)
 
@@ -135,9 +135,9 @@ func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) 
 
 func (p *VxnetService) DescribeVxnetInstances(input *DescribeVxnetInstancesInput) (output *DescribeVxnetInstancesOutput, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new(DescribeVxnetInstancesOutput)
 
