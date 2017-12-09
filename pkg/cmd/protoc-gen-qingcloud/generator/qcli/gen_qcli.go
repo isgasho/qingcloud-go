@@ -249,7 +249,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -263,7 +262,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -329,9 +327,8 @@ var _flag_{{$ServiceName}}_{{$MethodName}} = []cli.Flag{
 }
 
 func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.New{{$ServiceName}}(conf, zone)
+	qc := pb.New{{$ServiceName}}("", "", zone)
 
 	in := new(pb.{{$MethodInputName}})
 

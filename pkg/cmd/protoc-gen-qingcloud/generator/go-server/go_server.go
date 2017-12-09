@@ -64,22 +64,11 @@ package {{.GetPackageName}}
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
-import math "math"
-import "regexp"
-
-import "github.com/chai2010/qingcloud-go/pkg/config"
-import "github.com/chai2010/qingcloud-go/pkg/request"
-import "github.com/chai2010/qingcloud-go/pkg/request/data"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
-var _ = math.Inf
 
-var _ = regexp.Match
-var _ = config.Config{}
-var _ = request.Request{}
-var _ = data.Operation{}
 
 `
 
@@ -93,55 +82,20 @@ type {{.GetServiceName}}Interface interface {
 }
 
 type {{.GetServiceName}} struct {
-	Config           *config.Config
-	Properties       *{{.GetServiceName}}Properties
-	LastResponseBody string
+	// TODO
 }
 
 func New{{.GetServiceName}}(conf *config.Config, zone string) (p *{{.GetServiceName}}) {
-	return &{{.GetServiceName}}{
-		Config:     conf,
-		Properties: &{{.GetServiceName}}Properties{ Zone: proto.String(zone) },
-	}
+	panic("TODO")
 }
 
 func (s *QingCloudService) {{strings_TrimSuffix .GetServiceName "Service"}}(zone string) (*{{.GetServiceName}}, error) {
-	properties := &{{.GetServiceName}}Properties{
-		Zone: proto.String(zone),
-	}
-
-	return &{{.GetServiceName}}{
-		Config: s.Config,
-		Properties: properties,
-	}, nil
+	panic("TODO")
 }
 
 {{range $_, $m := .GetMethodList}}
 func (p *{{$service.GetServiceName}}) {{$m.GetMethodName}}(in *{{$m.GetInputTypeName}}) (out *{{$m.OutputTypeName}}, err error) {
-	if in == nil {
-		in = &{{$m.GetInputTypeName}}{}
-	}
-	o := &data.Operation{
-		Config:        p.Config,
-		Properties:    p.Properties,
-		APIName:       "{{$m.GetMethodName}}",
-		RequestMethod: "{{$m.GetHttpMethod}}",
-	}
-
-	x := &{{$m.GetOutputTypeName}}{}
-	r, err := request.New(o, in, x)
-	if err != nil {
-		return nil, err
-	}
-
-	err = r.Send()
-	p.LastResponseBody = o.ResponseBody
-
-	if err != nil {
-		return nil, err
-	}
-
-	return x, err
+	panic("TODO")
 }
 {{end}}
 `

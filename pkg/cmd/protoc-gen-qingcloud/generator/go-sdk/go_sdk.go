@@ -75,13 +75,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 `
@@ -96,14 +94,12 @@ type {{.GetServiceName}}Interface interface {
 }
 
 type {{.GetServiceName}} struct {
-	Config           *config.Config
 	Properties       *{{.GetServiceName}}Properties
 	LastResponseBody string
 }
 
-func New{{.GetServiceName}}(conf *config.Config, zone string) (p *{{.GetServiceName}}) {
+func New{{.GetServiceName}}(accessKeyId, secretAccessKey, zone string) (p *{{.GetServiceName}}) {
 	return &{{.GetServiceName}}{
-		Config:     conf,
 		Properties: &{{.GetServiceName}}Properties{ Zone: proto.String(zone) },
 	}
 }
