@@ -147,7 +147,7 @@ func pkgGenCmdFlagFillField(field *descriptor.FieldDescriptorProto) string {
 	if utils.IsSupportedRepeated(field) {
 		return fmt.Sprintf(
 			`if err := json.Unmarshal([]byte(c.String("%s")), &in.%s); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}`,
 			field.GetName(),
 			generator.CamelCase(field.GetName()),
@@ -219,7 +219,7 @@ func pkgGenCmdFlagFillField(field *descriptor.FieldDescriptorProto) string {
 	default:
 		return fmt.Sprintf(
 			`if err := json.Unmarshal([]byte(c.String("%s")), &in.%s); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}`,
 			field.GetName(),
 			generator.CamelCase(field.GetName()),
@@ -241,6 +241,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -249,13 +250,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -263,7 +264,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -339,7 +339,7 @@ func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -352,7 +352,7 @@ func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
 
 	out, err := qc.{{$MethodName}}(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -363,7 +363,7 @@ func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

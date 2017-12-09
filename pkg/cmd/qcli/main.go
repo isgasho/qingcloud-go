@@ -12,7 +12,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/cmd/qcli/api"
-	_ "github.com/chai2010/qingcloud-go/pkg/internal/glogger"
 	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
 )
 
