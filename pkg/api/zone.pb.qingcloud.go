@@ -22,19 +22,21 @@ type ZoneServiceInterface interface {
 
 type ZoneService struct {
 	ServerInfo       *ServerInfo
-	Properties       *ZoneServiceProperties
 	LastResponseBody string
 }
 
-func NewZoneService(server *ServerInfo, serviceProp *ZoneServiceProperties) (p *ZoneService) {
+func NewZoneService(server *ServerInfo) (p *ZoneService) {
 	return &ZoneService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *ZoneService) DescribeZones(input *DescribeZonesInput) (output *DescribeZonesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeZonesOutput)
 
 	err = client.CallMethod(nil, "DescribeZones", input, output, nil)

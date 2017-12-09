@@ -29,19 +29,21 @@ type EIPServiceInterface interface {
 
 type EIPService struct {
 	ServerInfo       *ServerInfo
-	Properties       *EIPServiceProperties
 	LastResponseBody string
 }
 
-func NewEIPService(server *ServerInfo, serviceProp *EIPServiceProperties) (p *EIPService) {
+func NewEIPService(server *ServerInfo) (p *EIPService) {
 	return &EIPService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *EIPService) DescribeEips(input *DescribeEipsInput) (output *DescribeEipsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeEipsOutput)
 
 	err = client.CallMethod(nil, "DescribeEips", input, output, nil)
@@ -53,7 +55,11 @@ func (p *EIPService) DescribeEips(input *DescribeEipsInput) (output *DescribeEip
 }
 
 func (p *EIPService) AllocateEips(input *AllocateEipsInput) (output *AllocateEipsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AllocateEipsOutput)
 
 	err = client.CallMethod(nil, "AllocateEips", input, output, nil)
@@ -65,7 +71,11 @@ func (p *EIPService) AllocateEips(input *AllocateEipsInput) (output *AllocateEip
 }
 
 func (p *EIPService) ReleaseEips(input *ReleaseEipsInput) (output *ReleaseEipsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ReleaseEipsOutput)
 
 	err = client.CallMethod(nil, "ReleaseEips", input, output, nil)
@@ -77,7 +87,11 @@ func (p *EIPService) ReleaseEips(input *ReleaseEipsInput) (output *ReleaseEipsOu
 }
 
 func (p *EIPService) AssociateEip(input *AssociateEipInput) (output *AssociateEipOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AssociateEipOutput)
 
 	err = client.CallMethod(nil, "AssociateEip", input, output, nil)
@@ -89,7 +103,11 @@ func (p *EIPService) AssociateEip(input *AssociateEipInput) (output *AssociateEi
 }
 
 func (p *EIPService) DissociateEips(input *DissociateEipsInput) (output *DissociateEipsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DissociateEipsOutput)
 
 	err = client.CallMethod(nil, "DissociateEips", input, output, nil)
@@ -101,7 +119,11 @@ func (p *EIPService) DissociateEips(input *DissociateEipsInput) (output *Dissoci
 }
 
 func (p *EIPService) ChangeEipsBandwidth(input *ChangeEipsBandwidthInput) (output *ChangeEipsBandwidthOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ChangeEipsBandwidthOutput)
 
 	err = client.CallMethod(nil, "ChangeEipsBandwidth", input, output, nil)
@@ -113,7 +135,11 @@ func (p *EIPService) ChangeEipsBandwidth(input *ChangeEipsBandwidthInput) (outpu
 }
 
 func (p *EIPService) ChangeEipsBillingMode(input *ChangeEipsBillingModeInput) (output *ChangeEipsBillingModeOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ChangeEipsBillingModeOutput)
 
 	err = client.CallMethod(nil, "ChangeEipsBillingMode", input, output, nil)
@@ -125,7 +151,11 @@ func (p *EIPService) ChangeEipsBillingMode(input *ChangeEipsBillingModeInput) (o
 }
 
 func (p *EIPService) ModifyEipAttributes(input *ModifyEipAttributesInput) (output *ModifyEipAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyEipAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyEipAttributes", input, output, nil)

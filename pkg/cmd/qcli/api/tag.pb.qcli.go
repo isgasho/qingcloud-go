@@ -115,7 +115,7 @@ var _flag_TagService_DescribeTags = []cli.Flag{
 }
 
 func _func_TagService_DescribeTags(c *cli.Context) error {
-	qc := pb.NewTagService(nil, nil)
+	qc := pb.NewTagService(nil)
 	in := new(pb.DescribeTagsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -174,7 +174,7 @@ var _flag_TagService_CreateTag = []cli.Flag{
 }
 
 func _func_TagService_CreateTag(c *cli.Context) error {
-	qc := pb.NewTagService(nil, nil)
+	qc := pb.NewTagService(nil)
 	in := new(pb.CreateTagInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -219,7 +219,7 @@ var _flag_TagService_DeleteTags = []cli.Flag{
 }
 
 func _func_TagService_DeleteTags(c *cli.Context) error {
-	qc := pb.NewTagService(nil, nil)
+	qc := pb.NewTagService(nil)
 	in := new(pb.DeleteTagsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -276,7 +276,7 @@ var _flag_TagService_ModifyTagAttributes = []cli.Flag{
 }
 
 func _func_TagService_ModifyTagAttributes(c *cli.Context) error {
-	qc := pb.NewTagService(nil, nil)
+	qc := pb.NewTagService(nil)
 	in := new(pb.ModifyTagAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -327,7 +327,7 @@ var _flag_TagService_AttachTags = []cli.Flag{
 }
 
 func _func_TagService_AttachTags(c *cli.Context) error {
-	qc := pb.NewTagService(nil, nil)
+	qc := pb.NewTagService(nil)
 	in := new(pb.AttachTagsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -374,7 +374,7 @@ var _flag_TagService_DetachTags = []cli.Flag{
 }
 
 func _func_TagService_DetachTags(c *cli.Context) error {
-	qc := pb.NewTagService(nil, nil)
+	qc := pb.NewTagService(nil)
 	in := new(pb.DetachTagsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

@@ -28,19 +28,21 @@ type VxnetServiceInterface interface {
 
 type VxnetService struct {
 	ServerInfo       *ServerInfo
-	Properties       *VxnetServiceProperties
 	LastResponseBody string
 }
 
-func NewVxnetService(server *ServerInfo, serviceProp *VxnetServiceProperties) (p *VxnetService) {
+func NewVxnetService(server *ServerInfo) (p *VxnetService) {
 	return &VxnetService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *DescribeVxnetsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeVxnetsOutput)
 
 	err = client.CallMethod(nil, "DescribeVxnets", input, output, nil)
@@ -52,7 +54,11 @@ func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *Descr
 }
 
 func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxnetsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateVxnetsOutput)
 
 	err = client.CallMethod(nil, "CreateVxnets", input, output, nil)
@@ -64,7 +70,11 @@ func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxn
 }
 
 func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxnetsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteVxnetsOutput)
 
 	err = client.CallMethod(nil, "DeleteVxnets", input, output, nil)
@@ -76,7 +86,11 @@ func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxn
 }
 
 func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(JoinVxnetOutput)
 
 	err = client.CallMethod(nil, "JoinVxnet", input, output, nil)
@@ -88,7 +102,11 @@ func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput
 }
 
 func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(LeaveVxnetOutput)
 
 	err = client.CallMethod(nil, "LeaveVxnet", input, output, nil)
@@ -100,7 +118,11 @@ func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOut
 }
 
 func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) (output *ModifyVxnetAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyVxnetAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyVxnetAttributes", input, output, nil)
@@ -112,7 +134,11 @@ func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) 
 }
 
 func (p *VxnetService) DescribeVxnetInstances(input *DescribeVxnetInstancesInput) (output *DescribeVxnetInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeVxnetInstancesOutput)
 
 	err = client.CallMethod(nil, "DescribeVxnetInstances", input, output, nil)

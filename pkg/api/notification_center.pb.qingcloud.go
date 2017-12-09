@@ -22,19 +22,21 @@ type NotificationCenterServiceInterface interface {
 
 type NotificationCenterService struct {
 	ServerInfo       *ServerInfo
-	Properties       *NotificationCenterServiceProperties
 	LastResponseBody string
 }
 
-func NewNotificationCenterService(server *ServerInfo, serviceProp *NotificationCenterServiceProperties) (p *NotificationCenterService) {
+func NewNotificationCenterService(server *ServerInfo) (p *NotificationCenterService) {
 	return &NotificationCenterService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(input *DescribeNotificationCenterUserPostsInput) (output *DescribeNotificationCenterUserPostsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeNotificationCenterUserPostsOutput)
 
 	err = client.CallMethod(nil, "DescribeNotificationCenterUserPosts", input, output, nil)

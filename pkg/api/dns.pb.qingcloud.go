@@ -25,19 +25,21 @@ type DNSAliasServiceInterface interface {
 
 type DNSAliasService struct {
 	ServerInfo       *ServerInfo
-	Properties       *DNSAliasServiceProperties
 	LastResponseBody string
 }
 
-func NewDNSAliasService(server *ServerInfo, serviceProp *DNSAliasServiceProperties) (p *DNSAliasService) {
+func NewDNSAliasService(server *ServerInfo) (p *DNSAliasService) {
 	return &DNSAliasService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *DNSAliasService) DescribeDNSAliases(input *DescribeDNSAliasesInput) (output *DescribeDNSAliasesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeDNSAliasesOutput)
 
 	err = client.CallMethod(nil, "DescribeDNSAliases", input, output, nil)
@@ -49,7 +51,11 @@ func (p *DNSAliasService) DescribeDNSAliases(input *DescribeDNSAliasesInput) (ou
 }
 
 func (p *DNSAliasService) AssociateDNSAlias(input *AssociateDNSAliasInput) (output *AssociateDNSAliasOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AssociateDNSAliasOutput)
 
 	err = client.CallMethod(nil, "AssociateDNSAlias", input, output, nil)
@@ -61,7 +67,11 @@ func (p *DNSAliasService) AssociateDNSAlias(input *AssociateDNSAliasInput) (outp
 }
 
 func (p *DNSAliasService) DissociateDNSAliases(input *DissociateDNSAliasesInput) (output *DissociateDNSAliasesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DissociateDNSAliasesOutput)
 
 	err = client.CallMethod(nil, "DissociateDNSAliases", input, output, nil)
@@ -73,7 +83,11 @@ func (p *DNSAliasService) DissociateDNSAliases(input *DissociateDNSAliasesInput)
 }
 
 func (p *DNSAliasService) GetDNSLabel(input *GetDNSLabelInput) (output *GetDNSLabelOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetDNSLabelOutput)
 
 	err = client.CallMethod(nil, "GetDNSLabel", input, output, nil)

@@ -28,19 +28,21 @@ type SnapshotServiceInterface interface {
 
 type SnapshotService struct {
 	ServerInfo       *ServerInfo
-	Properties       *SnapshotServiceProperties
 	LastResponseBody string
 }
 
-func NewSnapshotService(server *ServerInfo, serviceProp *SnapshotServiceProperties) (p *SnapshotService) {
+func NewSnapshotService(server *ServerInfo) (p *SnapshotService) {
 	return &SnapshotService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *SnapshotService) DescribeSnapshots(input *DescribeSnapshotsInput) (output *DescribeSnapshotsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeSnapshotsOutput)
 
 	err = client.CallMethod(nil, "DescribeSnapshots", input, output, nil)
@@ -52,7 +54,11 @@ func (p *SnapshotService) DescribeSnapshots(input *DescribeSnapshotsInput) (outp
 }
 
 func (p *SnapshotService) CreateSnapshots(input *CreateSnapshotsInput) (output *CreateSnapshotsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateSnapshotsOutput)
 
 	err = client.CallMethod(nil, "CreateSnapshots", input, output, nil)
@@ -64,7 +70,11 @@ func (p *SnapshotService) CreateSnapshots(input *CreateSnapshotsInput) (output *
 }
 
 func (p *SnapshotService) DeleteSnapshots(input *DeleteSnapshotsInput) (output *DeleteSnapshotsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteSnapshotsOutput)
 
 	err = client.CallMethod(nil, "DeleteSnapshots", input, output, nil)
@@ -76,7 +86,11 @@ func (p *SnapshotService) DeleteSnapshots(input *DeleteSnapshotsInput) (output *
 }
 
 func (p *SnapshotService) ApplySnapshots(input *ApplySnapshotsInput) (output *ApplySnapshotsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ApplySnapshotsOutput)
 
 	err = client.CallMethod(nil, "ApplySnapshots", input, output, nil)
@@ -88,7 +102,11 @@ func (p *SnapshotService) ApplySnapshots(input *ApplySnapshotsInput) (output *Ap
 }
 
 func (p *SnapshotService) ModifySnapshotAttributes(input *ModifySnapshotAttributesInput) (output *ModifySnapshotAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifySnapshotAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifySnapshotAttributes", input, output, nil)
@@ -100,7 +118,11 @@ func (p *SnapshotService) ModifySnapshotAttributes(input *ModifySnapshotAttribut
 }
 
 func (p *SnapshotService) CaptureInstanceFromSnapshot(input *CaptureInstanceFromSnapshotInput) (output *CaptureInstanceFromSnapshotOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CaptureInstanceFromSnapshotOutput)
 
 	err = client.CallMethod(nil, "CaptureInstanceFromSnapshot", input, output, nil)
@@ -112,7 +134,11 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(input *CaptureInstanceFrom
 }
 
 func (p *SnapshotService) CreateVolumeFromSnapshot(input *CreateVolumeFromSnapshotInput) (output *CreateVolumeFromSnapshotOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateVolumeFromSnapshotOutput)
 
 	err = client.CallMethod(nil, "CreateVolumeFromSnapshot", input, output, nil)

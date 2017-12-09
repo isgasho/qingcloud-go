@@ -103,7 +103,7 @@ var _flag_SubuserService_DescribeSubUsers = []cli.Flag{
 }
 
 func _func_SubuserService_DescribeSubUsers(c *cli.Context) error {
-	qc := pb.NewSubuserService(nil, nil)
+	qc := pb.NewSubuserService(nil)
 	in := new(pb.DescribeSubUsersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -174,7 +174,7 @@ var _flag_SubuserService_CreateSubUser = []cli.Flag{
 }
 
 func _func_SubuserService_CreateSubUser(c *cli.Context) error {
-	qc := pb.NewSubuserService(nil, nil)
+	qc := pb.NewSubuserService(nil)
 	in := new(pb.CreateSubUserInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -243,7 +243,7 @@ var _flag_SubuserService_ModifySubUserAttributes = []cli.Flag{
 }
 
 func _func_SubuserService_ModifySubUserAttributes(c *cli.Context) error {
-	qc := pb.NewSubuserService(nil, nil)
+	qc := pb.NewSubuserService(nil)
 	in := new(pb.ModifySubUserAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -297,7 +297,7 @@ var _flag_SubuserService_DeleteSubUsers = []cli.Flag{
 }
 
 func _func_SubuserService_DeleteSubUsers(c *cli.Context) error {
-	qc := pb.NewSubuserService(nil, nil)
+	qc := pb.NewSubuserService(nil)
 	in := new(pb.DeleteSubUsersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -344,7 +344,7 @@ var _flag_SubuserService_RestoreSubUsers = []cli.Flag{
 }
 
 func _func_SubuserService_RestoreSubUsers(c *cli.Context) error {
-	qc := pb.NewSubuserService(nil, nil)
+	qc := pb.NewSubuserService(nil)
 	in := new(pb.RestoreSubUsersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

@@ -132,7 +132,7 @@ var _flag_VxnetService_DescribeVxnets = []cli.Flag{
 }
 
 func _func_VxnetService_DescribeVxnets(c *cli.Context) error {
-	qc := pb.NewVxnetService(nil, nil)
+	qc := pb.NewVxnetService(nil)
 	in := new(pb.DescribeVxnetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -214,7 +214,7 @@ var _flag_VxnetService_CreateVxnets = []cli.Flag{
 }
 
 func _func_VxnetService_CreateVxnets(c *cli.Context) error {
-	qc := pb.NewVxnetService(nil, nil)
+	qc := pb.NewVxnetService(nil)
 	in := new(pb.CreateVxnetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -268,7 +268,7 @@ var _flag_VxnetService_DeleteVxnets = []cli.Flag{
 }
 
 func _func_VxnetService_DeleteVxnets(c *cli.Context) error {
-	qc := pb.NewVxnetService(nil, nil)
+	qc := pb.NewVxnetService(nil)
 	in := new(pb.DeleteVxnetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -320,7 +320,7 @@ var _flag_VxnetService_JoinVxnet = []cli.Flag{
 }
 
 func _func_VxnetService_JoinVxnet(c *cli.Context) error {
-	qc := pb.NewVxnetService(nil, nil)
+	qc := pb.NewVxnetService(nil)
 	in := new(pb.JoinVxnetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -375,7 +375,7 @@ var _flag_VxnetService_LeaveVxnet = []cli.Flag{
 }
 
 func _func_VxnetService_LeaveVxnet(c *cli.Context) error {
-	qc := pb.NewVxnetService(nil, nil)
+	qc := pb.NewVxnetService(nil)
 	in := new(pb.LeaveVxnetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -435,7 +435,7 @@ var _flag_VxnetService_ModifyVxnetAttributes = []cli.Flag{
 }
 
 func _func_VxnetService_ModifyVxnetAttributes(c *cli.Context) error {
-	qc := pb.NewVxnetService(nil, nil)
+	qc := pb.NewVxnetService(nil)
 	in := new(pb.ModifyVxnetAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -516,7 +516,7 @@ var _flag_VxnetService_DescribeVxnetInstances = []cli.Flag{
 }
 
 func _func_VxnetService_DescribeVxnetInstances(c *cli.Context) error {
-	qc := pb.NewVxnetService(nil, nil)
+	qc := pb.NewVxnetService(nil)
 	in := new(pb.DescribeVxnetInstancesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

@@ -80,7 +80,7 @@ var _flag_JobService_DescribeJobs = []cli.Flag{
 }
 
 func _func_JobService_DescribeJobs(c *cli.Context) error {
-	qc := pb.NewJobService(nil, nil)
+	qc := pb.NewJobService(nil)
 	in := new(pb.DescribeJobsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

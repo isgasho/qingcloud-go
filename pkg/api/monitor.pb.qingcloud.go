@@ -27,19 +27,21 @@ type MonitorServiceInterface interface {
 
 type MonitorService struct {
 	ServerInfo       *ServerInfo
-	Properties       *MonitorServiceProperties
 	LastResponseBody string
 }
 
-func NewMonitorService(server *ServerInfo, serviceProp *MonitorServiceProperties) (p *MonitorService) {
+func NewMonitorService(server *ServerInfo) (p *MonitorService) {
 	return &MonitorService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *MonitorService) GetMonitor(input *GetMonitorInput) (output *GetMonitorOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetMonitorOutput)
 
 	err = client.CallMethod(nil, "GetMonitor", input, output, nil)
@@ -51,7 +53,11 @@ func (p *MonitorService) GetMonitor(input *GetMonitorInput) (output *GetMonitorO
 }
 
 func (p *MonitorService) GetLoadBalancerMonitor(input *GetLoadBalancerMonitorInput) (output *GetLoadBalancerMonitorOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetLoadBalancerMonitorOutput)
 
 	err = client.CallMethod(nil, "GetLoadBalancerMonitor", input, output, nil)
@@ -63,7 +69,11 @@ func (p *MonitorService) GetLoadBalancerMonitor(input *GetLoadBalancerMonitorInp
 }
 
 func (p *MonitorService) GetRDBMonitor(input *GetRDBMonitorInput) (output *GetRDBMonitorOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetRDBMonitorOutput)
 
 	err = client.CallMethod(nil, "GetRDBMonitor", input, output, nil)
@@ -75,7 +85,11 @@ func (p *MonitorService) GetRDBMonitor(input *GetRDBMonitorInput) (output *GetRD
 }
 
 func (p *MonitorService) GetCacheMonitor(input *GetCacheMonitorInput) (output *GetCacheMonitorOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetCacheMonitorOutput)
 
 	err = client.CallMethod(nil, "GetCacheMonitor", input, output, nil)
@@ -87,7 +101,11 @@ func (p *MonitorService) GetCacheMonitor(input *GetCacheMonitorInput) (output *G
 }
 
 func (p *MonitorService) GetZooKeeperMonitor(input *GetZooKeeperMonitorInput) (output *GetZooKeeperMonitorOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetZooKeeperMonitorOutput)
 
 	err = client.CallMethod(nil, "GetZooKeeperMonitor", input, output, nil)
@@ -99,7 +117,11 @@ func (p *MonitorService) GetZooKeeperMonitor(input *GetZooKeeperMonitorInput) (o
 }
 
 func (p *MonitorService) GetQueueMonitor(input *GetQueueMonitorInput) (output *GetQueueMonitorOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetQueueMonitorOutput)
 
 	err = client.CallMethod(nil, "GetQueueMonitor", input, output, nil)

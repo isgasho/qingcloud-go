@@ -25,19 +25,21 @@ type HadoopServiceInterface interface {
 
 type HadoopService struct {
 	ServerInfo       *ServerInfo
-	Properties       *HadoopServiceProperties
 	LastResponseBody string
 }
 
-func NewHadoopService(server *ServerInfo, serviceProp *HadoopServiceProperties) (p *HadoopService) {
+func NewHadoopService(server *ServerInfo) (p *HadoopService) {
 	return &HadoopService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *HadoopService) AddHadoopNodes(input *AddHadoopNodesInput) (output *AddHadoopNodesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AddHadoopNodesOutput)
 
 	err = client.CallMethod(nil, "AddHadoopNodes", input, output, nil)
@@ -49,7 +51,11 @@ func (p *HadoopService) AddHadoopNodes(input *AddHadoopNodesInput) (output *AddH
 }
 
 func (p *HadoopService) DeleteHadoopNodes(input *DeleteHadoopNodesInput) (output *DeleteHadoopNodesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteHadoopNodesOutput)
 
 	err = client.CallMethod(nil, "DeleteHadoopNodes", input, output, nil)
@@ -61,7 +67,11 @@ func (p *HadoopService) DeleteHadoopNodes(input *DeleteHadoopNodesInput) (output
 }
 
 func (p *HadoopService) StartHadoops(input *StartHadoopsInput) (output *StartHadoopsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(StartHadoopsOutput)
 
 	err = client.CallMethod(nil, "StartHadoops", input, output, nil)
@@ -73,7 +83,11 @@ func (p *HadoopService) StartHadoops(input *StartHadoopsInput) (output *StartHad
 }
 
 func (p *HadoopService) StopHadoops(input *StopHadoopsInput) (output *StopHadoopsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(StopHadoopsOutput)
 
 	err = client.CallMethod(nil, "StopHadoops", input, output, nil)

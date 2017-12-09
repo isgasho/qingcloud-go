@@ -28,19 +28,21 @@ type VolumesServiceInterface interface {
 
 type VolumesService struct {
 	ServerInfo       *ServerInfo
-	Properties       *VolumesServiceProperties
 	LastResponseBody string
 }
 
-func NewVolumesService(server *ServerInfo, serviceProp *VolumesServiceProperties) (p *VolumesService) {
+func NewVolumesService(server *ServerInfo) (p *VolumesService) {
 	return &VolumesService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *DescribeVolumesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeVolumesOutput)
 
 	err = client.CallMethod(nil, "DescribeVolumes", input, output, nil)
@@ -52,7 +54,11 @@ func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *D
 }
 
 func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *CreateVolumesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateVolumesOutput)
 
 	err = client.CallMethod(nil, "CreateVolumes", input, output, nil)
@@ -64,7 +70,11 @@ func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *Creat
 }
 
 func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *DeleteVolumesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteVolumesOutput)
 
 	err = client.CallMethod(nil, "DeleteVolumes", input, output, nil)
@@ -76,7 +86,11 @@ func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *Delet
 }
 
 func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *AttachVolumesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AttachVolumesOutput)
 
 	err = client.CallMethod(nil, "AttachVolumes", input, output, nil)
@@ -88,7 +102,11 @@ func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *Attac
 }
 
 func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *DetachVolumesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DetachVolumesOutput)
 
 	err = client.CallMethod(nil, "DetachVolumes", input, output, nil)
@@ -100,7 +118,11 @@ func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *Detac
 }
 
 func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *ResizeVolumesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ResizeVolumesOutput)
 
 	err = client.CallMethod(nil, "ResizeVolumes", input, output, nil)
@@ -112,7 +134,11 @@ func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *Resiz
 }
 
 func (p *VolumesService) ModifyVolumeAttributes(input *ModifyVolumeAttributesInput) (output *ModifyVolumeAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyVolumeAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyVolumeAttributes", input, output, nil)

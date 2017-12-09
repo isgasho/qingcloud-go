@@ -28,19 +28,21 @@ type SpanServiceInterface interface {
 
 type SpanService struct {
 	ServerInfo       *ServerInfo
-	Properties       *SpanServiceProperties
 	LastResponseBody string
 }
 
-func NewSpanService(server *ServerInfo, serviceProp *SpanServiceProperties) (p *SpanService) {
+func NewSpanService(server *ServerInfo) (p *SpanService) {
 	return &SpanService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *SpanService) CreateSpan(input *CreateSpanInput) (output *CreateSpanOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateSpanOutput)
 
 	err = client.CallMethod(nil, "CreateSpan", input, output, nil)
@@ -52,7 +54,11 @@ func (p *SpanService) CreateSpan(input *CreateSpanInput) (output *CreateSpanOutp
 }
 
 func (p *SpanService) DescribeSpans(input *DescribeSpansInput) (output *DescribeSpansOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeSpansOutput)
 
 	err = client.CallMethod(nil, "DescribeSpans", input, output, nil)
@@ -64,7 +70,11 @@ func (p *SpanService) DescribeSpans(input *DescribeSpansInput) (output *Describe
 }
 
 func (p *SpanService) DeleteSpans(input *DeleteSpansInput) (output *DeleteSpansOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteSpansOutput)
 
 	err = client.CallMethod(nil, "DeleteSpans", input, output, nil)
@@ -76,7 +86,11 @@ func (p *SpanService) DeleteSpans(input *DeleteSpansInput) (output *DeleteSpansO
 }
 
 func (p *SpanService) AddSpanMembers(input *AddSpanMembersInput) (output *AddSpanMembersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AddSpanMembersOutput)
 
 	err = client.CallMethod(nil, "AddSpanMembers", input, output, nil)
@@ -88,7 +102,11 @@ func (p *SpanService) AddSpanMembers(input *AddSpanMembersInput) (output *AddSpa
 }
 
 func (p *SpanService) RemoveSpanMembers(input *RemoveSpanMembersInput) (output *RemoveSpanMembersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(RemoveSpanMembersOutput)
 
 	err = client.CallMethod(nil, "RemoveSpanMembers", input, output, nil)
@@ -100,7 +118,11 @@ func (p *SpanService) RemoveSpanMembers(input *RemoveSpanMembersInput) (output *
 }
 
 func (p *SpanService) ModifySpanAttributes(input *ModifySpanAttributesInput) (output *ModifySpanAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifySpanAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifySpanAttributes", input, output, nil)
@@ -112,7 +134,11 @@ func (p *SpanService) ModifySpanAttributes(input *ModifySpanAttributesInput) (ou
 }
 
 func (p *SpanService) UpdateSpan(input *UpdateSpanInput) (output *UpdateSpanOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(UpdateSpanOutput)
 
 	err = client.CallMethod(nil, "UpdateSpan", input, output, nil)

@@ -27,19 +27,21 @@ type NicServiceInterface interface {
 
 type NicService struct {
 	ServerInfo       *ServerInfo
-	Properties       *NicServiceProperties
 	LastResponseBody string
 }
 
-func NewNicService(server *ServerInfo, serviceProp *NicServiceProperties) (p *NicService) {
+func NewNicService(server *ServerInfo) (p *NicService) {
 	return &NicService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *NicService) CreateNics(input *CreateNicsInput) (output *CreateNicsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateNicsOutput)
 
 	err = client.CallMethod(nil, "CreateNics", input, output, nil)
@@ -51,7 +53,11 @@ func (p *NicService) CreateNics(input *CreateNicsInput) (output *CreateNicsOutpu
 }
 
 func (p *NicService) DescribeNics(input *DescribeNicsInput) (output *DescribeNicsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeNicsOutput)
 
 	err = client.CallMethod(nil, "DescribeNics", input, output, nil)
@@ -63,7 +69,11 @@ func (p *NicService) DescribeNics(input *DescribeNicsInput) (output *DescribeNic
 }
 
 func (p *NicService) AttachNics(input *AttachNicsInput) (output *AttachNicsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AttachNicsOutput)
 
 	err = client.CallMethod(nil, "AttachNics", input, output, nil)
@@ -75,7 +85,11 @@ func (p *NicService) AttachNics(input *AttachNicsInput) (output *AttachNicsOutpu
 }
 
 func (p *NicService) DetachNics(input *DetachNicsInput) (output *DetachNicsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DetachNicsOutput)
 
 	err = client.CallMethod(nil, "DetachNics", input, output, nil)
@@ -87,7 +101,11 @@ func (p *NicService) DetachNics(input *DetachNicsInput) (output *DetachNicsOutpu
 }
 
 func (p *NicService) ModifyNicAttributes(input *ModifyNicAttributesInput) (output *ModifyNicAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyNicAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyNicAttributes", input, output, nil)
@@ -99,7 +117,11 @@ func (p *NicService) ModifyNicAttributes(input *ModifyNicAttributesInput) (outpu
 }
 
 func (p *NicService) DeleteNics(input *DeleteNicsInput) (output *DeleteNicsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteNicsOutput)
 
 	err = client.CallMethod(nil, "DeleteNics", input, output, nil)

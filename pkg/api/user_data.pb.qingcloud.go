@@ -22,19 +22,21 @@ type UserDataServiceInterface interface {
 
 type UserDataService struct {
 	ServerInfo       *ServerInfo
-	Properties       *UserDataServiceProperties
 	LastResponseBody string
 }
 
-func NewUserDataService(server *ServerInfo, serviceProp *UserDataServiceProperties) (p *UserDataService) {
+func NewUserDataService(server *ServerInfo) (p *UserDataService) {
 	return &UserDataService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *UserDataService) UploadUserDataAttachment(input *UploadUserDataAttachmentInput) (output *UploadUserDataAttachmentOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(UploadUserDataAttachmentOutput)
 
 	err = client.CallMethod(nil, "UploadUserDataAttachment", input, output, nil)

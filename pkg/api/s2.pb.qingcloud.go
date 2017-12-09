@@ -49,19 +49,21 @@ type S2ServiceInterface interface {
 
 type S2Service struct {
 	ServerInfo       *ServerInfo
-	Properties       *S2ServiceProperties
 	LastResponseBody string
 }
 
-func NewS2Service(server *ServerInfo, serviceProp *S2ServiceProperties) (p *S2Service) {
+func NewS2Service(server *ServerInfo) (p *S2Service) {
 	return &S2Service{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *S2Service) CreateS2Server(input *CreateS2ServerInput) (output *CreateS2ServerOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateS2ServerOutput)
 
 	err = client.CallMethod(nil, "CreateS2Server", input, output, nil)
@@ -73,7 +75,11 @@ func (p *S2Service) CreateS2Server(input *CreateS2ServerInput) (output *CreateS2
 }
 
 func (p *S2Service) DescribeS2Servers(input *DescribeS2ServersInput) (output *DescribeS2ServersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeS2ServersOutput)
 
 	err = client.CallMethod(nil, "DescribeS2Servers", input, output, nil)
@@ -85,7 +91,11 @@ func (p *S2Service) DescribeS2Servers(input *DescribeS2ServersInput) (output *De
 }
 
 func (p *S2Service) ModifyS2Server(input *ModifyS2ServerInput) (output *ModifyS2ServerOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyS2ServerOutput)
 
 	err = client.CallMethod(nil, "ModifyS2Server", input, output, nil)
@@ -97,7 +107,11 @@ func (p *S2Service) ModifyS2Server(input *ModifyS2ServerInput) (output *ModifyS2
 }
 
 func (p *S2Service) ResizeS2Servers(input *ResizeS2ServersInput) (output *ResizeS2ServersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ResizeS2ServersOutput)
 
 	err = client.CallMethod(nil, "ResizeS2Servers", input, output, nil)
@@ -109,7 +123,11 @@ func (p *S2Service) ResizeS2Servers(input *ResizeS2ServersInput) (output *Resize
 }
 
 func (p *S2Service) DeleteS2Servers(input *DeleteS2ServersInput) (output *DeleteS2ServersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteS2ServersOutput)
 
 	err = client.CallMethod(nil, "DeleteS2Servers", input, output, nil)
@@ -121,7 +139,11 @@ func (p *S2Service) DeleteS2Servers(input *DeleteS2ServersInput) (output *Delete
 }
 
 func (p *S2Service) PowerOnS2Servers(input *PowerOnS2ServersInput) (output *PowerOnS2ServersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(PowerOnS2ServersOutput)
 
 	err = client.CallMethod(nil, "PowerOnS2Servers", input, output, nil)
@@ -133,7 +155,11 @@ func (p *S2Service) PowerOnS2Servers(input *PowerOnS2ServersInput) (output *Powe
 }
 
 func (p *S2Service) PowerOffS2Servers(input *PowerOffS2ServersInput) (output *PowerOffS2ServersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(PowerOffS2ServersOutput)
 
 	err = client.CallMethod(nil, "PowerOffS2Servers", input, output, nil)
@@ -145,7 +171,11 @@ func (p *S2Service) PowerOffS2Servers(input *PowerOffS2ServersInput) (output *Po
 }
 
 func (p *S2Service) UpdateS2Servers(input *UpdateS2ServersInput) (output *UpdateS2ServersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(UpdateS2ServersOutput)
 
 	err = client.CallMethod(nil, "UpdateS2Servers", input, output, nil)
@@ -157,7 +187,11 @@ func (p *S2Service) UpdateS2Servers(input *UpdateS2ServersInput) (output *Update
 }
 
 func (p *S2Service) ChangeS2ServerVxnet(input *ChangeS2ServerVxnetInput) (output *ChangeS2ServerVxnetOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ChangeS2ServerVxnetOutput)
 
 	err = client.CallMethod(nil, "ChangeS2ServerVxnet", input, output, nil)
@@ -169,7 +203,11 @@ func (p *S2Service) ChangeS2ServerVxnet(input *ChangeS2ServerVxnetInput) (output
 }
 
 func (p *S2Service) CreateS2SharedTarget(input *CreateS2SharedTargetInput) (output *CreateS2SharedTargetOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateS2SharedTargetOutput)
 
 	err = client.CallMethod(nil, "CreateS2SharedTarget", input, output, nil)
@@ -181,7 +219,11 @@ func (p *S2Service) CreateS2SharedTarget(input *CreateS2SharedTargetInput) (outp
 }
 
 func (p *S2Service) DescribeS2SharedTargets(input *DescribeS2SharedTargetsInput) (output *DescribeS2SharedTargetsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeS2SharedTargetsOutput)
 
 	err = client.CallMethod(nil, "DescribeS2SharedTargets", input, output, nil)
@@ -193,7 +235,11 @@ func (p *S2Service) DescribeS2SharedTargets(input *DescribeS2SharedTargetsInput)
 }
 
 func (p *S2Service) DeleteS2SharedTargets(input *DeleteS2SharedTargetsInput) (output *DeleteS2SharedTargetsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteS2SharedTargetsOutput)
 
 	err = client.CallMethod(nil, "DeleteS2SharedTargets", input, output, nil)
@@ -205,7 +251,11 @@ func (p *S2Service) DeleteS2SharedTargets(input *DeleteS2SharedTargetsInput) (ou
 }
 
 func (p *S2Service) EnableS2SharedTargets(input *EnableS2SharedTargetsInput) (output *EnableS2SharedTargetsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(EnableS2SharedTargetsOutput)
 
 	err = client.CallMethod(nil, "EnableS2SharedTargets", input, output, nil)
@@ -217,7 +267,11 @@ func (p *S2Service) EnableS2SharedTargets(input *EnableS2SharedTargetsInput) (ou
 }
 
 func (p *S2Service) DisableS2SharedTargets(input *DisableS2SharedTargetsInput) (output *DisableS2SharedTargetsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DisableS2SharedTargetsOutput)
 
 	err = client.CallMethod(nil, "DisableS2SharedTargets", input, output, nil)
@@ -229,7 +283,11 @@ func (p *S2Service) DisableS2SharedTargets(input *DisableS2SharedTargetsInput) (
 }
 
 func (p *S2Service) ModifyS2SharedTargetAttributes(input *ModifyS2SharedTargetAttributesInput) (output *ModifyS2SharedTargetAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyS2SharedTargetAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyS2SharedTargetAttributes", input, output, nil)
@@ -241,7 +299,11 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(input *ModifyS2SharedTargetAt
 }
 
 func (p *S2Service) AttachToS2SharedTarget(input *AttachToS2SharedTargetInput) (output *AttachToS2SharedTargetOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AttachToS2SharedTargetOutput)
 
 	err = client.CallMethod(nil, "AttachToS2SharedTarget", input, output, nil)
@@ -253,7 +315,11 @@ func (p *S2Service) AttachToS2SharedTarget(input *AttachToS2SharedTargetInput) (
 }
 
 func (p *S2Service) DetachFromS2SharedTarget(input *DetachFromS2SharedTargetInput) (output *DetachFromS2SharedTargetOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DetachFromS2SharedTargetOutput)
 
 	err = client.CallMethod(nil, "DetachFromS2SharedTarget", input, output, nil)
@@ -265,7 +331,11 @@ func (p *S2Service) DetachFromS2SharedTarget(input *DetachFromS2SharedTargetInpu
 }
 
 func (p *S2Service) DescribeS2DefaultParameters(input *DescribeS2DefaultParametersInput) (output *DescribeS2DefaultParametersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeS2DefaultParametersOutput)
 
 	err = client.CallMethod(nil, "DescribeS2DefaultParameters", input, output, nil)
@@ -277,7 +347,11 @@ func (p *S2Service) DescribeS2DefaultParameters(input *DescribeS2DefaultParamete
 }
 
 func (p *S2Service) CreateS2Group(input *CreateS2GroupInput) (output *CreateS2GroupOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateS2GroupOutput)
 
 	err = client.CallMethod(nil, "CreateS2Group", input, output, nil)
@@ -289,7 +363,11 @@ func (p *S2Service) CreateS2Group(input *CreateS2GroupInput) (output *CreateS2Gr
 }
 
 func (p *S2Service) DescribeS2Groups(input *DescribeS2GroupsInput) (output *DescribeS2GroupsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeS2GroupsOutput)
 
 	err = client.CallMethod(nil, "DescribeS2Groups", input, output, nil)
@@ -301,7 +379,11 @@ func (p *S2Service) DescribeS2Groups(input *DescribeS2GroupsInput) (output *Desc
 }
 
 func (p *S2Service) ModifyS2Group(input *ModifyS2GroupInput) (output *ModifyS2GroupOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyS2GroupOutput)
 
 	err = client.CallMethod(nil, "ModifyS2Group", input, output, nil)
@@ -313,7 +395,11 @@ func (p *S2Service) ModifyS2Group(input *ModifyS2GroupInput) (output *ModifyS2Gr
 }
 
 func (p *S2Service) DeleteS2Groups(input *DeleteS2GroupsInput) (output *DeleteS2GroupsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteS2GroupsOutput)
 
 	err = client.CallMethod(nil, "DeleteS2Groups", input, output, nil)
@@ -325,7 +411,11 @@ func (p *S2Service) DeleteS2Groups(input *DeleteS2GroupsInput) (output *DeleteS2
 }
 
 func (p *S2Service) CreateS2Account(input *CreateS2AccountInput) (output *CreateS2AccountOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateS2AccountOutput)
 
 	err = client.CallMethod(nil, "CreateS2Account", input, output, nil)
@@ -337,7 +427,11 @@ func (p *S2Service) CreateS2Account(input *CreateS2AccountInput) (output *Create
 }
 
 func (p *S2Service) DescribeS2Accounts(input *DescribeS2AccountsInput) (output *DescribeS2AccountsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeS2AccountsOutput)
 
 	err = client.CallMethod(nil, "DescribeS2Accounts", input, output, nil)
@@ -349,7 +443,11 @@ func (p *S2Service) DescribeS2Accounts(input *DescribeS2AccountsInput) (output *
 }
 
 func (p *S2Service) ModifyS2Account(input *ModifyS2AccountInput) (output *ModifyS2AccountOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyS2AccountOutput)
 
 	err = client.CallMethod(nil, "ModifyS2Account", input, output, nil)
@@ -361,7 +459,11 @@ func (p *S2Service) ModifyS2Account(input *ModifyS2AccountInput) (output *Modify
 }
 
 func (p *S2Service) DeleteS2Accounts(input *DeleteS2AccountsInput) (output *DeleteS2AccountsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteS2AccountsOutput)
 
 	err = client.CallMethod(nil, "DeleteS2Accounts", input, output, nil)
@@ -373,7 +475,11 @@ func (p *S2Service) DeleteS2Accounts(input *DeleteS2AccountsInput) (output *Dele
 }
 
 func (p *S2Service) AssociateS2AccountGroup(input *AssociateS2AccountGroupInput) (output *AssociateS2AccountGroupOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AssociateS2AccountGroupOutput)
 
 	err = client.CallMethod(nil, "AssociateS2AccountGroup", input, output, nil)
@@ -385,7 +491,11 @@ func (p *S2Service) AssociateS2AccountGroup(input *AssociateS2AccountGroupInput)
 }
 
 func (p *S2Service) DissociateS2AccountGroup(input *DissociateS2AccountGroupInput) (output *DissociateS2AccountGroupOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DissociateS2AccountGroupOutput)
 
 	err = client.CallMethod(nil, "DissociateS2AccountGroup", input, output, nil)

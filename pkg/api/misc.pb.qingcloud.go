@@ -24,19 +24,21 @@ type MiscServiceInterface interface {
 
 type MiscService struct {
 	ServerInfo       *ServerInfo
-	Properties       *MiscServiceProperties
 	LastResponseBody string
 }
 
-func NewMiscService(server *ServerInfo, serviceProp *MiscServiceProperties) (p *MiscService) {
+func NewMiscService(server *ServerInfo) (p *MiscService) {
 	return &MiscService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *MiscService) GrantQuotaIndep(input *GrantQuotaIndepInput) (output *GrantQuotaIndepOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GrantQuotaIndepOutput)
 
 	err = client.CallMethod(nil, "GrantQuotaIndep", input, output, nil)
@@ -48,7 +50,11 @@ func (p *MiscService) GrantQuotaIndep(input *GrantQuotaIndepInput) (output *Gran
 }
 
 func (p *MiscService) RevokeQuotaIndep(input *RevokeQuotaIndepInput) (output *RevokeQuotaIndepOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(RevokeQuotaIndepOutput)
 
 	err = client.CallMethod(nil, "RevokeQuotaIndep", input, output, nil)
@@ -60,7 +66,11 @@ func (p *MiscService) RevokeQuotaIndep(input *RevokeQuotaIndepInput) (output *Re
 }
 
 func (p *MiscService) GetQuotaLeft(input *GetQuotaLeftInput) (output *GetQuotaLeftOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(GetQuotaLeftOutput)
 
 	err = client.CallMethod(nil, "GetQuotaLeft", input, output, nil)

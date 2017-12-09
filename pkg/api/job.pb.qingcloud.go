@@ -22,19 +22,21 @@ type JobServiceInterface interface {
 
 type JobService struct {
 	ServerInfo       *ServerInfo
-	Properties       *JobServiceProperties
 	LastResponseBody string
 }
 
-func NewJobService(server *ServerInfo, serviceProp *JobServiceProperties) (p *JobService) {
+func NewJobService(server *ServerInfo) (p *JobService) {
 	return &JobService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *JobService) DescribeJobs(input *DescribeJobsInput) (output *DescribeJobsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeJobsOutput)
 
 	err = client.CallMethod(nil, "DescribeJobs", input, output, nil)

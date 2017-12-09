@@ -33,19 +33,21 @@ type InstanceServiceInterface interface {
 
 type InstanceService struct {
 	ServerInfo       *ServerInfo
-	Properties       *InstanceServiceProperties
 	LastResponseBody string
 }
 
-func NewInstanceService(server *ServerInfo, serviceProp *InstanceServiceProperties) (p *InstanceService) {
+func NewInstanceService(server *ServerInfo) (p *InstanceService) {
 	return &InstanceService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *InstanceService) DescribeInstances(input *DescribeInstancesInput) (output *DescribeInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeInstancesOutput)
 
 	err = client.CallMethod(nil, "DescribeInstances", input, output, nil)
@@ -57,7 +59,11 @@ func (p *InstanceService) DescribeInstances(input *DescribeInstancesInput) (outp
 }
 
 func (p *InstanceService) RunInstances(input *RunInstancesInput) (output *RunInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(RunInstancesOutput)
 
 	err = client.CallMethod(nil, "RunInstances", input, output, nil)
@@ -69,7 +75,11 @@ func (p *InstanceService) RunInstances(input *RunInstancesInput) (output *RunIns
 }
 
 func (p *InstanceService) TerminateInstances(input *TerminateInstancesInput) (output *TerminateInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(TerminateInstancesOutput)
 
 	err = client.CallMethod(nil, "TerminateInstances", input, output, nil)
@@ -81,7 +91,11 @@ func (p *InstanceService) TerminateInstances(input *TerminateInstancesInput) (ou
 }
 
 func (p *InstanceService) StartInstances(input *StartInstancesInput) (output *StartInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(StartInstancesOutput)
 
 	err = client.CallMethod(nil, "StartInstances", input, output, nil)
@@ -93,7 +107,11 @@ func (p *InstanceService) StartInstances(input *StartInstancesInput) (output *St
 }
 
 func (p *InstanceService) StopInstances(input *StopInstancesInput) (output *StopInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(StopInstancesOutput)
 
 	err = client.CallMethod(nil, "StopInstances", input, output, nil)
@@ -105,7 +123,11 @@ func (p *InstanceService) StopInstances(input *StopInstancesInput) (output *Stop
 }
 
 func (p *InstanceService) RestartInstances(input *RestartInstancesInput) (output *RestartInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(RestartInstancesOutput)
 
 	err = client.CallMethod(nil, "RestartInstances", input, output, nil)
@@ -117,7 +139,11 @@ func (p *InstanceService) RestartInstances(input *RestartInstancesInput) (output
 }
 
 func (p *InstanceService) ResetInstances(input *ResetInstancesInput) (output *ResetInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ResetInstancesOutput)
 
 	err = client.CallMethod(nil, "ResetInstances", input, output, nil)
@@ -129,7 +155,11 @@ func (p *InstanceService) ResetInstances(input *ResetInstancesInput) (output *Re
 }
 
 func (p *InstanceService) ResizeInstances(input *ResizeInstancesInput) (output *ResizeInstancesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ResizeInstancesOutput)
 
 	err = client.CallMethod(nil, "ResizeInstances", input, output, nil)
@@ -141,7 +171,11 @@ func (p *InstanceService) ResizeInstances(input *ResizeInstancesInput) (output *
 }
 
 func (p *InstanceService) ModifyInstanceAttributes(input *ModifyInstanceAttributesInput) (output *ModifyInstanceAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyInstanceAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyInstanceAttributes", input, output, nil)
@@ -153,7 +187,11 @@ func (p *InstanceService) ModifyInstanceAttributes(input *ModifyInstanceAttribut
 }
 
 func (p *InstanceService) DescribeInstanceTypes(input *DescribeInstanceTypesInput) (output *DescribeInstanceTypesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeInstanceTypesOutput)
 
 	err = client.CallMethod(nil, "DescribeInstanceTypes", input, output, nil)
@@ -165,7 +203,11 @@ func (p *InstanceService) DescribeInstanceTypes(input *DescribeInstanceTypesInpu
 }
 
 func (p *InstanceService) CreateBrokers(input *CreateBrokersInput) (output *CreateBrokersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateBrokersOutput)
 
 	err = client.CallMethod(nil, "CreateBrokers", input, output, nil)
@@ -177,7 +219,11 @@ func (p *InstanceService) CreateBrokers(input *CreateBrokersInput) (output *Crea
 }
 
 func (p *InstanceService) DeleteBrokers(input *DeleteBrokersInput) (output *DeleteBrokersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteBrokersOutput)
 
 	err = client.CallMethod(nil, "DeleteBrokers", input, output, nil)

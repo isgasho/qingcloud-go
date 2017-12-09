@@ -135,7 +135,7 @@ var _flag_KeyPairService_DescribeKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_DescribeKeyPairs(c *cli.Context) error {
-	qc := pb.NewKeyPairService(nil, nil)
+	qc := pb.NewKeyPairService(nil)
 	in := new(pb.DescribeKeyPairsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -223,7 +223,7 @@ var _flag_KeyPairService_CreateKeyPair = []cli.Flag{
 }
 
 func _func_KeyPairService_CreateKeyPair(c *cli.Context) error {
-	qc := pb.NewKeyPairService(nil, nil)
+	qc := pb.NewKeyPairService(nil)
 	in := new(pb.CreateKeyPairInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -277,7 +277,7 @@ var _flag_KeyPairService_DeleteKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_DeleteKeyPairs(c *cli.Context) error {
-	qc := pb.NewKeyPairService(nil, nil)
+	qc := pb.NewKeyPairService(nil)
 	in := new(pb.DeleteKeyPairsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -329,7 +329,7 @@ var _flag_KeyPairService_AttachKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_AttachKeyPairs(c *cli.Context) error {
-	qc := pb.NewKeyPairService(nil, nil)
+	qc := pb.NewKeyPairService(nil)
 	in := new(pb.AttachKeyPairsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -386,7 +386,7 @@ var _flag_KeyPairService_DetachKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_DetachKeyPairs(c *cli.Context) error {
-	qc := pb.NewKeyPairService(nil, nil)
+	qc := pb.NewKeyPairService(nil)
 	in := new(pb.DetachKeyPairsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -448,7 +448,7 @@ var _flag_KeyPairService_ModifyKeyPairAttributes = []cli.Flag{
 }
 
 func _func_KeyPairService_ModifyKeyPairAttributes(c *cli.Context) error {
-	qc := pb.NewKeyPairService(nil, nil)
+	qc := pb.NewKeyPairService(nil)
 	in := new(pb.ModifyKeyPairAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

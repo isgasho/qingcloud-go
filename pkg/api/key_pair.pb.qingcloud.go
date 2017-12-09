@@ -27,19 +27,21 @@ type KeyPairServiceInterface interface {
 
 type KeyPairService struct {
 	ServerInfo       *ServerInfo
-	Properties       *KeyPairServiceProperties
 	LastResponseBody string
 }
 
-func NewKeyPairService(server *ServerInfo, serviceProp *KeyPairServiceProperties) (p *KeyPairService) {
+func NewKeyPairService(server *ServerInfo) (p *KeyPairService) {
 	return &KeyPairService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *KeyPairService) DescribeKeyPairs(input *DescribeKeyPairsInput) (output *DescribeKeyPairsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeKeyPairsOutput)
 
 	err = client.CallMethod(nil, "DescribeKeyPairs", input, output, nil)
@@ -51,7 +53,11 @@ func (p *KeyPairService) DescribeKeyPairs(input *DescribeKeyPairsInput) (output 
 }
 
 func (p *KeyPairService) CreateKeyPair(input *CreateKeyPairInput) (output *CreateKeyPairOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateKeyPairOutput)
 
 	err = client.CallMethod(nil, "CreateKeyPair", input, output, nil)
@@ -63,7 +69,11 @@ func (p *KeyPairService) CreateKeyPair(input *CreateKeyPairInput) (output *Creat
 }
 
 func (p *KeyPairService) DeleteKeyPairs(input *DeleteKeyPairsInput) (output *DeleteKeyPairsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteKeyPairsOutput)
 
 	err = client.CallMethod(nil, "DeleteKeyPairs", input, output, nil)
@@ -75,7 +85,11 @@ func (p *KeyPairService) DeleteKeyPairs(input *DeleteKeyPairsInput) (output *Del
 }
 
 func (p *KeyPairService) AttachKeyPairs(input *AttachKeyPairsInput) (output *AttachKeyPairsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AttachKeyPairsOutput)
 
 	err = client.CallMethod(nil, "AttachKeyPairs", input, output, nil)
@@ -87,7 +101,11 @@ func (p *KeyPairService) AttachKeyPairs(input *AttachKeyPairsInput) (output *Att
 }
 
 func (p *KeyPairService) DetachKeyPairs(input *DetachKeyPairsInput) (output *DetachKeyPairsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DetachKeyPairsOutput)
 
 	err = client.CallMethod(nil, "DetachKeyPairs", input, output, nil)
@@ -99,7 +117,11 @@ func (p *KeyPairService) DetachKeyPairs(input *DetachKeyPairsInput) (output *Det
 }
 
 func (p *KeyPairService) ModifyKeyPairAttributes(input *ModifyKeyPairAttributesInput) (output *ModifyKeyPairAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyKeyPairAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyKeyPairAttributes", input, output, nil)

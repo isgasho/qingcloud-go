@@ -202,7 +202,7 @@ var _flag_AlarmService_DescribeAlarmPolicies = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmPolicies(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DescribeAlarmPoliciesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -277,7 +277,7 @@ var _flag_AlarmService_CreateAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_CreateAlarmPolicy(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.CreateAlarmPolicyInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -343,7 +343,7 @@ var _flag_AlarmService_ModifyAlarmPolicyAttributes = []cli.Flag{
 }
 
 func _func_AlarmService_ModifyAlarmPolicyAttributes(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.ModifyAlarmPolicyAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -397,7 +397,7 @@ var _flag_AlarmService_DeleteAlarmPolicies = []cli.Flag{
 }
 
 func _func_AlarmService_DeleteAlarmPolicies(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DeleteAlarmPoliciesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -459,7 +459,7 @@ var _flag_AlarmService_DescribeAlarmPolicyRules = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DescribeAlarmPolicyRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -520,7 +520,7 @@ var _flag_AlarmService_AddAlarmPolicyRules = []cli.Flag{
 }
 
 func _func_AlarmService_AddAlarmPolicyRules(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.AddAlarmPolicyRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -595,7 +595,7 @@ var _flag_AlarmService_ModifyAlarmPolicyRuleAttributes = []cli.Flag{
 }
 
 func _func_AlarmService_ModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.ModifyAlarmPolicyRuleAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -655,7 +655,7 @@ var _flag_AlarmService_DeleteAlarmPolicyRules = []cli.Flag{
 }
 
 func _func_AlarmService_DeleteAlarmPolicyRules(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DeleteAlarmPolicyRulesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -717,7 +717,7 @@ var _flag_AlarmService_DescribeAlarmPolicyActions = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DescribeAlarmPolicyActionsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -778,7 +778,7 @@ var _flag_AlarmService_AddAlarmPolicyActions = []cli.Flag{
 }
 
 func _func_AlarmService_AddAlarmPolicyActions(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.AddAlarmPolicyActionsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -838,7 +838,7 @@ var _flag_AlarmService_ModifyAlarmPolicyActionAttributes = []cli.Flag{
 }
 
 func _func_AlarmService_ModifyAlarmPolicyActionAttributes(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.ModifyAlarmPolicyActionAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -889,7 +889,7 @@ var _flag_AlarmService_DeleteAlarmPolicyActions = []cli.Flag{
 }
 
 func _func_AlarmService_DeleteAlarmPolicyActions(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DeleteAlarmPolicyActionsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -946,7 +946,7 @@ var _flag_AlarmService_AssociateAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.AssociateAlarmPolicyInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1009,7 +1009,7 @@ var _flag_AlarmService_DissociateAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DissociateAlarmPolicyInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1062,7 +1062,7 @@ var _flag_AlarmService_ApplyAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_ApplyAlarmPolicy(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.ApplyAlarmPolicyInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1132,7 +1132,7 @@ var _flag_AlarmService_DescribeAlarms = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarms(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DescribeAlarmsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1209,7 +1209,7 @@ var _flag_AlarmService_DescribeAlarmHistory = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmHistory(c *cli.Context) error {
-	qc := pb.NewAlarmService(nil, nil)
+	qc := pb.NewAlarmService(nil)
 	in := new(pb.DescribeAlarmHistoryInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

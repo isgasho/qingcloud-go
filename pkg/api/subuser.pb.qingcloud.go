@@ -26,19 +26,21 @@ type SubuserServiceInterface interface {
 
 type SubuserService struct {
 	ServerInfo       *ServerInfo
-	Properties       *SubuserServiceProperties
 	LastResponseBody string
 }
 
-func NewSubuserService(server *ServerInfo, serviceProp *SubuserServiceProperties) (p *SubuserService) {
+func NewSubuserService(server *ServerInfo) (p *SubuserService) {
 	return &SubuserService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *SubuserService) DescribeSubUsers(input *DescribeSubUsersInput) (output *DescribeSubUsersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeSubUsersOutput)
 
 	err = client.CallMethod(nil, "DescribeSubUsers", input, output, nil)
@@ -50,7 +52,11 @@ func (p *SubuserService) DescribeSubUsers(input *DescribeSubUsersInput) (output 
 }
 
 func (p *SubuserService) CreateSubUser(input *CreateSubUserInput) (output *CreateSubUserOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateSubUserOutput)
 
 	err = client.CallMethod(nil, "CreateSubUser", input, output, nil)
@@ -62,7 +68,11 @@ func (p *SubuserService) CreateSubUser(input *CreateSubUserInput) (output *Creat
 }
 
 func (p *SubuserService) ModifySubUserAttributes(input *ModifySubUserAttributesInput) (output *ModifySubUserAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifySubUserAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifySubUserAttributes", input, output, nil)
@@ -74,7 +84,11 @@ func (p *SubuserService) ModifySubUserAttributes(input *ModifySubUserAttributesI
 }
 
 func (p *SubuserService) DeleteSubUsers(input *DeleteSubUsersInput) (output *DeleteSubUsersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteSubUsersOutput)
 
 	err = client.CallMethod(nil, "DeleteSubUsers", input, output, nil)
@@ -86,7 +100,11 @@ func (p *SubuserService) DeleteSubUsers(input *DeleteSubUsersInput) (output *Del
 }
 
 func (p *SubuserService) RestoreSubUsers(input *RestoreSubUsersInput) (output *RestoreSubUsersOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(RestoreSubUsersOutput)
 
 	err = client.CallMethod(nil, "RestoreSubUsers", input, output, nil)

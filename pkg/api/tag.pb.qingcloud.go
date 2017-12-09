@@ -27,19 +27,21 @@ type TagServiceInterface interface {
 
 type TagService struct {
 	ServerInfo       *ServerInfo
-	Properties       *TagServiceProperties
 	LastResponseBody string
 }
 
-func NewTagService(server *ServerInfo, serviceProp *TagServiceProperties) (p *TagService) {
+func NewTagService(server *ServerInfo) (p *TagService) {
 	return &TagService{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 func (p *TagService) DescribeTags(input *DescribeTagsInput) (output *DescribeTagsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DescribeTagsOutput)
 
 	err = client.CallMethod(nil, "DescribeTags", input, output, nil)
@@ -51,7 +53,11 @@ func (p *TagService) DescribeTags(input *DescribeTagsInput) (output *DescribeTag
 }
 
 func (p *TagService) CreateTag(input *CreateTagInput) (output *CreateTagOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(CreateTagOutput)
 
 	err = client.CallMethod(nil, "CreateTag", input, output, nil)
@@ -63,7 +69,11 @@ func (p *TagService) CreateTag(input *CreateTagInput) (output *CreateTagOutput, 
 }
 
 func (p *TagService) DeleteTags(input *DeleteTagsInput) (output *DeleteTagsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DeleteTagsOutput)
 
 	err = client.CallMethod(nil, "DeleteTags", input, output, nil)
@@ -75,7 +85,11 @@ func (p *TagService) DeleteTags(input *DeleteTagsInput) (output *DeleteTagsOutpu
 }
 
 func (p *TagService) ModifyTagAttributes(input *ModifyTagAttributesInput) (output *ModifyTagAttributesOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(ModifyTagAttributesOutput)
 
 	err = client.CallMethod(nil, "ModifyTagAttributes", input, output, nil)
@@ -87,7 +101,11 @@ func (p *TagService) ModifyTagAttributes(input *ModifyTagAttributesInput) (outpu
 }
 
 func (p *TagService) AttachTags(input *AttachTagsInput) (output *AttachTagsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(AttachTagsOutput)
 
 	err = client.CallMethod(nil, "AttachTags", input, output, nil)
@@ -99,7 +117,11 @@ func (p *TagService) AttachTags(input *AttachTagsInput) (output *AttachTagsOutpu
 }
 
 func (p *TagService) DetachTags(input *DetachTagsInput) (output *DetachTagsOutput, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new(DetachTagsOutput)
 
 	err = client.CallMethod(nil, "DetachTags", input, output, nil)
