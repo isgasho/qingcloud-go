@@ -9,8 +9,6 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	urlpkg "net/url"
-	"strconv"
 	"strings"
 
 	"github.com/golang/protobuf/proto"
@@ -23,14 +21,14 @@ import (
 type Client struct {
 	accessKeyId     string
 	secretAccessKey string
-	opt             *Options
+	apiServer       string
 }
 
-func NewClient(accessKeyId, secretAccessKey string, opt *Options) *Client {
+func NewClient(apiServer, accessKeyId, secretAccessKey string) *Client {
 	return &Client{
+		apiServer:       apiServer,
 		accessKeyId:     accessKeyId,
 		secretAccessKey: secretAccessKey,
-		opt:             opt,
 	}
 }
 
@@ -48,19 +46,13 @@ func (p *Client) CallMethod(
 
 	query, _ := signature.Build(
 		p.accessKeyId, p.secretAccessKey,
-		opt.GetRequestMethod(), p.opt.GetUri(),
+		opt.GetRequestMethod(), p.getApiServerPath(),
 		inputMap,
 	)
 
 	switch method := opt.GetRequestMethod(); method {
 	case "GET":
-		var url = urlpkg.URL{
-			Scheme:   p.opt.GetProtocol(),
-			Host:     p.opt.GetHost() + ":" + strconv.Itoa(p.opt.GetPort()),
-			Path:     p.opt.GetUri(),
-			RawQuery: query,
-		}
-		resp, err := http.Get(url.String())
+		resp, err := http.Get(p.apiServer + "?" + query)
 		if err != nil {
 			return err
 		}
@@ -71,12 +63,7 @@ func (p *Client) CallMethod(
 		return nil
 
 	case "POST":
-		var url = urlpkg.URL{
-			Scheme: p.opt.GetProtocol(),
-			Host:   p.opt.GetHost() + ":" + strconv.Itoa(p.opt.GetPort()),
-			Path:   p.opt.GetUri(),
-		}
-		resp, err := http.Post(url.String(), "application/json", strings.NewReader(query))
+		resp, err := http.Post(p.apiServer, "application/json", strings.NewReader(query))
 		if err != nil {
 			return err
 		}
@@ -89,6 +76,9 @@ func (p *Client) CallMethod(
 	default:
 		return fmt.Errorf("pkg/client.CallMethod: unsupport methond %v", method)
 	}
+}
+func (p *Client) getApiServerPath() string {
+	panic("TODO")
 }
 
 func DecodeResponse(resp *http.Response, output proto.Message) error {
