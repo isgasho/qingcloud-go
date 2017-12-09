@@ -14,37 +14,29 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-func EncodeJson(x interface{}) ([]byte, error) {
-	if x, ok := x.(proto.Message); ok {
-		jsonMarshaler := &jsonpb.Marshaler{
-			OrigName: true,
-			Indent:   "",
-		}
-
-		var buf bytes.Buffer
-		err := jsonMarshaler.Marshal(&buf, x)
-		if err != nil {
-			return nil, err
-		}
-		return buf.Bytes(), nil
+func EncodeJson(x proto.Message) ([]byte, error) {
+	jsonMarshaler := &jsonpb.Marshaler{
+		OrigName: true,
+		Indent:   "",
 	}
 
-	return json.Marshal(x)
+	var buf bytes.Buffer
+	err := jsonMarshaler.Marshal(&buf, x)
+	if err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
 }
 
-func DecodeJson(data []byte, x interface{}) error {
-	if x, ok := x.(proto.Message); ok {
-		decoder := &jsonpb.Unmarshaler{
-			AllowUnknownFields: true,
-		}
-		err := decoder.Unmarshal(bytes.NewReader(data), x)
-		if err != nil {
-			return err
-		}
-		return nil
+func DecodeJson(data []byte, x proto.Message) error {
+	decoder := &jsonpb.Unmarshaler{
+		AllowUnknownFields: true,
 	}
-
-	return json.Unmarshal(data, x)
+	err := decoder.Unmarshal(bytes.NewReader(data), x)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func ProtoMessageToMap(msg proto.Message) (m map[string]string, err error) {
