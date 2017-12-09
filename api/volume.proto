@@ -13,10 +13,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/volume/index.html
 // ----------------------------------------------------------------------------
 
-message VolumesServiceProperties {
-	optional string zone = 1;
-}
-
 service VolumesService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

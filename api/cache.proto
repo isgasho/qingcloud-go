@@ -15,10 +15,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/cache/index.html
 // ----------------------------------------------------------------------------
 
-message CacheServiceProperties {
-	optional string zone = 1;
-}
-
 service CacheService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

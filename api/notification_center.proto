@@ -14,10 +14,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/notification_center/index.html
 // ----------------------------------------------------------------------------
 
-message NotificationCenterServiceProperties {
-	optional string zone = 1;
-}
-
 service NotificationCenterService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

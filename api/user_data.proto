@@ -12,10 +12,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/userdata/index.html
 // ----------------------------------------------------------------------------
 
-message UserDataServiceProperties {
-	optional string zone = 1;
-}
-
 service UserDataService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

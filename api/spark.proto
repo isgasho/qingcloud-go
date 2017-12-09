@@ -13,10 +13,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/spark/index.html
 // ----------------------------------------------------------------------------
 
-message SparkServiceProperties {
-	optional string zone = 1;
-}
-
 service SparkService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

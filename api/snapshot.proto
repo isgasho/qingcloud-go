@@ -14,10 +14,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/snapshot/index.html
 // ----------------------------------------------------------------------------
 
-message SnapshotServiceProperties {
-	optional string zone = 1;
-}
-
 service SnapshotService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

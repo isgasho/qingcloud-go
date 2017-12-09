@@ -13,10 +13,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/tag/index.html
 // ----------------------------------------------------------------------------
 
-message TagServiceProperties {
-	optional string zone = 1;
-}
-
 service TagService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

@@ -12,10 +12,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/hadoop/index.html
 // ----------------------------------------------------------------------------
 
-message HadoopServiceProperties {
-	optional string zone = 1;
-}
-
 service HadoopService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

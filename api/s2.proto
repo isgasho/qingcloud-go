@@ -15,10 +15,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/s2/index.html
 // ----------------------------------------------------------------------------
 
-message S2ServiceProperties {
-	optional string zone = 1;
-}
-
 service S2Service {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

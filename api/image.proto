@@ -15,10 +15,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/image/index.html
 // ----------------------------------------------------------------------------
 
-message ImageServiceProperties {
-	optional string zone = 1;
-}
-
 service ImageService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

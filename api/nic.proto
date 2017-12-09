@@ -13,10 +13,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/nic/index.html
 // ----------------------------------------------------------------------------
 
-message NicServiceProperties {
-	optional string zone = 1;
-}
-
 service NicService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

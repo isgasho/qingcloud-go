@@ -14,10 +14,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/alarm/index.html
 // ----------------------------------------------------------------------------
 
-message AlarmServiceProperties {
-	optional string zone = 1;
-}
-
 service AlarmService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

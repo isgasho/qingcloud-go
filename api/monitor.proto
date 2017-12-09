@@ -14,10 +14,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/monitor/index.html
 // ----------------------------------------------------------------------------
 
-message MonitorServiceProperties {
-	optional string zone = 1;
-}
-
 service MonitorService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

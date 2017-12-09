@@ -14,10 +14,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/span/index.html
 // ----------------------------------------------------------------------------
 
-message SpanServiceProperties {
-	optional string zone = 1;
-}
-
 service SpanService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

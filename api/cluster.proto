@@ -11,10 +11,6 @@ import "spec_metadata/spec.proto";
 
 // ----------------------------------------------------------------------------
 
-message ClusterServiceProperties {
-	required string zone = 1;
-}
-
 service ClusterService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

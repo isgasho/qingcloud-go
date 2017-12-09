@@ -14,10 +14,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/subuser/index.html
 // ----------------------------------------------------------------------------
 
-message SubuserServiceProperties {
-	optional string zone = 1;
-}
-
 service SubuserService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

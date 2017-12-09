@@ -15,10 +15,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/router/index.html
 // ----------------------------------------------------------------------------
 
-message RouterServiceProperties {
-	optional string zone = 1;
-}
-
 service RouterService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

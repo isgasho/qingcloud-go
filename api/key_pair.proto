@@ -13,10 +13,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/keypair/index.html
 // ----------------------------------------------------------------------------
 
-message KeyPairServiceProperties {
-	optional string zone = 1;
-}
-
 service KeyPairService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

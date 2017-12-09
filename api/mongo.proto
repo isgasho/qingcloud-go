@@ -13,10 +13,6 @@ import "spec_metadata/spec.proto";
 // https://docs.qingcloud.com/api/mongo/index.html
 // ----------------------------------------------------------------------------
 
-message MongoServiceProperties {
-	optional string zone = 1;
-}
-
 service MongoService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

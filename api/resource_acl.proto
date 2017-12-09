@@ -15,10 +15,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/resource_acl/index.html
 // ----------------------------------------------------------------------------
 
-message ResourceACLServiceProperties {
-	optional string zone = 1;
-}
-
 service ResourceACLService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {

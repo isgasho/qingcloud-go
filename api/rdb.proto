@@ -14,10 +14,6 @@ import "google/protobuf/timestamp.proto";
 // https://docs.qingcloud.com/api/rdb/index.html
 // ----------------------------------------------------------------------------
 
-message RDBServiceProperties {
-	optional string zone = 1;
-}
-
 service RDBService {
 	option (qingcloud.api.spec_metadata.service_option) = {
 		external_docs: {
