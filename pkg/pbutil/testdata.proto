@@ -1,0 +1,26 @@
+// Copyright 2017 <chaishushan{AT}gmail.com>. All rights reserved.
+// Use of this source code is governed by a Apache
+// license that can be found in the LICENSE file.
+
+syntax = "proto2";
+
+package pbutil_test;
+
+import "google/protobuf/timestamp.proto";
+
+message TestUnknownService {
+	optional string action = 1;
+	optional string vxnet = 2;
+	optional string zone = 3;
+	repeated string a_list = 4;
+}
+
+message TestMessage {
+	optional string a = 1;
+	repeated string a_list = 2;
+}
+
+message TestMessageItem {
+	optional int32 i32 = 1;
+	repeated int32 i32_list = 2;
+}

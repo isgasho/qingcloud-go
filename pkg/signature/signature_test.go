@@ -10,7 +10,6 @@ import (
 	"testing"
 )
 
-//func Build(pubKey, privateKey, method, urlpath string, m map[string]string) (query, signature string) {
 func TestBuild(t *testing.T) {
 	_, signature := Build(
 		"QYACCESSKEYIDEXAMPLE", "SECRETACCESSKEY",
