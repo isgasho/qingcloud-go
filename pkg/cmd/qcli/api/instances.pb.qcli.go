@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -199,13 +199,13 @@ func _func_InstanceService_DescribeInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("image_id") {
 			if err := json.Unmarshal([]byte(c.String("image_id")), &in.ImageId); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("instance_class") {
@@ -213,12 +213,12 @@ func _func_InstanceService_DescribeInstances(c *cli.Context) error {
 		}
 		if c.IsSet("instance_type") {
 			if err := json.Unmarshal([]byte(c.String("instance_type")), &in.InstanceType); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("is_cluster_node") {
@@ -235,12 +235,12 @@ func _func_InstanceService_DescribeInstances(c *cli.Context) error {
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -250,7 +250,7 @@ func _func_InstanceService_DescribeInstances(c *cli.Context) error {
 
 	out, err := qc.DescribeInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -261,7 +261,7 @@ func _func_InstanceService_DescribeInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -392,7 +392,7 @@ func _func_InstanceService_RunInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -458,19 +458,19 @@ func _func_InstanceService_RunInstances(c *cli.Context) error {
 		}
 		if c.IsSet("volumes") {
 			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("vxnets") {
 			if err := json.Unmarshal([]byte(c.String("vxnets")), &in.Vxnets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.RunInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -481,7 +481,7 @@ func _func_InstanceService_RunInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -507,20 +507,20 @@ func _func_InstanceService_TerminateInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.TerminateInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -531,7 +531,7 @@ func _func_InstanceService_TerminateInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -557,20 +557,20 @@ func _func_InstanceService_StartInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StartInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -581,7 +581,7 @@ func _func_InstanceService_StartInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -612,7 +612,7 @@ func _func_InstanceService_StopInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -621,14 +621,14 @@ func _func_InstanceService_StopInstances(c *cli.Context) error {
 		}
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StopInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -639,7 +639,7 @@ func _func_InstanceService_StopInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -665,20 +665,20 @@ func _func_InstanceService_RestartInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.RestartInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -689,7 +689,7 @@ func _func_InstanceService_RestartInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -735,13 +735,13 @@ func _func_InstanceService_ResetInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("login_mode") {
@@ -760,7 +760,7 @@ func _func_InstanceService_ResetInstances(c *cli.Context) error {
 
 	out, err := qc.ResetInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -771,7 +771,7 @@ func _func_InstanceService_ResetInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -812,13 +812,13 @@ func _func_InstanceService_ResizeInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("instance_type") {
@@ -834,7 +834,7 @@ func _func_InstanceService_ResizeInstances(c *cli.Context) error {
 
 	out, err := qc.ResizeInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -845,7 +845,7 @@ func _func_InstanceService_ResizeInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -886,7 +886,7 @@ func _func_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -906,7 +906,7 @@ func _func_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyInstanceAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -917,7 +917,7 @@ func _func_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -953,7 +953,7 @@ func _func_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -965,14 +965,14 @@ func _func_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
 		}
 		if c.IsSet("instance_types") {
 			if err := json.Unmarshal([]byte(c.String("instance_types")), &in.InstanceTypes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DescribeInstanceTypes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -983,7 +983,7 @@ func _func_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1009,20 +1009,20 @@ func _func_InstanceService_CreateBrokers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.CreateBrokers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1033,7 +1033,7 @@ func _func_InstanceService_CreateBrokers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1059,20 +1059,20 @@ func _func_InstanceService_DeleteBrokers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteBrokers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1083,7 +1083,7 @@ func _func_InstanceService_DeleteBrokers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

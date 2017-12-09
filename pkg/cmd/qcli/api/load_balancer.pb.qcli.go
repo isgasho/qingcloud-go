@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -317,13 +317,13 @@ func _func_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("vxnet") {
@@ -351,7 +351,7 @@ func _func_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 
 	out, err := qc.CreateLoadBalancer(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -362,7 +362,7 @@ func _func_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -418,7 +418,7 @@ func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -427,7 +427,7 @@ func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 		}
 		if c.IsSet("loadbalancers") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("offset") {
@@ -438,12 +438,12 @@ func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -453,7 +453,7 @@ func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 
 	out, err := qc.DescribeLoadBalancers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -464,7 +464,7 @@ func _func_LoadBalancerService_DescribeLoadBalancers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -490,20 +490,20 @@ func _func_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancers") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteLoadBalancers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -514,7 +514,7 @@ func _func_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -565,7 +565,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -591,7 +591,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) erro
 
 	out, err := qc.ModifyLoadBalancerAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -602,7 +602,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -628,20 +628,20 @@ func _func_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancers") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StartLoadBalancers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -652,7 +652,7 @@ func _func_LoadBalancerService_StartLoadBalancers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -678,20 +678,20 @@ func _func_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancers") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StopLoadBalancers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -702,7 +702,7 @@ func _func_LoadBalancerService_StopLoadBalancers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -728,20 +728,20 @@ func _func_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancers") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.UpdateLoadBalancers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -752,7 +752,7 @@ func _func_LoadBalancerService_UpdateLoadBalancers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -783,13 +783,13 @@ func _func_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancers") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancers")), &in.Loadbalancers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("loadbalancer_type") {
@@ -799,7 +799,7 @@ func _func_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
 
 	out, err := qc.ResizeLoadBalancers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -810,7 +810,7 @@ func _func_LoadBalancerService_ResizeLoadBalancers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -841,13 +841,13 @@ func _func_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("loadbalancer") {
@@ -857,7 +857,7 @@ func _func_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error
 
 	out, err := qc.AssociateEipsToLoadBalancer(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -868,7 +868,7 @@ func _func_LoadBalancerService_AssociateEipsToLoadBalancer(c *cli.Context) error
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -899,13 +899,13 @@ func _func_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) er
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("loadbalancer") {
@@ -915,7 +915,7 @@ func _func_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) er
 
 	out, err := qc.DissociateEipsFromLoadBalancer(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -926,7 +926,7 @@ func _func_LoadBalancerService_DissociateEipsFromLoadBalancer(c *cli.Context) er
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -957,7 +957,7 @@ func _func_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -966,14 +966,14 @@ func _func_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
 		}
 		if c.IsSet("listeners") {
 			if err := json.Unmarshal([]byte(c.String("listeners")), &in.Listeners); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddLoadBalancerListeners(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -984,7 +984,7 @@ func _func_LoadBalancerService_AddLoadBalancerListeners(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1030,13 +1030,13 @@ func _func_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) err
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_listeners") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_listeners")), &in.LoadbalancerListeners); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("loadbalancer") {
@@ -1055,7 +1055,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) err
 
 	out, err := qc.DescribeLoadBalancerListeners(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1066,7 +1066,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerListeners(c *cli.Context) err
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1092,20 +1092,20 @@ func _func_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_listeners") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_listeners")), &in.LoadbalancerListeners); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteLoadBalancerListeners(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1116,7 +1116,7 @@ func _func_LoadBalancerService_DeleteLoadBalancerListeners(c *cli.Context) error
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1182,7 +1182,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Conte
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1212,14 +1212,14 @@ func _func_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Conte
 		}
 		if c.IsSet("listener_option") {
 			if err := json.Unmarshal([]byte(c.String("listener_option")), &in.ListenerOption); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ModifyLoadBalancerListenerAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1230,7 +1230,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerListenerAttributes(c *cli.Conte
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1261,7 +1261,7 @@ func _func_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1270,14 +1270,14 @@ func _func_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
 		}
 		if c.IsSet("backends") {
 			if err := json.Unmarshal([]byte(c.String("backends")), &in.Backends); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddLoadBalancerBackends(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1288,7 +1288,7 @@ func _func_LoadBalancerService_AddLoadBalancerBackends(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1339,13 +1339,13 @@ func _func_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_backends") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_backends")), &in.LoadbalancerBackends); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("loadbalancer_listener") {
@@ -1367,7 +1367,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) erro
 
 	out, err := qc.DescribeLoadBalancerBackends(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1378,7 +1378,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerBackends(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1404,20 +1404,20 @@ func _func_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error 
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_backends") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_backends")), &in.LoadbalancerBackends); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteLoadBalancerBackends(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1428,7 +1428,7 @@ func _func_LoadBalancerService_DeleteLoadBalancerBackends(c *cli.Context) error 
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1474,7 +1474,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Contex
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1497,7 +1497,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Contex
 
 	out, err := qc.ModifyLoadBalancerBackendAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1508,7 +1508,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerBackendAttributes(c *cli.Contex
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1534,7 +1534,7 @@ func _func_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1545,7 +1545,7 @@ func _func_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
 
 	out, err := qc.CreateLoadBalancerPolicy(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1556,7 +1556,7 @@ func _func_LoadBalancerService_CreateLoadBalancerPolicy(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1597,13 +1597,13 @@ func _func_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_policies") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_policies")), &in.LoadbalancerPolicies); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -1619,7 +1619,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) erro
 
 	out, err := qc.DescribeLoadBalancerPolicies(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1630,7 +1630,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerPolicies(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1666,7 +1666,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1683,7 +1683,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context
 
 	out, err := qc.ModifyLoadBalancerPolicyAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1694,7 +1694,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerPolicyAttributes(c *cli.Context
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1720,7 +1720,7 @@ func _func_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1731,7 +1731,7 @@ func _func_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
 
 	out, err := qc.ApplyLoadBalancerPolicy(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1742,7 +1742,7 @@ func _func_LoadBalancerService_ApplyLoadBalancerPolicy(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1768,20 +1768,20 @@ func _func_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error 
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_policies") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_policies")), &in.LoadbalancerPolicies); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteLoadBalancerPolicies(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1792,7 +1792,7 @@ func _func_LoadBalancerService_DeleteLoadBalancerPolicies(c *cli.Context) error 
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1823,7 +1823,7 @@ func _func_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error 
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1832,14 +1832,14 @@ func _func_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error 
 		}
 		if c.IsSet("rules") {
 			if err := json.Unmarshal([]byte(c.String("rules")), &in.Rules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddLoadBalancerPolicyRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1850,7 +1850,7 @@ func _func_LoadBalancerService_AddLoadBalancerPolicyRules(c *cli.Context) error 
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1891,13 +1891,13 @@ func _func_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) e
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_policy_rules") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_policy_rules")), &in.LoadbalancerPolicyRules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("loadbalancer_policy") {
@@ -1913,7 +1913,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) e
 
 	out, err := qc.DescribeLoadBalancerPolicyRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1924,7 +1924,7 @@ func _func_LoadBalancerService_DescribeLoadBalancerPolicyRules(c *cli.Context) e
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1960,7 +1960,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Con
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1977,7 +1977,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Con
 
 	out, err := qc.ModifyLoadBalancerPolicyRuleAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1988,7 +1988,7 @@ func _func_LoadBalancerService_ModifyLoadBalancerPolicyRuleAttributes(c *cli.Con
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2014,20 +2014,20 @@ func _func_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) err
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("loadbalancer_policy_rules") {
 			if err := json.Unmarshal([]byte(c.String("loadbalancer_policy_rules")), &in.LoadbalancerPolicyRules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteLoadBalancerPolicyRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2038,7 +2038,7 @@ func _func_LoadBalancerService_DeleteLoadBalancerPolicyRules(c *cli.Context) err
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2074,7 +2074,7 @@ func _func_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -2091,7 +2091,7 @@ func _func_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
 
 	out, err := qc.CreateServerCertificate(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2102,7 +2102,7 @@ func _func_LoadBalancerService_CreateServerCertificate(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2148,7 +2148,7 @@ func _func_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error 
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -2171,7 +2171,7 @@ func _func_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error 
 
 	out, err := qc.DescribeServerCertificates(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2182,7 +2182,7 @@ func _func_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error 
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2218,7 +2218,7 @@ func _func_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context)
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -2235,7 +2235,7 @@ func _func_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context)
 
 	out, err := qc.ModifyServerCertificateAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2246,7 +2246,7 @@ func _func_LoadBalancerService_ModifyServerCertificateAttributes(c *cli.Context)
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2272,20 +2272,20 @@ func _func_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("server_certificates") {
 			if err := json.Unmarshal([]byte(c.String("server_certificates")), &in.ServerCertificates); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteServerCertificates(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2296,7 +2296,7 @@ func _func_LoadBalancerService_DeleteServerCertificates(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

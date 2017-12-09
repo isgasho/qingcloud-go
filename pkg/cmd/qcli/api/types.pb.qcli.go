@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,6 +31,5 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )

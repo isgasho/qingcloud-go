@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -173,7 +173,7 @@ func _func_MongoService_DescribeMongoNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -190,7 +190,7 @@ func _func_MongoService_DescribeMongoNodes(c *cli.Context) error {
 
 	out, err := qc.DescribeMongoNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -201,7 +201,7 @@ func _func_MongoService_DescribeMongoNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -237,7 +237,7 @@ func _func_MongoService_DescribeMongoParameters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -254,7 +254,7 @@ func _func_MongoService_DescribeMongoParameters(c *cli.Context) error {
 
 	out, err := qc.DescribeMongoParameters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -265,7 +265,7 @@ func _func_MongoService_DescribeMongoParameters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -301,13 +301,13 @@ func _func_MongoService_ResizeMongos(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("mongos") {
 			if err := json.Unmarshal([]byte(c.String("mongos")), &in.Mongos); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("mongo_type") {
@@ -320,7 +320,7 @@ func _func_MongoService_ResizeMongos(c *cli.Context) error {
 
 	out, err := qc.ResizeMongos(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -331,7 +331,7 @@ func _func_MongoService_ResizeMongos(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -392,7 +392,7 @@ func _func_MongoService_CreateMongo(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -419,14 +419,14 @@ func _func_MongoService_CreateMongo(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.CreateMongo(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -437,7 +437,7 @@ func _func_MongoService_CreateMongo(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -463,20 +463,20 @@ func _func_MongoService_StopMongos(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("mongos") {
 			if err := json.Unmarshal([]byte(c.String("mongos")), &in.Mongos); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StopMongos(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -487,7 +487,7 @@ func _func_MongoService_StopMongos(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -513,20 +513,20 @@ func _func_MongoService_StartMongos(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("mongos") {
 			if err := json.Unmarshal([]byte(c.String("mongos")), &in.Mongos); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StartMongos(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -537,7 +537,7 @@ func _func_MongoService_StartMongos(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -593,7 +593,7 @@ func _func_MongoService_DescribeMongos(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -605,7 +605,7 @@ func _func_MongoService_DescribeMongos(c *cli.Context) error {
 		}
 		if c.IsSet("mongos") {
 			if err := json.Unmarshal([]byte(c.String("mongos")), &in.Mongos); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("offset") {
@@ -613,12 +613,12 @@ func _func_MongoService_DescribeMongos(c *cli.Context) error {
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -628,7 +628,7 @@ func _func_MongoService_DescribeMongos(c *cli.Context) error {
 
 	out, err := qc.DescribeMongos(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -639,7 +639,7 @@ func _func_MongoService_DescribeMongos(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -665,20 +665,20 @@ func _func_MongoService_DeleteMongos(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("mongos") {
 			if err := json.Unmarshal([]byte(c.String("mongos")), &in.Mongos); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteMongos(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -689,7 +689,7 @@ func _func_MongoService_DeleteMongos(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -735,7 +735,7 @@ func _func_MongoService_CreateMongoFromSnapshot(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -758,7 +758,7 @@ func _func_MongoService_CreateMongoFromSnapshot(c *cli.Context) error {
 
 	out, err := qc.CreateMongoFromSnapshot(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -769,7 +769,7 @@ func _func_MongoService_CreateMongoFromSnapshot(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -805,7 +805,7 @@ func _func_MongoService_ChangeMongoVxnet(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -817,14 +817,14 @@ func _func_MongoService_ChangeMongoVxnet(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ChangeMongoVxnet(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -835,7 +835,7 @@ func _func_MongoService_ChangeMongoVxnet(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -871,7 +871,7 @@ func _func_MongoService_AddMongoInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -883,14 +883,14 @@ func _func_MongoService_AddMongoInstances(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddMongoInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -901,7 +901,7 @@ func _func_MongoService_AddMongoInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -932,7 +932,7 @@ func _func_MongoService_RemoveMongoInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -941,14 +941,14 @@ func _func_MongoService_RemoveMongoInstances(c *cli.Context) error {
 		}
 		if c.IsSet("mongo_instances") {
 			if err := json.Unmarshal([]byte(c.String("mongo_instances")), &in.MongoInstances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.RemoveMongoInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -959,7 +959,7 @@ func _func_MongoService_RemoveMongoInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1000,7 +1000,7 @@ func _func_MongoService_ModifyMongoAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1020,7 +1020,7 @@ func _func_MongoService_ModifyMongoAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyMongoAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1031,7 +1031,7 @@ func _func_MongoService_ModifyMongoAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1057,7 +1057,7 @@ func _func_MongoService_ModifyMongoInstances(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1068,7 +1068,7 @@ func _func_MongoService_ModifyMongoInstances(c *cli.Context) error {
 
 	out, err := qc.ModifyMongoInstances(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1079,7 +1079,7 @@ func _func_MongoService_ModifyMongoInstances(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

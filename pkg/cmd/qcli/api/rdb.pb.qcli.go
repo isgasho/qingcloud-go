@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -234,7 +234,7 @@ func _func_RDBService_CreateRDB(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -264,7 +264,7 @@ func _func_RDBService_CreateRDB(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("description") {
@@ -277,7 +277,7 @@ func _func_RDBService_CreateRDB(c *cli.Context) error {
 
 	out, err := qc.CreateRDB(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -288,7 +288,7 @@ func _func_RDBService_CreateRDB(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -349,13 +349,13 @@ func _func_RDBService_DescribeRDBs(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rdbs") {
 			if err := json.Unmarshal([]byte(c.String("rdbs")), &in.Rdbs); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("rdb_engine") {
@@ -363,7 +363,7 @@ func _func_RDBService_DescribeRDBs(c *cli.Context) error {
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("rdb_name") {
@@ -371,7 +371,7 @@ func _func_RDBService_DescribeRDBs(c *cli.Context) error {
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -387,7 +387,7 @@ func _func_RDBService_DescribeRDBs(c *cli.Context) error {
 
 	out, err := qc.DescribeRDBs(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -398,7 +398,7 @@ func _func_RDBService_DescribeRDBs(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -424,20 +424,20 @@ func _func_RDBService_DeleteRDBs(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rdbs") {
 			if err := json.Unmarshal([]byte(c.String("rdbs")), &in.Rdbs); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteRDBs(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -448,7 +448,7 @@ func _func_RDBService_DeleteRDBs(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -474,20 +474,20 @@ func _func_RDBService_StartRDBs(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rdbs") {
 			if err := json.Unmarshal([]byte(c.String("rdbs")), &in.Rdbs); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StartRDBs(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -498,7 +498,7 @@ func _func_RDBService_StartRDBs(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -524,20 +524,20 @@ func _func_RDBService_StopRDBs(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rdbs") {
 			if err := json.Unmarshal([]byte(c.String("rdbs")), &in.Rdbs); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StopRDBs(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -548,7 +548,7 @@ func _func_RDBService_StopRDBs(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -584,13 +584,13 @@ func _func_RDBService_ResizeRDBs(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rdbs") {
 			if err := json.Unmarshal([]byte(c.String("rdbs")), &in.Rdbs); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("rdb_type") {
@@ -603,7 +603,7 @@ func _func_RDBService_ResizeRDBs(c *cli.Context) error {
 
 	out, err := qc.ResizeRDBs(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -614,7 +614,7 @@ func _func_RDBService_ResizeRDBs(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -645,13 +645,13 @@ func _func_RDBService_RDBsLeaveVxnet(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rdbs") {
 			if err := json.Unmarshal([]byte(c.String("rdbs")), &in.Rdbs); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("vxnet") {
@@ -661,7 +661,7 @@ func _func_RDBService_RDBsLeaveVxnet(c *cli.Context) error {
 
 	out, err := qc.RDBsLeaveVxnet(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -672,7 +672,7 @@ func _func_RDBService_RDBsLeaveVxnet(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -703,13 +703,13 @@ func _func_RDBService_RDBsJoinVxnet(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rdbs") {
 			if err := json.Unmarshal([]byte(c.String("rdbs")), &in.Rdbs); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("vxnet") {
@@ -719,7 +719,7 @@ func _func_RDBService_RDBsJoinVxnet(c *cli.Context) error {
 
 	out, err := qc.RDBsJoinVxnet(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -730,7 +730,7 @@ func _func_RDBService_RDBsJoinVxnet(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -796,7 +796,7 @@ func _func_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -820,7 +820,7 @@ func _func_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("description") {
@@ -833,7 +833,7 @@ func _func_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
 
 	out, err := qc.CreateRDBFromSnapshot(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -844,7 +844,7 @@ func _func_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -875,7 +875,7 @@ func _func_RDBService_CreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -889,7 +889,7 @@ func _func_RDBService_CreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
 
 	out, err := qc.CreateTempRDBInstanceFromSnapshot(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -900,7 +900,7 @@ func _func_RDBService_CreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -926,7 +926,7 @@ func _func_RDBService_GetRDBInstanceFiles(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -937,7 +937,7 @@ func _func_RDBService_GetRDBInstanceFiles(c *cli.Context) error {
 
 	out, err := qc.GetRDBInstanceFiles(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -948,7 +948,7 @@ func _func_RDBService_GetRDBInstanceFiles(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -979,7 +979,7 @@ func _func_RDBService_CopyRDBInstanceFilesToFTP(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -988,14 +988,14 @@ func _func_RDBService_CopyRDBInstanceFilesToFTP(c *cli.Context) error {
 		}
 		if c.IsSet("files") {
 			if err := json.Unmarshal([]byte(c.String("files")), &in.Files); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.CopyRDBInstanceFilesToFTP(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1006,7 +1006,7 @@ func _func_RDBService_CopyRDBInstanceFilesToFTP(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1047,7 +1047,7 @@ func _func_RDBService_PurgeRDBLogs(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1067,7 +1067,7 @@ func _func_RDBService_PurgeRDBLogs(c *cli.Context) error {
 
 	out, err := qc.PurgeRDBLogs(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1078,7 +1078,7 @@ func _func_RDBService_PurgeRDBLogs(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1109,7 +1109,7 @@ func _func_RDBService_CeaseRDBInstance(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1123,7 +1123,7 @@ func _func_RDBService_CeaseRDBInstance(c *cli.Context) error {
 
 	out, err := qc.CeaseRDBInstance(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1134,7 +1134,7 @@ func _func_RDBService_CeaseRDBInstance(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1165,7 +1165,7 @@ func _func_RDBService_ModifyRDBParameters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1174,14 +1174,14 @@ func _func_RDBService_ModifyRDBParameters(c *cli.Context) error {
 		}
 		if c.IsSet("parameters") {
 			if err := json.Unmarshal([]byte(c.String("parameters")), &in.Parameters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ModifyRDBParameters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1192,7 +1192,7 @@ func _func_RDBService_ModifyRDBParameters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1218,7 +1218,7 @@ func _func_RDBService_ApplyRDBParameterGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1229,7 +1229,7 @@ func _func_RDBService_ApplyRDBParameterGroup(c *cli.Context) error {
 
 	out, err := qc.ApplyRDBParameterGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1240,7 +1240,7 @@ func _func_RDBService_ApplyRDBParameterGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1276,7 +1276,7 @@ func _func_RDBService_DescribeRDBParameters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1293,7 +1293,7 @@ func _func_RDBService_DescribeRDBParameters(c *cli.Context) error {
 
 	out, err := qc.DescribeRDBParameters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1304,7 +1304,7 @@ func _func_RDBService_DescribeRDBParameters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

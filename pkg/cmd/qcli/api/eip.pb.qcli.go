@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -156,13 +156,13 @@ func _func_EIPService_DescribeEips(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("instance_id") {
@@ -176,7 +176,7 @@ func _func_EIPService_DescribeEips(c *cli.Context) error {
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -192,7 +192,7 @@ func _func_EIPService_DescribeEips(c *cli.Context) error {
 
 	out, err := qc.DescribeEips(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -203,7 +203,7 @@ func _func_EIPService_DescribeEips(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -254,7 +254,7 @@ func _func_EIPService_AllocateEips(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -280,7 +280,7 @@ func _func_EIPService_AllocateEips(c *cli.Context) error {
 
 	out, err := qc.AllocateEips(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -291,7 +291,7 @@ func _func_EIPService_AllocateEips(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -317,20 +317,20 @@ func _func_EIPService_ReleaseEips(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ReleaseEips(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -341,7 +341,7 @@ func _func_EIPService_ReleaseEips(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -372,7 +372,7 @@ func _func_EIPService_AssociateEip(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -386,7 +386,7 @@ func _func_EIPService_AssociateEip(c *cli.Context) error {
 
 	out, err := qc.AssociateEip(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -397,7 +397,7 @@ func _func_EIPService_AssociateEip(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -423,20 +423,20 @@ func _func_EIPService_DissociateEips(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DissociateEips(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -447,7 +447,7 @@ func _func_EIPService_DissociateEips(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -478,13 +478,13 @@ func _func_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("bandwidth") {
@@ -494,7 +494,7 @@ func _func_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
 
 	out, err := qc.ChangeEipsBandwidth(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -505,7 +505,7 @@ func _func_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -536,13 +536,13 @@ func _func_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("eips") {
 			if err := json.Unmarshal([]byte(c.String("eips")), &in.Eips); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("billing_mode") {
@@ -552,7 +552,7 @@ func _func_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
 
 	out, err := qc.ChangeEipsBillingMode(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -563,7 +563,7 @@ func _func_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -599,7 +599,7 @@ func _func_EIPService_ModifyEipAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -616,7 +616,7 @@ func _func_EIPService_ModifyEipAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyEipAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -627,7 +627,7 @@ func _func_EIPService_ModifyEipAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -214,13 +214,13 @@ func _func_AlarmService_DescribeAlarmPolicies(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("alarm_policies") {
 			if err := json.Unmarshal([]byte(c.String("alarm_policies")), &in.AlarmPolicies); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("alarm_policy_name") {
@@ -245,7 +245,7 @@ func _func_AlarmService_DescribeAlarmPolicies(c *cli.Context) error {
 
 	out, err := qc.DescribeAlarmPolicies(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -256,7 +256,7 @@ func _func_AlarmService_DescribeAlarmPolicies(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -292,7 +292,7 @@ func _func_AlarmService_CreateAlarmPolicy(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -309,7 +309,7 @@ func _func_AlarmService_CreateAlarmPolicy(c *cli.Context) error {
 
 	out, err := qc.CreateAlarmPolicy(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -320,7 +320,7 @@ func _func_AlarmService_CreateAlarmPolicy(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -361,7 +361,7 @@ func _func_AlarmService_ModifyAlarmPolicyAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -381,7 +381,7 @@ func _func_AlarmService_ModifyAlarmPolicyAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyAlarmPolicyAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -392,7 +392,7 @@ func _func_AlarmService_ModifyAlarmPolicyAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -418,20 +418,20 @@ func _func_AlarmService_DeleteAlarmPolicies(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("alarm_policies") {
 			if err := json.Unmarshal([]byte(c.String("alarm_policies")), &in.AlarmPolicies); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteAlarmPolicies(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -442,7 +442,7 @@ func _func_AlarmService_DeleteAlarmPolicies(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -483,7 +483,7 @@ func _func_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -492,7 +492,7 @@ func _func_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
 		}
 		if c.IsSet("alarm_policy_rules") {
 			if err := json.Unmarshal([]byte(c.String("alarm_policy_rules")), &in.AlarmPolicyRules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("offset") {
@@ -505,7 +505,7 @@ func _func_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
 
 	out, err := qc.DescribeAlarmPolicyRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -516,7 +516,7 @@ func _func_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -547,7 +547,7 @@ func _func_AlarmService_AddAlarmPolicyRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -556,14 +556,14 @@ func _func_AlarmService_AddAlarmPolicyRules(c *cli.Context) error {
 		}
 		if c.IsSet("rules") {
 			if err := json.Unmarshal([]byte(c.String("rules")), &in.Rules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddAlarmPolicyRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -574,7 +574,7 @@ func _func_AlarmService_AddAlarmPolicyRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -625,7 +625,7 @@ func _func_AlarmService_ModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -651,7 +651,7 @@ func _func_AlarmService_ModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyAlarmPolicyRuleAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -662,7 +662,7 @@ func _func_AlarmService_ModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -688,20 +688,20 @@ func _func_AlarmService_DeleteAlarmPolicyRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("alarm_policy_rules") {
 			if err := json.Unmarshal([]byte(c.String("alarm_policy_rules")), &in.AlarmPolicyRules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteAlarmPolicyRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -712,7 +712,7 @@ func _func_AlarmService_DeleteAlarmPolicyRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -753,7 +753,7 @@ func _func_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -762,7 +762,7 @@ func _func_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
 		}
 		if c.IsSet("alarm_policy_actions") {
 			if err := json.Unmarshal([]byte(c.String("alarm_policy_actions")), &in.AlarmPolicyActions); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("offset") {
@@ -775,7 +775,7 @@ func _func_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
 
 	out, err := qc.DescribeAlarmPolicyActions(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -786,7 +786,7 @@ func _func_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -817,7 +817,7 @@ func _func_AlarmService_AddAlarmPolicyActions(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -826,14 +826,14 @@ func _func_AlarmService_AddAlarmPolicyActions(c *cli.Context) error {
 		}
 		if c.IsSet("actions") {
 			if err := json.Unmarshal([]byte(c.String("actions")), &in.Actions); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddAlarmPolicyActions(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -844,7 +844,7 @@ func _func_AlarmService_AddAlarmPolicyActions(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -880,7 +880,7 @@ func _func_AlarmService_ModifyAlarmPolicyActionAttributes(c *cli.Context) error 
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -897,7 +897,7 @@ func _func_AlarmService_ModifyAlarmPolicyActionAttributes(c *cli.Context) error 
 
 	out, err := qc.ModifyAlarmPolicyActionAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -908,7 +908,7 @@ func _func_AlarmService_ModifyAlarmPolicyActionAttributes(c *cli.Context) error 
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -934,20 +934,20 @@ func _func_AlarmService_DeleteAlarmPolicyActions(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("alarm_policy_actions") {
 			if err := json.Unmarshal([]byte(c.String("alarm_policy_actions")), &in.AlarmPolicyActions); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteAlarmPolicyActions(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -958,7 +958,7 @@ func _func_AlarmService_DeleteAlarmPolicyActions(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -994,7 +994,7 @@ func _func_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1003,7 +1003,7 @@ func _func_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
 		}
 		if c.IsSet("resources") {
 			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("related_resource") {
@@ -1013,7 +1013,7 @@ func _func_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
 
 	out, err := qc.AssociateAlarmPolicy(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1024,7 +1024,7 @@ func _func_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1060,7 +1060,7 @@ func _func_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1069,7 +1069,7 @@ func _func_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
 		}
 		if c.IsSet("resources") {
 			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("related_resource") {
@@ -1079,7 +1079,7 @@ func _func_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
 
 	out, err := qc.DissociateAlarmPolicy(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1090,7 +1090,7 @@ func _func_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1116,7 +1116,7 @@ func _func_AlarmService_ApplyAlarmPolicy(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1127,7 +1127,7 @@ func _func_AlarmService_ApplyAlarmPolicy(c *cli.Context) error {
 
 	out, err := qc.ApplyAlarmPolicy(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1138,7 +1138,7 @@ func _func_AlarmService_ApplyAlarmPolicy(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1189,13 +1189,13 @@ func _func_AlarmService_DescribeAlarms(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("alarms") {
 			if err := json.Unmarshal([]byte(c.String("alarms")), &in.Alarms); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("policy") {
@@ -1217,7 +1217,7 @@ func _func_AlarmService_DescribeAlarms(c *cli.Context) error {
 
 	out, err := qc.DescribeAlarms(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1228,7 +1228,7 @@ func _func_AlarmService_DescribeAlarms(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1269,7 +1269,7 @@ func _func_AlarmService_DescribeAlarmHistory(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1289,7 +1289,7 @@ func _func_AlarmService_DescribeAlarmHistory(c *cli.Context) error {
 
 	out, err := qc.DescribeAlarmHistory(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1300,7 +1300,7 @@ func _func_AlarmService_DescribeAlarmHistory(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

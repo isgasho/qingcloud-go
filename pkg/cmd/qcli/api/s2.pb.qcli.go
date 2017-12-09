@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -291,7 +291,7 @@ func _func_S2Service_CreateS2Server(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -320,7 +320,7 @@ func _func_S2Service_CreateS2Server(c *cli.Context) error {
 
 	out, err := qc.CreateS2Server(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -331,7 +331,7 @@ func _func_S2Service_CreateS2Server(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -392,23 +392,23 @@ func _func_S2Service_DescribeS2Servers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_servers") {
 			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("service_types") {
 			if err := json.Unmarshal([]byte(c.String("service_types")), &in.ServiceTypes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("search_word") {
@@ -416,7 +416,7 @@ func _func_S2Service_DescribeS2Servers(c *cli.Context) error {
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -432,7 +432,7 @@ func _func_S2Service_DescribeS2Servers(c *cli.Context) error {
 
 	out, err := qc.DescribeS2Servers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -443,7 +443,7 @@ func _func_S2Service_DescribeS2Servers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -479,7 +479,7 @@ func _func_S2Service_ModifyS2Server(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -496,7 +496,7 @@ func _func_S2Service_ModifyS2Server(c *cli.Context) error {
 
 	out, err := qc.ModifyS2Server(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -507,7 +507,7 @@ func _func_S2Service_ModifyS2Server(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -538,7 +538,7 @@ func _func_S2Service_ResizeS2Servers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -552,7 +552,7 @@ func _func_S2Service_ResizeS2Servers(c *cli.Context) error {
 
 	out, err := qc.ResizeS2Servers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -563,7 +563,7 @@ func _func_S2Service_ResizeS2Servers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -589,20 +589,20 @@ func _func_S2Service_DeleteS2Servers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_servers") {
 			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteS2Servers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -613,7 +613,7 @@ func _func_S2Service_DeleteS2Servers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -639,20 +639,20 @@ func _func_S2Service_PowerOnS2Servers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_servers") {
 			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.PowerOnS2Servers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -663,7 +663,7 @@ func _func_S2Service_PowerOnS2Servers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -689,20 +689,20 @@ func _func_S2Service_PowerOffS2Servers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_servers") {
 			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.PowerOffS2Servers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -713,7 +713,7 @@ func _func_S2Service_PowerOffS2Servers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -739,20 +739,20 @@ func _func_S2Service_UpdateS2Servers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_servers") {
 			if err := json.Unmarshal([]byte(c.String("s2_servers")), &in.S2Servers); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.UpdateS2Servers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -763,7 +763,7 @@ func _func_S2Service_UpdateS2Servers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -799,7 +799,7 @@ func _func_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -816,7 +816,7 @@ func _func_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
 
 	out, err := qc.ChangeS2ServerVxnet(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -827,7 +827,7 @@ func _func_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -883,7 +883,7 @@ func _func_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -901,12 +901,12 @@ func _func_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 		}
 		if c.IsSet("volumes") {
 			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("initiator_names") {
 			if err := json.Unmarshal([]byte(c.String("initiator_names")), &in.InitiatorNames); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("s2_group") {
@@ -916,7 +916,7 @@ func _func_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 
 	out, err := qc.CreateS2SharedTarget(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -927,7 +927,7 @@ func _func_S2Service_CreateS2SharedTarget(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -988,18 +988,18 @@ func _func_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("shared_targets") {
 			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("target_types") {
 			if err := json.Unmarshal([]byte(c.String("target_types")), &in.TargetTypes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("s2_server_id") {
@@ -1024,7 +1024,7 @@ func _func_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
 
 	out, err := qc.DescribeS2SharedTargets(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1035,7 +1035,7 @@ func _func_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1061,20 +1061,20 @@ func _func_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("shared_targets") {
 			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteS2SharedTargets(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1085,7 +1085,7 @@ func _func_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1111,20 +1111,20 @@ func _func_S2Service_EnableS2SharedTargets(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("shared_targets") {
 			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.EnableS2SharedTargets(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1135,7 +1135,7 @@ func _func_S2Service_EnableS2SharedTargets(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1161,20 +1161,20 @@ func _func_S2Service_DisableS2SharedTargets(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("shared_targets") {
 			if err := json.Unmarshal([]byte(c.String("shared_targets")), &in.SharedTargets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DisableS2SharedTargets(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1185,7 +1185,7 @@ func _func_S2Service_DisableS2SharedTargets(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1236,7 +1236,7 @@ func _func_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1248,12 +1248,12 @@ func _func_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 		}
 		if c.IsSet("initiator_names") {
 			if err := json.Unmarshal([]byte(c.String("initiator_names")), &in.InitiatorNames); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("parameters") {
 			if err := json.Unmarshal([]byte(c.String("parameters")), &in.Parameters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("s2_group") {
@@ -1266,7 +1266,7 @@ func _func_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyS2SharedTargetAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1277,7 +1277,7 @@ func _func_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1308,7 +1308,7 @@ func _func_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1317,14 +1317,14 @@ func _func_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
 		}
 		if c.IsSet("volumes") {
 			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AttachToS2SharedTarget(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1335,7 +1335,7 @@ func _func_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1366,7 +1366,7 @@ func _func_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1375,14 +1375,14 @@ func _func_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
 		}
 		if c.IsSet("volumes") {
 			if err := json.Unmarshal([]byte(c.String("volumes")), &in.Volumes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DetachFromS2SharedTarget(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1393,7 +1393,7 @@ func _func_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1434,7 +1434,7 @@ func _func_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1454,7 +1454,7 @@ func _func_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
 
 	out, err := qc.DescribeS2DefaultParameters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1465,7 +1465,7 @@ func _func_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1506,7 +1506,7 @@ func _func_S2Service_CreateS2Group(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1518,7 +1518,7 @@ func _func_S2Service_CreateS2Group(c *cli.Context) error {
 		}
 		if c.IsSet("s2_accounts") {
 			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("description") {
@@ -1528,7 +1528,7 @@ func _func_S2Service_CreateS2Group(c *cli.Context) error {
 
 	out, err := qc.CreateS2Group(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1539,7 +1539,7 @@ func _func_S2Service_CreateS2Group(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1595,18 +1595,18 @@ func _func_S2Service_DescribeS2Groups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_groups") {
 			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("group_types") {
 			if err := json.Unmarshal([]byte(c.String("group_types")), &in.GroupTypes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("account_name") {
@@ -1628,7 +1628,7 @@ func _func_S2Service_DescribeS2Groups(c *cli.Context) error {
 
 	out, err := qc.DescribeS2Groups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1639,7 +1639,7 @@ func _func_S2Service_DescribeS2Groups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1680,7 +1680,7 @@ func _func_S2Service_ModifyS2Group(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1692,7 +1692,7 @@ func _func_S2Service_ModifyS2Group(c *cli.Context) error {
 		}
 		if c.IsSet("s2_accounts") {
 			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("description") {
@@ -1702,7 +1702,7 @@ func _func_S2Service_ModifyS2Group(c *cli.Context) error {
 
 	out, err := qc.ModifyS2Group(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1713,7 +1713,7 @@ func _func_S2Service_ModifyS2Group(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1739,20 +1739,20 @@ func _func_S2Service_DeleteS2Groups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_groups") {
 			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteS2Groups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1763,7 +1763,7 @@ func _func_S2Service_DeleteS2Groups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1824,7 +1824,7 @@ func _func_S2Service_CreateS2Account(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1845,7 +1845,7 @@ func _func_S2Service_CreateS2Account(c *cli.Context) error {
 		}
 		if c.IsSet("s2_groups") {
 			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("opt_parameters") {
@@ -1858,7 +1858,7 @@ func _func_S2Service_CreateS2Account(c *cli.Context) error {
 
 	out, err := qc.CreateS2Account(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1869,7 +1869,7 @@ func _func_S2Service_CreateS2Account(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1925,18 +1925,18 @@ func _func_S2Service_DescribeS2Accounts(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_accounts") {
 			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("account_types") {
 			if err := json.Unmarshal([]byte(c.String("account_types")), &in.AccountTypes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("account_name") {
@@ -1958,7 +1958,7 @@ func _func_S2Service_DescribeS2Accounts(c *cli.Context) error {
 
 	out, err := qc.DescribeS2Accounts(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1969,7 +1969,7 @@ func _func_S2Service_DescribeS2Accounts(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2020,7 +2020,7 @@ func _func_S2Service_ModifyS2Account(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -2046,7 +2046,7 @@ func _func_S2Service_ModifyS2Account(c *cli.Context) error {
 
 	out, err := qc.ModifyS2Account(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2057,7 +2057,7 @@ func _func_S2Service_ModifyS2Account(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2083,20 +2083,20 @@ func _func_S2Service_DeleteS2Accounts(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_accounts") {
 			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteS2Accounts(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2107,7 +2107,7 @@ func _func_S2Service_DeleteS2Accounts(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2138,25 +2138,25 @@ func _func_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("s2_groups") {
 			if err := json.Unmarshal([]byte(c.String("s2_groups")), &in.S2Groups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("s2_accounts") {
 			if err := json.Unmarshal([]byte(c.String("s2_accounts")), &in.S2Accounts); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AssociateS2AccountGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2167,7 +2167,7 @@ func _func_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2187,7 +2187,7 @@ func _func_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -2195,7 +2195,7 @@ func _func_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
 
 	out, err := qc.DissociateS2AccountGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2206,7 +2206,7 @@ func _func_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

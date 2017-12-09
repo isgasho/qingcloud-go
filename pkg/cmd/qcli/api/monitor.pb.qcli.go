@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -127,7 +127,7 @@ func _func_MonitorService_GetMonitor(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -136,7 +136,7 @@ func _func_MonitorService_GetMonitor(c *cli.Context) error {
 		}
 		if c.IsSet("meters") {
 			if err := json.Unmarshal([]byte(c.String("meters")), &in.Meters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("step") {
@@ -144,19 +144,19 @@ func _func_MonitorService_GetMonitor(c *cli.Context) error {
 		}
 		if c.IsSet("start_time") {
 			if err := json.Unmarshal([]byte(c.String("start_time")), &in.StartTime); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("end_time") {
 			if err := json.Unmarshal([]byte(c.String("end_time")), &in.EndTime); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.GetMonitor(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -167,7 +167,7 @@ func _func_MonitorService_GetMonitor(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -213,7 +213,7 @@ func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -222,7 +222,7 @@ func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 		}
 		if c.IsSet("meters") {
 			if err := json.Unmarshal([]byte(c.String("meters")), &in.Meters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("step") {
@@ -230,19 +230,19 @@ func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 		}
 		if c.IsSet("start_time") {
 			if err := json.Unmarshal([]byte(c.String("start_time")), &in.StartTime); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("end_time") {
 			if err := json.Unmarshal([]byte(c.String("end_time")), &in.EndTime); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.GetLoadBalancerMonitor(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -253,7 +253,7 @@ func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -273,7 +273,7 @@ func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -281,7 +281,7 @@ func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
 
 	out, err := qc.GetRDBMonitor(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -292,7 +292,7 @@ func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -312,7 +312,7 @@ func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -320,7 +320,7 @@ func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
 
 	out, err := qc.GetCacheMonitor(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -331,7 +331,7 @@ func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -351,7 +351,7 @@ func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -359,7 +359,7 @@ func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 
 	out, err := qc.GetZooKeeperMonitor(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -370,7 +370,7 @@ func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -390,7 +390,7 @@ func _func_MonitorService_GetQueueMonitor(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -398,7 +398,7 @@ func _func_MonitorService_GetQueueMonitor(c *cli.Context) error {
 
 	out, err := qc.GetQueueMonitor(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -409,7 +409,7 @@ func _func_MonitorService_GetQueueMonitor(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

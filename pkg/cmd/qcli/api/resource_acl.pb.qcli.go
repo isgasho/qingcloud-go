@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -259,13 +259,13 @@ func _func_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("resource_groups") {
 			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("owner") {
@@ -275,7 +275,7 @@ func _func_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error
 
 	out, err := qc.DescribeSharedResourceGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -286,7 +286,7 @@ func _func_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -342,13 +342,13 @@ func _func_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("resource_groups") {
 			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("search_word") {
@@ -373,7 +373,7 @@ func _func_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
 
 	out, err := qc.DescribeResourceGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -384,7 +384,7 @@ func _func_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -420,7 +420,7 @@ func _func_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -437,7 +437,7 @@ func _func_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
 
 	out, err := qc.CreateResourceGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -448,7 +448,7 @@ func _func_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -484,7 +484,7 @@ func _func_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -501,7 +501,7 @@ func _func_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) erro
 
 	out, err := qc.ModifyResourceGroupAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -512,7 +512,7 @@ func _func_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -538,20 +538,20 @@ func _func_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("resource_groups") {
 			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteResourceGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -562,7 +562,7 @@ func _func_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -618,18 +618,18 @@ func _func_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("resource_groups") {
 			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("resources") {
 			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("limit") {
@@ -651,7 +651,7 @@ func _func_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
 
 	out, err := qc.DescribeResourceGroupItems(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -662,7 +662,7 @@ func _func_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -693,7 +693,7 @@ func _func_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -702,14 +702,14 @@ func _func_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
 		}
 		if c.IsSet("resources") {
 			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddResourceGroupItems(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -720,7 +720,7 @@ func _func_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -751,7 +751,7 @@ func _func_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -760,14 +760,14 @@ func _func_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
 		}
 		if c.IsSet("resources") {
 			if err := json.Unmarshal([]byte(c.String("resources")), &in.Resources); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteResourceGroupItems(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -778,7 +778,7 @@ func _func_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -839,18 +839,18 @@ func _func_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("user_groups") {
 			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("limit") {
@@ -875,7 +875,7 @@ func _func_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
 
 	out, err := qc.DescribeUserGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -886,7 +886,7 @@ func _func_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -922,7 +922,7 @@ func _func_ResourceACLService_CreateUserGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -939,7 +939,7 @@ func _func_ResourceACLService_CreateUserGroups(c *cli.Context) error {
 
 	out, err := qc.CreateUserGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -950,7 +950,7 @@ func _func_ResourceACLService_CreateUserGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -991,7 +991,7 @@ func _func_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1011,7 +1011,7 @@ func _func_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyUserGroupAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1022,7 +1022,7 @@ func _func_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1048,20 +1048,20 @@ func _func_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("user_groups") {
 			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteUserGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1072,7 +1072,7 @@ func _func_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1138,23 +1138,23 @@ func _func_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("user_groups") {
 			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("users") {
 			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("search_word") {
@@ -1179,7 +1179,7 @@ func _func_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
 
 	out, err := qc.DescribeUserGroupMembers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1190,7 +1190,7 @@ func _func_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1221,7 +1221,7 @@ func _func_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1230,14 +1230,14 @@ func _func_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
 		}
 		if c.IsSet("users") {
 			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddUserGroupMembers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1248,7 +1248,7 @@ func _func_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1289,7 +1289,7 @@ func _func_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) er
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1309,7 +1309,7 @@ func _func_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) er
 
 	out, err := qc.ModifyUserGroupMemberAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1320,7 +1320,7 @@ func _func_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) er
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1351,7 +1351,7 @@ func _func_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1360,14 +1360,14 @@ func _func_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
 		}
 		if c.IsSet("users") {
 			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteUserGroupMembers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1378,7 +1378,7 @@ func _func_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1439,18 +1439,18 @@ func _func_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("group_roles") {
 			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("search_word") {
@@ -1475,7 +1475,7 @@ func _func_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
 
 	out, err := qc.DescribeGroupRoles(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1486,7 +1486,7 @@ func _func_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1527,7 +1527,7 @@ func _func_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1547,7 +1547,7 @@ func _func_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
 
 	out, err := qc.CreateGroupRoles(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1558,7 +1558,7 @@ func _func_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1604,7 +1604,7 @@ func _func_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1627,7 +1627,7 @@ func _func_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyGroupRoleAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1638,7 +1638,7 @@ func _func_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1664,20 +1664,20 @@ func _func_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("group_roles") {
 			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteGroupRoles(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1688,7 +1688,7 @@ func _func_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1749,23 +1749,23 @@ func _func_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("group_role_rules") {
 			if err := json.Unmarshal([]byte(c.String("group_role_rules")), &in.GroupRoleRules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("group_roles") {
 			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("limit") {
@@ -1787,7 +1787,7 @@ func _func_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
 
 	out, err := qc.DescribeGroupRoleRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1798,7 +1798,7 @@ func _func_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1834,7 +1834,7 @@ func _func_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1851,7 +1851,7 @@ func _func_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
 
 	out, err := qc.AddGroupRoleRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1862,7 +1862,7 @@ func _func_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1898,7 +1898,7 @@ func _func_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1915,7 +1915,7 @@ func _func_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) erro
 
 	out, err := qc.ModifyGroupRoleRuleAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1926,7 +1926,7 @@ func _func_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1957,25 +1957,25 @@ func _func_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("group_role_rules") {
 			if err := json.Unmarshal([]byte(c.String("group_role_rules")), &in.GroupRoleRules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("group_roles") {
 			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteGroupRoleRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1986,7 +1986,7 @@ func _func_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2012,20 +2012,20 @@ func _func_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) er
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("rur_set") {
 			if err := json.Unmarshal([]byte(c.String("rur_set")), &in.RurSet); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.GrantResourceGroupsToUserGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2036,7 +2036,7 @@ func _func_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) er
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2077,35 +2077,35 @@ func _func_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context)
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("ru_set") {
 			if err := json.Unmarshal([]byte(c.String("ru_set")), &in.RuSet); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("resource_groups") {
 			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("user_groups") {
 			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("group_roles") {
 			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.RevokeResourceGroupsFromUserGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2116,7 +2116,7 @@ func _func_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context)
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -2177,23 +2177,23 @@ func _func_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("resource_groups") {
 			if err := json.Unmarshal([]byte(c.String("resource_groups")), &in.ResourceGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("user_groups") {
 			if err := json.Unmarshal([]byte(c.String("user_groups")), &in.UserGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("group_roles") {
 			if err := json.Unmarshal([]byte(c.String("group_roles")), &in.GroupRoles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("limit") {
@@ -2215,7 +2215,7 @@ func _func_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
 
 	out, err := qc.DescribeResourceUserGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -2226,7 +2226,7 @@ func _func_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

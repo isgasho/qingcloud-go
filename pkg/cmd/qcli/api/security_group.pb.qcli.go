@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -216,13 +216,13 @@ func _func_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("security_groups") {
 			if err := json.Unmarshal([]byte(c.String("security_groups")), &in.SecurityGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("search_word") {
@@ -230,7 +230,7 @@ func _func_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -246,7 +246,7 @@ func _func_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 
 	out, err := qc.DescribeSecurityGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -257,7 +257,7 @@ func _func_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -283,7 +283,7 @@ func _func_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -294,7 +294,7 @@ func _func_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
 
 	out, err := qc.CreateSecurityGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -305,7 +305,7 @@ func _func_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -331,20 +331,20 @@ func _func_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("security_groups") {
 			if err := json.Unmarshal([]byte(c.String("security_groups")), &in.SecurityGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteSecurityGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -355,7 +355,7 @@ func _func_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -386,7 +386,7 @@ func _func_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -395,14 +395,14 @@ func _func_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
 		}
 		if c.IsSet("instances") {
 			if err := json.Unmarshal([]byte(c.String("instances")), &in.Instances); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ApplySecurityGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -413,7 +413,7 @@ func _func_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -449,7 +449,7 @@ func _func_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) er
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -466,7 +466,7 @@ func _func_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) er
 
 	out, err := qc.ModifySecurityGroupAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -477,7 +477,7 @@ func _func_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) er
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -523,7 +523,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -546,7 +546,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error
 
 	out, err := qc.DescribeSecurityGroupRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -557,7 +557,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -588,7 +588,7 @@ func _func_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -597,14 +597,14 @@ func _func_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
 		}
 		if c.IsSet("rules") {
 			if err := json.Unmarshal([]byte(c.String("rules")), &in.Rules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddSecurityGroupRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -615,7 +615,7 @@ func _func_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -641,20 +641,20 @@ func _func_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("security_group_rules") {
 			if err := json.Unmarshal([]byte(c.String("security_group_rules")), &in.SecurityGroupRules); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteSecurityGroupRules(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -665,7 +665,7 @@ func _func_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -731,7 +731,7 @@ func _func_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -766,7 +766,7 @@ func _func_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context
 
 	out, err := qc.ModifySecurityGroupRuleAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -777,7 +777,7 @@ func _func_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -808,7 +808,7 @@ func _func_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -822,7 +822,7 @@ func _func_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) erro
 
 	out, err := qc.CreateSecurityGroupSnapshot(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -833,7 +833,7 @@ func _func_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -874,7 +874,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) e
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -883,7 +883,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) e
 		}
 		if c.IsSet("security_group_snapshots") {
 			if err := json.Unmarshal([]byte(c.String("security_group_snapshots")), &in.SecurityGroupSnapshots); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("offset") {
@@ -896,7 +896,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) e
 
 	out, err := qc.DescribeSecurityGroupSnapshots(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -907,7 +907,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) e
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -933,20 +933,20 @@ func _func_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) err
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("security_group_snapshots") {
 			if err := json.Unmarshal([]byte(c.String("security_group_snapshots")), &in.SecurityGroupSnapshots); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteSecurityGroupSnapshots(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -957,7 +957,7 @@ func _func_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) err
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -988,7 +988,7 @@ func _func_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1002,7 +1002,7 @@ func _func_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
 
 	out, err := qc.RollbackSecurityGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1013,7 +1013,7 @@ func _func_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1069,13 +1069,13 @@ func _func_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("security_group_ipsets") {
 			if err := json.Unmarshal([]byte(c.String("security_group_ipsets")), &in.SecurityGroupIpsets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("ipset_type") {
@@ -1086,7 +1086,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) erro
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -1102,7 +1102,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) erro
 
 	out, err := qc.DescribeSecurityGroupIPSets(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1113,7 +1113,7 @@ func _func_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1149,7 +1149,7 @@ func _func_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1166,7 +1166,7 @@ func _func_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
 
 	out, err := qc.CreateSecurityGroupIPSet(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1177,7 +1177,7 @@ func _func_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1203,20 +1203,20 @@ func _func_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error 
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("security_group_ipsets") {
 			if err := json.Unmarshal([]byte(c.String("security_group_ipsets")), &in.SecurityGroupIpsets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteSecurityGroupIPSets(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1227,7 +1227,7 @@ func _func_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error 
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1268,7 +1268,7 @@ func _func_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Contex
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1288,7 +1288,7 @@ func _func_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Contex
 
 	out, err := qc.ModifySecurityGroupIPSetAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1299,7 +1299,7 @@ func _func_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Contex
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1330,25 +1330,25 @@ func _func_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("ipsets") {
 			if err := json.Unmarshal([]byte(c.String("ipsets")), &in.Ipsets); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("dest_zones") {
 			if err := json.Unmarshal([]byte(c.String("dest_zones")), &in.DestZones); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.CopySecurityGroupIPSets(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1359,7 +1359,7 @@ func _func_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

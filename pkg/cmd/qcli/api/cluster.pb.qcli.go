@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -212,7 +212,7 @@ func _func_ClusterService_CreateCluster(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -223,7 +223,7 @@ func _func_ClusterService_CreateCluster(c *cli.Context) error {
 
 	out, err := qc.CreateCluster(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -234,7 +234,7 @@ func _func_ClusterService_CreateCluster(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -285,13 +285,13 @@ func _func_ClusterService_DescribeClusters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("scope") {
@@ -302,24 +302,24 @@ func _func_ClusterService_DescribeClusters(c *cli.Context) error {
 		}
 		if c.IsSet("app_id") {
 			if err := json.Unmarshal([]byte(c.String("app_id")), &in.AppId); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("app_version") {
 			if err := json.Unmarshal([]byte(c.String("app_version")), &in.AppVersion); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("users") {
 			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DescribeClusters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -330,7 +330,7 @@ func _func_ClusterService_DescribeClusters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -366,7 +366,7 @@ func _func_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -375,7 +375,7 @@ func _func_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 		}
 		if c.IsSet("cluster_nodes") {
 			if err := json.Unmarshal([]byte(c.String("cluster_nodes")), &in.ClusterNodes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("role") {
@@ -385,7 +385,7 @@ func _func_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 
 	out, err := qc.DescribeClusterNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -396,7 +396,7 @@ func _func_ClusterService_DescribeClusterNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -427,13 +427,13 @@ func _func_ClusterService_StopClusters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("force") {
@@ -443,7 +443,7 @@ func _func_ClusterService_StopClusters(c *cli.Context) error {
 
 	out, err := qc.StopClusters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -454,7 +454,7 @@ func _func_ClusterService_StopClusters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -480,20 +480,20 @@ func _func_ClusterService_StartClusters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StartClusters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -504,7 +504,7 @@ func _func_ClusterService_StartClusters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -530,20 +530,20 @@ func _func_ClusterService_DeleteClusters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteClusters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -554,7 +554,7 @@ func _func_ClusterService_DeleteClusters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -580,20 +580,20 @@ func _func_ClusterService_Lease(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.Lease(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -604,7 +604,7 @@ func _func_ClusterService_Lease(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -650,7 +650,7 @@ func _func_ClusterService_AddClusterNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -668,14 +668,14 @@ func _func_ClusterService_AddClusterNodes(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddClusterNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -686,7 +686,7 @@ func _func_ClusterService_AddClusterNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -722,7 +722,7 @@ func _func_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -731,7 +731,7 @@ func _func_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 		}
 		if c.IsSet("nodes") {
 			if err := json.Unmarshal([]byte(c.String("nodes")), &in.Nodes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("force") {
@@ -741,7 +741,7 @@ func _func_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 
 	out, err := qc.DeleteClusterNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -752,7 +752,7 @@ func _func_ClusterService_DeleteClusterNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -798,7 +798,7 @@ func _func_ClusterService_ResizeCluster(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -821,7 +821,7 @@ func _func_ClusterService_ResizeCluster(c *cli.Context) error {
 
 	out, err := qc.ResizeCluster(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -832,7 +832,7 @@ func _func_ClusterService_ResizeCluster(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -873,7 +873,7 @@ func _func_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -885,19 +885,19 @@ func _func_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("roles") {
 			if err := json.Unmarshal([]byte(c.String("roles")), &in.Roles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ChangeClusterVxnet(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -908,7 +908,7 @@ func _func_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -934,20 +934,20 @@ func _func_ClusterService_SuspendClusters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.SuspendClusters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -958,7 +958,7 @@ func _func_ClusterService_SuspendClusters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -994,7 +994,7 @@ func _func_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1003,19 +1003,19 @@ func _func_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
 		}
 		if c.IsSet("roles") {
 			if err := json.Unmarshal([]byte(c.String("roles")), &in.Roles); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("env") {
 			if err := json.Unmarshal([]byte(c.String("env")), &in.Env); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.UpdateClusterEnvironment(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1026,7 +1026,7 @@ func _func_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1062,7 +1062,7 @@ func _func_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1079,7 +1079,7 @@ func _func_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyClusterAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1090,7 +1090,7 @@ func _func_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1126,7 +1126,7 @@ func _func_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1143,7 +1143,7 @@ func _func_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyClusterNodeAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1154,7 +1154,7 @@ func _func_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1180,20 +1180,20 @@ func _func_ClusterService_GetClustersStats(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("zones") {
 			if err := json.Unmarshal([]byte(c.String("zones")), &in.Zones); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.GetClustersStats(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1204,7 +1204,7 @@ func _func_ClusterService_GetClustersStats(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1250,40 +1250,40 @@ func _func_ClusterService_DescribeClusterUsers(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("zones") {
 			if err := json.Unmarshal([]byte(c.String("zones")), &in.Zones); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("apps") {
 			if err := json.Unmarshal([]byte(c.String("apps")), &in.Apps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("app_versions") {
 			if err := json.Unmarshal([]byte(c.String("app_versions")), &in.AppVersions); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("users") {
 			if err := json.Unmarshal([]byte(c.String("users")), &in.Users); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("cluster_status") {
 			if err := json.Unmarshal([]byte(c.String("cluster_status")), &in.ClusterStatus); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DescribeClusterUsers(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1294,7 +1294,7 @@ func _func_ClusterService_DescribeClusterUsers(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1325,7 +1325,7 @@ func _func_ClusterService_RestartClusterService(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1339,7 +1339,7 @@ func _func_ClusterService_RestartClusterService(c *cli.Context) error {
 
 	out, err := qc.RestartClusterService(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1350,7 +1350,7 @@ func _func_ClusterService_RestartClusterService(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1381,13 +1381,13 @@ func _func_ClusterService_UpgradeClusters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("app_version") {
@@ -1397,7 +1397,7 @@ func _func_ClusterService_UpgradeClusters(c *cli.Context) error {
 
 	out, err := qc.UpgradeClusters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1408,7 +1408,7 @@ func _func_ClusterService_UpgradeClusters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1434,20 +1434,20 @@ func _func_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) err
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AuthorizeClustersBrokerToDeveloper(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1458,7 +1458,7 @@ func _func_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) err
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1484,20 +1484,20 @@ func _func_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("clusters") {
 			if err := json.Unmarshal([]byte(c.String("clusters")), &in.Clusters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.RevokeClustersBrokerFromDeveloper(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1508,7 +1508,7 @@ func _func_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)

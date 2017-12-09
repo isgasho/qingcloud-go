@@ -8,6 +8,7 @@ package qcli_pb
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/golang/protobuf/jsonpb"
@@ -16,13 +17,13 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/config"
-	"github.com/chai2010/qingcloud-go/pkg/logger"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
 var (
 	_ = fmt.Errorf
 	_ = json.Marshal
+	_ = log.Print
 	_ = os.Stdin
 
 	_ = cli.Command{}
@@ -30,7 +31,6 @@ var (
 	_ = proto.Marshal
 
 	_ = config.Config{}
-	_ = logger.Info
 	_ = pb.AlarmService{}
 )
 
@@ -268,23 +268,23 @@ func _func_CacheService_DescribeCaches(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("caches") {
 			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("cache_type") {
 			if err := json.Unmarshal([]byte(c.String("cache_type")), &in.CacheType); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("search_word") {
@@ -292,7 +292,7 @@ func _func_CacheService_DescribeCaches(c *cli.Context) error {
 		}
 		if c.IsSet("tags") {
 			if err := json.Unmarshal([]byte(c.String("tags")), &in.Tags); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("verbose") {
@@ -308,7 +308,7 @@ func _func_CacheService_DescribeCaches(c *cli.Context) error {
 
 	out, err := qc.DescribeCaches(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -319,7 +319,7 @@ func _func_CacheService_DescribeCaches(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -385,7 +385,7 @@ func _func_CacheService_CreateCache(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -409,7 +409,7 @@ func _func_CacheService_CreateCache(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("auto_backup_time") {
@@ -422,7 +422,7 @@ func _func_CacheService_CreateCache(c *cli.Context) error {
 
 	out, err := qc.CreateCache(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -433,7 +433,7 @@ func _func_CacheService_CreateCache(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -459,20 +459,20 @@ func _func_CacheService_StopCaches(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("caches") {
 			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StopCaches(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -483,7 +483,7 @@ func _func_CacheService_StopCaches(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -509,20 +509,20 @@ func _func_CacheService_StartCaches(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("caches") {
 			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.StartCaches(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -533,7 +533,7 @@ func _func_CacheService_StartCaches(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -559,20 +559,20 @@ func _func_CacheService_RestartCaches(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("caches") {
 			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.RestartCaches(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -583,7 +583,7 @@ func _func_CacheService_RestartCaches(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -609,20 +609,20 @@ func _func_CacheService_DeleteCaches(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("caches") {
 			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteCaches(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -633,7 +633,7 @@ func _func_CacheService_DeleteCaches(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -664,13 +664,13 @@ func _func_CacheService_ResizeCaches(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("caches") {
 			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("cache_size") {
@@ -680,7 +680,7 @@ func _func_CacheService_ResizeCaches(c *cli.Context) error {
 
 	out, err := qc.ResizeCaches(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -691,7 +691,7 @@ func _func_CacheService_ResizeCaches(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -722,7 +722,7 @@ func _func_CacheService_UpdateCache(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -731,14 +731,14 @@ func _func_CacheService_UpdateCache(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.UpdateCache(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -749,7 +749,7 @@ func _func_CacheService_UpdateCache(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -785,7 +785,7 @@ func _func_CacheService_ChangeCacheVxnet(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -797,14 +797,14 @@ func _func_CacheService_ChangeCacheVxnet(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ChangeCacheVxnet(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -815,7 +815,7 @@ func _func_CacheService_ChangeCacheVxnet(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -856,7 +856,7 @@ func _func_CacheService_ModifyCacheAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -876,7 +876,7 @@ func _func_CacheService_ModifyCacheAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyCacheAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -887,7 +887,7 @@ func _func_CacheService_ModifyCacheAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -943,7 +943,7 @@ func _func_CacheService_DescribeCacheNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -952,12 +952,12 @@ func _func_CacheService_DescribeCacheNodes(c *cli.Context) error {
 		}
 		if c.IsSet("cache_nodes") {
 			if err := json.Unmarshal([]byte(c.String("cache_nodes")), &in.CacheNodes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("status") {
 			if err := json.Unmarshal([]byte(c.String("status")), &in.Status); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("search_word") {
@@ -976,7 +976,7 @@ func _func_CacheService_DescribeCacheNodes(c *cli.Context) error {
 
 	out, err := qc.DescribeCacheNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -987,7 +987,7 @@ func _func_CacheService_DescribeCacheNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1023,7 +1023,7 @@ func _func_CacheService_AddCacheNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1035,14 +1035,14 @@ func _func_CacheService_AddCacheNodes(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.AddCacheNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1053,7 +1053,7 @@ func _func_CacheService_AddCacheNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1084,7 +1084,7 @@ func _func_CacheService_DeleteCacheNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1093,14 +1093,14 @@ func _func_CacheService_DeleteCacheNodes(c *cli.Context) error {
 		}
 		if c.IsSet("cache_nodes") {
 			if err := json.Unmarshal([]byte(c.String("cache_nodes")), &in.CacheNodes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteCacheNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1111,7 +1111,7 @@ func _func_CacheService_DeleteCacheNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1142,7 +1142,7 @@ func _func_CacheService_RestartCacheNodes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1151,14 +1151,14 @@ func _func_CacheService_RestartCacheNodes(c *cli.Context) error {
 		}
 		if c.IsSet("cache_nodes") {
 			if err := json.Unmarshal([]byte(c.String("cache_nodes")), &in.CacheNodes); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.RestartCacheNodes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1169,7 +1169,7 @@ func _func_CacheService_RestartCacheNodes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1200,7 +1200,7 @@ func _func_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1214,7 +1214,7 @@ func _func_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
 
 	out, err := qc.ModifyCacheNodeAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1225,7 +1225,7 @@ func _func_CacheService_ModifyCacheNodeAttributes(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1286,7 +1286,7 @@ func _func_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1310,7 +1310,7 @@ func _func_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 		}
 		if c.IsSet("private_ips") {
 			if err := json.Unmarshal([]byte(c.String("private_ips")), &in.PrivateIps); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("cache_class") {
@@ -1320,7 +1320,7 @@ func _func_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 
 	out, err := qc.CreateCacheFromSnapshot(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1331,7 +1331,7 @@ func _func_CacheService_CreateCacheFromSnapshot(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1382,13 +1382,13 @@ func _func_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("cache_parameter_groups") {
 			if err := json.Unmarshal([]byte(c.String("cache_parameter_groups")), &in.CacheParameterGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 		if c.IsSet("cache_type") {
@@ -1410,7 +1410,7 @@ func _func_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
 
 	out, err := qc.DescribeCacheParameterGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1421,7 +1421,7 @@ func _func_CacheService_DescribeCacheParameterGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1452,7 +1452,7 @@ func _func_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1466,7 +1466,7 @@ func _func_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
 
 	out, err := qc.CreateCacheParameterGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1477,7 +1477,7 @@ func _func_CacheService_CreateCacheParameterGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1508,7 +1508,7 @@ func _func_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1517,14 +1517,14 @@ func _func_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
 		}
 		if c.IsSet("caches") {
 			if err := json.Unmarshal([]byte(c.String("caches")), &in.Caches); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ApplyCacheParameterGroup(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1535,7 +1535,7 @@ func _func_CacheService_ApplyCacheParameterGroup(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1561,20 +1561,20 @@ func _func_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
 		if c.IsSet("cache_parameter_groups") {
 			if err := json.Unmarshal([]byte(c.String("cache_parameter_groups")), &in.CacheParameterGroups); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.DeleteCacheParameterGroups(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1585,7 +1585,7 @@ func _func_CacheService_DeleteCacheParameterGroups(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1621,7 +1621,7 @@ func _func_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) erro
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1638,7 +1638,7 @@ func _func_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) erro
 
 	out, err := qc.ModifyCacheParameterGroupAttributes(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1649,7 +1649,7 @@ func _func_CacheService_ModifyCacheParameterGroupAttributes(c *cli.Context) erro
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1675,7 +1675,7 @@ func _func_CacheService_DescribeCacheParameters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1686,7 +1686,7 @@ func _func_CacheService_DescribeCacheParameters(c *cli.Context) error {
 
 	out, err := qc.DescribeCacheParameters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1697,7 +1697,7 @@ func _func_CacheService_DescribeCacheParameters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1728,7 +1728,7 @@ func _func_CacheService_UpdateCacheParameters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1737,14 +1737,14 @@ func _func_CacheService_UpdateCacheParameters(c *cli.Context) error {
 		}
 		if c.IsSet("parameters") {
 			if err := json.Unmarshal([]byte(c.String("parameters")), &in.Parameters); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.UpdateCacheParameters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1755,7 +1755,7 @@ func _func_CacheService_UpdateCacheParameters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
@@ -1786,7 +1786,7 @@ func _func_CacheService_ResetCacheParameters(c *cli.Context) error {
 		// read from stdin json
 		err := jsonpb.Unmarshal(os.Stdin, in)
 		if err != nil {
-			logger.Fatal(err)
+			log.Fatal(err)
 		}
 	} else {
 		// read from flags
@@ -1795,14 +1795,14 @@ func _func_CacheService_ResetCacheParameters(c *cli.Context) error {
 		}
 		if c.IsSet("cache_parameter_names") {
 			if err := json.Unmarshal([]byte(c.String("cache_parameter_names")), &in.CacheParameterNames); err != nil {
-				logger.Fatal(err)
+				log.Fatal(err)
 			}
 		}
 	}
 
 	out, err := qc.ResetCacheParameters(in)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	jsonMarshaler := &jsonpb.Marshaler{
@@ -1813,7 +1813,7 @@ func _func_CacheService_ResetCacheParameters(c *cli.Context) error {
 	}
 	s, err := jsonMarshaler.MarshalToString(out)
 	if err != nil {
-		logger.Fatal(err)
+		log.Fatal(err)
 	}
 
 	fmt.Println(s)
