@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -146,9 +144,8 @@ var _flag_EIPService_DescribeEips = []cli.Flag{
 }
 
 func _func_EIPService_DescribeEips(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.DescribeEipsInput)
 
@@ -244,9 +241,8 @@ var _flag_EIPService_AllocateEips = []cli.Flag{
 }
 
 func _func_EIPService_AllocateEips(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.AllocateEipsInput)
 
@@ -307,9 +303,8 @@ var _flag_EIPService_ReleaseEips = []cli.Flag{
 }
 
 func _func_EIPService_ReleaseEips(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.ReleaseEipsInput)
 
@@ -362,9 +357,8 @@ var _flag_EIPService_AssociateEip = []cli.Flag{
 }
 
 func _func_EIPService_AssociateEip(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.AssociateEipInput)
 
@@ -413,9 +407,8 @@ var _flag_EIPService_DissociateEips = []cli.Flag{
 }
 
 func _func_EIPService_DissociateEips(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.DissociateEipsInput)
 
@@ -468,9 +461,8 @@ var _flag_EIPService_ChangeEipsBandwidth = []cli.Flag{
 }
 
 func _func_EIPService_ChangeEipsBandwidth(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.ChangeEipsBandwidthInput)
 
@@ -526,9 +518,8 @@ var _flag_EIPService_ChangeEipsBillingMode = []cli.Flag{
 }
 
 func _func_EIPService_ChangeEipsBillingMode(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.ChangeEipsBillingModeInput)
 
@@ -589,9 +580,8 @@ var _flag_EIPService_ModifyEipAttributes = []cli.Flag{
 }
 
 func _func_EIPService_ModifyEipAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewEIPService(conf, zone)
+	qc := pb.NewEIPService("", "", zone)
 
 	in := new(pb.ModifyEipAttributesInput)
 

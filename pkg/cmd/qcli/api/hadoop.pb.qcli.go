@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -98,9 +96,8 @@ var _flag_HadoopService_AddHadoopNodes = []cli.Flag{
 }
 
 func _func_HadoopService_AddHadoopNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewHadoopService(conf, zone)
+	qc := pb.NewHadoopService("", "", zone)
 
 	in := new(pb.AddHadoopNodesInput)
 
@@ -162,9 +159,8 @@ var _flag_HadoopService_DeleteHadoopNodes = []cli.Flag{
 }
 
 func _func_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewHadoopService(conf, zone)
+	qc := pb.NewHadoopService("", "", zone)
 
 	in := new(pb.DeleteHadoopNodesInput)
 
@@ -215,9 +211,8 @@ var _flag_HadoopService_StartHadoops = []cli.Flag{
 }
 
 func _func_HadoopService_StartHadoops(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewHadoopService(conf, zone)
+	qc := pb.NewHadoopService("", "", zone)
 
 	in := new(pb.StartHadoopsInput)
 
@@ -265,9 +260,8 @@ var _flag_HadoopService_StopHadoops = []cli.Flag{
 }
 
 func _func_HadoopService_StopHadoops(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewHadoopService(conf, zone)
+	qc := pb.NewHadoopService("", "", zone)
 
 	in := new(pb.StopHadoopsInput)
 

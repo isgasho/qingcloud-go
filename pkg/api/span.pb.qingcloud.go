@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type SpanServiceInterface interface {
@@ -29,14 +27,12 @@ type SpanServiceInterface interface {
 }
 
 type SpanService struct {
-	Config           *config.Config
 	Properties       *SpanServiceProperties
 	LastResponseBody string
 }
 
-func NewSpanService(conf *config.Config, zone string) (p *SpanService) {
+func NewSpanService(accessKeyId, secretAccessKey, zone string) (p *SpanService) {
 	return &SpanService{
-		Config:     conf,
 		Properties: &SpanServiceProperties{Zone: proto.String(zone)},
 	}
 }

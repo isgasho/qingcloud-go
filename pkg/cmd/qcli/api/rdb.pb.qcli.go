@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -224,9 +222,8 @@ var _flag_RDBService_CreateRDB = []cli.Flag{
 }
 
 func _func_RDBService_CreateRDB(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.CreateRDBInput)
 
@@ -339,9 +336,8 @@ var _flag_RDBService_DescribeRDBs = []cli.Flag{
 }
 
 func _func_RDBService_DescribeRDBs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.DescribeRDBsInput)
 
@@ -414,9 +410,8 @@ var _flag_RDBService_DeleteRDBs = []cli.Flag{
 }
 
 func _func_RDBService_DeleteRDBs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.DeleteRDBsInput)
 
@@ -464,9 +459,8 @@ var _flag_RDBService_StartRDBs = []cli.Flag{
 }
 
 func _func_RDBService_StartRDBs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.StartRDBsInput)
 
@@ -514,9 +508,8 @@ var _flag_RDBService_StopRDBs = []cli.Flag{
 }
 
 func _func_RDBService_StopRDBs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.StopRDBsInput)
 
@@ -574,9 +567,8 @@ var _flag_RDBService_ResizeRDBs = []cli.Flag{
 }
 
 func _func_RDBService_ResizeRDBs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.ResizeRDBsInput)
 
@@ -635,9 +627,8 @@ var _flag_RDBService_RDBsLeaveVxnet = []cli.Flag{
 }
 
 func _func_RDBService_RDBsLeaveVxnet(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.RDBsLeaveVxnetInput)
 
@@ -693,9 +684,8 @@ var _flag_RDBService_RDBsJoinVxnet = []cli.Flag{
 }
 
 func _func_RDBService_RDBsJoinVxnet(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.RDBsJoinVxnetInput)
 
@@ -786,9 +776,8 @@ var _flag_RDBService_CreateRDBFromSnapshot = []cli.Flag{
 }
 
 func _func_RDBService_CreateRDBFromSnapshot(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.CreateRDBFromSnapshotInput)
 
@@ -865,9 +854,8 @@ var _flag_RDBService_CreateTempRDBInstanceFromSnapshot = []cli.Flag{
 }
 
 func _func_RDBService_CreateTempRDBInstanceFromSnapshot(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.CreateTempRDBInstanceFromSnapshotInput)
 
@@ -916,9 +904,8 @@ var _flag_RDBService_GetRDBInstanceFiles = []cli.Flag{
 }
 
 func _func_RDBService_GetRDBInstanceFiles(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.GetRDBInstanceFilesInput)
 
@@ -969,9 +956,8 @@ var _flag_RDBService_CopyRDBInstanceFilesToFTP = []cli.Flag{
 }
 
 func _func_RDBService_CopyRDBInstanceFilesToFTP(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.CopyRDBInstanceFilesToFTPInput)
 
@@ -1037,9 +1023,8 @@ var _flag_RDBService_PurgeRDBLogs = []cli.Flag{
 }
 
 func _func_RDBService_PurgeRDBLogs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.PurgeRDBLogsInput)
 
@@ -1099,9 +1084,8 @@ var _flag_RDBService_CeaseRDBInstance = []cli.Flag{
 }
 
 func _func_RDBService_CeaseRDBInstance(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.CeaseRDBInstanceInput)
 
@@ -1155,9 +1139,8 @@ var _flag_RDBService_ModifyRDBParameters = []cli.Flag{
 }
 
 func _func_RDBService_ModifyRDBParameters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.ModifyRDBParametersInput)
 
@@ -1208,9 +1191,8 @@ var _flag_RDBService_ApplyRDBParameterGroup = []cli.Flag{
 }
 
 func _func_RDBService_ApplyRDBParameterGroup(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.ApplyRDBParameterGroupInput)
 
@@ -1266,9 +1248,8 @@ var _flag_RDBService_DescribeRDBParameters = []cli.Flag{
 }
 
 func _func_RDBService_DescribeRDBParameters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewRDBService(conf, zone)
+	qc := pb.NewRDBService("", "", zone)
 
 	in := new(pb.DescribeRDBParametersInput)
 

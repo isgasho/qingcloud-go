@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type LoadBalancerServiceInterface interface {
@@ -53,14 +51,12 @@ type LoadBalancerServiceInterface interface {
 }
 
 type LoadBalancerService struct {
-	Config           *config.Config
 	Properties       *LoadBalancerServiceProperties
 	LastResponseBody string
 }
 
-func NewLoadBalancerService(conf *config.Config, zone string) (p *LoadBalancerService) {
+func NewLoadBalancerService(accessKeyId, secretAccessKey, zone string) (p *LoadBalancerService) {
 	return &LoadBalancerService{
-		Config:     conf,
 		Properties: &LoadBalancerServiceProperties{Zone: proto.String(zone)},
 	}
 }

@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -204,9 +202,8 @@ var _flag_AlarmService_DescribeAlarmPolicies = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmPolicies(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DescribeAlarmPoliciesInput)
 
@@ -282,9 +279,8 @@ var _flag_AlarmService_CreateAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_CreateAlarmPolicy(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.CreateAlarmPolicyInput)
 
@@ -351,9 +347,8 @@ var _flag_AlarmService_ModifyAlarmPolicyAttributes = []cli.Flag{
 }
 
 func _func_AlarmService_ModifyAlarmPolicyAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.ModifyAlarmPolicyAttributesInput)
 
@@ -408,9 +403,8 @@ var _flag_AlarmService_DeleteAlarmPolicies = []cli.Flag{
 }
 
 func _func_AlarmService_DeleteAlarmPolicies(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DeleteAlarmPoliciesInput)
 
@@ -473,9 +467,8 @@ var _flag_AlarmService_DescribeAlarmPolicyRules = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmPolicyRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DescribeAlarmPolicyRulesInput)
 
@@ -537,9 +530,8 @@ var _flag_AlarmService_AddAlarmPolicyRules = []cli.Flag{
 }
 
 func _func_AlarmService_AddAlarmPolicyRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.AddAlarmPolicyRulesInput)
 
@@ -615,9 +607,8 @@ var _flag_AlarmService_ModifyAlarmPolicyRuleAttributes = []cli.Flag{
 }
 
 func _func_AlarmService_ModifyAlarmPolicyRuleAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.ModifyAlarmPolicyRuleAttributesInput)
 
@@ -678,9 +669,8 @@ var _flag_AlarmService_DeleteAlarmPolicyRules = []cli.Flag{
 }
 
 func _func_AlarmService_DeleteAlarmPolicyRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DeleteAlarmPolicyRulesInput)
 
@@ -743,9 +733,8 @@ var _flag_AlarmService_DescribeAlarmPolicyActions = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmPolicyActions(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DescribeAlarmPolicyActionsInput)
 
@@ -807,9 +796,8 @@ var _flag_AlarmService_AddAlarmPolicyActions = []cli.Flag{
 }
 
 func _func_AlarmService_AddAlarmPolicyActions(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.AddAlarmPolicyActionsInput)
 
@@ -870,9 +858,8 @@ var _flag_AlarmService_ModifyAlarmPolicyActionAttributes = []cli.Flag{
 }
 
 func _func_AlarmService_ModifyAlarmPolicyActionAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.ModifyAlarmPolicyActionAttributesInput)
 
@@ -924,9 +911,8 @@ var _flag_AlarmService_DeleteAlarmPolicyActions = []cli.Flag{
 }
 
 func _func_AlarmService_DeleteAlarmPolicyActions(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DeleteAlarmPolicyActionsInput)
 
@@ -984,9 +970,8 @@ var _flag_AlarmService_AssociateAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_AssociateAlarmPolicy(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.AssociateAlarmPolicyInput)
 
@@ -1050,9 +1035,8 @@ var _flag_AlarmService_DissociateAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_DissociateAlarmPolicy(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DissociateAlarmPolicyInput)
 
@@ -1106,9 +1090,8 @@ var _flag_AlarmService_ApplyAlarmPolicy = []cli.Flag{
 }
 
 func _func_AlarmService_ApplyAlarmPolicy(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.ApplyAlarmPolicyInput)
 
@@ -1179,9 +1162,8 @@ var _flag_AlarmService_DescribeAlarms = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarms(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DescribeAlarmsInput)
 
@@ -1259,9 +1241,8 @@ var _flag_AlarmService_DescribeAlarmHistory = []cli.Flag{
 }
 
 func _func_AlarmService_DescribeAlarmHistory(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewAlarmService(conf, zone)
+	qc := pb.NewAlarmService("", "", zone)
 
 	in := new(pb.DescribeAlarmHistoryInput)
 

@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -144,9 +142,8 @@ var _flag_SnapshotService_DescribeSnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_DescribeSnapshots(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService(conf, zone)
+	qc := pb.NewSnapshotService("", "", zone)
 
 	in := new(pb.DescribeSnapshotsInput)
 
@@ -232,9 +229,8 @@ var _flag_SnapshotService_CreateSnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_CreateSnapshots(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService(conf, zone)
+	qc := pb.NewSnapshotService("", "", zone)
 
 	in := new(pb.CreateSnapshotsInput)
 
@@ -288,9 +284,8 @@ var _flag_SnapshotService_DeleteSnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_DeleteSnapshots(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService(conf, zone)
+	qc := pb.NewSnapshotService("", "", zone)
 
 	in := new(pb.DeleteSnapshotsInput)
 
@@ -338,9 +333,8 @@ var _flag_SnapshotService_ApplySnapshots = []cli.Flag{
 }
 
 func _func_SnapshotService_ApplySnapshots(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService(conf, zone)
+	qc := pb.NewSnapshotService("", "", zone)
 
 	in := new(pb.ApplySnapshotsInput)
 
@@ -398,9 +392,8 @@ var _flag_SnapshotService_ModifySnapshotAttributes = []cli.Flag{
 }
 
 func _func_SnapshotService_ModifySnapshotAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService(conf, zone)
+	qc := pb.NewSnapshotService("", "", zone)
 
 	in := new(pb.ModifySnapshotAttributesInput)
 
@@ -457,9 +450,8 @@ var _flag_SnapshotService_CaptureInstanceFromSnapshot = []cli.Flag{
 }
 
 func _func_SnapshotService_CaptureInstanceFromSnapshot(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService(conf, zone)
+	qc := pb.NewSnapshotService("", "", zone)
 
 	in := new(pb.CaptureInstanceFromSnapshotInput)
 
@@ -513,9 +505,8 @@ var _flag_SnapshotService_CreateVolumeFromSnapshot = []cli.Flag{
 }
 
 func _func_SnapshotService_CreateVolumeFromSnapshot(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSnapshotService(conf, zone)
+	qc := pb.NewSnapshotService("", "", zone)
 
 	in := new(pb.CreateVolumeFromSnapshotInput)
 

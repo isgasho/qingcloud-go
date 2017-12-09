@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -149,9 +147,8 @@ var _flag_SparkService_CreateSpark = []cli.Flag{
 }
 
 func _func_SparkService_CreateSpark(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService(conf, zone)
+	qc := pb.NewSparkService("", "", zone)
 
 	in := new(pb.CreateSparkInput)
 
@@ -256,9 +253,8 @@ var _flag_SparkService_DescribeSparks = []cli.Flag{
 }
 
 func _func_SparkService_DescribeSparks(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService(conf, zone)
+	qc := pb.NewSparkService("", "", zone)
 
 	in := new(pb.DescribeSparksInput)
 
@@ -343,9 +339,8 @@ var _flag_SparkService_AddSparkNodes = []cli.Flag{
 }
 
 func _func_SparkService_AddSparkNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService(conf, zone)
+	qc := pb.NewSparkService("", "", zone)
 
 	in := new(pb.AddSparkNodesInput)
 
@@ -407,9 +402,8 @@ var _flag_SparkService_DeleteSparkNodes = []cli.Flag{
 }
 
 func _func_SparkService_DeleteSparkNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService(conf, zone)
+	qc := pb.NewSparkService("", "", zone)
 
 	in := new(pb.DeleteSparkNodesInput)
 
@@ -460,9 +454,8 @@ var _flag_SparkService_StartSparks = []cli.Flag{
 }
 
 func _func_SparkService_StartSparks(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService(conf, zone)
+	qc := pb.NewSparkService("", "", zone)
 
 	in := new(pb.StartSparksInput)
 
@@ -510,9 +503,8 @@ var _flag_SparkService_StopSparks = []cli.Flag{
 }
 
 func _func_SparkService_StopSparks(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService(conf, zone)
+	qc := pb.NewSparkService("", "", zone)
 
 	in := new(pb.StopSparksInput)
 
@@ -560,9 +552,8 @@ var _flag_SparkService_DeleteSparks = []cli.Flag{
 }
 
 func _func_SparkService_DeleteSparks(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSparkService(conf, zone)
+	qc := pb.NewSparkService("", "", zone)
 
 	in := new(pb.DeleteSparksInput)
 

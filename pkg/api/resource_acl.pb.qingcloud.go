@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type ResourceACLServiceInterface interface {
@@ -49,14 +47,12 @@ type ResourceACLServiceInterface interface {
 }
 
 type ResourceACLService struct {
-	Config           *config.Config
 	Properties       *ResourceACLServiceProperties
 	LastResponseBody string
 }
 
-func NewResourceACLService(conf *config.Config, zone string) (p *ResourceACLService) {
+func NewResourceACLService(accessKeyId, secretAccessKey, zone string) (p *ResourceACLService) {
 	return &ResourceACLService{
-		Config:     conf,
 		Properties: &ResourceACLServiceProperties{Zone: proto.String(zone)},
 	}
 }

@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -139,9 +137,8 @@ var _flag_VolumesService_DescribeVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DescribeVolumes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewVolumesService(conf, zone)
+	qc := pb.NewVolumesService("", "", zone)
 
 	in := new(pb.DescribeVolumesInput)
 
@@ -229,9 +226,8 @@ var _flag_VolumesService_CreateVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_CreateVolumes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewVolumesService(conf, zone)
+	qc := pb.NewVolumesService("", "", zone)
 
 	in := new(pb.CreateVolumesInput)
 
@@ -286,9 +282,8 @@ var _flag_VolumesService_DeleteVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DeleteVolumes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewVolumesService(conf, zone)
+	qc := pb.NewVolumesService("", "", zone)
 
 	in := new(pb.DeleteVolumesInput)
 
@@ -341,9 +336,8 @@ var _flag_VolumesService_AttachVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_AttachVolumes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewVolumesService(conf, zone)
+	qc := pb.NewVolumesService("", "", zone)
 
 	in := new(pb.AttachVolumesInput)
 
@@ -399,9 +393,8 @@ var _flag_VolumesService_DetachVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_DetachVolumes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewVolumesService(conf, zone)
+	qc := pb.NewVolumesService("", "", zone)
 
 	in := new(pb.DetachVolumesInput)
 
@@ -457,9 +450,8 @@ var _flag_VolumesService_ResizeVolumes = []cli.Flag{
 }
 
 func _func_VolumesService_ResizeVolumes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewVolumesService(conf, zone)
+	qc := pb.NewVolumesService("", "", zone)
 
 	in := new(pb.ResizeVolumesInput)
 
@@ -520,9 +512,8 @@ var _flag_VolumesService_ModifyVolumeAttributes = []cli.Flag{
 }
 
 func _func_VolumesService_ModifyVolumeAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewVolumesService(conf, zone)
+	qc := pb.NewVolumesService("", "", zone)
 
 	in := new(pb.ModifyVolumeAttributesInput)
 

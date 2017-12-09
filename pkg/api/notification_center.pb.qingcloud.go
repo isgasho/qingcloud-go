@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type NotificationCenterServiceInterface interface {
@@ -23,14 +21,12 @@ type NotificationCenterServiceInterface interface {
 }
 
 type NotificationCenterService struct {
-	Config           *config.Config
 	Properties       *NotificationCenterServiceProperties
 	LastResponseBody string
 }
 
-func NewNotificationCenterService(conf *config.Config, zone string) (p *NotificationCenterService) {
+func NewNotificationCenterService(accessKeyId, secretAccessKey, zone string) (p *NotificationCenterService) {
 	return &NotificationCenterService{
-		Config:     conf,
 		Properties: &NotificationCenterServiceProperties{Zone: proto.String(zone)},
 	}
 }

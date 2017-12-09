@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type HadoopServiceInterface interface {
@@ -26,14 +24,12 @@ type HadoopServiceInterface interface {
 }
 
 type HadoopService struct {
-	Config           *config.Config
 	Properties       *HadoopServiceProperties
 	LastResponseBody string
 }
 
-func NewHadoopService(conf *config.Config, zone string) (p *HadoopService) {
+func NewHadoopService(accessKeyId, secretAccessKey, zone string) (p *HadoopService) {
 	return &HadoopService{
-		Config:     conf,
 		Properties: &HadoopServiceProperties{Zone: proto.String(zone)},
 	}
 }

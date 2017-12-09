@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type CacheServiceInterface interface {
@@ -46,14 +44,12 @@ type CacheServiceInterface interface {
 }
 
 type CacheService struct {
-	Config           *config.Config
 	Properties       *CacheServiceProperties
 	LastResponseBody string
 }
 
-func NewCacheService(conf *config.Config, zone string) (p *CacheService) {
+func NewCacheService(accessKeyId, secretAccessKey, zone string) (p *CacheService) {
 	return &CacheService{
-		Config:     conf,
 		Properties: &CacheServiceProperties{Zone: proto.String(zone)},
 	}
 }

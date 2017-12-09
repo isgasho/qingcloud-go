@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type EIPServiceInterface interface {
@@ -30,14 +28,12 @@ type EIPServiceInterface interface {
 }
 
 type EIPService struct {
-	Config           *config.Config
 	Properties       *EIPServiceProperties
 	LastResponseBody string
 }
 
-func NewEIPService(conf *config.Config, zone string) (p *EIPService) {
+func NewEIPService(accessKeyId, secretAccessKey, zone string) (p *EIPService) {
 	return &EIPService{
-		Config:     conf,
 		Properties: &EIPServiceProperties{Zone: proto.String(zone)},
 	}
 }

@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -112,9 +110,8 @@ var _flag_NicService_CreateNics = []cli.Flag{
 }
 
 func _func_NicService_CreateNics(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewNicService(conf, zone)
+	qc := pb.NewNicService("", "", zone)
 
 	in := new(pb.CreateNicsInput)
 
@@ -206,9 +203,8 @@ var _flag_NicService_DescribeNics = []cli.Flag{
 }
 
 func _func_NicService_DescribeNics(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewNicService(conf, zone)
+	qc := pb.NewNicService("", "", zone)
 
 	in := new(pb.DescribeNicsInput)
 
@@ -286,9 +282,8 @@ var _flag_NicService_AttachNics = []cli.Flag{
 }
 
 func _func_NicService_AttachNics(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewNicService(conf, zone)
+	qc := pb.NewNicService("", "", zone)
 
 	in := new(pb.AttachNicsInput)
 
@@ -339,9 +334,8 @@ var _flag_NicService_DetachNics = []cli.Flag{
 }
 
 func _func_NicService_DetachNics(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewNicService(conf, zone)
+	qc := pb.NewNicService("", "", zone)
 
 	in := new(pb.DetachNicsInput)
 
@@ -399,9 +393,8 @@ var _flag_NicService_ModifyNicAttributes = []cli.Flag{
 }
 
 func _func_NicService_ModifyNicAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewNicService(conf, zone)
+	qc := pb.NewNicService("", "", zone)
 
 	in := new(pb.ModifyNicAttributesInput)
 
@@ -453,9 +446,8 @@ var _flag_NicService_DeleteNics = []cli.Flag{
 }
 
 func _func_NicService_DeleteNics(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewNicService(conf, zone)
+	qc := pb.NewNicService("", "", zone)
 
 	in := new(pb.DeleteNicsInput)
 

@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type TagServiceInterface interface {
@@ -28,14 +26,12 @@ type TagServiceInterface interface {
 }
 
 type TagService struct {
-	Config           *config.Config
 	Properties       *TagServiceProperties
 	LastResponseBody string
 }
 
-func NewTagService(conf *config.Config, zone string) (p *TagService) {
+func NewTagService(accessKeyId, secretAccessKey, zone string) (p *TagService) {
 	return &TagService{
-		Config:     conf,
 		Properties: &TagServiceProperties{Zone: proto.String(zone)},
 	}
 }

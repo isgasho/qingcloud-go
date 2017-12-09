@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -206,9 +204,8 @@ var _flag_SecurityGroupService_DescribeSecurityGroups = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DescribeSecurityGroupsInput)
 
@@ -273,9 +270,8 @@ var _flag_SecurityGroupService_CreateSecurityGroup = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CreateSecurityGroup(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.CreateSecurityGroupInput)
 
@@ -321,9 +317,8 @@ var _flag_SecurityGroupService_DeleteSecurityGroups = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DeleteSecurityGroupsInput)
 
@@ -376,9 +371,8 @@ var _flag_SecurityGroupService_ApplySecurityGroup = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ApplySecurityGroup(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.ApplySecurityGroupInput)
 
@@ -439,9 +433,8 @@ var _flag_SecurityGroupService_ModifySecurityGroupAttributes = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ModifySecurityGroupAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.ModifySecurityGroupAttributesInput)
 
@@ -513,9 +506,8 @@ var _flag_SecurityGroupService_DescribeSecurityGroupRules = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroupRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DescribeSecurityGroupRulesInput)
 
@@ -578,9 +570,8 @@ var _flag_SecurityGroupService_AddSecurityGroupRules = []cli.Flag{
 }
 
 func _func_SecurityGroupService_AddSecurityGroupRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.AddSecurityGroupRulesInput)
 
@@ -631,9 +622,8 @@ var _flag_SecurityGroupService_DeleteSecurityGroupRules = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroupRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DeleteSecurityGroupRulesInput)
 
@@ -721,9 +711,8 @@ var _flag_SecurityGroupService_ModifySecurityGroupRuleAttributes = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ModifySecurityGroupRuleAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.ModifySecurityGroupRuleAttributesInput)
 
@@ -798,9 +787,8 @@ var _flag_SecurityGroupService_CreateSecurityGroupSnapshot = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CreateSecurityGroupSnapshot(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.CreateSecurityGroupSnapshotInput)
 
@@ -864,9 +852,8 @@ var _flag_SecurityGroupService_DescribeSecurityGroupSnapshots = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroupSnapshots(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DescribeSecurityGroupSnapshotsInput)
 
@@ -923,9 +910,8 @@ var _flag_SecurityGroupService_DeleteSecurityGroupSnapshots = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroupSnapshots(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DeleteSecurityGroupSnapshotsInput)
 
@@ -978,9 +964,8 @@ var _flag_SecurityGroupService_RollbackSecurityGroup = []cli.Flag{
 }
 
 func _func_SecurityGroupService_RollbackSecurityGroup(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.RollbackSecurityGroupInput)
 
@@ -1059,9 +1044,8 @@ var _flag_SecurityGroupService_DescribeSecurityGroupIPSets = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DescribeSecurityGroupIPSets(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DescribeSecurityGroupIPSetsInput)
 
@@ -1139,9 +1123,8 @@ var _flag_SecurityGroupService_CreateSecurityGroupIPSet = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CreateSecurityGroupIPSet(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.CreateSecurityGroupIPSetInput)
 
@@ -1193,9 +1176,8 @@ var _flag_SecurityGroupService_DeleteSecurityGroupIPSets = []cli.Flag{
 }
 
 func _func_SecurityGroupService_DeleteSecurityGroupIPSets(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.DeleteSecurityGroupIPSetsInput)
 
@@ -1258,9 +1240,8 @@ var _flag_SecurityGroupService_ModifySecurityGroupIPSetAttributes = []cli.Flag{
 }
 
 func _func_SecurityGroupService_ModifySecurityGroupIPSetAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.ModifySecurityGroupIPSetAttributesInput)
 
@@ -1320,9 +1301,8 @@ var _flag_SecurityGroupService_CopySecurityGroupIPSets = []cli.Flag{
 }
 
 func _func_SecurityGroupService_CopySecurityGroupIPSets(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewSecurityGroupService(conf, zone)
+	qc := pb.NewSecurityGroupService("", "", zone)
 
 	in := new(pb.CopySecurityGroupIPSetsInput)
 

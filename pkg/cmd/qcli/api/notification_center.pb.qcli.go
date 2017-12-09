@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -77,9 +75,8 @@ var _flag_NotificationCenterService_DescribeNotificationCenterUserPosts = []cli.
 }
 
 func _func_NotificationCenterService_DescribeNotificationCenterUserPosts(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewNotificationCenterService(conf, zone)
+	qc := pb.NewNotificationCenterService("", "", zone)
 
 	in := new(pb.DescribeNotificationCenterUserPostsInput)
 

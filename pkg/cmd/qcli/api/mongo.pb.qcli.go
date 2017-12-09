@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -163,9 +161,8 @@ var _flag_MongoService_DescribeMongoNodes = []cli.Flag{
 }
 
 func _func_MongoService_DescribeMongoNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.DescribeMongoNodesInput)
 
@@ -227,9 +224,8 @@ var _flag_MongoService_DescribeMongoParameters = []cli.Flag{
 }
 
 func _func_MongoService_DescribeMongoParameters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.DescribeMongoParametersInput)
 
@@ -291,9 +287,8 @@ var _flag_MongoService_ResizeMongos = []cli.Flag{
 }
 
 func _func_MongoService_ResizeMongos(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.ResizeMongosInput)
 
@@ -382,9 +377,8 @@ var _flag_MongoService_CreateMongo = []cli.Flag{
 }
 
 func _func_MongoService_CreateMongo(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.CreateMongoInput)
 
@@ -453,9 +447,8 @@ var _flag_MongoService_StopMongos = []cli.Flag{
 }
 
 func _func_MongoService_StopMongos(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.StopMongosInput)
 
@@ -503,9 +496,8 @@ var _flag_MongoService_StartMongos = []cli.Flag{
 }
 
 func _func_MongoService_StartMongos(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.StartMongosInput)
 
@@ -583,9 +575,8 @@ var _flag_MongoService_DescribeMongos = []cli.Flag{
 }
 
 func _func_MongoService_DescribeMongos(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.DescribeMongosInput)
 
@@ -655,9 +646,8 @@ var _flag_MongoService_DeleteMongos = []cli.Flag{
 }
 
 func _func_MongoService_DeleteMongos(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.DeleteMongosInput)
 
@@ -725,9 +715,8 @@ var _flag_MongoService_CreateMongoFromSnapshot = []cli.Flag{
 }
 
 func _func_MongoService_CreateMongoFromSnapshot(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.CreateMongoFromSnapshotInput)
 
@@ -795,9 +784,8 @@ var _flag_MongoService_ChangeMongoVxnet = []cli.Flag{
 }
 
 func _func_MongoService_ChangeMongoVxnet(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.ChangeMongoVxnetInput)
 
@@ -861,9 +849,8 @@ var _flag_MongoService_AddMongoInstances = []cli.Flag{
 }
 
 func _func_MongoService_AddMongoInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.AddMongoInstancesInput)
 
@@ -922,9 +909,8 @@ var _flag_MongoService_RemoveMongoInstances = []cli.Flag{
 }
 
 func _func_MongoService_RemoveMongoInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.RemoveMongoInstancesInput)
 
@@ -990,9 +976,8 @@ var _flag_MongoService_ModifyMongoAttributes = []cli.Flag{
 }
 
 func _func_MongoService_ModifyMongoAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.ModifyMongoAttributesInput)
 
@@ -1047,9 +1032,8 @@ var _flag_MongoService_ModifyMongoInstances = []cli.Flag{
 }
 
 func _func_MongoService_ModifyMongoInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMongoService(conf, zone)
+	qc := pb.NewMongoService("", "", zone)
 
 	in := new(pb.ModifyMongoInstancesInput)
 

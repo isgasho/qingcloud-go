@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -281,9 +279,8 @@ var _flag_S2Service_CreateS2Server = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2Server(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.CreateS2ServerInput)
 
@@ -382,9 +379,8 @@ var _flag_S2Service_DescribeS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2Servers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DescribeS2ServersInput)
 
@@ -469,9 +465,8 @@ var _flag_S2Service_ModifyS2Server = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2Server(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.ModifyS2ServerInput)
 
@@ -528,9 +523,8 @@ var _flag_S2Service_ResizeS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_ResizeS2Servers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.ResizeS2ServersInput)
 
@@ -579,9 +573,8 @@ var _flag_S2Service_DeleteS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2Servers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DeleteS2ServersInput)
 
@@ -629,9 +622,8 @@ var _flag_S2Service_PowerOnS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_PowerOnS2Servers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.PowerOnS2ServersInput)
 
@@ -679,9 +671,8 @@ var _flag_S2Service_PowerOffS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_PowerOffS2Servers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.PowerOffS2ServersInput)
 
@@ -729,9 +720,8 @@ var _flag_S2Service_UpdateS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_UpdateS2Servers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.UpdateS2ServersInput)
 
@@ -789,9 +779,8 @@ var _flag_S2Service_ChangeS2ServerVxnet = []cli.Flag{
 }
 
 func _func_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.ChangeS2ServerVxnetInput)
 
@@ -873,9 +862,8 @@ var _flag_S2Service_CreateS2SharedTarget = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2SharedTarget(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.CreateS2SharedTargetInput)
 
@@ -978,9 +966,8 @@ var _flag_S2Service_DescribeS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DescribeS2SharedTargetsInput)
 
@@ -1051,9 +1038,8 @@ var _flag_S2Service_DeleteS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DeleteS2SharedTargetsInput)
 
@@ -1101,9 +1087,8 @@ var _flag_S2Service_EnableS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_EnableS2SharedTargets(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.EnableS2SharedTargetsInput)
 
@@ -1151,9 +1136,8 @@ var _flag_S2Service_DisableS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_DisableS2SharedTargets(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DisableS2SharedTargetsInput)
 
@@ -1226,9 +1210,8 @@ var _flag_S2Service_ModifyS2SharedTargetAttributes = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.ModifyS2SharedTargetAttributesInput)
 
@@ -1298,9 +1281,8 @@ var _flag_S2Service_AttachToS2SharedTarget = []cli.Flag{
 }
 
 func _func_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.AttachToS2SharedTargetInput)
 
@@ -1356,9 +1338,8 @@ var _flag_S2Service_DetachFromS2SharedTarget = []cli.Flag{
 }
 
 func _func_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DetachFromS2SharedTargetInput)
 
@@ -1424,9 +1405,8 @@ var _flag_S2Service_DescribeS2DefaultParameters = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DescribeS2DefaultParametersInput)
 
@@ -1496,9 +1476,8 @@ var _flag_S2Service_CreateS2Group = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2Group(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.CreateS2GroupInput)
 
@@ -1585,9 +1564,8 @@ var _flag_S2Service_DescribeS2Groups = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2Groups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DescribeS2GroupsInput)
 
@@ -1670,9 +1648,8 @@ var _flag_S2Service_ModifyS2Group = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2Group(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.ModifyS2GroupInput)
 
@@ -1729,9 +1706,8 @@ var _flag_S2Service_DeleteS2Groups = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2Groups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DeleteS2GroupsInput)
 
@@ -1814,9 +1790,8 @@ var _flag_S2Service_CreateS2Account = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2Account(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.CreateS2AccountInput)
 
@@ -1915,9 +1890,8 @@ var _flag_S2Service_DescribeS2Accounts = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2Accounts(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DescribeS2AccountsInput)
 
@@ -2010,9 +1984,8 @@ var _flag_S2Service_ModifyS2Account = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2Account(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.ModifyS2AccountInput)
 
@@ -2073,9 +2046,8 @@ var _flag_S2Service_DeleteS2Accounts = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2Accounts(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DeleteS2AccountsInput)
 
@@ -2128,9 +2100,8 @@ var _flag_S2Service_AssociateS2AccountGroup = []cli.Flag{
 }
 
 func _func_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.AssociateS2AccountGroupInput)
 
@@ -2177,9 +2148,8 @@ func _func_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 var _flag_S2Service_DissociateS2AccountGroup = []cli.Flag{}
 
 func _func_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewS2Service(conf, zone)
+	qc := pb.NewS2Service("", "", zone)
 
 	in := new(pb.DissociateS2AccountGroupInput)
 

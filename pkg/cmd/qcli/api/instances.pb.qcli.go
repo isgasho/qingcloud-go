@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -189,9 +187,8 @@ var _flag_InstanceService_DescribeInstances = []cli.Flag{
 }
 
 func _func_InstanceService_DescribeInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.DescribeInstancesInput)
 
@@ -382,9 +379,8 @@ var _flag_InstanceService_RunInstances = []cli.Flag{
 }
 
 func _func_InstanceService_RunInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.RunInstancesInput)
 
@@ -497,9 +493,8 @@ var _flag_InstanceService_TerminateInstances = []cli.Flag{
 }
 
 func _func_InstanceService_TerminateInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.TerminateInstancesInput)
 
@@ -547,9 +542,8 @@ var _flag_InstanceService_StartInstances = []cli.Flag{
 }
 
 func _func_InstanceService_StartInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.StartInstancesInput)
 
@@ -602,9 +596,8 @@ var _flag_InstanceService_StopInstances = []cli.Flag{
 }
 
 func _func_InstanceService_StopInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.StopInstancesInput)
 
@@ -655,9 +648,8 @@ var _flag_InstanceService_RestartInstances = []cli.Flag{
 }
 
 func _func_InstanceService_RestartInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.RestartInstancesInput)
 
@@ -725,9 +717,8 @@ var _flag_InstanceService_ResetInstances = []cli.Flag{
 }
 
 func _func_InstanceService_ResetInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.ResetInstancesInput)
 
@@ -802,9 +793,8 @@ var _flag_InstanceService_ResizeInstances = []cli.Flag{
 }
 
 func _func_InstanceService_ResizeInstances(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.ResizeInstancesInput)
 
@@ -876,9 +866,8 @@ var _flag_InstanceService_ModifyInstanceAttributes = []cli.Flag{
 }
 
 func _func_InstanceService_ModifyInstanceAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.ModifyInstanceAttributesInput)
 
@@ -943,9 +932,8 @@ var _flag_InstanceService_DescribeInstanceTypes = []cli.Flag{
 }
 
 func _func_InstanceService_DescribeInstanceTypes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.DescribeInstanceTypesInput)
 
@@ -999,9 +987,8 @@ var _flag_InstanceService_CreateBrokers = []cli.Flag{
 }
 
 func _func_InstanceService_CreateBrokers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.CreateBrokersInput)
 
@@ -1049,9 +1036,8 @@ var _flag_InstanceService_DeleteBrokers = []cli.Flag{
 }
 
 func _func_InstanceService_DeleteBrokers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewInstanceService(conf, zone)
+	qc := pb.NewInstanceService("", "", zone)
 
 	in := new(pb.DeleteBrokersInput)
 

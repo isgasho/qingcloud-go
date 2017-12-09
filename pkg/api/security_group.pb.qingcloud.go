@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type SecurityGroupServiceInterface interface {
@@ -40,14 +38,12 @@ type SecurityGroupServiceInterface interface {
 }
 
 type SecurityGroupService struct {
-	Config           *config.Config
 	Properties       *SecurityGroupServiceProperties
 	LastResponseBody string
 }
 
-func NewSecurityGroupService(conf *config.Config, zone string) (p *SecurityGroupService) {
+func NewSecurityGroupService(accessKeyId, secretAccessKey, zone string) (p *SecurityGroupService) {
 	return &SecurityGroupService{
-		Config:     conf,
 		Properties: &SecurityGroupServiceProperties{Zone: proto.String(zone)},
 	}
 }

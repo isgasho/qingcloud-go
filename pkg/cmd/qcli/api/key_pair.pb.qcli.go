@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -137,9 +135,8 @@ var _flag_KeyPairService_DescribeKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_DescribeKeyPairs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewKeyPairService(conf, zone)
+	qc := pb.NewKeyPairService("", "", zone)
 
 	in := new(pb.DescribeKeyPairsInput)
 
@@ -228,9 +225,8 @@ var _flag_KeyPairService_CreateKeyPair = []cli.Flag{
 }
 
 func _func_KeyPairService_CreateKeyPair(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewKeyPairService(conf, zone)
+	qc := pb.NewKeyPairService("", "", zone)
 
 	in := new(pb.CreateKeyPairInput)
 
@@ -285,9 +281,8 @@ var _flag_KeyPairService_DeleteKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_DeleteKeyPairs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewKeyPairService(conf, zone)
+	qc := pb.NewKeyPairService("", "", zone)
 
 	in := new(pb.DeleteKeyPairsInput)
 
@@ -340,9 +335,8 @@ var _flag_KeyPairService_AttachKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_AttachKeyPairs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewKeyPairService(conf, zone)
+	qc := pb.NewKeyPairService("", "", zone)
 
 	in := new(pb.AttachKeyPairsInput)
 
@@ -400,9 +394,8 @@ var _flag_KeyPairService_DetachKeyPairs = []cli.Flag{
 }
 
 func _func_KeyPairService_DetachKeyPairs(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewKeyPairService(conf, zone)
+	qc := pb.NewKeyPairService("", "", zone)
 
 	in := new(pb.DetachKeyPairsInput)
 
@@ -465,9 +458,8 @@ var _flag_KeyPairService_ModifyKeyPairAttributes = []cli.Flag{
 }
 
 func _func_KeyPairService_ModifyKeyPairAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewKeyPairService(conf, zone)
+	qc := pb.NewKeyPairService("", "", zone)
 
 	in := new(pb.ModifyKeyPairAttributesInput)
 

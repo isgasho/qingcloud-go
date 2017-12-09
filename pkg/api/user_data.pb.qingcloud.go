@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type UserDataServiceInterface interface {
@@ -23,14 +21,12 @@ type UserDataServiceInterface interface {
 }
 
 type UserDataService struct {
-	Config           *config.Config
 	Properties       *UserDataServiceProperties
 	LastResponseBody string
 }
 
-func NewUserDataService(conf *config.Config, zone string) (p *UserDataService) {
+func NewUserDataService(accessKeyId, secretAccessKey, zone string) (p *UserDataService) {
 	return &UserDataService{
-		Config:     conf,
 		Properties: &UserDataServiceProperties{Zone: proto.String(zone)},
 	}
 }

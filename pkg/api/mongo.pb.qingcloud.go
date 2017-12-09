@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type MongoServiceInterface interface {
@@ -36,14 +34,12 @@ type MongoServiceInterface interface {
 }
 
 type MongoService struct {
-	Config           *config.Config
 	Properties       *MongoServiceProperties
 	LastResponseBody string
 }
 
-func NewMongoService(conf *config.Config, zone string) (p *MongoService) {
+func NewMongoService(accessKeyId, secretAccessKey, zone string) (p *MongoService) {
 	return &MongoService{
-		Config:     conf,
 		Properties: &MongoServiceProperties{Zone: proto.String(zone)},
 	}
 }

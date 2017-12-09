@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -249,9 +247,8 @@ var _flag_ResourceACLService_DescribeSharedResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeSharedResourceGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeSharedResourceGroupsInput)
 
@@ -332,9 +329,8 @@ var _flag_ResourceACLService_DescribeResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeResourceGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeResourceGroupsInput)
 
@@ -410,9 +406,8 @@ var _flag_ResourceACLService_CreateResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_CreateResourceGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.CreateResourceGroupsInput)
 
@@ -474,9 +469,8 @@ var _flag_ResourceACLService_ModifyResourceGroupAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyResourceGroupAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.ModifyResourceGroupAttributesInput)
 
@@ -528,9 +522,8 @@ var _flag_ResourceACLService_DeleteResourceGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteResourceGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DeleteResourceGroupsInput)
 
@@ -608,9 +601,8 @@ var _flag_ResourceACLService_DescribeResourceGroupItems = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeResourceGroupItems(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeResourceGroupItemsInput)
 
@@ -683,9 +675,8 @@ var _flag_ResourceACLService_AddResourceGroupItems = []cli.Flag{
 }
 
 func _func_ResourceACLService_AddResourceGroupItems(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.AddResourceGroupItemsInput)
 
@@ -741,9 +732,8 @@ var _flag_ResourceACLService_DeleteResourceGroupItems = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteResourceGroupItems(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DeleteResourceGroupItemsInput)
 
@@ -829,9 +819,8 @@ var _flag_ResourceACLService_DescribeUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeUserGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeUserGroupsInput)
 
@@ -912,9 +901,8 @@ var _flag_ResourceACLService_CreateUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_CreateUserGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.CreateUserGroupsInput)
 
@@ -981,9 +969,8 @@ var _flag_ResourceACLService_ModifyUserGroupAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyUserGroupAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.ModifyUserGroupAttributesInput)
 
@@ -1038,9 +1025,8 @@ var _flag_ResourceACLService_DeleteUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteUserGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DeleteUserGroupsInput)
 
@@ -1128,9 +1114,8 @@ var _flag_ResourceACLService_DescribeUserGroupMembers = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeUserGroupMembers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeUserGroupMembersInput)
 
@@ -1211,9 +1196,8 @@ var _flag_ResourceACLService_AddUserGroupMembers = []cli.Flag{
 }
 
 func _func_ResourceACLService_AddUserGroupMembers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.AddUserGroupMembersInput)
 
@@ -1279,9 +1263,8 @@ var _flag_ResourceACLService_ModifyUserGroupMemberAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyUserGroupMemberAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.ModifyUserGroupMemberAttributesInput)
 
@@ -1341,9 +1324,8 @@ var _flag_ResourceACLService_DeleteUserGroupMembers = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteUserGroupMembers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DeleteUserGroupMembersInput)
 
@@ -1429,9 +1411,8 @@ var _flag_ResourceACLService_DescribeGroupRoles = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeGroupRoles(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeGroupRolesInput)
 
@@ -1517,9 +1498,8 @@ var _flag_ResourceACLService_CreateGroupRoles = []cli.Flag{
 }
 
 func _func_ResourceACLService_CreateGroupRoles(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.CreateGroupRolesInput)
 
@@ -1594,9 +1574,8 @@ var _flag_ResourceACLService_ModifyGroupRoleAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyGroupRoleAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.ModifyGroupRoleAttributesInput)
 
@@ -1654,9 +1633,8 @@ var _flag_ResourceACLService_DeleteGroupRoles = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteGroupRoles(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DeleteGroupRolesInput)
 
@@ -1739,9 +1717,8 @@ var _flag_ResourceACLService_DescribeGroupRoleRules = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeGroupRoleRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeGroupRoleRulesInput)
 
@@ -1824,9 +1801,8 @@ var _flag_ResourceACLService_AddGroupRoleRules = []cli.Flag{
 }
 
 func _func_ResourceACLService_AddGroupRoleRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.AddGroupRoleRulesInput)
 
@@ -1888,9 +1864,8 @@ var _flag_ResourceACLService_ModifyGroupRoleRuleAttributes = []cli.Flag{
 }
 
 func _func_ResourceACLService_ModifyGroupRoleRuleAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.ModifyGroupRoleRuleAttributesInput)
 
@@ -1947,9 +1922,8 @@ var _flag_ResourceACLService_DeleteGroupRoleRules = []cli.Flag{
 }
 
 func _func_ResourceACLService_DeleteGroupRoleRules(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DeleteGroupRoleRulesInput)
 
@@ -2002,9 +1976,8 @@ var _flag_ResourceACLService_GrantResourceGroupsToUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_GrantResourceGroupsToUserGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.GrantResourceGroupsToUserGroupsInput)
 
@@ -2067,9 +2040,8 @@ var _flag_ResourceACLService_RevokeResourceGroupsFromUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_RevokeResourceGroupsFromUserGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.RevokeResourceGroupsFromUserGroupsInput)
 
@@ -2167,9 +2139,8 @@ var _flag_ResourceACLService_DescribeResourceUserGroups = []cli.Flag{
 }
 
 func _func_ResourceACLService_DescribeResourceUserGroups(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewResourceACLService(conf, zone)
+	qc := pb.NewResourceACLService("", "", zone)
 
 	in := new(pb.DescribeResourceUserGroupsInput)
 

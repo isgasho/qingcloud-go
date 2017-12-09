@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type DNSAliasServiceInterface interface {
@@ -26,14 +24,12 @@ type DNSAliasServiceInterface interface {
 }
 
 type DNSAliasService struct {
-	Config           *config.Config
 	Properties       *DNSAliasServiceProperties
 	LastResponseBody string
 }
 
-func NewDNSAliasService(conf *config.Config, zone string) (p *DNSAliasService) {
+func NewDNSAliasService(accessKeyId, secretAccessKey, zone string) (p *DNSAliasService) {
 	return &DNSAliasService{
-		Config:     conf,
 		Properties: &DNSAliasServiceProperties{Zone: proto.String(zone)},
 	}
 }

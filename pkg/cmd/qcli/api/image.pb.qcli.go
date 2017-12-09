@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -156,9 +154,8 @@ var _flag_ImageService_DescribeImages = []cli.Flag{
 }
 
 func _func_ImageService_DescribeImages(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.DescribeImagesInput)
 
@@ -245,9 +242,8 @@ var _flag_ImageService_CaptureInstance = []cli.Flag{
 }
 
 func _func_ImageService_CaptureInstance(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.CaptureInstanceInput)
 
@@ -299,9 +295,8 @@ var _flag_ImageService_DeleteImages = []cli.Flag{
 }
 
 func _func_ImageService_DeleteImages(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.DeleteImagesInput)
 
@@ -359,9 +354,8 @@ var _flag_ImageService_ModifyImageAttributes = []cli.Flag{
 }
 
 func _func_ImageService_ModifyImageAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.ModifyImageAttributesInput)
 
@@ -418,9 +412,8 @@ var _flag_ImageService_GrantImageToUsers = []cli.Flag{
 }
 
 func _func_ImageService_GrantImageToUsers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.GrantImageToUsersInput)
 
@@ -476,9 +469,8 @@ var _flag_ImageService_RevokeImageFromUsers = []cli.Flag{
 }
 
 func _func_ImageService_RevokeImageFromUsers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.RevokeImageFromUsersInput)
 
@@ -539,9 +531,8 @@ var _flag_ImageService_DescribeImageUsers = []cli.Flag{
 }
 
 func _func_ImageService_DescribeImageUsers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.DescribeImageUsersInput)
 
@@ -603,9 +594,8 @@ var _flag_ImageService_CloneImages = []cli.Flag{
 }
 
 func _func_ImageService_CloneImages(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewImageService(conf, zone)
+	qc := pb.NewImageService("", "", zone)
 
 	in := new(pb.CloneImagesInput)
 

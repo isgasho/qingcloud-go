@@ -9,13 +9,11 @@ import proto "github.com/golang/protobuf/proto"
 import "fmt"
 
 import "github.com/chai2010/qingcloud-go/pkg/client"
-import "github.com/chai2010/qingcloud-go/pkg/config"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = fmt.Errorf
 var _ = proto.Marshal
 
-var _ = config.Config{}
 var _ = client.NewClient
 
 type RDBServiceInterface interface {
@@ -39,14 +37,12 @@ type RDBServiceInterface interface {
 }
 
 type RDBService struct {
-	Config           *config.Config
 	Properties       *RDBServiceProperties
 	LastResponseBody string
 }
 
-func NewRDBService(conf *config.Config, zone string) (p *RDBService) {
+func NewRDBService(accessKeyId, secretAccessKey, zone string) (p *RDBService) {
 	return &RDBService{
-		Config:     conf,
 		Properties: &RDBServiceProperties{Zone: proto.String(zone)},
 	}
 }

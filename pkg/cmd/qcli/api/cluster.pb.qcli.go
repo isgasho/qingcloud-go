@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -202,9 +200,8 @@ var _flag_ClusterService_CreateCluster = []cli.Flag{
 }
 
 func _func_ClusterService_CreateCluster(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.CreateClusterInput)
 
@@ -275,9 +272,8 @@ var _flag_ClusterService_DescribeClusters = []cli.Flag{
 }
 
 func _func_ClusterService_DescribeClusters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.DescribeClustersInput)
 
@@ -356,9 +352,8 @@ var _flag_ClusterService_DescribeClusterNodes = []cli.Flag{
 }
 
 func _func_ClusterService_DescribeClusterNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.DescribeClusterNodesInput)
 
@@ -417,9 +412,8 @@ var _flag_ClusterService_StopClusters = []cli.Flag{
 }
 
 func _func_ClusterService_StopClusters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.StopClustersInput)
 
@@ -470,9 +464,8 @@ var _flag_ClusterService_StartClusters = []cli.Flag{
 }
 
 func _func_ClusterService_StartClusters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.StartClustersInput)
 
@@ -520,9 +513,8 @@ var _flag_ClusterService_DeleteClusters = []cli.Flag{
 }
 
 func _func_ClusterService_DeleteClusters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.DeleteClustersInput)
 
@@ -570,9 +562,8 @@ var _flag_ClusterService_Lease = []cli.Flag{
 }
 
 func _func_ClusterService_Lease(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.LeaseInput)
 
@@ -640,9 +631,8 @@ var _flag_ClusterService_AddClusterNodes = []cli.Flag{
 }
 
 func _func_ClusterService_AddClusterNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.AddClusterNodesInput)
 
@@ -712,9 +702,8 @@ var _flag_ClusterService_DeleteClusterNodes = []cli.Flag{
 }
 
 func _func_ClusterService_DeleteClusterNodes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.DeleteClusterNodesInput)
 
@@ -788,9 +777,8 @@ var _flag_ClusterService_ResizeCluster = []cli.Flag{
 }
 
 func _func_ClusterService_ResizeCluster(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.ResizeClusterInput)
 
@@ -863,9 +851,8 @@ var _flag_ClusterService_ChangeClusterVxnet = []cli.Flag{
 }
 
 func _func_ClusterService_ChangeClusterVxnet(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.ChangeClusterVxnetInput)
 
@@ -924,9 +911,8 @@ var _flag_ClusterService_SuspendClusters = []cli.Flag{
 }
 
 func _func_ClusterService_SuspendClusters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.SuspendClustersInput)
 
@@ -984,9 +970,8 @@ var _flag_ClusterService_UpdateClusterEnvironment = []cli.Flag{
 }
 
 func _func_ClusterService_UpdateClusterEnvironment(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.UpdateClusterEnvironmentInput)
 
@@ -1052,9 +1037,8 @@ var _flag_ClusterService_ModifyClusterAttributes = []cli.Flag{
 }
 
 func _func_ClusterService_ModifyClusterAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.ModifyClusterAttributesInput)
 
@@ -1116,9 +1100,8 @@ var _flag_ClusterService_ModifyClusterNodeAttributes = []cli.Flag{
 }
 
 func _func_ClusterService_ModifyClusterNodeAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.ModifyClusterNodeAttributesInput)
 
@@ -1170,9 +1153,8 @@ var _flag_ClusterService_GetClustersStats = []cli.Flag{
 }
 
 func _func_ClusterService_GetClustersStats(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.GetClustersStatsInput)
 
@@ -1240,9 +1222,8 @@ var _flag_ClusterService_DescribeClusterUsers = []cli.Flag{
 }
 
 func _func_ClusterService_DescribeClusterUsers(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.DescribeClusterUsersInput)
 
@@ -1315,9 +1296,8 @@ var _flag_ClusterService_RestartClusterService = []cli.Flag{
 }
 
 func _func_ClusterService_RestartClusterService(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.RestartClusterServiceInput)
 
@@ -1371,9 +1351,8 @@ var _flag_ClusterService_UpgradeClusters = []cli.Flag{
 }
 
 func _func_ClusterService_UpgradeClusters(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.UpgradeClustersInput)
 
@@ -1424,9 +1403,8 @@ var _flag_ClusterService_AuthorizeClustersBrokerToDeveloper = []cli.Flag{
 }
 
 func _func_ClusterService_AuthorizeClustersBrokerToDeveloper(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.AuthorizeClustersBrokerToDeveloperInput)
 
@@ -1474,9 +1452,8 @@ var _flag_ClusterService_RevokeClustersBrokerFromDeveloper = []cli.Flag{
 }
 
 func _func_ClusterService_RevokeClustersBrokerFromDeveloper(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewClusterService(conf, zone)
+	qc := pb.NewClusterService("", "", zone)
 
 	in := new(pb.RevokeClustersBrokerFromDeveloperInput)
 

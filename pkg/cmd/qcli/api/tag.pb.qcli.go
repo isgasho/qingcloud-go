@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -117,9 +115,8 @@ var _flag_TagService_DescribeTags = []cli.Flag{
 }
 
 func _func_TagService_DescribeTags(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewTagService(conf, zone)
+	qc := pb.NewTagService("", "", zone)
 
 	in := new(pb.DescribeTagsInput)
 
@@ -179,9 +176,8 @@ var _flag_TagService_CreateTag = []cli.Flag{
 }
 
 func _func_TagService_CreateTag(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewTagService(conf, zone)
+	qc := pb.NewTagService("", "", zone)
 
 	in := new(pb.CreateTagInput)
 
@@ -227,9 +223,8 @@ var _flag_TagService_DeleteTags = []cli.Flag{
 }
 
 func _func_TagService_DeleteTags(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewTagService(conf, zone)
+	qc := pb.NewTagService("", "", zone)
 
 	in := new(pb.DeleteTagsInput)
 
@@ -287,9 +282,8 @@ var _flag_TagService_ModifyTagAttributes = []cli.Flag{
 }
 
 func _func_TagService_ModifyTagAttributes(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewTagService(conf, zone)
+	qc := pb.NewTagService("", "", zone)
 
 	in := new(pb.ModifyTagAttributesInput)
 
@@ -341,9 +335,8 @@ var _flag_TagService_AttachTags = []cli.Flag{
 }
 
 func _func_TagService_AttachTags(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewTagService(conf, zone)
+	qc := pb.NewTagService("", "", zone)
 
 	in := new(pb.AttachTagsInput)
 
@@ -391,9 +384,8 @@ var _flag_TagService_DetachTags = []cli.Flag{
 }
 
 func _func_TagService_DetachTags(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewTagService(conf, zone)
+	qc := pb.NewTagService("", "", zone)
 
 	in := new(pb.DetachTagsInput)
 

@@ -16,7 +16,6 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/config"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -30,7 +29,6 @@ var (
 	_ = jsonpb.Unmarshal
 	_ = proto.Marshal
 
-	_ = config.Config{}
 	_ = pb.AlarmService{}
 )
 
@@ -117,9 +115,8 @@ var _flag_MonitorService_GetMonitor = []cli.Flag{
 }
 
 func _func_MonitorService_GetMonitor(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService(conf, zone)
+	qc := pb.NewMonitorService("", "", zone)
 
 	in := new(pb.GetMonitorInput)
 
@@ -203,9 +200,8 @@ var _flag_MonitorService_GetLoadBalancerMonitor = []cli.Flag{
 }
 
 func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService(conf, zone)
+	qc := pb.NewMonitorService("", "", zone)
 
 	in := new(pb.GetLoadBalancerMonitorInput)
 
@@ -263,9 +259,8 @@ func _func_MonitorService_GetLoadBalancerMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetRDBMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService(conf, zone)
+	qc := pb.NewMonitorService("", "", zone)
 
 	in := new(pb.GetRDBMonitorInput)
 
@@ -302,9 +297,8 @@ func _func_MonitorService_GetRDBMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetCacheMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService(conf, zone)
+	qc := pb.NewMonitorService("", "", zone)
 
 	in := new(pb.GetCacheMonitorInput)
 
@@ -341,9 +335,8 @@ func _func_MonitorService_GetCacheMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetZooKeeperMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService(conf, zone)
+	qc := pb.NewMonitorService("", "", zone)
 
 	in := new(pb.GetZooKeeperMonitorInput)
 
@@ -380,9 +373,8 @@ func _func_MonitorService_GetZooKeeperMonitor(c *cli.Context) error {
 var _flag_MonitorService_GetQueueMonitor = []cli.Flag{}
 
 func _func_MonitorService_GetQueueMonitor(c *cli.Context) error {
-	conf := config.MustLoad(c.GlobalString("config"))
 	zone := c.GlobalString("zone")
-	qc := pb.NewMonitorService(conf, zone)
+	qc := pb.NewMonitorService("", "", zone)
 
 	in := new(pb.GetQueueMonitorInput)
 
