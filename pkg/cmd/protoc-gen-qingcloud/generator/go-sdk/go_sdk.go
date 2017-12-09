@@ -95,20 +95,22 @@ type {{.GetServiceName}}Interface interface {
 
 type {{.GetServiceName}} struct {
 	ServerInfo       *ServerInfo
-	Properties       *{{.GetServiceName}}Properties
 	LastResponseBody string
 }
 
-func New{{.GetServiceName}}(server *ServerInfo, serviceProp *{{.GetServiceName}}Properties) (p *{{.GetServiceName}}) {
+func New{{.GetServiceName}}(server *ServerInfo) (p *{{.GetServiceName}}) {
 	return &{{.GetServiceName}}{
 		ServerInfo: server,
-		Properties: serviceProp,
 	}
 }
 
 {{range $_, $m := .GetMethodList}}
 func (p *{{$service.GetServiceName}}) {{$m.GetMethodName}}(input *{{$m.GetInputTypeName}}) (output *{{$m.OutputTypeName}}, err error) {
-	client := client.NewClient("", "", nil)
+	client := client.NewClient(
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		nil,
+	)
 	output = new({{$m.GetOutputTypeName}})
 
 	err = client.CallMethod(nil, "{{$m.GetMethodName}}", input, output, nil)
