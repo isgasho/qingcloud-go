@@ -327,7 +327,7 @@ var _flag_{{$ServiceName}}_{{$MethodName}} = []cli.Flag{
 }
 
 func _func_{{$ServiceName}}_{{$MethodName}}(c *cli.Context) error {
-	qc := pb.New{{$ServiceName}}(nil)
+	qc := pb.New{{$ServiceName}}(pkgGetServerInfo())
 	in := new(pb.{{$MethodInputName}})
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

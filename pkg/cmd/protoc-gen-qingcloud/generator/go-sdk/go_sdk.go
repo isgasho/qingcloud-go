@@ -107,9 +107,9 @@ func New{{.GetServiceName}}(server *ServerInfo) (p *{{.GetServiceName}}) {
 {{range $_, $m := .GetMethodList}}
 func (p *{{$service.GetServiceName}}) {{$m.GetMethodName}}(input *{{$m.GetInputTypeName}}) (output *{{$m.OutputTypeName}}, err error) {
 	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
-		nil,
 	)
 	output = new({{$m.GetOutputTypeName}})
 
