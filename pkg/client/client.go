@@ -13,9 +13,9 @@ import (
 
 	"github.com/golang/protobuf/proto"
 
-	"github.com/chai2010/qingcloud-go/pkg/errors"
 	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 	"github.com/chai2010/qingcloud-go/pkg/signature"
+	"github.com/chai2010/qingcloud-go/pkg/status"
 )
 
 type Client struct {
@@ -87,7 +87,7 @@ func DecodeResponse(resp *http.Response, output proto.Message) error {
 	resp.Body.Close()
 
 	if resp.StatusCode != 200 || resp.Header.Get("Content-Type") != "application/json" {
-		return errors.New(int32(resp.StatusCode), string(buf.Bytes()))
+		return status.NewError(int32(resp.StatusCode), string(buf.Bytes()))
 	}
 
 	err := pbutil.DecodeJson(buf.Bytes(), output)
@@ -95,9 +95,9 @@ func DecodeResponse(resp *http.Response, output proto.Message) error {
 		return err
 	}
 
-	if x, ok := output.(errors.Error); ok {
-		if x.GetRetCode() != 0 {
-			return errors.New(x.GetRetCode(), x.GetMessage())
+	if s, ok := output.(status.Status); ok {
+		if err := status.Error(s); err != nil {
+			return err
 		}
 	}
 

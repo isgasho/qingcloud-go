@@ -22,6 +22,32 @@ func Newf(code int32, format string, a ...interface{}) Status {
 	return &pkgStatus{code: code, desc: fmt.Sprintf(format, a...)}
 }
 
+func NewError(code int32, msg string) error {
+	if code == 0 || code == int32(http.StatusOK) {
+		return nil
+	}
+
+	return &pkgError{
+		pkgStatus: pkgStatus{
+			code: code,
+			desc: msg,
+		},
+	}
+}
+
+func NewErrorf(code int32, format string, a ...interface{}) error {
+	if code == 0 || code == int32(http.StatusOK) {
+		return nil
+	}
+
+	return &pkgError{
+		pkgStatus: pkgStatus{
+			code: code,
+			desc: fmt.Sprintf(format, a...),
+		},
+	}
+}
+
 func Error(s Status) error {
 	if s == nil {
 		return nil
@@ -60,5 +86,16 @@ type pkgError struct {
 }
 
 func (p *pkgError) Error() string {
-	return fmt.Sprintf("error: code = %v, desc = %v", p.code, p.desc)
+	return fmt.Sprintf(
+		"error: code = %d %s, desc = %v",
+		p.code, pkgCodeText(p.code),
+		p.desc,
+	)
+}
+
+func pkgCodeText(code int32) string {
+	if s := http.StatusText(int(code)); s != "" {
+		return s
+	}
+	return "unknown code"
 }
