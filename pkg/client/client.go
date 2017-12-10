@@ -18,6 +18,10 @@ import (
 	"github.com/chai2010/qingcloud-go/pkg/status"
 )
 
+type Validator interface {
+	Validate() error
+}
+
 type Client struct {
 	accessKeyId     string
 	secretAccessKey string
@@ -37,6 +41,12 @@ func (p *Client) CallMethod(
 	input, output proto.Message,
 	opt *CallOptions,
 ) error {
+	if x, ok := input.(Validator); ok {
+		if err := x.Validate(); err != nil {
+			return err
+		}
+	}
+
 	inputMap, err := pbutil.ProtoMessageToMap(input)
 	if err != nil {
 		return err
