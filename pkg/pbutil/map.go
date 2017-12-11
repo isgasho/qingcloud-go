@@ -7,6 +7,7 @@ package pbutil
 import (
 	_ "github.com/fatih/structs"
 	"github.com/golang/protobuf/proto"
+	"github.com/mitchellh/mapstructure"
 )
 
 func EncodeToMap(msg proto.Message) (m map[string]string, err error) {
@@ -14,5 +15,5 @@ func EncodeToMap(msg proto.Message) (m map[string]string, err error) {
 }
 
 func DecodeFromMap(m map[string]string, x proto.Message) error {
-	panic("TODO")
+	return mapstructure.Decode(m, x)
 }

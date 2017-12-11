@@ -57,6 +57,12 @@
 			"revisionTime": "2017-07-26T21:28:29Z"
 		},
 		{
+			"checksumSHA1": "EHjhpHipgm+XGccrRAms9AW3Ewk=",
+			"path": "github.com/mitchellh/mapstructure",
+			"revision": "d0303fe809921458f417bcf828397a65db30a7e4",
+			"revisionTime": "2017-05-23T03:00:23Z"
+		},
+		{
 			"checksumSHA1": "9/2bmiVZTtVxrBcK+zb/VBQ2Eh0=",
 			"path": "github.com/urfave/cli",
 			"revision": "119bb6564841921ce6f1401e0f5d75317bdd9f4d",
