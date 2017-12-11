@@ -2,6 +2,8 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
+// https://docs.qingcloud.com/api/common/error_code.html
+
 package status
 
 const (
