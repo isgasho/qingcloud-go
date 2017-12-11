@@ -9,6 +9,8 @@
 PROTO_API_FILES=$(sort $(wildcard ./*.proto))
 PROTO_API_METADATA_FILES=$(sort $(wildcard ./spec_metadata/*.proto))
 
+PROTOC:=docker run --rm -it -v `pwd`/../:`pwd`/../ -w `pwd` chai2010/qingcloud-go:builder protoc
+
 .PHONY: default
 default: $(SOURCES) Makefile spec_metadata api
 
