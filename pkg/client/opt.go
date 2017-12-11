@@ -10,18 +10,10 @@ import (
 
 type CallOptions struct {
 	HttpClient *http.Client
-	HttpMethod *string
-}
-
-func (p *CallOptions) GetHttpMethod() string {
-	if p == nil || p.HttpMethod == nil {
-		return "GET"
-	}
-	return *p.HttpMethod
 }
 
 func (p *CallOptions) GetHttpClient() *http.Client {
-	if p == nil || p.HttpMethod == nil {
+	if p == nil || p.HttpClient == nil {
 		return http.DefaultClient
 	}
 	return p.HttpClient

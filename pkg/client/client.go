@@ -6,9 +6,9 @@ package client
 
 import (
 	"bytes"
-	"context"
 	"fmt"
 	"net/http"
+	"net/url"
 	"strings"
 
 	"github.com/golang/protobuf/proto"
@@ -26,18 +26,20 @@ type Client struct {
 	accessKeyId     string
 	secretAccessKey string
 	apiServer       string
+	zone            string
 }
 
-func NewClient(apiServer, accessKeyId, secretAccessKey string) *Client {
+func NewClient(apiServer, accessKeyId, secretAccessKey, zone string) *Client {
 	return &Client{
 		apiServer:       apiServer,
 		accessKeyId:     accessKeyId,
 		secretAccessKey: secretAccessKey,
+		zone:            zone,
 	}
 }
 
 func (p *Client) CallMethod(
-	c context.Context, svcMethod string,
+	svcMethodName, httpMethod string,
 	input, output proto.Message,
 	opt *CallOptions,
 ) error {
@@ -52,16 +54,16 @@ func (p *Client) CallMethod(
 		return err
 	}
 
-	inputMap["action"] = svcMethod
+	inputMap["action"] = svcMethodName
 
 	query, _ := signature.Build(
 		p.accessKeyId, p.secretAccessKey,
-		opt.GetHttpMethod(), p.getApiServerPath(),
+		httpMethod, p.getApiServerPath(),
 		inputMap,
 	)
 
-	switch method := opt.GetHttpMethod(); method {
-	case "GET", "":
+	switch httpMethod {
+	case "GET":
 		resp, err := opt.GetHttpClient().Get(p.apiServer + "?" + query)
 		if err != nil {
 			return err
@@ -84,11 +86,13 @@ func (p *Client) CallMethod(
 		return nil
 
 	default:
-		return fmt.Errorf("pkg/client.CallMethod: unsupport methond %v", method)
+		return fmt.Errorf("pkg/client.CallMethod: unsupport methond %v", httpMethod)
 	}
 }
+
 func (p *Client) getApiServerPath() string {
-	panic("TODO")
+	u, _ := url.Parse(p.apiServer)
+	return u.Path
 }
 
 func DecodeResponse(resp *http.Response, output proto.Message) error {
