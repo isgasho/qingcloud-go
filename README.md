@@ -42,31 +42,6 @@
 
 - [api](api)
 
-## 配置文件
-
-当前用户的配置文件在 `${HOME}/.qingcloud/config.yaml`, 内容如下:
-
-```yaml
-# QingCloud services configuration
-
-qy_access_key_id: 'ACCESS_KEY_ID'
-qy_secret_access_key: 'SECRET_ACCESS_KEY'
-
-host: 'api.qingcloud.com'
-port: 443
-protocol: 'https'
-uri: '/iaas'
-
-json_disable_unknown_fields: false
-
-# Valid log levels are "debug", "info", "warn", "error", and "fatal".
-log_level: 'warn'
-```
-
-将 `qy_access_key_id` 和 `qy_secret_access_key` 字段替换为 API密钥 中的内容.
-
-其中 `json_disable_unknown_fields` 是新加的变量, 表示在JSON解码时忽略 proto.Message 遇到未定义成员的错误.
-
 ## qcli 命令行
 
 Docker 运行:
@@ -132,11 +107,13 @@ COMMANDS:
      help, h             Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --config value, -c value  config file (default: "~/.qingcloud/config.yaml") [$QCLI_CONFIG_FILE]
-   --zone value, -z value    zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...) (default: "pk3a") [$QCLI_ZONE]
-   --glog_level value        glog level to stderr (INFO,WARNING,ERROR,FATAL) (default: "WARNING") [$QCLI_GLOG_LEVEL]
-   --help, -h                show help
-   --version, -v             print the version
+   --config value, -c value             config file (default: "~/.qingcloud/qcli.json") [$QCLI_CONFIG_FILE]
+   --api_server value, -s value         api server (default: "https://api.qingcloud.com/iaas/") [$QCLI_API_SERVER]
+   --access_key_id value, -i value      access key id [$QCLI_ACCESS_KEY_ID]
+   --secret_access_key value, -k value  secret access key [$QCLI_SECRET_ACCESS_KEY]
+   --zone value, -z value               zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...) (default: "pk3a") [$QCLI_ZONE]
+   --help, -h                           show help
+   --version, -v                        print the version
 chai-mba:qingcloud-go chai$
 ```
 
@@ -156,13 +133,17 @@ import (
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 
-	"github.com/chai2010/qingcloud-go/pkg/config"
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
+	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 )
 
 func main() {
 	// 返回 NIC 服务, pek3a 为 北京3区-A
-	nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
+	nicService := pb.NewNicService(&pb.ServerInfo{
+		AccessKeyId: proto.String("QYACCESSKEYIDEXAMPLE"),
+		SecretAccessKey: proto.String("SECRETACCESSKEY"),
+		Zone: proto.String("pk3a"),
+	}
 
 	// 列出所有网卡
 	reply, err := nicService.DescribeNics(nil)
@@ -174,29 +155,9 @@ func main() {
 	// nicService.LastResponseBody
 
 	// JSON 格式打印
-	fmt.Println(jsonpbEncode(reply))
+	s, _ := pbutil.EncodeJsonIndent(reply)
+	fmt.Println(s)
 }
-
-// pb转json, 采用原始名称, 不忽略空值
-func jsonpbEncode(m proto.Message) string {
-	jsonMarshaler := &jsonpb.Marshaler{
-		OrigName:     true,
-		EnumsAsInts:  true,
-		EmitDefaults: true,
-		Indent:       "  ",
-	}
-	s, err := jsonMarshaler.MarshalToString(m)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return s
-}
-```
-
-初始化子服务也可以用以下方式:
-
-```go
-nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
 ```
 
 运行例子:
@@ -204,6 +165,8 @@ nicService := pb.NewNicService(config.MustLoadUserConfig(), "pek3a")
 	go run ./docs/hello.go
 
 [更多例子](docs/examples).
+
+<!--
 
 ## 文档指南
 
@@ -271,6 +234,10 @@ func (p *UserDataService) UploadUserDataAttachment(
 
 规范文件的语法细节可以参考 [api/README.md](./api/README.md), proto3 文件语法可以参考 [Protobuf](https://developers.google.cn/protocol-buffers/docs/proto3) 的官方文档.
 
+-->
+
+<!--
+
 ## 官方 SDK 对比
 
 [Volume](https://docs.qingcloud.com/api/volume/index.html) 服务接口规范文件对比:
@@ -278,6 +245,7 @@ func (p *UserDataService) UploadUserDataAttachment(
 - protobuf 格式: [chai2010/qingcloud-go/api/volume.proto](./api/volume.proto)
 - snips 格式: [yunify/qingcloud-api-specs/2013-08-30/swagger/volume.json](https://github.com/yunify/qingcloud-api-specs/blob/master/2013-08-30/swagger/volume.json)
 
+-->
 
 ## 版权
 
