@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 
 	"github.com/golang/protobuf/proto"
 
@@ -55,6 +56,7 @@ func (p *Client) CallMethod(
 	}
 
 	inputMap["action"] = svcMethodName
+	inputMap["time_stamp"] = time.Now().UTC().Format("2006-01-02T15:04:05Z")
 
 	query, _ := signature.Build(
 		p.accessKeyId, p.secretAccessKey,

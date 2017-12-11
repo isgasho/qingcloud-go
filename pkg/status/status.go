@@ -87,8 +87,8 @@ type pkgError struct {
 
 func (p *pkgError) Error() string {
 	return fmt.Sprintf(
-		"error: code = %d %s, desc = %v",
-		p.code, pkgCodeText(p.code),
+		"error: code = %d, desc = %v",
+		p.code,
 		p.desc,
 	)
 }
