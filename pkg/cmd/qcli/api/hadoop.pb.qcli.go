@@ -96,7 +96,7 @@ var _flag_HadoopService_AddHadoopNodes = []cli.Flag{
 }
 
 func _func_HadoopService_AddHadoopNodes(c *cli.Context) error {
-	qc := pb.NewHadoopService(pkgGetServerInfo())
+	qc := pb.NewHadoopService(pkgGetServerInfo(c))
 	in := new(pb.AddHadoopNodesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -157,7 +157,7 @@ var _flag_HadoopService_DeleteHadoopNodes = []cli.Flag{
 }
 
 func _func_HadoopService_DeleteHadoopNodes(c *cli.Context) error {
-	qc := pb.NewHadoopService(pkgGetServerInfo())
+	qc := pb.NewHadoopService(pkgGetServerInfo(c))
 	in := new(pb.DeleteHadoopNodesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -207,7 +207,7 @@ var _flag_HadoopService_StartHadoops = []cli.Flag{
 }
 
 func _func_HadoopService_StartHadoops(c *cli.Context) error {
-	qc := pb.NewHadoopService(pkgGetServerInfo())
+	qc := pb.NewHadoopService(pkgGetServerInfo(c))
 	in := new(pb.StartHadoopsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -254,7 +254,7 @@ var _flag_HadoopService_StopHadoops = []cli.Flag{
 }
 
 func _func_HadoopService_StopHadoops(c *cli.Context) error {
-	qc := pb.NewHadoopService(pkgGetServerInfo())
+	qc := pb.NewHadoopService(pkgGetServerInfo(c))
 	in := new(pb.StopHadoopsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

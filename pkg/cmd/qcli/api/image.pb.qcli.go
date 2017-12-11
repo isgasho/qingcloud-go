@@ -154,7 +154,7 @@ var _flag_ImageService_DescribeImages = []cli.Flag{
 }
 
 func _func_ImageService_DescribeImages(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.DescribeImagesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -240,7 +240,7 @@ var _flag_ImageService_CaptureInstance = []cli.Flag{
 }
 
 func _func_ImageService_CaptureInstance(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.CaptureInstanceInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -291,7 +291,7 @@ var _flag_ImageService_DeleteImages = []cli.Flag{
 }
 
 func _func_ImageService_DeleteImages(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.DeleteImagesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -348,7 +348,7 @@ var _flag_ImageService_ModifyImageAttributes = []cli.Flag{
 }
 
 func _func_ImageService_ModifyImageAttributes(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.ModifyImageAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -404,7 +404,7 @@ var _flag_ImageService_GrantImageToUsers = []cli.Flag{
 }
 
 func _func_ImageService_GrantImageToUsers(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.GrantImageToUsersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -459,7 +459,7 @@ var _flag_ImageService_RevokeImageFromUsers = []cli.Flag{
 }
 
 func _func_ImageService_RevokeImageFromUsers(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.RevokeImageFromUsersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -519,7 +519,7 @@ var _flag_ImageService_DescribeImageUsers = []cli.Flag{
 }
 
 func _func_ImageService_DescribeImageUsers(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.DescribeImageUsersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -580,7 +580,7 @@ var _flag_ImageService_CloneImages = []cli.Flag{
 }
 
 func _func_ImageService_CloneImages(c *cli.Context) error {
-	qc := pb.NewImageService(pkgGetServerInfo())
+	qc := pb.NewImageService(pkgGetServerInfo(c))
 	in := new(pb.CloneImagesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

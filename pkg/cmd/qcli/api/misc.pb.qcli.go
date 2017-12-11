@@ -204,7 +204,7 @@ var _flag_MiscService_GrantQuotaIndep = []cli.Flag{
 }
 
 func _func_MiscService_GrantQuotaIndep(c *cli.Context) error {
-	qc := pb.NewMiscService(pkgGetServerInfo())
+	qc := pb.NewMiscService(pkgGetServerInfo(c))
 	in := new(pb.GrantQuotaIndepInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -332,7 +332,7 @@ var _flag_MiscService_RevokeQuotaIndep = []cli.Flag{
 }
 
 func _func_MiscService_RevokeQuotaIndep(c *cli.Context) error {
-	qc := pb.NewMiscService(pkgGetServerInfo())
+	qc := pb.NewMiscService(pkgGetServerInfo(c))
 	in := new(pb.RevokeQuotaIndepInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -380,7 +380,7 @@ var _flag_MiscService_GetQuotaLeft = []cli.Flag{
 }
 
 func _func_MiscService_GetQuotaLeft(c *cli.Context) error {
-	qc := pb.NewMiscService(pkgGetServerInfo())
+	qc := pb.NewMiscService(pkgGetServerInfo(c))
 	in := new(pb.GetQuotaLeftInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {

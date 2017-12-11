@@ -279,7 +279,7 @@ var _flag_S2Service_CreateS2Server = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2Server(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.CreateS2ServerInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -377,7 +377,7 @@ var _flag_S2Service_DescribeS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2Servers(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DescribeS2ServersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -461,7 +461,7 @@ var _flag_S2Service_ModifyS2Server = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2Server(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.ModifyS2ServerInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -517,7 +517,7 @@ var _flag_S2Service_ResizeS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_ResizeS2Servers(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.ResizeS2ServersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -565,7 +565,7 @@ var _flag_S2Service_DeleteS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2Servers(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DeleteS2ServersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -612,7 +612,7 @@ var _flag_S2Service_PowerOnS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_PowerOnS2Servers(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.PowerOnS2ServersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -659,7 +659,7 @@ var _flag_S2Service_PowerOffS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_PowerOffS2Servers(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.PowerOffS2ServersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -706,7 +706,7 @@ var _flag_S2Service_UpdateS2Servers = []cli.Flag{
 }
 
 func _func_S2Service_UpdateS2Servers(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.UpdateS2ServersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -763,7 +763,7 @@ var _flag_S2Service_ChangeS2ServerVxnet = []cli.Flag{
 }
 
 func _func_S2Service_ChangeS2ServerVxnet(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.ChangeS2ServerVxnetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -844,7 +844,7 @@ var _flag_S2Service_CreateS2SharedTarget = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2SharedTarget(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.CreateS2SharedTargetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -946,7 +946,7 @@ var _flag_S2Service_DescribeS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2SharedTargets(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DescribeS2SharedTargetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1016,7 +1016,7 @@ var _flag_S2Service_DeleteS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2SharedTargets(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DeleteS2SharedTargetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1063,7 +1063,7 @@ var _flag_S2Service_EnableS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_EnableS2SharedTargets(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.EnableS2SharedTargetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1110,7 +1110,7 @@ var _flag_S2Service_DisableS2SharedTargets = []cli.Flag{
 }
 
 func _func_S2Service_DisableS2SharedTargets(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DisableS2SharedTargetsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1182,7 +1182,7 @@ var _flag_S2Service_ModifyS2SharedTargetAttributes = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2SharedTargetAttributes(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.ModifyS2SharedTargetAttributesInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1251,7 +1251,7 @@ var _flag_S2Service_AttachToS2SharedTarget = []cli.Flag{
 }
 
 func _func_S2Service_AttachToS2SharedTarget(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.AttachToS2SharedTargetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1306,7 +1306,7 @@ var _flag_S2Service_DetachFromS2SharedTarget = []cli.Flag{
 }
 
 func _func_S2Service_DetachFromS2SharedTarget(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DetachFromS2SharedTargetInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1371,7 +1371,7 @@ var _flag_S2Service_DescribeS2DefaultParameters = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2DefaultParameters(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DescribeS2DefaultParametersInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1440,7 +1440,7 @@ var _flag_S2Service_CreateS2Group = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2Group(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.CreateS2GroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1526,7 +1526,7 @@ var _flag_S2Service_DescribeS2Groups = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2Groups(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DescribeS2GroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1608,7 +1608,7 @@ var _flag_S2Service_ModifyS2Group = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2Group(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.ModifyS2GroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1664,7 +1664,7 @@ var _flag_S2Service_DeleteS2Groups = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2Groups(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DeleteS2GroupsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1746,7 +1746,7 @@ var _flag_S2Service_CreateS2Account = []cli.Flag{
 }
 
 func _func_S2Service_CreateS2Account(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.CreateS2AccountInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1844,7 +1844,7 @@ var _flag_S2Service_DescribeS2Accounts = []cli.Flag{
 }
 
 func _func_S2Service_DescribeS2Accounts(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DescribeS2AccountsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1936,7 +1936,7 @@ var _flag_S2Service_ModifyS2Account = []cli.Flag{
 }
 
 func _func_S2Service_ModifyS2Account(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.ModifyS2AccountInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -1996,7 +1996,7 @@ var _flag_S2Service_DeleteS2Accounts = []cli.Flag{
 }
 
 func _func_S2Service_DeleteS2Accounts(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DeleteS2AccountsInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -2048,7 +2048,7 @@ var _flag_S2Service_AssociateS2AccountGroup = []cli.Flag{
 }
 
 func _func_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.AssociateS2AccountGroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
@@ -2094,7 +2094,7 @@ func _func_S2Service_AssociateS2AccountGroup(c *cli.Context) error {
 var _flag_S2Service_DissociateS2AccountGroup = []cli.Flag{}
 
 func _func_S2Service_DissociateS2AccountGroup(c *cli.Context) error {
-	qc := pb.NewS2Service(pkgGetServerInfo())
+	qc := pb.NewS2Service(pkgGetServerInfo(c))
 	in := new(pb.DissociateS2AccountGroupInput)
 
 	if c.NArg() == 1 && c.Args().Get(0) == "-" {
