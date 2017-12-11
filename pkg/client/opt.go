@@ -5,29 +5,24 @@
 package client
 
 import (
-	"time"
-)
-
-var (
-	DefaultCallTimeout       = time.Duration(0)
-	DefaultCallRequestMethod = "GET"
+	"net/http"
 )
 
 type CallOptions struct {
-	RequestMethod *string
-	Timeout       *time.Duration
+	HttpClient *http.Client
+	HttpMethod *string
 }
 
-func (p *CallOptions) GetRequestMethod() string {
-	if p == nil || p.RequestMethod == nil {
-		return DefaultCallRequestMethod
+func (p *CallOptions) GetHttpMethod() string {
+	if p == nil || p.HttpMethod == nil {
+		return "GET"
 	}
-	return *p.RequestMethod
+	return *p.HttpMethod
 }
 
-func (p *CallOptions) GetTimeout() time.Duration {
-	if p == nil || p.Timeout == nil {
-		return DefaultCallTimeout
+func (p *CallOptions) GetHttpClient() *http.Client {
+	if p == nil || p.HttpMethod == nil {
+		return http.DefaultClient
 	}
-	return *p.Timeout
+	return p.HttpClient
 }

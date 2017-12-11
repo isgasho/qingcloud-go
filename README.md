@@ -139,20 +139,17 @@ import (
 
 func main() {
 	// 返回 NIC 服务, pek3a 为 北京3区-A
-	nicService := pb.NewNicService(&pb.ServerInfo{
+	qnic := pb.NewNicService(&pb.ServerInfo{
 		AccessKeyId: proto.String("QYACCESSKEYIDEXAMPLE"),
 		SecretAccessKey: proto.String("SECRETACCESSKEY"),
 		Zone: proto.String("pk3a"),
-	}
+	})
 
 	// 列出所有网卡
-	reply, err := nicService.DescribeNics(nil)
+	reply, err := qnic.DescribeNics(nil)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	// 原始返回的json数据
-	// nicService.LastResponseBody
 
 	// JSON 格式打印
 	s, _ := pbutil.EncodeJsonIndent(reply)

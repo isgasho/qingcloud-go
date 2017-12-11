@@ -56,13 +56,13 @@ func (p *Client) CallMethod(
 
 	query, _ := signature.Build(
 		p.accessKeyId, p.secretAccessKey,
-		opt.GetRequestMethod(), p.getApiServerPath(),
+		opt.GetHttpMethod(), p.getApiServerPath(),
 		inputMap,
 	)
 
-	switch method := opt.GetRequestMethod(); method {
-	case "GET":
-		resp, err := http.Get(p.apiServer + "?" + query)
+	switch method := opt.GetHttpMethod(); method {
+	case "GET", "":
+		resp, err := opt.GetHttpClient().Get(p.apiServer + "?" + query)
 		if err != nil {
 			return err
 		}
@@ -73,7 +73,7 @@ func (p *Client) CallMethod(
 		return nil
 
 	case "POST":
-		resp, err := http.Post(p.apiServer, "application/json", strings.NewReader(query))
+		resp, err := opt.GetHttpClient().Post(p.apiServer, "application/json", strings.NewReader(query))
 		if err != nil {
 			return err
 		}
