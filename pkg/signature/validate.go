@@ -43,9 +43,10 @@ func pkgDecodeQueryToMapString(query string) (m map[string]string) {
 			return
 		}
 
-		k := strings.TrimSpace(kv[0])
-		v, err := url.PathUnescape(kv[1])
-		if err != nil {
+		k, errk := url.PathUnescape(kv[0])
+		v, errv := url.PathUnescape(kv[1])
+
+		if errk != nil || errv != nil {
 			return
 		}
 

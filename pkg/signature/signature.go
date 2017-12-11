@@ -54,6 +54,7 @@ func makeSortedUrlQueryString(m map[string]string) string {
 
 	parts := make([]string, 0, len(keys))
 	for _, ki := range keys {
+		ki := url.QueryEscape(ki)
 		vi := strings.Replace(url.QueryEscape(m[ki]), "+", "%20", -1)
 		parts = append(parts, ki+"="+vi)
 	}
