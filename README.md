@@ -8,6 +8,8 @@
 [![API Reference](http://img.shields.io/badge/api-reference-green.svg)](http://docs.qingcloud.com)
 [![License](http://img.shields.io/badge/license-apache%20v2-blue.svg)](https://github.com/chai2010/qingcloud-go/blob/master/LICENSE)
 
+<!--
+
 新开 SDK 的原因:
 
 - 官方 SDK 迟迟没有 release, 项目活跃度较低
@@ -16,6 +18,8 @@
 - 基于 Ptotobuf 构建, 解决方案简单优美, 稳定性和可扩展性足够好, Docker/Kubernetes 都用它
 - 其它通过非主流的工具构建的方式, 除了作者本人根本没有投入的必要
 - 缺少一个完备的和 SDK 基本等价的命令行工具
+
+-->
 
 项目目标:
 
