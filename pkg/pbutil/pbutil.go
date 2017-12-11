@@ -28,6 +28,20 @@ func EncodeJson(x proto.Message) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
+func EncodeJsonIndent(m proto.Message) (string, error) {
+	jsonMarshaler := &jsonpb.Marshaler{
+		OrigName:     true,
+		EnumsAsInts:  true,
+		EmitDefaults: true,
+		Indent:       "  ",
+	}
+	s, err := jsonMarshaler.MarshalToString(m)
+	if err != nil {
+		return "", err
+	}
+	return s, nil
+}
+
 func DecodeJson(data []byte, x proto.Message) error {
 	decoder := &jsonpb.Unmarshaler{
 		AllowUnknownFields: true,
