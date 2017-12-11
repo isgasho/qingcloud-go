@@ -47,7 +47,7 @@ func makeStringToSign(method, urlpath, sortedQueryString string) string {
 
 func makeSortedUrlQueryString(m map[string]string) string {
 	keys := make([]string, 0, len(m))
-	for k, _ := range m {
+	for k := range m {
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
