@@ -6,7 +6,7 @@
 
 FROM golang:1.9.2-alpine3.6 as builder
 
-RUN apk add --no-cache git protobuf
+RUN apk add --no-cache make git protobuf
 
 WORKDIR /go/src/github.com/chai2010/qingcloud-go/
 COPY . .
