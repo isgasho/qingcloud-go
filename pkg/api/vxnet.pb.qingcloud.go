@@ -42,10 +42,11 @@ func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *Descr
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeVxnetsOutput)
 
-	err = client.CallMethod(nil, "DescribeVxnets", input, output, nil)
+	err = client.CallMethod("DescribeVxnets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -58,10 +59,11 @@ func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxn
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateVxnetsOutput)
 
-	err = client.CallMethod(nil, "CreateVxnets", input, output, nil)
+	err = client.CallMethod("CreateVxnets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -74,10 +76,11 @@ func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxn
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteVxnetsOutput)
 
-	err = client.CallMethod(nil, "DeleteVxnets", input, output, nil)
+	err = client.CallMethod("DeleteVxnets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -90,10 +93,11 @@ func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(JoinVxnetOutput)
 
-	err = client.CallMethod(nil, "JoinVxnet", input, output, nil)
+	err = client.CallMethod("JoinVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -106,10 +110,11 @@ func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOut
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(LeaveVxnetOutput)
 
-	err = client.CallMethod(nil, "LeaveVxnet", input, output, nil)
+	err = client.CallMethod("LeaveVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -122,10 +127,11 @@ func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyVxnetAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyVxnetAttributes", input, output, nil)
+	err = client.CallMethod("ModifyVxnetAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -138,10 +144,11 @@ func (p *VxnetService) DescribeVxnetInstances(input *DescribeVxnetInstancesInput
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeVxnetInstancesOutput)
 
-	err = client.CallMethod(nil, "DescribeVxnetInstances", input, output, nil)
+	err = client.CallMethod("DescribeVxnetInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

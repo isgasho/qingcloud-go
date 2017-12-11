@@ -54,10 +54,11 @@ func (p *RouterService) DescribeRouters(input *DescribeRoutersInput) (output *De
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeRoutersOutput)
 
-	err = client.CallMethod(nil, "DescribeRouters", input, output, nil)
+	err = client.CallMethod("DescribeRouters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -70,10 +71,11 @@ func (p *RouterService) CreateRouters(input *CreateRoutersInput) (output *Create
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateRoutersOutput)
 
-	err = client.CallMethod(nil, "CreateRouters", input, output, nil)
+	err = client.CallMethod("CreateRouters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -86,10 +88,11 @@ func (p *RouterService) DeleteRouters(input *DeleteRoutersInput) (output *Delete
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteRoutersOutput)
 
-	err = client.CallMethod(nil, "DeleteRouters", input, output, nil)
+	err = client.CallMethod("DeleteRouters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -102,10 +105,11 @@ func (p *RouterService) UpdateRouters(input *UpdateRoutersInput) (output *Update
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(UpdateRoutersOutput)
 
-	err = client.CallMethod(nil, "UpdateRouters", input, output, nil)
+	err = client.CallMethod("UpdateRouters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -118,10 +122,11 @@ func (p *RouterService) PowerOffRouters(input *PowerOffRoutersInput) (output *Po
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(PowerOffRoutersOutput)
 
-	err = client.CallMethod(nil, "PowerOffRouters", input, output, nil)
+	err = client.CallMethod("PowerOffRouters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -134,10 +139,11 @@ func (p *RouterService) PowerOnRouters(input *PowerOnRoutersInput) (output *Powe
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(PowerOnRoutersOutput)
 
-	err = client.CallMethod(nil, "PowerOnRouters", input, output, nil)
+	err = client.CallMethod("PowerOnRouters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -150,10 +156,11 @@ func (p *RouterService) JoinRouter(input *JoinRouterInput) (output *JoinRouterOu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(JoinRouterOutput)
 
-	err = client.CallMethod(nil, "JoinRouter", input, output, nil)
+	err = client.CallMethod("JoinRouter", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -166,10 +173,11 @@ func (p *RouterService) LeaveRouter(input *LeaveRouterInput) (output *LeaveRoute
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(LeaveRouterOutput)
 
-	err = client.CallMethod(nil, "LeaveRouter", input, output, nil)
+	err = client.CallMethod("LeaveRouter", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -182,10 +190,11 @@ func (p *RouterService) ModifyRouterAttributes(input *ModifyRouterAttributesInpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyRouterAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyRouterAttributes", input, output, nil)
+	err = client.CallMethod("ModifyRouterAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -198,10 +207,11 @@ func (p *RouterService) DescribeRouterStatics(input *DescribeRouterStaticsInput)
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeRouterStaticsOutput)
 
-	err = client.CallMethod(nil, "DescribeRouterStatics", input, output, nil)
+	err = client.CallMethod("DescribeRouterStatics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -214,10 +224,11 @@ func (p *RouterService) AddRouterStatics(input *AddRouterStaticsInput) (output *
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddRouterStaticsOutput)
 
-	err = client.CallMethod(nil, "AddRouterStatics", input, output, nil)
+	err = client.CallMethod("AddRouterStatics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -230,10 +241,11 @@ func (p *RouterService) ModifyRouterStaticAttributes(input *ModifyRouterStaticAt
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyRouterStaticAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyRouterStaticAttributes", input, output, nil)
+	err = client.CallMethod("ModifyRouterStaticAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -246,10 +258,11 @@ func (p *RouterService) DeleteRouterStatics(input *DeleteRouterStaticsInput) (ou
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteRouterStaticsOutput)
 
-	err = client.CallMethod(nil, "DeleteRouterStatics", input, output, nil)
+	err = client.CallMethod("DeleteRouterStatics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -262,10 +275,11 @@ func (p *RouterService) CopyRouterStatics(input *CopyRouterStaticsInput) (output
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CopyRouterStaticsOutput)
 
-	err = client.CallMethod(nil, "CopyRouterStatics", input, output, nil)
+	err = client.CallMethod("CopyRouterStatics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -278,10 +292,11 @@ func (p *RouterService) DescribeRouterVxnets(input *DescribeRouterVxnetsInput) (
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeRouterVxnetsOutput)
 
-	err = client.CallMethod(nil, "DescribeRouterVxnets", input, output, nil)
+	err = client.CallMethod("DescribeRouterVxnets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -294,10 +309,11 @@ func (p *RouterService) AddRouterStaticEntries(input *AddRouterStaticEntriesInpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddRouterStaticEntriesOutput)
 
-	err = client.CallMethod(nil, "AddRouterStaticEntries", input, output, nil)
+	err = client.CallMethod("AddRouterStaticEntries", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -310,10 +326,11 @@ func (p *RouterService) DeleteRouterStaticEntries(input *DeleteRouterStaticEntri
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteRouterStaticEntriesOutput)
 
-	err = client.CallMethod(nil, "DeleteRouterStaticEntries", input, output, nil)
+	err = client.CallMethod("DeleteRouterStaticEntries", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -326,10 +343,11 @@ func (p *RouterService) ModifyRouterStaticEntryAttributes(input *ModifyRouterSta
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyRouterStaticEntryAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyRouterStaticEntryAttributes", input, output, nil)
+	err = client.CallMethod("ModifyRouterStaticEntryAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -342,10 +360,11 @@ func (p *RouterService) DescribeRouterStaticEntries(input *DescribeRouterStaticE
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeRouterStaticEntriesOutput)
 
-	err = client.CallMethod(nil, "DescribeRouterStaticEntries", input, output, nil)
+	err = client.CallMethod("DescribeRouterStaticEntries", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

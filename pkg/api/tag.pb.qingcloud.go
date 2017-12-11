@@ -41,10 +41,11 @@ func (p *TagService) DescribeTags(input *DescribeTagsInput) (output *DescribeTag
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeTagsOutput)
 
-	err = client.CallMethod(nil, "DescribeTags", input, output, nil)
+	err = client.CallMethod("DescribeTags", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -57,10 +58,11 @@ func (p *TagService) CreateTag(input *CreateTagInput) (output *CreateTagOutput, 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateTagOutput)
 
-	err = client.CallMethod(nil, "CreateTag", input, output, nil)
+	err = client.CallMethod("CreateTag", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -73,10 +75,11 @@ func (p *TagService) DeleteTags(input *DeleteTagsInput) (output *DeleteTagsOutpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteTagsOutput)
 
-	err = client.CallMethod(nil, "DeleteTags", input, output, nil)
+	err = client.CallMethod("DeleteTags", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -89,10 +92,11 @@ func (p *TagService) ModifyTagAttributes(input *ModifyTagAttributesInput) (outpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyTagAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyTagAttributes", input, output, nil)
+	err = client.CallMethod("ModifyTagAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -105,10 +109,11 @@ func (p *TagService) AttachTags(input *AttachTagsInput) (output *AttachTagsOutpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AttachTagsOutput)
 
-	err = client.CallMethod(nil, "AttachTags", input, output, nil)
+	err = client.CallMethod("AttachTags", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -121,10 +126,11 @@ func (p *TagService) DetachTags(input *DetachTagsInput) (output *DetachTagsOutpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DetachTagsOutput)
 
-	err = client.CallMethod(nil, "DetachTags", input, output, nil)
+	err = client.CallMethod("DetachTags", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

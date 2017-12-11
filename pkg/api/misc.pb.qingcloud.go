@@ -38,10 +38,11 @@ func (p *MiscService) GrantQuotaIndep(input *GrantQuotaIndepInput) (output *Gran
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GrantQuotaIndepOutput)
 
-	err = client.CallMethod(nil, "GrantQuotaIndep", input, output, nil)
+	err = client.CallMethod("GrantQuotaIndep", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -54,10 +55,11 @@ func (p *MiscService) RevokeQuotaIndep(input *RevokeQuotaIndepInput) (output *Re
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(RevokeQuotaIndepOutput)
 
-	err = client.CallMethod(nil, "RevokeQuotaIndep", input, output, nil)
+	err = client.CallMethod("RevokeQuotaIndep", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -70,10 +72,11 @@ func (p *MiscService) GetQuotaLeft(input *GetQuotaLeftInput) (output *GetQuotaLe
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GetQuotaLeftOutput)
 
-	err = client.CallMethod(nil, "GetQuotaLeft", input, output, nil)
+	err = client.CallMethod("GetQuotaLeft", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

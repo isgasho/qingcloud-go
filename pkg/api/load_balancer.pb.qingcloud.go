@@ -66,10 +66,11 @@ func (p *LoadBalancerService) CreateLoadBalancer(input *CreateLoadBalancerInput)
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateLoadBalancerOutput)
 
-	err = client.CallMethod(nil, "CreateLoadBalancer", input, output, nil)
+	err = client.CallMethod("CreateLoadBalancer", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -82,10 +83,11 @@ func (p *LoadBalancerService) DescribeLoadBalancers(input *DescribeLoadBalancers
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeLoadBalancersOutput)
 
-	err = client.CallMethod(nil, "DescribeLoadBalancers", input, output, nil)
+	err = client.CallMethod("DescribeLoadBalancers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -98,10 +100,11 @@ func (p *LoadBalancerService) DeleteLoadBalancers(input *DeleteLoadBalancersInpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteLoadBalancersOutput)
 
-	err = client.CallMethod(nil, "DeleteLoadBalancers", input, output, nil)
+	err = client.CallMethod("DeleteLoadBalancers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -114,10 +117,11 @@ func (p *LoadBalancerService) ModifyLoadBalancerAttributes(input *ModifyLoadBala
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyLoadBalancerAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyLoadBalancerAttributes", input, output, nil)
+	err = client.CallMethod("ModifyLoadBalancerAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -130,10 +134,11 @@ func (p *LoadBalancerService) StartLoadBalancers(input *StartLoadBalancersInput)
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(StartLoadBalancersOutput)
 
-	err = client.CallMethod(nil, "StartLoadBalancers", input, output, nil)
+	err = client.CallMethod("StartLoadBalancers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -146,10 +151,11 @@ func (p *LoadBalancerService) StopLoadBalancers(input *StopLoadBalancersInput) (
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(StopLoadBalancersOutput)
 
-	err = client.CallMethod(nil, "StopLoadBalancers", input, output, nil)
+	err = client.CallMethod("StopLoadBalancers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -162,10 +168,11 @@ func (p *LoadBalancerService) UpdateLoadBalancers(input *UpdateLoadBalancersInpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(UpdateLoadBalancersOutput)
 
-	err = client.CallMethod(nil, "UpdateLoadBalancers", input, output, nil)
+	err = client.CallMethod("UpdateLoadBalancers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -178,10 +185,11 @@ func (p *LoadBalancerService) ResizeLoadBalancers(input *ResizeLoadBalancersInpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ResizeLoadBalancersOutput)
 
-	err = client.CallMethod(nil, "ResizeLoadBalancers", input, output, nil)
+	err = client.CallMethod("ResizeLoadBalancers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -194,10 +202,11 @@ func (p *LoadBalancerService) AssociateEipsToLoadBalancer(input *AssociateEipsTo
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AssociateEipsToLoadBalancerOutput)
 
-	err = client.CallMethod(nil, "AssociateEipsToLoadBalancer", input, output, nil)
+	err = client.CallMethod("AssociateEipsToLoadBalancer", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -210,10 +219,11 @@ func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(input *DissociateEi
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DissociateEipsFromLoadBalancerOutput)
 
-	err = client.CallMethod(nil, "DissociateEipsFromLoadBalancer", input, output, nil)
+	err = client.CallMethod("DissociateEipsFromLoadBalancer", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -226,10 +236,11 @@ func (p *LoadBalancerService) AddLoadBalancerListeners(input *AddLoadBalancerLis
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddLoadBalancerListenersOutput)
 
-	err = client.CallMethod(nil, "AddLoadBalancerListeners", input, output, nil)
+	err = client.CallMethod("AddLoadBalancerListeners", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -242,10 +253,11 @@ func (p *LoadBalancerService) DescribeLoadBalancerListeners(input *DescribeLoadB
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeLoadBalancerListenersOutput)
 
-	err = client.CallMethod(nil, "DescribeLoadBalancerListeners", input, output, nil)
+	err = client.CallMethod("DescribeLoadBalancerListeners", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -258,10 +270,11 @@ func (p *LoadBalancerService) DeleteLoadBalancerListeners(input *DeleteLoadBalan
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteLoadBalancerListenersOutput)
 
-	err = client.CallMethod(nil, "DeleteLoadBalancerListeners", input, output, nil)
+	err = client.CallMethod("DeleteLoadBalancerListeners", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -274,10 +287,11 @@ func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(input *Modify
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyLoadBalancerListenerAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyLoadBalancerListenerAttributes", input, output, nil)
+	err = client.CallMethod("ModifyLoadBalancerListenerAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -290,10 +304,11 @@ func (p *LoadBalancerService) AddLoadBalancerBackends(input *AddLoadBalancerBack
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddLoadBalancerBackendsOutput)
 
-	err = client.CallMethod(nil, "AddLoadBalancerBackends", input, output, nil)
+	err = client.CallMethod("AddLoadBalancerBackends", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -306,10 +321,11 @@ func (p *LoadBalancerService) DescribeLoadBalancerBackends(input *DescribeLoadBa
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeLoadBalancerBackendsOutput)
 
-	err = client.CallMethod(nil, "DescribeLoadBalancerBackends", input, output, nil)
+	err = client.CallMethod("DescribeLoadBalancerBackends", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -322,10 +338,11 @@ func (p *LoadBalancerService) DeleteLoadBalancerBackends(input *DeleteLoadBalanc
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteLoadBalancerBackendsOutput)
 
-	err = client.CallMethod(nil, "DeleteLoadBalancerBackends", input, output, nil)
+	err = client.CallMethod("DeleteLoadBalancerBackends", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -338,10 +355,11 @@ func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(input *ModifyL
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyLoadBalancerBackendAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyLoadBalancerBackendAttributes", input, output, nil)
+	err = client.CallMethod("ModifyLoadBalancerBackendAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -354,10 +372,11 @@ func (p *LoadBalancerService) CreateLoadBalancerPolicy(input *CreateLoadBalancer
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateLoadBalancerPolicyOutput)
 
-	err = client.CallMethod(nil, "CreateLoadBalancerPolicy", input, output, nil)
+	err = client.CallMethod("CreateLoadBalancerPolicy", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -370,10 +389,11 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicies(input *DescribeLoadBa
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeLoadBalancerPoliciesOutput)
 
-	err = client.CallMethod(nil, "DescribeLoadBalancerPolicies", input, output, nil)
+	err = client.CallMethod("DescribeLoadBalancerPolicies", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -386,10 +406,11 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(input *ModifyLo
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyLoadBalancerPolicyAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyLoadBalancerPolicyAttributes", input, output, nil)
+	err = client.CallMethod("ModifyLoadBalancerPolicyAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -402,10 +423,11 @@ func (p *LoadBalancerService) ApplyLoadBalancerPolicy(input *ApplyLoadBalancerPo
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ApplyLoadBalancerPolicyOutput)
 
-	err = client.CallMethod(nil, "ApplyLoadBalancerPolicy", input, output, nil)
+	err = client.CallMethod("ApplyLoadBalancerPolicy", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -418,10 +440,11 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicies(input *DeleteLoadBalanc
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteLoadBalancerPoliciesOutput)
 
-	err = client.CallMethod(nil, "DeleteLoadBalancerPolicies", input, output, nil)
+	err = client.CallMethod("DeleteLoadBalancerPolicies", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -434,10 +457,11 @@ func (p *LoadBalancerService) AddLoadBalancerPolicyRules(input *AddLoadBalancerP
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddLoadBalancerPolicyRulesOutput)
 
-	err = client.CallMethod(nil, "AddLoadBalancerPolicyRules", input, output, nil)
+	err = client.CallMethod("AddLoadBalancerPolicyRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -450,10 +474,11 @@ func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(input *DescribeLoa
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeLoadBalancerPolicyRulesOutput)
 
-	err = client.CallMethod(nil, "DescribeLoadBalancerPolicyRules", input, output, nil)
+	err = client.CallMethod("DescribeLoadBalancerPolicyRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -466,10 +491,11 @@ func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(input *Modi
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyLoadBalancerPolicyRuleAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyLoadBalancerPolicyRuleAttributes", input, output, nil)
+	err = client.CallMethod("ModifyLoadBalancerPolicyRuleAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -482,10 +508,11 @@ func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(input *DeleteLoadBal
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteLoadBalancerPolicyRulesOutput)
 
-	err = client.CallMethod(nil, "DeleteLoadBalancerPolicyRules", input, output, nil)
+	err = client.CallMethod("DeleteLoadBalancerPolicyRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -498,10 +525,11 @@ func (p *LoadBalancerService) CreateServerCertificate(input *CreateServerCertifi
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateServerCertificateOutput)
 
-	err = client.CallMethod(nil, "CreateServerCertificate", input, output, nil)
+	err = client.CallMethod("CreateServerCertificate", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -514,10 +542,11 @@ func (p *LoadBalancerService) DescribeServerCertificates(input *DescribeServerCe
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeServerCertificatesOutput)
 
-	err = client.CallMethod(nil, "DescribeServerCertificates", input, output, nil)
+	err = client.CallMethod("DescribeServerCertificates", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -530,10 +559,11 @@ func (p *LoadBalancerService) ModifyServerCertificateAttributes(input *ModifySer
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyServerCertificateAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyServerCertificateAttributes", input, output, nil)
+	err = client.CallMethod("ModifyServerCertificateAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -546,10 +576,11 @@ func (p *LoadBalancerService) DeleteServerCertificates(input *DeleteServerCertif
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteServerCertificatesOutput)
 
-	err = client.CallMethod(nil, "DeleteServerCertificates", input, output, nil)
+	err = client.CallMethod("DeleteServerCertificates", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

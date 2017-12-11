@@ -52,10 +52,11 @@ func (p *AlarmService) DescribeAlarmPolicies(input *DescribeAlarmPoliciesInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeAlarmPoliciesOutput)
 
-	err = client.CallMethod(nil, "DescribeAlarmPolicies", input, output, nil)
+	err = client.CallMethod("DescribeAlarmPolicies", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -68,10 +69,11 @@ func (p *AlarmService) CreateAlarmPolicy(input *CreateAlarmPolicyInput) (output 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateAlarmPolicyOutput)
 
-	err = client.CallMethod(nil, "CreateAlarmPolicy", input, output, nil)
+	err = client.CallMethod("CreateAlarmPolicy", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -84,10 +86,11 @@ func (p *AlarmService) ModifyAlarmPolicyAttributes(input *ModifyAlarmPolicyAttri
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyAlarmPolicyAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyAlarmPolicyAttributes", input, output, nil)
+	err = client.CallMethod("ModifyAlarmPolicyAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -100,10 +103,11 @@ func (p *AlarmService) DeleteAlarmPolicies(input *DeleteAlarmPoliciesInput) (out
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteAlarmPoliciesOutput)
 
-	err = client.CallMethod(nil, "DeleteAlarmPolicies", input, output, nil)
+	err = client.CallMethod("DeleteAlarmPolicies", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -116,10 +120,11 @@ func (p *AlarmService) DescribeAlarmPolicyRules(input *DescribeAlarmPolicyRulesI
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeAlarmPolicyRulesOutput)
 
-	err = client.CallMethod(nil, "DescribeAlarmPolicyRules", input, output, nil)
+	err = client.CallMethod("DescribeAlarmPolicyRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -132,10 +137,11 @@ func (p *AlarmService) AddAlarmPolicyRules(input *AddAlarmPolicyRulesInput) (out
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddAlarmPolicyRulesOutput)
 
-	err = client.CallMethod(nil, "AddAlarmPolicyRules", input, output, nil)
+	err = client.CallMethod("AddAlarmPolicyRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -148,10 +154,11 @@ func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(input *ModifyAlarmPolicyR
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyAlarmPolicyRuleAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyAlarmPolicyRuleAttributes", input, output, nil)
+	err = client.CallMethod("ModifyAlarmPolicyRuleAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -164,10 +171,11 @@ func (p *AlarmService) DeleteAlarmPolicyRules(input *DeleteAlarmPolicyRulesInput
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteAlarmPolicyRulesOutput)
 
-	err = client.CallMethod(nil, "DeleteAlarmPolicyRules", input, output, nil)
+	err = client.CallMethod("DeleteAlarmPolicyRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -180,10 +188,11 @@ func (p *AlarmService) DescribeAlarmPolicyActions(input *DescribeAlarmPolicyActi
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeAlarmPolicyActionsOutput)
 
-	err = client.CallMethod(nil, "DescribeAlarmPolicyActions", input, output, nil)
+	err = client.CallMethod("DescribeAlarmPolicyActions", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -196,10 +205,11 @@ func (p *AlarmService) AddAlarmPolicyActions(input *AddAlarmPolicyActionsInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddAlarmPolicyActionsOutput)
 
-	err = client.CallMethod(nil, "AddAlarmPolicyActions", input, output, nil)
+	err = client.CallMethod("AddAlarmPolicyActions", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -212,10 +222,11 @@ func (p *AlarmService) ModifyAlarmPolicyActionAttributes(input *ModifyAlarmPolic
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyAlarmPolicyActionAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyAlarmPolicyActionAttributes", input, output, nil)
+	err = client.CallMethod("ModifyAlarmPolicyActionAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -228,10 +239,11 @@ func (p *AlarmService) DeleteAlarmPolicyActions(input *DeleteAlarmPolicyActionsI
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteAlarmPolicyActionsOutput)
 
-	err = client.CallMethod(nil, "DeleteAlarmPolicyActions", input, output, nil)
+	err = client.CallMethod("DeleteAlarmPolicyActions", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -244,10 +256,11 @@ func (p *AlarmService) AssociateAlarmPolicy(input *AssociateAlarmPolicyInput) (o
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AssociateAlarmPolicyOutput)
 
-	err = client.CallMethod(nil, "AssociateAlarmPolicy", input, output, nil)
+	err = client.CallMethod("AssociateAlarmPolicy", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -260,10 +273,11 @@ func (p *AlarmService) DissociateAlarmPolicy(input *DissociateAlarmPolicyInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DissociateAlarmPolicyOutput)
 
-	err = client.CallMethod(nil, "DissociateAlarmPolicy", input, output, nil)
+	err = client.CallMethod("DissociateAlarmPolicy", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -276,10 +290,11 @@ func (p *AlarmService) ApplyAlarmPolicy(input *ApplyAlarmPolicyInput) (output *A
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ApplyAlarmPolicyOutput)
 
-	err = client.CallMethod(nil, "ApplyAlarmPolicy", input, output, nil)
+	err = client.CallMethod("ApplyAlarmPolicy", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -292,10 +307,11 @@ func (p *AlarmService) DescribeAlarms(input *DescribeAlarmsInput) (output *Descr
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeAlarmsOutput)
 
-	err = client.CallMethod(nil, "DescribeAlarms", input, output, nil)
+	err = client.CallMethod("DescribeAlarms", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -308,10 +324,11 @@ func (p *AlarmService) DescribeAlarmHistory(input *DescribeAlarmHistoryInput) (o
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeAlarmHistoryOutput)
 
-	err = client.CallMethod(nil, "DescribeAlarmHistory", input, output, nil)
+	err = client.CallMethod("DescribeAlarmHistory", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

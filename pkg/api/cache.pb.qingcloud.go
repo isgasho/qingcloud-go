@@ -59,10 +59,11 @@ func (p *CacheService) DescribeCaches(input *DescribeCachesInput) (output *Descr
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeCachesOutput)
 
-	err = client.CallMethod(nil, "DescribeCaches", input, output, nil)
+	err = client.CallMethod("DescribeCaches", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -75,10 +76,11 @@ func (p *CacheService) CreateCache(input *CreateCacheInput) (output *CreateCache
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateCacheOutput)
 
-	err = client.CallMethod(nil, "CreateCache", input, output, nil)
+	err = client.CallMethod("CreateCache", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -91,10 +93,11 @@ func (p *CacheService) StopCaches(input *StopCachesInput) (output *StopCachesOut
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(StopCachesOutput)
 
-	err = client.CallMethod(nil, "StopCaches", input, output, nil)
+	err = client.CallMethod("StopCaches", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -107,10 +110,11 @@ func (p *CacheService) StartCaches(input *StartCachesInput) (output *StartCaches
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(StartCachesOutput)
 
-	err = client.CallMethod(nil, "StartCaches", input, output, nil)
+	err = client.CallMethod("StartCaches", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -123,10 +127,11 @@ func (p *CacheService) RestartCaches(input *RestartCachesInput) (output *Restart
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(RestartCachesOutput)
 
-	err = client.CallMethod(nil, "RestartCaches", input, output, nil)
+	err = client.CallMethod("RestartCaches", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -139,10 +144,11 @@ func (p *CacheService) DeleteCaches(input *DeleteCachesInput) (output *DeleteCac
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteCachesOutput)
 
-	err = client.CallMethod(nil, "DeleteCaches", input, output, nil)
+	err = client.CallMethod("DeleteCaches", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -155,10 +161,11 @@ func (p *CacheService) ResizeCaches(input *ResizeCachesInput) (output *ResizeCac
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ResizeCachesOutput)
 
-	err = client.CallMethod(nil, "ResizeCaches", input, output, nil)
+	err = client.CallMethod("ResizeCaches", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -171,10 +178,11 @@ func (p *CacheService) UpdateCache(input *UpdateCacheInput) (output *UpdateCache
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(UpdateCacheOutput)
 
-	err = client.CallMethod(nil, "UpdateCache", input, output, nil)
+	err = client.CallMethod("UpdateCache", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -187,10 +195,11 @@ func (p *CacheService) ChangeCacheVxnet(input *ChangeCacheVxnetInput) (output *C
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ChangeCacheVxnetOutput)
 
-	err = client.CallMethod(nil, "ChangeCacheVxnet", input, output, nil)
+	err = client.CallMethod("ChangeCacheVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -203,10 +212,11 @@ func (p *CacheService) ModifyCacheAttributes(input *ModifyCacheAttributesInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyCacheAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyCacheAttributes", input, output, nil)
+	err = client.CallMethod("ModifyCacheAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -219,10 +229,11 @@ func (p *CacheService) DescribeCacheNodes(input *DescribeCacheNodesInput) (outpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeCacheNodesOutput)
 
-	err = client.CallMethod(nil, "DescribeCacheNodes", input, output, nil)
+	err = client.CallMethod("DescribeCacheNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -235,10 +246,11 @@ func (p *CacheService) AddCacheNodes(input *AddCacheNodesInput) (output *AddCach
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddCacheNodesOutput)
 
-	err = client.CallMethod(nil, "AddCacheNodes", input, output, nil)
+	err = client.CallMethod("AddCacheNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -251,10 +263,11 @@ func (p *CacheService) DeleteCacheNodes(input *DeleteCacheNodesInput) (output *D
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteCacheNodesOutput)
 
-	err = client.CallMethod(nil, "DeleteCacheNodes", input, output, nil)
+	err = client.CallMethod("DeleteCacheNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -267,10 +280,11 @@ func (p *CacheService) RestartCacheNodes(input *RestartCacheNodesInput) (output 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(RestartCacheNodesOutput)
 
-	err = client.CallMethod(nil, "RestartCacheNodes", input, output, nil)
+	err = client.CallMethod("RestartCacheNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -283,10 +297,11 @@ func (p *CacheService) ModifyCacheNodeAttributes(input *ModifyCacheNodeAttribute
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyCacheNodeAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyCacheNodeAttributes", input, output, nil)
+	err = client.CallMethod("ModifyCacheNodeAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -299,10 +314,11 @@ func (p *CacheService) CreateCacheFromSnapshot(input *CreateCacheFromSnapshotInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateCacheFromSnapshotOutput)
 
-	err = client.CallMethod(nil, "CreateCacheFromSnapshot", input, output, nil)
+	err = client.CallMethod("CreateCacheFromSnapshot", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -315,10 +331,11 @@ func (p *CacheService) DescribeCacheParameterGroups(input *DescribeCacheParamete
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeCacheParameterGroupsOutput)
 
-	err = client.CallMethod(nil, "DescribeCacheParameterGroups", input, output, nil)
+	err = client.CallMethod("DescribeCacheParameterGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -331,10 +348,11 @@ func (p *CacheService) CreateCacheParameterGroup(input *CreateCacheParameterGrou
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateCacheParameterGroupOutput)
 
-	err = client.CallMethod(nil, "CreateCacheParameterGroup", input, output, nil)
+	err = client.CallMethod("CreateCacheParameterGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -347,10 +365,11 @@ func (p *CacheService) ApplyCacheParameterGroup(input *ApplyCacheParameterGroupI
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ApplyCacheParameterGroupOutput)
 
-	err = client.CallMethod(nil, "ApplyCacheParameterGroup", input, output, nil)
+	err = client.CallMethod("ApplyCacheParameterGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -363,10 +382,11 @@ func (p *CacheService) DeleteCacheParameterGroups(input *DeleteCacheParameterGro
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteCacheParameterGroupsOutput)
 
-	err = client.CallMethod(nil, "DeleteCacheParameterGroups", input, output, nil)
+	err = client.CallMethod("DeleteCacheParameterGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -379,10 +399,11 @@ func (p *CacheService) ModifyCacheParameterGroupAttributes(input *ModifyCachePar
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyCacheParameterGroupAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyCacheParameterGroupAttributes", input, output, nil)
+	err = client.CallMethod("ModifyCacheParameterGroupAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -395,10 +416,11 @@ func (p *CacheService) DescribeCacheParameters(input *DescribeCacheParametersInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeCacheParametersOutput)
 
-	err = client.CallMethod(nil, "DescribeCacheParameters", input, output, nil)
+	err = client.CallMethod("DescribeCacheParameters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -411,10 +433,11 @@ func (p *CacheService) UpdateCacheParameters(input *UpdateCacheParametersInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(UpdateCacheParametersOutput)
 
-	err = client.CallMethod(nil, "UpdateCacheParameters", input, output, nil)
+	err = client.CallMethod("UpdateCacheParameters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -427,10 +450,11 @@ func (p *CacheService) ResetCacheParameters(input *ResetCacheParametersInput) (o
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ResetCacheParametersOutput)
 
-	err = client.CallMethod(nil, "ResetCacheParameters", input, output, nil)
+	err = client.CallMethod("ResetCacheParameters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

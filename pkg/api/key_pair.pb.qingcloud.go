@@ -41,10 +41,11 @@ func (p *KeyPairService) DescribeKeyPairs(input *DescribeKeyPairsInput) (output 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeKeyPairsOutput)
 
-	err = client.CallMethod(nil, "DescribeKeyPairs", input, output, nil)
+	err = client.CallMethod("DescribeKeyPairs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -57,10 +58,11 @@ func (p *KeyPairService) CreateKeyPair(input *CreateKeyPairInput) (output *Creat
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateKeyPairOutput)
 
-	err = client.CallMethod(nil, "CreateKeyPair", input, output, nil)
+	err = client.CallMethod("CreateKeyPair", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -73,10 +75,11 @@ func (p *KeyPairService) DeleteKeyPairs(input *DeleteKeyPairsInput) (output *Del
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteKeyPairsOutput)
 
-	err = client.CallMethod(nil, "DeleteKeyPairs", input, output, nil)
+	err = client.CallMethod("DeleteKeyPairs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -89,10 +92,11 @@ func (p *KeyPairService) AttachKeyPairs(input *AttachKeyPairsInput) (output *Att
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AttachKeyPairsOutput)
 
-	err = client.CallMethod(nil, "AttachKeyPairs", input, output, nil)
+	err = client.CallMethod("AttachKeyPairs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -105,10 +109,11 @@ func (p *KeyPairService) DetachKeyPairs(input *DetachKeyPairsInput) (output *Det
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DetachKeyPairsOutput)
 
-	err = client.CallMethod(nil, "DetachKeyPairs", input, output, nil)
+	err = client.CallMethod("DetachKeyPairs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -121,10 +126,11 @@ func (p *KeyPairService) ModifyKeyPairAttributes(input *ModifyKeyPairAttributesI
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyKeyPairAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyKeyPairAttributes", input, output, nil)
+	err = client.CallMethod("ModifyKeyPairAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

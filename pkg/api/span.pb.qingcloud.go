@@ -42,10 +42,11 @@ func (p *SpanService) CreateSpan(input *CreateSpanInput) (output *CreateSpanOutp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateSpanOutput)
 
-	err = client.CallMethod(nil, "CreateSpan", input, output, nil)
+	err = client.CallMethod("CreateSpan", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -58,10 +59,11 @@ func (p *SpanService) DescribeSpans(input *DescribeSpansInput) (output *Describe
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeSpansOutput)
 
-	err = client.CallMethod(nil, "DescribeSpans", input, output, nil)
+	err = client.CallMethod("DescribeSpans", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -74,10 +76,11 @@ func (p *SpanService) DeleteSpans(input *DeleteSpansInput) (output *DeleteSpansO
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteSpansOutput)
 
-	err = client.CallMethod(nil, "DeleteSpans", input, output, nil)
+	err = client.CallMethod("DeleteSpans", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -90,10 +93,11 @@ func (p *SpanService) AddSpanMembers(input *AddSpanMembersInput) (output *AddSpa
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddSpanMembersOutput)
 
-	err = client.CallMethod(nil, "AddSpanMembers", input, output, nil)
+	err = client.CallMethod("AddSpanMembers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -106,10 +110,11 @@ func (p *SpanService) RemoveSpanMembers(input *RemoveSpanMembersInput) (output *
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(RemoveSpanMembersOutput)
 
-	err = client.CallMethod(nil, "RemoveSpanMembers", input, output, nil)
+	err = client.CallMethod("RemoveSpanMembers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -122,10 +127,11 @@ func (p *SpanService) ModifySpanAttributes(input *ModifySpanAttributesInput) (ou
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifySpanAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifySpanAttributes", input, output, nil)
+	err = client.CallMethod("ModifySpanAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -138,10 +144,11 @@ func (p *SpanService) UpdateSpan(input *UpdateSpanInput) (output *UpdateSpanOutp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(UpdateSpanOutput)
 
-	err = client.CallMethod(nil, "UpdateSpan", input, output, nil)
+	err = client.CallMethod("UpdateSpan", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

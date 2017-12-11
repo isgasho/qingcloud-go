@@ -42,10 +42,11 @@ func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *D
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeVolumesOutput)
 
-	err = client.CallMethod(nil, "DescribeVolumes", input, output, nil)
+	err = client.CallMethod("DescribeVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -58,10 +59,11 @@ func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *Creat
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateVolumesOutput)
 
-	err = client.CallMethod(nil, "CreateVolumes", input, output, nil)
+	err = client.CallMethod("CreateVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -74,10 +76,11 @@ func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *Delet
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteVolumesOutput)
 
-	err = client.CallMethod(nil, "DeleteVolumes", input, output, nil)
+	err = client.CallMethod("DeleteVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -90,10 +93,11 @@ func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *Attac
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AttachVolumesOutput)
 
-	err = client.CallMethod(nil, "AttachVolumes", input, output, nil)
+	err = client.CallMethod("AttachVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -106,10 +110,11 @@ func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *Detac
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DetachVolumesOutput)
 
-	err = client.CallMethod(nil, "DetachVolumes", input, output, nil)
+	err = client.CallMethod("DetachVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -122,10 +127,11 @@ func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *Resiz
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ResizeVolumesOutput)
 
-	err = client.CallMethod(nil, "ResizeVolumes", input, output, nil)
+	err = client.CallMethod("ResizeVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -138,10 +144,11 @@ func (p *VolumesService) ModifyVolumeAttributes(input *ModifyVolumeAttributesInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyVolumeAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyVolumeAttributes", input, output, nil)
+	err = client.CallMethod("ModifyVolumeAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

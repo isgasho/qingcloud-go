@@ -62,10 +62,11 @@ func (p *ResourceACLService) DescribeSharedResourceGroups(input *DescribeSharedR
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeSharedResourceGroupsOutput)
 
-	err = client.CallMethod(nil, "DescribeSharedResourceGroups", input, output, nil)
+	err = client.CallMethod("DescribeSharedResourceGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -78,10 +79,11 @@ func (p *ResourceACLService) DescribeResourceGroups(input *DescribeResourceGroup
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeResourceGroupsOutput)
 
-	err = client.CallMethod(nil, "DescribeResourceGroups", input, output, nil)
+	err = client.CallMethod("DescribeResourceGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -94,10 +96,11 @@ func (p *ResourceACLService) CreateResourceGroups(input *CreateResourceGroupsInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateResourceGroupsOutput)
 
-	err = client.CallMethod(nil, "CreateResourceGroups", input, output, nil)
+	err = client.CallMethod("CreateResourceGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -110,10 +113,11 @@ func (p *ResourceACLService) ModifyResourceGroupAttributes(input *ModifyResource
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyResourceGroupAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyResourceGroupAttributes", input, output, nil)
+	err = client.CallMethod("ModifyResourceGroupAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -126,10 +130,11 @@ func (p *ResourceACLService) DeleteResourceGroups(input *DeleteResourceGroupsInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteResourceGroupsOutput)
 
-	err = client.CallMethod(nil, "DeleteResourceGroups", input, output, nil)
+	err = client.CallMethod("DeleteResourceGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -142,10 +147,11 @@ func (p *ResourceACLService) DescribeResourceGroupItems(input *DescribeResourceG
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeResourceGroupItemsOutput)
 
-	err = client.CallMethod(nil, "DescribeResourceGroupItems", input, output, nil)
+	err = client.CallMethod("DescribeResourceGroupItems", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -158,10 +164,11 @@ func (p *ResourceACLService) AddResourceGroupItems(input *AddResourceGroupItemsI
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddResourceGroupItemsOutput)
 
-	err = client.CallMethod(nil, "AddResourceGroupItems", input, output, nil)
+	err = client.CallMethod("AddResourceGroupItems", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -174,10 +181,11 @@ func (p *ResourceACLService) DeleteResourceGroupItems(input *DeleteResourceGroup
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteResourceGroupItemsOutput)
 
-	err = client.CallMethod(nil, "DeleteResourceGroupItems", input, output, nil)
+	err = client.CallMethod("DeleteResourceGroupItems", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -190,10 +198,11 @@ func (p *ResourceACLService) DescribeUserGroups(input *DescribeUserGroupsInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeUserGroupsOutput)
 
-	err = client.CallMethod(nil, "DescribeUserGroups", input, output, nil)
+	err = client.CallMethod("DescribeUserGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -206,10 +215,11 @@ func (p *ResourceACLService) CreateUserGroups(input *CreateUserGroupsInput) (out
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateUserGroupsOutput)
 
-	err = client.CallMethod(nil, "CreateUserGroups", input, output, nil)
+	err = client.CallMethod("CreateUserGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -222,10 +232,11 @@ func (p *ResourceACLService) ModifyUserGroupAttributes(input *ModifyUserGroupAtt
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyUserGroupAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyUserGroupAttributes", input, output, nil)
+	err = client.CallMethod("ModifyUserGroupAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -238,10 +249,11 @@ func (p *ResourceACLService) DeleteUserGroups(input *DeleteUserGroupsInput) (out
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteUserGroupsOutput)
 
-	err = client.CallMethod(nil, "DeleteUserGroups", input, output, nil)
+	err = client.CallMethod("DeleteUserGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -254,10 +266,11 @@ func (p *ResourceACLService) DescribeUserGroupMembers(input *DescribeUserGroupMe
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeUserGroupMembersOutput)
 
-	err = client.CallMethod(nil, "DescribeUserGroupMembers", input, output, nil)
+	err = client.CallMethod("DescribeUserGroupMembers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -270,10 +283,11 @@ func (p *ResourceACLService) AddUserGroupMembers(input *AddUserGroupMembersInput
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddUserGroupMembersOutput)
 
-	err = client.CallMethod(nil, "AddUserGroupMembers", input, output, nil)
+	err = client.CallMethod("AddUserGroupMembers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -286,10 +300,11 @@ func (p *ResourceACLService) ModifyUserGroupMemberAttributes(input *ModifyUserGr
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyUserGroupMemberAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyUserGroupMemberAttributes", input, output, nil)
+	err = client.CallMethod("ModifyUserGroupMemberAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -302,10 +317,11 @@ func (p *ResourceACLService) DeleteUserGroupMembers(input *DeleteUserGroupMember
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteUserGroupMembersOutput)
 
-	err = client.CallMethod(nil, "DeleteUserGroupMembers", input, output, nil)
+	err = client.CallMethod("DeleteUserGroupMembers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -318,10 +334,11 @@ func (p *ResourceACLService) DescribeGroupRoles(input *DescribeGroupRolesInput) 
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeGroupRolesOutput)
 
-	err = client.CallMethod(nil, "DescribeGroupRoles", input, output, nil)
+	err = client.CallMethod("DescribeGroupRoles", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -334,10 +351,11 @@ func (p *ResourceACLService) CreateGroupRoles(input *CreateGroupRolesInput) (out
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateGroupRolesOutput)
 
-	err = client.CallMethod(nil, "CreateGroupRoles", input, output, nil)
+	err = client.CallMethod("CreateGroupRoles", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -350,10 +368,11 @@ func (p *ResourceACLService) ModifyGroupRoleAttributes(input *ModifyGroupRoleAtt
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyGroupRoleAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyGroupRoleAttributes", input, output, nil)
+	err = client.CallMethod("ModifyGroupRoleAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -366,10 +385,11 @@ func (p *ResourceACLService) DeleteGroupRoles(input *DeleteGroupRolesInput) (out
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteGroupRolesOutput)
 
-	err = client.CallMethod(nil, "DeleteGroupRoles", input, output, nil)
+	err = client.CallMethod("DeleteGroupRoles", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -382,10 +402,11 @@ func (p *ResourceACLService) DescribeGroupRoleRules(input *DescribeGroupRoleRule
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeGroupRoleRulesOutput)
 
-	err = client.CallMethod(nil, "DescribeGroupRoleRules", input, output, nil)
+	err = client.CallMethod("DescribeGroupRoleRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -398,10 +419,11 @@ func (p *ResourceACLService) AddGroupRoleRules(input *AddGroupRoleRulesInput) (o
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddGroupRoleRulesOutput)
 
-	err = client.CallMethod(nil, "AddGroupRoleRules", input, output, nil)
+	err = client.CallMethod("AddGroupRoleRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -414,10 +436,11 @@ func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(input *ModifyGroupRol
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyGroupRoleRuleAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyGroupRoleRuleAttributes", input, output, nil)
+	err = client.CallMethod("ModifyGroupRoleRuleAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -430,10 +453,11 @@ func (p *ResourceACLService) DeleteGroupRoleRules(input *DeleteGroupRoleRulesInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteGroupRoleRulesOutput)
 
-	err = client.CallMethod(nil, "DeleteGroupRoleRules", input, output, nil)
+	err = client.CallMethod("DeleteGroupRoleRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -446,10 +470,11 @@ func (p *ResourceACLService) GrantResourceGroupsToUserGroups(input *GrantResourc
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GrantResourceGroupsToUserGroupsOutput)
 
-	err = client.CallMethod(nil, "GrantResourceGroupsToUserGroups", input, output, nil)
+	err = client.CallMethod("GrantResourceGroupsToUserGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -462,10 +487,11 @@ func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(input *RevokeRes
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(RevokeResourceGroupsFromUserGroupsOutput)
 
-	err = client.CallMethod(nil, "RevokeResourceGroupsFromUserGroups", input, output, nil)
+	err = client.CallMethod("RevokeResourceGroupsFromUserGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -478,10 +504,11 @@ func (p *ResourceACLService) DescribeResourceUserGroups(input *DescribeResourceU
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeResourceUserGroupsOutput)
 
-	err = client.CallMethod(nil, "DescribeResourceUserGroups", input, output, nil)
+	err = client.CallMethod("DescribeResourceUserGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

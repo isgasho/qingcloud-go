@@ -53,10 +53,11 @@ func (p *SecurityGroupService) DescribeSecurityGroups(input *DescribeSecurityGro
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeSecurityGroupsOutput)
 
-	err = client.CallMethod(nil, "DescribeSecurityGroups", input, output, nil)
+	err = client.CallMethod("DescribeSecurityGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -69,10 +70,11 @@ func (p *SecurityGroupService) CreateSecurityGroup(input *CreateSecurityGroupInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateSecurityGroupOutput)
 
-	err = client.CallMethod(nil, "CreateSecurityGroup", input, output, nil)
+	err = client.CallMethod("CreateSecurityGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -85,10 +87,11 @@ func (p *SecurityGroupService) DeleteSecurityGroups(input *DeleteSecurityGroupsI
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteSecurityGroupsOutput)
 
-	err = client.CallMethod(nil, "DeleteSecurityGroups", input, output, nil)
+	err = client.CallMethod("DeleteSecurityGroups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -101,10 +104,11 @@ func (p *SecurityGroupService) ApplySecurityGroup(input *ApplySecurityGroupInput
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ApplySecurityGroupOutpu)
 
-	err = client.CallMethod(nil, "ApplySecurityGroup", input, output, nil)
+	err = client.CallMethod("ApplySecurityGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -117,10 +121,11 @@ func (p *SecurityGroupService) ModifySecurityGroupAttributes(input *ModifySecuri
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifySecurityGroupAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifySecurityGroupAttributes", input, output, nil)
+	err = client.CallMethod("ModifySecurityGroupAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -133,10 +138,11 @@ func (p *SecurityGroupService) DescribeSecurityGroupRules(input *DescribeSecurit
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeSecurityGroupRulesOutput)
 
-	err = client.CallMethod(nil, "DescribeSecurityGroupRules", input, output, nil)
+	err = client.CallMethod("DescribeSecurityGroupRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -149,10 +155,11 @@ func (p *SecurityGroupService) AddSecurityGroupRules(input *AddSecurityGroupRule
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddSecurityGroupRulesOutput)
 
-	err = client.CallMethod(nil, "AddSecurityGroupRules", input, output, nil)
+	err = client.CallMethod("AddSecurityGroupRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -165,10 +172,11 @@ func (p *SecurityGroupService) DeleteSecurityGroupRules(input *DeleteSecurityGro
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteSecurityGroupRulesOutput)
 
-	err = client.CallMethod(nil, "DeleteSecurityGroupRules", input, output, nil)
+	err = client.CallMethod("DeleteSecurityGroupRules", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -181,10 +189,11 @@ func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(input *ModifySe
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifySecurityGroupRuleAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifySecurityGroupRuleAttributes", input, output, nil)
+	err = client.CallMethod("ModifySecurityGroupRuleAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -197,10 +206,11 @@ func (p *SecurityGroupService) CreateSecurityGroupSnapshot(input *CreateSecurity
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateSecurityGroupSnapshotOutput)
 
-	err = client.CallMethod(nil, "CreateSecurityGroupSnapshot", input, output, nil)
+	err = client.CallMethod("CreateSecurityGroupSnapshot", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -213,10 +223,11 @@ func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(input *DescribeSec
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeSecurityGroupSnapshotsOutput)
 
-	err = client.CallMethod(nil, "DescribeSecurityGroupSnapshots", input, output, nil)
+	err = client.CallMethod("DescribeSecurityGroupSnapshots", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -229,10 +240,11 @@ func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(input *DeleteSecurit
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteSecurityGroupSnapshotsOutput)
 
-	err = client.CallMethod(nil, "DeleteSecurityGroupSnapshots", input, output, nil)
+	err = client.CallMethod("DeleteSecurityGroupSnapshots", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -245,10 +257,11 @@ func (p *SecurityGroupService) RollbackSecurityGroup(input *RollbackSecurityGrou
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(RollbackSecurityGroupOutput)
 
-	err = client.CallMethod(nil, "RollbackSecurityGroup", input, output, nil)
+	err = client.CallMethod("RollbackSecurityGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -261,10 +274,11 @@ func (p *SecurityGroupService) DescribeSecurityGroupIPSets(input *DescribeSecuri
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeSecurityGroupIPSetsOutput)
 
-	err = client.CallMethod(nil, "DescribeSecurityGroupIPSets", input, output, nil)
+	err = client.CallMethod("DescribeSecurityGroupIPSets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -277,10 +291,11 @@ func (p *SecurityGroupService) CreateSecurityGroupIPSet(input *CreateSecurityGro
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateSecurityGroupIPSetOutput)
 
-	err = client.CallMethod(nil, "CreateSecurityGroupIPSet", input, output, nil)
+	err = client.CallMethod("CreateSecurityGroupIPSet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -293,10 +308,11 @@ func (p *SecurityGroupService) DeleteSecurityGroupIPSets(input *DeleteSecurityGr
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteSecurityGroupIPSetsOutput)
 
-	err = client.CallMethod(nil, "DeleteSecurityGroupIPSets", input, output, nil)
+	err = client.CallMethod("DeleteSecurityGroupIPSets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -309,10 +325,11 @@ func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(input *ModifyS
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifySecurityGroupIPSetAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifySecurityGroupIPSetAttributes", input, output, nil)
+	err = client.CallMethod("ModifySecurityGroupIPSetAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -325,10 +342,11 @@ func (p *SecurityGroupService) CopySecurityGroupIPSets(input *CopySecurityGroupI
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CopySecurityGroupIPSetsOutput)
 
-	err = client.CallMethod(nil, "CopySecurityGroupIPSets", input, output, nil)
+	err = client.CallMethod("CopySecurityGroupIPSets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

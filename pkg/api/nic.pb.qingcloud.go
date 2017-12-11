@@ -41,10 +41,11 @@ func (p *NicService) CreateNics(input *CreateNicsInput) (output *CreateNicsOutpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(CreateNicsOutput)
 
-	err = client.CallMethod(nil, "CreateNics", input, output, nil)
+	err = client.CallMethod("CreateNics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -57,10 +58,11 @@ func (p *NicService) DescribeNics(input *DescribeNicsInput) (output *DescribeNic
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeNicsOutput)
 
-	err = client.CallMethod(nil, "DescribeNics", input, output, nil)
+	err = client.CallMethod("DescribeNics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -73,10 +75,11 @@ func (p *NicService) AttachNics(input *AttachNicsInput) (output *AttachNicsOutpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AttachNicsOutput)
 
-	err = client.CallMethod(nil, "AttachNics", input, output, nil)
+	err = client.CallMethod("AttachNics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -89,10 +92,11 @@ func (p *NicService) DetachNics(input *DetachNicsInput) (output *DetachNicsOutpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DetachNicsOutput)
 
-	err = client.CallMethod(nil, "DetachNics", input, output, nil)
+	err = client.CallMethod("DetachNics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -105,10 +109,11 @@ func (p *NicService) ModifyNicAttributes(input *ModifyNicAttributesInput) (outpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyNicAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyNicAttributes", input, output, nil)
+	err = client.CallMethod("ModifyNicAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -121,10 +126,11 @@ func (p *NicService) DeleteNics(input *DeleteNicsInput) (output *DeleteNicsOutpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteNicsOutput)
 
-	err = client.CallMethod(nil, "DeleteNics", input, output, nil)
+	err = client.CallMethod("DeleteNics", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

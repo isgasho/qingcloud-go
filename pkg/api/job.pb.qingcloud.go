@@ -36,10 +36,11 @@ func (p *JobService) DescribeJobs(input *DescribeJobsInput) (output *DescribeJob
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeJobsOutput)
 
-	err = client.CallMethod(nil, "DescribeJobs", input, output, nil)
+	err = client.CallMethod("DescribeJobs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

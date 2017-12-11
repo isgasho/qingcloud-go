@@ -43,10 +43,11 @@ func (p *EIPService) DescribeEips(input *DescribeEipsInput) (output *DescribeEip
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DescribeEipsOutput)
 
-	err = client.CallMethod(nil, "DescribeEips", input, output, nil)
+	err = client.CallMethod("DescribeEips", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -59,10 +60,11 @@ func (p *EIPService) AllocateEips(input *AllocateEipsInput) (output *AllocateEip
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AllocateEipsOutput)
 
-	err = client.CallMethod(nil, "AllocateEips", input, output, nil)
+	err = client.CallMethod("AllocateEips", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -75,10 +77,11 @@ func (p *EIPService) ReleaseEips(input *ReleaseEipsInput) (output *ReleaseEipsOu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ReleaseEipsOutput)
 
-	err = client.CallMethod(nil, "ReleaseEips", input, output, nil)
+	err = client.CallMethod("ReleaseEips", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -91,10 +94,11 @@ func (p *EIPService) AssociateEip(input *AssociateEipInput) (output *AssociateEi
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AssociateEipOutput)
 
-	err = client.CallMethod(nil, "AssociateEip", input, output, nil)
+	err = client.CallMethod("AssociateEip", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -107,10 +111,11 @@ func (p *EIPService) DissociateEips(input *DissociateEipsInput) (output *Dissoci
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DissociateEipsOutput)
 
-	err = client.CallMethod(nil, "DissociateEips", input, output, nil)
+	err = client.CallMethod("DissociateEips", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -123,10 +128,11 @@ func (p *EIPService) ChangeEipsBandwidth(input *ChangeEipsBandwidthInput) (outpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ChangeEipsBandwidthOutput)
 
-	err = client.CallMethod(nil, "ChangeEipsBandwidth", input, output, nil)
+	err = client.CallMethod("ChangeEipsBandwidth", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -139,10 +145,11 @@ func (p *EIPService) ChangeEipsBillingMode(input *ChangeEipsBillingModeInput) (o
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ChangeEipsBillingModeOutput)
 
-	err = client.CallMethod(nil, "ChangeEipsBillingMode", input, output, nil)
+	err = client.CallMethod("ChangeEipsBillingMode", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -155,10 +162,11 @@ func (p *EIPService) ModifyEipAttributes(input *ModifyEipAttributesInput) (outpu
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(ModifyEipAttributesOutput)
 
-	err = client.CallMethod(nil, "ModifyEipAttributes", input, output, nil)
+	err = client.CallMethod("ModifyEipAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

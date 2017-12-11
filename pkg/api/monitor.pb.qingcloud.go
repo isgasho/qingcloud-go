@@ -41,10 +41,11 @@ func (p *MonitorService) GetMonitor(input *GetMonitorInput) (output *GetMonitorO
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GetMonitorOutput)
 
-	err = client.CallMethod(nil, "GetMonitor", input, output, nil)
+	err = client.CallMethod("GetMonitor", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -57,10 +58,11 @@ func (p *MonitorService) GetLoadBalancerMonitor(input *GetLoadBalancerMonitorInp
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GetLoadBalancerMonitorOutput)
 
-	err = client.CallMethod(nil, "GetLoadBalancerMonitor", input, output, nil)
+	err = client.CallMethod("GetLoadBalancerMonitor", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -73,10 +75,11 @@ func (p *MonitorService) GetRDBMonitor(input *GetRDBMonitorInput) (output *GetRD
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GetRDBMonitorOutput)
 
-	err = client.CallMethod(nil, "GetRDBMonitor", input, output, nil)
+	err = client.CallMethod("GetRDBMonitor", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -89,10 +92,11 @@ func (p *MonitorService) GetCacheMonitor(input *GetCacheMonitorInput) (output *G
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GetCacheMonitorOutput)
 
-	err = client.CallMethod(nil, "GetCacheMonitor", input, output, nil)
+	err = client.CallMethod("GetCacheMonitor", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -105,10 +109,11 @@ func (p *MonitorService) GetZooKeeperMonitor(input *GetZooKeeperMonitorInput) (o
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GetZooKeeperMonitorOutput)
 
-	err = client.CallMethod(nil, "GetZooKeeperMonitor", input, output, nil)
+	err = client.CallMethod("GetZooKeeperMonitor", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -121,10 +126,11 @@ func (p *MonitorService) GetQueueMonitor(input *GetQueueMonitorInput) (output *G
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(GetQueueMonitorOutput)
 
-	err = client.CallMethod(nil, "GetQueueMonitor", input, output, nil)
+	err = client.CallMethod("GetQueueMonitor", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

@@ -39,10 +39,11 @@ func (p *HadoopService) AddHadoopNodes(input *AddHadoopNodesInput) (output *AddH
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(AddHadoopNodesOutput)
 
-	err = client.CallMethod(nil, "AddHadoopNodes", input, output, nil)
+	err = client.CallMethod("AddHadoopNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -55,10 +56,11 @@ func (p *HadoopService) DeleteHadoopNodes(input *DeleteHadoopNodesInput) (output
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(DeleteHadoopNodesOutput)
 
-	err = client.CallMethod(nil, "DeleteHadoopNodes", input, output, nil)
+	err = client.CallMethod("DeleteHadoopNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -71,10 +73,11 @@ func (p *HadoopService) StartHadoops(input *StartHadoopsInput) (output *StartHad
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(StartHadoopsOutput)
 
-	err = client.CallMethod(nil, "StartHadoops", input, output, nil)
+	err = client.CallMethod("StartHadoops", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -87,10 +90,11 @@ func (p *HadoopService) StopHadoops(input *StopHadoopsInput) (output *StopHadoop
 		p.ServerInfo.GetApiServer(),
 		p.ServerInfo.GetAccessKeyId(),
 		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
 	)
 	output = new(StopHadoopsOutput)
 
-	err = client.CallMethod(nil, "StopHadoops", input, output, nil)
+	err = client.CallMethod("StopHadoops", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
