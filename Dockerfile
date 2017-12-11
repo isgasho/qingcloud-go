@@ -6,13 +6,15 @@
 
 FROM golang:1.9.2-alpine3.6 as builder
 
-RUN apk add --no-cache git
+RUN apk add --no-cache git protobuf
 
 WORKDIR /go/src/github.com/chai2010/qingcloud-go/
 COPY . .
 
-RUN go generate ./pkg/version
-RUN go install  ./cmd/...
+RUN go get github.com/golang/protobuf/protoc-gen-go
+
+RUN make generate
+RUN go install ./cmd/qcli
 
 FROM alpine:3.6
 

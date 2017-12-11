@@ -11,7 +11,6 @@ default:
 	go test ./...
 
 build-docker: Dockerfile
-	$(GO) fmt ./...
 	docker build -t chai2010/qingcloud-go .
 	@docker image prune -f 1>/dev/null 2>&1
 
