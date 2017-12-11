@@ -5,6 +5,7 @@
 package pbutil
 
 import (
+	_ "github.com/fatih/structs"
 	"github.com/golang/protobuf/proto"
 )
 
