@@ -12,6 +12,6 @@ import (
 
 var AllCommands []cli.Command
 
-func pkgGetServerInfo() *pb.ServerInfo {
+func pkgGetServerInfo(c *cli.Context) *pb.ServerInfo {
 	return &pb.ServerInfo{}
 }

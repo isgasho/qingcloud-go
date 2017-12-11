@@ -60,9 +60,6 @@ func Main() {
 
 	app.Before = func(c *cli.Context) error {
 		flag.Parse()
-		if c.IsSet("glog_level") {
-			flag.CommandLine.Set("stderrthreshold", c.String("glog_level"))
-		}
 		return nil
 	}
 	app.CommandNotFound = func(c *cli.Context, command string) {
