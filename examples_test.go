@@ -16,6 +16,8 @@ import (
 )
 
 func Example_signatureBuild() {
+	// import sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
+
 	query, signature := sigpkg.Build(
 		"QYACCESSKEYIDEXAMPLE", "SECRETACCESSKEY",
 		"GET", "/iaas/", map[string]string{},
@@ -30,6 +32,8 @@ func Example_signatureBuild() {
 }
 
 func Example_signatureGetSignatureInfo() {
+	// import sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
+
 	s := "access_key_id=QYACCESSKEYIDEXAMPLE&signature_method=HmacSHA256&signature_version=1&signature=O5EhQeUqTF00g59t5Pb46QPfnPMhUOAcxTWvzlnraeE%3D"
 	pubKey, sigMethod, sigVersion, sig := sigpkg.GetSignatureInfo(s)
 
@@ -46,10 +50,14 @@ func Example_signatureGetSignatureInfo() {
 }
 
 func Example_signatureValidate() {
+	// import sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
+
 	// TODO
 }
 
 func Example_helloSDK() {
+	// import pb "github.com/chai2010/qingcloud-go/pkg/api"
+
 	qnic := pb.NewNicService(&pb.ServerInfo{
 		AccessKeyId:     proto.String("QYACCESSKEYIDEXAMPLE"),
 		SecretAccessKey: proto.String("SECRETACCESSKEY"),
