@@ -38,8 +38,12 @@ func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(input *D
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeNotificationCenterUserPostsOutput)
 
+	if input == nil {
+		input = new(DescribeNotificationCenterUserPostsInput)
+	}
+
+	output = new(DescribeNotificationCenterUserPostsOutput)
 	err = client.CallMethod("DescribeNotificationCenterUserPosts", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

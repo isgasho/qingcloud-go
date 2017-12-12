@@ -44,8 +44,12 @@ func (p *SnapshotService) DescribeSnapshots(input *DescribeSnapshotsInput) (outp
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeSnapshotsOutput)
 
+	if input == nil {
+		input = new(DescribeSnapshotsInput)
+	}
+
+	output = new(DescribeSnapshotsOutput)
 	err = client.CallMethod("DescribeSnapshots", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -61,8 +65,12 @@ func (p *SnapshotService) CreateSnapshots(input *CreateSnapshotsInput) (output *
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateSnapshotsOutput)
 
+	if input == nil {
+		input = new(CreateSnapshotsInput)
+	}
+
+	output = new(CreateSnapshotsOutput)
 	err = client.CallMethod("CreateSnapshots", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -78,8 +86,12 @@ func (p *SnapshotService) DeleteSnapshots(input *DeleteSnapshotsInput) (output *
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteSnapshotsOutput)
 
+	if input == nil {
+		input = new(DeleteSnapshotsInput)
+	}
+
+	output = new(DeleteSnapshotsOutput)
 	err = client.CallMethod("DeleteSnapshots", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -95,8 +107,12 @@ func (p *SnapshotService) ApplySnapshots(input *ApplySnapshotsInput) (output *Ap
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ApplySnapshotsOutput)
 
+	if input == nil {
+		input = new(ApplySnapshotsInput)
+	}
+
+	output = new(ApplySnapshotsOutput)
 	err = client.CallMethod("ApplySnapshots", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -112,8 +128,12 @@ func (p *SnapshotService) ModifySnapshotAttributes(input *ModifySnapshotAttribut
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifySnapshotAttributesOutput)
 
+	if input == nil {
+		input = new(ModifySnapshotAttributesInput)
+	}
+
+	output = new(ModifySnapshotAttributesOutput)
 	err = client.CallMethod("ModifySnapshotAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -129,8 +149,12 @@ func (p *SnapshotService) CaptureInstanceFromSnapshot(input *CaptureInstanceFrom
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CaptureInstanceFromSnapshotOutput)
 
+	if input == nil {
+		input = new(CaptureInstanceFromSnapshotInput)
+	}
+
+	output = new(CaptureInstanceFromSnapshotOutput)
 	err = client.CallMethod("CaptureInstanceFromSnapshot", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -146,8 +170,12 @@ func (p *SnapshotService) CreateVolumeFromSnapshot(input *CreateVolumeFromSnapsh
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateVolumeFromSnapshotOutput)
 
+	if input == nil {
+		input = new(CreateVolumeFromSnapshotInput)
+	}
+
+	output = new(CreateVolumeFromSnapshotOutput)
 	err = client.CallMethod("CreateVolumeFromSnapshot", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

@@ -49,8 +49,12 @@ func (p *InstanceService) DescribeInstances(input *DescribeInstancesInput) (outp
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeInstancesOutput)
 
+	if input == nil {
+		input = new(DescribeInstancesInput)
+	}
+
+	output = new(DescribeInstancesOutput)
 	err = client.CallMethod("DescribeInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -66,8 +70,12 @@ func (p *InstanceService) RunInstances(input *RunInstancesInput) (output *RunIns
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RunInstancesOutput)
 
+	if input == nil {
+		input = new(RunInstancesInput)
+	}
+
+	output = new(RunInstancesOutput)
 	err = client.CallMethod("RunInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -83,8 +91,12 @@ func (p *InstanceService) TerminateInstances(input *TerminateInstancesInput) (ou
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(TerminateInstancesOutput)
 
+	if input == nil {
+		input = new(TerminateInstancesInput)
+	}
+
+	output = new(TerminateInstancesOutput)
 	err = client.CallMethod("TerminateInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -100,8 +112,12 @@ func (p *InstanceService) StartInstances(input *StartInstancesInput) (output *St
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StartInstancesOutput)
 
+	if input == nil {
+		input = new(StartInstancesInput)
+	}
+
+	output = new(StartInstancesOutput)
 	err = client.CallMethod("StartInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -117,8 +133,12 @@ func (p *InstanceService) StopInstances(input *StopInstancesInput) (output *Stop
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StopInstancesOutput)
 
+	if input == nil {
+		input = new(StopInstancesInput)
+	}
+
+	output = new(StopInstancesOutput)
 	err = client.CallMethod("StopInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -134,8 +154,12 @@ func (p *InstanceService) RestartInstances(input *RestartInstancesInput) (output
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RestartInstancesOutput)
 
+	if input == nil {
+		input = new(RestartInstancesInput)
+	}
+
+	output = new(RestartInstancesOutput)
 	err = client.CallMethod("RestartInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -151,8 +175,12 @@ func (p *InstanceService) ResetInstances(input *ResetInstancesInput) (output *Re
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ResetInstancesOutput)
 
+	if input == nil {
+		input = new(ResetInstancesInput)
+	}
+
+	output = new(ResetInstancesOutput)
 	err = client.CallMethod("ResetInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -168,8 +196,12 @@ func (p *InstanceService) ResizeInstances(input *ResizeInstancesInput) (output *
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ResizeInstancesOutput)
 
+	if input == nil {
+		input = new(ResizeInstancesInput)
+	}
+
+	output = new(ResizeInstancesOutput)
 	err = client.CallMethod("ResizeInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -185,8 +217,12 @@ func (p *InstanceService) ModifyInstanceAttributes(input *ModifyInstanceAttribut
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyInstanceAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyInstanceAttributesInput)
+	}
+
+	output = new(ModifyInstanceAttributesOutput)
 	err = client.CallMethod("ModifyInstanceAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -202,8 +238,12 @@ func (p *InstanceService) DescribeInstanceTypes(input *DescribeInstanceTypesInpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeInstanceTypesOutput)
 
+	if input == nil {
+		input = new(DescribeInstanceTypesInput)
+	}
+
+	output = new(DescribeInstanceTypesOutput)
 	err = client.CallMethod("DescribeInstanceTypes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -219,8 +259,12 @@ func (p *InstanceService) CreateBrokers(input *CreateBrokersInput) (output *Crea
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateBrokersOutput)
 
+	if input == nil {
+		input = new(CreateBrokersInput)
+	}
+
+	output = new(CreateBrokersOutput)
 	err = client.CallMethod("CreateBrokers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -236,8 +280,12 @@ func (p *InstanceService) DeleteBrokers(input *DeleteBrokersInput) (output *Dele
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteBrokersOutput)
 
+	if input == nil {
+		input = new(DeleteBrokersInput)
+	}
+
+	output = new(DeleteBrokersOutput)
 	err = client.CallMethod("DeleteBrokers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

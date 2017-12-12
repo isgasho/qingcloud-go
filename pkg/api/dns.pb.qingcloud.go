@@ -41,8 +41,12 @@ func (p *DNSAliasService) DescribeDNSAliases(input *DescribeDNSAliasesInput) (ou
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeDNSAliasesOutput)
 
+	if input == nil {
+		input = new(DescribeDNSAliasesInput)
+	}
+
+	output = new(DescribeDNSAliasesOutput)
 	err = client.CallMethod("DescribeDNSAliases", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -58,8 +62,12 @@ func (p *DNSAliasService) AssociateDNSAlias(input *AssociateDNSAliasInput) (outp
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AssociateDNSAliasOutput)
 
+	if input == nil {
+		input = new(AssociateDNSAliasInput)
+	}
+
+	output = new(AssociateDNSAliasOutput)
 	err = client.CallMethod("AssociateDNSAlias", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -75,8 +83,12 @@ func (p *DNSAliasService) DissociateDNSAliases(input *DissociateDNSAliasesInput)
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DissociateDNSAliasesOutput)
 
+	if input == nil {
+		input = new(DissociateDNSAliasesInput)
+	}
+
+	output = new(DissociateDNSAliasesOutput)
 	err = client.CallMethod("DissociateDNSAliases", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -92,8 +104,12 @@ func (p *DNSAliasService) GetDNSLabel(input *GetDNSLabelInput) (output *GetDNSLa
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(GetDNSLabelOutput)
 
+	if input == nil {
+		input = new(GetDNSLabelInput)
+	}
+
+	output = new(GetDNSLabelOutput)
 	err = client.CallMethod("GetDNSLabel", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

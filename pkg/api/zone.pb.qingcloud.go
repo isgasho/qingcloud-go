@@ -38,8 +38,12 @@ func (p *ZoneService) DescribeZones(input *DescribeZonesInput) (output *Describe
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeZonesOutput)
 
+	if input == nil {
+		input = new(DescribeZonesInput)
+	}
+
+	output = new(DescribeZonesOutput)
 	err = client.CallMethod("DescribeZones", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

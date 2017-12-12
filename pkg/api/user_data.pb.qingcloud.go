@@ -38,8 +38,12 @@ func (p *UserDataService) UploadUserDataAttachment(input *UploadUserDataAttachme
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(UploadUserDataAttachmentOutput)
 
+	if input == nil {
+		input = new(UploadUserDataAttachmentInput)
+	}
+
+	output = new(UploadUserDataAttachmentOutput)
 	err = client.CallMethod("UploadUserDataAttachment", "POST", input, output, nil)
 	if err != nil {
 		return nil, err

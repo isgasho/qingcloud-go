@@ -42,8 +42,12 @@ func (p *SubuserService) DescribeSubUsers(input *DescribeSubUsersInput) (output 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeSubUsersOutput)
 
+	if input == nil {
+		input = new(DescribeSubUsersInput)
+	}
+
+	output = new(DescribeSubUsersOutput)
 	err = client.CallMethod("DescribeSubUsers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -59,8 +63,12 @@ func (p *SubuserService) CreateSubUser(input *CreateSubUserInput) (output *Creat
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateSubUserOutput)
 
+	if input == nil {
+		input = new(CreateSubUserInput)
+	}
+
+	output = new(CreateSubUserOutput)
 	err = client.CallMethod("CreateSubUser", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -76,8 +84,12 @@ func (p *SubuserService) ModifySubUserAttributes(input *ModifySubUserAttributesI
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifySubUserAttributesOutput)
 
+	if input == nil {
+		input = new(ModifySubUserAttributesInput)
+	}
+
+	output = new(ModifySubUserAttributesOutput)
 	err = client.CallMethod("ModifySubUserAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -93,8 +105,12 @@ func (p *SubuserService) DeleteSubUsers(input *DeleteSubUsersInput) (output *Del
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteSubUsersOutput)
 
+	if input == nil {
+		input = new(DeleteSubUsersInput)
+	}
+
+	output = new(DeleteSubUsersOutput)
 	err = client.CallMethod("DeleteSubUsers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -110,8 +126,12 @@ func (p *SubuserService) RestoreSubUsers(input *RestoreSubUsersInput) (output *R
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RestoreSubUsersOutput)
 
+	if input == nil {
+		input = new(RestoreSubUsersInput)
+	}
+
+	output = new(RestoreSubUsersOutput)
 	err = client.CallMethod("RestoreSubUsers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

@@ -51,8 +51,12 @@ func (p *MongoService) DescribeMongoNodes(input *DescribeMongoNodesInput) (outpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeMongoNodesOutput)
 
+	if input == nil {
+		input = new(DescribeMongoNodesInput)
+	}
+
+	output = new(DescribeMongoNodesOutput)
 	err = client.CallMethod("DescribeMongoNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -68,8 +72,12 @@ func (p *MongoService) DescribeMongoParameters(input *DescribeMongoParametersInp
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeMongoParametersOutput)
 
+	if input == nil {
+		input = new(DescribeMongoParametersInput)
+	}
+
+	output = new(DescribeMongoParametersOutput)
 	err = client.CallMethod("DescribeMongoParameters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -85,8 +93,12 @@ func (p *MongoService) ResizeMongos(input *ResizeMongosInput) (output *ResizeMon
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ResizeMongosOutput)
 
+	if input == nil {
+		input = new(ResizeMongosInput)
+	}
+
+	output = new(ResizeMongosOutput)
 	err = client.CallMethod("ResizeMongos", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -102,8 +114,12 @@ func (p *MongoService) CreateMongo(input *CreateMongoInput) (output *CreateMongo
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateMongoOutput)
 
+	if input == nil {
+		input = new(CreateMongoInput)
+	}
+
+	output = new(CreateMongoOutput)
 	err = client.CallMethod("CreateMongo", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -119,8 +135,12 @@ func (p *MongoService) StopMongos(input *StopMongosInput) (output *StopMongosOut
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StopMongosOutput)
 
+	if input == nil {
+		input = new(StopMongosInput)
+	}
+
+	output = new(StopMongosOutput)
 	err = client.CallMethod("StopMongos", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -136,8 +156,12 @@ func (p *MongoService) StartMongos(input *StartMongosInput) (output *StartMongos
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StartMongosOutput)
 
+	if input == nil {
+		input = new(StartMongosInput)
+	}
+
+	output = new(StartMongosOutput)
 	err = client.CallMethod("StartMongos", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -153,8 +177,12 @@ func (p *MongoService) DescribeMongos(input *DescribeMongosInput) (output *Descr
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeMongosOutput)
 
+	if input == nil {
+		input = new(DescribeMongosInput)
+	}
+
+	output = new(DescribeMongosOutput)
 	err = client.CallMethod("DescribeMongos", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -170,8 +198,12 @@ func (p *MongoService) DeleteMongos(input *DeleteMongosInput) (output *DeleteMon
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteMongosOutput)
 
+	if input == nil {
+		input = new(DeleteMongosInput)
+	}
+
+	output = new(DeleteMongosOutput)
 	err = client.CallMethod("DeleteMongos", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -187,8 +219,12 @@ func (p *MongoService) CreateMongoFromSnapshot(input *CreateMongoFromSnapshotInp
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateMongoFromSnapshotOutput)
 
+	if input == nil {
+		input = new(CreateMongoFromSnapshotInput)
+	}
+
+	output = new(CreateMongoFromSnapshotOutput)
 	err = client.CallMethod("CreateMongoFromSnapshot", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -204,8 +240,12 @@ func (p *MongoService) ChangeMongoVxnet(input *ChangeMongoVxnetInput) (output *C
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ChangeMongoVxnetOutput)
 
+	if input == nil {
+		input = new(ChangeMongoVxnetInput)
+	}
+
+	output = new(ChangeMongoVxnetOutput)
 	err = client.CallMethod("ChangeMongoVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -221,8 +261,12 @@ func (p *MongoService) AddMongoInstances(input *AddMongoInstancesInput) (output 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AddMongoInstancesOutput)
 
+	if input == nil {
+		input = new(AddMongoInstancesInput)
+	}
+
+	output = new(AddMongoInstancesOutput)
 	err = client.CallMethod("AddMongoInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -238,8 +282,12 @@ func (p *MongoService) RemoveMongoInstances(input *RemoveMongoInstancesInput) (o
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RemoveMongoInstancesOutput)
 
+	if input == nil {
+		input = new(RemoveMongoInstancesInput)
+	}
+
+	output = new(RemoveMongoInstancesOutput)
 	err = client.CallMethod("RemoveMongoInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -255,8 +303,12 @@ func (p *MongoService) ModifyMongoAttributes(input *ModifyMongoAttributesInput) 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyMongoAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyMongoAttributesInput)
+	}
+
+	output = new(ModifyMongoAttributesOutput)
 	err = client.CallMethod("ModifyMongoAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -272,8 +324,12 @@ func (p *MongoService) ModifyMongoInstances(input *ModifyMongoInstancesInput) (o
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyMongoInstancesOutput)
 
+	if input == nil {
+		input = new(ModifyMongoInstancesInput)
+	}
+
+	output = new(ModifyMongoInstancesOutput)
 	err = client.CallMethod("ModifyMongoInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

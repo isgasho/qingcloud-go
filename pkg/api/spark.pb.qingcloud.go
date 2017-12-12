@@ -44,8 +44,12 @@ func (p *SparkService) CreateSpark(input *CreateSparkInput) (output *CreateSpark
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateSparkOutput)
 
+	if input == nil {
+		input = new(CreateSparkInput)
+	}
+
+	output = new(CreateSparkOutput)
 	err = client.CallMethod("CreateSpark", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -61,8 +65,12 @@ func (p *SparkService) DescribeSparks(input *DescribeSparksInput) (output *Descr
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeSparksOutput)
 
+	if input == nil {
+		input = new(DescribeSparksInput)
+	}
+
+	output = new(DescribeSparksOutput)
 	err = client.CallMethod("DescribeSparks", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -78,8 +86,12 @@ func (p *SparkService) AddSparkNodes(input *AddSparkNodesInput) (output *AddSpar
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AddSparkNodesOutput)
 
+	if input == nil {
+		input = new(AddSparkNodesInput)
+	}
+
+	output = new(AddSparkNodesOutput)
 	err = client.CallMethod("AddSparkNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -95,8 +107,12 @@ func (p *SparkService) DeleteSparkNodes(input *DeleteSparkNodesInput) (output *D
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteSparkNodesOutput)
 
+	if input == nil {
+		input = new(DeleteSparkNodesInput)
+	}
+
+	output = new(DeleteSparkNodesOutput)
 	err = client.CallMethod("DeleteSparkNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -112,8 +128,12 @@ func (p *SparkService) StartSparks(input *StartSparksInput) (output *StartSparks
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StartSparksOutput)
 
+	if input == nil {
+		input = new(StartSparksInput)
+	}
+
+	output = new(StartSparksOutput)
 	err = client.CallMethod("StartSparks", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -129,8 +149,12 @@ func (p *SparkService) StopSparks(input *StopSparksInput) (output *StopSparksOut
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StopSparksOutput)
 
+	if input == nil {
+		input = new(StopSparksInput)
+	}
+
+	output = new(StopSparksOutput)
 	err = client.CallMethod("StopSparks", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -146,8 +170,12 @@ func (p *SparkService) DeleteSparks(input *DeleteSparksInput) (output *DeleteSpa
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteSparksOutput)
 
+	if input == nil {
+		input = new(DeleteSparksInput)
+	}
+
+	output = new(DeleteSparksOutput)
 	err = client.CallMethod("DeleteSparks", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

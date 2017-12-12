@@ -44,8 +44,12 @@ func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *D
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeVolumesOutput)
 
+	if input == nil {
+		input = new(DescribeVolumesInput)
+	}
+
+	output = new(DescribeVolumesOutput)
 	err = client.CallMethod("DescribeVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -61,8 +65,12 @@ func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *Creat
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateVolumesOutput)
 
+	if input == nil {
+		input = new(CreateVolumesInput)
+	}
+
+	output = new(CreateVolumesOutput)
 	err = client.CallMethod("CreateVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -78,8 +86,12 @@ func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *Delet
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteVolumesOutput)
 
+	if input == nil {
+		input = new(DeleteVolumesInput)
+	}
+
+	output = new(DeleteVolumesOutput)
 	err = client.CallMethod("DeleteVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -95,8 +107,12 @@ func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *Attac
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AttachVolumesOutput)
 
+	if input == nil {
+		input = new(AttachVolumesInput)
+	}
+
+	output = new(AttachVolumesOutput)
 	err = client.CallMethod("AttachVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -112,8 +128,12 @@ func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *Detac
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DetachVolumesOutput)
 
+	if input == nil {
+		input = new(DetachVolumesInput)
+	}
+
+	output = new(DetachVolumesOutput)
 	err = client.CallMethod("DetachVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -129,8 +149,12 @@ func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *Resiz
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ResizeVolumesOutput)
 
+	if input == nil {
+		input = new(ResizeVolumesInput)
+	}
+
+	output = new(ResizeVolumesOutput)
 	err = client.CallMethod("ResizeVolumes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -146,8 +170,12 @@ func (p *VolumesService) ModifyVolumeAttributes(input *ModifyVolumeAttributesInp
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyVolumeAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyVolumeAttributesInput)
+	}
+
+	output = new(ModifyVolumeAttributesOutput)
 	err = client.CallMethod("ModifyVolumeAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

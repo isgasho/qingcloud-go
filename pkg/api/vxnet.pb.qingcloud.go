@@ -44,8 +44,12 @@ func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *Descr
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeVxnetsOutput)
 
+	if input == nil {
+		input = new(DescribeVxnetsInput)
+	}
+
+	output = new(DescribeVxnetsOutput)
 	err = client.CallMethod("DescribeVxnets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -61,8 +65,12 @@ func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxn
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateVxnetsOutput)
 
+	if input == nil {
+		input = new(CreateVxnetsInput)
+	}
+
+	output = new(CreateVxnetsOutput)
 	err = client.CallMethod("CreateVxnets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -78,8 +86,12 @@ func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxn
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteVxnetsOutput)
 
+	if input == nil {
+		input = new(DeleteVxnetsInput)
+	}
+
+	output = new(DeleteVxnetsOutput)
 	err = client.CallMethod("DeleteVxnets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -95,8 +107,12 @@ func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(JoinVxnetOutput)
 
+	if input == nil {
+		input = new(JoinVxnetInput)
+	}
+
+	output = new(JoinVxnetOutput)
 	err = client.CallMethod("JoinVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -112,8 +128,12 @@ func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOut
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(LeaveVxnetOutput)
 
+	if input == nil {
+		input = new(LeaveVxnetInput)
+	}
+
+	output = new(LeaveVxnetOutput)
 	err = client.CallMethod("LeaveVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -129,8 +149,12 @@ func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyVxnetAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyVxnetAttributesInput)
+	}
+
+	output = new(ModifyVxnetAttributesOutput)
 	err = client.CallMethod("ModifyVxnetAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -146,8 +170,12 @@ func (p *VxnetService) DescribeVxnetInstances(input *DescribeVxnetInstancesInput
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeVxnetInstancesOutput)
 
+	if input == nil {
+		input = new(DescribeVxnetInstancesInput)
+	}
+
+	output = new(DescribeVxnetInstancesOutput)
 	err = client.CallMethod("DescribeVxnetInstances", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

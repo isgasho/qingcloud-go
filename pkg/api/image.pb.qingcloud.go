@@ -45,8 +45,12 @@ func (p *ImageService) DescribeImages(input *DescribeImagesInput) (output *Descr
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeImagesOutput)
 
+	if input == nil {
+		input = new(DescribeImagesInput)
+	}
+
+	output = new(DescribeImagesOutput)
 	err = client.CallMethod("DescribeImages", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -62,8 +66,12 @@ func (p *ImageService) CaptureInstance(input *CaptureInstanceInput) (output *Cap
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CaptureInstanceOutput)
 
+	if input == nil {
+		input = new(CaptureInstanceInput)
+	}
+
+	output = new(CaptureInstanceOutput)
 	err = client.CallMethod("CaptureInstance", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -79,8 +87,12 @@ func (p *ImageService) DeleteImages(input *DeleteImagesInput) (output *DeleteIma
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteImagesOutput)
 
+	if input == nil {
+		input = new(DeleteImagesInput)
+	}
+
+	output = new(DeleteImagesOutput)
 	err = client.CallMethod("DeleteImages", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -96,8 +108,12 @@ func (p *ImageService) ModifyImageAttributes(input *ModifyImageAttributesInput) 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyImageAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyImageAttributesInput)
+	}
+
+	output = new(ModifyImageAttributesOutput)
 	err = client.CallMethod("ModifyImageAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -113,8 +129,12 @@ func (p *ImageService) GrantImageToUsers(input *GrantImageToUsersInput) (output 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(GrantImageToUsersOutput)
 
+	if input == nil {
+		input = new(GrantImageToUsersInput)
+	}
+
+	output = new(GrantImageToUsersOutput)
 	err = client.CallMethod("GrantImageToUsers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -130,8 +150,12 @@ func (p *ImageService) RevokeImageFromUsers(input *RevokeImageFromUsersInput) (o
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RevokeImageFromUsersOutput)
 
+	if input == nil {
+		input = new(RevokeImageFromUsersInput)
+	}
+
+	output = new(RevokeImageFromUsersOutput)
 	err = client.CallMethod("RevokeImageFromUsers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -147,8 +171,12 @@ func (p *ImageService) DescribeImageUsers(input *DescribeImageUsersInput) (outpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeImageUsersOutput)
 
+	if input == nil {
+		input = new(DescribeImageUsersInput)
+	}
+
+	output = new(DescribeImageUsersOutput)
 	err = client.CallMethod("DescribeImageUsers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -164,8 +192,12 @@ func (p *ImageService) CloneImages(input *CloneImagesInput) (output *CloneImages
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CloneImagesOutput)
 
+	if input == nil {
+		input = new(CloneImagesInput)
+	}
+
+	output = new(CloneImagesOutput)
 	err = client.CallMethod("CloneImages", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

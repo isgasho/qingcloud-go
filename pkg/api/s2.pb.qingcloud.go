@@ -65,8 +65,12 @@ func (p *S2Service) CreateS2Server(input *CreateS2ServerInput) (output *CreateS2
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateS2ServerOutput)
 
+	if input == nil {
+		input = new(CreateS2ServerInput)
+	}
+
+	output = new(CreateS2ServerOutput)
 	err = client.CallMethod("CreateS2Server", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -82,8 +86,12 @@ func (p *S2Service) DescribeS2Servers(input *DescribeS2ServersInput) (output *De
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeS2ServersOutput)
 
+	if input == nil {
+		input = new(DescribeS2ServersInput)
+	}
+
+	output = new(DescribeS2ServersOutput)
 	err = client.CallMethod("DescribeS2Servers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -99,8 +107,12 @@ func (p *S2Service) ModifyS2Server(input *ModifyS2ServerInput) (output *ModifyS2
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyS2ServerOutput)
 
+	if input == nil {
+		input = new(ModifyS2ServerInput)
+	}
+
+	output = new(ModifyS2ServerOutput)
 	err = client.CallMethod("ModifyS2Server", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -116,8 +128,12 @@ func (p *S2Service) ResizeS2Servers(input *ResizeS2ServersInput) (output *Resize
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ResizeS2ServersOutput)
 
+	if input == nil {
+		input = new(ResizeS2ServersInput)
+	}
+
+	output = new(ResizeS2ServersOutput)
 	err = client.CallMethod("ResizeS2Servers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -133,8 +149,12 @@ func (p *S2Service) DeleteS2Servers(input *DeleteS2ServersInput) (output *Delete
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteS2ServersOutput)
 
+	if input == nil {
+		input = new(DeleteS2ServersInput)
+	}
+
+	output = new(DeleteS2ServersOutput)
 	err = client.CallMethod("DeleteS2Servers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -150,8 +170,12 @@ func (p *S2Service) PowerOnS2Servers(input *PowerOnS2ServersInput) (output *Powe
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(PowerOnS2ServersOutput)
 
+	if input == nil {
+		input = new(PowerOnS2ServersInput)
+	}
+
+	output = new(PowerOnS2ServersOutput)
 	err = client.CallMethod("PowerOnS2Servers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -167,8 +191,12 @@ func (p *S2Service) PowerOffS2Servers(input *PowerOffS2ServersInput) (output *Po
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(PowerOffS2ServersOutput)
 
+	if input == nil {
+		input = new(PowerOffS2ServersInput)
+	}
+
+	output = new(PowerOffS2ServersOutput)
 	err = client.CallMethod("PowerOffS2Servers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -184,8 +212,12 @@ func (p *S2Service) UpdateS2Servers(input *UpdateS2ServersInput) (output *Update
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(UpdateS2ServersOutput)
 
+	if input == nil {
+		input = new(UpdateS2ServersInput)
+	}
+
+	output = new(UpdateS2ServersOutput)
 	err = client.CallMethod("UpdateS2Servers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -201,8 +233,12 @@ func (p *S2Service) ChangeS2ServerVxnet(input *ChangeS2ServerVxnetInput) (output
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ChangeS2ServerVxnetOutput)
 
+	if input == nil {
+		input = new(ChangeS2ServerVxnetInput)
+	}
+
+	output = new(ChangeS2ServerVxnetOutput)
 	err = client.CallMethod("ChangeS2ServerVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -218,8 +254,12 @@ func (p *S2Service) CreateS2SharedTarget(input *CreateS2SharedTargetInput) (outp
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateS2SharedTargetOutput)
 
+	if input == nil {
+		input = new(CreateS2SharedTargetInput)
+	}
+
+	output = new(CreateS2SharedTargetOutput)
 	err = client.CallMethod("CreateS2SharedTarget", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -235,8 +275,12 @@ func (p *S2Service) DescribeS2SharedTargets(input *DescribeS2SharedTargetsInput)
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeS2SharedTargetsOutput)
 
+	if input == nil {
+		input = new(DescribeS2SharedTargetsInput)
+	}
+
+	output = new(DescribeS2SharedTargetsOutput)
 	err = client.CallMethod("DescribeS2SharedTargets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -252,8 +296,12 @@ func (p *S2Service) DeleteS2SharedTargets(input *DeleteS2SharedTargetsInput) (ou
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteS2SharedTargetsOutput)
 
+	if input == nil {
+		input = new(DeleteS2SharedTargetsInput)
+	}
+
+	output = new(DeleteS2SharedTargetsOutput)
 	err = client.CallMethod("DeleteS2SharedTargets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -269,8 +317,12 @@ func (p *S2Service) EnableS2SharedTargets(input *EnableS2SharedTargetsInput) (ou
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(EnableS2SharedTargetsOutput)
 
+	if input == nil {
+		input = new(EnableS2SharedTargetsInput)
+	}
+
+	output = new(EnableS2SharedTargetsOutput)
 	err = client.CallMethod("EnableS2SharedTargets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -286,8 +338,12 @@ func (p *S2Service) DisableS2SharedTargets(input *DisableS2SharedTargetsInput) (
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DisableS2SharedTargetsOutput)
 
+	if input == nil {
+		input = new(DisableS2SharedTargetsInput)
+	}
+
+	output = new(DisableS2SharedTargetsOutput)
 	err = client.CallMethod("DisableS2SharedTargets", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -303,8 +359,12 @@ func (p *S2Service) ModifyS2SharedTargetAttributes(input *ModifyS2SharedTargetAt
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyS2SharedTargetAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyS2SharedTargetAttributesInput)
+	}
+
+	output = new(ModifyS2SharedTargetAttributesOutput)
 	err = client.CallMethod("ModifyS2SharedTargetAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -320,8 +380,12 @@ func (p *S2Service) AttachToS2SharedTarget(input *AttachToS2SharedTargetInput) (
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AttachToS2SharedTargetOutput)
 
+	if input == nil {
+		input = new(AttachToS2SharedTargetInput)
+	}
+
+	output = new(AttachToS2SharedTargetOutput)
 	err = client.CallMethod("AttachToS2SharedTarget", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -337,8 +401,12 @@ func (p *S2Service) DetachFromS2SharedTarget(input *DetachFromS2SharedTargetInpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DetachFromS2SharedTargetOutput)
 
+	if input == nil {
+		input = new(DetachFromS2SharedTargetInput)
+	}
+
+	output = new(DetachFromS2SharedTargetOutput)
 	err = client.CallMethod("DetachFromS2SharedTarget", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -354,8 +422,12 @@ func (p *S2Service) DescribeS2DefaultParameters(input *DescribeS2DefaultParamete
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeS2DefaultParametersOutput)
 
+	if input == nil {
+		input = new(DescribeS2DefaultParametersInput)
+	}
+
+	output = new(DescribeS2DefaultParametersOutput)
 	err = client.CallMethod("DescribeS2DefaultParameters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -371,8 +443,12 @@ func (p *S2Service) CreateS2Group(input *CreateS2GroupInput) (output *CreateS2Gr
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateS2GroupOutput)
 
+	if input == nil {
+		input = new(CreateS2GroupInput)
+	}
+
+	output = new(CreateS2GroupOutput)
 	err = client.CallMethod("CreateS2Group", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -388,8 +464,12 @@ func (p *S2Service) DescribeS2Groups(input *DescribeS2GroupsInput) (output *Desc
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeS2GroupsOutput)
 
+	if input == nil {
+		input = new(DescribeS2GroupsInput)
+	}
+
+	output = new(DescribeS2GroupsOutput)
 	err = client.CallMethod("DescribeS2Groups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -405,8 +485,12 @@ func (p *S2Service) ModifyS2Group(input *ModifyS2GroupInput) (output *ModifyS2Gr
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyS2GroupOutput)
 
+	if input == nil {
+		input = new(ModifyS2GroupInput)
+	}
+
+	output = new(ModifyS2GroupOutput)
 	err = client.CallMethod("ModifyS2Group", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -422,8 +506,12 @@ func (p *S2Service) DeleteS2Groups(input *DeleteS2GroupsInput) (output *DeleteS2
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteS2GroupsOutput)
 
+	if input == nil {
+		input = new(DeleteS2GroupsInput)
+	}
+
+	output = new(DeleteS2GroupsOutput)
 	err = client.CallMethod("DeleteS2Groups", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -439,8 +527,12 @@ func (p *S2Service) CreateS2Account(input *CreateS2AccountInput) (output *Create
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateS2AccountOutput)
 
+	if input == nil {
+		input = new(CreateS2AccountInput)
+	}
+
+	output = new(CreateS2AccountOutput)
 	err = client.CallMethod("CreateS2Account", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -456,8 +548,12 @@ func (p *S2Service) DescribeS2Accounts(input *DescribeS2AccountsInput) (output *
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeS2AccountsOutput)
 
+	if input == nil {
+		input = new(DescribeS2AccountsInput)
+	}
+
+	output = new(DescribeS2AccountsOutput)
 	err = client.CallMethod("DescribeS2Accounts", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -473,8 +569,12 @@ func (p *S2Service) ModifyS2Account(input *ModifyS2AccountInput) (output *Modify
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyS2AccountOutput)
 
+	if input == nil {
+		input = new(ModifyS2AccountInput)
+	}
+
+	output = new(ModifyS2AccountOutput)
 	err = client.CallMethod("ModifyS2Account", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -490,8 +590,12 @@ func (p *S2Service) DeleteS2Accounts(input *DeleteS2AccountsInput) (output *Dele
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteS2AccountsOutput)
 
+	if input == nil {
+		input = new(DeleteS2AccountsInput)
+	}
+
+	output = new(DeleteS2AccountsOutput)
 	err = client.CallMethod("DeleteS2Accounts", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -507,8 +611,12 @@ func (p *S2Service) AssociateS2AccountGroup(input *AssociateS2AccountGroupInput)
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AssociateS2AccountGroupOutput)
 
+	if input == nil {
+		input = new(AssociateS2AccountGroupInput)
+	}
+
+	output = new(AssociateS2AccountGroupOutput)
 	err = client.CallMethod("AssociateS2AccountGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -524,8 +632,12 @@ func (p *S2Service) DissociateS2AccountGroup(input *DissociateS2AccountGroupInpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DissociateS2AccountGroupOutput)
 
+	if input == nil {
+		input = new(DissociateS2AccountGroupInput)
+	}
+
+	output = new(DissociateS2AccountGroupOutput)
 	err = client.CallMethod("DissociateS2AccountGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

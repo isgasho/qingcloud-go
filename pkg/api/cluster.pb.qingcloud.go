@@ -58,8 +58,12 @@ func (p *ClusterService) CreateCluster(input *CreateClusterInput) (output *Creat
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateClusterOutput)
 
+	if input == nil {
+		input = new(CreateClusterInput)
+	}
+
+	output = new(CreateClusterOutput)
 	err = client.CallMethod("CreateCluster", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -75,8 +79,12 @@ func (p *ClusterService) DescribeClusters(input *DescribeClustersInput) (output 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeClustersOutput)
 
+	if input == nil {
+		input = new(DescribeClustersInput)
+	}
+
+	output = new(DescribeClustersOutput)
 	err = client.CallMethod("DescribeClusters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -92,8 +100,12 @@ func (p *ClusterService) DescribeClusterNodes(input *DescribeClusterNodesInput) 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeClusterNodesOutput)
 
+	if input == nil {
+		input = new(DescribeClusterNodesInput)
+	}
+
+	output = new(DescribeClusterNodesOutput)
 	err = client.CallMethod("DescribeClusterNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -109,8 +121,12 @@ func (p *ClusterService) StopClusters(input *StopClustersInput) (output *StopClu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StopClustersOutput)
 
+	if input == nil {
+		input = new(StopClustersInput)
+	}
+
+	output = new(StopClustersOutput)
 	err = client.CallMethod("StopClusters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -126,8 +142,12 @@ func (p *ClusterService) StartClusters(input *StartClustersInput) (output *Start
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StartClustersOutput)
 
+	if input == nil {
+		input = new(StartClustersInput)
+	}
+
+	output = new(StartClustersOutput)
 	err = client.CallMethod("StartClusters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -143,8 +163,12 @@ func (p *ClusterService) DeleteClusters(input *DeleteClustersInput) (output *Del
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteClustersOutput)
 
+	if input == nil {
+		input = new(DeleteClustersInput)
+	}
+
+	output = new(DeleteClustersOutput)
 	err = client.CallMethod("DeleteClusters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -160,8 +184,12 @@ func (p *ClusterService) Lease(input *LeaseInput) (output *LeaseOutput, err erro
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(LeaseOutput)
 
+	if input == nil {
+		input = new(LeaseInput)
+	}
+
+	output = new(LeaseOutput)
 	err = client.CallMethod("Lease", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -177,8 +205,12 @@ func (p *ClusterService) AddClusterNodes(input *AddClusterNodesInput) (output *A
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AddClusterNodesOutput)
 
+	if input == nil {
+		input = new(AddClusterNodesInput)
+	}
+
+	output = new(AddClusterNodesOutput)
 	err = client.CallMethod("AddClusterNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -194,8 +226,12 @@ func (p *ClusterService) DeleteClusterNodes(input *DeleteClusterNodesInput) (out
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteClusterNodesOutput)
 
+	if input == nil {
+		input = new(DeleteClusterNodesInput)
+	}
+
+	output = new(DeleteClusterNodesOutput)
 	err = client.CallMethod("DeleteClusterNodes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -211,8 +247,12 @@ func (p *ClusterService) ResizeCluster(input *ResizeClusterInput) (output *Resiz
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ResizeClusterOutput)
 
+	if input == nil {
+		input = new(ResizeClusterInput)
+	}
+
+	output = new(ResizeClusterOutput)
 	err = client.CallMethod("ResizeCluster", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -228,8 +268,12 @@ func (p *ClusterService) ChangeClusterVxnet(input *ChangeClusterVxnetInput) (out
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ChangeClusterVxnetOutput)
 
+	if input == nil {
+		input = new(ChangeClusterVxnetInput)
+	}
+
+	output = new(ChangeClusterVxnetOutput)
 	err = client.CallMethod("ChangeClusterVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -245,8 +289,12 @@ func (p *ClusterService) SuspendClusters(input *SuspendClustersInput) (output *S
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(SuspendClustersOutput)
 
+	if input == nil {
+		input = new(SuspendClustersInput)
+	}
+
+	output = new(SuspendClustersOutput)
 	err = client.CallMethod("SuspendClusters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -262,8 +310,12 @@ func (p *ClusterService) UpdateClusterEnvironment(input *UpdateClusterEnvironmen
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(UpdateClusterEnvironmentOutput)
 
+	if input == nil {
+		input = new(UpdateClusterEnvironmentInput)
+	}
+
+	output = new(UpdateClusterEnvironmentOutput)
 	err = client.CallMethod("UpdateClusterEnvironment", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -279,8 +331,12 @@ func (p *ClusterService) ModifyClusterAttributes(input *ModifyClusterAttributesI
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyClusterAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyClusterAttributesInput)
+	}
+
+	output = new(ModifyClusterAttributesOutput)
 	err = client.CallMethod("ModifyClusterAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -296,8 +352,12 @@ func (p *ClusterService) ModifyClusterNodeAttributes(input *ModifyClusterNodeAtt
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyClusterNodeAttributesOutput)
 
+	if input == nil {
+		input = new(ModifyClusterNodeAttributesInput)
+	}
+
+	output = new(ModifyClusterNodeAttributesOutput)
 	err = client.CallMethod("ModifyClusterNodeAttributes", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -313,8 +373,12 @@ func (p *ClusterService) GetClustersStats(input *GetClustersStatsInput) (output 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(GetClustersStatsOutput)
 
+	if input == nil {
+		input = new(GetClustersStatsInput)
+	}
+
+	output = new(GetClustersStatsOutput)
 	err = client.CallMethod("GetClustersStats", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -330,8 +394,12 @@ func (p *ClusterService) DescribeClusterUsers(input *DescribeClusterUsersInput) 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeClusterUsersOutput)
 
+	if input == nil {
+		input = new(DescribeClusterUsersInput)
+	}
+
+	output = new(DescribeClusterUsersOutput)
 	err = client.CallMethod("DescribeClusterUsers", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -347,8 +415,12 @@ func (p *ClusterService) RestartClusterService(input *RestartClusterServiceInput
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RestartClusterServiceOutput)
 
+	if input == nil {
+		input = new(RestartClusterServiceInput)
+	}
+
+	output = new(RestartClusterServiceOutput)
 	err = client.CallMethod("RestartClusterService", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -364,8 +436,12 @@ func (p *ClusterService) UpgradeClusters(input *UpgradeClustersInput) (output *U
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(UpgradeClustersOutput)
 
+	if input == nil {
+		input = new(UpgradeClustersInput)
+	}
+
+	output = new(UpgradeClustersOutput)
 	err = client.CallMethod("UpgradeClusters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -381,8 +457,12 @@ func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(input *AuthorizeClus
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(AuthorizeClustersBrokerToDeveloperOutput)
 
+	if input == nil {
+		input = new(AuthorizeClustersBrokerToDeveloperInput)
+	}
+
+	output = new(AuthorizeClustersBrokerToDeveloperOutput)
 	err = client.CallMethod("AuthorizeClustersBrokerToDeveloper", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -398,8 +478,12 @@ func (p *ClusterService) RevokeClustersBrokerFromDeveloper(input *RevokeClusters
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RevokeClustersBrokerFromDeveloperOutput)
 
+	if input == nil {
+		input = new(RevokeClustersBrokerFromDeveloperInput)
+	}
+
+	output = new(RevokeClustersBrokerFromDeveloperOutput)
 	err = client.CallMethod("RevokeClustersBrokerFromDeveloper", "GET", input, output, nil)
 	if err != nil {
 		return nil, err

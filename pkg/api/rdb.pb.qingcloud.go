@@ -54,8 +54,12 @@ func (p *RDBService) CreateRDB(input *CreateRDBInput) (output *CreateRDBOutput, 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateRDBOutput)
 
+	if input == nil {
+		input = new(CreateRDBInput)
+	}
+
+	output = new(CreateRDBOutput)
 	err = client.CallMethod("CreateRDB", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -71,8 +75,12 @@ func (p *RDBService) DescribeRDBs(input *DescribeRDBsInput) (output *DescribeRDB
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeRDBsOutput)
 
+	if input == nil {
+		input = new(DescribeRDBsInput)
+	}
+
+	output = new(DescribeRDBsOutput)
 	err = client.CallMethod("DescribeRDBs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -88,8 +96,12 @@ func (p *RDBService) DeleteRDBs(input *DeleteRDBsInput) (output *DeleteRDBsOutpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DeleteRDBsOutput)
 
+	if input == nil {
+		input = new(DeleteRDBsInput)
+	}
+
+	output = new(DeleteRDBsOutput)
 	err = client.CallMethod("DeleteRDBs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -105,8 +117,12 @@ func (p *RDBService) StartRDBs(input *StartRDBsInput) (output *StartRDBsOutput, 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StartRDBsOutput)
 
+	if input == nil {
+		input = new(StartRDBsInput)
+	}
+
+	output = new(StartRDBsOutput)
 	err = client.CallMethod("StartRDBs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -122,8 +138,12 @@ func (p *RDBService) StopRDBs(input *StopRDBsInput) (output *StopRDBsOutput, err
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(StopRDBsOutput)
 
+	if input == nil {
+		input = new(StopRDBsInput)
+	}
+
+	output = new(StopRDBsOutput)
 	err = client.CallMethod("StopRDBs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -139,8 +159,12 @@ func (p *RDBService) ResizeRDBs(input *ResizeRDBsInput) (output *ResizeRDBsOutpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ResizeRDBsOutput)
 
+	if input == nil {
+		input = new(ResizeRDBsInput)
+	}
+
+	output = new(ResizeRDBsOutput)
 	err = client.CallMethod("ResizeRDBs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -156,8 +180,12 @@ func (p *RDBService) RDBsLeaveVxnet(input *RDBsLeaveVxnetInput) (output *RDBsLea
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RDBsLeaveVxnetOutput)
 
+	if input == nil {
+		input = new(RDBsLeaveVxnetInput)
+	}
+
+	output = new(RDBsLeaveVxnetOutput)
 	err = client.CallMethod("RDBsLeaveVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -173,8 +201,12 @@ func (p *RDBService) RDBsJoinVxnet(input *RDBsJoinVxnetInput) (output *RDBsJoinV
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(RDBsJoinVxnetOutput)
 
+	if input == nil {
+		input = new(RDBsJoinVxnetInput)
+	}
+
+	output = new(RDBsJoinVxnetOutput)
 	err = client.CallMethod("RDBsJoinVxnet", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -190,8 +222,12 @@ func (p *RDBService) CreateRDBFromSnapshot(input *CreateRDBFromSnapshotInput) (o
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateRDBFromSnapshotOutput)
 
+	if input == nil {
+		input = new(CreateRDBFromSnapshotInput)
+	}
+
+	output = new(CreateRDBFromSnapshotOutput)
 	err = client.CallMethod("CreateRDBFromSnapshot", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -207,8 +243,12 @@ func (p *RDBService) CreateTempRDBInstanceFromSnapshot(input *CreateTempRDBInsta
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CreateTempRDBInstanceFromSnapshotOutput)
 
+	if input == nil {
+		input = new(CreateTempRDBInstanceFromSnapshotInput)
+	}
+
+	output = new(CreateTempRDBInstanceFromSnapshotOutput)
 	err = client.CallMethod("CreateTempRDBInstanceFromSnapshot", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -224,8 +264,12 @@ func (p *RDBService) GetRDBInstanceFiles(input *GetRDBInstanceFilesInput) (outpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(GetRDBInstanceFilesOutput)
 
+	if input == nil {
+		input = new(GetRDBInstanceFilesInput)
+	}
+
+	output = new(GetRDBInstanceFilesOutput)
 	err = client.CallMethod("GetRDBInstanceFiles", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -241,8 +285,12 @@ func (p *RDBService) CopyRDBInstanceFilesToFTP(input *CopyRDBInstanceFilesToFTPI
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CopyRDBInstanceFilesToFTPOutput)
 
+	if input == nil {
+		input = new(CopyRDBInstanceFilesToFTPInput)
+	}
+
+	output = new(CopyRDBInstanceFilesToFTPOutput)
 	err = client.CallMethod("CopyRDBInstanceFilesToFTP", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -258,8 +306,12 @@ func (p *RDBService) PurgeRDBLogs(input *PurgeRDBLogsInput) (output *PurgeRDBLog
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(PurgeRDBLogsOutput)
 
+	if input == nil {
+		input = new(PurgeRDBLogsInput)
+	}
+
+	output = new(PurgeRDBLogsOutput)
 	err = client.CallMethod("PurgeRDBLogs", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -275,8 +327,12 @@ func (p *RDBService) CeaseRDBInstance(input *CeaseRDBInstanceInput) (output *Cea
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(CeaseRDBInstanceOutput)
 
+	if input == nil {
+		input = new(CeaseRDBInstanceInput)
+	}
+
+	output = new(CeaseRDBInstanceOutput)
 	err = client.CallMethod("CeaseRDBInstance", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -292,8 +348,12 @@ func (p *RDBService) ModifyRDBParameters(input *ModifyRDBParametersInput) (outpu
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ModifyRDBParametersOutput)
 
+	if input == nil {
+		input = new(ModifyRDBParametersInput)
+	}
+
+	output = new(ModifyRDBParametersOutput)
 	err = client.CallMethod("ModifyRDBParameters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -309,8 +369,12 @@ func (p *RDBService) ApplyRDBParameterGroup(input *ApplyRDBParameterGroupInput) 
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(ApplyRDBParameterGroupOutput)
 
+	if input == nil {
+		input = new(ApplyRDBParameterGroupInput)
+	}
+
+	output = new(ApplyRDBParameterGroupOutput)
 	err = client.CallMethod("ApplyRDBParameterGroup", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
@@ -326,8 +390,12 @@ func (p *RDBService) DescribeRDBParameters(input *DescribeRDBParametersInput) (o
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new(DescribeRDBParametersOutput)
 
+	if input == nil {
+		input = new(DescribeRDBParametersInput)
+	}
+
+	output = new(DescribeRDBParametersOutput)
 	err = client.CallMethod("DescribeRDBParameters", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
