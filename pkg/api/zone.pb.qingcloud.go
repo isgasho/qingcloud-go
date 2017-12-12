@@ -21,8 +21,7 @@ type ZoneServiceInterface interface {
 }
 
 type ZoneService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewZoneService(server *ServerInfo) (p *ZoneService) {

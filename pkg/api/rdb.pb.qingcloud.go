@@ -37,8 +37,7 @@ type RDBServiceInterface interface {
 }
 
 type RDBService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewRDBService(server *ServerInfo) (p *RDBService) {

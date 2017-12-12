@@ -26,8 +26,7 @@ type NicServiceInterface interface {
 }
 
 type NicService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewNicService(server *ServerInfo) (p *NicService) {

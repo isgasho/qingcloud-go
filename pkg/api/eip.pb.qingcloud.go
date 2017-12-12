@@ -28,8 +28,7 @@ type EIPServiceInterface interface {
 }
 
 type EIPService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewEIPService(server *ServerInfo) (p *EIPService) {

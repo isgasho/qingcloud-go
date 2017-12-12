@@ -51,8 +51,7 @@ type LoadBalancerServiceInterface interface {
 }
 
 type LoadBalancerService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewLoadBalancerService(server *ServerInfo) (p *LoadBalancerService) {

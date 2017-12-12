@@ -24,8 +24,7 @@ type HadoopServiceInterface interface {
 }
 
 type HadoopService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewHadoopService(server *ServerInfo) (p *HadoopService) {

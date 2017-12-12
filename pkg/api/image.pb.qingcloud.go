@@ -28,8 +28,7 @@ type ImageServiceInterface interface {
 }
 
 type ImageService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewImageService(server *ServerInfo) (p *ImageService) {

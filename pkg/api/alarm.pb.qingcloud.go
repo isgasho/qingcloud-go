@@ -37,8 +37,7 @@ type AlarmServiceInterface interface {
 }
 
 type AlarmService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewAlarmService(server *ServerInfo) (p *AlarmService) {

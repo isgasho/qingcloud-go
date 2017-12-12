@@ -34,8 +34,7 @@ type MongoServiceInterface interface {
 }
 
 type MongoService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewMongoService(server *ServerInfo) (p *MongoService) {

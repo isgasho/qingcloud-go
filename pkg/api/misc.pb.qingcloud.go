@@ -23,8 +23,7 @@ type MiscServiceInterface interface {
 }
 
 type MiscService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewMiscService(server *ServerInfo) (p *MiscService) {

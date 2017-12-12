@@ -48,8 +48,7 @@ type S2ServiceInterface interface {
 }
 
 type S2Service struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewS2Service(server *ServerInfo) (p *S2Service) {

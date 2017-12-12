@@ -21,8 +21,7 @@ type JobServiceInterface interface {
 }
 
 type JobService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewJobService(server *ServerInfo) (p *JobService) {

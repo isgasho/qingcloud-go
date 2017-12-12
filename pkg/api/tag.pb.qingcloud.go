@@ -26,8 +26,7 @@ type TagServiceInterface interface {
 }
 
 type TagService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewTagService(server *ServerInfo) (p *TagService) {

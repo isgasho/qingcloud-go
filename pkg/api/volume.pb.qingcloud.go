@@ -27,8 +27,7 @@ type VolumesServiceInterface interface {
 }
 
 type VolumesService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewVolumesService(server *ServerInfo) (p *VolumesService) {

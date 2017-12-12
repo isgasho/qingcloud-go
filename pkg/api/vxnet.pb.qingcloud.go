@@ -27,8 +27,7 @@ type VxnetServiceInterface interface {
 }
 
 type VxnetService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewVxnetService(server *ServerInfo) (p *VxnetService) {

@@ -44,8 +44,7 @@ type CacheServiceInterface interface {
 }
 
 type CacheService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewCacheService(server *ServerInfo) (p *CacheService) {

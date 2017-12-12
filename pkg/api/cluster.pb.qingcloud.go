@@ -41,8 +41,7 @@ type ClusterServiceInterface interface {
 }
 
 type ClusterService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewClusterService(server *ServerInfo) (p *ClusterService) {

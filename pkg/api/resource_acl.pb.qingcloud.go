@@ -47,8 +47,7 @@ type ResourceACLServiceInterface interface {
 }
 
 type ResourceACLService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewResourceACLService(server *ServerInfo) (p *ResourceACLService) {

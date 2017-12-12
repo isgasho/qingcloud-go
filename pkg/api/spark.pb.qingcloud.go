@@ -27,8 +27,7 @@ type SparkServiceInterface interface {
 }
 
 type SparkService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewSparkService(server *ServerInfo) (p *SparkService) {

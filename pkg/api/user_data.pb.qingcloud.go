@@ -21,8 +21,7 @@ type UserDataServiceInterface interface {
 }
 
 type UserDataService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewUserDataService(server *ServerInfo) (p *UserDataService) {

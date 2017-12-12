@@ -21,8 +21,7 @@ type NotificationCenterServiceInterface interface {
 }
 
 type NotificationCenterService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewNotificationCenterService(server *ServerInfo) (p *NotificationCenterService) {

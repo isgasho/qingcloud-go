@@ -38,8 +38,7 @@ type SecurityGroupServiceInterface interface {
 }
 
 type SecurityGroupService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewSecurityGroupService(server *ServerInfo) (p *SecurityGroupService) {

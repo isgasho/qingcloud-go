@@ -39,8 +39,7 @@ type RouterServiceInterface interface {
 }
 
 type RouterService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewRouterService(server *ServerInfo) (p *RouterService) {

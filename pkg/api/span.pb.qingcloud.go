@@ -27,8 +27,7 @@ type SpanServiceInterface interface {
 }
 
 type SpanService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewSpanService(server *ServerInfo) (p *SpanService) {

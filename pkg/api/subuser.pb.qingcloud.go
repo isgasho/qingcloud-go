@@ -25,8 +25,7 @@ type SubuserServiceInterface interface {
 }
 
 type SubuserService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewSubuserService(server *ServerInfo) (p *SubuserService) {

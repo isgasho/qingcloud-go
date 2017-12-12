@@ -26,8 +26,7 @@ type KeyPairServiceInterface interface {
 }
 
 type KeyPairService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewKeyPairService(server *ServerInfo) (p *KeyPairService) {

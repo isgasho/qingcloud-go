@@ -24,8 +24,7 @@ type DNSAliasServiceInterface interface {
 }
 
 type DNSAliasService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewDNSAliasService(server *ServerInfo) (p *DNSAliasService) {

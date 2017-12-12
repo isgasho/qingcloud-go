@@ -26,8 +26,7 @@ type MonitorServiceInterface interface {
 }
 
 type MonitorService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewMonitorService(server *ServerInfo) (p *MonitorService) {

@@ -32,8 +32,7 @@ type InstanceServiceInterface interface {
 }
 
 type InstanceService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewInstanceService(server *ServerInfo) (p *InstanceService) {

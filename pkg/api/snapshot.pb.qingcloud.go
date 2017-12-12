@@ -27,8 +27,7 @@ type SnapshotServiceInterface interface {
 }
 
 type SnapshotService struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func NewSnapshotService(server *ServerInfo) (p *SnapshotService) {
