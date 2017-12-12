@@ -16,9 +16,13 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
+	pbutil "github.com/chai2010/qingcloud-go/pkg/pbutil"
 )
 
-var AllCommands []cli.Command
+var (
+	AllCommands []cli.Command
+	DebugMode   = false
+)
 
 const pkgDefaultConfig = `{
 	"api_server": "https://api.qingcloud.com/iaas/",
@@ -35,23 +39,24 @@ func init() {
 }
 
 func pkgGetServerInfo(c *cli.Context) (p *pb.ServerInfo) {
-	if c.IsSet("config") {
-		p = pkgMustLoadConfig(c.GlobalString("config"))
-	} else {
-		p = pkgLoadConfigIgnoreAnyError(c.GlobalString("config"))
-	}
+	p = pkgMustLoadConfig(c.GlobalString("config"))
 
-	if c.IsSet("api_server") || p.GetApiServer() == "" {
+	if c.GlobalIsSet("api_server") || p.GetApiServer() == "" {
 		p.ApiServer = proto.String(c.GlobalString("api_server"))
 	}
-	if c.IsSet("access_key_id") || p.GetAccessKeyId() == "" {
+	if c.GlobalIsSet("access_key_id") || p.GetAccessKeyId() == "" {
 		p.AccessKeyId = proto.String(c.GlobalString("access_key_id"))
 	}
-	if c.IsSet("secret_access_key") || p.GetSecretAccessKey() == "" {
+	if c.GlobalIsSet("secret_access_key") || p.GetSecretAccessKey() == "" {
 		p.SecretAccessKey = proto.String(c.GlobalString("secret_access_key"))
 	}
-	if c.IsSet("zone") || p.GetZone() == "" {
+	if c.GlobalIsSet("zone") || p.GetZone() == "" {
 		p.Zone = proto.String(c.GlobalString("zone"))
+	}
+
+	if DebugMode {
+		s, _ := pbutil.EncodeJsonIndent(p)
+		log.Printf("qcli/api.pkgGetServerInfo: p = %s", s)
 	}
 
 	return
@@ -74,33 +79,26 @@ func pkgIsUserConfigExists() bool {
 	return true
 }
 
-func pkgMustLoadConfig(path string) *pb.ServerInfo {
+func pkgMustLoadConfig(cfgpath string) *pb.ServerInfo {
 	p := new(pb.ServerInfo)
 
-	data, err := ioutil.ReadFile(path)
+	if strings.HasPrefix(cfgpath, "~/") || strings.HasPrefix(cfgpath, `~\`) {
+		cfgpath = pkgGetHomePath() + cfgpath[1:]
+	}
+
+	data, err := ioutil.ReadFile(cfgpath)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("qcli/api.pkgMustLoadConfig: %v", err)
 	}
 
 	err = json.Unmarshal(data, p)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("qcli/api.pkgMustLoadConfig: %v", err)
 	}
 
-	return p
-}
-
-func pkgLoadConfigIgnoreAnyError(path string) *pb.ServerInfo {
-	p := new(pb.ServerInfo)
-
-	data, err := ioutil.ReadFile(path)
-	if err != nil {
-		return p
-	}
-
-	err = json.Unmarshal(data, p)
-	if err != nil {
-		return p
+	if DebugMode {
+		s, _ := pbutil.EncodeJsonIndent(p)
+		log.Printf("qcli/api.pkgMustLoadConfig: p = %s", s)
 	}
 
 	return p

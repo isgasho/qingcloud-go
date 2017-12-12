@@ -5,12 +5,12 @@
 package qcli
 
 import (
-	"flag"
 	"fmt"
 	"os"
 
 	"github.com/urfave/cli"
 
+	"github.com/chai2010/qingcloud-go/pkg/client"
 	pb "github.com/chai2010/qingcloud-go/pkg/cmd/qcli/api"
 	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
 )
@@ -52,14 +52,22 @@ func Main() {
 		},
 		cli.StringFlag{
 			Name:   "zone, z",
-			Usage:  "zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...)",
-			Value:  "pk3a",
+			Usage:  "zone (pek3a,pek3b,gd1,sh1a,ap1,ap2a,...)",
+			Value:  "pek3a",
 			EnvVar: "QCLI_ZONE",
+		},
+		cli.BoolFlag{
+			Name:   "debug, d",
+			Usage:  "set debug mode",
+			EnvVar: "QCLI_DEBUG",
 		},
 	}
 
 	app.Before = func(c *cli.Context) error {
-		flag.Parse()
+		if c.GlobalIsSet("debug") {
+			client.DebugMode = c.GlobalBool("debug")
+			pb.DebugMode = c.GlobalBool("debug")
+		}
 		return nil
 	}
 	app.CommandNotFound = func(c *cli.Context, command string) {

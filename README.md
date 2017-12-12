@@ -111,7 +111,7 @@ GLOBAL OPTIONS:
    --api_server value, -s value         api server (default: "https://api.qingcloud.com/iaas/") [$QCLI_API_SERVER]
    --access_key_id value, -i value      access key id [$QCLI_ACCESS_KEY_ID]
    --secret_access_key value, -k value  secret access key [$QCLI_SECRET_ACCESS_KEY]
-   --zone value, -z value               zone (pk3a,pk3b,gd1,sh1a,ap1,ap2a,...) (default: "pk3a") [$QCLI_ZONE]
+   --zone value, -z value               zone (pek3a,pek3b,gd1,sh1a,ap1,ap2a,...) (default: "pek3a") [$QCLI_ZONE]
    --help, -h                           show help
    --version, -v                        print the version
 chai-mba:qingcloud-go chai$
@@ -142,7 +142,7 @@ func main() {
 	qnic := pb.NewNicService(&pb.ServerInfo{
 		AccessKeyId: proto.String("QYACCESSKEYIDEXAMPLE"),
 		SecretAccessKey: proto.String("SECRETACCESSKEY"),
-		Zone: proto.String("pk3a"),
+		Zone: proto.String("pek3a"),
 	})
 
 	// 列出所有网卡
