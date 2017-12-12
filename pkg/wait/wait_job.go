@@ -9,16 +9,7 @@ import (
 	"time"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-)
-
-type JobStatus string
-
-const (
-	JobStatus_Unknown    JobStatus = "unknown"
-	JobStatus_Successful JobStatus = "successful"
-	JobStatus_Failed     JobStatus = "failed"
-	JobStatus_Pending    JobStatus = "pending"
-	JobStatus_Working    JobStatus = "working"
+	statuspkg "github.com/chai2010/qingcloud-go/pkg/status"
 )
 
 func WaitJob(server *pb.ServerInfo, jobId string, timeout time.Duration) error {
@@ -41,13 +32,13 @@ func waitJob(server *pb.ServerInfo, jobId string) (done bool, err error) {
 		return false, fmt.Errorf("can not find job [%s]", jobId)
 	}
 
-	status := JobStatus(reply.GetJobSet()[0].GetStatus())
+	status := statuspkg.JobStatus(reply.GetJobSet()[0].GetStatus())
 	switch status {
-	case JobStatus_Successful:
+	case statuspkg.JobStatus_Successful:
 		return true, nil // OK
-	case JobStatus_Pending, JobStatus_Working:
+	case statuspkg.JobStatus_Pending, statuspkg.JobStatus_Working:
 		return false, nil
-	case JobStatus_Failed:
+	case statuspkg.JobStatus_Failed:
 		return false, fmt.Errorf("job [%s] failed", jobId)
 	default:
 		return false, fmt.Errorf("unknow status [%s] for job [%s]", status, jobId)

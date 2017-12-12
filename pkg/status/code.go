@@ -25,3 +25,13 @@ const (
 	ErrCode_5200 = 5200
 	ErrCode_5300 = 5300
 )
+
+type JobStatus string
+
+const (
+	JobStatus_Unknown    JobStatus = "unknown"
+	JobStatus_Successful JobStatus = "successful"
+	JobStatus_Failed     JobStatus = "failed"
+	JobStatus_Pending    JobStatus = "pending"
+	JobStatus_Working    JobStatus = "working"
+)

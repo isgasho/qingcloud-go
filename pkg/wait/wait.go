@@ -13,9 +13,6 @@ func WaitForIntervalWorkDone(name string, timeout time.Duration, intervalWork fu
 	deadline := time.Now().Add(timeout)
 	for tries := 0; time.Now().Before(deadline); tries++ {
 		if done, err := intervalWork(); done || err != nil {
-			if time.Now().After(deadline) {
-				return fmt.Errorf("pkg/wait: wait %s failed after %v", name, timeout)
-			}
 			return err
 		}
 		time.Sleep(time.Second << uint(tries))
