@@ -28,7 +28,7 @@ const pkgDefaultConfig = `{
 	"api_server": "https://api.qingcloud.com/iaas/",
 	"access_key_id": "",
 	"secret_access_key": "",
-	"zone": ""
+	"zone": "pk3a"
 }
 `
 

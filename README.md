@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/chai2010/qingcloud-go.svg?branch=master)](https://travis-ci.org/chai2010/qingcloud-go)
 [![Docker Build Status](https://img.shields.io/docker/build/chai2010/qingcloud-go.svg)](https://hub.docker.com/r/chai2010/qingcloud-go/)
 [![Go Report Card](https://goreportcard.com/badge/github.com/chai2010/qingcloud-go)](https://goreportcard.com/report/github.com/chai2010/qingcloud-go)
+[![codebeat badge](https://codebeat.co/badges/4dd71afb-7bde-4073-9c8c-cbe6275ba6eb)](https://codebeat.co/projects/github-com-chai2010-qingcloud-go-master)
 [![GoDoc](https://godoc.org/github.com/chai2010/qingcloud-go?status.svg)](https://godoc.org/github.com/chai2010/qingcloud-go)
 [![API Reference](http://img.shields.io/badge/api-reference-green.svg)](http://docs.qingcloud.com)
 [![License](http://img.shields.io/badge/license-apache%20v2-blue.svg)](https://github.com/chai2010/qingcloud-go/blob/master/LICENSE)
@@ -113,7 +114,7 @@ chai-mba:qingcloud-go chai$
 	"api_server": "https://api.qingcloud.com/iaas/",
 	"access_key_id": "QYACCESSKEYIDEXAMPLE",
 	"secret_access_key": "SECRETACCESSKEY",
-	"zone": ""
+	"zone": "pk3a"
 }
 ```
 
