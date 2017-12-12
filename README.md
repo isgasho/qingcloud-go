@@ -32,7 +32,7 @@
 
 ## qcli 命令行
 
-Docker 运行:
+Docker 运行([配置中国区镜像](https://www.docker-cn.com/registry-mirror)):
 
 - `docker run --rm -it -v $HOME:/root -w /root chai2010/qingcloud-go qcli`
 
