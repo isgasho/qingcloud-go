@@ -9,6 +9,27 @@ import (
 	"time"
 )
 
+type TimeoutError interface {
+	Timeout() bool
+	error
+}
+
+type errTimeout struct {
+	error
+}
+
+func NewErrTimeout(err error) error {
+	return &errTimeout{err}
+}
+
+func (e *errTimeout) Error() string {
+	return e.error.Error()
+}
+
+func (e *errTimeout) Timeout() bool {
+	return true
+}
+
 func WaitForIntervalWorkDone(
 	name string, timeout time.Duration,
 	intervalWork func() (done bool, err error),
@@ -20,7 +41,9 @@ func WaitForIntervalWorkDone(
 		}
 		time.Sleep(time.Second << uint(tries))
 	}
-	return fmt.Errorf("pkg/wait: wait %s failed after %v", name, timeout)
+	return NewErrTimeout(
+		fmt.Errorf("pkg/wait: wait %s failed after %v", name, timeout),
+	)
 }
 
 func WaitForOnetimeWork(
@@ -35,7 +58,9 @@ func WaitForOnetimeWork(
 
 	select {
 	case <-time.After(timeout):
-		return fmt.Errorf("pkg/wait: wait %s failed after %v", name, timeout)
+		return NewErrTimeout(
+			fmt.Errorf("pkg/wait: wait %s failed after %v", name, timeout),
+		)
 	case <-done:
 		return err
 	}
