@@ -9,7 +9,10 @@ import (
 	"time"
 )
 
-func WaitForIntervalWorkDone(name string, timeout time.Duration, intervalWork func() (done bool, err error)) error {
+func WaitForIntervalWorkDone(
+	name string, timeout time.Duration,
+	intervalWork func() (done bool, err error),
+) error {
 	deadline := time.Now().Add(timeout)
 	for tries := 0; time.Now().Before(deadline); tries++ {
 		if done, err := intervalWork(); done || err != nil {
@@ -20,7 +23,10 @@ func WaitForIntervalWorkDone(name string, timeout time.Duration, intervalWork fu
 	return fmt.Errorf("pkg/wait: wait %s failed after %v", name, timeout)
 }
 
-func WaitForOnetimeWork(name string, timeout time.Duration, onetimeWork func() error) (err error) {
+func WaitForOnetimeWork(
+	name string, timeout time.Duration,
+	onetimeWork func() error,
+) (err error) {
 	done := make(chan struct{})
 	go func() {
 		err = onetimeWork()
