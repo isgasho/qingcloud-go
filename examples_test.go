@@ -6,7 +6,12 @@ package qingcloud
 
 import (
 	"fmt"
+	"log"
 
+	"github.com/golang/protobuf/proto"
+
+	pb "github.com/chai2010/qingcloud-go/pkg/api"
+	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 	sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
 )
 
@@ -44,21 +49,18 @@ func Example_signatureValidate() {
 	// TODO
 }
 
-/*
+func Example_helloSDK() {
+	qnic := pb.NewNicService(&pb.ServerInfo{
+		AccessKeyId:     proto.String("QYACCESSKEYIDEXAMPLE"),
+		SecretAccessKey: proto.String("SECRETACCESSKEY"),
+		Zone:            proto.String("pek3a"),
+	})
 
-func GetSignatureInfo(query string) (pubKey, sigMethod, sigVersion, sig string) {
-	m := pkgDecodeQueryToMapString(query)
+	reply, err := qnic.DescribeNics(nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	pubKey = m["access_key_id"]
-	sigMethod = m["signature_method"]
-	sigVersion = m["signature_version"]
-	sig = m["signature"]
-
-	return
+	s, _ := pbutil.EncodeJsonIndent(reply)
+	fmt.Println(s)
 }
-
-func Validate(
-	privateKeyGetter func(pubKey string) string,
-	method, urlpath, query string,
-) bool {
-*/
