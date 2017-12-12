@@ -118,6 +118,25 @@ GLOBAL OPTIONS:
 chai-mba:qingcloud-go chai$
 ```
 
+为了避免在每次运行时输入密钥, 可以给 qcli 创建一个默认配置文件 (`~/.qingcloud/qcli.json`):
+
+```json
+{
+	"api_server": "https://api.qingcloud.com/iaas/",
+	"access_key_id": "QYACCESSKEYIDEXAMPLE",
+	"secret_access_key": "SECRETACCESSKEY",
+	"zone": ""
+}
+```
+
+要查看主机数量, 可以输入以下命令:
+
+	$ qcli instance DescribeInstances
+
+加入 `-d` 选项可以开启调试模式执行:
+
+	$ qcli -d instance DescribeInstances
+
 *注意: 命令行还在开发中, 欢迎参与完善!*
 
 ## 快速入门
