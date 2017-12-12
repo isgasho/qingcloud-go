@@ -26,7 +26,11 @@ const (
 	ErrCode_5300 = 5300
 )
 
-type JobStatus string
+type (
+	JobStatus          string
+	InstanceStatus     string
+	LoadBalancerStatus string
+)
 
 const (
 	JobStatus_Unknown    JobStatus = "unknown"
@@ -34,4 +38,22 @@ const (
 	JobStatus_Failed     JobStatus = "failed"
 	JobStatus_Pending    JobStatus = "pending"
 	JobStatus_Working    JobStatus = "working"
+)
+
+const (
+	InstanceStatus_Pending    InstanceStatus = "pending"
+	InstanceStatus_Running    InstanceStatus = "running"
+	InstanceStatus_Stopped    InstanceStatus = "stopped"
+	InstanceStatus_Suspended  InstanceStatus = "suspended"
+	InstanceStatus_Terminated InstanceStatus = "terminated"
+	InstanceStatus_Ceased     InstanceStatus = "ceased"
+)
+
+const (
+	LoadBalancerStatus_Pending   LoadBalancerStatus = "pending"
+	LoadBalancerStatus_Active    LoadBalancerStatus = "active"
+	LoadBalancerStatus_Stopped   LoadBalancerStatus = "stopped"
+	LoadBalancerStatus_Suspended LoadBalancerStatus = "suspended"
+	LoadBalancerStatus_Deleted   LoadBalancerStatus = "deleted"
+	LoadBalancerStatus_Ceased    LoadBalancerStatus = "ceased"
 )
