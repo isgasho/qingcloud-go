@@ -112,8 +112,12 @@ func (p *{{$service.GetServiceName}}) {{$m.GetMethodName}}(input *{{$m.GetInputT
 		p.ServerInfo.GetSecretAccessKey(),
 		p.ServerInfo.GetZone(),
 	)
-	output = new({{$m.GetOutputTypeName}})
 
+	if input == nil {
+		input = new({{$m.GetInputTypeName}})
+	}
+
+	output = new({{$m.GetOutputTypeName}})
 	err = client.CallMethod("{{$m.GetMethodName}}", "{{$m.GetHttpMethod}}", input, output, nil)
 	if err != nil {
 		return nil, err
