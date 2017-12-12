@@ -114,7 +114,7 @@ chai-mba:qingcloud-go chai$
 	"api_server": "https://api.qingcloud.com/iaas/",
 	"access_key_id": "QYACCESSKEYIDEXAMPLE",
 	"secret_access_key": "SECRETACCESSKEY",
-	"zone": "pk3a"
+	"zone": "pek3a"
 }
 ```
 
