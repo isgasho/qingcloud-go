@@ -94,8 +94,7 @@ type {{.GetServiceName}}Interface interface {
 }
 
 type {{.GetServiceName}} struct {
-	ServerInfo       *ServerInfo
-	LastResponseBody string
+	ServerInfo *ServerInfo
 }
 
 func New{{.GetServiceName}}(server *ServerInfo) (p *{{.GetServiceName}}) {
