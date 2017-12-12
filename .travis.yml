@@ -27,15 +27,19 @@ script:
 #
 # https://github.com/settings/tokens
 # travis encrypt "TOKEN" --add deploy.api_key
+#
+# https://docs.travis-ci.com/user/deployment
+# https://docs.travis-ci.com/user/deployment/releases
 
 deploy:
   provider: releases
   api_key:
     secure: iB3wcIjfeFiUu4fXxrnsxPrzc9IKlqEeNjnoeJVhqKsedK5LWHU7nCM6TT/HYKfGIvJxdAdDJ/ncPIZ9gaQ17BiJzPSA0/s+L4UJti1tcUlWa9hE3tZU6iDcB7hMbE2PoGrcfGDPLUfTCwvznkT3H4K7XccKNj6F3kgCH/5NUcldwsiRjnAA/ZddET3bl5nD+sWRyuEWZ4R5j/WAZZA94+6oJUw1kkmPx9wv/TY6rauwbJ6kHNqMenY5s6xSn0Zg8vOz0WvGPirSV4MRiHhLgWodip5AkS//Jn1gwYCX7nUoh/KDjs7X4q3a27401IWbLJDv1PQqOBxaNtDmf4zkBinVN7LijY7GfapqqTZ1YApwaY7utB8M7QL7mNaZxY5Bq91ikEKKzQg/WvZvAGUO3ImSsjd9Kn4njNDm6ax8NcwgiJ4KQR231YSau1tQbC+Bku8JKVU5XVIe5LJrwD352XAc3df8Bu1AnxdqvV07Jf4ZcJyFzYkN1bvqZhvNdNGbyHWvqo+7xjuJ6UmbO65rWXd6wFQlbXzFuJcutR7PTCqBd+ZYzivhaD4QyurZwoEgw0ICy6ZGP7VcV6nBjUeFbaw0MN9/hJ6TdQ9nqUmVTKL5ZidLarW2oauuINcixO05uiqOjVVzZv5QnXTH8nY1DZ0rqOb9/+2Oq1GtKELPsSw=
   file:
-  - "./bin/qingcloud-cli-windows-amd64.zip"
-  - "./bin/qingcloud-cli-linux-amd64.zip"
-  - "./bin/qingcloud-cli-darwin-amd64.zip"
+  - "./_dist/qingcloud-cli-windows-amd64.zip"
+  - "./_dist/qingcloud-cli-linux-amd64.zip"
+  - "./_dist/qingcloud-cli-darwin-amd64.zip"
   skip_cleanup: true
   on:
     tags: true
+    go: '1.9'
