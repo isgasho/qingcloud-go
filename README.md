@@ -112,6 +112,7 @@ GLOBAL OPTIONS:
    --access_key_id value, -i value      access key id [$QCLI_ACCESS_KEY_ID]
    --secret_access_key value, -k value  secret access key [$QCLI_SECRET_ACCESS_KEY]
    --zone value, -z value               zone (pek3a,pek3b,gd1,sh1a,ap1,ap2a,...) (default: "pek3a") [$QCLI_ZONE]
+   --debug, -d                          set debug mode [$QCLI_DEBUG]
    --help, -h                           show help
    --version, -v                        print the version
 chai-mba:qingcloud-go chai$
@@ -121,28 +122,36 @@ chai-mba:qingcloud-go chai$
 
 ## 快速入门
 
-以下为 [docs/hello.go](./docs/hello.go) 的内容:
+以下为 [./hello.go](./hello.go) 的内容:
 
 ```go
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 
-	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 )
 
+var (
+	flagId   = flag.String("id", "", "AccessKeyId")
+	flagKey  = flag.String("key", "", "SecretAccessKey")
+	flagZone = flag.String("zone", "pek3a", "zone")
+)
+
 func main() {
+	flag.Parse()
+
 	// 返回 NIC 服务, pek3a 为 北京3区-A
 	qnic := pb.NewNicService(&pb.ServerInfo{
-		AccessKeyId: proto.String("QYACCESSKEYIDEXAMPLE"),
-		SecretAccessKey: proto.String("SECRETACCESSKEY"),
-		Zone: proto.String("pek3a"),
+		AccessKeyId:     proto.String(*flagId),
+		SecretAccessKey: proto.String(*flagKey),
+		Zone:            proto.String(*flagZone),
 	})
 
 	// 列出所有网卡
@@ -159,9 +168,11 @@ func main() {
 
 运行例子:
 
-	go run ./docs/hello.go
+	go run hello.go -id=QYACCESSKEYIDEXAMPLE -key=SECRETACCESSKEY
 
-[更多例子](docs/examples).
+其中 `-id` 和 `-key` 分别为 AccessKey 的公钥和私钥.
+
+更完整的例子可以参考 [./pkg/cmd/qcli](./pkg/cmd/qcli) 的实现.
 
 <!--
 
