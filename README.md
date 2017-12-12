@@ -36,7 +36,7 @@ Docker 运行([配置中国区镜像](https://www.docker-cn.com/registry-mirror)
 
 - `docker run --rm -it -v $HOME:/root -w /root chai2010/qingcloud-go qcli`
 
-从Go源码安装:
+从Go源码安装(Go1.9+):
 
 - `go get github.com/chai2010/qingcloud-go/cmd/qcli`
 
