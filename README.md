@@ -57,43 +57,48 @@ USAGE:
    qcli [global options] command [command options] [arguments...]
 
 VERSION:
-   0.1.0
+   v0.9.0-33-gbf90580
 
 AUTHOR:
    ChaiShushan <chaishushan@gmail.com>
 
 COMMANDS:
-     alarm               manage AlarmService
-     cache               manage CacheService
-     cluster             manage ClusterService
-     dnsalias            manage DNSAliasService
-     eip                 manage EIPService
-     hadoop              manage HadoopService
-     image               manage ImageService
-     instance            manage InstanceService
-     job                 manage JobService
-     keypair             manage KeyPairService
-     loadbalancer        manage LoadBalancerService
-     misc                manage MiscService
-     mongo               manage MongoService
-     monitor             manage MonitorService
-     nic                 manage NicService
-     notificationcenter  manage NotificationCenterService
-     rdb                 manage RDBService
-     resourceacl         manage ResourceACLService
-     router              manage RouterService
-     s2                  manage S2Service
-     securitygroup       manage SecurityGroupService
-     snapshot            manage SnapshotService
-     span                manage SpanService
-     spark               manage SparkService
-     subuser             manage SubuserService
-     tag                 manage TagService
-     userdata            manage UserDataService
-     volumes             manage VolumesService
-     vxnet               manage VxnetService
-     zone                manage ZoneService
-     help, h             Shows a list of commands or help for one command
+     list, ls        list resource
+     info            show resource info
+     signature, sig  build signature
+     help, h         Shows a list of commands or help for one command
+
+   SDK API Style Command:
+     alarm               AlarmService
+     cache               CacheService
+     cluster             ClusterService
+     dnsalias            DNSAliasService
+     eip                 EIPService
+     hadoop              HadoopService
+     image               ImageService
+     instance            InstanceService
+     job                 JobService
+     keypair             KeyPairService
+     loadbalancer        LoadBalancerService
+     misc                MiscService
+     mongo               MongoService
+     monitor             MonitorService
+     nic                 NicService
+     notificationcenter  NotificationCenterService
+     rdb                 RDBService
+     resourceacl         ResourceACLService
+     router              RouterService
+     s2                  S2Service
+     securitygroup       SecurityGroupService
+     snapshot            SnapshotService
+     span                SpanService
+     spark               SparkService
+     subuser             SubuserService
+     tag                 TagService
+     userdata            UserDataService
+     volumes             VolumesService
+     vxnet               VxnetService
+     zone                ZoneService
 
 GLOBAL OPTIONS:
    --config value, -c value             config file (default: "~/.qingcloud/qcli.json") [$QCLI_CONFIG_FILE]
