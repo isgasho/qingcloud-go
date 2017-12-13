@@ -55,7 +55,21 @@ func Example_signatureGetSignatureInfo() {
 func Example_signatureValidate() {
 	// import sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
 
-	// TODO
+	ok := sigpkg.Validate(
+		func(pubKey string) string {
+			if pubKey != "QYACCESSKEYIDEXAMPLE" {
+				log.Fatal("invalid pubKey:", pubKey)
+			}
+			return "SECRETACCESSKEY"
+		},
+		"GET", "/iaas/",
+		"access_key_id=QYACCESSKEYIDEXAMPLE&signature_method=HmacSHA256&signature_version=1&signature=O5EhQeUqTF00g59t5Pb46QPfnPMhUOAcxTWvzlnraeE%3D",
+	)
+
+	fmt.Println(ok)
+
+	// Output:
+	// true
 }
 
 func Example_helloSDK() {
