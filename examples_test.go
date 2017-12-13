@@ -12,9 +12,11 @@ import (
 	"github.com/golang/protobuf/proto"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
+	clientpkg "github.com/chai2010/qingcloud-go/pkg/client"
 	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 	sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
 	statuspkg "github.com/chai2010/qingcloud-go/pkg/status"
+	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
 	"github.com/chai2010/qingcloud-go/pkg/wait"
 )
 
@@ -90,6 +92,29 @@ func Example_helloSDK() {
 	fmt.Println(s)
 }
 
+func Example_clientCallMethod() {
+	// import pb "github.com/chai2010/qingcloud-go/pkg/api"
+	// import clientpkg "github.com/chai2010/qingcloud-go/pkg/client"
+
+	serverInfo := &pb.ServerInfo{}
+	client := clientpkg.NewClient(
+		serverInfo.GetApiServer(),
+		serverInfo.GetAccessKeyId(),
+		serverInfo.GetSecretAccessKey(),
+		serverInfo.GetZone(),
+	)
+
+	input := &pb.DescribeAlarmPoliciesInput{}
+	output := &pb.DescribeAlarmPoliciesOutput{}
+
+	err := client.CallMethod("DescribeAlarmPolicies", "GET", input, output, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(output)
+}
+
 func Example_waitJob() {
 	// import pb "github.com/chai2010/qingcloud-go/pkg/api"
 	// import "github.com/chai2010/qingcloud-go/pkg/wait"
@@ -139,4 +164,25 @@ func Example_waitInstance() {
 	}
 
 	fmt.Println("instance running")
+}
+
+func Example_status() {
+	// import pb "github.com/chai2010/qingcloud-go/pkg/api"
+	// import statuspkg "github.com/chai2010/qingcloud-go/pkg/status"
+
+	reply := &pb.DescribeInstancesOutput{}
+	err := statuspkg.Error(reply)
+
+	fmt.Println(err)
+
+	// Output:
+	// <nil>
+}
+
+func Example_version() {
+	// import verpkg "github.com/chai2010/qingcloud-go/pkg/version"
+
+	fmt.Println(verpkg.ShortVersion)
+	fmt.Println(verpkg.GitSha1Version)
+	fmt.Println(verpkg.ShortVersion)
 }
