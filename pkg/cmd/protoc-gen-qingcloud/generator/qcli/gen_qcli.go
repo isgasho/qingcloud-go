@@ -280,9 +280,10 @@ func init() {
 }
 
 var Cmd{{$ServiceName}} = cli.Command{
-	Name:    "{{$ServiceCommandName}}",
-	Aliases: []string{},
-	Usage:   "manage {{$ServiceName}}",
+	Name:     "{{$ServiceCommandName}}",
+	Aliases:  []string{},
+	Usage:    "{{$ServiceName}}",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{{range $_, $Method := $Service.Method -}}
 			{{- $MethodName := generator_CamelCase $Method.GetName -}}

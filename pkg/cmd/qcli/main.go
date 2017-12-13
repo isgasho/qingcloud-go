@@ -40,6 +40,12 @@ func Main() {
 	app.Commands = pb.AllCommands
 	app.EnableBashCompletion = true
 
+	app.Commands = append(app.Commands, []cli.Command{
+		cmdList,
+		cmdInfo,
+		cmdSignature,
+	}...)
+
 	app.Run(os.Args)
 }
 
