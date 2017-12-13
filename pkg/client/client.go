@@ -73,6 +73,8 @@ func (p *Client) CallMethod(
 	}
 
 	inputMap["action"] = svcMethodName
+	inputMap["version"] = "1"
+
 	if inputMap["time_stamp"] == "" {
 		inputMap["time_stamp"] = time.Now().UTC().Format("2006-01-02T15:04:05Z")
 	}
