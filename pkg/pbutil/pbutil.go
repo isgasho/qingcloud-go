@@ -10,8 +10,10 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/golang/protobuf/descriptor"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
+	protobuf "github.com/golang/protobuf/protoc-gen-go/descriptor"
 )
 
 func EncodeJson(x proto.Message) ([]byte, error) {
@@ -108,4 +110,11 @@ func pkgUnpackMapXToMapString(mapx map[string]interface{}) map[string]string {
 		}
 	}
 	return m
+}
+
+func GetMessageDescriptor(msg proto.Message) (fd *protobuf.FileDescriptorProto, md *protobuf.DescriptorProto) {
+	if msg, ok := msg.(descriptor.Message); ok {
+		return descriptor.ForMessage(msg)
+	}
+	return
 }

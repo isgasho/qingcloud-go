@@ -12,6 +12,7 @@ import (
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 
 	plugin "github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud"
+	"github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/utils"
 )
 
 func init() {
@@ -70,30 +71,30 @@ func (p pkgGenerator) FieldValidateCode(
 ) string {
 	fieldName := generator.CamelCase(fileDescriptor.GetName())
 
-	fieldOption := getMessageFieldOption(fieldDescriptor)
+	fieldOption := utils.GetMessageFieldOption(fieldDescriptor)
 	if fieldOption == nil {
 		return ""
 	}
 
 	switch {
-	case pkgIsSupportedBool(fieldDescriptor):
-	case pkgIsSupportedInt(fieldDescriptor):
-	case pkgIsSupportedFloat(fieldDescriptor):
-	case pkgIsSupportedString(fieldDescriptor):
+	case utils.IsSupportedBool(fieldDescriptor):
+	case utils.IsSupportedInt(fieldDescriptor):
+	case utils.IsSupportedFloat(fieldDescriptor):
+	case utils.IsSupportedString(fieldDescriptor):
 	}
 
 	// int type
-	if pkgIsSupportedInt(fieldDescriptor) {
+	if utils.IsSupportedInt(fieldDescriptor) {
 		//
 	}
 
 	// float type
-	if pkgIsSupportedFloat(fieldDescriptor) {
+	if utils.IsSupportedFloat(fieldDescriptor) {
 		//
 	}
 
 	// string
-	if pkgIsSupportedString(fieldDescriptor) {
+	if utils.IsSupportedString(fieldDescriptor) {
 		//
 	}
 

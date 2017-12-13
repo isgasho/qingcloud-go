@@ -5,12 +5,20 @@
 package utils
 
 import (
+	pbdescriptor "github.com/golang/protobuf/descriptor"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/generator"
 
 	spec_metadata "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
 )
+
+func getMessageDescriptor(msg proto.Message) (fd *descriptor.FileDescriptorProto, md *descriptor.DescriptorProto) {
+	if msg, ok := msg.(pbdescriptor.Message); ok {
+		return pbdescriptor.ForMessage(msg)
+	}
+	return
+}
 
 func BuildFileSpec(p *generator.Generator, file *generator.FileDescriptor) *spec_metadata.FileSpec {
 	return &spec_metadata.FileSpec{
@@ -43,6 +51,15 @@ func BuildServiceSpec(p *generator.Generator, file *generator.FileDescriptor, sv
 	}
 
 	return spec
+}
+
+func HasFieldOptions(message *descriptor.DescriptorProto) bool {
+	for _, field := range message.GetField() {
+		if GetMessageFieldOption(field) != nil {
+			return true
+		}
+	}
+	return false
 }
 
 func GetFileOption(file *descriptor.FileDescriptorProto) *spec_metadata.FileOption {
