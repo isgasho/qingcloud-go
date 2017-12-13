@@ -23,11 +23,11 @@ TODO
 
 ### v0.1.0
 
-- 实现 `protoMessage.Validate` 方法, 可用户输入参数验证
+- 实现 `protoMessage.Validate` 方法, 可实现用户输入参数验证
 
 ### v0.0.9
 
-- spec: 基本完全全部接口规范(少数proto无法支持的接口除外)
+- spec: 基本完成全部接口规范(少数proto无法支持的接口除外)
 
 ### v0.0.4
 
@@ -37,7 +37,7 @@ TODO
 
 ### v0.0.3
 
-- 最大层度兼容 yunify/qingcloud-sdk-go (pb生成成员的时的分词会有些差异)
+- 最大程度兼容 yunify/qingcloud-sdk-go (pb生成成员的分词会有些差异)
 - 实现了 message 的扩展, 可用于生成输入参数的验证函数
 
 ### v0.0.2
