@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdResourceACLService = cli.Command{
-	Name:    "resourceacl",
-	Aliases: []string{},
-	Usage:   "manage ResourceACLService",
+	Name:     "resourceacl",
+	Aliases:  []string{},
+	Usage:    "ResourceACLService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeSharedResourceGroups",

@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdEIPService = cli.Command{
-	Name:    "eip",
-	Aliases: []string{},
-	Usage:   "manage EIPService",
+	Name:     "eip",
+	Aliases:  []string{},
+	Usage:    "EIPService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeEips",

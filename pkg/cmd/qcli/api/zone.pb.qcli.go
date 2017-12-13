@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdZoneService = cli.Command{
-	Name:    "zone",
-	Aliases: []string{},
-	Usage:   "manage ZoneService",
+	Name:     "zone",
+	Aliases:  []string{},
+	Usage:    "ZoneService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeZones",

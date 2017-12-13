@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdMiscService = cli.Command{
-	Name:    "misc",
-	Aliases: []string{},
-	Usage:   "manage MiscService",
+	Name:     "misc",
+	Aliases:  []string{},
+	Usage:    "MiscService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "GrantQuotaIndep",

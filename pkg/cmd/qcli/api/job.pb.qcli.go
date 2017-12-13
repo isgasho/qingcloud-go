@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdJobService = cli.Command{
-	Name:    "job",
-	Aliases: []string{},
-	Usage:   "manage JobService",
+	Name:     "job",
+	Aliases:  []string{},
+	Usage:    "JobService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeJobs",

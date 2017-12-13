@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdSnapshotService = cli.Command{
-	Name:    "snapshot",
-	Aliases: []string{},
-	Usage:   "manage SnapshotService",
+	Name:     "snapshot",
+	Aliases:  []string{},
+	Usage:    "SnapshotService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeSnapshots",

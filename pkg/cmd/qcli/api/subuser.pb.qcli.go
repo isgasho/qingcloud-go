@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdSubuserService = cli.Command{
-	Name:    "subuser",
-	Aliases: []string{},
-	Usage:   "manage SubuserService",
+	Name:     "subuser",
+	Aliases:  []string{},
+	Usage:    "SubuserService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeSubUsers",

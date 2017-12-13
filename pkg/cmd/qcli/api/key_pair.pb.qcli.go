@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdKeyPairService = cli.Command{
-	Name:    "keypair",
-	Aliases: []string{},
-	Usage:   "manage KeyPairService",
+	Name:     "keypair",
+	Aliases:  []string{},
+	Usage:    "KeyPairService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeKeyPairs",

@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdVolumesService = cli.Command{
-	Name:    "volumes",
-	Aliases: []string{},
-	Usage:   "manage VolumesService",
+	Name:     "volumes",
+	Aliases:  []string{},
+	Usage:    "VolumesService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeVolumes",

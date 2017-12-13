@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdAlarmService = cli.Command{
-	Name:    "alarm",
-	Aliases: []string{},
-	Usage:   "manage AlarmService",
+	Name:     "alarm",
+	Aliases:  []string{},
+	Usage:    "AlarmService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeAlarmPolicies",

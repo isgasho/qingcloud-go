@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdS2Service = cli.Command{
-	Name:    "s2",
-	Aliases: []string{},
-	Usage:   "manage S2Service",
+	Name:     "s2",
+	Aliases:  []string{},
+	Usage:    "S2Service",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "CreateS2Server",

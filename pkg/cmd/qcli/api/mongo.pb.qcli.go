@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdMongoService = cli.Command{
-	Name:    "mongo",
-	Aliases: []string{},
-	Usage:   "manage MongoService",
+	Name:     "mongo",
+	Aliases:  []string{},
+	Usage:    "MongoService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeMongoNodes",

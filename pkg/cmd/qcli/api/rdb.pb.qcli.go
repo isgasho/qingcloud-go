@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdRDBService = cli.Command{
-	Name:    "rdb",
-	Aliases: []string{},
-	Usage:   "manage RDBService",
+	Name:     "rdb",
+	Aliases:  []string{},
+	Usage:    "RDBService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "CreateRDB",

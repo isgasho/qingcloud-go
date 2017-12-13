@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdVxnetService = cli.Command{
-	Name:    "vxnet",
-	Aliases: []string{},
-	Usage:   "manage VxnetService",
+	Name:     "vxnet",
+	Aliases:  []string{},
+	Usage:    "VxnetService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeVxnets",

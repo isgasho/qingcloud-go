@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdNicService = cli.Command{
-	Name:    "nic",
-	Aliases: []string{},
-	Usage:   "manage NicService",
+	Name:     "nic",
+	Aliases:  []string{},
+	Usage:    "NicService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "CreateNics",

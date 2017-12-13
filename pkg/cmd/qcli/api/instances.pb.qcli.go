@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdInstanceService = cli.Command{
-	Name:    "instance",
-	Aliases: []string{},
-	Usage:   "manage InstanceService",
+	Name:     "instance",
+	Aliases:  []string{},
+	Usage:    "InstanceService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeInstances",

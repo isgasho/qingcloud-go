@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdRouterService = cli.Command{
-	Name:    "router",
-	Aliases: []string{},
-	Usage:   "manage RouterService",
+	Name:     "router",
+	Aliases:  []string{},
+	Usage:    "RouterService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeRouters",

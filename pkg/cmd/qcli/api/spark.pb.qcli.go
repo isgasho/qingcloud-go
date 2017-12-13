@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdSparkService = cli.Command{
-	Name:    "spark",
-	Aliases: []string{},
-	Usage:   "manage SparkService",
+	Name:     "spark",
+	Aliases:  []string{},
+	Usage:    "SparkService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "CreateSpark",

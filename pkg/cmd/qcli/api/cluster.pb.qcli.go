@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdClusterService = cli.Command{
-	Name:    "cluster",
-	Aliases: []string{},
-	Usage:   "manage ClusterService",
+	Name:     "cluster",
+	Aliases:  []string{},
+	Usage:    "ClusterService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "CreateCluster",

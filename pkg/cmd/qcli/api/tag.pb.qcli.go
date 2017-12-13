@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdTagService = cli.Command{
-	Name:    "tag",
-	Aliases: []string{},
-	Usage:   "manage TagService",
+	Name:     "tag",
+	Aliases:  []string{},
+	Usage:    "TagService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeTags",

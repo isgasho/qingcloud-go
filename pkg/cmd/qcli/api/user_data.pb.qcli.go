@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdUserDataService = cli.Command{
-	Name:    "userdata",
-	Aliases: []string{},
-	Usage:   "manage UserDataService",
+	Name:     "userdata",
+	Aliases:  []string{},
+	Usage:    "UserDataService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "UploadUserDataAttachment",

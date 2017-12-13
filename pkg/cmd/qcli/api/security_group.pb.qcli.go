@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdSecurityGroupService = cli.Command{
-	Name:    "securitygroup",
-	Aliases: []string{},
-	Usage:   "manage SecurityGroupService",
+	Name:     "securitygroup",
+	Aliases:  []string{},
+	Usage:    "SecurityGroupService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeSecurityGroups",

@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdMonitorService = cli.Command{
-	Name:    "monitor",
-	Aliases: []string{},
-	Usage:   "manage MonitorService",
+	Name:     "monitor",
+	Aliases:  []string{},
+	Usage:    "MonitorService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "GetMonitor",

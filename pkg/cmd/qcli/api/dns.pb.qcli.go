@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdDNSAliasService = cli.Command{
-	Name:    "dnsalias",
-	Aliases: []string{},
-	Usage:   "manage DNSAliasService",
+	Name:     "dnsalias",
+	Aliases:  []string{},
+	Usage:    "DNSAliasService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeDNSAliases",

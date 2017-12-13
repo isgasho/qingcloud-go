@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdCacheService = cli.Command{
-	Name:    "cache",
-	Aliases: []string{},
-	Usage:   "manage CacheService",
+	Name:     "cache",
+	Aliases:  []string{},
+	Usage:    "CacheService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeCaches",

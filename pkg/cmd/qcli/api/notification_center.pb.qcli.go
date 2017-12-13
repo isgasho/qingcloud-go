@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdNotificationCenterService = cli.Command{
-	Name:    "notificationcenter",
-	Aliases: []string{},
-	Usage:   "manage NotificationCenterService",
+	Name:     "notificationcenter",
+	Aliases:  []string{},
+	Usage:    "NotificationCenterService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeNotificationCenterUserPosts",

@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdSpanService = cli.Command{
-	Name:    "span",
-	Aliases: []string{},
-	Usage:   "manage SpanService",
+	Name:     "span",
+	Aliases:  []string{},
+	Usage:    "SpanService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "CreateSpan",

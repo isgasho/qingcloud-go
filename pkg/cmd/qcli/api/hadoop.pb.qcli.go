@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdHadoopService = cli.Command{
-	Name:    "hadoop",
-	Aliases: []string{},
-	Usage:   "manage HadoopService",
+	Name:     "hadoop",
+	Aliases:  []string{},
+	Usage:    "HadoopService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "AddHadoopNodes",

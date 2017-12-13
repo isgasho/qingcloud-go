@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdLoadBalancerService = cli.Command{
-	Name:    "loadbalancer",
-	Aliases: []string{},
-	Usage:   "manage LoadBalancerService",
+	Name:     "loadbalancer",
+	Aliases:  []string{},
+	Usage:    "LoadBalancerService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "CreateLoadBalancer",

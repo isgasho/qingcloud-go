@@ -37,9 +37,10 @@ func init() {
 }
 
 var CmdImageService = cli.Command{
-	Name:    "image",
-	Aliases: []string{},
-	Usage:   "manage ImageService",
+	Name:     "image",
+	Aliases:  []string{},
+	Usage:    "ImageService",
+	Category: "SDK API Style Command",
 	Subcommands: []cli.Command{
 		{
 			Name:    "DescribeImages",
