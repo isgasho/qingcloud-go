@@ -12,7 +12,7 @@ WORKDIR /go/src/github.com/chai2010/qingcloud-go/
 COPY . .
 
 RUN go get github.com/golang/protobuf/protoc-gen-go
-RUN go get github.com/davecheney/godoc2md
+RUN go get github.com/devnev/godoc2ghmd
 
 RUN make generate
 RUN go install ./cmd/qcli
