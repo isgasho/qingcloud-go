@@ -57,13 +57,12 @@ service LoadBalancerService {
 
 message CreateLoadBalancerInput {
 	repeated string eips = 1;
-	optional string vxnet = 2;
-	optional string private_ip = 3;
-	optional int32 loadbalancer_type = 4;
-	optional string loadbalancer_name = 5;
+	optional string loadbalancer_name = 2;
+	optional int32 loadbalancer_type = 3;
+	optional int32 node_count = 4;
+	optional string private_ip = 5;
 	optional string security_group = 6;
-	optional int32 http_header_size = 7;
-	optional string target_user = 8;
+	optional string vxnet = 7;
 }
 message CreateLoadBalancerOutput {
 	optional string action = 1;
@@ -109,12 +108,12 @@ message DeleteLoadBalancersOutput {
 // ----------------------------------------------------------------------------
 
 message ModifyLoadBalancerAttributesInput {
-	optional string loadbalancer = 1;
-	optional string loadbalancer_name = 2;
-	optional string security_group = 3;
-	optional string description = 4;
+	optional string description = 1;
+	optional string loadbalancer = 2;
+	optional string loadbalancer_name = 3;
+	optional int32 node_count = 4;
 	optional string private_ip = 5;
-	optional int32 http_header_size = 6;
+	optional string security_group = 6;
 }
 message ModifyLoadBalancerAttributesOutput {
 	optional string action = 1;

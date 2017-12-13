@@ -269,13 +269,8 @@ var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{
 		Value: "", // json: slice/message/map/time
 	},
 	cli.StringFlag{
-		Name:  "vxnet",
-		Usage: "vxnet",
-		Value: "",
-	},
-	cli.StringFlag{
-		Name:  "private_ip",
-		Usage: "private ip",
+		Name:  "loadbalancer_name",
+		Usage: "loadbalancer name",
 		Value: "",
 	},
 	cli.IntFlag{
@@ -283,9 +278,14 @@ var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{
 		Usage: "loadbalancer type",
 		Value: 0,
 	},
+	cli.IntFlag{
+		Name:  "node_count",
+		Usage: "node count",
+		Value: 0,
+	},
 	cli.StringFlag{
-		Name:  "loadbalancer_name",
-		Usage: "loadbalancer name",
+		Name:  "private_ip",
+		Usage: "private ip",
 		Value: "",
 	},
 	cli.StringFlag{
@@ -293,14 +293,9 @@ var _flag_LoadBalancerService_CreateLoadBalancer = []cli.Flag{
 		Usage: "security group",
 		Value: "",
 	},
-	cli.IntFlag{
-		Name:  "http_header_size",
-		Usage: "http header size",
-		Value: 0,
-	},
 	cli.StringFlag{
-		Name:  "target_user",
-		Usage: "target user",
+		Name:  "vxnet",
+		Usage: "vxnet",
 		Value: "",
 	},
 }
@@ -322,26 +317,23 @@ func _func_LoadBalancerService_CreateLoadBalancer(c *cli.Context) error {
 				log.Fatal(err)
 			}
 		}
-		if c.IsSet("vxnet") {
-			in.Vxnet = proto.String(c.String("vxnet"))
-		}
-		if c.IsSet("private_ip") {
-			in.PrivateIp = proto.String(c.String("private_ip"))
+		if c.IsSet("loadbalancer_name") {
+			in.LoadbalancerName = proto.String(c.String("loadbalancer_name"))
 		}
 		if c.IsSet("loadbalancer_type") {
 			in.LoadbalancerType = proto.Int32(int32(c.Int("loadbalancer_type")))
 		}
-		if c.IsSet("loadbalancer_name") {
-			in.LoadbalancerName = proto.String(c.String("loadbalancer_name"))
+		if c.IsSet("node_count") {
+			in.NodeCount = proto.Int32(int32(c.Int("node_count")))
+		}
+		if c.IsSet("private_ip") {
+			in.PrivateIp = proto.String(c.String("private_ip"))
 		}
 		if c.IsSet("security_group") {
 			in.SecurityGroup = proto.String(c.String("security_group"))
 		}
-		if c.IsSet("http_header_size") {
-			in.HttpHeaderSize = proto.Int32(int32(c.Int("http_header_size")))
-		}
-		if c.IsSet("target_user") {
-			in.TargetUser = proto.String(c.String("target_user"))
+		if c.IsSet("vxnet") {
+			in.Vxnet = proto.String(c.String("vxnet"))
 		}
 	}
 
@@ -513,6 +505,11 @@ func _func_LoadBalancerService_DeleteLoadBalancers(c *cli.Context) error {
 
 var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{
 	cli.StringFlag{
+		Name:  "description",
+		Usage: "description",
+		Value: "",
+	},
+	cli.StringFlag{
 		Name:  "loadbalancer",
 		Usage: "loadbalancer",
 		Value: "",
@@ -522,25 +519,20 @@ var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{
 		Usage: "loadbalancer name",
 		Value: "",
 	},
-	cli.StringFlag{
-		Name:  "security_group",
-		Usage: "security group",
-		Value: "",
-	},
-	cli.StringFlag{
-		Name:  "description",
-		Usage: "description",
-		Value: "",
+	cli.IntFlag{
+		Name:  "node_count",
+		Usage: "node count",
+		Value: 0,
 	},
 	cli.StringFlag{
 		Name:  "private_ip",
 		Usage: "private ip",
 		Value: "",
 	},
-	cli.IntFlag{
-		Name:  "http_header_size",
-		Usage: "http header size",
-		Value: 0,
+	cli.StringFlag{
+		Name:  "security_group",
+		Usage: "security group",
+		Value: "",
 	},
 }
 
@@ -556,23 +548,23 @@ func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) erro
 		}
 	} else {
 		// read from flags
+		if c.IsSet("description") {
+			in.Description = proto.String(c.String("description"))
+		}
 		if c.IsSet("loadbalancer") {
 			in.Loadbalancer = proto.String(c.String("loadbalancer"))
 		}
 		if c.IsSet("loadbalancer_name") {
 			in.LoadbalancerName = proto.String(c.String("loadbalancer_name"))
 		}
-		if c.IsSet("security_group") {
-			in.SecurityGroup = proto.String(c.String("security_group"))
-		}
-		if c.IsSet("description") {
-			in.Description = proto.String(c.String("description"))
+		if c.IsSet("node_count") {
+			in.NodeCount = proto.Int32(int32(c.Int("node_count")))
 		}
 		if c.IsSet("private_ip") {
 			in.PrivateIp = proto.String(c.String("private_ip"))
 		}
-		if c.IsSet("http_header_size") {
-			in.HttpHeaderSize = proto.Int32(int32(c.Int("http_header_size")))
+		if c.IsSet("security_group") {
+			in.SecurityGroup = proto.String(c.String("security_group"))
 		}
 	}
 

@@ -284,13 +284,14 @@ message LoadBalancer {
 	optional string loadbalancer_id = 6;
 	optional string loadbalancer_name = 7;
 	optional int32 loadbalancer_type = 8;
-	repeated string private_ips = 9;
-	optional string security_group_id = 10;
-	optional string status = 11;
-	optional google.protobuf.Timestamp status_time = 12;
-	repeated Tag tags = 13;
-	optional string transition_status = 14;
-	optional string vxnet_id = 15;
+	optional int32 node_count = 9;
+	repeated string private_ips = 10;
+	optional string security_group_id = 11;
+	optional string status = 12;
+	optional google.protobuf.Timestamp status_time = 13;
+	repeated Tag tags = 14;
+	optional string transition_status = 15;
+	optional string vxnet_id = 16;
 }
 
 message LoadBalancerListener {
