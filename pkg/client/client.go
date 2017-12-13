@@ -97,39 +97,9 @@ func (p *Client) CallMethod(
 
 	switch httpMethod {
 	case "GET":
-		url := p.apiServer + "?" + query
-		if DebugMode {
-			log.Printf("GET: %v\n", url)
-		}
-
-		resp, err := opt.GetHttpClient().Get(url)
-		if err != nil {
-			return err
-		}
-
-		err = DecodeResponse(resp, output)
-		if err != nil {
-			return err
-		}
-		return nil
-
+		return p.doGet(opt.GetHttpClient(), query, output)
 	case "POST":
-		if DebugMode {
-			log.Printf("POST: %v, %v\n", p.apiServer, "application/json")
-			log.Printf("Body: %v\n", query)
-		}
-
-		resp, err := opt.GetHttpClient().Post(p.apiServer, "application/json", strings.NewReader(query))
-		if err != nil {
-			return err
-		}
-
-		err = DecodeResponse(resp, output)
-		if err != nil {
-			return err
-		}
-		return nil
-
+		return p.doPost(opt.GetHttpClient(), query, output)
 	default:
 		return fmt.Errorf("pkg/client.CallMethod: unsupport methond %v", httpMethod)
 	}
@@ -138,6 +108,42 @@ func (p *Client) CallMethod(
 func (p *Client) getApiServerPath() string {
 	u, _ := url.Parse(p.apiServer)
 	return u.Path
+}
+
+func (p *Client) doGet(c *http.Client, query string, output proto.Message) error {
+	url := p.apiServer + "?" + query
+	if DebugMode {
+		log.Printf("GET: %v\n", url)
+	}
+
+	resp, err := c.Get(url)
+	if err != nil {
+		return err
+	}
+
+	err = DecodeResponse(resp, output)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (p *Client) doPost(c *http.Client, query string, output proto.Message) error {
+	if DebugMode {
+		log.Printf("POST: %v, %v\n", p.apiServer, "application/json")
+		log.Printf("Body: %v\n", query)
+	}
+
+	resp, err := c.Post(p.apiServer, "application/json", strings.NewReader(query))
+	if err != nil {
+		return err
+	}
+
+	err = DecodeResponse(resp, output)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func DecodeResponse(resp *http.Response, output proto.Message) error {
