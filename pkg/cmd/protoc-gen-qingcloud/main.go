@@ -39,41 +39,19 @@ func Main() {
 	// so we can do error handling easily - the response structure contains the field to
 	// report failure.
 	g := generator.New()
-
-	data, err := ioutil.ReadAll(os.Stdin)
-	if err != nil {
-		g.Error(err, "reading input")
-	}
-
-	if err := proto.Unmarshal(data, g.Request); err != nil {
-		g.Error(err, "parsing input proto")
-	}
-
-	if len(g.Request.FileToGenerate) == 0 {
-		g.Fail("no files to generate")
-	}
-
 	if len(getAllServiceGenerator()) == 0 {
 		g.Fail("no service generator plugin")
 	}
 
+	pkgReadRequetFromStdin(g)
+	pkgGenerateAllFiles(g, qcPlugin)
+	pkgWriteResponseToStdout(g)
+}
+
+func pkgGenerateAllFiles(g *generator.Generator, qcPlugin *qingcloudPlugin) {
 	// set default plugins: qingcloud
 	// protoc --qingcloud_out=plugin=golang:. x.proto
-	userPluginName := getParameterValue(g.Request.GetParameter(), "plugin")
-	if userPluginName == "" {
-		userPluginName = getFirstServiceGeneratorName()
-	}
-	if userPluginName == "" {
-		log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
-		g.Fail("no plugin option")
-	}
-
-	userPlugin := getServiceGenerator(userPluginName)
-	if userPlugin == nil {
-		log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
-		g.Fail("invalid plugin option:", userPluginName)
-	}
-	qcPlugin.InitService(userPlugin)
+	qcPlugin.InitService(pkgGetUserPlugin(g))
 
 	// parse command line parameters
 	g.CommandLineParameters("plugins=" + qcPlugin.Name())
@@ -95,9 +73,25 @@ func Main() {
 		}
 	}
 	g.Response.File = respFileList
+}
 
-	// Send back the results.
-	data, err = proto.Marshal(g.Response)
+func pkgReadRequetFromStdin(g *generator.Generator) {
+	data, err := ioutil.ReadAll(os.Stdin)
+	if err != nil {
+		g.Error(err, "reading input")
+	}
+
+	if err := proto.Unmarshal(data, g.Request); err != nil {
+		g.Error(err, "parsing input proto")
+	}
+
+	if len(g.Request.FileToGenerate) == 0 {
+		g.Fail("no files to generate")
+	}
+}
+
+func pkgWriteResponseToStdout(g *generator.Generator) {
+	data, err := proto.Marshal(g.Response)
 	if err != nil {
 		g.Error(err, "failed to marshal output proto")
 	}
@@ -107,7 +101,28 @@ func Main() {
 	}
 }
 
-func getParameterValue(parameter, key string) string {
+func pkgGetUserPlugin(g *generator.Generator) ServiceGenerator {
+
+	args := g.Request.GetParameter()
+	userPluginName := pkgGetParameterValue(args, "plugin")
+	if userPluginName == "" {
+		userPluginName = getFirstServiceGeneratorName()
+	}
+	if userPluginName == "" {
+		log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
+		g.Fail("no plugin option")
+	}
+
+	userPlugin := getServiceGenerator(userPluginName)
+	if userPlugin == nil {
+		log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
+		g.Fail("invalid plugin option:", userPluginName)
+	}
+
+	return userPlugin
+}
+
+func pkgGetParameterValue(parameter, key string) string {
 	for _, p := range strings.Split(parameter, ",") {
 		if i := strings.Index(p, "="); i > 0 {
 			if p[0:i] == key {
