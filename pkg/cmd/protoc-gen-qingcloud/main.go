@@ -102,15 +102,10 @@ func pkgWriteResponseToStdout(g *generator.Generator) {
 }
 
 func pkgGetUserPlugin(g *generator.Generator) ServiceGenerator {
-
 	args := g.Request.GetParameter()
 	userPluginName := pkgGetParameterValue(args, "plugin")
 	if userPluginName == "" {
 		userPluginName = getFirstServiceGeneratorName()
-	}
-	if userPluginName == "" {
-		log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
-		g.Fail("no plugin option")
 	}
 
 	userPlugin := getServiceGenerator(userPluginName)
