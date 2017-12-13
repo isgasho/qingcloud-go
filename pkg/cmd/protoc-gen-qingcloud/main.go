@@ -68,7 +68,10 @@ func pkgGenerateAllFiles(g *generator.Generator, qcPlugin *qingcloudPlugin) {
 	// skip non *.pb.qingcloud.go
 	respFileList := g.Response.File[:0]
 	for _, file := range g.Response.File {
-		if strings.HasSuffix(file.GetName(), qcPlugin.FileNameExt()) {
+		fileName := file.GetName()
+		extName := qcPlugin.FileNameExt()
+
+		if strings.HasSuffix(fileName, extName) {
 			respFileList = append(respFileList, file)
 		}
 	}
