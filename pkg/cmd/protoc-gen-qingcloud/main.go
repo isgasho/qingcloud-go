@@ -59,21 +59,21 @@ func Main() {
 
 	// set default plugins: qingcloud
 	// protoc --qingcloud_out=plugin=golang:. x.proto
-	if s := getParameterValue(g.Request.GetParameter(), "plugin"); s != "" {
-		if x := getServiceGenerator(s); x != nil {
-			qcPlugin.InitService(x)
-		} else {
-			log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
-			g.Fail("invalid plugin option:", s)
-		}
-	} else {
-		if x := getAllServiceGenerator(); len(x) == 1 {
-			qcPlugin.InitService(x[0])
-		} else {
-			log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
-			g.Fail("no plugin option")
-		}
+	userPluginName := getParameterValue(g.Request.GetParameter(), "plugin")
+	if userPluginName == "" {
+		userPluginName = getFirstServiceGeneratorName()
 	}
+	if userPluginName == "" {
+		log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
+		g.Fail("no plugin option")
+	}
+
+	userPlugin := getServiceGenerator(userPluginName)
+	if userPlugin == nil {
+		log.Print("protoc-gen-qingcloud: registor plugins:", getAllServiceGeneratorNames())
+		g.Fail("invalid plugin option:", userPluginName)
+	}
+	qcPlugin.InitService(userPlugin)
 
 	// parse command line parameters
 	g.CommandLineParameters("plugins=" + qcPlugin.Name())

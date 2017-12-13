@@ -35,6 +35,13 @@ func getAllServiceGeneratorNames() (names []string) {
 	return
 }
 
+func getFirstServiceGeneratorName() string {
+	if len(pkgServiceGeneratorList) > 0 {
+		return pkgServiceGeneratorList[0].Name()
+	}
+	return ""
+}
+
 func getServiceGenerator(name string) ServiceGenerator {
 	for _, g := range pkgServiceGeneratorList {
 		if g.Name() == name {
