@@ -14,6 +14,7 @@ var cmdInfo = cli.Command{
 	Name:    "info",
 	Aliases: []string{},
 	Usage:   "show resource info",
+	Hidden:  true,
 	Flags: []cli.Flag{
 		cli.StringFlag{
 			Name:  "regexp",

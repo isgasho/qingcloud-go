@@ -63,10 +63,7 @@ AUTHOR:
    ChaiShushan <chaishushan@gmail.com>
 
 COMMANDS:
-     list, ls        list resource
-     info            show resource info
-     signature, sig  build signature
-     help, h         Shows a list of commands or help for one command
+     help, h  Shows a list of commands or help for one command
 
    SDK API Style Command:
      alarm               AlarmService

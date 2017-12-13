@@ -14,6 +14,7 @@ var cmdSignature = cli.Command{
 	Name:    "signature",
 	Aliases: []string{"sig"},
 	Usage:   "build signature",
+	Hidden:  true,
 	Flags: []cli.Flag{
 		cli.StringFlag{
 			Name:  "regexp",

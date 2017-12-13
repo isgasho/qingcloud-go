@@ -14,6 +14,7 @@ var cmdMachine = cli.Command{
 	Name:    "machine",
 	Aliases: []string{},
 	Usage:   "docker machine style command",
+	Hidden:  true,
 	Flags: []cli.Flag{
 		cli.StringFlag{
 			Name:  "regexp",

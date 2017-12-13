@@ -14,6 +14,7 @@ var cmdList = cli.Command{
 	Name:    "list",
 	Aliases: []string{"ls"},
 	Usage:   "list resource",
+	Hidden:  true,
 	Flags: []cli.Flag{
 		cli.StringFlag{
 			Name:  "regexp",
