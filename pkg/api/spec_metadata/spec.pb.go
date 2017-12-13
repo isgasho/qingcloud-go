@@ -37,7 +37,6 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-// proto 文件信息
 type FileSpec struct {
 	FileName         *string                `protobuf:"bytes,1,req,name=file_name,json=fileName" json:"file_name,omitempty"`
 	PackageName      *string                `protobuf:"bytes,2,req,name=package_name,json=packageName" json:"package_name,omitempty"`
@@ -71,7 +70,6 @@ func (m *FileSpec) GetExternalDocs() *ExternalDocumentation {
 	return nil
 }
 
-// 服务信息
 type ServiceSpec struct {
 	ServiceName      *string                `protobuf:"bytes,1,req,name=service_name,json=serviceName" json:"service_name,omitempty"`
 	MethodList       []*ServiceMethodSpec   `protobuf:"bytes,2,rep,name=method_list,json=methodList" json:"method_list,omitempty"`
@@ -105,7 +103,6 @@ func (m *ServiceSpec) GetExternalDocs() *ExternalDocumentation {
 	return nil
 }
 
-// 服务方法列表
 type ServiceMethodSpec struct {
 	MethodName       *string                `protobuf:"bytes,1,req,name=method_name,json=methodName" json:"method_name,omitempty"`
 	InputTypeName    *string                `protobuf:"bytes,2,req,name=input_type_name,json=inputTypeName" json:"input_type_name,omitempty"`
@@ -157,7 +154,6 @@ func (m *ServiceMethodSpec) GetExternalDocs() *ExternalDocumentation {
 	return nil
 }
 
-// 文件的扩展信息
 type FileOption struct {
 	ExternalDocs     *ExternalDocumentation `protobuf:"bytes,1,opt,name=external_docs,json=externalDocs" json:"external_docs,omitempty"`
 	XXX_unrecognized []byte                 `json:"-"`
@@ -175,7 +171,6 @@ func (m *FileOption) GetExternalDocs() *ExternalDocumentation {
 	return nil
 }
 
-// 服务的扩展信息
 type ServiceOption struct {
 	ExternalDocs     *ExternalDocumentation `protobuf:"bytes,1,opt,name=external_docs,json=externalDocs" json:"external_docs,omitempty"`
 	CmdInfo          *CommandInfo           `protobuf:"bytes,2,opt,name=cmd_info,json=cmdInfo" json:"cmd_info,omitempty"`
@@ -201,7 +196,6 @@ func (m *ServiceOption) GetCmdInfo() *CommandInfo {
 	return nil
 }
 
-// 服务方法的扩展信息
 type MethodOption struct {
 	HttpMethod       *string                `protobuf:"bytes,1,opt,name=http_method,json=httpMethod" json:"http_method,omitempty"`
 	ExternalDocs     *ExternalDocumentation `protobuf:"bytes,2,opt,name=external_docs,json=externalDocs" json:"external_docs,omitempty"`
@@ -235,7 +229,6 @@ func (m *MethodOption) GetCmdInfo() *CommandInfo {
 	return nil
 }
 
-// 消息的扩展信息
 type MessageOption struct {
 	ExternalDocs     *ExternalDocumentation `protobuf:"bytes,1,opt,name=external_docs,json=externalDocs" json:"external_docs,omitempty"`
 	XXX_unrecognized []byte                 `json:"-"`
@@ -253,8 +246,6 @@ func (m *MessageOption) GetExternalDocs() *ExternalDocumentation {
 	return nil
 }
 
-// 消息成员的扩展信息
-// 这是重要信息, 在运行时可动态获取改信息对 message 做合法性验证
 type FieldOption struct {
 	MinValue          *float64               `protobuf:"fixed64,1,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
 	MaxValue          *float64               `protobuf:"fixed64,2,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
@@ -352,7 +343,6 @@ func (m *FieldOption) GetStructTag() string {
 	return ""
 }
 
-// 扩展文档
 type ExternalDocumentation struct {
 	Title            *string `protobuf:"bytes,1,opt,name=title" json:"title,omitempty"`
 	Description      *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
@@ -386,7 +376,6 @@ func (m *ExternalDocumentation) GetUrl() string {
 	return ""
 }
 
-// 命令行扩展
 type CommandInfo struct {
 	Name             *string  `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	Aliases          []string `protobuf:"bytes,2,rep,name=aliases" json:"aliases,omitempty"`

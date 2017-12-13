@@ -26,20 +26,17 @@ var (
 func main() {
 	flag.Parse()
 
-	// 返回 NIC 服务, pek3a 为 北京3区-A
 	qnic := pb.NewNicService(&pb.ServerInfo{
 		AccessKeyId:     proto.String(*flagId),
 		SecretAccessKey: proto.String(*flagKey),
 		Zone:            proto.String(*flagZone),
 	})
 
-	// 列出所有网卡
 	reply, err := qnic.DescribeNics(nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// JSON 格式打印
 	s, _ := pbutil.EncodeJsonIndent(reply)
 	fmt.Println(s)
 }
