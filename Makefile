@@ -5,10 +5,8 @@
 GO_LDFLAGS:=--ldflags '-w -s -extldflags "-static"'
 GO:=docker run --rm -v $(shell go env GOPATH):/go -w /go/src/$(shell go list) golang:1.9.2-alpine3.6 go
 
-default:
-	go generate ./pkg/...
-	go fmt ./...
-	go test ./...
+default: generate gen-pkgdoc
+	@echo "ok"
 
 build-docker: Dockerfile
 	docker build -t chai2010/qingcloud-go .
@@ -32,7 +30,8 @@ remove-unused-vendor:
 	@echo "ok"
 
 tools:
-	go get github.com/kardianos/govendor
+	go get go get github.com/golang/protobuf/protoc-gen-go
+	go get github.com/davecheney/godoc2md
 	docker pull golang:alpine
 	@echo "ok"
 
@@ -41,6 +40,23 @@ generate:
 	go generate ./pkg/...
 	go fmt  ./...
 	go test ./...
+
+gen-pkgdoc:
+	godoc2md github.com/chai2010/qingcloud-go/pkg/api       > ./pkg/api/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/client    > ./pkg/client/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/pbutil    > ./pkg/pbutil/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/signature > ./pkg/signature/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/status    > ./pkg/status/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/version   > ./pkg/version/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/wait      > ./pkg/wait/README.md
+
+	godoc2md github.com/chai2010/qingcloud-go/pkg/api/spec_metadata > ./pkg/api/spec_metadata/README.md
+
+	godoc2md github.com/chai2010/qingcloud-go/pkg/cmd/qcli > ./pkg/cmd/qcli/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/cmd/qcli/api > ./pkg/cmd/qcli/api/README.md
+
+	godoc2md github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud > ./pkg/cmd/protoc-gen-qingcloud/README.md
+	godoc2md github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/utils > ./pkg/cmd/protoc-gen-qingcloud/utils/README.md
 
 fmt:
 	go fmt ./...
