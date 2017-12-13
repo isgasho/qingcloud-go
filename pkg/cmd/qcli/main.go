@@ -43,6 +43,7 @@ func Main() {
 	app.Commands = append(app.Commands, []cli.Command{
 		cmdList,
 		cmdInfo,
+		cmdMachine,
 		cmdSignature,
 	}...)
 
