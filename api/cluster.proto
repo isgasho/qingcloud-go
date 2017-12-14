@@ -166,7 +166,7 @@ message DescribeClusterNodesOutput {
 	optional string message = 3;
 
 	optional int32 total_count = 4;
-	repeated ClasterNode node_set = 5;
+	repeated ClusterNode node_set = 5;
 }
 
 // ----------------------------------------------------------------------------

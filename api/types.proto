@@ -6,6 +6,7 @@ syntax = "proto2";
 
 package service;
 
+import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/descriptor.proto";
 
@@ -15,6 +16,132 @@ message ServerInfo {
 	optional string secret_access_key = 3;
 	optional string zone = 4 [default = "pek3a"];
 }
+
+// the following types is same as
+// https://github.com/yunify/qingcloud-sdk-go/blob/master/service/types.go
+// keep the order
+
+message Cache {
+	optional int32 auto_backup_time = 1;
+	optional int32 cache_class = 2;
+	optional string cache_id = 3;
+	optional string cache_name = 4;
+	optional string cache_parameter_group_id = 5;
+	optional int32 cache_port = 6;
+	optional int32 cache_size = 7;
+	optional string cache_type = 8;
+	optional string cache_version = 9;
+	optional google.protobuf.Timestamp create_time = 10;
+	optional string description = 11;
+	optional int32 is_applied = 12;
+	optional int32 master_count = 13;
+	optional int32 max_memory = 14;
+	optional int32 node_count = 15;
+	repeated CacheNode nodes = 16;
+	optional int32 replicate_count = 17;
+	optional string security_group_id = 18;
+	optional string status = 19;
+	optional google.protobuf.Timestamp status_time = 20;
+	optional int32 sub_code = 21;
+	repeated Tag tags = 22;
+	optional string transition_status = 23;
+	optional VxNet vxnet = 24;
+}
+
+message CacheNode {
+	optional string alarm_status = 1;
+	optional string cache_id = 2;
+	optional string cache_node_id = 3;
+	optional string cache_node_name = 4;
+	optional string cache_role = 5;
+	optional string cache_type = 6;
+	optional google.protobuf.Timestamp create_time = 7;
+	optional string private_ip = 8;
+	optional string slaveof = 9;
+	optional string status = 10;
+	optional google.protobuf.Timestamp status_time = 11;
+	optional string transition_status = 12;
+}
+
+message CacheParameter {
+	optional string cache_parameter_name = 1;
+	optional string cache_parameter_type = 2;
+	optional string cache_parameter_value = 3;
+	optional string cache_type = 4;
+	optional int32 is_readonly = 5;
+	optional int32 is_static = 6;
+	optional string opt_name = 7;
+	optional string parameter_type = 8;
+	optional string resource_version = 9;
+	optional string value_range = 10;
+}
+
+message CacheParameterGroup {
+	optional string cache_parameter_group_id = 1;
+	optional string cache_parameter_group_name = 2;
+	optional string cache_type = 3;
+	optional google.protobuf.Timestamp create_time = 4;
+	optional string description = 5;
+	optional int32 is_applied = 6;
+	optional int32 is_default = 7;
+	repeated Resource resources = 8;
+}
+
+message CachePrivateIP {
+	optional string cache_node_id = 1;
+	optional string cache_role = 2;
+	optional string private_ips = 3;
+}
+
+message Cluster {
+	optional google.protobuf.Any advanced_actions = 1;
+	optional string app_id = 2;
+	optional google.protobuf.Any app_info = 3;
+	optional string app_version = 4;
+	optional google.protobuf.Any app_version_info = 5;
+	optional int32 auto_backup_time = 6;
+	optional google.protobuf.Any backup = 7;
+	optional string backup_policy = 8;
+	optional google.protobuf.Any backup_service = 9;
+	optional string cfgmgmt_id = 10;
+	optional string cluster_id = 11;
+	optional int32 cluster_type = 12;
+	optional string console_id = 13;
+	optional string controller = 14;
+	optional google.protobuf.Timestamp create_time = 15;
+	optional google.protobuf.Any custom_service = 16;
+	optional int32 debug = 17;
+	optional string description = 18;
+	optional google.protobuf.Any display_tabs = 19;
+	optional google.protobuf.Any endpoints = 20;
+	optional string global_uuid = 21;
+	map<string, bool> health_check_enablement = 22;
+	optional bool incremental_backup_supported = 23;
+	optional google.protobuf.Timestamp lastest_snapshot_time = 24;
+	map<string,string> links = 25;
+	optional int32 metadata_root_access = 26;
+	optional string name = 27;
+	optional int32 node_count = 28;
+	repeated ClusterNode nodes = 29;
+	optional string owner = 30;
+	optional bool partner_access = 31;
+	optional google.protobuf.Any restore_service = 32;
+	optional int32 reuse_hyper = 33;
+	map<string,int32> role_count = 34;
+	repeated string roles = 35;
+	optional string root_user_id = 36;
+	optional string security_group_id = 37;
+	optional string status = 38;
+	optional google.protobuf.Timestamp status_time = 39;
+	optional int32 sub_code = 40;
+	optional string transition_status = 41;
+	repeated string upgrade_policy = 42;
+	optional string upgrade_status = 43;
+	optional google.protobuf.Timestamp upgrade_time = 44;
+	optional VxNet vxnet = 45;
+}
+
+// TODO(chai)
 
 message Tag {
 	optional string color = 1;
@@ -325,76 +452,7 @@ message LoadBalancerBackend {
 	optional int32 weight = 10;
 }
 
-message Cache {
-	optional int32 cache_class = 1;
-	optional string cache_id = 2;
-	optional string cache_name = 3;
-	optional string cache_parameter_group_id = 4;
-	optional int32 cache_port = 5;
-	optional int32 cache_size = 6;
-	optional string cache_type = 7;
-	optional string cache_version = 8;
-	optional google.protobuf.Timestamp create_time = 9;
-	optional string description = 10;
-	optional int32 is_applied = 11;
-	optional int32 master_count = 12;
-	optional int32 max_memory = 13;
-	optional int32 node_count = 14;
-	repeated CacheNode nodes = 15;
-	optional int32 replicate_count = 16;
-	optional string security_group_id = 17;
-	optional string status = 18;
-	optional google.protobuf.Timestamp status_time = 19;
-	optional int32 sub_code = 20;
-	repeated Tag tags = 21;
-	optional string transition_status = 22;
-	optional VxNet vxnet = 23;
-}
 
-message CacheNode {
-	optional string alarm_status = 1;
-	optional string cache_id = 2;
-	optional string cache_node_id = 3;
-	optional string cache_node_name = 4;
-	optional string cache_role = 5;
-	optional string cache_type = 6;
-	optional google.protobuf.Timestamp create_time = 7;
-	optional string private_ip = 8;
-	optional string slaveof = 9;
-	optional string status = 10;
-	optional google.protobuf.Timestamp status_time = 11;
-	optional string transition_status = 12;
-}
-
-message CacheParameter {
-	optional string cache_parameter_name = 1;
-	optional string cache_parameter_type = 2;
-	optional string cache_parameter_value = 3;
-	optional string cache_type = 4;
-	optional int32 is_readonly = 5;
-	optional int32 is_static = 6;
-	optional string opt_name = 7;
-	optional string parameter_type = 8;
-	optional string resource_version = 9;
-	optional string value_range = 10;
-}
-
-message CacheParameterGroup {
-	optional string cache_parameter_group_id = 1;
-	optional string cache_parameter_group_name = 2;
-	optional string cache_type = 3;
-	optional google.protobuf.Timestamp create_time = 4;
-	optional string description = 5;
-	optional int32 is_applied = 6;
-	optional int32 is_default = 7;
-	repeated Resource resources = 8;
-}
-
-message CachePrivateIP {
-	optional string cache_node_id = 1;
-	optional string cache_role = 2;
-	optional string private_ips = 3;
-}
 
 message SparkPrivateIps {
 	optional string role = 1;
@@ -769,83 +827,7 @@ message Zone {
 	optional string zone_id = 2;
 }
 
-message Cluster {
-	optional string global_uuid = 1;
-	optional int32 auto_backup_time = 2;
-	optional HealthCheckEnablement health_check_enablement = 3;
-	optional string cfgmgmt_id = 4;
-	optional CustomService custom_service = 5;
-	optional string app_id = 6;
-	optional AdvancedActions advanced_actions = 7;
-	optional string console_id = 8;
-	optional google.protobuf.Timestamp create_time = 9;
-	optional string cluster_id = 10;
-	optional string owner = 11;
-	optional google.protobuf.Timestamp upgrade_time = 12;
-	//google.protobuf.Any children = 13;
-	optional int32 incremental_backup_supported = 14;
-	optional int32 cluster_type = 15;
-	optional int32 sub_code = 16;
-	optional int32 metadata_root_access = 17;
-	//google.protobuf.Any add_links = 18;
-	optional string upgrade_status = 19;
-	optional google.protobuf.Timestamp status_time = 20;
-	optional int32 node_count = 21;
-	optional string app_version = 22;
-	optional VxNet vxnet = 23;
-	optional string status = 24;
-	optional string description = 25;
-	//google.protobuf.Any parent = 26;
-	//repeated google.protobuf.Any tags = 27;
-	optional AppInfo app_info = 28;
-	optional string transition_status = 29;
-	optional int32 reuse_hyper = 30;
-	optional string controller = 31;
-	//repeated google.protobuf.Any upgrade_policy = 32;
-	optional int32 partner_access = 33;
-	optional string name = 34;
-	repeated string roles = 35;
-	//google.protobuf.Timestamp lastest_snapshot_time = 36;
-	optional string lastest_snapshot_time = 36; // 临时, 目前返回的空字符串是非法格式
-	optional string root_user_id = 37;
-	optional int32 debug = 38;
-	//repeated google.protobuf.Any backup_policy = 39;
-	//repeated google.protobuf.Any endpoints = 40;
-	optional HealthCheckEnablement backup = 41;
-	optional AppVersionInfo app_version_info = 42;
-
-	message HealthCheckEnablement {
-		optional bool ca = 1;
-		optional bool orderer = 2;
-		optional bool peer_node = 3;
-	}
-
-	message CustomService {
-		//
-	}
-
-	message AdvancedActions {
-		//google.protobuf.Any ca = 1;
-		//google.protobuf.Any orderer = 2;
-		//google.protobuf.Any peer_node = 3;
-	}
-
-	message AppInfo {
-		optional string icon = 1;
-		optional string app_id = 2;
-		optional string app_name = 3;
-	}
-
-	message AppVersionInfo {
-		optional google.protobuf.Timestamp status_time = 1;
-		optional string resource_kit = 2;
-		optional string name = 3;
-		optional string version_id = 4;
-		//repeated google.protobuf.Any upgrade_policy = 5;
-	}
-}
-
-message ClasterNode {
+message ClusterNode {
 	// "passphraseless":null,
 	optional string vertical_scaling_policy = 2;
 	optional string vxnet_id = 3;

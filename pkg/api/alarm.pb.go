@@ -655,6 +655,12 @@ It has these top-level messages:
 	DetachTagsInput
 	DetachTagsOutput
 	ServerInfo
+	Cache
+	CacheNode
+	CacheParameter
+	CacheParameterGroup
+	CachePrivateIP
+	Cluster
 	Tag
 	ResourceTagPair
 	ResourceTypeCount
@@ -675,11 +681,6 @@ It has these top-level messages:
 	LoadBalancer
 	LoadBalancerListener
 	LoadBalancerBackend
-	Cache
-	CacheNode
-	CacheParameter
-	CacheParameterGroup
-	CachePrivateIP
 	SparkPrivateIps
 	Data
 	DHCPOption
@@ -715,8 +716,7 @@ It has these top-level messages:
 	SnapshotResource
 	User
 	Zone
-	Cluster
-	ClasterNode
+	ClusterNode
 	ResourceGroupsItem
 	UserGroupItem
 	GroupRoleItem
