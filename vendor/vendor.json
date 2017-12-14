@@ -55,6 +55,30 @@
 			"path": "github.com/urfave/cli",
 			"revision": "119bb6564841921ce6f1401e0f5d75317bdd9f4d",
 			"revisionTime": "2017-12-03T21:42:37Z"
+		},
+		{
+			"checksumSHA1": "IH9vgeWDGv4W36JSkXZv6+BA6yM=",
+			"path": "github.com/yuin/gopher-lua",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
+		},
+		{
+			"checksumSHA1": "yNGEI9BMDbGwabUnaHvV9ZZm/a0=",
+			"path": "github.com/yuin/gopher-lua/ast",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
+		},
+		{
+			"checksumSHA1": "jL/Xn8U1QShceAAs7GezOfjLQ6o=",
+			"path": "github.com/yuin/gopher-lua/parse",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
+		},
+		{
+			"checksumSHA1": "pOY+AESgLoqczVCXNCvmPtJyUXE=",
+			"path": "github.com/yuin/gopher-lua/pm",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
 		}
 	],
 	"rootPath": "github.com/chai2010/qingcloud-go"
