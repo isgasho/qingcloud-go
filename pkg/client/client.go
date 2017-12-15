@@ -107,9 +107,72 @@ func (p *Client) CallMethod(
 	}
 }
 
+func (p *Client) CallMethodWithMap(
+	svcMethodName, httpMethod string, input map[string]string,
+	opt *CallOptions,
+) (
+	output string, err error,
+) {
+	if DebugMode {
+		log.Printf("input: %#v\n", input)
+	}
+
+	inputMap := input
+	inputMap["action"] = svcMethodName
+	inputMap["version"] = "1"
+
+	if inputMap["time_stamp"] == "" {
+		inputMap["time_stamp"] = time.Now().UTC().Format("2006-01-02T15:04:05Z")
+	}
+	if inputMap["zone"] == "" {
+		inputMap["zone"] = p.zone
+	}
+
+	if DebugMode {
+		log.Printf("inputMap: %#v\n", inputMap)
+	}
+
+	query, sig := signature.Build(
+		p.accessKeyId, p.secretAccessKey,
+		httpMethod, p.getApiServerPath(),
+		inputMap,
+	)
+
+	if DebugMode {
+		log.Printf("query: %v\n", query)
+		log.Printf("sig: %v\n", sig)
+	}
+
+	switch httpMethod {
+	case "GET":
+		return p.doGet_json(opt.GetHttpClient(), query)
+	case "POST":
+		return p.doPost_json(opt.GetHttpClient(), query)
+	default:
+		return "", fmt.Errorf("pkg/client.CallMethod: unsupport methond %v", httpMethod)
+	}
+}
+
 func (p *Client) getApiServerPath() string {
 	u, _ := url.Parse(p.apiServer)
 	return u.Path
+}
+
+func (p *Client) doGet_json(c *http.Client, query string) (string, error) {
+	url := p.apiServer + "?" + query
+	if DebugMode {
+		log.Printf("GET: %v\n", url)
+	}
+
+	resp, err := c.Get(url)
+	if err != nil {
+		return "", err
+	}
+	defer resp.Body.Close()
+
+	var buf bytes.Buffer
+	_, err = buf.ReadFrom(resp.Body)
+	return string(buf.Bytes()), err
 }
 
 func (p *Client) doGet(c *http.Client, query string, output proto.Message) error {
@@ -148,10 +211,28 @@ func (p *Client) doPost(c *http.Client, query string, output proto.Message) erro
 	return nil
 }
 
+func (p *Client) doPost_json(c *http.Client, query string) (string, error) {
+	if DebugMode {
+		log.Printf("POST: %v, %v\n", p.apiServer, "application/json")
+		log.Printf("Body: %v\n", query)
+	}
+
+	resp, err := c.Post(p.apiServer, "application/json", strings.NewReader(query))
+	if err != nil {
+		return "", err
+	}
+	defer resp.Body.Close()
+
+	var buf bytes.Buffer
+	_, err = buf.ReadFrom(resp.Body)
+	return string(buf.Bytes()), err
+}
+
 func DecodeResponse(resp *http.Response, output proto.Message) error {
+	defer resp.Body.Close()
+
 	var buf bytes.Buffer
 	buf.ReadFrom(resp.Body)
-	resp.Body.Close()
 
 	if DebugMode {
 		log.Printf("RespBody: %s\n", buf.Bytes())
