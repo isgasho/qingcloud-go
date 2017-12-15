@@ -22,6 +22,7 @@
 * [type Client](#Client)
   * [func NewClient(apiServer, accessKeyId, secretAccessKey, zone string) \*Client](#NewClient)
   * [func (p \*Client) CallMethod(svcMethodName, httpMethod string, input, output proto.Message, opt \*CallOptions) error](#Client.CallMethod)
+  * [func (p \*Client) CallMethodWithMap(svcMethodName, httpMethod string, input map[string]interface{}, opt \*CallOptions) (output string, err error)](#Client.CallMethodWithMap)
 * [type Validator](#Validator)
 
 #### <a name="pkg-files">Package files</a>
@@ -32,7 +33,7 @@
 var DebugMode = false
 ```
 
-## <a name="DecodeResponse">func</a> [DecodeResponse](./client.go#L151)
+## <a name="DecodeResponse">func</a> [DecodeResponse](./client.go#L231)
 ``` go
 func DecodeResponse(resp *http.Response, output proto.Message) error
 ```
@@ -68,6 +69,16 @@ func (p *Client) CallMethod(
     input, output proto.Message,
     opt *CallOptions,
 ) error
+```
+
+### <a name="Client.CallMethodWithMap">func</a> (\*Client) [CallMethodWithMap](./client.go#L110-L115)
+``` go
+func (p *Client) CallMethodWithMap(
+    svcMethodName, httpMethod string, input map[string]interface{},
+    opt *CallOptions,
+) (
+    output string, err error,
+)
 ```
 
 ## <a name="Validator">type</a> [Validator](./client.go#L25-L27)
