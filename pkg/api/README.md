@@ -623,6 +623,12 @@ DescribeAlarmPoliciesInput
 	DetachTagsInput
 	DetachTagsOutput
 	ServerInfo
+	Cache
+	CacheNode
+	CacheParameter
+	CacheParameterGroup
+	CachePrivateIP
+	Cluster
 	Tag
 	ResourceTagPair
 	ResourceTypeCount
@@ -643,11 +649,6 @@ DescribeAlarmPoliciesInput
 	LoadBalancer
 	LoadBalancerListener
 	LoadBalancerBackend
-	Cache
-	CacheNode
-	CacheParameter
-	CacheParameterGroup
-	CachePrivateIP
 	SparkPrivateIps
 	Data
 	DHCPOption
@@ -683,8 +684,7 @@ DescribeAlarmPoliciesInput
 	SnapshotResource
 	User
 	Zone
-	Cluster
-	ClasterNode
+	ClusterNode
 	ResourceGroupsItem
 	UserGroupItem
 	GroupRoleItem
@@ -764,10 +764,12 @@ It is generated from these files:
 - [github.com/chai2010/qingcloud-go/pkg/client](./../client)
 - [github.com/golang/protobuf/proto](https://godoc.org/github.com/golang/protobuf/proto)
 - [github.com/golang/protobuf/protoc-gen-go/descriptor](https://godoc.org/github.com/golang/protobuf/protoc-gen-go/descriptor)
+- [github.com/golang/protobuf/ptypes/any](https://godoc.org/github.com/golang/protobuf/ptypes/any)
 - [github.com/golang/protobuf/ptypes/timestamp](https://godoc.org/github.com/golang/protobuf/ptypes/timestamp)
 
 ## <a name="pkg-index">Index</a>
 * [Constants](#pkg-constants)
+* [Variables](#pkg-variables)
 * [type AddAlarmPolicyActionsInput](#AddAlarmPolicyActionsInput)
   * [func (\*AddAlarmPolicyActionsInput) Descriptor() ([]byte, []int)](#AddAlarmPolicyActionsInput.Descriptor)
   * [func (m \*AddAlarmPolicyActionsInput) GetActions() []\*AddAlarmPolicyActionsInput\_ActionItem](#AddAlarmPolicyActionsInput.GetActions)
@@ -1474,6 +1476,7 @@ It is generated from these files:
   * [func (p \*AuthorizeClustersBrokerToDeveloperOutput) Validate() error](#AuthorizeClustersBrokerToDeveloperOutput.Validate)
 * [type Cache](#Cache)
   * [func (\*Cache) Descriptor() ([]byte, []int)](#Cache.Descriptor)
+  * [func (m \*Cache) GetAutoBackupTime() int32](#Cache.GetAutoBackupTime)
   * [func (m \*Cache) GetCacheClass() int32](#Cache.GetCacheClass)
   * [func (m \*Cache) GetCacheId() string](#Cache.GetCacheId)
   * [func (m \*Cache) GetCacheName() string](#Cache.GetCacheName)
@@ -1754,58 +1757,6 @@ It is generated from these files:
   * [func (m \*ChangeS2ServerVxnetOutput) Reset()](#ChangeS2ServerVxnetOutput.Reset)
   * [func (m \*ChangeS2ServerVxnetOutput) String() string](#ChangeS2ServerVxnetOutput.String)
   * [func (p \*ChangeS2ServerVxnetOutput) Validate() error](#ChangeS2ServerVxnetOutput.Validate)
-* [type ClasterNode](#ClasterNode)
-  * [func (\*ClasterNode) Descriptor() ([]byte, []int)](#ClasterNode.Descriptor)
-  * [func (m \*ClasterNode) GetAgentInstalled() int32](#ClasterNode.GetAgentInstalled)
-  * [func (m \*ClasterNode) GetAlarmStatus() string](#ClasterNode.GetAlarmStatus)
-  * [func (m \*ClasterNode) GetAppId() string](#ClasterNode.GetAppId)
-  * [func (m \*ClasterNode) GetAppVersion() string](#ClasterNode.GetAppVersion)
-  * [func (m \*ClasterNode) GetAutoBackup() int32](#ClasterNode.GetAutoBackup)
-  * [func (m \*ClasterNode) GetClusterId() string](#ClasterNode.GetClusterId)
-  * [func (m \*ClasterNode) GetConsoleId() string](#ClasterNode.GetConsoleId)
-  * [func (m \*ClasterNode) GetController() string](#ClasterNode.GetController)
-  * [func (m \*ClasterNode) GetCpu() int32](#ClasterNode.GetCpu)
-  * [func (m \*ClasterNode) GetCreateTime() \*google\_protobuf1.Timestamp](#ClasterNode.GetCreateTime)
-  * [func (m \*ClasterNode) GetCustomService() string](#ClasterNode.GetCustomService)
-  * [func (m \*ClasterNode) GetDebug() int32](#ClasterNode.GetDebug)
-  * [func (m \*ClasterNode) GetGlobalServerId() int32](#ClasterNode.GetGlobalServerId)
-  * [func (m \*ClasterNode) GetGroupId() int32](#ClasterNode.GetGroupId)
-  * [func (m \*ClasterNode) GetHealthCheck() string](#ClasterNode.GetHealthCheck)
-  * [func (m \*ClasterNode) GetHealthStatus() string](#ClasterNode.GetHealthStatus)
-  * [func (m \*ClasterNode) GetHypervisor() string](#ClasterNode.GetHypervisor)
-  * [func (m \*ClasterNode) GetImageId() string](#ClasterNode.GetImageId)
-  * [func (m \*ClasterNode) GetIncrementalBackupSupported() int32](#ClasterNode.GetIncrementalBackupSupported)
-  * [func (m \*ClasterNode) GetInitService() string](#ClasterNode.GetInitService)
-  * [func (m \*ClasterNode) GetInstanceId() string](#ClasterNode.GetInstanceId)
-  * [func (m \*ClasterNode) GetIsBackup() int32](#ClasterNode.GetIsBackup)
-  * [func (m \*ClasterNode) GetMemory() int32](#ClasterNode.GetMemory)
-  * [func (m \*ClasterNode) GetMonitor() string](#ClasterNode.GetMonitor)
-  * [func (m \*ClasterNode) GetName() string](#ClasterNode.GetName)
-  * [func (m \*ClasterNode) GetNodeId() string](#ClasterNode.GetNodeId)
-  * [func (m \*ClasterNode) GetOwner() string](#ClasterNode.GetOwner)
-  * [func (m \*ClasterNode) GetPrivateIp() string](#ClasterNode.GetPrivateIp)
-  * [func (m \*ClasterNode) GetRepl() string](#ClasterNode.GetRepl)
-  * [func (m \*ClasterNode) GetRestartService() string](#ClasterNode.GetRestartService)
-  * [func (m \*ClasterNode) GetRole() string](#ClasterNode.GetRole)
-  * [func (m \*ClasterNode) GetRootUserId() string](#ClasterNode.GetRootUserId)
-  * [func (m \*ClasterNode) GetScaleInService() string](#ClasterNode.GetScaleInService)
-  * [func (m \*ClasterNode) GetScaleOutService() string](#ClasterNode.GetScaleOutService)
-  * [func (m \*ClasterNode) GetServerId() int32](#ClasterNode.GetServerId)
-  * [func (m \*ClasterNode) GetSingleNodeRepl() string](#ClasterNode.GetSingleNodeRepl)
-  * [func (m \*ClasterNode) GetStartService() string](#ClasterNode.GetStartService)
-  * [func (m \*ClasterNode) GetStatus() string](#ClasterNode.GetStatus)
-  * [func (m \*ClasterNode) GetStatusTime() \*google\_protobuf1.Timestamp](#ClasterNode.GetStatusTime)
-  * [func (m \*ClasterNode) GetStopService() string](#ClasterNode.GetStopService)
-  * [func (m \*ClasterNode) GetStorageSize() int32](#ClasterNode.GetStorageSize)
-  * [func (m \*ClasterNode) GetTransitionStatus() string](#ClasterNode.GetTransitionStatus)
-  * [func (m \*ClasterNode) GetUserAccess() int32](#ClasterNode.GetUserAccess)
-  * [func (m \*ClasterNode) GetVerticalScalingPolicy() string](#ClasterNode.GetVerticalScalingPolicy)
-  * [func (m \*ClasterNode) GetVolumeIds() string](#ClasterNode.GetVolumeIds)
-  * [func (m \*ClasterNode) GetVxnetId() string](#ClasterNode.GetVxnetId)
-  * [func (\*ClasterNode) ProtoMessage()](#ClasterNode.ProtoMessage)
-  * [func (m \*ClasterNode) Reset()](#ClasterNode.Reset)
-  * [func (m \*ClasterNode) String() string](#ClasterNode.String)
-  * [func (p \*ClasterNode) Validate() error](#ClasterNode.Validate)
 * [type CloneImagesInput](#CloneImagesInput)
   * [func (\*CloneImagesInput) Descriptor() ([]byte, []int)](#CloneImagesInput.Descriptor)
   * [func (m \*CloneImagesInput) GetCount() int32](#CloneImagesInput.GetCount)
@@ -1826,38 +1777,48 @@ It is generated from these files:
   * [func (p \*CloneImagesOutput) Validate() error](#CloneImagesOutput.Validate)
 * [type Cluster](#Cluster)
   * [func (\*Cluster) Descriptor() ([]byte, []int)](#Cluster.Descriptor)
-  * [func (m \*Cluster) GetAdvancedActions() \*Cluster\_AdvancedActions](#Cluster.GetAdvancedActions)
+  * [func (m \*Cluster) GetAdvancedActions() \*google\_protobuf2.Any](#Cluster.GetAdvancedActions)
   * [func (m \*Cluster) GetAppId() string](#Cluster.GetAppId)
-  * [func (m \*Cluster) GetAppInfo() \*Cluster\_AppInfo](#Cluster.GetAppInfo)
+  * [func (m \*Cluster) GetAppInfo() \*google\_protobuf2.Any](#Cluster.GetAppInfo)
   * [func (m \*Cluster) GetAppVersion() string](#Cluster.GetAppVersion)
-  * [func (m \*Cluster) GetAppVersionInfo() \*Cluster\_AppVersionInfo](#Cluster.GetAppVersionInfo)
+  * [func (m \*Cluster) GetAppVersionInfo() \*google\_protobuf2.Any](#Cluster.GetAppVersionInfo)
   * [func (m \*Cluster) GetAutoBackupTime() int32](#Cluster.GetAutoBackupTime)
-  * [func (m \*Cluster) GetBackup() \*Cluster\_HealthCheckEnablement](#Cluster.GetBackup)
+  * [func (m \*Cluster) GetBackup() \*google\_protobuf2.Any](#Cluster.GetBackup)
+  * [func (m \*Cluster) GetBackupPolicy() string](#Cluster.GetBackupPolicy)
+  * [func (m \*Cluster) GetBackupService() \*google\_protobuf2.Any](#Cluster.GetBackupService)
   * [func (m \*Cluster) GetCfgmgmtId() string](#Cluster.GetCfgmgmtId)
   * [func (m \*Cluster) GetClusterId() string](#Cluster.GetClusterId)
   * [func (m \*Cluster) GetClusterType() int32](#Cluster.GetClusterType)
   * [func (m \*Cluster) GetConsoleId() string](#Cluster.GetConsoleId)
   * [func (m \*Cluster) GetController() string](#Cluster.GetController)
   * [func (m \*Cluster) GetCreateTime() \*google\_protobuf1.Timestamp](#Cluster.GetCreateTime)
-  * [func (m \*Cluster) GetCustomService() \*Cluster\_CustomService](#Cluster.GetCustomService)
+  * [func (m \*Cluster) GetCustomService() \*google\_protobuf2.Any](#Cluster.GetCustomService)
   * [func (m \*Cluster) GetDebug() int32](#Cluster.GetDebug)
   * [func (m \*Cluster) GetDescription() string](#Cluster.GetDescription)
+  * [func (m \*Cluster) GetDisplayTabs() \*google\_protobuf2.Any](#Cluster.GetDisplayTabs)
+  * [func (m \*Cluster) GetEndpoints() \*google\_protobuf2.Any](#Cluster.GetEndpoints)
   * [func (m \*Cluster) GetGlobalUuid() string](#Cluster.GetGlobalUuid)
-  * [func (m \*Cluster) GetHealthCheckEnablement() \*Cluster\_HealthCheckEnablement](#Cluster.GetHealthCheckEnablement)
-  * [func (m \*Cluster) GetIncrementalBackupSupported() int32](#Cluster.GetIncrementalBackupSupported)
-  * [func (m \*Cluster) GetLastestSnapshotTime() string](#Cluster.GetLastestSnapshotTime)
+  * [func (m \*Cluster) GetHealthCheckEnablement() map[string]bool](#Cluster.GetHealthCheckEnablement)
+  * [func (m \*Cluster) GetIncrementalBackupSupported() bool](#Cluster.GetIncrementalBackupSupported)
+  * [func (m \*Cluster) GetLastestSnapshotTime() \*google\_protobuf1.Timestamp](#Cluster.GetLastestSnapshotTime)
+  * [func (m \*Cluster) GetLinks() map[string]string](#Cluster.GetLinks)
   * [func (m \*Cluster) GetMetadataRootAccess() int32](#Cluster.GetMetadataRootAccess)
   * [func (m \*Cluster) GetName() string](#Cluster.GetName)
   * [func (m \*Cluster) GetNodeCount() int32](#Cluster.GetNodeCount)
+  * [func (m \*Cluster) GetNodes() []\*ClusterNode](#Cluster.GetNodes)
   * [func (m \*Cluster) GetOwner() string](#Cluster.GetOwner)
-  * [func (m \*Cluster) GetPartnerAccess() int32](#Cluster.GetPartnerAccess)
+  * [func (m \*Cluster) GetPartnerAccess() bool](#Cluster.GetPartnerAccess)
+  * [func (m \*Cluster) GetRestoreService() \*google\_protobuf2.Any](#Cluster.GetRestoreService)
   * [func (m \*Cluster) GetReuseHyper() int32](#Cluster.GetReuseHyper)
+  * [func (m \*Cluster) GetRoleCount() map[string]int32](#Cluster.GetRoleCount)
   * [func (m \*Cluster) GetRoles() []string](#Cluster.GetRoles)
   * [func (m \*Cluster) GetRootUserId() string](#Cluster.GetRootUserId)
+  * [func (m \*Cluster) GetSecurityGroupId() string](#Cluster.GetSecurityGroupId)
   * [func (m \*Cluster) GetStatus() string](#Cluster.GetStatus)
   * [func (m \*Cluster) GetStatusTime() \*google\_protobuf1.Timestamp](#Cluster.GetStatusTime)
   * [func (m \*Cluster) GetSubCode() int32](#Cluster.GetSubCode)
   * [func (m \*Cluster) GetTransitionStatus() string](#Cluster.GetTransitionStatus)
+  * [func (m \*Cluster) GetUpgradePolicy() []string](#Cluster.GetUpgradePolicy)
   * [func (m \*Cluster) GetUpgradeStatus() string](#Cluster.GetUpgradeStatus)
   * [func (m \*Cluster) GetUpgradeTime() \*google\_protobuf1.Timestamp](#Cluster.GetUpgradeTime)
   * [func (m \*Cluster) GetVxnet() \*VxNet](#Cluster.GetVxnet)
@@ -1865,6 +1826,58 @@ It is generated from these files:
   * [func (m \*Cluster) Reset()](#Cluster.Reset)
   * [func (m \*Cluster) String() string](#Cluster.String)
   * [func (p \*Cluster) Validate() error](#Cluster.Validate)
+* [type ClusterNode](#ClusterNode)
+  * [func (\*ClusterNode) Descriptor() ([]byte, []int)](#ClusterNode.Descriptor)
+  * [func (m \*ClusterNode) GetAgentInstalled() int32](#ClusterNode.GetAgentInstalled)
+  * [func (m \*ClusterNode) GetAlarmStatus() string](#ClusterNode.GetAlarmStatus)
+  * [func (m \*ClusterNode) GetAppId() string](#ClusterNode.GetAppId)
+  * [func (m \*ClusterNode) GetAppVersion() string](#ClusterNode.GetAppVersion)
+  * [func (m \*ClusterNode) GetAutoBackup() int32](#ClusterNode.GetAutoBackup)
+  * [func (m \*ClusterNode) GetClusterId() string](#ClusterNode.GetClusterId)
+  * [func (m \*ClusterNode) GetConsoleId() string](#ClusterNode.GetConsoleId)
+  * [func (m \*ClusterNode) GetController() string](#ClusterNode.GetController)
+  * [func (m \*ClusterNode) GetCpu() int32](#ClusterNode.GetCpu)
+  * [func (m \*ClusterNode) GetCreateTime() \*google\_protobuf1.Timestamp](#ClusterNode.GetCreateTime)
+  * [func (m \*ClusterNode) GetCustomService() string](#ClusterNode.GetCustomService)
+  * [func (m \*ClusterNode) GetDebug() int32](#ClusterNode.GetDebug)
+  * [func (m \*ClusterNode) GetGlobalServerId() int32](#ClusterNode.GetGlobalServerId)
+  * [func (m \*ClusterNode) GetGroupId() int32](#ClusterNode.GetGroupId)
+  * [func (m \*ClusterNode) GetHealthCheck() string](#ClusterNode.GetHealthCheck)
+  * [func (m \*ClusterNode) GetHealthStatus() string](#ClusterNode.GetHealthStatus)
+  * [func (m \*ClusterNode) GetHypervisor() string](#ClusterNode.GetHypervisor)
+  * [func (m \*ClusterNode) GetImageId() string](#ClusterNode.GetImageId)
+  * [func (m \*ClusterNode) GetIncrementalBackupSupported() int32](#ClusterNode.GetIncrementalBackupSupported)
+  * [func (m \*ClusterNode) GetInitService() string](#ClusterNode.GetInitService)
+  * [func (m \*ClusterNode) GetInstanceId() string](#ClusterNode.GetInstanceId)
+  * [func (m \*ClusterNode) GetIsBackup() int32](#ClusterNode.GetIsBackup)
+  * [func (m \*ClusterNode) GetMemory() int32](#ClusterNode.GetMemory)
+  * [func (m \*ClusterNode) GetMonitor() string](#ClusterNode.GetMonitor)
+  * [func (m \*ClusterNode) GetName() string](#ClusterNode.GetName)
+  * [func (m \*ClusterNode) GetNodeId() string](#ClusterNode.GetNodeId)
+  * [func (m \*ClusterNode) GetOwner() string](#ClusterNode.GetOwner)
+  * [func (m \*ClusterNode) GetPrivateIp() string](#ClusterNode.GetPrivateIp)
+  * [func (m \*ClusterNode) GetRepl() string](#ClusterNode.GetRepl)
+  * [func (m \*ClusterNode) GetRestartService() string](#ClusterNode.GetRestartService)
+  * [func (m \*ClusterNode) GetRole() string](#ClusterNode.GetRole)
+  * [func (m \*ClusterNode) GetRootUserId() string](#ClusterNode.GetRootUserId)
+  * [func (m \*ClusterNode) GetScaleInService() string](#ClusterNode.GetScaleInService)
+  * [func (m \*ClusterNode) GetScaleOutService() string](#ClusterNode.GetScaleOutService)
+  * [func (m \*ClusterNode) GetServerId() int32](#ClusterNode.GetServerId)
+  * [func (m \*ClusterNode) GetSingleNodeRepl() string](#ClusterNode.GetSingleNodeRepl)
+  * [func (m \*ClusterNode) GetStartService() string](#ClusterNode.GetStartService)
+  * [func (m \*ClusterNode) GetStatus() string](#ClusterNode.GetStatus)
+  * [func (m \*ClusterNode) GetStatusTime() \*google\_protobuf1.Timestamp](#ClusterNode.GetStatusTime)
+  * [func (m \*ClusterNode) GetStopService() string](#ClusterNode.GetStopService)
+  * [func (m \*ClusterNode) GetStorageSize() int32](#ClusterNode.GetStorageSize)
+  * [func (m \*ClusterNode) GetTransitionStatus() string](#ClusterNode.GetTransitionStatus)
+  * [func (m \*ClusterNode) GetUserAccess() int32](#ClusterNode.GetUserAccess)
+  * [func (m \*ClusterNode) GetVerticalScalingPolicy() string](#ClusterNode.GetVerticalScalingPolicy)
+  * [func (m \*ClusterNode) GetVolumeIds() string](#ClusterNode.GetVolumeIds)
+  * [func (m \*ClusterNode) GetVxnetId() string](#ClusterNode.GetVxnetId)
+  * [func (\*ClusterNode) ProtoMessage()](#ClusterNode.ProtoMessage)
+  * [func (m \*ClusterNode) Reset()](#ClusterNode.Reset)
+  * [func (m \*ClusterNode) String() string](#ClusterNode.String)
+  * [func (p \*ClusterNode) Validate() error](#ClusterNode.Validate)
 * [type ClusterProperty](#ClusterProperty)
   * [func (\*ClusterProperty) Descriptor() ([]byte, []int)](#ClusterProperty.Descriptor)
   * [func (m \*ClusterProperty) GetDefault() string](#ClusterProperty.GetDefault)
@@ -1906,41 +1919,6 @@ It is generated from these files:
   * [func (p \*ClusterService) UpdateClusterEnvironment(input \*UpdateClusterEnvironmentInput) (output \*UpdateClusterEnvironmentOutput, err error)](#ClusterService.UpdateClusterEnvironment)
   * [func (p \*ClusterService) UpgradeClusters(input \*UpgradeClustersInput) (output \*UpgradeClustersOutput, err error)](#ClusterService.UpgradeClusters)
 * [type ClusterServiceInterface](#ClusterServiceInterface)
-* [type Cluster_AdvancedActions](#Cluster_AdvancedActions)
-  * [func (\*Cluster\_AdvancedActions) Descriptor() ([]byte, []int)](#Cluster_AdvancedActions.Descriptor)
-  * [func (\*Cluster\_AdvancedActions) ProtoMessage()](#Cluster_AdvancedActions.ProtoMessage)
-  * [func (m \*Cluster\_AdvancedActions) Reset()](#Cluster_AdvancedActions.Reset)
-  * [func (m \*Cluster\_AdvancedActions) String() string](#Cluster_AdvancedActions.String)
-* [type Cluster_AppInfo](#Cluster_AppInfo)
-  * [func (\*Cluster\_AppInfo) Descriptor() ([]byte, []int)](#Cluster_AppInfo.Descriptor)
-  * [func (m \*Cluster\_AppInfo) GetAppId() string](#Cluster_AppInfo.GetAppId)
-  * [func (m \*Cluster\_AppInfo) GetAppName() string](#Cluster_AppInfo.GetAppName)
-  * [func (m \*Cluster\_AppInfo) GetIcon() string](#Cluster_AppInfo.GetIcon)
-  * [func (\*Cluster\_AppInfo) ProtoMessage()](#Cluster_AppInfo.ProtoMessage)
-  * [func (m \*Cluster\_AppInfo) Reset()](#Cluster_AppInfo.Reset)
-  * [func (m \*Cluster\_AppInfo) String() string](#Cluster_AppInfo.String)
-* [type Cluster_AppVersionInfo](#Cluster_AppVersionInfo)
-  * [func (\*Cluster\_AppVersionInfo) Descriptor() ([]byte, []int)](#Cluster_AppVersionInfo.Descriptor)
-  * [func (m \*Cluster\_AppVersionInfo) GetName() string](#Cluster_AppVersionInfo.GetName)
-  * [func (m \*Cluster\_AppVersionInfo) GetResourceKit() string](#Cluster_AppVersionInfo.GetResourceKit)
-  * [func (m \*Cluster\_AppVersionInfo) GetStatusTime() \*google\_protobuf1.Timestamp](#Cluster_AppVersionInfo.GetStatusTime)
-  * [func (m \*Cluster\_AppVersionInfo) GetVersionId() string](#Cluster_AppVersionInfo.GetVersionId)
-  * [func (\*Cluster\_AppVersionInfo) ProtoMessage()](#Cluster_AppVersionInfo.ProtoMessage)
-  * [func (m \*Cluster\_AppVersionInfo) Reset()](#Cluster_AppVersionInfo.Reset)
-  * [func (m \*Cluster\_AppVersionInfo) String() string](#Cluster_AppVersionInfo.String)
-* [type Cluster_CustomService](#Cluster_CustomService)
-  * [func (\*Cluster\_CustomService) Descriptor() ([]byte, []int)](#Cluster_CustomService.Descriptor)
-  * [func (\*Cluster\_CustomService) ProtoMessage()](#Cluster_CustomService.ProtoMessage)
-  * [func (m \*Cluster\_CustomService) Reset()](#Cluster_CustomService.Reset)
-  * [func (m \*Cluster\_CustomService) String() string](#Cluster_CustomService.String)
-* [type Cluster_HealthCheckEnablement](#Cluster_HealthCheckEnablement)
-  * [func (\*Cluster\_HealthCheckEnablement) Descriptor() ([]byte, []int)](#Cluster_HealthCheckEnablement.Descriptor)
-  * [func (m \*Cluster\_HealthCheckEnablement) GetCa() bool](#Cluster_HealthCheckEnablement.GetCa)
-  * [func (m \*Cluster\_HealthCheckEnablement) GetOrderer() bool](#Cluster_HealthCheckEnablement.GetOrderer)
-  * [func (m \*Cluster\_HealthCheckEnablement) GetPeerNode() bool](#Cluster_HealthCheckEnablement.GetPeerNode)
-  * [func (\*Cluster\_HealthCheckEnablement) ProtoMessage()](#Cluster_HealthCheckEnablement.ProtoMessage)
-  * [func (m \*Cluster\_HealthCheckEnablement) Reset()](#Cluster_HealthCheckEnablement.Reset)
-  * [func (m \*Cluster\_HealthCheckEnablement) String() string](#Cluster_HealthCheckEnablement.String)
 * [type CopyRDBInstanceFilesToFTPInput](#CopyRDBInstanceFilesToFTPInput)
   * [func (\*CopyRDBInstanceFilesToFTPInput) Descriptor() ([]byte, []int)](#CopyRDBInstanceFilesToFTPInput.Descriptor)
   * [func (m \*CopyRDBInstanceFilesToFTPInput) GetFiles() []string](#CopyRDBInstanceFilesToFTPInput.GetFiles)
@@ -3952,7 +3930,7 @@ It is generated from these files:
   * [func (\*DescribeClusterNodesOutput) Descriptor() ([]byte, []int)](#DescribeClusterNodesOutput.Descriptor)
   * [func (m \*DescribeClusterNodesOutput) GetAction() string](#DescribeClusterNodesOutput.GetAction)
   * [func (m \*DescribeClusterNodesOutput) GetMessage() string](#DescribeClusterNodesOutput.GetMessage)
-  * [func (m \*DescribeClusterNodesOutput) GetNodeSet() []\*ClasterNode](#DescribeClusterNodesOutput.GetNodeSet)
+  * [func (m \*DescribeClusterNodesOutput) GetNodeSet() []\*ClusterNode](#DescribeClusterNodesOutput.GetNodeSet)
   * [func (m \*DescribeClusterNodesOutput) GetRetCode() int32](#DescribeClusterNodesOutput.GetRetCode)
   * [func (m \*DescribeClusterNodesOutput) GetTotalCount() int32](#DescribeClusterNodesOutput.GetTotalCount)
   * [func (\*DescribeClusterNodesOutput) ProtoMessage()](#DescribeClusterNodesOutput.ProtoMessage)
@@ -8523,6 +8501,7 @@ It is generated from these files:
   * [func (m \*ServerInfo) Reset()](#ServerInfo.Reset)
   * [func (m \*ServerInfo) String() string](#ServerInfo.String)
   * [func (p \*ServerInfo) Validate() error](#ServerInfo.Validate)
+* [type ServiceApiSpec](#ServiceApiSpec)
 * [type Snapshot](#Snapshot)
   * [func (\*Snapshot) Descriptor() ([]byte, []int)](#Snapshot.Descriptor)
   * [func (m \*Snapshot) GetCreateTime() \*google\_protobuf1.Timestamp](#Snapshot.GetCreateTime)
@@ -9196,7 +9175,7 @@ It is generated from these files:
 * [type ZoneServiceInterface](#ZoneServiceInterface)
 
 #### <a name="pkg-files">Package files</a>
-[alarm.pb.go](./alarm.pb.go) [alarm.pb.qingcloud.go](./alarm.pb.qingcloud.go) [alarm.pb.validate.go](./alarm.pb.validate.go) [cache.pb.go](./cache.pb.go) [cache.pb.qingcloud.go](./cache.pb.qingcloud.go) [cache.pb.validate.go](./cache.pb.validate.go) [cluster.pb.go](./cluster.pb.go) [cluster.pb.qingcloud.go](./cluster.pb.qingcloud.go) [cluster.pb.validate.go](./cluster.pb.validate.go) [dns.pb.go](./dns.pb.go) [dns.pb.qingcloud.go](./dns.pb.qingcloud.go) [dns.pb.validate.go](./dns.pb.validate.go) [eip.pb.go](./eip.pb.go) [eip.pb.qingcloud.go](./eip.pb.qingcloud.go) [eip.pb.validate.go](./eip.pb.validate.go) [hadoop.pb.go](./hadoop.pb.go) [hadoop.pb.qingcloud.go](./hadoop.pb.qingcloud.go) [hadoop.pb.validate.go](./hadoop.pb.validate.go) [image.pb.go](./image.pb.go) [image.pb.qingcloud.go](./image.pb.qingcloud.go) [image.pb.validate.go](./image.pb.validate.go) [instances.pb.go](./instances.pb.go) [instances.pb.qingcloud.go](./instances.pb.qingcloud.go) [instances.pb.validate.go](./instances.pb.validate.go) [job.pb.go](./job.pb.go) [job.pb.qingcloud.go](./job.pb.qingcloud.go) [job.pb.validate.go](./job.pb.validate.go) [key_pair.pb.go](./key_pair.pb.go) [key_pair.pb.qingcloud.go](./key_pair.pb.qingcloud.go) [key_pair.pb.validate.go](./key_pair.pb.validate.go) [load_balancer.pb.go](./load_balancer.pb.go) [load_balancer.pb.qingcloud.go](./load_balancer.pb.qingcloud.go) [load_balancer.pb.validate.go](./load_balancer.pb.validate.go) [misc.pb.go](./misc.pb.go) [misc.pb.qingcloud.go](./misc.pb.qingcloud.go) [misc.pb.validate.go](./misc.pb.validate.go) [mongo.pb.go](./mongo.pb.go) [mongo.pb.qingcloud.go](./mongo.pb.qingcloud.go) [mongo.pb.validate.go](./mongo.pb.validate.go) [monitor.pb.go](./monitor.pb.go) [monitor.pb.qingcloud.go](./monitor.pb.qingcloud.go) [monitor.pb.validate.go](./monitor.pb.validate.go) [nic.pb.go](./nic.pb.go) [nic.pb.qingcloud.go](./nic.pb.qingcloud.go) [nic.pb.validate.go](./nic.pb.validate.go) [notification_center.pb.go](./notification_center.pb.go) [notification_center.pb.qingcloud.go](./notification_center.pb.qingcloud.go) [notification_center.pb.validate.go](./notification_center.pb.validate.go) [rdb.pb.go](./rdb.pb.go) [rdb.pb.qingcloud.go](./rdb.pb.qingcloud.go) [rdb.pb.validate.go](./rdb.pb.validate.go) [resource_acl.pb.go](./resource_acl.pb.go) [resource_acl.pb.qingcloud.go](./resource_acl.pb.qingcloud.go) [resource_acl.pb.validate.go](./resource_acl.pb.validate.go) [router.pb.go](./router.pb.go) [router.pb.qingcloud.go](./router.pb.qingcloud.go) [router.pb.validate.go](./router.pb.validate.go) [s2.pb.go](./s2.pb.go) [s2.pb.qingcloud.go](./s2.pb.qingcloud.go) [s2.pb.validate.go](./s2.pb.validate.go) [security_group.pb.go](./security_group.pb.go) [security_group.pb.qingcloud.go](./security_group.pb.qingcloud.go) [security_group.pb.validate.go](./security_group.pb.validate.go) [snapshot.pb.go](./snapshot.pb.go) [snapshot.pb.qingcloud.go](./snapshot.pb.qingcloud.go) [snapshot.pb.validate.go](./snapshot.pb.validate.go) [span.pb.go](./span.pb.go) [span.pb.qingcloud.go](./span.pb.qingcloud.go) [span.pb.validate.go](./span.pb.validate.go) [spark.pb.go](./spark.pb.go) [spark.pb.qingcloud.go](./spark.pb.qingcloud.go) [spark.pb.validate.go](./spark.pb.validate.go) [subuser.pb.go](./subuser.pb.go) [subuser.pb.qingcloud.go](./subuser.pb.qingcloud.go) [subuser.pb.validate.go](./subuser.pb.validate.go) [tag.pb.go](./tag.pb.go) [tag.pb.qingcloud.go](./tag.pb.qingcloud.go) [tag.pb.validate.go](./tag.pb.validate.go) [types.pb.go](./types.pb.go) [types.pb.qingcloud.go](./types.pb.qingcloud.go) [types.pb.validate.go](./types.pb.validate.go) [user_data.pb.go](./user_data.pb.go) [user_data.pb.qingcloud.go](./user_data.pb.qingcloud.go) [user_data.pb.validate.go](./user_data.pb.validate.go) [volume.pb.go](./volume.pb.go) [volume.pb.qingcloud.go](./volume.pb.qingcloud.go) [volume.pb.validate.go](./volume.pb.validate.go) [vxnet.pb.go](./vxnet.pb.go) [vxnet.pb.qingcloud.go](./vxnet.pb.qingcloud.go) [vxnet.pb.validate.go](./vxnet.pb.validate.go) [zone.pb.go](./zone.pb.go) [zone.pb.qingcloud.go](./zone.pb.qingcloud.go) [zone.pb.validate.go](./zone.pb.validate.go) 
+[a_all_api.go](./a_all_api.go) [alarm.pb.go](./alarm.pb.go) [alarm.pb.qingcloud.go](./alarm.pb.qingcloud.go) [alarm.pb.validate.go](./alarm.pb.validate.go) [cache.pb.go](./cache.pb.go) [cache.pb.qingcloud.go](./cache.pb.qingcloud.go) [cache.pb.validate.go](./cache.pb.validate.go) [cluster.pb.go](./cluster.pb.go) [cluster.pb.qingcloud.go](./cluster.pb.qingcloud.go) [cluster.pb.validate.go](./cluster.pb.validate.go) [dns.pb.go](./dns.pb.go) [dns.pb.qingcloud.go](./dns.pb.qingcloud.go) [dns.pb.validate.go](./dns.pb.validate.go) [eip.pb.go](./eip.pb.go) [eip.pb.qingcloud.go](./eip.pb.qingcloud.go) [eip.pb.validate.go](./eip.pb.validate.go) [hadoop.pb.go](./hadoop.pb.go) [hadoop.pb.qingcloud.go](./hadoop.pb.qingcloud.go) [hadoop.pb.validate.go](./hadoop.pb.validate.go) [image.pb.go](./image.pb.go) [image.pb.qingcloud.go](./image.pb.qingcloud.go) [image.pb.validate.go](./image.pb.validate.go) [instances.pb.go](./instances.pb.go) [instances.pb.qingcloud.go](./instances.pb.qingcloud.go) [instances.pb.validate.go](./instances.pb.validate.go) [job.pb.go](./job.pb.go) [job.pb.qingcloud.go](./job.pb.qingcloud.go) [job.pb.validate.go](./job.pb.validate.go) [key_pair.pb.go](./key_pair.pb.go) [key_pair.pb.qingcloud.go](./key_pair.pb.qingcloud.go) [key_pair.pb.validate.go](./key_pair.pb.validate.go) [load_balancer.pb.go](./load_balancer.pb.go) [load_balancer.pb.qingcloud.go](./load_balancer.pb.qingcloud.go) [load_balancer.pb.validate.go](./load_balancer.pb.validate.go) [misc.pb.go](./misc.pb.go) [misc.pb.qingcloud.go](./misc.pb.qingcloud.go) [misc.pb.validate.go](./misc.pb.validate.go) [mongo.pb.go](./mongo.pb.go) [mongo.pb.qingcloud.go](./mongo.pb.qingcloud.go) [mongo.pb.validate.go](./mongo.pb.validate.go) [monitor.pb.go](./monitor.pb.go) [monitor.pb.qingcloud.go](./monitor.pb.qingcloud.go) [monitor.pb.validate.go](./monitor.pb.validate.go) [nic.pb.go](./nic.pb.go) [nic.pb.qingcloud.go](./nic.pb.qingcloud.go) [nic.pb.validate.go](./nic.pb.validate.go) [notification_center.pb.go](./notification_center.pb.go) [notification_center.pb.qingcloud.go](./notification_center.pb.qingcloud.go) [notification_center.pb.validate.go](./notification_center.pb.validate.go) [rdb.pb.go](./rdb.pb.go) [rdb.pb.qingcloud.go](./rdb.pb.qingcloud.go) [rdb.pb.validate.go](./rdb.pb.validate.go) [resource_acl.pb.go](./resource_acl.pb.go) [resource_acl.pb.qingcloud.go](./resource_acl.pb.qingcloud.go) [resource_acl.pb.validate.go](./resource_acl.pb.validate.go) [router.pb.go](./router.pb.go) [router.pb.qingcloud.go](./router.pb.qingcloud.go) [router.pb.validate.go](./router.pb.validate.go) [s2.pb.go](./s2.pb.go) [s2.pb.qingcloud.go](./s2.pb.qingcloud.go) [s2.pb.validate.go](./s2.pb.validate.go) [security_group.pb.go](./security_group.pb.go) [security_group.pb.qingcloud.go](./security_group.pb.qingcloud.go) [security_group.pb.validate.go](./security_group.pb.validate.go) [snapshot.pb.go](./snapshot.pb.go) [snapshot.pb.qingcloud.go](./snapshot.pb.qingcloud.go) [snapshot.pb.validate.go](./snapshot.pb.validate.go) [span.pb.go](./span.pb.go) [span.pb.qingcloud.go](./span.pb.qingcloud.go) [span.pb.validate.go](./span.pb.validate.go) [spark.pb.go](./spark.pb.go) [spark.pb.qingcloud.go](./spark.pb.qingcloud.go) [spark.pb.validate.go](./spark.pb.validate.go) [subuser.pb.go](./subuser.pb.go) [subuser.pb.qingcloud.go](./subuser.pb.qingcloud.go) [subuser.pb.validate.go](./subuser.pb.validate.go) [tag.pb.go](./tag.pb.go) [tag.pb.qingcloud.go](./tag.pb.qingcloud.go) [tag.pb.validate.go](./tag.pb.validate.go) [types.pb.go](./types.pb.go) [types.pb.qingcloud.go](./types.pb.qingcloud.go) [types.pb.validate.go](./types.pb.validate.go) [user_data.pb.go](./user_data.pb.go) [user_data.pb.qingcloud.go](./user_data.pb.qingcloud.go) [user_data.pb.validate.go](./user_data.pb.validate.go) [volume.pb.go](./volume.pb.go) [volume.pb.qingcloud.go](./volume.pb.qingcloud.go) [volume.pb.validate.go](./volume.pb.validate.go) [vxnet.pb.go](./vxnet.pb.go) [vxnet.pb.qingcloud.go](./vxnet.pb.qingcloud.go) [vxnet.pb.validate.go](./vxnet.pb.validate.go) [zone.pb.go](./zone.pb.go) [zone.pb.qingcloud.go](./zone.pb.qingcloud.go) [zone.pb.validate.go](./zone.pb.validate.go) 
 
 ## <a name="pkg-constants">Constants</a>
 ``` go
@@ -9210,6 +9189,11 @@ const Default_ServerInfo_ApiServer string = "https://api.qingcloud.com/iaas/"
 ```
 ``` go
 const Default_ServerInfo_Zone string = "pek3a"
+```
+
+## <a name="pkg-variables">Variables</a>
+``` go
+var ServiceApiSpecMap = map[string]ServiceApiSpec{}
 ```
 
 ## <a name="AddAlarmPolicyActionsInput">type</a> [AddAlarmPolicyActionsInput](./alarm.pb.go#L1794-L1798)
@@ -11236,104 +11220,104 @@ func (m *AddUserGroupMembersOutput) String() string
 func (p *AddUserGroupMembersOutput) Validate() error
 ```
 
-## <a name="AlarmService">type</a> [AlarmService](./alarm.pb.qingcloud.go#L39-L41)
+## <a name="AlarmService">type</a> [AlarmService](./alarm.pb.qingcloud.go#L46-L48)
 ``` go
 type AlarmService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewAlarmService">func</a> [NewAlarmService](./alarm.pb.qingcloud.go#L43)
+### <a name="NewAlarmService">func</a> [NewAlarmService](./alarm.pb.qingcloud.go#L50)
 ``` go
 func NewAlarmService(server *ServerInfo) (p *AlarmService)
 ```
 
-### <a name="AlarmService.AddAlarmPolicyActions">func</a> (\*AlarmService) [AddAlarmPolicyActions](./alarm.pb.qingcloud.go#L238)
+### <a name="AlarmService.AddAlarmPolicyActions">func</a> (\*AlarmService) [AddAlarmPolicyActions](./alarm.pb.qingcloud.go#L350)
 ``` go
 func (p *AlarmService) AddAlarmPolicyActions(input *AddAlarmPolicyActionsInput) (output *AddAlarmPolicyActionsOutput, err error)
 ```
 
-### <a name="AlarmService.AddAlarmPolicyRules">func</a> (\*AlarmService) [AddAlarmPolicyRules](./alarm.pb.qingcloud.go#L154)
+### <a name="AlarmService.AddAlarmPolicyRules">func</a> (\*AlarmService) [AddAlarmPolicyRules](./alarm.pb.qingcloud.go#L266)
 ``` go
 func (p *AlarmService) AddAlarmPolicyRules(input *AddAlarmPolicyRulesInput) (output *AddAlarmPolicyRulesOutput, err error)
 ```
 
-### <a name="AlarmService.ApplyAlarmPolicy">func</a> (\*AlarmService) [ApplyAlarmPolicy](./alarm.pb.qingcloud.go#L343)
+### <a name="AlarmService.ApplyAlarmPolicy">func</a> (\*AlarmService) [ApplyAlarmPolicy](./alarm.pb.qingcloud.go#L455)
 ``` go
 func (p *AlarmService) ApplyAlarmPolicy(input *ApplyAlarmPolicyInput) (output *ApplyAlarmPolicyOutput, err error)
 ```
 
-### <a name="AlarmService.AssociateAlarmPolicy">func</a> (\*AlarmService) [AssociateAlarmPolicy](./alarm.pb.qingcloud.go#L301)
+### <a name="AlarmService.AssociateAlarmPolicy">func</a> (\*AlarmService) [AssociateAlarmPolicy](./alarm.pb.qingcloud.go#L413)
 ``` go
 func (p *AlarmService) AssociateAlarmPolicy(input *AssociateAlarmPolicyInput) (output *AssociateAlarmPolicyOutput, err error)
 ```
 
-### <a name="AlarmService.CreateAlarmPolicy">func</a> (\*AlarmService) [CreateAlarmPolicy](./alarm.pb.qingcloud.go#L70)
+### <a name="AlarmService.CreateAlarmPolicy">func</a> (\*AlarmService) [CreateAlarmPolicy](./alarm.pb.qingcloud.go#L182)
 ``` go
 func (p *AlarmService) CreateAlarmPolicy(input *CreateAlarmPolicyInput) (output *CreateAlarmPolicyOutput, err error)
 ```
 
-### <a name="AlarmService.DeleteAlarmPolicies">func</a> (\*AlarmService) [DeleteAlarmPolicies](./alarm.pb.qingcloud.go#L112)
+### <a name="AlarmService.DeleteAlarmPolicies">func</a> (\*AlarmService) [DeleteAlarmPolicies](./alarm.pb.qingcloud.go#L224)
 ``` go
 func (p *AlarmService) DeleteAlarmPolicies(input *DeleteAlarmPoliciesInput) (output *DeleteAlarmPoliciesOutput, err error)
 ```
 
-### <a name="AlarmService.DeleteAlarmPolicyActions">func</a> (\*AlarmService) [DeleteAlarmPolicyActions](./alarm.pb.qingcloud.go#L280)
+### <a name="AlarmService.DeleteAlarmPolicyActions">func</a> (\*AlarmService) [DeleteAlarmPolicyActions](./alarm.pb.qingcloud.go#L392)
 ``` go
 func (p *AlarmService) DeleteAlarmPolicyActions(input *DeleteAlarmPolicyActionsInput) (output *DeleteAlarmPolicyActionsOutput, err error)
 ```
 
-### <a name="AlarmService.DeleteAlarmPolicyRules">func</a> (\*AlarmService) [DeleteAlarmPolicyRules](./alarm.pb.qingcloud.go#L196)
+### <a name="AlarmService.DeleteAlarmPolicyRules">func</a> (\*AlarmService) [DeleteAlarmPolicyRules](./alarm.pb.qingcloud.go#L308)
 ``` go
 func (p *AlarmService) DeleteAlarmPolicyRules(input *DeleteAlarmPolicyRulesInput) (output *DeleteAlarmPolicyRulesOutput, err error)
 ```
 
-### <a name="AlarmService.DescribeAlarmHistory">func</a> (\*AlarmService) [DescribeAlarmHistory](./alarm.pb.qingcloud.go#L385)
+### <a name="AlarmService.DescribeAlarmHistory">func</a> (\*AlarmService) [DescribeAlarmHistory](./alarm.pb.qingcloud.go#L497)
 ``` go
 func (p *AlarmService) DescribeAlarmHistory(input *DescribeAlarmHistoryInput) (output *DescribeAlarmHistoryOutput, err error)
 ```
 
-### <a name="AlarmService.DescribeAlarmPolicies">func</a> (\*AlarmService) [DescribeAlarmPolicies](./alarm.pb.qingcloud.go#L49)
+### <a name="AlarmService.DescribeAlarmPolicies">func</a> (\*AlarmService) [DescribeAlarmPolicies](./alarm.pb.qingcloud.go#L161)
 ``` go
 func (p *AlarmService) DescribeAlarmPolicies(input *DescribeAlarmPoliciesInput) (output *DescribeAlarmPoliciesOutput, err error)
 ```
 
-### <a name="AlarmService.DescribeAlarmPolicyActions">func</a> (\*AlarmService) [DescribeAlarmPolicyActions](./alarm.pb.qingcloud.go#L217)
+### <a name="AlarmService.DescribeAlarmPolicyActions">func</a> (\*AlarmService) [DescribeAlarmPolicyActions](./alarm.pb.qingcloud.go#L329)
 ``` go
 func (p *AlarmService) DescribeAlarmPolicyActions(input *DescribeAlarmPolicyActionsInput) (output *DescribeAlarmPolicyActionsOutput, err error)
 ```
 
-### <a name="AlarmService.DescribeAlarmPolicyRules">func</a> (\*AlarmService) [DescribeAlarmPolicyRules](./alarm.pb.qingcloud.go#L133)
+### <a name="AlarmService.DescribeAlarmPolicyRules">func</a> (\*AlarmService) [DescribeAlarmPolicyRules](./alarm.pb.qingcloud.go#L245)
 ``` go
 func (p *AlarmService) DescribeAlarmPolicyRules(input *DescribeAlarmPolicyRulesInput) (output *DescribeAlarmPolicyRulesOutput, err error)
 ```
 
-### <a name="AlarmService.DescribeAlarms">func</a> (\*AlarmService) [DescribeAlarms](./alarm.pb.qingcloud.go#L364)
+### <a name="AlarmService.DescribeAlarms">func</a> (\*AlarmService) [DescribeAlarms](./alarm.pb.qingcloud.go#L476)
 ``` go
 func (p *AlarmService) DescribeAlarms(input *DescribeAlarmsInput) (output *DescribeAlarmsOutput, err error)
 ```
 
-### <a name="AlarmService.DissociateAlarmPolicy">func</a> (\*AlarmService) [DissociateAlarmPolicy](./alarm.pb.qingcloud.go#L322)
+### <a name="AlarmService.DissociateAlarmPolicy">func</a> (\*AlarmService) [DissociateAlarmPolicy](./alarm.pb.qingcloud.go#L434)
 ``` go
 func (p *AlarmService) DissociateAlarmPolicy(input *DissociateAlarmPolicyInput) (output *DissociateAlarmPolicyOutput, err error)
 ```
 
-### <a name="AlarmService.ModifyAlarmPolicyActionAttributes">func</a> (\*AlarmService) [ModifyAlarmPolicyActionAttributes](./alarm.pb.qingcloud.go#L259)
+### <a name="AlarmService.ModifyAlarmPolicyActionAttributes">func</a> (\*AlarmService) [ModifyAlarmPolicyActionAttributes](./alarm.pb.qingcloud.go#L371)
 ``` go
 func (p *AlarmService) ModifyAlarmPolicyActionAttributes(input *ModifyAlarmPolicyActionAttributesInput) (output *ModifyAlarmPolicyActionAttributesOutput, err error)
 ```
 
-### <a name="AlarmService.ModifyAlarmPolicyAttributes">func</a> (\*AlarmService) [ModifyAlarmPolicyAttributes](./alarm.pb.qingcloud.go#L91)
+### <a name="AlarmService.ModifyAlarmPolicyAttributes">func</a> (\*AlarmService) [ModifyAlarmPolicyAttributes](./alarm.pb.qingcloud.go#L203)
 ``` go
 func (p *AlarmService) ModifyAlarmPolicyAttributes(input *ModifyAlarmPolicyAttributesInput) (output *ModifyAlarmPolicyAttributesOutput, err error)
 ```
 
-### <a name="AlarmService.ModifyAlarmPolicyRuleAttributes">func</a> (\*AlarmService) [ModifyAlarmPolicyRuleAttributes](./alarm.pb.qingcloud.go#L175)
+### <a name="AlarmService.ModifyAlarmPolicyRuleAttributes">func</a> (\*AlarmService) [ModifyAlarmPolicyRuleAttributes](./alarm.pb.qingcloud.go#L287)
 ``` go
 func (p *AlarmService) ModifyAlarmPolicyRuleAttributes(input *ModifyAlarmPolicyRuleAttributesInput) (output *ModifyAlarmPolicyRuleAttributesOutput, err error)
 ```
 
-## <a name="AlarmServiceInterface">type</a> [AlarmServiceInterface](./alarm.pb.qingcloud.go#L19-L37)
+## <a name="AlarmServiceInterface">type</a> [AlarmServiceInterface](./alarm.pb.qingcloud.go#L26-L44)
 ``` go
 type AlarmServiceInterface interface {
     DescribeAlarmPolicies(in *DescribeAlarmPoliciesInput) (out *DescribeAlarmPoliciesOutput, err error)
@@ -13144,177 +13128,183 @@ func (m *AuthorizeClustersBrokerToDeveloperOutput) String() string
 func (p *AuthorizeClustersBrokerToDeveloperOutput) Validate() error
 ```
 
-## <a name="Cache">type</a> [Cache](./types.pb.go#L2205-L2230)
+## <a name="Cache">type</a> [Cache](./types.pb.go#L62-L88)
 ``` go
 type Cache struct {
-    CacheClass            *int32                      `protobuf:"varint,1,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
-    CacheId               *string                     `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-    CacheName             *string                     `protobuf:"bytes,3,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
-    CacheParameterGroupId *string                     `protobuf:"bytes,4,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-    CachePort             *int32                      `protobuf:"varint,5,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
-    CacheSize             *int32                      `protobuf:"varint,6,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
-    CacheType             *string                     `protobuf:"bytes,7,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-    CacheVersion          *string                     `protobuf:"bytes,8,opt,name=cache_version,json=cacheVersion" json:"cache_version,omitempty"`
-    CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-    Description           *string                     `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
-    IsApplied             *int32                      `protobuf:"varint,11,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-    MasterCount           *int32                      `protobuf:"varint,12,opt,name=master_count,json=masterCount" json:"master_count,omitempty"`
-    MaxMemory             *int32                      `protobuf:"varint,13,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
-    NodeCount             *int32                      `protobuf:"varint,14,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-    Nodes                 []*CacheNode                `protobuf:"bytes,15,rep,name=nodes" json:"nodes,omitempty"`
-    ReplicateCount        *int32                      `protobuf:"varint,16,opt,name=replicate_count,json=replicateCount" json:"replicate_count,omitempty"`
-    SecurityGroupId       *string                     `protobuf:"bytes,17,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-    Status                *string                     `protobuf:"bytes,18,opt,name=status" json:"status,omitempty"`
-    StatusTime            *google_protobuf1.Timestamp `protobuf:"bytes,19,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-    SubCode               *int32                      `protobuf:"varint,20,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-    Tags                  []*Tag                      `protobuf:"bytes,21,rep,name=tags" json:"tags,omitempty"`
-    TransitionStatus      *string                     `protobuf:"bytes,22,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-    Vxnet                 *VxNet                      `protobuf:"bytes,23,opt,name=vxnet" json:"vxnet,omitempty"`
+    AutoBackupTime        *int32                      `protobuf:"varint,1,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+    CacheClass            *int32                      `protobuf:"varint,2,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
+    CacheId               *string                     `protobuf:"bytes,3,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+    CacheName             *string                     `protobuf:"bytes,4,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
+    CacheParameterGroupId *string                     `protobuf:"bytes,5,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+    CachePort             *int32                      `protobuf:"varint,6,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
+    CacheSize             *int32                      `protobuf:"varint,7,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
+    CacheType             *string                     `protobuf:"bytes,8,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+    CacheVersion          *string                     `protobuf:"bytes,9,opt,name=cache_version,json=cacheVersion" json:"cache_version,omitempty"`
+    CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+    Description           *string                     `protobuf:"bytes,11,opt,name=description" json:"description,omitempty"`
+    IsApplied             *int32                      `protobuf:"varint,12,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+    MasterCount           *int32                      `protobuf:"varint,13,opt,name=master_count,json=masterCount" json:"master_count,omitempty"`
+    MaxMemory             *int32                      `protobuf:"varint,14,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
+    NodeCount             *int32                      `protobuf:"varint,15,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+    Nodes                 []*CacheNode                `protobuf:"bytes,16,rep,name=nodes" json:"nodes,omitempty"`
+    ReplicateCount        *int32                      `protobuf:"varint,17,opt,name=replicate_count,json=replicateCount" json:"replicate_count,omitempty"`
+    SecurityGroupId       *string                     `protobuf:"bytes,18,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+    Status                *string                     `protobuf:"bytes,19,opt,name=status" json:"status,omitempty"`
+    StatusTime            *google_protobuf1.Timestamp `protobuf:"bytes,20,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+    SubCode               *int32                      `protobuf:"varint,21,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+    Tags                  []*Tag                      `protobuf:"bytes,22,rep,name=tags" json:"tags,omitempty"`
+    TransitionStatus      *string                     `protobuf:"bytes,23,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+    Vxnet                 *VxNet                      `protobuf:"bytes,24,opt,name=vxnet" json:"vxnet,omitempty"`
     XXX_unrecognized      []byte                      `json:"-"`
 }
 ```
 
-### <a name="Cache.Descriptor">func</a> (\*Cache) [Descriptor](./types.pb.go#L2235)
+### <a name="Cache.Descriptor">func</a> (\*Cache) [Descriptor](./types.pb.go#L93)
 ``` go
 func (*Cache) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Cache.GetCacheClass">func</a> (\*Cache) [GetCacheClass](./types.pb.go#L2237)
+### <a name="Cache.GetAutoBackupTime">func</a> (\*Cache) [GetAutoBackupTime](./types.pb.go#L95)
+``` go
+func (m *Cache) GetAutoBackupTime() int32
+```
+
+### <a name="Cache.GetCacheClass">func</a> (\*Cache) [GetCacheClass](./types.pb.go#L102)
 ``` go
 func (m *Cache) GetCacheClass() int32
 ```
 
-### <a name="Cache.GetCacheId">func</a> (\*Cache) [GetCacheId](./types.pb.go#L2244)
+### <a name="Cache.GetCacheId">func</a> (\*Cache) [GetCacheId](./types.pb.go#L109)
 ``` go
 func (m *Cache) GetCacheId() string
 ```
 
-### <a name="Cache.GetCacheName">func</a> (\*Cache) [GetCacheName](./types.pb.go#L2251)
+### <a name="Cache.GetCacheName">func</a> (\*Cache) [GetCacheName](./types.pb.go#L116)
 ``` go
 func (m *Cache) GetCacheName() string
 ```
 
-### <a name="Cache.GetCacheParameterGroupId">func</a> (\*Cache) [GetCacheParameterGroupId](./types.pb.go#L2258)
+### <a name="Cache.GetCacheParameterGroupId">func</a> (\*Cache) [GetCacheParameterGroupId](./types.pb.go#L123)
 ``` go
 func (m *Cache) GetCacheParameterGroupId() string
 ```
 
-### <a name="Cache.GetCachePort">func</a> (\*Cache) [GetCachePort](./types.pb.go#L2265)
+### <a name="Cache.GetCachePort">func</a> (\*Cache) [GetCachePort](./types.pb.go#L130)
 ``` go
 func (m *Cache) GetCachePort() int32
 ```
 
-### <a name="Cache.GetCacheSize">func</a> (\*Cache) [GetCacheSize](./types.pb.go#L2272)
+### <a name="Cache.GetCacheSize">func</a> (\*Cache) [GetCacheSize](./types.pb.go#L137)
 ``` go
 func (m *Cache) GetCacheSize() int32
 ```
 
-### <a name="Cache.GetCacheType">func</a> (\*Cache) [GetCacheType](./types.pb.go#L2279)
+### <a name="Cache.GetCacheType">func</a> (\*Cache) [GetCacheType](./types.pb.go#L144)
 ``` go
 func (m *Cache) GetCacheType() string
 ```
 
-### <a name="Cache.GetCacheVersion">func</a> (\*Cache) [GetCacheVersion](./types.pb.go#L2286)
+### <a name="Cache.GetCacheVersion">func</a> (\*Cache) [GetCacheVersion](./types.pb.go#L151)
 ``` go
 func (m *Cache) GetCacheVersion() string
 ```
 
-### <a name="Cache.GetCreateTime">func</a> (\*Cache) [GetCreateTime](./types.pb.go#L2293)
+### <a name="Cache.GetCreateTime">func</a> (\*Cache) [GetCreateTime](./types.pb.go#L158)
 ``` go
 func (m *Cache) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Cache.GetDescription">func</a> (\*Cache) [GetDescription](./types.pb.go#L2300)
+### <a name="Cache.GetDescription">func</a> (\*Cache) [GetDescription](./types.pb.go#L165)
 ``` go
 func (m *Cache) GetDescription() string
 ```
 
-### <a name="Cache.GetIsApplied">func</a> (\*Cache) [GetIsApplied](./types.pb.go#L2307)
+### <a name="Cache.GetIsApplied">func</a> (\*Cache) [GetIsApplied](./types.pb.go#L172)
 ``` go
 func (m *Cache) GetIsApplied() int32
 ```
 
-### <a name="Cache.GetMasterCount">func</a> (\*Cache) [GetMasterCount](./types.pb.go#L2314)
+### <a name="Cache.GetMasterCount">func</a> (\*Cache) [GetMasterCount](./types.pb.go#L179)
 ``` go
 func (m *Cache) GetMasterCount() int32
 ```
 
-### <a name="Cache.GetMaxMemory">func</a> (\*Cache) [GetMaxMemory](./types.pb.go#L2321)
+### <a name="Cache.GetMaxMemory">func</a> (\*Cache) [GetMaxMemory](./types.pb.go#L186)
 ``` go
 func (m *Cache) GetMaxMemory() int32
 ```
 
-### <a name="Cache.GetNodeCount">func</a> (\*Cache) [GetNodeCount](./types.pb.go#L2328)
+### <a name="Cache.GetNodeCount">func</a> (\*Cache) [GetNodeCount](./types.pb.go#L193)
 ``` go
 func (m *Cache) GetNodeCount() int32
 ```
 
-### <a name="Cache.GetNodes">func</a> (\*Cache) [GetNodes](./types.pb.go#L2335)
+### <a name="Cache.GetNodes">func</a> (\*Cache) [GetNodes](./types.pb.go#L200)
 ``` go
 func (m *Cache) GetNodes() []*CacheNode
 ```
 
-### <a name="Cache.GetReplicateCount">func</a> (\*Cache) [GetReplicateCount](./types.pb.go#L2342)
+### <a name="Cache.GetReplicateCount">func</a> (\*Cache) [GetReplicateCount](./types.pb.go#L207)
 ``` go
 func (m *Cache) GetReplicateCount() int32
 ```
 
-### <a name="Cache.GetSecurityGroupId">func</a> (\*Cache) [GetSecurityGroupId](./types.pb.go#L2349)
+### <a name="Cache.GetSecurityGroupId">func</a> (\*Cache) [GetSecurityGroupId](./types.pb.go#L214)
 ``` go
 func (m *Cache) GetSecurityGroupId() string
 ```
 
-### <a name="Cache.GetStatus">func</a> (\*Cache) [GetStatus](./types.pb.go#L2356)
+### <a name="Cache.GetStatus">func</a> (\*Cache) [GetStatus](./types.pb.go#L221)
 ``` go
 func (m *Cache) GetStatus() string
 ```
 
-### <a name="Cache.GetStatusTime">func</a> (\*Cache) [GetStatusTime](./types.pb.go#L2363)
+### <a name="Cache.GetStatusTime">func</a> (\*Cache) [GetStatusTime](./types.pb.go#L228)
 ``` go
 func (m *Cache) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Cache.GetSubCode">func</a> (\*Cache) [GetSubCode](./types.pb.go#L2370)
+### <a name="Cache.GetSubCode">func</a> (\*Cache) [GetSubCode](./types.pb.go#L235)
 ``` go
 func (m *Cache) GetSubCode() int32
 ```
 
-### <a name="Cache.GetTags">func</a> (\*Cache) [GetTags](./types.pb.go#L2377)
+### <a name="Cache.GetTags">func</a> (\*Cache) [GetTags](./types.pb.go#L242)
 ``` go
 func (m *Cache) GetTags() []*Tag
 ```
 
-### <a name="Cache.GetTransitionStatus">func</a> (\*Cache) [GetTransitionStatus](./types.pb.go#L2384)
+### <a name="Cache.GetTransitionStatus">func</a> (\*Cache) [GetTransitionStatus](./types.pb.go#L249)
 ``` go
 func (m *Cache) GetTransitionStatus() string
 ```
 
-### <a name="Cache.GetVxnet">func</a> (\*Cache) [GetVxnet](./types.pb.go#L2391)
+### <a name="Cache.GetVxnet">func</a> (\*Cache) [GetVxnet](./types.pb.go#L256)
 ``` go
 func (m *Cache) GetVxnet() *VxNet
 ```
 
-### <a name="Cache.ProtoMessage">func</a> (\*Cache) [ProtoMessage](./types.pb.go#L2234)
+### <a name="Cache.ProtoMessage">func</a> (\*Cache) [ProtoMessage](./types.pb.go#L92)
 ``` go
 func (*Cache) ProtoMessage()
 ```
 
-### <a name="Cache.Reset">func</a> (\*Cache) [Reset](./types.pb.go#L2232)
+### <a name="Cache.Reset">func</a> (\*Cache) [Reset](./types.pb.go#L90)
 ``` go
 func (m *Cache) Reset()
 ```
 
-### <a name="Cache.String">func</a> (\*Cache) [String](./types.pb.go#L2233)
+### <a name="Cache.String">func</a> (\*Cache) [String](./types.pb.go#L91)
 ``` go
 func (m *Cache) String() string
 ```
 
-### <a name="Cache.Validate">func</a> (\*Cache) [Validate](./types.pb.validate.go#L125)
+### <a name="Cache.Validate">func</a> (\*Cache) [Validate](./types.pb.validate.go#L25)
 ``` go
 func (p *Cache) Validate() error
 ```
 
-## <a name="CacheNode">type</a> [CacheNode](./types.pb.go#L2398-L2412)
+## <a name="CacheNode">type</a> [CacheNode](./types.pb.go#L263-L277)
 ``` go
 type CacheNode struct {
     AlarmStatus      *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
@@ -13333,92 +13323,92 @@ type CacheNode struct {
 }
 ```
 
-### <a name="CacheNode.Descriptor">func</a> (\*CacheNode) [Descriptor](./types.pb.go#L2417)
+### <a name="CacheNode.Descriptor">func</a> (\*CacheNode) [Descriptor](./types.pb.go#L282)
 ``` go
 func (*CacheNode) Descriptor() ([]byte, []int)
 ```
 
-### <a name="CacheNode.GetAlarmStatus">func</a> (\*CacheNode) [GetAlarmStatus](./types.pb.go#L2419)
+### <a name="CacheNode.GetAlarmStatus">func</a> (\*CacheNode) [GetAlarmStatus](./types.pb.go#L284)
 ``` go
 func (m *CacheNode) GetAlarmStatus() string
 ```
 
-### <a name="CacheNode.GetCacheId">func</a> (\*CacheNode) [GetCacheId](./types.pb.go#L2426)
+### <a name="CacheNode.GetCacheId">func</a> (\*CacheNode) [GetCacheId](./types.pb.go#L291)
 ``` go
 func (m *CacheNode) GetCacheId() string
 ```
 
-### <a name="CacheNode.GetCacheNodeId">func</a> (\*CacheNode) [GetCacheNodeId](./types.pb.go#L2433)
+### <a name="CacheNode.GetCacheNodeId">func</a> (\*CacheNode) [GetCacheNodeId](./types.pb.go#L298)
 ``` go
 func (m *CacheNode) GetCacheNodeId() string
 ```
 
-### <a name="CacheNode.GetCacheNodeName">func</a> (\*CacheNode) [GetCacheNodeName](./types.pb.go#L2440)
+### <a name="CacheNode.GetCacheNodeName">func</a> (\*CacheNode) [GetCacheNodeName](./types.pb.go#L305)
 ``` go
 func (m *CacheNode) GetCacheNodeName() string
 ```
 
-### <a name="CacheNode.GetCacheRole">func</a> (\*CacheNode) [GetCacheRole](./types.pb.go#L2447)
+### <a name="CacheNode.GetCacheRole">func</a> (\*CacheNode) [GetCacheRole](./types.pb.go#L312)
 ``` go
 func (m *CacheNode) GetCacheRole() string
 ```
 
-### <a name="CacheNode.GetCacheType">func</a> (\*CacheNode) [GetCacheType](./types.pb.go#L2454)
+### <a name="CacheNode.GetCacheType">func</a> (\*CacheNode) [GetCacheType](./types.pb.go#L319)
 ``` go
 func (m *CacheNode) GetCacheType() string
 ```
 
-### <a name="CacheNode.GetCreateTime">func</a> (\*CacheNode) [GetCreateTime](./types.pb.go#L2461)
+### <a name="CacheNode.GetCreateTime">func</a> (\*CacheNode) [GetCreateTime](./types.pb.go#L326)
 ``` go
 func (m *CacheNode) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="CacheNode.GetPrivateIp">func</a> (\*CacheNode) [GetPrivateIp](./types.pb.go#L2468)
+### <a name="CacheNode.GetPrivateIp">func</a> (\*CacheNode) [GetPrivateIp](./types.pb.go#L333)
 ``` go
 func (m *CacheNode) GetPrivateIp() string
 ```
 
-### <a name="CacheNode.GetSlaveof">func</a> (\*CacheNode) [GetSlaveof](./types.pb.go#L2475)
+### <a name="CacheNode.GetSlaveof">func</a> (\*CacheNode) [GetSlaveof](./types.pb.go#L340)
 ``` go
 func (m *CacheNode) GetSlaveof() string
 ```
 
-### <a name="CacheNode.GetStatus">func</a> (\*CacheNode) [GetStatus](./types.pb.go#L2482)
+### <a name="CacheNode.GetStatus">func</a> (\*CacheNode) [GetStatus](./types.pb.go#L347)
 ``` go
 func (m *CacheNode) GetStatus() string
 ```
 
-### <a name="CacheNode.GetStatusTime">func</a> (\*CacheNode) [GetStatusTime](./types.pb.go#L2489)
+### <a name="CacheNode.GetStatusTime">func</a> (\*CacheNode) [GetStatusTime](./types.pb.go#L354)
 ``` go
 func (m *CacheNode) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="CacheNode.GetTransitionStatus">func</a> (\*CacheNode) [GetTransitionStatus](./types.pb.go#L2496)
+### <a name="CacheNode.GetTransitionStatus">func</a> (\*CacheNode) [GetTransitionStatus](./types.pb.go#L361)
 ``` go
 func (m *CacheNode) GetTransitionStatus() string
 ```
 
-### <a name="CacheNode.ProtoMessage">func</a> (\*CacheNode) [ProtoMessage](./types.pb.go#L2416)
+### <a name="CacheNode.ProtoMessage">func</a> (\*CacheNode) [ProtoMessage](./types.pb.go#L281)
 ``` go
 func (*CacheNode) ProtoMessage()
 ```
 
-### <a name="CacheNode.Reset">func</a> (\*CacheNode) [Reset](./types.pb.go#L2414)
+### <a name="CacheNode.Reset">func</a> (\*CacheNode) [Reset](./types.pb.go#L279)
 ``` go
 func (m *CacheNode) Reset()
 ```
 
-### <a name="CacheNode.String">func</a> (\*CacheNode) [String](./types.pb.go#L2415)
+### <a name="CacheNode.String">func</a> (\*CacheNode) [String](./types.pb.go#L280)
 ``` go
 func (m *CacheNode) String() string
 ```
 
-### <a name="CacheNode.Validate">func</a> (\*CacheNode) [Validate](./types.pb.validate.go#L130)
+### <a name="CacheNode.Validate">func</a> (\*CacheNode) [Validate](./types.pb.validate.go#L30)
 ``` go
 func (p *CacheNode) Validate() error
 ```
 
-## <a name="CacheParameter">type</a> [CacheParameter](./types.pb.go#L2503-L2515)
+## <a name="CacheParameter">type</a> [CacheParameter](./types.pb.go#L368-L380)
 ``` go
 type CacheParameter struct {
     CacheParameterName  *string `protobuf:"bytes,1,opt,name=cache_parameter_name,json=cacheParameterName" json:"cache_parameter_name,omitempty"`
@@ -13435,82 +13425,82 @@ type CacheParameter struct {
 }
 ```
 
-### <a name="CacheParameter.Descriptor">func</a> (\*CacheParameter) [Descriptor](./types.pb.go#L2520)
+### <a name="CacheParameter.Descriptor">func</a> (\*CacheParameter) [Descriptor](./types.pb.go#L385)
 ``` go
 func (*CacheParameter) Descriptor() ([]byte, []int)
 ```
 
-### <a name="CacheParameter.GetCacheParameterName">func</a> (\*CacheParameter) [GetCacheParameterName](./types.pb.go#L2522)
+### <a name="CacheParameter.GetCacheParameterName">func</a> (\*CacheParameter) [GetCacheParameterName](./types.pb.go#L387)
 ``` go
 func (m *CacheParameter) GetCacheParameterName() string
 ```
 
-### <a name="CacheParameter.GetCacheParameterType">func</a> (\*CacheParameter) [GetCacheParameterType](./types.pb.go#L2529)
+### <a name="CacheParameter.GetCacheParameterType">func</a> (\*CacheParameter) [GetCacheParameterType](./types.pb.go#L394)
 ``` go
 func (m *CacheParameter) GetCacheParameterType() string
 ```
 
-### <a name="CacheParameter.GetCacheParameterValue">func</a> (\*CacheParameter) [GetCacheParameterValue](./types.pb.go#L2536)
+### <a name="CacheParameter.GetCacheParameterValue">func</a> (\*CacheParameter) [GetCacheParameterValue](./types.pb.go#L401)
 ``` go
 func (m *CacheParameter) GetCacheParameterValue() string
 ```
 
-### <a name="CacheParameter.GetCacheType">func</a> (\*CacheParameter) [GetCacheType](./types.pb.go#L2543)
+### <a name="CacheParameter.GetCacheType">func</a> (\*CacheParameter) [GetCacheType](./types.pb.go#L408)
 ``` go
 func (m *CacheParameter) GetCacheType() string
 ```
 
-### <a name="CacheParameter.GetIsReadonly">func</a> (\*CacheParameter) [GetIsReadonly](./types.pb.go#L2550)
+### <a name="CacheParameter.GetIsReadonly">func</a> (\*CacheParameter) [GetIsReadonly](./types.pb.go#L415)
 ``` go
 func (m *CacheParameter) GetIsReadonly() int32
 ```
 
-### <a name="CacheParameter.GetIsStatic">func</a> (\*CacheParameter) [GetIsStatic](./types.pb.go#L2557)
+### <a name="CacheParameter.GetIsStatic">func</a> (\*CacheParameter) [GetIsStatic](./types.pb.go#L422)
 ``` go
 func (m *CacheParameter) GetIsStatic() int32
 ```
 
-### <a name="CacheParameter.GetOptName">func</a> (\*CacheParameter) [GetOptName](./types.pb.go#L2564)
+### <a name="CacheParameter.GetOptName">func</a> (\*CacheParameter) [GetOptName](./types.pb.go#L429)
 ``` go
 func (m *CacheParameter) GetOptName() string
 ```
 
-### <a name="CacheParameter.GetParameterType">func</a> (\*CacheParameter) [GetParameterType](./types.pb.go#L2571)
+### <a name="CacheParameter.GetParameterType">func</a> (\*CacheParameter) [GetParameterType](./types.pb.go#L436)
 ``` go
 func (m *CacheParameter) GetParameterType() string
 ```
 
-### <a name="CacheParameter.GetResourceVersion">func</a> (\*CacheParameter) [GetResourceVersion](./types.pb.go#L2578)
+### <a name="CacheParameter.GetResourceVersion">func</a> (\*CacheParameter) [GetResourceVersion](./types.pb.go#L443)
 ``` go
 func (m *CacheParameter) GetResourceVersion() string
 ```
 
-### <a name="CacheParameter.GetValueRange">func</a> (\*CacheParameter) [GetValueRange](./types.pb.go#L2585)
+### <a name="CacheParameter.GetValueRange">func</a> (\*CacheParameter) [GetValueRange](./types.pb.go#L450)
 ``` go
 func (m *CacheParameter) GetValueRange() string
 ```
 
-### <a name="CacheParameter.ProtoMessage">func</a> (\*CacheParameter) [ProtoMessage](./types.pb.go#L2519)
+### <a name="CacheParameter.ProtoMessage">func</a> (\*CacheParameter) [ProtoMessage](./types.pb.go#L384)
 ``` go
 func (*CacheParameter) ProtoMessage()
 ```
 
-### <a name="CacheParameter.Reset">func</a> (\*CacheParameter) [Reset](./types.pb.go#L2517)
+### <a name="CacheParameter.Reset">func</a> (\*CacheParameter) [Reset](./types.pb.go#L382)
 ``` go
 func (m *CacheParameter) Reset()
 ```
 
-### <a name="CacheParameter.String">func</a> (\*CacheParameter) [String](./types.pb.go#L2518)
+### <a name="CacheParameter.String">func</a> (\*CacheParameter) [String](./types.pb.go#L383)
 ``` go
 func (m *CacheParameter) String() string
 ```
 
-### <a name="CacheParameter.Validate">func</a> (\*CacheParameter) [Validate](./types.pb.validate.go#L135)
+### <a name="CacheParameter.Validate">func</a> (\*CacheParameter) [Validate](./types.pb.validate.go#L35)
 ``` go
 func (p *CacheParameter) Validate() error
 ```
 
-## <a name="CacheParameterGroup">type</a> [CacheParameterGroup](./types.pb.go#L2592-L2602)
+## <a name="CacheParameterGroup">type</a> [CacheParameterGroup](./types.pb.go#L457-L467)
 ``` go
 type CacheParameterGroup struct {
     CacheParameterGroupId   *string                     `protobuf:"bytes,1,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
@@ -13525,72 +13515,72 @@ type CacheParameterGroup struct {
 }
 ```
 
-### <a name="CacheParameterGroup.Descriptor">func</a> (\*CacheParameterGroup) [Descriptor](./types.pb.go#L2607)
+### <a name="CacheParameterGroup.Descriptor">func</a> (\*CacheParameterGroup) [Descriptor](./types.pb.go#L472)
 ``` go
 func (*CacheParameterGroup) Descriptor() ([]byte, []int)
 ```
 
-### <a name="CacheParameterGroup.GetCacheParameterGroupId">func</a> (\*CacheParameterGroup) [GetCacheParameterGroupId](./types.pb.go#L2609)
+### <a name="CacheParameterGroup.GetCacheParameterGroupId">func</a> (\*CacheParameterGroup) [GetCacheParameterGroupId](./types.pb.go#L474)
 ``` go
 func (m *CacheParameterGroup) GetCacheParameterGroupId() string
 ```
 
-### <a name="CacheParameterGroup.GetCacheParameterGroupName">func</a> (\*CacheParameterGroup) [GetCacheParameterGroupName](./types.pb.go#L2616)
+### <a name="CacheParameterGroup.GetCacheParameterGroupName">func</a> (\*CacheParameterGroup) [GetCacheParameterGroupName](./types.pb.go#L481)
 ``` go
 func (m *CacheParameterGroup) GetCacheParameterGroupName() string
 ```
 
-### <a name="CacheParameterGroup.GetCacheType">func</a> (\*CacheParameterGroup) [GetCacheType](./types.pb.go#L2623)
+### <a name="CacheParameterGroup.GetCacheType">func</a> (\*CacheParameterGroup) [GetCacheType](./types.pb.go#L488)
 ``` go
 func (m *CacheParameterGroup) GetCacheType() string
 ```
 
-### <a name="CacheParameterGroup.GetCreateTime">func</a> (\*CacheParameterGroup) [GetCreateTime](./types.pb.go#L2630)
+### <a name="CacheParameterGroup.GetCreateTime">func</a> (\*CacheParameterGroup) [GetCreateTime](./types.pb.go#L495)
 ``` go
 func (m *CacheParameterGroup) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="CacheParameterGroup.GetDescription">func</a> (\*CacheParameterGroup) [GetDescription](./types.pb.go#L2637)
+### <a name="CacheParameterGroup.GetDescription">func</a> (\*CacheParameterGroup) [GetDescription](./types.pb.go#L502)
 ``` go
 func (m *CacheParameterGroup) GetDescription() string
 ```
 
-### <a name="CacheParameterGroup.GetIsApplied">func</a> (\*CacheParameterGroup) [GetIsApplied](./types.pb.go#L2644)
+### <a name="CacheParameterGroup.GetIsApplied">func</a> (\*CacheParameterGroup) [GetIsApplied](./types.pb.go#L509)
 ``` go
 func (m *CacheParameterGroup) GetIsApplied() int32
 ```
 
-### <a name="CacheParameterGroup.GetIsDefault">func</a> (\*CacheParameterGroup) [GetIsDefault](./types.pb.go#L2651)
+### <a name="CacheParameterGroup.GetIsDefault">func</a> (\*CacheParameterGroup) [GetIsDefault](./types.pb.go#L516)
 ``` go
 func (m *CacheParameterGroup) GetIsDefault() int32
 ```
 
-### <a name="CacheParameterGroup.GetResources">func</a> (\*CacheParameterGroup) [GetResources](./types.pb.go#L2658)
+### <a name="CacheParameterGroup.GetResources">func</a> (\*CacheParameterGroup) [GetResources](./types.pb.go#L523)
 ``` go
 func (m *CacheParameterGroup) GetResources() []*Resource
 ```
 
-### <a name="CacheParameterGroup.ProtoMessage">func</a> (\*CacheParameterGroup) [ProtoMessage](./types.pb.go#L2606)
+### <a name="CacheParameterGroup.ProtoMessage">func</a> (\*CacheParameterGroup) [ProtoMessage](./types.pb.go#L471)
 ``` go
 func (*CacheParameterGroup) ProtoMessage()
 ```
 
-### <a name="CacheParameterGroup.Reset">func</a> (\*CacheParameterGroup) [Reset](./types.pb.go#L2604)
+### <a name="CacheParameterGroup.Reset">func</a> (\*CacheParameterGroup) [Reset](./types.pb.go#L469)
 ``` go
 func (m *CacheParameterGroup) Reset()
 ```
 
-### <a name="CacheParameterGroup.String">func</a> (\*CacheParameterGroup) [String](./types.pb.go#L2605)
+### <a name="CacheParameterGroup.String">func</a> (\*CacheParameterGroup) [String](./types.pb.go#L470)
 ``` go
 func (m *CacheParameterGroup) String() string
 ```
 
-### <a name="CacheParameterGroup.Validate">func</a> (\*CacheParameterGroup) [Validate](./types.pb.validate.go#L140)
+### <a name="CacheParameterGroup.Validate">func</a> (\*CacheParameterGroup) [Validate](./types.pb.validate.go#L40)
 ``` go
 func (p *CacheParameterGroup) Validate() error
 ```
 
-## <a name="CachePrivateIP">type</a> [CachePrivateIP](./types.pb.go#L2665-L2670)
+## <a name="CachePrivateIP">type</a> [CachePrivateIP](./types.pb.go#L530-L535)
 ``` go
 type CachePrivateIP struct {
     CacheNodeId      *string `protobuf:"bytes,1,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
@@ -13600,179 +13590,179 @@ type CachePrivateIP struct {
 }
 ```
 
-### <a name="CachePrivateIP.Descriptor">func</a> (\*CachePrivateIP) [Descriptor](./types.pb.go#L2675)
+### <a name="CachePrivateIP.Descriptor">func</a> (\*CachePrivateIP) [Descriptor](./types.pb.go#L540)
 ``` go
 func (*CachePrivateIP) Descriptor() ([]byte, []int)
 ```
 
-### <a name="CachePrivateIP.GetCacheNodeId">func</a> (\*CachePrivateIP) [GetCacheNodeId](./types.pb.go#L2677)
+### <a name="CachePrivateIP.GetCacheNodeId">func</a> (\*CachePrivateIP) [GetCacheNodeId](./types.pb.go#L542)
 ``` go
 func (m *CachePrivateIP) GetCacheNodeId() string
 ```
 
-### <a name="CachePrivateIP.GetCacheRole">func</a> (\*CachePrivateIP) [GetCacheRole](./types.pb.go#L2684)
+### <a name="CachePrivateIP.GetCacheRole">func</a> (\*CachePrivateIP) [GetCacheRole](./types.pb.go#L549)
 ``` go
 func (m *CachePrivateIP) GetCacheRole() string
 ```
 
-### <a name="CachePrivateIP.GetPrivateIps">func</a> (\*CachePrivateIP) [GetPrivateIps](./types.pb.go#L2691)
+### <a name="CachePrivateIP.GetPrivateIps">func</a> (\*CachePrivateIP) [GetPrivateIps](./types.pb.go#L556)
 ``` go
 func (m *CachePrivateIP) GetPrivateIps() string
 ```
 
-### <a name="CachePrivateIP.ProtoMessage">func</a> (\*CachePrivateIP) [ProtoMessage](./types.pb.go#L2674)
+### <a name="CachePrivateIP.ProtoMessage">func</a> (\*CachePrivateIP) [ProtoMessage](./types.pb.go#L539)
 ``` go
 func (*CachePrivateIP) ProtoMessage()
 ```
 
-### <a name="CachePrivateIP.Reset">func</a> (\*CachePrivateIP) [Reset](./types.pb.go#L2672)
+### <a name="CachePrivateIP.Reset">func</a> (\*CachePrivateIP) [Reset](./types.pb.go#L537)
 ``` go
 func (m *CachePrivateIP) Reset()
 ```
 
-### <a name="CachePrivateIP.String">func</a> (\*CachePrivateIP) [String](./types.pb.go#L2673)
+### <a name="CachePrivateIP.String">func</a> (\*CachePrivateIP) [String](./types.pb.go#L538)
 ``` go
 func (m *CachePrivateIP) String() string
 ```
 
-### <a name="CachePrivateIP.Validate">func</a> (\*CachePrivateIP) [Validate](./types.pb.validate.go#L145)
+### <a name="CachePrivateIP.Validate">func</a> (\*CachePrivateIP) [Validate](./types.pb.validate.go#L45)
 ``` go
 func (p *CachePrivateIP) Validate() error
 ```
 
-## <a name="CacheService">type</a> [CacheService](./cache.pb.qingcloud.go#L46-L48)
+## <a name="CacheService">type</a> [CacheService](./cache.pb.qingcloud.go#L53-L55)
 ``` go
 type CacheService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewCacheService">func</a> [NewCacheService](./cache.pb.qingcloud.go#L50)
+### <a name="NewCacheService">func</a> [NewCacheService](./cache.pb.qingcloud.go#L57)
 ``` go
 func NewCacheService(server *ServerInfo) (p *CacheService)
 ```
 
-### <a name="CacheService.AddCacheNodes">func</a> (\*CacheService) [AddCacheNodes](./cache.pb.qingcloud.go#L287)
+### <a name="CacheService.AddCacheNodes">func</a> (\*CacheService) [AddCacheNodes](./cache.pb.qingcloud.go#L441)
 ``` go
 func (p *CacheService) AddCacheNodes(input *AddCacheNodesInput) (output *AddCacheNodesOutput, err error)
 ```
 
-### <a name="CacheService.ApplyCacheParameterGroup">func</a> (\*CacheService) [ApplyCacheParameterGroup](./cache.pb.qingcloud.go#L434)
+### <a name="CacheService.ApplyCacheParameterGroup">func</a> (\*CacheService) [ApplyCacheParameterGroup](./cache.pb.qingcloud.go#L588)
 ``` go
 func (p *CacheService) ApplyCacheParameterGroup(input *ApplyCacheParameterGroupInput) (output *ApplyCacheParameterGroupOutput, err error)
 ```
 
-### <a name="CacheService.ChangeCacheVxnet">func</a> (\*CacheService) [ChangeCacheVxnet](./cache.pb.qingcloud.go#L224)
+### <a name="CacheService.ChangeCacheVxnet">func</a> (\*CacheService) [ChangeCacheVxnet](./cache.pb.qingcloud.go#L378)
 ``` go
 func (p *CacheService) ChangeCacheVxnet(input *ChangeCacheVxnetInput) (output *ChangeCacheVxnetOutput, err error)
 ```
 
-### <a name="CacheService.CreateCache">func</a> (\*CacheService) [CreateCache](./cache.pb.qingcloud.go#L77)
+### <a name="CacheService.CreateCache">func</a> (\*CacheService) [CreateCache](./cache.pb.qingcloud.go#L231)
 ``` go
 func (p *CacheService) CreateCache(input *CreateCacheInput) (output *CreateCacheOutput, err error)
 ```
 
-### <a name="CacheService.CreateCacheFromSnapshot">func</a> (\*CacheService) [CreateCacheFromSnapshot](./cache.pb.qingcloud.go#L371)
+### <a name="CacheService.CreateCacheFromSnapshot">func</a> (\*CacheService) [CreateCacheFromSnapshot](./cache.pb.qingcloud.go#L525)
 ``` go
 func (p *CacheService) CreateCacheFromSnapshot(input *CreateCacheFromSnapshotInput) (output *CreateCacheFromSnapshotOutput, err error)
 ```
 
-### <a name="CacheService.CreateCacheParameterGroup">func</a> (\*CacheService) [CreateCacheParameterGroup](./cache.pb.qingcloud.go#L413)
+### <a name="CacheService.CreateCacheParameterGroup">func</a> (\*CacheService) [CreateCacheParameterGroup](./cache.pb.qingcloud.go#L567)
 ``` go
 func (p *CacheService) CreateCacheParameterGroup(input *CreateCacheParameterGroupInput) (output *CreateCacheParameterGroupOutput, err error)
 ```
 
-### <a name="CacheService.DeleteCacheNodes">func</a> (\*CacheService) [DeleteCacheNodes](./cache.pb.qingcloud.go#L308)
+### <a name="CacheService.DeleteCacheNodes">func</a> (\*CacheService) [DeleteCacheNodes](./cache.pb.qingcloud.go#L462)
 ``` go
 func (p *CacheService) DeleteCacheNodes(input *DeleteCacheNodesInput) (output *DeleteCacheNodesOutput, err error)
 ```
 
-### <a name="CacheService.DeleteCacheParameterGroups">func</a> (\*CacheService) [DeleteCacheParameterGroups](./cache.pb.qingcloud.go#L455)
+### <a name="CacheService.DeleteCacheParameterGroups">func</a> (\*CacheService) [DeleteCacheParameterGroups](./cache.pb.qingcloud.go#L609)
 ``` go
 func (p *CacheService) DeleteCacheParameterGroups(input *DeleteCacheParameterGroupsInput) (output *DeleteCacheParameterGroupsOutput, err error)
 ```
 
-### <a name="CacheService.DeleteCaches">func</a> (\*CacheService) [DeleteCaches](./cache.pb.qingcloud.go#L161)
+### <a name="CacheService.DeleteCaches">func</a> (\*CacheService) [DeleteCaches](./cache.pb.qingcloud.go#L315)
 ``` go
 func (p *CacheService) DeleteCaches(input *DeleteCachesInput) (output *DeleteCachesOutput, err error)
 ```
 
-### <a name="CacheService.DescribeCacheNodes">func</a> (\*CacheService) [DescribeCacheNodes](./cache.pb.qingcloud.go#L266)
+### <a name="CacheService.DescribeCacheNodes">func</a> (\*CacheService) [DescribeCacheNodes](./cache.pb.qingcloud.go#L420)
 ``` go
 func (p *CacheService) DescribeCacheNodes(input *DescribeCacheNodesInput) (output *DescribeCacheNodesOutput, err error)
 ```
 
-### <a name="CacheService.DescribeCacheParameterGroups">func</a> (\*CacheService) [DescribeCacheParameterGroups](./cache.pb.qingcloud.go#L392)
+### <a name="CacheService.DescribeCacheParameterGroups">func</a> (\*CacheService) [DescribeCacheParameterGroups](./cache.pb.qingcloud.go#L546)
 ``` go
 func (p *CacheService) DescribeCacheParameterGroups(input *DescribeCacheParameterGroupsInput) (output *DescribeCacheParameterGroupsOutput, err error)
 ```
 
-### <a name="CacheService.DescribeCacheParameters">func</a> (\*CacheService) [DescribeCacheParameters](./cache.pb.qingcloud.go#L497)
+### <a name="CacheService.DescribeCacheParameters">func</a> (\*CacheService) [DescribeCacheParameters](./cache.pb.qingcloud.go#L651)
 ``` go
 func (p *CacheService) DescribeCacheParameters(input *DescribeCacheParametersInput) (output *DescribeCacheParametersOutput, err error)
 ```
 
-### <a name="CacheService.DescribeCaches">func</a> (\*CacheService) [DescribeCaches](./cache.pb.qingcloud.go#L56)
+### <a name="CacheService.DescribeCaches">func</a> (\*CacheService) [DescribeCaches](./cache.pb.qingcloud.go#L210)
 ``` go
 func (p *CacheService) DescribeCaches(input *DescribeCachesInput) (output *DescribeCachesOutput, err error)
 ```
 
-### <a name="CacheService.ModifyCacheAttributes">func</a> (\*CacheService) [ModifyCacheAttributes](./cache.pb.qingcloud.go#L245)
+### <a name="CacheService.ModifyCacheAttributes">func</a> (\*CacheService) [ModifyCacheAttributes](./cache.pb.qingcloud.go#L399)
 ``` go
 func (p *CacheService) ModifyCacheAttributes(input *ModifyCacheAttributesInput) (output *ModifyCacheAttributesOutput, err error)
 ```
 
-### <a name="CacheService.ModifyCacheNodeAttributes">func</a> (\*CacheService) [ModifyCacheNodeAttributes](./cache.pb.qingcloud.go#L350)
+### <a name="CacheService.ModifyCacheNodeAttributes">func</a> (\*CacheService) [ModifyCacheNodeAttributes](./cache.pb.qingcloud.go#L504)
 ``` go
 func (p *CacheService) ModifyCacheNodeAttributes(input *ModifyCacheNodeAttributesInput) (output *ModifyCacheNodeAttributesOutput, err error)
 ```
 
-### <a name="CacheService.ModifyCacheParameterGroupAttributes">func</a> (\*CacheService) [ModifyCacheParameterGroupAttributes](./cache.pb.qingcloud.go#L476)
+### <a name="CacheService.ModifyCacheParameterGroupAttributes">func</a> (\*CacheService) [ModifyCacheParameterGroupAttributes](./cache.pb.qingcloud.go#L630)
 ``` go
 func (p *CacheService) ModifyCacheParameterGroupAttributes(input *ModifyCacheParameterGroupAttributesInput) (output *ModifyCacheParameterGroupAttributesOutput, err error)
 ```
 
-### <a name="CacheService.ResetCacheParameters">func</a> (\*CacheService) [ResetCacheParameters](./cache.pb.qingcloud.go#L539)
+### <a name="CacheService.ResetCacheParameters">func</a> (\*CacheService) [ResetCacheParameters](./cache.pb.qingcloud.go#L693)
 ``` go
 func (p *CacheService) ResetCacheParameters(input *ResetCacheParametersInput) (output *ResetCacheParametersOutput, err error)
 ```
 
-### <a name="CacheService.ResizeCaches">func</a> (\*CacheService) [ResizeCaches](./cache.pb.qingcloud.go#L182)
+### <a name="CacheService.ResizeCaches">func</a> (\*CacheService) [ResizeCaches](./cache.pb.qingcloud.go#L336)
 ``` go
 func (p *CacheService) ResizeCaches(input *ResizeCachesInput) (output *ResizeCachesOutput, err error)
 ```
 
-### <a name="CacheService.RestartCacheNodes">func</a> (\*CacheService) [RestartCacheNodes](./cache.pb.qingcloud.go#L329)
+### <a name="CacheService.RestartCacheNodes">func</a> (\*CacheService) [RestartCacheNodes](./cache.pb.qingcloud.go#L483)
 ``` go
 func (p *CacheService) RestartCacheNodes(input *RestartCacheNodesInput) (output *RestartCacheNodesOutput, err error)
 ```
 
-### <a name="CacheService.RestartCaches">func</a> (\*CacheService) [RestartCaches](./cache.pb.qingcloud.go#L140)
+### <a name="CacheService.RestartCaches">func</a> (\*CacheService) [RestartCaches](./cache.pb.qingcloud.go#L294)
 ``` go
 func (p *CacheService) RestartCaches(input *RestartCachesInput) (output *RestartCachesOutput, err error)
 ```
 
-### <a name="CacheService.StartCaches">func</a> (\*CacheService) [StartCaches](./cache.pb.qingcloud.go#L119)
+### <a name="CacheService.StartCaches">func</a> (\*CacheService) [StartCaches](./cache.pb.qingcloud.go#L273)
 ``` go
 func (p *CacheService) StartCaches(input *StartCachesInput) (output *StartCachesOutput, err error)
 ```
 
-### <a name="CacheService.StopCaches">func</a> (\*CacheService) [StopCaches](./cache.pb.qingcloud.go#L98)
+### <a name="CacheService.StopCaches">func</a> (\*CacheService) [StopCaches](./cache.pb.qingcloud.go#L252)
 ``` go
 func (p *CacheService) StopCaches(input *StopCachesInput) (output *StopCachesOutput, err error)
 ```
 
-### <a name="CacheService.UpdateCache">func</a> (\*CacheService) [UpdateCache](./cache.pb.qingcloud.go#L203)
+### <a name="CacheService.UpdateCache">func</a> (\*CacheService) [UpdateCache](./cache.pb.qingcloud.go#L357)
 ``` go
 func (p *CacheService) UpdateCache(input *UpdateCacheInput) (output *UpdateCacheOutput, err error)
 ```
 
-### <a name="CacheService.UpdateCacheParameters">func</a> (\*CacheService) [UpdateCacheParameters](./cache.pb.qingcloud.go#L518)
+### <a name="CacheService.UpdateCacheParameters">func</a> (\*CacheService) [UpdateCacheParameters](./cache.pb.qingcloud.go#L672)
 ``` go
 func (p *CacheService) UpdateCacheParameters(input *UpdateCacheParametersInput) (output *UpdateCacheParametersOutput, err error)
 ```
 
-## <a name="CacheServiceInterface">type</a> [CacheServiceInterface](./cache.pb.qingcloud.go#L19-L44)
+## <a name="CacheServiceInterface">type</a> [CacheServiceInterface](./cache.pb.qingcloud.go#L26-L51)
 ``` go
 type CacheServiceInterface interface {
     DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error)
@@ -14744,327 +14734,6 @@ func (m *ChangeS2ServerVxnetOutput) String() string
 func (p *ChangeS2ServerVxnetOutput) Validate() error
 ```
 
-## <a name="ClasterNode">type</a> [ClasterNode](./types.pb.go#L5553-L5614)
-``` go
-type ClasterNode struct {
-    // "passphraseless":null,
-    VerticalScalingPolicy *string `protobuf:"bytes,2,opt,name=vertical_scaling_policy,json=verticalScalingPolicy" json:"vertical_scaling_policy,omitempty"`
-    VxnetId               *string `protobuf:"bytes,3,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-    // "destroy_service":null,
-    CustomService *string `protobuf:"bytes,5,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
-    AppId         *string `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-    // "advanced_actions":null,
-    ConsoleId   *string                     `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-    StopService *string                     `protobuf:"bytes,9,opt,name=stop_service,json=stopService" json:"stop_service,omitempty"`
-    UserAccess  *int32                      `protobuf:"varint,10,opt,name=user_access,json=userAccess" json:"user_access,omitempty"`
-    CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-    ClusterId   *string                     `protobuf:"bytes,12,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
-    PrivateIp   *string                     `protobuf:"bytes,13,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-    // "upgrade_service":null,
-    Owner                      *string `protobuf:"bytes,15,opt,name=owner" json:"owner,omitempty"`
-    AlarmStatus                *string `protobuf:"bytes,16,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-    IncrementalBackupSupported *int32  `protobuf:"varint,17,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
-    // "restore_service":null,
-    ServerId         *int32                      `protobuf:"varint,19,opt,name=server_id,json=serverId" json:"server_id,omitempty"`
-    Monitor          *string                     `protobuf:"bytes,20,opt,name=monitor" json:"monitor,omitempty"`
-    HealthStatus     *string                     `protobuf:"bytes,21,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
-    IsBackup         *int32                      `protobuf:"varint,22,opt,name=is_backup,json=isBackup" json:"is_backup,omitempty"`
-    RootUserId       *string                     `protobuf:"bytes,23,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-    Role             *string                     `protobuf:"bytes,24,opt,name=role" json:"role,omitempty"`
-    Memory           *int32                      `protobuf:"varint,25,opt,name=memory" json:"memory,omitempty"`
-    StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,26,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-    RestartService   *string                     `protobuf:"bytes,27,opt,name=restart_service,json=restartService" json:"restart_service,omitempty"`
-    AppVersion       *string                     `protobuf:"bytes,28,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
-    Status           *string                     `protobuf:"bytes,29,opt,name=status" json:"status,omitempty"`
-    GlobalServerId   *int32                      `protobuf:"varint,30,opt,name=global_server_id,json=globalServerId" json:"global_server_id,omitempty"`
-    ScaleInService   *string                     `protobuf:"bytes,31,opt,name=scale_in_service,json=scaleInService" json:"scale_in_service,omitempty"`
-    AutoBackup       *int32                      `protobuf:"varint,32,opt,name=auto_backup,json=autoBackup" json:"auto_backup,omitempty"`
-    TransitionStatus *string                     `protobuf:"bytes,33,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-    // "custom_metadata":null,
-    StorageSize *int32 `protobuf:"varint,35,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-    // "server_id_upper_bound":null,
-    ImageId        *string `protobuf:"bytes,37,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-    Controller     *string `protobuf:"bytes,38,opt,name=controller" json:"controller,omitempty"`
-    NodeId         *string `protobuf:"bytes,39,opt,name=node_id,json=nodeId" json:"node_id,omitempty"`
-    AgentInstalled *int32  `protobuf:"varint,40,opt,name=agent_installed,json=agentInstalled" json:"agent_installed,omitempty"`
-    // "reserved_ips":null,
-    // "backup_policy":null,
-    StartService *string `protobuf:"bytes,43,opt,name=start_service,json=startService" json:"start_service,omitempty"`
-    VolumeIds    *string `protobuf:"bytes,44,opt,name=volume_ids,json=volumeIds" json:"volume_ids,omitempty"`
-    Name         *string `protobuf:"bytes,45,opt,name=name" json:"name,omitempty"`
-    Hypervisor   *string `protobuf:"bytes,46,opt,name=hypervisor" json:"hypervisor,omitempty"`
-    // "delete_snapshot_service":null,
-    InitService     *string `protobuf:"bytes,48,opt,name=init_service,json=initService" json:"init_service,omitempty"`
-    InstanceId      *string `protobuf:"bytes,49,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-    ScaleOutService *string `protobuf:"bytes,50,opt,name=scale_out_service,json=scaleOutService" json:"scale_out_service,omitempty"`
-    Repl            *string `protobuf:"bytes,51,opt,name=repl" json:"repl,omitempty"`
-    // "custom_metadata_script":null,
-    HealthCheck    *string `protobuf:"bytes,52,opt,name=health_check,json=healthCheck" json:"health_check,omitempty"`
-    Debug          *int32  `protobuf:"varint,53,opt,name=debug" json:"debug,omitempty"`
-    SingleNodeRepl *string `protobuf:"bytes,54,opt,name=single_node_repl,json=singleNodeRepl" json:"single_node_repl,omitempty"`
-    // "pub_key":null,
-    GroupId *int32 `protobuf:"varint,56,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
-    // "backup_service":null,
-    Cpu              *int32 `protobuf:"varint,58,opt,name=cpu" json:"cpu,omitempty"`
-    XXX_unrecognized []byte `json:"-"`
-}
-```
-
-### <a name="ClasterNode.Descriptor">func</a> (\*ClasterNode) [Descriptor](./types.pb.go#L5619)
-``` go
-func (*ClasterNode) Descriptor() ([]byte, []int)
-```
-
-### <a name="ClasterNode.GetAgentInstalled">func</a> (\*ClasterNode) [GetAgentInstalled](./types.pb.go#L5845)
-``` go
-func (m *ClasterNode) GetAgentInstalled() int32
-```
-
-### <a name="ClasterNode.GetAlarmStatus">func</a> (\*ClasterNode) [GetAlarmStatus](./types.pb.go#L5698)
-``` go
-func (m *ClasterNode) GetAlarmStatus() string
-```
-
-### <a name="ClasterNode.GetAppId">func</a> (\*ClasterNode) [GetAppId](./types.pb.go#L5642)
-``` go
-func (m *ClasterNode) GetAppId() string
-```
-
-### <a name="ClasterNode.GetAppVersion">func</a> (\*ClasterNode) [GetAppVersion](./types.pb.go#L5775)
-``` go
-func (m *ClasterNode) GetAppVersion() string
-```
-
-### <a name="ClasterNode.GetAutoBackup">func</a> (\*ClasterNode) [GetAutoBackup](./types.pb.go#L5803)
-``` go
-func (m *ClasterNode) GetAutoBackup() int32
-```
-
-### <a name="ClasterNode.GetClusterId">func</a> (\*ClasterNode) [GetClusterId](./types.pb.go#L5677)
-``` go
-func (m *ClasterNode) GetClusterId() string
-```
-
-### <a name="ClasterNode.GetConsoleId">func</a> (\*ClasterNode) [GetConsoleId](./types.pb.go#L5649)
-``` go
-func (m *ClasterNode) GetConsoleId() string
-```
-
-### <a name="ClasterNode.GetController">func</a> (\*ClasterNode) [GetController](./types.pb.go#L5831)
-``` go
-func (m *ClasterNode) GetController() string
-```
-
-### <a name="ClasterNode.GetCpu">func</a> (\*ClasterNode) [GetCpu](./types.pb.go#L5936)
-``` go
-func (m *ClasterNode) GetCpu() int32
-```
-
-### <a name="ClasterNode.GetCreateTime">func</a> (\*ClasterNode) [GetCreateTime](./types.pb.go#L5670)
-``` go
-func (m *ClasterNode) GetCreateTime() *google_protobuf1.Timestamp
-```
-
-### <a name="ClasterNode.GetCustomService">func</a> (\*ClasterNode) [GetCustomService](./types.pb.go#L5635)
-``` go
-func (m *ClasterNode) GetCustomService() string
-```
-
-### <a name="ClasterNode.GetDebug">func</a> (\*ClasterNode) [GetDebug](./types.pb.go#L5915)
-``` go
-func (m *ClasterNode) GetDebug() int32
-```
-
-### <a name="ClasterNode.GetGlobalServerId">func</a> (\*ClasterNode) [GetGlobalServerId](./types.pb.go#L5789)
-``` go
-func (m *ClasterNode) GetGlobalServerId() int32
-```
-
-### <a name="ClasterNode.GetGroupId">func</a> (\*ClasterNode) [GetGroupId](./types.pb.go#L5929)
-``` go
-func (m *ClasterNode) GetGroupId() int32
-```
-
-### <a name="ClasterNode.GetHealthCheck">func</a> (\*ClasterNode) [GetHealthCheck](./types.pb.go#L5908)
-``` go
-func (m *ClasterNode) GetHealthCheck() string
-```
-
-### <a name="ClasterNode.GetHealthStatus">func</a> (\*ClasterNode) [GetHealthStatus](./types.pb.go#L5726)
-``` go
-func (m *ClasterNode) GetHealthStatus() string
-```
-
-### <a name="ClasterNode.GetHypervisor">func</a> (\*ClasterNode) [GetHypervisor](./types.pb.go#L5873)
-``` go
-func (m *ClasterNode) GetHypervisor() string
-```
-
-### <a name="ClasterNode.GetImageId">func</a> (\*ClasterNode) [GetImageId](./types.pb.go#L5824)
-``` go
-func (m *ClasterNode) GetImageId() string
-```
-
-### <a name="ClasterNode.GetIncrementalBackupSupported">func</a> (\*ClasterNode) [GetIncrementalBackupSupported](./types.pb.go#L5705)
-``` go
-func (m *ClasterNode) GetIncrementalBackupSupported() int32
-```
-
-### <a name="ClasterNode.GetInitService">func</a> (\*ClasterNode) [GetInitService](./types.pb.go#L5880)
-``` go
-func (m *ClasterNode) GetInitService() string
-```
-
-### <a name="ClasterNode.GetInstanceId">func</a> (\*ClasterNode) [GetInstanceId](./types.pb.go#L5887)
-``` go
-func (m *ClasterNode) GetInstanceId() string
-```
-
-### <a name="ClasterNode.GetIsBackup">func</a> (\*ClasterNode) [GetIsBackup](./types.pb.go#L5733)
-``` go
-func (m *ClasterNode) GetIsBackup() int32
-```
-
-### <a name="ClasterNode.GetMemory">func</a> (\*ClasterNode) [GetMemory](./types.pb.go#L5754)
-``` go
-func (m *ClasterNode) GetMemory() int32
-```
-
-### <a name="ClasterNode.GetMonitor">func</a> (\*ClasterNode) [GetMonitor](./types.pb.go#L5719)
-``` go
-func (m *ClasterNode) GetMonitor() string
-```
-
-### <a name="ClasterNode.GetName">func</a> (\*ClasterNode) [GetName](./types.pb.go#L5866)
-``` go
-func (m *ClasterNode) GetName() string
-```
-
-### <a name="ClasterNode.GetNodeId">func</a> (\*ClasterNode) [GetNodeId](./types.pb.go#L5838)
-``` go
-func (m *ClasterNode) GetNodeId() string
-```
-
-### <a name="ClasterNode.GetOwner">func</a> (\*ClasterNode) [GetOwner](./types.pb.go#L5691)
-``` go
-func (m *ClasterNode) GetOwner() string
-```
-
-### <a name="ClasterNode.GetPrivateIp">func</a> (\*ClasterNode) [GetPrivateIp](./types.pb.go#L5684)
-``` go
-func (m *ClasterNode) GetPrivateIp() string
-```
-
-### <a name="ClasterNode.GetRepl">func</a> (\*ClasterNode) [GetRepl](./types.pb.go#L5901)
-``` go
-func (m *ClasterNode) GetRepl() string
-```
-
-### <a name="ClasterNode.GetRestartService">func</a> (\*ClasterNode) [GetRestartService](./types.pb.go#L5768)
-``` go
-func (m *ClasterNode) GetRestartService() string
-```
-
-### <a name="ClasterNode.GetRole">func</a> (\*ClasterNode) [GetRole](./types.pb.go#L5747)
-``` go
-func (m *ClasterNode) GetRole() string
-```
-
-### <a name="ClasterNode.GetRootUserId">func</a> (\*ClasterNode) [GetRootUserId](./types.pb.go#L5740)
-``` go
-func (m *ClasterNode) GetRootUserId() string
-```
-
-### <a name="ClasterNode.GetScaleInService">func</a> (\*ClasterNode) [GetScaleInService](./types.pb.go#L5796)
-``` go
-func (m *ClasterNode) GetScaleInService() string
-```
-
-### <a name="ClasterNode.GetScaleOutService">func</a> (\*ClasterNode) [GetScaleOutService](./types.pb.go#L5894)
-``` go
-func (m *ClasterNode) GetScaleOutService() string
-```
-
-### <a name="ClasterNode.GetServerId">func</a> (\*ClasterNode) [GetServerId](./types.pb.go#L5712)
-``` go
-func (m *ClasterNode) GetServerId() int32
-```
-
-### <a name="ClasterNode.GetSingleNodeRepl">func</a> (\*ClasterNode) [GetSingleNodeRepl](./types.pb.go#L5922)
-``` go
-func (m *ClasterNode) GetSingleNodeRepl() string
-```
-
-### <a name="ClasterNode.GetStartService">func</a> (\*ClasterNode) [GetStartService](./types.pb.go#L5852)
-``` go
-func (m *ClasterNode) GetStartService() string
-```
-
-### <a name="ClasterNode.GetStatus">func</a> (\*ClasterNode) [GetStatus](./types.pb.go#L5782)
-``` go
-func (m *ClasterNode) GetStatus() string
-```
-
-### <a name="ClasterNode.GetStatusTime">func</a> (\*ClasterNode) [GetStatusTime](./types.pb.go#L5761)
-``` go
-func (m *ClasterNode) GetStatusTime() *google_protobuf1.Timestamp
-```
-
-### <a name="ClasterNode.GetStopService">func</a> (\*ClasterNode) [GetStopService](./types.pb.go#L5656)
-``` go
-func (m *ClasterNode) GetStopService() string
-```
-
-### <a name="ClasterNode.GetStorageSize">func</a> (\*ClasterNode) [GetStorageSize](./types.pb.go#L5817)
-``` go
-func (m *ClasterNode) GetStorageSize() int32
-```
-
-### <a name="ClasterNode.GetTransitionStatus">func</a> (\*ClasterNode) [GetTransitionStatus](./types.pb.go#L5810)
-``` go
-func (m *ClasterNode) GetTransitionStatus() string
-```
-
-### <a name="ClasterNode.GetUserAccess">func</a> (\*ClasterNode) [GetUserAccess](./types.pb.go#L5663)
-``` go
-func (m *ClasterNode) GetUserAccess() int32
-```
-
-### <a name="ClasterNode.GetVerticalScalingPolicy">func</a> (\*ClasterNode) [GetVerticalScalingPolicy](./types.pb.go#L5621)
-``` go
-func (m *ClasterNode) GetVerticalScalingPolicy() string
-```
-
-### <a name="ClasterNode.GetVolumeIds">func</a> (\*ClasterNode) [GetVolumeIds](./types.pb.go#L5859)
-``` go
-func (m *ClasterNode) GetVolumeIds() string
-```
-
-### <a name="ClasterNode.GetVxnetId">func</a> (\*ClasterNode) [GetVxnetId](./types.pb.go#L5628)
-``` go
-func (m *ClasterNode) GetVxnetId() string
-```
-
-### <a name="ClasterNode.ProtoMessage">func</a> (\*ClasterNode) [ProtoMessage](./types.pb.go#L5618)
-``` go
-func (*ClasterNode) ProtoMessage()
-```
-
-### <a name="ClasterNode.Reset">func</a> (\*ClasterNode) [Reset](./types.pb.go#L5616)
-``` go
-func (m *ClasterNode) Reset()
-```
-
-### <a name="ClasterNode.String">func</a> (\*ClasterNode) [String](./types.pb.go#L5617)
-``` go
-func (m *ClasterNode) String() string
-```
-
-### <a name="ClasterNode.Validate">func</a> (\*ClasterNode) [Validate](./types.pb.validate.go#L330)
-``` go
-func (p *ClasterNode) Validate() error
-```
-
 ## <a name="CloneImagesInput">type</a> [CloneImagesInput](./image.pb.go#L725-L730)
 ``` go
 type CloneImagesInput struct {
@@ -15165,254 +14834,627 @@ func (m *CloneImagesOutput) String() string
 func (p *CloneImagesOutput) Validate() error
 ```
 
-## <a name="Cluster">type</a> [Cluster](./types.pb.go#L5129-L5174)
+## <a name="Cluster">type</a> [Cluster](./types.pb.go#L563-L610)
 ``` go
 type Cluster struct {
-    GlobalUuid            *string                        `protobuf:"bytes,1,opt,name=global_uuid,json=globalUuid" json:"global_uuid,omitempty"`
-    AutoBackupTime        *int32                         `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-    HealthCheckEnablement *Cluster_HealthCheckEnablement `protobuf:"bytes,3,opt,name=health_check_enablement,json=healthCheckEnablement" json:"health_check_enablement,omitempty"`
-    CfgmgmtId             *string                        `protobuf:"bytes,4,opt,name=cfgmgmt_id,json=cfgmgmtId" json:"cfgmgmt_id,omitempty"`
-    CustomService         *Cluster_CustomService         `protobuf:"bytes,5,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
-    AppId                 *string                        `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-    AdvancedActions       *Cluster_AdvancedActions       `protobuf:"bytes,7,opt,name=advanced_actions,json=advancedActions" json:"advanced_actions,omitempty"`
-    ConsoleId             *string                        `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-    CreateTime            *google_protobuf1.Timestamp    `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-    ClusterId             *string                        `protobuf:"bytes,10,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
-    Owner                 *string                        `protobuf:"bytes,11,opt,name=owner" json:"owner,omitempty"`
-    UpgradeTime           *google_protobuf1.Timestamp    `protobuf:"bytes,12,opt,name=upgrade_time,json=upgradeTime" json:"upgrade_time,omitempty"`
-    // google.protobuf.Any children = 13;
-    IncrementalBackupSupported *int32 `protobuf:"varint,14,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
-    ClusterType                *int32 `protobuf:"varint,15,opt,name=cluster_type,json=clusterType" json:"cluster_type,omitempty"`
-    SubCode                    *int32 `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-    MetadataRootAccess         *int32 `protobuf:"varint,17,opt,name=metadata_root_access,json=metadataRootAccess" json:"metadata_root_access,omitempty"`
-    // google.protobuf.Any add_links = 18;
-    UpgradeStatus *string                     `protobuf:"bytes,19,opt,name=upgrade_status,json=upgradeStatus" json:"upgrade_status,omitempty"`
-    StatusTime    *google_protobuf1.Timestamp `protobuf:"bytes,20,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-    NodeCount     *int32                      `protobuf:"varint,21,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-    AppVersion    *string                     `protobuf:"bytes,22,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
-    Vxnet         *VxNet                      `protobuf:"bytes,23,opt,name=vxnet" json:"vxnet,omitempty"`
-    Status        *string                     `protobuf:"bytes,24,opt,name=status" json:"status,omitempty"`
-    Description   *string                     `protobuf:"bytes,25,opt,name=description" json:"description,omitempty"`
-    // google.protobuf.Any parent = 26;
-    // repeated google.protobuf.Any tags = 27;
-    AppInfo          *Cluster_AppInfo `protobuf:"bytes,28,opt,name=app_info,json=appInfo" json:"app_info,omitempty"`
-    TransitionStatus *string          `protobuf:"bytes,29,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-    ReuseHyper       *int32           `protobuf:"varint,30,opt,name=reuse_hyper,json=reuseHyper" json:"reuse_hyper,omitempty"`
-    Controller       *string          `protobuf:"bytes,31,opt,name=controller" json:"controller,omitempty"`
-    // repeated google.protobuf.Any upgrade_policy = 32;
-    PartnerAccess *int32   `protobuf:"varint,33,opt,name=partner_access,json=partnerAccess" json:"partner_access,omitempty"`
-    Name          *string  `protobuf:"bytes,34,opt,name=name" json:"name,omitempty"`
-    Roles         []string `protobuf:"bytes,35,rep,name=roles" json:"roles,omitempty"`
-    // google.protobuf.Timestamp lastest_snapshot_time = 36;
-    LastestSnapshotTime *string `protobuf:"bytes,36,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
-    RootUserId          *string `protobuf:"bytes,37,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-    Debug               *int32  `protobuf:"varint,38,opt,name=debug" json:"debug,omitempty"`
-    // repeated google.protobuf.Any backup_policy = 39;
-    // repeated google.protobuf.Any endpoints = 40;
-    Backup           *Cluster_HealthCheckEnablement `protobuf:"bytes,41,opt,name=backup" json:"backup,omitempty"`
-    AppVersionInfo   *Cluster_AppVersionInfo        `protobuf:"bytes,42,opt,name=app_version_info,json=appVersionInfo" json:"app_version_info,omitempty"`
-    XXX_unrecognized []byte                         `json:"-"`
+    AdvancedActions            *google_protobuf2.Any       `protobuf:"bytes,1,opt,name=advanced_actions,json=advancedActions" json:"advanced_actions,omitempty"`
+    AppId                      *string                     `protobuf:"bytes,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+    AppInfo                    *google_protobuf2.Any       `protobuf:"bytes,3,opt,name=app_info,json=appInfo" json:"app_info,omitempty"`
+    AppVersion                 *string                     `protobuf:"bytes,4,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
+    AppVersionInfo             *google_protobuf2.Any       `protobuf:"bytes,5,opt,name=app_version_info,json=appVersionInfo" json:"app_version_info,omitempty"`
+    AutoBackupTime             *int32                      `protobuf:"varint,6,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+    Backup                     *google_protobuf2.Any       `protobuf:"bytes,7,opt,name=backup" json:"backup,omitempty"`
+    BackupPolicy               *string                     `protobuf:"bytes,8,opt,name=backup_policy,json=backupPolicy" json:"backup_policy,omitempty"`
+    BackupService              *google_protobuf2.Any       `protobuf:"bytes,9,opt,name=backup_service,json=backupService" json:"backup_service,omitempty"`
+    CfgmgmtId                  *string                     `protobuf:"bytes,10,opt,name=cfgmgmt_id,json=cfgmgmtId" json:"cfgmgmt_id,omitempty"`
+    ClusterId                  *string                     `protobuf:"bytes,11,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
+    ClusterType                *int32                      `protobuf:"varint,12,opt,name=cluster_type,json=clusterType" json:"cluster_type,omitempty"`
+    ConsoleId                  *string                     `protobuf:"bytes,13,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+    Controller                 *string                     `protobuf:"bytes,14,opt,name=controller" json:"controller,omitempty"`
+    CreateTime                 *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+    CustomService              *google_protobuf2.Any       `protobuf:"bytes,16,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
+    Debug                      *int32                      `protobuf:"varint,17,opt,name=debug" json:"debug,omitempty"`
+    Description                *string                     `protobuf:"bytes,18,opt,name=description" json:"description,omitempty"`
+    DisplayTabs                *google_protobuf2.Any       `protobuf:"bytes,19,opt,name=display_tabs,json=displayTabs" json:"display_tabs,omitempty"`
+    Endpoints                  *google_protobuf2.Any       `protobuf:"bytes,20,opt,name=endpoints" json:"endpoints,omitempty"`
+    GlobalUuid                 *string                     `protobuf:"bytes,21,opt,name=global_uuid,json=globalUuid" json:"global_uuid,omitempty"`
+    HealthCheckEnablement      map[string]bool             `protobuf:"bytes,22,rep,name=health_check_enablement,json=healthCheckEnablement" json:"health_check_enablement,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+    IncrementalBackupSupported *bool                       `protobuf:"varint,23,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
+    LastestSnapshotTime        *google_protobuf1.Timestamp `protobuf:"bytes,24,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
+    Links                      map[string]string           `protobuf:"bytes,25,rep,name=links" json:"links,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+    MetadataRootAccess         *int32                      `protobuf:"varint,26,opt,name=metadata_root_access,json=metadataRootAccess" json:"metadata_root_access,omitempty"`
+    Name                       *string                     `protobuf:"bytes,27,opt,name=name" json:"name,omitempty"`
+    NodeCount                  *int32                      `protobuf:"varint,28,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+    Nodes                      []*ClusterNode              `protobuf:"bytes,29,rep,name=nodes" json:"nodes,omitempty"`
+    Owner                      *string                     `protobuf:"bytes,30,opt,name=owner" json:"owner,omitempty"`
+    PartnerAccess              *bool                       `protobuf:"varint,31,opt,name=partner_access,json=partnerAccess" json:"partner_access,omitempty"`
+    RestoreService             *google_protobuf2.Any       `protobuf:"bytes,32,opt,name=restore_service,json=restoreService" json:"restore_service,omitempty"`
+    ReuseHyper                 *int32                      `protobuf:"varint,33,opt,name=reuse_hyper,json=reuseHyper" json:"reuse_hyper,omitempty"`
+    RoleCount                  map[string]int32            `protobuf:"bytes,34,rep,name=role_count,json=roleCount" json:"role_count,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+    Roles                      []string                    `protobuf:"bytes,35,rep,name=roles" json:"roles,omitempty"`
+    RootUserId                 *string                     `protobuf:"bytes,36,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+    SecurityGroupId            *string                     `protobuf:"bytes,37,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+    Status                     *string                     `protobuf:"bytes,38,opt,name=status" json:"status,omitempty"`
+    StatusTime                 *google_protobuf1.Timestamp `protobuf:"bytes,39,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+    SubCode                    *int32                      `protobuf:"varint,40,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+    TransitionStatus           *string                     `protobuf:"bytes,41,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+    UpgradePolicy              []string                    `protobuf:"bytes,42,rep,name=upgrade_policy,json=upgradePolicy" json:"upgrade_policy,omitempty"`
+    UpgradeStatus              *string                     `protobuf:"bytes,43,opt,name=upgrade_status,json=upgradeStatus" json:"upgrade_status,omitempty"`
+    UpgradeTime                *google_protobuf1.Timestamp `protobuf:"bytes,44,opt,name=upgrade_time,json=upgradeTime" json:"upgrade_time,omitempty"`
+    Vxnet                      *VxNet                      `protobuf:"bytes,45,opt,name=vxnet" json:"vxnet,omitempty"`
+    XXX_unrecognized           []byte                      `json:"-"`
 }
 ```
 
-### <a name="Cluster.Descriptor">func</a> (\*Cluster) [Descriptor](./types.pb.go#L5179)
+### <a name="Cluster.Descriptor">func</a> (\*Cluster) [Descriptor](./types.pb.go#L615)
 ``` go
 func (*Cluster) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Cluster.GetAdvancedActions">func</a> (\*Cluster) [GetAdvancedActions](./types.pb.go#L5223)
+### <a name="Cluster.GetAdvancedActions">func</a> (\*Cluster) [GetAdvancedActions](./types.pb.go#L617)
 ``` go
-func (m *Cluster) GetAdvancedActions() *Cluster_AdvancedActions
+func (m *Cluster) GetAdvancedActions() *google_protobuf2.Any
 ```
 
-### <a name="Cluster.GetAppId">func</a> (\*Cluster) [GetAppId](./types.pb.go#L5216)
+### <a name="Cluster.GetAppId">func</a> (\*Cluster) [GetAppId](./types.pb.go#L624)
 ``` go
 func (m *Cluster) GetAppId() string
 ```
 
-### <a name="Cluster.GetAppInfo">func</a> (\*Cluster) [GetAppInfo](./types.pb.go#L5342)
+### <a name="Cluster.GetAppInfo">func</a> (\*Cluster) [GetAppInfo](./types.pb.go#L631)
 ``` go
-func (m *Cluster) GetAppInfo() *Cluster_AppInfo
+func (m *Cluster) GetAppInfo() *google_protobuf2.Any
 ```
 
-### <a name="Cluster.GetAppVersion">func</a> (\*Cluster) [GetAppVersion](./types.pb.go#L5314)
+### <a name="Cluster.GetAppVersion">func</a> (\*Cluster) [GetAppVersion](./types.pb.go#L638)
 ``` go
 func (m *Cluster) GetAppVersion() string
 ```
 
-### <a name="Cluster.GetAppVersionInfo">func</a> (\*Cluster) [GetAppVersionInfo](./types.pb.go#L5419)
+### <a name="Cluster.GetAppVersionInfo">func</a> (\*Cluster) [GetAppVersionInfo](./types.pb.go#L645)
 ``` go
-func (m *Cluster) GetAppVersionInfo() *Cluster_AppVersionInfo
+func (m *Cluster) GetAppVersionInfo() *google_protobuf2.Any
 ```
 
-### <a name="Cluster.GetAutoBackupTime">func</a> (\*Cluster) [GetAutoBackupTime](./types.pb.go#L5188)
+### <a name="Cluster.GetAutoBackupTime">func</a> (\*Cluster) [GetAutoBackupTime](./types.pb.go#L652)
 ``` go
 func (m *Cluster) GetAutoBackupTime() int32
 ```
 
-### <a name="Cluster.GetBackup">func</a> (\*Cluster) [GetBackup](./types.pb.go#L5412)
+### <a name="Cluster.GetBackup">func</a> (\*Cluster) [GetBackup](./types.pb.go#L659)
 ``` go
-func (m *Cluster) GetBackup() *Cluster_HealthCheckEnablement
+func (m *Cluster) GetBackup() *google_protobuf2.Any
 ```
 
-### <a name="Cluster.GetCfgmgmtId">func</a> (\*Cluster) [GetCfgmgmtId](./types.pb.go#L5202)
+### <a name="Cluster.GetBackupPolicy">func</a> (\*Cluster) [GetBackupPolicy](./types.pb.go#L666)
+``` go
+func (m *Cluster) GetBackupPolicy() string
+```
+
+### <a name="Cluster.GetBackupService">func</a> (\*Cluster) [GetBackupService](./types.pb.go#L673)
+``` go
+func (m *Cluster) GetBackupService() *google_protobuf2.Any
+```
+
+### <a name="Cluster.GetCfgmgmtId">func</a> (\*Cluster) [GetCfgmgmtId](./types.pb.go#L680)
 ``` go
 func (m *Cluster) GetCfgmgmtId() string
 ```
 
-### <a name="Cluster.GetClusterId">func</a> (\*Cluster) [GetClusterId](./types.pb.go#L5244)
+### <a name="Cluster.GetClusterId">func</a> (\*Cluster) [GetClusterId](./types.pb.go#L687)
 ``` go
 func (m *Cluster) GetClusterId() string
 ```
 
-### <a name="Cluster.GetClusterType">func</a> (\*Cluster) [GetClusterType](./types.pb.go#L5272)
+### <a name="Cluster.GetClusterType">func</a> (\*Cluster) [GetClusterType](./types.pb.go#L694)
 ``` go
 func (m *Cluster) GetClusterType() int32
 ```
 
-### <a name="Cluster.GetConsoleId">func</a> (\*Cluster) [GetConsoleId](./types.pb.go#L5230)
+### <a name="Cluster.GetConsoleId">func</a> (\*Cluster) [GetConsoleId](./types.pb.go#L701)
 ``` go
 func (m *Cluster) GetConsoleId() string
 ```
 
-### <a name="Cluster.GetController">func</a> (\*Cluster) [GetController](./types.pb.go#L5363)
+### <a name="Cluster.GetController">func</a> (\*Cluster) [GetController](./types.pb.go#L708)
 ``` go
 func (m *Cluster) GetController() string
 ```
 
-### <a name="Cluster.GetCreateTime">func</a> (\*Cluster) [GetCreateTime](./types.pb.go#L5237)
+### <a name="Cluster.GetCreateTime">func</a> (\*Cluster) [GetCreateTime](./types.pb.go#L715)
 ``` go
 func (m *Cluster) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Cluster.GetCustomService">func</a> (\*Cluster) [GetCustomService](./types.pb.go#L5209)
+### <a name="Cluster.GetCustomService">func</a> (\*Cluster) [GetCustomService](./types.pb.go#L722)
 ``` go
-func (m *Cluster) GetCustomService() *Cluster_CustomService
+func (m *Cluster) GetCustomService() *google_protobuf2.Any
 ```
 
-### <a name="Cluster.GetDebug">func</a> (\*Cluster) [GetDebug](./types.pb.go#L5405)
+### <a name="Cluster.GetDebug">func</a> (\*Cluster) [GetDebug](./types.pb.go#L729)
 ``` go
 func (m *Cluster) GetDebug() int32
 ```
 
-### <a name="Cluster.GetDescription">func</a> (\*Cluster) [GetDescription](./types.pb.go#L5335)
+### <a name="Cluster.GetDescription">func</a> (\*Cluster) [GetDescription](./types.pb.go#L736)
 ``` go
 func (m *Cluster) GetDescription() string
 ```
 
-### <a name="Cluster.GetGlobalUuid">func</a> (\*Cluster) [GetGlobalUuid](./types.pb.go#L5181)
+### <a name="Cluster.GetDisplayTabs">func</a> (\*Cluster) [GetDisplayTabs](./types.pb.go#L743)
+``` go
+func (m *Cluster) GetDisplayTabs() *google_protobuf2.Any
+```
+
+### <a name="Cluster.GetEndpoints">func</a> (\*Cluster) [GetEndpoints](./types.pb.go#L750)
+``` go
+func (m *Cluster) GetEndpoints() *google_protobuf2.Any
+```
+
+### <a name="Cluster.GetGlobalUuid">func</a> (\*Cluster) [GetGlobalUuid](./types.pb.go#L757)
 ``` go
 func (m *Cluster) GetGlobalUuid() string
 ```
 
-### <a name="Cluster.GetHealthCheckEnablement">func</a> (\*Cluster) [GetHealthCheckEnablement](./types.pb.go#L5195)
+### <a name="Cluster.GetHealthCheckEnablement">func</a> (\*Cluster) [GetHealthCheckEnablement](./types.pb.go#L764)
 ``` go
-func (m *Cluster) GetHealthCheckEnablement() *Cluster_HealthCheckEnablement
+func (m *Cluster) GetHealthCheckEnablement() map[string]bool
 ```
 
-### <a name="Cluster.GetIncrementalBackupSupported">func</a> (\*Cluster) [GetIncrementalBackupSupported](./types.pb.go#L5265)
+### <a name="Cluster.GetIncrementalBackupSupported">func</a> (\*Cluster) [GetIncrementalBackupSupported](./types.pb.go#L771)
 ``` go
-func (m *Cluster) GetIncrementalBackupSupported() int32
+func (m *Cluster) GetIncrementalBackupSupported() bool
 ```
 
-### <a name="Cluster.GetLastestSnapshotTime">func</a> (\*Cluster) [GetLastestSnapshotTime](./types.pb.go#L5391)
+### <a name="Cluster.GetLastestSnapshotTime">func</a> (\*Cluster) [GetLastestSnapshotTime](./types.pb.go#L778)
 ``` go
-func (m *Cluster) GetLastestSnapshotTime() string
+func (m *Cluster) GetLastestSnapshotTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Cluster.GetMetadataRootAccess">func</a> (\*Cluster) [GetMetadataRootAccess](./types.pb.go#L5286)
+### <a name="Cluster.GetLinks">func</a> (\*Cluster) [GetLinks](./types.pb.go#L785)
+``` go
+func (m *Cluster) GetLinks() map[string]string
+```
+
+### <a name="Cluster.GetMetadataRootAccess">func</a> (\*Cluster) [GetMetadataRootAccess](./types.pb.go#L792)
 ``` go
 func (m *Cluster) GetMetadataRootAccess() int32
 ```
 
-### <a name="Cluster.GetName">func</a> (\*Cluster) [GetName](./types.pb.go#L5377)
+### <a name="Cluster.GetName">func</a> (\*Cluster) [GetName](./types.pb.go#L799)
 ``` go
 func (m *Cluster) GetName() string
 ```
 
-### <a name="Cluster.GetNodeCount">func</a> (\*Cluster) [GetNodeCount](./types.pb.go#L5307)
+### <a name="Cluster.GetNodeCount">func</a> (\*Cluster) [GetNodeCount](./types.pb.go#L806)
 ``` go
 func (m *Cluster) GetNodeCount() int32
 ```
 
-### <a name="Cluster.GetOwner">func</a> (\*Cluster) [GetOwner](./types.pb.go#L5251)
+### <a name="Cluster.GetNodes">func</a> (\*Cluster) [GetNodes](./types.pb.go#L813)
+``` go
+func (m *Cluster) GetNodes() []*ClusterNode
+```
+
+### <a name="Cluster.GetOwner">func</a> (\*Cluster) [GetOwner](./types.pb.go#L820)
 ``` go
 func (m *Cluster) GetOwner() string
 ```
 
-### <a name="Cluster.GetPartnerAccess">func</a> (\*Cluster) [GetPartnerAccess](./types.pb.go#L5370)
+### <a name="Cluster.GetPartnerAccess">func</a> (\*Cluster) [GetPartnerAccess](./types.pb.go#L827)
 ``` go
-func (m *Cluster) GetPartnerAccess() int32
+func (m *Cluster) GetPartnerAccess() bool
 ```
 
-### <a name="Cluster.GetReuseHyper">func</a> (\*Cluster) [GetReuseHyper](./types.pb.go#L5356)
+### <a name="Cluster.GetRestoreService">func</a> (\*Cluster) [GetRestoreService](./types.pb.go#L834)
+``` go
+func (m *Cluster) GetRestoreService() *google_protobuf2.Any
+```
+
+### <a name="Cluster.GetReuseHyper">func</a> (\*Cluster) [GetReuseHyper](./types.pb.go#L841)
 ``` go
 func (m *Cluster) GetReuseHyper() int32
 ```
 
-### <a name="Cluster.GetRoles">func</a> (\*Cluster) [GetRoles](./types.pb.go#L5384)
+### <a name="Cluster.GetRoleCount">func</a> (\*Cluster) [GetRoleCount](./types.pb.go#L848)
+``` go
+func (m *Cluster) GetRoleCount() map[string]int32
+```
+
+### <a name="Cluster.GetRoles">func</a> (\*Cluster) [GetRoles](./types.pb.go#L855)
 ``` go
 func (m *Cluster) GetRoles() []string
 ```
 
-### <a name="Cluster.GetRootUserId">func</a> (\*Cluster) [GetRootUserId](./types.pb.go#L5398)
+### <a name="Cluster.GetRootUserId">func</a> (\*Cluster) [GetRootUserId](./types.pb.go#L862)
 ``` go
 func (m *Cluster) GetRootUserId() string
 ```
 
-### <a name="Cluster.GetStatus">func</a> (\*Cluster) [GetStatus](./types.pb.go#L5328)
+### <a name="Cluster.GetSecurityGroupId">func</a> (\*Cluster) [GetSecurityGroupId](./types.pb.go#L869)
+``` go
+func (m *Cluster) GetSecurityGroupId() string
+```
+
+### <a name="Cluster.GetStatus">func</a> (\*Cluster) [GetStatus](./types.pb.go#L876)
 ``` go
 func (m *Cluster) GetStatus() string
 ```
 
-### <a name="Cluster.GetStatusTime">func</a> (\*Cluster) [GetStatusTime](./types.pb.go#L5300)
+### <a name="Cluster.GetStatusTime">func</a> (\*Cluster) [GetStatusTime](./types.pb.go#L883)
 ``` go
 func (m *Cluster) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Cluster.GetSubCode">func</a> (\*Cluster) [GetSubCode](./types.pb.go#L5279)
+### <a name="Cluster.GetSubCode">func</a> (\*Cluster) [GetSubCode](./types.pb.go#L890)
 ``` go
 func (m *Cluster) GetSubCode() int32
 ```
 
-### <a name="Cluster.GetTransitionStatus">func</a> (\*Cluster) [GetTransitionStatus](./types.pb.go#L5349)
+### <a name="Cluster.GetTransitionStatus">func</a> (\*Cluster) [GetTransitionStatus](./types.pb.go#L897)
 ``` go
 func (m *Cluster) GetTransitionStatus() string
 ```
 
-### <a name="Cluster.GetUpgradeStatus">func</a> (\*Cluster) [GetUpgradeStatus](./types.pb.go#L5293)
+### <a name="Cluster.GetUpgradePolicy">func</a> (\*Cluster) [GetUpgradePolicy](./types.pb.go#L904)
+``` go
+func (m *Cluster) GetUpgradePolicy() []string
+```
+
+### <a name="Cluster.GetUpgradeStatus">func</a> (\*Cluster) [GetUpgradeStatus](./types.pb.go#L911)
 ``` go
 func (m *Cluster) GetUpgradeStatus() string
 ```
 
-### <a name="Cluster.GetUpgradeTime">func</a> (\*Cluster) [GetUpgradeTime](./types.pb.go#L5258)
+### <a name="Cluster.GetUpgradeTime">func</a> (\*Cluster) [GetUpgradeTime](./types.pb.go#L918)
 ``` go
 func (m *Cluster) GetUpgradeTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Cluster.GetVxnet">func</a> (\*Cluster) [GetVxnet](./types.pb.go#L5321)
+### <a name="Cluster.GetVxnet">func</a> (\*Cluster) [GetVxnet](./types.pb.go#L925)
 ``` go
 func (m *Cluster) GetVxnet() *VxNet
 ```
 
-### <a name="Cluster.ProtoMessage">func</a> (\*Cluster) [ProtoMessage](./types.pb.go#L5178)
+### <a name="Cluster.ProtoMessage">func</a> (\*Cluster) [ProtoMessage](./types.pb.go#L614)
 ``` go
 func (*Cluster) ProtoMessage()
 ```
 
-### <a name="Cluster.Reset">func</a> (\*Cluster) [Reset](./types.pb.go#L5176)
+### <a name="Cluster.Reset">func</a> (\*Cluster) [Reset](./types.pb.go#L612)
 ``` go
 func (m *Cluster) Reset()
 ```
 
-### <a name="Cluster.String">func</a> (\*Cluster) [String](./types.pb.go#L5177)
+### <a name="Cluster.String">func</a> (\*Cluster) [String](./types.pb.go#L613)
 ``` go
 func (m *Cluster) String() string
 ```
 
-### <a name="Cluster.Validate">func</a> (\*Cluster) [Validate](./types.pb.validate.go#L325)
+### <a name="Cluster.Validate">func</a> (\*Cluster) [Validate](./types.pb.validate.go#L50)
 ``` go
 func (p *Cluster) Validate() error
+```
+
+## <a name="ClusterNode">type</a> [ClusterNode](./types.pb.go#L5507-L5568)
+``` go
+type ClusterNode struct {
+    // "passphraseless":null,
+    VerticalScalingPolicy *string `protobuf:"bytes,2,opt,name=vertical_scaling_policy,json=verticalScalingPolicy" json:"vertical_scaling_policy,omitempty"`
+    VxnetId               *string `protobuf:"bytes,3,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+    // "destroy_service":null,
+    CustomService *string `protobuf:"bytes,5,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
+    AppId         *string `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+    // "advanced_actions":null,
+    ConsoleId   *string                     `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+    StopService *string                     `protobuf:"bytes,9,opt,name=stop_service,json=stopService" json:"stop_service,omitempty"`
+    UserAccess  *int32                      `protobuf:"varint,10,opt,name=user_access,json=userAccess" json:"user_access,omitempty"`
+    CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+    ClusterId   *string                     `protobuf:"bytes,12,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
+    PrivateIp   *string                     `protobuf:"bytes,13,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+    // "upgrade_service":null,
+    Owner                      *string `protobuf:"bytes,15,opt,name=owner" json:"owner,omitempty"`
+    AlarmStatus                *string `protobuf:"bytes,16,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+    IncrementalBackupSupported *int32  `protobuf:"varint,17,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
+    // "restore_service":null,
+    ServerId         *int32                      `protobuf:"varint,19,opt,name=server_id,json=serverId" json:"server_id,omitempty"`
+    Monitor          *string                     `protobuf:"bytes,20,opt,name=monitor" json:"monitor,omitempty"`
+    HealthStatus     *string                     `protobuf:"bytes,21,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
+    IsBackup         *int32                      `protobuf:"varint,22,opt,name=is_backup,json=isBackup" json:"is_backup,omitempty"`
+    RootUserId       *string                     `protobuf:"bytes,23,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+    Role             *string                     `protobuf:"bytes,24,opt,name=role" json:"role,omitempty"`
+    Memory           *int32                      `protobuf:"varint,25,opt,name=memory" json:"memory,omitempty"`
+    StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,26,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+    RestartService   *string                     `protobuf:"bytes,27,opt,name=restart_service,json=restartService" json:"restart_service,omitempty"`
+    AppVersion       *string                     `protobuf:"bytes,28,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
+    Status           *string                     `protobuf:"bytes,29,opt,name=status" json:"status,omitempty"`
+    GlobalServerId   *int32                      `protobuf:"varint,30,opt,name=global_server_id,json=globalServerId" json:"global_server_id,omitempty"`
+    ScaleInService   *string                     `protobuf:"bytes,31,opt,name=scale_in_service,json=scaleInService" json:"scale_in_service,omitempty"`
+    AutoBackup       *int32                      `protobuf:"varint,32,opt,name=auto_backup,json=autoBackup" json:"auto_backup,omitempty"`
+    TransitionStatus *string                     `protobuf:"bytes,33,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+    // "custom_metadata":null,
+    StorageSize *int32 `protobuf:"varint,35,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+    // "server_id_upper_bound":null,
+    ImageId        *string `protobuf:"bytes,37,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+    Controller     *string `protobuf:"bytes,38,opt,name=controller" json:"controller,omitempty"`
+    NodeId         *string `protobuf:"bytes,39,opt,name=node_id,json=nodeId" json:"node_id,omitempty"`
+    AgentInstalled *int32  `protobuf:"varint,40,opt,name=agent_installed,json=agentInstalled" json:"agent_installed,omitempty"`
+    // "reserved_ips":null,
+    // "backup_policy":null,
+    StartService *string `protobuf:"bytes,43,opt,name=start_service,json=startService" json:"start_service,omitempty"`
+    VolumeIds    *string `protobuf:"bytes,44,opt,name=volume_ids,json=volumeIds" json:"volume_ids,omitempty"`
+    Name         *string `protobuf:"bytes,45,opt,name=name" json:"name,omitempty"`
+    Hypervisor   *string `protobuf:"bytes,46,opt,name=hypervisor" json:"hypervisor,omitempty"`
+    // "delete_snapshot_service":null,
+    InitService     *string `protobuf:"bytes,48,opt,name=init_service,json=initService" json:"init_service,omitempty"`
+    InstanceId      *string `protobuf:"bytes,49,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+    ScaleOutService *string `protobuf:"bytes,50,opt,name=scale_out_service,json=scaleOutService" json:"scale_out_service,omitempty"`
+    Repl            *string `protobuf:"bytes,51,opt,name=repl" json:"repl,omitempty"`
+    // "custom_metadata_script":null,
+    HealthCheck    *string `protobuf:"bytes,52,opt,name=health_check,json=healthCheck" json:"health_check,omitempty"`
+    Debug          *int32  `protobuf:"varint,53,opt,name=debug" json:"debug,omitempty"`
+    SingleNodeRepl *string `protobuf:"bytes,54,opt,name=single_node_repl,json=singleNodeRepl" json:"single_node_repl,omitempty"`
+    // "pub_key":null,
+    GroupId *int32 `protobuf:"varint,56,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+    // "backup_service":null,
+    Cpu              *int32 `protobuf:"varint,58,opt,name=cpu" json:"cpu,omitempty"`
+    XXX_unrecognized []byte `json:"-"`
+}
+```
+
+### <a name="ClusterNode.Descriptor">func</a> (\*ClusterNode) [Descriptor](./types.pb.go#L5573)
+``` go
+func (*ClusterNode) Descriptor() ([]byte, []int)
+```
+
+### <a name="ClusterNode.GetAgentInstalled">func</a> (\*ClusterNode) [GetAgentInstalled](./types.pb.go#L5799)
+``` go
+func (m *ClusterNode) GetAgentInstalled() int32
+```
+
+### <a name="ClusterNode.GetAlarmStatus">func</a> (\*ClusterNode) [GetAlarmStatus](./types.pb.go#L5652)
+``` go
+func (m *ClusterNode) GetAlarmStatus() string
+```
+
+### <a name="ClusterNode.GetAppId">func</a> (\*ClusterNode) [GetAppId](./types.pb.go#L5596)
+``` go
+func (m *ClusterNode) GetAppId() string
+```
+
+### <a name="ClusterNode.GetAppVersion">func</a> (\*ClusterNode) [GetAppVersion](./types.pb.go#L5729)
+``` go
+func (m *ClusterNode) GetAppVersion() string
+```
+
+### <a name="ClusterNode.GetAutoBackup">func</a> (\*ClusterNode) [GetAutoBackup](./types.pb.go#L5757)
+``` go
+func (m *ClusterNode) GetAutoBackup() int32
+```
+
+### <a name="ClusterNode.GetClusterId">func</a> (\*ClusterNode) [GetClusterId](./types.pb.go#L5631)
+``` go
+func (m *ClusterNode) GetClusterId() string
+```
+
+### <a name="ClusterNode.GetConsoleId">func</a> (\*ClusterNode) [GetConsoleId](./types.pb.go#L5603)
+``` go
+func (m *ClusterNode) GetConsoleId() string
+```
+
+### <a name="ClusterNode.GetController">func</a> (\*ClusterNode) [GetController](./types.pb.go#L5785)
+``` go
+func (m *ClusterNode) GetController() string
+```
+
+### <a name="ClusterNode.GetCpu">func</a> (\*ClusterNode) [GetCpu](./types.pb.go#L5890)
+``` go
+func (m *ClusterNode) GetCpu() int32
+```
+
+### <a name="ClusterNode.GetCreateTime">func</a> (\*ClusterNode) [GetCreateTime](./types.pb.go#L5624)
+``` go
+func (m *ClusterNode) GetCreateTime() *google_protobuf1.Timestamp
+```
+
+### <a name="ClusterNode.GetCustomService">func</a> (\*ClusterNode) [GetCustomService](./types.pb.go#L5589)
+``` go
+func (m *ClusterNode) GetCustomService() string
+```
+
+### <a name="ClusterNode.GetDebug">func</a> (\*ClusterNode) [GetDebug](./types.pb.go#L5869)
+``` go
+func (m *ClusterNode) GetDebug() int32
+```
+
+### <a name="ClusterNode.GetGlobalServerId">func</a> (\*ClusterNode) [GetGlobalServerId](./types.pb.go#L5743)
+``` go
+func (m *ClusterNode) GetGlobalServerId() int32
+```
+
+### <a name="ClusterNode.GetGroupId">func</a> (\*ClusterNode) [GetGroupId](./types.pb.go#L5883)
+``` go
+func (m *ClusterNode) GetGroupId() int32
+```
+
+### <a name="ClusterNode.GetHealthCheck">func</a> (\*ClusterNode) [GetHealthCheck](./types.pb.go#L5862)
+``` go
+func (m *ClusterNode) GetHealthCheck() string
+```
+
+### <a name="ClusterNode.GetHealthStatus">func</a> (\*ClusterNode) [GetHealthStatus](./types.pb.go#L5680)
+``` go
+func (m *ClusterNode) GetHealthStatus() string
+```
+
+### <a name="ClusterNode.GetHypervisor">func</a> (\*ClusterNode) [GetHypervisor](./types.pb.go#L5827)
+``` go
+func (m *ClusterNode) GetHypervisor() string
+```
+
+### <a name="ClusterNode.GetImageId">func</a> (\*ClusterNode) [GetImageId](./types.pb.go#L5778)
+``` go
+func (m *ClusterNode) GetImageId() string
+```
+
+### <a name="ClusterNode.GetIncrementalBackupSupported">func</a> (\*ClusterNode) [GetIncrementalBackupSupported](./types.pb.go#L5659)
+``` go
+func (m *ClusterNode) GetIncrementalBackupSupported() int32
+```
+
+### <a name="ClusterNode.GetInitService">func</a> (\*ClusterNode) [GetInitService](./types.pb.go#L5834)
+``` go
+func (m *ClusterNode) GetInitService() string
+```
+
+### <a name="ClusterNode.GetInstanceId">func</a> (\*ClusterNode) [GetInstanceId](./types.pb.go#L5841)
+``` go
+func (m *ClusterNode) GetInstanceId() string
+```
+
+### <a name="ClusterNode.GetIsBackup">func</a> (\*ClusterNode) [GetIsBackup](./types.pb.go#L5687)
+``` go
+func (m *ClusterNode) GetIsBackup() int32
+```
+
+### <a name="ClusterNode.GetMemory">func</a> (\*ClusterNode) [GetMemory](./types.pb.go#L5708)
+``` go
+func (m *ClusterNode) GetMemory() int32
+```
+
+### <a name="ClusterNode.GetMonitor">func</a> (\*ClusterNode) [GetMonitor](./types.pb.go#L5673)
+``` go
+func (m *ClusterNode) GetMonitor() string
+```
+
+### <a name="ClusterNode.GetName">func</a> (\*ClusterNode) [GetName](./types.pb.go#L5820)
+``` go
+func (m *ClusterNode) GetName() string
+```
+
+### <a name="ClusterNode.GetNodeId">func</a> (\*ClusterNode) [GetNodeId](./types.pb.go#L5792)
+``` go
+func (m *ClusterNode) GetNodeId() string
+```
+
+### <a name="ClusterNode.GetOwner">func</a> (\*ClusterNode) [GetOwner](./types.pb.go#L5645)
+``` go
+func (m *ClusterNode) GetOwner() string
+```
+
+### <a name="ClusterNode.GetPrivateIp">func</a> (\*ClusterNode) [GetPrivateIp](./types.pb.go#L5638)
+``` go
+func (m *ClusterNode) GetPrivateIp() string
+```
+
+### <a name="ClusterNode.GetRepl">func</a> (\*ClusterNode) [GetRepl](./types.pb.go#L5855)
+``` go
+func (m *ClusterNode) GetRepl() string
+```
+
+### <a name="ClusterNode.GetRestartService">func</a> (\*ClusterNode) [GetRestartService](./types.pb.go#L5722)
+``` go
+func (m *ClusterNode) GetRestartService() string
+```
+
+### <a name="ClusterNode.GetRole">func</a> (\*ClusterNode) [GetRole](./types.pb.go#L5701)
+``` go
+func (m *ClusterNode) GetRole() string
+```
+
+### <a name="ClusterNode.GetRootUserId">func</a> (\*ClusterNode) [GetRootUserId](./types.pb.go#L5694)
+``` go
+func (m *ClusterNode) GetRootUserId() string
+```
+
+### <a name="ClusterNode.GetScaleInService">func</a> (\*ClusterNode) [GetScaleInService](./types.pb.go#L5750)
+``` go
+func (m *ClusterNode) GetScaleInService() string
+```
+
+### <a name="ClusterNode.GetScaleOutService">func</a> (\*ClusterNode) [GetScaleOutService](./types.pb.go#L5848)
+``` go
+func (m *ClusterNode) GetScaleOutService() string
+```
+
+### <a name="ClusterNode.GetServerId">func</a> (\*ClusterNode) [GetServerId](./types.pb.go#L5666)
+``` go
+func (m *ClusterNode) GetServerId() int32
+```
+
+### <a name="ClusterNode.GetSingleNodeRepl">func</a> (\*ClusterNode) [GetSingleNodeRepl](./types.pb.go#L5876)
+``` go
+func (m *ClusterNode) GetSingleNodeRepl() string
+```
+
+### <a name="ClusterNode.GetStartService">func</a> (\*ClusterNode) [GetStartService](./types.pb.go#L5806)
+``` go
+func (m *ClusterNode) GetStartService() string
+```
+
+### <a name="ClusterNode.GetStatus">func</a> (\*ClusterNode) [GetStatus](./types.pb.go#L5736)
+``` go
+func (m *ClusterNode) GetStatus() string
+```
+
+### <a name="ClusterNode.GetStatusTime">func</a> (\*ClusterNode) [GetStatusTime](./types.pb.go#L5715)
+``` go
+func (m *ClusterNode) GetStatusTime() *google_protobuf1.Timestamp
+```
+
+### <a name="ClusterNode.GetStopService">func</a> (\*ClusterNode) [GetStopService](./types.pb.go#L5610)
+``` go
+func (m *ClusterNode) GetStopService() string
+```
+
+### <a name="ClusterNode.GetStorageSize">func</a> (\*ClusterNode) [GetStorageSize](./types.pb.go#L5771)
+``` go
+func (m *ClusterNode) GetStorageSize() int32
+```
+
+### <a name="ClusterNode.GetTransitionStatus">func</a> (\*ClusterNode) [GetTransitionStatus](./types.pb.go#L5764)
+``` go
+func (m *ClusterNode) GetTransitionStatus() string
+```
+
+### <a name="ClusterNode.GetUserAccess">func</a> (\*ClusterNode) [GetUserAccess](./types.pb.go#L5617)
+``` go
+func (m *ClusterNode) GetUserAccess() int32
+```
+
+### <a name="ClusterNode.GetVerticalScalingPolicy">func</a> (\*ClusterNode) [GetVerticalScalingPolicy](./types.pb.go#L5575)
+``` go
+func (m *ClusterNode) GetVerticalScalingPolicy() string
+```
+
+### <a name="ClusterNode.GetVolumeIds">func</a> (\*ClusterNode) [GetVolumeIds](./types.pb.go#L5813)
+``` go
+func (m *ClusterNode) GetVolumeIds() string
+```
+
+### <a name="ClusterNode.GetVxnetId">func</a> (\*ClusterNode) [GetVxnetId](./types.pb.go#L5582)
+``` go
+func (m *ClusterNode) GetVxnetId() string
+```
+
+### <a name="ClusterNode.ProtoMessage">func</a> (\*ClusterNode) [ProtoMessage](./types.pb.go#L5572)
+``` go
+func (*ClusterNode) ProtoMessage()
+```
+
+### <a name="ClusterNode.Reset">func</a> (\*ClusterNode) [Reset](./types.pb.go#L5570)
+``` go
+func (m *ClusterNode) Reset()
+```
+
+### <a name="ClusterNode.String">func</a> (\*ClusterNode) [String](./types.pb.go#L5571)
+``` go
+func (m *ClusterNode) String() string
+```
+
+### <a name="ClusterNode.Validate">func</a> (\*ClusterNode) [Validate](./types.pb.validate.go#L330)
+``` go
+func (p *ClusterNode) Validate() error
 ```
 
 ## <a name="ClusterProperty">type</a> [ClusterProperty](./cluster.pb.go#L1672-L1685)
@@ -15513,124 +15555,124 @@ func (m *ClusterProperty) String() string
 func (p *ClusterProperty) Validate() error
 ```
 
-## <a name="ClusterService">type</a> [ClusterService](./cluster.pb.qingcloud.go#L43-L45)
+## <a name="ClusterService">type</a> [ClusterService](./cluster.pb.qingcloud.go#L50-L52)
 ``` go
 type ClusterService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewClusterService">func</a> [NewClusterService](./cluster.pb.qingcloud.go#L47)
+### <a name="NewClusterService">func</a> [NewClusterService](./cluster.pb.qingcloud.go#L54)
 ``` go
 func NewClusterService(server *ServerInfo) (p *ClusterService)
 ```
 
-### <a name="ClusterService.AddClusterNodes">func</a> (\*ClusterService) [AddClusterNodes](./cluster.pb.qingcloud.go#L200)
+### <a name="ClusterService.AddClusterNodes">func</a> (\*ClusterService) [AddClusterNodes](./cluster.pb.qingcloud.go#L336)
 ``` go
 func (p *ClusterService) AddClusterNodes(input *AddClusterNodesInput) (output *AddClusterNodesOutput, err error)
 ```
 
-### <a name="ClusterService.AuthorizeClustersBrokerToDeveloper">func</a> (\*ClusterService) [AuthorizeClustersBrokerToDeveloper](./cluster.pb.qingcloud.go#L452)
+### <a name="ClusterService.AuthorizeClustersBrokerToDeveloper">func</a> (\*ClusterService) [AuthorizeClustersBrokerToDeveloper](./cluster.pb.qingcloud.go#L588)
 ``` go
 func (p *ClusterService) AuthorizeClustersBrokerToDeveloper(input *AuthorizeClustersBrokerToDeveloperInput) (output *AuthorizeClustersBrokerToDeveloperOutput, err error)
 ```
 
-### <a name="ClusterService.ChangeClusterVxnet">func</a> (\*ClusterService) [ChangeClusterVxnet](./cluster.pb.qingcloud.go#L263)
+### <a name="ClusterService.ChangeClusterVxnet">func</a> (\*ClusterService) [ChangeClusterVxnet](./cluster.pb.qingcloud.go#L399)
 ``` go
 func (p *ClusterService) ChangeClusterVxnet(input *ChangeClusterVxnetInput) (output *ChangeClusterVxnetOutput, err error)
 ```
 
-### <a name="ClusterService.CreateCluster">func</a> (\*ClusterService) [CreateCluster](./cluster.pb.qingcloud.go#L53)
+### <a name="ClusterService.CreateCluster">func</a> (\*ClusterService) [CreateCluster](./cluster.pb.qingcloud.go#L189)
 ``` go
 func (p *ClusterService) CreateCluster(input *CreateClusterInput) (output *CreateClusterOutput, err error)
 ```
 
-### <a name="ClusterService.DeleteClusterNodes">func</a> (\*ClusterService) [DeleteClusterNodes](./cluster.pb.qingcloud.go#L221)
+### <a name="ClusterService.DeleteClusterNodes">func</a> (\*ClusterService) [DeleteClusterNodes](./cluster.pb.qingcloud.go#L357)
 ``` go
 func (p *ClusterService) DeleteClusterNodes(input *DeleteClusterNodesInput) (output *DeleteClusterNodesOutput, err error)
 ```
 
-### <a name="ClusterService.DeleteClusters">func</a> (\*ClusterService) [DeleteClusters](./cluster.pb.qingcloud.go#L158)
+### <a name="ClusterService.DeleteClusters">func</a> (\*ClusterService) [DeleteClusters](./cluster.pb.qingcloud.go#L294)
 ``` go
 func (p *ClusterService) DeleteClusters(input *DeleteClustersInput) (output *DeleteClustersOutput, err error)
 ```
 
-### <a name="ClusterService.DescribeClusterNodes">func</a> (\*ClusterService) [DescribeClusterNodes](./cluster.pb.qingcloud.go#L95)
+### <a name="ClusterService.DescribeClusterNodes">func</a> (\*ClusterService) [DescribeClusterNodes](./cluster.pb.qingcloud.go#L231)
 ``` go
 func (p *ClusterService) DescribeClusterNodes(input *DescribeClusterNodesInput) (output *DescribeClusterNodesOutput, err error)
 ```
 
-### <a name="ClusterService.DescribeClusterUsers">func</a> (\*ClusterService) [DescribeClusterUsers](./cluster.pb.qingcloud.go#L389)
+### <a name="ClusterService.DescribeClusterUsers">func</a> (\*ClusterService) [DescribeClusterUsers](./cluster.pb.qingcloud.go#L525)
 ``` go
 func (p *ClusterService) DescribeClusterUsers(input *DescribeClusterUsersInput) (output *DescribeClusterUsersOutput, err error)
 ```
 
-### <a name="ClusterService.DescribeClusters">func</a> (\*ClusterService) [DescribeClusters](./cluster.pb.qingcloud.go#L74)
+### <a name="ClusterService.DescribeClusters">func</a> (\*ClusterService) [DescribeClusters](./cluster.pb.qingcloud.go#L210)
 ``` go
 func (p *ClusterService) DescribeClusters(input *DescribeClustersInput) (output *DescribeClustersOutput, err error)
 ```
 
-### <a name="ClusterService.GetClustersStats">func</a> (\*ClusterService) [GetClustersStats](./cluster.pb.qingcloud.go#L368)
+### <a name="ClusterService.GetClustersStats">func</a> (\*ClusterService) [GetClustersStats](./cluster.pb.qingcloud.go#L504)
 ``` go
 func (p *ClusterService) GetClustersStats(input *GetClustersStatsInput) (output *GetClustersStatsOutput, err error)
 ```
 
-### <a name="ClusterService.Lease">func</a> (\*ClusterService) [Lease](./cluster.pb.qingcloud.go#L179)
+### <a name="ClusterService.Lease">func</a> (\*ClusterService) [Lease](./cluster.pb.qingcloud.go#L315)
 ``` go
 func (p *ClusterService) Lease(input *LeaseInput) (output *LeaseOutput, err error)
 ```
 
-### <a name="ClusterService.ModifyClusterAttributes">func</a> (\*ClusterService) [ModifyClusterAttributes](./cluster.pb.qingcloud.go#L326)
+### <a name="ClusterService.ModifyClusterAttributes">func</a> (\*ClusterService) [ModifyClusterAttributes](./cluster.pb.qingcloud.go#L462)
 ``` go
 func (p *ClusterService) ModifyClusterAttributes(input *ModifyClusterAttributesInput) (output *ModifyClusterAttributesOutput, err error)
 ```
 
-### <a name="ClusterService.ModifyClusterNodeAttributes">func</a> (\*ClusterService) [ModifyClusterNodeAttributes](./cluster.pb.qingcloud.go#L347)
+### <a name="ClusterService.ModifyClusterNodeAttributes">func</a> (\*ClusterService) [ModifyClusterNodeAttributes](./cluster.pb.qingcloud.go#L483)
 ``` go
 func (p *ClusterService) ModifyClusterNodeAttributes(input *ModifyClusterNodeAttributesInput) (output *ModifyClusterNodeAttributesOutput, err error)
 ```
 
-### <a name="ClusterService.ResizeCluster">func</a> (\*ClusterService) [ResizeCluster](./cluster.pb.qingcloud.go#L242)
+### <a name="ClusterService.ResizeCluster">func</a> (\*ClusterService) [ResizeCluster](./cluster.pb.qingcloud.go#L378)
 ``` go
 func (p *ClusterService) ResizeCluster(input *ResizeClusterInput) (output *ResizeClusterOutput, err error)
 ```
 
-### <a name="ClusterService.RestartClusterService">func</a> (\*ClusterService) [RestartClusterService](./cluster.pb.qingcloud.go#L410)
+### <a name="ClusterService.RestartClusterService">func</a> (\*ClusterService) [RestartClusterService](./cluster.pb.qingcloud.go#L546)
 ``` go
 func (p *ClusterService) RestartClusterService(input *RestartClusterServiceInput) (output *RestartClusterServiceOutput, err error)
 ```
 
-### <a name="ClusterService.RevokeClustersBrokerFromDeveloper">func</a> (\*ClusterService) [RevokeClustersBrokerFromDeveloper](./cluster.pb.qingcloud.go#L473)
+### <a name="ClusterService.RevokeClustersBrokerFromDeveloper">func</a> (\*ClusterService) [RevokeClustersBrokerFromDeveloper](./cluster.pb.qingcloud.go#L609)
 ``` go
 func (p *ClusterService) RevokeClustersBrokerFromDeveloper(input *RevokeClustersBrokerFromDeveloperInput) (output *RevokeClustersBrokerFromDeveloperOutput, err error)
 ```
 
-### <a name="ClusterService.StartClusters">func</a> (\*ClusterService) [StartClusters](./cluster.pb.qingcloud.go#L137)
+### <a name="ClusterService.StartClusters">func</a> (\*ClusterService) [StartClusters](./cluster.pb.qingcloud.go#L273)
 ``` go
 func (p *ClusterService) StartClusters(input *StartClustersInput) (output *StartClustersOutput, err error)
 ```
 
-### <a name="ClusterService.StopClusters">func</a> (\*ClusterService) [StopClusters](./cluster.pb.qingcloud.go#L116)
+### <a name="ClusterService.StopClusters">func</a> (\*ClusterService) [StopClusters](./cluster.pb.qingcloud.go#L252)
 ``` go
 func (p *ClusterService) StopClusters(input *StopClustersInput) (output *StopClustersOutput, err error)
 ```
 
-### <a name="ClusterService.SuspendClusters">func</a> (\*ClusterService) [SuspendClusters](./cluster.pb.qingcloud.go#L284)
+### <a name="ClusterService.SuspendClusters">func</a> (\*ClusterService) [SuspendClusters](./cluster.pb.qingcloud.go#L420)
 ``` go
 func (p *ClusterService) SuspendClusters(input *SuspendClustersInput) (output *SuspendClustersOutput, err error)
 ```
 
-### <a name="ClusterService.UpdateClusterEnvironment">func</a> (\*ClusterService) [UpdateClusterEnvironment](./cluster.pb.qingcloud.go#L305)
+### <a name="ClusterService.UpdateClusterEnvironment">func</a> (\*ClusterService) [UpdateClusterEnvironment](./cluster.pb.qingcloud.go#L441)
 ``` go
 func (p *ClusterService) UpdateClusterEnvironment(input *UpdateClusterEnvironmentInput) (output *UpdateClusterEnvironmentOutput, err error)
 ```
 
-### <a name="ClusterService.UpgradeClusters">func</a> (\*ClusterService) [UpgradeClusters](./cluster.pb.qingcloud.go#L431)
+### <a name="ClusterService.UpgradeClusters">func</a> (\*ClusterService) [UpgradeClusters](./cluster.pb.qingcloud.go#L567)
 ``` go
 func (p *ClusterService) UpgradeClusters(input *UpgradeClustersInput) (output *UpgradeClustersOutput, err error)
 ```
 
-## <a name="ClusterServiceInterface">type</a> [ClusterServiceInterface](./cluster.pb.qingcloud.go#L19-L41)
+## <a name="ClusterServiceInterface">type</a> [ClusterServiceInterface](./cluster.pb.qingcloud.go#L26-L48)
 ``` go
 type ClusterServiceInterface interface {
     CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error)
@@ -15655,201 +15697,6 @@ type ClusterServiceInterface interface {
     AuthorizeClustersBrokerToDeveloper(in *AuthorizeClustersBrokerToDeveloperInput) (out *AuthorizeClustersBrokerToDeveloperOutput, err error)
     RevokeClustersBrokerFromDeveloper(in *RevokeClustersBrokerFromDeveloperInput) (out *RevokeClustersBrokerFromDeveloperOutput, err error)
 }
-```
-
-## <a name="Cluster_AdvancedActions">type</a> [Cluster_AdvancedActions](./types.pb.go#L5470-L5472)
-``` go
-type Cluster_AdvancedActions struct {
-    XXX_unrecognized []byte `json:"-"`
-}
-```
-
-### <a name="Cluster_AdvancedActions.Descriptor">func</a> (\*Cluster\_AdvancedActions) [Descriptor](./types.pb.go#L5477)
-``` go
-func (*Cluster_AdvancedActions) Descriptor() ([]byte, []int)
-```
-
-### <a name="Cluster_AdvancedActions.ProtoMessage">func</a> (\*Cluster\_AdvancedActions) [ProtoMessage](./types.pb.go#L5476)
-``` go
-func (*Cluster_AdvancedActions) ProtoMessage()
-```
-
-### <a name="Cluster_AdvancedActions.Reset">func</a> (\*Cluster\_AdvancedActions) [Reset](./types.pb.go#L5474)
-``` go
-func (m *Cluster_AdvancedActions) Reset()
-```
-
-### <a name="Cluster_AdvancedActions.String">func</a> (\*Cluster\_AdvancedActions) [String](./types.pb.go#L5475)
-``` go
-func (m *Cluster_AdvancedActions) String() string
-```
-
-## <a name="Cluster_AppInfo">type</a> [Cluster_AppInfo](./types.pb.go#L5479-L5484)
-``` go
-type Cluster_AppInfo struct {
-    Icon             *string `protobuf:"bytes,1,opt,name=icon" json:"icon,omitempty"`
-    AppId            *string `protobuf:"bytes,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-    AppName          *string `protobuf:"bytes,3,opt,name=app_name,json=appName" json:"app_name,omitempty"`
-    XXX_unrecognized []byte  `json:"-"`
-}
-```
-
-### <a name="Cluster_AppInfo.Descriptor">func</a> (\*Cluster\_AppInfo) [Descriptor](./types.pb.go#L5489)
-``` go
-func (*Cluster_AppInfo) Descriptor() ([]byte, []int)
-```
-
-### <a name="Cluster_AppInfo.GetAppId">func</a> (\*Cluster\_AppInfo) [GetAppId](./types.pb.go#L5498)
-``` go
-func (m *Cluster_AppInfo) GetAppId() string
-```
-
-### <a name="Cluster_AppInfo.GetAppName">func</a> (\*Cluster\_AppInfo) [GetAppName](./types.pb.go#L5505)
-``` go
-func (m *Cluster_AppInfo) GetAppName() string
-```
-
-### <a name="Cluster_AppInfo.GetIcon">func</a> (\*Cluster\_AppInfo) [GetIcon](./types.pb.go#L5491)
-``` go
-func (m *Cluster_AppInfo) GetIcon() string
-```
-
-### <a name="Cluster_AppInfo.ProtoMessage">func</a> (\*Cluster\_AppInfo) [ProtoMessage](./types.pb.go#L5488)
-``` go
-func (*Cluster_AppInfo) ProtoMessage()
-```
-
-### <a name="Cluster_AppInfo.Reset">func</a> (\*Cluster\_AppInfo) [Reset](./types.pb.go#L5486)
-``` go
-func (m *Cluster_AppInfo) Reset()
-```
-
-### <a name="Cluster_AppInfo.String">func</a> (\*Cluster\_AppInfo) [String](./types.pb.go#L5487)
-``` go
-func (m *Cluster_AppInfo) String() string
-```
-
-## <a name="Cluster_AppVersionInfo">type</a> [Cluster_AppVersionInfo](./types.pb.go#L5512-L5518)
-``` go
-type Cluster_AppVersionInfo struct {
-    StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-    ResourceKit      *string                     `protobuf:"bytes,2,opt,name=resource_kit,json=resourceKit" json:"resource_kit,omitempty"`
-    Name             *string                     `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
-    VersionId        *string                     `protobuf:"bytes,4,opt,name=version_id,json=versionId" json:"version_id,omitempty"`
-    XXX_unrecognized []byte                      `json:"-"`
-}
-```
-
-### <a name="Cluster_AppVersionInfo.Descriptor">func</a> (\*Cluster\_AppVersionInfo) [Descriptor](./types.pb.go#L5523)
-``` go
-func (*Cluster_AppVersionInfo) Descriptor() ([]byte, []int)
-```
-
-### <a name="Cluster_AppVersionInfo.GetName">func</a> (\*Cluster\_AppVersionInfo) [GetName](./types.pb.go#L5539)
-``` go
-func (m *Cluster_AppVersionInfo) GetName() string
-```
-
-### <a name="Cluster_AppVersionInfo.GetResourceKit">func</a> (\*Cluster\_AppVersionInfo) [GetResourceKit](./types.pb.go#L5532)
-``` go
-func (m *Cluster_AppVersionInfo) GetResourceKit() string
-```
-
-### <a name="Cluster_AppVersionInfo.GetStatusTime">func</a> (\*Cluster\_AppVersionInfo) [GetStatusTime](./types.pb.go#L5525)
-``` go
-func (m *Cluster_AppVersionInfo) GetStatusTime() *google_protobuf1.Timestamp
-```
-
-### <a name="Cluster_AppVersionInfo.GetVersionId">func</a> (\*Cluster\_AppVersionInfo) [GetVersionId](./types.pb.go#L5546)
-``` go
-func (m *Cluster_AppVersionInfo) GetVersionId() string
-```
-
-### <a name="Cluster_AppVersionInfo.ProtoMessage">func</a> (\*Cluster\_AppVersionInfo) [ProtoMessage](./types.pb.go#L5522)
-``` go
-func (*Cluster_AppVersionInfo) ProtoMessage()
-```
-
-### <a name="Cluster_AppVersionInfo.Reset">func</a> (\*Cluster\_AppVersionInfo) [Reset](./types.pb.go#L5520)
-``` go
-func (m *Cluster_AppVersionInfo) Reset()
-```
-
-### <a name="Cluster_AppVersionInfo.String">func</a> (\*Cluster\_AppVersionInfo) [String](./types.pb.go#L5521)
-``` go
-func (m *Cluster_AppVersionInfo) String() string
-```
-
-## <a name="Cluster_CustomService">type</a> [Cluster_CustomService](./types.pb.go#L5461-L5463)
-``` go
-type Cluster_CustomService struct {
-    XXX_unrecognized []byte `json:"-"`
-}
-```
-
-### <a name="Cluster_CustomService.Descriptor">func</a> (\*Cluster\_CustomService) [Descriptor](./types.pb.go#L5468)
-``` go
-func (*Cluster_CustomService) Descriptor() ([]byte, []int)
-```
-
-### <a name="Cluster_CustomService.ProtoMessage">func</a> (\*Cluster\_CustomService) [ProtoMessage](./types.pb.go#L5467)
-``` go
-func (*Cluster_CustomService) ProtoMessage()
-```
-
-### <a name="Cluster_CustomService.Reset">func</a> (\*Cluster\_CustomService) [Reset](./types.pb.go#L5465)
-``` go
-func (m *Cluster_CustomService) Reset()
-```
-
-### <a name="Cluster_CustomService.String">func</a> (\*Cluster\_CustomService) [String](./types.pb.go#L5466)
-``` go
-func (m *Cluster_CustomService) String() string
-```
-
-## <a name="Cluster_HealthCheckEnablement">type</a> [Cluster_HealthCheckEnablement](./types.pb.go#L5426-L5431)
-``` go
-type Cluster_HealthCheckEnablement struct {
-    Ca               *bool  `protobuf:"varint,1,opt,name=ca" json:"ca,omitempty"`
-    Orderer          *bool  `protobuf:"varint,2,opt,name=orderer" json:"orderer,omitempty"`
-    PeerNode         *bool  `protobuf:"varint,3,opt,name=peer_node,json=peerNode" json:"peer_node,omitempty"`
-    XXX_unrecognized []byte `json:"-"`
-}
-```
-
-### <a name="Cluster_HealthCheckEnablement.Descriptor">func</a> (\*Cluster\_HealthCheckEnablement) [Descriptor](./types.pb.go#L5436)
-``` go
-func (*Cluster_HealthCheckEnablement) Descriptor() ([]byte, []int)
-```
-
-### <a name="Cluster_HealthCheckEnablement.GetCa">func</a> (\*Cluster\_HealthCheckEnablement) [GetCa](./types.pb.go#L5440)
-``` go
-func (m *Cluster_HealthCheckEnablement) GetCa() bool
-```
-
-### <a name="Cluster_HealthCheckEnablement.GetOrderer">func</a> (\*Cluster\_HealthCheckEnablement) [GetOrderer](./types.pb.go#L5447)
-``` go
-func (m *Cluster_HealthCheckEnablement) GetOrderer() bool
-```
-
-### <a name="Cluster_HealthCheckEnablement.GetPeerNode">func</a> (\*Cluster\_HealthCheckEnablement) [GetPeerNode](./types.pb.go#L5454)
-``` go
-func (m *Cluster_HealthCheckEnablement) GetPeerNode() bool
-```
-
-### <a name="Cluster_HealthCheckEnablement.ProtoMessage">func</a> (\*Cluster\_HealthCheckEnablement) [ProtoMessage](./types.pb.go#L5435)
-``` go
-func (*Cluster_HealthCheckEnablement) ProtoMessage()
-```
-
-### <a name="Cluster_HealthCheckEnablement.Reset">func</a> (\*Cluster\_HealthCheckEnablement) [Reset](./types.pb.go#L5433)
-``` go
-func (m *Cluster_HealthCheckEnablement) Reset()
-```
-
-### <a name="Cluster_HealthCheckEnablement.String">func</a> (\*Cluster\_HealthCheckEnablement) [String](./types.pb.go#L5434)
-``` go
-func (m *Cluster_HealthCheckEnablement) String() string
 ```
 
 ## <a name="CopyRDBInstanceFilesToFTPInput">type</a> [CopyRDBInstanceFilesToFTPInput](./rdb.pb.go#L1131-L1135)
@@ -20730,7 +20577,7 @@ func (m *CreateVxnetsOutput) String() string
 func (p *CreateVxnetsOutput) Validate() error
 ```
 
-## <a name="DHCPOption">type</a> [DHCPOption](./types.pb.go#L2748-L2752)
+## <a name="DHCPOption">type</a> [DHCPOption](./types.pb.go#L3126-L3130)
 ``` go
 type DHCPOption struct {
     RouterStaticId   *string `protobuf:"bytes,1,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
@@ -20739,42 +20586,42 @@ type DHCPOption struct {
 }
 ```
 
-### <a name="DHCPOption.Descriptor">func</a> (\*DHCPOption) [Descriptor](./types.pb.go#L2757)
+### <a name="DHCPOption.Descriptor">func</a> (\*DHCPOption) [Descriptor](./types.pb.go#L3135)
 ``` go
 func (*DHCPOption) Descriptor() ([]byte, []int)
 ```
 
-### <a name="DHCPOption.GetRouterStaticId">func</a> (\*DHCPOption) [GetRouterStaticId](./types.pb.go#L2759)
+### <a name="DHCPOption.GetRouterStaticId">func</a> (\*DHCPOption) [GetRouterStaticId](./types.pb.go#L3137)
 ``` go
 func (m *DHCPOption) GetRouterStaticId() string
 ```
 
-### <a name="DHCPOption.GetVal2">func</a> (\*DHCPOption) [GetVal2](./types.pb.go#L2766)
+### <a name="DHCPOption.GetVal2">func</a> (\*DHCPOption) [GetVal2](./types.pb.go#L3144)
 ``` go
 func (m *DHCPOption) GetVal2() string
 ```
 
-### <a name="DHCPOption.ProtoMessage">func</a> (\*DHCPOption) [ProtoMessage](./types.pb.go#L2756)
+### <a name="DHCPOption.ProtoMessage">func</a> (\*DHCPOption) [ProtoMessage](./types.pb.go#L3134)
 ``` go
 func (*DHCPOption) ProtoMessage()
 ```
 
-### <a name="DHCPOption.Reset">func</a> (\*DHCPOption) [Reset](./types.pb.go#L2754)
+### <a name="DHCPOption.Reset">func</a> (\*DHCPOption) [Reset](./types.pb.go#L3132)
 ``` go
 func (m *DHCPOption) Reset()
 ```
 
-### <a name="DHCPOption.String">func</a> (\*DHCPOption) [String](./types.pb.go#L2755)
+### <a name="DHCPOption.String">func</a> (\*DHCPOption) [String](./types.pb.go#L3133)
 ``` go
 func (m *DHCPOption) String() string
 ```
 
-### <a name="DHCPOption.Validate">func</a> (\*DHCPOption) [Validate](./types.pb.validate.go#L160)
+### <a name="DHCPOption.Validate">func</a> (\*DHCPOption) [Validate](./types.pb.validate.go#L165)
 ``` go
 func (p *DHCPOption) Validate() error
 ```
 
-## <a name="DNSAlias">type</a> [DNSAlias](./types.pb.go#L2773-L2782)
+## <a name="DNSAlias">type</a> [DNSAlias](./types.pb.go#L3151-L3160)
 ``` go
 type DNSAlias struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -20788,99 +20635,99 @@ type DNSAlias struct {
 }
 ```
 
-### <a name="DNSAlias.Descriptor">func</a> (\*DNSAlias) [Descriptor](./types.pb.go#L2787)
+### <a name="DNSAlias.Descriptor">func</a> (\*DNSAlias) [Descriptor](./types.pb.go#L3165)
 ``` go
 func (*DNSAlias) Descriptor() ([]byte, []int)
 ```
 
-### <a name="DNSAlias.GetCreateTime">func</a> (\*DNSAlias) [GetCreateTime](./types.pb.go#L2789)
+### <a name="DNSAlias.GetCreateTime">func</a> (\*DNSAlias) [GetCreateTime](./types.pb.go#L3167)
 ``` go
 func (m *DNSAlias) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="DNSAlias.GetDescription">func</a> (\*DNSAlias) [GetDescription](./types.pb.go#L2796)
+### <a name="DNSAlias.GetDescription">func</a> (\*DNSAlias) [GetDescription](./types.pb.go#L3174)
 ``` go
 func (m *DNSAlias) GetDescription() string
 ```
 
-### <a name="DNSAlias.GetDnsAliasId">func</a> (\*DNSAlias) [GetDnsAliasId](./types.pb.go#L2803)
+### <a name="DNSAlias.GetDnsAliasId">func</a> (\*DNSAlias) [GetDnsAliasId](./types.pb.go#L3181)
 ``` go
 func (m *DNSAlias) GetDnsAliasId() string
 ```
 
-### <a name="DNSAlias.GetDnsAliasName">func</a> (\*DNSAlias) [GetDnsAliasName](./types.pb.go#L2810)
+### <a name="DNSAlias.GetDnsAliasName">func</a> (\*DNSAlias) [GetDnsAliasName](./types.pb.go#L3188)
 ``` go
 func (m *DNSAlias) GetDnsAliasName() string
 ```
 
-### <a name="DNSAlias.GetDomainName">func</a> (\*DNSAlias) [GetDomainName](./types.pb.go#L2817)
+### <a name="DNSAlias.GetDomainName">func</a> (\*DNSAlias) [GetDomainName](./types.pb.go#L3195)
 ``` go
 func (m *DNSAlias) GetDomainName() string
 ```
 
-### <a name="DNSAlias.GetResourceId">func</a> (\*DNSAlias) [GetResourceId](./types.pb.go#L2824)
+### <a name="DNSAlias.GetResourceId">func</a> (\*DNSAlias) [GetResourceId](./types.pb.go#L3202)
 ``` go
 func (m *DNSAlias) GetResourceId() string
 ```
 
-### <a name="DNSAlias.GetStatus">func</a> (\*DNSAlias) [GetStatus](./types.pb.go#L2831)
+### <a name="DNSAlias.GetStatus">func</a> (\*DNSAlias) [GetStatus](./types.pb.go#L3209)
 ``` go
 func (m *DNSAlias) GetStatus() string
 ```
 
-### <a name="DNSAlias.ProtoMessage">func</a> (\*DNSAlias) [ProtoMessage](./types.pb.go#L2786)
+### <a name="DNSAlias.ProtoMessage">func</a> (\*DNSAlias) [ProtoMessage](./types.pb.go#L3164)
 ``` go
 func (*DNSAlias) ProtoMessage()
 ```
 
-### <a name="DNSAlias.Reset">func</a> (\*DNSAlias) [Reset](./types.pb.go#L2784)
+### <a name="DNSAlias.Reset">func</a> (\*DNSAlias) [Reset](./types.pb.go#L3162)
 ``` go
 func (m *DNSAlias) Reset()
 ```
 
-### <a name="DNSAlias.String">func</a> (\*DNSAlias) [String](./types.pb.go#L2785)
+### <a name="DNSAlias.String">func</a> (\*DNSAlias) [String](./types.pb.go#L3163)
 ``` go
 func (m *DNSAlias) String() string
 ```
 
-### <a name="DNSAlias.Validate">func</a> (\*DNSAlias) [Validate](./types.pb.validate.go#L165)
+### <a name="DNSAlias.Validate">func</a> (\*DNSAlias) [Validate](./types.pb.validate.go#L170)
 ``` go
 func (p *DNSAlias) Validate() error
 ```
 
-## <a name="DNSAliasService">type</a> [DNSAliasService](./dns.pb.qingcloud.go#L26-L28)
+## <a name="DNSAliasService">type</a> [DNSAliasService](./dns.pb.qingcloud.go#L33-L35)
 ``` go
 type DNSAliasService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewDNSAliasService">func</a> [NewDNSAliasService](./dns.pb.qingcloud.go#L30)
+### <a name="NewDNSAliasService">func</a> [NewDNSAliasService](./dns.pb.qingcloud.go#L37)
 ``` go
 func NewDNSAliasService(server *ServerInfo) (p *DNSAliasService)
 ```
 
-### <a name="DNSAliasService.AssociateDNSAlias">func</a> (\*DNSAliasService) [AssociateDNSAlias](./dns.pb.qingcloud.go#L57)
+### <a name="DNSAliasService.AssociateDNSAlias">func</a> (\*DNSAliasService) [AssociateDNSAlias](./dns.pb.qingcloud.go#L91)
 ``` go
 func (p *DNSAliasService) AssociateDNSAlias(input *AssociateDNSAliasInput) (output *AssociateDNSAliasOutput, err error)
 ```
 
-### <a name="DNSAliasService.DescribeDNSAliases">func</a> (\*DNSAliasService) [DescribeDNSAliases](./dns.pb.qingcloud.go#L36)
+### <a name="DNSAliasService.DescribeDNSAliases">func</a> (\*DNSAliasService) [DescribeDNSAliases](./dns.pb.qingcloud.go#L70)
 ``` go
 func (p *DNSAliasService) DescribeDNSAliases(input *DescribeDNSAliasesInput) (output *DescribeDNSAliasesOutput, err error)
 ```
 
-### <a name="DNSAliasService.DissociateDNSAliases">func</a> (\*DNSAliasService) [DissociateDNSAliases](./dns.pb.qingcloud.go#L78)
+### <a name="DNSAliasService.DissociateDNSAliases">func</a> (\*DNSAliasService) [DissociateDNSAliases](./dns.pb.qingcloud.go#L112)
 ``` go
 func (p *DNSAliasService) DissociateDNSAliases(input *DissociateDNSAliasesInput) (output *DissociateDNSAliasesOutput, err error)
 ```
 
-### <a name="DNSAliasService.GetDNSLabel">func</a> (\*DNSAliasService) [GetDNSLabel](./dns.pb.qingcloud.go#L99)
+### <a name="DNSAliasService.GetDNSLabel">func</a> (\*DNSAliasService) [GetDNSLabel](./dns.pb.qingcloud.go#L133)
 ``` go
 func (p *DNSAliasService) GetDNSLabel(input *GetDNSLabelInput) (output *GetDNSLabelOutput, err error)
 ```
 
-## <a name="DNSAliasServiceInterface">type</a> [DNSAliasServiceInterface](./dns.pb.qingcloud.go#L19-L24)
+## <a name="DNSAliasServiceInterface">type</a> [DNSAliasServiceInterface](./dns.pb.qingcloud.go#L26-L31)
 ``` go
 type DNSAliasServiceInterface interface {
     DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error)
@@ -20890,7 +20737,7 @@ type DNSAliasServiceInterface interface {
 }
 ```
 
-## <a name="Data">type</a> [Data](./types.pb.go#L2723-L2727)
+## <a name="Data">type</a> [Data](./types.pb.go#L3101-L3105)
 ``` go
 type Data struct {
     Data             *string `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
@@ -20899,37 +20746,37 @@ type Data struct {
 }
 ```
 
-### <a name="Data.Descriptor">func</a> (\*Data) [Descriptor](./types.pb.go#L2732)
+### <a name="Data.Descriptor">func</a> (\*Data) [Descriptor](./types.pb.go#L3110)
 ``` go
 func (*Data) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Data.GetData">func</a> (\*Data) [GetData](./types.pb.go#L2734)
+### <a name="Data.GetData">func</a> (\*Data) [GetData](./types.pb.go#L3112)
 ``` go
 func (m *Data) GetData() string
 ```
 
-### <a name="Data.GetEipId">func</a> (\*Data) [GetEipId](./types.pb.go#L2741)
+### <a name="Data.GetEipId">func</a> (\*Data) [GetEipId](./types.pb.go#L3119)
 ``` go
 func (m *Data) GetEipId() string
 ```
 
-### <a name="Data.ProtoMessage">func</a> (\*Data) [ProtoMessage](./types.pb.go#L2731)
+### <a name="Data.ProtoMessage">func</a> (\*Data) [ProtoMessage](./types.pb.go#L3109)
 ``` go
 func (*Data) ProtoMessage()
 ```
 
-### <a name="Data.Reset">func</a> (\*Data) [Reset](./types.pb.go#L2729)
+### <a name="Data.Reset">func</a> (\*Data) [Reset](./types.pb.go#L3107)
 ``` go
 func (m *Data) Reset()
 ```
 
-### <a name="Data.String">func</a> (\*Data) [String](./types.pb.go#L2730)
+### <a name="Data.String">func</a> (\*Data) [String](./types.pb.go#L3108)
 ``` go
 func (m *Data) String() string
 ```
 
-### <a name="Data.Validate">func</a> (\*Data) [Validate](./types.pb.validate.go#L155)
+### <a name="Data.Validate">func</a> (\*Data) [Validate](./types.pb.validate.go#L160)
 ``` go
 func (p *Data) Validate() error
 ```
@@ -27120,7 +26967,7 @@ type DescribeClusterNodesOutput struct {
     RetCode          *int32         `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
     Message          *string        `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
     TotalCount       *int32         `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-    NodeSet          []*ClasterNode `protobuf:"bytes,5,rep,name=node_set,json=nodeSet" json:"node_set,omitempty"`
+    NodeSet          []*ClusterNode `protobuf:"bytes,5,rep,name=node_set,json=nodeSet" json:"node_set,omitempty"`
     XXX_unrecognized []byte         `json:"-"`
 }
 ```
@@ -27142,7 +26989,7 @@ func (m *DescribeClusterNodesOutput) GetMessage() string
 
 ### <a name="DescribeClusterNodesOutput.GetNodeSet">func</a> (\*DescribeClusterNodesOutput) [GetNodeSet](./cluster.pb.go#L521)
 ``` go
-func (m *DescribeClusterNodesOutput) GetNodeSet() []*ClasterNode
+func (m *DescribeClusterNodesOutput) GetNodeSet() []*ClusterNode
 ```
 
 ### <a name="DescribeClusterNodesOutput.GetRetCode">func</a> (\*DescribeClusterNodesOutput) [GetRetCode](./cluster.pb.go#L500)
@@ -36887,7 +36734,7 @@ func (m *DissociateS2AccountGroupOutput) String() string
 func (p *DissociateS2AccountGroupOutput) Validate() error
 ```
 
-## <a name="EIP">type</a> [EIP](./types.pb.go#L224-L244)
+## <a name="EIP">type</a> [EIP](./types.pb.go#L1095-L1115)
 ``` go
 type EIP struct {
     AlarmStatus      *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
@@ -36912,122 +36759,122 @@ type EIP struct {
 }
 ```
 
-### <a name="EIP.Descriptor">func</a> (\*EIP) [Descriptor](./types.pb.go#L249)
+### <a name="EIP.Descriptor">func</a> (\*EIP) [Descriptor](./types.pb.go#L1120)
 ``` go
 func (*EIP) Descriptor() ([]byte, []int)
 ```
 
-### <a name="EIP.GetAlarmStatus">func</a> (\*EIP) [GetAlarmStatus](./types.pb.go#L251)
+### <a name="EIP.GetAlarmStatus">func</a> (\*EIP) [GetAlarmStatus](./types.pb.go#L1122)
 ``` go
 func (m *EIP) GetAlarmStatus() string
 ```
 
-### <a name="EIP.GetAssociateMode">func</a> (\*EIP) [GetAssociateMode](./types.pb.go#L258)
+### <a name="EIP.GetAssociateMode">func</a> (\*EIP) [GetAssociateMode](./types.pb.go#L1129)
 ``` go
 func (m *EIP) GetAssociateMode() int32
 ```
 
-### <a name="EIP.GetBandwidth">func</a> (\*EIP) [GetBandwidth](./types.pb.go#L265)
+### <a name="EIP.GetBandwidth">func</a> (\*EIP) [GetBandwidth](./types.pb.go#L1136)
 ``` go
 func (m *EIP) GetBandwidth() int32
 ```
 
-### <a name="EIP.GetBillingMode">func</a> (\*EIP) [GetBillingMode](./types.pb.go#L272)
+### <a name="EIP.GetBillingMode">func</a> (\*EIP) [GetBillingMode](./types.pb.go#L1143)
 ``` go
 func (m *EIP) GetBillingMode() string
 ```
 
-### <a name="EIP.GetCreateTime">func</a> (\*EIP) [GetCreateTime](./types.pb.go#L279)
+### <a name="EIP.GetCreateTime">func</a> (\*EIP) [GetCreateTime](./types.pb.go#L1150)
 ``` go
 func (m *EIP) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="EIP.GetDescription">func</a> (\*EIP) [GetDescription](./types.pb.go#L286)
+### <a name="EIP.GetDescription">func</a> (\*EIP) [GetDescription](./types.pb.go#L1157)
 ``` go
 func (m *EIP) GetDescription() string
 ```
 
-### <a name="EIP.GetEipAddr">func</a> (\*EIP) [GetEipAddr](./types.pb.go#L293)
+### <a name="EIP.GetEipAddr">func</a> (\*EIP) [GetEipAddr](./types.pb.go#L1164)
 ``` go
 func (m *EIP) GetEipAddr() string
 ```
 
-### <a name="EIP.GetEipGroup">func</a> (\*EIP) [GetEipGroup](./types.pb.go#L300)
+### <a name="EIP.GetEipGroup">func</a> (\*EIP) [GetEipGroup](./types.pb.go#L1171)
 ``` go
 func (m *EIP) GetEipGroup() string
 ```
 
-### <a name="EIP.GetEipId">func</a> (\*EIP) [GetEipId](./types.pb.go#L307)
+### <a name="EIP.GetEipId">func</a> (\*EIP) [GetEipId](./types.pb.go#L1178)
 ``` go
 func (m *EIP) GetEipId() string
 ```
 
-### <a name="EIP.GetEipName">func</a> (\*EIP) [GetEipName](./types.pb.go#L314)
+### <a name="EIP.GetEipName">func</a> (\*EIP) [GetEipName](./types.pb.go#L1185)
 ``` go
 func (m *EIP) GetEipName() string
 ```
 
-### <a name="EIP.GetIcpCodes">func</a> (\*EIP) [GetIcpCodes](./types.pb.go#L321)
+### <a name="EIP.GetIcpCodes">func</a> (\*EIP) [GetIcpCodes](./types.pb.go#L1192)
 ``` go
 func (m *EIP) GetIcpCodes() string
 ```
 
-### <a name="EIP.GetNeedIcp">func</a> (\*EIP) [GetNeedIcp](./types.pb.go#L328)
+### <a name="EIP.GetNeedIcp">func</a> (\*EIP) [GetNeedIcp](./types.pb.go#L1199)
 ``` go
 func (m *EIP) GetNeedIcp() int32
 ```
 
-### <a name="EIP.GetResource">func</a> (\*EIP) [GetResource](./types.pb.go#L335)
+### <a name="EIP.GetResource">func</a> (\*EIP) [GetResource](./types.pb.go#L1206)
 ``` go
 func (m *EIP) GetResource() *Resource
 ```
 
-### <a name="EIP.GetStatus">func</a> (\*EIP) [GetStatus](./types.pb.go#L342)
+### <a name="EIP.GetStatus">func</a> (\*EIP) [GetStatus](./types.pb.go#L1213)
 ``` go
 func (m *EIP) GetStatus() string
 ```
 
-### <a name="EIP.GetStatusTime">func</a> (\*EIP) [GetStatusTime](./types.pb.go#L349)
+### <a name="EIP.GetStatusTime">func</a> (\*EIP) [GetStatusTime](./types.pb.go#L1220)
 ``` go
 func (m *EIP) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="EIP.GetSubCode">func</a> (\*EIP) [GetSubCode](./types.pb.go#L356)
+### <a name="EIP.GetSubCode">func</a> (\*EIP) [GetSubCode](./types.pb.go#L1227)
 ``` go
 func (m *EIP) GetSubCode() int32
 ```
 
-### <a name="EIP.GetTags">func</a> (\*EIP) [GetTags](./types.pb.go#L363)
+### <a name="EIP.GetTags">func</a> (\*EIP) [GetTags](./types.pb.go#L1234)
 ``` go
 func (m *EIP) GetTags() []*Tag
 ```
 
-### <a name="EIP.GetTransitionStatus">func</a> (\*EIP) [GetTransitionStatus](./types.pb.go#L370)
+### <a name="EIP.GetTransitionStatus">func</a> (\*EIP) [GetTransitionStatus](./types.pb.go#L1241)
 ``` go
 func (m *EIP) GetTransitionStatus() string
 ```
 
-### <a name="EIP.ProtoMessage">func</a> (\*EIP) [ProtoMessage](./types.pb.go#L248)
+### <a name="EIP.ProtoMessage">func</a> (\*EIP) [ProtoMessage](./types.pb.go#L1119)
 ``` go
 func (*EIP) ProtoMessage()
 ```
 
-### <a name="EIP.Reset">func</a> (\*EIP) [Reset](./types.pb.go#L246)
+### <a name="EIP.Reset">func</a> (\*EIP) [Reset](./types.pb.go#L1117)
 ``` go
 func (m *EIP) Reset()
 ```
 
-### <a name="EIP.String">func</a> (\*EIP) [String](./types.pb.go#L247)
+### <a name="EIP.String">func</a> (\*EIP) [String](./types.pb.go#L1118)
 ``` go
 func (m *EIP) String() string
 ```
 
-### <a name="EIP.Validate">func</a> (\*EIP) [Validate](./types.pb.validate.go#L40)
+### <a name="EIP.Validate">func</a> (\*EIP) [Validate](./types.pb.validate.go#L70)
 ``` go
 func (p *EIP) Validate() error
 ```
 
-## <a name="EIPGroup">type</a> [EIPGroup](./types.pb.go#L2838-L2842)
+## <a name="EIPGroup">type</a> [EIPGroup](./types.pb.go#L3216-L3220)
 ``` go
 type EIPGroup struct {
     EipGroupId       *string `protobuf:"bytes,1,opt,name=eip_group_id,json=eipGroupId" json:"eip_group_id,omitempty"`
@@ -37036,42 +36883,42 @@ type EIPGroup struct {
 }
 ```
 
-### <a name="EIPGroup.Descriptor">func</a> (\*EIPGroup) [Descriptor](./types.pb.go#L2847)
+### <a name="EIPGroup.Descriptor">func</a> (\*EIPGroup) [Descriptor](./types.pb.go#L3225)
 ``` go
 func (*EIPGroup) Descriptor() ([]byte, []int)
 ```
 
-### <a name="EIPGroup.GetEipGroupId">func</a> (\*EIPGroup) [GetEipGroupId](./types.pb.go#L2849)
+### <a name="EIPGroup.GetEipGroupId">func</a> (\*EIPGroup) [GetEipGroupId](./types.pb.go#L3227)
 ``` go
 func (m *EIPGroup) GetEipGroupId() string
 ```
 
-### <a name="EIPGroup.GetEipGroupName">func</a> (\*EIPGroup) [GetEipGroupName](./types.pb.go#L2856)
+### <a name="EIPGroup.GetEipGroupName">func</a> (\*EIPGroup) [GetEipGroupName](./types.pb.go#L3234)
 ``` go
 func (m *EIPGroup) GetEipGroupName() string
 ```
 
-### <a name="EIPGroup.ProtoMessage">func</a> (\*EIPGroup) [ProtoMessage](./types.pb.go#L2846)
+### <a name="EIPGroup.ProtoMessage">func</a> (\*EIPGroup) [ProtoMessage](./types.pb.go#L3224)
 ``` go
 func (*EIPGroup) ProtoMessage()
 ```
 
-### <a name="EIPGroup.Reset">func</a> (\*EIPGroup) [Reset](./types.pb.go#L2844)
+### <a name="EIPGroup.Reset">func</a> (\*EIPGroup) [Reset](./types.pb.go#L3222)
 ``` go
 func (m *EIPGroup) Reset()
 ```
 
-### <a name="EIPGroup.String">func</a> (\*EIPGroup) [String](./types.pb.go#L2845)
+### <a name="EIPGroup.String">func</a> (\*EIPGroup) [String](./types.pb.go#L3223)
 ``` go
 func (m *EIPGroup) String() string
 ```
 
-### <a name="EIPGroup.Validate">func</a> (\*EIPGroup) [Validate](./types.pb.validate.go#L170)
+### <a name="EIPGroup.Validate">func</a> (\*EIPGroup) [Validate](./types.pb.validate.go#L175)
 ``` go
 func (p *EIPGroup) Validate() error
 ```
 
-## <a name="EIPResource">type</a> [EIPResource](./types.pb.go#L2863-L2868)
+## <a name="EIPResource">type</a> [EIPResource](./types.pb.go#L3241-L3246)
 ``` go
 type EIPResource struct {
     ResourceId       *string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
@@ -37081,99 +36928,99 @@ type EIPResource struct {
 }
 ```
 
-### <a name="EIPResource.Descriptor">func</a> (\*EIPResource) [Descriptor](./types.pb.go#L2873)
+### <a name="EIPResource.Descriptor">func</a> (\*EIPResource) [Descriptor](./types.pb.go#L3251)
 ``` go
 func (*EIPResource) Descriptor() ([]byte, []int)
 ```
 
-### <a name="EIPResource.GetResourceId">func</a> (\*EIPResource) [GetResourceId](./types.pb.go#L2875)
+### <a name="EIPResource.GetResourceId">func</a> (\*EIPResource) [GetResourceId](./types.pb.go#L3253)
 ``` go
 func (m *EIPResource) GetResourceId() string
 ```
 
-### <a name="EIPResource.GetResourceName">func</a> (\*EIPResource) [GetResourceName](./types.pb.go#L2882)
+### <a name="EIPResource.GetResourceName">func</a> (\*EIPResource) [GetResourceName](./types.pb.go#L3260)
 ``` go
 func (m *EIPResource) GetResourceName() string
 ```
 
-### <a name="EIPResource.GetResourceType">func</a> (\*EIPResource) [GetResourceType](./types.pb.go#L2889)
+### <a name="EIPResource.GetResourceType">func</a> (\*EIPResource) [GetResourceType](./types.pb.go#L3267)
 ``` go
 func (m *EIPResource) GetResourceType() string
 ```
 
-### <a name="EIPResource.ProtoMessage">func</a> (\*EIPResource) [ProtoMessage](./types.pb.go#L2872)
+### <a name="EIPResource.ProtoMessage">func</a> (\*EIPResource) [ProtoMessage](./types.pb.go#L3250)
 ``` go
 func (*EIPResource) ProtoMessage()
 ```
 
-### <a name="EIPResource.Reset">func</a> (\*EIPResource) [Reset](./types.pb.go#L2870)
+### <a name="EIPResource.Reset">func</a> (\*EIPResource) [Reset](./types.pb.go#L3248)
 ``` go
 func (m *EIPResource) Reset()
 ```
 
-### <a name="EIPResource.String">func</a> (\*EIPResource) [String](./types.pb.go#L2871)
+### <a name="EIPResource.String">func</a> (\*EIPResource) [String](./types.pb.go#L3249)
 ``` go
 func (m *EIPResource) String() string
 ```
 
-### <a name="EIPResource.Validate">func</a> (\*EIPResource) [Validate](./types.pb.validate.go#L175)
+### <a name="EIPResource.Validate">func</a> (\*EIPResource) [Validate](./types.pb.validate.go#L180)
 ``` go
 func (p *EIPResource) Validate() error
 ```
 
-## <a name="EIPService">type</a> [EIPService](./eip.pb.qingcloud.go#L30-L32)
+## <a name="EIPService">type</a> [EIPService](./eip.pb.qingcloud.go#L37-L39)
 ``` go
 type EIPService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewEIPService">func</a> [NewEIPService](./eip.pb.qingcloud.go#L34)
+### <a name="NewEIPService">func</a> [NewEIPService](./eip.pb.qingcloud.go#L41)
 ``` go
 func NewEIPService(server *ServerInfo) (p *EIPService)
 ```
 
-### <a name="EIPService.AllocateEips">func</a> (\*EIPService) [AllocateEips](./eip.pb.qingcloud.go#L61)
+### <a name="EIPService.AllocateEips">func</a> (\*EIPService) [AllocateEips](./eip.pb.qingcloud.go#L119)
 ``` go
 func (p *EIPService) AllocateEips(input *AllocateEipsInput) (output *AllocateEipsOutput, err error)
 ```
 
-### <a name="EIPService.AssociateEip">func</a> (\*EIPService) [AssociateEip](./eip.pb.qingcloud.go#L103)
+### <a name="EIPService.AssociateEip">func</a> (\*EIPService) [AssociateEip](./eip.pb.qingcloud.go#L161)
 ``` go
 func (p *EIPService) AssociateEip(input *AssociateEipInput) (output *AssociateEipOutput, err error)
 ```
 
-### <a name="EIPService.ChangeEipsBandwidth">func</a> (\*EIPService) [ChangeEipsBandwidth](./eip.pb.qingcloud.go#L145)
+### <a name="EIPService.ChangeEipsBandwidth">func</a> (\*EIPService) [ChangeEipsBandwidth](./eip.pb.qingcloud.go#L203)
 ``` go
 func (p *EIPService) ChangeEipsBandwidth(input *ChangeEipsBandwidthInput) (output *ChangeEipsBandwidthOutput, err error)
 ```
 
-### <a name="EIPService.ChangeEipsBillingMode">func</a> (\*EIPService) [ChangeEipsBillingMode](./eip.pb.qingcloud.go#L166)
+### <a name="EIPService.ChangeEipsBillingMode">func</a> (\*EIPService) [ChangeEipsBillingMode](./eip.pb.qingcloud.go#L224)
 ``` go
 func (p *EIPService) ChangeEipsBillingMode(input *ChangeEipsBillingModeInput) (output *ChangeEipsBillingModeOutput, err error)
 ```
 
-### <a name="EIPService.DescribeEips">func</a> (\*EIPService) [DescribeEips](./eip.pb.qingcloud.go#L40)
+### <a name="EIPService.DescribeEips">func</a> (\*EIPService) [DescribeEips](./eip.pb.qingcloud.go#L98)
 ``` go
 func (p *EIPService) DescribeEips(input *DescribeEipsInput) (output *DescribeEipsOutput, err error)
 ```
 
-### <a name="EIPService.DissociateEips">func</a> (\*EIPService) [DissociateEips](./eip.pb.qingcloud.go#L124)
+### <a name="EIPService.DissociateEips">func</a> (\*EIPService) [DissociateEips](./eip.pb.qingcloud.go#L182)
 ``` go
 func (p *EIPService) DissociateEips(input *DissociateEipsInput) (output *DissociateEipsOutput, err error)
 ```
 
-### <a name="EIPService.ModifyEipAttributes">func</a> (\*EIPService) [ModifyEipAttributes](./eip.pb.qingcloud.go#L187)
+### <a name="EIPService.ModifyEipAttributes">func</a> (\*EIPService) [ModifyEipAttributes](./eip.pb.qingcloud.go#L245)
 ``` go
 func (p *EIPService) ModifyEipAttributes(input *ModifyEipAttributesInput) (output *ModifyEipAttributesOutput, err error)
 ```
 
-### <a name="EIPService.ReleaseEips">func</a> (\*EIPService) [ReleaseEips](./eip.pb.qingcloud.go#L82)
+### <a name="EIPService.ReleaseEips">func</a> (\*EIPService) [ReleaseEips](./eip.pb.qingcloud.go#L140)
 ``` go
 func (p *EIPService) ReleaseEips(input *ReleaseEipsInput) (output *ReleaseEipsOutput, err error)
 ```
 
-## <a name="EIPServiceInterface">type</a> [EIPServiceInterface](./eip.pb.qingcloud.go#L19-L28)
+## <a name="EIPServiceInterface">type</a> [EIPServiceInterface](./eip.pb.qingcloud.go#L26-L35)
 ``` go
 type EIPServiceInterface interface {
     DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutput, err error)
@@ -37275,7 +37122,7 @@ func (m *EnableS2SharedTargetsOutput) String() string
 func (p *EnableS2SharedTargetsOutput) Validate() error
 ```
 
-## <a name="Extra">type</a> [Extra](./types.pb.go#L2896-L2910)
+## <a name="Extra">type</a> [Extra](./types.pb.go#L3274-L3288)
 ``` go
 type Extra struct {
     BlockBus         *string `protobuf:"bytes,1,opt,name=block_bus,json=blockBus" json:"block_bus,omitempty"`
@@ -37294,92 +37141,92 @@ type Extra struct {
 }
 ```
 
-### <a name="Extra.Descriptor">func</a> (\*Extra) [Descriptor](./types.pb.go#L2915)
+### <a name="Extra.Descriptor">func</a> (\*Extra) [Descriptor](./types.pb.go#L3293)
 ``` go
 func (*Extra) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Extra.GetBlockBus">func</a> (\*Extra) [GetBlockBus](./types.pb.go#L2917)
+### <a name="Extra.GetBlockBus">func</a> (\*Extra) [GetBlockBus](./types.pb.go#L3295)
 ``` go
 func (m *Extra) GetBlockBus() string
 ```
 
-### <a name="Extra.GetBootDev">func</a> (\*Extra) [GetBootDev](./types.pb.go#L2924)
+### <a name="Extra.GetBootDev">func</a> (\*Extra) [GetBootDev](./types.pb.go#L3302)
 ``` go
 func (m *Extra) GetBootDev() string
 ```
 
-### <a name="Extra.GetCpuMax">func</a> (\*Extra) [GetCpuMax](./types.pb.go#L2931)
+### <a name="Extra.GetCpuMax">func</a> (\*Extra) [GetCpuMax](./types.pb.go#L3309)
 ``` go
 func (m *Extra) GetCpuMax() int32
 ```
 
-### <a name="Extra.GetCpuModel">func</a> (\*Extra) [GetCpuModel](./types.pb.go#L2938)
+### <a name="Extra.GetCpuModel">func</a> (\*Extra) [GetCpuModel](./types.pb.go#L3316)
 ``` go
 func (m *Extra) GetCpuModel() string
 ```
 
-### <a name="Extra.GetFeatures">func</a> (\*Extra) [GetFeatures](./types.pb.go#L2945)
+### <a name="Extra.GetFeatures">func</a> (\*Extra) [GetFeatures](./types.pb.go#L3323)
 ``` go
 func (m *Extra) GetFeatures() int32
 ```
 
-### <a name="Extra.GetHypervisor">func</a> (\*Extra) [GetHypervisor](./types.pb.go#L2952)
+### <a name="Extra.GetHypervisor">func</a> (\*Extra) [GetHypervisor](./types.pb.go#L3330)
 ``` go
 func (m *Extra) GetHypervisor() string
 ```
 
-### <a name="Extra.GetMemMax">func</a> (\*Extra) [GetMemMax](./types.pb.go#L2959)
+### <a name="Extra.GetMemMax">func</a> (\*Extra) [GetMemMax](./types.pb.go#L3337)
 ``` go
 func (m *Extra) GetMemMax() int32
 ```
 
-### <a name="Extra.GetNicMqueue">func</a> (\*Extra) [GetNicMqueue](./types.pb.go#L2966)
+### <a name="Extra.GetNicMqueue">func</a> (\*Extra) [GetNicMqueue](./types.pb.go#L3344)
 ``` go
 func (m *Extra) GetNicMqueue() int32
 ```
 
-### <a name="Extra.GetNoLimit">func</a> (\*Extra) [GetNoLimit](./types.pb.go#L2973)
+### <a name="Extra.GetNoLimit">func</a> (\*Extra) [GetNoLimit](./types.pb.go#L3351)
 ``` go
 func (m *Extra) GetNoLimit() int32
 ```
 
-### <a name="Extra.GetNoRestrict">func</a> (\*Extra) [GetNoRestrict](./types.pb.go#L2980)
+### <a name="Extra.GetNoRestrict">func</a> (\*Extra) [GetNoRestrict](./types.pb.go#L3358)
 ``` go
 func (m *Extra) GetNoRestrict() int32
 ```
 
-### <a name="Extra.GetOsDiskSize">func</a> (\*Extra) [GetOsDiskSize](./types.pb.go#L2987)
+### <a name="Extra.GetOsDiskSize">func</a> (\*Extra) [GetOsDiskSize](./types.pb.go#L3365)
 ``` go
 func (m *Extra) GetOsDiskSize() int32
 ```
 
-### <a name="Extra.GetUsb">func</a> (\*Extra) [GetUsb](./types.pb.go#L2994)
+### <a name="Extra.GetUsb">func</a> (\*Extra) [GetUsb](./types.pb.go#L3372)
 ``` go
 func (m *Extra) GetUsb() int32
 ```
 
-### <a name="Extra.ProtoMessage">func</a> (\*Extra) [ProtoMessage](./types.pb.go#L2914)
+### <a name="Extra.ProtoMessage">func</a> (\*Extra) [ProtoMessage](./types.pb.go#L3292)
 ``` go
 func (*Extra) ProtoMessage()
 ```
 
-### <a name="Extra.Reset">func</a> (\*Extra) [Reset](./types.pb.go#L2912)
+### <a name="Extra.Reset">func</a> (\*Extra) [Reset](./types.pb.go#L3290)
 ``` go
 func (m *Extra) Reset()
 ```
 
-### <a name="Extra.String">func</a> (\*Extra) [String](./types.pb.go#L2913)
+### <a name="Extra.String">func</a> (\*Extra) [String](./types.pb.go#L3291)
 ``` go
 func (m *Extra) String() string
 ```
 
-### <a name="Extra.Validate">func</a> (\*Extra) [Validate](./types.pb.validate.go#L180)
+### <a name="Extra.Validate">func</a> (\*Extra) [Validate](./types.pb.validate.go#L185)
 ``` go
 func (p *Extra) Validate() error
 ```
 
-## <a name="File">type</a> [File](./types.pb.go#L3001-L3006)
+## <a name="File">type</a> [File](./types.pb.go#L3379-L3384)
 ``` go
 type File struct {
     File             *string                     `protobuf:"bytes,1,opt,name=file" json:"file,omitempty"`
@@ -37389,42 +37236,42 @@ type File struct {
 }
 ```
 
-### <a name="File.Descriptor">func</a> (\*File) [Descriptor](./types.pb.go#L3011)
+### <a name="File.Descriptor">func</a> (\*File) [Descriptor](./types.pb.go#L3389)
 ``` go
 func (*File) Descriptor() ([]byte, []int)
 ```
 
-### <a name="File.GetFile">func</a> (\*File) [GetFile](./types.pb.go#L3013)
+### <a name="File.GetFile">func</a> (\*File) [GetFile](./types.pb.go#L3391)
 ``` go
 func (m *File) GetFile() string
 ```
 
-### <a name="File.GetLastModify">func</a> (\*File) [GetLastModify](./types.pb.go#L3020)
+### <a name="File.GetLastModify">func</a> (\*File) [GetLastModify](./types.pb.go#L3398)
 ``` go
 func (m *File) GetLastModify() *google_protobuf1.Timestamp
 ```
 
-### <a name="File.GetSize">func</a> (\*File) [GetSize](./types.pb.go#L3027)
+### <a name="File.GetSize">func</a> (\*File) [GetSize](./types.pb.go#L3405)
 ``` go
 func (m *File) GetSize() int32
 ```
 
-### <a name="File.ProtoMessage">func</a> (\*File) [ProtoMessage](./types.pb.go#L3010)
+### <a name="File.ProtoMessage">func</a> (\*File) [ProtoMessage](./types.pb.go#L3388)
 ``` go
 func (*File) ProtoMessage()
 ```
 
-### <a name="File.Reset">func</a> (\*File) [Reset](./types.pb.go#L3008)
+### <a name="File.Reset">func</a> (\*File) [Reset](./types.pb.go#L3386)
 ``` go
 func (m *File) Reset()
 ```
 
-### <a name="File.String">func</a> (\*File) [String](./types.pb.go#L3009)
+### <a name="File.String">func</a> (\*File) [String](./types.pb.go#L3387)
 ``` go
 func (m *File) String() string
 ```
 
-### <a name="File.Validate">func</a> (\*File) [Validate](./types.pb.validate.go#L185)
+### <a name="File.Validate">func</a> (\*File) [Validate](./types.pb.validate.go#L190)
 ``` go
 func (p *File) Validate() error
 ```
@@ -39028,7 +38875,7 @@ func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) Reset()
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) String() string
 ```
 
-## <a name="GroupRoleItem">type</a> [GroupRoleItem](./types.pb.go#L6073-L6082)
+## <a name="GroupRoleItem">type</a> [GroupRoleItem](./types.pb.go#L6027-L6036)
 ``` go
 type GroupRoleItem struct {
     Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
@@ -39042,57 +38889,57 @@ type GroupRoleItem struct {
 }
 ```
 
-### <a name="GroupRoleItem.Descriptor">func</a> (\*GroupRoleItem) [Descriptor](./types.pb.go#L6087)
+### <a name="GroupRoleItem.Descriptor">func</a> (\*GroupRoleItem) [Descriptor](./types.pb.go#L6041)
 ``` go
 func (*GroupRoleItem) Descriptor() ([]byte, []int)
 ```
 
-### <a name="GroupRoleItem.GetCreateTime">func</a> (\*GroupRoleItem) [GetCreateTime](./types.pb.go#L6110)
+### <a name="GroupRoleItem.GetCreateTime">func</a> (\*GroupRoleItem) [GetCreateTime](./types.pb.go#L6064)
 ``` go
 func (m *GroupRoleItem) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="GroupRoleItem.GetDescription">func</a> (\*GroupRoleItem) [GetDescription](./types.pb.go#L6096)
+### <a name="GroupRoleItem.GetDescription">func</a> (\*GroupRoleItem) [GetDescription](./types.pb.go#L6050)
 ``` go
 func (m *GroupRoleItem) GetDescription() string
 ```
 
-### <a name="GroupRoleItem.GetGroupRoleId">func</a> (\*GroupRoleItem) [GetGroupRoleId](./types.pb.go#L6103)
+### <a name="GroupRoleItem.GetGroupRoleId">func</a> (\*GroupRoleItem) [GetGroupRoleId](./types.pb.go#L6057)
 ``` go
 func (m *GroupRoleItem) GetGroupRoleId() string
 ```
 
-### <a name="GroupRoleItem.GetGroupRoleName">func</a> (\*GroupRoleItem) [GetGroupRoleName](./types.pb.go#L6117)
+### <a name="GroupRoleItem.GetGroupRoleName">func</a> (\*GroupRoleItem) [GetGroupRoleName](./types.pb.go#L6071)
 ``` go
 func (m *GroupRoleItem) GetGroupRoleName() string
 ```
 
-### <a name="GroupRoleItem.GetRoleType">func</a> (\*GroupRoleItem) [GetRoleType](./types.pb.go#L6131)
+### <a name="GroupRoleItem.GetRoleType">func</a> (\*GroupRoleItem) [GetRoleType](./types.pb.go#L6085)
 ``` go
 func (m *GroupRoleItem) GetRoleType() string
 ```
 
-### <a name="GroupRoleItem.GetStatus">func</a> (\*GroupRoleItem) [GetStatus](./types.pb.go#L6089)
+### <a name="GroupRoleItem.GetStatus">func</a> (\*GroupRoleItem) [GetStatus](./types.pb.go#L6043)
 ``` go
 func (m *GroupRoleItem) GetStatus() string
 ```
 
-### <a name="GroupRoleItem.GetStatusTime">func</a> (\*GroupRoleItem) [GetStatusTime](./types.pb.go#L6124)
+### <a name="GroupRoleItem.GetStatusTime">func</a> (\*GroupRoleItem) [GetStatusTime](./types.pb.go#L6078)
 ``` go
 func (m *GroupRoleItem) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="GroupRoleItem.ProtoMessage">func</a> (\*GroupRoleItem) [ProtoMessage](./types.pb.go#L6086)
+### <a name="GroupRoleItem.ProtoMessage">func</a> (\*GroupRoleItem) [ProtoMessage](./types.pb.go#L6040)
 ``` go
 func (*GroupRoleItem) ProtoMessage()
 ```
 
-### <a name="GroupRoleItem.Reset">func</a> (\*GroupRoleItem) [Reset](./types.pb.go#L6084)
+### <a name="GroupRoleItem.Reset">func</a> (\*GroupRoleItem) [Reset](./types.pb.go#L6038)
 ``` go
 func (m *GroupRoleItem) Reset()
 ```
 
-### <a name="GroupRoleItem.String">func</a> (\*GroupRoleItem) [String](./types.pb.go#L6085)
+### <a name="GroupRoleItem.String">func</a> (\*GroupRoleItem) [String](./types.pb.go#L6039)
 ``` go
 func (m *GroupRoleItem) String() string
 ```
@@ -39102,7 +38949,7 @@ func (m *GroupRoleItem) String() string
 func (p *GroupRoleItem) Validate() error
 ```
 
-## <a name="GroupRoleRuleItem">type</a> [GroupRoleRuleItem](./types.pb.go#L6138-L6148)
+## <a name="GroupRoleRuleItem">type</a> [GroupRoleRuleItem](./types.pb.go#L6092-L6102)
 ``` go
 type GroupRoleRuleItem struct {
     Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
@@ -39117,62 +38964,62 @@ type GroupRoleRuleItem struct {
 }
 ```
 
-### <a name="GroupRoleRuleItem.Descriptor">func</a> (\*GroupRoleRuleItem) [Descriptor](./types.pb.go#L6153)
+### <a name="GroupRoleRuleItem.Descriptor">func</a> (\*GroupRoleRuleItem) [Descriptor](./types.pb.go#L6107)
 ``` go
 func (*GroupRoleRuleItem) Descriptor() ([]byte, []int)
 ```
 
-### <a name="GroupRoleRuleItem.GetCreateTime">func</a> (\*GroupRoleRuleItem) [GetCreateTime](./types.pb.go#L6176)
+### <a name="GroupRoleRuleItem.GetCreateTime">func</a> (\*GroupRoleRuleItem) [GetCreateTime](./types.pb.go#L6130)
 ``` go
 func (m *GroupRoleRuleItem) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="GroupRoleRuleItem.GetDescription">func</a> (\*GroupRoleRuleItem) [GetDescription](./types.pb.go#L6162)
+### <a name="GroupRoleRuleItem.GetDescription">func</a> (\*GroupRoleRuleItem) [GetDescription](./types.pb.go#L6116)
 ``` go
 func (m *GroupRoleRuleItem) GetDescription() string
 ```
 
-### <a name="GroupRoleRuleItem.GetGroupRoleId">func</a> (\*GroupRoleRuleItem) [GetGroupRoleId](./types.pb.go#L6169)
+### <a name="GroupRoleRuleItem.GetGroupRoleId">func</a> (\*GroupRoleRuleItem) [GetGroupRoleId](./types.pb.go#L6123)
 ``` go
 func (m *GroupRoleRuleItem) GetGroupRoleId() string
 ```
 
-### <a name="GroupRoleRuleItem.GetGroupRoleRuleId">func</a> (\*GroupRoleRuleItem) [GetGroupRoleRuleId](./types.pb.go#L6204)
+### <a name="GroupRoleRuleItem.GetGroupRoleRuleId">func</a> (\*GroupRoleRuleItem) [GetGroupRoleRuleId](./types.pb.go#L6158)
 ``` go
 func (m *GroupRoleRuleItem) GetGroupRoleRuleId() string
 ```
 
-### <a name="GroupRoleRuleItem.GetPolicy">func</a> (\*GroupRoleRuleItem) [GetPolicy](./types.pb.go#L6190)
+### <a name="GroupRoleRuleItem.GetPolicy">func</a> (\*GroupRoleRuleItem) [GetPolicy](./types.pb.go#L6144)
 ``` go
 func (m *GroupRoleRuleItem) GetPolicy() string
 ```
 
-### <a name="GroupRoleRuleItem.GetPrinciple">func</a> (\*GroupRoleRuleItem) [GetPrinciple](./types.pb.go#L6183)
+### <a name="GroupRoleRuleItem.GetPrinciple">func</a> (\*GroupRoleRuleItem) [GetPrinciple](./types.pb.go#L6137)
 ``` go
 func (m *GroupRoleRuleItem) GetPrinciple() string
 ```
 
-### <a name="GroupRoleRuleItem.GetStatus">func</a> (\*GroupRoleRuleItem) [GetStatus](./types.pb.go#L6155)
+### <a name="GroupRoleRuleItem.GetStatus">func</a> (\*GroupRoleRuleItem) [GetStatus](./types.pb.go#L6109)
 ``` go
 func (m *GroupRoleRuleItem) GetStatus() string
 ```
 
-### <a name="GroupRoleRuleItem.GetStatusTime">func</a> (\*GroupRoleRuleItem) [GetStatusTime](./types.pb.go#L6197)
+### <a name="GroupRoleRuleItem.GetStatusTime">func</a> (\*GroupRoleRuleItem) [GetStatusTime](./types.pb.go#L6151)
 ``` go
 func (m *GroupRoleRuleItem) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="GroupRoleRuleItem.ProtoMessage">func</a> (\*GroupRoleRuleItem) [ProtoMessage](./types.pb.go#L6152)
+### <a name="GroupRoleRuleItem.ProtoMessage">func</a> (\*GroupRoleRuleItem) [ProtoMessage](./types.pb.go#L6106)
 ``` go
 func (*GroupRoleRuleItem) ProtoMessage()
 ```
 
-### <a name="GroupRoleRuleItem.Reset">func</a> (\*GroupRoleRuleItem) [Reset](./types.pb.go#L6150)
+### <a name="GroupRoleRuleItem.Reset">func</a> (\*GroupRoleRuleItem) [Reset](./types.pb.go#L6104)
 ``` go
 func (m *GroupRoleRuleItem) Reset()
 ```
 
-### <a name="GroupRoleRuleItem.String">func</a> (\*GroupRoleRuleItem) [String](./types.pb.go#L6151)
+### <a name="GroupRoleRuleItem.String">func</a> (\*GroupRoleRuleItem) [String](./types.pb.go#L6105)
 ``` go
 func (m *GroupRoleRuleItem) String() string
 ```
@@ -39182,39 +39029,39 @@ func (m *GroupRoleRuleItem) String() string
 func (p *GroupRoleRuleItem) Validate() error
 ```
 
-## <a name="HadoopService">type</a> [HadoopService](./hadoop.pb.qingcloud.go#L26-L28)
+## <a name="HadoopService">type</a> [HadoopService](./hadoop.pb.qingcloud.go#L33-L35)
 ``` go
 type HadoopService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewHadoopService">func</a> [NewHadoopService](./hadoop.pb.qingcloud.go#L30)
+### <a name="NewHadoopService">func</a> [NewHadoopService](./hadoop.pb.qingcloud.go#L37)
 ``` go
 func NewHadoopService(server *ServerInfo) (p *HadoopService)
 ```
 
-### <a name="HadoopService.AddHadoopNodes">func</a> (\*HadoopService) [AddHadoopNodes](./hadoop.pb.qingcloud.go#L36)
+### <a name="HadoopService.AddHadoopNodes">func</a> (\*HadoopService) [AddHadoopNodes](./hadoop.pb.qingcloud.go#L70)
 ``` go
 func (p *HadoopService) AddHadoopNodes(input *AddHadoopNodesInput) (output *AddHadoopNodesOutput, err error)
 ```
 
-### <a name="HadoopService.DeleteHadoopNodes">func</a> (\*HadoopService) [DeleteHadoopNodes](./hadoop.pb.qingcloud.go#L57)
+### <a name="HadoopService.DeleteHadoopNodes">func</a> (\*HadoopService) [DeleteHadoopNodes](./hadoop.pb.qingcloud.go#L91)
 ``` go
 func (p *HadoopService) DeleteHadoopNodes(input *DeleteHadoopNodesInput) (output *DeleteHadoopNodesOutput, err error)
 ```
 
-### <a name="HadoopService.StartHadoops">func</a> (\*HadoopService) [StartHadoops](./hadoop.pb.qingcloud.go#L78)
+### <a name="HadoopService.StartHadoops">func</a> (\*HadoopService) [StartHadoops](./hadoop.pb.qingcloud.go#L112)
 ``` go
 func (p *HadoopService) StartHadoops(input *StartHadoopsInput) (output *StartHadoopsOutput, err error)
 ```
 
-### <a name="HadoopService.StopHadoops">func</a> (\*HadoopService) [StopHadoops](./hadoop.pb.qingcloud.go#L99)
+### <a name="HadoopService.StopHadoops">func</a> (\*HadoopService) [StopHadoops](./hadoop.pb.qingcloud.go#L133)
 ``` go
 func (p *HadoopService) StopHadoops(input *StopHadoopsInput) (output *StopHadoopsOutput, err error)
 ```
 
-## <a name="HadoopServiceInterface">type</a> [HadoopServiceInterface](./hadoop.pb.qingcloud.go#L19-L24)
+## <a name="HadoopServiceInterface">type</a> [HadoopServiceInterface](./hadoop.pb.qingcloud.go#L26-L31)
 ``` go
 type HadoopServiceInterface interface {
     AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error)
@@ -39224,7 +39071,7 @@ type HadoopServiceInterface interface {
 }
 ```
 
-## <a name="Image">type</a> [Image](./types.pb.go#L1390-L1420)
+## <a name="Image">type</a> [Image](./types.pb.go#L2261-L2291)
 ``` go
 type Image struct {
     AppBillingId     *string                     `protobuf:"bytes,1,opt,name=app_billing_id,json=appBillingId" json:"app_billing_id,omitempty"`
@@ -39259,224 +39106,224 @@ type Image struct {
 }
 ```
 
-### <a name="Image.Descriptor">func</a> (\*Image) [Descriptor](./types.pb.go#L1425)
+### <a name="Image.Descriptor">func</a> (\*Image) [Descriptor](./types.pb.go#L2296)
 ``` go
 func (*Image) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Image.GetAppBillingId">func</a> (\*Image) [GetAppBillingId](./types.pb.go#L1427)
+### <a name="Image.GetAppBillingId">func</a> (\*Image) [GetAppBillingId](./types.pb.go#L2298)
 ``` go
 func (m *Image) GetAppBillingId() string
 ```
 
-### <a name="Image.GetArchitecture">func</a> (\*Image) [GetArchitecture](./types.pb.go#L1434)
+### <a name="Image.GetArchitecture">func</a> (\*Image) [GetArchitecture](./types.pb.go#L2305)
 ``` go
 func (m *Image) GetArchitecture() string
 ```
 
-### <a name="Image.GetBillingId">func</a> (\*Image) [GetBillingId](./types.pb.go#L1441)
+### <a name="Image.GetBillingId">func</a> (\*Image) [GetBillingId](./types.pb.go#L2312)
 ``` go
 func (m *Image) GetBillingId() string
 ```
 
-### <a name="Image.GetCreateTime">func</a> (\*Image) [GetCreateTime](./types.pb.go#L1448)
+### <a name="Image.GetCreateTime">func</a> (\*Image) [GetCreateTime](./types.pb.go#L2319)
 ``` go
 func (m *Image) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Image.GetDefaultPasswd">func</a> (\*Image) [GetDefaultPasswd](./types.pb.go#L1455)
+### <a name="Image.GetDefaultPasswd">func</a> (\*Image) [GetDefaultPasswd](./types.pb.go#L2326)
 ``` go
 func (m *Image) GetDefaultPasswd() string
 ```
 
-### <a name="Image.GetDefaultUser">func</a> (\*Image) [GetDefaultUser](./types.pb.go#L1462)
+### <a name="Image.GetDefaultUser">func</a> (\*Image) [GetDefaultUser](./types.pb.go#L2333)
 ``` go
 func (m *Image) GetDefaultUser() string
 ```
 
-### <a name="Image.GetDescription">func</a> (\*Image) [GetDescription](./types.pb.go#L1469)
+### <a name="Image.GetDescription">func</a> (\*Image) [GetDescription](./types.pb.go#L2340)
 ``` go
 func (m *Image) GetDescription() string
 ```
 
-### <a name="Image.GetFResetpwd">func</a> (\*Image) [GetFResetpwd](./types.pb.go#L1476)
+### <a name="Image.GetFResetpwd">func</a> (\*Image) [GetFResetpwd](./types.pb.go#L2347)
 ``` go
 func (m *Image) GetFResetpwd() int32
 ```
 
-### <a name="Image.GetFeature">func</a> (\*Image) [GetFeature](./types.pb.go#L1483)
+### <a name="Image.GetFeature">func</a> (\*Image) [GetFeature](./types.pb.go#L2354)
 ``` go
 func (m *Image) GetFeature() int32
 ```
 
-### <a name="Image.GetFeatures">func</a> (\*Image) [GetFeatures](./types.pb.go#L1490)
+### <a name="Image.GetFeatures">func</a> (\*Image) [GetFeatures](./types.pb.go#L2361)
 ``` go
 func (m *Image) GetFeatures() int32
 ```
 
-### <a name="Image.GetHypervisor">func</a> (\*Image) [GetHypervisor](./types.pb.go#L1497)
+### <a name="Image.GetHypervisor">func</a> (\*Image) [GetHypervisor](./types.pb.go#L2368)
 ``` go
 func (m *Image) GetHypervisor() string
 ```
 
-### <a name="Image.GetImageId">func</a> (\*Image) [GetImageId](./types.pb.go#L1504)
+### <a name="Image.GetImageId">func</a> (\*Image) [GetImageId](./types.pb.go#L2375)
 ``` go
 func (m *Image) GetImageId() string
 ```
 
-### <a name="Image.GetImageName">func</a> (\*Image) [GetImageName](./types.pb.go#L1511)
+### <a name="Image.GetImageName">func</a> (\*Image) [GetImageName](./types.pb.go#L2382)
 ``` go
 func (m *Image) GetImageName() string
 ```
 
-### <a name="Image.GetInstanceIds">func</a> (\*Image) [GetInstanceIds](./types.pb.go#L1518)
+### <a name="Image.GetInstanceIds">func</a> (\*Image) [GetInstanceIds](./types.pb.go#L2389)
 ``` go
 func (m *Image) GetInstanceIds() []string
 ```
 
-### <a name="Image.GetOsFamily">func</a> (\*Image) [GetOsFamily](./types.pb.go#L1525)
+### <a name="Image.GetOsFamily">func</a> (\*Image) [GetOsFamily](./types.pb.go#L2396)
 ``` go
 func (m *Image) GetOsFamily() string
 ```
 
-### <a name="Image.GetOwner">func</a> (\*Image) [GetOwner](./types.pb.go#L1532)
+### <a name="Image.GetOwner">func</a> (\*Image) [GetOwner](./types.pb.go#L2403)
 ``` go
 func (m *Image) GetOwner() string
 ```
 
-### <a name="Image.GetPlatform">func</a> (\*Image) [GetPlatform](./types.pb.go#L1539)
+### <a name="Image.GetPlatform">func</a> (\*Image) [GetPlatform](./types.pb.go#L2410)
 ``` go
 func (m *Image) GetPlatform() string
 ```
 
-### <a name="Image.GetProcessorType">func</a> (\*Image) [GetProcessorType](./types.pb.go#L1546)
+### <a name="Image.GetProcessorType">func</a> (\*Image) [GetProcessorType](./types.pb.go#L2417)
 ``` go
 func (m *Image) GetProcessorType() string
 ```
 
-### <a name="Image.GetProvider">func</a> (\*Image) [GetProvider](./types.pb.go#L1553)
+### <a name="Image.GetProvider">func</a> (\*Image) [GetProvider](./types.pb.go#L2424)
 ``` go
 func (m *Image) GetProvider() string
 ```
 
-### <a name="Image.GetRecommendedType">func</a> (\*Image) [GetRecommendedType](./types.pb.go#L1560)
+### <a name="Image.GetRecommendedType">func</a> (\*Image) [GetRecommendedType](./types.pb.go#L2431)
 ``` go
 func (m *Image) GetRecommendedType() string
 ```
 
-### <a name="Image.GetRootId">func</a> (\*Image) [GetRootId](./types.pb.go#L1567)
+### <a name="Image.GetRootId">func</a> (\*Image) [GetRootId](./types.pb.go#L2438)
 ``` go
 func (m *Image) GetRootId() string
 ```
 
-### <a name="Image.GetSize">func</a> (\*Image) [GetSize](./types.pb.go#L1574)
+### <a name="Image.GetSize">func</a> (\*Image) [GetSize](./types.pb.go#L2445)
 ``` go
 func (m *Image) GetSize() int32
 ```
 
-### <a name="Image.GetStatus">func</a> (\*Image) [GetStatus](./types.pb.go#L1581)
+### <a name="Image.GetStatus">func</a> (\*Image) [GetStatus](./types.pb.go#L2452)
 ``` go
 func (m *Image) GetStatus() string
 ```
 
-### <a name="Image.GetStatusTime">func</a> (\*Image) [GetStatusTime](./types.pb.go#L1588)
+### <a name="Image.GetStatusTime">func</a> (\*Image) [GetStatusTime](./types.pb.go#L2459)
 ``` go
 func (m *Image) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Image.GetSubCode">func</a> (\*Image) [GetSubCode](./types.pb.go#L1595)
+### <a name="Image.GetSubCode">func</a> (\*Image) [GetSubCode](./types.pb.go#L2466)
 ``` go
 func (m *Image) GetSubCode() int32
 ```
 
-### <a name="Image.GetTransitionStatus">func</a> (\*Image) [GetTransitionStatus](./types.pb.go#L1602)
+### <a name="Image.GetTransitionStatus">func</a> (\*Image) [GetTransitionStatus](./types.pb.go#L2473)
 ``` go
 func (m *Image) GetTransitionStatus() string
 ```
 
-### <a name="Image.GetUiType">func</a> (\*Image) [GetUiType](./types.pb.go#L1609)
+### <a name="Image.GetUiType">func</a> (\*Image) [GetUiType](./types.pb.go#L2480)
 ``` go
 func (m *Image) GetUiType() string
 ```
 
-### <a name="Image.GetVisibility">func</a> (\*Image) [GetVisibility](./types.pb.go#L1616)
+### <a name="Image.GetVisibility">func</a> (\*Image) [GetVisibility](./types.pb.go#L2487)
 ``` go
 func (m *Image) GetVisibility() string
 ```
 
-### <a name="Image.ProtoMessage">func</a> (\*Image) [ProtoMessage](./types.pb.go#L1424)
+### <a name="Image.ProtoMessage">func</a> (\*Image) [ProtoMessage](./types.pb.go#L2295)
 ``` go
 func (*Image) ProtoMessage()
 ```
 
-### <a name="Image.Reset">func</a> (\*Image) [Reset](./types.pb.go#L1422)
+### <a name="Image.Reset">func</a> (\*Image) [Reset](./types.pb.go#L2293)
 ``` go
 func (m *Image) Reset()
 ```
 
-### <a name="Image.String">func</a> (\*Image) [String](./types.pb.go#L1423)
+### <a name="Image.String">func</a> (\*Image) [String](./types.pb.go#L2294)
 ``` go
 func (m *Image) String() string
 ```
 
-### <a name="Image.Validate">func</a> (\*Image) [Validate](./types.pb.validate.go#L90)
+### <a name="Image.Validate">func</a> (\*Image) [Validate](./types.pb.validate.go#L120)
 ``` go
 func (p *Image) Validate() error
 ```
 
-## <a name="ImageService">type</a> [ImageService](./image.pb.qingcloud.go#L30-L32)
+## <a name="ImageService">type</a> [ImageService](./image.pb.qingcloud.go#L37-L39)
 ``` go
 type ImageService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewImageService">func</a> [NewImageService](./image.pb.qingcloud.go#L34)
+### <a name="NewImageService">func</a> [NewImageService](./image.pb.qingcloud.go#L41)
 ``` go
 func NewImageService(server *ServerInfo) (p *ImageService)
 ```
 
-### <a name="ImageService.CaptureInstance">func</a> (\*ImageService) [CaptureInstance](./image.pb.qingcloud.go#L61)
+### <a name="ImageService.CaptureInstance">func</a> (\*ImageService) [CaptureInstance](./image.pb.qingcloud.go#L119)
 ``` go
 func (p *ImageService) CaptureInstance(input *CaptureInstanceInput) (output *CaptureInstanceOutput, err error)
 ```
 
-### <a name="ImageService.CloneImages">func</a> (\*ImageService) [CloneImages](./image.pb.qingcloud.go#L187)
+### <a name="ImageService.CloneImages">func</a> (\*ImageService) [CloneImages](./image.pb.qingcloud.go#L245)
 ``` go
 func (p *ImageService) CloneImages(input *CloneImagesInput) (output *CloneImagesOutput, err error)
 ```
 
-### <a name="ImageService.DeleteImages">func</a> (\*ImageService) [DeleteImages](./image.pb.qingcloud.go#L82)
+### <a name="ImageService.DeleteImages">func</a> (\*ImageService) [DeleteImages](./image.pb.qingcloud.go#L140)
 ``` go
 func (p *ImageService) DeleteImages(input *DeleteImagesInput) (output *DeleteImagesOutput, err error)
 ```
 
-### <a name="ImageService.DescribeImageUsers">func</a> (\*ImageService) [DescribeImageUsers](./image.pb.qingcloud.go#L166)
+### <a name="ImageService.DescribeImageUsers">func</a> (\*ImageService) [DescribeImageUsers](./image.pb.qingcloud.go#L224)
 ``` go
 func (p *ImageService) DescribeImageUsers(input *DescribeImageUsersInput) (output *DescribeImageUsersOutput, err error)
 ```
 
-### <a name="ImageService.DescribeImages">func</a> (\*ImageService) [DescribeImages](./image.pb.qingcloud.go#L40)
+### <a name="ImageService.DescribeImages">func</a> (\*ImageService) [DescribeImages](./image.pb.qingcloud.go#L98)
 ``` go
 func (p *ImageService) DescribeImages(input *DescribeImagesInput) (output *DescribeImagesOutput, err error)
 ```
 
-### <a name="ImageService.GrantImageToUsers">func</a> (\*ImageService) [GrantImageToUsers](./image.pb.qingcloud.go#L124)
+### <a name="ImageService.GrantImageToUsers">func</a> (\*ImageService) [GrantImageToUsers](./image.pb.qingcloud.go#L182)
 ``` go
 func (p *ImageService) GrantImageToUsers(input *GrantImageToUsersInput) (output *GrantImageToUsersOutput, err error)
 ```
 
-### <a name="ImageService.ModifyImageAttributes">func</a> (\*ImageService) [ModifyImageAttributes](./image.pb.qingcloud.go#L103)
+### <a name="ImageService.ModifyImageAttributes">func</a> (\*ImageService) [ModifyImageAttributes](./image.pb.qingcloud.go#L161)
 ``` go
 func (p *ImageService) ModifyImageAttributes(input *ModifyImageAttributesInput) (output *ModifyImageAttributesOutput, err error)
 ```
 
-### <a name="ImageService.RevokeImageFromUsers">func</a> (\*ImageService) [RevokeImageFromUsers](./image.pb.qingcloud.go#L145)
+### <a name="ImageService.RevokeImageFromUsers">func</a> (\*ImageService) [RevokeImageFromUsers](./image.pb.qingcloud.go#L203)
 ``` go
 func (p *ImageService) RevokeImageFromUsers(input *RevokeImageFromUsersInput) (output *RevokeImageFromUsersOutput, err error)
 ```
 
-## <a name="ImageServiceInterface">type</a> [ImageServiceInterface](./image.pb.qingcloud.go#L19-L28)
+## <a name="ImageServiceInterface">type</a> [ImageServiceInterface](./image.pb.qingcloud.go#L26-L35)
 ``` go
 type ImageServiceInterface interface {
     DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error)
@@ -39490,7 +39337,7 @@ type ImageServiceInterface interface {
 }
 ```
 
-## <a name="ImageUser">type</a> [ImageUser](./types.pb.go#L1623-L1628)
+## <a name="ImageUser">type</a> [ImageUser](./types.pb.go#L2494-L2499)
 ``` go
 type ImageUser struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -39500,47 +39347,47 @@ type ImageUser struct {
 }
 ```
 
-### <a name="ImageUser.Descriptor">func</a> (\*ImageUser) [Descriptor](./types.pb.go#L1633)
+### <a name="ImageUser.Descriptor">func</a> (\*ImageUser) [Descriptor](./types.pb.go#L2504)
 ``` go
 func (*ImageUser) Descriptor() ([]byte, []int)
 ```
 
-### <a name="ImageUser.GetCreateTime">func</a> (\*ImageUser) [GetCreateTime](./types.pb.go#L1635)
+### <a name="ImageUser.GetCreateTime">func</a> (\*ImageUser) [GetCreateTime](./types.pb.go#L2506)
 ``` go
 func (m *ImageUser) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="ImageUser.GetImageId">func</a> (\*ImageUser) [GetImageId](./types.pb.go#L1642)
+### <a name="ImageUser.GetImageId">func</a> (\*ImageUser) [GetImageId](./types.pb.go#L2513)
 ``` go
 func (m *ImageUser) GetImageId() string
 ```
 
-### <a name="ImageUser.GetUser">func</a> (\*ImageUser) [GetUser](./types.pb.go#L1649)
+### <a name="ImageUser.GetUser">func</a> (\*ImageUser) [GetUser](./types.pb.go#L2520)
 ``` go
 func (m *ImageUser) GetUser() string
 ```
 
-### <a name="ImageUser.ProtoMessage">func</a> (\*ImageUser) [ProtoMessage](./types.pb.go#L1632)
+### <a name="ImageUser.ProtoMessage">func</a> (\*ImageUser) [ProtoMessage](./types.pb.go#L2503)
 ``` go
 func (*ImageUser) ProtoMessage()
 ```
 
-### <a name="ImageUser.Reset">func</a> (\*ImageUser) [Reset](./types.pb.go#L1630)
+### <a name="ImageUser.Reset">func</a> (\*ImageUser) [Reset](./types.pb.go#L2501)
 ``` go
 func (m *ImageUser) Reset()
 ```
 
-### <a name="ImageUser.String">func</a> (\*ImageUser) [String](./types.pb.go#L1631)
+### <a name="ImageUser.String">func</a> (\*ImageUser) [String](./types.pb.go#L2502)
 ``` go
 func (m *ImageUser) String() string
 ```
 
-### <a name="ImageUser.Validate">func</a> (\*ImageUser) [Validate](./types.pb.validate.go#L95)
+### <a name="ImageUser.Validate">func</a> (\*ImageUser) [Validate](./types.pb.validate.go#L125)
 ``` go
 func (p *ImageUser) Validate() error
 ```
 
-## <a name="Instance">type</a> [Instance](./types.pb.go#L1112-L1144)
+## <a name="Instance">type</a> [Instance](./types.pb.go#L1983-L2015)
 ``` go
 type Instance struct {
     AlarmStatus *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
@@ -39577,234 +39424,234 @@ type Instance struct {
 }
 ```
 
-### <a name="Instance.Descriptor">func</a> (\*Instance) [Descriptor](./types.pb.go#L1149)
+### <a name="Instance.Descriptor">func</a> (\*Instance) [Descriptor](./types.pb.go#L2020)
 ``` go
 func (*Instance) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Instance.GetAlarmStatus">func</a> (\*Instance) [GetAlarmStatus](./types.pb.go#L1151)
+### <a name="Instance.GetAlarmStatus">func</a> (\*Instance) [GetAlarmStatus](./types.pb.go#L2022)
 ``` go
 func (m *Instance) GetAlarmStatus() string
 ```
 
-### <a name="Instance.GetCpuTopology">func</a> (\*Instance) [GetCpuTopology](./types.pb.go#L1158)
+### <a name="Instance.GetCpuTopology">func</a> (\*Instance) [GetCpuTopology](./types.pb.go#L2029)
 ``` go
 func (m *Instance) GetCpuTopology() string
 ```
 
-### <a name="Instance.GetCreateTime">func</a> (\*Instance) [GetCreateTime](./types.pb.go#L1165)
+### <a name="Instance.GetCreateTime">func</a> (\*Instance) [GetCreateTime](./types.pb.go#L2036)
 ``` go
 func (m *Instance) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Instance.GetDescription">func</a> (\*Instance) [GetDescription](./types.pb.go#L1172)
+### <a name="Instance.GetDescription">func</a> (\*Instance) [GetDescription](./types.pb.go#L2043)
 ``` go
 func (m *Instance) GetDescription() string
 ```
 
-### <a name="Instance.GetDevice">func</a> (\*Instance) [GetDevice](./types.pb.go#L1179)
+### <a name="Instance.GetDevice">func</a> (\*Instance) [GetDevice](./types.pb.go#L2050)
 ``` go
 func (m *Instance) GetDevice() string
 ```
 
-### <a name="Instance.GetEip">func</a> (\*Instance) [GetEip](./types.pb.go#L1186)
+### <a name="Instance.GetEip">func</a> (\*Instance) [GetEip](./types.pb.go#L2057)
 ``` go
 func (m *Instance) GetEip() *EIP
 ```
 
-### <a name="Instance.GetGraphicsPasswd">func</a> (\*Instance) [GetGraphicsPasswd](./types.pb.go#L1193)
+### <a name="Instance.GetGraphicsPasswd">func</a> (\*Instance) [GetGraphicsPasswd](./types.pb.go#L2064)
 ``` go
 func (m *Instance) GetGraphicsPasswd() string
 ```
 
-### <a name="Instance.GetGraphicsProtocol">func</a> (\*Instance) [GetGraphicsProtocol](./types.pb.go#L1200)
+### <a name="Instance.GetGraphicsProtocol">func</a> (\*Instance) [GetGraphicsProtocol](./types.pb.go#L2071)
 ``` go
 func (m *Instance) GetGraphicsProtocol() string
 ```
 
-### <a name="Instance.GetImage">func</a> (\*Instance) [GetImage](./types.pb.go#L1207)
+### <a name="Instance.GetImage">func</a> (\*Instance) [GetImage](./types.pb.go#L2078)
 ``` go
 func (m *Instance) GetImage() *Image
 ```
 
-### <a name="Instance.GetImageId">func</a> (\*Instance) [GetImageId](./types.pb.go#L1214)
+### <a name="Instance.GetImageId">func</a> (\*Instance) [GetImageId](./types.pb.go#L2085)
 ``` go
 func (m *Instance) GetImageId() string
 ```
 
-### <a name="Instance.GetInstanceClass">func</a> (\*Instance) [GetInstanceClass](./types.pb.go#L1221)
+### <a name="Instance.GetInstanceClass">func</a> (\*Instance) [GetInstanceClass](./types.pb.go#L2092)
 ``` go
 func (m *Instance) GetInstanceClass() int32
 ```
 
-### <a name="Instance.GetInstanceId">func</a> (\*Instance) [GetInstanceId](./types.pb.go#L1228)
+### <a name="Instance.GetInstanceId">func</a> (\*Instance) [GetInstanceId](./types.pb.go#L2099)
 ``` go
 func (m *Instance) GetInstanceId() string
 ```
 
-### <a name="Instance.GetInstanceName">func</a> (\*Instance) [GetInstanceName](./types.pb.go#L1235)
+### <a name="Instance.GetInstanceName">func</a> (\*Instance) [GetInstanceName](./types.pb.go#L2106)
 ``` go
 func (m *Instance) GetInstanceName() string
 ```
 
-### <a name="Instance.GetInstanceType">func</a> (\*Instance) [GetInstanceType](./types.pb.go#L1242)
+### <a name="Instance.GetInstanceType">func</a> (\*Instance) [GetInstanceType](./types.pb.go#L2113)
 ``` go
 func (m *Instance) GetInstanceType() string
 ```
 
-### <a name="Instance.GetKeypairIds">func</a> (\*Instance) [GetKeypairIds](./types.pb.go#L1249)
+### <a name="Instance.GetKeypairIds">func</a> (\*Instance) [GetKeypairIds](./types.pb.go#L2120)
 ``` go
 func (m *Instance) GetKeypairIds() []string
 ```
 
-### <a name="Instance.GetMemoryCurrent">func</a> (\*Instance) [GetMemoryCurrent](./types.pb.go#L1256)
+### <a name="Instance.GetMemoryCurrent">func</a> (\*Instance) [GetMemoryCurrent](./types.pb.go#L2127)
 ``` go
 func (m *Instance) GetMemoryCurrent() int32
 ```
 
-### <a name="Instance.GetPrivateIp">func</a> (\*Instance) [GetPrivateIp](./types.pb.go#L1263)
+### <a name="Instance.GetPrivateIp">func</a> (\*Instance) [GetPrivateIp](./types.pb.go#L2134)
 ``` go
 func (m *Instance) GetPrivateIp() string
 ```
 
-### <a name="Instance.GetStatus">func</a> (\*Instance) [GetStatus](./types.pb.go#L1270)
+### <a name="Instance.GetStatus">func</a> (\*Instance) [GetStatus](./types.pb.go#L2141)
 ``` go
 func (m *Instance) GetStatus() string
 ```
 
-### <a name="Instance.GetStatusTime">func</a> (\*Instance) [GetStatusTime](./types.pb.go#L1277)
+### <a name="Instance.GetStatusTime">func</a> (\*Instance) [GetStatusTime](./types.pb.go#L2148)
 ``` go
 func (m *Instance) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Instance.GetSubCode">func</a> (\*Instance) [GetSubCode](./types.pb.go#L1284)
+### <a name="Instance.GetSubCode">func</a> (\*Instance) [GetSubCode](./types.pb.go#L2155)
 ``` go
 func (m *Instance) GetSubCode() int32
 ```
 
-### <a name="Instance.GetTags">func</a> (\*Instance) [GetTags](./types.pb.go#L1291)
+### <a name="Instance.GetTags">func</a> (\*Instance) [GetTags](./types.pb.go#L2162)
 ``` go
 func (m *Instance) GetTags() []*Tag
 ```
 
-### <a name="Instance.GetTransitionStatus">func</a> (\*Instance) [GetTransitionStatus](./types.pb.go#L1298)
+### <a name="Instance.GetTransitionStatus">func</a> (\*Instance) [GetTransitionStatus](./types.pb.go#L2169)
 ``` go
 func (m *Instance) GetTransitionStatus() string
 ```
 
-### <a name="Instance.GetVcpusCurrent">func</a> (\*Instance) [GetVcpusCurrent](./types.pb.go#L1305)
+### <a name="Instance.GetVcpusCurrent">func</a> (\*Instance) [GetVcpusCurrent](./types.pb.go#L2176)
 ``` go
 func (m *Instance) GetVcpusCurrent() int32
 ```
 
-### <a name="Instance.GetVolumeIds">func</a> (\*Instance) [GetVolumeIds](./types.pb.go#L1312)
+### <a name="Instance.GetVolumeIds">func</a> (\*Instance) [GetVolumeIds](./types.pb.go#L2183)
 ``` go
 func (m *Instance) GetVolumeIds() []string
 ```
 
-### <a name="Instance.GetVolumes">func</a> (\*Instance) [GetVolumes](./types.pb.go#L1319)
+### <a name="Instance.GetVolumes">func</a> (\*Instance) [GetVolumes](./types.pb.go#L2190)
 ``` go
 func (m *Instance) GetVolumes() []*Volume
 ```
 
-### <a name="Instance.GetVxnets">func</a> (\*Instance) [GetVxnets](./types.pb.go#L1326)
+### <a name="Instance.GetVxnets">func</a> (\*Instance) [GetVxnets](./types.pb.go#L2197)
 ``` go
 func (m *Instance) GetVxnets() []*InstanceVxNet
 ```
 
-### <a name="Instance.ProtoMessage">func</a> (\*Instance) [ProtoMessage](./types.pb.go#L1148)
+### <a name="Instance.ProtoMessage">func</a> (\*Instance) [ProtoMessage](./types.pb.go#L2019)
 ``` go
 func (*Instance) ProtoMessage()
 ```
 
-### <a name="Instance.Reset">func</a> (\*Instance) [Reset](./types.pb.go#L1146)
+### <a name="Instance.Reset">func</a> (\*Instance) [Reset](./types.pb.go#L2017)
 ``` go
 func (m *Instance) Reset()
 ```
 
-### <a name="Instance.String">func</a> (\*Instance) [String](./types.pb.go#L1147)
+### <a name="Instance.String">func</a> (\*Instance) [String](./types.pb.go#L2018)
 ``` go
 func (m *Instance) String() string
 ```
 
-### <a name="Instance.Validate">func</a> (\*Instance) [Validate](./types.pb.validate.go#L80)
+### <a name="Instance.Validate">func</a> (\*Instance) [Validate](./types.pb.validate.go#L110)
 ``` go
 func (p *Instance) Validate() error
 ```
 
-## <a name="InstanceService">type</a> [InstanceService](./instances.pb.qingcloud.go#L34-L36)
+## <a name="InstanceService">type</a> [InstanceService](./instances.pb.qingcloud.go#L41-L43)
 ``` go
 type InstanceService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewInstanceService">func</a> [NewInstanceService](./instances.pb.qingcloud.go#L38)
+### <a name="NewInstanceService">func</a> [NewInstanceService](./instances.pb.qingcloud.go#L45)
 ``` go
 func NewInstanceService(server *ServerInfo) (p *InstanceService)
 ```
 
-### <a name="InstanceService.CreateBrokers">func</a> (\*InstanceService) [CreateBrokers](./instances.pb.qingcloud.go#L254)
+### <a name="InstanceService.CreateBrokers">func</a> (\*InstanceService) [CreateBrokers](./instances.pb.qingcloud.go#L336)
 ``` go
 func (p *InstanceService) CreateBrokers(input *CreateBrokersInput) (output *CreateBrokersOutput, err error)
 ```
 
-### <a name="InstanceService.DeleteBrokers">func</a> (\*InstanceService) [DeleteBrokers](./instances.pb.qingcloud.go#L275)
+### <a name="InstanceService.DeleteBrokers">func</a> (\*InstanceService) [DeleteBrokers](./instances.pb.qingcloud.go#L357)
 ``` go
 func (p *InstanceService) DeleteBrokers(input *DeleteBrokersInput) (output *DeleteBrokersOutput, err error)
 ```
 
-### <a name="InstanceService.DescribeInstanceTypes">func</a> (\*InstanceService) [DescribeInstanceTypes](./instances.pb.qingcloud.go#L233)
+### <a name="InstanceService.DescribeInstanceTypes">func</a> (\*InstanceService) [DescribeInstanceTypes](./instances.pb.qingcloud.go#L315)
 ``` go
 func (p *InstanceService) DescribeInstanceTypes(input *DescribeInstanceTypesInput) (output *DescribeInstanceTypesOutput, err error)
 ```
 
-### <a name="InstanceService.DescribeInstances">func</a> (\*InstanceService) [DescribeInstances](./instances.pb.qingcloud.go#L44)
+### <a name="InstanceService.DescribeInstances">func</a> (\*InstanceService) [DescribeInstances](./instances.pb.qingcloud.go#L126)
 ``` go
 func (p *InstanceService) DescribeInstances(input *DescribeInstancesInput) (output *DescribeInstancesOutput, err error)
 ```
 
-### <a name="InstanceService.ModifyInstanceAttributes">func</a> (\*InstanceService) [ModifyInstanceAttributes](./instances.pb.qingcloud.go#L212)
+### <a name="InstanceService.ModifyInstanceAttributes">func</a> (\*InstanceService) [ModifyInstanceAttributes](./instances.pb.qingcloud.go#L294)
 ``` go
 func (p *InstanceService) ModifyInstanceAttributes(input *ModifyInstanceAttributesInput) (output *ModifyInstanceAttributesOutput, err error)
 ```
 
-### <a name="InstanceService.ResetInstances">func</a> (\*InstanceService) [ResetInstances](./instances.pb.qingcloud.go#L170)
+### <a name="InstanceService.ResetInstances">func</a> (\*InstanceService) [ResetInstances](./instances.pb.qingcloud.go#L252)
 ``` go
 func (p *InstanceService) ResetInstances(input *ResetInstancesInput) (output *ResetInstancesOutput, err error)
 ```
 
-### <a name="InstanceService.ResizeInstances">func</a> (\*InstanceService) [ResizeInstances](./instances.pb.qingcloud.go#L191)
+### <a name="InstanceService.ResizeInstances">func</a> (\*InstanceService) [ResizeInstances](./instances.pb.qingcloud.go#L273)
 ``` go
 func (p *InstanceService) ResizeInstances(input *ResizeInstancesInput) (output *ResizeInstancesOutput, err error)
 ```
 
-### <a name="InstanceService.RestartInstances">func</a> (\*InstanceService) [RestartInstances](./instances.pb.qingcloud.go#L149)
+### <a name="InstanceService.RestartInstances">func</a> (\*InstanceService) [RestartInstances](./instances.pb.qingcloud.go#L231)
 ``` go
 func (p *InstanceService) RestartInstances(input *RestartInstancesInput) (output *RestartInstancesOutput, err error)
 ```
 
-### <a name="InstanceService.RunInstances">func</a> (\*InstanceService) [RunInstances](./instances.pb.qingcloud.go#L65)
+### <a name="InstanceService.RunInstances">func</a> (\*InstanceService) [RunInstances](./instances.pb.qingcloud.go#L147)
 ``` go
 func (p *InstanceService) RunInstances(input *RunInstancesInput) (output *RunInstancesOutput, err error)
 ```
 
-### <a name="InstanceService.StartInstances">func</a> (\*InstanceService) [StartInstances](./instances.pb.qingcloud.go#L107)
+### <a name="InstanceService.StartInstances">func</a> (\*InstanceService) [StartInstances](./instances.pb.qingcloud.go#L189)
 ``` go
 func (p *InstanceService) StartInstances(input *StartInstancesInput) (output *StartInstancesOutput, err error)
 ```
 
-### <a name="InstanceService.StopInstances">func</a> (\*InstanceService) [StopInstances](./instances.pb.qingcloud.go#L128)
+### <a name="InstanceService.StopInstances">func</a> (\*InstanceService) [StopInstances](./instances.pb.qingcloud.go#L210)
 ``` go
 func (p *InstanceService) StopInstances(input *StopInstancesInput) (output *StopInstancesOutput, err error)
 ```
 
-### <a name="InstanceService.TerminateInstances">func</a> (\*InstanceService) [TerminateInstances](./instances.pb.qingcloud.go#L86)
+### <a name="InstanceService.TerminateInstances">func</a> (\*InstanceService) [TerminateInstances](./instances.pb.qingcloud.go#L168)
 ``` go
 func (p *InstanceService) TerminateInstances(input *TerminateInstancesInput) (output *TerminateInstancesOutput, err error)
 ```
 
-## <a name="InstanceServiceInterface">type</a> [InstanceServiceInterface](./instances.pb.qingcloud.go#L19-L32)
+## <a name="InstanceServiceInterface">type</a> [InstanceServiceInterface](./instances.pb.qingcloud.go#L26-L39)
 ``` go
 type InstanceServiceInterface interface {
     DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error)
@@ -39822,7 +39669,7 @@ type InstanceServiceInterface interface {
 }
 ```
 
-## <a name="InstanceType">type</a> [InstanceType](./types.pb.go#L3034-L3043)
+## <a name="InstanceType">type</a> [InstanceType](./types.pb.go#L3412-L3421)
 ``` go
 type InstanceType struct {
     Description      *string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
@@ -39836,67 +39683,67 @@ type InstanceType struct {
 }
 ```
 
-### <a name="InstanceType.Descriptor">func</a> (\*InstanceType) [Descriptor](./types.pb.go#L3048)
+### <a name="InstanceType.Descriptor">func</a> (\*InstanceType) [Descriptor](./types.pb.go#L3426)
 ``` go
 func (*InstanceType) Descriptor() ([]byte, []int)
 ```
 
-### <a name="InstanceType.GetDescription">func</a> (\*InstanceType) [GetDescription](./types.pb.go#L3050)
+### <a name="InstanceType.GetDescription">func</a> (\*InstanceType) [GetDescription](./types.pb.go#L3428)
 ``` go
 func (m *InstanceType) GetDescription() string
 ```
 
-### <a name="InstanceType.GetInstanceTypeId">func</a> (\*InstanceType) [GetInstanceTypeId](./types.pb.go#L3057)
+### <a name="InstanceType.GetInstanceTypeId">func</a> (\*InstanceType) [GetInstanceTypeId](./types.pb.go#L3435)
 ``` go
 func (m *InstanceType) GetInstanceTypeId() string
 ```
 
-### <a name="InstanceType.GetInstanceTypeName">func</a> (\*InstanceType) [GetInstanceTypeName](./types.pb.go#L3064)
+### <a name="InstanceType.GetInstanceTypeName">func</a> (\*InstanceType) [GetInstanceTypeName](./types.pb.go#L3442)
 ``` go
 func (m *InstanceType) GetInstanceTypeName() string
 ```
 
-### <a name="InstanceType.GetMemoryCurrent">func</a> (\*InstanceType) [GetMemoryCurrent](./types.pb.go#L3071)
+### <a name="InstanceType.GetMemoryCurrent">func</a> (\*InstanceType) [GetMemoryCurrent](./types.pb.go#L3449)
 ``` go
 func (m *InstanceType) GetMemoryCurrent() int32
 ```
 
-### <a name="InstanceType.GetStatus">func</a> (\*InstanceType) [GetStatus](./types.pb.go#L3078)
+### <a name="InstanceType.GetStatus">func</a> (\*InstanceType) [GetStatus](./types.pb.go#L3456)
 ``` go
 func (m *InstanceType) GetStatus() string
 ```
 
-### <a name="InstanceType.GetVcpusCurrent">func</a> (\*InstanceType) [GetVcpusCurrent](./types.pb.go#L3085)
+### <a name="InstanceType.GetVcpusCurrent">func</a> (\*InstanceType) [GetVcpusCurrent](./types.pb.go#L3463)
 ``` go
 func (m *InstanceType) GetVcpusCurrent() int32
 ```
 
-### <a name="InstanceType.GetZoneId">func</a> (\*InstanceType) [GetZoneId](./types.pb.go#L3092)
+### <a name="InstanceType.GetZoneId">func</a> (\*InstanceType) [GetZoneId](./types.pb.go#L3470)
 ``` go
 func (m *InstanceType) GetZoneId() string
 ```
 
-### <a name="InstanceType.ProtoMessage">func</a> (\*InstanceType) [ProtoMessage](./types.pb.go#L3047)
+### <a name="InstanceType.ProtoMessage">func</a> (\*InstanceType) [ProtoMessage](./types.pb.go#L3425)
 ``` go
 func (*InstanceType) ProtoMessage()
 ```
 
-### <a name="InstanceType.Reset">func</a> (\*InstanceType) [Reset](./types.pb.go#L3045)
+### <a name="InstanceType.Reset">func</a> (\*InstanceType) [Reset](./types.pb.go#L3423)
 ``` go
 func (m *InstanceType) Reset()
 ```
 
-### <a name="InstanceType.String">func</a> (\*InstanceType) [String](./types.pb.go#L3046)
+### <a name="InstanceType.String">func</a> (\*InstanceType) [String](./types.pb.go#L3424)
 ``` go
 func (m *InstanceType) String() string
 ```
 
-### <a name="InstanceType.Validate">func</a> (\*InstanceType) [Validate](./types.pb.validate.go#L190)
+### <a name="InstanceType.Validate">func</a> (\*InstanceType) [Validate](./types.pb.validate.go#L195)
 ``` go
 func (p *InstanceType) Validate() error
 ```
 
-## <a name="InstanceVxNet">type</a> [InstanceVxNet](./types.pb.go#L1333-L1341)
+## <a name="InstanceVxNet">type</a> [InstanceVxNet](./types.pb.go#L2204-L2212)
 ``` go
 type InstanceVxNet struct {
     NicId            *string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
@@ -39909,62 +39756,62 @@ type InstanceVxNet struct {
 }
 ```
 
-### <a name="InstanceVxNet.Descriptor">func</a> (\*InstanceVxNet) [Descriptor](./types.pb.go#L1346)
+### <a name="InstanceVxNet.Descriptor">func</a> (\*InstanceVxNet) [Descriptor](./types.pb.go#L2217)
 ``` go
 func (*InstanceVxNet) Descriptor() ([]byte, []int)
 ```
 
-### <a name="InstanceVxNet.GetNicId">func</a> (\*InstanceVxNet) [GetNicId](./types.pb.go#L1348)
+### <a name="InstanceVxNet.GetNicId">func</a> (\*InstanceVxNet) [GetNicId](./types.pb.go#L2219)
 ``` go
 func (m *InstanceVxNet) GetNicId() string
 ```
 
-### <a name="InstanceVxNet.GetPrivateIp">func</a> (\*InstanceVxNet) [GetPrivateIp](./types.pb.go#L1355)
+### <a name="InstanceVxNet.GetPrivateIp">func</a> (\*InstanceVxNet) [GetPrivateIp](./types.pb.go#L2226)
 ``` go
 func (m *InstanceVxNet) GetPrivateIp() string
 ```
 
-### <a name="InstanceVxNet.GetRole">func</a> (\*InstanceVxNet) [GetRole](./types.pb.go#L1362)
+### <a name="InstanceVxNet.GetRole">func</a> (\*InstanceVxNet) [GetRole](./types.pb.go#L2233)
 ``` go
 func (m *InstanceVxNet) GetRole() int32
 ```
 
-### <a name="InstanceVxNet.GetVxnetId">func</a> (\*InstanceVxNet) [GetVxnetId](./types.pb.go#L1369)
+### <a name="InstanceVxNet.GetVxnetId">func</a> (\*InstanceVxNet) [GetVxnetId](./types.pb.go#L2240)
 ``` go
 func (m *InstanceVxNet) GetVxnetId() string
 ```
 
-### <a name="InstanceVxNet.GetVxnetName">func</a> (\*InstanceVxNet) [GetVxnetName](./types.pb.go#L1376)
+### <a name="InstanceVxNet.GetVxnetName">func</a> (\*InstanceVxNet) [GetVxnetName](./types.pb.go#L2247)
 ``` go
 func (m *InstanceVxNet) GetVxnetName() string
 ```
 
-### <a name="InstanceVxNet.GetVxnetType">func</a> (\*InstanceVxNet) [GetVxnetType](./types.pb.go#L1383)
+### <a name="InstanceVxNet.GetVxnetType">func</a> (\*InstanceVxNet) [GetVxnetType](./types.pb.go#L2254)
 ``` go
 func (m *InstanceVxNet) GetVxnetType() int32
 ```
 
-### <a name="InstanceVxNet.ProtoMessage">func</a> (\*InstanceVxNet) [ProtoMessage](./types.pb.go#L1345)
+### <a name="InstanceVxNet.ProtoMessage">func</a> (\*InstanceVxNet) [ProtoMessage](./types.pb.go#L2216)
 ``` go
 func (*InstanceVxNet) ProtoMessage()
 ```
 
-### <a name="InstanceVxNet.Reset">func</a> (\*InstanceVxNet) [Reset](./types.pb.go#L1343)
+### <a name="InstanceVxNet.Reset">func</a> (\*InstanceVxNet) [Reset](./types.pb.go#L2214)
 ``` go
 func (m *InstanceVxNet) Reset()
 ```
 
-### <a name="InstanceVxNet.String">func</a> (\*InstanceVxNet) [String](./types.pb.go#L1344)
+### <a name="InstanceVxNet.String">func</a> (\*InstanceVxNet) [String](./types.pb.go#L2215)
 ``` go
 func (m *InstanceVxNet) String() string
 ```
 
-### <a name="InstanceVxNet.Validate">func</a> (\*InstanceVxNet) [Validate](./types.pb.validate.go#L85)
+### <a name="InstanceVxNet.Validate">func</a> (\*InstanceVxNet) [Validate](./types.pb.validate.go#L115)
 ``` go
 func (p *InstanceVxNet) Validate() error
 ```
 
-## <a name="Job">type</a> [Job](./types.pb.go#L410-L419)
+## <a name="Job">type</a> [Job](./types.pb.go#L1281-L1290)
 ``` go
 type Job struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -39978,84 +39825,84 @@ type Job struct {
 }
 ```
 
-### <a name="Job.Descriptor">func</a> (\*Job) [Descriptor](./types.pb.go#L424)
+### <a name="Job.Descriptor">func</a> (\*Job) [Descriptor](./types.pb.go#L1295)
 ``` go
 func (*Job) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Job.GetCreateTime">func</a> (\*Job) [GetCreateTime](./types.pb.go#L426)
+### <a name="Job.GetCreateTime">func</a> (\*Job) [GetCreateTime](./types.pb.go#L1297)
 ``` go
 func (m *Job) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Job.GetJobAction">func</a> (\*Job) [GetJobAction](./types.pb.go#L433)
+### <a name="Job.GetJobAction">func</a> (\*Job) [GetJobAction](./types.pb.go#L1304)
 ``` go
 func (m *Job) GetJobAction() string
 ```
 
-### <a name="Job.GetJobId">func</a> (\*Job) [GetJobId](./types.pb.go#L440)
+### <a name="Job.GetJobId">func</a> (\*Job) [GetJobId](./types.pb.go#L1311)
 ``` go
 func (m *Job) GetJobId() string
 ```
 
-### <a name="Job.GetOwner">func</a> (\*Job) [GetOwner](./types.pb.go#L447)
+### <a name="Job.GetOwner">func</a> (\*Job) [GetOwner](./types.pb.go#L1318)
 ``` go
 func (m *Job) GetOwner() string
 ```
 
-### <a name="Job.GetResourceIds">func</a> (\*Job) [GetResourceIds](./types.pb.go#L454)
+### <a name="Job.GetResourceIds">func</a> (\*Job) [GetResourceIds](./types.pb.go#L1325)
 ``` go
 func (m *Job) GetResourceIds() string
 ```
 
-### <a name="Job.GetStatus">func</a> (\*Job) [GetStatus](./types.pb.go#L461)
+### <a name="Job.GetStatus">func</a> (\*Job) [GetStatus](./types.pb.go#L1332)
 ``` go
 func (m *Job) GetStatus() string
 ```
 
-### <a name="Job.GetStatusTime">func</a> (\*Job) [GetStatusTime](./types.pb.go#L468)
+### <a name="Job.GetStatusTime">func</a> (\*Job) [GetStatusTime](./types.pb.go#L1339)
 ``` go
 func (m *Job) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Job.ProtoMessage">func</a> (\*Job) [ProtoMessage](./types.pb.go#L423)
+### <a name="Job.ProtoMessage">func</a> (\*Job) [ProtoMessage](./types.pb.go#L1294)
 ``` go
 func (*Job) ProtoMessage()
 ```
 
-### <a name="Job.Reset">func</a> (\*Job) [Reset](./types.pb.go#L421)
+### <a name="Job.Reset">func</a> (\*Job) [Reset](./types.pb.go#L1292)
 ``` go
 func (m *Job) Reset()
 ```
 
-### <a name="Job.String">func</a> (\*Job) [String](./types.pb.go#L422)
+### <a name="Job.String">func</a> (\*Job) [String](./types.pb.go#L1293)
 ``` go
 func (m *Job) String() string
 ```
 
-### <a name="Job.Validate">func</a> (\*Job) [Validate](./types.pb.validate.go#L50)
+### <a name="Job.Validate">func</a> (\*Job) [Validate](./types.pb.validate.go#L80)
 ``` go
 func (p *Job) Validate() error
 ```
 
-## <a name="JobService">type</a> [JobService](./job.pb.qingcloud.go#L23-L25)
+## <a name="JobService">type</a> [JobService](./job.pb.qingcloud.go#L30-L32)
 ``` go
 type JobService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewJobService">func</a> [NewJobService](./job.pb.qingcloud.go#L27)
+### <a name="NewJobService">func</a> [NewJobService](./job.pb.qingcloud.go#L34)
 ``` go
 func NewJobService(server *ServerInfo) (p *JobService)
 ```
 
-### <a name="JobService.DescribeJobs">func</a> (\*JobService) [DescribeJobs](./job.pb.qingcloud.go#L33)
+### <a name="JobService.DescribeJobs">func</a> (\*JobService) [DescribeJobs](./job.pb.qingcloud.go#L49)
 ``` go
 func (p *JobService) DescribeJobs(input *DescribeJobsInput) (output *DescribeJobsOutput, err error)
 ```
 
-## <a name="JobServiceInterface">type</a> [JobServiceInterface](./job.pb.qingcloud.go#L19-L21)
+## <a name="JobServiceInterface">type</a> [JobServiceInterface](./job.pb.qingcloud.go#L26-L28)
 ``` go
 type JobServiceInterface interface {
     DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutput, err error)
@@ -40292,7 +40139,7 @@ func (m *JoinVxnetOutput) String() string
 func (p *JoinVxnetOutput) Validate() error
 ```
 
-## <a name="KeyPair">type</a> [KeyPair](./types.pb.go#L789-L798)
+## <a name="KeyPair">type</a> [KeyPair](./types.pb.go#L1660-L1669)
 ``` go
 type KeyPair struct {
     Description      *string  `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
@@ -40306,109 +40153,109 @@ type KeyPair struct {
 }
 ```
 
-### <a name="KeyPair.Descriptor">func</a> (\*KeyPair) [Descriptor](./types.pb.go#L803)
+### <a name="KeyPair.Descriptor">func</a> (\*KeyPair) [Descriptor](./types.pb.go#L1674)
 ``` go
 func (*KeyPair) Descriptor() ([]byte, []int)
 ```
 
-### <a name="KeyPair.GetDescription">func</a> (\*KeyPair) [GetDescription](./types.pb.go#L805)
+### <a name="KeyPair.GetDescription">func</a> (\*KeyPair) [GetDescription](./types.pb.go#L1676)
 ``` go
 func (m *KeyPair) GetDescription() string
 ```
 
-### <a name="KeyPair.GetEncryptMethod">func</a> (\*KeyPair) [GetEncryptMethod](./types.pb.go#L812)
+### <a name="KeyPair.GetEncryptMethod">func</a> (\*KeyPair) [GetEncryptMethod](./types.pb.go#L1683)
 ``` go
 func (m *KeyPair) GetEncryptMethod() string
 ```
 
-### <a name="KeyPair.GetInstanceIds">func</a> (\*KeyPair) [GetInstanceIds](./types.pb.go#L819)
+### <a name="KeyPair.GetInstanceIds">func</a> (\*KeyPair) [GetInstanceIds](./types.pb.go#L1690)
 ``` go
 func (m *KeyPair) GetInstanceIds() []string
 ```
 
-### <a name="KeyPair.GetKeypairId">func</a> (\*KeyPair) [GetKeypairId](./types.pb.go#L826)
+### <a name="KeyPair.GetKeypairId">func</a> (\*KeyPair) [GetKeypairId](./types.pb.go#L1697)
 ``` go
 func (m *KeyPair) GetKeypairId() string
 ```
 
-### <a name="KeyPair.GetKeypairName">func</a> (\*KeyPair) [GetKeypairName](./types.pb.go#L833)
+### <a name="KeyPair.GetKeypairName">func</a> (\*KeyPair) [GetKeypairName](./types.pb.go#L1704)
 ``` go
 func (m *KeyPair) GetKeypairName() string
 ```
 
-### <a name="KeyPair.GetPubKey">func</a> (\*KeyPair) [GetPubKey](./types.pb.go#L840)
+### <a name="KeyPair.GetPubKey">func</a> (\*KeyPair) [GetPubKey](./types.pb.go#L1711)
 ``` go
 func (m *KeyPair) GetPubKey() string
 ```
 
-### <a name="KeyPair.GetTags">func</a> (\*KeyPair) [GetTags](./types.pb.go#L847)
+### <a name="KeyPair.GetTags">func</a> (\*KeyPair) [GetTags](./types.pb.go#L1718)
 ``` go
 func (m *KeyPair) GetTags() []*Tag
 ```
 
-### <a name="KeyPair.ProtoMessage">func</a> (\*KeyPair) [ProtoMessage](./types.pb.go#L802)
+### <a name="KeyPair.ProtoMessage">func</a> (\*KeyPair) [ProtoMessage](./types.pb.go#L1673)
 ``` go
 func (*KeyPair) ProtoMessage()
 ```
 
-### <a name="KeyPair.Reset">func</a> (\*KeyPair) [Reset](./types.pb.go#L800)
+### <a name="KeyPair.Reset">func</a> (\*KeyPair) [Reset](./types.pb.go#L1671)
 ``` go
 func (m *KeyPair) Reset()
 ```
 
-### <a name="KeyPair.String">func</a> (\*KeyPair) [String](./types.pb.go#L801)
+### <a name="KeyPair.String">func</a> (\*KeyPair) [String](./types.pb.go#L1672)
 ``` go
 func (m *KeyPair) String() string
 ```
 
-### <a name="KeyPair.Validate">func</a> (\*KeyPair) [Validate](./types.pb.validate.go#L65)
+### <a name="KeyPair.Validate">func</a> (\*KeyPair) [Validate](./types.pb.validate.go#L95)
 ``` go
 func (p *KeyPair) Validate() error
 ```
 
-## <a name="KeyPairService">type</a> [KeyPairService](./key_pair.pb.qingcloud.go#L28-L30)
+## <a name="KeyPairService">type</a> [KeyPairService](./key_pair.pb.qingcloud.go#L35-L37)
 ``` go
 type KeyPairService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewKeyPairService">func</a> [NewKeyPairService](./key_pair.pb.qingcloud.go#L32)
+### <a name="NewKeyPairService">func</a> [NewKeyPairService](./key_pair.pb.qingcloud.go#L39)
 ``` go
 func NewKeyPairService(server *ServerInfo) (p *KeyPairService)
 ```
 
-### <a name="KeyPairService.AttachKeyPairs">func</a> (\*KeyPairService) [AttachKeyPairs](./key_pair.pb.qingcloud.go#L101)
+### <a name="KeyPairService.AttachKeyPairs">func</a> (\*KeyPairService) [AttachKeyPairs](./key_pair.pb.qingcloud.go#L147)
 ``` go
 func (p *KeyPairService) AttachKeyPairs(input *AttachKeyPairsInput) (output *AttachKeyPairsOutput, err error)
 ```
 
-### <a name="KeyPairService.CreateKeyPair">func</a> (\*KeyPairService) [CreateKeyPair](./key_pair.pb.qingcloud.go#L59)
+### <a name="KeyPairService.CreateKeyPair">func</a> (\*KeyPairService) [CreateKeyPair](./key_pair.pb.qingcloud.go#L105)
 ``` go
 func (p *KeyPairService) CreateKeyPair(input *CreateKeyPairInput) (output *CreateKeyPairOutput, err error)
 ```
 
-### <a name="KeyPairService.DeleteKeyPairs">func</a> (\*KeyPairService) [DeleteKeyPairs](./key_pair.pb.qingcloud.go#L80)
+### <a name="KeyPairService.DeleteKeyPairs">func</a> (\*KeyPairService) [DeleteKeyPairs](./key_pair.pb.qingcloud.go#L126)
 ``` go
 func (p *KeyPairService) DeleteKeyPairs(input *DeleteKeyPairsInput) (output *DeleteKeyPairsOutput, err error)
 ```
 
-### <a name="KeyPairService.DescribeKeyPairs">func</a> (\*KeyPairService) [DescribeKeyPairs](./key_pair.pb.qingcloud.go#L38)
+### <a name="KeyPairService.DescribeKeyPairs">func</a> (\*KeyPairService) [DescribeKeyPairs](./key_pair.pb.qingcloud.go#L84)
 ``` go
 func (p *KeyPairService) DescribeKeyPairs(input *DescribeKeyPairsInput) (output *DescribeKeyPairsOutput, err error)
 ```
 
-### <a name="KeyPairService.DetachKeyPairs">func</a> (\*KeyPairService) [DetachKeyPairs](./key_pair.pb.qingcloud.go#L122)
+### <a name="KeyPairService.DetachKeyPairs">func</a> (\*KeyPairService) [DetachKeyPairs](./key_pair.pb.qingcloud.go#L168)
 ``` go
 func (p *KeyPairService) DetachKeyPairs(input *DetachKeyPairsInput) (output *DetachKeyPairsOutput, err error)
 ```
 
-### <a name="KeyPairService.ModifyKeyPairAttributes">func</a> (\*KeyPairService) [ModifyKeyPairAttributes](./key_pair.pb.qingcloud.go#L143)
+### <a name="KeyPairService.ModifyKeyPairAttributes">func</a> (\*KeyPairService) [ModifyKeyPairAttributes](./key_pair.pb.qingcloud.go#L189)
 ``` go
 func (p *KeyPairService) ModifyKeyPairAttributes(input *ModifyKeyPairAttributesInput) (output *ModifyKeyPairAttributesOutput, err error)
 ```
 
-## <a name="KeyPairServiceInterface">type</a> [KeyPairServiceInterface](./key_pair.pb.qingcloud.go#L19-L26)
+## <a name="KeyPairServiceInterface">type</a> [KeyPairServiceInterface](./key_pair.pb.qingcloud.go#L26-L33)
 ``` go
 type KeyPairServiceInterface interface {
     DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error)
@@ -40708,7 +40555,7 @@ func (m *LeaveVxnetOutput) String() string
 func (p *LeaveVxnetOutput) Validate() error
 ```
 
-## <a name="LoadBalancer">type</a> [LoadBalancer](./types.pb.go#L1850-L1868)
+## <a name="LoadBalancer">type</a> [LoadBalancer](./types.pb.go#L2721-L2739)
 ``` go
 type LoadBalancer struct {
     Cluster          []*EIP                      `protobuf:"bytes,1,rep,name=cluster" json:"cluster,omitempty"`
@@ -40731,112 +40578,112 @@ type LoadBalancer struct {
 }
 ```
 
-### <a name="LoadBalancer.Descriptor">func</a> (\*LoadBalancer) [Descriptor](./types.pb.go#L1873)
+### <a name="LoadBalancer.Descriptor">func</a> (\*LoadBalancer) [Descriptor](./types.pb.go#L2744)
 ``` go
 func (*LoadBalancer) Descriptor() ([]byte, []int)
 ```
 
-### <a name="LoadBalancer.GetCluster">func</a> (\*LoadBalancer) [GetCluster](./types.pb.go#L1875)
+### <a name="LoadBalancer.GetCluster">func</a> (\*LoadBalancer) [GetCluster](./types.pb.go#L2746)
 ``` go
 func (m *LoadBalancer) GetCluster() []*EIP
 ```
 
-### <a name="LoadBalancer.GetCreateTime">func</a> (\*LoadBalancer) [GetCreateTime](./types.pb.go#L1882)
+### <a name="LoadBalancer.GetCreateTime">func</a> (\*LoadBalancer) [GetCreateTime](./types.pb.go#L2753)
 ``` go
 func (m *LoadBalancer) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="LoadBalancer.GetDescription">func</a> (\*LoadBalancer) [GetDescription](./types.pb.go#L1889)
+### <a name="LoadBalancer.GetDescription">func</a> (\*LoadBalancer) [GetDescription](./types.pb.go#L2760)
 ``` go
 func (m *LoadBalancer) GetDescription() string
 ```
 
-### <a name="LoadBalancer.GetIsApplied">func</a> (\*LoadBalancer) [GetIsApplied](./types.pb.go#L1896)
+### <a name="LoadBalancer.GetIsApplied">func</a> (\*LoadBalancer) [GetIsApplied](./types.pb.go#L2767)
 ``` go
 func (m *LoadBalancer) GetIsApplied() int32
 ```
 
-### <a name="LoadBalancer.GetListeners">func</a> (\*LoadBalancer) [GetListeners](./types.pb.go#L1903)
+### <a name="LoadBalancer.GetListeners">func</a> (\*LoadBalancer) [GetListeners](./types.pb.go#L2774)
 ``` go
 func (m *LoadBalancer) GetListeners() []*LoadBalancerListener
 ```
 
-### <a name="LoadBalancer.GetLoadbalancerId">func</a> (\*LoadBalancer) [GetLoadbalancerId](./types.pb.go#L1910)
+### <a name="LoadBalancer.GetLoadbalancerId">func</a> (\*LoadBalancer) [GetLoadbalancerId](./types.pb.go#L2781)
 ``` go
 func (m *LoadBalancer) GetLoadbalancerId() string
 ```
 
-### <a name="LoadBalancer.GetLoadbalancerName">func</a> (\*LoadBalancer) [GetLoadbalancerName](./types.pb.go#L1917)
+### <a name="LoadBalancer.GetLoadbalancerName">func</a> (\*LoadBalancer) [GetLoadbalancerName](./types.pb.go#L2788)
 ``` go
 func (m *LoadBalancer) GetLoadbalancerName() string
 ```
 
-### <a name="LoadBalancer.GetLoadbalancerType">func</a> (\*LoadBalancer) [GetLoadbalancerType](./types.pb.go#L1924)
+### <a name="LoadBalancer.GetLoadbalancerType">func</a> (\*LoadBalancer) [GetLoadbalancerType](./types.pb.go#L2795)
 ``` go
 func (m *LoadBalancer) GetLoadbalancerType() int32
 ```
 
-### <a name="LoadBalancer.GetNodeCount">func</a> (\*LoadBalancer) [GetNodeCount](./types.pb.go#L1931)
+### <a name="LoadBalancer.GetNodeCount">func</a> (\*LoadBalancer) [GetNodeCount](./types.pb.go#L2802)
 ``` go
 func (m *LoadBalancer) GetNodeCount() int32
 ```
 
-### <a name="LoadBalancer.GetPrivateIps">func</a> (\*LoadBalancer) [GetPrivateIps](./types.pb.go#L1938)
+### <a name="LoadBalancer.GetPrivateIps">func</a> (\*LoadBalancer) [GetPrivateIps](./types.pb.go#L2809)
 ``` go
 func (m *LoadBalancer) GetPrivateIps() []string
 ```
 
-### <a name="LoadBalancer.GetSecurityGroupId">func</a> (\*LoadBalancer) [GetSecurityGroupId](./types.pb.go#L1945)
+### <a name="LoadBalancer.GetSecurityGroupId">func</a> (\*LoadBalancer) [GetSecurityGroupId](./types.pb.go#L2816)
 ``` go
 func (m *LoadBalancer) GetSecurityGroupId() string
 ```
 
-### <a name="LoadBalancer.GetStatus">func</a> (\*LoadBalancer) [GetStatus](./types.pb.go#L1952)
+### <a name="LoadBalancer.GetStatus">func</a> (\*LoadBalancer) [GetStatus](./types.pb.go#L2823)
 ``` go
 func (m *LoadBalancer) GetStatus() string
 ```
 
-### <a name="LoadBalancer.GetStatusTime">func</a> (\*LoadBalancer) [GetStatusTime](./types.pb.go#L1959)
+### <a name="LoadBalancer.GetStatusTime">func</a> (\*LoadBalancer) [GetStatusTime](./types.pb.go#L2830)
 ``` go
 func (m *LoadBalancer) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="LoadBalancer.GetTags">func</a> (\*LoadBalancer) [GetTags](./types.pb.go#L1966)
+### <a name="LoadBalancer.GetTags">func</a> (\*LoadBalancer) [GetTags](./types.pb.go#L2837)
 ``` go
 func (m *LoadBalancer) GetTags() []*Tag
 ```
 
-### <a name="LoadBalancer.GetTransitionStatus">func</a> (\*LoadBalancer) [GetTransitionStatus](./types.pb.go#L1973)
+### <a name="LoadBalancer.GetTransitionStatus">func</a> (\*LoadBalancer) [GetTransitionStatus](./types.pb.go#L2844)
 ``` go
 func (m *LoadBalancer) GetTransitionStatus() string
 ```
 
-### <a name="LoadBalancer.GetVxnetId">func</a> (\*LoadBalancer) [GetVxnetId](./types.pb.go#L1980)
+### <a name="LoadBalancer.GetVxnetId">func</a> (\*LoadBalancer) [GetVxnetId](./types.pb.go#L2851)
 ``` go
 func (m *LoadBalancer) GetVxnetId() string
 ```
 
-### <a name="LoadBalancer.ProtoMessage">func</a> (\*LoadBalancer) [ProtoMessage](./types.pb.go#L1872)
+### <a name="LoadBalancer.ProtoMessage">func</a> (\*LoadBalancer) [ProtoMessage](./types.pb.go#L2743)
 ``` go
 func (*LoadBalancer) ProtoMessage()
 ```
 
-### <a name="LoadBalancer.Reset">func</a> (\*LoadBalancer) [Reset](./types.pb.go#L1870)
+### <a name="LoadBalancer.Reset">func</a> (\*LoadBalancer) [Reset](./types.pb.go#L2741)
 ``` go
 func (m *LoadBalancer) Reset()
 ```
 
-### <a name="LoadBalancer.String">func</a> (\*LoadBalancer) [String](./types.pb.go#L1871)
+### <a name="LoadBalancer.String">func</a> (\*LoadBalancer) [String](./types.pb.go#L2742)
 ``` go
 func (m *LoadBalancer) String() string
 ```
 
-### <a name="LoadBalancer.Validate">func</a> (\*LoadBalancer) [Validate](./types.pb.validate.go#L110)
+### <a name="LoadBalancer.Validate">func</a> (\*LoadBalancer) [Validate](./types.pb.validate.go#L140)
 ``` go
 func (p *LoadBalancer) Validate() error
 ```
 
-## <a name="LoadBalancerBackend">type</a> [LoadBalancerBackend](./types.pb.go#L2116-L2128)
+## <a name="LoadBalancerBackend">type</a> [LoadBalancerBackend](./types.pb.go#L2987-L2999)
 ``` go
 type LoadBalancerBackend struct {
     CreateTime              *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -40853,82 +40700,82 @@ type LoadBalancerBackend struct {
 }
 ```
 
-### <a name="LoadBalancerBackend.Descriptor">func</a> (\*LoadBalancerBackend) [Descriptor](./types.pb.go#L2133)
+### <a name="LoadBalancerBackend.Descriptor">func</a> (\*LoadBalancerBackend) [Descriptor](./types.pb.go#L3004)
 ``` go
 func (*LoadBalancerBackend) Descriptor() ([]byte, []int)
 ```
 
-### <a name="LoadBalancerBackend.GetCreateTime">func</a> (\*LoadBalancerBackend) [GetCreateTime](./types.pb.go#L2135)
+### <a name="LoadBalancerBackend.GetCreateTime">func</a> (\*LoadBalancerBackend) [GetCreateTime](./types.pb.go#L3006)
 ``` go
 func (m *LoadBalancerBackend) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="LoadBalancerBackend.GetLoadbalancerBackendId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerBackendId](./types.pb.go#L2142)
+### <a name="LoadBalancerBackend.GetLoadbalancerBackendId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerBackendId](./types.pb.go#L3013)
 ``` go
 func (m *LoadBalancerBackend) GetLoadbalancerBackendId() string
 ```
 
-### <a name="LoadBalancerBackend.GetLoadbalancerBackendName">func</a> (\*LoadBalancerBackend) [GetLoadbalancerBackendName](./types.pb.go#L2149)
+### <a name="LoadBalancerBackend.GetLoadbalancerBackendName">func</a> (\*LoadBalancerBackend) [GetLoadbalancerBackendName](./types.pb.go#L3020)
 ``` go
 func (m *LoadBalancerBackend) GetLoadbalancerBackendName() string
 ```
 
-### <a name="LoadBalancerBackend.GetLoadbalancerId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerId](./types.pb.go#L2156)
+### <a name="LoadBalancerBackend.GetLoadbalancerId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerId](./types.pb.go#L3027)
 ``` go
 func (m *LoadBalancerBackend) GetLoadbalancerId() string
 ```
 
-### <a name="LoadBalancerBackend.GetLoadbalancerListenerId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerListenerId](./types.pb.go#L2163)
+### <a name="LoadBalancerBackend.GetLoadbalancerListenerId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerListenerId](./types.pb.go#L3034)
 ``` go
 func (m *LoadBalancerBackend) GetLoadbalancerListenerId() string
 ```
 
-### <a name="LoadBalancerBackend.GetLoadbalancerPolicyId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerPolicyId](./types.pb.go#L2170)
+### <a name="LoadBalancerBackend.GetLoadbalancerPolicyId">func</a> (\*LoadBalancerBackend) [GetLoadbalancerPolicyId](./types.pb.go#L3041)
 ``` go
 func (m *LoadBalancerBackend) GetLoadbalancerPolicyId() string
 ```
 
-### <a name="LoadBalancerBackend.GetPort">func</a> (\*LoadBalancerBackend) [GetPort](./types.pb.go#L2177)
+### <a name="LoadBalancerBackend.GetPort">func</a> (\*LoadBalancerBackend) [GetPort](./types.pb.go#L3048)
 ``` go
 func (m *LoadBalancerBackend) GetPort() int32
 ```
 
-### <a name="LoadBalancerBackend.GetResourceId">func</a> (\*LoadBalancerBackend) [GetResourceId](./types.pb.go#L2184)
+### <a name="LoadBalancerBackend.GetResourceId">func</a> (\*LoadBalancerBackend) [GetResourceId](./types.pb.go#L3055)
 ``` go
 func (m *LoadBalancerBackend) GetResourceId() string
 ```
 
-### <a name="LoadBalancerBackend.GetStatus">func</a> (\*LoadBalancerBackend) [GetStatus](./types.pb.go#L2191)
+### <a name="LoadBalancerBackend.GetStatus">func</a> (\*LoadBalancerBackend) [GetStatus](./types.pb.go#L3062)
 ``` go
 func (m *LoadBalancerBackend) GetStatus() string
 ```
 
-### <a name="LoadBalancerBackend.GetWeight">func</a> (\*LoadBalancerBackend) [GetWeight](./types.pb.go#L2198)
+### <a name="LoadBalancerBackend.GetWeight">func</a> (\*LoadBalancerBackend) [GetWeight](./types.pb.go#L3069)
 ``` go
 func (m *LoadBalancerBackend) GetWeight() int32
 ```
 
-### <a name="LoadBalancerBackend.ProtoMessage">func</a> (\*LoadBalancerBackend) [ProtoMessage](./types.pb.go#L2132)
+### <a name="LoadBalancerBackend.ProtoMessage">func</a> (\*LoadBalancerBackend) [ProtoMessage](./types.pb.go#L3003)
 ``` go
 func (*LoadBalancerBackend) ProtoMessage()
 ```
 
-### <a name="LoadBalancerBackend.Reset">func</a> (\*LoadBalancerBackend) [Reset](./types.pb.go#L2130)
+### <a name="LoadBalancerBackend.Reset">func</a> (\*LoadBalancerBackend) [Reset](./types.pb.go#L3001)
 ``` go
 func (m *LoadBalancerBackend) Reset()
 ```
 
-### <a name="LoadBalancerBackend.String">func</a> (\*LoadBalancerBackend) [String](./types.pb.go#L2131)
+### <a name="LoadBalancerBackend.String">func</a> (\*LoadBalancerBackend) [String](./types.pb.go#L3002)
 ``` go
 func (m *LoadBalancerBackend) String() string
 ```
 
-### <a name="LoadBalancerBackend.Validate">func</a> (\*LoadBalancerBackend) [Validate](./types.pb.validate.go#L120)
+### <a name="LoadBalancerBackend.Validate">func</a> (\*LoadBalancerBackend) [Validate](./types.pb.validate.go#L150)
 ``` go
 func (p *LoadBalancerBackend) Validate() error
 ```
 
-## <a name="LoadBalancerListener">type</a> [LoadBalancerListener](./types.pb.go#L1987-L2004)
+## <a name="LoadBalancerListener">type</a> [LoadBalancerListener](./types.pb.go#L2858-L2875)
 ``` go
 type LoadBalancerListener struct {
     BackendProtocol          *string                     `protobuf:"bytes,1,opt,name=backend_protocol,json=backendProtocol" json:"backend_protocol,omitempty"`
@@ -40950,107 +40797,107 @@ type LoadBalancerListener struct {
 }
 ```
 
-### <a name="LoadBalancerListener.Descriptor">func</a> (\*LoadBalancerListener) [Descriptor](./types.pb.go#L2009)
+### <a name="LoadBalancerListener.Descriptor">func</a> (\*LoadBalancerListener) [Descriptor](./types.pb.go#L2880)
 ``` go
 func (*LoadBalancerListener) Descriptor() ([]byte, []int)
 ```
 
-### <a name="LoadBalancerListener.GetBackendProtocol">func</a> (\*LoadBalancerListener) [GetBackendProtocol](./types.pb.go#L2011)
+### <a name="LoadBalancerListener.GetBackendProtocol">func</a> (\*LoadBalancerListener) [GetBackendProtocol](./types.pb.go#L2882)
 ``` go
 func (m *LoadBalancerListener) GetBackendProtocol() string
 ```
 
-### <a name="LoadBalancerListener.GetBackends">func</a> (\*LoadBalancerListener) [GetBackends](./types.pb.go#L2018)
+### <a name="LoadBalancerListener.GetBackends">func</a> (\*LoadBalancerListener) [GetBackends](./types.pb.go#L2889)
 ``` go
 func (m *LoadBalancerListener) GetBackends() []*LoadBalancerBackend
 ```
 
-### <a name="LoadBalancerListener.GetBalanceMode">func</a> (\*LoadBalancerListener) [GetBalanceMode](./types.pb.go#L2025)
+### <a name="LoadBalancerListener.GetBalanceMode">func</a> (\*LoadBalancerListener) [GetBalanceMode](./types.pb.go#L2896)
 ``` go
 func (m *LoadBalancerListener) GetBalanceMode() string
 ```
 
-### <a name="LoadBalancerListener.GetCreateTime">func</a> (\*LoadBalancerListener) [GetCreateTime](./types.pb.go#L2032)
+### <a name="LoadBalancerListener.GetCreateTime">func</a> (\*LoadBalancerListener) [GetCreateTime](./types.pb.go#L2903)
 ``` go
 func (m *LoadBalancerListener) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="LoadBalancerListener.GetForwardfor">func</a> (\*LoadBalancerListener) [GetForwardfor](./types.pb.go#L2039)
+### <a name="LoadBalancerListener.GetForwardfor">func</a> (\*LoadBalancerListener) [GetForwardfor](./types.pb.go#L2910)
 ``` go
 func (m *LoadBalancerListener) GetForwardfor() int32
 ```
 
-### <a name="LoadBalancerListener.GetHealthyCheckMethod">func</a> (\*LoadBalancerListener) [GetHealthyCheckMethod](./types.pb.go#L2046)
+### <a name="LoadBalancerListener.GetHealthyCheckMethod">func</a> (\*LoadBalancerListener) [GetHealthyCheckMethod](./types.pb.go#L2917)
 ``` go
 func (m *LoadBalancerListener) GetHealthyCheckMethod() string
 ```
 
-### <a name="LoadBalancerListener.GetHealthyCheckOption">func</a> (\*LoadBalancerListener) [GetHealthyCheckOption](./types.pb.go#L2053)
+### <a name="LoadBalancerListener.GetHealthyCheckOption">func</a> (\*LoadBalancerListener) [GetHealthyCheckOption](./types.pb.go#L2924)
 ``` go
 func (m *LoadBalancerListener) GetHealthyCheckOption() string
 ```
 
-### <a name="LoadBalancerListener.GetListenerOption">func</a> (\*LoadBalancerListener) [GetListenerOption](./types.pb.go#L2060)
+### <a name="LoadBalancerListener.GetListenerOption">func</a> (\*LoadBalancerListener) [GetListenerOption](./types.pb.go#L2931)
 ``` go
 func (m *LoadBalancerListener) GetListenerOption() int32
 ```
 
-### <a name="LoadBalancerListener.GetListenerPort">func</a> (\*LoadBalancerListener) [GetListenerPort](./types.pb.go#L2067)
+### <a name="LoadBalancerListener.GetListenerPort">func</a> (\*LoadBalancerListener) [GetListenerPort](./types.pb.go#L2938)
 ``` go
 func (m *LoadBalancerListener) GetListenerPort() int32
 ```
 
-### <a name="LoadBalancerListener.GetListenerProtocol">func</a> (\*LoadBalancerListener) [GetListenerProtocol](./types.pb.go#L2074)
+### <a name="LoadBalancerListener.GetListenerProtocol">func</a> (\*LoadBalancerListener) [GetListenerProtocol](./types.pb.go#L2945)
 ``` go
 func (m *LoadBalancerListener) GetListenerProtocol() string
 ```
 
-### <a name="LoadBalancerListener.GetLoadbalancerId">func</a> (\*LoadBalancerListener) [GetLoadbalancerId](./types.pb.go#L2081)
+### <a name="LoadBalancerListener.GetLoadbalancerId">func</a> (\*LoadBalancerListener) [GetLoadbalancerId](./types.pb.go#L2952)
 ``` go
 func (m *LoadBalancerListener) GetLoadbalancerId() string
 ```
 
-### <a name="LoadBalancerListener.GetLoadbalancerListenerId">func</a> (\*LoadBalancerListener) [GetLoadbalancerListenerId](./types.pb.go#L2088)
+### <a name="LoadBalancerListener.GetLoadbalancerListenerId">func</a> (\*LoadBalancerListener) [GetLoadbalancerListenerId](./types.pb.go#L2959)
 ``` go
 func (m *LoadBalancerListener) GetLoadbalancerListenerId() string
 ```
 
-### <a name="LoadBalancerListener.GetLoadbalancerListenerName">func</a> (\*LoadBalancerListener) [GetLoadbalancerListenerName](./types.pb.go#L2095)
+### <a name="LoadBalancerListener.GetLoadbalancerListenerName">func</a> (\*LoadBalancerListener) [GetLoadbalancerListenerName](./types.pb.go#L2966)
 ``` go
 func (m *LoadBalancerListener) GetLoadbalancerListenerName() string
 ```
 
-### <a name="LoadBalancerListener.GetServerCertificateId">func</a> (\*LoadBalancerListener) [GetServerCertificateId](./types.pb.go#L2102)
+### <a name="LoadBalancerListener.GetServerCertificateId">func</a> (\*LoadBalancerListener) [GetServerCertificateId](./types.pb.go#L2973)
 ``` go
 func (m *LoadBalancerListener) GetServerCertificateId() string
 ```
 
-### <a name="LoadBalancerListener.GetSessionSticky">func</a> (\*LoadBalancerListener) [GetSessionSticky](./types.pb.go#L2109)
+### <a name="LoadBalancerListener.GetSessionSticky">func</a> (\*LoadBalancerListener) [GetSessionSticky](./types.pb.go#L2980)
 ``` go
 func (m *LoadBalancerListener) GetSessionSticky() string
 ```
 
-### <a name="LoadBalancerListener.ProtoMessage">func</a> (\*LoadBalancerListener) [ProtoMessage](./types.pb.go#L2008)
+### <a name="LoadBalancerListener.ProtoMessage">func</a> (\*LoadBalancerListener) [ProtoMessage](./types.pb.go#L2879)
 ``` go
 func (*LoadBalancerListener) ProtoMessage()
 ```
 
-### <a name="LoadBalancerListener.Reset">func</a> (\*LoadBalancerListener) [Reset](./types.pb.go#L2006)
+### <a name="LoadBalancerListener.Reset">func</a> (\*LoadBalancerListener) [Reset](./types.pb.go#L2877)
 ``` go
 func (m *LoadBalancerListener) Reset()
 ```
 
-### <a name="LoadBalancerListener.String">func</a> (\*LoadBalancerListener) [String](./types.pb.go#L2007)
+### <a name="LoadBalancerListener.String">func</a> (\*LoadBalancerListener) [String](./types.pb.go#L2878)
 ``` go
 func (m *LoadBalancerListener) String() string
 ```
 
-### <a name="LoadBalancerListener.Validate">func</a> (\*LoadBalancerListener) [Validate](./types.pb.validate.go#L115)
+### <a name="LoadBalancerListener.Validate">func</a> (\*LoadBalancerListener) [Validate](./types.pb.validate.go#L145)
 ``` go
 func (p *LoadBalancerListener) Validate() error
 ```
 
-## <a name="LoadBalancerPolicy">type</a> [LoadBalancerPolicy](./types.pb.go#L3099-L3106)
+## <a name="LoadBalancerPolicy">type</a> [LoadBalancerPolicy](./types.pb.go#L3477-L3484)
 ``` go
 type LoadBalancerPolicy struct {
     CreateTime             *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -41062,57 +40909,57 @@ type LoadBalancerPolicy struct {
 }
 ```
 
-### <a name="LoadBalancerPolicy.Descriptor">func</a> (\*LoadBalancerPolicy) [Descriptor](./types.pb.go#L3111)
+### <a name="LoadBalancerPolicy.Descriptor">func</a> (\*LoadBalancerPolicy) [Descriptor](./types.pb.go#L3489)
 ``` go
 func (*LoadBalancerPolicy) Descriptor() ([]byte, []int)
 ```
 
-### <a name="LoadBalancerPolicy.GetCreateTime">func</a> (\*LoadBalancerPolicy) [GetCreateTime](./types.pb.go#L3113)
+### <a name="LoadBalancerPolicy.GetCreateTime">func</a> (\*LoadBalancerPolicy) [GetCreateTime](./types.pb.go#L3491)
 ``` go
 func (m *LoadBalancerPolicy) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="LoadBalancerPolicy.GetIsApplied">func</a> (\*LoadBalancerPolicy) [GetIsApplied](./types.pb.go#L3120)
+### <a name="LoadBalancerPolicy.GetIsApplied">func</a> (\*LoadBalancerPolicy) [GetIsApplied](./types.pb.go#L3498)
 ``` go
 func (m *LoadBalancerPolicy) GetIsApplied() int32
 ```
 
-### <a name="LoadBalancerPolicy.GetLoadbalancerIds">func</a> (\*LoadBalancerPolicy) [GetLoadbalancerIds](./types.pb.go#L3127)
+### <a name="LoadBalancerPolicy.GetLoadbalancerIds">func</a> (\*LoadBalancerPolicy) [GetLoadbalancerIds](./types.pb.go#L3505)
 ``` go
 func (m *LoadBalancerPolicy) GetLoadbalancerIds() []string
 ```
 
-### <a name="LoadBalancerPolicy.GetLoadbalancerPolicyId">func</a> (\*LoadBalancerPolicy) [GetLoadbalancerPolicyId](./types.pb.go#L3134)
+### <a name="LoadBalancerPolicy.GetLoadbalancerPolicyId">func</a> (\*LoadBalancerPolicy) [GetLoadbalancerPolicyId](./types.pb.go#L3512)
 ``` go
 func (m *LoadBalancerPolicy) GetLoadbalancerPolicyId() string
 ```
 
-### <a name="LoadBalancerPolicy.GetLoadbalancerPolicyName">func</a> (\*LoadBalancerPolicy) [GetLoadbalancerPolicyName](./types.pb.go#L3141)
+### <a name="LoadBalancerPolicy.GetLoadbalancerPolicyName">func</a> (\*LoadBalancerPolicy) [GetLoadbalancerPolicyName](./types.pb.go#L3519)
 ``` go
 func (m *LoadBalancerPolicy) GetLoadbalancerPolicyName() string
 ```
 
-### <a name="LoadBalancerPolicy.ProtoMessage">func</a> (\*LoadBalancerPolicy) [ProtoMessage](./types.pb.go#L3110)
+### <a name="LoadBalancerPolicy.ProtoMessage">func</a> (\*LoadBalancerPolicy) [ProtoMessage](./types.pb.go#L3488)
 ``` go
 func (*LoadBalancerPolicy) ProtoMessage()
 ```
 
-### <a name="LoadBalancerPolicy.Reset">func</a> (\*LoadBalancerPolicy) [Reset](./types.pb.go#L3108)
+### <a name="LoadBalancerPolicy.Reset">func</a> (\*LoadBalancerPolicy) [Reset](./types.pb.go#L3486)
 ``` go
 func (m *LoadBalancerPolicy) Reset()
 ```
 
-### <a name="LoadBalancerPolicy.String">func</a> (\*LoadBalancerPolicy) [String](./types.pb.go#L3109)
+### <a name="LoadBalancerPolicy.String">func</a> (\*LoadBalancerPolicy) [String](./types.pb.go#L3487)
 ``` go
 func (m *LoadBalancerPolicy) String() string
 ```
 
-### <a name="LoadBalancerPolicy.Validate">func</a> (\*LoadBalancerPolicy) [Validate](./types.pb.validate.go#L195)
+### <a name="LoadBalancerPolicy.Validate">func</a> (\*LoadBalancerPolicy) [Validate](./types.pb.validate.go#L200)
 ``` go
 func (p *LoadBalancerPolicy) Validate() error
 ```
 
-## <a name="LoadBalancerPolicyRule">type</a> [LoadBalancerPolicyRule](./types.pb.go#L3148-L3154)
+## <a name="LoadBalancerPolicyRule">type</a> [LoadBalancerPolicyRule](./types.pb.go#L3526-L3532)
 ``` go
 type LoadBalancerPolicyRule struct {
     LoadbalancerPolicyRuleId   *string `protobuf:"bytes,1,opt,name=loadbalancer_policy_rule_id,json=loadbalancerPolicyRuleId" json:"loadbalancer_policy_rule_id,omitempty"`
@@ -41123,219 +40970,219 @@ type LoadBalancerPolicyRule struct {
 }
 ```
 
-### <a name="LoadBalancerPolicyRule.Descriptor">func</a> (\*LoadBalancerPolicyRule) [Descriptor](./types.pb.go#L3159)
+### <a name="LoadBalancerPolicyRule.Descriptor">func</a> (\*LoadBalancerPolicyRule) [Descriptor](./types.pb.go#L3537)
 ``` go
 func (*LoadBalancerPolicyRule) Descriptor() ([]byte, []int)
 ```
 
-### <a name="LoadBalancerPolicyRule.GetLoadbalancerPolicyRuleId">func</a> (\*LoadBalancerPolicyRule) [GetLoadbalancerPolicyRuleId](./types.pb.go#L3161)
+### <a name="LoadBalancerPolicyRule.GetLoadbalancerPolicyRuleId">func</a> (\*LoadBalancerPolicyRule) [GetLoadbalancerPolicyRuleId](./types.pb.go#L3539)
 ``` go
 func (m *LoadBalancerPolicyRule) GetLoadbalancerPolicyRuleId() string
 ```
 
-### <a name="LoadBalancerPolicyRule.GetLoadbalancerPolicyRuleName">func</a> (\*LoadBalancerPolicyRule) [GetLoadbalancerPolicyRuleName](./types.pb.go#L3168)
+### <a name="LoadBalancerPolicyRule.GetLoadbalancerPolicyRuleName">func</a> (\*LoadBalancerPolicyRule) [GetLoadbalancerPolicyRuleName](./types.pb.go#L3546)
 ``` go
 func (m *LoadBalancerPolicyRule) GetLoadbalancerPolicyRuleName() string
 ```
 
-### <a name="LoadBalancerPolicyRule.GetRuleType">func</a> (\*LoadBalancerPolicyRule) [GetRuleType](./types.pb.go#L3175)
+### <a name="LoadBalancerPolicyRule.GetRuleType">func</a> (\*LoadBalancerPolicyRule) [GetRuleType](./types.pb.go#L3553)
 ``` go
 func (m *LoadBalancerPolicyRule) GetRuleType() string
 ```
 
-### <a name="LoadBalancerPolicyRule.GetVal">func</a> (\*LoadBalancerPolicyRule) [GetVal](./types.pb.go#L3182)
+### <a name="LoadBalancerPolicyRule.GetVal">func</a> (\*LoadBalancerPolicyRule) [GetVal](./types.pb.go#L3560)
 ``` go
 func (m *LoadBalancerPolicyRule) GetVal() string
 ```
 
-### <a name="LoadBalancerPolicyRule.ProtoMessage">func</a> (\*LoadBalancerPolicyRule) [ProtoMessage](./types.pb.go#L3158)
+### <a name="LoadBalancerPolicyRule.ProtoMessage">func</a> (\*LoadBalancerPolicyRule) [ProtoMessage](./types.pb.go#L3536)
 ``` go
 func (*LoadBalancerPolicyRule) ProtoMessage()
 ```
 
-### <a name="LoadBalancerPolicyRule.Reset">func</a> (\*LoadBalancerPolicyRule) [Reset](./types.pb.go#L3156)
+### <a name="LoadBalancerPolicyRule.Reset">func</a> (\*LoadBalancerPolicyRule) [Reset](./types.pb.go#L3534)
 ``` go
 func (m *LoadBalancerPolicyRule) Reset()
 ```
 
-### <a name="LoadBalancerPolicyRule.String">func</a> (\*LoadBalancerPolicyRule) [String](./types.pb.go#L3157)
+### <a name="LoadBalancerPolicyRule.String">func</a> (\*LoadBalancerPolicyRule) [String](./types.pb.go#L3535)
 ``` go
 func (m *LoadBalancerPolicyRule) String() string
 ```
 
-### <a name="LoadBalancerPolicyRule.Validate">func</a> (\*LoadBalancerPolicyRule) [Validate](./types.pb.validate.go#L200)
+### <a name="LoadBalancerPolicyRule.Validate">func</a> (\*LoadBalancerPolicyRule) [Validate](./types.pb.validate.go#L205)
 ``` go
 func (p *LoadBalancerPolicyRule) Validate() error
 ```
 
-## <a name="LoadBalancerService">type</a> [LoadBalancerService](./load_balancer.pb.qingcloud.go#L53-L55)
+## <a name="LoadBalancerService">type</a> [LoadBalancerService](./load_balancer.pb.qingcloud.go#L60-L62)
 ``` go
 type LoadBalancerService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewLoadBalancerService">func</a> [NewLoadBalancerService](./load_balancer.pb.qingcloud.go#L57)
+### <a name="NewLoadBalancerService">func</a> [NewLoadBalancerService](./load_balancer.pb.qingcloud.go#L64)
 ``` go
 func NewLoadBalancerService(server *ServerInfo) (p *LoadBalancerService)
 ```
 
-### <a name="LoadBalancerService.AddLoadBalancerBackends">func</a> (\*LoadBalancerService) [AddLoadBalancerBackends](./load_balancer.pb.qingcloud.go#L357)
+### <a name="LoadBalancerService.AddLoadBalancerBackends">func</a> (\*LoadBalancerService) [AddLoadBalancerBackends](./load_balancer.pb.qingcloud.go#L553)
 ``` go
 func (p *LoadBalancerService) AddLoadBalancerBackends(input *AddLoadBalancerBackendsInput) (output *AddLoadBalancerBackendsOutput, err error)
 ```
 
-### <a name="LoadBalancerService.AddLoadBalancerListeners">func</a> (\*LoadBalancerService) [AddLoadBalancerListeners](./load_balancer.pb.qingcloud.go#L273)
+### <a name="LoadBalancerService.AddLoadBalancerListeners">func</a> (\*LoadBalancerService) [AddLoadBalancerListeners](./load_balancer.pb.qingcloud.go#L469)
 ``` go
 func (p *LoadBalancerService) AddLoadBalancerListeners(input *AddLoadBalancerListenersInput) (output *AddLoadBalancerListenersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.AddLoadBalancerPolicyRules">func</a> (\*LoadBalancerService) [AddLoadBalancerPolicyRules](./load_balancer.pb.qingcloud.go#L546)
+### <a name="LoadBalancerService.AddLoadBalancerPolicyRules">func</a> (\*LoadBalancerService) [AddLoadBalancerPolicyRules](./load_balancer.pb.qingcloud.go#L742)
 ``` go
 func (p *LoadBalancerService) AddLoadBalancerPolicyRules(input *AddLoadBalancerPolicyRulesInput) (output *AddLoadBalancerPolicyRulesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ApplyLoadBalancerPolicy">func</a> (\*LoadBalancerService) [ApplyLoadBalancerPolicy](./load_balancer.pb.qingcloud.go#L504)
+### <a name="LoadBalancerService.ApplyLoadBalancerPolicy">func</a> (\*LoadBalancerService) [ApplyLoadBalancerPolicy](./load_balancer.pb.qingcloud.go#L700)
 ``` go
 func (p *LoadBalancerService) ApplyLoadBalancerPolicy(input *ApplyLoadBalancerPolicyInput) (output *ApplyLoadBalancerPolicyOutput, err error)
 ```
 
-### <a name="LoadBalancerService.AssociateEipsToLoadBalancer">func</a> (\*LoadBalancerService) [AssociateEipsToLoadBalancer](./load_balancer.pb.qingcloud.go#L231)
+### <a name="LoadBalancerService.AssociateEipsToLoadBalancer">func</a> (\*LoadBalancerService) [AssociateEipsToLoadBalancer](./load_balancer.pb.qingcloud.go#L427)
 ``` go
 func (p *LoadBalancerService) AssociateEipsToLoadBalancer(input *AssociateEipsToLoadBalancerInput) (output *AssociateEipsToLoadBalancerOutput, err error)
 ```
 
-### <a name="LoadBalancerService.CreateLoadBalancer">func</a> (\*LoadBalancerService) [CreateLoadBalancer](./load_balancer.pb.qingcloud.go#L63)
+### <a name="LoadBalancerService.CreateLoadBalancer">func</a> (\*LoadBalancerService) [CreateLoadBalancer](./load_balancer.pb.qingcloud.go#L259)
 ``` go
 func (p *LoadBalancerService) CreateLoadBalancer(input *CreateLoadBalancerInput) (output *CreateLoadBalancerOutput, err error)
 ```
 
-### <a name="LoadBalancerService.CreateLoadBalancerPolicy">func</a> (\*LoadBalancerService) [CreateLoadBalancerPolicy](./load_balancer.pb.qingcloud.go#L441)
+### <a name="LoadBalancerService.CreateLoadBalancerPolicy">func</a> (\*LoadBalancerService) [CreateLoadBalancerPolicy](./load_balancer.pb.qingcloud.go#L637)
 ``` go
 func (p *LoadBalancerService) CreateLoadBalancerPolicy(input *CreateLoadBalancerPolicyInput) (output *CreateLoadBalancerPolicyOutput, err error)
 ```
 
-### <a name="LoadBalancerService.CreateServerCertificate">func</a> (\*LoadBalancerService) [CreateServerCertificate](./load_balancer.pb.qingcloud.go#L630)
+### <a name="LoadBalancerService.CreateServerCertificate">func</a> (\*LoadBalancerService) [CreateServerCertificate](./load_balancer.pb.qingcloud.go#L826)
 ``` go
 func (p *LoadBalancerService) CreateServerCertificate(input *CreateServerCertificateInput) (output *CreateServerCertificateOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DeleteLoadBalancerBackends">func</a> (\*LoadBalancerService) [DeleteLoadBalancerBackends](./load_balancer.pb.qingcloud.go#L399)
+### <a name="LoadBalancerService.DeleteLoadBalancerBackends">func</a> (\*LoadBalancerService) [DeleteLoadBalancerBackends](./load_balancer.pb.qingcloud.go#L595)
 ``` go
 func (p *LoadBalancerService) DeleteLoadBalancerBackends(input *DeleteLoadBalancerBackendsInput) (output *DeleteLoadBalancerBackendsOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DeleteLoadBalancerListeners">func</a> (\*LoadBalancerService) [DeleteLoadBalancerListeners](./load_balancer.pb.qingcloud.go#L315)
+### <a name="LoadBalancerService.DeleteLoadBalancerListeners">func</a> (\*LoadBalancerService) [DeleteLoadBalancerListeners](./load_balancer.pb.qingcloud.go#L511)
 ``` go
 func (p *LoadBalancerService) DeleteLoadBalancerListeners(input *DeleteLoadBalancerListenersInput) (output *DeleteLoadBalancerListenersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DeleteLoadBalancerPolicies">func</a> (\*LoadBalancerService) [DeleteLoadBalancerPolicies](./load_balancer.pb.qingcloud.go#L525)
+### <a name="LoadBalancerService.DeleteLoadBalancerPolicies">func</a> (\*LoadBalancerService) [DeleteLoadBalancerPolicies](./load_balancer.pb.qingcloud.go#L721)
 ``` go
 func (p *LoadBalancerService) DeleteLoadBalancerPolicies(input *DeleteLoadBalancerPoliciesInput) (output *DeleteLoadBalancerPoliciesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DeleteLoadBalancerPolicyRules">func</a> (\*LoadBalancerService) [DeleteLoadBalancerPolicyRules](./load_balancer.pb.qingcloud.go#L609)
+### <a name="LoadBalancerService.DeleteLoadBalancerPolicyRules">func</a> (\*LoadBalancerService) [DeleteLoadBalancerPolicyRules](./load_balancer.pb.qingcloud.go#L805)
 ``` go
 func (p *LoadBalancerService) DeleteLoadBalancerPolicyRules(input *DeleteLoadBalancerPolicyRulesInput) (output *DeleteLoadBalancerPolicyRulesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DeleteLoadBalancers">func</a> (\*LoadBalancerService) [DeleteLoadBalancers](./load_balancer.pb.qingcloud.go#L105)
+### <a name="LoadBalancerService.DeleteLoadBalancers">func</a> (\*LoadBalancerService) [DeleteLoadBalancers](./load_balancer.pb.qingcloud.go#L301)
 ``` go
 func (p *LoadBalancerService) DeleteLoadBalancers(input *DeleteLoadBalancersInput) (output *DeleteLoadBalancersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DeleteServerCertificates">func</a> (\*LoadBalancerService) [DeleteServerCertificates](./load_balancer.pb.qingcloud.go#L693)
+### <a name="LoadBalancerService.DeleteServerCertificates">func</a> (\*LoadBalancerService) [DeleteServerCertificates](./load_balancer.pb.qingcloud.go#L889)
 ``` go
 func (p *LoadBalancerService) DeleteServerCertificates(input *DeleteServerCertificatesInput) (output *DeleteServerCertificatesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DescribeLoadBalancerBackends">func</a> (\*LoadBalancerService) [DescribeLoadBalancerBackends](./load_balancer.pb.qingcloud.go#L378)
+### <a name="LoadBalancerService.DescribeLoadBalancerBackends">func</a> (\*LoadBalancerService) [DescribeLoadBalancerBackends](./load_balancer.pb.qingcloud.go#L574)
 ``` go
 func (p *LoadBalancerService) DescribeLoadBalancerBackends(input *DescribeLoadBalancerBackendsInput) (output *DescribeLoadBalancerBackendsOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DescribeLoadBalancerListeners">func</a> (\*LoadBalancerService) [DescribeLoadBalancerListeners](./load_balancer.pb.qingcloud.go#L294)
+### <a name="LoadBalancerService.DescribeLoadBalancerListeners">func</a> (\*LoadBalancerService) [DescribeLoadBalancerListeners](./load_balancer.pb.qingcloud.go#L490)
 ``` go
 func (p *LoadBalancerService) DescribeLoadBalancerListeners(input *DescribeLoadBalancerListenersInput) (output *DescribeLoadBalancerListenersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DescribeLoadBalancerPolicies">func</a> (\*LoadBalancerService) [DescribeLoadBalancerPolicies](./load_balancer.pb.qingcloud.go#L462)
+### <a name="LoadBalancerService.DescribeLoadBalancerPolicies">func</a> (\*LoadBalancerService) [DescribeLoadBalancerPolicies](./load_balancer.pb.qingcloud.go#L658)
 ``` go
 func (p *LoadBalancerService) DescribeLoadBalancerPolicies(input *DescribeLoadBalancerPoliciesInput) (output *DescribeLoadBalancerPoliciesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DescribeLoadBalancerPolicyRules">func</a> (\*LoadBalancerService) [DescribeLoadBalancerPolicyRules](./load_balancer.pb.qingcloud.go#L567)
+### <a name="LoadBalancerService.DescribeLoadBalancerPolicyRules">func</a> (\*LoadBalancerService) [DescribeLoadBalancerPolicyRules](./load_balancer.pb.qingcloud.go#L763)
 ``` go
 func (p *LoadBalancerService) DescribeLoadBalancerPolicyRules(input *DescribeLoadBalancerPolicyRulesInput) (output *DescribeLoadBalancerPolicyRulesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DescribeLoadBalancers">func</a> (\*LoadBalancerService) [DescribeLoadBalancers](./load_balancer.pb.qingcloud.go#L84)
+### <a name="LoadBalancerService.DescribeLoadBalancers">func</a> (\*LoadBalancerService) [DescribeLoadBalancers](./load_balancer.pb.qingcloud.go#L280)
 ``` go
 func (p *LoadBalancerService) DescribeLoadBalancers(input *DescribeLoadBalancersInput) (output *DescribeLoadBalancersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DescribeServerCertificates">func</a> (\*LoadBalancerService) [DescribeServerCertificates](./load_balancer.pb.qingcloud.go#L651)
+### <a name="LoadBalancerService.DescribeServerCertificates">func</a> (\*LoadBalancerService) [DescribeServerCertificates](./load_balancer.pb.qingcloud.go#L847)
 ``` go
 func (p *LoadBalancerService) DescribeServerCertificates(input *DescribeServerCertificatesInput) (output *DescribeServerCertificatesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.DissociateEipsFromLoadBalancer">func</a> (\*LoadBalancerService) [DissociateEipsFromLoadBalancer](./load_balancer.pb.qingcloud.go#L252)
+### <a name="LoadBalancerService.DissociateEipsFromLoadBalancer">func</a> (\*LoadBalancerService) [DissociateEipsFromLoadBalancer](./load_balancer.pb.qingcloud.go#L448)
 ``` go
 func (p *LoadBalancerService) DissociateEipsFromLoadBalancer(input *DissociateEipsFromLoadBalancerInput) (output *DissociateEipsFromLoadBalancerOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ModifyLoadBalancerAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerAttributes](./load_balancer.pb.qingcloud.go#L126)
+### <a name="LoadBalancerService.ModifyLoadBalancerAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerAttributes](./load_balancer.pb.qingcloud.go#L322)
 ``` go
 func (p *LoadBalancerService) ModifyLoadBalancerAttributes(input *ModifyLoadBalancerAttributesInput) (output *ModifyLoadBalancerAttributesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ModifyLoadBalancerBackendAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerBackendAttributes](./load_balancer.pb.qingcloud.go#L420)
+### <a name="LoadBalancerService.ModifyLoadBalancerBackendAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerBackendAttributes](./load_balancer.pb.qingcloud.go#L616)
 ``` go
 func (p *LoadBalancerService) ModifyLoadBalancerBackendAttributes(input *ModifyLoadBalancerBackendAttributesInput) (output *ModifyLoadBalancerBackendAttributesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ModifyLoadBalancerListenerAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerListenerAttributes](./load_balancer.pb.qingcloud.go#L336)
+### <a name="LoadBalancerService.ModifyLoadBalancerListenerAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerListenerAttributes](./load_balancer.pb.qingcloud.go#L532)
 ``` go
 func (p *LoadBalancerService) ModifyLoadBalancerListenerAttributes(input *ModifyLoadBalancerListenerAttributesInput) (output *ModifyLoadBalancerListenerAttributesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ModifyLoadBalancerPolicyAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerPolicyAttributes](./load_balancer.pb.qingcloud.go#L483)
+### <a name="LoadBalancerService.ModifyLoadBalancerPolicyAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerPolicyAttributes](./load_balancer.pb.qingcloud.go#L679)
 ``` go
 func (p *LoadBalancerService) ModifyLoadBalancerPolicyAttributes(input *ModifyLoadBalancerPolicyAttributesInput) (output *ModifyLoadBalancerPolicyAttributesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ModifyLoadBalancerPolicyRuleAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerPolicyRuleAttributes](./load_balancer.pb.qingcloud.go#L588)
+### <a name="LoadBalancerService.ModifyLoadBalancerPolicyRuleAttributes">func</a> (\*LoadBalancerService) [ModifyLoadBalancerPolicyRuleAttributes](./load_balancer.pb.qingcloud.go#L784)
 ``` go
 func (p *LoadBalancerService) ModifyLoadBalancerPolicyRuleAttributes(input *ModifyLoadBalancerPolicyRuleAttributesInput) (output *ModifyLoadBalancerPolicyRuleAttributesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ModifyServerCertificateAttributes">func</a> (\*LoadBalancerService) [ModifyServerCertificateAttributes](./load_balancer.pb.qingcloud.go#L672)
+### <a name="LoadBalancerService.ModifyServerCertificateAttributes">func</a> (\*LoadBalancerService) [ModifyServerCertificateAttributes](./load_balancer.pb.qingcloud.go#L868)
 ``` go
 func (p *LoadBalancerService) ModifyServerCertificateAttributes(input *ModifyServerCertificateAttributesInput) (output *ModifyServerCertificateAttributesOutput, err error)
 ```
 
-### <a name="LoadBalancerService.ResizeLoadBalancers">func</a> (\*LoadBalancerService) [ResizeLoadBalancers](./load_balancer.pb.qingcloud.go#L210)
+### <a name="LoadBalancerService.ResizeLoadBalancers">func</a> (\*LoadBalancerService) [ResizeLoadBalancers](./load_balancer.pb.qingcloud.go#L406)
 ``` go
 func (p *LoadBalancerService) ResizeLoadBalancers(input *ResizeLoadBalancersInput) (output *ResizeLoadBalancersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.StartLoadBalancers">func</a> (\*LoadBalancerService) [StartLoadBalancers](./load_balancer.pb.qingcloud.go#L147)
+### <a name="LoadBalancerService.StartLoadBalancers">func</a> (\*LoadBalancerService) [StartLoadBalancers](./load_balancer.pb.qingcloud.go#L343)
 ``` go
 func (p *LoadBalancerService) StartLoadBalancers(input *StartLoadBalancersInput) (output *StartLoadBalancersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.StopLoadBalancers">func</a> (\*LoadBalancerService) [StopLoadBalancers](./load_balancer.pb.qingcloud.go#L168)
+### <a name="LoadBalancerService.StopLoadBalancers">func</a> (\*LoadBalancerService) [StopLoadBalancers](./load_balancer.pb.qingcloud.go#L364)
 ``` go
 func (p *LoadBalancerService) StopLoadBalancers(input *StopLoadBalancersInput) (output *StopLoadBalancersOutput, err error)
 ```
 
-### <a name="LoadBalancerService.UpdateLoadBalancers">func</a> (\*LoadBalancerService) [UpdateLoadBalancers](./load_balancer.pb.qingcloud.go#L189)
+### <a name="LoadBalancerService.UpdateLoadBalancers">func</a> (\*LoadBalancerService) [UpdateLoadBalancers](./load_balancer.pb.qingcloud.go#L385)
 ``` go
 func (p *LoadBalancerService) UpdateLoadBalancers(input *UpdateLoadBalancersInput) (output *UpdateLoadBalancersOutput, err error)
 ```
 
-## <a name="LoadBalancerServiceInterface">type</a> [LoadBalancerServiceInterface](./load_balancer.pb.qingcloud.go#L19-L51)
+## <a name="LoadBalancerServiceInterface">type</a> [LoadBalancerServiceInterface](./load_balancer.pb.qingcloud.go#L26-L58)
 ``` go
 type LoadBalancerServiceInterface interface {
     CreateLoadBalancer(in *CreateLoadBalancerInput) (out *CreateLoadBalancerOutput, err error)
@@ -41372,7 +41219,7 @@ type LoadBalancerServiceInterface interface {
 }
 ```
 
-## <a name="Meter">type</a> [Meter](./types.pb.go#L3189-L3196)
+## <a name="Meter">type</a> [Meter](./types.pb.go#L3567-L3574)
 ``` go
 type Meter struct {
     // Data     interface{}   `json:"data" name:"data"`
@@ -41384,74 +41231,74 @@ type Meter struct {
 }
 ```
 
-### <a name="Meter.Descriptor">func</a> (\*Meter) [Descriptor](./types.pb.go#L3201)
+### <a name="Meter.Descriptor">func</a> (\*Meter) [Descriptor](./types.pb.go#L3579)
 ``` go
 func (*Meter) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Meter.GetMeterId">func</a> (\*Meter) [GetMeterId](./types.pb.go#L3203)
+### <a name="Meter.GetMeterId">func</a> (\*Meter) [GetMeterId](./types.pb.go#L3581)
 ``` go
 func (m *Meter) GetMeterId() string
 ```
 
-### <a name="Meter.GetSequence">func</a> (\*Meter) [GetSequence](./types.pb.go#L3210)
+### <a name="Meter.GetSequence">func</a> (\*Meter) [GetSequence](./types.pb.go#L3588)
 ``` go
 func (m *Meter) GetSequence() int32
 ```
 
-### <a name="Meter.GetVxnetId">func</a> (\*Meter) [GetVxnetId](./types.pb.go#L3217)
+### <a name="Meter.GetVxnetId">func</a> (\*Meter) [GetVxnetId](./types.pb.go#L3595)
 ``` go
 func (m *Meter) GetVxnetId() string
 ```
 
-### <a name="Meter.ProtoMessage">func</a> (\*Meter) [ProtoMessage](./types.pb.go#L3200)
+### <a name="Meter.ProtoMessage">func</a> (\*Meter) [ProtoMessage](./types.pb.go#L3578)
 ``` go
 func (*Meter) ProtoMessage()
 ```
 
-### <a name="Meter.Reset">func</a> (\*Meter) [Reset](./types.pb.go#L3198)
+### <a name="Meter.Reset">func</a> (\*Meter) [Reset](./types.pb.go#L3576)
 ``` go
 func (m *Meter) Reset()
 ```
 
-### <a name="Meter.String">func</a> (\*Meter) [String](./types.pb.go#L3199)
+### <a name="Meter.String">func</a> (\*Meter) [String](./types.pb.go#L3577)
 ``` go
 func (m *Meter) String() string
 ```
 
-### <a name="Meter.Validate">func</a> (\*Meter) [Validate](./types.pb.validate.go#L205)
+### <a name="Meter.Validate">func</a> (\*Meter) [Validate](./types.pb.validate.go#L210)
 ``` go
 func (p *Meter) Validate() error
 ```
 
-## <a name="MiscService">type</a> [MiscService](./misc.pb.qingcloud.go#L25-L27)
+## <a name="MiscService">type</a> [MiscService](./misc.pb.qingcloud.go#L32-L34)
 ``` go
 type MiscService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewMiscService">func</a> [NewMiscService](./misc.pb.qingcloud.go#L29)
+### <a name="NewMiscService">func</a> [NewMiscService](./misc.pb.qingcloud.go#L36)
 ``` go
 func NewMiscService(server *ServerInfo) (p *MiscService)
 ```
 
-### <a name="MiscService.GetQuotaLeft">func</a> (\*MiscService) [GetQuotaLeft](./misc.pb.qingcloud.go#L77)
+### <a name="MiscService.GetQuotaLeft">func</a> (\*MiscService) [GetQuotaLeft](./misc.pb.qingcloud.go#L105)
 ``` go
 func (p *MiscService) GetQuotaLeft(input *GetQuotaLeftInput) (output *GetQuotaLeftOutput, err error)
 ```
 
-### <a name="MiscService.GrantQuotaIndep">func</a> (\*MiscService) [GrantQuotaIndep](./misc.pb.qingcloud.go#L35)
+### <a name="MiscService.GrantQuotaIndep">func</a> (\*MiscService) [GrantQuotaIndep](./misc.pb.qingcloud.go#L63)
 ``` go
 func (p *MiscService) GrantQuotaIndep(input *GrantQuotaIndepInput) (output *GrantQuotaIndepOutput, err error)
 ```
 
-### <a name="MiscService.RevokeQuotaIndep">func</a> (\*MiscService) [RevokeQuotaIndep](./misc.pb.qingcloud.go#L56)
+### <a name="MiscService.RevokeQuotaIndep">func</a> (\*MiscService) [RevokeQuotaIndep](./misc.pb.qingcloud.go#L84)
 ``` go
 func (p *MiscService) RevokeQuotaIndep(input *RevokeQuotaIndepInput) (output *RevokeQuotaIndepOutput, err error)
 ```
 
-## <a name="MiscServiceInterface">type</a> [MiscServiceInterface](./misc.pb.qingcloud.go#L19-L23)
+## <a name="MiscServiceInterface">type</a> [MiscServiceInterface](./misc.pb.qingcloud.go#L26-L30)
 ``` go
 type MiscServiceInterface interface {
     GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error)
@@ -46264,7 +46111,7 @@ func (m *ModifyVxnetAttributesOutput) String() string
 func (p *ModifyVxnetAttributesOutput) Validate() error
 ```
 
-## <a name="Mongo">type</a> [Mongo](./types.pb.go#L1656-L1674)
+## <a name="Mongo">type</a> [Mongo](./types.pb.go#L2527-L2545)
 ``` go
 type Mongo struct {
     AlarmStatus         *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
@@ -46287,112 +46134,112 @@ type Mongo struct {
 }
 ```
 
-### <a name="Mongo.Descriptor">func</a> (\*Mongo) [Descriptor](./types.pb.go#L1679)
+### <a name="Mongo.Descriptor">func</a> (\*Mongo) [Descriptor](./types.pb.go#L2550)
 ``` go
 func (*Mongo) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Mongo.GetAlarmStatus">func</a> (\*Mongo) [GetAlarmStatus](./types.pb.go#L1681)
+### <a name="Mongo.GetAlarmStatus">func</a> (\*Mongo) [GetAlarmStatus](./types.pb.go#L2552)
 ``` go
 func (m *Mongo) GetAlarmStatus() string
 ```
 
-### <a name="Mongo.GetAutoBackupTime">func</a> (\*Mongo) [GetAutoBackupTime](./types.pb.go#L1688)
+### <a name="Mongo.GetAutoBackupTime">func</a> (\*Mongo) [GetAutoBackupTime](./types.pb.go#L2559)
 ``` go
 func (m *Mongo) GetAutoBackupTime() int32
 ```
 
-### <a name="Mongo.GetAutoMinorVerUpgrade">func</a> (\*Mongo) [GetAutoMinorVerUpgrade](./types.pb.go#L1695)
+### <a name="Mongo.GetAutoMinorVerUpgrade">func</a> (\*Mongo) [GetAutoMinorVerUpgrade](./types.pb.go#L2566)
 ``` go
 func (m *Mongo) GetAutoMinorVerUpgrade() int32
 ```
 
-### <a name="Mongo.GetCreateTime">func</a> (\*Mongo) [GetCreateTime](./types.pb.go#L1702)
+### <a name="Mongo.GetCreateTime">func</a> (\*Mongo) [GetCreateTime](./types.pb.go#L2573)
 ``` go
 func (m *Mongo) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Mongo.GetDescription">func</a> (\*Mongo) [GetDescription](./types.pb.go#L1709)
+### <a name="Mongo.GetDescription">func</a> (\*Mongo) [GetDescription](./types.pb.go#L2580)
 ``` go
 func (m *Mongo) GetDescription() string
 ```
 
-### <a name="Mongo.GetLatestSnapshotTime">func</a> (\*Mongo) [GetLatestSnapshotTime](./types.pb.go#L1716)
+### <a name="Mongo.GetLatestSnapshotTime">func</a> (\*Mongo) [GetLatestSnapshotTime](./types.pb.go#L2587)
 ``` go
 func (m *Mongo) GetLatestSnapshotTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Mongo.GetMongoId">func</a> (\*Mongo) [GetMongoId](./types.pb.go#L1723)
+### <a name="Mongo.GetMongoId">func</a> (\*Mongo) [GetMongoId](./types.pb.go#L2594)
 ``` go
 func (m *Mongo) GetMongoId() string
 ```
 
-### <a name="Mongo.GetMongoName">func</a> (\*Mongo) [GetMongoName](./types.pb.go#L1730)
+### <a name="Mongo.GetMongoName">func</a> (\*Mongo) [GetMongoName](./types.pb.go#L2601)
 ``` go
 func (m *Mongo) GetMongoName() string
 ```
 
-### <a name="Mongo.GetMongoType">func</a> (\*Mongo) [GetMongoType](./types.pb.go#L1737)
+### <a name="Mongo.GetMongoType">func</a> (\*Mongo) [GetMongoType](./types.pb.go#L2608)
 ``` go
 func (m *Mongo) GetMongoType() int32
 ```
 
-### <a name="Mongo.GetMongoVersion">func</a> (\*Mongo) [GetMongoVersion](./types.pb.go#L1744)
+### <a name="Mongo.GetMongoVersion">func</a> (\*Mongo) [GetMongoVersion](./types.pb.go#L2615)
 ``` go
 func (m *Mongo) GetMongoVersion() string
 ```
 
-### <a name="Mongo.GetStatus">func</a> (\*Mongo) [GetStatus](./types.pb.go#L1751)
+### <a name="Mongo.GetStatus">func</a> (\*Mongo) [GetStatus](./types.pb.go#L2622)
 ``` go
 func (m *Mongo) GetStatus() string
 ```
 
-### <a name="Mongo.GetStatusTime">func</a> (\*Mongo) [GetStatusTime](./types.pb.go#L1758)
+### <a name="Mongo.GetStatusTime">func</a> (\*Mongo) [GetStatusTime](./types.pb.go#L2629)
 ``` go
 func (m *Mongo) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Mongo.GetStorageSize">func</a> (\*Mongo) [GetStorageSize](./types.pb.go#L1765)
+### <a name="Mongo.GetStorageSize">func</a> (\*Mongo) [GetStorageSize](./types.pb.go#L2636)
 ``` go
 func (m *Mongo) GetStorageSize() int32
 ```
 
-### <a name="Mongo.GetTags">func</a> (\*Mongo) [GetTags](./types.pb.go#L1772)
+### <a name="Mongo.GetTags">func</a> (\*Mongo) [GetTags](./types.pb.go#L2643)
 ``` go
 func (m *Mongo) GetTags() []*Tag
 ```
 
-### <a name="Mongo.GetTransitionStatus">func</a> (\*Mongo) [GetTransitionStatus](./types.pb.go#L1779)
+### <a name="Mongo.GetTransitionStatus">func</a> (\*Mongo) [GetTransitionStatus](./types.pb.go#L2650)
 ``` go
 func (m *Mongo) GetTransitionStatus() string
 ```
 
-### <a name="Mongo.GetVxnet">func</a> (\*Mongo) [GetVxnet](./types.pb.go#L1786)
+### <a name="Mongo.GetVxnet">func</a> (\*Mongo) [GetVxnet](./types.pb.go#L2657)
 ``` go
 func (m *Mongo) GetVxnet() *VxNet
 ```
 
-### <a name="Mongo.ProtoMessage">func</a> (\*Mongo) [ProtoMessage](./types.pb.go#L1678)
+### <a name="Mongo.ProtoMessage">func</a> (\*Mongo) [ProtoMessage](./types.pb.go#L2549)
 ``` go
 func (*Mongo) ProtoMessage()
 ```
 
-### <a name="Mongo.Reset">func</a> (\*Mongo) [Reset](./types.pb.go#L1676)
+### <a name="Mongo.Reset">func</a> (\*Mongo) [Reset](./types.pb.go#L2547)
 ``` go
 func (m *Mongo) Reset()
 ```
 
-### <a name="Mongo.String">func</a> (\*Mongo) [String](./types.pb.go#L1677)
+### <a name="Mongo.String">func</a> (\*Mongo) [String](./types.pb.go#L2548)
 ``` go
 func (m *Mongo) String() string
 ```
 
-### <a name="Mongo.Validate">func</a> (\*Mongo) [Validate](./types.pb.validate.go#L100)
+### <a name="Mongo.Validate">func</a> (\*Mongo) [Validate](./types.pb.validate.go#L130)
 ``` go
 func (p *Mongo) Validate() error
 ```
 
-## <a name="MongoNode">type</a> [MongoNode](./types.pb.go#L1793-L1801)
+## <a name="MongoNode">type</a> [MongoNode](./types.pb.go#L2664-L2672)
 ``` go
 type MongoNode struct {
     Ip               *string `protobuf:"bytes,1,opt,name=ip" json:"ip,omitempty"`
@@ -46405,62 +46252,62 @@ type MongoNode struct {
 }
 ```
 
-### <a name="MongoNode.Descriptor">func</a> (\*MongoNode) [Descriptor](./types.pb.go#L1806)
+### <a name="MongoNode.Descriptor">func</a> (\*MongoNode) [Descriptor](./types.pb.go#L2677)
 ``` go
 func (*MongoNode) Descriptor() ([]byte, []int)
 ```
 
-### <a name="MongoNode.GetIp">func</a> (\*MongoNode) [GetIp](./types.pb.go#L1808)
+### <a name="MongoNode.GetIp">func</a> (\*MongoNode) [GetIp](./types.pb.go#L2679)
 ``` go
 func (m *MongoNode) GetIp() string
 ```
 
-### <a name="MongoNode.GetMongoId">func</a> (\*MongoNode) [GetMongoId](./types.pb.go#L1815)
+### <a name="MongoNode.GetMongoId">func</a> (\*MongoNode) [GetMongoId](./types.pb.go#L2686)
 ``` go
 func (m *MongoNode) GetMongoId() string
 ```
 
-### <a name="MongoNode.GetMongoNodeId">func</a> (\*MongoNode) [GetMongoNodeId](./types.pb.go#L1822)
+### <a name="MongoNode.GetMongoNodeId">func</a> (\*MongoNode) [GetMongoNodeId](./types.pb.go#L2693)
 ``` go
 func (m *MongoNode) GetMongoNodeId() string
 ```
 
-### <a name="MongoNode.GetPrimary">func</a> (\*MongoNode) [GetPrimary](./types.pb.go#L1829)
+### <a name="MongoNode.GetPrimary">func</a> (\*MongoNode) [GetPrimary](./types.pb.go#L2700)
 ``` go
 func (m *MongoNode) GetPrimary() int32
 ```
 
-### <a name="MongoNode.GetStatus">func</a> (\*MongoNode) [GetStatus](./types.pb.go#L1836)
+### <a name="MongoNode.GetStatus">func</a> (\*MongoNode) [GetStatus](./types.pb.go#L2707)
 ``` go
 func (m *MongoNode) GetStatus() string
 ```
 
-### <a name="MongoNode.GetVxnetId">func</a> (\*MongoNode) [GetVxnetId](./types.pb.go#L1843)
+### <a name="MongoNode.GetVxnetId">func</a> (\*MongoNode) [GetVxnetId](./types.pb.go#L2714)
 ``` go
 func (m *MongoNode) GetVxnetId() string
 ```
 
-### <a name="MongoNode.ProtoMessage">func</a> (\*MongoNode) [ProtoMessage](./types.pb.go#L1805)
+### <a name="MongoNode.ProtoMessage">func</a> (\*MongoNode) [ProtoMessage](./types.pb.go#L2676)
 ``` go
 func (*MongoNode) ProtoMessage()
 ```
 
-### <a name="MongoNode.Reset">func</a> (\*MongoNode) [Reset](./types.pb.go#L1803)
+### <a name="MongoNode.Reset">func</a> (\*MongoNode) [Reset](./types.pb.go#L2674)
 ``` go
 func (m *MongoNode) Reset()
 ```
 
-### <a name="MongoNode.String">func</a> (\*MongoNode) [String](./types.pb.go#L1804)
+### <a name="MongoNode.String">func</a> (\*MongoNode) [String](./types.pb.go#L2675)
 ``` go
 func (m *MongoNode) String() string
 ```
 
-### <a name="MongoNode.Validate">func</a> (\*MongoNode) [Validate](./types.pb.validate.go#L105)
+### <a name="MongoNode.Validate">func</a> (\*MongoNode) [Validate](./types.pb.validate.go#L135)
 ``` go
 func (p *MongoNode) Validate() error
 ```
 
-## <a name="MongoParameter">type</a> [MongoParameter](./types.pb.go#L3224-L3233)
+## <a name="MongoParameter">type</a> [MongoParameter](./types.pb.go#L3602-L3611)
 ``` go
 type MongoParameter struct {
     IsReadonly       *int32  `protobuf:"varint,1,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
@@ -46474,67 +46321,67 @@ type MongoParameter struct {
 }
 ```
 
-### <a name="MongoParameter.Descriptor">func</a> (\*MongoParameter) [Descriptor](./types.pb.go#L3238)
+### <a name="MongoParameter.Descriptor">func</a> (\*MongoParameter) [Descriptor](./types.pb.go#L3616)
 ``` go
 func (*MongoParameter) Descriptor() ([]byte, []int)
 ```
 
-### <a name="MongoParameter.GetIsReadonly">func</a> (\*MongoParameter) [GetIsReadonly](./types.pb.go#L3240)
+### <a name="MongoParameter.GetIsReadonly">func</a> (\*MongoParameter) [GetIsReadonly](./types.pb.go#L3618)
 ``` go
 func (m *MongoParameter) GetIsReadonly() int32
 ```
 
-### <a name="MongoParameter.GetIsStatic">func</a> (\*MongoParameter) [GetIsStatic](./types.pb.go#L3247)
+### <a name="MongoParameter.GetIsStatic">func</a> (\*MongoParameter) [GetIsStatic](./types.pb.go#L3625)
 ``` go
 func (m *MongoParameter) GetIsStatic() int32
 ```
 
-### <a name="MongoParameter.GetOptName">func</a> (\*MongoParameter) [GetOptName](./types.pb.go#L3254)
+### <a name="MongoParameter.GetOptName">func</a> (\*MongoParameter) [GetOptName](./types.pb.go#L3632)
 ``` go
 func (m *MongoParameter) GetOptName() string
 ```
 
-### <a name="MongoParameter.GetParameterName">func</a> (\*MongoParameter) [GetParameterName](./types.pb.go#L3261)
+### <a name="MongoParameter.GetParameterName">func</a> (\*MongoParameter) [GetParameterName](./types.pb.go#L3639)
 ``` go
 func (m *MongoParameter) GetParameterName() string
 ```
 
-### <a name="MongoParameter.GetParameterType">func</a> (\*MongoParameter) [GetParameterType](./types.pb.go#L3268)
+### <a name="MongoParameter.GetParameterType">func</a> (\*MongoParameter) [GetParameterType](./types.pb.go#L3646)
 ``` go
 func (m *MongoParameter) GetParameterType() string
 ```
 
-### <a name="MongoParameter.GetParameterValue">func</a> (\*MongoParameter) [GetParameterValue](./types.pb.go#L3275)
+### <a name="MongoParameter.GetParameterValue">func</a> (\*MongoParameter) [GetParameterValue](./types.pb.go#L3653)
 ``` go
 func (m *MongoParameter) GetParameterValue() string
 ```
 
-### <a name="MongoParameter.GetResourceType">func</a> (\*MongoParameter) [GetResourceType](./types.pb.go#L3282)
+### <a name="MongoParameter.GetResourceType">func</a> (\*MongoParameter) [GetResourceType](./types.pb.go#L3660)
 ``` go
 func (m *MongoParameter) GetResourceType() string
 ```
 
-### <a name="MongoParameter.ProtoMessage">func</a> (\*MongoParameter) [ProtoMessage](./types.pb.go#L3237)
+### <a name="MongoParameter.ProtoMessage">func</a> (\*MongoParameter) [ProtoMessage](./types.pb.go#L3615)
 ``` go
 func (*MongoParameter) ProtoMessage()
 ```
 
-### <a name="MongoParameter.Reset">func</a> (\*MongoParameter) [Reset](./types.pb.go#L3235)
+### <a name="MongoParameter.Reset">func</a> (\*MongoParameter) [Reset](./types.pb.go#L3613)
 ``` go
 func (m *MongoParameter) Reset()
 ```
 
-### <a name="MongoParameter.String">func</a> (\*MongoParameter) [String](./types.pb.go#L3236)
+### <a name="MongoParameter.String">func</a> (\*MongoParameter) [String](./types.pb.go#L3614)
 ``` go
 func (m *MongoParameter) String() string
 ```
 
-### <a name="MongoParameter.Validate">func</a> (\*MongoParameter) [Validate](./types.pb.validate.go#L210)
+### <a name="MongoParameter.Validate">func</a> (\*MongoParameter) [Validate](./types.pb.validate.go#L215)
 ``` go
 func (p *MongoParameter) Validate() error
 ```
 
-## <a name="MongoPrivateIP">type</a> [MongoPrivateIP](./types.pb.go#L3289-L3293)
+## <a name="MongoPrivateIP">type</a> [MongoPrivateIP](./types.pb.go#L3667-L3671)
 ``` go
 type MongoPrivateIP struct {
     Priority0        *string `protobuf:"bytes,1,opt,name=priority0" json:"priority0,omitempty"`
@@ -46543,124 +46390,124 @@ type MongoPrivateIP struct {
 }
 ```
 
-### <a name="MongoPrivateIP.Descriptor">func</a> (\*MongoPrivateIP) [Descriptor](./types.pb.go#L3298)
+### <a name="MongoPrivateIP.Descriptor">func</a> (\*MongoPrivateIP) [Descriptor](./types.pb.go#L3676)
 ``` go
 func (*MongoPrivateIP) Descriptor() ([]byte, []int)
 ```
 
-### <a name="MongoPrivateIP.GetPriority0">func</a> (\*MongoPrivateIP) [GetPriority0](./types.pb.go#L3300)
+### <a name="MongoPrivateIP.GetPriority0">func</a> (\*MongoPrivateIP) [GetPriority0](./types.pb.go#L3678)
 ``` go
 func (m *MongoPrivateIP) GetPriority0() string
 ```
 
-### <a name="MongoPrivateIP.GetReplica">func</a> (\*MongoPrivateIP) [GetReplica](./types.pb.go#L3307)
+### <a name="MongoPrivateIP.GetReplica">func</a> (\*MongoPrivateIP) [GetReplica](./types.pb.go#L3685)
 ``` go
 func (m *MongoPrivateIP) GetReplica() string
 ```
 
-### <a name="MongoPrivateIP.ProtoMessage">func</a> (\*MongoPrivateIP) [ProtoMessage](./types.pb.go#L3297)
+### <a name="MongoPrivateIP.ProtoMessage">func</a> (\*MongoPrivateIP) [ProtoMessage](./types.pb.go#L3675)
 ``` go
 func (*MongoPrivateIP) ProtoMessage()
 ```
 
-### <a name="MongoPrivateIP.Reset">func</a> (\*MongoPrivateIP) [Reset](./types.pb.go#L3295)
+### <a name="MongoPrivateIP.Reset">func</a> (\*MongoPrivateIP) [Reset](./types.pb.go#L3673)
 ``` go
 func (m *MongoPrivateIP) Reset()
 ```
 
-### <a name="MongoPrivateIP.String">func</a> (\*MongoPrivateIP) [String](./types.pb.go#L3296)
+### <a name="MongoPrivateIP.String">func</a> (\*MongoPrivateIP) [String](./types.pb.go#L3674)
 ``` go
 func (m *MongoPrivateIP) String() string
 ```
 
-### <a name="MongoPrivateIP.Validate">func</a> (\*MongoPrivateIP) [Validate](./types.pb.validate.go#L215)
+### <a name="MongoPrivateIP.Validate">func</a> (\*MongoPrivateIP) [Validate](./types.pb.validate.go#L220)
 ``` go
 func (p *MongoPrivateIP) Validate() error
 ```
 
-## <a name="MongoService">type</a> [MongoService](./mongo.pb.qingcloud.go#L36-L38)
+## <a name="MongoService">type</a> [MongoService](./mongo.pb.qingcloud.go#L43-L45)
 ``` go
 type MongoService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewMongoService">func</a> [NewMongoService](./mongo.pb.qingcloud.go#L40)
+### <a name="NewMongoService">func</a> [NewMongoService](./mongo.pb.qingcloud.go#L47)
 ``` go
 func NewMongoService(server *ServerInfo) (p *MongoService)
 ```
 
-### <a name="MongoService.AddMongoInstances">func</a> (\*MongoService) [AddMongoInstances](./mongo.pb.qingcloud.go#L256)
+### <a name="MongoService.AddMongoInstances">func</a> (\*MongoService) [AddMongoInstances](./mongo.pb.qingcloud.go#L350)
 ``` go
 func (p *MongoService) AddMongoInstances(input *AddMongoInstancesInput) (output *AddMongoInstancesOutput, err error)
 ```
 
-### <a name="MongoService.ChangeMongoVxnet">func</a> (\*MongoService) [ChangeMongoVxnet](./mongo.pb.qingcloud.go#L235)
+### <a name="MongoService.ChangeMongoVxnet">func</a> (\*MongoService) [ChangeMongoVxnet](./mongo.pb.qingcloud.go#L329)
 ``` go
 func (p *MongoService) ChangeMongoVxnet(input *ChangeMongoVxnetInput) (output *ChangeMongoVxnetOutput, err error)
 ```
 
-### <a name="MongoService.CreateMongo">func</a> (\*MongoService) [CreateMongo](./mongo.pb.qingcloud.go#L109)
+### <a name="MongoService.CreateMongo">func</a> (\*MongoService) [CreateMongo](./mongo.pb.qingcloud.go#L203)
 ``` go
 func (p *MongoService) CreateMongo(input *CreateMongoInput) (output *CreateMongoOutput, err error)
 ```
 
-### <a name="MongoService.CreateMongoFromSnapshot">func</a> (\*MongoService) [CreateMongoFromSnapshot](./mongo.pb.qingcloud.go#L214)
+### <a name="MongoService.CreateMongoFromSnapshot">func</a> (\*MongoService) [CreateMongoFromSnapshot](./mongo.pb.qingcloud.go#L308)
 ``` go
 func (p *MongoService) CreateMongoFromSnapshot(input *CreateMongoFromSnapshotInput) (output *CreateMongoFromSnapshotOutput, err error)
 ```
 
-### <a name="MongoService.DeleteMongos">func</a> (\*MongoService) [DeleteMongos](./mongo.pb.qingcloud.go#L193)
+### <a name="MongoService.DeleteMongos">func</a> (\*MongoService) [DeleteMongos](./mongo.pb.qingcloud.go#L287)
 ``` go
 func (p *MongoService) DeleteMongos(input *DeleteMongosInput) (output *DeleteMongosOutput, err error)
 ```
 
-### <a name="MongoService.DescribeMongoNodes">func</a> (\*MongoService) [DescribeMongoNodes](./mongo.pb.qingcloud.go#L46)
+### <a name="MongoService.DescribeMongoNodes">func</a> (\*MongoService) [DescribeMongoNodes](./mongo.pb.qingcloud.go#L140)
 ``` go
 func (p *MongoService) DescribeMongoNodes(input *DescribeMongoNodesInput) (output *DescribeMongoNodesOutput, err error)
 ```
 
-### <a name="MongoService.DescribeMongoParameters">func</a> (\*MongoService) [DescribeMongoParameters](./mongo.pb.qingcloud.go#L67)
+### <a name="MongoService.DescribeMongoParameters">func</a> (\*MongoService) [DescribeMongoParameters](./mongo.pb.qingcloud.go#L161)
 ``` go
 func (p *MongoService) DescribeMongoParameters(input *DescribeMongoParametersInput) (output *DescribeMongoParametersOutput, err error)
 ```
 
-### <a name="MongoService.DescribeMongos">func</a> (\*MongoService) [DescribeMongos](./mongo.pb.qingcloud.go#L172)
+### <a name="MongoService.DescribeMongos">func</a> (\*MongoService) [DescribeMongos](./mongo.pb.qingcloud.go#L266)
 ``` go
 func (p *MongoService) DescribeMongos(input *DescribeMongosInput) (output *DescribeMongosOutput, err error)
 ```
 
-### <a name="MongoService.ModifyMongoAttributes">func</a> (\*MongoService) [ModifyMongoAttributes](./mongo.pb.qingcloud.go#L298)
+### <a name="MongoService.ModifyMongoAttributes">func</a> (\*MongoService) [ModifyMongoAttributes](./mongo.pb.qingcloud.go#L392)
 ``` go
 func (p *MongoService) ModifyMongoAttributes(input *ModifyMongoAttributesInput) (output *ModifyMongoAttributesOutput, err error)
 ```
 
-### <a name="MongoService.ModifyMongoInstances">func</a> (\*MongoService) [ModifyMongoInstances](./mongo.pb.qingcloud.go#L319)
+### <a name="MongoService.ModifyMongoInstances">func</a> (\*MongoService) [ModifyMongoInstances](./mongo.pb.qingcloud.go#L413)
 ``` go
 func (p *MongoService) ModifyMongoInstances(input *ModifyMongoInstancesInput) (output *ModifyMongoInstancesOutput, err error)
 ```
 
-### <a name="MongoService.RemoveMongoInstances">func</a> (\*MongoService) [RemoveMongoInstances](./mongo.pb.qingcloud.go#L277)
+### <a name="MongoService.RemoveMongoInstances">func</a> (\*MongoService) [RemoveMongoInstances](./mongo.pb.qingcloud.go#L371)
 ``` go
 func (p *MongoService) RemoveMongoInstances(input *RemoveMongoInstancesInput) (output *RemoveMongoInstancesOutput, err error)
 ```
 
-### <a name="MongoService.ResizeMongos">func</a> (\*MongoService) [ResizeMongos](./mongo.pb.qingcloud.go#L88)
+### <a name="MongoService.ResizeMongos">func</a> (\*MongoService) [ResizeMongos](./mongo.pb.qingcloud.go#L182)
 ``` go
 func (p *MongoService) ResizeMongos(input *ResizeMongosInput) (output *ResizeMongosOutput, err error)
 ```
 
-### <a name="MongoService.StartMongos">func</a> (\*MongoService) [StartMongos](./mongo.pb.qingcloud.go#L151)
+### <a name="MongoService.StartMongos">func</a> (\*MongoService) [StartMongos](./mongo.pb.qingcloud.go#L245)
 ``` go
 func (p *MongoService) StartMongos(input *StartMongosInput) (output *StartMongosOutput, err error)
 ```
 
-### <a name="MongoService.StopMongos">func</a> (\*MongoService) [StopMongos](./mongo.pb.qingcloud.go#L130)
+### <a name="MongoService.StopMongos">func</a> (\*MongoService) [StopMongos](./mongo.pb.qingcloud.go#L224)
 ``` go
 func (p *MongoService) StopMongos(input *StopMongosInput) (output *StopMongosOutput, err error)
 ```
 
-## <a name="MongoServiceInterface">type</a> [MongoServiceInterface](./mongo.pb.qingcloud.go#L19-L34)
+## <a name="MongoServiceInterface">type</a> [MongoServiceInterface](./mongo.pb.qingcloud.go#L26-L41)
 ``` go
 type MongoServiceInterface interface {
     DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error)
@@ -46680,49 +46527,49 @@ type MongoServiceInterface interface {
 }
 ```
 
-## <a name="MonitorService">type</a> [MonitorService](./monitor.pb.qingcloud.go#L28-L30)
+## <a name="MonitorService">type</a> [MonitorService](./monitor.pb.qingcloud.go#L35-L37)
 ``` go
 type MonitorService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewMonitorService">func</a> [NewMonitorService](./monitor.pb.qingcloud.go#L32)
+### <a name="NewMonitorService">func</a> [NewMonitorService](./monitor.pb.qingcloud.go#L39)
 ``` go
 func NewMonitorService(server *ServerInfo) (p *MonitorService)
 ```
 
-### <a name="MonitorService.GetCacheMonitor">func</a> (\*MonitorService) [GetCacheMonitor](./monitor.pb.qingcloud.go#L101)
+### <a name="MonitorService.GetCacheMonitor">func</a> (\*MonitorService) [GetCacheMonitor](./monitor.pb.qingcloud.go#L147)
 ``` go
 func (p *MonitorService) GetCacheMonitor(input *GetCacheMonitorInput) (output *GetCacheMonitorOutput, err error)
 ```
 
-### <a name="MonitorService.GetLoadBalancerMonitor">func</a> (\*MonitorService) [GetLoadBalancerMonitor](./monitor.pb.qingcloud.go#L59)
+### <a name="MonitorService.GetLoadBalancerMonitor">func</a> (\*MonitorService) [GetLoadBalancerMonitor](./monitor.pb.qingcloud.go#L105)
 ``` go
 func (p *MonitorService) GetLoadBalancerMonitor(input *GetLoadBalancerMonitorInput) (output *GetLoadBalancerMonitorOutput, err error)
 ```
 
-### <a name="MonitorService.GetMonitor">func</a> (\*MonitorService) [GetMonitor](./monitor.pb.qingcloud.go#L38)
+### <a name="MonitorService.GetMonitor">func</a> (\*MonitorService) [GetMonitor](./monitor.pb.qingcloud.go#L84)
 ``` go
 func (p *MonitorService) GetMonitor(input *GetMonitorInput) (output *GetMonitorOutput, err error)
 ```
 
-### <a name="MonitorService.GetQueueMonitor">func</a> (\*MonitorService) [GetQueueMonitor](./monitor.pb.qingcloud.go#L143)
+### <a name="MonitorService.GetQueueMonitor">func</a> (\*MonitorService) [GetQueueMonitor](./monitor.pb.qingcloud.go#L189)
 ``` go
 func (p *MonitorService) GetQueueMonitor(input *GetQueueMonitorInput) (output *GetQueueMonitorOutput, err error)
 ```
 
-### <a name="MonitorService.GetRDBMonitor">func</a> (\*MonitorService) [GetRDBMonitor](./monitor.pb.qingcloud.go#L80)
+### <a name="MonitorService.GetRDBMonitor">func</a> (\*MonitorService) [GetRDBMonitor](./monitor.pb.qingcloud.go#L126)
 ``` go
 func (p *MonitorService) GetRDBMonitor(input *GetRDBMonitorInput) (output *GetRDBMonitorOutput, err error)
 ```
 
-### <a name="MonitorService.GetZooKeeperMonitor">func</a> (\*MonitorService) [GetZooKeeperMonitor](./monitor.pb.qingcloud.go#L122)
+### <a name="MonitorService.GetZooKeeperMonitor">func</a> (\*MonitorService) [GetZooKeeperMonitor](./monitor.pb.qingcloud.go#L168)
 ``` go
 func (p *MonitorService) GetZooKeeperMonitor(input *GetZooKeeperMonitorInput) (output *GetZooKeeperMonitorOutput, err error)
 ```
 
-## <a name="MonitorServiceInterface">type</a> [MonitorServiceInterface](./monitor.pb.qingcloud.go#L19-L26)
+## <a name="MonitorServiceInterface">type</a> [MonitorServiceInterface](./monitor.pb.qingcloud.go#L26-L33)
 ``` go
 type MonitorServiceInterface interface {
     GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error)
@@ -46734,7 +46581,7 @@ type MonitorServiceInterface interface {
 }
 ```
 
-## <a name="NIC">type</a> [NIC](./types.pb.go#L620-L642)
+## <a name="NIC">type</a> [NIC](./types.pb.go#L1491-L1513)
 ``` go
 type NIC struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -46761,132 +46608,132 @@ type NIC struct {
 }
 ```
 
-### <a name="NIC.Descriptor">func</a> (\*NIC) [Descriptor](./types.pb.go#L647)
+### <a name="NIC.Descriptor">func</a> (\*NIC) [Descriptor](./types.pb.go#L1518)
 ``` go
 func (*NIC) Descriptor() ([]byte, []int)
 ```
 
-### <a name="NIC.GetConsoleId">func</a> (\*NIC) [GetConsoleId](./types.pb.go#L775)
+### <a name="NIC.GetConsoleId">func</a> (\*NIC) [GetConsoleId](./types.pb.go#L1646)
 ``` go
 func (m *NIC) GetConsoleId() string
 ```
 
-### <a name="NIC.GetController">func</a> (\*NIC) [GetController](./types.pb.go#L761)
+### <a name="NIC.GetController">func</a> (\*NIC) [GetController](./types.pb.go#L1632)
 ``` go
 func (m *NIC) GetController() string
 ```
 
-### <a name="NIC.GetCreateTime">func</a> (\*NIC) [GetCreateTime](./types.pb.go#L649)
+### <a name="NIC.GetCreateTime">func</a> (\*NIC) [GetCreateTime](./types.pb.go#L1520)
 ``` go
 func (m *NIC) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="NIC.GetEip">func</a> (\*NIC) [GetEip](./types.pb.go#L747)
+### <a name="NIC.GetEip">func</a> (\*NIC) [GetEip](./types.pb.go#L1618)
 ``` go
 func (m *NIC) GetEip() *EIP
 ```
 
-### <a name="NIC.GetInstanceId">func</a> (\*NIC) [GetInstanceId](./types.pb.go#L656)
+### <a name="NIC.GetInstanceId">func</a> (\*NIC) [GetInstanceId](./types.pb.go#L1527)
 ``` go
 func (m *NIC) GetInstanceId() string
 ```
 
-### <a name="NIC.GetNicId">func</a> (\*NIC) [GetNicId](./types.pb.go#L663)
+### <a name="NIC.GetNicId">func</a> (\*NIC) [GetNicId](./types.pb.go#L1534)
 ``` go
 func (m *NIC) GetNicId() string
 ```
 
-### <a name="NIC.GetNicName">func</a> (\*NIC) [GetNicName](./types.pb.go#L670)
+### <a name="NIC.GetNicName">func</a> (\*NIC) [GetNicName](./types.pb.go#L1541)
 ``` go
 func (m *NIC) GetNicName() string
 ```
 
-### <a name="NIC.GetOwner">func</a> (\*NIC) [GetOwner](./types.pb.go#L677)
+### <a name="NIC.GetOwner">func</a> (\*NIC) [GetOwner](./types.pb.go#L1548)
 ``` go
 func (m *NIC) GetOwner() string
 ```
 
-### <a name="NIC.GetPrivateIp">func</a> (\*NIC) [GetPrivateIp](./types.pb.go#L684)
+### <a name="NIC.GetPrivateIp">func</a> (\*NIC) [GetPrivateIp](./types.pb.go#L1555)
 ``` go
 func (m *NIC) GetPrivateIp() string
 ```
 
-### <a name="NIC.GetResourceId">func</a> (\*NIC) [GetResourceId](./types.pb.go#L782)
+### <a name="NIC.GetResourceId">func</a> (\*NIC) [GetResourceId](./types.pb.go#L1653)
 ``` go
 func (m *NIC) GetResourceId() string
 ```
 
-### <a name="NIC.GetRole">func</a> (\*NIC) [GetRole](./types.pb.go#L691)
+### <a name="NIC.GetRole">func</a> (\*NIC) [GetRole](./types.pb.go#L1562)
 ``` go
 func (m *NIC) GetRole() int32
 ```
 
-### <a name="NIC.GetRootUserId">func</a> (\*NIC) [GetRootUserId](./types.pb.go#L698)
+### <a name="NIC.GetRootUserId">func</a> (\*NIC) [GetRootUserId](./types.pb.go#L1569)
 ``` go
 func (m *NIC) GetRootUserId() string
 ```
 
-### <a name="NIC.GetSecurityGroup">func</a> (\*NIC) [GetSecurityGroup](./types.pb.go#L705)
+### <a name="NIC.GetSecurityGroup">func</a> (\*NIC) [GetSecurityGroup](./types.pb.go#L1576)
 ``` go
 func (m *NIC) GetSecurityGroup() string
 ```
 
-### <a name="NIC.GetSequence">func</a> (\*NIC) [GetSequence](./types.pb.go#L712)
+### <a name="NIC.GetSequence">func</a> (\*NIC) [GetSequence](./types.pb.go#L1583)
 ``` go
 func (m *NIC) GetSequence() int32
 ```
 
-### <a name="NIC.GetStatus">func</a> (\*NIC) [GetStatus](./types.pb.go#L719)
+### <a name="NIC.GetStatus">func</a> (\*NIC) [GetStatus](./types.pb.go#L1590)
 ``` go
 func (m *NIC) GetStatus() string
 ```
 
-### <a name="NIC.GetStatusTime">func</a> (\*NIC) [GetStatusTime](./types.pb.go#L726)
+### <a name="NIC.GetStatusTime">func</a> (\*NIC) [GetStatusTime](./types.pb.go#L1597)
 ``` go
 func (m *NIC) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="NIC.GetTags">func</a> (\*NIC) [GetTags](./types.pb.go#L733)
+### <a name="NIC.GetTags">func</a> (\*NIC) [GetTags](./types.pb.go#L1604)
 ``` go
 func (m *NIC) GetTags() []*Tag
 ```
 
-### <a name="NIC.GetTransitionStatus">func</a> (\*NIC) [GetTransitionStatus](./types.pb.go#L754)
+### <a name="NIC.GetTransitionStatus">func</a> (\*NIC) [GetTransitionStatus](./types.pb.go#L1625)
 ``` go
 func (m *NIC) GetTransitionStatus() string
 ```
 
-### <a name="NIC.GetVxnetId">func</a> (\*NIC) [GetVxnetId](./types.pb.go#L740)
+### <a name="NIC.GetVxnetId">func</a> (\*NIC) [GetVxnetId](./types.pb.go#L1611)
 ``` go
 func (m *NIC) GetVxnetId() string
 ```
 
-### <a name="NIC.GetVxnetType">func</a> (\*NIC) [GetVxnetType](./types.pb.go#L768)
+### <a name="NIC.GetVxnetType">func</a> (\*NIC) [GetVxnetType](./types.pb.go#L1639)
 ``` go
 func (m *NIC) GetVxnetType() int32
 ```
 
-### <a name="NIC.ProtoMessage">func</a> (\*NIC) [ProtoMessage](./types.pb.go#L646)
+### <a name="NIC.ProtoMessage">func</a> (\*NIC) [ProtoMessage](./types.pb.go#L1517)
 ``` go
 func (*NIC) ProtoMessage()
 ```
 
-### <a name="NIC.Reset">func</a> (\*NIC) [Reset](./types.pb.go#L644)
+### <a name="NIC.Reset">func</a> (\*NIC) [Reset](./types.pb.go#L1515)
 ``` go
 func (m *NIC) Reset()
 ```
 
-### <a name="NIC.String">func</a> (\*NIC) [String](./types.pb.go#L645)
+### <a name="NIC.String">func</a> (\*NIC) [String](./types.pb.go#L1516)
 ``` go
 func (m *NIC) String() string
 ```
 
-### <a name="NIC.Validate">func</a> (\*NIC) [Validate](./types.pb.validate.go#L60)
+### <a name="NIC.Validate">func</a> (\*NIC) [Validate](./types.pb.validate.go#L90)
 ``` go
 func (p *NIC) Validate() error
 ```
 
-## <a name="NICIP">type</a> [NICIP](./types.pb.go#L3314-L3318)
+## <a name="NICIP">type</a> [NICIP](./types.pb.go#L3692-L3696)
 ``` go
 type NICIP struct {
     NicId            *string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
@@ -46895,84 +46742,84 @@ type NICIP struct {
 }
 ```
 
-### <a name="NICIP.Descriptor">func</a> (\*NICIP) [Descriptor](./types.pb.go#L3323)
+### <a name="NICIP.Descriptor">func</a> (\*NICIP) [Descriptor](./types.pb.go#L3701)
 ``` go
 func (*NICIP) Descriptor() ([]byte, []int)
 ```
 
-### <a name="NICIP.GetNicId">func</a> (\*NICIP) [GetNicId](./types.pb.go#L3325)
+### <a name="NICIP.GetNicId">func</a> (\*NICIP) [GetNicId](./types.pb.go#L3703)
 ``` go
 func (m *NICIP) GetNicId() string
 ```
 
-### <a name="NICIP.GetPrivateIp">func</a> (\*NICIP) [GetPrivateIp](./types.pb.go#L3332)
+### <a name="NICIP.GetPrivateIp">func</a> (\*NICIP) [GetPrivateIp](./types.pb.go#L3710)
 ``` go
 func (m *NICIP) GetPrivateIp() string
 ```
 
-### <a name="NICIP.ProtoMessage">func</a> (\*NICIP) [ProtoMessage](./types.pb.go#L3322)
+### <a name="NICIP.ProtoMessage">func</a> (\*NICIP) [ProtoMessage](./types.pb.go#L3700)
 ``` go
 func (*NICIP) ProtoMessage()
 ```
 
-### <a name="NICIP.Reset">func</a> (\*NICIP) [Reset](./types.pb.go#L3320)
+### <a name="NICIP.Reset">func</a> (\*NICIP) [Reset](./types.pb.go#L3698)
 ``` go
 func (m *NICIP) Reset()
 ```
 
-### <a name="NICIP.String">func</a> (\*NICIP) [String](./types.pb.go#L3321)
+### <a name="NICIP.String">func</a> (\*NICIP) [String](./types.pb.go#L3699)
 ``` go
 func (m *NICIP) String() string
 ```
 
-### <a name="NICIP.Validate">func</a> (\*NICIP) [Validate](./types.pb.validate.go#L220)
+### <a name="NICIP.Validate">func</a> (\*NICIP) [Validate](./types.pb.validate.go#L225)
 ``` go
 func (p *NICIP) Validate() error
 ```
 
-## <a name="NicService">type</a> [NicService](./nic.pb.qingcloud.go#L28-L30)
+## <a name="NicService">type</a> [NicService](./nic.pb.qingcloud.go#L35-L37)
 ``` go
 type NicService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewNicService">func</a> [NewNicService](./nic.pb.qingcloud.go#L32)
+### <a name="NewNicService">func</a> [NewNicService](./nic.pb.qingcloud.go#L39)
 ``` go
 func NewNicService(server *ServerInfo) (p *NicService)
 ```
 
-### <a name="NicService.AttachNics">func</a> (\*NicService) [AttachNics](./nic.pb.qingcloud.go#L80)
+### <a name="NicService.AttachNics">func</a> (\*NicService) [AttachNics](./nic.pb.qingcloud.go#L126)
 ``` go
 func (p *NicService) AttachNics(input *AttachNicsInput) (output *AttachNicsOutput, err error)
 ```
 
-### <a name="NicService.CreateNics">func</a> (\*NicService) [CreateNics](./nic.pb.qingcloud.go#L38)
+### <a name="NicService.CreateNics">func</a> (\*NicService) [CreateNics](./nic.pb.qingcloud.go#L84)
 ``` go
 func (p *NicService) CreateNics(input *CreateNicsInput) (output *CreateNicsOutput, err error)
 ```
 
-### <a name="NicService.DeleteNics">func</a> (\*NicService) [DeleteNics](./nic.pb.qingcloud.go#L143)
+### <a name="NicService.DeleteNics">func</a> (\*NicService) [DeleteNics](./nic.pb.qingcloud.go#L189)
 ``` go
 func (p *NicService) DeleteNics(input *DeleteNicsInput) (output *DeleteNicsOutput, err error)
 ```
 
-### <a name="NicService.DescribeNics">func</a> (\*NicService) [DescribeNics](./nic.pb.qingcloud.go#L59)
+### <a name="NicService.DescribeNics">func</a> (\*NicService) [DescribeNics](./nic.pb.qingcloud.go#L105)
 ``` go
 func (p *NicService) DescribeNics(input *DescribeNicsInput) (output *DescribeNicsOutput, err error)
 ```
 
-### <a name="NicService.DetachNics">func</a> (\*NicService) [DetachNics](./nic.pb.qingcloud.go#L101)
+### <a name="NicService.DetachNics">func</a> (\*NicService) [DetachNics](./nic.pb.qingcloud.go#L147)
 ``` go
 func (p *NicService) DetachNics(input *DetachNicsInput) (output *DetachNicsOutput, err error)
 ```
 
-### <a name="NicService.ModifyNicAttributes">func</a> (\*NicService) [ModifyNicAttributes](./nic.pb.qingcloud.go#L122)
+### <a name="NicService.ModifyNicAttributes">func</a> (\*NicService) [ModifyNicAttributes](./nic.pb.qingcloud.go#L168)
 ``` go
 func (p *NicService) ModifyNicAttributes(input *ModifyNicAttributesInput) (output *ModifyNicAttributesOutput, err error)
 ```
 
-## <a name="NicServiceInterface">type</a> [NicServiceInterface](./nic.pb.qingcloud.go#L19-L26)
+## <a name="NicServiceInterface">type</a> [NicServiceInterface](./nic.pb.qingcloud.go#L26-L33)
 ``` go
 type NicServiceInterface interface {
     CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error)
@@ -46984,24 +46831,24 @@ type NicServiceInterface interface {
 }
 ```
 
-## <a name="NotificationCenterService">type</a> [NotificationCenterService](./notification_center.pb.qingcloud.go#L23-L25)
+## <a name="NotificationCenterService">type</a> [NotificationCenterService](./notification_center.pb.qingcloud.go#L30-L32)
 ``` go
 type NotificationCenterService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewNotificationCenterService">func</a> [NewNotificationCenterService](./notification_center.pb.qingcloud.go#L27)
+### <a name="NewNotificationCenterService">func</a> [NewNotificationCenterService](./notification_center.pb.qingcloud.go#L34)
 ``` go
 func NewNotificationCenterService(server *ServerInfo) (p *NotificationCenterService)
 ```
 
-### <a name="NotificationCenterService.DescribeNotificationCenterUserPosts">func</a> (\*NotificationCenterService) [DescribeNotificationCenterUserPosts](./notification_center.pb.qingcloud.go#L33)
+### <a name="NotificationCenterService.DescribeNotificationCenterUserPosts">func</a> (\*NotificationCenterService) [DescribeNotificationCenterUserPosts](./notification_center.pb.qingcloud.go#L49)
 ``` go
 func (p *NotificationCenterService) DescribeNotificationCenterUserPosts(input *DescribeNotificationCenterUserPostsInput) (output *DescribeNotificationCenterUserPostsOutput, err error)
 ```
 
-## <a name="NotificationCenterServiceInterface">type</a> [NotificationCenterServiceInterface](./notification_center.pb.qingcloud.go#L19-L21)
+## <a name="NotificationCenterServiceInterface">type</a> [NotificationCenterServiceInterface](./notification_center.pb.qingcloud.go#L26-L28)
 ``` go
 type NotificationCenterServiceInterface interface {
     DescribeNotificationCenterUserPosts(in *DescribeNotificationCenterUserPostsInput) (out *DescribeNotificationCenterUserPostsOutput, err error)
@@ -47496,7 +47343,7 @@ func (m *PurgeRDBLogsOutput) String() string
 func (p *PurgeRDBLogsOutput) Validate() error
 ```
 
-## <a name="RDB">type</a> [RDB](./types.pb.go#L3339-L3358)
+## <a name="RDB">type</a> [RDB](./types.pb.go#L3717-L3736)
 ``` go
 type RDB struct {
     AlarmStatus         *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
@@ -47520,117 +47367,117 @@ type RDB struct {
 }
 ```
 
-### <a name="RDB.Descriptor">func</a> (\*RDB) [Descriptor](./types.pb.go#L3363)
+### <a name="RDB.Descriptor">func</a> (\*RDB) [Descriptor](./types.pb.go#L3741)
 ``` go
 func (*RDB) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RDB.GetAlarmStatus">func</a> (\*RDB) [GetAlarmStatus](./types.pb.go#L3365)
+### <a name="RDB.GetAlarmStatus">func</a> (\*RDB) [GetAlarmStatus](./types.pb.go#L3743)
 ``` go
 func (m *RDB) GetAlarmStatus() string
 ```
 
-### <a name="RDB.GetAutoBackupTime">func</a> (\*RDB) [GetAutoBackupTime](./types.pb.go#L3372)
+### <a name="RDB.GetAutoBackupTime">func</a> (\*RDB) [GetAutoBackupTime](./types.pb.go#L3750)
 ``` go
 func (m *RDB) GetAutoBackupTime() int32
 ```
 
-### <a name="RDB.GetAutoMinorVerUpgrade">func</a> (\*RDB) [GetAutoMinorVerUpgrade](./types.pb.go#L3379)
+### <a name="RDB.GetAutoMinorVerUpgrade">func</a> (\*RDB) [GetAutoMinorVerUpgrade](./types.pb.go#L3757)
 ``` go
 func (m *RDB) GetAutoMinorVerUpgrade() int32
 ```
 
-### <a name="RDB.GetCreateTime">func</a> (\*RDB) [GetCreateTime](./types.pb.go#L3386)
+### <a name="RDB.GetCreateTime">func</a> (\*RDB) [GetCreateTime](./types.pb.go#L3764)
 ``` go
 func (m *RDB) GetCreateTime() string
 ```
 
-### <a name="RDB.GetDescription">func</a> (\*RDB) [GetDescription](./types.pb.go#L3393)
+### <a name="RDB.GetDescription">func</a> (\*RDB) [GetDescription](./types.pb.go#L3771)
 ``` go
 func (m *RDB) GetDescription() string
 ```
 
-### <a name="RDB.GetEngineVersion">func</a> (\*RDB) [GetEngineVersion](./types.pb.go#L3400)
+### <a name="RDB.GetEngineVersion">func</a> (\*RDB) [GetEngineVersion](./types.pb.go#L3778)
 ``` go
 func (m *RDB) GetEngineVersion() string
 ```
 
-### <a name="RDB.GetLatestSnapshotTime">func</a> (\*RDB) [GetLatestSnapshotTime](./types.pb.go#L3407)
+### <a name="RDB.GetLatestSnapshotTime">func</a> (\*RDB) [GetLatestSnapshotTime](./types.pb.go#L3785)
 ``` go
 func (m *RDB) GetLatestSnapshotTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="RDB.GetMasterIp">func</a> (\*RDB) [GetMasterIp](./types.pb.go#L3414)
+### <a name="RDB.GetMasterIp">func</a> (\*RDB) [GetMasterIp](./types.pb.go#L3792)
 ``` go
 func (m *RDB) GetMasterIp() string
 ```
 
-### <a name="RDB.GetRdbEngine">func</a> (\*RDB) [GetRdbEngine](./types.pb.go#L3421)
+### <a name="RDB.GetRdbEngine">func</a> (\*RDB) [GetRdbEngine](./types.pb.go#L3799)
 ``` go
 func (m *RDB) GetRdbEngine() string
 ```
 
-### <a name="RDB.GetRdbId">func</a> (\*RDB) [GetRdbId](./types.pb.go#L3428)
+### <a name="RDB.GetRdbId">func</a> (\*RDB) [GetRdbId](./types.pb.go#L3806)
 ``` go
 func (m *RDB) GetRdbId() string
 ```
 
-### <a name="RDB.GetRdbName">func</a> (\*RDB) [GetRdbName](./types.pb.go#L3435)
+### <a name="RDB.GetRdbName">func</a> (\*RDB) [GetRdbName](./types.pb.go#L3813)
 ``` go
 func (m *RDB) GetRdbName() string
 ```
 
-### <a name="RDB.GetRdbType">func</a> (\*RDB) [GetRdbType](./types.pb.go#L3442)
+### <a name="RDB.GetRdbType">func</a> (\*RDB) [GetRdbType](./types.pb.go#L3820)
 ``` go
 func (m *RDB) GetRdbType() int32
 ```
 
-### <a name="RDB.GetStatus">func</a> (\*RDB) [GetStatus](./types.pb.go#L3449)
+### <a name="RDB.GetStatus">func</a> (\*RDB) [GetStatus](./types.pb.go#L3827)
 ``` go
 func (m *RDB) GetStatus() string
 ```
 
-### <a name="RDB.GetStatusTime">func</a> (\*RDB) [GetStatusTime](./types.pb.go#L3456)
+### <a name="RDB.GetStatusTime">func</a> (\*RDB) [GetStatusTime](./types.pb.go#L3834)
 ``` go
 func (m *RDB) GetStatusTime() string
 ```
 
-### <a name="RDB.GetStorageSize">func</a> (\*RDB) [GetStorageSize](./types.pb.go#L3463)
+### <a name="RDB.GetStorageSize">func</a> (\*RDB) [GetStorageSize](./types.pb.go#L3841)
 ``` go
 func (m *RDB) GetStorageSize() int32
 ```
 
-### <a name="RDB.GetTags">func</a> (\*RDB) [GetTags](./types.pb.go#L3470)
+### <a name="RDB.GetTags">func</a> (\*RDB) [GetTags](./types.pb.go#L3848)
 ``` go
 func (m *RDB) GetTags() []*Tag
 ```
 
-### <a name="RDB.GetVxnet">func</a> (\*RDB) [GetVxnet](./types.pb.go#L3477)
+### <a name="RDB.GetVxnet">func</a> (\*RDB) [GetVxnet](./types.pb.go#L3855)
 ``` go
 func (m *RDB) GetVxnet() *VxNet
 ```
 
-### <a name="RDB.ProtoMessage">func</a> (\*RDB) [ProtoMessage](./types.pb.go#L3362)
+### <a name="RDB.ProtoMessage">func</a> (\*RDB) [ProtoMessage](./types.pb.go#L3740)
 ``` go
 func (*RDB) ProtoMessage()
 ```
 
-### <a name="RDB.Reset">func</a> (\*RDB) [Reset](./types.pb.go#L3360)
+### <a name="RDB.Reset">func</a> (\*RDB) [Reset](./types.pb.go#L3738)
 ``` go
 func (m *RDB) Reset()
 ```
 
-### <a name="RDB.String">func</a> (\*RDB) [String](./types.pb.go#L3361)
+### <a name="RDB.String">func</a> (\*RDB) [String](./types.pb.go#L3739)
 ``` go
 func (m *RDB) String() string
 ```
 
-### <a name="RDB.Validate">func</a> (\*RDB) [Validate](./types.pb.validate.go#L225)
+### <a name="RDB.Validate">func</a> (\*RDB) [Validate](./types.pb.validate.go#L230)
 ``` go
 func (p *RDB) Validate() error
 ```
 
-## <a name="RDBFile">type</a> [RDBFile](./types.pb.go#L3484-L3489)
+## <a name="RDBFile">type</a> [RDBFile](./types.pb.go#L3862-L3867)
 ``` go
 type RDBFile struct {
     BinaryLog        []*File `protobuf:"bytes,1,rep,name=binary_log,json=binaryLog" json:"binary_log,omitempty"`
@@ -47640,47 +47487,47 @@ type RDBFile struct {
 }
 ```
 
-### <a name="RDBFile.Descriptor">func</a> (\*RDBFile) [Descriptor](./types.pb.go#L3494)
+### <a name="RDBFile.Descriptor">func</a> (\*RDBFile) [Descriptor](./types.pb.go#L3872)
 ``` go
 func (*RDBFile) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RDBFile.GetBinaryLog">func</a> (\*RDBFile) [GetBinaryLog](./types.pb.go#L3496)
+### <a name="RDBFile.GetBinaryLog">func</a> (\*RDBFile) [GetBinaryLog](./types.pb.go#L3874)
 ``` go
 func (m *RDBFile) GetBinaryLog() []*File
 ```
 
-### <a name="RDBFile.GetErrorLog">func</a> (\*RDBFile) [GetErrorLog](./types.pb.go#L3503)
+### <a name="RDBFile.GetErrorLog">func</a> (\*RDBFile) [GetErrorLog](./types.pb.go#L3881)
 ``` go
 func (m *RDBFile) GetErrorLog() []*File
 ```
 
-### <a name="RDBFile.GetSlowLog">func</a> (\*RDBFile) [GetSlowLog](./types.pb.go#L3510)
+### <a name="RDBFile.GetSlowLog">func</a> (\*RDBFile) [GetSlowLog](./types.pb.go#L3888)
 ``` go
 func (m *RDBFile) GetSlowLog() []*File
 ```
 
-### <a name="RDBFile.ProtoMessage">func</a> (\*RDBFile) [ProtoMessage](./types.pb.go#L3493)
+### <a name="RDBFile.ProtoMessage">func</a> (\*RDBFile) [ProtoMessage](./types.pb.go#L3871)
 ``` go
 func (*RDBFile) ProtoMessage()
 ```
 
-### <a name="RDBFile.Reset">func</a> (\*RDBFile) [Reset](./types.pb.go#L3491)
+### <a name="RDBFile.Reset">func</a> (\*RDBFile) [Reset](./types.pb.go#L3869)
 ``` go
 func (m *RDBFile) Reset()
 ```
 
-### <a name="RDBFile.String">func</a> (\*RDBFile) [String](./types.pb.go#L3492)
+### <a name="RDBFile.String">func</a> (\*RDBFile) [String](./types.pb.go#L3870)
 ``` go
 func (m *RDBFile) String() string
 ```
 
-### <a name="RDBFile.Validate">func</a> (\*RDBFile) [Validate](./types.pb.validate.go#L230)
+### <a name="RDBFile.Validate">func</a> (\*RDBFile) [Validate](./types.pb.validate.go#L235)
 ``` go
 func (p *RDBFile) Validate() error
 ```
 
-## <a name="RDBParameter">type</a> [RDBParameter](./types.pb.go#L3517-L3529)
+## <a name="RDBParameter">type</a> [RDBParameter](./types.pb.go#L3895-L3907)
 ``` go
 type RDBParameter struct {
     Family           *string `protobuf:"bytes,1,opt,name=family" json:"family,omitempty"`
@@ -47697,82 +47544,82 @@ type RDBParameter struct {
 }
 ```
 
-### <a name="RDBParameter.Descriptor">func</a> (\*RDBParameter) [Descriptor](./types.pb.go#L3534)
+### <a name="RDBParameter.Descriptor">func</a> (\*RDBParameter) [Descriptor](./types.pb.go#L3912)
 ``` go
 func (*RDBParameter) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RDBParameter.GetFamily">func</a> (\*RDBParameter) [GetFamily](./types.pb.go#L3536)
+### <a name="RDBParameter.GetFamily">func</a> (\*RDBParameter) [GetFamily](./types.pb.go#L3914)
 ``` go
 func (m *RDBParameter) GetFamily() string
 ```
 
-### <a name="RDBParameter.GetIsReadonly">func</a> (\*RDBParameter) [GetIsReadonly](./types.pb.go#L3543)
+### <a name="RDBParameter.GetIsReadonly">func</a> (\*RDBParameter) [GetIsReadonly](./types.pb.go#L3921)
 ``` go
 func (m *RDBParameter) GetIsReadonly() int32
 ```
 
-### <a name="RDBParameter.GetIsStatic">func</a> (\*RDBParameter) [GetIsStatic](./types.pb.go#L3550)
+### <a name="RDBParameter.GetIsStatic">func</a> (\*RDBParameter) [GetIsStatic](./types.pb.go#L3928)
 ``` go
 func (m *RDBParameter) GetIsStatic() int32
 ```
 
-### <a name="RDBParameter.GetMaxValue">func</a> (\*RDBParameter) [GetMaxValue](./types.pb.go#L3557)
+### <a name="RDBParameter.GetMaxValue">func</a> (\*RDBParameter) [GetMaxValue](./types.pb.go#L3935)
 ``` go
 func (m *RDBParameter) GetMaxValue() int32
 ```
 
-### <a name="RDBParameter.GetMinValue">func</a> (\*RDBParameter) [GetMinValue](./types.pb.go#L3564)
+### <a name="RDBParameter.GetMinValue">func</a> (\*RDBParameter) [GetMinValue](./types.pb.go#L3942)
 ``` go
 func (m *RDBParameter) GetMinValue() int32
 ```
 
-### <a name="RDBParameter.GetOptName">func</a> (\*RDBParameter) [GetOptName](./types.pb.go#L3571)
+### <a name="RDBParameter.GetOptName">func</a> (\*RDBParameter) [GetOptName](./types.pb.go#L3949)
 ``` go
 func (m *RDBParameter) GetOptName() string
 ```
 
-### <a name="RDBParameter.GetSectionName">func</a> (\*RDBParameter) [GetSectionName](./types.pb.go#L3578)
+### <a name="RDBParameter.GetSectionName">func</a> (\*RDBParameter) [GetSectionName](./types.pb.go#L3956)
 ``` go
 func (m *RDBParameter) GetSectionName() string
 ```
 
-### <a name="RDBParameter.GetVarName">func</a> (\*RDBParameter) [GetVarName](./types.pb.go#L3585)
+### <a name="RDBParameter.GetVarName">func</a> (\*RDBParameter) [GetVarName](./types.pb.go#L3963)
 ``` go
 func (m *RDBParameter) GetVarName() string
 ```
 
-### <a name="RDBParameter.GetVarType">func</a> (\*RDBParameter) [GetVarType](./types.pb.go#L3592)
+### <a name="RDBParameter.GetVarType">func</a> (\*RDBParameter) [GetVarType](./types.pb.go#L3970)
 ``` go
 func (m *RDBParameter) GetVarType() string
 ```
 
-### <a name="RDBParameter.GetVarValue">func</a> (\*RDBParameter) [GetVarValue](./types.pb.go#L3599)
+### <a name="RDBParameter.GetVarValue">func</a> (\*RDBParameter) [GetVarValue](./types.pb.go#L3977)
 ``` go
 func (m *RDBParameter) GetVarValue() string
 ```
 
-### <a name="RDBParameter.ProtoMessage">func</a> (\*RDBParameter) [ProtoMessage](./types.pb.go#L3533)
+### <a name="RDBParameter.ProtoMessage">func</a> (\*RDBParameter) [ProtoMessage](./types.pb.go#L3911)
 ``` go
 func (*RDBParameter) ProtoMessage()
 ```
 
-### <a name="RDBParameter.Reset">func</a> (\*RDBParameter) [Reset](./types.pb.go#L3531)
+### <a name="RDBParameter.Reset">func</a> (\*RDBParameter) [Reset](./types.pb.go#L3909)
 ``` go
 func (m *RDBParameter) Reset()
 ```
 
-### <a name="RDBParameter.String">func</a> (\*RDBParameter) [String](./types.pb.go#L3532)
+### <a name="RDBParameter.String">func</a> (\*RDBParameter) [String](./types.pb.go#L3910)
 ``` go
 func (m *RDBParameter) String() string
 ```
 
-### <a name="RDBParameter.Validate">func</a> (\*RDBParameter) [Validate](./types.pb.validate.go#L235)
+### <a name="RDBParameter.Validate">func</a> (\*RDBParameter) [Validate](./types.pb.validate.go#L240)
 ``` go
 func (p *RDBParameter) Validate() error
 ```
 
-## <a name="RDBParameters">type</a> [RDBParameters](./types.pb.go#L3606-L3663)
+## <a name="RDBParameters">type</a> [RDBParameters](./types.pb.go#L3984-L4041)
 ``` go
 type RDBParameters struct {
     BindAddress               *string `protobuf:"bytes,1,opt,name=bind_address,json=bindAddress" json:"bind_address,omitempty"`
@@ -47834,297 +47681,297 @@ type RDBParameters struct {
 }
 ```
 
-### <a name="RDBParameters.Descriptor">func</a> (\*RDBParameters) [Descriptor](./types.pb.go#L3668)
+### <a name="RDBParameters.Descriptor">func</a> (\*RDBParameters) [Descriptor](./types.pb.go#L4046)
 ``` go
 func (*RDBParameters) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RDBParameters.GetBindAddress">func</a> (\*RDBParameters) [GetBindAddress](./types.pb.go#L3670)
+### <a name="RDBParameters.GetBindAddress">func</a> (\*RDBParameters) [GetBindAddress](./types.pb.go#L4048)
 ``` go
 func (m *RDBParameters) GetBindAddress() string
 ```
 
-### <a name="RDBParameters.GetBinlogFormat">func</a> (\*RDBParameters) [GetBinlogFormat](./types.pb.go#L3677)
+### <a name="RDBParameters.GetBinlogFormat">func</a> (\*RDBParameters) [GetBinlogFormat](./types.pb.go#L4055)
 ``` go
 func (m *RDBParameters) GetBinlogFormat() string
 ```
 
-### <a name="RDBParameters.GetCharacterSetServer">func</a> (\*RDBParameters) [GetCharacterSetServer](./types.pb.go#L3684)
+### <a name="RDBParameters.GetCharacterSetServer">func</a> (\*RDBParameters) [GetCharacterSetServer](./types.pb.go#L4062)
 ``` go
 func (m *RDBParameters) GetCharacterSetServer() string
 ```
 
-### <a name="RDBParameters.GetDatadir">func</a> (\*RDBParameters) [GetDatadir](./types.pb.go#L3691)
+### <a name="RDBParameters.GetDatadir">func</a> (\*RDBParameters) [GetDatadir](./types.pb.go#L4069)
 ``` go
 func (m *RDBParameters) GetDatadir() string
 ```
 
-### <a name="RDBParameters.GetDefaultStorageEngine">func</a> (\*RDBParameters) [GetDefaultStorageEngine](./types.pb.go#L3698)
+### <a name="RDBParameters.GetDefaultStorageEngine">func</a> (\*RDBParameters) [GetDefaultStorageEngine](./types.pb.go#L4076)
 ``` go
 func (m *RDBParameters) GetDefaultStorageEngine() string
 ```
 
-### <a name="RDBParameters.GetExpireLogsDays">func</a> (\*RDBParameters) [GetExpireLogsDays](./types.pb.go#L3705)
+### <a name="RDBParameters.GetExpireLogsDays">func</a> (\*RDBParameters) [GetExpireLogsDays](./types.pb.go#L4083)
 ``` go
 func (m *RDBParameters) GetExpireLogsDays() int32
 ```
 
-### <a name="RDBParameters.GetInnodb">func</a> (\*RDBParameters) [GetInnodb](./types.pb.go#L3712)
+### <a name="RDBParameters.GetInnodb">func</a> (\*RDBParameters) [GetInnodb](./types.pb.go#L4090)
 ``` go
 func (m *RDBParameters) GetInnodb() string
 ```
 
-### <a name="RDBParameters.GetInnodbBufferPoolInstances">func</a> (\*RDBParameters) [GetInnodbBufferPoolInstances](./types.pb.go#L3719)
+### <a name="RDBParameters.GetInnodbBufferPoolInstances">func</a> (\*RDBParameters) [GetInnodbBufferPoolInstances](./types.pb.go#L4097)
 ``` go
 func (m *RDBParameters) GetInnodbBufferPoolInstances() int32
 ```
 
-### <a name="RDBParameters.GetInnodbBufferPoolSize">func</a> (\*RDBParameters) [GetInnodbBufferPoolSize](./types.pb.go#L3726)
+### <a name="RDBParameters.GetInnodbBufferPoolSize">func</a> (\*RDBParameters) [GetInnodbBufferPoolSize](./types.pb.go#L4104)
 ``` go
 func (m *RDBParameters) GetInnodbBufferPoolSize() string
 ```
 
-### <a name="RDBParameters.GetInnodbFilePerTable">func</a> (\*RDBParameters) [GetInnodbFilePerTable](./types.pb.go#L3733)
+### <a name="RDBParameters.GetInnodbFilePerTable">func</a> (\*RDBParameters) [GetInnodbFilePerTable](./types.pb.go#L4111)
 ``` go
 func (m *RDBParameters) GetInnodbFilePerTable() int32
 ```
 
-### <a name="RDBParameters.GetInnodbFlushLogAtTrxCommit">func</a> (\*RDBParameters) [GetInnodbFlushLogAtTrxCommit](./types.pb.go#L3740)
+### <a name="RDBParameters.GetInnodbFlushLogAtTrxCommit">func</a> (\*RDBParameters) [GetInnodbFlushLogAtTrxCommit](./types.pb.go#L4118)
 ``` go
 func (m *RDBParameters) GetInnodbFlushLogAtTrxCommit() int32
 ```
 
-### <a name="RDBParameters.GetInnodbFlushMethod">func</a> (\*RDBParameters) [GetInnodbFlushMethod](./types.pb.go#L3747)
+### <a name="RDBParameters.GetInnodbFlushMethod">func</a> (\*RDBParameters) [GetInnodbFlushMethod](./types.pb.go#L4125)
 ``` go
 func (m *RDBParameters) GetInnodbFlushMethod() string
 ```
 
-### <a name="RDBParameters.GetInnodbIoCapacity">func</a> (\*RDBParameters) [GetInnodbIoCapacity](./types.pb.go#L3754)
+### <a name="RDBParameters.GetInnodbIoCapacity">func</a> (\*RDBParameters) [GetInnodbIoCapacity](./types.pb.go#L4132)
 ``` go
 func (m *RDBParameters) GetInnodbIoCapacity() int32
 ```
 
-### <a name="RDBParameters.GetInnodbLogBufferSize">func</a> (\*RDBParameters) [GetInnodbLogBufferSize](./types.pb.go#L3761)
+### <a name="RDBParameters.GetInnodbLogBufferSize">func</a> (\*RDBParameters) [GetInnodbLogBufferSize](./types.pb.go#L4139)
 ``` go
 func (m *RDBParameters) GetInnodbLogBufferSize() string
 ```
 
-### <a name="RDBParameters.GetInnodbLogFileSize">func</a> (\*RDBParameters) [GetInnodbLogFileSize](./types.pb.go#L3768)
+### <a name="RDBParameters.GetInnodbLogFileSize">func</a> (\*RDBParameters) [GetInnodbLogFileSize](./types.pb.go#L4146)
 ``` go
 func (m *RDBParameters) GetInnodbLogFileSize() string
 ```
 
-### <a name="RDBParameters.GetInnodbLogFilesInGroup">func</a> (\*RDBParameters) [GetInnodbLogFilesInGroup](./types.pb.go#L3775)
+### <a name="RDBParameters.GetInnodbLogFilesInGroup">func</a> (\*RDBParameters) [GetInnodbLogFilesInGroup](./types.pb.go#L4153)
 ``` go
 func (m *RDBParameters) GetInnodbLogFilesInGroup() int32
 ```
 
-### <a name="RDBParameters.GetInnodbMaxDirtyPagesPct">func</a> (\*RDBParameters) [GetInnodbMaxDirtyPagesPct](./types.pb.go#L3782)
+### <a name="RDBParameters.GetInnodbMaxDirtyPagesPct">func</a> (\*RDBParameters) [GetInnodbMaxDirtyPagesPct](./types.pb.go#L4160)
 ``` go
 func (m *RDBParameters) GetInnodbMaxDirtyPagesPct() int32
 ```
 
-### <a name="RDBParameters.GetInnodbReadIoThreads">func</a> (\*RDBParameters) [GetInnodbReadIoThreads](./types.pb.go#L3789)
+### <a name="RDBParameters.GetInnodbReadIoThreads">func</a> (\*RDBParameters) [GetInnodbReadIoThreads](./types.pb.go#L4167)
 ``` go
 func (m *RDBParameters) GetInnodbReadIoThreads() int32
 ```
 
-### <a name="RDBParameters.GetInnodbWriteIoThreads">func</a> (\*RDBParameters) [GetInnodbWriteIoThreads](./types.pb.go#L3796)
+### <a name="RDBParameters.GetInnodbWriteIoThreads">func</a> (\*RDBParameters) [GetInnodbWriteIoThreads](./types.pb.go#L4174)
 ``` go
 func (m *RDBParameters) GetInnodbWriteIoThreads() int32
 ```
 
-### <a name="RDBParameters.GetInteractiveTimeout">func</a> (\*RDBParameters) [GetInteractiveTimeout](./types.pb.go#L3803)
+### <a name="RDBParameters.GetInteractiveTimeout">func</a> (\*RDBParameters) [GetInteractiveTimeout](./types.pb.go#L4181)
 ``` go
 func (m *RDBParameters) GetInteractiveTimeout() int32
 ```
 
-### <a name="RDBParameters.GetKeyBufferSize">func</a> (\*RDBParameters) [GetKeyBufferSize](./types.pb.go#L3810)
+### <a name="RDBParameters.GetKeyBufferSize">func</a> (\*RDBParameters) [GetKeyBufferSize](./types.pb.go#L4188)
 ``` go
 func (m *RDBParameters) GetKeyBufferSize() string
 ```
 
-### <a name="RDBParameters.GetLogBin">func</a> (\*RDBParameters) [GetLogBin](./types.pb.go#L3817)
+### <a name="RDBParameters.GetLogBin">func</a> (\*RDBParameters) [GetLogBin](./types.pb.go#L4195)
 ``` go
 func (m *RDBParameters) GetLogBin() string
 ```
 
-### <a name="RDBParameters.GetLogError">func</a> (\*RDBParameters) [GetLogError](./types.pb.go#L3824)
+### <a name="RDBParameters.GetLogError">func</a> (\*RDBParameters) [GetLogError](./types.pb.go#L4202)
 ``` go
 func (m *RDBParameters) GetLogError() string
 ```
 
-### <a name="RDBParameters.GetLogQueriesNotUsingIndexes">func</a> (\*RDBParameters) [GetLogQueriesNotUsingIndexes](./types.pb.go#L3831)
+### <a name="RDBParameters.GetLogQueriesNotUsingIndexes">func</a> (\*RDBParameters) [GetLogQueriesNotUsingIndexes](./types.pb.go#L4209)
 ``` go
 func (m *RDBParameters) GetLogQueriesNotUsingIndexes() string
 ```
 
-### <a name="RDBParameters.GetLogSlaveUpdates">func</a> (\*RDBParameters) [GetLogSlaveUpdates](./types.pb.go#L3838)
+### <a name="RDBParameters.GetLogSlaveUpdates">func</a> (\*RDBParameters) [GetLogSlaveUpdates](./types.pb.go#L4216)
 ``` go
 func (m *RDBParameters) GetLogSlaveUpdates() int32
 ```
 
-### <a name="RDBParameters.GetLongQueryTime">func</a> (\*RDBParameters) [GetLongQueryTime](./types.pb.go#L3845)
+### <a name="RDBParameters.GetLongQueryTime">func</a> (\*RDBParameters) [GetLongQueryTime](./types.pb.go#L4223)
 ``` go
 func (m *RDBParameters) GetLongQueryTime() int32
 ```
 
-### <a name="RDBParameters.GetLowerCaseTableNames">func</a> (\*RDBParameters) [GetLowerCaseTableNames](./types.pb.go#L3852)
+### <a name="RDBParameters.GetLowerCaseTableNames">func</a> (\*RDBParameters) [GetLowerCaseTableNames](./types.pb.go#L4230)
 ``` go
 func (m *RDBParameters) GetLowerCaseTableNames() int32
 ```
 
-### <a name="RDBParameters.GetMaxAllowedPacket">func</a> (\*RDBParameters) [GetMaxAllowedPacket](./types.pb.go#L3859)
+### <a name="RDBParameters.GetMaxAllowedPacket">func</a> (\*RDBParameters) [GetMaxAllowedPacket](./types.pb.go#L4237)
 ``` go
 func (m *RDBParameters) GetMaxAllowedPacket() string
 ```
 
-### <a name="RDBParameters.GetMaxConnectErrors">func</a> (\*RDBParameters) [GetMaxConnectErrors](./types.pb.go#L3866)
+### <a name="RDBParameters.GetMaxConnectErrors">func</a> (\*RDBParameters) [GetMaxConnectErrors](./types.pb.go#L4244)
 ``` go
 func (m *RDBParameters) GetMaxConnectErrors() int32
 ```
 
-### <a name="RDBParameters.GetMaxConnections">func</a> (\*RDBParameters) [GetMaxConnections](./types.pb.go#L3873)
+### <a name="RDBParameters.GetMaxConnections">func</a> (\*RDBParameters) [GetMaxConnections](./types.pb.go#L4251)
 ``` go
 func (m *RDBParameters) GetMaxConnections() int32
 ```
 
-### <a name="RDBParameters.GetMaxHeapTableSize">func</a> (\*RDBParameters) [GetMaxHeapTableSize](./types.pb.go#L3880)
+### <a name="RDBParameters.GetMaxHeapTableSize">func</a> (\*RDBParameters) [GetMaxHeapTableSize](./types.pb.go#L4258)
 ``` go
 func (m *RDBParameters) GetMaxHeapTableSize() string
 ```
 
-### <a name="RDBParameters.GetOpenFilesLimit">func</a> (\*RDBParameters) [GetOpenFilesLimit](./types.pb.go#L3887)
+### <a name="RDBParameters.GetOpenFilesLimit">func</a> (\*RDBParameters) [GetOpenFilesLimit](./types.pb.go#L4265)
 ``` go
 func (m *RDBParameters) GetOpenFilesLimit() int32
 ```
 
-### <a name="RDBParameters.GetPort">func</a> (\*RDBParameters) [GetPort](./types.pb.go#L3894)
+### <a name="RDBParameters.GetPort">func</a> (\*RDBParameters) [GetPort](./types.pb.go#L4272)
 ``` go
 func (m *RDBParameters) GetPort() int32
 ```
 
-### <a name="RDBParameters.GetQueryCacheSize">func</a> (\*RDBParameters) [GetQueryCacheSize](./types.pb.go#L3901)
+### <a name="RDBParameters.GetQueryCacheSize">func</a> (\*RDBParameters) [GetQueryCacheSize](./types.pb.go#L4279)
 ``` go
 func (m *RDBParameters) GetQueryCacheSize() int32
 ```
 
-### <a name="RDBParameters.GetQueryCacheType">func</a> (\*RDBParameters) [GetQueryCacheType](./types.pb.go#L3908)
+### <a name="RDBParameters.GetQueryCacheType">func</a> (\*RDBParameters) [GetQueryCacheType](./types.pb.go#L4286)
 ``` go
 func (m *RDBParameters) GetQueryCacheType() int32
 ```
 
-### <a name="RDBParameters.GetRelayLog">func</a> (\*RDBParameters) [GetRelayLog](./types.pb.go#L3915)
+### <a name="RDBParameters.GetRelayLog">func</a> (\*RDBParameters) [GetRelayLog](./types.pb.go#L4293)
 ``` go
 func (m *RDBParameters) GetRelayLog() string
 ```
 
-### <a name="RDBParameters.GetRelayLogIndex">func</a> (\*RDBParameters) [GetRelayLogIndex](./types.pb.go#L3922)
+### <a name="RDBParameters.GetRelayLogIndex">func</a> (\*RDBParameters) [GetRelayLogIndex](./types.pb.go#L4300)
 ``` go
 func (m *RDBParameters) GetRelayLogIndex() string
 ```
 
-### <a name="RDBParameters.GetSkipNameResolve">func</a> (\*RDBParameters) [GetSkipNameResolve](./types.pb.go#L3929)
+### <a name="RDBParameters.GetSkipNameResolve">func</a> (\*RDBParameters) [GetSkipNameResolve](./types.pb.go#L4307)
 ``` go
 func (m *RDBParameters) GetSkipNameResolve() int32
 ```
 
-### <a name="RDBParameters.GetSlaveExecMode">func</a> (\*RDBParameters) [GetSlaveExecMode](./types.pb.go#L3936)
+### <a name="RDBParameters.GetSlaveExecMode">func</a> (\*RDBParameters) [GetSlaveExecMode](./types.pb.go#L4314)
 ``` go
 func (m *RDBParameters) GetSlaveExecMode() string
 ```
 
-### <a name="RDBParameters.GetSlaveNetTimeout">func</a> (\*RDBParameters) [GetSlaveNetTimeout](./types.pb.go#L3943)
+### <a name="RDBParameters.GetSlaveNetTimeout">func</a> (\*RDBParameters) [GetSlaveNetTimeout](./types.pb.go#L4321)
 ``` go
 func (m *RDBParameters) GetSlaveNetTimeout() int32
 ```
 
-### <a name="RDBParameters.GetSlowQueryLog">func</a> (\*RDBParameters) [GetSlowQueryLog](./types.pb.go#L3950)
+### <a name="RDBParameters.GetSlowQueryLog">func</a> (\*RDBParameters) [GetSlowQueryLog](./types.pb.go#L4328)
 ``` go
 func (m *RDBParameters) GetSlowQueryLog() int32
 ```
 
-### <a name="RDBParameters.GetSlowQueryLogFile">func</a> (\*RDBParameters) [GetSlowQueryLogFile](./types.pb.go#L3957)
+### <a name="RDBParameters.GetSlowQueryLogFile">func</a> (\*RDBParameters) [GetSlowQueryLogFile](./types.pb.go#L4335)
 ``` go
 func (m *RDBParameters) GetSlowQueryLogFile() string
 ```
 
-### <a name="RDBParameters.GetSqlMode">func</a> (\*RDBParameters) [GetSqlMode](./types.pb.go#L3964)
+### <a name="RDBParameters.GetSqlMode">func</a> (\*RDBParameters) [GetSqlMode](./types.pb.go#L4342)
 ``` go
 func (m *RDBParameters) GetSqlMode() string
 ```
 
-### <a name="RDBParameters.GetSyncBinlog">func</a> (\*RDBParameters) [GetSyncBinlog](./types.pb.go#L3971)
+### <a name="RDBParameters.GetSyncBinlog">func</a> (\*RDBParameters) [GetSyncBinlog](./types.pb.go#L4349)
 ``` go
 func (m *RDBParameters) GetSyncBinlog() int32
 ```
 
-### <a name="RDBParameters.GetSyncMasterInfo">func</a> (\*RDBParameters) [GetSyncMasterInfo](./types.pb.go#L3978)
+### <a name="RDBParameters.GetSyncMasterInfo">func</a> (\*RDBParameters) [GetSyncMasterInfo](./types.pb.go#L4356)
 ``` go
 func (m *RDBParameters) GetSyncMasterInfo() int32
 ```
 
-### <a name="RDBParameters.GetSyncRelayLog">func</a> (\*RDBParameters) [GetSyncRelayLog](./types.pb.go#L3985)
+### <a name="RDBParameters.GetSyncRelayLog">func</a> (\*RDBParameters) [GetSyncRelayLog](./types.pb.go#L4363)
 ``` go
 func (m *RDBParameters) GetSyncRelayLog() int32
 ```
 
-### <a name="RDBParameters.GetSyncRelayLogInfo">func</a> (\*RDBParameters) [GetSyncRelayLogInfo](./types.pb.go#L3992)
+### <a name="RDBParameters.GetSyncRelayLogInfo">func</a> (\*RDBParameters) [GetSyncRelayLogInfo](./types.pb.go#L4370)
 ``` go
 func (m *RDBParameters) GetSyncRelayLogInfo() int32
 ```
 
-### <a name="RDBParameters.GetTableOpenCache">func</a> (\*RDBParameters) [GetTableOpenCache](./types.pb.go#L3999)
+### <a name="RDBParameters.GetTableOpenCache">func</a> (\*RDBParameters) [GetTableOpenCache](./types.pb.go#L4377)
 ``` go
 func (m *RDBParameters) GetTableOpenCache() int32
 ```
 
-### <a name="RDBParameters.GetThreadCacheSize">func</a> (\*RDBParameters) [GetThreadCacheSize](./types.pb.go#L4006)
+### <a name="RDBParameters.GetThreadCacheSize">func</a> (\*RDBParameters) [GetThreadCacheSize](./types.pb.go#L4384)
 ``` go
 func (m *RDBParameters) GetThreadCacheSize() int32
 ```
 
-### <a name="RDBParameters.GetTmpTableSize">func</a> (\*RDBParameters) [GetTmpTableSize](./types.pb.go#L4013)
+### <a name="RDBParameters.GetTmpTableSize">func</a> (\*RDBParameters) [GetTmpTableSize](./types.pb.go#L4391)
 ``` go
 func (m *RDBParameters) GetTmpTableSize() string
 ```
 
-### <a name="RDBParameters.GetTmpdir">func</a> (\*RDBParameters) [GetTmpdir](./types.pb.go#L4020)
+### <a name="RDBParameters.GetTmpdir">func</a> (\*RDBParameters) [GetTmpdir](./types.pb.go#L4398)
 ``` go
 func (m *RDBParameters) GetTmpdir() string
 ```
 
-### <a name="RDBParameters.GetUser">func</a> (\*RDBParameters) [GetUser](./types.pb.go#L4027)
+### <a name="RDBParameters.GetUser">func</a> (\*RDBParameters) [GetUser](./types.pb.go#L4405)
 ``` go
 func (m *RDBParameters) GetUser() string
 ```
 
-### <a name="RDBParameters.GetWaitTimeout">func</a> (\*RDBParameters) [GetWaitTimeout](./types.pb.go#L4034)
+### <a name="RDBParameters.GetWaitTimeout">func</a> (\*RDBParameters) [GetWaitTimeout](./types.pb.go#L4412)
 ``` go
 func (m *RDBParameters) GetWaitTimeout() int32
 ```
 
-### <a name="RDBParameters.ProtoMessage">func</a> (\*RDBParameters) [ProtoMessage](./types.pb.go#L3667)
+### <a name="RDBParameters.ProtoMessage">func</a> (\*RDBParameters) [ProtoMessage](./types.pb.go#L4045)
 ``` go
 func (*RDBParameters) ProtoMessage()
 ```
 
-### <a name="RDBParameters.Reset">func</a> (\*RDBParameters) [Reset](./types.pb.go#L3665)
+### <a name="RDBParameters.Reset">func</a> (\*RDBParameters) [Reset](./types.pb.go#L4043)
 ``` go
 func (m *RDBParameters) Reset()
 ```
 
-### <a name="RDBParameters.String">func</a> (\*RDBParameters) [String](./types.pb.go#L3666)
+### <a name="RDBParameters.String">func</a> (\*RDBParameters) [String](./types.pb.go#L4044)
 ``` go
 func (m *RDBParameters) String() string
 ```
 
-### <a name="RDBParameters.Validate">func</a> (\*RDBParameters) [Validate](./types.pb.validate.go#L240)
+### <a name="RDBParameters.Validate">func</a> (\*RDBParameters) [Validate](./types.pb.validate.go#L245)
 ``` go
 func (p *RDBParameters) Validate() error
 ```
 
-## <a name="RDBPrivateIP">type</a> [RDBPrivateIP](./types.pb.go#L4041-L4045)
+## <a name="RDBPrivateIP">type</a> [RDBPrivateIP](./types.pb.go#L4419-L4423)
 ``` go
 type RDBPrivateIP struct {
     Master           *string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
@@ -48133,139 +47980,139 @@ type RDBPrivateIP struct {
 }
 ```
 
-### <a name="RDBPrivateIP.Descriptor">func</a> (\*RDBPrivateIP) [Descriptor](./types.pb.go#L4050)
+### <a name="RDBPrivateIP.Descriptor">func</a> (\*RDBPrivateIP) [Descriptor](./types.pb.go#L4428)
 ``` go
 func (*RDBPrivateIP) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RDBPrivateIP.GetMaster">func</a> (\*RDBPrivateIP) [GetMaster](./types.pb.go#L4052)
+### <a name="RDBPrivateIP.GetMaster">func</a> (\*RDBPrivateIP) [GetMaster](./types.pb.go#L4430)
 ``` go
 func (m *RDBPrivateIP) GetMaster() string
 ```
 
-### <a name="RDBPrivateIP.GetTopslave">func</a> (\*RDBPrivateIP) [GetTopslave](./types.pb.go#L4059)
+### <a name="RDBPrivateIP.GetTopslave">func</a> (\*RDBPrivateIP) [GetTopslave](./types.pb.go#L4437)
 ``` go
 func (m *RDBPrivateIP) GetTopslave() string
 ```
 
-### <a name="RDBPrivateIP.ProtoMessage">func</a> (\*RDBPrivateIP) [ProtoMessage](./types.pb.go#L4049)
+### <a name="RDBPrivateIP.ProtoMessage">func</a> (\*RDBPrivateIP) [ProtoMessage](./types.pb.go#L4427)
 ``` go
 func (*RDBPrivateIP) ProtoMessage()
 ```
 
-### <a name="RDBPrivateIP.Reset">func</a> (\*RDBPrivateIP) [Reset](./types.pb.go#L4047)
+### <a name="RDBPrivateIP.Reset">func</a> (\*RDBPrivateIP) [Reset](./types.pb.go#L4425)
 ``` go
 func (m *RDBPrivateIP) Reset()
 ```
 
-### <a name="RDBPrivateIP.String">func</a> (\*RDBPrivateIP) [String](./types.pb.go#L4048)
+### <a name="RDBPrivateIP.String">func</a> (\*RDBPrivateIP) [String](./types.pb.go#L4426)
 ``` go
 func (m *RDBPrivateIP) String() string
 ```
 
-### <a name="RDBPrivateIP.Validate">func</a> (\*RDBPrivateIP) [Validate](./types.pb.validate.go#L245)
+### <a name="RDBPrivateIP.Validate">func</a> (\*RDBPrivateIP) [Validate](./types.pb.validate.go#L250)
 ``` go
 func (p *RDBPrivateIP) Validate() error
 ```
 
-## <a name="RDBService">type</a> [RDBService](./rdb.pb.qingcloud.go#L39-L41)
+## <a name="RDBService">type</a> [RDBService](./rdb.pb.qingcloud.go#L46-L48)
 ``` go
 type RDBService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewRDBService">func</a> [NewRDBService](./rdb.pb.qingcloud.go#L43)
+### <a name="NewRDBService">func</a> [NewRDBService](./rdb.pb.qingcloud.go#L50)
 ``` go
 func NewRDBService(server *ServerInfo) (p *RDBService)
 ```
 
-### <a name="RDBService.ApplyRDBParameterGroup">func</a> (\*RDBService) [ApplyRDBParameterGroup](./rdb.pb.qingcloud.go#L364)
+### <a name="RDBService.ApplyRDBParameterGroup">func</a> (\*RDBService) [ApplyRDBParameterGroup](./rdb.pb.qingcloud.go#L476)
 ``` go
 func (p *RDBService) ApplyRDBParameterGroup(input *ApplyRDBParameterGroupInput) (output *ApplyRDBParameterGroupOutput, err error)
 ```
 
-### <a name="RDBService.CeaseRDBInstance">func</a> (\*RDBService) [CeaseRDBInstance](./rdb.pb.qingcloud.go#L322)
+### <a name="RDBService.CeaseRDBInstance">func</a> (\*RDBService) [CeaseRDBInstance](./rdb.pb.qingcloud.go#L434)
 ``` go
 func (p *RDBService) CeaseRDBInstance(input *CeaseRDBInstanceInput) (output *CeaseRDBInstanceOutput, err error)
 ```
 
-### <a name="RDBService.CopyRDBInstanceFilesToFTP">func</a> (\*RDBService) [CopyRDBInstanceFilesToFTP](./rdb.pb.qingcloud.go#L280)
+### <a name="RDBService.CopyRDBInstanceFilesToFTP">func</a> (\*RDBService) [CopyRDBInstanceFilesToFTP](./rdb.pb.qingcloud.go#L392)
 ``` go
 func (p *RDBService) CopyRDBInstanceFilesToFTP(input *CopyRDBInstanceFilesToFTPInput) (output *CopyRDBInstanceFilesToFTPOutput, err error)
 ```
 
-### <a name="RDBService.CreateRDB">func</a> (\*RDBService) [CreateRDB](./rdb.pb.qingcloud.go#L49)
+### <a name="RDBService.CreateRDB">func</a> (\*RDBService) [CreateRDB](./rdb.pb.qingcloud.go#L161)
 ``` go
 func (p *RDBService) CreateRDB(input *CreateRDBInput) (output *CreateRDBOutput, err error)
 ```
 
-### <a name="RDBService.CreateRDBFromSnapshot">func</a> (\*RDBService) [CreateRDBFromSnapshot](./rdb.pb.qingcloud.go#L217)
+### <a name="RDBService.CreateRDBFromSnapshot">func</a> (\*RDBService) [CreateRDBFromSnapshot](./rdb.pb.qingcloud.go#L329)
 ``` go
 func (p *RDBService) CreateRDBFromSnapshot(input *CreateRDBFromSnapshotInput) (output *CreateRDBFromSnapshotOutput, err error)
 ```
 
-### <a name="RDBService.CreateTempRDBInstanceFromSnapshot">func</a> (\*RDBService) [CreateTempRDBInstanceFromSnapshot](./rdb.pb.qingcloud.go#L238)
+### <a name="RDBService.CreateTempRDBInstanceFromSnapshot">func</a> (\*RDBService) [CreateTempRDBInstanceFromSnapshot](./rdb.pb.qingcloud.go#L350)
 ``` go
 func (p *RDBService) CreateTempRDBInstanceFromSnapshot(input *CreateTempRDBInstanceFromSnapshotInput) (output *CreateTempRDBInstanceFromSnapshotOutput, err error)
 ```
 
-### <a name="RDBService.DeleteRDBs">func</a> (\*RDBService) [DeleteRDBs](./rdb.pb.qingcloud.go#L91)
+### <a name="RDBService.DeleteRDBs">func</a> (\*RDBService) [DeleteRDBs](./rdb.pb.qingcloud.go#L203)
 ``` go
 func (p *RDBService) DeleteRDBs(input *DeleteRDBsInput) (output *DeleteRDBsOutput, err error)
 ```
 
-### <a name="RDBService.DescribeRDBParameters">func</a> (\*RDBService) [DescribeRDBParameters](./rdb.pb.qingcloud.go#L385)
+### <a name="RDBService.DescribeRDBParameters">func</a> (\*RDBService) [DescribeRDBParameters](./rdb.pb.qingcloud.go#L497)
 ``` go
 func (p *RDBService) DescribeRDBParameters(input *DescribeRDBParametersInput) (output *DescribeRDBParametersOutput, err error)
 ```
 
-### <a name="RDBService.DescribeRDBs">func</a> (\*RDBService) [DescribeRDBs](./rdb.pb.qingcloud.go#L70)
+### <a name="RDBService.DescribeRDBs">func</a> (\*RDBService) [DescribeRDBs](./rdb.pb.qingcloud.go#L182)
 ``` go
 func (p *RDBService) DescribeRDBs(input *DescribeRDBsInput) (output *DescribeRDBsOutput, err error)
 ```
 
-### <a name="RDBService.GetRDBInstanceFiles">func</a> (\*RDBService) [GetRDBInstanceFiles](./rdb.pb.qingcloud.go#L259)
+### <a name="RDBService.GetRDBInstanceFiles">func</a> (\*RDBService) [GetRDBInstanceFiles](./rdb.pb.qingcloud.go#L371)
 ``` go
 func (p *RDBService) GetRDBInstanceFiles(input *GetRDBInstanceFilesInput) (output *GetRDBInstanceFilesOutput, err error)
 ```
 
-### <a name="RDBService.ModifyRDBParameters">func</a> (\*RDBService) [ModifyRDBParameters](./rdb.pb.qingcloud.go#L343)
+### <a name="RDBService.ModifyRDBParameters">func</a> (\*RDBService) [ModifyRDBParameters](./rdb.pb.qingcloud.go#L455)
 ``` go
 func (p *RDBService) ModifyRDBParameters(input *ModifyRDBParametersInput) (output *ModifyRDBParametersOutput, err error)
 ```
 
-### <a name="RDBService.PurgeRDBLogs">func</a> (\*RDBService) [PurgeRDBLogs](./rdb.pb.qingcloud.go#L301)
+### <a name="RDBService.PurgeRDBLogs">func</a> (\*RDBService) [PurgeRDBLogs](./rdb.pb.qingcloud.go#L413)
 ``` go
 func (p *RDBService) PurgeRDBLogs(input *PurgeRDBLogsInput) (output *PurgeRDBLogsOutput, err error)
 ```
 
-### <a name="RDBService.RDBsJoinVxnet">func</a> (\*RDBService) [RDBsJoinVxnet](./rdb.pb.qingcloud.go#L196)
+### <a name="RDBService.RDBsJoinVxnet">func</a> (\*RDBService) [RDBsJoinVxnet](./rdb.pb.qingcloud.go#L308)
 ``` go
 func (p *RDBService) RDBsJoinVxnet(input *RDBsJoinVxnetInput) (output *RDBsJoinVxnetOutput, err error)
 ```
 
-### <a name="RDBService.RDBsLeaveVxnet">func</a> (\*RDBService) [RDBsLeaveVxnet](./rdb.pb.qingcloud.go#L175)
+### <a name="RDBService.RDBsLeaveVxnet">func</a> (\*RDBService) [RDBsLeaveVxnet](./rdb.pb.qingcloud.go#L287)
 ``` go
 func (p *RDBService) RDBsLeaveVxnet(input *RDBsLeaveVxnetInput) (output *RDBsLeaveVxnetOutput, err error)
 ```
 
-### <a name="RDBService.ResizeRDBs">func</a> (\*RDBService) [ResizeRDBs](./rdb.pb.qingcloud.go#L154)
+### <a name="RDBService.ResizeRDBs">func</a> (\*RDBService) [ResizeRDBs](./rdb.pb.qingcloud.go#L266)
 ``` go
 func (p *RDBService) ResizeRDBs(input *ResizeRDBsInput) (output *ResizeRDBsOutput, err error)
 ```
 
-### <a name="RDBService.StartRDBs">func</a> (\*RDBService) [StartRDBs](./rdb.pb.qingcloud.go#L112)
+### <a name="RDBService.StartRDBs">func</a> (\*RDBService) [StartRDBs](./rdb.pb.qingcloud.go#L224)
 ``` go
 func (p *RDBService) StartRDBs(input *StartRDBsInput) (output *StartRDBsOutput, err error)
 ```
 
-### <a name="RDBService.StopRDBs">func</a> (\*RDBService) [StopRDBs](./rdb.pb.qingcloud.go#L133)
+### <a name="RDBService.StopRDBs">func</a> (\*RDBService) [StopRDBs](./rdb.pb.qingcloud.go#L245)
 ``` go
 func (p *RDBService) StopRDBs(input *StopRDBsInput) (output *StopRDBsOutput, err error)
 ```
 
-## <a name="RDBServiceInterface">type</a> [RDBServiceInterface](./rdb.pb.qingcloud.go#L19-L37)
+## <a name="RDBServiceInterface">type</a> [RDBServiceInterface](./rdb.pb.qingcloud.go#L26-L44)
 ``` go
 type RDBServiceInterface interface {
     CreateRDB(in *CreateRDBInput) (out *CreateRDBOutput, err error)
@@ -49830,7 +49677,7 @@ func (m *ResizeVolumesOutput) String() string
 func (p *ResizeVolumesOutput) Validate() error
 ```
 
-## <a name="Resource">type</a> [Resource](./types.pb.go#L377-L382)
+## <a name="Resource">type</a> [Resource](./types.pb.go#L1248-L1253)
 ``` go
 type Resource struct {
     ResourceId       *string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
@@ -49840,194 +49687,194 @@ type Resource struct {
 }
 ```
 
-### <a name="Resource.Descriptor">func</a> (\*Resource) [Descriptor](./types.pb.go#L387)
+### <a name="Resource.Descriptor">func</a> (\*Resource) [Descriptor](./types.pb.go#L1258)
 ``` go
 func (*Resource) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Resource.GetResourceId">func</a> (\*Resource) [GetResourceId](./types.pb.go#L389)
+### <a name="Resource.GetResourceId">func</a> (\*Resource) [GetResourceId](./types.pb.go#L1260)
 ``` go
 func (m *Resource) GetResourceId() string
 ```
 
-### <a name="Resource.GetResourceName">func</a> (\*Resource) [GetResourceName](./types.pb.go#L396)
+### <a name="Resource.GetResourceName">func</a> (\*Resource) [GetResourceName](./types.pb.go#L1267)
 ``` go
 func (m *Resource) GetResourceName() string
 ```
 
-### <a name="Resource.GetResourceType">func</a> (\*Resource) [GetResourceType](./types.pb.go#L403)
+### <a name="Resource.GetResourceType">func</a> (\*Resource) [GetResourceType](./types.pb.go#L1274)
 ``` go
 func (m *Resource) GetResourceType() string
 ```
 
-### <a name="Resource.ProtoMessage">func</a> (\*Resource) [ProtoMessage](./types.pb.go#L386)
+### <a name="Resource.ProtoMessage">func</a> (\*Resource) [ProtoMessage](./types.pb.go#L1257)
 ``` go
 func (*Resource) ProtoMessage()
 ```
 
-### <a name="Resource.Reset">func</a> (\*Resource) [Reset](./types.pb.go#L384)
+### <a name="Resource.Reset">func</a> (\*Resource) [Reset](./types.pb.go#L1255)
 ``` go
 func (m *Resource) Reset()
 ```
 
-### <a name="Resource.String">func</a> (\*Resource) [String](./types.pb.go#L385)
+### <a name="Resource.String">func</a> (\*Resource) [String](./types.pb.go#L1256)
 ``` go
 func (m *Resource) String() string
 ```
 
-### <a name="Resource.Validate">func</a> (\*Resource) [Validate](./types.pb.validate.go#L45)
+### <a name="Resource.Validate">func</a> (\*Resource) [Validate](./types.pb.validate.go#L75)
 ``` go
 func (p *Resource) Validate() error
 ```
 
-## <a name="ResourceACLService">type</a> [ResourceACLService](./resource_acl.pb.qingcloud.go#L49-L51)
+## <a name="ResourceACLService">type</a> [ResourceACLService](./resource_acl.pb.qingcloud.go#L56-L58)
 ``` go
 type ResourceACLService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewResourceACLService">func</a> [NewResourceACLService](./resource_acl.pb.qingcloud.go#L53)
+### <a name="NewResourceACLService">func</a> [NewResourceACLService](./resource_acl.pb.qingcloud.go#L60)
 ``` go
 func NewResourceACLService(server *ServerInfo) (p *ResourceACLService)
 ```
 
-### <a name="ResourceACLService.AddGroupRoleRules">func</a> (\*ResourceACLService) [AddGroupRoleRules](./resource_acl.pb.qingcloud.go#L500)
+### <a name="ResourceACLService.AddGroupRoleRules">func</a> (\*ResourceACLService) [AddGroupRoleRules](./resource_acl.pb.qingcloud.go#L672)
 ``` go
 func (p *ResourceACLService) AddGroupRoleRules(input *AddGroupRoleRulesInput) (output *AddGroupRoleRulesOutput, err error)
 ```
 
-### <a name="ResourceACLService.AddResourceGroupItems">func</a> (\*ResourceACLService) [AddResourceGroupItems](./resource_acl.pb.qingcloud.go#L185)
+### <a name="ResourceACLService.AddResourceGroupItems">func</a> (\*ResourceACLService) [AddResourceGroupItems](./resource_acl.pb.qingcloud.go#L357)
 ``` go
 func (p *ResourceACLService) AddResourceGroupItems(input *AddResourceGroupItemsInput) (output *AddResourceGroupItemsOutput, err error)
 ```
 
-### <a name="ResourceACLService.AddUserGroupMembers">func</a> (\*ResourceACLService) [AddUserGroupMembers](./resource_acl.pb.qingcloud.go#L332)
+### <a name="ResourceACLService.AddUserGroupMembers">func</a> (\*ResourceACLService) [AddUserGroupMembers](./resource_acl.pb.qingcloud.go#L504)
 ``` go
 func (p *ResourceACLService) AddUserGroupMembers(input *AddUserGroupMembersInput) (output *AddUserGroupMembersOutput, err error)
 ```
 
-### <a name="ResourceACLService.CreateGroupRoles">func</a> (\*ResourceACLService) [CreateGroupRoles](./resource_acl.pb.qingcloud.go#L416)
+### <a name="ResourceACLService.CreateGroupRoles">func</a> (\*ResourceACLService) [CreateGroupRoles](./resource_acl.pb.qingcloud.go#L588)
 ``` go
 func (p *ResourceACLService) CreateGroupRoles(input *CreateGroupRolesInput) (output *CreateGroupRolesOutput, err error)
 ```
 
-### <a name="ResourceACLService.CreateResourceGroups">func</a> (\*ResourceACLService) [CreateResourceGroups](./resource_acl.pb.qingcloud.go#L101)
+### <a name="ResourceACLService.CreateResourceGroups">func</a> (\*ResourceACLService) [CreateResourceGroups](./resource_acl.pb.qingcloud.go#L273)
 ``` go
 func (p *ResourceACLService) CreateResourceGroups(input *CreateResourceGroupsInput) (output *CreateResourceGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.CreateUserGroups">func</a> (\*ResourceACLService) [CreateUserGroups](./resource_acl.pb.qingcloud.go#L248)
+### <a name="ResourceACLService.CreateUserGroups">func</a> (\*ResourceACLService) [CreateUserGroups](./resource_acl.pb.qingcloud.go#L420)
 ``` go
 func (p *ResourceACLService) CreateUserGroups(input *CreateUserGroupsInput) (output *CreateUserGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DeleteGroupRoleRules">func</a> (\*ResourceACLService) [DeleteGroupRoleRules](./resource_acl.pb.qingcloud.go#L542)
+### <a name="ResourceACLService.DeleteGroupRoleRules">func</a> (\*ResourceACLService) [DeleteGroupRoleRules](./resource_acl.pb.qingcloud.go#L714)
 ``` go
 func (p *ResourceACLService) DeleteGroupRoleRules(input *DeleteGroupRoleRulesInput) (output *DeleteGroupRoleRulesOutput, err error)
 ```
 
-### <a name="ResourceACLService.DeleteGroupRoles">func</a> (\*ResourceACLService) [DeleteGroupRoles](./resource_acl.pb.qingcloud.go#L458)
+### <a name="ResourceACLService.DeleteGroupRoles">func</a> (\*ResourceACLService) [DeleteGroupRoles](./resource_acl.pb.qingcloud.go#L630)
 ``` go
 func (p *ResourceACLService) DeleteGroupRoles(input *DeleteGroupRolesInput) (output *DeleteGroupRolesOutput, err error)
 ```
 
-### <a name="ResourceACLService.DeleteResourceGroupItems">func</a> (\*ResourceACLService) [DeleteResourceGroupItems](./resource_acl.pb.qingcloud.go#L206)
+### <a name="ResourceACLService.DeleteResourceGroupItems">func</a> (\*ResourceACLService) [DeleteResourceGroupItems](./resource_acl.pb.qingcloud.go#L378)
 ``` go
 func (p *ResourceACLService) DeleteResourceGroupItems(input *DeleteResourceGroupItemsInput) (output *DeleteResourceGroupItemsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DeleteResourceGroups">func</a> (\*ResourceACLService) [DeleteResourceGroups](./resource_acl.pb.qingcloud.go#L143)
+### <a name="ResourceACLService.DeleteResourceGroups">func</a> (\*ResourceACLService) [DeleteResourceGroups](./resource_acl.pb.qingcloud.go#L315)
 ``` go
 func (p *ResourceACLService) DeleteResourceGroups(input *DeleteResourceGroupsInput) (output *DeleteResourceGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DeleteUserGroupMembers">func</a> (\*ResourceACLService) [DeleteUserGroupMembers](./resource_acl.pb.qingcloud.go#L374)
+### <a name="ResourceACLService.DeleteUserGroupMembers">func</a> (\*ResourceACLService) [DeleteUserGroupMembers](./resource_acl.pb.qingcloud.go#L546)
 ``` go
 func (p *ResourceACLService) DeleteUserGroupMembers(input *DeleteUserGroupMembersInput) (output *DeleteUserGroupMembersOutput, err error)
 ```
 
-### <a name="ResourceACLService.DeleteUserGroups">func</a> (\*ResourceACLService) [DeleteUserGroups](./resource_acl.pb.qingcloud.go#L290)
+### <a name="ResourceACLService.DeleteUserGroups">func</a> (\*ResourceACLService) [DeleteUserGroups](./resource_acl.pb.qingcloud.go#L462)
 ``` go
 func (p *ResourceACLService) DeleteUserGroups(input *DeleteUserGroupsInput) (output *DeleteUserGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeGroupRoleRules">func</a> (\*ResourceACLService) [DescribeGroupRoleRules](./resource_acl.pb.qingcloud.go#L479)
+### <a name="ResourceACLService.DescribeGroupRoleRules">func</a> (\*ResourceACLService) [DescribeGroupRoleRules](./resource_acl.pb.qingcloud.go#L651)
 ``` go
 func (p *ResourceACLService) DescribeGroupRoleRules(input *DescribeGroupRoleRulesInput) (output *DescribeGroupRoleRulesOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeGroupRoles">func</a> (\*ResourceACLService) [DescribeGroupRoles](./resource_acl.pb.qingcloud.go#L395)
+### <a name="ResourceACLService.DescribeGroupRoles">func</a> (\*ResourceACLService) [DescribeGroupRoles](./resource_acl.pb.qingcloud.go#L567)
 ``` go
 func (p *ResourceACLService) DescribeGroupRoles(input *DescribeGroupRolesInput) (output *DescribeGroupRolesOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeResourceGroupItems">func</a> (\*ResourceACLService) [DescribeResourceGroupItems](./resource_acl.pb.qingcloud.go#L164)
+### <a name="ResourceACLService.DescribeResourceGroupItems">func</a> (\*ResourceACLService) [DescribeResourceGroupItems](./resource_acl.pb.qingcloud.go#L336)
 ``` go
 func (p *ResourceACLService) DescribeResourceGroupItems(input *DescribeResourceGroupItemsInput) (output *DescribeResourceGroupItemsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeResourceGroups">func</a> (\*ResourceACLService) [DescribeResourceGroups](./resource_acl.pb.qingcloud.go#L80)
+### <a name="ResourceACLService.DescribeResourceGroups">func</a> (\*ResourceACLService) [DescribeResourceGroups](./resource_acl.pb.qingcloud.go#L252)
 ``` go
 func (p *ResourceACLService) DescribeResourceGroups(input *DescribeResourceGroupsInput) (output *DescribeResourceGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeResourceUserGroups">func</a> (\*ResourceACLService) [DescribeResourceUserGroups](./resource_acl.pb.qingcloud.go#L605)
+### <a name="ResourceACLService.DescribeResourceUserGroups">func</a> (\*ResourceACLService) [DescribeResourceUserGroups](./resource_acl.pb.qingcloud.go#L777)
 ``` go
 func (p *ResourceACLService) DescribeResourceUserGroups(input *DescribeResourceUserGroupsInput) (output *DescribeResourceUserGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeSharedResourceGroups">func</a> (\*ResourceACLService) [DescribeSharedResourceGroups](./resource_acl.pb.qingcloud.go#L59)
+### <a name="ResourceACLService.DescribeSharedResourceGroups">func</a> (\*ResourceACLService) [DescribeSharedResourceGroups](./resource_acl.pb.qingcloud.go#L231)
 ``` go
 func (p *ResourceACLService) DescribeSharedResourceGroups(input *DescribeSharedResourceGroupsInput) (output *DescribeSharedResourceGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeUserGroupMembers">func</a> (\*ResourceACLService) [DescribeUserGroupMembers](./resource_acl.pb.qingcloud.go#L311)
+### <a name="ResourceACLService.DescribeUserGroupMembers">func</a> (\*ResourceACLService) [DescribeUserGroupMembers](./resource_acl.pb.qingcloud.go#L483)
 ``` go
 func (p *ResourceACLService) DescribeUserGroupMembers(input *DescribeUserGroupMembersInput) (output *DescribeUserGroupMembersOutput, err error)
 ```
 
-### <a name="ResourceACLService.DescribeUserGroups">func</a> (\*ResourceACLService) [DescribeUserGroups](./resource_acl.pb.qingcloud.go#L227)
+### <a name="ResourceACLService.DescribeUserGroups">func</a> (\*ResourceACLService) [DescribeUserGroups](./resource_acl.pb.qingcloud.go#L399)
 ``` go
 func (p *ResourceACLService) DescribeUserGroups(input *DescribeUserGroupsInput) (output *DescribeUserGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.GrantResourceGroupsToUserGroups">func</a> (\*ResourceACLService) [GrantResourceGroupsToUserGroups](./resource_acl.pb.qingcloud.go#L563)
+### <a name="ResourceACLService.GrantResourceGroupsToUserGroups">func</a> (\*ResourceACLService) [GrantResourceGroupsToUserGroups](./resource_acl.pb.qingcloud.go#L735)
 ``` go
 func (p *ResourceACLService) GrantResourceGroupsToUserGroups(input *GrantResourceGroupsToUserGroupsInput) (output *GrantResourceGroupsToUserGroupsOutput, err error)
 ```
 
-### <a name="ResourceACLService.ModifyGroupRoleAttributes">func</a> (\*ResourceACLService) [ModifyGroupRoleAttributes](./resource_acl.pb.qingcloud.go#L437)
+### <a name="ResourceACLService.ModifyGroupRoleAttributes">func</a> (\*ResourceACLService) [ModifyGroupRoleAttributes](./resource_acl.pb.qingcloud.go#L609)
 ``` go
 func (p *ResourceACLService) ModifyGroupRoleAttributes(input *ModifyGroupRoleAttributesInput) (output *ModifyGroupRoleAttributesOutput, err error)
 ```
 
-### <a name="ResourceACLService.ModifyGroupRoleRuleAttributes">func</a> (\*ResourceACLService) [ModifyGroupRoleRuleAttributes](./resource_acl.pb.qingcloud.go#L521)
+### <a name="ResourceACLService.ModifyGroupRoleRuleAttributes">func</a> (\*ResourceACLService) [ModifyGroupRoleRuleAttributes](./resource_acl.pb.qingcloud.go#L693)
 ``` go
 func (p *ResourceACLService) ModifyGroupRoleRuleAttributes(input *ModifyGroupRoleRuleAttributesInput) (output *ModifyGroupRoleRuleAttributesOutput, err error)
 ```
 
-### <a name="ResourceACLService.ModifyResourceGroupAttributes">func</a> (\*ResourceACLService) [ModifyResourceGroupAttributes](./resource_acl.pb.qingcloud.go#L122)
+### <a name="ResourceACLService.ModifyResourceGroupAttributes">func</a> (\*ResourceACLService) [ModifyResourceGroupAttributes](./resource_acl.pb.qingcloud.go#L294)
 ``` go
 func (p *ResourceACLService) ModifyResourceGroupAttributes(input *ModifyResourceGroupAttributesInput) (output *ModifyResourceGroupAttributesOutput, err error)
 ```
 
-### <a name="ResourceACLService.ModifyUserGroupAttributes">func</a> (\*ResourceACLService) [ModifyUserGroupAttributes](./resource_acl.pb.qingcloud.go#L269)
+### <a name="ResourceACLService.ModifyUserGroupAttributes">func</a> (\*ResourceACLService) [ModifyUserGroupAttributes](./resource_acl.pb.qingcloud.go#L441)
 ``` go
 func (p *ResourceACLService) ModifyUserGroupAttributes(input *ModifyUserGroupAttributesInput) (output *ModifyUserGroupAttributesOutput, err error)
 ```
 
-### <a name="ResourceACLService.ModifyUserGroupMemberAttributes">func</a> (\*ResourceACLService) [ModifyUserGroupMemberAttributes](./resource_acl.pb.qingcloud.go#L353)
+### <a name="ResourceACLService.ModifyUserGroupMemberAttributes">func</a> (\*ResourceACLService) [ModifyUserGroupMemberAttributes](./resource_acl.pb.qingcloud.go#L525)
 ``` go
 func (p *ResourceACLService) ModifyUserGroupMemberAttributes(input *ModifyUserGroupMemberAttributesInput) (output *ModifyUserGroupMemberAttributesOutput, err error)
 ```
 
-### <a name="ResourceACLService.RevokeResourceGroupsFromUserGroups">func</a> (\*ResourceACLService) [RevokeResourceGroupsFromUserGroups](./resource_acl.pb.qingcloud.go#L584)
+### <a name="ResourceACLService.RevokeResourceGroupsFromUserGroups">func</a> (\*ResourceACLService) [RevokeResourceGroupsFromUserGroups](./resource_acl.pb.qingcloud.go#L756)
 ``` go
 func (p *ResourceACLService) RevokeResourceGroupsFromUserGroups(input *RevokeResourceGroupsFromUserGroupsInput) (output *RevokeResourceGroupsFromUserGroupsOutput, err error)
 ```
 
-## <a name="ResourceACLServiceInterface">type</a> [ResourceACLServiceInterface](./resource_acl.pb.qingcloud.go#L19-L47)
+## <a name="ResourceACLServiceInterface">type</a> [ResourceACLServiceInterface](./resource_acl.pb.qingcloud.go#L26-L54)
 ``` go
 type ResourceACLServiceInterface interface {
     DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error)
@@ -50060,7 +49907,7 @@ type ResourceACLServiceInterface interface {
 }
 ```
 
-## <a name="ResourceGroupsItem">type</a> [ResourceGroupsItem](./types.pb.go#L5943-L5951)
+## <a name="ResourceGroupsItem">type</a> [ResourceGroupsItem](./types.pb.go#L5897-L5905)
 ``` go
 type ResourceGroupsItem struct {
     ResourceGroupId   *string                     `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
@@ -50073,52 +49920,52 @@ type ResourceGroupsItem struct {
 }
 ```
 
-### <a name="ResourceGroupsItem.Descriptor">func</a> (\*ResourceGroupsItem) [Descriptor](./types.pb.go#L5956)
+### <a name="ResourceGroupsItem.Descriptor">func</a> (\*ResourceGroupsItem) [Descriptor](./types.pb.go#L5910)
 ``` go
 func (*ResourceGroupsItem) Descriptor() ([]byte, []int)
 ```
 
-### <a name="ResourceGroupsItem.GetCreateTime">func</a> (\*ResourceGroupsItem) [GetCreateTime](./types.pb.go#L5965)
+### <a name="ResourceGroupsItem.GetCreateTime">func</a> (\*ResourceGroupsItem) [GetCreateTime](./types.pb.go#L5919)
 ``` go
 func (m *ResourceGroupsItem) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="ResourceGroupsItem.GetDescription">func</a> (\*ResourceGroupsItem) [GetDescription](./types.pb.go#L5972)
+### <a name="ResourceGroupsItem.GetDescription">func</a> (\*ResourceGroupsItem) [GetDescription](./types.pb.go#L5926)
 ``` go
 func (m *ResourceGroupsItem) GetDescription() string
 ```
 
-### <a name="ResourceGroupsItem.GetResourceGroupId">func</a> (\*ResourceGroupsItem) [GetResourceGroupId](./types.pb.go#L5958)
+### <a name="ResourceGroupsItem.GetResourceGroupId">func</a> (\*ResourceGroupsItem) [GetResourceGroupId](./types.pb.go#L5912)
 ``` go
 func (m *ResourceGroupsItem) GetResourceGroupId() string
 ```
 
-### <a name="ResourceGroupsItem.GetResourceGroupName">func</a> (\*ResourceGroupsItem) [GetResourceGroupName](./types.pb.go#L5979)
+### <a name="ResourceGroupsItem.GetResourceGroupName">func</a> (\*ResourceGroupsItem) [GetResourceGroupName](./types.pb.go#L5933)
 ``` go
 func (m *ResourceGroupsItem) GetResourceGroupName() string
 ```
 
-### <a name="ResourceGroupsItem.GetResourceId">func</a> (\*ResourceGroupsItem) [GetResourceId](./types.pb.go#L5993)
+### <a name="ResourceGroupsItem.GetResourceId">func</a> (\*ResourceGroupsItem) [GetResourceId](./types.pb.go#L5947)
 ``` go
 func (m *ResourceGroupsItem) GetResourceId() string
 ```
 
-### <a name="ResourceGroupsItem.GetResourceType">func</a> (\*ResourceGroupsItem) [GetResourceType](./types.pb.go#L5986)
+### <a name="ResourceGroupsItem.GetResourceType">func</a> (\*ResourceGroupsItem) [GetResourceType](./types.pb.go#L5940)
 ``` go
 func (m *ResourceGroupsItem) GetResourceType() string
 ```
 
-### <a name="ResourceGroupsItem.ProtoMessage">func</a> (\*ResourceGroupsItem) [ProtoMessage](./types.pb.go#L5955)
+### <a name="ResourceGroupsItem.ProtoMessage">func</a> (\*ResourceGroupsItem) [ProtoMessage](./types.pb.go#L5909)
 ``` go
 func (*ResourceGroupsItem) ProtoMessage()
 ```
 
-### <a name="ResourceGroupsItem.Reset">func</a> (\*ResourceGroupsItem) [Reset](./types.pb.go#L5953)
+### <a name="ResourceGroupsItem.Reset">func</a> (\*ResourceGroupsItem) [Reset](./types.pb.go#L5907)
 ``` go
 func (m *ResourceGroupsItem) Reset()
 ```
 
-### <a name="ResourceGroupsItem.String">func</a> (\*ResourceGroupsItem) [String](./types.pb.go#L5954)
+### <a name="ResourceGroupsItem.String">func</a> (\*ResourceGroupsItem) [String](./types.pb.go#L5908)
 ``` go
 func (m *ResourceGroupsItem) String() string
 ```
@@ -50128,7 +49975,7 @@ func (m *ResourceGroupsItem) String() string
 func (p *ResourceGroupsItem) Validate() error
 ```
 
-## <a name="ResourceTagPair">type</a> [ResourceTagPair](./types.pb.go#L150-L157)
+## <a name="ResourceTagPair">type</a> [ResourceTagPair](./types.pb.go#L1021-L1028)
 ``` go
 type ResourceTagPair struct {
     ResourceId       *string                     `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
@@ -50140,57 +49987,57 @@ type ResourceTagPair struct {
 }
 ```
 
-### <a name="ResourceTagPair.Descriptor">func</a> (\*ResourceTagPair) [Descriptor](./types.pb.go#L162)
+### <a name="ResourceTagPair.Descriptor">func</a> (\*ResourceTagPair) [Descriptor](./types.pb.go#L1033)
 ``` go
 func (*ResourceTagPair) Descriptor() ([]byte, []int)
 ```
 
-### <a name="ResourceTagPair.GetResourceId">func</a> (\*ResourceTagPair) [GetResourceId](./types.pb.go#L164)
+### <a name="ResourceTagPair.GetResourceId">func</a> (\*ResourceTagPair) [GetResourceId](./types.pb.go#L1035)
 ``` go
 func (m *ResourceTagPair) GetResourceId() string
 ```
 
-### <a name="ResourceTagPair.GetResourceType">func</a> (\*ResourceTagPair) [GetResourceType](./types.pb.go#L171)
+### <a name="ResourceTagPair.GetResourceType">func</a> (\*ResourceTagPair) [GetResourceType](./types.pb.go#L1042)
 ``` go
 func (m *ResourceTagPair) GetResourceType() string
 ```
 
-### <a name="ResourceTagPair.GetStatus">func</a> (\*ResourceTagPair) [GetStatus](./types.pb.go#L178)
+### <a name="ResourceTagPair.GetStatus">func</a> (\*ResourceTagPair) [GetStatus](./types.pb.go#L1049)
 ``` go
 func (m *ResourceTagPair) GetStatus() string
 ```
 
-### <a name="ResourceTagPair.GetStatusTime">func</a> (\*ResourceTagPair) [GetStatusTime](./types.pb.go#L185)
+### <a name="ResourceTagPair.GetStatusTime">func</a> (\*ResourceTagPair) [GetStatusTime](./types.pb.go#L1056)
 ``` go
 func (m *ResourceTagPair) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="ResourceTagPair.GetTagId">func</a> (\*ResourceTagPair) [GetTagId](./types.pb.go#L192)
+### <a name="ResourceTagPair.GetTagId">func</a> (\*ResourceTagPair) [GetTagId](./types.pb.go#L1063)
 ``` go
 func (m *ResourceTagPair) GetTagId() string
 ```
 
-### <a name="ResourceTagPair.ProtoMessage">func</a> (\*ResourceTagPair) [ProtoMessage](./types.pb.go#L161)
+### <a name="ResourceTagPair.ProtoMessage">func</a> (\*ResourceTagPair) [ProtoMessage](./types.pb.go#L1032)
 ``` go
 func (*ResourceTagPair) ProtoMessage()
 ```
 
-### <a name="ResourceTagPair.Reset">func</a> (\*ResourceTagPair) [Reset](./types.pb.go#L159)
+### <a name="ResourceTagPair.Reset">func</a> (\*ResourceTagPair) [Reset](./types.pb.go#L1030)
 ``` go
 func (m *ResourceTagPair) Reset()
 ```
 
-### <a name="ResourceTagPair.String">func</a> (\*ResourceTagPair) [String](./types.pb.go#L160)
+### <a name="ResourceTagPair.String">func</a> (\*ResourceTagPair) [String](./types.pb.go#L1031)
 ``` go
 func (m *ResourceTagPair) String() string
 ```
 
-### <a name="ResourceTagPair.Validate">func</a> (\*ResourceTagPair) [Validate](./types.pb.validate.go#L30)
+### <a name="ResourceTagPair.Validate">func</a> (\*ResourceTagPair) [Validate](./types.pb.validate.go#L60)
 ``` go
 func (p *ResourceTagPair) Validate() error
 ```
 
-## <a name="ResourceTypeCount">type</a> [ResourceTypeCount](./types.pb.go#L199-L203)
+## <a name="ResourceTypeCount">type</a> [ResourceTypeCount](./types.pb.go#L1070-L1074)
 ``` go
 type ResourceTypeCount struct {
     Count            *int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
@@ -50199,37 +50046,37 @@ type ResourceTypeCount struct {
 }
 ```
 
-### <a name="ResourceTypeCount.Descriptor">func</a> (\*ResourceTypeCount) [Descriptor](./types.pb.go#L208)
+### <a name="ResourceTypeCount.Descriptor">func</a> (\*ResourceTypeCount) [Descriptor](./types.pb.go#L1079)
 ``` go
 func (*ResourceTypeCount) Descriptor() ([]byte, []int)
 ```
 
-### <a name="ResourceTypeCount.GetCount">func</a> (\*ResourceTypeCount) [GetCount](./types.pb.go#L210)
+### <a name="ResourceTypeCount.GetCount">func</a> (\*ResourceTypeCount) [GetCount](./types.pb.go#L1081)
 ``` go
 func (m *ResourceTypeCount) GetCount() int32
 ```
 
-### <a name="ResourceTypeCount.GetResourceType">func</a> (\*ResourceTypeCount) [GetResourceType](./types.pb.go#L217)
+### <a name="ResourceTypeCount.GetResourceType">func</a> (\*ResourceTypeCount) [GetResourceType](./types.pb.go#L1088)
 ``` go
 func (m *ResourceTypeCount) GetResourceType() string
 ```
 
-### <a name="ResourceTypeCount.ProtoMessage">func</a> (\*ResourceTypeCount) [ProtoMessage](./types.pb.go#L207)
+### <a name="ResourceTypeCount.ProtoMessage">func</a> (\*ResourceTypeCount) [ProtoMessage](./types.pb.go#L1078)
 ``` go
 func (*ResourceTypeCount) ProtoMessage()
 ```
 
-### <a name="ResourceTypeCount.Reset">func</a> (\*ResourceTypeCount) [Reset](./types.pb.go#L205)
+### <a name="ResourceTypeCount.Reset">func</a> (\*ResourceTypeCount) [Reset](./types.pb.go#L1076)
 ``` go
 func (m *ResourceTypeCount) Reset()
 ```
 
-### <a name="ResourceTypeCount.String">func</a> (\*ResourceTypeCount) [String](./types.pb.go#L206)
+### <a name="ResourceTypeCount.String">func</a> (\*ResourceTypeCount) [String](./types.pb.go#L1077)
 ``` go
 func (m *ResourceTypeCount) String() string
 ```
 
-### <a name="ResourceTypeCount.Validate">func</a> (\*ResourceTypeCount) [Validate](./types.pb.validate.go#L35)
+### <a name="ResourceTypeCount.Validate">func</a> (\*ResourceTypeCount) [Validate](./types.pb.validate.go#L65)
 ``` go
 func (p *ResourceTypeCount) Validate() error
 ```
@@ -51288,7 +51135,7 @@ func (m *RollbackSecurityGroupOutput) String() string
 func (p *RollbackSecurityGroupOutput) Validate() error
 ```
 
-## <a name="Router">type</a> [Router](./types.pb.go#L951-L972)
+## <a name="Router">type</a> [Router](./types.pb.go#L1822-L1843)
 ``` go
 type Router struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -51314,234 +51161,234 @@ type Router struct {
 }
 ```
 
-### <a name="Router.Descriptor">func</a> (\*Router) [Descriptor](./types.pb.go#L977)
+### <a name="Router.Descriptor">func</a> (\*Router) [Descriptor](./types.pb.go#L1848)
 ``` go
 func (*Router) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Router.GetCreateTime">func</a> (\*Router) [GetCreateTime](./types.pb.go#L979)
+### <a name="Router.GetCreateTime">func</a> (\*Router) [GetCreateTime](./types.pb.go#L1850)
 ``` go
 func (m *Router) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Router.GetDescription">func</a> (\*Router) [GetDescription](./types.pb.go#L986)
+### <a name="Router.GetDescription">func</a> (\*Router) [GetDescription](./types.pb.go#L1857)
 ``` go
 func (m *Router) GetDescription() string
 ```
 
-### <a name="Router.GetDynIpEnd">func</a> (\*Router) [GetDynIpEnd](./types.pb.go#L993)
+### <a name="Router.GetDynIpEnd">func</a> (\*Router) [GetDynIpEnd](./types.pb.go#L1864)
 ``` go
 func (m *Router) GetDynIpEnd() string
 ```
 
-### <a name="Router.GetDynIpStart">func</a> (\*Router) [GetDynIpStart](./types.pb.go#L1000)
+### <a name="Router.GetDynIpStart">func</a> (\*Router) [GetDynIpStart](./types.pb.go#L1871)
 ``` go
 func (m *Router) GetDynIpStart() string
 ```
 
-### <a name="Router.GetEip">func</a> (\*Router) [GetEip](./types.pb.go#L1007)
+### <a name="Router.GetEip">func</a> (\*Router) [GetEip](./types.pb.go#L1878)
 ``` go
 func (m *Router) GetEip() *EIP
 ```
 
-### <a name="Router.GetIpNetwork">func</a> (\*Router) [GetIpNetwork](./types.pb.go#L1014)
+### <a name="Router.GetIpNetwork">func</a> (\*Router) [GetIpNetwork](./types.pb.go#L1885)
 ``` go
 func (m *Router) GetIpNetwork() string
 ```
 
-### <a name="Router.GetIsApplied">func</a> (\*Router) [GetIsApplied](./types.pb.go#L1021)
+### <a name="Router.GetIsApplied">func</a> (\*Router) [GetIsApplied](./types.pb.go#L1892)
 ``` go
 func (m *Router) GetIsApplied() int32
 ```
 
-### <a name="Router.GetManagerIp">func</a> (\*Router) [GetManagerIp](./types.pb.go#L1028)
+### <a name="Router.GetManagerIp">func</a> (\*Router) [GetManagerIp](./types.pb.go#L1899)
 ``` go
 func (m *Router) GetManagerIp() string
 ```
 
-### <a name="Router.GetMode">func</a> (\*Router) [GetMode](./types.pb.go#L1035)
+### <a name="Router.GetMode">func</a> (\*Router) [GetMode](./types.pb.go#L1906)
 ``` go
 func (m *Router) GetMode() int32
 ```
 
-### <a name="Router.GetPrivateIp">func</a> (\*Router) [GetPrivateIp](./types.pb.go#L1042)
+### <a name="Router.GetPrivateIp">func</a> (\*Router) [GetPrivateIp](./types.pb.go#L1913)
 ``` go
 func (m *Router) GetPrivateIp() string
 ```
 
-### <a name="Router.GetRouterId">func</a> (\*Router) [GetRouterId](./types.pb.go#L1049)
+### <a name="Router.GetRouterId">func</a> (\*Router) [GetRouterId](./types.pb.go#L1920)
 ``` go
 func (m *Router) GetRouterId() string
 ```
 
-### <a name="Router.GetRouterName">func</a> (\*Router) [GetRouterName](./types.pb.go#L1056)
+### <a name="Router.GetRouterName">func</a> (\*Router) [GetRouterName](./types.pb.go#L1927)
 ``` go
 func (m *Router) GetRouterName() string
 ```
 
-### <a name="Router.GetRouterType">func</a> (\*Router) [GetRouterType](./types.pb.go#L1063)
+### <a name="Router.GetRouterType">func</a> (\*Router) [GetRouterType](./types.pb.go#L1934)
 ``` go
 func (m *Router) GetRouterType() int32
 ```
 
-### <a name="Router.GetSecurityGroupId">func</a> (\*Router) [GetSecurityGroupId](./types.pb.go#L1070)
+### <a name="Router.GetSecurityGroupId">func</a> (\*Router) [GetSecurityGroupId](./types.pb.go#L1941)
 ``` go
 func (m *Router) GetSecurityGroupId() string
 ```
 
-### <a name="Router.GetStatus">func</a> (\*Router) [GetStatus](./types.pb.go#L1077)
+### <a name="Router.GetStatus">func</a> (\*Router) [GetStatus](./types.pb.go#L1948)
 ``` go
 func (m *Router) GetStatus() string
 ```
 
-### <a name="Router.GetStatusTime">func</a> (\*Router) [GetStatusTime](./types.pb.go#L1084)
+### <a name="Router.GetStatusTime">func</a> (\*Router) [GetStatusTime](./types.pb.go#L1955)
 ``` go
 func (m *Router) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Router.GetTags">func</a> (\*Router) [GetTags](./types.pb.go#L1091)
+### <a name="Router.GetTags">func</a> (\*Router) [GetTags](./types.pb.go#L1962)
 ``` go
 func (m *Router) GetTags() []*Tag
 ```
 
-### <a name="Router.GetTransitionStatus">func</a> (\*Router) [GetTransitionStatus](./types.pb.go#L1098)
+### <a name="Router.GetTransitionStatus">func</a> (\*Router) [GetTransitionStatus](./types.pb.go#L1969)
 ``` go
 func (m *Router) GetTransitionStatus() string
 ```
 
-### <a name="Router.GetVxnets">func</a> (\*Router) [GetVxnets](./types.pb.go#L1105)
+### <a name="Router.GetVxnets">func</a> (\*Router) [GetVxnets](./types.pb.go#L1976)
 ``` go
 func (m *Router) GetVxnets() []*VxNet
 ```
 
-### <a name="Router.ProtoMessage">func</a> (\*Router) [ProtoMessage](./types.pb.go#L976)
+### <a name="Router.ProtoMessage">func</a> (\*Router) [ProtoMessage](./types.pb.go#L1847)
 ``` go
 func (*Router) ProtoMessage()
 ```
 
-### <a name="Router.Reset">func</a> (\*Router) [Reset](./types.pb.go#L974)
+### <a name="Router.Reset">func</a> (\*Router) [Reset](./types.pb.go#L1845)
 ``` go
 func (m *Router) Reset()
 ```
 
-### <a name="Router.String">func</a> (\*Router) [String](./types.pb.go#L975)
+### <a name="Router.String">func</a> (\*Router) [String](./types.pb.go#L1846)
 ``` go
 func (m *Router) String() string
 ```
 
-### <a name="Router.Validate">func</a> (\*Router) [Validate](./types.pb.validate.go#L75)
+### <a name="Router.Validate">func</a> (\*Router) [Validate](./types.pb.validate.go#L105)
 ``` go
 func (p *Router) Validate() error
 ```
 
-## <a name="RouterService">type</a> [RouterService](./router.pb.qingcloud.go#L41-L43)
+## <a name="RouterService">type</a> [RouterService](./router.pb.qingcloud.go#L48-L50)
 ``` go
 type RouterService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewRouterService">func</a> [NewRouterService](./router.pb.qingcloud.go#L45)
+### <a name="NewRouterService">func</a> [NewRouterService](./router.pb.qingcloud.go#L52)
 ``` go
 func NewRouterService(server *ServerInfo) (p *RouterService)
 ```
 
-### <a name="RouterService.AddRouterStaticEntries">func</a> (\*RouterService) [AddRouterStaticEntries](./router.pb.qingcloud.go#L366)
+### <a name="RouterService.AddRouterStaticEntries">func</a> (\*RouterService) [AddRouterStaticEntries](./router.pb.qingcloud.go#L490)
 ``` go
 func (p *RouterService) AddRouterStaticEntries(input *AddRouterStaticEntriesInput) (output *AddRouterStaticEntriesOutput, err error)
 ```
 
-### <a name="RouterService.AddRouterStatics">func</a> (\*RouterService) [AddRouterStatics](./router.pb.qingcloud.go#L261)
+### <a name="RouterService.AddRouterStatics">func</a> (\*RouterService) [AddRouterStatics](./router.pb.qingcloud.go#L385)
 ``` go
 func (p *RouterService) AddRouterStatics(input *AddRouterStaticsInput) (output *AddRouterStaticsOutput, err error)
 ```
 
-### <a name="RouterService.CopyRouterStatics">func</a> (\*RouterService) [CopyRouterStatics](./router.pb.qingcloud.go#L324)
+### <a name="RouterService.CopyRouterStatics">func</a> (\*RouterService) [CopyRouterStatics](./router.pb.qingcloud.go#L448)
 ``` go
 func (p *RouterService) CopyRouterStatics(input *CopyRouterStaticsInput) (output *CopyRouterStaticsOutput, err error)
 ```
 
-### <a name="RouterService.CreateRouters">func</a> (\*RouterService) [CreateRouters](./router.pb.qingcloud.go#L72)
+### <a name="RouterService.CreateRouters">func</a> (\*RouterService) [CreateRouters](./router.pb.qingcloud.go#L196)
 ``` go
 func (p *RouterService) CreateRouters(input *CreateRoutersInput) (output *CreateRoutersOutput, err error)
 ```
 
-### <a name="RouterService.DeleteRouterStaticEntries">func</a> (\*RouterService) [DeleteRouterStaticEntries](./router.pb.qingcloud.go#L387)
+### <a name="RouterService.DeleteRouterStaticEntries">func</a> (\*RouterService) [DeleteRouterStaticEntries](./router.pb.qingcloud.go#L511)
 ``` go
 func (p *RouterService) DeleteRouterStaticEntries(input *DeleteRouterStaticEntriesInput) (output *DeleteRouterStaticEntriesOutput, err error)
 ```
 
-### <a name="RouterService.DeleteRouterStatics">func</a> (\*RouterService) [DeleteRouterStatics](./router.pb.qingcloud.go#L303)
+### <a name="RouterService.DeleteRouterStatics">func</a> (\*RouterService) [DeleteRouterStatics](./router.pb.qingcloud.go#L427)
 ``` go
 func (p *RouterService) DeleteRouterStatics(input *DeleteRouterStaticsInput) (output *DeleteRouterStaticsOutput, err error)
 ```
 
-### <a name="RouterService.DeleteRouters">func</a> (\*RouterService) [DeleteRouters](./router.pb.qingcloud.go#L93)
+### <a name="RouterService.DeleteRouters">func</a> (\*RouterService) [DeleteRouters](./router.pb.qingcloud.go#L217)
 ``` go
 func (p *RouterService) DeleteRouters(input *DeleteRoutersInput) (output *DeleteRoutersOutput, err error)
 ```
 
-### <a name="RouterService.DescribeRouterStaticEntries">func</a> (\*RouterService) [DescribeRouterStaticEntries](./router.pb.qingcloud.go#L429)
+### <a name="RouterService.DescribeRouterStaticEntries">func</a> (\*RouterService) [DescribeRouterStaticEntries](./router.pb.qingcloud.go#L553)
 ``` go
 func (p *RouterService) DescribeRouterStaticEntries(input *DescribeRouterStaticEntriesInput) (output *DescribeRouterStaticEntriesOutput, err error)
 ```
 
-### <a name="RouterService.DescribeRouterStatics">func</a> (\*RouterService) [DescribeRouterStatics](./router.pb.qingcloud.go#L240)
+### <a name="RouterService.DescribeRouterStatics">func</a> (\*RouterService) [DescribeRouterStatics](./router.pb.qingcloud.go#L364)
 ``` go
 func (p *RouterService) DescribeRouterStatics(input *DescribeRouterStaticsInput) (output *DescribeRouterStaticsOutput, err error)
 ```
 
-### <a name="RouterService.DescribeRouterVxnets">func</a> (\*RouterService) [DescribeRouterVxnets](./router.pb.qingcloud.go#L345)
+### <a name="RouterService.DescribeRouterVxnets">func</a> (\*RouterService) [DescribeRouterVxnets](./router.pb.qingcloud.go#L469)
 ``` go
 func (p *RouterService) DescribeRouterVxnets(input *DescribeRouterVxnetsInput) (output *DescribeRouterVxnetsOutput, err error)
 ```
 
-### <a name="RouterService.DescribeRouters">func</a> (\*RouterService) [DescribeRouters](./router.pb.qingcloud.go#L51)
+### <a name="RouterService.DescribeRouters">func</a> (\*RouterService) [DescribeRouters](./router.pb.qingcloud.go#L175)
 ``` go
 func (p *RouterService) DescribeRouters(input *DescribeRoutersInput) (output *DescribeRoutersOutput, err error)
 ```
 
-### <a name="RouterService.JoinRouter">func</a> (\*RouterService) [JoinRouter](./router.pb.qingcloud.go#L177)
+### <a name="RouterService.JoinRouter">func</a> (\*RouterService) [JoinRouter](./router.pb.qingcloud.go#L301)
 ``` go
 func (p *RouterService) JoinRouter(input *JoinRouterInput) (output *JoinRouterOutput, err error)
 ```
 
-### <a name="RouterService.LeaveRouter">func</a> (\*RouterService) [LeaveRouter](./router.pb.qingcloud.go#L198)
+### <a name="RouterService.LeaveRouter">func</a> (\*RouterService) [LeaveRouter](./router.pb.qingcloud.go#L322)
 ``` go
 func (p *RouterService) LeaveRouter(input *LeaveRouterInput) (output *LeaveRouterOutput, err error)
 ```
 
-### <a name="RouterService.ModifyRouterAttributes">func</a> (\*RouterService) [ModifyRouterAttributes](./router.pb.qingcloud.go#L219)
+### <a name="RouterService.ModifyRouterAttributes">func</a> (\*RouterService) [ModifyRouterAttributes](./router.pb.qingcloud.go#L343)
 ``` go
 func (p *RouterService) ModifyRouterAttributes(input *ModifyRouterAttributesInput) (output *ModifyRouterAttributesOutput, err error)
 ```
 
-### <a name="RouterService.ModifyRouterStaticAttributes">func</a> (\*RouterService) [ModifyRouterStaticAttributes](./router.pb.qingcloud.go#L282)
+### <a name="RouterService.ModifyRouterStaticAttributes">func</a> (\*RouterService) [ModifyRouterStaticAttributes](./router.pb.qingcloud.go#L406)
 ``` go
 func (p *RouterService) ModifyRouterStaticAttributes(input *ModifyRouterStaticAttributesInput) (output *ModifyRouterStaticAttributesOutput, err error)
 ```
 
-### <a name="RouterService.ModifyRouterStaticEntryAttributes">func</a> (\*RouterService) [ModifyRouterStaticEntryAttributes](./router.pb.qingcloud.go#L408)
+### <a name="RouterService.ModifyRouterStaticEntryAttributes">func</a> (\*RouterService) [ModifyRouterStaticEntryAttributes](./router.pb.qingcloud.go#L532)
 ``` go
 func (p *RouterService) ModifyRouterStaticEntryAttributes(input *ModifyRouterStaticEntryAttributesInput) (output *ModifyRouterStaticEntryAttributesOutput, err error)
 ```
 
-### <a name="RouterService.PowerOffRouters">func</a> (\*RouterService) [PowerOffRouters](./router.pb.qingcloud.go#L135)
+### <a name="RouterService.PowerOffRouters">func</a> (\*RouterService) [PowerOffRouters](./router.pb.qingcloud.go#L259)
 ``` go
 func (p *RouterService) PowerOffRouters(input *PowerOffRoutersInput) (output *PowerOffRoutersOutput, err error)
 ```
 
-### <a name="RouterService.PowerOnRouters">func</a> (\*RouterService) [PowerOnRouters](./router.pb.qingcloud.go#L156)
+### <a name="RouterService.PowerOnRouters">func</a> (\*RouterService) [PowerOnRouters](./router.pb.qingcloud.go#L280)
 ``` go
 func (p *RouterService) PowerOnRouters(input *PowerOnRoutersInput) (output *PowerOnRoutersOutput, err error)
 ```
 
-### <a name="RouterService.UpdateRouters">func</a> (\*RouterService) [UpdateRouters](./router.pb.qingcloud.go#L114)
+### <a name="RouterService.UpdateRouters">func</a> (\*RouterService) [UpdateRouters](./router.pb.qingcloud.go#L238)
 ``` go
 func (p *RouterService) UpdateRouters(input *UpdateRoutersInput) (output *UpdateRoutersOutput, err error)
 ```
 
-## <a name="RouterServiceInterface">type</a> [RouterServiceInterface](./router.pb.qingcloud.go#L19-L39)
+## <a name="RouterServiceInterface">type</a> [RouterServiceInterface](./router.pb.qingcloud.go#L26-L46)
 ``` go
 type RouterServiceInterface interface {
     DescribeRouters(in *DescribeRoutersInput) (out *DescribeRoutersOutput, err error)
@@ -51566,7 +51413,7 @@ type RouterServiceInterface interface {
 }
 ```
 
-## <a name="RouterStatic">type</a> [RouterStatic](./types.pb.go#L4066-L4080)
+## <a name="RouterStatic">type</a> [RouterStatic](./types.pb.go#L4444-L4458)
 ``` go
 type RouterStatic struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -51585,92 +51432,92 @@ type RouterStatic struct {
 }
 ```
 
-### <a name="RouterStatic.Descriptor">func</a> (\*RouterStatic) [Descriptor](./types.pb.go#L4085)
+### <a name="RouterStatic.Descriptor">func</a> (\*RouterStatic) [Descriptor](./types.pb.go#L4463)
 ``` go
 func (*RouterStatic) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RouterStatic.GetCreateTime">func</a> (\*RouterStatic) [GetCreateTime](./types.pb.go#L4087)
+### <a name="RouterStatic.GetCreateTime">func</a> (\*RouterStatic) [GetCreateTime](./types.pb.go#L4465)
 ``` go
 func (m *RouterStatic) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="RouterStatic.GetRouterId">func</a> (\*RouterStatic) [GetRouterId](./types.pb.go#L4094)
+### <a name="RouterStatic.GetRouterId">func</a> (\*RouterStatic) [GetRouterId](./types.pb.go#L4472)
 ``` go
 func (m *RouterStatic) GetRouterId() string
 ```
 
-### <a name="RouterStatic.GetRouterStaticId">func</a> (\*RouterStatic) [GetRouterStaticId](./types.pb.go#L4101)
+### <a name="RouterStatic.GetRouterStaticId">func</a> (\*RouterStatic) [GetRouterStaticId](./types.pb.go#L4479)
 ``` go
 func (m *RouterStatic) GetRouterStaticId() string
 ```
 
-### <a name="RouterStatic.GetRouterStaticName">func</a> (\*RouterStatic) [GetRouterStaticName](./types.pb.go#L4108)
+### <a name="RouterStatic.GetRouterStaticName">func</a> (\*RouterStatic) [GetRouterStaticName](./types.pb.go#L4486)
 ``` go
 func (m *RouterStatic) GetRouterStaticName() string
 ```
 
-### <a name="RouterStatic.GetStaticType">func</a> (\*RouterStatic) [GetStaticType](./types.pb.go#L4115)
+### <a name="RouterStatic.GetStaticType">func</a> (\*RouterStatic) [GetStaticType](./types.pb.go#L4493)
 ``` go
 func (m *RouterStatic) GetStaticType() int32
 ```
 
-### <a name="RouterStatic.GetVal1">func</a> (\*RouterStatic) [GetVal1](./types.pb.go#L4122)
+### <a name="RouterStatic.GetVal1">func</a> (\*RouterStatic) [GetVal1](./types.pb.go#L4500)
 ``` go
 func (m *RouterStatic) GetVal1() string
 ```
 
-### <a name="RouterStatic.GetVal2">func</a> (\*RouterStatic) [GetVal2](./types.pb.go#L4129)
+### <a name="RouterStatic.GetVal2">func</a> (\*RouterStatic) [GetVal2](./types.pb.go#L4507)
 ``` go
 func (m *RouterStatic) GetVal2() string
 ```
 
-### <a name="RouterStatic.GetVal3">func</a> (\*RouterStatic) [GetVal3](./types.pb.go#L4136)
+### <a name="RouterStatic.GetVal3">func</a> (\*RouterStatic) [GetVal3](./types.pb.go#L4514)
 ``` go
 func (m *RouterStatic) GetVal3() string
 ```
 
-### <a name="RouterStatic.GetVal4">func</a> (\*RouterStatic) [GetVal4](./types.pb.go#L4143)
+### <a name="RouterStatic.GetVal4">func</a> (\*RouterStatic) [GetVal4](./types.pb.go#L4521)
 ``` go
 func (m *RouterStatic) GetVal4() string
 ```
 
-### <a name="RouterStatic.GetVal5">func</a> (\*RouterStatic) [GetVal5](./types.pb.go#L4150)
+### <a name="RouterStatic.GetVal5">func</a> (\*RouterStatic) [GetVal5](./types.pb.go#L4528)
 ``` go
 func (m *RouterStatic) GetVal5() string
 ```
 
-### <a name="RouterStatic.GetVal6">func</a> (\*RouterStatic) [GetVal6](./types.pb.go#L4157)
+### <a name="RouterStatic.GetVal6">func</a> (\*RouterStatic) [GetVal6](./types.pb.go#L4535)
 ``` go
 func (m *RouterStatic) GetVal6() string
 ```
 
-### <a name="RouterStatic.GetVxnetId">func</a> (\*RouterStatic) [GetVxnetId](./types.pb.go#L4164)
+### <a name="RouterStatic.GetVxnetId">func</a> (\*RouterStatic) [GetVxnetId](./types.pb.go#L4542)
 ``` go
 func (m *RouterStatic) GetVxnetId() string
 ```
 
-### <a name="RouterStatic.ProtoMessage">func</a> (\*RouterStatic) [ProtoMessage](./types.pb.go#L4084)
+### <a name="RouterStatic.ProtoMessage">func</a> (\*RouterStatic) [ProtoMessage](./types.pb.go#L4462)
 ``` go
 func (*RouterStatic) ProtoMessage()
 ```
 
-### <a name="RouterStatic.Reset">func</a> (\*RouterStatic) [Reset](./types.pb.go#L4082)
+### <a name="RouterStatic.Reset">func</a> (\*RouterStatic) [Reset](./types.pb.go#L4460)
 ``` go
 func (m *RouterStatic) Reset()
 ```
 
-### <a name="RouterStatic.String">func</a> (\*RouterStatic) [String](./types.pb.go#L4083)
+### <a name="RouterStatic.String">func</a> (\*RouterStatic) [String](./types.pb.go#L4461)
 ``` go
 func (m *RouterStatic) String() string
 ```
 
-### <a name="RouterStatic.Validate">func</a> (\*RouterStatic) [Validate](./types.pb.validate.go#L250)
+### <a name="RouterStatic.Validate">func</a> (\*RouterStatic) [Validate](./types.pb.validate.go#L255)
 ``` go
 func (p *RouterStatic) Validate() error
 ```
 
-## <a name="RouterStaticEntry">type</a> [RouterStaticEntry](./types.pb.go#L4171-L4178)
+## <a name="RouterStaticEntry">type</a> [RouterStaticEntry](./types.pb.go#L4549-L4556)
 ``` go
 type RouterStaticEntry struct {
     RouterId              *string `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
@@ -51682,57 +51529,57 @@ type RouterStaticEntry struct {
 }
 ```
 
-### <a name="RouterStaticEntry.Descriptor">func</a> (\*RouterStaticEntry) [Descriptor](./types.pb.go#L4183)
+### <a name="RouterStaticEntry.Descriptor">func</a> (\*RouterStaticEntry) [Descriptor](./types.pb.go#L4561)
 ``` go
 func (*RouterStaticEntry) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RouterStaticEntry.GetRouterId">func</a> (\*RouterStaticEntry) [GetRouterId](./types.pb.go#L4185)
+### <a name="RouterStaticEntry.GetRouterId">func</a> (\*RouterStaticEntry) [GetRouterId](./types.pb.go#L4563)
 ``` go
 func (m *RouterStaticEntry) GetRouterId() string
 ```
 
-### <a name="RouterStaticEntry.GetRouterStaticEntryId">func</a> (\*RouterStaticEntry) [GetRouterStaticEntryId](./types.pb.go#L4192)
+### <a name="RouterStaticEntry.GetRouterStaticEntryId">func</a> (\*RouterStaticEntry) [GetRouterStaticEntryId](./types.pb.go#L4570)
 ``` go
 func (m *RouterStaticEntry) GetRouterStaticEntryId() string
 ```
 
-### <a name="RouterStaticEntry.GetRouterStaticEntryName">func</a> (\*RouterStaticEntry) [GetRouterStaticEntryName](./types.pb.go#L4199)
+### <a name="RouterStaticEntry.GetRouterStaticEntryName">func</a> (\*RouterStaticEntry) [GetRouterStaticEntryName](./types.pb.go#L4577)
 ``` go
 func (m *RouterStaticEntry) GetRouterStaticEntryName() string
 ```
 
-### <a name="RouterStaticEntry.GetVal1">func</a> (\*RouterStaticEntry) [GetVal1](./types.pb.go#L4206)
+### <a name="RouterStaticEntry.GetVal1">func</a> (\*RouterStaticEntry) [GetVal1](./types.pb.go#L4584)
 ``` go
 func (m *RouterStaticEntry) GetVal1() string
 ```
 
-### <a name="RouterStaticEntry.GetVal2">func</a> (\*RouterStaticEntry) [GetVal2](./types.pb.go#L4213)
+### <a name="RouterStaticEntry.GetVal2">func</a> (\*RouterStaticEntry) [GetVal2](./types.pb.go#L4591)
 ``` go
 func (m *RouterStaticEntry) GetVal2() string
 ```
 
-### <a name="RouterStaticEntry.ProtoMessage">func</a> (\*RouterStaticEntry) [ProtoMessage](./types.pb.go#L4182)
+### <a name="RouterStaticEntry.ProtoMessage">func</a> (\*RouterStaticEntry) [ProtoMessage](./types.pb.go#L4560)
 ``` go
 func (*RouterStaticEntry) ProtoMessage()
 ```
 
-### <a name="RouterStaticEntry.Reset">func</a> (\*RouterStaticEntry) [Reset](./types.pb.go#L4180)
+### <a name="RouterStaticEntry.Reset">func</a> (\*RouterStaticEntry) [Reset](./types.pb.go#L4558)
 ``` go
 func (m *RouterStaticEntry) Reset()
 ```
 
-### <a name="RouterStaticEntry.String">func</a> (\*RouterStaticEntry) [String](./types.pb.go#L4181)
+### <a name="RouterStaticEntry.String">func</a> (\*RouterStaticEntry) [String](./types.pb.go#L4559)
 ``` go
 func (m *RouterStaticEntry) String() string
 ```
 
-### <a name="RouterStaticEntry.Validate">func</a> (\*RouterStaticEntry) [Validate](./types.pb.validate.go#L255)
+### <a name="RouterStaticEntry.Validate">func</a> (\*RouterStaticEntry) [Validate](./types.pb.validate.go#L260)
 ``` go
 func (p *RouterStaticEntry) Validate() error
 ```
 
-## <a name="RouterVxNet">type</a> [RouterVxNet](./types.pb.go#L4220-L4230)
+## <a name="RouterVxNet">type</a> [RouterVxNet](./types.pb.go#L4598-L4608)
 ``` go
 type RouterVxNet struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -51747,67 +51594,67 @@ type RouterVxNet struct {
 }
 ```
 
-### <a name="RouterVxNet.Descriptor">func</a> (\*RouterVxNet) [Descriptor](./types.pb.go#L4235)
+### <a name="RouterVxNet.Descriptor">func</a> (\*RouterVxNet) [Descriptor](./types.pb.go#L4613)
 ``` go
 func (*RouterVxNet) Descriptor() ([]byte, []int)
 ```
 
-### <a name="RouterVxNet.GetCreateTime">func</a> (\*RouterVxNet) [GetCreateTime](./types.pb.go#L4237)
+### <a name="RouterVxNet.GetCreateTime">func</a> (\*RouterVxNet) [GetCreateTime](./types.pb.go#L4615)
 ``` go
 func (m *RouterVxNet) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="RouterVxNet.GetDynIpEnd">func</a> (\*RouterVxNet) [GetDynIpEnd](./types.pb.go#L4244)
+### <a name="RouterVxNet.GetDynIpEnd">func</a> (\*RouterVxNet) [GetDynIpEnd](./types.pb.go#L4622)
 ``` go
 func (m *RouterVxNet) GetDynIpEnd() string
 ```
 
-### <a name="RouterVxNet.GetDynIpStart">func</a> (\*RouterVxNet) [GetDynIpStart](./types.pb.go#L4251)
+### <a name="RouterVxNet.GetDynIpStart">func</a> (\*RouterVxNet) [GetDynIpStart](./types.pb.go#L4629)
 ``` go
 func (m *RouterVxNet) GetDynIpStart() string
 ```
 
-### <a name="RouterVxNet.GetFeatures">func</a> (\*RouterVxNet) [GetFeatures](./types.pb.go#L4258)
+### <a name="RouterVxNet.GetFeatures">func</a> (\*RouterVxNet) [GetFeatures](./types.pb.go#L4636)
 ``` go
 func (m *RouterVxNet) GetFeatures() int32
 ```
 
-### <a name="RouterVxNet.GetIpNetwork">func</a> (\*RouterVxNet) [GetIpNetwork](./types.pb.go#L4265)
+### <a name="RouterVxNet.GetIpNetwork">func</a> (\*RouterVxNet) [GetIpNetwork](./types.pb.go#L4643)
 ``` go
 func (m *RouterVxNet) GetIpNetwork() string
 ```
 
-### <a name="RouterVxNet.GetManagerIp">func</a> (\*RouterVxNet) [GetManagerIp](./types.pb.go#L4272)
+### <a name="RouterVxNet.GetManagerIp">func</a> (\*RouterVxNet) [GetManagerIp](./types.pb.go#L4650)
 ``` go
 func (m *RouterVxNet) GetManagerIp() string
 ```
 
-### <a name="RouterVxNet.GetRouterId">func</a> (\*RouterVxNet) [GetRouterId](./types.pb.go#L4279)
+### <a name="RouterVxNet.GetRouterId">func</a> (\*RouterVxNet) [GetRouterId](./types.pb.go#L4657)
 ``` go
 func (m *RouterVxNet) GetRouterId() string
 ```
 
-### <a name="RouterVxNet.GetVxnetId">func</a> (\*RouterVxNet) [GetVxnetId](./types.pb.go#L4286)
+### <a name="RouterVxNet.GetVxnetId">func</a> (\*RouterVxNet) [GetVxnetId](./types.pb.go#L4664)
 ``` go
 func (m *RouterVxNet) GetVxnetId() string
 ```
 
-### <a name="RouterVxNet.ProtoMessage">func</a> (\*RouterVxNet) [ProtoMessage](./types.pb.go#L4234)
+### <a name="RouterVxNet.ProtoMessage">func</a> (\*RouterVxNet) [ProtoMessage](./types.pb.go#L4612)
 ``` go
 func (*RouterVxNet) ProtoMessage()
 ```
 
-### <a name="RouterVxNet.Reset">func</a> (\*RouterVxNet) [Reset](./types.pb.go#L4232)
+### <a name="RouterVxNet.Reset">func</a> (\*RouterVxNet) [Reset](./types.pb.go#L4610)
 ``` go
 func (m *RouterVxNet) Reset()
 ```
 
-### <a name="RouterVxNet.String">func</a> (\*RouterVxNet) [String](./types.pb.go#L4233)
+### <a name="RouterVxNet.String">func</a> (\*RouterVxNet) [String](./types.pb.go#L4611)
 ``` go
 func (m *RouterVxNet) String() string
 ```
 
-### <a name="RouterVxNet.Validate">func</a> (\*RouterVxNet) [Validate](./types.pb.validate.go#L260)
+### <a name="RouterVxNet.Validate">func</a> (\*RouterVxNet) [Validate](./types.pb.validate.go#L265)
 ``` go
 func (p *RouterVxNet) Validate() error
 ```
@@ -52038,7 +51885,7 @@ func (m *RunInstancesOutput) String() string
 func (p *RunInstancesOutput) Validate() error
 ```
 
-## <a name="S2DefaultParameters">type</a> [S2DefaultParameters](./types.pb.go#L4293-L4300)
+## <a name="S2DefaultParameters">type</a> [S2DefaultParameters](./types.pb.go#L4671-L4678)
 ``` go
 type S2DefaultParameters struct {
     DefaultValue     *string `protobuf:"bytes,1,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
@@ -52050,57 +51897,57 @@ type S2DefaultParameters struct {
 }
 ```
 
-### <a name="S2DefaultParameters.Descriptor">func</a> (\*S2DefaultParameters) [Descriptor](./types.pb.go#L4305)
+### <a name="S2DefaultParameters.Descriptor">func</a> (\*S2DefaultParameters) [Descriptor](./types.pb.go#L4683)
 ``` go
 func (*S2DefaultParameters) Descriptor() ([]byte, []int)
 ```
 
-### <a name="S2DefaultParameters.GetDefaultValue">func</a> (\*S2DefaultParameters) [GetDefaultValue](./types.pb.go#L4307)
+### <a name="S2DefaultParameters.GetDefaultValue">func</a> (\*S2DefaultParameters) [GetDefaultValue](./types.pb.go#L4685)
 ``` go
 func (m *S2DefaultParameters) GetDefaultValue() string
 ```
 
-### <a name="S2DefaultParameters.GetDescription">func</a> (\*S2DefaultParameters) [GetDescription](./types.pb.go#L4314)
+### <a name="S2DefaultParameters.GetDescription">func</a> (\*S2DefaultParameters) [GetDescription](./types.pb.go#L4692)
 ``` go
 func (m *S2DefaultParameters) GetDescription() string
 ```
 
-### <a name="S2DefaultParameters.GetParamName">func</a> (\*S2DefaultParameters) [GetParamName](./types.pb.go#L4321)
+### <a name="S2DefaultParameters.GetParamName">func</a> (\*S2DefaultParameters) [GetParamName](./types.pb.go#L4699)
 ``` go
 func (m *S2DefaultParameters) GetParamName() string
 ```
 
-### <a name="S2DefaultParameters.GetServiceType">func</a> (\*S2DefaultParameters) [GetServiceType](./types.pb.go#L4328)
+### <a name="S2DefaultParameters.GetServiceType">func</a> (\*S2DefaultParameters) [GetServiceType](./types.pb.go#L4706)
 ``` go
 func (m *S2DefaultParameters) GetServiceType() string
 ```
 
-### <a name="S2DefaultParameters.GetTargetType">func</a> (\*S2DefaultParameters) [GetTargetType](./types.pb.go#L4335)
+### <a name="S2DefaultParameters.GetTargetType">func</a> (\*S2DefaultParameters) [GetTargetType](./types.pb.go#L4713)
 ``` go
 func (m *S2DefaultParameters) GetTargetType() string
 ```
 
-### <a name="S2DefaultParameters.ProtoMessage">func</a> (\*S2DefaultParameters) [ProtoMessage](./types.pb.go#L4304)
+### <a name="S2DefaultParameters.ProtoMessage">func</a> (\*S2DefaultParameters) [ProtoMessage](./types.pb.go#L4682)
 ``` go
 func (*S2DefaultParameters) ProtoMessage()
 ```
 
-### <a name="S2DefaultParameters.Reset">func</a> (\*S2DefaultParameters) [Reset](./types.pb.go#L4302)
+### <a name="S2DefaultParameters.Reset">func</a> (\*S2DefaultParameters) [Reset](./types.pb.go#L4680)
 ``` go
 func (m *S2DefaultParameters) Reset()
 ```
 
-### <a name="S2DefaultParameters.String">func</a> (\*S2DefaultParameters) [String](./types.pb.go#L4303)
+### <a name="S2DefaultParameters.String">func</a> (\*S2DefaultParameters) [String](./types.pb.go#L4681)
 ``` go
 func (m *S2DefaultParameters) String() string
 ```
 
-### <a name="S2DefaultParameters.Validate">func</a> (\*S2DefaultParameters) [Validate](./types.pb.validate.go#L265)
+### <a name="S2DefaultParameters.Validate">func</a> (\*S2DefaultParameters) [Validate](./types.pb.validate.go#L270)
 ``` go
 func (p *S2DefaultParameters) Validate() error
 ```
 
-## <a name="S2Server">type</a> [S2Server](./types.pb.go#L4342-L4357)
+## <a name="S2Server">type</a> [S2Server](./types.pb.go#L4720-L4735)
 ``` go
 type S2Server struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -52120,249 +51967,249 @@ type S2Server struct {
 }
 ```
 
-### <a name="S2Server.Descriptor">func</a> (\*S2Server) [Descriptor](./types.pb.go#L4362)
+### <a name="S2Server.Descriptor">func</a> (\*S2Server) [Descriptor](./types.pb.go#L4740)
 ``` go
 func (*S2Server) Descriptor() ([]byte, []int)
 ```
 
-### <a name="S2Server.GetCreateTime">func</a> (\*S2Server) [GetCreateTime](./types.pb.go#L4364)
+### <a name="S2Server.GetCreateTime">func</a> (\*S2Server) [GetCreateTime](./types.pb.go#L4742)
 ``` go
 func (m *S2Server) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="S2Server.GetDescription">func</a> (\*S2Server) [GetDescription](./types.pb.go#L4371)
+### <a name="S2Server.GetDescription">func</a> (\*S2Server) [GetDescription](./types.pb.go#L4749)
 ``` go
 func (m *S2Server) GetDescription() string
 ```
 
-### <a name="S2Server.GetIsApplied">func</a> (\*S2Server) [GetIsApplied](./types.pb.go#L4378)
+### <a name="S2Server.GetIsApplied">func</a> (\*S2Server) [GetIsApplied](./types.pb.go#L4756)
 ``` go
 func (m *S2Server) GetIsApplied() int32
 ```
 
-### <a name="S2Server.GetName">func</a> (\*S2Server) [GetName](./types.pb.go#L4385)
+### <a name="S2Server.GetName">func</a> (\*S2Server) [GetName](./types.pb.go#L4763)
 ``` go
 func (m *S2Server) GetName() string
 ```
 
-### <a name="S2Server.GetPrivateIp">func</a> (\*S2Server) [GetPrivateIp](./types.pb.go#L4392)
+### <a name="S2Server.GetPrivateIp">func</a> (\*S2Server) [GetPrivateIp](./types.pb.go#L4770)
 ``` go
 func (m *S2Server) GetPrivateIp() string
 ```
 
-### <a name="S2Server.GetS2ServerId">func</a> (\*S2Server) [GetS2ServerId](./types.pb.go#L4399)
+### <a name="S2Server.GetS2ServerId">func</a> (\*S2Server) [GetS2ServerId](./types.pb.go#L4777)
 ``` go
 func (m *S2Server) GetS2ServerId() string
 ```
 
-### <a name="S2Server.GetS2ServerType">func</a> (\*S2Server) [GetS2ServerType](./types.pb.go#L4406)
+### <a name="S2Server.GetS2ServerType">func</a> (\*S2Server) [GetS2ServerType](./types.pb.go#L4784)
 ``` go
 func (m *S2Server) GetS2ServerType() int32
 ```
 
-### <a name="S2Server.GetServiceType">func</a> (\*S2Server) [GetServiceType](./types.pb.go#L4413)
+### <a name="S2Server.GetServiceType">func</a> (\*S2Server) [GetServiceType](./types.pb.go#L4791)
 ``` go
 func (m *S2Server) GetServiceType() string
 ```
 
-### <a name="S2Server.GetStatus">func</a> (\*S2Server) [GetStatus](./types.pb.go#L4420)
+### <a name="S2Server.GetStatus">func</a> (\*S2Server) [GetStatus](./types.pb.go#L4798)
 ``` go
 func (m *S2Server) GetStatus() string
 ```
 
-### <a name="S2Server.GetStatusTime">func</a> (\*S2Server) [GetStatusTime](./types.pb.go#L4427)
+### <a name="S2Server.GetStatusTime">func</a> (\*S2Server) [GetStatusTime](./types.pb.go#L4805)
 ``` go
 func (m *S2Server) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="S2Server.GetTags">func</a> (\*S2Server) [GetTags](./types.pb.go#L4434)
+### <a name="S2Server.GetTags">func</a> (\*S2Server) [GetTags](./types.pb.go#L4812)
 ``` go
 func (m *S2Server) GetTags() []*Tag
 ```
 
-### <a name="S2Server.GetTransitionStatus">func</a> (\*S2Server) [GetTransitionStatus](./types.pb.go#L4441)
+### <a name="S2Server.GetTransitionStatus">func</a> (\*S2Server) [GetTransitionStatus](./types.pb.go#L4819)
 ``` go
 func (m *S2Server) GetTransitionStatus() string
 ```
 
-### <a name="S2Server.GetVxnet">func</a> (\*S2Server) [GetVxnet](./types.pb.go#L4448)
+### <a name="S2Server.GetVxnet">func</a> (\*S2Server) [GetVxnet](./types.pb.go#L4826)
 ``` go
 func (m *S2Server) GetVxnet() *VxNet
 ```
 
-### <a name="S2Server.ProtoMessage">func</a> (\*S2Server) [ProtoMessage](./types.pb.go#L4361)
+### <a name="S2Server.ProtoMessage">func</a> (\*S2Server) [ProtoMessage](./types.pb.go#L4739)
 ``` go
 func (*S2Server) ProtoMessage()
 ```
 
-### <a name="S2Server.Reset">func</a> (\*S2Server) [Reset](./types.pb.go#L4359)
+### <a name="S2Server.Reset">func</a> (\*S2Server) [Reset](./types.pb.go#L4737)
 ``` go
 func (m *S2Server) Reset()
 ```
 
-### <a name="S2Server.String">func</a> (\*S2Server) [String](./types.pb.go#L4360)
+### <a name="S2Server.String">func</a> (\*S2Server) [String](./types.pb.go#L4738)
 ``` go
 func (m *S2Server) String() string
 ```
 
-### <a name="S2Server.Validate">func</a> (\*S2Server) [Validate](./types.pb.validate.go#L270)
+### <a name="S2Server.Validate">func</a> (\*S2Server) [Validate](./types.pb.validate.go#L275)
 ``` go
 func (p *S2Server) Validate() error
 ```
 
-## <a name="S2Service">type</a> [S2Service](./s2.pb.qingcloud.go#L50-L52)
+## <a name="S2Service">type</a> [S2Service](./s2.pb.qingcloud.go#L57-L59)
 ``` go
 type S2Service struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewS2Service">func</a> [NewS2Service](./s2.pb.qingcloud.go#L54)
+### <a name="NewS2Service">func</a> [NewS2Service](./s2.pb.qingcloud.go#L61)
 ``` go
 func NewS2Service(server *ServerInfo) (p *S2Service)
 ```
 
-### <a name="S2Service.AssociateS2AccountGroup">func</a> (\*S2Service) [AssociateS2AccountGroup](./s2.pb.qingcloud.go#L606)
+### <a name="S2Service.AssociateS2AccountGroup">func</a> (\*S2Service) [AssociateS2AccountGroup](./s2.pb.qingcloud.go#L784)
 ``` go
 func (p *S2Service) AssociateS2AccountGroup(input *AssociateS2AccountGroupInput) (output *AssociateS2AccountGroupOutput, err error)
 ```
 
-### <a name="S2Service.AttachToS2SharedTarget">func</a> (\*S2Service) [AttachToS2SharedTarget](./s2.pb.qingcloud.go#L375)
+### <a name="S2Service.AttachToS2SharedTarget">func</a> (\*S2Service) [AttachToS2SharedTarget](./s2.pb.qingcloud.go#L553)
 ``` go
 func (p *S2Service) AttachToS2SharedTarget(input *AttachToS2SharedTargetInput) (output *AttachToS2SharedTargetOutput, err error)
 ```
 
-### <a name="S2Service.ChangeS2ServerVxnet">func</a> (\*S2Service) [ChangeS2ServerVxnet](./s2.pb.qingcloud.go#L228)
+### <a name="S2Service.ChangeS2ServerVxnet">func</a> (\*S2Service) [ChangeS2ServerVxnet](./s2.pb.qingcloud.go#L406)
 ``` go
 func (p *S2Service) ChangeS2ServerVxnet(input *ChangeS2ServerVxnetInput) (output *ChangeS2ServerVxnetOutput, err error)
 ```
 
-### <a name="S2Service.CreateS2Account">func</a> (\*S2Service) [CreateS2Account](./s2.pb.qingcloud.go#L522)
+### <a name="S2Service.CreateS2Account">func</a> (\*S2Service) [CreateS2Account](./s2.pb.qingcloud.go#L700)
 ``` go
 func (p *S2Service) CreateS2Account(input *CreateS2AccountInput) (output *CreateS2AccountOutput, err error)
 ```
 
-### <a name="S2Service.CreateS2Group">func</a> (\*S2Service) [CreateS2Group](./s2.pb.qingcloud.go#L438)
+### <a name="S2Service.CreateS2Group">func</a> (\*S2Service) [CreateS2Group](./s2.pb.qingcloud.go#L616)
 ``` go
 func (p *S2Service) CreateS2Group(input *CreateS2GroupInput) (output *CreateS2GroupOutput, err error)
 ```
 
-### <a name="S2Service.CreateS2Server">func</a> (\*S2Service) [CreateS2Server](./s2.pb.qingcloud.go#L60)
+### <a name="S2Service.CreateS2Server">func</a> (\*S2Service) [CreateS2Server](./s2.pb.qingcloud.go#L238)
 ``` go
 func (p *S2Service) CreateS2Server(input *CreateS2ServerInput) (output *CreateS2ServerOutput, err error)
 ```
 
-### <a name="S2Service.CreateS2SharedTarget">func</a> (\*S2Service) [CreateS2SharedTarget](./s2.pb.qingcloud.go#L249)
+### <a name="S2Service.CreateS2SharedTarget">func</a> (\*S2Service) [CreateS2SharedTarget](./s2.pb.qingcloud.go#L427)
 ``` go
 func (p *S2Service) CreateS2SharedTarget(input *CreateS2SharedTargetInput) (output *CreateS2SharedTargetOutput, err error)
 ```
 
-### <a name="S2Service.DeleteS2Accounts">func</a> (\*S2Service) [DeleteS2Accounts](./s2.pb.qingcloud.go#L585)
+### <a name="S2Service.DeleteS2Accounts">func</a> (\*S2Service) [DeleteS2Accounts](./s2.pb.qingcloud.go#L763)
 ``` go
 func (p *S2Service) DeleteS2Accounts(input *DeleteS2AccountsInput) (output *DeleteS2AccountsOutput, err error)
 ```
 
-### <a name="S2Service.DeleteS2Groups">func</a> (\*S2Service) [DeleteS2Groups](./s2.pb.qingcloud.go#L501)
+### <a name="S2Service.DeleteS2Groups">func</a> (\*S2Service) [DeleteS2Groups](./s2.pb.qingcloud.go#L679)
 ``` go
 func (p *S2Service) DeleteS2Groups(input *DeleteS2GroupsInput) (output *DeleteS2GroupsOutput, err error)
 ```
 
-### <a name="S2Service.DeleteS2Servers">func</a> (\*S2Service) [DeleteS2Servers](./s2.pb.qingcloud.go#L144)
+### <a name="S2Service.DeleteS2Servers">func</a> (\*S2Service) [DeleteS2Servers](./s2.pb.qingcloud.go#L322)
 ``` go
 func (p *S2Service) DeleteS2Servers(input *DeleteS2ServersInput) (output *DeleteS2ServersOutput, err error)
 ```
 
-### <a name="S2Service.DeleteS2SharedTargets">func</a> (\*S2Service) [DeleteS2SharedTargets](./s2.pb.qingcloud.go#L291)
+### <a name="S2Service.DeleteS2SharedTargets">func</a> (\*S2Service) [DeleteS2SharedTargets](./s2.pb.qingcloud.go#L469)
 ``` go
 func (p *S2Service) DeleteS2SharedTargets(input *DeleteS2SharedTargetsInput) (output *DeleteS2SharedTargetsOutput, err error)
 ```
 
-### <a name="S2Service.DescribeS2Accounts">func</a> (\*S2Service) [DescribeS2Accounts](./s2.pb.qingcloud.go#L543)
+### <a name="S2Service.DescribeS2Accounts">func</a> (\*S2Service) [DescribeS2Accounts](./s2.pb.qingcloud.go#L721)
 ``` go
 func (p *S2Service) DescribeS2Accounts(input *DescribeS2AccountsInput) (output *DescribeS2AccountsOutput, err error)
 ```
 
-### <a name="S2Service.DescribeS2DefaultParameters">func</a> (\*S2Service) [DescribeS2DefaultParameters](./s2.pb.qingcloud.go#L417)
+### <a name="S2Service.DescribeS2DefaultParameters">func</a> (\*S2Service) [DescribeS2DefaultParameters](./s2.pb.qingcloud.go#L595)
 ``` go
 func (p *S2Service) DescribeS2DefaultParameters(input *DescribeS2DefaultParametersInput) (output *DescribeS2DefaultParametersOutput, err error)
 ```
 
-### <a name="S2Service.DescribeS2Groups">func</a> (\*S2Service) [DescribeS2Groups](./s2.pb.qingcloud.go#L459)
+### <a name="S2Service.DescribeS2Groups">func</a> (\*S2Service) [DescribeS2Groups](./s2.pb.qingcloud.go#L637)
 ``` go
 func (p *S2Service) DescribeS2Groups(input *DescribeS2GroupsInput) (output *DescribeS2GroupsOutput, err error)
 ```
 
-### <a name="S2Service.DescribeS2Servers">func</a> (\*S2Service) [DescribeS2Servers](./s2.pb.qingcloud.go#L81)
+### <a name="S2Service.DescribeS2Servers">func</a> (\*S2Service) [DescribeS2Servers](./s2.pb.qingcloud.go#L259)
 ``` go
 func (p *S2Service) DescribeS2Servers(input *DescribeS2ServersInput) (output *DescribeS2ServersOutput, err error)
 ```
 
-### <a name="S2Service.DescribeS2SharedTargets">func</a> (\*S2Service) [DescribeS2SharedTargets](./s2.pb.qingcloud.go#L270)
+### <a name="S2Service.DescribeS2SharedTargets">func</a> (\*S2Service) [DescribeS2SharedTargets](./s2.pb.qingcloud.go#L448)
 ``` go
 func (p *S2Service) DescribeS2SharedTargets(input *DescribeS2SharedTargetsInput) (output *DescribeS2SharedTargetsOutput, err error)
 ```
 
-### <a name="S2Service.DetachFromS2SharedTarget">func</a> (\*S2Service) [DetachFromS2SharedTarget](./s2.pb.qingcloud.go#L396)
+### <a name="S2Service.DetachFromS2SharedTarget">func</a> (\*S2Service) [DetachFromS2SharedTarget](./s2.pb.qingcloud.go#L574)
 ``` go
 func (p *S2Service) DetachFromS2SharedTarget(input *DetachFromS2SharedTargetInput) (output *DetachFromS2SharedTargetOutput, err error)
 ```
 
-### <a name="S2Service.DisableS2SharedTargets">func</a> (\*S2Service) [DisableS2SharedTargets](./s2.pb.qingcloud.go#L333)
+### <a name="S2Service.DisableS2SharedTargets">func</a> (\*S2Service) [DisableS2SharedTargets](./s2.pb.qingcloud.go#L511)
 ``` go
 func (p *S2Service) DisableS2SharedTargets(input *DisableS2SharedTargetsInput) (output *DisableS2SharedTargetsOutput, err error)
 ```
 
-### <a name="S2Service.DissociateS2AccountGroup">func</a> (\*S2Service) [DissociateS2AccountGroup](./s2.pb.qingcloud.go#L627)
+### <a name="S2Service.DissociateS2AccountGroup">func</a> (\*S2Service) [DissociateS2AccountGroup](./s2.pb.qingcloud.go#L805)
 ``` go
 func (p *S2Service) DissociateS2AccountGroup(input *DissociateS2AccountGroupInput) (output *DissociateS2AccountGroupOutput, err error)
 ```
 
-### <a name="S2Service.EnableS2SharedTargets">func</a> (\*S2Service) [EnableS2SharedTargets](./s2.pb.qingcloud.go#L312)
+### <a name="S2Service.EnableS2SharedTargets">func</a> (\*S2Service) [EnableS2SharedTargets](./s2.pb.qingcloud.go#L490)
 ``` go
 func (p *S2Service) EnableS2SharedTargets(input *EnableS2SharedTargetsInput) (output *EnableS2SharedTargetsOutput, err error)
 ```
 
-### <a name="S2Service.ModifyS2Account">func</a> (\*S2Service) [ModifyS2Account](./s2.pb.qingcloud.go#L564)
+### <a name="S2Service.ModifyS2Account">func</a> (\*S2Service) [ModifyS2Account](./s2.pb.qingcloud.go#L742)
 ``` go
 func (p *S2Service) ModifyS2Account(input *ModifyS2AccountInput) (output *ModifyS2AccountOutput, err error)
 ```
 
-### <a name="S2Service.ModifyS2Group">func</a> (\*S2Service) [ModifyS2Group](./s2.pb.qingcloud.go#L480)
+### <a name="S2Service.ModifyS2Group">func</a> (\*S2Service) [ModifyS2Group](./s2.pb.qingcloud.go#L658)
 ``` go
 func (p *S2Service) ModifyS2Group(input *ModifyS2GroupInput) (output *ModifyS2GroupOutput, err error)
 ```
 
-### <a name="S2Service.ModifyS2Server">func</a> (\*S2Service) [ModifyS2Server](./s2.pb.qingcloud.go#L102)
+### <a name="S2Service.ModifyS2Server">func</a> (\*S2Service) [ModifyS2Server](./s2.pb.qingcloud.go#L280)
 ``` go
 func (p *S2Service) ModifyS2Server(input *ModifyS2ServerInput) (output *ModifyS2ServerOutput, err error)
 ```
 
-### <a name="S2Service.ModifyS2SharedTargetAttributes">func</a> (\*S2Service) [ModifyS2SharedTargetAttributes](./s2.pb.qingcloud.go#L354)
+### <a name="S2Service.ModifyS2SharedTargetAttributes">func</a> (\*S2Service) [ModifyS2SharedTargetAttributes](./s2.pb.qingcloud.go#L532)
 ``` go
 func (p *S2Service) ModifyS2SharedTargetAttributes(input *ModifyS2SharedTargetAttributesInput) (output *ModifyS2SharedTargetAttributesOutput, err error)
 ```
 
-### <a name="S2Service.PowerOffS2Servers">func</a> (\*S2Service) [PowerOffS2Servers](./s2.pb.qingcloud.go#L186)
+### <a name="S2Service.PowerOffS2Servers">func</a> (\*S2Service) [PowerOffS2Servers](./s2.pb.qingcloud.go#L364)
 ``` go
 func (p *S2Service) PowerOffS2Servers(input *PowerOffS2ServersInput) (output *PowerOffS2ServersOutput, err error)
 ```
 
-### <a name="S2Service.PowerOnS2Servers">func</a> (\*S2Service) [PowerOnS2Servers](./s2.pb.qingcloud.go#L165)
+### <a name="S2Service.PowerOnS2Servers">func</a> (\*S2Service) [PowerOnS2Servers](./s2.pb.qingcloud.go#L343)
 ``` go
 func (p *S2Service) PowerOnS2Servers(input *PowerOnS2ServersInput) (output *PowerOnS2ServersOutput, err error)
 ```
 
-### <a name="S2Service.ResizeS2Servers">func</a> (\*S2Service) [ResizeS2Servers](./s2.pb.qingcloud.go#L123)
+### <a name="S2Service.ResizeS2Servers">func</a> (\*S2Service) [ResizeS2Servers](./s2.pb.qingcloud.go#L301)
 ``` go
 func (p *S2Service) ResizeS2Servers(input *ResizeS2ServersInput) (output *ResizeS2ServersOutput, err error)
 ```
 
-### <a name="S2Service.UpdateS2Servers">func</a> (\*S2Service) [UpdateS2Servers](./s2.pb.qingcloud.go#L207)
+### <a name="S2Service.UpdateS2Servers">func</a> (\*S2Service) [UpdateS2Servers](./s2.pb.qingcloud.go#L385)
 ``` go
 func (p *S2Service) UpdateS2Servers(input *UpdateS2ServersInput) (output *UpdateS2ServersOutput, err error)
 ```
 
-## <a name="S2ServiceInterface">type</a> [S2ServiceInterface](./s2.pb.qingcloud.go#L19-L48)
+## <a name="S2ServiceInterface">type</a> [S2ServiceInterface](./s2.pb.qingcloud.go#L26-L55)
 ``` go
 type S2ServiceInterface interface {
     CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error)
@@ -52396,7 +52243,7 @@ type S2ServiceInterface interface {
 }
 ```
 
-## <a name="S2SharedTarget">type</a> [S2SharedTarget](./types.pb.go#L4455-L4466)
+## <a name="S2SharedTarget">type</a> [S2SharedTarget](./types.pb.go#L4833-L4844)
 ``` go
 type S2SharedTarget struct {
     CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -52412,77 +52259,77 @@ type S2SharedTarget struct {
 }
 ```
 
-### <a name="S2SharedTarget.Descriptor">func</a> (\*S2SharedTarget) [Descriptor](./types.pb.go#L4471)
+### <a name="S2SharedTarget.Descriptor">func</a> (\*S2SharedTarget) [Descriptor](./types.pb.go#L4849)
 ``` go
 func (*S2SharedTarget) Descriptor() ([]byte, []int)
 ```
 
-### <a name="S2SharedTarget.GetCreateTime">func</a> (\*S2SharedTarget) [GetCreateTime](./types.pb.go#L4473)
+### <a name="S2SharedTarget.GetCreateTime">func</a> (\*S2SharedTarget) [GetCreateTime](./types.pb.go#L4851)
 ``` go
 func (m *S2SharedTarget) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="S2SharedTarget.GetDescription">func</a> (\*S2SharedTarget) [GetDescription](./types.pb.go#L4480)
+### <a name="S2SharedTarget.GetDescription">func</a> (\*S2SharedTarget) [GetDescription](./types.pb.go#L4858)
 ``` go
 func (m *S2SharedTarget) GetDescription() string
 ```
 
-### <a name="S2SharedTarget.GetExportName">func</a> (\*S2SharedTarget) [GetExportName](./types.pb.go#L4487)
+### <a name="S2SharedTarget.GetExportName">func</a> (\*S2SharedTarget) [GetExportName](./types.pb.go#L4865)
 ``` go
 func (m *S2SharedTarget) GetExportName() string
 ```
 
-### <a name="S2SharedTarget.GetS2Group">func</a> (\*S2SharedTarget) [GetS2Group](./types.pb.go#L4522)
+### <a name="S2SharedTarget.GetS2Group">func</a> (\*S2SharedTarget) [GetS2Group](./types.pb.go#L4900)
 ``` go
 func (m *S2SharedTarget) GetS2Group() map[string]string
 ```
 
-### <a name="S2SharedTarget.GetS2ServerId">func</a> (\*S2SharedTarget) [GetS2ServerId](./types.pb.go#L4494)
+### <a name="S2SharedTarget.GetS2ServerId">func</a> (\*S2SharedTarget) [GetS2ServerId](./types.pb.go#L4872)
 ``` go
 func (m *S2SharedTarget) GetS2ServerId() string
 ```
 
-### <a name="S2SharedTarget.GetS2SharedTargetId">func</a> (\*S2SharedTarget) [GetS2SharedTargetId](./types.pb.go#L4501)
+### <a name="S2SharedTarget.GetS2SharedTargetId">func</a> (\*S2SharedTarget) [GetS2SharedTargetId](./types.pb.go#L4879)
 ``` go
 func (m *S2SharedTarget) GetS2SharedTargetId() string
 ```
 
-### <a name="S2SharedTarget.GetStatusTime">func</a> (\*S2SharedTarget) [GetStatusTime](./types.pb.go#L4508)
+### <a name="S2SharedTarget.GetStatusTime">func</a> (\*S2SharedTarget) [GetStatusTime](./types.pb.go#L4886)
 ``` go
 func (m *S2SharedTarget) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="S2SharedTarget.GetTargetType">func</a> (\*S2SharedTarget) [GetTargetType](./types.pb.go#L4515)
+### <a name="S2SharedTarget.GetTargetType">func</a> (\*S2SharedTarget) [GetTargetType](./types.pb.go#L4893)
 ``` go
 func (m *S2SharedTarget) GetTargetType() string
 ```
 
-### <a name="S2SharedTarget.GetVolumes">func</a> (\*S2SharedTarget) [GetVolumes](./types.pb.go#L4529)
+### <a name="S2SharedTarget.GetVolumes">func</a> (\*S2SharedTarget) [GetVolumes](./types.pb.go#L4907)
 ``` go
 func (m *S2SharedTarget) GetVolumes() []string
 ```
 
-### <a name="S2SharedTarget.ProtoMessage">func</a> (\*S2SharedTarget) [ProtoMessage](./types.pb.go#L4470)
+### <a name="S2SharedTarget.ProtoMessage">func</a> (\*S2SharedTarget) [ProtoMessage](./types.pb.go#L4848)
 ``` go
 func (*S2SharedTarget) ProtoMessage()
 ```
 
-### <a name="S2SharedTarget.Reset">func</a> (\*S2SharedTarget) [Reset](./types.pb.go#L4468)
+### <a name="S2SharedTarget.Reset">func</a> (\*S2SharedTarget) [Reset](./types.pb.go#L4846)
 ``` go
 func (m *S2SharedTarget) Reset()
 ```
 
-### <a name="S2SharedTarget.String">func</a> (\*S2SharedTarget) [String](./types.pb.go#L4469)
+### <a name="S2SharedTarget.String">func</a> (\*S2SharedTarget) [String](./types.pb.go#L4847)
 ``` go
 func (m *S2SharedTarget) String() string
 ```
 
-### <a name="S2SharedTarget.Validate">func</a> (\*S2SharedTarget) [Validate](./types.pb.validate.go#L275)
+### <a name="S2SharedTarget.Validate">func</a> (\*S2SharedTarget) [Validate](./types.pb.validate.go#L280)
 ``` go
 func (p *S2SharedTarget) Validate() error
 ```
 
-## <a name="SecurityGroup">type</a> [SecurityGroup](./types.pb.go#L4536-L4546)
+## <a name="SecurityGroup">type</a> [SecurityGroup](./types.pb.go#L4914-L4924)
 ``` go
 type SecurityGroup struct {
     CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -52497,72 +52344,72 @@ type SecurityGroup struct {
 }
 ```
 
-### <a name="SecurityGroup.Descriptor">func</a> (\*SecurityGroup) [Descriptor](./types.pb.go#L4551)
+### <a name="SecurityGroup.Descriptor">func</a> (\*SecurityGroup) [Descriptor](./types.pb.go#L4929)
 ``` go
 func (*SecurityGroup) Descriptor() ([]byte, []int)
 ```
 
-### <a name="SecurityGroup.GetCreateTime">func</a> (\*SecurityGroup) [GetCreateTime](./types.pb.go#L4553)
+### <a name="SecurityGroup.GetCreateTime">func</a> (\*SecurityGroup) [GetCreateTime](./types.pb.go#L4931)
 ``` go
 func (m *SecurityGroup) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="SecurityGroup.GetDescription">func</a> (\*SecurityGroup) [GetDescription](./types.pb.go#L4560)
+### <a name="SecurityGroup.GetDescription">func</a> (\*SecurityGroup) [GetDescription](./types.pb.go#L4938)
 ``` go
 func (m *SecurityGroup) GetDescription() string
 ```
 
-### <a name="SecurityGroup.GetIsApplied">func</a> (\*SecurityGroup) [GetIsApplied](./types.pb.go#L4567)
+### <a name="SecurityGroup.GetIsApplied">func</a> (\*SecurityGroup) [GetIsApplied](./types.pb.go#L4945)
 ``` go
 func (m *SecurityGroup) GetIsApplied() int32
 ```
 
-### <a name="SecurityGroup.GetIsDefault">func</a> (\*SecurityGroup) [GetIsDefault](./types.pb.go#L4574)
+### <a name="SecurityGroup.GetIsDefault">func</a> (\*SecurityGroup) [GetIsDefault](./types.pb.go#L4952)
 ``` go
 func (m *SecurityGroup) GetIsDefault() int32
 ```
 
-### <a name="SecurityGroup.GetResources">func</a> (\*SecurityGroup) [GetResources](./types.pb.go#L4581)
+### <a name="SecurityGroup.GetResources">func</a> (\*SecurityGroup) [GetResources](./types.pb.go#L4959)
 ``` go
 func (m *SecurityGroup) GetResources() []*Resource
 ```
 
-### <a name="SecurityGroup.GetSecurityGroupId">func</a> (\*SecurityGroup) [GetSecurityGroupId](./types.pb.go#L4588)
+### <a name="SecurityGroup.GetSecurityGroupId">func</a> (\*SecurityGroup) [GetSecurityGroupId](./types.pb.go#L4966)
 ``` go
 func (m *SecurityGroup) GetSecurityGroupId() string
 ```
 
-### <a name="SecurityGroup.GetSecurityGroupName">func</a> (\*SecurityGroup) [GetSecurityGroupName](./types.pb.go#L4595)
+### <a name="SecurityGroup.GetSecurityGroupName">func</a> (\*SecurityGroup) [GetSecurityGroupName](./types.pb.go#L4973)
 ``` go
 func (m *SecurityGroup) GetSecurityGroupName() string
 ```
 
-### <a name="SecurityGroup.GetTags">func</a> (\*SecurityGroup) [GetTags](./types.pb.go#L4602)
+### <a name="SecurityGroup.GetTags">func</a> (\*SecurityGroup) [GetTags](./types.pb.go#L4980)
 ``` go
 func (m *SecurityGroup) GetTags() []*Tag
 ```
 
-### <a name="SecurityGroup.ProtoMessage">func</a> (\*SecurityGroup) [ProtoMessage](./types.pb.go#L4550)
+### <a name="SecurityGroup.ProtoMessage">func</a> (\*SecurityGroup) [ProtoMessage](./types.pb.go#L4928)
 ``` go
 func (*SecurityGroup) ProtoMessage()
 ```
 
-### <a name="SecurityGroup.Reset">func</a> (\*SecurityGroup) [Reset](./types.pb.go#L4548)
+### <a name="SecurityGroup.Reset">func</a> (\*SecurityGroup) [Reset](./types.pb.go#L4926)
 ``` go
 func (m *SecurityGroup) Reset()
 ```
 
-### <a name="SecurityGroup.String">func</a> (\*SecurityGroup) [String](./types.pb.go#L4549)
+### <a name="SecurityGroup.String">func</a> (\*SecurityGroup) [String](./types.pb.go#L4927)
 ``` go
 func (m *SecurityGroup) String() string
 ```
 
-### <a name="SecurityGroup.Validate">func</a> (\*SecurityGroup) [Validate](./types.pb.validate.go#L280)
+### <a name="SecurityGroup.Validate">func</a> (\*SecurityGroup) [Validate](./types.pb.validate.go#L285)
 ``` go
 func (p *SecurityGroup) Validate() error
 ```
 
-## <a name="SecurityGroupIPSet">type</a> [SecurityGroupIPSet](./types.pb.go#L4609-L4617)
+## <a name="SecurityGroupIPSet">type</a> [SecurityGroupIPSet](./types.pb.go#L4987-L4995)
 ``` go
 type SecurityGroupIPSet struct {
     CreateTime             *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -52575,62 +52422,62 @@ type SecurityGroupIPSet struct {
 }
 ```
 
-### <a name="SecurityGroupIPSet.Descriptor">func</a> (\*SecurityGroupIPSet) [Descriptor](./types.pb.go#L4622)
+### <a name="SecurityGroupIPSet.Descriptor">func</a> (\*SecurityGroupIPSet) [Descriptor](./types.pb.go#L5000)
 ``` go
 func (*SecurityGroupIPSet) Descriptor() ([]byte, []int)
 ```
 
-### <a name="SecurityGroupIPSet.GetCreateTime">func</a> (\*SecurityGroupIPSet) [GetCreateTime](./types.pb.go#L4624)
+### <a name="SecurityGroupIPSet.GetCreateTime">func</a> (\*SecurityGroupIPSet) [GetCreateTime](./types.pb.go#L5002)
 ``` go
 func (m *SecurityGroupIPSet) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="SecurityGroupIPSet.GetDescription">func</a> (\*SecurityGroupIPSet) [GetDescription](./types.pb.go#L4631)
+### <a name="SecurityGroupIPSet.GetDescription">func</a> (\*SecurityGroupIPSet) [GetDescription](./types.pb.go#L5009)
 ``` go
 func (m *SecurityGroupIPSet) GetDescription() string
 ```
 
-### <a name="SecurityGroupIPSet.GetIpsetType">func</a> (\*SecurityGroupIPSet) [GetIpsetType](./types.pb.go#L4638)
+### <a name="SecurityGroupIPSet.GetIpsetType">func</a> (\*SecurityGroupIPSet) [GetIpsetType](./types.pb.go#L5016)
 ``` go
 func (m *SecurityGroupIPSet) GetIpsetType() int32
 ```
 
-### <a name="SecurityGroupIPSet.GetSecurityGroupIpsetId">func</a> (\*SecurityGroupIPSet) [GetSecurityGroupIpsetId](./types.pb.go#L4645)
+### <a name="SecurityGroupIPSet.GetSecurityGroupIpsetId">func</a> (\*SecurityGroupIPSet) [GetSecurityGroupIpsetId](./types.pb.go#L5023)
 ``` go
 func (m *SecurityGroupIPSet) GetSecurityGroupIpsetId() string
 ```
 
-### <a name="SecurityGroupIPSet.GetSecurityGroupIpsetName">func</a> (\*SecurityGroupIPSet) [GetSecurityGroupIpsetName](./types.pb.go#L4652)
+### <a name="SecurityGroupIPSet.GetSecurityGroupIpsetName">func</a> (\*SecurityGroupIPSet) [GetSecurityGroupIpsetName](./types.pb.go#L5030)
 ``` go
 func (m *SecurityGroupIPSet) GetSecurityGroupIpsetName() string
 ```
 
-### <a name="SecurityGroupIPSet.GetVal">func</a> (\*SecurityGroupIPSet) [GetVal](./types.pb.go#L4659)
+### <a name="SecurityGroupIPSet.GetVal">func</a> (\*SecurityGroupIPSet) [GetVal](./types.pb.go#L5037)
 ``` go
 func (m *SecurityGroupIPSet) GetVal() string
 ```
 
-### <a name="SecurityGroupIPSet.ProtoMessage">func</a> (\*SecurityGroupIPSet) [ProtoMessage](./types.pb.go#L4621)
+### <a name="SecurityGroupIPSet.ProtoMessage">func</a> (\*SecurityGroupIPSet) [ProtoMessage](./types.pb.go#L4999)
 ``` go
 func (*SecurityGroupIPSet) ProtoMessage()
 ```
 
-### <a name="SecurityGroupIPSet.Reset">func</a> (\*SecurityGroupIPSet) [Reset](./types.pb.go#L4619)
+### <a name="SecurityGroupIPSet.Reset">func</a> (\*SecurityGroupIPSet) [Reset](./types.pb.go#L4997)
 ``` go
 func (m *SecurityGroupIPSet) Reset()
 ```
 
-### <a name="SecurityGroupIPSet.String">func</a> (\*SecurityGroupIPSet) [String](./types.pb.go#L4620)
+### <a name="SecurityGroupIPSet.String">func</a> (\*SecurityGroupIPSet) [String](./types.pb.go#L4998)
 ``` go
 func (m *SecurityGroupIPSet) String() string
 ```
 
-### <a name="SecurityGroupIPSet.Validate">func</a> (\*SecurityGroupIPSet) [Validate](./types.pb.validate.go#L285)
+### <a name="SecurityGroupIPSet.Validate">func</a> (\*SecurityGroupIPSet) [Validate](./types.pb.validate.go#L290)
 ``` go
 func (p *SecurityGroupIPSet) Validate() error
 ```
 
-## <a name="SecurityGroupRule">type</a> [SecurityGroupRule](./types.pb.go#L4666-L4678)
+## <a name="SecurityGroupRule">type</a> [SecurityGroupRule](./types.pb.go#L5044-L5056)
 ``` go
 type SecurityGroupRule struct {
     Action                *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
@@ -52647,184 +52494,184 @@ type SecurityGroupRule struct {
 }
 ```
 
-### <a name="SecurityGroupRule.Descriptor">func</a> (\*SecurityGroupRule) [Descriptor](./types.pb.go#L4683)
+### <a name="SecurityGroupRule.Descriptor">func</a> (\*SecurityGroupRule) [Descriptor](./types.pb.go#L5061)
 ``` go
 func (*SecurityGroupRule) Descriptor() ([]byte, []int)
 ```
 
-### <a name="SecurityGroupRule.GetAction">func</a> (\*SecurityGroupRule) [GetAction](./types.pb.go#L4685)
+### <a name="SecurityGroupRule.GetAction">func</a> (\*SecurityGroupRule) [GetAction](./types.pb.go#L5063)
 ``` go
 func (m *SecurityGroupRule) GetAction() string
 ```
 
-### <a name="SecurityGroupRule.GetDirection">func</a> (\*SecurityGroupRule) [GetDirection](./types.pb.go#L4692)
+### <a name="SecurityGroupRule.GetDirection">func</a> (\*SecurityGroupRule) [GetDirection](./types.pb.go#L5070)
 ``` go
 func (m *SecurityGroupRule) GetDirection() int32
 ```
 
-### <a name="SecurityGroupRule.GetPriority">func</a> (\*SecurityGroupRule) [GetPriority](./types.pb.go#L4699)
+### <a name="SecurityGroupRule.GetPriority">func</a> (\*SecurityGroupRule) [GetPriority](./types.pb.go#L5077)
 ``` go
 func (m *SecurityGroupRule) GetPriority() int32
 ```
 
-### <a name="SecurityGroupRule.GetProtocol">func</a> (\*SecurityGroupRule) [GetProtocol](./types.pb.go#L4706)
+### <a name="SecurityGroupRule.GetProtocol">func</a> (\*SecurityGroupRule) [GetProtocol](./types.pb.go#L5084)
 ``` go
 func (m *SecurityGroupRule) GetProtocol() string
 ```
 
-### <a name="SecurityGroupRule.GetSecurityGroupId">func</a> (\*SecurityGroupRule) [GetSecurityGroupId](./types.pb.go#L4713)
+### <a name="SecurityGroupRule.GetSecurityGroupId">func</a> (\*SecurityGroupRule) [GetSecurityGroupId](./types.pb.go#L5091)
 ``` go
 func (m *SecurityGroupRule) GetSecurityGroupId() string
 ```
 
-### <a name="SecurityGroupRule.GetSecurityGroupRuleId">func</a> (\*SecurityGroupRule) [GetSecurityGroupRuleId](./types.pb.go#L4720)
+### <a name="SecurityGroupRule.GetSecurityGroupRuleId">func</a> (\*SecurityGroupRule) [GetSecurityGroupRuleId](./types.pb.go#L5098)
 ``` go
 func (m *SecurityGroupRule) GetSecurityGroupRuleId() string
 ```
 
-### <a name="SecurityGroupRule.GetSecurityGroupRuleName">func</a> (\*SecurityGroupRule) [GetSecurityGroupRuleName](./types.pb.go#L4727)
+### <a name="SecurityGroupRule.GetSecurityGroupRuleName">func</a> (\*SecurityGroupRule) [GetSecurityGroupRuleName](./types.pb.go#L5105)
 ``` go
 func (m *SecurityGroupRule) GetSecurityGroupRuleName() string
 ```
 
-### <a name="SecurityGroupRule.GetVal1">func</a> (\*SecurityGroupRule) [GetVal1](./types.pb.go#L4734)
+### <a name="SecurityGroupRule.GetVal1">func</a> (\*SecurityGroupRule) [GetVal1](./types.pb.go#L5112)
 ``` go
 func (m *SecurityGroupRule) GetVal1() string
 ```
 
-### <a name="SecurityGroupRule.GetVal2">func</a> (\*SecurityGroupRule) [GetVal2](./types.pb.go#L4741)
+### <a name="SecurityGroupRule.GetVal2">func</a> (\*SecurityGroupRule) [GetVal2](./types.pb.go#L5119)
 ``` go
 func (m *SecurityGroupRule) GetVal2() string
 ```
 
-### <a name="SecurityGroupRule.GetVal3">func</a> (\*SecurityGroupRule) [GetVal3](./types.pb.go#L4748)
+### <a name="SecurityGroupRule.GetVal3">func</a> (\*SecurityGroupRule) [GetVal3](./types.pb.go#L5126)
 ``` go
 func (m *SecurityGroupRule) GetVal3() string
 ```
 
-### <a name="SecurityGroupRule.ProtoMessage">func</a> (\*SecurityGroupRule) [ProtoMessage](./types.pb.go#L4682)
+### <a name="SecurityGroupRule.ProtoMessage">func</a> (\*SecurityGroupRule) [ProtoMessage](./types.pb.go#L5060)
 ``` go
 func (*SecurityGroupRule) ProtoMessage()
 ```
 
-### <a name="SecurityGroupRule.Reset">func</a> (\*SecurityGroupRule) [Reset](./types.pb.go#L4680)
+### <a name="SecurityGroupRule.Reset">func</a> (\*SecurityGroupRule) [Reset](./types.pb.go#L5058)
 ``` go
 func (m *SecurityGroupRule) Reset()
 ```
 
-### <a name="SecurityGroupRule.String">func</a> (\*SecurityGroupRule) [String](./types.pb.go#L4681)
+### <a name="SecurityGroupRule.String">func</a> (\*SecurityGroupRule) [String](./types.pb.go#L5059)
 ``` go
 func (m *SecurityGroupRule) String() string
 ```
 
-### <a name="SecurityGroupRule.Validate">func</a> (\*SecurityGroupRule) [Validate](./types.pb.validate.go#L290)
+### <a name="SecurityGroupRule.Validate">func</a> (\*SecurityGroupRule) [Validate](./types.pb.validate.go#L295)
 ``` go
 func (p *SecurityGroupRule) Validate() error
 ```
 
-## <a name="SecurityGroupService">type</a> [SecurityGroupService](./security_group.pb.qingcloud.go#L40-L42)
+## <a name="SecurityGroupService">type</a> [SecurityGroupService](./security_group.pb.qingcloud.go#L47-L49)
 ``` go
 type SecurityGroupService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewSecurityGroupService">func</a> [NewSecurityGroupService](./security_group.pb.qingcloud.go#L44)
+### <a name="NewSecurityGroupService">func</a> [NewSecurityGroupService](./security_group.pb.qingcloud.go#L51)
 ``` go
 func NewSecurityGroupService(server *ServerInfo) (p *SecurityGroupService)
 ```
 
-### <a name="SecurityGroupService.AddSecurityGroupRules">func</a> (\*SecurityGroupService) [AddSecurityGroupRules](./security_group.pb.qingcloud.go#L176)
+### <a name="SecurityGroupService.AddSecurityGroupRules">func</a> (\*SecurityGroupService) [AddSecurityGroupRules](./security_group.pb.qingcloud.go#L294)
 ``` go
 func (p *SecurityGroupService) AddSecurityGroupRules(input *AddSecurityGroupRulesInput) (output *AddSecurityGroupRulesOutput, err error)
 ```
 
-### <a name="SecurityGroupService.ApplySecurityGroup">func</a> (\*SecurityGroupService) [ApplySecurityGroup](./security_group.pb.qingcloud.go#L113)
+### <a name="SecurityGroupService.ApplySecurityGroup">func</a> (\*SecurityGroupService) [ApplySecurityGroup](./security_group.pb.qingcloud.go#L231)
 ``` go
 func (p *SecurityGroupService) ApplySecurityGroup(input *ApplySecurityGroupInput) (output *ApplySecurityGroupOutpu, err error)
 ```
 
-### <a name="SecurityGroupService.CopySecurityGroupIPSets">func</a> (\*SecurityGroupService) [CopySecurityGroupIPSets](./security_group.pb.qingcloud.go#L407)
+### <a name="SecurityGroupService.CopySecurityGroupIPSets">func</a> (\*SecurityGroupService) [CopySecurityGroupIPSets](./security_group.pb.qingcloud.go#L525)
 ``` go
 func (p *SecurityGroupService) CopySecurityGroupIPSets(input *CopySecurityGroupIPSetsInput) (output *CopySecurityGroupIPSetsOutput, err error)
 ```
 
-### <a name="SecurityGroupService.CreateSecurityGroup">func</a> (\*SecurityGroupService) [CreateSecurityGroup](./security_group.pb.qingcloud.go#L71)
+### <a name="SecurityGroupService.CreateSecurityGroup">func</a> (\*SecurityGroupService) [CreateSecurityGroup](./security_group.pb.qingcloud.go#L189)
 ``` go
 func (p *SecurityGroupService) CreateSecurityGroup(input *CreateSecurityGroupInput) (output *CreateSecurityGroupOutput, err error)
 ```
 
-### <a name="SecurityGroupService.CreateSecurityGroupIPSet">func</a> (\*SecurityGroupService) [CreateSecurityGroupIPSet](./security_group.pb.qingcloud.go#L344)
+### <a name="SecurityGroupService.CreateSecurityGroupIPSet">func</a> (\*SecurityGroupService) [CreateSecurityGroupIPSet](./security_group.pb.qingcloud.go#L462)
 ``` go
 func (p *SecurityGroupService) CreateSecurityGroupIPSet(input *CreateSecurityGroupIPSetInput) (output *CreateSecurityGroupIPSetOutput, err error)
 ```
 
-### <a name="SecurityGroupService.CreateSecurityGroupSnapshot">func</a> (\*SecurityGroupService) [CreateSecurityGroupSnapshot](./security_group.pb.qingcloud.go#L239)
+### <a name="SecurityGroupService.CreateSecurityGroupSnapshot">func</a> (\*SecurityGroupService) [CreateSecurityGroupSnapshot](./security_group.pb.qingcloud.go#L357)
 ``` go
 func (p *SecurityGroupService) CreateSecurityGroupSnapshot(input *CreateSecurityGroupSnapshotInput) (output *CreateSecurityGroupSnapshotOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DeleteSecurityGroupIPSets">func</a> (\*SecurityGroupService) [DeleteSecurityGroupIPSets](./security_group.pb.qingcloud.go#L365)
+### <a name="SecurityGroupService.DeleteSecurityGroupIPSets">func</a> (\*SecurityGroupService) [DeleteSecurityGroupIPSets](./security_group.pb.qingcloud.go#L483)
 ``` go
 func (p *SecurityGroupService) DeleteSecurityGroupIPSets(input *DeleteSecurityGroupIPSetsInput) (output *DeleteSecurityGroupIPSetsOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DeleteSecurityGroupRules">func</a> (\*SecurityGroupService) [DeleteSecurityGroupRules](./security_group.pb.qingcloud.go#L197)
+### <a name="SecurityGroupService.DeleteSecurityGroupRules">func</a> (\*SecurityGroupService) [DeleteSecurityGroupRules](./security_group.pb.qingcloud.go#L315)
 ``` go
 func (p *SecurityGroupService) DeleteSecurityGroupRules(input *DeleteSecurityGroupRulesInput) (output *DeleteSecurityGroupRulesOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DeleteSecurityGroupSnapshots">func</a> (\*SecurityGroupService) [DeleteSecurityGroupSnapshots](./security_group.pb.qingcloud.go#L281)
+### <a name="SecurityGroupService.DeleteSecurityGroupSnapshots">func</a> (\*SecurityGroupService) [DeleteSecurityGroupSnapshots](./security_group.pb.qingcloud.go#L399)
 ``` go
 func (p *SecurityGroupService) DeleteSecurityGroupSnapshots(input *DeleteSecurityGroupSnapshotsInput) (output *DeleteSecurityGroupSnapshotsOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DeleteSecurityGroups">func</a> (\*SecurityGroupService) [DeleteSecurityGroups](./security_group.pb.qingcloud.go#L92)
+### <a name="SecurityGroupService.DeleteSecurityGroups">func</a> (\*SecurityGroupService) [DeleteSecurityGroups](./security_group.pb.qingcloud.go#L210)
 ``` go
 func (p *SecurityGroupService) DeleteSecurityGroups(input *DeleteSecurityGroupsInput) (output *DeleteSecurityGroupsOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DescribeSecurityGroupIPSets">func</a> (\*SecurityGroupService) [DescribeSecurityGroupIPSets](./security_group.pb.qingcloud.go#L323)
+### <a name="SecurityGroupService.DescribeSecurityGroupIPSets">func</a> (\*SecurityGroupService) [DescribeSecurityGroupIPSets](./security_group.pb.qingcloud.go#L441)
 ``` go
 func (p *SecurityGroupService) DescribeSecurityGroupIPSets(input *DescribeSecurityGroupIPSetsInput) (output *DescribeSecurityGroupIPSetsOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DescribeSecurityGroupRules">func</a> (\*SecurityGroupService) [DescribeSecurityGroupRules](./security_group.pb.qingcloud.go#L155)
+### <a name="SecurityGroupService.DescribeSecurityGroupRules">func</a> (\*SecurityGroupService) [DescribeSecurityGroupRules](./security_group.pb.qingcloud.go#L273)
 ``` go
 func (p *SecurityGroupService) DescribeSecurityGroupRules(input *DescribeSecurityGroupRulesInput) (output *DescribeSecurityGroupRulesOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DescribeSecurityGroupSnapshots">func</a> (\*SecurityGroupService) [DescribeSecurityGroupSnapshots](./security_group.pb.qingcloud.go#L260)
+### <a name="SecurityGroupService.DescribeSecurityGroupSnapshots">func</a> (\*SecurityGroupService) [DescribeSecurityGroupSnapshots](./security_group.pb.qingcloud.go#L378)
 ``` go
 func (p *SecurityGroupService) DescribeSecurityGroupSnapshots(input *DescribeSecurityGroupSnapshotsInput) (output *DescribeSecurityGroupSnapshotsOutput, err error)
 ```
 
-### <a name="SecurityGroupService.DescribeSecurityGroups">func</a> (\*SecurityGroupService) [DescribeSecurityGroups](./security_group.pb.qingcloud.go#L50)
+### <a name="SecurityGroupService.DescribeSecurityGroups">func</a> (\*SecurityGroupService) [DescribeSecurityGroups](./security_group.pb.qingcloud.go#L168)
 ``` go
 func (p *SecurityGroupService) DescribeSecurityGroups(input *DescribeSecurityGroupsInput) (output *DescribeSecurityGroupsOutput, err error)
 ```
 
-### <a name="SecurityGroupService.ModifySecurityGroupAttributes">func</a> (\*SecurityGroupService) [ModifySecurityGroupAttributes](./security_group.pb.qingcloud.go#L134)
+### <a name="SecurityGroupService.ModifySecurityGroupAttributes">func</a> (\*SecurityGroupService) [ModifySecurityGroupAttributes](./security_group.pb.qingcloud.go#L252)
 ``` go
 func (p *SecurityGroupService) ModifySecurityGroupAttributes(input *ModifySecurityGroupAttributesInput) (output *ModifySecurityGroupAttributesOutput, err error)
 ```
 
-### <a name="SecurityGroupService.ModifySecurityGroupIPSetAttributes">func</a> (\*SecurityGroupService) [ModifySecurityGroupIPSetAttributes](./security_group.pb.qingcloud.go#L386)
+### <a name="SecurityGroupService.ModifySecurityGroupIPSetAttributes">func</a> (\*SecurityGroupService) [ModifySecurityGroupIPSetAttributes](./security_group.pb.qingcloud.go#L504)
 ``` go
 func (p *SecurityGroupService) ModifySecurityGroupIPSetAttributes(input *ModifySecurityGroupIPSetAttributesInput) (output *ModifySecurityGroupIPSetAttributesOutput, err error)
 ```
 
-### <a name="SecurityGroupService.ModifySecurityGroupRuleAttributes">func</a> (\*SecurityGroupService) [ModifySecurityGroupRuleAttributes](./security_group.pb.qingcloud.go#L218)
+### <a name="SecurityGroupService.ModifySecurityGroupRuleAttributes">func</a> (\*SecurityGroupService) [ModifySecurityGroupRuleAttributes](./security_group.pb.qingcloud.go#L336)
 ``` go
 func (p *SecurityGroupService) ModifySecurityGroupRuleAttributes(input *ModifySecurityGroupRuleAttributesInput) (output *ModifySecurityGroupRuleAttributesOutput, err error)
 ```
 
-### <a name="SecurityGroupService.RollbackSecurityGroup">func</a> (\*SecurityGroupService) [RollbackSecurityGroup](./security_group.pb.qingcloud.go#L302)
+### <a name="SecurityGroupService.RollbackSecurityGroup">func</a> (\*SecurityGroupService) [RollbackSecurityGroup](./security_group.pb.qingcloud.go#L420)
 ``` go
 func (p *SecurityGroupService) RollbackSecurityGroup(input *RollbackSecurityGroupInput) (output *RollbackSecurityGroupOutput, err error)
 ```
 
-## <a name="SecurityGroupServiceInterface">type</a> [SecurityGroupServiceInterface](./security_group.pb.qingcloud.go#L19-L38)
+## <a name="SecurityGroupServiceInterface">type</a> [SecurityGroupServiceInterface](./security_group.pb.qingcloud.go#L26-L45)
 ``` go
 type SecurityGroupServiceInterface interface {
     DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error)
@@ -52848,7 +52695,7 @@ type SecurityGroupServiceInterface interface {
 }
 ```
 
-## <a name="SecurityGroupSnapshot">type</a> [SecurityGroupSnapshot](./types.pb.go#L4755-L4760)
+## <a name="SecurityGroupSnapshot">type</a> [SecurityGroupSnapshot](./types.pb.go#L5133-L5138)
 ``` go
 type SecurityGroupSnapshot struct {
     GroupId                 *string              `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
@@ -52858,47 +52705,47 @@ type SecurityGroupSnapshot struct {
 }
 ```
 
-### <a name="SecurityGroupSnapshot.Descriptor">func</a> (\*SecurityGroupSnapshot) [Descriptor](./types.pb.go#L4765)
+### <a name="SecurityGroupSnapshot.Descriptor">func</a> (\*SecurityGroupSnapshot) [Descriptor](./types.pb.go#L5143)
 ``` go
 func (*SecurityGroupSnapshot) Descriptor() ([]byte, []int)
 ```
 
-### <a name="SecurityGroupSnapshot.GetGroupId">func</a> (\*SecurityGroupSnapshot) [GetGroupId](./types.pb.go#L4767)
+### <a name="SecurityGroupSnapshot.GetGroupId">func</a> (\*SecurityGroupSnapshot) [GetGroupId](./types.pb.go#L5145)
 ``` go
 func (m *SecurityGroupSnapshot) GetGroupId() string
 ```
 
-### <a name="SecurityGroupSnapshot.GetRules">func</a> (\*SecurityGroupSnapshot) [GetRules](./types.pb.go#L4774)
+### <a name="SecurityGroupSnapshot.GetRules">func</a> (\*SecurityGroupSnapshot) [GetRules](./types.pb.go#L5152)
 ``` go
 func (m *SecurityGroupSnapshot) GetRules() []*SecurityGroupRule
 ```
 
-### <a name="SecurityGroupSnapshot.GetSecurityGroupSnapshotId">func</a> (\*SecurityGroupSnapshot) [GetSecurityGroupSnapshotId](./types.pb.go#L4781)
+### <a name="SecurityGroupSnapshot.GetSecurityGroupSnapshotId">func</a> (\*SecurityGroupSnapshot) [GetSecurityGroupSnapshotId](./types.pb.go#L5159)
 ``` go
 func (m *SecurityGroupSnapshot) GetSecurityGroupSnapshotId() string
 ```
 
-### <a name="SecurityGroupSnapshot.ProtoMessage">func</a> (\*SecurityGroupSnapshot) [ProtoMessage](./types.pb.go#L4764)
+### <a name="SecurityGroupSnapshot.ProtoMessage">func</a> (\*SecurityGroupSnapshot) [ProtoMessage](./types.pb.go#L5142)
 ``` go
 func (*SecurityGroupSnapshot) ProtoMessage()
 ```
 
-### <a name="SecurityGroupSnapshot.Reset">func</a> (\*SecurityGroupSnapshot) [Reset](./types.pb.go#L4762)
+### <a name="SecurityGroupSnapshot.Reset">func</a> (\*SecurityGroupSnapshot) [Reset](./types.pb.go#L5140)
 ``` go
 func (m *SecurityGroupSnapshot) Reset()
 ```
 
-### <a name="SecurityGroupSnapshot.String">func</a> (\*SecurityGroupSnapshot) [String](./types.pb.go#L4763)
+### <a name="SecurityGroupSnapshot.String">func</a> (\*SecurityGroupSnapshot) [String](./types.pb.go#L5141)
 ``` go
 func (m *SecurityGroupSnapshot) String() string
 ```
 
-### <a name="SecurityGroupSnapshot.Validate">func</a> (\*SecurityGroupSnapshot) [Validate](./types.pb.validate.go#L295)
+### <a name="SecurityGroupSnapshot.Validate">func</a> (\*SecurityGroupSnapshot) [Validate](./types.pb.validate.go#L300)
 ``` go
 func (p *SecurityGroupSnapshot) Validate() error
 ```
 
-## <a name="ServerCertificate">type</a> [ServerCertificate](./types.pb.go#L4788-L4796)
+## <a name="ServerCertificate">type</a> [ServerCertificate](./types.pb.go#L5166-L5174)
 ``` go
 type ServerCertificate struct {
     CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -52911,62 +52758,62 @@ type ServerCertificate struct {
 }
 ```
 
-### <a name="ServerCertificate.Descriptor">func</a> (\*ServerCertificate) [Descriptor](./types.pb.go#L4801)
+### <a name="ServerCertificate.Descriptor">func</a> (\*ServerCertificate) [Descriptor](./types.pb.go#L5179)
 ``` go
 func (*ServerCertificate) Descriptor() ([]byte, []int)
 ```
 
-### <a name="ServerCertificate.GetCertificateContent">func</a> (\*ServerCertificate) [GetCertificateContent](./types.pb.go#L4817)
+### <a name="ServerCertificate.GetCertificateContent">func</a> (\*ServerCertificate) [GetCertificateContent](./types.pb.go#L5195)
 ``` go
 func (m *ServerCertificate) GetCertificateContent() string
 ```
 
-### <a name="ServerCertificate.GetCreateTime">func</a> (\*ServerCertificate) [GetCreateTime](./types.pb.go#L4803)
+### <a name="ServerCertificate.GetCreateTime">func</a> (\*ServerCertificate) [GetCreateTime](./types.pb.go#L5181)
 ``` go
 func (m *ServerCertificate) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="ServerCertificate.GetDescription">func</a> (\*ServerCertificate) [GetDescription](./types.pb.go#L4810)
+### <a name="ServerCertificate.GetDescription">func</a> (\*ServerCertificate) [GetDescription](./types.pb.go#L5188)
 ``` go
 func (m *ServerCertificate) GetDescription() string
 ```
 
-### <a name="ServerCertificate.GetPrivateKey">func</a> (\*ServerCertificate) [GetPrivateKey](./types.pb.go#L4824)
+### <a name="ServerCertificate.GetPrivateKey">func</a> (\*ServerCertificate) [GetPrivateKey](./types.pb.go#L5202)
 ``` go
 func (m *ServerCertificate) GetPrivateKey() string
 ```
 
-### <a name="ServerCertificate.GetServerCertificateId">func</a> (\*ServerCertificate) [GetServerCertificateId](./types.pb.go#L4831)
+### <a name="ServerCertificate.GetServerCertificateId">func</a> (\*ServerCertificate) [GetServerCertificateId](./types.pb.go#L5209)
 ``` go
 func (m *ServerCertificate) GetServerCertificateId() string
 ```
 
-### <a name="ServerCertificate.GetServerCertificateName">func</a> (\*ServerCertificate) [GetServerCertificateName](./types.pb.go#L4838)
+### <a name="ServerCertificate.GetServerCertificateName">func</a> (\*ServerCertificate) [GetServerCertificateName](./types.pb.go#L5216)
 ``` go
 func (m *ServerCertificate) GetServerCertificateName() string
 ```
 
-### <a name="ServerCertificate.ProtoMessage">func</a> (\*ServerCertificate) [ProtoMessage](./types.pb.go#L4800)
+### <a name="ServerCertificate.ProtoMessage">func</a> (\*ServerCertificate) [ProtoMessage](./types.pb.go#L5178)
 ``` go
 func (*ServerCertificate) ProtoMessage()
 ```
 
-### <a name="ServerCertificate.Reset">func</a> (\*ServerCertificate) [Reset](./types.pb.go#L4798)
+### <a name="ServerCertificate.Reset">func</a> (\*ServerCertificate) [Reset](./types.pb.go#L5176)
 ``` go
 func (m *ServerCertificate) Reset()
 ```
 
-### <a name="ServerCertificate.String">func</a> (\*ServerCertificate) [String](./types.pb.go#L4799)
+### <a name="ServerCertificate.String">func</a> (\*ServerCertificate) [String](./types.pb.go#L5177)
 ``` go
 func (m *ServerCertificate) String() string
 ```
 
-### <a name="ServerCertificate.Validate">func</a> (\*ServerCertificate) [Validate](./types.pb.validate.go#L300)
+### <a name="ServerCertificate.Validate">func</a> (\*ServerCertificate) [Validate](./types.pb.validate.go#L305)
 ``` go
 func (p *ServerCertificate) Validate() error
 ```
 
-## <a name="ServerInfo">type</a> [ServerInfo](./types.pb.go#L17-L23)
+## <a name="ServerInfo">type</a> [ServerInfo](./types.pb.go#L18-L24)
 ``` go
 type ServerInfo struct {
     ApiServer        *string `protobuf:"bytes,1,opt,name=api_server,json=apiServer,def=https://api.qingcloud.com/iaas/" json:"api_server,omitempty"`
@@ -52977,42 +52824,42 @@ type ServerInfo struct {
 }
 ```
 
-### <a name="ServerInfo.Descriptor">func</a> (\*ServerInfo) [Descriptor](./types.pb.go#L28)
+### <a name="ServerInfo.Descriptor">func</a> (\*ServerInfo) [Descriptor](./types.pb.go#L29)
 ``` go
 func (*ServerInfo) Descriptor() ([]byte, []int)
 ```
 
-### <a name="ServerInfo.GetAccessKeyId">func</a> (\*ServerInfo) [GetAccessKeyId](./types.pb.go#L40)
+### <a name="ServerInfo.GetAccessKeyId">func</a> (\*ServerInfo) [GetAccessKeyId](./types.pb.go#L41)
 ``` go
 func (m *ServerInfo) GetAccessKeyId() string
 ```
 
-### <a name="ServerInfo.GetApiServer">func</a> (\*ServerInfo) [GetApiServer](./types.pb.go#L33)
+### <a name="ServerInfo.GetApiServer">func</a> (\*ServerInfo) [GetApiServer](./types.pb.go#L34)
 ``` go
 func (m *ServerInfo) GetApiServer() string
 ```
 
-### <a name="ServerInfo.GetSecretAccessKey">func</a> (\*ServerInfo) [GetSecretAccessKey](./types.pb.go#L47)
+### <a name="ServerInfo.GetSecretAccessKey">func</a> (\*ServerInfo) [GetSecretAccessKey](./types.pb.go#L48)
 ``` go
 func (m *ServerInfo) GetSecretAccessKey() string
 ```
 
-### <a name="ServerInfo.GetZone">func</a> (\*ServerInfo) [GetZone](./types.pb.go#L54)
+### <a name="ServerInfo.GetZone">func</a> (\*ServerInfo) [GetZone](./types.pb.go#L55)
 ``` go
 func (m *ServerInfo) GetZone() string
 ```
 
-### <a name="ServerInfo.ProtoMessage">func</a> (\*ServerInfo) [ProtoMessage](./types.pb.go#L27)
+### <a name="ServerInfo.ProtoMessage">func</a> (\*ServerInfo) [ProtoMessage](./types.pb.go#L28)
 ``` go
 func (*ServerInfo) ProtoMessage()
 ```
 
-### <a name="ServerInfo.Reset">func</a> (\*ServerInfo) [Reset](./types.pb.go#L25)
+### <a name="ServerInfo.Reset">func</a> (\*ServerInfo) [Reset](./types.pb.go#L26)
 ``` go
 func (m *ServerInfo) Reset()
 ```
 
-### <a name="ServerInfo.String">func</a> (\*ServerInfo) [String](./types.pb.go#L26)
+### <a name="ServerInfo.String">func</a> (\*ServerInfo) [String](./types.pb.go#L27)
 ``` go
 func (m *ServerInfo) String() string
 ```
@@ -53022,7 +52869,17 @@ func (m *ServerInfo) String() string
 func (p *ServerInfo) Validate() error
 ```
 
-## <a name="Snapshot">type</a> [Snapshot](./types.pb.go#L4845-L4872)
+## <a name="ServiceApiSpec">type</a> [ServiceApiSpec](./a_all_api.go#L11-L16)
+``` go
+type ServiceApiSpec struct {
+    ActionName string
+    InputType  reflect.Type
+    OutputType reflect.Type
+    HttpMethod string
+}
+```
+
+## <a name="Snapshot">type</a> [Snapshot](./types.pb.go#L5223-L5250)
 ``` go
 type Snapshot struct {
     CreateTime         *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -53054,157 +52911,157 @@ type Snapshot struct {
 }
 ```
 
-### <a name="Snapshot.Descriptor">func</a> (\*Snapshot) [Descriptor](./types.pb.go#L4877)
+### <a name="Snapshot.Descriptor">func</a> (\*Snapshot) [Descriptor](./types.pb.go#L5255)
 ``` go
 func (*Snapshot) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Snapshot.GetCreateTime">func</a> (\*Snapshot) [GetCreateTime](./types.pb.go#L4879)
+### <a name="Snapshot.GetCreateTime">func</a> (\*Snapshot) [GetCreateTime](./types.pb.go#L5257)
 ``` go
 func (m *Snapshot) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Snapshot.GetDescription">func</a> (\*Snapshot) [GetDescription](./types.pb.go#L4886)
+### <a name="Snapshot.GetDescription">func</a> (\*Snapshot) [GetDescription](./types.pb.go#L5264)
 ``` go
 func (m *Snapshot) GetDescription() string
 ```
 
-### <a name="Snapshot.GetHeadChain">func</a> (\*Snapshot) [GetHeadChain](./types.pb.go#L4893)
+### <a name="Snapshot.GetHeadChain">func</a> (\*Snapshot) [GetHeadChain](./types.pb.go#L5271)
 ``` go
 func (m *Snapshot) GetHeadChain() string
 ```
 
-### <a name="Snapshot.GetIsHead">func</a> (\*Snapshot) [GetIsHead](./types.pb.go#L4900)
+### <a name="Snapshot.GetIsHead">func</a> (\*Snapshot) [GetIsHead](./types.pb.go#L5278)
 ``` go
 func (m *Snapshot) GetIsHead() int32
 ```
 
-### <a name="Snapshot.GetIsTaken">func</a> (\*Snapshot) [GetIsTaken](./types.pb.go#L4907)
+### <a name="Snapshot.GetIsTaken">func</a> (\*Snapshot) [GetIsTaken](./types.pb.go#L5285)
 ``` go
 func (m *Snapshot) GetIsTaken() int32
 ```
 
-### <a name="Snapshot.GetLatestSnapshotTime">func</a> (\*Snapshot) [GetLatestSnapshotTime](./types.pb.go#L4914)
+### <a name="Snapshot.GetLatestSnapshotTime">func</a> (\*Snapshot) [GetLatestSnapshotTime](./types.pb.go#L5292)
 ``` go
 func (m *Snapshot) GetLatestSnapshotTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Snapshot.GetParentId">func</a> (\*Snapshot) [GetParentId](./types.pb.go#L4921)
+### <a name="Snapshot.GetParentId">func</a> (\*Snapshot) [GetParentId](./types.pb.go#L5299)
 ``` go
 func (m *Snapshot) GetParentId() string
 ```
 
-### <a name="Snapshot.GetProvider">func</a> (\*Snapshot) [GetProvider](./types.pb.go#L4928)
+### <a name="Snapshot.GetProvider">func</a> (\*Snapshot) [GetProvider](./types.pb.go#L5306)
 ``` go
 func (m *Snapshot) GetProvider() string
 ```
 
-### <a name="Snapshot.GetResource">func</a> (\*Snapshot) [GetResource](./types.pb.go#L4935)
+### <a name="Snapshot.GetResource">func</a> (\*Snapshot) [GetResource](./types.pb.go#L5313)
 ``` go
 func (m *Snapshot) GetResource() *Resource
 ```
 
-### <a name="Snapshot.GetRootId">func</a> (\*Snapshot) [GetRootId](./types.pb.go#L4942)
+### <a name="Snapshot.GetRootId">func</a> (\*Snapshot) [GetRootId](./types.pb.go#L5320)
 ``` go
 func (m *Snapshot) GetRootId() string
 ```
 
-### <a name="Snapshot.GetSize">func</a> (\*Snapshot) [GetSize](./types.pb.go#L4949)
+### <a name="Snapshot.GetSize">func</a> (\*Snapshot) [GetSize](./types.pb.go#L5327)
 ``` go
 func (m *Snapshot) GetSize() int32
 ```
 
-### <a name="Snapshot.GetSnapshotId">func</a> (\*Snapshot) [GetSnapshotId](./types.pb.go#L4956)
+### <a name="Snapshot.GetSnapshotId">func</a> (\*Snapshot) [GetSnapshotId](./types.pb.go#L5334)
 ``` go
 func (m *Snapshot) GetSnapshotId() string
 ```
 
-### <a name="Snapshot.GetSnapshotName">func</a> (\*Snapshot) [GetSnapshotName](./types.pb.go#L4963)
+### <a name="Snapshot.GetSnapshotName">func</a> (\*Snapshot) [GetSnapshotName](./types.pb.go#L5341)
 ``` go
 func (m *Snapshot) GetSnapshotName() string
 ```
 
-### <a name="Snapshot.GetSnapshotResource">func</a> (\*Snapshot) [GetSnapshotResource](./types.pb.go#L4970)
+### <a name="Snapshot.GetSnapshotResource">func</a> (\*Snapshot) [GetSnapshotResource](./types.pb.go#L5348)
 ``` go
 func (m *Snapshot) GetSnapshotResource() *SnapshotResource
 ```
 
-### <a name="Snapshot.GetSnapshotTime">func</a> (\*Snapshot) [GetSnapshotTime](./types.pb.go#L4977)
+### <a name="Snapshot.GetSnapshotTime">func</a> (\*Snapshot) [GetSnapshotTime](./types.pb.go#L5355)
 ``` go
 func (m *Snapshot) GetSnapshotTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Snapshot.GetSnapshotType">func</a> (\*Snapshot) [GetSnapshotType](./types.pb.go#L4984)
+### <a name="Snapshot.GetSnapshotType">func</a> (\*Snapshot) [GetSnapshotType](./types.pb.go#L5362)
 ``` go
 func (m *Snapshot) GetSnapshotType() string
 ```
 
-### <a name="Snapshot.GetStatus">func</a> (\*Snapshot) [GetStatus](./types.pb.go#L4991)
+### <a name="Snapshot.GetStatus">func</a> (\*Snapshot) [GetStatus](./types.pb.go#L5369)
 ``` go
 func (m *Snapshot) GetStatus() string
 ```
 
-### <a name="Snapshot.GetStatusTime">func</a> (\*Snapshot) [GetStatusTime](./types.pb.go#L4998)
+### <a name="Snapshot.GetStatusTime">func</a> (\*Snapshot) [GetStatusTime](./types.pb.go#L5376)
 ``` go
 func (m *Snapshot) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Snapshot.GetSubCode">func</a> (\*Snapshot) [GetSubCode](./types.pb.go#L5005)
+### <a name="Snapshot.GetSubCode">func</a> (\*Snapshot) [GetSubCode](./types.pb.go#L5383)
 ``` go
 func (m *Snapshot) GetSubCode() int32
 ```
 
-### <a name="Snapshot.GetTags">func</a> (\*Snapshot) [GetTags](./types.pb.go#L5012)
+### <a name="Snapshot.GetTags">func</a> (\*Snapshot) [GetTags](./types.pb.go#L5390)
 ``` go
 func (m *Snapshot) GetTags() []*Tag
 ```
 
-### <a name="Snapshot.GetTotalCount">func</a> (\*Snapshot) [GetTotalCount](./types.pb.go#L5019)
+### <a name="Snapshot.GetTotalCount">func</a> (\*Snapshot) [GetTotalCount](./types.pb.go#L5397)
 ``` go
 func (m *Snapshot) GetTotalCount() int32
 ```
 
-### <a name="Snapshot.GetTotalSize">func</a> (\*Snapshot) [GetTotalSize](./types.pb.go#L5026)
+### <a name="Snapshot.GetTotalSize">func</a> (\*Snapshot) [GetTotalSize](./types.pb.go#L5404)
 ``` go
 func (m *Snapshot) GetTotalSize() int32
 ```
 
-### <a name="Snapshot.GetTransitionStatus">func</a> (\*Snapshot) [GetTransitionStatus](./types.pb.go#L5033)
+### <a name="Snapshot.GetTransitionStatus">func</a> (\*Snapshot) [GetTransitionStatus](./types.pb.go#L5411)
 ``` go
 func (m *Snapshot) GetTransitionStatus() string
 ```
 
-### <a name="Snapshot.GetVirtualSize">func</a> (\*Snapshot) [GetVirtualSize](./types.pb.go#L5040)
+### <a name="Snapshot.GetVirtualSize">func</a> (\*Snapshot) [GetVirtualSize](./types.pb.go#L5418)
 ``` go
 func (m *Snapshot) GetVirtualSize() int32
 ```
 
-### <a name="Snapshot.GetVisibility">func</a> (\*Snapshot) [GetVisibility](./types.pb.go#L5047)
+### <a name="Snapshot.GetVisibility">func</a> (\*Snapshot) [GetVisibility](./types.pb.go#L5425)
 ``` go
 func (m *Snapshot) GetVisibility() string
 ```
 
-### <a name="Snapshot.ProtoMessage">func</a> (\*Snapshot) [ProtoMessage](./types.pb.go#L4876)
+### <a name="Snapshot.ProtoMessage">func</a> (\*Snapshot) [ProtoMessage](./types.pb.go#L5254)
 ``` go
 func (*Snapshot) ProtoMessage()
 ```
 
-### <a name="Snapshot.Reset">func</a> (\*Snapshot) [Reset](./types.pb.go#L4874)
+### <a name="Snapshot.Reset">func</a> (\*Snapshot) [Reset](./types.pb.go#L5252)
 ``` go
 func (m *Snapshot) Reset()
 ```
 
-### <a name="Snapshot.String">func</a> (\*Snapshot) [String](./types.pb.go#L4875)
+### <a name="Snapshot.String">func</a> (\*Snapshot) [String](./types.pb.go#L5253)
 ``` go
 func (m *Snapshot) String() string
 ```
 
-### <a name="Snapshot.Validate">func</a> (\*Snapshot) [Validate](./types.pb.validate.go#L305)
+### <a name="Snapshot.Validate">func</a> (\*Snapshot) [Validate](./types.pb.validate.go#L310)
 ``` go
 func (p *Snapshot) Validate() error
 ```
 
-## <a name="SnapshotResource">type</a> [SnapshotResource](./types.pb.go#L5054-L5058)
+## <a name="SnapshotResource">type</a> [SnapshotResource](./types.pb.go#L5432-L5436)
 ``` go
 type SnapshotResource struct {
     OsFamily         *string `protobuf:"bytes,1,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
@@ -53213,89 +53070,89 @@ type SnapshotResource struct {
 }
 ```
 
-### <a name="SnapshotResource.Descriptor">func</a> (\*SnapshotResource) [Descriptor](./types.pb.go#L5063)
+### <a name="SnapshotResource.Descriptor">func</a> (\*SnapshotResource) [Descriptor](./types.pb.go#L5441)
 ``` go
 func (*SnapshotResource) Descriptor() ([]byte, []int)
 ```
 
-### <a name="SnapshotResource.GetOsFamily">func</a> (\*SnapshotResource) [GetOsFamily](./types.pb.go#L5065)
+### <a name="SnapshotResource.GetOsFamily">func</a> (\*SnapshotResource) [GetOsFamily](./types.pb.go#L5443)
 ``` go
 func (m *SnapshotResource) GetOsFamily() string
 ```
 
-### <a name="SnapshotResource.GetPlatform">func</a> (\*SnapshotResource) [GetPlatform](./types.pb.go#L5072)
+### <a name="SnapshotResource.GetPlatform">func</a> (\*SnapshotResource) [GetPlatform](./types.pb.go#L5450)
 ``` go
 func (m *SnapshotResource) GetPlatform() string
 ```
 
-### <a name="SnapshotResource.ProtoMessage">func</a> (\*SnapshotResource) [ProtoMessage](./types.pb.go#L5062)
+### <a name="SnapshotResource.ProtoMessage">func</a> (\*SnapshotResource) [ProtoMessage](./types.pb.go#L5440)
 ``` go
 func (*SnapshotResource) ProtoMessage()
 ```
 
-### <a name="SnapshotResource.Reset">func</a> (\*SnapshotResource) [Reset](./types.pb.go#L5060)
+### <a name="SnapshotResource.Reset">func</a> (\*SnapshotResource) [Reset](./types.pb.go#L5438)
 ``` go
 func (m *SnapshotResource) Reset()
 ```
 
-### <a name="SnapshotResource.String">func</a> (\*SnapshotResource) [String](./types.pb.go#L5061)
+### <a name="SnapshotResource.String">func</a> (\*SnapshotResource) [String](./types.pb.go#L5439)
 ``` go
 func (m *SnapshotResource) String() string
 ```
 
-### <a name="SnapshotResource.Validate">func</a> (\*SnapshotResource) [Validate](./types.pb.validate.go#L310)
+### <a name="SnapshotResource.Validate">func</a> (\*SnapshotResource) [Validate](./types.pb.validate.go#L315)
 ``` go
 func (p *SnapshotResource) Validate() error
 ```
 
-## <a name="SnapshotService">type</a> [SnapshotService](./snapshot.pb.qingcloud.go#L29-L31)
+## <a name="SnapshotService">type</a> [SnapshotService](./snapshot.pb.qingcloud.go#L36-L38)
 ``` go
 type SnapshotService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewSnapshotService">func</a> [NewSnapshotService](./snapshot.pb.qingcloud.go#L33)
+### <a name="NewSnapshotService">func</a> [NewSnapshotService](./snapshot.pb.qingcloud.go#L40)
 ``` go
 func NewSnapshotService(server *ServerInfo) (p *SnapshotService)
 ```
 
-### <a name="SnapshotService.ApplySnapshots">func</a> (\*SnapshotService) [ApplySnapshots](./snapshot.pb.qingcloud.go#L102)
+### <a name="SnapshotService.ApplySnapshots">func</a> (\*SnapshotService) [ApplySnapshots](./snapshot.pb.qingcloud.go#L154)
 ``` go
 func (p *SnapshotService) ApplySnapshots(input *ApplySnapshotsInput) (output *ApplySnapshotsOutput, err error)
 ```
 
-### <a name="SnapshotService.CaptureInstanceFromSnapshot">func</a> (\*SnapshotService) [CaptureInstanceFromSnapshot](./snapshot.pb.qingcloud.go#L144)
+### <a name="SnapshotService.CaptureInstanceFromSnapshot">func</a> (\*SnapshotService) [CaptureInstanceFromSnapshot](./snapshot.pb.qingcloud.go#L196)
 ``` go
 func (p *SnapshotService) CaptureInstanceFromSnapshot(input *CaptureInstanceFromSnapshotInput) (output *CaptureInstanceFromSnapshotOutput, err error)
 ```
 
-### <a name="SnapshotService.CreateSnapshots">func</a> (\*SnapshotService) [CreateSnapshots](./snapshot.pb.qingcloud.go#L60)
+### <a name="SnapshotService.CreateSnapshots">func</a> (\*SnapshotService) [CreateSnapshots](./snapshot.pb.qingcloud.go#L112)
 ``` go
 func (p *SnapshotService) CreateSnapshots(input *CreateSnapshotsInput) (output *CreateSnapshotsOutput, err error)
 ```
 
-### <a name="SnapshotService.CreateVolumeFromSnapshot">func</a> (\*SnapshotService) [CreateVolumeFromSnapshot](./snapshot.pb.qingcloud.go#L165)
+### <a name="SnapshotService.CreateVolumeFromSnapshot">func</a> (\*SnapshotService) [CreateVolumeFromSnapshot](./snapshot.pb.qingcloud.go#L217)
 ``` go
 func (p *SnapshotService) CreateVolumeFromSnapshot(input *CreateVolumeFromSnapshotInput) (output *CreateVolumeFromSnapshotOutput, err error)
 ```
 
-### <a name="SnapshotService.DeleteSnapshots">func</a> (\*SnapshotService) [DeleteSnapshots](./snapshot.pb.qingcloud.go#L81)
+### <a name="SnapshotService.DeleteSnapshots">func</a> (\*SnapshotService) [DeleteSnapshots](./snapshot.pb.qingcloud.go#L133)
 ``` go
 func (p *SnapshotService) DeleteSnapshots(input *DeleteSnapshotsInput) (output *DeleteSnapshotsOutput, err error)
 ```
 
-### <a name="SnapshotService.DescribeSnapshots">func</a> (\*SnapshotService) [DescribeSnapshots](./snapshot.pb.qingcloud.go#L39)
+### <a name="SnapshotService.DescribeSnapshots">func</a> (\*SnapshotService) [DescribeSnapshots](./snapshot.pb.qingcloud.go#L91)
 ``` go
 func (p *SnapshotService) DescribeSnapshots(input *DescribeSnapshotsInput) (output *DescribeSnapshotsOutput, err error)
 ```
 
-### <a name="SnapshotService.ModifySnapshotAttributes">func</a> (\*SnapshotService) [ModifySnapshotAttributes](./snapshot.pb.qingcloud.go#L123)
+### <a name="SnapshotService.ModifySnapshotAttributes">func</a> (\*SnapshotService) [ModifySnapshotAttributes](./snapshot.pb.qingcloud.go#L175)
 ``` go
 func (p *SnapshotService) ModifySnapshotAttributes(input *ModifySnapshotAttributesInput) (output *ModifySnapshotAttributesOutput, err error)
 ```
 
-## <a name="SnapshotServiceInterface">type</a> [SnapshotServiceInterface](./snapshot.pb.qingcloud.go#L19-L27)
+## <a name="SnapshotServiceInterface">type</a> [SnapshotServiceInterface](./snapshot.pb.qingcloud.go#L26-L34)
 ``` go
 type SnapshotServiceInterface interface {
     DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error)
@@ -53308,54 +53165,54 @@ type SnapshotServiceInterface interface {
 }
 ```
 
-## <a name="SpanService">type</a> [SpanService](./span.pb.qingcloud.go#L29-L31)
+## <a name="SpanService">type</a> [SpanService](./span.pb.qingcloud.go#L36-L38)
 ``` go
 type SpanService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewSpanService">func</a> [NewSpanService](./span.pb.qingcloud.go#L33)
+### <a name="NewSpanService">func</a> [NewSpanService](./span.pb.qingcloud.go#L40)
 ``` go
 func NewSpanService(server *ServerInfo) (p *SpanService)
 ```
 
-### <a name="SpanService.AddSpanMembers">func</a> (\*SpanService) [AddSpanMembers](./span.pb.qingcloud.go#L102)
+### <a name="SpanService.AddSpanMembers">func</a> (\*SpanService) [AddSpanMembers](./span.pb.qingcloud.go#L154)
 ``` go
 func (p *SpanService) AddSpanMembers(input *AddSpanMembersInput) (output *AddSpanMembersOutput, err error)
 ```
 
-### <a name="SpanService.CreateSpan">func</a> (\*SpanService) [CreateSpan](./span.pb.qingcloud.go#L39)
+### <a name="SpanService.CreateSpan">func</a> (\*SpanService) [CreateSpan](./span.pb.qingcloud.go#L91)
 ``` go
 func (p *SpanService) CreateSpan(input *CreateSpanInput) (output *CreateSpanOutput, err error)
 ```
 
-### <a name="SpanService.DeleteSpans">func</a> (\*SpanService) [DeleteSpans](./span.pb.qingcloud.go#L81)
+### <a name="SpanService.DeleteSpans">func</a> (\*SpanService) [DeleteSpans](./span.pb.qingcloud.go#L133)
 ``` go
 func (p *SpanService) DeleteSpans(input *DeleteSpansInput) (output *DeleteSpansOutput, err error)
 ```
 
-### <a name="SpanService.DescribeSpans">func</a> (\*SpanService) [DescribeSpans](./span.pb.qingcloud.go#L60)
+### <a name="SpanService.DescribeSpans">func</a> (\*SpanService) [DescribeSpans](./span.pb.qingcloud.go#L112)
 ``` go
 func (p *SpanService) DescribeSpans(input *DescribeSpansInput) (output *DescribeSpansOutput, err error)
 ```
 
-### <a name="SpanService.ModifySpanAttributes">func</a> (\*SpanService) [ModifySpanAttributes](./span.pb.qingcloud.go#L144)
+### <a name="SpanService.ModifySpanAttributes">func</a> (\*SpanService) [ModifySpanAttributes](./span.pb.qingcloud.go#L196)
 ``` go
 func (p *SpanService) ModifySpanAttributes(input *ModifySpanAttributesInput) (output *ModifySpanAttributesOutput, err error)
 ```
 
-### <a name="SpanService.RemoveSpanMembers">func</a> (\*SpanService) [RemoveSpanMembers](./span.pb.qingcloud.go#L123)
+### <a name="SpanService.RemoveSpanMembers">func</a> (\*SpanService) [RemoveSpanMembers](./span.pb.qingcloud.go#L175)
 ``` go
 func (p *SpanService) RemoveSpanMembers(input *RemoveSpanMembersInput) (output *RemoveSpanMembersOutput, err error)
 ```
 
-### <a name="SpanService.UpdateSpan">func</a> (\*SpanService) [UpdateSpan](./span.pb.qingcloud.go#L165)
+### <a name="SpanService.UpdateSpan">func</a> (\*SpanService) [UpdateSpan](./span.pb.qingcloud.go#L217)
 ``` go
 func (p *SpanService) UpdateSpan(input *UpdateSpanInput) (output *UpdateSpanOutput, err error)
 ```
 
-## <a name="SpanServiceInterface">type</a> [SpanServiceInterface](./span.pb.qingcloud.go#L19-L27)
+## <a name="SpanServiceInterface">type</a> [SpanServiceInterface](./span.pb.qingcloud.go#L26-L34)
 ``` go
 type SpanServiceInterface interface {
     CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error)
@@ -53368,7 +53225,7 @@ type SpanServiceInterface interface {
 }
 ```
 
-## <a name="SparkPrivateIps">type</a> [SparkPrivateIps](./types.pb.go#L2698-L2702)
+## <a name="SparkPrivateIps">type</a> [SparkPrivateIps](./types.pb.go#L3076-L3080)
 ``` go
 type SparkPrivateIps struct {
     Role             *string `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
@@ -53377,89 +53234,89 @@ type SparkPrivateIps struct {
 }
 ```
 
-### <a name="SparkPrivateIps.Descriptor">func</a> (\*SparkPrivateIps) [Descriptor](./types.pb.go#L2707)
+### <a name="SparkPrivateIps.Descriptor">func</a> (\*SparkPrivateIps) [Descriptor](./types.pb.go#L3085)
 ``` go
 func (*SparkPrivateIps) Descriptor() ([]byte, []int)
 ```
 
-### <a name="SparkPrivateIps.GetPrivateIps">func</a> (\*SparkPrivateIps) [GetPrivateIps](./types.pb.go#L2716)
+### <a name="SparkPrivateIps.GetPrivateIps">func</a> (\*SparkPrivateIps) [GetPrivateIps](./types.pb.go#L3094)
 ``` go
 func (m *SparkPrivateIps) GetPrivateIps() string
 ```
 
-### <a name="SparkPrivateIps.GetRole">func</a> (\*SparkPrivateIps) [GetRole](./types.pb.go#L2709)
+### <a name="SparkPrivateIps.GetRole">func</a> (\*SparkPrivateIps) [GetRole](./types.pb.go#L3087)
 ``` go
 func (m *SparkPrivateIps) GetRole() string
 ```
 
-### <a name="SparkPrivateIps.ProtoMessage">func</a> (\*SparkPrivateIps) [ProtoMessage](./types.pb.go#L2706)
+### <a name="SparkPrivateIps.ProtoMessage">func</a> (\*SparkPrivateIps) [ProtoMessage](./types.pb.go#L3084)
 ``` go
 func (*SparkPrivateIps) ProtoMessage()
 ```
 
-### <a name="SparkPrivateIps.Reset">func</a> (\*SparkPrivateIps) [Reset](./types.pb.go#L2704)
+### <a name="SparkPrivateIps.Reset">func</a> (\*SparkPrivateIps) [Reset](./types.pb.go#L3082)
 ``` go
 func (m *SparkPrivateIps) Reset()
 ```
 
-### <a name="SparkPrivateIps.String">func</a> (\*SparkPrivateIps) [String](./types.pb.go#L2705)
+### <a name="SparkPrivateIps.String">func</a> (\*SparkPrivateIps) [String](./types.pb.go#L3083)
 ``` go
 func (m *SparkPrivateIps) String() string
 ```
 
-### <a name="SparkPrivateIps.Validate">func</a> (\*SparkPrivateIps) [Validate](./types.pb.validate.go#L150)
+### <a name="SparkPrivateIps.Validate">func</a> (\*SparkPrivateIps) [Validate](./types.pb.validate.go#L155)
 ``` go
 func (p *SparkPrivateIps) Validate() error
 ```
 
-## <a name="SparkService">type</a> [SparkService](./spark.pb.qingcloud.go#L29-L31)
+## <a name="SparkService">type</a> [SparkService](./spark.pb.qingcloud.go#L36-L38)
 ``` go
 type SparkService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewSparkService">func</a> [NewSparkService](./spark.pb.qingcloud.go#L33)
+### <a name="NewSparkService">func</a> [NewSparkService](./spark.pb.qingcloud.go#L40)
 ``` go
 func NewSparkService(server *ServerInfo) (p *SparkService)
 ```
 
-### <a name="SparkService.AddSparkNodes">func</a> (\*SparkService) [AddSparkNodes](./spark.pb.qingcloud.go#L81)
+### <a name="SparkService.AddSparkNodes">func</a> (\*SparkService) [AddSparkNodes](./spark.pb.qingcloud.go#L133)
 ``` go
 func (p *SparkService) AddSparkNodes(input *AddSparkNodesInput) (output *AddSparkNodesOutput, err error)
 ```
 
-### <a name="SparkService.CreateSpark">func</a> (\*SparkService) [CreateSpark](./spark.pb.qingcloud.go#L39)
+### <a name="SparkService.CreateSpark">func</a> (\*SparkService) [CreateSpark](./spark.pb.qingcloud.go#L91)
 ``` go
 func (p *SparkService) CreateSpark(input *CreateSparkInput) (output *CreateSparkOutput, err error)
 ```
 
-### <a name="SparkService.DeleteSparkNodes">func</a> (\*SparkService) [DeleteSparkNodes](./spark.pb.qingcloud.go#L102)
+### <a name="SparkService.DeleteSparkNodes">func</a> (\*SparkService) [DeleteSparkNodes](./spark.pb.qingcloud.go#L154)
 ``` go
 func (p *SparkService) DeleteSparkNodes(input *DeleteSparkNodesInput) (output *DeleteSparkNodesOutput, err error)
 ```
 
-### <a name="SparkService.DeleteSparks">func</a> (\*SparkService) [DeleteSparks](./spark.pb.qingcloud.go#L165)
+### <a name="SparkService.DeleteSparks">func</a> (\*SparkService) [DeleteSparks](./spark.pb.qingcloud.go#L217)
 ``` go
 func (p *SparkService) DeleteSparks(input *DeleteSparksInput) (output *DeleteSparksOutput, err error)
 ```
 
-### <a name="SparkService.DescribeSparks">func</a> (\*SparkService) [DescribeSparks](./spark.pb.qingcloud.go#L60)
+### <a name="SparkService.DescribeSparks">func</a> (\*SparkService) [DescribeSparks](./spark.pb.qingcloud.go#L112)
 ``` go
 func (p *SparkService) DescribeSparks(input *DescribeSparksInput) (output *DescribeSparksOutput, err error)
 ```
 
-### <a name="SparkService.StartSparks">func</a> (\*SparkService) [StartSparks](./spark.pb.qingcloud.go#L123)
+### <a name="SparkService.StartSparks">func</a> (\*SparkService) [StartSparks](./spark.pb.qingcloud.go#L175)
 ``` go
 func (p *SparkService) StartSparks(input *StartSparksInput) (output *StartSparksOutput, err error)
 ```
 
-### <a name="SparkService.StopSparks">func</a> (\*SparkService) [StopSparks](./spark.pb.qingcloud.go#L144)
+### <a name="SparkService.StopSparks">func</a> (\*SparkService) [StopSparks](./spark.pb.qingcloud.go#L196)
 ``` go
 func (p *SparkService) StopSparks(input *StopSparksInput) (output *StopSparksOutput, err error)
 ```
 
-## <a name="SparkServiceInterface">type</a> [SparkServiceInterface](./spark.pb.qingcloud.go#L19-L27)
+## <a name="SparkServiceInterface">type</a> [SparkServiceInterface](./spark.pb.qingcloud.go#L26-L34)
 ``` go
 type SparkServiceInterface interface {
     CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error)
@@ -54988,44 +54845,44 @@ func (m *StopSparksOutput) String() string
 func (p *StopSparksOutput) Validate() error
 ```
 
-## <a name="SubuserService">type</a> [SubuserService](./subuser.pb.qingcloud.go#L27-L29)
+## <a name="SubuserService">type</a> [SubuserService](./subuser.pb.qingcloud.go#L34-L36)
 ``` go
 type SubuserService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewSubuserService">func</a> [NewSubuserService](./subuser.pb.qingcloud.go#L31)
+### <a name="NewSubuserService">func</a> [NewSubuserService](./subuser.pb.qingcloud.go#L38)
 ``` go
 func NewSubuserService(server *ServerInfo) (p *SubuserService)
 ```
 
-### <a name="SubuserService.CreateSubUser">func</a> (\*SubuserService) [CreateSubUser](./subuser.pb.qingcloud.go#L58)
+### <a name="SubuserService.CreateSubUser">func</a> (\*SubuserService) [CreateSubUser](./subuser.pb.qingcloud.go#L98)
 ``` go
 func (p *SubuserService) CreateSubUser(input *CreateSubUserInput) (output *CreateSubUserOutput, err error)
 ```
 
-### <a name="SubuserService.DeleteSubUsers">func</a> (\*SubuserService) [DeleteSubUsers](./subuser.pb.qingcloud.go#L100)
+### <a name="SubuserService.DeleteSubUsers">func</a> (\*SubuserService) [DeleteSubUsers](./subuser.pb.qingcloud.go#L140)
 ``` go
 func (p *SubuserService) DeleteSubUsers(input *DeleteSubUsersInput) (output *DeleteSubUsersOutput, err error)
 ```
 
-### <a name="SubuserService.DescribeSubUsers">func</a> (\*SubuserService) [DescribeSubUsers](./subuser.pb.qingcloud.go#L37)
+### <a name="SubuserService.DescribeSubUsers">func</a> (\*SubuserService) [DescribeSubUsers](./subuser.pb.qingcloud.go#L77)
 ``` go
 func (p *SubuserService) DescribeSubUsers(input *DescribeSubUsersInput) (output *DescribeSubUsersOutput, err error)
 ```
 
-### <a name="SubuserService.ModifySubUserAttributes">func</a> (\*SubuserService) [ModifySubUserAttributes](./subuser.pb.qingcloud.go#L79)
+### <a name="SubuserService.ModifySubUserAttributes">func</a> (\*SubuserService) [ModifySubUserAttributes](./subuser.pb.qingcloud.go#L119)
 ``` go
 func (p *SubuserService) ModifySubUserAttributes(input *ModifySubUserAttributesInput) (output *ModifySubUserAttributesOutput, err error)
 ```
 
-### <a name="SubuserService.RestoreSubUsers">func</a> (\*SubuserService) [RestoreSubUsers](./subuser.pb.qingcloud.go#L121)
+### <a name="SubuserService.RestoreSubUsers">func</a> (\*SubuserService) [RestoreSubUsers](./subuser.pb.qingcloud.go#L161)
 ``` go
 func (p *SubuserService) RestoreSubUsers(input *RestoreSubUsersInput) (output *RestoreSubUsersOutput, err error)
 ```
 
-## <a name="SubuserServiceInterface">type</a> [SubuserServiceInterface](./subuser.pb.qingcloud.go#L19-L25)
+## <a name="SubuserServiceInterface">type</a> [SubuserServiceInterface](./subuser.pb.qingcloud.go#L26-L32)
 ``` go
 type SubuserServiceInterface interface {
     DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error)
@@ -55124,7 +54981,7 @@ func (m *SuspendClustersOutput) String() string
 func (p *SuspendClustersOutput) Validate() error
 ```
 
-## <a name="Tag">type</a> [Tag](./types.pb.go#L61-L73)
+## <a name="Tag">type</a> [Tag](./types.pb.go#L932-L944)
 ``` go
 type Tag struct {
     Color             *string                     `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
@@ -55141,124 +54998,124 @@ type Tag struct {
 }
 ```
 
-### <a name="Tag.Descriptor">func</a> (\*Tag) [Descriptor](./types.pb.go#L78)
+### <a name="Tag.Descriptor">func</a> (\*Tag) [Descriptor](./types.pb.go#L949)
 ``` go
 func (*Tag) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Tag.GetColor">func</a> (\*Tag) [GetColor](./types.pb.go#L80)
+### <a name="Tag.GetColor">func</a> (\*Tag) [GetColor](./types.pb.go#L951)
 ``` go
 func (m *Tag) GetColor() string
 ```
 
-### <a name="Tag.GetCreateTime">func</a> (\*Tag) [GetCreateTime](./types.pb.go#L87)
+### <a name="Tag.GetCreateTime">func</a> (\*Tag) [GetCreateTime](./types.pb.go#L958)
 ``` go
 func (m *Tag) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Tag.GetDescription">func</a> (\*Tag) [GetDescription](./types.pb.go#L94)
+### <a name="Tag.GetDescription">func</a> (\*Tag) [GetDescription](./types.pb.go#L965)
 ``` go
 func (m *Tag) GetDescription() string
 ```
 
-### <a name="Tag.GetOwner">func</a> (\*Tag) [GetOwner](./types.pb.go#L101)
+### <a name="Tag.GetOwner">func</a> (\*Tag) [GetOwner](./types.pb.go#L972)
 ``` go
 func (m *Tag) GetOwner() string
 ```
 
-### <a name="Tag.GetResourceCount">func</a> (\*Tag) [GetResourceCount](./types.pb.go#L108)
+### <a name="Tag.GetResourceCount">func</a> (\*Tag) [GetResourceCount](./types.pb.go#L979)
 ``` go
 func (m *Tag) GetResourceCount() int32
 ```
 
-### <a name="Tag.GetResourceTagPairs">func</a> (\*Tag) [GetResourceTagPairs](./types.pb.go#L115)
+### <a name="Tag.GetResourceTagPairs">func</a> (\*Tag) [GetResourceTagPairs](./types.pb.go#L986)
 ``` go
 func (m *Tag) GetResourceTagPairs() []*ResourceTagPair
 ```
 
-### <a name="Tag.GetResourceTypeCount">func</a> (\*Tag) [GetResourceTypeCount](./types.pb.go#L122)
+### <a name="Tag.GetResourceTypeCount">func</a> (\*Tag) [GetResourceTypeCount](./types.pb.go#L993)
 ``` go
 func (m *Tag) GetResourceTypeCount() []*ResourceTypeCount
 ```
 
-### <a name="Tag.GetTagId">func</a> (\*Tag) [GetTagId](./types.pb.go#L129)
+### <a name="Tag.GetTagId">func</a> (\*Tag) [GetTagId](./types.pb.go#L1000)
 ``` go
 func (m *Tag) GetTagId() string
 ```
 
-### <a name="Tag.GetTagKey">func</a> (\*Tag) [GetTagKey](./types.pb.go#L136)
+### <a name="Tag.GetTagKey">func</a> (\*Tag) [GetTagKey](./types.pb.go#L1007)
 ``` go
 func (m *Tag) GetTagKey() string
 ```
 
-### <a name="Tag.GetTagName">func</a> (\*Tag) [GetTagName](./types.pb.go#L143)
+### <a name="Tag.GetTagName">func</a> (\*Tag) [GetTagName](./types.pb.go#L1014)
 ``` go
 func (m *Tag) GetTagName() string
 ```
 
-### <a name="Tag.ProtoMessage">func</a> (\*Tag) [ProtoMessage](./types.pb.go#L77)
+### <a name="Tag.ProtoMessage">func</a> (\*Tag) [ProtoMessage](./types.pb.go#L948)
 ``` go
 func (*Tag) ProtoMessage()
 ```
 
-### <a name="Tag.Reset">func</a> (\*Tag) [Reset](./types.pb.go#L75)
+### <a name="Tag.Reset">func</a> (\*Tag) [Reset](./types.pb.go#L946)
 ``` go
 func (m *Tag) Reset()
 ```
 
-### <a name="Tag.String">func</a> (\*Tag) [String](./types.pb.go#L76)
+### <a name="Tag.String">func</a> (\*Tag) [String](./types.pb.go#L947)
 ``` go
 func (m *Tag) String() string
 ```
 
-### <a name="Tag.Validate">func</a> (\*Tag) [Validate](./types.pb.validate.go#L25)
+### <a name="Tag.Validate">func</a> (\*Tag) [Validate](./types.pb.validate.go#L55)
 ``` go
 func (p *Tag) Validate() error
 ```
 
-## <a name="TagService">type</a> [TagService](./tag.pb.qingcloud.go#L28-L30)
+## <a name="TagService">type</a> [TagService](./tag.pb.qingcloud.go#L35-L37)
 ``` go
 type TagService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewTagService">func</a> [NewTagService](./tag.pb.qingcloud.go#L32)
+### <a name="NewTagService">func</a> [NewTagService](./tag.pb.qingcloud.go#L39)
 ``` go
 func NewTagService(server *ServerInfo) (p *TagService)
 ```
 
-### <a name="TagService.AttachTags">func</a> (\*TagService) [AttachTags](./tag.pb.qingcloud.go#L122)
+### <a name="TagService.AttachTags">func</a> (\*TagService) [AttachTags](./tag.pb.qingcloud.go#L168)
 ``` go
 func (p *TagService) AttachTags(input *AttachTagsInput) (output *AttachTagsOutput, err error)
 ```
 
-### <a name="TagService.CreateTag">func</a> (\*TagService) [CreateTag](./tag.pb.qingcloud.go#L59)
+### <a name="TagService.CreateTag">func</a> (\*TagService) [CreateTag](./tag.pb.qingcloud.go#L105)
 ``` go
 func (p *TagService) CreateTag(input *CreateTagInput) (output *CreateTagOutput, err error)
 ```
 
-### <a name="TagService.DeleteTags">func</a> (\*TagService) [DeleteTags](./tag.pb.qingcloud.go#L80)
+### <a name="TagService.DeleteTags">func</a> (\*TagService) [DeleteTags](./tag.pb.qingcloud.go#L126)
 ``` go
 func (p *TagService) DeleteTags(input *DeleteTagsInput) (output *DeleteTagsOutput, err error)
 ```
 
-### <a name="TagService.DescribeTags">func</a> (\*TagService) [DescribeTags](./tag.pb.qingcloud.go#L38)
+### <a name="TagService.DescribeTags">func</a> (\*TagService) [DescribeTags](./tag.pb.qingcloud.go#L84)
 ``` go
 func (p *TagService) DescribeTags(input *DescribeTagsInput) (output *DescribeTagsOutput, err error)
 ```
 
-### <a name="TagService.DetachTags">func</a> (\*TagService) [DetachTags](./tag.pb.qingcloud.go#L143)
+### <a name="TagService.DetachTags">func</a> (\*TagService) [DetachTags](./tag.pb.qingcloud.go#L189)
 ``` go
 func (p *TagService) DetachTags(input *DetachTagsInput) (output *DetachTagsOutput, err error)
 ```
 
-### <a name="TagService.ModifyTagAttributes">func</a> (\*TagService) [ModifyTagAttributes](./tag.pb.qingcloud.go#L101)
+### <a name="TagService.ModifyTagAttributes">func</a> (\*TagService) [ModifyTagAttributes](./tag.pb.qingcloud.go#L147)
 ``` go
 func (p *TagService) ModifyTagAttributes(input *ModifyTagAttributesInput) (output *ModifyTagAttributesOutput, err error)
 ```
 
-## <a name="TagServiceInterface">type</a> [TagServiceInterface](./tag.pb.qingcloud.go#L19-L26)
+## <a name="TagServiceInterface">type</a> [TagServiceInterface](./tag.pb.qingcloud.go#L26-L33)
 ``` go
 type TagServiceInterface interface {
     DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error)
@@ -56228,7 +56085,7 @@ func (m *UploadUserDataAttachmentOutput) String() string
 func (p *UploadUserDataAttachmentOutput) Validate() error
 ```
 
-## <a name="User">type</a> [User](./types.pb.go#L5079-L5083)
+## <a name="User">type</a> [User](./types.pb.go#L5457-L5461)
 ``` go
 type User struct {
     Email            *string `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
@@ -56237,66 +56094,66 @@ type User struct {
 }
 ```
 
-### <a name="User.Descriptor">func</a> (\*User) [Descriptor](./types.pb.go#L5088)
+### <a name="User.Descriptor">func</a> (\*User) [Descriptor](./types.pb.go#L5466)
 ``` go
 func (*User) Descriptor() ([]byte, []int)
 ```
 
-### <a name="User.GetEmail">func</a> (\*User) [GetEmail](./types.pb.go#L5090)
+### <a name="User.GetEmail">func</a> (\*User) [GetEmail](./types.pb.go#L5468)
 ``` go
 func (m *User) GetEmail() string
 ```
 
-### <a name="User.GetUserId">func</a> (\*User) [GetUserId](./types.pb.go#L5097)
+### <a name="User.GetUserId">func</a> (\*User) [GetUserId](./types.pb.go#L5475)
 ``` go
 func (m *User) GetUserId() string
 ```
 
-### <a name="User.ProtoMessage">func</a> (\*User) [ProtoMessage](./types.pb.go#L5087)
+### <a name="User.ProtoMessage">func</a> (\*User) [ProtoMessage](./types.pb.go#L5465)
 ``` go
 func (*User) ProtoMessage()
 ```
 
-### <a name="User.Reset">func</a> (\*User) [Reset](./types.pb.go#L5085)
+### <a name="User.Reset">func</a> (\*User) [Reset](./types.pb.go#L5463)
 ``` go
 func (m *User) Reset()
 ```
 
-### <a name="User.String">func</a> (\*User) [String](./types.pb.go#L5086)
+### <a name="User.String">func</a> (\*User) [String](./types.pb.go#L5464)
 ``` go
 func (m *User) String() string
 ```
 
-### <a name="User.Validate">func</a> (\*User) [Validate](./types.pb.validate.go#L315)
+### <a name="User.Validate">func</a> (\*User) [Validate](./types.pb.validate.go#L320)
 ``` go
 func (p *User) Validate() error
 ```
 
-## <a name="UserDataService">type</a> [UserDataService](./user_data.pb.qingcloud.go#L23-L25)
+## <a name="UserDataService">type</a> [UserDataService](./user_data.pb.qingcloud.go#L30-L32)
 ``` go
 type UserDataService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewUserDataService">func</a> [NewUserDataService](./user_data.pb.qingcloud.go#L27)
+### <a name="NewUserDataService">func</a> [NewUserDataService](./user_data.pb.qingcloud.go#L34)
 ``` go
 func NewUserDataService(server *ServerInfo) (p *UserDataService)
 ```
 
-### <a name="UserDataService.UploadUserDataAttachment">func</a> (\*UserDataService) [UploadUserDataAttachment](./user_data.pb.qingcloud.go#L33)
+### <a name="UserDataService.UploadUserDataAttachment">func</a> (\*UserDataService) [UploadUserDataAttachment](./user_data.pb.qingcloud.go#L49)
 ``` go
 func (p *UserDataService) UploadUserDataAttachment(input *UploadUserDataAttachmentInput) (output *UploadUserDataAttachmentOutput, err error)
 ```
 
-## <a name="UserDataServiceInterface">type</a> [UserDataServiceInterface](./user_data.pb.qingcloud.go#L19-L21)
+## <a name="UserDataServiceInterface">type</a> [UserDataServiceInterface](./user_data.pb.qingcloud.go#L26-L28)
 ``` go
 type UserDataServiceInterface interface {
     UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error)
 }
 ```
 
-## <a name="UserGroupItem">type</a> [UserGroupItem](./types.pb.go#L6000-L6010)
+## <a name="UserGroupItem">type</a> [UserGroupItem](./types.pb.go#L5954-L5964)
 ``` go
 type UserGroupItem struct {
     Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
@@ -56311,62 +56168,62 @@ type UserGroupItem struct {
 }
 ```
 
-### <a name="UserGroupItem.Descriptor">func</a> (\*UserGroupItem) [Descriptor](./types.pb.go#L6015)
+### <a name="UserGroupItem.Descriptor">func</a> (\*UserGroupItem) [Descriptor](./types.pb.go#L5969)
 ``` go
 func (*UserGroupItem) Descriptor() ([]byte, []int)
 ```
 
-### <a name="UserGroupItem.GetCreateTime">func</a> (\*UserGroupItem) [GetCreateTime](./types.pb.go#L6038)
+### <a name="UserGroupItem.GetCreateTime">func</a> (\*UserGroupItem) [GetCreateTime](./types.pb.go#L5992)
 ``` go
 func (m *UserGroupItem) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="UserGroupItem.GetDescription">func</a> (\*UserGroupItem) [GetDescription](./types.pb.go#L6024)
+### <a name="UserGroupItem.GetDescription">func</a> (\*UserGroupItem) [GetDescription](./types.pb.go#L5978)
 ``` go
 func (m *UserGroupItem) GetDescription() string
 ```
 
-### <a name="UserGroupItem.GetRemarks">func</a> (\*UserGroupItem) [GetRemarks](./types.pb.go#L6066)
+### <a name="UserGroupItem.GetRemarks">func</a> (\*UserGroupItem) [GetRemarks](./types.pb.go#L6020)
 ``` go
 func (m *UserGroupItem) GetRemarks() string
 ```
 
-### <a name="UserGroupItem.GetStatus">func</a> (\*UserGroupItem) [GetStatus](./types.pb.go#L6017)
+### <a name="UserGroupItem.GetStatus">func</a> (\*UserGroupItem) [GetStatus](./types.pb.go#L5971)
 ``` go
 func (m *UserGroupItem) GetStatus() string
 ```
 
-### <a name="UserGroupItem.GetStatusTime">func</a> (\*UserGroupItem) [GetStatusTime](./types.pb.go#L6045)
+### <a name="UserGroupItem.GetStatusTime">func</a> (\*UserGroupItem) [GetStatusTime](./types.pb.go#L5999)
 ``` go
 func (m *UserGroupItem) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="UserGroupItem.GetUserGroupId">func</a> (\*UserGroupItem) [GetUserGroupId](./types.pb.go#L6052)
+### <a name="UserGroupItem.GetUserGroupId">func</a> (\*UserGroupItem) [GetUserGroupId](./types.pb.go#L6006)
 ``` go
 func (m *UserGroupItem) GetUserGroupId() string
 ```
 
-### <a name="UserGroupItem.GetUserGroupName">func</a> (\*UserGroupItem) [GetUserGroupName](./types.pb.go#L6031)
+### <a name="UserGroupItem.GetUserGroupName">func</a> (\*UserGroupItem) [GetUserGroupName](./types.pb.go#L5985)
 ``` go
 func (m *UserGroupItem) GetUserGroupName() string
 ```
 
-### <a name="UserGroupItem.GetUserId">func</a> (\*UserGroupItem) [GetUserId](./types.pb.go#L6059)
+### <a name="UserGroupItem.GetUserId">func</a> (\*UserGroupItem) [GetUserId](./types.pb.go#L6013)
 ``` go
 func (m *UserGroupItem) GetUserId() string
 ```
 
-### <a name="UserGroupItem.ProtoMessage">func</a> (\*UserGroupItem) [ProtoMessage](./types.pb.go#L6014)
+### <a name="UserGroupItem.ProtoMessage">func</a> (\*UserGroupItem) [ProtoMessage](./types.pb.go#L5968)
 ``` go
 func (*UserGroupItem) ProtoMessage()
 ```
 
-### <a name="UserGroupItem.Reset">func</a> (\*UserGroupItem) [Reset](./types.pb.go#L6012)
+### <a name="UserGroupItem.Reset">func</a> (\*UserGroupItem) [Reset](./types.pb.go#L5966)
 ``` go
 func (m *UserGroupItem) Reset()
 ```
 
-### <a name="UserGroupItem.String">func</a> (\*UserGroupItem) [String](./types.pb.go#L6013)
+### <a name="UserGroupItem.String">func</a> (\*UserGroupItem) [String](./types.pb.go#L5967)
 ``` go
 func (m *UserGroupItem) String() string
 ```
@@ -56376,7 +56233,7 @@ func (m *UserGroupItem) String() string
 func (p *UserGroupItem) Validate() error
 ```
 
-## <a name="Volume">type</a> [Volume](./types.pb.go#L475-L494)
+## <a name="Volume">type</a> [Volume](./types.pb.go#L1346-L1365)
 ``` go
 type Volume struct {
     CreateTime         *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
@@ -56400,164 +56257,164 @@ type Volume struct {
 }
 ```
 
-### <a name="Volume.Descriptor">func</a> (\*Volume) [Descriptor](./types.pb.go#L499)
+### <a name="Volume.Descriptor">func</a> (\*Volume) [Descriptor](./types.pb.go#L1370)
 ``` go
 func (*Volume) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Volume.GetCreateTime">func</a> (\*Volume) [GetCreateTime](./types.pb.go#L501)
+### <a name="Volume.GetCreateTime">func</a> (\*Volume) [GetCreateTime](./types.pb.go#L1372)
 ``` go
 func (m *Volume) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Volume.GetDescription">func</a> (\*Volume) [GetDescription](./types.pb.go#L508)
+### <a name="Volume.GetDescription">func</a> (\*Volume) [GetDescription](./types.pb.go#L1379)
 ``` go
 func (m *Volume) GetDescription() string
 ```
 
-### <a name="Volume.GetDevice">func</a> (\*Volume) [GetDevice](./types.pb.go#L515)
+### <a name="Volume.GetDevice">func</a> (\*Volume) [GetDevice](./types.pb.go#L1386)
 ``` go
 func (m *Volume) GetDevice() string
 ```
 
-### <a name="Volume.GetInstance">func</a> (\*Volume) [GetInstance](./types.pb.go#L522)
+### <a name="Volume.GetInstance">func</a> (\*Volume) [GetInstance](./types.pb.go#L1393)
 ``` go
 func (m *Volume) GetInstance() *Instance
 ```
 
-### <a name="Volume.GetInstances">func</a> (\*Volume) [GetInstances](./types.pb.go#L529)
+### <a name="Volume.GetInstances">func</a> (\*Volume) [GetInstances](./types.pb.go#L1400)
 ``` go
 func (m *Volume) GetInstances() []*Instance
 ```
 
-### <a name="Volume.GetLatestSnapshotTime">func</a> (\*Volume) [GetLatestSnapshotTime](./types.pb.go#L536)
+### <a name="Volume.GetLatestSnapshotTime">func</a> (\*Volume) [GetLatestSnapshotTime](./types.pb.go#L1407)
 ``` go
 func (m *Volume) GetLatestSnapshotTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Volume.GetOwner">func</a> (\*Volume) [GetOwner](./types.pb.go#L543)
+### <a name="Volume.GetOwner">func</a> (\*Volume) [GetOwner](./types.pb.go#L1414)
 ``` go
 func (m *Volume) GetOwner() string
 ```
 
-### <a name="Volume.GetPlaceGroupId">func</a> (\*Volume) [GetPlaceGroupId](./types.pb.go#L550)
+### <a name="Volume.GetPlaceGroupId">func</a> (\*Volume) [GetPlaceGroupId](./types.pb.go#L1421)
 ``` go
 func (m *Volume) GetPlaceGroupId() string
 ```
 
-### <a name="Volume.GetSize">func</a> (\*Volume) [GetSize](./types.pb.go#L557)
+### <a name="Volume.GetSize">func</a> (\*Volume) [GetSize](./types.pb.go#L1428)
 ``` go
 func (m *Volume) GetSize() int32
 ```
 
-### <a name="Volume.GetStatus">func</a> (\*Volume) [GetStatus](./types.pb.go#L564)
+### <a name="Volume.GetStatus">func</a> (\*Volume) [GetStatus](./types.pb.go#L1435)
 ``` go
 func (m *Volume) GetStatus() string
 ```
 
-### <a name="Volume.GetStatusTime">func</a> (\*Volume) [GetStatusTime](./types.pb.go#L571)
+### <a name="Volume.GetStatusTime">func</a> (\*Volume) [GetStatusTime](./types.pb.go#L1442)
 ``` go
 func (m *Volume) GetStatusTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="Volume.GetSubCode">func</a> (\*Volume) [GetSubCode](./types.pb.go#L578)
+### <a name="Volume.GetSubCode">func</a> (\*Volume) [GetSubCode](./types.pb.go#L1449)
 ``` go
 func (m *Volume) GetSubCode() int32
 ```
 
-### <a name="Volume.GetTags">func</a> (\*Volume) [GetTags](./types.pb.go#L585)
+### <a name="Volume.GetTags">func</a> (\*Volume) [GetTags](./types.pb.go#L1456)
 ``` go
 func (m *Volume) GetTags() []*Tag
 ```
 
-### <a name="Volume.GetTransitionStatus">func</a> (\*Volume) [GetTransitionStatus](./types.pb.go#L592)
+### <a name="Volume.GetTransitionStatus">func</a> (\*Volume) [GetTransitionStatus](./types.pb.go#L1463)
 ``` go
 func (m *Volume) GetTransitionStatus() string
 ```
 
-### <a name="Volume.GetVolumeId">func</a> (\*Volume) [GetVolumeId](./types.pb.go#L599)
+### <a name="Volume.GetVolumeId">func</a> (\*Volume) [GetVolumeId](./types.pb.go#L1470)
 ``` go
 func (m *Volume) GetVolumeId() string
 ```
 
-### <a name="Volume.GetVolumeName">func</a> (\*Volume) [GetVolumeName](./types.pb.go#L606)
+### <a name="Volume.GetVolumeName">func</a> (\*Volume) [GetVolumeName](./types.pb.go#L1477)
 ``` go
 func (m *Volume) GetVolumeName() string
 ```
 
-### <a name="Volume.GetVolumeType">func</a> (\*Volume) [GetVolumeType](./types.pb.go#L613)
+### <a name="Volume.GetVolumeType">func</a> (\*Volume) [GetVolumeType](./types.pb.go#L1484)
 ``` go
 func (m *Volume) GetVolumeType() int32
 ```
 
-### <a name="Volume.ProtoMessage">func</a> (\*Volume) [ProtoMessage](./types.pb.go#L498)
+### <a name="Volume.ProtoMessage">func</a> (\*Volume) [ProtoMessage](./types.pb.go#L1369)
 ``` go
 func (*Volume) ProtoMessage()
 ```
 
-### <a name="Volume.Reset">func</a> (\*Volume) [Reset](./types.pb.go#L496)
+### <a name="Volume.Reset">func</a> (\*Volume) [Reset](./types.pb.go#L1367)
 ``` go
 func (m *Volume) Reset()
 ```
 
-### <a name="Volume.String">func</a> (\*Volume) [String](./types.pb.go#L497)
+### <a name="Volume.String">func</a> (\*Volume) [String](./types.pb.go#L1368)
 ``` go
 func (m *Volume) String() string
 ```
 
-### <a name="Volume.Validate">func</a> (\*Volume) [Validate](./types.pb.validate.go#L55)
+### <a name="Volume.Validate">func</a> (\*Volume) [Validate](./types.pb.validate.go#L85)
 ``` go
 func (p *Volume) Validate() error
 ```
 
-## <a name="VolumesService">type</a> [VolumesService](./volume.pb.qingcloud.go#L29-L31)
+## <a name="VolumesService">type</a> [VolumesService](./volume.pb.qingcloud.go#L36-L38)
 ``` go
 type VolumesService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewVolumesService">func</a> [NewVolumesService](./volume.pb.qingcloud.go#L33)
+### <a name="NewVolumesService">func</a> [NewVolumesService](./volume.pb.qingcloud.go#L40)
 ``` go
 func NewVolumesService(server *ServerInfo) (p *VolumesService)
 ```
 
-### <a name="VolumesService.AttachVolumes">func</a> (\*VolumesService) [AttachVolumes](./volume.pb.qingcloud.go#L102)
+### <a name="VolumesService.AttachVolumes">func</a> (\*VolumesService) [AttachVolumes](./volume.pb.qingcloud.go#L154)
 ``` go
 func (p *VolumesService) AttachVolumes(input *AttachVolumesInput) (output *AttachVolumesOutput, err error)
 ```
 
-### <a name="VolumesService.CreateVolumes">func</a> (\*VolumesService) [CreateVolumes](./volume.pb.qingcloud.go#L60)
+### <a name="VolumesService.CreateVolumes">func</a> (\*VolumesService) [CreateVolumes](./volume.pb.qingcloud.go#L112)
 ``` go
 func (p *VolumesService) CreateVolumes(input *CreateVolumesInput) (output *CreateVolumesOutput, err error)
 ```
 
-### <a name="VolumesService.DeleteVolumes">func</a> (\*VolumesService) [DeleteVolumes](./volume.pb.qingcloud.go#L81)
+### <a name="VolumesService.DeleteVolumes">func</a> (\*VolumesService) [DeleteVolumes](./volume.pb.qingcloud.go#L133)
 ``` go
 func (p *VolumesService) DeleteVolumes(input *DeleteVolumesInput) (output *DeleteVolumesOutput, err error)
 ```
 
-### <a name="VolumesService.DescribeVolumes">func</a> (\*VolumesService) [DescribeVolumes](./volume.pb.qingcloud.go#L39)
+### <a name="VolumesService.DescribeVolumes">func</a> (\*VolumesService) [DescribeVolumes](./volume.pb.qingcloud.go#L91)
 ``` go
 func (p *VolumesService) DescribeVolumes(input *DescribeVolumesInput) (output *DescribeVolumesOutput, err error)
 ```
 
-### <a name="VolumesService.DetachVolumes">func</a> (\*VolumesService) [DetachVolumes](./volume.pb.qingcloud.go#L123)
+### <a name="VolumesService.DetachVolumes">func</a> (\*VolumesService) [DetachVolumes](./volume.pb.qingcloud.go#L175)
 ``` go
 func (p *VolumesService) DetachVolumes(input *DetachVolumesInput) (output *DetachVolumesOutput, err error)
 ```
 
-### <a name="VolumesService.ModifyVolumeAttributes">func</a> (\*VolumesService) [ModifyVolumeAttributes](./volume.pb.qingcloud.go#L165)
+### <a name="VolumesService.ModifyVolumeAttributes">func</a> (\*VolumesService) [ModifyVolumeAttributes](./volume.pb.qingcloud.go#L217)
 ``` go
 func (p *VolumesService) ModifyVolumeAttributes(input *ModifyVolumeAttributesInput) (output *ModifyVolumeAttributesOutput, err error)
 ```
 
-### <a name="VolumesService.ResizeVolumes">func</a> (\*VolumesService) [ResizeVolumes](./volume.pb.qingcloud.go#L144)
+### <a name="VolumesService.ResizeVolumes">func</a> (\*VolumesService) [ResizeVolumes](./volume.pb.qingcloud.go#L196)
 ``` go
 func (p *VolumesService) ResizeVolumes(input *ResizeVolumesInput) (output *ResizeVolumesOutput, err error)
 ```
 
-## <a name="VolumesServiceInterface">type</a> [VolumesServiceInterface](./volume.pb.qingcloud.go#L19-L27)
+## <a name="VolumesServiceInterface">type</a> [VolumesServiceInterface](./volume.pb.qingcloud.go#L26-L34)
 ``` go
 type VolumesServiceInterface interface {
     DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error)
@@ -56570,7 +56427,7 @@ type VolumesServiceInterface interface {
 }
 ```
 
-## <a name="VxNet">type</a> [VxNet](./types.pb.go#L854-L867)
+## <a name="VxNet">type</a> [VxNet](./types.pb.go#L1725-L1738)
 ``` go
 type VxNet struct {
     AvailableIpCount *int32                      `protobuf:"varint,1,opt,name=available_ip_count,json=availableIpCount" json:"available_ip_count,omitempty"`
@@ -56588,134 +56445,134 @@ type VxNet struct {
 }
 ```
 
-### <a name="VxNet.Descriptor">func</a> (\*VxNet) [Descriptor](./types.pb.go#L872)
+### <a name="VxNet.Descriptor">func</a> (\*VxNet) [Descriptor](./types.pb.go#L1743)
 ``` go
 func (*VxNet) Descriptor() ([]byte, []int)
 ```
 
-### <a name="VxNet.GetAvailableIpCount">func</a> (\*VxNet) [GetAvailableIpCount](./types.pb.go#L874)
+### <a name="VxNet.GetAvailableIpCount">func</a> (\*VxNet) [GetAvailableIpCount](./types.pb.go#L1745)
 ``` go
 func (m *VxNet) GetAvailableIpCount() int32
 ```
 
-### <a name="VxNet.GetCreateTime">func</a> (\*VxNet) [GetCreateTime](./types.pb.go#L881)
+### <a name="VxNet.GetCreateTime">func</a> (\*VxNet) [GetCreateTime](./types.pb.go#L1752)
 ``` go
 func (m *VxNet) GetCreateTime() *google_protobuf1.Timestamp
 ```
 
-### <a name="VxNet.GetDescription">func</a> (\*VxNet) [GetDescription](./types.pb.go#L888)
+### <a name="VxNet.GetDescription">func</a> (\*VxNet) [GetDescription](./types.pb.go#L1759)
 ``` go
 func (m *VxNet) GetDescription() string
 ```
 
-### <a name="VxNet.GetInstanceIds">func</a> (\*VxNet) [GetInstanceIds](./types.pb.go#L895)
+### <a name="VxNet.GetInstanceIds">func</a> (\*VxNet) [GetInstanceIds](./types.pb.go#L1766)
 ``` go
 func (m *VxNet) GetInstanceIds() []string
 ```
 
-### <a name="VxNet.GetOwner">func</a> (\*VxNet) [GetOwner](./types.pb.go#L902)
+### <a name="VxNet.GetOwner">func</a> (\*VxNet) [GetOwner](./types.pb.go#L1773)
 ``` go
 func (m *VxNet) GetOwner() string
 ```
 
-### <a name="VxNet.GetRouter">func</a> (\*VxNet) [GetRouter](./types.pb.go#L909)
+### <a name="VxNet.GetRouter">func</a> (\*VxNet) [GetRouter](./types.pb.go#L1780)
 ``` go
 func (m *VxNet) GetRouter() *Router
 ```
 
-### <a name="VxNet.GetTags">func</a> (\*VxNet) [GetTags](./types.pb.go#L916)
+### <a name="VxNet.GetTags">func</a> (\*VxNet) [GetTags](./types.pb.go#L1787)
 ``` go
 func (m *VxNet) GetTags() []*Tag
 ```
 
-### <a name="VxNet.GetVpcRouterId">func</a> (\*VxNet) [GetVpcRouterId](./types.pb.go#L923)
+### <a name="VxNet.GetVpcRouterId">func</a> (\*VxNet) [GetVpcRouterId](./types.pb.go#L1794)
 ``` go
 func (m *VxNet) GetVpcRouterId() string
 ```
 
-### <a name="VxNet.GetVxnetId">func</a> (\*VxNet) [GetVxnetId](./types.pb.go#L930)
+### <a name="VxNet.GetVxnetId">func</a> (\*VxNet) [GetVxnetId](./types.pb.go#L1801)
 ``` go
 func (m *VxNet) GetVxnetId() string
 ```
 
-### <a name="VxNet.GetVxnetName">func</a> (\*VxNet) [GetVxnetName](./types.pb.go#L937)
+### <a name="VxNet.GetVxnetName">func</a> (\*VxNet) [GetVxnetName](./types.pb.go#L1808)
 ``` go
 func (m *VxNet) GetVxnetName() string
 ```
 
-### <a name="VxNet.GetVxnetType">func</a> (\*VxNet) [GetVxnetType](./types.pb.go#L944)
+### <a name="VxNet.GetVxnetType">func</a> (\*VxNet) [GetVxnetType](./types.pb.go#L1815)
 ``` go
 func (m *VxNet) GetVxnetType() int32
 ```
 
-### <a name="VxNet.ProtoMessage">func</a> (\*VxNet) [ProtoMessage](./types.pb.go#L871)
+### <a name="VxNet.ProtoMessage">func</a> (\*VxNet) [ProtoMessage](./types.pb.go#L1742)
 ``` go
 func (*VxNet) ProtoMessage()
 ```
 
-### <a name="VxNet.Reset">func</a> (\*VxNet) [Reset](./types.pb.go#L869)
+### <a name="VxNet.Reset">func</a> (\*VxNet) [Reset](./types.pb.go#L1740)
 ``` go
 func (m *VxNet) Reset()
 ```
 
-### <a name="VxNet.String">func</a> (\*VxNet) [String](./types.pb.go#L870)
+### <a name="VxNet.String">func</a> (\*VxNet) [String](./types.pb.go#L1741)
 ``` go
 func (m *VxNet) String() string
 ```
 
-### <a name="VxNet.Validate">func</a> (\*VxNet) [Validate](./types.pb.validate.go#L70)
+### <a name="VxNet.Validate">func</a> (\*VxNet) [Validate](./types.pb.validate.go#L100)
 ``` go
 func (p *VxNet) Validate() error
 ```
 
-## <a name="VxnetService">type</a> [VxnetService](./vxnet.pb.qingcloud.go#L29-L31)
+## <a name="VxnetService">type</a> [VxnetService](./vxnet.pb.qingcloud.go#L36-L38)
 ``` go
 type VxnetService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewVxnetService">func</a> [NewVxnetService](./vxnet.pb.qingcloud.go#L33)
+### <a name="NewVxnetService">func</a> [NewVxnetService](./vxnet.pb.qingcloud.go#L40)
 ``` go
 func NewVxnetService(server *ServerInfo) (p *VxnetService)
 ```
 
-### <a name="VxnetService.CreateVxnets">func</a> (\*VxnetService) [CreateVxnets](./vxnet.pb.qingcloud.go#L60)
+### <a name="VxnetService.CreateVxnets">func</a> (\*VxnetService) [CreateVxnets](./vxnet.pb.qingcloud.go#L112)
 ``` go
 func (p *VxnetService) CreateVxnets(input *CreateVxnetsInput) (output *CreateVxnetsOutput, err error)
 ```
 
-### <a name="VxnetService.DeleteVxnets">func</a> (\*VxnetService) [DeleteVxnets](./vxnet.pb.qingcloud.go#L81)
+### <a name="VxnetService.DeleteVxnets">func</a> (\*VxnetService) [DeleteVxnets](./vxnet.pb.qingcloud.go#L133)
 ``` go
 func (p *VxnetService) DeleteVxnets(input *DeleteVxnetsInput) (output *DeleteVxnetsOutput, err error)
 ```
 
-### <a name="VxnetService.DescribeVxnetInstances">func</a> (\*VxnetService) [DescribeVxnetInstances](./vxnet.pb.qingcloud.go#L165)
+### <a name="VxnetService.DescribeVxnetInstances">func</a> (\*VxnetService) [DescribeVxnetInstances](./vxnet.pb.qingcloud.go#L217)
 ``` go
 func (p *VxnetService) DescribeVxnetInstances(input *DescribeVxnetInstancesInput) (output *DescribeVxnetInstancesOutput, err error)
 ```
 
-### <a name="VxnetService.DescribeVxnets">func</a> (\*VxnetService) [DescribeVxnets](./vxnet.pb.qingcloud.go#L39)
+### <a name="VxnetService.DescribeVxnets">func</a> (\*VxnetService) [DescribeVxnets](./vxnet.pb.qingcloud.go#L91)
 ``` go
 func (p *VxnetService) DescribeVxnets(input *DescribeVxnetsInput) (output *DescribeVxnetsOutput, err error)
 ```
 
-### <a name="VxnetService.JoinVxnet">func</a> (\*VxnetService) [JoinVxnet](./vxnet.pb.qingcloud.go#L102)
+### <a name="VxnetService.JoinVxnet">func</a> (\*VxnetService) [JoinVxnet](./vxnet.pb.qingcloud.go#L154)
 ``` go
 func (p *VxnetService) JoinVxnet(input *JoinVxnetInput) (output *JoinVxnetOutput, err error)
 ```
 
-### <a name="VxnetService.LeaveVxnet">func</a> (\*VxnetService) [LeaveVxnet](./vxnet.pb.qingcloud.go#L123)
+### <a name="VxnetService.LeaveVxnet">func</a> (\*VxnetService) [LeaveVxnet](./vxnet.pb.qingcloud.go#L175)
 ``` go
 func (p *VxnetService) LeaveVxnet(input *LeaveVxnetInput) (output *LeaveVxnetOutput, err error)
 ```
 
-### <a name="VxnetService.ModifyVxnetAttributes">func</a> (\*VxnetService) [ModifyVxnetAttributes](./vxnet.pb.qingcloud.go#L144)
+### <a name="VxnetService.ModifyVxnetAttributes">func</a> (\*VxnetService) [ModifyVxnetAttributes](./vxnet.pb.qingcloud.go#L196)
 ``` go
 func (p *VxnetService) ModifyVxnetAttributes(input *ModifyVxnetAttributesInput) (output *ModifyVxnetAttributesOutput, err error)
 ```
 
-## <a name="VxnetServiceInterface">type</a> [VxnetServiceInterface](./vxnet.pb.qingcloud.go#L19-L27)
+## <a name="VxnetServiceInterface">type</a> [VxnetServiceInterface](./vxnet.pb.qingcloud.go#L26-L34)
 ``` go
 type VxnetServiceInterface interface {
     DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxnetsOutput, err error)
@@ -56728,7 +56585,7 @@ type VxnetServiceInterface interface {
 }
 ```
 
-## <a name="Zone">type</a> [Zone](./types.pb.go#L5104-L5108)
+## <a name="Zone">type</a> [Zone](./types.pb.go#L5482-L5486)
 ``` go
 type Zone struct {
     Status           *string `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
@@ -56737,59 +56594,59 @@ type Zone struct {
 }
 ```
 
-### <a name="Zone.Descriptor">func</a> (\*Zone) [Descriptor](./types.pb.go#L5113)
+### <a name="Zone.Descriptor">func</a> (\*Zone) [Descriptor](./types.pb.go#L5491)
 ``` go
 func (*Zone) Descriptor() ([]byte, []int)
 ```
 
-### <a name="Zone.GetStatus">func</a> (\*Zone) [GetStatus](./types.pb.go#L5115)
+### <a name="Zone.GetStatus">func</a> (\*Zone) [GetStatus](./types.pb.go#L5493)
 ``` go
 func (m *Zone) GetStatus() string
 ```
 
-### <a name="Zone.GetZoneId">func</a> (\*Zone) [GetZoneId](./types.pb.go#L5122)
+### <a name="Zone.GetZoneId">func</a> (\*Zone) [GetZoneId](./types.pb.go#L5500)
 ``` go
 func (m *Zone) GetZoneId() string
 ```
 
-### <a name="Zone.ProtoMessage">func</a> (\*Zone) [ProtoMessage](./types.pb.go#L5112)
+### <a name="Zone.ProtoMessage">func</a> (\*Zone) [ProtoMessage](./types.pb.go#L5490)
 ``` go
 func (*Zone) ProtoMessage()
 ```
 
-### <a name="Zone.Reset">func</a> (\*Zone) [Reset](./types.pb.go#L5110)
+### <a name="Zone.Reset">func</a> (\*Zone) [Reset](./types.pb.go#L5488)
 ``` go
 func (m *Zone) Reset()
 ```
 
-### <a name="Zone.String">func</a> (\*Zone) [String](./types.pb.go#L5111)
+### <a name="Zone.String">func</a> (\*Zone) [String](./types.pb.go#L5489)
 ``` go
 func (m *Zone) String() string
 ```
 
-### <a name="Zone.Validate">func</a> (\*Zone) [Validate](./types.pb.validate.go#L320)
+### <a name="Zone.Validate">func</a> (\*Zone) [Validate](./types.pb.validate.go#L325)
 ``` go
 func (p *Zone) Validate() error
 ```
 
-## <a name="ZoneService">type</a> [ZoneService](./zone.pb.qingcloud.go#L23-L25)
+## <a name="ZoneService">type</a> [ZoneService](./zone.pb.qingcloud.go#L30-L32)
 ``` go
 type ZoneService struct {
     ServerInfo *ServerInfo
 }
 ```
 
-### <a name="NewZoneService">func</a> [NewZoneService](./zone.pb.qingcloud.go#L27)
+### <a name="NewZoneService">func</a> [NewZoneService](./zone.pb.qingcloud.go#L34)
 ``` go
 func NewZoneService(server *ServerInfo) (p *ZoneService)
 ```
 
-### <a name="ZoneService.DescribeZones">func</a> (\*ZoneService) [DescribeZones](./zone.pb.qingcloud.go#L33)
+### <a name="ZoneService.DescribeZones">func</a> (\*ZoneService) [DescribeZones](./zone.pb.qingcloud.go#L49)
 ``` go
 func (p *ZoneService) DescribeZones(input *DescribeZonesInput) (output *DescribeZonesOutput, err error)
 ```
 
-## <a name="ZoneServiceInterface">type</a> [ZoneServiceInterface](./zone.pb.qingcloud.go#L19-L21)
+## <a name="ZoneServiceInterface">type</a> [ZoneServiceInterface](./zone.pb.qingcloud.go#L26-L28)
 ``` go
 type ZoneServiceInterface interface {
     DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error)
