@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type SecurityGroupServiceInterface interface {
 	DescribeSecurityGroups(in *DescribeSecurityGroupsInput) (out *DescribeSecurityGroupsOutput, err error)
@@ -44,6 +51,117 @@ type SecurityGroupService struct {
 func NewSecurityGroupService(server *ServerInfo) (p *SecurityGroupService) {
 	return &SecurityGroupService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeSecurityGroups"] = ServiceApiSpec{
+		ActionName: "DescribeSecurityGroups",
+		InputType:  reflect.TypeOf((*DescribeSecurityGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSecurityGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateSecurityGroup"] = ServiceApiSpec{
+		ActionName: "CreateSecurityGroup",
+		InputType:  reflect.TypeOf((*CreateSecurityGroupInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateSecurityGroupOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSecurityGroups"] = ServiceApiSpec{
+		ActionName: "DeleteSecurityGroups",
+		InputType:  reflect.TypeOf((*DeleteSecurityGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSecurityGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ApplySecurityGroup"] = ServiceApiSpec{
+		ActionName: "ApplySecurityGroup",
+		InputType:  reflect.TypeOf((*ApplySecurityGroupInput)(nil)),
+		OutputType: reflect.TypeOf((*ApplySecurityGroupOutpu)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifySecurityGroupAttributes"] = ServiceApiSpec{
+		ActionName: "ModifySecurityGroupAttributes",
+		InputType:  reflect.TypeOf((*ModifySecurityGroupAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifySecurityGroupAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeSecurityGroupRules"] = ServiceApiSpec{
+		ActionName: "DescribeSecurityGroupRules",
+		InputType:  reflect.TypeOf((*DescribeSecurityGroupRulesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSecurityGroupRulesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddSecurityGroupRules"] = ServiceApiSpec{
+		ActionName: "AddSecurityGroupRules",
+		InputType:  reflect.TypeOf((*AddSecurityGroupRulesInput)(nil)),
+		OutputType: reflect.TypeOf((*AddSecurityGroupRulesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSecurityGroupRules"] = ServiceApiSpec{
+		ActionName: "DeleteSecurityGroupRules",
+		InputType:  reflect.TypeOf((*DeleteSecurityGroupRulesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSecurityGroupRulesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifySecurityGroupRuleAttributes"] = ServiceApiSpec{
+		ActionName: "ModifySecurityGroupRuleAttributes",
+		InputType:  reflect.TypeOf((*ModifySecurityGroupRuleAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifySecurityGroupRuleAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateSecurityGroupSnapshot"] = ServiceApiSpec{
+		ActionName: "CreateSecurityGroupSnapshot",
+		InputType:  reflect.TypeOf((*CreateSecurityGroupSnapshotInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateSecurityGroupSnapshotOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeSecurityGroupSnapshots"] = ServiceApiSpec{
+		ActionName: "DescribeSecurityGroupSnapshots",
+		InputType:  reflect.TypeOf((*DescribeSecurityGroupSnapshotsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSecurityGroupSnapshotsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSecurityGroupSnapshots"] = ServiceApiSpec{
+		ActionName: "DeleteSecurityGroupSnapshots",
+		InputType:  reflect.TypeOf((*DeleteSecurityGroupSnapshotsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSecurityGroupSnapshotsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RollbackSecurityGroup"] = ServiceApiSpec{
+		ActionName: "RollbackSecurityGroup",
+		InputType:  reflect.TypeOf((*RollbackSecurityGroupInput)(nil)),
+		OutputType: reflect.TypeOf((*RollbackSecurityGroupOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeSecurityGroupIPSets"] = ServiceApiSpec{
+		ActionName: "DescribeSecurityGroupIPSets",
+		InputType:  reflect.TypeOf((*DescribeSecurityGroupIPSetsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSecurityGroupIPSetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateSecurityGroupIPSet"] = ServiceApiSpec{
+		ActionName: "CreateSecurityGroupIPSet",
+		InputType:  reflect.TypeOf((*CreateSecurityGroupIPSetInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateSecurityGroupIPSetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSecurityGroupIPSets"] = ServiceApiSpec{
+		ActionName: "DeleteSecurityGroupIPSets",
+		InputType:  reflect.TypeOf((*DeleteSecurityGroupIPSetsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSecurityGroupIPSetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifySecurityGroupIPSetAttributes"] = ServiceApiSpec{
+		ActionName: "ModifySecurityGroupIPSetAttributes",
+		InputType:  reflect.TypeOf((*ModifySecurityGroupIPSetAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifySecurityGroupIPSetAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CopySecurityGroupIPSets"] = ServiceApiSpec{
+		ActionName: "CopySecurityGroupIPSets",
+		InputType:  reflect.TypeOf((*CopySecurityGroupIPSetsInput)(nil)),
+		OutputType: reflect.TypeOf((*CopySecurityGroupIPSetsOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

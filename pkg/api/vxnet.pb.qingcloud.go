@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type VxnetServiceInterface interface {
 	DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxnetsOutput, err error)
@@ -33,6 +40,51 @@ type VxnetService struct {
 func NewVxnetService(server *ServerInfo) (p *VxnetService) {
 	return &VxnetService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeVxnets"] = ServiceApiSpec{
+		ActionName: "DescribeVxnets",
+		InputType:  reflect.TypeOf((*DescribeVxnetsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeVxnetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateVxnets"] = ServiceApiSpec{
+		ActionName: "CreateVxnets",
+		InputType:  reflect.TypeOf((*CreateVxnetsInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateVxnetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteVxnets"] = ServiceApiSpec{
+		ActionName: "DeleteVxnets",
+		InputType:  reflect.TypeOf((*DeleteVxnetsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteVxnetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["JoinVxnet"] = ServiceApiSpec{
+		ActionName: "JoinVxnet",
+		InputType:  reflect.TypeOf((*JoinVxnetInput)(nil)),
+		OutputType: reflect.TypeOf((*JoinVxnetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["LeaveVxnet"] = ServiceApiSpec{
+		ActionName: "LeaveVxnet",
+		InputType:  reflect.TypeOf((*LeaveVxnetInput)(nil)),
+		OutputType: reflect.TypeOf((*LeaveVxnetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyVxnetAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyVxnetAttributes",
+		InputType:  reflect.TypeOf((*ModifyVxnetAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyVxnetAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeVxnetInstances"] = ServiceApiSpec{
+		ActionName: "DescribeVxnetInstances",
+		InputType:  reflect.TypeOf((*DescribeVxnetInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeVxnetInstancesOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type CacheServiceInterface interface {
 	DescribeCaches(in *DescribeCachesInput) (out *DescribeCachesOutput, err error)
@@ -50,6 +57,153 @@ type CacheService struct {
 func NewCacheService(server *ServerInfo) (p *CacheService) {
 	return &CacheService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeCaches"] = ServiceApiSpec{
+		ActionName: "DescribeCaches",
+		InputType:  reflect.TypeOf((*DescribeCachesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeCachesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateCache"] = ServiceApiSpec{
+		ActionName: "CreateCache",
+		InputType:  reflect.TypeOf((*CreateCacheInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateCacheOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StopCaches"] = ServiceApiSpec{
+		ActionName: "StopCaches",
+		InputType:  reflect.TypeOf((*StopCachesInput)(nil)),
+		OutputType: reflect.TypeOf((*StopCachesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StartCaches"] = ServiceApiSpec{
+		ActionName: "StartCaches",
+		InputType:  reflect.TypeOf((*StartCachesInput)(nil)),
+		OutputType: reflect.TypeOf((*StartCachesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RestartCaches"] = ServiceApiSpec{
+		ActionName: "RestartCaches",
+		InputType:  reflect.TypeOf((*RestartCachesInput)(nil)),
+		OutputType: reflect.TypeOf((*RestartCachesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteCaches"] = ServiceApiSpec{
+		ActionName: "DeleteCaches",
+		InputType:  reflect.TypeOf((*DeleteCachesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteCachesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ResizeCaches"] = ServiceApiSpec{
+		ActionName: "ResizeCaches",
+		InputType:  reflect.TypeOf((*ResizeCachesInput)(nil)),
+		OutputType: reflect.TypeOf((*ResizeCachesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["UpdateCache"] = ServiceApiSpec{
+		ActionName: "UpdateCache",
+		InputType:  reflect.TypeOf((*UpdateCacheInput)(nil)),
+		OutputType: reflect.TypeOf((*UpdateCacheOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ChangeCacheVxnet"] = ServiceApiSpec{
+		ActionName: "ChangeCacheVxnet",
+		InputType:  reflect.TypeOf((*ChangeCacheVxnetInput)(nil)),
+		OutputType: reflect.TypeOf((*ChangeCacheVxnetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyCacheAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyCacheAttributes",
+		InputType:  reflect.TypeOf((*ModifyCacheAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyCacheAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeCacheNodes"] = ServiceApiSpec{
+		ActionName: "DescribeCacheNodes",
+		InputType:  reflect.TypeOf((*DescribeCacheNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeCacheNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddCacheNodes"] = ServiceApiSpec{
+		ActionName: "AddCacheNodes",
+		InputType:  reflect.TypeOf((*AddCacheNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*AddCacheNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteCacheNodes"] = ServiceApiSpec{
+		ActionName: "DeleteCacheNodes",
+		InputType:  reflect.TypeOf((*DeleteCacheNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteCacheNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RestartCacheNodes"] = ServiceApiSpec{
+		ActionName: "RestartCacheNodes",
+		InputType:  reflect.TypeOf((*RestartCacheNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*RestartCacheNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyCacheNodeAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyCacheNodeAttributes",
+		InputType:  reflect.TypeOf((*ModifyCacheNodeAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyCacheNodeAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateCacheFromSnapshot"] = ServiceApiSpec{
+		ActionName: "CreateCacheFromSnapshot",
+		InputType:  reflect.TypeOf((*CreateCacheFromSnapshotInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateCacheFromSnapshotOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeCacheParameterGroups"] = ServiceApiSpec{
+		ActionName: "DescribeCacheParameterGroups",
+		InputType:  reflect.TypeOf((*DescribeCacheParameterGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeCacheParameterGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateCacheParameterGroup"] = ServiceApiSpec{
+		ActionName: "CreateCacheParameterGroup",
+		InputType:  reflect.TypeOf((*CreateCacheParameterGroupInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateCacheParameterGroupOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ApplyCacheParameterGroup"] = ServiceApiSpec{
+		ActionName: "ApplyCacheParameterGroup",
+		InputType:  reflect.TypeOf((*ApplyCacheParameterGroupInput)(nil)),
+		OutputType: reflect.TypeOf((*ApplyCacheParameterGroupOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteCacheParameterGroups"] = ServiceApiSpec{
+		ActionName: "DeleteCacheParameterGroups",
+		InputType:  reflect.TypeOf((*DeleteCacheParameterGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteCacheParameterGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyCacheParameterGroupAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyCacheParameterGroupAttributes",
+		InputType:  reflect.TypeOf((*ModifyCacheParameterGroupAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyCacheParameterGroupAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeCacheParameters"] = ServiceApiSpec{
+		ActionName: "DescribeCacheParameters",
+		InputType:  reflect.TypeOf((*DescribeCacheParametersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeCacheParametersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["UpdateCacheParameters"] = ServiceApiSpec{
+		ActionName: "UpdateCacheParameters",
+		InputType:  reflect.TypeOf((*UpdateCacheParametersInput)(nil)),
+		OutputType: reflect.TypeOf((*UpdateCacheParametersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ResetCacheParameters"] = ServiceApiSpec{
+		ActionName: "ResetCacheParameters",
+		InputType:  reflect.TypeOf((*ResetCacheParametersInput)(nil)),
+		OutputType: reflect.TypeOf((*ResetCacheParametersOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type UserDataServiceInterface interface {
 	UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error)
@@ -27,6 +34,15 @@ type UserDataService struct {
 func NewUserDataService(server *ServerInfo) (p *UserDataService) {
 	return &UserDataService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["UploadUserDataAttachment"] = ServiceApiSpec{
+		ActionName: "UploadUserDataAttachment",
+		InputType:  reflect.TypeOf((*UploadUserDataAttachmentInput)(nil)),
+		OutputType: reflect.TypeOf((*UploadUserDataAttachmentOutput)(nil)),
+		HttpMethod: "POST",
 	}
 }
 

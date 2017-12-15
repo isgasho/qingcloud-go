@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type TagServiceInterface interface {
 	DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error)
@@ -32,6 +39,45 @@ type TagService struct {
 func NewTagService(server *ServerInfo) (p *TagService) {
 	return &TagService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeTags"] = ServiceApiSpec{
+		ActionName: "DescribeTags",
+		InputType:  reflect.TypeOf((*DescribeTagsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeTagsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateTag"] = ServiceApiSpec{
+		ActionName: "CreateTag",
+		InputType:  reflect.TypeOf((*CreateTagInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateTagOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteTags"] = ServiceApiSpec{
+		ActionName: "DeleteTags",
+		InputType:  reflect.TypeOf((*DeleteTagsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteTagsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyTagAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyTagAttributes",
+		InputType:  reflect.TypeOf((*ModifyTagAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyTagAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AttachTags"] = ServiceApiSpec{
+		ActionName: "AttachTags",
+		InputType:  reflect.TypeOf((*AttachTagsInput)(nil)),
+		OutputType: reflect.TypeOf((*AttachTagsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DetachTags"] = ServiceApiSpec{
+		ActionName: "DetachTags",
+		InputType:  reflect.TypeOf((*DetachTagsInput)(nil)),
+		OutputType: reflect.TypeOf((*DetachTagsOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

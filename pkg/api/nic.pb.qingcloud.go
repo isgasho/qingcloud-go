@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type NicServiceInterface interface {
 	CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error)
@@ -32,6 +39,45 @@ type NicService struct {
 func NewNicService(server *ServerInfo) (p *NicService) {
 	return &NicService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["CreateNics"] = ServiceApiSpec{
+		ActionName: "CreateNics",
+		InputType:  reflect.TypeOf((*CreateNicsInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateNicsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeNics"] = ServiceApiSpec{
+		ActionName: "DescribeNics",
+		InputType:  reflect.TypeOf((*DescribeNicsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeNicsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AttachNics"] = ServiceApiSpec{
+		ActionName: "AttachNics",
+		InputType:  reflect.TypeOf((*AttachNicsInput)(nil)),
+		OutputType: reflect.TypeOf((*AttachNicsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DetachNics"] = ServiceApiSpec{
+		ActionName: "DetachNics",
+		InputType:  reflect.TypeOf((*DetachNicsInput)(nil)),
+		OutputType: reflect.TypeOf((*DetachNicsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyNicAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyNicAttributes",
+		InputType:  reflect.TypeOf((*ModifyNicAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyNicAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteNics"] = ServiceApiSpec{
+		ActionName: "DeleteNics",
+		InputType:  reflect.TypeOf((*DeleteNicsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteNicsOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

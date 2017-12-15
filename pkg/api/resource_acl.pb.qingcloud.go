@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type ResourceACLServiceInterface interface {
 	DescribeSharedResourceGroups(in *DescribeSharedResourceGroupsInput) (out *DescribeSharedResourceGroupsOutput, err error)
@@ -53,6 +60,171 @@ type ResourceACLService struct {
 func NewResourceACLService(server *ServerInfo) (p *ResourceACLService) {
 	return &ResourceACLService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeSharedResourceGroups"] = ServiceApiSpec{
+		ActionName: "DescribeSharedResourceGroups",
+		InputType:  reflect.TypeOf((*DescribeSharedResourceGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSharedResourceGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeResourceGroups"] = ServiceApiSpec{
+		ActionName: "DescribeResourceGroups",
+		InputType:  reflect.TypeOf((*DescribeResourceGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeResourceGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateResourceGroups"] = ServiceApiSpec{
+		ActionName: "CreateResourceGroups",
+		InputType:  reflect.TypeOf((*CreateResourceGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateResourceGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyResourceGroupAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyResourceGroupAttributes",
+		InputType:  reflect.TypeOf((*ModifyResourceGroupAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyResourceGroupAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteResourceGroups"] = ServiceApiSpec{
+		ActionName: "DeleteResourceGroups",
+		InputType:  reflect.TypeOf((*DeleteResourceGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteResourceGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeResourceGroupItems"] = ServiceApiSpec{
+		ActionName: "DescribeResourceGroupItems",
+		InputType:  reflect.TypeOf((*DescribeResourceGroupItemsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeResourceGroupItemsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddResourceGroupItems"] = ServiceApiSpec{
+		ActionName: "AddResourceGroupItems",
+		InputType:  reflect.TypeOf((*AddResourceGroupItemsInput)(nil)),
+		OutputType: reflect.TypeOf((*AddResourceGroupItemsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteResourceGroupItems"] = ServiceApiSpec{
+		ActionName: "DeleteResourceGroupItems",
+		InputType:  reflect.TypeOf((*DeleteResourceGroupItemsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteResourceGroupItemsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeUserGroups"] = ServiceApiSpec{
+		ActionName: "DescribeUserGroups",
+		InputType:  reflect.TypeOf((*DescribeUserGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeUserGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateUserGroups"] = ServiceApiSpec{
+		ActionName: "CreateUserGroups",
+		InputType:  reflect.TypeOf((*CreateUserGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateUserGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyUserGroupAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyUserGroupAttributes",
+		InputType:  reflect.TypeOf((*ModifyUserGroupAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyUserGroupAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteUserGroups"] = ServiceApiSpec{
+		ActionName: "DeleteUserGroups",
+		InputType:  reflect.TypeOf((*DeleteUserGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteUserGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeUserGroupMembers"] = ServiceApiSpec{
+		ActionName: "DescribeUserGroupMembers",
+		InputType:  reflect.TypeOf((*DescribeUserGroupMembersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeUserGroupMembersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddUserGroupMembers"] = ServiceApiSpec{
+		ActionName: "AddUserGroupMembers",
+		InputType:  reflect.TypeOf((*AddUserGroupMembersInput)(nil)),
+		OutputType: reflect.TypeOf((*AddUserGroupMembersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyUserGroupMemberAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyUserGroupMemberAttributes",
+		InputType:  reflect.TypeOf((*ModifyUserGroupMemberAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyUserGroupMemberAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteUserGroupMembers"] = ServiceApiSpec{
+		ActionName: "DeleteUserGroupMembers",
+		InputType:  reflect.TypeOf((*DeleteUserGroupMembersInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteUserGroupMembersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeGroupRoles"] = ServiceApiSpec{
+		ActionName: "DescribeGroupRoles",
+		InputType:  reflect.TypeOf((*DescribeGroupRolesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeGroupRolesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateGroupRoles"] = ServiceApiSpec{
+		ActionName: "CreateGroupRoles",
+		InputType:  reflect.TypeOf((*CreateGroupRolesInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateGroupRolesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyGroupRoleAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyGroupRoleAttributes",
+		InputType:  reflect.TypeOf((*ModifyGroupRoleAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyGroupRoleAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteGroupRoles"] = ServiceApiSpec{
+		ActionName: "DeleteGroupRoles",
+		InputType:  reflect.TypeOf((*DeleteGroupRolesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteGroupRolesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeGroupRoleRules"] = ServiceApiSpec{
+		ActionName: "DescribeGroupRoleRules",
+		InputType:  reflect.TypeOf((*DescribeGroupRoleRulesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeGroupRoleRulesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddGroupRoleRules"] = ServiceApiSpec{
+		ActionName: "AddGroupRoleRules",
+		InputType:  reflect.TypeOf((*AddGroupRoleRulesInput)(nil)),
+		OutputType: reflect.TypeOf((*AddGroupRoleRulesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyGroupRoleRuleAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyGroupRoleRuleAttributes",
+		InputType:  reflect.TypeOf((*ModifyGroupRoleRuleAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyGroupRoleRuleAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteGroupRoleRules"] = ServiceApiSpec{
+		ActionName: "DeleteGroupRoleRules",
+		InputType:  reflect.TypeOf((*DeleteGroupRoleRulesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteGroupRoleRulesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GrantResourceGroupsToUserGroups"] = ServiceApiSpec{
+		ActionName: "GrantResourceGroupsToUserGroups",
+		InputType:  reflect.TypeOf((*GrantResourceGroupsToUserGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*GrantResourceGroupsToUserGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RevokeResourceGroupsFromUserGroups"] = ServiceApiSpec{
+		ActionName: "RevokeResourceGroupsFromUserGroups",
+		InputType:  reflect.TypeOf((*RevokeResourceGroupsFromUserGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*RevokeResourceGroupsFromUserGroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeResourceUserGroups"] = ServiceApiSpec{
+		ActionName: "DescribeResourceUserGroups",
+		InputType:  reflect.TypeOf((*DescribeResourceUserGroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeResourceUserGroupsOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

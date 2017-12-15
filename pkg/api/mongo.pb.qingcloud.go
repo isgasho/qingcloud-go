@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type MongoServiceInterface interface {
 	DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error)
@@ -40,6 +47,93 @@ type MongoService struct {
 func NewMongoService(server *ServerInfo) (p *MongoService) {
 	return &MongoService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeMongoNodes"] = ServiceApiSpec{
+		ActionName: "DescribeMongoNodes",
+		InputType:  reflect.TypeOf((*DescribeMongoNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeMongoNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeMongoParameters"] = ServiceApiSpec{
+		ActionName: "DescribeMongoParameters",
+		InputType:  reflect.TypeOf((*DescribeMongoParametersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeMongoParametersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ResizeMongos"] = ServiceApiSpec{
+		ActionName: "ResizeMongos",
+		InputType:  reflect.TypeOf((*ResizeMongosInput)(nil)),
+		OutputType: reflect.TypeOf((*ResizeMongosOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateMongo"] = ServiceApiSpec{
+		ActionName: "CreateMongo",
+		InputType:  reflect.TypeOf((*CreateMongoInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateMongoOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StopMongos"] = ServiceApiSpec{
+		ActionName: "StopMongos",
+		InputType:  reflect.TypeOf((*StopMongosInput)(nil)),
+		OutputType: reflect.TypeOf((*StopMongosOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StartMongos"] = ServiceApiSpec{
+		ActionName: "StartMongos",
+		InputType:  reflect.TypeOf((*StartMongosInput)(nil)),
+		OutputType: reflect.TypeOf((*StartMongosOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeMongos"] = ServiceApiSpec{
+		ActionName: "DescribeMongos",
+		InputType:  reflect.TypeOf((*DescribeMongosInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeMongosOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteMongos"] = ServiceApiSpec{
+		ActionName: "DeleteMongos",
+		InputType:  reflect.TypeOf((*DeleteMongosInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteMongosOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateMongoFromSnapshot"] = ServiceApiSpec{
+		ActionName: "CreateMongoFromSnapshot",
+		InputType:  reflect.TypeOf((*CreateMongoFromSnapshotInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateMongoFromSnapshotOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ChangeMongoVxnet"] = ServiceApiSpec{
+		ActionName: "ChangeMongoVxnet",
+		InputType:  reflect.TypeOf((*ChangeMongoVxnetInput)(nil)),
+		OutputType: reflect.TypeOf((*ChangeMongoVxnetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddMongoInstances"] = ServiceApiSpec{
+		ActionName: "AddMongoInstances",
+		InputType:  reflect.TypeOf((*AddMongoInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*AddMongoInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RemoveMongoInstances"] = ServiceApiSpec{
+		ActionName: "RemoveMongoInstances",
+		InputType:  reflect.TypeOf((*RemoveMongoInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*RemoveMongoInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyMongoAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyMongoAttributes",
+		InputType:  reflect.TypeOf((*ModifyMongoAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyMongoAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyMongoInstances"] = ServiceApiSpec{
+		ActionName: "ModifyMongoInstances",
+		InputType:  reflect.TypeOf((*ModifyMongoInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyMongoInstancesOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

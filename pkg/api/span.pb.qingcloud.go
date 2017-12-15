@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type SpanServiceInterface interface {
 	CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error)
@@ -33,6 +40,51 @@ type SpanService struct {
 func NewSpanService(server *ServerInfo) (p *SpanService) {
 	return &SpanService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["CreateSpan"] = ServiceApiSpec{
+		ActionName: "CreateSpan",
+		InputType:  reflect.TypeOf((*CreateSpanInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateSpanOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeSpans"] = ServiceApiSpec{
+		ActionName: "DescribeSpans",
+		InputType:  reflect.TypeOf((*DescribeSpansInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSpansOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSpans"] = ServiceApiSpec{
+		ActionName: "DeleteSpans",
+		InputType:  reflect.TypeOf((*DeleteSpansInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSpansOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddSpanMembers"] = ServiceApiSpec{
+		ActionName: "AddSpanMembers",
+		InputType:  reflect.TypeOf((*AddSpanMembersInput)(nil)),
+		OutputType: reflect.TypeOf((*AddSpanMembersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RemoveSpanMembers"] = ServiceApiSpec{
+		ActionName: "RemoveSpanMembers",
+		InputType:  reflect.TypeOf((*RemoveSpanMembersInput)(nil)),
+		OutputType: reflect.TypeOf((*RemoveSpanMembersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifySpanAttributes"] = ServiceApiSpec{
+		ActionName: "ModifySpanAttributes",
+		InputType:  reflect.TypeOf((*ModifySpanAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifySpanAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["UpdateSpan"] = ServiceApiSpec{
+		ActionName: "UpdateSpan",
+		InputType:  reflect.TypeOf((*UpdateSpanInput)(nil)),
+		OutputType: reflect.TypeOf((*UpdateSpanOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

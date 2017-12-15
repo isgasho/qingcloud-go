@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type EIPServiceInterface interface {
 	DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutput, err error)
@@ -34,6 +41,57 @@ type EIPService struct {
 func NewEIPService(server *ServerInfo) (p *EIPService) {
 	return &EIPService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeEips"] = ServiceApiSpec{
+		ActionName: "DescribeEips",
+		InputType:  reflect.TypeOf((*DescribeEipsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeEipsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AllocateEips"] = ServiceApiSpec{
+		ActionName: "AllocateEips",
+		InputType:  reflect.TypeOf((*AllocateEipsInput)(nil)),
+		OutputType: reflect.TypeOf((*AllocateEipsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ReleaseEips"] = ServiceApiSpec{
+		ActionName: "ReleaseEips",
+		InputType:  reflect.TypeOf((*ReleaseEipsInput)(nil)),
+		OutputType: reflect.TypeOf((*ReleaseEipsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AssociateEip"] = ServiceApiSpec{
+		ActionName: "AssociateEip",
+		InputType:  reflect.TypeOf((*AssociateEipInput)(nil)),
+		OutputType: reflect.TypeOf((*AssociateEipOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DissociateEips"] = ServiceApiSpec{
+		ActionName: "DissociateEips",
+		InputType:  reflect.TypeOf((*DissociateEipsInput)(nil)),
+		OutputType: reflect.TypeOf((*DissociateEipsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ChangeEipsBandwidth"] = ServiceApiSpec{
+		ActionName: "ChangeEipsBandwidth",
+		InputType:  reflect.TypeOf((*ChangeEipsBandwidthInput)(nil)),
+		OutputType: reflect.TypeOf((*ChangeEipsBandwidthOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ChangeEipsBillingMode"] = ServiceApiSpec{
+		ActionName: "ChangeEipsBillingMode",
+		InputType:  reflect.TypeOf((*ChangeEipsBillingModeInput)(nil)),
+		OutputType: reflect.TypeOf((*ChangeEipsBillingModeOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyEipAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyEipAttributes",
+		InputType:  reflect.TypeOf((*ModifyEipAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyEipAttributesOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

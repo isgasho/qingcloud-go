@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type HadoopServiceInterface interface {
 	AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error)
@@ -30,6 +37,33 @@ type HadoopService struct {
 func NewHadoopService(server *ServerInfo) (p *HadoopService) {
 	return &HadoopService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["AddHadoopNodes"] = ServiceApiSpec{
+		ActionName: "AddHadoopNodes",
+		InputType:  reflect.TypeOf((*AddHadoopNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*AddHadoopNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteHadoopNodes"] = ServiceApiSpec{
+		ActionName: "DeleteHadoopNodes",
+		InputType:  reflect.TypeOf((*DeleteHadoopNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteHadoopNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StartHadoops"] = ServiceApiSpec{
+		ActionName: "StartHadoops",
+		InputType:  reflect.TypeOf((*StartHadoopsInput)(nil)),
+		OutputType: reflect.TypeOf((*StartHadoopsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StopHadoops"] = ServiceApiSpec{
+		ActionName: "StopHadoops",
+		InputType:  reflect.TypeOf((*StopHadoopsInput)(nil)),
+		OutputType: reflect.TypeOf((*StopHadoopsOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type KeyPairServiceInterface interface {
 	DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error)
@@ -32,6 +39,45 @@ type KeyPairService struct {
 func NewKeyPairService(server *ServerInfo) (p *KeyPairService) {
 	return &KeyPairService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeKeyPairs"] = ServiceApiSpec{
+		ActionName: "DescribeKeyPairs",
+		InputType:  reflect.TypeOf((*DescribeKeyPairsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeKeyPairsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateKeyPair"] = ServiceApiSpec{
+		ActionName: "CreateKeyPair",
+		InputType:  reflect.TypeOf((*CreateKeyPairInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateKeyPairOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteKeyPairs"] = ServiceApiSpec{
+		ActionName: "DeleteKeyPairs",
+		InputType:  reflect.TypeOf((*DeleteKeyPairsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteKeyPairsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AttachKeyPairs"] = ServiceApiSpec{
+		ActionName: "AttachKeyPairs",
+		InputType:  reflect.TypeOf((*AttachKeyPairsInput)(nil)),
+		OutputType: reflect.TypeOf((*AttachKeyPairsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DetachKeyPairs"] = ServiceApiSpec{
+		ActionName: "DetachKeyPairs",
+		InputType:  reflect.TypeOf((*DetachKeyPairsInput)(nil)),
+		OutputType: reflect.TypeOf((*DetachKeyPairsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyKeyPairAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyKeyPairAttributes",
+		InputType:  reflect.TypeOf((*ModifyKeyPairAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyKeyPairAttributesOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

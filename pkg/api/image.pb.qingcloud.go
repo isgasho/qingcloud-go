@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type ImageServiceInterface interface {
 	DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error)
@@ -34,6 +41,57 @@ type ImageService struct {
 func NewImageService(server *ServerInfo) (p *ImageService) {
 	return &ImageService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeImages"] = ServiceApiSpec{
+		ActionName: "DescribeImages",
+		InputType:  reflect.TypeOf((*DescribeImagesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeImagesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CaptureInstance"] = ServiceApiSpec{
+		ActionName: "CaptureInstance",
+		InputType:  reflect.TypeOf((*CaptureInstanceInput)(nil)),
+		OutputType: reflect.TypeOf((*CaptureInstanceOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteImages"] = ServiceApiSpec{
+		ActionName: "DeleteImages",
+		InputType:  reflect.TypeOf((*DeleteImagesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteImagesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyImageAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyImageAttributes",
+		InputType:  reflect.TypeOf((*ModifyImageAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyImageAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GrantImageToUsers"] = ServiceApiSpec{
+		ActionName: "GrantImageToUsers",
+		InputType:  reflect.TypeOf((*GrantImageToUsersInput)(nil)),
+		OutputType: reflect.TypeOf((*GrantImageToUsersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RevokeImageFromUsers"] = ServiceApiSpec{
+		ActionName: "RevokeImageFromUsers",
+		InputType:  reflect.TypeOf((*RevokeImageFromUsersInput)(nil)),
+		OutputType: reflect.TypeOf((*RevokeImageFromUsersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeImageUsers"] = ServiceApiSpec{
+		ActionName: "DescribeImageUsers",
+		InputType:  reflect.TypeOf((*DescribeImageUsersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeImageUsersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CloneImages"] = ServiceApiSpec{
+		ActionName: "CloneImages",
+		InputType:  reflect.TypeOf((*CloneImagesInput)(nil)),
+		OutputType: reflect.TypeOf((*CloneImagesOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

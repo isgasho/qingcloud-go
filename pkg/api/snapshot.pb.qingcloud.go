@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type SnapshotServiceInterface interface {
 	DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error)
@@ -33,6 +40,51 @@ type SnapshotService struct {
 func NewSnapshotService(server *ServerInfo) (p *SnapshotService) {
 	return &SnapshotService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeSnapshots"] = ServiceApiSpec{
+		ActionName: "DescribeSnapshots",
+		InputType:  reflect.TypeOf((*DescribeSnapshotsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSnapshotsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateSnapshots"] = ServiceApiSpec{
+		ActionName: "CreateSnapshots",
+		InputType:  reflect.TypeOf((*CreateSnapshotsInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateSnapshotsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSnapshots"] = ServiceApiSpec{
+		ActionName: "DeleteSnapshots",
+		InputType:  reflect.TypeOf((*DeleteSnapshotsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSnapshotsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ApplySnapshots"] = ServiceApiSpec{
+		ActionName: "ApplySnapshots",
+		InputType:  reflect.TypeOf((*ApplySnapshotsInput)(nil)),
+		OutputType: reflect.TypeOf((*ApplySnapshotsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifySnapshotAttributes"] = ServiceApiSpec{
+		ActionName: "ModifySnapshotAttributes",
+		InputType:  reflect.TypeOf((*ModifySnapshotAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifySnapshotAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CaptureInstanceFromSnapshot"] = ServiceApiSpec{
+		ActionName: "CaptureInstanceFromSnapshot",
+		InputType:  reflect.TypeOf((*CaptureInstanceFromSnapshotInput)(nil)),
+		OutputType: reflect.TypeOf((*CaptureInstanceFromSnapshotOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateVolumeFromSnapshot"] = ServiceApiSpec{
+		ActionName: "CreateVolumeFromSnapshot",
+		InputType:  reflect.TypeOf((*CreateVolumeFromSnapshotInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateVolumeFromSnapshotOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

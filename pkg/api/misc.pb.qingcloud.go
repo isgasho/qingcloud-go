@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type MiscServiceInterface interface {
 	GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error)
@@ -29,6 +36,27 @@ type MiscService struct {
 func NewMiscService(server *ServerInfo) (p *MiscService) {
 	return &MiscService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["GrantQuotaIndep"] = ServiceApiSpec{
+		ActionName: "GrantQuotaIndep",
+		InputType:  reflect.TypeOf((*GrantQuotaIndepInput)(nil)),
+		OutputType: reflect.TypeOf((*GrantQuotaIndepOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RevokeQuotaIndep"] = ServiceApiSpec{
+		ActionName: "RevokeQuotaIndep",
+		InputType:  reflect.TypeOf((*RevokeQuotaIndepInput)(nil)),
+		OutputType: reflect.TypeOf((*RevokeQuotaIndepOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetQuotaLeft"] = ServiceApiSpec{
+		ActionName: "GetQuotaLeft",
+		InputType:  reflect.TypeOf((*GetQuotaLeftInput)(nil)),
+		OutputType: reflect.TypeOf((*GetQuotaLeftOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

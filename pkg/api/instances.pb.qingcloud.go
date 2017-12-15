@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type InstanceServiceInterface interface {
 	DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error)
@@ -38,6 +45,81 @@ type InstanceService struct {
 func NewInstanceService(server *ServerInfo) (p *InstanceService) {
 	return &InstanceService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeInstances"] = ServiceApiSpec{
+		ActionName: "DescribeInstances",
+		InputType:  reflect.TypeOf((*DescribeInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RunInstances"] = ServiceApiSpec{
+		ActionName: "RunInstances",
+		InputType:  reflect.TypeOf((*RunInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*RunInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["TerminateInstances"] = ServiceApiSpec{
+		ActionName: "TerminateInstances",
+		InputType:  reflect.TypeOf((*TerminateInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*TerminateInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StartInstances"] = ServiceApiSpec{
+		ActionName: "StartInstances",
+		InputType:  reflect.TypeOf((*StartInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*StartInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StopInstances"] = ServiceApiSpec{
+		ActionName: "StopInstances",
+		InputType:  reflect.TypeOf((*StopInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*StopInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RestartInstances"] = ServiceApiSpec{
+		ActionName: "RestartInstances",
+		InputType:  reflect.TypeOf((*RestartInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*RestartInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ResetInstances"] = ServiceApiSpec{
+		ActionName: "ResetInstances",
+		InputType:  reflect.TypeOf((*ResetInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*ResetInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ResizeInstances"] = ServiceApiSpec{
+		ActionName: "ResizeInstances",
+		InputType:  reflect.TypeOf((*ResizeInstancesInput)(nil)),
+		OutputType: reflect.TypeOf((*ResizeInstancesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyInstanceAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyInstanceAttributes",
+		InputType:  reflect.TypeOf((*ModifyInstanceAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyInstanceAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeInstanceTypes"] = ServiceApiSpec{
+		ActionName: "DescribeInstanceTypes",
+		InputType:  reflect.TypeOf((*DescribeInstanceTypesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeInstanceTypesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateBrokers"] = ServiceApiSpec{
+		ActionName: "CreateBrokers",
+		InputType:  reflect.TypeOf((*CreateBrokersInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateBrokersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteBrokers"] = ServiceApiSpec{
+		ActionName: "DeleteBrokers",
+		InputType:  reflect.TypeOf((*DeleteBrokersInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteBrokersOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

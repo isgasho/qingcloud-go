@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type JobServiceInterface interface {
 	DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutput, err error)
@@ -27,6 +34,15 @@ type JobService struct {
 func NewJobService(server *ServerInfo) (p *JobService) {
 	return &JobService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeJobs"] = ServiceApiSpec{
+		ActionName: "DescribeJobs",
+		InputType:  reflect.TypeOf((*DescribeJobsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeJobsOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

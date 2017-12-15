@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type DNSAliasServiceInterface interface {
 	DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error)
@@ -30,6 +37,33 @@ type DNSAliasService struct {
 func NewDNSAliasService(server *ServerInfo) (p *DNSAliasService) {
 	return &DNSAliasService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeDNSAliases"] = ServiceApiSpec{
+		ActionName: "DescribeDNSAliases",
+		InputType:  reflect.TypeOf((*DescribeDNSAliasesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeDNSAliasesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AssociateDNSAlias"] = ServiceApiSpec{
+		ActionName: "AssociateDNSAlias",
+		InputType:  reflect.TypeOf((*AssociateDNSAliasInput)(nil)),
+		OutputType: reflect.TypeOf((*AssociateDNSAliasOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DissociateDNSAliases"] = ServiceApiSpec{
+		ActionName: "DissociateDNSAliases",
+		InputType:  reflect.TypeOf((*DissociateDNSAliasesInput)(nil)),
+		OutputType: reflect.TypeOf((*DissociateDNSAliasesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetDNSLabel"] = ServiceApiSpec{
+		ActionName: "GetDNSLabel",
+		InputType:  reflect.TypeOf((*GetDNSLabelInput)(nil)),
+		OutputType: reflect.TypeOf((*GetDNSLabelOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

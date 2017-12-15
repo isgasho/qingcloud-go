@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type MonitorServiceInterface interface {
 	GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error)
@@ -32,6 +39,45 @@ type MonitorService struct {
 func NewMonitorService(server *ServerInfo) (p *MonitorService) {
 	return &MonitorService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["GetMonitor"] = ServiceApiSpec{
+		ActionName: "GetMonitor",
+		InputType:  reflect.TypeOf((*GetMonitorInput)(nil)),
+		OutputType: reflect.TypeOf((*GetMonitorOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetLoadBalancerMonitor"] = ServiceApiSpec{
+		ActionName: "GetLoadBalancerMonitor",
+		InputType:  reflect.TypeOf((*GetLoadBalancerMonitorInput)(nil)),
+		OutputType: reflect.TypeOf((*GetLoadBalancerMonitorOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetRDBMonitor"] = ServiceApiSpec{
+		ActionName: "GetRDBMonitor",
+		InputType:  reflect.TypeOf((*GetRDBMonitorInput)(nil)),
+		OutputType: reflect.TypeOf((*GetRDBMonitorOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetCacheMonitor"] = ServiceApiSpec{
+		ActionName: "GetCacheMonitor",
+		InputType:  reflect.TypeOf((*GetCacheMonitorInput)(nil)),
+		OutputType: reflect.TypeOf((*GetCacheMonitorOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetZooKeeperMonitor"] = ServiceApiSpec{
+		ActionName: "GetZooKeeperMonitor",
+		InputType:  reflect.TypeOf((*GetZooKeeperMonitorInput)(nil)),
+		OutputType: reflect.TypeOf((*GetZooKeeperMonitorOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetQueueMonitor"] = ServiceApiSpec{
+		ActionName: "GetQueueMonitor",
+		InputType:  reflect.TypeOf((*GetQueueMonitorInput)(nil)),
+		OutputType: reflect.TypeOf((*GetQueueMonitorOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

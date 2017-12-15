@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type SparkServiceInterface interface {
 	CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error)
@@ -33,6 +40,51 @@ type SparkService struct {
 func NewSparkService(server *ServerInfo) (p *SparkService) {
 	return &SparkService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["CreateSpark"] = ServiceApiSpec{
+		ActionName: "CreateSpark",
+		InputType:  reflect.TypeOf((*CreateSparkInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateSparkOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeSparks"] = ServiceApiSpec{
+		ActionName: "DescribeSparks",
+		InputType:  reflect.TypeOf((*DescribeSparksInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSparksOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddSparkNodes"] = ServiceApiSpec{
+		ActionName: "AddSparkNodes",
+		InputType:  reflect.TypeOf((*AddSparkNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*AddSparkNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSparkNodes"] = ServiceApiSpec{
+		ActionName: "DeleteSparkNodes",
+		InputType:  reflect.TypeOf((*DeleteSparkNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSparkNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StartSparks"] = ServiceApiSpec{
+		ActionName: "StartSparks",
+		InputType:  reflect.TypeOf((*StartSparksInput)(nil)),
+		OutputType: reflect.TypeOf((*StartSparksOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StopSparks"] = ServiceApiSpec{
+		ActionName: "StopSparks",
+		InputType:  reflect.TypeOf((*StopSparksInput)(nil)),
+		OutputType: reflect.TypeOf((*StopSparksOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSparks"] = ServiceApiSpec{
+		ActionName: "DeleteSparks",
+		InputType:  reflect.TypeOf((*DeleteSparksInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSparksOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

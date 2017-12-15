@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type S2ServiceInterface interface {
 	CreateS2Server(in *CreateS2ServerInput) (out *CreateS2ServerOutput, err error)
@@ -54,6 +61,177 @@ type S2Service struct {
 func NewS2Service(server *ServerInfo) (p *S2Service) {
 	return &S2Service{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["CreateS2Server"] = ServiceApiSpec{
+		ActionName: "CreateS2Server",
+		InputType:  reflect.TypeOf((*CreateS2ServerInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateS2ServerOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeS2Servers"] = ServiceApiSpec{
+		ActionName: "DescribeS2Servers",
+		InputType:  reflect.TypeOf((*DescribeS2ServersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeS2ServersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyS2Server"] = ServiceApiSpec{
+		ActionName: "ModifyS2Server",
+		InputType:  reflect.TypeOf((*ModifyS2ServerInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyS2ServerOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ResizeS2Servers"] = ServiceApiSpec{
+		ActionName: "ResizeS2Servers",
+		InputType:  reflect.TypeOf((*ResizeS2ServersInput)(nil)),
+		OutputType: reflect.TypeOf((*ResizeS2ServersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteS2Servers"] = ServiceApiSpec{
+		ActionName: "DeleteS2Servers",
+		InputType:  reflect.TypeOf((*DeleteS2ServersInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteS2ServersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["PowerOnS2Servers"] = ServiceApiSpec{
+		ActionName: "PowerOnS2Servers",
+		InputType:  reflect.TypeOf((*PowerOnS2ServersInput)(nil)),
+		OutputType: reflect.TypeOf((*PowerOnS2ServersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["PowerOffS2Servers"] = ServiceApiSpec{
+		ActionName: "PowerOffS2Servers",
+		InputType:  reflect.TypeOf((*PowerOffS2ServersInput)(nil)),
+		OutputType: reflect.TypeOf((*PowerOffS2ServersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["UpdateS2Servers"] = ServiceApiSpec{
+		ActionName: "UpdateS2Servers",
+		InputType:  reflect.TypeOf((*UpdateS2ServersInput)(nil)),
+		OutputType: reflect.TypeOf((*UpdateS2ServersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ChangeS2ServerVxnet"] = ServiceApiSpec{
+		ActionName: "ChangeS2ServerVxnet",
+		InputType:  reflect.TypeOf((*ChangeS2ServerVxnetInput)(nil)),
+		OutputType: reflect.TypeOf((*ChangeS2ServerVxnetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateS2SharedTarget"] = ServiceApiSpec{
+		ActionName: "CreateS2SharedTarget",
+		InputType:  reflect.TypeOf((*CreateS2SharedTargetInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateS2SharedTargetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeS2SharedTargets"] = ServiceApiSpec{
+		ActionName: "DescribeS2SharedTargets",
+		InputType:  reflect.TypeOf((*DescribeS2SharedTargetsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeS2SharedTargetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteS2SharedTargets"] = ServiceApiSpec{
+		ActionName: "DeleteS2SharedTargets",
+		InputType:  reflect.TypeOf((*DeleteS2SharedTargetsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteS2SharedTargetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["EnableS2SharedTargets"] = ServiceApiSpec{
+		ActionName: "EnableS2SharedTargets",
+		InputType:  reflect.TypeOf((*EnableS2SharedTargetsInput)(nil)),
+		OutputType: reflect.TypeOf((*EnableS2SharedTargetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DisableS2SharedTargets"] = ServiceApiSpec{
+		ActionName: "DisableS2SharedTargets",
+		InputType:  reflect.TypeOf((*DisableS2SharedTargetsInput)(nil)),
+		OutputType: reflect.TypeOf((*DisableS2SharedTargetsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyS2SharedTargetAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyS2SharedTargetAttributes",
+		InputType:  reflect.TypeOf((*ModifyS2SharedTargetAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyS2SharedTargetAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AttachToS2SharedTarget"] = ServiceApiSpec{
+		ActionName: "AttachToS2SharedTarget",
+		InputType:  reflect.TypeOf((*AttachToS2SharedTargetInput)(nil)),
+		OutputType: reflect.TypeOf((*AttachToS2SharedTargetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DetachFromS2SharedTarget"] = ServiceApiSpec{
+		ActionName: "DetachFromS2SharedTarget",
+		InputType:  reflect.TypeOf((*DetachFromS2SharedTargetInput)(nil)),
+		OutputType: reflect.TypeOf((*DetachFromS2SharedTargetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeS2DefaultParameters"] = ServiceApiSpec{
+		ActionName: "DescribeS2DefaultParameters",
+		InputType:  reflect.TypeOf((*DescribeS2DefaultParametersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeS2DefaultParametersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateS2Group"] = ServiceApiSpec{
+		ActionName: "CreateS2Group",
+		InputType:  reflect.TypeOf((*CreateS2GroupInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateS2GroupOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeS2Groups"] = ServiceApiSpec{
+		ActionName: "DescribeS2Groups",
+		InputType:  reflect.TypeOf((*DescribeS2GroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeS2GroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyS2Group"] = ServiceApiSpec{
+		ActionName: "ModifyS2Group",
+		InputType:  reflect.TypeOf((*ModifyS2GroupInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyS2GroupOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteS2Groups"] = ServiceApiSpec{
+		ActionName: "DeleteS2Groups",
+		InputType:  reflect.TypeOf((*DeleteS2GroupsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteS2GroupsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateS2Account"] = ServiceApiSpec{
+		ActionName: "CreateS2Account",
+		InputType:  reflect.TypeOf((*CreateS2AccountInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateS2AccountOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeS2Accounts"] = ServiceApiSpec{
+		ActionName: "DescribeS2Accounts",
+		InputType:  reflect.TypeOf((*DescribeS2AccountsInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeS2AccountsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyS2Account"] = ServiceApiSpec{
+		ActionName: "ModifyS2Account",
+		InputType:  reflect.TypeOf((*ModifyS2AccountInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyS2AccountOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteS2Accounts"] = ServiceApiSpec{
+		ActionName: "DeleteS2Accounts",
+		InputType:  reflect.TypeOf((*DeleteS2AccountsInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteS2AccountsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AssociateS2AccountGroup"] = ServiceApiSpec{
+		ActionName: "AssociateS2AccountGroup",
+		InputType:  reflect.TypeOf((*AssociateS2AccountGroupInput)(nil)),
+		OutputType: reflect.TypeOf((*AssociateS2AccountGroupOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DissociateS2AccountGroup"] = ServiceApiSpec{
+		ActionName: "DissociateS2AccountGroup",
+		InputType:  reflect.TypeOf((*DissociateS2AccountGroupInput)(nil)),
+		OutputType: reflect.TypeOf((*DissociateS2AccountGroupOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type SubuserServiceInterface interface {
 	DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error)
@@ -31,6 +38,39 @@ type SubuserService struct {
 func NewSubuserService(server *ServerInfo) (p *SubuserService) {
 	return &SubuserService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["DescribeSubUsers"] = ServiceApiSpec{
+		ActionName: "DescribeSubUsers",
+		InputType:  reflect.TypeOf((*DescribeSubUsersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeSubUsersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["CreateSubUser"] = ServiceApiSpec{
+		ActionName: "CreateSubUser",
+		InputType:  reflect.TypeOf((*CreateSubUserInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateSubUserOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifySubUserAttributes"] = ServiceApiSpec{
+		ActionName: "ModifySubUserAttributes",
+		InputType:  reflect.TypeOf((*ModifySubUserAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifySubUserAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteSubUsers"] = ServiceApiSpec{
+		ActionName: "DeleteSubUsers",
+		InputType:  reflect.TypeOf((*DeleteSubUsersInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteSubUsersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RestoreSubUsers"] = ServiceApiSpec{
+		ActionName: "RestoreSubUsers",
+		InputType:  reflect.TypeOf((*RestoreSubUsersInput)(nil)),
+		OutputType: reflect.TypeOf((*RestoreSubUsersOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 

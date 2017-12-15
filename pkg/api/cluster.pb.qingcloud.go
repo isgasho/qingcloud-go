@@ -5,16 +5,23 @@
 
 package service
 
-import proto "github.com/golang/protobuf/proto"
-import "fmt"
+import (
+	"fmt"
+	"reflect"
 
-import "github.com/chai2010/qingcloud-go/pkg/client"
+	proto "github.com/golang/protobuf/proto"
+
+	"github.com/chai2010/qingcloud-go/pkg/client"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
-var _ = fmt.Errorf
-var _ = proto.Marshal
+var (
+	_ = fmt.Errorf
+	_ = reflect.Invalid
 
-var _ = client.NewClient
+	_ = proto.Marshal
+	_ = client.NewClient
+)
 
 type ClusterServiceInterface interface {
 	CreateCluster(in *CreateClusterInput) (out *CreateClusterOutput, err error)
@@ -47,6 +54,135 @@ type ClusterService struct {
 func NewClusterService(server *ServerInfo) (p *ClusterService) {
 	return &ClusterService{
 		ServerInfo: server,
+	}
+}
+
+func init() {
+	ServiceApiSpecMap["CreateCluster"] = ServiceApiSpec{
+		ActionName: "CreateCluster",
+		InputType:  reflect.TypeOf((*CreateClusterInput)(nil)),
+		OutputType: reflect.TypeOf((*CreateClusterOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeClusters"] = ServiceApiSpec{
+		ActionName: "DescribeClusters",
+		InputType:  reflect.TypeOf((*DescribeClustersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeClustersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeClusterNodes"] = ServiceApiSpec{
+		ActionName: "DescribeClusterNodes",
+		InputType:  reflect.TypeOf((*DescribeClusterNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeClusterNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StopClusters"] = ServiceApiSpec{
+		ActionName: "StopClusters",
+		InputType:  reflect.TypeOf((*StopClustersInput)(nil)),
+		OutputType: reflect.TypeOf((*StopClustersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["StartClusters"] = ServiceApiSpec{
+		ActionName: "StartClusters",
+		InputType:  reflect.TypeOf((*StartClustersInput)(nil)),
+		OutputType: reflect.TypeOf((*StartClustersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteClusters"] = ServiceApiSpec{
+		ActionName: "DeleteClusters",
+		InputType:  reflect.TypeOf((*DeleteClustersInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteClustersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["Lease"] = ServiceApiSpec{
+		ActionName: "Lease",
+		InputType:  reflect.TypeOf((*LeaseInput)(nil)),
+		OutputType: reflect.TypeOf((*LeaseOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AddClusterNodes"] = ServiceApiSpec{
+		ActionName: "AddClusterNodes",
+		InputType:  reflect.TypeOf((*AddClusterNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*AddClusterNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DeleteClusterNodes"] = ServiceApiSpec{
+		ActionName: "DeleteClusterNodes",
+		InputType:  reflect.TypeOf((*DeleteClusterNodesInput)(nil)),
+		OutputType: reflect.TypeOf((*DeleteClusterNodesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ResizeCluster"] = ServiceApiSpec{
+		ActionName: "ResizeCluster",
+		InputType:  reflect.TypeOf((*ResizeClusterInput)(nil)),
+		OutputType: reflect.TypeOf((*ResizeClusterOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ChangeClusterVxnet"] = ServiceApiSpec{
+		ActionName: "ChangeClusterVxnet",
+		InputType:  reflect.TypeOf((*ChangeClusterVxnetInput)(nil)),
+		OutputType: reflect.TypeOf((*ChangeClusterVxnetOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["SuspendClusters"] = ServiceApiSpec{
+		ActionName: "SuspendClusters",
+		InputType:  reflect.TypeOf((*SuspendClustersInput)(nil)),
+		OutputType: reflect.TypeOf((*SuspendClustersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["UpdateClusterEnvironment"] = ServiceApiSpec{
+		ActionName: "UpdateClusterEnvironment",
+		InputType:  reflect.TypeOf((*UpdateClusterEnvironmentInput)(nil)),
+		OutputType: reflect.TypeOf((*UpdateClusterEnvironmentOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyClusterAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyClusterAttributes",
+		InputType:  reflect.TypeOf((*ModifyClusterAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyClusterAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["ModifyClusterNodeAttributes"] = ServiceApiSpec{
+		ActionName: "ModifyClusterNodeAttributes",
+		InputType:  reflect.TypeOf((*ModifyClusterNodeAttributesInput)(nil)),
+		OutputType: reflect.TypeOf((*ModifyClusterNodeAttributesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetClustersStats"] = ServiceApiSpec{
+		ActionName: "GetClustersStats",
+		InputType:  reflect.TypeOf((*GetClustersStatsInput)(nil)),
+		OutputType: reflect.TypeOf((*GetClustersStatsOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["DescribeClusterUsers"] = ServiceApiSpec{
+		ActionName: "DescribeClusterUsers",
+		InputType:  reflect.TypeOf((*DescribeClusterUsersInput)(nil)),
+		OutputType: reflect.TypeOf((*DescribeClusterUsersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RestartClusterService"] = ServiceApiSpec{
+		ActionName: "RestartClusterService",
+		InputType:  reflect.TypeOf((*RestartClusterServiceInput)(nil)),
+		OutputType: reflect.TypeOf((*RestartClusterServiceOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["UpgradeClusters"] = ServiceApiSpec{
+		ActionName: "UpgradeClusters",
+		InputType:  reflect.TypeOf((*UpgradeClustersInput)(nil)),
+		OutputType: reflect.TypeOf((*UpgradeClustersOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["AuthorizeClustersBrokerToDeveloper"] = ServiceApiSpec{
+		ActionName: "AuthorizeClustersBrokerToDeveloper",
+		InputType:  reflect.TypeOf((*AuthorizeClustersBrokerToDeveloperInput)(nil)),
+		OutputType: reflect.TypeOf((*AuthorizeClustersBrokerToDeveloperOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["RevokeClustersBrokerFromDeveloper"] = ServiceApiSpec{
+		ActionName: "RevokeClustersBrokerFromDeveloper",
+		InputType:  reflect.TypeOf((*RevokeClustersBrokerFromDeveloperInput)(nil)),
+		OutputType: reflect.TypeOf((*RevokeClustersBrokerFromDeveloperOutput)(nil)),
+		HttpMethod: "GET",
 	}
 }
 
