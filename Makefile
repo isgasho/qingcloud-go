@@ -42,7 +42,6 @@ generate:
 	go test ./...
 
 gen-pkgdoc:
-	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/api       > ./pkg/api/README.md
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/client    > ./pkg/client/README.md
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/pbutil    > ./pkg/pbutil/README.md
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/signature > ./pkg/signature/README.md
@@ -50,10 +49,7 @@ gen-pkgdoc:
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/version   > ./pkg/version/README.md
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/wait      > ./pkg/wait/README.md
 
-	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/api/spec_metadata > ./pkg/api/spec_metadata/README.md
-
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/cmd/qcli > ./pkg/cmd/qcli/README.md
-	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/cmd/qcli/api > ./pkg/cmd/qcli/api/README.md
 
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud > ./pkg/cmd/protoc-gen-qingcloud/README.md
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/utils > ./pkg/cmd/protoc-gen-qingcloud/utils/README.md
