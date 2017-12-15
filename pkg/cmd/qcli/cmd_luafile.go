@@ -5,12 +5,18 @@
 package qcli
 
 import (
+	"io/ioutil"
 	"log"
 	"os"
 
 	"github.com/urfave/cli"
 	"github.com/yuin/gopher-lua"
 )
+
+// touch qclifile.lua
+// qcli make
+// qcli make -f other.lua
+// cat other.lua | qcli make -stdin
 
 var cmdLuaMake = cli.Command{
 	Name:    "lake",
@@ -23,13 +29,31 @@ var cmdLuaMake = cli.Command{
 			Usage: "set lake/make file",
 			Value: "qclifile.lua",
 		},
+		cli.BoolFlag{
+			Name:  "stdin",
+			Usage: "read from stdin",
+		},
 	},
 	Action: func(c *cli.Context) error {
 		L := lua.NewState()
 		defer L.Close()
 
-		lakefile := c.String("file")
+		luaOpenSDK(L)
 
+		if c.IsSet("stdin") {
+			// EOF: UNIX Ctrl+D, Windows Ctrl+Z
+			b, err := ioutil.ReadAll(os.Stdin)
+			if err != nil {
+				log.Fatal(err)
+			}
+			prog := string(b)
+			if err := L.DoString(prog); err != nil {
+				log.Fatal(err)
+			}
+			return nil
+		}
+
+		lakefile := c.String("file")
 		fi, err := os.Stat(lakefile)
 		if err != nil {
 			if os.IsNotExist(err) {
@@ -43,7 +67,7 @@ var cmdLuaMake = cli.Command{
 		}
 
 		if err := L.DoFile(lakefile); err != nil {
-			return err
+			log.Fatal(err)
 		}
 
 		return nil
