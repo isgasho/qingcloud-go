@@ -107,7 +107,7 @@ func (p *Client) CallMethod(
 	}
 }
 
-func (p *Client) CallMethodWithMap(
+func (p *Client) CallMethodWithMapX(
 	svcMethodName, httpMethod string, input map[string]interface{},
 	opt *CallOptions,
 ) (
@@ -118,6 +118,56 @@ func (p *Client) CallMethodWithMap(
 	}
 
 	inputMap := pbutil.UnpackMapXToMapString(input)
+	inputMap["action"] = svcMethodName
+	inputMap["version"] = "1"
+
+	if inputMap["time_stamp"] == "" {
+		inputMap["time_stamp"] = time.Now().UTC().Format("2006-01-02T15:04:05Z")
+	}
+	if inputMap["zone"] == "" {
+		inputMap["zone"] = p.zone
+	}
+
+	if DebugMode {
+		log.Printf("inputMap: %#v\n", inputMap)
+	}
+
+	query, sig := signature.Build(
+		p.accessKeyId, p.secretAccessKey,
+		httpMethod, p.getApiServerPath(),
+		inputMap,
+	)
+
+	if DebugMode {
+		log.Printf("query: %v\n", query)
+		log.Printf("sig: %v\n", sig)
+	}
+
+	switch httpMethod {
+	case "GET":
+		return p.doGet_json(opt.GetHttpClient(), query)
+	case "POST":
+		return p.doPost_json(opt.GetHttpClient(), query)
+	default:
+		return "", fmt.Errorf("pkg/client.CallMethod: unsupport methond %v", httpMethod)
+	}
+}
+
+func (p *Client) CallMethodWithJson(
+	svcMethodName, httpMethod string, input string,
+	opt *CallOptions,
+) (
+	output string, err error,
+) {
+	if DebugMode {
+		log.Printf("input: %#v\n", input)
+	}
+
+	inputMap, err := pbutil.JsonToMapString(input)
+	if err != nil {
+		return "", err
+	}
+
 	inputMap["action"] = svcMethodName
 	inputMap["version"] = "1"
 

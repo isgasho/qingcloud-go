@@ -38,7 +38,7 @@ var cmdLuaMake = cli.Command{
 		L := lua.NewState()
 		defer L.Close()
 
-		luaOpenSDK(L)
+		luaOpenSDK(c, L)
 
 		if c.IsSet("stdin") {
 			// EOF: UNIX Ctrl+D, Windows Ctrl+Z

@@ -38,6 +38,10 @@ func init() {
 	}
 }
 
+func GetServerInfo(c *cli.Context) (p *pb.ServerInfo) {
+	return pkgGetServerInfo(c)
+}
+
 func pkgGetServerInfo(c *cli.Context) (p *pb.ServerInfo) {
 	p = pkgMustLoadConfig(c.GlobalString("config"))
 
