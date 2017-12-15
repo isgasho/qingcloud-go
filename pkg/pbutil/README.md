@@ -21,6 +21,7 @@
 * [func EncodeJsonIndent(m proto.Message) (string, error)](#EncodeJsonIndent)
 * [func EncodeToMap(msg proto.Message) (m map[string]string, err error)](#EncodeToMap)
 * [func GetMessageDescriptor(msg proto.Message) (fd \*protobuf.FileDescriptorProto, md \*protobuf.DescriptorProto)](#GetMessageDescriptor)
+* [func JsonToMapString(s string) (map[string]string, error)](#JsonToMapString)
 * [func ProtoMessageToMap(msg proto.Message) (m map[string]string, err error)](#ProtoMessageToMap)
 * [func UnpackMapXToMapString(mapx map[string]interface{}) map[string]string](#UnpackMapXToMapString)
 
@@ -52,9 +53,14 @@ func EncodeJsonIndent(m proto.Message) (string, error)
 func EncodeToMap(msg proto.Message) (m map[string]string, err error)
 ```
 
-## <a name="GetMessageDescriptor">func</a> [GetMessageDescriptor](./pbutil.go#L120)
+## <a name="GetMessageDescriptor">func</a> [GetMessageDescriptor](./pbutil.go#L128)
 ``` go
 func GetMessageDescriptor(msg proto.Message) (fd *protobuf.FileDescriptorProto, md *protobuf.DescriptorProto)
+```
+
+## <a name="JsonToMapString">func</a> [JsonToMapString](./pbutil.go#L79)
+``` go
+func JsonToMapString(s string) (map[string]string, error)
 ```
 
 ## <a name="ProtoMessageToMap">func</a> [ProtoMessageToMap](./pbutil.go#L58)
@@ -62,7 +68,7 @@ func GetMessageDescriptor(msg proto.Message) (fd *protobuf.FileDescriptorProto, 
 func ProtoMessageToMap(msg proto.Message) (m map[string]string, err error)
 ```
 
-## <a name="UnpackMapXToMapString">func</a> [UnpackMapXToMapString](./pbutil.go#L80)
+## <a name="UnpackMapXToMapString">func</a> [UnpackMapXToMapString](./pbutil.go#L88)
 ``` go
 func UnpackMapXToMapString(mapx map[string]interface{}) map[string]string
 ```
