@@ -108,7 +108,7 @@ func (p *Client) CallMethod(
 }
 
 func (p *Client) CallMethodWithMap(
-	svcMethodName, httpMethod string, input map[string]string,
+	svcMethodName, httpMethod string, input map[string]interface{},
 	opt *CallOptions,
 ) (
 	output string, err error,
@@ -117,7 +117,7 @@ func (p *Client) CallMethodWithMap(
 		log.Printf("input: %#v\n", input)
 	}
 
-	inputMap := input
+	inputMap := pbutil.UnpackMapXToMapString(input)
 	inputMap["action"] = svcMethodName
 	inputMap["version"] = "1"
 
