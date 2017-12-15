@@ -76,6 +76,14 @@ func ProtoMessageToMap(msg proto.Message) (m map[string]string, err error) {
 	return m, nil
 }
 
+func JsonToMapString(s string) (map[string]string, error) {
+	var mapx map[string]interface{}
+	if err := json.Unmarshal([]byte(s), &mapx); err != nil {
+		return nil, err
+	}
+	return pkgUnpackMapXToMapString(mapx), nil
+}
+
 // X is oneof string/float64/[]interface/map[string]interface{}
 func UnpackMapXToMapString(mapx map[string]interface{}) map[string]string {
 	return pkgUnpackMapXToMapString(mapx)
