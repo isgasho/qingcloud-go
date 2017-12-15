@@ -5,6 +5,8 @@
 package qcli
 
 import (
+	"encoding/json"
+
 	"github.com/yuin/gopher-lua"
 
 	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
@@ -43,10 +45,40 @@ var luaSDK_values = map[string]lua.LValue{
 }
 
 var luaSDK_Funcs = map[string]lua.LGFunction{
+	"decode_json": luaSDK_decodeJSON,
+	"encode_json": luaSDK_encodeJSON,
 	"call_method": luaSDK_CallMethod,
 }
 
 func luaSDK_CallMethod(L *lua.LState) int {
 	L.Push(lua.LString("TODO"))
+	return 1
+}
+
+func luaSDK_decodeJSON(L *lua.LState) int {
+	str := L.CheckString(1)
+
+	var value interface{}
+	err := json.Unmarshal([]byte(str), &value)
+	if err != nil {
+		L.Push(lua.LNil)
+		L.Push(lua.LString(err.Error()))
+		return 2
+	}
+	L.Push(luaFromJSON(L, value))
+	return 1
+}
+
+func luaSDK_encodeJSON(L *lua.LState) int {
+	value := L.CheckAny(1)
+
+	visited := make(map[*lua.LTable]bool)
+	data, err := luaToJSON(value, visited)
+	if err != nil {
+		L.Push(lua.LNil)
+		L.Push(lua.LString(err.Error()))
+		return 2
+	}
+	L.Push(lua.LString(string(data)))
 	return 1
 }
