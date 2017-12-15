@@ -29,6 +29,11 @@ var cmdLuaMake = cli.Command{
 			Usage: "set lake/make file",
 			Value: "qclifile.lua",
 		},
+		cli.StringFlag{
+			Name:  "dir, C",
+			Usage: "change work directory",
+			Value: "",
+		},
 		cli.BoolFlag{
 			Name:  "stdin",
 			Usage: "read from stdin",
@@ -38,7 +43,21 @@ var cmdLuaMake = cli.Command{
 		L := lua.NewState()
 		defer L.Close()
 
+		argtb := L.NewTable()
+		for i := 0; i < c.NArg(); i++ {
+			L.RawSet(argtb, lua.LNumber(i+1), lua.LString(c.Args()[i]))
+		}
+		L.SetGlobal("arg", argtb)
+
 		luaOpenSDK(c, L)
+
+		if c.IsSet("dir") {
+			if newdir := c.String("dir"); newdir != "" {
+				if err := os.Chdir(newdir); err != nil {
+					log.Fatal(err)
+				}
+			}
+		}
 
 		if c.IsSet("stdin") {
 			// EOF: UNIX Ctrl+D, Windows Ctrl+Z
