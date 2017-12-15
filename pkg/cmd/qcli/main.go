@@ -6,6 +6,7 @@ package qcli
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/urfave/cli"
@@ -14,6 +15,10 @@ import (
 	pb "github.com/chai2010/qingcloud-go/pkg/cmd/qcli/api"
 	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
 )
+
+func init() {
+	log.SetFlags(log.Lshortfile)
+}
 
 func Main() {
 	app := cli.NewApp()
@@ -37,15 +42,16 @@ func Main() {
 	}
 
 	app.Flags = pkgGlobalFlags
-	app.Commands = pb.AllCommands
 	app.EnableBashCompletion = true
 
-	app.Commands = append(app.Commands, []cli.Command{
+	app.Commands = pb.AllCommands
+	app.Commands = append(app.Commands,
 		cmdList,
 		cmdInfo,
 		cmdMachine,
 		cmdSignature,
-	}...)
+		cmdLuaMake,
+	)
 
 	app.Run(os.Args)
 }
