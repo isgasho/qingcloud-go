@@ -12,7 +12,7 @@
 
 Features:
 
-- Go style SDK api
+- Go style SDK API
 - qcli command line tool, equal SDK
 - Base on Protobuf, easy for developer
 - Minimize dependence: SDK only depends on Protobuf
@@ -120,7 +120,7 @@ We can create a config file (`~/.qingcloud/qcli.json`) for `qcli`:
 }
 ```
 
-Enter the following command to describe instancesL
+Enter the following command to describe instances:
 
 	$ qcli instance DescribeInstances
 
