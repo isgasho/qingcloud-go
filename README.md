@@ -1,6 +1,6 @@
 <p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/docs/images/logo-01-600x130.png" alt="QingCloud"></a></p>
 
-# QingCloud Non Official SDK Go Version
+# QingCloud Non Official SDK for Go/[GopherLua](https://github.com/yuin/gopher-lua)
 
 [![Build Status](https://travis-ci.org/chai2010/qingcloud-go.svg?branch=master)](https://travis-ci.org/chai2010/qingcloud-go)
 [![Docker Build Status](https://img.shields.io/docker/build/chai2010/qingcloud-go.svg)](https://hub.docker.com/r/chai2010/qingcloud-go/)
@@ -130,7 +130,7 @@ or plus the `-d` options to enable the debug mode:
 
 *Notes: the `qcli` is work in progress, welcome to give help!*
 
-## Qucik Guide
+## Qucik Guide (Go Version)
 
 Here is the [./hello.go](./hello.go)'s content:
 
@@ -180,6 +180,56 @@ Entern the following command to run exampke:
 The `-id` and `-key` options is for `AccessKey` and `SecretAccessKey`.
 
 The [./pkg/cmd/qcli](./pkg/cmd/qcli) is a complete example.
+
+## Qucik Guide ([GopherLua](https://github.com/yuin/gopher-lua) Version)
+
+[hello-lua.go](hello-lua.go):
+
+```go
+package main
+
+import (
+	"github.com/yuin/gopher-lua"
+
+	qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
+)
+
+func main() {
+	L := lua.NewState()
+	defer L.Close()
+
+	qc_iaas.Preload(L)
+
+	if err := L.DoFile("hello.lua"); err != nil {
+		panic(err)
+	}
+}
+```
+
+[hello.lua](hello.lua):
+
+```lua
+local qc = require("qingcloud.iaas")
+
+print("hello, 青云!")
+
+print(qc.copyright)
+
+print(qc.version)
+print(qc.version_info.git_sha1_version)
+print(qc.version_info.build_date)
+
+local config = qc.LoadJSON("~/.qingcloud/qcli.json")
+local client = qc.Client:new(config)
+
+local reply, err = client:DescribeInstances({})
+assert(err == nil)
+print(type(reply))
+
+print(reply.action)
+print(reply.ret_code)
+print(reply.message)
+```
 
 ## License
 

@@ -1,6 +1,6 @@
 <p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/docs/images/logo-01-600x130.png" alt="QingCloud"></a></p>
 
-# 青云非官方 SDK Go Version
+# 青云非官方 SDK Go/[GopherLua](https://github.com/yuin/gopher-lua)
 
 [![Build Status](https://travis-ci.org/chai2010/qingcloud-go.svg?branch=master)](https://travis-ci.org/chai2010/qingcloud-go)
 [![Docker Build Status](https://img.shields.io/docker/build/chai2010/qingcloud-go.svg)](https://hub.docker.com/r/chai2010/qingcloud-go/)
@@ -130,7 +130,7 @@ chai-mba:qingcloud-go chai$
 
 *注意: 命令行还在开发中, 欢迎参与完善!*
 
-## 快速入门
+## 快速入门 (Go语言版本)
 
 以下为 [./hello.go](./hello.go) 的内容:
 
@@ -183,6 +183,57 @@ func main() {
 其中 `-id` 和 `-key` 分别为 AccessKey 的公钥和私钥.
 
 更完整的例子可以参考 [./pkg/cmd/qcli](./pkg/cmd/qcli) 的实现.
+
+
+## 快速入门([GopherLua](https://github.com/yuin/gopher-lua) 版本)
+
+[hello-lua.go](hello-lua.go):
+
+```go
+package main
+
+import (
+	"github.com/yuin/gopher-lua"
+
+	qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
+)
+
+func main() {
+	L := lua.NewState()
+	defer L.Close()
+
+	qc_iaas.Preload(L)
+
+	if err := L.DoFile("hello.lua"); err != nil {
+		panic(err)
+	}
+}
+```
+
+[hello.lua](hello.lua):
+
+```lua
+local qc = require("qingcloud.iaas")
+
+print("hello, 青云!")
+
+print(qc.copyright)
+
+print(qc.version)
+print(qc.version_info.git_sha1_version)
+print(qc.version_info.build_date)
+
+local config = qc.LoadJSON("~/.qingcloud/qcli.json")
+local client = qc.Client:new(config)
+
+local reply, err = client:DescribeInstances({})
+assert(err == nil)
+print(type(reply))
+
+print(reply.action)
+print(reply.ret_code)
+print(reply.message)
+```
 
 ## 版权
 
