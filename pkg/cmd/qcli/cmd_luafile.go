@@ -11,6 +11,8 @@ import (
 
 	"github.com/urfave/cli"
 	"github.com/yuin/gopher-lua"
+
+	qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
 )
 
 // touch qclifile.lua
@@ -50,6 +52,7 @@ var cmdLuaMake = cli.Command{
 		L.SetGlobal("arg", argtb)
 
 		luaOpenSDK(c, L)
+		qc_iaas.Preload(L)
 
 		if c.IsSet("dir") {
 			if newdir := c.String("dir"); newdir != "" {
