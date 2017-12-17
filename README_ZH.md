@@ -226,13 +226,20 @@ print(qc.version_info.build_date)
 local config = qc.LoadJSON("~/.qingcloud/qcli.json")
 local client = qc.Client:new(config)
 
-local reply, err = client:DescribeInstances({})
+local reply, err = client:DescribeInstances {
+	zone = "pek3a"
+}
 assert(err == nil)
 print(type(reply))
 
 print(reply.action)
 print(reply.ret_code)
 print(reply.message)
+
+for i = 1, #reply.instance_set do
+	local item = reply.instance_set[i]
+	print(i, item.instance_id, item.instance_name)
+end
 ```
 
 ## 版权

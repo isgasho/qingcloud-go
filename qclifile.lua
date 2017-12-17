@@ -24,3 +24,8 @@ print(type(reply))
 print(reply.action)
 print(reply.ret_code)
 print(reply.message)
+
+for i = 1, #reply.instance_set do
+	local item = reply.instance_set[i]
+	print(i, item.instance_id, item.instance_name)
+end
