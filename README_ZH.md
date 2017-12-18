@@ -242,6 +242,12 @@ for i = 1, #reply.instance_set do
 end
 ```
 
+或者通过 `qlua` 命令行解释执行:
+
+	$ go install github.com/chai2010/qingcloud-go/cmd/qlua
+	$ qlua hello.lua
+
+
 ## 版权
 
 The Apache License.

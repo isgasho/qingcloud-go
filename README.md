@@ -238,6 +238,12 @@ for i = 1, #reply.instance_set do
 end
 ```
 
+Or run with `qlua` command:
+
+	$ go install github.com/chai2010/qingcloud-go/cmd/qlua
+	$ qlua hello.lua
+
+
 ## License
 
 The Apache License.
