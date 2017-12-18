@@ -15,11 +15,12 @@ RUN go get github.com/golang/protobuf/protoc-gen-go
 RUN go get github.com/devnev/godoc2ghmd
 
 RUN make generate
-RUN go install ./cmd/qcli
+RUN go install ./cmd/...
 
 FROM alpine:3.6
 
 COPY --from=builder /go/bin/qcli /usr/local/bin/qcli
+COPY --from=builder /go/bin/qlua /usr/local/bin/qlua
 
 ENTRYPOINT []
 CMD ["/usr/local/bin/qcli"]
