@@ -4,17 +4,34 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"net/http"
 	"os"
 	"runtime/pprof"
 
 	"github.com/yuin/gopher-lua"
 	"github.com/yuin/gopher-lua/parse"
 
-	qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
+	lua_socket "github.com/BixData/gluasocket"
+	lua_http "github.com/cjoudrey/gluahttp"
+	lua_json "github.com/layeh/gopher-json"
+	lua_lfs "github.com/layeh/gopher-lfs"
+
+	lua_lustache "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lustache"
+	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
 )
 
 func main() {
 	os.Exit(mainAux())
+}
+
+func preload(L *lua.LState) {
+	lua_json.Preload(L)
+	lua_lfs.Preload(L)
+	lua_socket.Preload(L)
+	L.PreloadModule("http", lua_http.NewHttpModule(&http.Client{}).Loader)
+
+	lua_qc_iaas.Preload(L)
+	lua_lustache.Preload(L)
 }
 
 func mainAux() int {
@@ -68,7 +85,7 @@ Available options are:
 		fmt.Println(lua.PackageCopyRight)
 	}
 
-	qc_iaas.Preload(L)
+	preload(L)
 
 	if len(opt_l) > 0 {
 		if err := L.DoFile(opt_l); err != nil {
