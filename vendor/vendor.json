@@ -3,6 +3,90 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "3E6y4W80xCcaRjk0ADlTOwroBC0=",
+			"path": "github.com/BixData/gluasocket",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "d5mbToRdni+u1p66NnNvmomLkMY=",
+			"path": "github.com/BixData/gluasocket/ltn12",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "ADe8fpcxXNvzt+G06Cz/G194FK4=",
+			"path": "github.com/BixData/gluasocket/mime",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "Jk/ZG1QiMaLMIFvlBfgBrfZp3WM=",
+			"path": "github.com/BixData/gluasocket/mimecore",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "J+4wltgUYYwu8nohsY042O0fs9M=",
+			"path": "github.com/BixData/gluasocket/socket",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "D2ZcBheBkq+0xu3CvY5rmmmWepo=",
+			"path": "github.com/BixData/gluasocket/socketcore",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "NT/3lM5UgZAhwSn8xX4aWpN/WDI=",
+			"path": "github.com/BixData/gluasocket/socketexcept",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "t80qytu64+o1dhupjBJQMr/1jb4=",
+			"path": "github.com/BixData/gluasocket/socketftp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "fIiP3P94v2LEADBBVzqvunX29h0=",
+			"path": "github.com/BixData/gluasocket/socketheaders",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "Uou5UfuSRw5cDXsArWkqiD/8dVI=",
+			"path": "github.com/BixData/gluasocket/sockethttp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "GyHd4wfVe9lrovYj6cb+3OFLltY=",
+			"path": "github.com/BixData/gluasocket/socketsmtp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "ltz9mVgP/e7VW0QKFraWVoatufU=",
+			"path": "github.com/BixData/gluasocket/sockettp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "E54isT8/OIh8PdrTHjaIauW96XU=",
+			"path": "github.com/BixData/gluasocket/socketurl",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "a6NifIaomYe/FKneLi6f1OZawyQ=",
+			"path": "github.com/cjoudrey/gluahttp",
+			"revision": "b4bfe0c50fea948dcbf3966e120996d6607bbd89",
+			"revisionTime": "2016-10-27T10:20:59Z"
+		},
+		{
 			"checksumSHA1": "t/sQ9OAykIvWiNL6sL994a2uEYo=",
 			"path": "github.com/golang/protobuf/descriptor",
 			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
@@ -39,6 +123,12 @@
 			"revisionTime": "2017-07-26T21:28:29Z"
 		},
 		{
+			"checksumSHA1": "Z4RIWIXH05QItZqVbmbONO9mWig=",
+			"path": "github.com/golang/protobuf/ptypes/any",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
 			"checksumSHA1": "Z5Cpi8mr3kfpZ/CdmudThTWQ0Mo=",
 			"path": "github.com/golang/protobuf/ptypes/struct",
 			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
@@ -49,6 +139,18 @@
 			"path": "github.com/golang/protobuf/ptypes/timestamp",
 			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
 			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "dQ3aA36uYUDuYClwqn7LJX7BxkU=",
+			"path": "github.com/layeh/gopher-json",
+			"revision": "c128cc74278be889c4381681712931976fe0d88b",
+			"revisionTime": "2016-12-24T16:41:57Z"
+		},
+		{
+			"checksumSHA1": "CVohq0qE463Kd3Y0jWXx2wzuec4=",
+			"path": "github.com/layeh/gopher-lfs",
+			"revision": "023c51c79dfa6bc42efcb50a3d49bf755483312b",
+			"revisionTime": "2016-12-24T16:45:56Z"
 		},
 		{
 			"checksumSHA1": "9/2bmiVZTtVxrBcK+zb/VBQ2Eh0=",
