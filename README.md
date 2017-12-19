@@ -211,38 +211,59 @@ func main() {
 ```lua
 local qc = require("qingcloud.iaas")
 
-print("hello, 青云!")
+if #arg == 1 and arg[1] == '-v' then
+	print(qc.version)
+	print(qc.version_info.git_sha1_version)
+	print(qc.version_info.build_date)
+	do return end
+end
 
-print(qc.copyright)
-
-print(qc.version)
-print(qc.version_info.git_sha1_version)
-print(qc.version_info.build_date)
+if #arg == 1 and arg[1] == '-h' then
+	print(qc.copyright)
+	print("hello, 青云!")
+	do return end
+end
 
 local config = qc.LoadJSON("~/.qingcloud/qcli.json")
 local client = qc.Client:new(config)
 
 local reply, err = client:DescribeInstances {
-	zone = "pek3a"
+	--owner = "usr-xxxxxxxx",
+	zone = "pek3a",
+	limit = 100
 }
-assert(err == nil)
-print(type(reply))
+if err ~= nil then
+	print("error:", err)
+	do return end
+end
 
-print(reply.action)
-print(reply.ret_code)
-print(reply.message)
+if reply.ret_code ~= 0 then
+	print(reply.ret_code)
+	print(reply.message)
+	do return end
+end
 
 for i = 1, #reply.instance_set do
 	local item = reply.instance_set[i]
-	print(i, item.instance_id, item.instance_name)
+	print(i,
+		item.instance_id,
+		item.instance_type,
+		item.memory_current..'MB',
+		item.status,
+		item.create_time,
+		item.instance_name
+	)
 end
+
+print('total: ' .. reply.total_count)
 ```
 
 Or run with `qlua` command:
 
 	$ go install github.com/chai2010/qingcloud-go/cmd/qlua
+	$ qlua hello.lua -h
+	$ qlua hello.lua -v
 	$ qlua hello.lua
-
 
 ## License
 
