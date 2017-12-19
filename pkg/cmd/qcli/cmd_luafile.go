@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
 
 	"github.com/urfave/cli"
 	"github.com/yuin/gopher-lua"
@@ -23,6 +24,20 @@ import (
 	lua_lustache "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lustache"
 	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
 )
+
+func init() {
+	if os.PathSeparator == '/' { // unix-like
+		lua.LuaPathDefault = "./?.lua;"
+		lua.LuaPathDefault += pkgGetHomePath() + "/.qingcloud/lua/?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "/?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "/?/init.lua"
+	} else { // windows
+		lua.LuaPathDefault = ".\\?.lua;"
+		lua.LuaPathDefault += pkgGetHomePath() + "\\.qingcloud\\lua\\?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "\\?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "\\?\\init.lua"
+	}
+}
 
 func preload(L *lua.LState) {
 	lua_json.Preload(L)
@@ -115,4 +130,19 @@ var cmdLuaMake = cli.Command{
 
 		return nil
 	},
+}
+
+func pkgGetHomePath() string {
+	home := os.Getenv("HOME")
+	if runtime.GOOS == "windows" {
+		home = os.Getenv("HOMEDRIVE") + os.Getenv("HOMEPATH")
+		if home == "" {
+			home = os.Getenv("USERPROFILE")
+		}
+	}
+	if home == "" {
+		home = "~"
+	}
+
+	return home
 }

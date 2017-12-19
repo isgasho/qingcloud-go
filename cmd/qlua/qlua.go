@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"runtime"
 	"runtime/pprof"
 
 	"github.com/yuin/gopher-lua"
@@ -24,6 +25,20 @@ import (
 
 func main() {
 	os.Exit(mainAux())
+}
+
+func init() {
+	if os.PathSeparator == '/' { // unix-like
+		lua.LuaPathDefault = "./?.lua;"
+		lua.LuaPathDefault += pkgGetHomePath() + "/.qingcloud/lua/?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "/?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "/?/init.lua"
+	} else { // windows
+		lua.LuaPathDefault = ".\\?.lua;"
+		lua.LuaPathDefault += pkgGetHomePath() + "\\.qingcloud\\lua\\?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "\\?.lua;"
+		lua.LuaPathDefault += lua.LuaLDir + "\\?\\init.lua"
+	}
 }
 
 func preload(L *lua.LState) {
@@ -198,4 +213,19 @@ func multiline(ml string, reader *bufio.Reader, L *lua.LState) (string, error) {
 			}
 		}
 	}
+}
+
+func pkgGetHomePath() string {
+	home := os.Getenv("HOME")
+	if runtime.GOOS == "windows" {
+		home = os.Getenv("HOMEDRIVE") + os.Getenv("HOMEPATH")
+		if home == "" {
+			home = os.Getenv("USERPROFILE")
+		}
+	}
+	if home == "" {
+		home = "~"
+	}
+
+	return home
 }
