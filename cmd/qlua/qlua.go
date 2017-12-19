@@ -17,6 +17,7 @@ import (
 	lua_json "github.com/layeh/gopher-json"
 	lua_lfs "github.com/layeh/gopher-lfs"
 
+	lua_inspect "github.com/chai2010/qingcloud-go/pkg/gopher-lua/inspect"
 	lua_lustache "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lustache"
 	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
 )
@@ -35,6 +36,7 @@ func preload(L *lua.LState) {
 
 	lua_qc_iaas.Preload(L)
 	lua_lustache.Preload(L)
+	lua_inspect.Preload(L)
 }
 
 func mainAux() int {
