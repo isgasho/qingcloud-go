@@ -13,6 +13,7 @@ import (
 
 	lua_socket "github.com/BixData/gluasocket"
 	lua_http "github.com/cjoudrey/gluahttp"
+	lua_url "github.com/cjoudrey/gluaurl"
 	lua_json "github.com/layeh/gopher-json"
 	lua_lfs "github.com/layeh/gopher-lfs"
 
@@ -28,7 +29,9 @@ func preload(L *lua.LState) {
 	lua_json.Preload(L)
 	lua_lfs.Preload(L)
 	lua_socket.Preload(L)
+
 	L.PreloadModule("http", lua_http.NewHttpModule(&http.Client{}).Loader)
+	L.PreloadModule("url", lua_url.Loader)
 
 	lua_qc_iaas.Preload(L)
 	lua_lustache.Preload(L)

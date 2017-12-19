@@ -87,6 +87,12 @@
 			"revisionTime": "2016-10-27T10:20:59Z"
 		},
 		{
+			"checksumSHA1": "ClLRczPcRAAKdvrnEAeje/qrBw8=",
+			"path": "github.com/cjoudrey/gluaurl",
+			"revision": "31cbb9bef199454415879f2e6d609d1136d60cad",
+			"revisionTime": "2016-10-28T22:26:11Z"
+		},
+		{
 			"checksumSHA1": "t/sQ9OAykIvWiNL6sL994a2uEYo=",
 			"path": "github.com/golang/protobuf/descriptor",
 			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
