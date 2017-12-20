@@ -13,7 +13,7 @@ import (
 	"github.com/yuin/gopher-lua"
 )
 
-var pkgModFileMap = map[string]string{
+var pkgModFileNameMap = map[string]string{
 	"Lake":             "lake-0.1.0/Lake/init.lua",
 	"Lake.Application": "lake-0.1.0/Lake/Application.lua",
 	"Lake.Task":        "lake-0.1.0/Lake/Task.lua",
@@ -21,7 +21,7 @@ var pkgModFileMap = map[string]string{
 }
 
 func Preload(L *lua.LState) {
-	for modName, modFileName := range pkgModFileMap {
+	for modName, modFileName := range pkgModFileNameMap {
 		modName, modFileName := modName, modFileName
 
 		L.PreloadModule(modName, func(L *lua.LState) int {

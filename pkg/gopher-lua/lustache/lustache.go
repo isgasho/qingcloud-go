@@ -8,11 +8,12 @@ package gopherlua_lustache
 
 import (
 	"log"
+	"strings"
 
 	"github.com/yuin/gopher-lua"
 )
 
-var pkgModCodeMap = map[string]string{
+var pkgModFileNameMap = map[string]string{
 	"lustache":          Files["lustache-1.3.1-0/src/lustache.lua"],
 	"lustache.context":  Files["lustache-1.3.1-0/src/lustache/context.lua"],
 	"lustache.renderer": Files["lustache-1.3.1-0/src/lustache/renderer.lua"],
@@ -20,11 +21,11 @@ var pkgModCodeMap = map[string]string{
 }
 
 func Preload(L *lua.LState) {
-	for modName, modCode := range pkgModCodeMap {
-		modName, modCode := modName, modCode
+	for modName, modFileName := range pkgModFileNameMap {
+		modName, modFileName := modName, modFileName
 
 		L.PreloadModule(modName, func(L *lua.LState) int {
-			if err := L.DoString(modCode); err != nil {
+			if err := dostring(L, modFileName, Files[modFileName]); err != nil {
 				log.Fatal(err)
 			}
 
@@ -35,4 +36,18 @@ func Preload(L *lua.LState) {
 			return 0
 		})
 	}
+}
+
+func dostring(ls *lua.LState, name, source string) error {
+	if name == "" {
+		name = "<string>"
+	}
+
+	fn, err := ls.Load(strings.NewReader(source), name)
+	if err != nil {
+		return err
+	}
+
+	ls.Push(fn)
+	return ls.PCall(0, lua.MultRet, nil)
 }

@@ -25,7 +25,7 @@ func Preload(L *lua.LState) {
 	code := strings.Replace(pkgModCode, "{{.ModName}}", pkgModName, -1)
 
 	L.PreloadModule(pkgModName, func(L *lua.LState) int {
-		if err := L.DoString(code); err != nil {
+		if err := dostring(L, "gopherlua_hello/hello.lua", code); err != nil {
 			log.Fatal(err)
 		}
 
@@ -35,4 +35,18 @@ func Preload(L *lua.LState) {
 		}
 		return 0
 	})
+}
+
+func dostring(ls *lua.LState, name, source string) error {
+	if name == "" {
+		name = "<string>"
+	}
+
+	fn, err := ls.Load(strings.NewReader(source), name)
+	if err != nil {
+		return err
+	}
+
+	ls.Push(fn)
+	return ls.PCall(0, lua.MultRet, nil)
 }
