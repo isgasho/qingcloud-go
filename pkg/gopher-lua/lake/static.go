@@ -62,6 +62,7 @@ local Application = Object:clone{
 	name = nil,
 	lakefiles = nil,
 	lakefile = nil,
+	lakefile_content = nil,
 	prerequisites = {},
 	tasks = {},
 }
@@ -79,6 +80,13 @@ function Application:new(name)
 		lakefiles = DEFAULT_LAKEFILES,
 	}
 	return self
+end
+
+function Application:show_tasks()
+	self:loadLakefile()
+	for _, task in pairs(self.tasks) do
+		print(task.name)
+	end
 end
 
 --- Invoke all tasks in args.
@@ -109,7 +117,10 @@ function Application:loadLakefile()
 		file = self:findLakefile()
 		self.lakefile = file
 	end
-	if file then
+	if self.lakefile_content then
+		local f = assert(loadstring(self.lakefile_content))
+		f()
+	else
 		self.lakefile = file
 		local f = assert(loadfile(file))
 		f()
