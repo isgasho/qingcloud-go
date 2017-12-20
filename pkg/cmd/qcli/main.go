@@ -48,9 +48,7 @@ func Main() {
 	app.Commands = append(app.Commands,
 		cmdList,
 		cmdInfo,
-		cmdMachine,
-		cmdSignature,
-		cmdLuaMake,
+		cmdLake,
 	)
 
 	app.Run(os.Args)
