@@ -24,6 +24,10 @@ var cmdLake = cli.Command{
 	Usage:   "build target with lakefile.lua",
 	Hidden:  false,
 	Flags: []cli.Flag{
+		cli.BoolFlag{
+			Name:  "tasks, t",
+			Usage: "show task list",
+		},
 		cli.StringFlag{
 			Name:  "file, f",
 			Usage: "set lake/make file",
@@ -43,14 +47,6 @@ var cmdLake = cli.Command{
 		L := lua.NewState()
 		defer L.Close()
 
-		argtb := L.NewTable()
-		for i := 0; i < c.NArg(); i++ {
-			L.RawSet(argtb, lua.LNumber(i+1), lua.LString(c.Args()[i]))
-		}
-		L.SetGlobal("arg", argtb)
-
-		luaPreload(L)
-
 		if c.IsSet("dir") {
 			if newdir := c.String("dir"); newdir != "" {
 				if err := os.Chdir(newdir); err != nil {
@@ -59,36 +55,65 @@ var cmdLake = cli.Command{
 			}
 		}
 
-		if c.IsSet("stdin") {
-			// EOF: UNIX Ctrl+D, Windows Ctrl+Z
-			b, err := ioutil.ReadAll(os.Stdin)
-			if err != nil {
-				log.Fatal(err)
+		L.SetGlobal("arg", func() *lua.LTable {
+			tb := L.NewTable()
+			for i := 0; i < c.NArg(); i++ {
+				tb.Append(lua.LString(c.Args()[i]))
 			}
-			prog := string(b)
-			if err := L.DoString(prog); err != nil {
-				log.Fatal(err)
-			}
-			return nil
-		}
+			return tb
+		}())
 
-		lakefile := c.String("file")
-		fi, err := os.Stat(lakefile)
-		if err != nil {
-			if os.IsNotExist(err) {
-				log.Fatalf("%q is not exists", lakefile)
-			} else {
-				log.Fatal(err)
+		L.SetGlobal("lake_flags", func() *lua.LTable {
+			tb := L.NewTable()
+			if c.IsSet("file") {
+				if s := c.String("file"); s != "" {
+					tb.RawSetString("lakefile_name", lua.LString(s))
+				}
 			}
-		}
-		if fi.IsDir() {
-			log.Fatalf("%q is not file", lakefile)
-		}
+			if c.IsSet("stdin") {
+				// EOF: UNIX Ctrl+D, Windows Ctrl+Z
+				b, err := ioutil.ReadAll(os.Stdin)
+				if err != nil {
+					log.Fatal(err)
+				}
+				tb.RawSetString("lakefile_content", lua.LString(b))
+			}
+			if c.IsSet("tasks") {
+				tb.RawSetString("show_tasks", lua.LTrue)
+			}
+			return tb
+		}())
 
-		if err := L.DoFile(lakefile); err != nil {
+		luaPreload(L)
+
+		if err := luaDostring(L, ":/lake/main.lua", lakeMainCode); err != nil {
 			log.Fatal(err)
 		}
-
 		return nil
 	},
 }
+
+const lakeMainCode = `
+local Lake = require("Lake")
+
+local lake = Lake.Application:new()
+
+if lake_flags.lakefile_name then
+	lake.lakefile = lake_flags.lakefile_name
+end
+if lake_flags.lakefile_content then
+	lake.lakefile_content = lake_flags.lakefile_content
+end
+
+-- The Lake "DSL"
+-- These functions allow to interface with the build engine in a succinct way
+function task(name, prerequisites, action)
+	lake:defineTask(name, prerequisites, action)
+end
+
+if lake_flags.show_tasks then
+	lake:show_tasks()
+else
+	lake:run(arg)
+end
+`

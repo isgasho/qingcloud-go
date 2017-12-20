@@ -6,26 +6,20 @@
 
 local qc = require("qingcloud.iaas")
 
-print("hello, 青云!")
+task("default", {"verion"}, function()
+	print("done")
+end)
 
-print(qc.copyright)
+task("verion", nil, function()
+	print("qc.version")
+	print("git sha1: " .. qc.version_info.git_sha1_version)
+	print("build time: " .. qc.version_info.build_date)
+end)
 
-print(qc.version)
-print(qc.version_info.git_sha1_version)
-print(qc.version_info.build_date)
+task("doc", {"install"}, function()
+	print("doc")
+end)
 
-local config = qc.LoadJSON("~/.qingcloud/qcli.json")
-local client = qc.Client:new(config)
-
-local reply, err = client:DescribeInstances({})
-assert(err == nil)
-print(type(reply))
-
-print(reply.action)
-print(reply.ret_code)
-print(reply.message)
-
-for i = 1, #reply.instance_set do
-	local item = reply.instance_set[i]
-	print(i, item.instance_id, item.instance_name)
-end
+task("install", nil, function(task, destdir)
+	print("install")
+end)

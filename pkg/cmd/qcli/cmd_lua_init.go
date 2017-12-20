@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"runtime"
+	"strings"
 
 	"github.com/yuin/gopher-lua"
 
@@ -49,6 +50,20 @@ func luaPreload(L *lua.LState) {
 	lua_qc_iaas.Preload(L)
 	lua_lustache.Preload(L)
 	lua_inspect.Preload(L)
+}
+
+func luaDostring(ls *lua.LState, name, source string) error {
+	if name == "" {
+		name = "<string>"
+	}
+
+	fn, err := ls.Load(strings.NewReader(source), name)
+	if err != nil {
+		return err
+	}
+
+	ls.Push(fn)
+	return ls.PCall(0, lua.MultRet, nil)
 }
 
 func pkgGetHomePath() string {
