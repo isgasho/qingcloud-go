@@ -6,6 +6,9 @@
 
 local qc = require("qingcloud.iaas")
 
+local config = qc.LoadJSON("~/.qingcloud/qcli.json")
+local client = qc.Client:new(config)
+
 task("default", {"verion"}, function()
 	print("done")
 end)
@@ -22,4 +25,36 @@ end)
 
 task("install", nil, function(task, destdir)
 	print("install")
+end)
+
+task("list.instance", nil, function(task, destdir)
+	local reply, err = client:DescribeInstances {
+		--owner = "usr-xxxxxxxx",
+		zone = "pek3a",
+		limit = 100
+	}
+	if err ~= nil then
+		error(err)
+	end
+
+	if reply.ret_code ~= 0 then
+		error(string.format("err: %d, %s", reply.ret_code, reply.message))
+	end
+
+	for i = 1, #reply.instance_set do
+		local item = reply.instance_set[i]
+		--if item.status ~= "ceased" then
+			print(string.format(
+				"%s %8s %10s %10s %s %s",
+				item.instance_id,
+				item.instance_type,
+				item.memory_current..'MB',
+				item.status,
+				item.create_time,
+				item.instance_name
+			))
+		--end
+	end
+
+	-- print('total: ' .. reply.total_count)
 end)
