@@ -63,7 +63,8 @@ AUTHOR:
    ChaiShushan <chaishushan@gmail.com>
 
 COMMANDS:
-     help, h  Shows a list of commands or help for one command
+     lake, make  build target with lakefile.lua
+     help, h     Shows a list of commands or help for one command
 
    SDK API Style Command:
      alarm               AlarmService
@@ -119,6 +120,12 @@ We can create a config file (`~/.qingcloud/qcli.json`) for `qcli`:
 	"zone": "pek3a"
 }
 ```
+
+Enter the following command to invoke lake target ([lakefile.lua](lakefile.lua)):
+
+	$ qcli lake -h
+	$ qcli lake -t
+	$ qcli lake list.instance
 
 Enter the following command to describe instances:
 

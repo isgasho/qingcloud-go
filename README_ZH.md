@@ -63,7 +63,8 @@ AUTHOR:
    ChaiShushan <chaishushan@gmail.com>
 
 COMMANDS:
-     help, h  Shows a list of commands or help for one command
+     lake, make  build target with lakefile.lua
+     help, h     Shows a list of commands or help for one command
 
    SDK API Style Command:
      alarm               AlarmService
@@ -119,6 +120,12 @@ chai-mba:qingcloud-go chai$
 	"zone": "pek3a"
 }
 ```
+
+qcli 内置了一个类似 make 到构建系统, 输入以下命令查看 ([lakefile.lua](lakefile.lua)):
+
+	$ qcli lake -h
+	$ qcli lake -t
+	$ qcli lake list.instance
 
 要查看主机数量, 可以输入以下命令:
 
