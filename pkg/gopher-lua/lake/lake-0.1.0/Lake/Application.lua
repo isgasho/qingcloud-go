@@ -54,7 +54,7 @@ function Application:run(args)
 		table.insert(targets, task)
 	end
 	-- Add default task if none were specified
-	if #self.tasks == 0 then
+	if #targets == 0 then
 		table.insert(targets, "default")
 	end
 	self:loadLakefile()
@@ -87,7 +87,7 @@ function Application:_resolvePrerequisites()
 		local task, prerequisite = unpack(edge)
 		if self.tasks[prerequisite] then
 			task:enhance({self.tasks[prerequisite]})
-			self.prerequisites[i] = nil
+			-- self.prerequisites[i] = nil
 		end
 	end
 end
@@ -123,7 +123,7 @@ end
 -- (e.g. {"bar", "baz"}) or nil if no arguments are given.
 local function parseTaskArguments(raw_args)
 	-- Split task name and argument list (e.g. "[foo, bar]")
-	local name, arg_list = raw_args:match("([^\[]+)%[(.-)%]")
+	local name, arg_list = raw_args:match("([^%[]+)%[(.-)%]")
 	local args = {}
 	if arg_list then
 		-- Split argument list and add each element to args

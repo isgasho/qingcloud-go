@@ -80,6 +80,7 @@ function Task:enhance(prerequisites, actions)
 		for _, prereq in ipairs(self.prerequisites) do
 			if prereq == task then
 				hasPrerequisite = true
+				break
 			end
 		end
 		if not hasPrerequisite then
