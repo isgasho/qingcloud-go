@@ -68,7 +68,7 @@ function getopt.getopt( arg, options )
 	local tab = {}
 	local newarg = {}
 
-	options = options or {}
+	options = options or ""
 
 	for k, v in ipairs(arg) do
 		if string.sub( v, 1, 2) == "--" then

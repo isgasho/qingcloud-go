@@ -26,7 +26,7 @@ func main() {
 const code = `
 local getopt = require("getopt")
 
-local arg = {"-aone", "-btwo", "-c=three", "--file=foo.lua", "abc", "123"}
+local arg = {"-aone", "-btwo", "-c=three", "-d", "--file=foo.lua", "abc", "123"}
 local opts, arg = getopt( arg, "abc" )
 
 for k, v in pairs(opts) do
@@ -42,6 +42,7 @@ output:
 	a       one
 	b       two
 	c       =three
+	d       true
 	file    foo.lua
 	1       abc
 	2       123
