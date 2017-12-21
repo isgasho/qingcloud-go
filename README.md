@@ -137,7 +137,7 @@ or plus the `-d` options to enable the debug mode:
 
 *Notes: the `qcli` is work in progress, welcome to give help!*
 
-## Qucik Guide (Go Version)
+## Quick Guide (Go Version)
 
 Here is the [./hello.go](./hello.go)'s content:
 
@@ -188,7 +188,7 @@ The `-id` and `-key` options is for `AccessKey` and `SecretAccessKey`.
 
 The [./pkg/cmd/qcli](./pkg/cmd/qcli) is a complete example.
 
-## Qucik Guide ([GopherLua](https://github.com/yuin/gopher-lua) Version)
+## Quick Guide ([GopherLua](https://github.com/yuin/gopher-lua) Version)
 
 [hello-lua.go](hello-lua.go):
 
@@ -272,7 +272,7 @@ Or run with `qlua` command:
 	$ qlua hello.lua -v
 	$ qlua hello.lua
 
-## Qucik Guide (qcli lake Version)
+## Quick Guide (`qcli lake` Version)
 
 [lakefile.lua](lakefile.lua):
 
