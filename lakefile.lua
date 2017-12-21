@@ -13,7 +13,7 @@ task("default", {"verion"}, function()
 	print("done")
 end)
 
-task("verion", nil, function()
+task("verion", nil, "print version", function(task)
 	print("qc.version")
 	print("git sha1: " .. qc.version_info.git_sha1_version)
 	print("build time: " .. qc.version_info.build_date)
@@ -24,7 +24,7 @@ task("doc", {"install"}, function()
 end)
 
 task("install", nil, function(task, destdir)
-	print("install")
+	print("install:", task.name, destdir)
 end)
 
 task("list.instance", nil, function(task, destdir)

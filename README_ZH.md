@@ -295,7 +295,7 @@ task("doc", {"install"}, function()
 end)
 
 task("install", nil, function(task, destdir)
-	print("install")
+	print("install:", task.name, destdir)
 end)
 ```
 
@@ -304,6 +304,7 @@ end)
 	$ qcli lake -h
 	$ qcli lake -t
 	$ qcli lake
+	$ qcli make install[dir=/path/to/dir]
 
 ## 版权
 
