@@ -84,8 +84,20 @@ end
 
 function Application:show_tasks()
 	self:loadLakefile()
+	local maxNameLen = 1
+	for name, _ in pairs(self.tasks) do
+		if #name > maxNameLen then
+			maxNameLen = #name
+		end
+	end
+
+	local fmt = "%-" .. maxNameLen .. "s - %s"
 	for _, task in pairs(self.tasks) do
-		print(task.name)
+		if task.describe and task.describe ~= "" then
+			print(string.format(fmt, task.name, task.describe))
+		else
+			print(string.format(fmt, task.name, task.name .. " target"))
+		end
 	end
 end
 
@@ -238,6 +250,8 @@ local Task = Object:clone()
 
 --- The name of a task.
 Task.name = nil
+--- The describe of a task.
+Task.describe = nil
 --- Other tasks this task depends on.
 Task.prerequisites = {}
 --- Actions to be executed for this task.
@@ -255,6 +269,7 @@ function Task:new(name, prerequisites, action)
 	assert(name and type(name) == "string")
 	return Task:clone{
 		name = name,
+		describe = "",
 		prerequisites = prerequisites or {},
 		actions = {action}
 	}

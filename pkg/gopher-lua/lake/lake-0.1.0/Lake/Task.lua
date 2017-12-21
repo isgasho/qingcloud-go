@@ -26,6 +26,8 @@ local Task = Object:clone()
 
 --- The name of a task.
 Task.name = nil
+--- The describe of a task.
+Task.describe = nil
 --- Other tasks this task depends on.
 Task.prerequisites = {}
 --- Actions to be executed for this task.
@@ -43,6 +45,7 @@ function Task:new(name, prerequisites, action)
 	assert(name and type(name) == "string")
 	return Task:clone{
 		name = name,
+		describe = "",
 		prerequisites = prerequisites or {},
 		actions = {action}
 	}
