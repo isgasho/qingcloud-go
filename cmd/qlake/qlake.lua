@@ -43,8 +43,16 @@ end
 
 -- The Lake "DSL"
 -- These functions allow to interface with the build engine in a succinct way
-function task(name, prerequisites, action)
-	lake:defineTask(name, prerequisites, action)
+function task(name, prerequisites, describeOrAction, action)
+	if type(describeOrAction) == "function" then
+		lake:defineTask(name, prerequisites, describeOrAction)
+	else
+		assert(type(describeOrAction) == "string")
+		assert(type(action) == "function")
+
+		lake:defineTask(name, prerequisites, action)
+		lake.tasks[name].describe = describeOrAction
+	end
 end
 
 -- -t --show_tasks
