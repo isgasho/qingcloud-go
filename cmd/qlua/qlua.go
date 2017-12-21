@@ -18,6 +18,7 @@ import (
 	lua_json "github.com/layeh/gopher-json"
 	lua_lfs "github.com/layeh/gopher-lfs"
 
+	lua_getopt "github.com/chai2010/qingcloud-go/pkg/gopher-lua/getopt"
 	lua_inspect "github.com/chai2010/qingcloud-go/pkg/gopher-lua/inspect"
 	lua_lake "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lake"
 	lua_lustache "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lustache"
@@ -51,9 +52,11 @@ func preload(L *lua.LState) {
 	L.PreloadModule("url", lua_url.Loader)
 
 	lua_lake.Preload(L)
-	lua_qc_iaas.Preload(L)
 	lua_lustache.Preload(L)
 	lua_inspect.Preload(L)
+	lua_getopt.Preload(L)
+
+	lua_qc_iaas.Preload(L)
 }
 
 func mainAux() int {
