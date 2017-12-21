@@ -78,6 +78,10 @@ dist:
 	GOOS=linux   GOARCH=amd64 go build -o ./_dist/qingcloud-cli-linux-amd64/qlua       ./cmd/qlua
 	GOOS=darwin  GOARCH=amd64 go build -o ./_dist/qingcloud-cli-darwin-amd64/qlua      ./cmd/qlua
 
+	cp cmd/qlake/qlake.lua ./_dist/qingcloud-cli-windows-amd64/
+	cp cmd/qlake/qlake.lua ./_dist/qingcloud-cli-linux-amd64/
+	cp cmd/qlake/qlake.lua ./_dist/qingcloud-cli-darwin-amd64/
+
 	cp README.md ./_dist/qingcloud-cli-windows-amd64/
 	cp README.md ./_dist/qingcloud-cli-linux-amd64/
 	cp README.md ./_dist/qingcloud-cli-darwin-amd64/
