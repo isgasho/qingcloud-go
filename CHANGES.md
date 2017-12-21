@@ -4,6 +4,18 @@
 
 TODO
 
+
+### v1.0.0
+
+- 增加 GopherLua 接口
+- qcli 增加 lake 子命令行, 内置青云 Lua 接口, 支持类似 makefile 方式管理任务
+- 增加 qlua 命令,  内置青云 Lua 接口, 用于执行普通的 lua 脚本
+- 增加 qlake 脚本(需要从 qlua 启动), 执行独立的 lakefile 任务
+
+TODO:
+
+- 接口文件审核
+
 ### v0.9.0
 
 - 项目彻底重构, 完全去掉对官方 SDK 的代码引用, 现在的代码是 100% 独立实现的
