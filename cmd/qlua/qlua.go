@@ -23,6 +23,7 @@ import (
 	lua_lake "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lake"
 	lua_lustache "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lustache"
 	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
+	lua_strings "github.com/chai2010/qingcloud-go/pkg/gopher-lua/strings"
 )
 
 func main() {
@@ -44,6 +45,8 @@ func init() {
 }
 
 func preload(L *lua.LState) {
+	lua_strings.Preload(L)
+
 	lua_json.Preload(L)
 	lua_lfs.Preload(L)
 	lua_socket.Preload(L)
