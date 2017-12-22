@@ -245,11 +245,11 @@ func (p *Client) doGet(c *http.Client, query string, output proto.Message) error
 
 func (p *Client) doPost(c *http.Client, query string, output proto.Message) error {
 	if DebugMode {
-		log.Printf("POST: %v, %v\n", p.apiServer, "application/json")
+		log.Printf("POST: %v, %v\n", p.apiServer, "application/x-www-form-urlencoded")
 		log.Printf("Body: %v\n", query)
 	}
 
-	resp, err := c.Post(p.apiServer, "application/json", strings.NewReader(query))
+	resp, err := c.Post(p.apiServer, "application/x-www-form-urlencoded", strings.NewReader(query))
 	if err != nil {
 		return err
 	}
