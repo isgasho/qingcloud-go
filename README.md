@@ -301,6 +301,31 @@ Enter the following command to invoke lake target:
 	$ qcli lake
 	$ qcli make install[dir=/path/to/dir]
 
+Enter the following command to generate [Graphviz](http://www.graphviz.org/) file:
+
+	$ qcli make -g > lakefile-graph.dot
+	$ qcli make -g | dot -Tpng > lakefile-graph.png
+
+[lakefile-graph.dot](lakefile-graph.dot):
+
+```dot
+digraph G {
+	default [label = "default"];
+	version [label = "version"];
+	doc [label = "doc"];
+	install [label = "install"];
+	list_instance [label = "list.instance"];
+
+	default -> version;
+	default -> doc;
+	doc -> install;
+}
+```
+
+[lakefile-graph.png](lakefile-graph.png):
+
+![](lakefile-graph.png):
+
 ## License
 
 The Apache License.

@@ -1,0 +1,11 @@
+digraph G {
+	default [label = "default"];
+	version [label = "version"];
+	doc [label = "doc"];
+	install [label = "install"];
+	list_instance [label = "list.instance"];
+
+	default -> version;
+	default -> doc;
+	doc -> install;
+}

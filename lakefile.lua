@@ -9,11 +9,11 @@ local qc = require("qingcloud.iaas")
 local config = qc.LoadJSON("~/.qingcloud/qcli.json")
 local client = qc.Client:new(config)
 
-task("default", {"verion"}, function()
+task("default", {"version", "doc"}, function()
 	print("done")
 end)
 
-task("verion", nil, "print version", function(task)
+task("version", nil, "print version", function(task)
 	print("qc.version")
 	print("git sha1: " .. qc.version_info.git_sha1_version)
 	print("build time: " .. qc.version_info.build_date)

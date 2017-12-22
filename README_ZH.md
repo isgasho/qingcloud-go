@@ -306,6 +306,33 @@ end)
 	$ qcli lake
 	$ qcli make install[dir=/path/to/dir]
 
+
+输入以下命令生成 [Graphviz](http://www.graphviz.org/) 格式的依赖图:
+
+	$ qcli make -g > lakefile-graph.dot
+	$ qcli make -g | dot -Tpng > lakefile-graph.png
+
+[lakefile-graph.dot](lakefile-graph.dot):
+
+```dot
+digraph G {
+	default [label = "default"];
+	version [label = "version"];
+	doc [label = "doc"];
+	install [label = "install"];
+	list_instance [label = "list.instance"];
+
+	default -> version;
+	default -> doc;
+	doc -> install;
+}
+```
+
+[lakefile-graph.png](lakefile-graph.png):
+
+![](lakefile-graph.png):
+
+
 ## 版权
 
 The Apache License.

@@ -54,6 +54,11 @@ gen-pkgdoc:
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud > ./pkg/cmd/protoc-gen-qingcloud/README.md
 	godoc2ghmd github.com/chai2010/qingcloud-go/pkg/cmd/protoc-gen-qingcloud/utils > ./pkg/cmd/protoc-gen-qingcloud/utils/README.md
 
+lake-graph:
+	go install ./cmd/qcli
+	qcli make -g > lakefile-graph.dot
+	qcli make -g | dot -Tpng > lakefile-graph.png
+
 fmt:
 	go fmt ./...
 
