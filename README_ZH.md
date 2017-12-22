@@ -282,11 +282,11 @@ print('total: ' .. reply.total_count)
 [lakefile.lua](lakefile.lua):
 
 ```lua
-task("default", {"verion"}, function()
+task("default", {"version", "doc"}, function()
 	print("done")
 end)
 
-task("verion", nil, function()
+task("version", nil, function()
 	print("version")
 end)
 
