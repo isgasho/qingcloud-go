@@ -39,8 +39,12 @@ var cmdLake = cli.Command{
 			Value: "",
 		},
 		cli.BoolFlag{
-			Name:  "stdin",
+			Name:  "stdin, s",
 			Usage: "read from stdin",
+		},
+		cli.BoolFlag{
+			Name:  "graph, g",
+			Usage: "generate graphviz file",
 		},
 	},
 	Action: func(c *cli.Context) error {
@@ -80,6 +84,9 @@ var cmdLake = cli.Command{
 			}
 			if c.IsSet("tasks") {
 				tb.RawSetString("show_tasks", lua.LTrue)
+			}
+			if c.IsSet("graph") {
+				tb.RawSetString("gen_graph", lua.LTrue)
 			}
 			return tb
 		}())
@@ -121,6 +128,8 @@ end
 
 if lake_flags.show_tasks then
 	lake:show_tasks()
+elseif lake_flags.gen_graph then
+	print(lake:gen_graph())
 else
 	lake:run(arg)
 end

@@ -46,6 +46,37 @@ function Application:new(name)
 	return self
 end
 
+function Application:gen_graph()
+	self:loadLakefile()
+
+	-- digraph begin
+	local out = "digraph G {\n"
+
+	-- generate nodes
+	for name, task in pairs(self.tasks) do
+		local id = string.gsub(name, "[^a-zA-Z0-9]", "_")
+		out = out .. string.format('\t%s [label = "%s"];\n', id, name)
+	end
+
+	-- generate edge
+	if #self.prerequisites > 0 then
+		out = out .. '\n'
+	end
+	for name, task in pairs(self.tasks) do
+		local id0 = string.gsub(name, "[^a-zA-Z0-9]", "_")
+		for _, prerequisite in ipairs(task.prerequisites or {}) do
+			local id1 = string.gsub(prerequisite.name, "[^a-zA-Z0-9]", "_")
+			out = out .. string.format('\t%s -> %s;\n', id0, id1)
+		end
+	end
+
+	-- digraph end
+	out = out .. "}"
+
+	-- ok
+	return out
+end
+
 function Application:show_tasks()
 	self:loadLakefile()
 	local maxNameLen = 1

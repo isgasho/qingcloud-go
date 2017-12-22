@@ -22,6 +22,7 @@ Options:
   -t --show_tasks show target list
   -s --stdin      read lakefile from stdin
   -f --lakefile   set lakefile
+  -g --graph      generate graphviz file
   -h --help       show help info
 ]]
 
@@ -58,6 +59,8 @@ end
 -- -t --show_tasks
 if opts.t or opts.show_tasks then
 	lake:show_tasks()
+elseif opts.g or opts.graph then
+	print(lake:gen_graph())
 else
 	lake:run(arg)
 end
