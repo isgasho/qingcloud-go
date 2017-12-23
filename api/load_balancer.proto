@@ -47,7 +47,11 @@ service LoadBalancerService {
 	rpc DescribeLoadBalancerPolicyRules(DescribeLoadBalancerPolicyRulesInput) returns (DescribeLoadBalancerPolicyRulesOutput);
 	rpc ModifyLoadBalancerPolicyRuleAttributes(ModifyLoadBalancerPolicyRuleAttributesInput) returns (ModifyLoadBalancerPolicyRuleAttributesOutput);
 	rpc DeleteLoadBalancerPolicyRules(DeleteLoadBalancerPolicyRulesInput) returns (DeleteLoadBalancerPolicyRulesOutput);
-	rpc CreateServerCertificate(CreateServerCertificateInput) returns (CreateServerCertificateOutput);
+	rpc CreateServerCertificate(CreateServerCertificateInput) returns (CreateServerCertificateOutput) {
+		option (qingcloud.api.spec_metadata.method_option) = {
+			http_method: "POST"
+		};
+	}
 	rpc DescribeServerCertificates(DescribeServerCertificatesInput) returns (DescribeServerCertificatesOutput);
 	rpc ModifyServerCertificateAttributes(ModifyServerCertificateAttributesInput) returns (ModifyServerCertificateAttributesOutput);
 	rpc DeleteServerCertificates(DeleteServerCertificatesInput) returns (DeleteServerCertificatesOutput);
@@ -114,6 +118,7 @@ message ModifyLoadBalancerAttributesInput {
 	optional int32 node_count = 4;
 	optional string private_ip = 5;
 	optional string security_group = 6;
+	optional int32 http_header_size = 7;
 }
 message ModifyLoadBalancerAttributesOutput {
 	optional string action = 1;
@@ -475,7 +480,7 @@ message CreateServerCertificateOutput {
 // ----------------------------------------------------------------------------
 
 message DescribeServerCertificatesInput {
-	optional string server_certificates = 1;
+	repeated string server_certificates = 1;
 	optional string search_word = 2;
 	optional int32 verbose = 3;
 	optional int32 offset = 4;

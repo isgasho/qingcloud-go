@@ -419,6 +419,7 @@ message LoadBalancer {
 	repeated Tag tags = 14;
 	optional string transition_status = 15;
 	optional string vxnet_id = 16;
+	repeated EIP eips = 17;
 }
 
 message LoadBalancerListener {

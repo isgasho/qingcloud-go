@@ -41,6 +41,7 @@ service RouterService {
 	rpc DeleteRouterStaticEntries(DeleteRouterStaticEntriesInput) returns (DeleteRouterStaticEntriesOutput);
 	rpc ModifyRouterStaticEntryAttributes(ModifyRouterStaticEntryAttributesInput) returns (ModifyRouterStaticEntryAttributesOutput);
 	rpc DescribeRouterStaticEntries(DescribeRouterStaticEntriesInput) returns (DescribeRouterStaticEntriesOutput);
+	rpc GetVPNCerts(GetVPNCertsInput) returns (GetVPNCertsOutput);
 }
 
 // ----------------------------------------------------------------------------
@@ -367,6 +368,30 @@ message DescribeRouterStaticEntriesOutput {
 
 	repeated RouterStaticEntry router_static_entry_set = 4;
 	optional int32 total_count = 5;
+}
+
+// ----------------------------------------------------------------------------
+
+// https://docs.qingcloud.com/api/router/get_vpn_certs.html
+
+message GetVPNCertsInput {
+	required string router = 1;
+	optional string platform = 2;
+}
+
+message GetVPNCertsOutput {
+	optional string action = 1;
+	optional int32 ret_code = 2;
+	optional string message = 3;
+
+	optional string ca_cert = 4;
+	optional string client_crt = 5;
+	optional string client_key = 6;
+	optional string router_id = 7;
+	optional string static_key = 8;
+	optional string linux_conf_sample = 9;
+	optional string mac_conf_sample = 10;
+	optional string windows_conf_sample = 11;
 }
 
 // ----------------------------------------------------------------------------
