@@ -234,7 +234,7 @@ func init() {
 		ActionName: "CreateServerCertificate",
 		InputType:  reflect.TypeOf((*CreateServerCertificateInput)(nil)),
 		OutputType: reflect.TypeOf((*CreateServerCertificateOutput)(nil)),
-		HttpMethod: "GET",
+		HttpMethod: "POST",
 	}
 	ServiceApiSpecMap["DescribeServerCertificates"] = ServiceApiSpec{
 		ActionName: "DescribeServerCertificates",
@@ -836,7 +836,7 @@ func (p *LoadBalancerService) CreateServerCertificate(input *CreateServerCertifi
 	}
 
 	output = new(CreateServerCertificateOutput)
-	err = client.CallMethod("CreateServerCertificate", "GET", input, output, nil)
+	err = client.CallMethod("CreateServerCertificate", "POST", input, output, nil)
 	if err != nil {
 		return nil, err
 	}

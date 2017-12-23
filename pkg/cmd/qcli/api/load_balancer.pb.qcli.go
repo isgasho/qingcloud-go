@@ -534,6 +534,11 @@ var _flag_LoadBalancerService_ModifyLoadBalancerAttributes = []cli.Flag{
 		Usage: "security group",
 		Value: "",
 	},
+	cli.IntFlag{
+		Name:  "http_header_size",
+		Usage: "http header size",
+		Value: 0,
+	},
 }
 
 func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) error {
@@ -565,6 +570,9 @@ func _func_LoadBalancerService_ModifyLoadBalancerAttributes(c *cli.Context) erro
 		}
 		if c.IsSet("security_group") {
 			in.SecurityGroup = proto.String(c.String("security_group"))
+		}
+		if c.IsSet("http_header_size") {
+			in.HttpHeaderSize = proto.Int32(int32(c.Int("http_header_size")))
 		}
 	}
 
@@ -2020,7 +2028,7 @@ var _flag_LoadBalancerService_DescribeServerCertificates = []cli.Flag{
 	cli.StringFlag{
 		Name:  "server_certificates",
 		Usage: "server certificates",
-		Value: "",
+		Value: "", // json: slice/message/map/time
 	},
 	cli.StringFlag{
 		Name:  "search_word",
@@ -2057,7 +2065,9 @@ func _func_LoadBalancerService_DescribeServerCertificates(c *cli.Context) error 
 	} else {
 		// read from flags
 		if c.IsSet("server_certificates") {
-			in.ServerCertificates = proto.String(c.String("server_certificates"))
+			if err := json.Unmarshal([]byte(c.String("server_certificates")), &in.ServerCertificates); err != nil {
+				log.Fatal(err)
+			}
 		}
 		if c.IsSet("search_word") {
 			in.SearchWord = proto.String(c.String("search_word"))

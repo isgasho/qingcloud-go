@@ -498,6 +498,8 @@ It has these top-level messages:
 	ModifyRouterStaticEntryAttributesOutput
 	DescribeRouterStaticEntriesInput
 	DescribeRouterStaticEntriesOutput
+	GetVPNCertsInput
+	GetVPNCertsOutput
 	CreateS2ServerInput
 	CreateS2ServerOutput
 	DescribeS2ServersInput

@@ -175,6 +175,13 @@ var CmdRouterService = cli.Command{
 			Flags:   _flag_RouterService_DescribeRouterStaticEntries,
 			Action:  _func_RouterService_DescribeRouterStaticEntries,
 		},
+		{
+			Name:    "GetVPNCerts",
+			Aliases: []string{},
+			Usage:   "GetVPNCerts",
+			Flags:   _flag_RouterService_GetVPNCerts,
+			Action:  _func_RouterService_GetVPNCerts,
+		},
 	},
 }
 
@@ -1407,6 +1414,59 @@ func _func_RouterService_DescribeRouterStaticEntries(c *cli.Context) error {
 	}
 
 	out, err := qc.DescribeRouterStaticEntries(in)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	jsonMarshaler := &jsonpb.Marshaler{
+		OrigName:     true,
+		EnumsAsInts:  true,
+		EmitDefaults: true,
+		Indent:       "  ",
+	}
+	s, err := jsonMarshaler.MarshalToString(out)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(s)
+	return nil
+}
+
+var _flag_RouterService_GetVPNCerts = []cli.Flag{
+	cli.StringFlag{
+		Name:  "router",
+		Usage: "router",
+		Value: "",
+	},
+	cli.StringFlag{
+		Name:  "platform",
+		Usage: "platform",
+		Value: "",
+	},
+}
+
+func _func_RouterService_GetVPNCerts(c *cli.Context) error {
+	qc := pb.NewRouterService(pkgGetServerInfo(c))
+	in := new(pb.GetVPNCertsInput)
+
+	if c.NArg() == 1 && c.Args().Get(0) == "-" {
+		// read from stdin json
+		err := jsonpb.Unmarshal(os.Stdin, in)
+		if err != nil {
+			log.Fatal(err)
+		}
+	} else {
+		// read from flags
+		if c.IsSet("router") {
+			in.Router = proto.String(c.String("router"))
+		}
+		if c.IsSet("platform") {
+			in.Platform = proto.String(c.String("platform"))
+		}
+	}
+
+	out, err := qc.GetVPNCerts(in)
 	if err != nil {
 		log.Fatal(err)
 	}

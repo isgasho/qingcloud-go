@@ -43,6 +43,7 @@ type RouterServiceInterface interface {
 	DeleteRouterStaticEntries(in *DeleteRouterStaticEntriesInput) (out *DeleteRouterStaticEntriesOutput, err error)
 	ModifyRouterStaticEntryAttributes(in *ModifyRouterStaticEntryAttributesInput) (out *ModifyRouterStaticEntryAttributesOutput, err error)
 	DescribeRouterStaticEntries(in *DescribeRouterStaticEntriesInput) (out *DescribeRouterStaticEntriesOutput, err error)
+	GetVPNCerts(in *GetVPNCertsInput) (out *GetVPNCertsOutput, err error)
 }
 
 type RouterService struct {
@@ -168,6 +169,12 @@ func init() {
 		ActionName: "DescribeRouterStaticEntries",
 		InputType:  reflect.TypeOf((*DescribeRouterStaticEntriesInput)(nil)),
 		OutputType: reflect.TypeOf((*DescribeRouterStaticEntriesOutput)(nil)),
+		HttpMethod: "GET",
+	}
+	ServiceApiSpecMap["GetVPNCerts"] = ServiceApiSpec{
+		ActionName: "GetVPNCerts",
+		InputType:  reflect.TypeOf((*GetVPNCertsInput)(nil)),
+		OutputType: reflect.TypeOf((*GetVPNCertsOutput)(nil)),
 		HttpMethod: "GET",
 	}
 }
@@ -564,6 +571,27 @@ func (p *RouterService) DescribeRouterStaticEntries(input *DescribeRouterStaticE
 
 	output = new(DescribeRouterStaticEntriesOutput)
 	err = client.CallMethod("DescribeRouterStaticEntries", "GET", input, output, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return
+}
+
+func (p *RouterService) GetVPNCerts(input *GetVPNCertsInput) (output *GetVPNCertsOutput, err error) {
+	client := client.NewClient(
+		p.ServerInfo.GetApiServer(),
+		p.ServerInfo.GetAccessKeyId(),
+		p.ServerInfo.GetSecretAccessKey(),
+		p.ServerInfo.GetZone(),
+	)
+
+	if input == nil {
+		input = new(GetVPNCertsInput)
+	}
+
+	output = new(GetVPNCertsOutput)
+	err = client.CallMethod("GetVPNCerts", "GET", input, output, nil)
 	if err != nil {
 		return nil, err
 	}
