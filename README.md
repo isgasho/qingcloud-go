@@ -31,6 +31,19 @@ spec:
 
 - [api](api)
 
+## qingcloud-go vs [Office SDK API](https://github.com/yunify/qingcloud-sdk-go)
+
+service       | chai2010/qingcloud-go | yunify/qingcloud-sdk-go
+------------- | --------------------- | ----------------------
+Alarm         | ✓                     | ✗
+Hadoop        | ✓                     | ✗
+ResourceACL   | ✓                     | ✗
+Span          | ✓                     | ✗
+Spark         | ✓                     | ✗
+S2            | ✓                     | ✗
+Other         | ?                     | ?
+
+
 ## `qcli` command line interface
 
 Docker environment:

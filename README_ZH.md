@@ -31,6 +31,18 @@
 
 - [api](api)
 
+## qingcloud-go vs [Office SDK API](https://github.com/yunify/qingcloud-sdk-go)
+
+service       | chai2010/qingcloud-go | yunify/qingcloud-sdk-go
+------------- | --------------------- | ----------------------
+Alarm         | ✓                     | ✗
+Hadoop        | ✓                     | ✗
+ResourceACL   | ✓                     | ✗
+Span          | ✓                     | ✗
+Spark         | ✓                     | ✗
+S2            | ✓                     | ✗
+Other         | ?                     | ?
+
 ## qcli 命令行
 
 Docker 运行([配置中国区镜像](https://www.docker-cn.com/registry-mirror)):
