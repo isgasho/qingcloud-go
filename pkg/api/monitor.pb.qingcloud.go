@@ -44,40 +44,70 @@ func NewMonitorService(server *ServerInfo) (p *MonitorService) {
 
 func init() {
 	ServiceApiSpecMap["GetMonitor"] = ServiceApiSpec{
-		ActionName: "GetMonitor",
-		InputType:  reflect.TypeOf((*GetMonitorInput)(nil)),
-		OutputType: reflect.TypeOf((*GetMonitorOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MonitorService",
+		ActionName:     "GetMonitor",
+		InputTypeName:  "GetMonitorInput",
+		OutputTypeName: "GetMonitorOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MonitorService)(nil)),
+		InputType:   reflect.TypeOf((*GetMonitorInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetMonitorOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetLoadBalancerMonitor"] = ServiceApiSpec{
-		ActionName: "GetLoadBalancerMonitor",
-		InputType:  reflect.TypeOf((*GetLoadBalancerMonitorInput)(nil)),
-		OutputType: reflect.TypeOf((*GetLoadBalancerMonitorOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MonitorService",
+		ActionName:     "GetLoadBalancerMonitor",
+		InputTypeName:  "GetLoadBalancerMonitorInput",
+		OutputTypeName: "GetLoadBalancerMonitorOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MonitorService)(nil)),
+		InputType:   reflect.TypeOf((*GetLoadBalancerMonitorInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetLoadBalancerMonitorOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetRDBMonitor"] = ServiceApiSpec{
-		ActionName: "GetRDBMonitor",
-		InputType:  reflect.TypeOf((*GetRDBMonitorInput)(nil)),
-		OutputType: reflect.TypeOf((*GetRDBMonitorOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MonitorService",
+		ActionName:     "GetRDBMonitor",
+		InputTypeName:  "GetRDBMonitorInput",
+		OutputTypeName: "GetRDBMonitorOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MonitorService)(nil)),
+		InputType:   reflect.TypeOf((*GetRDBMonitorInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetRDBMonitorOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetCacheMonitor"] = ServiceApiSpec{
-		ActionName: "GetCacheMonitor",
-		InputType:  reflect.TypeOf((*GetCacheMonitorInput)(nil)),
-		OutputType: reflect.TypeOf((*GetCacheMonitorOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MonitorService",
+		ActionName:     "GetCacheMonitor",
+		InputTypeName:  "GetCacheMonitorInput",
+		OutputTypeName: "GetCacheMonitorOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MonitorService)(nil)),
+		InputType:   reflect.TypeOf((*GetCacheMonitorInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetCacheMonitorOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetZooKeeperMonitor"] = ServiceApiSpec{
-		ActionName: "GetZooKeeperMonitor",
-		InputType:  reflect.TypeOf((*GetZooKeeperMonitorInput)(nil)),
-		OutputType: reflect.TypeOf((*GetZooKeeperMonitorOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MonitorService",
+		ActionName:     "GetZooKeeperMonitor",
+		InputTypeName:  "GetZooKeeperMonitorInput",
+		OutputTypeName: "GetZooKeeperMonitorOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MonitorService)(nil)),
+		InputType:   reflect.TypeOf((*GetZooKeeperMonitorInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetZooKeeperMonitorOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetQueueMonitor"] = ServiceApiSpec{
-		ActionName: "GetQueueMonitor",
-		InputType:  reflect.TypeOf((*GetQueueMonitorInput)(nil)),
-		OutputType: reflect.TypeOf((*GetQueueMonitorOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MonitorService",
+		ActionName:     "GetQueueMonitor",
+		InputTypeName:  "GetQueueMonitorInput",
+		OutputTypeName: "GetQueueMonitorOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MonitorService)(nil)),
+		InputType:   reflect.TypeOf((*GetQueueMonitorInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetQueueMonitorOutput)(nil)),
 	}
 }
 

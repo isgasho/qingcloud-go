@@ -59,130 +59,235 @@ func NewClusterService(server *ServerInfo) (p *ClusterService) {
 
 func init() {
 	ServiceApiSpecMap["CreateCluster"] = ServiceApiSpec{
-		ActionName: "CreateCluster",
-		InputType:  reflect.TypeOf((*CreateClusterInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateClusterOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "CreateCluster",
+		InputTypeName:  "CreateClusterInput",
+		OutputTypeName: "CreateClusterOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*CreateClusterInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateClusterOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeClusters"] = ServiceApiSpec{
-		ActionName: "DescribeClusters",
-		InputType:  reflect.TypeOf((*DescribeClustersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeClustersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "DescribeClusters",
+		InputTypeName:  "DescribeClustersInput",
+		OutputTypeName: "DescribeClustersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeClustersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeClustersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeClusterNodes"] = ServiceApiSpec{
-		ActionName: "DescribeClusterNodes",
-		InputType:  reflect.TypeOf((*DescribeClusterNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeClusterNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "DescribeClusterNodes",
+		InputTypeName:  "DescribeClusterNodesInput",
+		OutputTypeName: "DescribeClusterNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeClusterNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeClusterNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["StopClusters"] = ServiceApiSpec{
-		ActionName: "StopClusters",
-		InputType:  reflect.TypeOf((*StopClustersInput)(nil)),
-		OutputType: reflect.TypeOf((*StopClustersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "StopClusters",
+		InputTypeName:  "StopClustersInput",
+		OutputTypeName: "StopClustersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*StopClustersInput)(nil)),
+		OutputType:  reflect.TypeOf((*StopClustersOutput)(nil)),
 	}
 	ServiceApiSpecMap["StartClusters"] = ServiceApiSpec{
-		ActionName: "StartClusters",
-		InputType:  reflect.TypeOf((*StartClustersInput)(nil)),
-		OutputType: reflect.TypeOf((*StartClustersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "StartClusters",
+		InputTypeName:  "StartClustersInput",
+		OutputTypeName: "StartClustersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*StartClustersInput)(nil)),
+		OutputType:  reflect.TypeOf((*StartClustersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteClusters"] = ServiceApiSpec{
-		ActionName: "DeleteClusters",
-		InputType:  reflect.TypeOf((*DeleteClustersInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteClustersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "DeleteClusters",
+		InputTypeName:  "DeleteClustersInput",
+		OutputTypeName: "DeleteClustersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteClustersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteClustersOutput)(nil)),
 	}
 	ServiceApiSpecMap["Lease"] = ServiceApiSpec{
-		ActionName: "Lease",
-		InputType:  reflect.TypeOf((*LeaseInput)(nil)),
-		OutputType: reflect.TypeOf((*LeaseOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "Lease",
+		InputTypeName:  "LeaseInput",
+		OutputTypeName: "LeaseOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*LeaseInput)(nil)),
+		OutputType:  reflect.TypeOf((*LeaseOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddClusterNodes"] = ServiceApiSpec{
-		ActionName: "AddClusterNodes",
-		InputType:  reflect.TypeOf((*AddClusterNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddClusterNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "AddClusterNodes",
+		InputTypeName:  "AddClusterNodesInput",
+		OutputTypeName: "AddClusterNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*AddClusterNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddClusterNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteClusterNodes"] = ServiceApiSpec{
-		ActionName: "DeleteClusterNodes",
-		InputType:  reflect.TypeOf((*DeleteClusterNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteClusterNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "DeleteClusterNodes",
+		InputTypeName:  "DeleteClusterNodesInput",
+		OutputTypeName: "DeleteClusterNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteClusterNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteClusterNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ResizeCluster"] = ServiceApiSpec{
-		ActionName: "ResizeCluster",
-		InputType:  reflect.TypeOf((*ResizeClusterInput)(nil)),
-		OutputType: reflect.TypeOf((*ResizeClusterOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "ResizeCluster",
+		InputTypeName:  "ResizeClusterInput",
+		OutputTypeName: "ResizeClusterOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*ResizeClusterInput)(nil)),
+		OutputType:  reflect.TypeOf((*ResizeClusterOutput)(nil)),
 	}
 	ServiceApiSpecMap["ChangeClusterVxnet"] = ServiceApiSpec{
-		ActionName: "ChangeClusterVxnet",
-		InputType:  reflect.TypeOf((*ChangeClusterVxnetInput)(nil)),
-		OutputType: reflect.TypeOf((*ChangeClusterVxnetOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "ChangeClusterVxnet",
+		InputTypeName:  "ChangeClusterVxnetInput",
+		OutputTypeName: "ChangeClusterVxnetOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*ChangeClusterVxnetInput)(nil)),
+		OutputType:  reflect.TypeOf((*ChangeClusterVxnetOutput)(nil)),
 	}
 	ServiceApiSpecMap["SuspendClusters"] = ServiceApiSpec{
-		ActionName: "SuspendClusters",
-		InputType:  reflect.TypeOf((*SuspendClustersInput)(nil)),
-		OutputType: reflect.TypeOf((*SuspendClustersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "SuspendClusters",
+		InputTypeName:  "SuspendClustersInput",
+		OutputTypeName: "SuspendClustersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*SuspendClustersInput)(nil)),
+		OutputType:  reflect.TypeOf((*SuspendClustersOutput)(nil)),
 	}
 	ServiceApiSpecMap["UpdateClusterEnvironment"] = ServiceApiSpec{
-		ActionName: "UpdateClusterEnvironment",
-		InputType:  reflect.TypeOf((*UpdateClusterEnvironmentInput)(nil)),
-		OutputType: reflect.TypeOf((*UpdateClusterEnvironmentOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "UpdateClusterEnvironment",
+		InputTypeName:  "UpdateClusterEnvironmentInput",
+		OutputTypeName: "UpdateClusterEnvironmentOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*UpdateClusterEnvironmentInput)(nil)),
+		OutputType:  reflect.TypeOf((*UpdateClusterEnvironmentOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyClusterAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyClusterAttributes",
-		InputType:  reflect.TypeOf((*ModifyClusterAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyClusterAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "ModifyClusterAttributes",
+		InputTypeName:  "ModifyClusterAttributesInput",
+		OutputTypeName: "ModifyClusterAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyClusterAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyClusterAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyClusterNodeAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyClusterNodeAttributes",
-		InputType:  reflect.TypeOf((*ModifyClusterNodeAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyClusterNodeAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "ModifyClusterNodeAttributes",
+		InputTypeName:  "ModifyClusterNodeAttributesInput",
+		OutputTypeName: "ModifyClusterNodeAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyClusterNodeAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyClusterNodeAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetClustersStats"] = ServiceApiSpec{
-		ActionName: "GetClustersStats",
-		InputType:  reflect.TypeOf((*GetClustersStatsInput)(nil)),
-		OutputType: reflect.TypeOf((*GetClustersStatsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "GetClustersStats",
+		InputTypeName:  "GetClustersStatsInput",
+		OutputTypeName: "GetClustersStatsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*GetClustersStatsInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetClustersStatsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeClusterUsers"] = ServiceApiSpec{
-		ActionName: "DescribeClusterUsers",
-		InputType:  reflect.TypeOf((*DescribeClusterUsersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeClusterUsersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "DescribeClusterUsers",
+		InputTypeName:  "DescribeClusterUsersInput",
+		OutputTypeName: "DescribeClusterUsersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeClusterUsersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeClusterUsersOutput)(nil)),
 	}
 	ServiceApiSpecMap["RestartClusterService"] = ServiceApiSpec{
-		ActionName: "RestartClusterService",
-		InputType:  reflect.TypeOf((*RestartClusterServiceInput)(nil)),
-		OutputType: reflect.TypeOf((*RestartClusterServiceOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "RestartClusterService",
+		InputTypeName:  "RestartClusterServiceInput",
+		OutputTypeName: "RestartClusterServiceOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*RestartClusterServiceInput)(nil)),
+		OutputType:  reflect.TypeOf((*RestartClusterServiceOutput)(nil)),
 	}
 	ServiceApiSpecMap["UpgradeClusters"] = ServiceApiSpec{
-		ActionName: "UpgradeClusters",
-		InputType:  reflect.TypeOf((*UpgradeClustersInput)(nil)),
-		OutputType: reflect.TypeOf((*UpgradeClustersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "UpgradeClusters",
+		InputTypeName:  "UpgradeClustersInput",
+		OutputTypeName: "UpgradeClustersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*UpgradeClustersInput)(nil)),
+		OutputType:  reflect.TypeOf((*UpgradeClustersOutput)(nil)),
 	}
 	ServiceApiSpecMap["AuthorizeClustersBrokerToDeveloper"] = ServiceApiSpec{
-		ActionName: "AuthorizeClustersBrokerToDeveloper",
-		InputType:  reflect.TypeOf((*AuthorizeClustersBrokerToDeveloperInput)(nil)),
-		OutputType: reflect.TypeOf((*AuthorizeClustersBrokerToDeveloperOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "AuthorizeClustersBrokerToDeveloper",
+		InputTypeName:  "AuthorizeClustersBrokerToDeveloperInput",
+		OutputTypeName: "AuthorizeClustersBrokerToDeveloperOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*AuthorizeClustersBrokerToDeveloperInput)(nil)),
+		OutputType:  reflect.TypeOf((*AuthorizeClustersBrokerToDeveloperOutput)(nil)),
 	}
 	ServiceApiSpecMap["RevokeClustersBrokerFromDeveloper"] = ServiceApiSpec{
-		ActionName: "RevokeClustersBrokerFromDeveloper",
-		InputType:  reflect.TypeOf((*RevokeClustersBrokerFromDeveloperInput)(nil)),
-		OutputType: reflect.TypeOf((*RevokeClustersBrokerFromDeveloperOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ClusterService",
+		ActionName:     "RevokeClustersBrokerFromDeveloper",
+		InputTypeName:  "RevokeClustersBrokerFromDeveloperInput",
+		OutputTypeName: "RevokeClustersBrokerFromDeveloperOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ClusterService)(nil)),
+		InputType:   reflect.TypeOf((*RevokeClustersBrokerFromDeveloperInput)(nil)),
+		OutputType:  reflect.TypeOf((*RevokeClustersBrokerFromDeveloperOutput)(nil)),
 	}
 }
 

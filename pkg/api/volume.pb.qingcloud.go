@@ -45,46 +45,81 @@ func NewVolumesService(server *ServerInfo) (p *VolumesService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeVolumes"] = ServiceApiSpec{
-		ActionName: "DescribeVolumes",
-		InputType:  reflect.TypeOf((*DescribeVolumesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeVolumesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VolumesService",
+		ActionName:     "DescribeVolumes",
+		InputTypeName:  "DescribeVolumesInput",
+		OutputTypeName: "DescribeVolumesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VolumesService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeVolumesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeVolumesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateVolumes"] = ServiceApiSpec{
-		ActionName: "CreateVolumes",
-		InputType:  reflect.TypeOf((*CreateVolumesInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateVolumesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VolumesService",
+		ActionName:     "CreateVolumes",
+		InputTypeName:  "CreateVolumesInput",
+		OutputTypeName: "CreateVolumesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VolumesService)(nil)),
+		InputType:   reflect.TypeOf((*CreateVolumesInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateVolumesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteVolumes"] = ServiceApiSpec{
-		ActionName: "DeleteVolumes",
-		InputType:  reflect.TypeOf((*DeleteVolumesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteVolumesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VolumesService",
+		ActionName:     "DeleteVolumes",
+		InputTypeName:  "DeleteVolumesInput",
+		OutputTypeName: "DeleteVolumesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VolumesService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteVolumesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteVolumesOutput)(nil)),
 	}
 	ServiceApiSpecMap["AttachVolumes"] = ServiceApiSpec{
-		ActionName: "AttachVolumes",
-		InputType:  reflect.TypeOf((*AttachVolumesInput)(nil)),
-		OutputType: reflect.TypeOf((*AttachVolumesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VolumesService",
+		ActionName:     "AttachVolumes",
+		InputTypeName:  "AttachVolumesInput",
+		OutputTypeName: "AttachVolumesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VolumesService)(nil)),
+		InputType:   reflect.TypeOf((*AttachVolumesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AttachVolumesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DetachVolumes"] = ServiceApiSpec{
-		ActionName: "DetachVolumes",
-		InputType:  reflect.TypeOf((*DetachVolumesInput)(nil)),
-		OutputType: reflect.TypeOf((*DetachVolumesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VolumesService",
+		ActionName:     "DetachVolumes",
+		InputTypeName:  "DetachVolumesInput",
+		OutputTypeName: "DetachVolumesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VolumesService)(nil)),
+		InputType:   reflect.TypeOf((*DetachVolumesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DetachVolumesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ResizeVolumes"] = ServiceApiSpec{
-		ActionName: "ResizeVolumes",
-		InputType:  reflect.TypeOf((*ResizeVolumesInput)(nil)),
-		OutputType: reflect.TypeOf((*ResizeVolumesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VolumesService",
+		ActionName:     "ResizeVolumes",
+		InputTypeName:  "ResizeVolumesInput",
+		OutputTypeName: "ResizeVolumesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VolumesService)(nil)),
+		InputType:   reflect.TypeOf((*ResizeVolumesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ResizeVolumesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyVolumeAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyVolumeAttributes",
-		InputType:  reflect.TypeOf((*ModifyVolumeAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyVolumeAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VolumesService",
+		ActionName:     "ModifyVolumeAttributes",
+		InputTypeName:  "ModifyVolumeAttributesInput",
+		OutputTypeName: "ModifyVolumeAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VolumesService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyVolumeAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyVolumeAttributesOutput)(nil)),
 	}
 }
 

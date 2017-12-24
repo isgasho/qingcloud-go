@@ -55,106 +55,191 @@ func NewRDBService(server *ServerInfo) (p *RDBService) {
 
 func init() {
 	ServiceApiSpecMap["CreateRDB"] = ServiceApiSpec{
-		ActionName: "CreateRDB",
-		InputType:  reflect.TypeOf((*CreateRDBInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateRDBOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "CreateRDB",
+		InputTypeName:  "CreateRDBInput",
+		OutputTypeName: "CreateRDBOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*CreateRDBInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateRDBOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeRDBs"] = ServiceApiSpec{
-		ActionName: "DescribeRDBs",
-		InputType:  reflect.TypeOf((*DescribeRDBsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeRDBsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "DescribeRDBs",
+		InputTypeName:  "DescribeRDBsInput",
+		OutputTypeName: "DescribeRDBsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeRDBsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeRDBsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteRDBs"] = ServiceApiSpec{
-		ActionName: "DeleteRDBs",
-		InputType:  reflect.TypeOf((*DeleteRDBsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteRDBsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "DeleteRDBs",
+		InputTypeName:  "DeleteRDBsInput",
+		OutputTypeName: "DeleteRDBsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteRDBsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteRDBsOutput)(nil)),
 	}
 	ServiceApiSpecMap["StartRDBs"] = ServiceApiSpec{
-		ActionName: "StartRDBs",
-		InputType:  reflect.TypeOf((*StartRDBsInput)(nil)),
-		OutputType: reflect.TypeOf((*StartRDBsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "StartRDBs",
+		InputTypeName:  "StartRDBsInput",
+		OutputTypeName: "StartRDBsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*StartRDBsInput)(nil)),
+		OutputType:  reflect.TypeOf((*StartRDBsOutput)(nil)),
 	}
 	ServiceApiSpecMap["StopRDBs"] = ServiceApiSpec{
-		ActionName: "StopRDBs",
-		InputType:  reflect.TypeOf((*StopRDBsInput)(nil)),
-		OutputType: reflect.TypeOf((*StopRDBsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "StopRDBs",
+		InputTypeName:  "StopRDBsInput",
+		OutputTypeName: "StopRDBsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*StopRDBsInput)(nil)),
+		OutputType:  reflect.TypeOf((*StopRDBsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ResizeRDBs"] = ServiceApiSpec{
-		ActionName: "ResizeRDBs",
-		InputType:  reflect.TypeOf((*ResizeRDBsInput)(nil)),
-		OutputType: reflect.TypeOf((*ResizeRDBsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "ResizeRDBs",
+		InputTypeName:  "ResizeRDBsInput",
+		OutputTypeName: "ResizeRDBsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*ResizeRDBsInput)(nil)),
+		OutputType:  reflect.TypeOf((*ResizeRDBsOutput)(nil)),
 	}
 	ServiceApiSpecMap["RDBsLeaveVxnet"] = ServiceApiSpec{
-		ActionName: "RDBsLeaveVxnet",
-		InputType:  reflect.TypeOf((*RDBsLeaveVxnetInput)(nil)),
-		OutputType: reflect.TypeOf((*RDBsLeaveVxnetOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "RDBsLeaveVxnet",
+		InputTypeName:  "RDBsLeaveVxnetInput",
+		OutputTypeName: "RDBsLeaveVxnetOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*RDBsLeaveVxnetInput)(nil)),
+		OutputType:  reflect.TypeOf((*RDBsLeaveVxnetOutput)(nil)),
 	}
 	ServiceApiSpecMap["RDBsJoinVxnet"] = ServiceApiSpec{
-		ActionName: "RDBsJoinVxnet",
-		InputType:  reflect.TypeOf((*RDBsJoinVxnetInput)(nil)),
-		OutputType: reflect.TypeOf((*RDBsJoinVxnetOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "RDBsJoinVxnet",
+		InputTypeName:  "RDBsJoinVxnetInput",
+		OutputTypeName: "RDBsJoinVxnetOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*RDBsJoinVxnetInput)(nil)),
+		OutputType:  reflect.TypeOf((*RDBsJoinVxnetOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateRDBFromSnapshot"] = ServiceApiSpec{
-		ActionName: "CreateRDBFromSnapshot",
-		InputType:  reflect.TypeOf((*CreateRDBFromSnapshotInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateRDBFromSnapshotOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "CreateRDBFromSnapshot",
+		InputTypeName:  "CreateRDBFromSnapshotInput",
+		OutputTypeName: "CreateRDBFromSnapshotOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*CreateRDBFromSnapshotInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateRDBFromSnapshotOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateTempRDBInstanceFromSnapshot"] = ServiceApiSpec{
-		ActionName: "CreateTempRDBInstanceFromSnapshot",
-		InputType:  reflect.TypeOf((*CreateTempRDBInstanceFromSnapshotInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateTempRDBInstanceFromSnapshotOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "CreateTempRDBInstanceFromSnapshot",
+		InputTypeName:  "CreateTempRDBInstanceFromSnapshotInput",
+		OutputTypeName: "CreateTempRDBInstanceFromSnapshotOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*CreateTempRDBInstanceFromSnapshotInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateTempRDBInstanceFromSnapshotOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetRDBInstanceFiles"] = ServiceApiSpec{
-		ActionName: "GetRDBInstanceFiles",
-		InputType:  reflect.TypeOf((*GetRDBInstanceFilesInput)(nil)),
-		OutputType: reflect.TypeOf((*GetRDBInstanceFilesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "GetRDBInstanceFiles",
+		InputTypeName:  "GetRDBInstanceFilesInput",
+		OutputTypeName: "GetRDBInstanceFilesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*GetRDBInstanceFilesInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetRDBInstanceFilesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CopyRDBInstanceFilesToFTP"] = ServiceApiSpec{
-		ActionName: "CopyRDBInstanceFilesToFTP",
-		InputType:  reflect.TypeOf((*CopyRDBInstanceFilesToFTPInput)(nil)),
-		OutputType: reflect.TypeOf((*CopyRDBInstanceFilesToFTPOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "CopyRDBInstanceFilesToFTP",
+		InputTypeName:  "CopyRDBInstanceFilesToFTPInput",
+		OutputTypeName: "CopyRDBInstanceFilesToFTPOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*CopyRDBInstanceFilesToFTPInput)(nil)),
+		OutputType:  reflect.TypeOf((*CopyRDBInstanceFilesToFTPOutput)(nil)),
 	}
 	ServiceApiSpecMap["PurgeRDBLogs"] = ServiceApiSpec{
-		ActionName: "PurgeRDBLogs",
-		InputType:  reflect.TypeOf((*PurgeRDBLogsInput)(nil)),
-		OutputType: reflect.TypeOf((*PurgeRDBLogsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "PurgeRDBLogs",
+		InputTypeName:  "PurgeRDBLogsInput",
+		OutputTypeName: "PurgeRDBLogsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*PurgeRDBLogsInput)(nil)),
+		OutputType:  reflect.TypeOf((*PurgeRDBLogsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CeaseRDBInstance"] = ServiceApiSpec{
-		ActionName: "CeaseRDBInstance",
-		InputType:  reflect.TypeOf((*CeaseRDBInstanceInput)(nil)),
-		OutputType: reflect.TypeOf((*CeaseRDBInstanceOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "CeaseRDBInstance",
+		InputTypeName:  "CeaseRDBInstanceInput",
+		OutputTypeName: "CeaseRDBInstanceOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*CeaseRDBInstanceInput)(nil)),
+		OutputType:  reflect.TypeOf((*CeaseRDBInstanceOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyRDBParameters"] = ServiceApiSpec{
-		ActionName: "ModifyRDBParameters",
-		InputType:  reflect.TypeOf((*ModifyRDBParametersInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyRDBParametersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "ModifyRDBParameters",
+		InputTypeName:  "ModifyRDBParametersInput",
+		OutputTypeName: "ModifyRDBParametersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyRDBParametersInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyRDBParametersOutput)(nil)),
 	}
 	ServiceApiSpecMap["ApplyRDBParameterGroup"] = ServiceApiSpec{
-		ActionName: "ApplyRDBParameterGroup",
-		InputType:  reflect.TypeOf((*ApplyRDBParameterGroupInput)(nil)),
-		OutputType: reflect.TypeOf((*ApplyRDBParameterGroupOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "ApplyRDBParameterGroup",
+		InputTypeName:  "ApplyRDBParameterGroupInput",
+		OutputTypeName: "ApplyRDBParameterGroupOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*ApplyRDBParameterGroupInput)(nil)),
+		OutputType:  reflect.TypeOf((*ApplyRDBParameterGroupOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeRDBParameters"] = ServiceApiSpec{
-		ActionName: "DescribeRDBParameters",
-		InputType:  reflect.TypeOf((*DescribeRDBParametersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeRDBParametersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RDBService",
+		ActionName:     "DescribeRDBParameters",
+		InputTypeName:  "DescribeRDBParametersInput",
+		OutputTypeName: "DescribeRDBParametersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RDBService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeRDBParametersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeRDBParametersOutput)(nil)),
 	}
 }
 

@@ -44,40 +44,70 @@ func NewKeyPairService(server *ServerInfo) (p *KeyPairService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeKeyPairs"] = ServiceApiSpec{
-		ActionName: "DescribeKeyPairs",
-		InputType:  reflect.TypeOf((*DescribeKeyPairsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeKeyPairsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "KeyPairService",
+		ActionName:     "DescribeKeyPairs",
+		InputTypeName:  "DescribeKeyPairsInput",
+		OutputTypeName: "DescribeKeyPairsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*KeyPairService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeKeyPairsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeKeyPairsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateKeyPair"] = ServiceApiSpec{
-		ActionName: "CreateKeyPair",
-		InputType:  reflect.TypeOf((*CreateKeyPairInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateKeyPairOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "KeyPairService",
+		ActionName:     "CreateKeyPair",
+		InputTypeName:  "CreateKeyPairInput",
+		OutputTypeName: "CreateKeyPairOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*KeyPairService)(nil)),
+		InputType:   reflect.TypeOf((*CreateKeyPairInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateKeyPairOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteKeyPairs"] = ServiceApiSpec{
-		ActionName: "DeleteKeyPairs",
-		InputType:  reflect.TypeOf((*DeleteKeyPairsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteKeyPairsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "KeyPairService",
+		ActionName:     "DeleteKeyPairs",
+		InputTypeName:  "DeleteKeyPairsInput",
+		OutputTypeName: "DeleteKeyPairsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*KeyPairService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteKeyPairsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteKeyPairsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AttachKeyPairs"] = ServiceApiSpec{
-		ActionName: "AttachKeyPairs",
-		InputType:  reflect.TypeOf((*AttachKeyPairsInput)(nil)),
-		OutputType: reflect.TypeOf((*AttachKeyPairsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "KeyPairService",
+		ActionName:     "AttachKeyPairs",
+		InputTypeName:  "AttachKeyPairsInput",
+		OutputTypeName: "AttachKeyPairsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*KeyPairService)(nil)),
+		InputType:   reflect.TypeOf((*AttachKeyPairsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AttachKeyPairsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DetachKeyPairs"] = ServiceApiSpec{
-		ActionName: "DetachKeyPairs",
-		InputType:  reflect.TypeOf((*DetachKeyPairsInput)(nil)),
-		OutputType: reflect.TypeOf((*DetachKeyPairsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "KeyPairService",
+		ActionName:     "DetachKeyPairs",
+		InputTypeName:  "DetachKeyPairsInput",
+		OutputTypeName: "DetachKeyPairsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*KeyPairService)(nil)),
+		InputType:   reflect.TypeOf((*DetachKeyPairsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DetachKeyPairsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyKeyPairAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyKeyPairAttributes",
-		InputType:  reflect.TypeOf((*ModifyKeyPairAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyKeyPairAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "KeyPairService",
+		ActionName:     "ModifyKeyPairAttributes",
+		InputTypeName:  "ModifyKeyPairAttributesInput",
+		OutputTypeName: "ModifyKeyPairAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*KeyPairService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyKeyPairAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyKeyPairAttributesOutput)(nil)),
 	}
 }
 

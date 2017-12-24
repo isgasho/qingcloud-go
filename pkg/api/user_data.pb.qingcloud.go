@@ -39,10 +39,15 @@ func NewUserDataService(server *ServerInfo) (p *UserDataService) {
 
 func init() {
 	ServiceApiSpecMap["UploadUserDataAttachment"] = ServiceApiSpec{
-		ActionName: "UploadUserDataAttachment",
-		InputType:  reflect.TypeOf((*UploadUserDataAttachmentInput)(nil)),
-		OutputType: reflect.TypeOf((*UploadUserDataAttachmentOutput)(nil)),
-		HttpMethod: "POST",
+		ServiceName:    "UserDataService",
+		ActionName:     "UploadUserDataAttachment",
+		InputTypeName:  "UploadUserDataAttachmentInput",
+		OutputTypeName: "UploadUserDataAttachmentOutput",
+		HttpMethod:     "POST",
+
+		ServiceType: reflect.TypeOf((*UserDataService)(nil)),
+		InputType:   reflect.TypeOf((*UploadUserDataAttachmentInput)(nil)),
+		OutputType:  reflect.TypeOf((*UploadUserDataAttachmentOutput)(nil)),
 	}
 }
 

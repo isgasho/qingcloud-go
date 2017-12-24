@@ -44,40 +44,70 @@ func NewTagService(server *ServerInfo) (p *TagService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeTags"] = ServiceApiSpec{
-		ActionName: "DescribeTags",
-		InputType:  reflect.TypeOf((*DescribeTagsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeTagsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "TagService",
+		ActionName:     "DescribeTags",
+		InputTypeName:  "DescribeTagsInput",
+		OutputTypeName: "DescribeTagsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*TagService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeTagsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeTagsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateTag"] = ServiceApiSpec{
-		ActionName: "CreateTag",
-		InputType:  reflect.TypeOf((*CreateTagInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateTagOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "TagService",
+		ActionName:     "CreateTag",
+		InputTypeName:  "CreateTagInput",
+		OutputTypeName: "CreateTagOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*TagService)(nil)),
+		InputType:   reflect.TypeOf((*CreateTagInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateTagOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteTags"] = ServiceApiSpec{
-		ActionName: "DeleteTags",
-		InputType:  reflect.TypeOf((*DeleteTagsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteTagsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "TagService",
+		ActionName:     "DeleteTags",
+		InputTypeName:  "DeleteTagsInput",
+		OutputTypeName: "DeleteTagsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*TagService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteTagsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteTagsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyTagAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyTagAttributes",
-		InputType:  reflect.TypeOf((*ModifyTagAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyTagAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "TagService",
+		ActionName:     "ModifyTagAttributes",
+		InputTypeName:  "ModifyTagAttributesInput",
+		OutputTypeName: "ModifyTagAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*TagService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyTagAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyTagAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["AttachTags"] = ServiceApiSpec{
-		ActionName: "AttachTags",
-		InputType:  reflect.TypeOf((*AttachTagsInput)(nil)),
-		OutputType: reflect.TypeOf((*AttachTagsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "TagService",
+		ActionName:     "AttachTags",
+		InputTypeName:  "AttachTagsInput",
+		OutputTypeName: "AttachTagsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*TagService)(nil)),
+		InputType:   reflect.TypeOf((*AttachTagsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AttachTagsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DetachTags"] = ServiceApiSpec{
-		ActionName: "DetachTags",
-		InputType:  reflect.TypeOf((*DetachTagsInput)(nil)),
-		OutputType: reflect.TypeOf((*DetachTagsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "TagService",
+		ActionName:     "DetachTags",
+		InputTypeName:  "DetachTagsInput",
+		OutputTypeName: "DetachTagsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*TagService)(nil)),
+		InputType:   reflect.TypeOf((*DetachTagsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DetachTagsOutput)(nil)),
 	}
 }
 

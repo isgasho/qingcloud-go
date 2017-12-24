@@ -45,46 +45,81 @@ func NewSnapshotService(server *ServerInfo) (p *SnapshotService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeSnapshots"] = ServiceApiSpec{
-		ActionName: "DescribeSnapshots",
-		InputType:  reflect.TypeOf((*DescribeSnapshotsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeSnapshotsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SnapshotService",
+		ActionName:     "DescribeSnapshots",
+		InputTypeName:  "DescribeSnapshotsInput",
+		OutputTypeName: "DescribeSnapshotsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SnapshotService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeSnapshotsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeSnapshotsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateSnapshots"] = ServiceApiSpec{
-		ActionName: "CreateSnapshots",
-		InputType:  reflect.TypeOf((*CreateSnapshotsInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateSnapshotsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SnapshotService",
+		ActionName:     "CreateSnapshots",
+		InputTypeName:  "CreateSnapshotsInput",
+		OutputTypeName: "CreateSnapshotsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SnapshotService)(nil)),
+		InputType:   reflect.TypeOf((*CreateSnapshotsInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateSnapshotsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteSnapshots"] = ServiceApiSpec{
-		ActionName: "DeleteSnapshots",
-		InputType:  reflect.TypeOf((*DeleteSnapshotsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteSnapshotsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SnapshotService",
+		ActionName:     "DeleteSnapshots",
+		InputTypeName:  "DeleteSnapshotsInput",
+		OutputTypeName: "DeleteSnapshotsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SnapshotService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteSnapshotsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteSnapshotsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ApplySnapshots"] = ServiceApiSpec{
-		ActionName: "ApplySnapshots",
-		InputType:  reflect.TypeOf((*ApplySnapshotsInput)(nil)),
-		OutputType: reflect.TypeOf((*ApplySnapshotsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SnapshotService",
+		ActionName:     "ApplySnapshots",
+		InputTypeName:  "ApplySnapshotsInput",
+		OutputTypeName: "ApplySnapshotsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SnapshotService)(nil)),
+		InputType:   reflect.TypeOf((*ApplySnapshotsInput)(nil)),
+		OutputType:  reflect.TypeOf((*ApplySnapshotsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifySnapshotAttributes"] = ServiceApiSpec{
-		ActionName: "ModifySnapshotAttributes",
-		InputType:  reflect.TypeOf((*ModifySnapshotAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifySnapshotAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SnapshotService",
+		ActionName:     "ModifySnapshotAttributes",
+		InputTypeName:  "ModifySnapshotAttributesInput",
+		OutputTypeName: "ModifySnapshotAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SnapshotService)(nil)),
+		InputType:   reflect.TypeOf((*ModifySnapshotAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifySnapshotAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CaptureInstanceFromSnapshot"] = ServiceApiSpec{
-		ActionName: "CaptureInstanceFromSnapshot",
-		InputType:  reflect.TypeOf((*CaptureInstanceFromSnapshotInput)(nil)),
-		OutputType: reflect.TypeOf((*CaptureInstanceFromSnapshotOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SnapshotService",
+		ActionName:     "CaptureInstanceFromSnapshot",
+		InputTypeName:  "CaptureInstanceFromSnapshotInput",
+		OutputTypeName: "CaptureInstanceFromSnapshotOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SnapshotService)(nil)),
+		InputType:   reflect.TypeOf((*CaptureInstanceFromSnapshotInput)(nil)),
+		OutputType:  reflect.TypeOf((*CaptureInstanceFromSnapshotOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateVolumeFromSnapshot"] = ServiceApiSpec{
-		ActionName: "CreateVolumeFromSnapshot",
-		InputType:  reflect.TypeOf((*CreateVolumeFromSnapshotInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateVolumeFromSnapshotOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SnapshotService",
+		ActionName:     "CreateVolumeFromSnapshot",
+		InputTypeName:  "CreateVolumeFromSnapshotInput",
+		OutputTypeName: "CreateVolumeFromSnapshotOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SnapshotService)(nil)),
+		InputType:   reflect.TypeOf((*CreateVolumeFromSnapshotInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateVolumeFromSnapshotOutput)(nil)),
 	}
 }
 

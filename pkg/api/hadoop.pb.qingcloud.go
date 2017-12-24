@@ -42,28 +42,48 @@ func NewHadoopService(server *ServerInfo) (p *HadoopService) {
 
 func init() {
 	ServiceApiSpecMap["AddHadoopNodes"] = ServiceApiSpec{
-		ActionName: "AddHadoopNodes",
-		InputType:  reflect.TypeOf((*AddHadoopNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddHadoopNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "HadoopService",
+		ActionName:     "AddHadoopNodes",
+		InputTypeName:  "AddHadoopNodesInput",
+		OutputTypeName: "AddHadoopNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*HadoopService)(nil)),
+		InputType:   reflect.TypeOf((*AddHadoopNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddHadoopNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteHadoopNodes"] = ServiceApiSpec{
-		ActionName: "DeleteHadoopNodes",
-		InputType:  reflect.TypeOf((*DeleteHadoopNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteHadoopNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "HadoopService",
+		ActionName:     "DeleteHadoopNodes",
+		InputTypeName:  "DeleteHadoopNodesInput",
+		OutputTypeName: "DeleteHadoopNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*HadoopService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteHadoopNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteHadoopNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["StartHadoops"] = ServiceApiSpec{
-		ActionName: "StartHadoops",
-		InputType:  reflect.TypeOf((*StartHadoopsInput)(nil)),
-		OutputType: reflect.TypeOf((*StartHadoopsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "HadoopService",
+		ActionName:     "StartHadoops",
+		InputTypeName:  "StartHadoopsInput",
+		OutputTypeName: "StartHadoopsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*HadoopService)(nil)),
+		InputType:   reflect.TypeOf((*StartHadoopsInput)(nil)),
+		OutputType:  reflect.TypeOf((*StartHadoopsOutput)(nil)),
 	}
 	ServiceApiSpecMap["StopHadoops"] = ServiceApiSpec{
-		ActionName: "StopHadoops",
-		InputType:  reflect.TypeOf((*StopHadoopsInput)(nil)),
-		OutputType: reflect.TypeOf((*StopHadoopsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "HadoopService",
+		ActionName:     "StopHadoops",
+		InputTypeName:  "StopHadoopsInput",
+		OutputTypeName: "StopHadoopsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*HadoopService)(nil)),
+		InputType:   reflect.TypeOf((*StopHadoopsInput)(nil)),
+		OutputType:  reflect.TypeOf((*StopHadoopsOutput)(nil)),
 	}
 }
 

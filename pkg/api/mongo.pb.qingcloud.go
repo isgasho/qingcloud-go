@@ -52,88 +52,158 @@ func NewMongoService(server *ServerInfo) (p *MongoService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeMongoNodes"] = ServiceApiSpec{
-		ActionName: "DescribeMongoNodes",
-		InputType:  reflect.TypeOf((*DescribeMongoNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeMongoNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "DescribeMongoNodes",
+		InputTypeName:  "DescribeMongoNodesInput",
+		OutputTypeName: "DescribeMongoNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeMongoNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeMongoNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeMongoParameters"] = ServiceApiSpec{
-		ActionName: "DescribeMongoParameters",
-		InputType:  reflect.TypeOf((*DescribeMongoParametersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeMongoParametersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "DescribeMongoParameters",
+		InputTypeName:  "DescribeMongoParametersInput",
+		OutputTypeName: "DescribeMongoParametersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeMongoParametersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeMongoParametersOutput)(nil)),
 	}
 	ServiceApiSpecMap["ResizeMongos"] = ServiceApiSpec{
-		ActionName: "ResizeMongos",
-		InputType:  reflect.TypeOf((*ResizeMongosInput)(nil)),
-		OutputType: reflect.TypeOf((*ResizeMongosOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "ResizeMongos",
+		InputTypeName:  "ResizeMongosInput",
+		OutputTypeName: "ResizeMongosOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*ResizeMongosInput)(nil)),
+		OutputType:  reflect.TypeOf((*ResizeMongosOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateMongo"] = ServiceApiSpec{
-		ActionName: "CreateMongo",
-		InputType:  reflect.TypeOf((*CreateMongoInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateMongoOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "CreateMongo",
+		InputTypeName:  "CreateMongoInput",
+		OutputTypeName: "CreateMongoOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*CreateMongoInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateMongoOutput)(nil)),
 	}
 	ServiceApiSpecMap["StopMongos"] = ServiceApiSpec{
-		ActionName: "StopMongos",
-		InputType:  reflect.TypeOf((*StopMongosInput)(nil)),
-		OutputType: reflect.TypeOf((*StopMongosOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "StopMongos",
+		InputTypeName:  "StopMongosInput",
+		OutputTypeName: "StopMongosOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*StopMongosInput)(nil)),
+		OutputType:  reflect.TypeOf((*StopMongosOutput)(nil)),
 	}
 	ServiceApiSpecMap["StartMongos"] = ServiceApiSpec{
-		ActionName: "StartMongos",
-		InputType:  reflect.TypeOf((*StartMongosInput)(nil)),
-		OutputType: reflect.TypeOf((*StartMongosOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "StartMongos",
+		InputTypeName:  "StartMongosInput",
+		OutputTypeName: "StartMongosOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*StartMongosInput)(nil)),
+		OutputType:  reflect.TypeOf((*StartMongosOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeMongos"] = ServiceApiSpec{
-		ActionName: "DescribeMongos",
-		InputType:  reflect.TypeOf((*DescribeMongosInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeMongosOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "DescribeMongos",
+		InputTypeName:  "DescribeMongosInput",
+		OutputTypeName: "DescribeMongosOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeMongosInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeMongosOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteMongos"] = ServiceApiSpec{
-		ActionName: "DeleteMongos",
-		InputType:  reflect.TypeOf((*DeleteMongosInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteMongosOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "DeleteMongos",
+		InputTypeName:  "DeleteMongosInput",
+		OutputTypeName: "DeleteMongosOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteMongosInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteMongosOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateMongoFromSnapshot"] = ServiceApiSpec{
-		ActionName: "CreateMongoFromSnapshot",
-		InputType:  reflect.TypeOf((*CreateMongoFromSnapshotInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateMongoFromSnapshotOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "CreateMongoFromSnapshot",
+		InputTypeName:  "CreateMongoFromSnapshotInput",
+		OutputTypeName: "CreateMongoFromSnapshotOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*CreateMongoFromSnapshotInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateMongoFromSnapshotOutput)(nil)),
 	}
 	ServiceApiSpecMap["ChangeMongoVxnet"] = ServiceApiSpec{
-		ActionName: "ChangeMongoVxnet",
-		InputType:  reflect.TypeOf((*ChangeMongoVxnetInput)(nil)),
-		OutputType: reflect.TypeOf((*ChangeMongoVxnetOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "ChangeMongoVxnet",
+		InputTypeName:  "ChangeMongoVxnetInput",
+		OutputTypeName: "ChangeMongoVxnetOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*ChangeMongoVxnetInput)(nil)),
+		OutputType:  reflect.TypeOf((*ChangeMongoVxnetOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddMongoInstances"] = ServiceApiSpec{
-		ActionName: "AddMongoInstances",
-		InputType:  reflect.TypeOf((*AddMongoInstancesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddMongoInstancesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "AddMongoInstances",
+		InputTypeName:  "AddMongoInstancesInput",
+		OutputTypeName: "AddMongoInstancesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*AddMongoInstancesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddMongoInstancesOutput)(nil)),
 	}
 	ServiceApiSpecMap["RemoveMongoInstances"] = ServiceApiSpec{
-		ActionName: "RemoveMongoInstances",
-		InputType:  reflect.TypeOf((*RemoveMongoInstancesInput)(nil)),
-		OutputType: reflect.TypeOf((*RemoveMongoInstancesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "RemoveMongoInstances",
+		InputTypeName:  "RemoveMongoInstancesInput",
+		OutputTypeName: "RemoveMongoInstancesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*RemoveMongoInstancesInput)(nil)),
+		OutputType:  reflect.TypeOf((*RemoveMongoInstancesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyMongoAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyMongoAttributes",
-		InputType:  reflect.TypeOf((*ModifyMongoAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyMongoAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "ModifyMongoAttributes",
+		InputTypeName:  "ModifyMongoAttributesInput",
+		OutputTypeName: "ModifyMongoAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyMongoAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyMongoAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyMongoInstances"] = ServiceApiSpec{
-		ActionName: "ModifyMongoInstances",
-		InputType:  reflect.TypeOf((*ModifyMongoInstancesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyMongoInstancesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MongoService",
+		ActionName:     "ModifyMongoInstances",
+		InputTypeName:  "ModifyMongoInstancesInput",
+		OutputTypeName: "ModifyMongoInstancesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MongoService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyMongoInstancesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyMongoInstancesOutput)(nil)),
 	}
 }
 

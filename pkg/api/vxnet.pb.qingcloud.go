@@ -45,46 +45,81 @@ func NewVxnetService(server *ServerInfo) (p *VxnetService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeVxnets"] = ServiceApiSpec{
-		ActionName: "DescribeVxnets",
-		InputType:  reflect.TypeOf((*DescribeVxnetsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeVxnetsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VxnetService",
+		ActionName:     "DescribeVxnets",
+		InputTypeName:  "DescribeVxnetsInput",
+		OutputTypeName: "DescribeVxnetsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VxnetService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeVxnetsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeVxnetsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateVxnets"] = ServiceApiSpec{
-		ActionName: "CreateVxnets",
-		InputType:  reflect.TypeOf((*CreateVxnetsInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateVxnetsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VxnetService",
+		ActionName:     "CreateVxnets",
+		InputTypeName:  "CreateVxnetsInput",
+		OutputTypeName: "CreateVxnetsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VxnetService)(nil)),
+		InputType:   reflect.TypeOf((*CreateVxnetsInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateVxnetsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteVxnets"] = ServiceApiSpec{
-		ActionName: "DeleteVxnets",
-		InputType:  reflect.TypeOf((*DeleteVxnetsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteVxnetsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VxnetService",
+		ActionName:     "DeleteVxnets",
+		InputTypeName:  "DeleteVxnetsInput",
+		OutputTypeName: "DeleteVxnetsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VxnetService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteVxnetsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteVxnetsOutput)(nil)),
 	}
 	ServiceApiSpecMap["JoinVxnet"] = ServiceApiSpec{
-		ActionName: "JoinVxnet",
-		InputType:  reflect.TypeOf((*JoinVxnetInput)(nil)),
-		OutputType: reflect.TypeOf((*JoinVxnetOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VxnetService",
+		ActionName:     "JoinVxnet",
+		InputTypeName:  "JoinVxnetInput",
+		OutputTypeName: "JoinVxnetOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VxnetService)(nil)),
+		InputType:   reflect.TypeOf((*JoinVxnetInput)(nil)),
+		OutputType:  reflect.TypeOf((*JoinVxnetOutput)(nil)),
 	}
 	ServiceApiSpecMap["LeaveVxnet"] = ServiceApiSpec{
-		ActionName: "LeaveVxnet",
-		InputType:  reflect.TypeOf((*LeaveVxnetInput)(nil)),
-		OutputType: reflect.TypeOf((*LeaveVxnetOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VxnetService",
+		ActionName:     "LeaveVxnet",
+		InputTypeName:  "LeaveVxnetInput",
+		OutputTypeName: "LeaveVxnetOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VxnetService)(nil)),
+		InputType:   reflect.TypeOf((*LeaveVxnetInput)(nil)),
+		OutputType:  reflect.TypeOf((*LeaveVxnetOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyVxnetAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyVxnetAttributes",
-		InputType:  reflect.TypeOf((*ModifyVxnetAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyVxnetAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VxnetService",
+		ActionName:     "ModifyVxnetAttributes",
+		InputTypeName:  "ModifyVxnetAttributesInput",
+		OutputTypeName: "ModifyVxnetAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VxnetService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyVxnetAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyVxnetAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeVxnetInstances"] = ServiceApiSpec{
-		ActionName: "DescribeVxnetInstances",
-		InputType:  reflect.TypeOf((*DescribeVxnetInstancesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeVxnetInstancesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "VxnetService",
+		ActionName:     "DescribeVxnetInstances",
+		InputTypeName:  "DescribeVxnetInstancesInput",
+		OutputTypeName: "DescribeVxnetInstancesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*VxnetService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeVxnetInstancesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeVxnetInstancesOutput)(nil)),
 	}
 }
 

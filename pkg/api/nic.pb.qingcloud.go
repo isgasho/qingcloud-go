@@ -44,40 +44,70 @@ func NewNicService(server *ServerInfo) (p *NicService) {
 
 func init() {
 	ServiceApiSpecMap["CreateNics"] = ServiceApiSpec{
-		ActionName: "CreateNics",
-		InputType:  reflect.TypeOf((*CreateNicsInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateNicsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "NicService",
+		ActionName:     "CreateNics",
+		InputTypeName:  "CreateNicsInput",
+		OutputTypeName: "CreateNicsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*NicService)(nil)),
+		InputType:   reflect.TypeOf((*CreateNicsInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateNicsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeNics"] = ServiceApiSpec{
-		ActionName: "DescribeNics",
-		InputType:  reflect.TypeOf((*DescribeNicsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeNicsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "NicService",
+		ActionName:     "DescribeNics",
+		InputTypeName:  "DescribeNicsInput",
+		OutputTypeName: "DescribeNicsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*NicService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeNicsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeNicsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AttachNics"] = ServiceApiSpec{
-		ActionName: "AttachNics",
-		InputType:  reflect.TypeOf((*AttachNicsInput)(nil)),
-		OutputType: reflect.TypeOf((*AttachNicsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "NicService",
+		ActionName:     "AttachNics",
+		InputTypeName:  "AttachNicsInput",
+		OutputTypeName: "AttachNicsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*NicService)(nil)),
+		InputType:   reflect.TypeOf((*AttachNicsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AttachNicsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DetachNics"] = ServiceApiSpec{
-		ActionName: "DetachNics",
-		InputType:  reflect.TypeOf((*DetachNicsInput)(nil)),
-		OutputType: reflect.TypeOf((*DetachNicsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "NicService",
+		ActionName:     "DetachNics",
+		InputTypeName:  "DetachNicsInput",
+		OutputTypeName: "DetachNicsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*NicService)(nil)),
+		InputType:   reflect.TypeOf((*DetachNicsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DetachNicsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyNicAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyNicAttributes",
-		InputType:  reflect.TypeOf((*ModifyNicAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyNicAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "NicService",
+		ActionName:     "ModifyNicAttributes",
+		InputTypeName:  "ModifyNicAttributesInput",
+		OutputTypeName: "ModifyNicAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*NicService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyNicAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyNicAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteNics"] = ServiceApiSpec{
-		ActionName: "DeleteNics",
-		InputType:  reflect.TypeOf((*DeleteNicsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteNicsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "NicService",
+		ActionName:     "DeleteNics",
+		InputTypeName:  "DeleteNicsInput",
+		OutputTypeName: "DeleteNicsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*NicService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteNicsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteNicsOutput)(nil)),
 	}
 }
 

@@ -39,10 +39,15 @@ func NewNotificationCenterService(server *ServerInfo) (p *NotificationCenterServ
 
 func init() {
 	ServiceApiSpecMap["DescribeNotificationCenterUserPosts"] = ServiceApiSpec{
-		ActionName: "DescribeNotificationCenterUserPosts",
-		InputType:  reflect.TypeOf((*DescribeNotificationCenterUserPostsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeNotificationCenterUserPostsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "NotificationCenterService",
+		ActionName:     "DescribeNotificationCenterUserPosts",
+		InputTypeName:  "DescribeNotificationCenterUserPostsInput",
+		OutputTypeName: "DescribeNotificationCenterUserPostsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*NotificationCenterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeNotificationCenterUserPostsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeNotificationCenterUserPostsOutput)(nil)),
 	}
 }
 

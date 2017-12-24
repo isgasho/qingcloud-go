@@ -45,46 +45,81 @@ func NewSparkService(server *ServerInfo) (p *SparkService) {
 
 func init() {
 	ServiceApiSpecMap["CreateSpark"] = ServiceApiSpec{
-		ActionName: "CreateSpark",
-		InputType:  reflect.TypeOf((*CreateSparkInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateSparkOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SparkService",
+		ActionName:     "CreateSpark",
+		InputTypeName:  "CreateSparkInput",
+		OutputTypeName: "CreateSparkOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SparkService)(nil)),
+		InputType:   reflect.TypeOf((*CreateSparkInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateSparkOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeSparks"] = ServiceApiSpec{
-		ActionName: "DescribeSparks",
-		InputType:  reflect.TypeOf((*DescribeSparksInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeSparksOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SparkService",
+		ActionName:     "DescribeSparks",
+		InputTypeName:  "DescribeSparksInput",
+		OutputTypeName: "DescribeSparksOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SparkService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeSparksInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeSparksOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddSparkNodes"] = ServiceApiSpec{
-		ActionName: "AddSparkNodes",
-		InputType:  reflect.TypeOf((*AddSparkNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddSparkNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SparkService",
+		ActionName:     "AddSparkNodes",
+		InputTypeName:  "AddSparkNodesInput",
+		OutputTypeName: "AddSparkNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SparkService)(nil)),
+		InputType:   reflect.TypeOf((*AddSparkNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddSparkNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteSparkNodes"] = ServiceApiSpec{
-		ActionName: "DeleteSparkNodes",
-		InputType:  reflect.TypeOf((*DeleteSparkNodesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteSparkNodesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SparkService",
+		ActionName:     "DeleteSparkNodes",
+		InputTypeName:  "DeleteSparkNodesInput",
+		OutputTypeName: "DeleteSparkNodesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SparkService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteSparkNodesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteSparkNodesOutput)(nil)),
 	}
 	ServiceApiSpecMap["StartSparks"] = ServiceApiSpec{
-		ActionName: "StartSparks",
-		InputType:  reflect.TypeOf((*StartSparksInput)(nil)),
-		OutputType: reflect.TypeOf((*StartSparksOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SparkService",
+		ActionName:     "StartSparks",
+		InputTypeName:  "StartSparksInput",
+		OutputTypeName: "StartSparksOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SparkService)(nil)),
+		InputType:   reflect.TypeOf((*StartSparksInput)(nil)),
+		OutputType:  reflect.TypeOf((*StartSparksOutput)(nil)),
 	}
 	ServiceApiSpecMap["StopSparks"] = ServiceApiSpec{
-		ActionName: "StopSparks",
-		InputType:  reflect.TypeOf((*StopSparksInput)(nil)),
-		OutputType: reflect.TypeOf((*StopSparksOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SparkService",
+		ActionName:     "StopSparks",
+		InputTypeName:  "StopSparksInput",
+		OutputTypeName: "StopSparksOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SparkService)(nil)),
+		InputType:   reflect.TypeOf((*StopSparksInput)(nil)),
+		OutputType:  reflect.TypeOf((*StopSparksOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteSparks"] = ServiceApiSpec{
-		ActionName: "DeleteSparks",
-		InputType:  reflect.TypeOf((*DeleteSparksInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteSparksOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SparkService",
+		ActionName:     "DeleteSparks",
+		InputTypeName:  "DeleteSparksInput",
+		OutputTypeName: "DeleteSparksOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SparkService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteSparksInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteSparksOutput)(nil)),
 	}
 }
 

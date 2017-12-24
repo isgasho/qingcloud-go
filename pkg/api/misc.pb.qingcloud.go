@@ -41,22 +41,37 @@ func NewMiscService(server *ServerInfo) (p *MiscService) {
 
 func init() {
 	ServiceApiSpecMap["GrantQuotaIndep"] = ServiceApiSpec{
-		ActionName: "GrantQuotaIndep",
-		InputType:  reflect.TypeOf((*GrantQuotaIndepInput)(nil)),
-		OutputType: reflect.TypeOf((*GrantQuotaIndepOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MiscService",
+		ActionName:     "GrantQuotaIndep",
+		InputTypeName:  "GrantQuotaIndepInput",
+		OutputTypeName: "GrantQuotaIndepOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MiscService)(nil)),
+		InputType:   reflect.TypeOf((*GrantQuotaIndepInput)(nil)),
+		OutputType:  reflect.TypeOf((*GrantQuotaIndepOutput)(nil)),
 	}
 	ServiceApiSpecMap["RevokeQuotaIndep"] = ServiceApiSpec{
-		ActionName: "RevokeQuotaIndep",
-		InputType:  reflect.TypeOf((*RevokeQuotaIndepInput)(nil)),
-		OutputType: reflect.TypeOf((*RevokeQuotaIndepOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MiscService",
+		ActionName:     "RevokeQuotaIndep",
+		InputTypeName:  "RevokeQuotaIndepInput",
+		OutputTypeName: "RevokeQuotaIndepOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MiscService)(nil)),
+		InputType:   reflect.TypeOf((*RevokeQuotaIndepInput)(nil)),
+		OutputType:  reflect.TypeOf((*RevokeQuotaIndepOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetQuotaLeft"] = ServiceApiSpec{
-		ActionName: "GetQuotaLeft",
-		InputType:  reflect.TypeOf((*GetQuotaLeftInput)(nil)),
-		OutputType: reflect.TypeOf((*GetQuotaLeftOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "MiscService",
+		ActionName:     "GetQuotaLeft",
+		InputTypeName:  "GetQuotaLeftInput",
+		OutputTypeName: "GetQuotaLeftOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*MiscService)(nil)),
+		InputType:   reflect.TypeOf((*GetQuotaLeftInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetQuotaLeftOutput)(nil)),
 	}
 }
 

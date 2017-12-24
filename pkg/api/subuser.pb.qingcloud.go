@@ -43,34 +43,59 @@ func NewSubuserService(server *ServerInfo) (p *SubuserService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeSubUsers"] = ServiceApiSpec{
-		ActionName: "DescribeSubUsers",
-		InputType:  reflect.TypeOf((*DescribeSubUsersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeSubUsersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SubuserService",
+		ActionName:     "DescribeSubUsers",
+		InputTypeName:  "DescribeSubUsersInput",
+		OutputTypeName: "DescribeSubUsersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SubuserService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeSubUsersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeSubUsersOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateSubUser"] = ServiceApiSpec{
-		ActionName: "CreateSubUser",
-		InputType:  reflect.TypeOf((*CreateSubUserInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateSubUserOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SubuserService",
+		ActionName:     "CreateSubUser",
+		InputTypeName:  "CreateSubUserInput",
+		OutputTypeName: "CreateSubUserOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SubuserService)(nil)),
+		InputType:   reflect.TypeOf((*CreateSubUserInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateSubUserOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifySubUserAttributes"] = ServiceApiSpec{
-		ActionName: "ModifySubUserAttributes",
-		InputType:  reflect.TypeOf((*ModifySubUserAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifySubUserAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SubuserService",
+		ActionName:     "ModifySubUserAttributes",
+		InputTypeName:  "ModifySubUserAttributesInput",
+		OutputTypeName: "ModifySubUserAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SubuserService)(nil)),
+		InputType:   reflect.TypeOf((*ModifySubUserAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifySubUserAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteSubUsers"] = ServiceApiSpec{
-		ActionName: "DeleteSubUsers",
-		InputType:  reflect.TypeOf((*DeleteSubUsersInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteSubUsersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SubuserService",
+		ActionName:     "DeleteSubUsers",
+		InputTypeName:  "DeleteSubUsersInput",
+		OutputTypeName: "DeleteSubUsersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SubuserService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteSubUsersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteSubUsersOutput)(nil)),
 	}
 	ServiceApiSpecMap["RestoreSubUsers"] = ServiceApiSpec{
-		ActionName: "RestoreSubUsers",
-		InputType:  reflect.TypeOf((*RestoreSubUsersInput)(nil)),
-		OutputType: reflect.TypeOf((*RestoreSubUsersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SubuserService",
+		ActionName:     "RestoreSubUsers",
+		InputTypeName:  "RestoreSubUsersInput",
+		OutputTypeName: "RestoreSubUsersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SubuserService)(nil)),
+		InputType:   reflect.TypeOf((*RestoreSubUsersInput)(nil)),
+		OutputType:  reflect.TypeOf((*RestoreSubUsersOutput)(nil)),
 	}
 }
 

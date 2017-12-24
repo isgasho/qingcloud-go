@@ -69,190 +69,345 @@ func NewLoadBalancerService(server *ServerInfo) (p *LoadBalancerService) {
 
 func init() {
 	ServiceApiSpecMap["CreateLoadBalancer"] = ServiceApiSpec{
-		ActionName: "CreateLoadBalancer",
-		InputType:  reflect.TypeOf((*CreateLoadBalancerInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateLoadBalancerOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "CreateLoadBalancer",
+		InputTypeName:  "CreateLoadBalancerInput",
+		OutputTypeName: "CreateLoadBalancerOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*CreateLoadBalancerInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateLoadBalancerOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeLoadBalancers"] = ServiceApiSpec{
-		ActionName: "DescribeLoadBalancers",
-		InputType:  reflect.TypeOf((*DescribeLoadBalancersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeLoadBalancersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DescribeLoadBalancers",
+		InputTypeName:  "DescribeLoadBalancersInput",
+		OutputTypeName: "DescribeLoadBalancersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeLoadBalancersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeLoadBalancersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteLoadBalancers"] = ServiceApiSpec{
-		ActionName: "DeleteLoadBalancers",
-		InputType:  reflect.TypeOf((*DeleteLoadBalancersInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteLoadBalancersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DeleteLoadBalancers",
+		InputTypeName:  "DeleteLoadBalancersInput",
+		OutputTypeName: "DeleteLoadBalancersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteLoadBalancersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteLoadBalancersOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyLoadBalancerAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyLoadBalancerAttributes",
-		InputType:  reflect.TypeOf((*ModifyLoadBalancerAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyLoadBalancerAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ModifyLoadBalancerAttributes",
+		InputTypeName:  "ModifyLoadBalancerAttributesInput",
+		OutputTypeName: "ModifyLoadBalancerAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyLoadBalancerAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyLoadBalancerAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["StartLoadBalancers"] = ServiceApiSpec{
-		ActionName: "StartLoadBalancers",
-		InputType:  reflect.TypeOf((*StartLoadBalancersInput)(nil)),
-		OutputType: reflect.TypeOf((*StartLoadBalancersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "StartLoadBalancers",
+		InputTypeName:  "StartLoadBalancersInput",
+		OutputTypeName: "StartLoadBalancersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*StartLoadBalancersInput)(nil)),
+		OutputType:  reflect.TypeOf((*StartLoadBalancersOutput)(nil)),
 	}
 	ServiceApiSpecMap["StopLoadBalancers"] = ServiceApiSpec{
-		ActionName: "StopLoadBalancers",
-		InputType:  reflect.TypeOf((*StopLoadBalancersInput)(nil)),
-		OutputType: reflect.TypeOf((*StopLoadBalancersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "StopLoadBalancers",
+		InputTypeName:  "StopLoadBalancersInput",
+		OutputTypeName: "StopLoadBalancersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*StopLoadBalancersInput)(nil)),
+		OutputType:  reflect.TypeOf((*StopLoadBalancersOutput)(nil)),
 	}
 	ServiceApiSpecMap["UpdateLoadBalancers"] = ServiceApiSpec{
-		ActionName: "UpdateLoadBalancers",
-		InputType:  reflect.TypeOf((*UpdateLoadBalancersInput)(nil)),
-		OutputType: reflect.TypeOf((*UpdateLoadBalancersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "UpdateLoadBalancers",
+		InputTypeName:  "UpdateLoadBalancersInput",
+		OutputTypeName: "UpdateLoadBalancersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*UpdateLoadBalancersInput)(nil)),
+		OutputType:  reflect.TypeOf((*UpdateLoadBalancersOutput)(nil)),
 	}
 	ServiceApiSpecMap["ResizeLoadBalancers"] = ServiceApiSpec{
-		ActionName: "ResizeLoadBalancers",
-		InputType:  reflect.TypeOf((*ResizeLoadBalancersInput)(nil)),
-		OutputType: reflect.TypeOf((*ResizeLoadBalancersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ResizeLoadBalancers",
+		InputTypeName:  "ResizeLoadBalancersInput",
+		OutputTypeName: "ResizeLoadBalancersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ResizeLoadBalancersInput)(nil)),
+		OutputType:  reflect.TypeOf((*ResizeLoadBalancersOutput)(nil)),
 	}
 	ServiceApiSpecMap["AssociateEipsToLoadBalancer"] = ServiceApiSpec{
-		ActionName: "AssociateEipsToLoadBalancer",
-		InputType:  reflect.TypeOf((*AssociateEipsToLoadBalancerInput)(nil)),
-		OutputType: reflect.TypeOf((*AssociateEipsToLoadBalancerOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "AssociateEipsToLoadBalancer",
+		InputTypeName:  "AssociateEipsToLoadBalancerInput",
+		OutputTypeName: "AssociateEipsToLoadBalancerOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*AssociateEipsToLoadBalancerInput)(nil)),
+		OutputType:  reflect.TypeOf((*AssociateEipsToLoadBalancerOutput)(nil)),
 	}
 	ServiceApiSpecMap["DissociateEipsFromLoadBalancer"] = ServiceApiSpec{
-		ActionName: "DissociateEipsFromLoadBalancer",
-		InputType:  reflect.TypeOf((*DissociateEipsFromLoadBalancerInput)(nil)),
-		OutputType: reflect.TypeOf((*DissociateEipsFromLoadBalancerOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DissociateEipsFromLoadBalancer",
+		InputTypeName:  "DissociateEipsFromLoadBalancerInput",
+		OutputTypeName: "DissociateEipsFromLoadBalancerOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DissociateEipsFromLoadBalancerInput)(nil)),
+		OutputType:  reflect.TypeOf((*DissociateEipsFromLoadBalancerOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddLoadBalancerListeners"] = ServiceApiSpec{
-		ActionName: "AddLoadBalancerListeners",
-		InputType:  reflect.TypeOf((*AddLoadBalancerListenersInput)(nil)),
-		OutputType: reflect.TypeOf((*AddLoadBalancerListenersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "AddLoadBalancerListeners",
+		InputTypeName:  "AddLoadBalancerListenersInput",
+		OutputTypeName: "AddLoadBalancerListenersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*AddLoadBalancerListenersInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddLoadBalancerListenersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeLoadBalancerListeners"] = ServiceApiSpec{
-		ActionName: "DescribeLoadBalancerListeners",
-		InputType:  reflect.TypeOf((*DescribeLoadBalancerListenersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeLoadBalancerListenersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DescribeLoadBalancerListeners",
+		InputTypeName:  "DescribeLoadBalancerListenersInput",
+		OutputTypeName: "DescribeLoadBalancerListenersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeLoadBalancerListenersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeLoadBalancerListenersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteLoadBalancerListeners"] = ServiceApiSpec{
-		ActionName: "DeleteLoadBalancerListeners",
-		InputType:  reflect.TypeOf((*DeleteLoadBalancerListenersInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteLoadBalancerListenersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DeleteLoadBalancerListeners",
+		InputTypeName:  "DeleteLoadBalancerListenersInput",
+		OutputTypeName: "DeleteLoadBalancerListenersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteLoadBalancerListenersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteLoadBalancerListenersOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyLoadBalancerListenerAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyLoadBalancerListenerAttributes",
-		InputType:  reflect.TypeOf((*ModifyLoadBalancerListenerAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyLoadBalancerListenerAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ModifyLoadBalancerListenerAttributes",
+		InputTypeName:  "ModifyLoadBalancerListenerAttributesInput",
+		OutputTypeName: "ModifyLoadBalancerListenerAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyLoadBalancerListenerAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyLoadBalancerListenerAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddLoadBalancerBackends"] = ServiceApiSpec{
-		ActionName: "AddLoadBalancerBackends",
-		InputType:  reflect.TypeOf((*AddLoadBalancerBackendsInput)(nil)),
-		OutputType: reflect.TypeOf((*AddLoadBalancerBackendsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "AddLoadBalancerBackends",
+		InputTypeName:  "AddLoadBalancerBackendsInput",
+		OutputTypeName: "AddLoadBalancerBackendsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*AddLoadBalancerBackendsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddLoadBalancerBackendsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeLoadBalancerBackends"] = ServiceApiSpec{
-		ActionName: "DescribeLoadBalancerBackends",
-		InputType:  reflect.TypeOf((*DescribeLoadBalancerBackendsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeLoadBalancerBackendsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DescribeLoadBalancerBackends",
+		InputTypeName:  "DescribeLoadBalancerBackendsInput",
+		OutputTypeName: "DescribeLoadBalancerBackendsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeLoadBalancerBackendsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeLoadBalancerBackendsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteLoadBalancerBackends"] = ServiceApiSpec{
-		ActionName: "DeleteLoadBalancerBackends",
-		InputType:  reflect.TypeOf((*DeleteLoadBalancerBackendsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteLoadBalancerBackendsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DeleteLoadBalancerBackends",
+		InputTypeName:  "DeleteLoadBalancerBackendsInput",
+		OutputTypeName: "DeleteLoadBalancerBackendsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteLoadBalancerBackendsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteLoadBalancerBackendsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyLoadBalancerBackendAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyLoadBalancerBackendAttributes",
-		InputType:  reflect.TypeOf((*ModifyLoadBalancerBackendAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyLoadBalancerBackendAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ModifyLoadBalancerBackendAttributes",
+		InputTypeName:  "ModifyLoadBalancerBackendAttributesInput",
+		OutputTypeName: "ModifyLoadBalancerBackendAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyLoadBalancerBackendAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyLoadBalancerBackendAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateLoadBalancerPolicy"] = ServiceApiSpec{
-		ActionName: "CreateLoadBalancerPolicy",
-		InputType:  reflect.TypeOf((*CreateLoadBalancerPolicyInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateLoadBalancerPolicyOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "CreateLoadBalancerPolicy",
+		InputTypeName:  "CreateLoadBalancerPolicyInput",
+		OutputTypeName: "CreateLoadBalancerPolicyOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*CreateLoadBalancerPolicyInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateLoadBalancerPolicyOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeLoadBalancerPolicies"] = ServiceApiSpec{
-		ActionName: "DescribeLoadBalancerPolicies",
-		InputType:  reflect.TypeOf((*DescribeLoadBalancerPoliciesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeLoadBalancerPoliciesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DescribeLoadBalancerPolicies",
+		InputTypeName:  "DescribeLoadBalancerPoliciesInput",
+		OutputTypeName: "DescribeLoadBalancerPoliciesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeLoadBalancerPoliciesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeLoadBalancerPoliciesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyLoadBalancerPolicyAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyLoadBalancerPolicyAttributes",
-		InputType:  reflect.TypeOf((*ModifyLoadBalancerPolicyAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyLoadBalancerPolicyAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ModifyLoadBalancerPolicyAttributes",
+		InputTypeName:  "ModifyLoadBalancerPolicyAttributesInput",
+		OutputTypeName: "ModifyLoadBalancerPolicyAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyLoadBalancerPolicyAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyLoadBalancerPolicyAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ApplyLoadBalancerPolicy"] = ServiceApiSpec{
-		ActionName: "ApplyLoadBalancerPolicy",
-		InputType:  reflect.TypeOf((*ApplyLoadBalancerPolicyInput)(nil)),
-		OutputType: reflect.TypeOf((*ApplyLoadBalancerPolicyOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ApplyLoadBalancerPolicy",
+		InputTypeName:  "ApplyLoadBalancerPolicyInput",
+		OutputTypeName: "ApplyLoadBalancerPolicyOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ApplyLoadBalancerPolicyInput)(nil)),
+		OutputType:  reflect.TypeOf((*ApplyLoadBalancerPolicyOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteLoadBalancerPolicies"] = ServiceApiSpec{
-		ActionName: "DeleteLoadBalancerPolicies",
-		InputType:  reflect.TypeOf((*DeleteLoadBalancerPoliciesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteLoadBalancerPoliciesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DeleteLoadBalancerPolicies",
+		InputTypeName:  "DeleteLoadBalancerPoliciesInput",
+		OutputTypeName: "DeleteLoadBalancerPoliciesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteLoadBalancerPoliciesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteLoadBalancerPoliciesOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddLoadBalancerPolicyRules"] = ServiceApiSpec{
-		ActionName: "AddLoadBalancerPolicyRules",
-		InputType:  reflect.TypeOf((*AddLoadBalancerPolicyRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddLoadBalancerPolicyRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "AddLoadBalancerPolicyRules",
+		InputTypeName:  "AddLoadBalancerPolicyRulesInput",
+		OutputTypeName: "AddLoadBalancerPolicyRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*AddLoadBalancerPolicyRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddLoadBalancerPolicyRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeLoadBalancerPolicyRules"] = ServiceApiSpec{
-		ActionName: "DescribeLoadBalancerPolicyRules",
-		InputType:  reflect.TypeOf((*DescribeLoadBalancerPolicyRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeLoadBalancerPolicyRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DescribeLoadBalancerPolicyRules",
+		InputTypeName:  "DescribeLoadBalancerPolicyRulesInput",
+		OutputTypeName: "DescribeLoadBalancerPolicyRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeLoadBalancerPolicyRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeLoadBalancerPolicyRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyLoadBalancerPolicyRuleAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyLoadBalancerPolicyRuleAttributes",
-		InputType:  reflect.TypeOf((*ModifyLoadBalancerPolicyRuleAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyLoadBalancerPolicyRuleAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ModifyLoadBalancerPolicyRuleAttributes",
+		InputTypeName:  "ModifyLoadBalancerPolicyRuleAttributesInput",
+		OutputTypeName: "ModifyLoadBalancerPolicyRuleAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyLoadBalancerPolicyRuleAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyLoadBalancerPolicyRuleAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteLoadBalancerPolicyRules"] = ServiceApiSpec{
-		ActionName: "DeleteLoadBalancerPolicyRules",
-		InputType:  reflect.TypeOf((*DeleteLoadBalancerPolicyRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteLoadBalancerPolicyRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DeleteLoadBalancerPolicyRules",
+		InputTypeName:  "DeleteLoadBalancerPolicyRulesInput",
+		OutputTypeName: "DeleteLoadBalancerPolicyRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteLoadBalancerPolicyRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteLoadBalancerPolicyRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateServerCertificate"] = ServiceApiSpec{
-		ActionName: "CreateServerCertificate",
-		InputType:  reflect.TypeOf((*CreateServerCertificateInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateServerCertificateOutput)(nil)),
-		HttpMethod: "POST",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "CreateServerCertificate",
+		InputTypeName:  "CreateServerCertificateInput",
+		OutputTypeName: "CreateServerCertificateOutput",
+		HttpMethod:     "POST",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*CreateServerCertificateInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateServerCertificateOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeServerCertificates"] = ServiceApiSpec{
-		ActionName: "DescribeServerCertificates",
-		InputType:  reflect.TypeOf((*DescribeServerCertificatesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeServerCertificatesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DescribeServerCertificates",
+		InputTypeName:  "DescribeServerCertificatesInput",
+		OutputTypeName: "DescribeServerCertificatesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeServerCertificatesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeServerCertificatesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyServerCertificateAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyServerCertificateAttributes",
-		InputType:  reflect.TypeOf((*ModifyServerCertificateAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyServerCertificateAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "ModifyServerCertificateAttributes",
+		InputTypeName:  "ModifyServerCertificateAttributesInput",
+		OutputTypeName: "ModifyServerCertificateAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyServerCertificateAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyServerCertificateAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteServerCertificates"] = ServiceApiSpec{
-		ActionName: "DeleteServerCertificates",
-		InputType:  reflect.TypeOf((*DeleteServerCertificatesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteServerCertificatesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "LoadBalancerService",
+		ActionName:     "DeleteServerCertificates",
+		InputTypeName:  "DeleteServerCertificatesInput",
+		OutputTypeName: "DeleteServerCertificatesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*LoadBalancerService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteServerCertificatesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteServerCertificatesOutput)(nil)),
 	}
 }
 

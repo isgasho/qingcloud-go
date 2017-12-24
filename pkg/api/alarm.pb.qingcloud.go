@@ -55,106 +55,191 @@ func NewAlarmService(server *ServerInfo) (p *AlarmService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeAlarmPolicies"] = ServiceApiSpec{
-		ActionName: "DescribeAlarmPolicies",
-		InputType:  reflect.TypeOf((*DescribeAlarmPoliciesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeAlarmPoliciesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DescribeAlarmPolicies",
+		InputTypeName:  "DescribeAlarmPoliciesInput",
+		OutputTypeName: "DescribeAlarmPoliciesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeAlarmPoliciesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeAlarmPoliciesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateAlarmPolicy"] = ServiceApiSpec{
-		ActionName: "CreateAlarmPolicy",
-		InputType:  reflect.TypeOf((*CreateAlarmPolicyInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateAlarmPolicyOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "CreateAlarmPolicy",
+		InputTypeName:  "CreateAlarmPolicyInput",
+		OutputTypeName: "CreateAlarmPolicyOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*CreateAlarmPolicyInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateAlarmPolicyOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyAlarmPolicyAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyAlarmPolicyAttributes",
-		InputType:  reflect.TypeOf((*ModifyAlarmPolicyAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyAlarmPolicyAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "ModifyAlarmPolicyAttributes",
+		InputTypeName:  "ModifyAlarmPolicyAttributesInput",
+		OutputTypeName: "ModifyAlarmPolicyAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyAlarmPolicyAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyAlarmPolicyAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteAlarmPolicies"] = ServiceApiSpec{
-		ActionName: "DeleteAlarmPolicies",
-		InputType:  reflect.TypeOf((*DeleteAlarmPoliciesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteAlarmPoliciesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DeleteAlarmPolicies",
+		InputTypeName:  "DeleteAlarmPoliciesInput",
+		OutputTypeName: "DeleteAlarmPoliciesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteAlarmPoliciesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteAlarmPoliciesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeAlarmPolicyRules"] = ServiceApiSpec{
-		ActionName: "DescribeAlarmPolicyRules",
-		InputType:  reflect.TypeOf((*DescribeAlarmPolicyRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeAlarmPolicyRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DescribeAlarmPolicyRules",
+		InputTypeName:  "DescribeAlarmPolicyRulesInput",
+		OutputTypeName: "DescribeAlarmPolicyRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeAlarmPolicyRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeAlarmPolicyRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddAlarmPolicyRules"] = ServiceApiSpec{
-		ActionName: "AddAlarmPolicyRules",
-		InputType:  reflect.TypeOf((*AddAlarmPolicyRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddAlarmPolicyRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "AddAlarmPolicyRules",
+		InputTypeName:  "AddAlarmPolicyRulesInput",
+		OutputTypeName: "AddAlarmPolicyRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*AddAlarmPolicyRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddAlarmPolicyRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyAlarmPolicyRuleAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyAlarmPolicyRuleAttributes",
-		InputType:  reflect.TypeOf((*ModifyAlarmPolicyRuleAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyAlarmPolicyRuleAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "ModifyAlarmPolicyRuleAttributes",
+		InputTypeName:  "ModifyAlarmPolicyRuleAttributesInput",
+		OutputTypeName: "ModifyAlarmPolicyRuleAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyAlarmPolicyRuleAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyAlarmPolicyRuleAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteAlarmPolicyRules"] = ServiceApiSpec{
-		ActionName: "DeleteAlarmPolicyRules",
-		InputType:  reflect.TypeOf((*DeleteAlarmPolicyRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteAlarmPolicyRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DeleteAlarmPolicyRules",
+		InputTypeName:  "DeleteAlarmPolicyRulesInput",
+		OutputTypeName: "DeleteAlarmPolicyRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteAlarmPolicyRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteAlarmPolicyRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeAlarmPolicyActions"] = ServiceApiSpec{
-		ActionName: "DescribeAlarmPolicyActions",
-		InputType:  reflect.TypeOf((*DescribeAlarmPolicyActionsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeAlarmPolicyActionsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DescribeAlarmPolicyActions",
+		InputTypeName:  "DescribeAlarmPolicyActionsInput",
+		OutputTypeName: "DescribeAlarmPolicyActionsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeAlarmPolicyActionsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeAlarmPolicyActionsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddAlarmPolicyActions"] = ServiceApiSpec{
-		ActionName: "AddAlarmPolicyActions",
-		InputType:  reflect.TypeOf((*AddAlarmPolicyActionsInput)(nil)),
-		OutputType: reflect.TypeOf((*AddAlarmPolicyActionsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "AddAlarmPolicyActions",
+		InputTypeName:  "AddAlarmPolicyActionsInput",
+		OutputTypeName: "AddAlarmPolicyActionsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*AddAlarmPolicyActionsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddAlarmPolicyActionsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyAlarmPolicyActionAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyAlarmPolicyActionAttributes",
-		InputType:  reflect.TypeOf((*ModifyAlarmPolicyActionAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyAlarmPolicyActionAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "ModifyAlarmPolicyActionAttributes",
+		InputTypeName:  "ModifyAlarmPolicyActionAttributesInput",
+		OutputTypeName: "ModifyAlarmPolicyActionAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyAlarmPolicyActionAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyAlarmPolicyActionAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteAlarmPolicyActions"] = ServiceApiSpec{
-		ActionName: "DeleteAlarmPolicyActions",
-		InputType:  reflect.TypeOf((*DeleteAlarmPolicyActionsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteAlarmPolicyActionsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DeleteAlarmPolicyActions",
+		InputTypeName:  "DeleteAlarmPolicyActionsInput",
+		OutputTypeName: "DeleteAlarmPolicyActionsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteAlarmPolicyActionsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteAlarmPolicyActionsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AssociateAlarmPolicy"] = ServiceApiSpec{
-		ActionName: "AssociateAlarmPolicy",
-		InputType:  reflect.TypeOf((*AssociateAlarmPolicyInput)(nil)),
-		OutputType: reflect.TypeOf((*AssociateAlarmPolicyOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "AssociateAlarmPolicy",
+		InputTypeName:  "AssociateAlarmPolicyInput",
+		OutputTypeName: "AssociateAlarmPolicyOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*AssociateAlarmPolicyInput)(nil)),
+		OutputType:  reflect.TypeOf((*AssociateAlarmPolicyOutput)(nil)),
 	}
 	ServiceApiSpecMap["DissociateAlarmPolicy"] = ServiceApiSpec{
-		ActionName: "DissociateAlarmPolicy",
-		InputType:  reflect.TypeOf((*DissociateAlarmPolicyInput)(nil)),
-		OutputType: reflect.TypeOf((*DissociateAlarmPolicyOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DissociateAlarmPolicy",
+		InputTypeName:  "DissociateAlarmPolicyInput",
+		OutputTypeName: "DissociateAlarmPolicyOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DissociateAlarmPolicyInput)(nil)),
+		OutputType:  reflect.TypeOf((*DissociateAlarmPolicyOutput)(nil)),
 	}
 	ServiceApiSpecMap["ApplyAlarmPolicy"] = ServiceApiSpec{
-		ActionName: "ApplyAlarmPolicy",
-		InputType:  reflect.TypeOf((*ApplyAlarmPolicyInput)(nil)),
-		OutputType: reflect.TypeOf((*ApplyAlarmPolicyOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "ApplyAlarmPolicy",
+		InputTypeName:  "ApplyAlarmPolicyInput",
+		OutputTypeName: "ApplyAlarmPolicyOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*ApplyAlarmPolicyInput)(nil)),
+		OutputType:  reflect.TypeOf((*ApplyAlarmPolicyOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeAlarms"] = ServiceApiSpec{
-		ActionName: "DescribeAlarms",
-		InputType:  reflect.TypeOf((*DescribeAlarmsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeAlarmsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DescribeAlarms",
+		InputTypeName:  "DescribeAlarmsInput",
+		OutputTypeName: "DescribeAlarmsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeAlarmsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeAlarmsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeAlarmHistory"] = ServiceApiSpec{
-		ActionName: "DescribeAlarmHistory",
-		InputType:  reflect.TypeOf((*DescribeAlarmHistoryInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeAlarmHistoryOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "AlarmService",
+		ActionName:     "DescribeAlarmHistory",
+		InputTypeName:  "DescribeAlarmHistoryInput",
+		OutputTypeName: "DescribeAlarmHistoryOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*AlarmService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeAlarmHistoryInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeAlarmHistoryOutput)(nil)),
 	}
 }
 

@@ -42,28 +42,48 @@ func NewDNSAliasService(server *ServerInfo) (p *DNSAliasService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeDNSAliases"] = ServiceApiSpec{
-		ActionName: "DescribeDNSAliases",
-		InputType:  reflect.TypeOf((*DescribeDNSAliasesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeDNSAliasesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "DNSAliasService",
+		ActionName:     "DescribeDNSAliases",
+		InputTypeName:  "DescribeDNSAliasesInput",
+		OutputTypeName: "DescribeDNSAliasesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*DNSAliasService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeDNSAliasesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeDNSAliasesOutput)(nil)),
 	}
 	ServiceApiSpecMap["AssociateDNSAlias"] = ServiceApiSpec{
-		ActionName: "AssociateDNSAlias",
-		InputType:  reflect.TypeOf((*AssociateDNSAliasInput)(nil)),
-		OutputType: reflect.TypeOf((*AssociateDNSAliasOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "DNSAliasService",
+		ActionName:     "AssociateDNSAlias",
+		InputTypeName:  "AssociateDNSAliasInput",
+		OutputTypeName: "AssociateDNSAliasOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*DNSAliasService)(nil)),
+		InputType:   reflect.TypeOf((*AssociateDNSAliasInput)(nil)),
+		OutputType:  reflect.TypeOf((*AssociateDNSAliasOutput)(nil)),
 	}
 	ServiceApiSpecMap["DissociateDNSAliases"] = ServiceApiSpec{
-		ActionName: "DissociateDNSAliases",
-		InputType:  reflect.TypeOf((*DissociateDNSAliasesInput)(nil)),
-		OutputType: reflect.TypeOf((*DissociateDNSAliasesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "DNSAliasService",
+		ActionName:     "DissociateDNSAliases",
+		InputTypeName:  "DissociateDNSAliasesInput",
+		OutputTypeName: "DissociateDNSAliasesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*DNSAliasService)(nil)),
+		InputType:   reflect.TypeOf((*DissociateDNSAliasesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DissociateDNSAliasesOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetDNSLabel"] = ServiceApiSpec{
-		ActionName: "GetDNSLabel",
-		InputType:  reflect.TypeOf((*GetDNSLabelInput)(nil)),
-		OutputType: reflect.TypeOf((*GetDNSLabelOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "DNSAliasService",
+		ActionName:     "GetDNSLabel",
+		InputTypeName:  "GetDNSLabelInput",
+		OutputTypeName: "GetDNSLabelOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*DNSAliasService)(nil)),
+		InputType:   reflect.TypeOf((*GetDNSLabelInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetDNSLabelOutput)(nil)),
 	}
 }
 

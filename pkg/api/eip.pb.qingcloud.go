@@ -46,52 +46,92 @@ func NewEIPService(server *ServerInfo) (p *EIPService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeEips"] = ServiceApiSpec{
-		ActionName: "DescribeEips",
-		InputType:  reflect.TypeOf((*DescribeEipsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeEipsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "DescribeEips",
+		InputTypeName:  "DescribeEipsInput",
+		OutputTypeName: "DescribeEipsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeEipsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeEipsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AllocateEips"] = ServiceApiSpec{
-		ActionName: "AllocateEips",
-		InputType:  reflect.TypeOf((*AllocateEipsInput)(nil)),
-		OutputType: reflect.TypeOf((*AllocateEipsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "AllocateEips",
+		InputTypeName:  "AllocateEipsInput",
+		OutputTypeName: "AllocateEipsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*AllocateEipsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AllocateEipsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ReleaseEips"] = ServiceApiSpec{
-		ActionName: "ReleaseEips",
-		InputType:  reflect.TypeOf((*ReleaseEipsInput)(nil)),
-		OutputType: reflect.TypeOf((*ReleaseEipsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "ReleaseEips",
+		InputTypeName:  "ReleaseEipsInput",
+		OutputTypeName: "ReleaseEipsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*ReleaseEipsInput)(nil)),
+		OutputType:  reflect.TypeOf((*ReleaseEipsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AssociateEip"] = ServiceApiSpec{
-		ActionName: "AssociateEip",
-		InputType:  reflect.TypeOf((*AssociateEipInput)(nil)),
-		OutputType: reflect.TypeOf((*AssociateEipOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "AssociateEip",
+		InputTypeName:  "AssociateEipInput",
+		OutputTypeName: "AssociateEipOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*AssociateEipInput)(nil)),
+		OutputType:  reflect.TypeOf((*AssociateEipOutput)(nil)),
 	}
 	ServiceApiSpecMap["DissociateEips"] = ServiceApiSpec{
-		ActionName: "DissociateEips",
-		InputType:  reflect.TypeOf((*DissociateEipsInput)(nil)),
-		OutputType: reflect.TypeOf((*DissociateEipsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "DissociateEips",
+		InputTypeName:  "DissociateEipsInput",
+		OutputTypeName: "DissociateEipsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*DissociateEipsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DissociateEipsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ChangeEipsBandwidth"] = ServiceApiSpec{
-		ActionName: "ChangeEipsBandwidth",
-		InputType:  reflect.TypeOf((*ChangeEipsBandwidthInput)(nil)),
-		OutputType: reflect.TypeOf((*ChangeEipsBandwidthOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "ChangeEipsBandwidth",
+		InputTypeName:  "ChangeEipsBandwidthInput",
+		OutputTypeName: "ChangeEipsBandwidthOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*ChangeEipsBandwidthInput)(nil)),
+		OutputType:  reflect.TypeOf((*ChangeEipsBandwidthOutput)(nil)),
 	}
 	ServiceApiSpecMap["ChangeEipsBillingMode"] = ServiceApiSpec{
-		ActionName: "ChangeEipsBillingMode",
-		InputType:  reflect.TypeOf((*ChangeEipsBillingModeInput)(nil)),
-		OutputType: reflect.TypeOf((*ChangeEipsBillingModeOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "ChangeEipsBillingMode",
+		InputTypeName:  "ChangeEipsBillingModeInput",
+		OutputTypeName: "ChangeEipsBillingModeOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*ChangeEipsBillingModeInput)(nil)),
+		OutputType:  reflect.TypeOf((*ChangeEipsBillingModeOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyEipAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyEipAttributes",
-		InputType:  reflect.TypeOf((*ModifyEipAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyEipAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "EIPService",
+		ActionName:     "ModifyEipAttributes",
+		InputTypeName:  "ModifyEipAttributesInput",
+		OutputTypeName: "ModifyEipAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*EIPService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyEipAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyEipAttributesOutput)(nil)),
 	}
 }
 

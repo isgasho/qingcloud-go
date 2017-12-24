@@ -39,10 +39,15 @@ func NewZoneService(server *ServerInfo) (p *ZoneService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeZones"] = ServiceApiSpec{
-		ActionName: "DescribeZones",
-		InputType:  reflect.TypeOf((*DescribeZonesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeZonesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ZoneService",
+		ActionName:     "DescribeZones",
+		InputTypeName:  "DescribeZonesInput",
+		OutputTypeName: "DescribeZonesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ZoneService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeZonesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeZonesOutput)(nil)),
 	}
 }
 

@@ -39,10 +39,15 @@ func NewJobService(server *ServerInfo) (p *JobService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeJobs"] = ServiceApiSpec{
-		ActionName: "DescribeJobs",
-		InputType:  reflect.TypeOf((*DescribeJobsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeJobsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "JobService",
+		ActionName:     "DescribeJobs",
+		InputTypeName:  "DescribeJobsInput",
+		OutputTypeName: "DescribeJobsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*JobService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeJobsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeJobsOutput)(nil)),
 	}
 }
 

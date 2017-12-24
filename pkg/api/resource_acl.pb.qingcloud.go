@@ -65,166 +65,301 @@ func NewResourceACLService(server *ServerInfo) (p *ResourceACLService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeSharedResourceGroups"] = ServiceApiSpec{
-		ActionName: "DescribeSharedResourceGroups",
-		InputType:  reflect.TypeOf((*DescribeSharedResourceGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeSharedResourceGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeSharedResourceGroups",
+		InputTypeName:  "DescribeSharedResourceGroupsInput",
+		OutputTypeName: "DescribeSharedResourceGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeSharedResourceGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeSharedResourceGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeResourceGroups"] = ServiceApiSpec{
-		ActionName: "DescribeResourceGroups",
-		InputType:  reflect.TypeOf((*DescribeResourceGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeResourceGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeResourceGroups",
+		InputTypeName:  "DescribeResourceGroupsInput",
+		OutputTypeName: "DescribeResourceGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeResourceGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeResourceGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateResourceGroups"] = ServiceApiSpec{
-		ActionName: "CreateResourceGroups",
-		InputType:  reflect.TypeOf((*CreateResourceGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateResourceGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "CreateResourceGroups",
+		InputTypeName:  "CreateResourceGroupsInput",
+		OutputTypeName: "CreateResourceGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*CreateResourceGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateResourceGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyResourceGroupAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyResourceGroupAttributes",
-		InputType:  reflect.TypeOf((*ModifyResourceGroupAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyResourceGroupAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "ModifyResourceGroupAttributes",
+		InputTypeName:  "ModifyResourceGroupAttributesInput",
+		OutputTypeName: "ModifyResourceGroupAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyResourceGroupAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyResourceGroupAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteResourceGroups"] = ServiceApiSpec{
-		ActionName: "DeleteResourceGroups",
-		InputType:  reflect.TypeOf((*DeleteResourceGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteResourceGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DeleteResourceGroups",
+		InputTypeName:  "DeleteResourceGroupsInput",
+		OutputTypeName: "DeleteResourceGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteResourceGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteResourceGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeResourceGroupItems"] = ServiceApiSpec{
-		ActionName: "DescribeResourceGroupItems",
-		InputType:  reflect.TypeOf((*DescribeResourceGroupItemsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeResourceGroupItemsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeResourceGroupItems",
+		InputTypeName:  "DescribeResourceGroupItemsInput",
+		OutputTypeName: "DescribeResourceGroupItemsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeResourceGroupItemsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeResourceGroupItemsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddResourceGroupItems"] = ServiceApiSpec{
-		ActionName: "AddResourceGroupItems",
-		InputType:  reflect.TypeOf((*AddResourceGroupItemsInput)(nil)),
-		OutputType: reflect.TypeOf((*AddResourceGroupItemsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "AddResourceGroupItems",
+		InputTypeName:  "AddResourceGroupItemsInput",
+		OutputTypeName: "AddResourceGroupItemsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*AddResourceGroupItemsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddResourceGroupItemsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteResourceGroupItems"] = ServiceApiSpec{
-		ActionName: "DeleteResourceGroupItems",
-		InputType:  reflect.TypeOf((*DeleteResourceGroupItemsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteResourceGroupItemsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DeleteResourceGroupItems",
+		InputTypeName:  "DeleteResourceGroupItemsInput",
+		OutputTypeName: "DeleteResourceGroupItemsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteResourceGroupItemsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteResourceGroupItemsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeUserGroups"] = ServiceApiSpec{
-		ActionName: "DescribeUserGroups",
-		InputType:  reflect.TypeOf((*DescribeUserGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeUserGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeUserGroups",
+		InputTypeName:  "DescribeUserGroupsInput",
+		OutputTypeName: "DescribeUserGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeUserGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeUserGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateUserGroups"] = ServiceApiSpec{
-		ActionName: "CreateUserGroups",
-		InputType:  reflect.TypeOf((*CreateUserGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateUserGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "CreateUserGroups",
+		InputTypeName:  "CreateUserGroupsInput",
+		OutputTypeName: "CreateUserGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*CreateUserGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateUserGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyUserGroupAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyUserGroupAttributes",
-		InputType:  reflect.TypeOf((*ModifyUserGroupAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyUserGroupAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "ModifyUserGroupAttributes",
+		InputTypeName:  "ModifyUserGroupAttributesInput",
+		OutputTypeName: "ModifyUserGroupAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyUserGroupAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyUserGroupAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteUserGroups"] = ServiceApiSpec{
-		ActionName: "DeleteUserGroups",
-		InputType:  reflect.TypeOf((*DeleteUserGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteUserGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DeleteUserGroups",
+		InputTypeName:  "DeleteUserGroupsInput",
+		OutputTypeName: "DeleteUserGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteUserGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteUserGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeUserGroupMembers"] = ServiceApiSpec{
-		ActionName: "DescribeUserGroupMembers",
-		InputType:  reflect.TypeOf((*DescribeUserGroupMembersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeUserGroupMembersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeUserGroupMembers",
+		InputTypeName:  "DescribeUserGroupMembersInput",
+		OutputTypeName: "DescribeUserGroupMembersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeUserGroupMembersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeUserGroupMembersOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddUserGroupMembers"] = ServiceApiSpec{
-		ActionName: "AddUserGroupMembers",
-		InputType:  reflect.TypeOf((*AddUserGroupMembersInput)(nil)),
-		OutputType: reflect.TypeOf((*AddUserGroupMembersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "AddUserGroupMembers",
+		InputTypeName:  "AddUserGroupMembersInput",
+		OutputTypeName: "AddUserGroupMembersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*AddUserGroupMembersInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddUserGroupMembersOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyUserGroupMemberAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyUserGroupMemberAttributes",
-		InputType:  reflect.TypeOf((*ModifyUserGroupMemberAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyUserGroupMemberAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "ModifyUserGroupMemberAttributes",
+		InputTypeName:  "ModifyUserGroupMemberAttributesInput",
+		OutputTypeName: "ModifyUserGroupMemberAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyUserGroupMemberAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyUserGroupMemberAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteUserGroupMembers"] = ServiceApiSpec{
-		ActionName: "DeleteUserGroupMembers",
-		InputType:  reflect.TypeOf((*DeleteUserGroupMembersInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteUserGroupMembersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DeleteUserGroupMembers",
+		InputTypeName:  "DeleteUserGroupMembersInput",
+		OutputTypeName: "DeleteUserGroupMembersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteUserGroupMembersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteUserGroupMembersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeGroupRoles"] = ServiceApiSpec{
-		ActionName: "DescribeGroupRoles",
-		InputType:  reflect.TypeOf((*DescribeGroupRolesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeGroupRolesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeGroupRoles",
+		InputTypeName:  "DescribeGroupRolesInput",
+		OutputTypeName: "DescribeGroupRolesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeGroupRolesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeGroupRolesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateGroupRoles"] = ServiceApiSpec{
-		ActionName: "CreateGroupRoles",
-		InputType:  reflect.TypeOf((*CreateGroupRolesInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateGroupRolesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "CreateGroupRoles",
+		InputTypeName:  "CreateGroupRolesInput",
+		OutputTypeName: "CreateGroupRolesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*CreateGroupRolesInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateGroupRolesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyGroupRoleAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyGroupRoleAttributes",
-		InputType:  reflect.TypeOf((*ModifyGroupRoleAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyGroupRoleAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "ModifyGroupRoleAttributes",
+		InputTypeName:  "ModifyGroupRoleAttributesInput",
+		OutputTypeName: "ModifyGroupRoleAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyGroupRoleAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyGroupRoleAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteGroupRoles"] = ServiceApiSpec{
-		ActionName: "DeleteGroupRoles",
-		InputType:  reflect.TypeOf((*DeleteGroupRolesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteGroupRolesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DeleteGroupRoles",
+		InputTypeName:  "DeleteGroupRolesInput",
+		OutputTypeName: "DeleteGroupRolesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteGroupRolesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteGroupRolesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeGroupRoleRules"] = ServiceApiSpec{
-		ActionName: "DescribeGroupRoleRules",
-		InputType:  reflect.TypeOf((*DescribeGroupRoleRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeGroupRoleRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeGroupRoleRules",
+		InputTypeName:  "DescribeGroupRoleRulesInput",
+		OutputTypeName: "DescribeGroupRoleRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeGroupRoleRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeGroupRoleRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddGroupRoleRules"] = ServiceApiSpec{
-		ActionName: "AddGroupRoleRules",
-		InputType:  reflect.TypeOf((*AddGroupRoleRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddGroupRoleRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "AddGroupRoleRules",
+		InputTypeName:  "AddGroupRoleRulesInput",
+		OutputTypeName: "AddGroupRoleRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*AddGroupRoleRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddGroupRoleRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyGroupRoleRuleAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyGroupRoleRuleAttributes",
-		InputType:  reflect.TypeOf((*ModifyGroupRoleRuleAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyGroupRoleRuleAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "ModifyGroupRoleRuleAttributes",
+		InputTypeName:  "ModifyGroupRoleRuleAttributesInput",
+		OutputTypeName: "ModifyGroupRoleRuleAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyGroupRoleRuleAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyGroupRoleRuleAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteGroupRoleRules"] = ServiceApiSpec{
-		ActionName: "DeleteGroupRoleRules",
-		InputType:  reflect.TypeOf((*DeleteGroupRoleRulesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteGroupRoleRulesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DeleteGroupRoleRules",
+		InputTypeName:  "DeleteGroupRoleRulesInput",
+		OutputTypeName: "DeleteGroupRoleRulesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteGroupRoleRulesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteGroupRoleRulesOutput)(nil)),
 	}
 	ServiceApiSpecMap["GrantResourceGroupsToUserGroups"] = ServiceApiSpec{
-		ActionName: "GrantResourceGroupsToUserGroups",
-		InputType:  reflect.TypeOf((*GrantResourceGroupsToUserGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*GrantResourceGroupsToUserGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "GrantResourceGroupsToUserGroups",
+		InputTypeName:  "GrantResourceGroupsToUserGroupsInput",
+		OutputTypeName: "GrantResourceGroupsToUserGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*GrantResourceGroupsToUserGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*GrantResourceGroupsToUserGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["RevokeResourceGroupsFromUserGroups"] = ServiceApiSpec{
-		ActionName: "RevokeResourceGroupsFromUserGroups",
-		InputType:  reflect.TypeOf((*RevokeResourceGroupsFromUserGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*RevokeResourceGroupsFromUserGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "RevokeResourceGroupsFromUserGroups",
+		InputTypeName:  "RevokeResourceGroupsFromUserGroupsInput",
+		OutputTypeName: "RevokeResourceGroupsFromUserGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*RevokeResourceGroupsFromUserGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*RevokeResourceGroupsFromUserGroupsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeResourceUserGroups"] = ServiceApiSpec{
-		ActionName: "DescribeResourceUserGroups",
-		InputType:  reflect.TypeOf((*DescribeResourceUserGroupsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeResourceUserGroupsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ResourceACLService",
+		ActionName:     "DescribeResourceUserGroups",
+		InputTypeName:  "DescribeResourceUserGroupsInput",
+		OutputTypeName: "DescribeResourceUserGroupsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ResourceACLService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeResourceUserGroupsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeResourceUserGroupsOutput)(nil)),
 	}
 }
 

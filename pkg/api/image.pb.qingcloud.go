@@ -46,52 +46,92 @@ func NewImageService(server *ServerInfo) (p *ImageService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeImages"] = ServiceApiSpec{
-		ActionName: "DescribeImages",
-		InputType:  reflect.TypeOf((*DescribeImagesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeImagesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "DescribeImages",
+		InputTypeName:  "DescribeImagesInput",
+		OutputTypeName: "DescribeImagesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeImagesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeImagesOutput)(nil)),
 	}
 	ServiceApiSpecMap["CaptureInstance"] = ServiceApiSpec{
-		ActionName: "CaptureInstance",
-		InputType:  reflect.TypeOf((*CaptureInstanceInput)(nil)),
-		OutputType: reflect.TypeOf((*CaptureInstanceOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "CaptureInstance",
+		InputTypeName:  "CaptureInstanceInput",
+		OutputTypeName: "CaptureInstanceOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*CaptureInstanceInput)(nil)),
+		OutputType:  reflect.TypeOf((*CaptureInstanceOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteImages"] = ServiceApiSpec{
-		ActionName: "DeleteImages",
-		InputType:  reflect.TypeOf((*DeleteImagesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteImagesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "DeleteImages",
+		InputTypeName:  "DeleteImagesInput",
+		OutputTypeName: "DeleteImagesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteImagesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteImagesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyImageAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyImageAttributes",
-		InputType:  reflect.TypeOf((*ModifyImageAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyImageAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "ModifyImageAttributes",
+		InputTypeName:  "ModifyImageAttributesInput",
+		OutputTypeName: "ModifyImageAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyImageAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyImageAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["GrantImageToUsers"] = ServiceApiSpec{
-		ActionName: "GrantImageToUsers",
-		InputType:  reflect.TypeOf((*GrantImageToUsersInput)(nil)),
-		OutputType: reflect.TypeOf((*GrantImageToUsersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "GrantImageToUsers",
+		InputTypeName:  "GrantImageToUsersInput",
+		OutputTypeName: "GrantImageToUsersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*GrantImageToUsersInput)(nil)),
+		OutputType:  reflect.TypeOf((*GrantImageToUsersOutput)(nil)),
 	}
 	ServiceApiSpecMap["RevokeImageFromUsers"] = ServiceApiSpec{
-		ActionName: "RevokeImageFromUsers",
-		InputType:  reflect.TypeOf((*RevokeImageFromUsersInput)(nil)),
-		OutputType: reflect.TypeOf((*RevokeImageFromUsersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "RevokeImageFromUsers",
+		InputTypeName:  "RevokeImageFromUsersInput",
+		OutputTypeName: "RevokeImageFromUsersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*RevokeImageFromUsersInput)(nil)),
+		OutputType:  reflect.TypeOf((*RevokeImageFromUsersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeImageUsers"] = ServiceApiSpec{
-		ActionName: "DescribeImageUsers",
-		InputType:  reflect.TypeOf((*DescribeImageUsersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeImageUsersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "DescribeImageUsers",
+		InputTypeName:  "DescribeImageUsersInput",
+		OutputTypeName: "DescribeImageUsersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeImageUsersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeImageUsersOutput)(nil)),
 	}
 	ServiceApiSpecMap["CloneImages"] = ServiceApiSpec{
-		ActionName: "CloneImages",
-		InputType:  reflect.TypeOf((*CloneImagesInput)(nil)),
-		OutputType: reflect.TypeOf((*CloneImagesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "ImageService",
+		ActionName:     "CloneImages",
+		InputTypeName:  "CloneImagesInput",
+		OutputTypeName: "CloneImagesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*ImageService)(nil)),
+		InputType:   reflect.TypeOf((*CloneImagesInput)(nil)),
+		OutputType:  reflect.TypeOf((*CloneImagesOutput)(nil)),
 	}
 }
 

@@ -45,46 +45,81 @@ func NewSpanService(server *ServerInfo) (p *SpanService) {
 
 func init() {
 	ServiceApiSpecMap["CreateSpan"] = ServiceApiSpec{
-		ActionName: "CreateSpan",
-		InputType:  reflect.TypeOf((*CreateSpanInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateSpanOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SpanService",
+		ActionName:     "CreateSpan",
+		InputTypeName:  "CreateSpanInput",
+		OutputTypeName: "CreateSpanOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SpanService)(nil)),
+		InputType:   reflect.TypeOf((*CreateSpanInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateSpanOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeSpans"] = ServiceApiSpec{
-		ActionName: "DescribeSpans",
-		InputType:  reflect.TypeOf((*DescribeSpansInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeSpansOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SpanService",
+		ActionName:     "DescribeSpans",
+		InputTypeName:  "DescribeSpansInput",
+		OutputTypeName: "DescribeSpansOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SpanService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeSpansInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeSpansOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteSpans"] = ServiceApiSpec{
-		ActionName: "DeleteSpans",
-		InputType:  reflect.TypeOf((*DeleteSpansInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteSpansOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SpanService",
+		ActionName:     "DeleteSpans",
+		InputTypeName:  "DeleteSpansInput",
+		OutputTypeName: "DeleteSpansOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SpanService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteSpansInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteSpansOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddSpanMembers"] = ServiceApiSpec{
-		ActionName: "AddSpanMembers",
-		InputType:  reflect.TypeOf((*AddSpanMembersInput)(nil)),
-		OutputType: reflect.TypeOf((*AddSpanMembersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SpanService",
+		ActionName:     "AddSpanMembers",
+		InputTypeName:  "AddSpanMembersInput",
+		OutputTypeName: "AddSpanMembersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SpanService)(nil)),
+		InputType:   reflect.TypeOf((*AddSpanMembersInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddSpanMembersOutput)(nil)),
 	}
 	ServiceApiSpecMap["RemoveSpanMembers"] = ServiceApiSpec{
-		ActionName: "RemoveSpanMembers",
-		InputType:  reflect.TypeOf((*RemoveSpanMembersInput)(nil)),
-		OutputType: reflect.TypeOf((*RemoveSpanMembersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SpanService",
+		ActionName:     "RemoveSpanMembers",
+		InputTypeName:  "RemoveSpanMembersInput",
+		OutputTypeName: "RemoveSpanMembersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SpanService)(nil)),
+		InputType:   reflect.TypeOf((*RemoveSpanMembersInput)(nil)),
+		OutputType:  reflect.TypeOf((*RemoveSpanMembersOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifySpanAttributes"] = ServiceApiSpec{
-		ActionName: "ModifySpanAttributes",
-		InputType:  reflect.TypeOf((*ModifySpanAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifySpanAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SpanService",
+		ActionName:     "ModifySpanAttributes",
+		InputTypeName:  "ModifySpanAttributesInput",
+		OutputTypeName: "ModifySpanAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SpanService)(nil)),
+		InputType:   reflect.TypeOf((*ModifySpanAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifySpanAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["UpdateSpan"] = ServiceApiSpec{
-		ActionName: "UpdateSpan",
-		InputType:  reflect.TypeOf((*UpdateSpanInput)(nil)),
-		OutputType: reflect.TypeOf((*UpdateSpanOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "SpanService",
+		ActionName:     "UpdateSpan",
+		InputTypeName:  "UpdateSpanInput",
+		OutputTypeName: "UpdateSpanOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*SpanService)(nil)),
+		InputType:   reflect.TypeOf((*UpdateSpanInput)(nil)),
+		OutputType:  reflect.TypeOf((*UpdateSpanOutput)(nil)),
 	}
 }
 

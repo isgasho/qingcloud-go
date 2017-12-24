@@ -58,124 +58,224 @@ func NewRouterService(server *ServerInfo) (p *RouterService) {
 
 func init() {
 	ServiceApiSpecMap["DescribeRouters"] = ServiceApiSpec{
-		ActionName: "DescribeRouters",
-		InputType:  reflect.TypeOf((*DescribeRoutersInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeRoutersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "DescribeRouters",
+		InputTypeName:  "DescribeRoutersInput",
+		OutputTypeName: "DescribeRoutersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeRoutersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeRoutersOutput)(nil)),
 	}
 	ServiceApiSpecMap["CreateRouters"] = ServiceApiSpec{
-		ActionName: "CreateRouters",
-		InputType:  reflect.TypeOf((*CreateRoutersInput)(nil)),
-		OutputType: reflect.TypeOf((*CreateRoutersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "CreateRouters",
+		InputTypeName:  "CreateRoutersInput",
+		OutputTypeName: "CreateRoutersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*CreateRoutersInput)(nil)),
+		OutputType:  reflect.TypeOf((*CreateRoutersOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteRouters"] = ServiceApiSpec{
-		ActionName: "DeleteRouters",
-		InputType:  reflect.TypeOf((*DeleteRoutersInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteRoutersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "DeleteRouters",
+		InputTypeName:  "DeleteRoutersInput",
+		OutputTypeName: "DeleteRoutersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteRoutersInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteRoutersOutput)(nil)),
 	}
 	ServiceApiSpecMap["UpdateRouters"] = ServiceApiSpec{
-		ActionName: "UpdateRouters",
-		InputType:  reflect.TypeOf((*UpdateRoutersInput)(nil)),
-		OutputType: reflect.TypeOf((*UpdateRoutersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "UpdateRouters",
+		InputTypeName:  "UpdateRoutersInput",
+		OutputTypeName: "UpdateRoutersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*UpdateRoutersInput)(nil)),
+		OutputType:  reflect.TypeOf((*UpdateRoutersOutput)(nil)),
 	}
 	ServiceApiSpecMap["PowerOffRouters"] = ServiceApiSpec{
-		ActionName: "PowerOffRouters",
-		InputType:  reflect.TypeOf((*PowerOffRoutersInput)(nil)),
-		OutputType: reflect.TypeOf((*PowerOffRoutersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "PowerOffRouters",
+		InputTypeName:  "PowerOffRoutersInput",
+		OutputTypeName: "PowerOffRoutersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*PowerOffRoutersInput)(nil)),
+		OutputType:  reflect.TypeOf((*PowerOffRoutersOutput)(nil)),
 	}
 	ServiceApiSpecMap["PowerOnRouters"] = ServiceApiSpec{
-		ActionName: "PowerOnRouters",
-		InputType:  reflect.TypeOf((*PowerOnRoutersInput)(nil)),
-		OutputType: reflect.TypeOf((*PowerOnRoutersOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "PowerOnRouters",
+		InputTypeName:  "PowerOnRoutersInput",
+		OutputTypeName: "PowerOnRoutersOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*PowerOnRoutersInput)(nil)),
+		OutputType:  reflect.TypeOf((*PowerOnRoutersOutput)(nil)),
 	}
 	ServiceApiSpecMap["JoinRouter"] = ServiceApiSpec{
-		ActionName: "JoinRouter",
-		InputType:  reflect.TypeOf((*JoinRouterInput)(nil)),
-		OutputType: reflect.TypeOf((*JoinRouterOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "JoinRouter",
+		InputTypeName:  "JoinRouterInput",
+		OutputTypeName: "JoinRouterOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*JoinRouterInput)(nil)),
+		OutputType:  reflect.TypeOf((*JoinRouterOutput)(nil)),
 	}
 	ServiceApiSpecMap["LeaveRouter"] = ServiceApiSpec{
-		ActionName: "LeaveRouter",
-		InputType:  reflect.TypeOf((*LeaveRouterInput)(nil)),
-		OutputType: reflect.TypeOf((*LeaveRouterOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "LeaveRouter",
+		InputTypeName:  "LeaveRouterInput",
+		OutputTypeName: "LeaveRouterOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*LeaveRouterInput)(nil)),
+		OutputType:  reflect.TypeOf((*LeaveRouterOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyRouterAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyRouterAttributes",
-		InputType:  reflect.TypeOf((*ModifyRouterAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyRouterAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "ModifyRouterAttributes",
+		InputTypeName:  "ModifyRouterAttributesInput",
+		OutputTypeName: "ModifyRouterAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyRouterAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyRouterAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeRouterStatics"] = ServiceApiSpec{
-		ActionName: "DescribeRouterStatics",
-		InputType:  reflect.TypeOf((*DescribeRouterStaticsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeRouterStaticsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "DescribeRouterStatics",
+		InputTypeName:  "DescribeRouterStaticsInput",
+		OutputTypeName: "DescribeRouterStaticsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeRouterStaticsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeRouterStaticsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddRouterStatics"] = ServiceApiSpec{
-		ActionName: "AddRouterStatics",
-		InputType:  reflect.TypeOf((*AddRouterStaticsInput)(nil)),
-		OutputType: reflect.TypeOf((*AddRouterStaticsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "AddRouterStatics",
+		InputTypeName:  "AddRouterStaticsInput",
+		OutputTypeName: "AddRouterStaticsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*AddRouterStaticsInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddRouterStaticsOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyRouterStaticAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyRouterStaticAttributes",
-		InputType:  reflect.TypeOf((*ModifyRouterStaticAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyRouterStaticAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "ModifyRouterStaticAttributes",
+		InputTypeName:  "ModifyRouterStaticAttributesInput",
+		OutputTypeName: "ModifyRouterStaticAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyRouterStaticAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyRouterStaticAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteRouterStatics"] = ServiceApiSpec{
-		ActionName: "DeleteRouterStatics",
-		InputType:  reflect.TypeOf((*DeleteRouterStaticsInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteRouterStaticsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "DeleteRouterStatics",
+		InputTypeName:  "DeleteRouterStaticsInput",
+		OutputTypeName: "DeleteRouterStaticsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteRouterStaticsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteRouterStaticsOutput)(nil)),
 	}
 	ServiceApiSpecMap["CopyRouterStatics"] = ServiceApiSpec{
-		ActionName: "CopyRouterStatics",
-		InputType:  reflect.TypeOf((*CopyRouterStaticsInput)(nil)),
-		OutputType: reflect.TypeOf((*CopyRouterStaticsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "CopyRouterStatics",
+		InputTypeName:  "CopyRouterStaticsInput",
+		OutputTypeName: "CopyRouterStaticsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*CopyRouterStaticsInput)(nil)),
+		OutputType:  reflect.TypeOf((*CopyRouterStaticsOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeRouterVxnets"] = ServiceApiSpec{
-		ActionName: "DescribeRouterVxnets",
-		InputType:  reflect.TypeOf((*DescribeRouterVxnetsInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeRouterVxnetsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "DescribeRouterVxnets",
+		InputTypeName:  "DescribeRouterVxnetsInput",
+		OutputTypeName: "DescribeRouterVxnetsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeRouterVxnetsInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeRouterVxnetsOutput)(nil)),
 	}
 	ServiceApiSpecMap["AddRouterStaticEntries"] = ServiceApiSpec{
-		ActionName: "AddRouterStaticEntries",
-		InputType:  reflect.TypeOf((*AddRouterStaticEntriesInput)(nil)),
-		OutputType: reflect.TypeOf((*AddRouterStaticEntriesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "AddRouterStaticEntries",
+		InputTypeName:  "AddRouterStaticEntriesInput",
+		OutputTypeName: "AddRouterStaticEntriesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*AddRouterStaticEntriesInput)(nil)),
+		OutputType:  reflect.TypeOf((*AddRouterStaticEntriesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DeleteRouterStaticEntries"] = ServiceApiSpec{
-		ActionName: "DeleteRouterStaticEntries",
-		InputType:  reflect.TypeOf((*DeleteRouterStaticEntriesInput)(nil)),
-		OutputType: reflect.TypeOf((*DeleteRouterStaticEntriesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "DeleteRouterStaticEntries",
+		InputTypeName:  "DeleteRouterStaticEntriesInput",
+		OutputTypeName: "DeleteRouterStaticEntriesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*DeleteRouterStaticEntriesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DeleteRouterStaticEntriesOutput)(nil)),
 	}
 	ServiceApiSpecMap["ModifyRouterStaticEntryAttributes"] = ServiceApiSpec{
-		ActionName: "ModifyRouterStaticEntryAttributes",
-		InputType:  reflect.TypeOf((*ModifyRouterStaticEntryAttributesInput)(nil)),
-		OutputType: reflect.TypeOf((*ModifyRouterStaticEntryAttributesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "ModifyRouterStaticEntryAttributes",
+		InputTypeName:  "ModifyRouterStaticEntryAttributesInput",
+		OutputTypeName: "ModifyRouterStaticEntryAttributesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*ModifyRouterStaticEntryAttributesInput)(nil)),
+		OutputType:  reflect.TypeOf((*ModifyRouterStaticEntryAttributesOutput)(nil)),
 	}
 	ServiceApiSpecMap["DescribeRouterStaticEntries"] = ServiceApiSpec{
-		ActionName: "DescribeRouterStaticEntries",
-		InputType:  reflect.TypeOf((*DescribeRouterStaticEntriesInput)(nil)),
-		OutputType: reflect.TypeOf((*DescribeRouterStaticEntriesOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "DescribeRouterStaticEntries",
+		InputTypeName:  "DescribeRouterStaticEntriesInput",
+		OutputTypeName: "DescribeRouterStaticEntriesOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*DescribeRouterStaticEntriesInput)(nil)),
+		OutputType:  reflect.TypeOf((*DescribeRouterStaticEntriesOutput)(nil)),
 	}
 	ServiceApiSpecMap["GetVPNCerts"] = ServiceApiSpec{
-		ActionName: "GetVPNCerts",
-		InputType:  reflect.TypeOf((*GetVPNCertsInput)(nil)),
-		OutputType: reflect.TypeOf((*GetVPNCertsOutput)(nil)),
-		HttpMethod: "GET",
+		ServiceName:    "RouterService",
+		ActionName:     "GetVPNCerts",
+		InputTypeName:  "GetVPNCertsInput",
+		OutputTypeName: "GetVPNCertsOutput",
+		HttpMethod:     "GET",
+
+		ServiceType: reflect.TypeOf((*RouterService)(nil)),
+		InputType:   reflect.TypeOf((*GetVPNCertsInput)(nil)),
+		OutputType:  reflect.TypeOf((*GetVPNCertsOutput)(nil)),
 	}
 }
 
