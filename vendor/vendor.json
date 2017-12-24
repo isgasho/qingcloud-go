@@ -93,6 +93,12 @@
 			"revisionTime": "2016-10-28T22:26:11Z"
 		},
 		{
+			"checksumSHA1": "Z2LEpah3ZMTYNpRy7Rd+tI+T+W0=",
+			"path": "github.com/fatih/structs",
+			"revision": "f5faa72e73092639913f5833b75e1ac1d6bc7a63",
+			"revisionTime": "2017-10-20T06:48:19Z"
+		},
+		{
 			"checksumSHA1": "t/sQ9OAykIvWiNL6sL994a2uEYo=",
 			"path": "github.com/golang/protobuf/descriptor",
 			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
