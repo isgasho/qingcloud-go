@@ -113,10 +113,15 @@ func New{{.GetServiceName}}(server *ServerInfo) (p *{{.GetServiceName}}) {
 func init() {
 	{{- range $_, $m := .GetMethodList}}
 		ServiceApiSpecMap["{{$m.GetMethodName}}"] = ServiceApiSpec{
-			ActionName: "{{$m.GetMethodName}}",
+			ServiceName:    "{{$service.GetServiceName}}",
+			ActionName:     "{{$m.GetMethodName}}",
+			InputTypeName:  "{{$m.GetInputTypeName}}",
+			OutputTypeName: "{{$m.GetOutputTypeName}}",
+			HttpMethod:     "{{$m.GetHttpMethod}}",
+
+			ServiceType:  reflect.TypeOf((*{{$service.GetServiceName}})(nil)),
 			InputType:  reflect.TypeOf((*{{$m.GetInputTypeName}})(nil)),
 			OutputType: reflect.TypeOf((*{{$m.GetOutputTypeName}})(nil)),
-			HttpMethod: "{{$m.GetHttpMethod}}",
 		}
 	{{- end}}
 }

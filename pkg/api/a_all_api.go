@@ -9,10 +9,15 @@ import (
 )
 
 type ServiceApiSpec struct {
-	ActionName string
-	InputType  reflect.Type
-	OutputType reflect.Type
-	HttpMethod string
+	ServiceName    string
+	ActionName     string
+	InputTypeName  string
+	OutputTypeName string
+	HttpMethod     string
+
+	ServiceType reflect.Type
+	InputType   reflect.Type
+	OutputType  reflect.Type
 }
 
 var ServiceApiSpecMap = map[string]ServiceApiSpec{}
