@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"sort"
 	"text/template"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
@@ -23,6 +24,7 @@ func main() {
 	for typeName, _ := range pb.TypeInfoMap {
 		nameList = append(nameList, typeName)
 	}
+	sort.Strings(nameList)
 
 	var buf bytes.Buffer
 	t := template.Must(template.New("").Parse(tmpl))
@@ -58,7 +60,7 @@ import (
 
 func init() {
 	{{range $_, $name := $NameList -}}
-		typeInfoMap["{{$name}}"] = &pb.{{$name}}{}
+		pbTypeInfoMap["{{$name}}"] = &pb.{{$name}}{}
 	{{end -}}
 }
 `
