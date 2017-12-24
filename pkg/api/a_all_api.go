@@ -20,4 +20,7 @@ type ServiceApiSpec struct {
 	OutputType  reflect.Type
 }
 
-var ServiceApiSpecMap = map[string]ServiceApiSpec{}
+var (
+	TypeInfoMap       = map[string]reflect.Type{}
+	ServiceApiSpecMap = map[string]ServiceApiSpec{}
+)

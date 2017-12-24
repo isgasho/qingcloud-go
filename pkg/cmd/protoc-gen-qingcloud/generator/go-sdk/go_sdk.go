@@ -6,6 +6,7 @@ package golang_sdk_v1
 
 import (
 	"bytes"
+	"fmt"
 	"log"
 	"strings"
 	"text/template"
@@ -35,6 +36,17 @@ func (pkgGenerator) HeaderCode(g *generator.Generator, file *generator.FileDescr
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// generate types map
+	fmt.Fprintln(&buf, `func init() {`)
+	for _, msg := range file.MessageType {
+		typeName := generator.CamelCase(msg.GetName()) // p.TypeName(p.ObjectNamed(msg.GetName()))
+		fmt.Fprintf(&buf,
+			"TypeInfoMap[%q] = reflect.TypeOf((*%s)(nil))\n",
+			typeName, typeName,
+		)
+	}
+	fmt.Fprintln(&buf, `}`)
 
 	return buf.String()
 }
