@@ -23,6 +23,11 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeZonesInput"] = reflect.TypeOf((*DescribeZonesInput)(nil))
+	TypeInfoMap["DescribeZonesOutput"] = reflect.TypeOf((*DescribeZonesOutput)(nil))
+}
+
 type ZoneServiceInterface interface {
 	DescribeZones(in *DescribeZonesInput) (out *DescribeZonesOutput, err error)
 }

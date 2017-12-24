@@ -23,6 +23,23 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeVolumesInput"] = reflect.TypeOf((*DescribeVolumesInput)(nil))
+	TypeInfoMap["DescribeVolumesOutput"] = reflect.TypeOf((*DescribeVolumesOutput)(nil))
+	TypeInfoMap["CreateVolumesInput"] = reflect.TypeOf((*CreateVolumesInput)(nil))
+	TypeInfoMap["CreateVolumesOutput"] = reflect.TypeOf((*CreateVolumesOutput)(nil))
+	TypeInfoMap["DeleteVolumesInput"] = reflect.TypeOf((*DeleteVolumesInput)(nil))
+	TypeInfoMap["DeleteVolumesOutput"] = reflect.TypeOf((*DeleteVolumesOutput)(nil))
+	TypeInfoMap["AttachVolumesInput"] = reflect.TypeOf((*AttachVolumesInput)(nil))
+	TypeInfoMap["AttachVolumesOutput"] = reflect.TypeOf((*AttachVolumesOutput)(nil))
+	TypeInfoMap["DetachVolumesInput"] = reflect.TypeOf((*DetachVolumesInput)(nil))
+	TypeInfoMap["DetachVolumesOutput"] = reflect.TypeOf((*DetachVolumesOutput)(nil))
+	TypeInfoMap["ResizeVolumesInput"] = reflect.TypeOf((*ResizeVolumesInput)(nil))
+	TypeInfoMap["ResizeVolumesOutput"] = reflect.TypeOf((*ResizeVolumesOutput)(nil))
+	TypeInfoMap["ModifyVolumeAttributesInput"] = reflect.TypeOf((*ModifyVolumeAttributesInput)(nil))
+	TypeInfoMap["ModifyVolumeAttributesOutput"] = reflect.TypeOf((*ModifyVolumeAttributesOutput)(nil))
+}
+
 type VolumesServiceInterface interface {
 	DescribeVolumes(in *DescribeVolumesInput) (out *DescribeVolumesOutput, err error)
 	CreateVolumes(in *CreateVolumesInput) (out *CreateVolumesOutput, err error)

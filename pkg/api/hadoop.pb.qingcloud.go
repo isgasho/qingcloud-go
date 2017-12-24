@@ -23,6 +23,17 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["AddHadoopNodesInput"] = reflect.TypeOf((*AddHadoopNodesInput)(nil))
+	TypeInfoMap["AddHadoopNodesOutput"] = reflect.TypeOf((*AddHadoopNodesOutput)(nil))
+	TypeInfoMap["DeleteHadoopNodesInput"] = reflect.TypeOf((*DeleteHadoopNodesInput)(nil))
+	TypeInfoMap["DeleteHadoopNodesOutput"] = reflect.TypeOf((*DeleteHadoopNodesOutput)(nil))
+	TypeInfoMap["StartHadoopsInput"] = reflect.TypeOf((*StartHadoopsInput)(nil))
+	TypeInfoMap["StartHadoopsOutput"] = reflect.TypeOf((*StartHadoopsOutput)(nil))
+	TypeInfoMap["StopHadoopsInput"] = reflect.TypeOf((*StopHadoopsInput)(nil))
+	TypeInfoMap["StopHadoopsOutput"] = reflect.TypeOf((*StopHadoopsOutput)(nil))
+}
+
 type HadoopServiceInterface interface {
 	AddHadoopNodes(in *AddHadoopNodesInput) (out *AddHadoopNodesOutput, err error)
 	DeleteHadoopNodes(in *DeleteHadoopNodesInput) (out *DeleteHadoopNodesOutput, err error)

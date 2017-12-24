@@ -23,6 +23,11 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeNotificationCenterUserPostsInput"] = reflect.TypeOf((*DescribeNotificationCenterUserPostsInput)(nil))
+	TypeInfoMap["DescribeNotificationCenterUserPostsOutput"] = reflect.TypeOf((*DescribeNotificationCenterUserPostsOutput)(nil))
+}
+
 type NotificationCenterServiceInterface interface {
 	DescribeNotificationCenterUserPosts(in *DescribeNotificationCenterUserPostsInput) (out *DescribeNotificationCenterUserPostsOutput, err error)
 }

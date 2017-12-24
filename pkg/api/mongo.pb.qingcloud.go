@@ -23,6 +23,37 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeMongoNodesInput"] = reflect.TypeOf((*DescribeMongoNodesInput)(nil))
+	TypeInfoMap["DescribeMongoNodesOutput"] = reflect.TypeOf((*DescribeMongoNodesOutput)(nil))
+	TypeInfoMap["DescribeMongoParametersInput"] = reflect.TypeOf((*DescribeMongoParametersInput)(nil))
+	TypeInfoMap["DescribeMongoParametersOutput"] = reflect.TypeOf((*DescribeMongoParametersOutput)(nil))
+	TypeInfoMap["ResizeMongosInput"] = reflect.TypeOf((*ResizeMongosInput)(nil))
+	TypeInfoMap["ResizeMongosOutput"] = reflect.TypeOf((*ResizeMongosOutput)(nil))
+	TypeInfoMap["CreateMongoInput"] = reflect.TypeOf((*CreateMongoInput)(nil))
+	TypeInfoMap["CreateMongoOutput"] = reflect.TypeOf((*CreateMongoOutput)(nil))
+	TypeInfoMap["StopMongosInput"] = reflect.TypeOf((*StopMongosInput)(nil))
+	TypeInfoMap["StopMongosOutput"] = reflect.TypeOf((*StopMongosOutput)(nil))
+	TypeInfoMap["StartMongosInput"] = reflect.TypeOf((*StartMongosInput)(nil))
+	TypeInfoMap["StartMongosOutput"] = reflect.TypeOf((*StartMongosOutput)(nil))
+	TypeInfoMap["DescribeMongosInput"] = reflect.TypeOf((*DescribeMongosInput)(nil))
+	TypeInfoMap["DescribeMongosOutput"] = reflect.TypeOf((*DescribeMongosOutput)(nil))
+	TypeInfoMap["DeleteMongosInput"] = reflect.TypeOf((*DeleteMongosInput)(nil))
+	TypeInfoMap["DeleteMongosOutput"] = reflect.TypeOf((*DeleteMongosOutput)(nil))
+	TypeInfoMap["CreateMongoFromSnapshotInput"] = reflect.TypeOf((*CreateMongoFromSnapshotInput)(nil))
+	TypeInfoMap["CreateMongoFromSnapshotOutput"] = reflect.TypeOf((*CreateMongoFromSnapshotOutput)(nil))
+	TypeInfoMap["ChangeMongoVxnetInput"] = reflect.TypeOf((*ChangeMongoVxnetInput)(nil))
+	TypeInfoMap["ChangeMongoVxnetOutput"] = reflect.TypeOf((*ChangeMongoVxnetOutput)(nil))
+	TypeInfoMap["AddMongoInstancesInput"] = reflect.TypeOf((*AddMongoInstancesInput)(nil))
+	TypeInfoMap["AddMongoInstancesOutput"] = reflect.TypeOf((*AddMongoInstancesOutput)(nil))
+	TypeInfoMap["RemoveMongoInstancesInput"] = reflect.TypeOf((*RemoveMongoInstancesInput)(nil))
+	TypeInfoMap["RemoveMongoInstancesOutput"] = reflect.TypeOf((*RemoveMongoInstancesOutput)(nil))
+	TypeInfoMap["ModifyMongoAttributesInput"] = reflect.TypeOf((*ModifyMongoAttributesInput)(nil))
+	TypeInfoMap["ModifyMongoAttributesOutput"] = reflect.TypeOf((*ModifyMongoAttributesOutput)(nil))
+	TypeInfoMap["ModifyMongoInstancesInput"] = reflect.TypeOf((*ModifyMongoInstancesInput)(nil))
+	TypeInfoMap["ModifyMongoInstancesOutput"] = reflect.TypeOf((*ModifyMongoInstancesOutput)(nil))
+}
+
 type MongoServiceInterface interface {
 	DescribeMongoNodes(in *DescribeMongoNodesInput) (out *DescribeMongoNodesOutput, err error)
 	DescribeMongoParameters(in *DescribeMongoParametersInput) (out *DescribeMongoParametersOutput, err error)

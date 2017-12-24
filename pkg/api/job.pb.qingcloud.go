@@ -23,6 +23,11 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeJobsInput"] = reflect.TypeOf((*DescribeJobsInput)(nil))
+	TypeInfoMap["DescribeJobsOutput"] = reflect.TypeOf((*DescribeJobsOutput)(nil))
+}
+
 type JobServiceInterface interface {
 	DescribeJobs(in *DescribeJobsInput) (out *DescribeJobsOutput, err error)
 }

@@ -23,6 +23,21 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["GetMonitorInput"] = reflect.TypeOf((*GetMonitorInput)(nil))
+	TypeInfoMap["GetMonitorOutput"] = reflect.TypeOf((*GetMonitorOutput)(nil))
+	TypeInfoMap["GetLoadBalancerMonitorInput"] = reflect.TypeOf((*GetLoadBalancerMonitorInput)(nil))
+	TypeInfoMap["GetLoadBalancerMonitorOutput"] = reflect.TypeOf((*GetLoadBalancerMonitorOutput)(nil))
+	TypeInfoMap["GetRDBMonitorInput"] = reflect.TypeOf((*GetRDBMonitorInput)(nil))
+	TypeInfoMap["GetRDBMonitorOutput"] = reflect.TypeOf((*GetRDBMonitorOutput)(nil))
+	TypeInfoMap["GetCacheMonitorInput"] = reflect.TypeOf((*GetCacheMonitorInput)(nil))
+	TypeInfoMap["GetCacheMonitorOutput"] = reflect.TypeOf((*GetCacheMonitorOutput)(nil))
+	TypeInfoMap["GetZooKeeperMonitorInput"] = reflect.TypeOf((*GetZooKeeperMonitorInput)(nil))
+	TypeInfoMap["GetZooKeeperMonitorOutput"] = reflect.TypeOf((*GetZooKeeperMonitorOutput)(nil))
+	TypeInfoMap["GetQueueMonitorInput"] = reflect.TypeOf((*GetQueueMonitorInput)(nil))
+	TypeInfoMap["GetQueueMonitorOutput"] = reflect.TypeOf((*GetQueueMonitorOutput)(nil))
+}
+
 type MonitorServiceInterface interface {
 	GetMonitor(in *GetMonitorInput) (out *GetMonitorOutput, err error)
 	GetLoadBalancerMonitor(in *GetLoadBalancerMonitorInput) (out *GetLoadBalancerMonitorOutput, err error)

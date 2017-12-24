@@ -23,6 +23,33 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeInstancesInput"] = reflect.TypeOf((*DescribeInstancesInput)(nil))
+	TypeInfoMap["DescribeInstancesOutput"] = reflect.TypeOf((*DescribeInstancesOutput)(nil))
+	TypeInfoMap["RunInstancesInput"] = reflect.TypeOf((*RunInstancesInput)(nil))
+	TypeInfoMap["RunInstancesOutput"] = reflect.TypeOf((*RunInstancesOutput)(nil))
+	TypeInfoMap["TerminateInstancesInput"] = reflect.TypeOf((*TerminateInstancesInput)(nil))
+	TypeInfoMap["TerminateInstancesOutput"] = reflect.TypeOf((*TerminateInstancesOutput)(nil))
+	TypeInfoMap["StartInstancesInput"] = reflect.TypeOf((*StartInstancesInput)(nil))
+	TypeInfoMap["StartInstancesOutput"] = reflect.TypeOf((*StartInstancesOutput)(nil))
+	TypeInfoMap["StopInstancesInput"] = reflect.TypeOf((*StopInstancesInput)(nil))
+	TypeInfoMap["StopInstancesOutput"] = reflect.TypeOf((*StopInstancesOutput)(nil))
+	TypeInfoMap["RestartInstancesInput"] = reflect.TypeOf((*RestartInstancesInput)(nil))
+	TypeInfoMap["RestartInstancesOutput"] = reflect.TypeOf((*RestartInstancesOutput)(nil))
+	TypeInfoMap["ResetInstancesInput"] = reflect.TypeOf((*ResetInstancesInput)(nil))
+	TypeInfoMap["ResetInstancesOutput"] = reflect.TypeOf((*ResetInstancesOutput)(nil))
+	TypeInfoMap["ResizeInstancesInput"] = reflect.TypeOf((*ResizeInstancesInput)(nil))
+	TypeInfoMap["ResizeInstancesOutput"] = reflect.TypeOf((*ResizeInstancesOutput)(nil))
+	TypeInfoMap["ModifyInstanceAttributesInput"] = reflect.TypeOf((*ModifyInstanceAttributesInput)(nil))
+	TypeInfoMap["ModifyInstanceAttributesOutput"] = reflect.TypeOf((*ModifyInstanceAttributesOutput)(nil))
+	TypeInfoMap["DescribeInstanceTypesInput"] = reflect.TypeOf((*DescribeInstanceTypesInput)(nil))
+	TypeInfoMap["DescribeInstanceTypesOutput"] = reflect.TypeOf((*DescribeInstanceTypesOutput)(nil))
+	TypeInfoMap["CreateBrokersInput"] = reflect.TypeOf((*CreateBrokersInput)(nil))
+	TypeInfoMap["CreateBrokersOutput"] = reflect.TypeOf((*CreateBrokersOutput)(nil))
+	TypeInfoMap["DeleteBrokersInput"] = reflect.TypeOf((*DeleteBrokersInput)(nil))
+	TypeInfoMap["DeleteBrokersOutput"] = reflect.TypeOf((*DeleteBrokersOutput)(nil))
+}
+
 type InstanceServiceInterface interface {
 	DescribeInstances(in *DescribeInstancesInput) (out *DescribeInstancesOutput, err error)
 	RunInstances(in *RunInstancesInput) (out *RunInstancesOutput, err error)

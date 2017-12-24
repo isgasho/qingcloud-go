@@ -23,6 +23,21 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["CreateNicsInput"] = reflect.TypeOf((*CreateNicsInput)(nil))
+	TypeInfoMap["CreateNicsOutput"] = reflect.TypeOf((*CreateNicsOutput)(nil))
+	TypeInfoMap["DescribeNicsInput"] = reflect.TypeOf((*DescribeNicsInput)(nil))
+	TypeInfoMap["DescribeNicsOutput"] = reflect.TypeOf((*DescribeNicsOutput)(nil))
+	TypeInfoMap["AttachNicsInput"] = reflect.TypeOf((*AttachNicsInput)(nil))
+	TypeInfoMap["AttachNicsOutput"] = reflect.TypeOf((*AttachNicsOutput)(nil))
+	TypeInfoMap["DetachNicsInput"] = reflect.TypeOf((*DetachNicsInput)(nil))
+	TypeInfoMap["DetachNicsOutput"] = reflect.TypeOf((*DetachNicsOutput)(nil))
+	TypeInfoMap["ModifyNicAttributesInput"] = reflect.TypeOf((*ModifyNicAttributesInput)(nil))
+	TypeInfoMap["ModifyNicAttributesOutput"] = reflect.TypeOf((*ModifyNicAttributesOutput)(nil))
+	TypeInfoMap["DeleteNicsInput"] = reflect.TypeOf((*DeleteNicsInput)(nil))
+	TypeInfoMap["DeleteNicsOutput"] = reflect.TypeOf((*DeleteNicsOutput)(nil))
+}
+
 type NicServiceInterface interface {
 	CreateNics(in *CreateNicsInput) (out *CreateNicsOutput, err error)
 	DescribeNics(in *DescribeNicsInput) (out *DescribeNicsOutput, err error)

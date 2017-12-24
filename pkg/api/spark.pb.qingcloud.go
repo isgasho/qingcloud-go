@@ -23,6 +23,23 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["CreateSparkInput"] = reflect.TypeOf((*CreateSparkInput)(nil))
+	TypeInfoMap["CreateSparkOutput"] = reflect.TypeOf((*CreateSparkOutput)(nil))
+	TypeInfoMap["DescribeSparksInput"] = reflect.TypeOf((*DescribeSparksInput)(nil))
+	TypeInfoMap["DescribeSparksOutput"] = reflect.TypeOf((*DescribeSparksOutput)(nil))
+	TypeInfoMap["AddSparkNodesInput"] = reflect.TypeOf((*AddSparkNodesInput)(nil))
+	TypeInfoMap["AddSparkNodesOutput"] = reflect.TypeOf((*AddSparkNodesOutput)(nil))
+	TypeInfoMap["DeleteSparkNodesInput"] = reflect.TypeOf((*DeleteSparkNodesInput)(nil))
+	TypeInfoMap["DeleteSparkNodesOutput"] = reflect.TypeOf((*DeleteSparkNodesOutput)(nil))
+	TypeInfoMap["StartSparksInput"] = reflect.TypeOf((*StartSparksInput)(nil))
+	TypeInfoMap["StartSparksOutput"] = reflect.TypeOf((*StartSparksOutput)(nil))
+	TypeInfoMap["StopSparksInput"] = reflect.TypeOf((*StopSparksInput)(nil))
+	TypeInfoMap["StopSparksOutput"] = reflect.TypeOf((*StopSparksOutput)(nil))
+	TypeInfoMap["DeleteSparksInput"] = reflect.TypeOf((*DeleteSparksInput)(nil))
+	TypeInfoMap["DeleteSparksOutput"] = reflect.TypeOf((*DeleteSparksOutput)(nil))
+}
+
 type SparkServiceInterface interface {
 	CreateSpark(in *CreateSparkInput) (out *CreateSparkOutput, err error)
 	DescribeSparks(in *DescribeSparksInput) (out *DescribeSparksOutput, err error)

@@ -23,6 +23,25 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeEipsInput"] = reflect.TypeOf((*DescribeEipsInput)(nil))
+	TypeInfoMap["DescribeEipsOutput"] = reflect.TypeOf((*DescribeEipsOutput)(nil))
+	TypeInfoMap["AllocateEipsInput"] = reflect.TypeOf((*AllocateEipsInput)(nil))
+	TypeInfoMap["AllocateEipsOutput"] = reflect.TypeOf((*AllocateEipsOutput)(nil))
+	TypeInfoMap["ReleaseEipsInput"] = reflect.TypeOf((*ReleaseEipsInput)(nil))
+	TypeInfoMap["ReleaseEipsOutput"] = reflect.TypeOf((*ReleaseEipsOutput)(nil))
+	TypeInfoMap["AssociateEipInput"] = reflect.TypeOf((*AssociateEipInput)(nil))
+	TypeInfoMap["AssociateEipOutput"] = reflect.TypeOf((*AssociateEipOutput)(nil))
+	TypeInfoMap["DissociateEipsInput"] = reflect.TypeOf((*DissociateEipsInput)(nil))
+	TypeInfoMap["DissociateEipsOutput"] = reflect.TypeOf((*DissociateEipsOutput)(nil))
+	TypeInfoMap["ChangeEipsBandwidthInput"] = reflect.TypeOf((*ChangeEipsBandwidthInput)(nil))
+	TypeInfoMap["ChangeEipsBandwidthOutput"] = reflect.TypeOf((*ChangeEipsBandwidthOutput)(nil))
+	TypeInfoMap["ChangeEipsBillingModeInput"] = reflect.TypeOf((*ChangeEipsBillingModeInput)(nil))
+	TypeInfoMap["ChangeEipsBillingModeOutput"] = reflect.TypeOf((*ChangeEipsBillingModeOutput)(nil))
+	TypeInfoMap["ModifyEipAttributesInput"] = reflect.TypeOf((*ModifyEipAttributesInput)(nil))
+	TypeInfoMap["ModifyEipAttributesOutput"] = reflect.TypeOf((*ModifyEipAttributesOutput)(nil))
+}
+
 type EIPServiceInterface interface {
 	DescribeEips(in *DescribeEipsInput) (out *DescribeEipsOutput, err error)
 	AllocateEips(in *AllocateEipsInput) (out *AllocateEipsOutput, err error)

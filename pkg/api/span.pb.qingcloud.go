@@ -23,6 +23,23 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["CreateSpanInput"] = reflect.TypeOf((*CreateSpanInput)(nil))
+	TypeInfoMap["CreateSpanOutput"] = reflect.TypeOf((*CreateSpanOutput)(nil))
+	TypeInfoMap["DescribeSpansInput"] = reflect.TypeOf((*DescribeSpansInput)(nil))
+	TypeInfoMap["DescribeSpansOutput"] = reflect.TypeOf((*DescribeSpansOutput)(nil))
+	TypeInfoMap["DeleteSpansInput"] = reflect.TypeOf((*DeleteSpansInput)(nil))
+	TypeInfoMap["DeleteSpansOutput"] = reflect.TypeOf((*DeleteSpansOutput)(nil))
+	TypeInfoMap["AddSpanMembersInput"] = reflect.TypeOf((*AddSpanMembersInput)(nil))
+	TypeInfoMap["AddSpanMembersOutput"] = reflect.TypeOf((*AddSpanMembersOutput)(nil))
+	TypeInfoMap["RemoveSpanMembersInput"] = reflect.TypeOf((*RemoveSpanMembersInput)(nil))
+	TypeInfoMap["RemoveSpanMembersOutput"] = reflect.TypeOf((*RemoveSpanMembersOutput)(nil))
+	TypeInfoMap["ModifySpanAttributesInput"] = reflect.TypeOf((*ModifySpanAttributesInput)(nil))
+	TypeInfoMap["ModifySpanAttributesOutput"] = reflect.TypeOf((*ModifySpanAttributesOutput)(nil))
+	TypeInfoMap["UpdateSpanInput"] = reflect.TypeOf((*UpdateSpanInput)(nil))
+	TypeInfoMap["UpdateSpanOutput"] = reflect.TypeOf((*UpdateSpanOutput)(nil))
+}
+
 type SpanServiceInterface interface {
 	CreateSpan(in *CreateSpanInput) (out *CreateSpanOutput, err error)
 	DescribeSpans(in *DescribeSpansInput) (out *DescribeSpansOutput, err error)

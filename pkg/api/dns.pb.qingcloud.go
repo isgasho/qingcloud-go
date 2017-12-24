@@ -23,6 +23,17 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeDNSAliasesInput"] = reflect.TypeOf((*DescribeDNSAliasesInput)(nil))
+	TypeInfoMap["DescribeDNSAliasesOutput"] = reflect.TypeOf((*DescribeDNSAliasesOutput)(nil))
+	TypeInfoMap["AssociateDNSAliasInput"] = reflect.TypeOf((*AssociateDNSAliasInput)(nil))
+	TypeInfoMap["AssociateDNSAliasOutput"] = reflect.TypeOf((*AssociateDNSAliasOutput)(nil))
+	TypeInfoMap["DissociateDNSAliasesInput"] = reflect.TypeOf((*DissociateDNSAliasesInput)(nil))
+	TypeInfoMap["DissociateDNSAliasesOutput"] = reflect.TypeOf((*DissociateDNSAliasesOutput)(nil))
+	TypeInfoMap["GetDNSLabelInput"] = reflect.TypeOf((*GetDNSLabelInput)(nil))
+	TypeInfoMap["GetDNSLabelOutput"] = reflect.TypeOf((*GetDNSLabelOutput)(nil))
+}
+
 type DNSAliasServiceInterface interface {
 	DescribeDNSAliases(in *DescribeDNSAliasesInput) (out *DescribeDNSAliasesOutput, err error)
 	AssociateDNSAlias(in *AssociateDNSAliasInput) (out *AssociateDNSAliasOutput, err error)

@@ -23,6 +23,19 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeSubUsersInput"] = reflect.TypeOf((*DescribeSubUsersInput)(nil))
+	TypeInfoMap["DescribeSubUsersOutput"] = reflect.TypeOf((*DescribeSubUsersOutput)(nil))
+	TypeInfoMap["CreateSubUserInput"] = reflect.TypeOf((*CreateSubUserInput)(nil))
+	TypeInfoMap["CreateSubUserOutput"] = reflect.TypeOf((*CreateSubUserOutput)(nil))
+	TypeInfoMap["ModifySubUserAttributesInput"] = reflect.TypeOf((*ModifySubUserAttributesInput)(nil))
+	TypeInfoMap["ModifySubUserAttributesOutput"] = reflect.TypeOf((*ModifySubUserAttributesOutput)(nil))
+	TypeInfoMap["DeleteSubUsersInput"] = reflect.TypeOf((*DeleteSubUsersInput)(nil))
+	TypeInfoMap["DeleteSubUsersOutput"] = reflect.TypeOf((*DeleteSubUsersOutput)(nil))
+	TypeInfoMap["RestoreSubUsersInput"] = reflect.TypeOf((*RestoreSubUsersInput)(nil))
+	TypeInfoMap["RestoreSubUsersOutput"] = reflect.TypeOf((*RestoreSubUsersOutput)(nil))
+}
+
 type SubuserServiceInterface interface {
 	DescribeSubUsers(in *DescribeSubUsersInput) (out *DescribeSubUsersOutput, err error)
 	CreateSubUser(in *CreateSubUserInput) (out *CreateSubUserOutput, err error)

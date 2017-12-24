@@ -23,6 +23,23 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeSnapshotsInput"] = reflect.TypeOf((*DescribeSnapshotsInput)(nil))
+	TypeInfoMap["DescribeSnapshotsOutput"] = reflect.TypeOf((*DescribeSnapshotsOutput)(nil))
+	TypeInfoMap["CreateSnapshotsInput"] = reflect.TypeOf((*CreateSnapshotsInput)(nil))
+	TypeInfoMap["CreateSnapshotsOutput"] = reflect.TypeOf((*CreateSnapshotsOutput)(nil))
+	TypeInfoMap["DeleteSnapshotsInput"] = reflect.TypeOf((*DeleteSnapshotsInput)(nil))
+	TypeInfoMap["DeleteSnapshotsOutput"] = reflect.TypeOf((*DeleteSnapshotsOutput)(nil))
+	TypeInfoMap["ApplySnapshotsInput"] = reflect.TypeOf((*ApplySnapshotsInput)(nil))
+	TypeInfoMap["ApplySnapshotsOutput"] = reflect.TypeOf((*ApplySnapshotsOutput)(nil))
+	TypeInfoMap["ModifySnapshotAttributesInput"] = reflect.TypeOf((*ModifySnapshotAttributesInput)(nil))
+	TypeInfoMap["ModifySnapshotAttributesOutput"] = reflect.TypeOf((*ModifySnapshotAttributesOutput)(nil))
+	TypeInfoMap["CaptureInstanceFromSnapshotInput"] = reflect.TypeOf((*CaptureInstanceFromSnapshotInput)(nil))
+	TypeInfoMap["CaptureInstanceFromSnapshotOutput"] = reflect.TypeOf((*CaptureInstanceFromSnapshotOutput)(nil))
+	TypeInfoMap["CreateVolumeFromSnapshotInput"] = reflect.TypeOf((*CreateVolumeFromSnapshotInput)(nil))
+	TypeInfoMap["CreateVolumeFromSnapshotOutput"] = reflect.TypeOf((*CreateVolumeFromSnapshotOutput)(nil))
+}
+
 type SnapshotServiceInterface interface {
 	DescribeSnapshots(in *DescribeSnapshotsInput) (out *DescribeSnapshotsOutput, err error)
 	CreateSnapshots(in *CreateSnapshotsInput) (out *CreateSnapshotsOutput, err error)

@@ -23,6 +23,21 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeTagsInput"] = reflect.TypeOf((*DescribeTagsInput)(nil))
+	TypeInfoMap["DescribeTagsOutput"] = reflect.TypeOf((*DescribeTagsOutput)(nil))
+	TypeInfoMap["CreateTagInput"] = reflect.TypeOf((*CreateTagInput)(nil))
+	TypeInfoMap["CreateTagOutput"] = reflect.TypeOf((*CreateTagOutput)(nil))
+	TypeInfoMap["DeleteTagsInput"] = reflect.TypeOf((*DeleteTagsInput)(nil))
+	TypeInfoMap["DeleteTagsOutput"] = reflect.TypeOf((*DeleteTagsOutput)(nil))
+	TypeInfoMap["ModifyTagAttributesInput"] = reflect.TypeOf((*ModifyTagAttributesInput)(nil))
+	TypeInfoMap["ModifyTagAttributesOutput"] = reflect.TypeOf((*ModifyTagAttributesOutput)(nil))
+	TypeInfoMap["AttachTagsInput"] = reflect.TypeOf((*AttachTagsInput)(nil))
+	TypeInfoMap["AttachTagsOutput"] = reflect.TypeOf((*AttachTagsOutput)(nil))
+	TypeInfoMap["DetachTagsInput"] = reflect.TypeOf((*DetachTagsInput)(nil))
+	TypeInfoMap["DetachTagsOutput"] = reflect.TypeOf((*DetachTagsOutput)(nil))
+}
+
 type TagServiceInterface interface {
 	DescribeTags(in *DescribeTagsInput) (out *DescribeTagsOutput, err error)
 	CreateTag(in *CreateTagInput) (out *CreateTagOutput, err error)

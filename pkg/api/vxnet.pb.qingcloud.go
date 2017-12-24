@@ -23,6 +23,23 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeVxnetsInput"] = reflect.TypeOf((*DescribeVxnetsInput)(nil))
+	TypeInfoMap["DescribeVxnetsOutput"] = reflect.TypeOf((*DescribeVxnetsOutput)(nil))
+	TypeInfoMap["CreateVxnetsInput"] = reflect.TypeOf((*CreateVxnetsInput)(nil))
+	TypeInfoMap["CreateVxnetsOutput"] = reflect.TypeOf((*CreateVxnetsOutput)(nil))
+	TypeInfoMap["DeleteVxnetsInput"] = reflect.TypeOf((*DeleteVxnetsInput)(nil))
+	TypeInfoMap["DeleteVxnetsOutput"] = reflect.TypeOf((*DeleteVxnetsOutput)(nil))
+	TypeInfoMap["JoinVxnetInput"] = reflect.TypeOf((*JoinVxnetInput)(nil))
+	TypeInfoMap["JoinVxnetOutput"] = reflect.TypeOf((*JoinVxnetOutput)(nil))
+	TypeInfoMap["LeaveVxnetInput"] = reflect.TypeOf((*LeaveVxnetInput)(nil))
+	TypeInfoMap["LeaveVxnetOutput"] = reflect.TypeOf((*LeaveVxnetOutput)(nil))
+	TypeInfoMap["ModifyVxnetAttributesInput"] = reflect.TypeOf((*ModifyVxnetAttributesInput)(nil))
+	TypeInfoMap["ModifyVxnetAttributesOutput"] = reflect.TypeOf((*ModifyVxnetAttributesOutput)(nil))
+	TypeInfoMap["DescribeVxnetInstancesInput"] = reflect.TypeOf((*DescribeVxnetInstancesInput)(nil))
+	TypeInfoMap["DescribeVxnetInstancesOutput"] = reflect.TypeOf((*DescribeVxnetInstancesOutput)(nil))
+}
+
 type VxnetServiceInterface interface {
 	DescribeVxnets(in *DescribeVxnetsInput) (out *DescribeVxnetsOutput, err error)
 	CreateVxnets(in *CreateVxnetsInput) (out *CreateVxnetsOutput, err error)

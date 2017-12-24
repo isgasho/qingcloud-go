@@ -23,6 +23,25 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeImagesInput"] = reflect.TypeOf((*DescribeImagesInput)(nil))
+	TypeInfoMap["DescribeImagesOutput"] = reflect.TypeOf((*DescribeImagesOutput)(nil))
+	TypeInfoMap["CaptureInstanceInput"] = reflect.TypeOf((*CaptureInstanceInput)(nil))
+	TypeInfoMap["CaptureInstanceOutput"] = reflect.TypeOf((*CaptureInstanceOutput)(nil))
+	TypeInfoMap["DeleteImagesInput"] = reflect.TypeOf((*DeleteImagesInput)(nil))
+	TypeInfoMap["DeleteImagesOutput"] = reflect.TypeOf((*DeleteImagesOutput)(nil))
+	TypeInfoMap["ModifyImageAttributesInput"] = reflect.TypeOf((*ModifyImageAttributesInput)(nil))
+	TypeInfoMap["ModifyImageAttributesOutput"] = reflect.TypeOf((*ModifyImageAttributesOutput)(nil))
+	TypeInfoMap["GrantImageToUsersInput"] = reflect.TypeOf((*GrantImageToUsersInput)(nil))
+	TypeInfoMap["GrantImageToUsersOutput"] = reflect.TypeOf((*GrantImageToUsersOutput)(nil))
+	TypeInfoMap["RevokeImageFromUsersInput"] = reflect.TypeOf((*RevokeImageFromUsersInput)(nil))
+	TypeInfoMap["RevokeImageFromUsersOutput"] = reflect.TypeOf((*RevokeImageFromUsersOutput)(nil))
+	TypeInfoMap["DescribeImageUsersInput"] = reflect.TypeOf((*DescribeImageUsersInput)(nil))
+	TypeInfoMap["DescribeImageUsersOutput"] = reflect.TypeOf((*DescribeImageUsersOutput)(nil))
+	TypeInfoMap["CloneImagesInput"] = reflect.TypeOf((*CloneImagesInput)(nil))
+	TypeInfoMap["CloneImagesOutput"] = reflect.TypeOf((*CloneImagesOutput)(nil))
+}
+
 type ImageServiceInterface interface {
 	DescribeImages(in *DescribeImagesInput) (out *DescribeImagesOutput, err error)
 	CaptureInstance(in *CaptureInstanceInput) (out *CaptureInstanceOutput, err error)

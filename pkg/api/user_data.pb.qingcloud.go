@@ -23,6 +23,11 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["UploadUserDataAttachmentInput"] = reflect.TypeOf((*UploadUserDataAttachmentInput)(nil))
+	TypeInfoMap["UploadUserDataAttachmentOutput"] = reflect.TypeOf((*UploadUserDataAttachmentOutput)(nil))
+}
+
 type UserDataServiceInterface interface {
 	UploadUserDataAttachment(in *UploadUserDataAttachmentInput) (out *UploadUserDataAttachmentOutput, err error)
 }

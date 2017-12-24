@@ -23,6 +23,15 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["GrantQuotaIndepInput"] = reflect.TypeOf((*GrantQuotaIndepInput)(nil))
+	TypeInfoMap["GrantQuotaIndepOutput"] = reflect.TypeOf((*GrantQuotaIndepOutput)(nil))
+	TypeInfoMap["RevokeQuotaIndepInput"] = reflect.TypeOf((*RevokeQuotaIndepInput)(nil))
+	TypeInfoMap["RevokeQuotaIndepOutput"] = reflect.TypeOf((*RevokeQuotaIndepOutput)(nil))
+	TypeInfoMap["GetQuotaLeftInput"] = reflect.TypeOf((*GetQuotaLeftInput)(nil))
+	TypeInfoMap["GetQuotaLeftOutput"] = reflect.TypeOf((*GetQuotaLeftOutput)(nil))
+}
+
 type MiscServiceInterface interface {
 	GrantQuotaIndep(in *GrantQuotaIndepInput) (out *GrantQuotaIndepOutput, err error)
 	RevokeQuotaIndep(in *RevokeQuotaIndepInput) (out *RevokeQuotaIndepOutput, err error)

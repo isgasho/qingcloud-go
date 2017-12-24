@@ -23,6 +23,21 @@ var (
 	_ = client.NewClient
 )
 
+func init() {
+	TypeInfoMap["DescribeKeyPairsInput"] = reflect.TypeOf((*DescribeKeyPairsInput)(nil))
+	TypeInfoMap["DescribeKeyPairsOutput"] = reflect.TypeOf((*DescribeKeyPairsOutput)(nil))
+	TypeInfoMap["CreateKeyPairInput"] = reflect.TypeOf((*CreateKeyPairInput)(nil))
+	TypeInfoMap["CreateKeyPairOutput"] = reflect.TypeOf((*CreateKeyPairOutput)(nil))
+	TypeInfoMap["DeleteKeyPairsInput"] = reflect.TypeOf((*DeleteKeyPairsInput)(nil))
+	TypeInfoMap["DeleteKeyPairsOutput"] = reflect.TypeOf((*DeleteKeyPairsOutput)(nil))
+	TypeInfoMap["AttachKeyPairsInput"] = reflect.TypeOf((*AttachKeyPairsInput)(nil))
+	TypeInfoMap["AttachKeyPairsOutput"] = reflect.TypeOf((*AttachKeyPairsOutput)(nil))
+	TypeInfoMap["DetachKeyPairsInput"] = reflect.TypeOf((*DetachKeyPairsInput)(nil))
+	TypeInfoMap["DetachKeyPairsOutput"] = reflect.TypeOf((*DetachKeyPairsOutput)(nil))
+	TypeInfoMap["ModifyKeyPairAttributesInput"] = reflect.TypeOf((*ModifyKeyPairAttributesInput)(nil))
+	TypeInfoMap["ModifyKeyPairAttributesOutput"] = reflect.TypeOf((*ModifyKeyPairAttributesOutput)(nil))
+}
+
 type KeyPairServiceInterface interface {
 	DescribeKeyPairs(in *DescribeKeyPairsInput) (out *DescribeKeyPairsOutput, err error)
 	CreateKeyPair(in *CreateKeyPairInput) (out *CreateKeyPairOutput, err error)
