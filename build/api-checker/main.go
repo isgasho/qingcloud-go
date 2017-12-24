@@ -2,20 +2,31 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
-// +build ignore
+//go:generate go run gen_helper.go
+//go:generate go fmt
 
 package main
 
 import (
-	pb "github.com/chai2010/qingcloud-go/pkg/api"
+	"fmt"
+	"strings"
+
+	"github.com/fatih/structs"
 )
 
+var typeInfoMap = map[string]interface{}{}
+
 func main() {
-	for typeName, typeType := range pb.TypeInfoMap {
-		for i := 0; i < typeType.NumField(); i++ {
-			_ = typeType.Field(i).Type
-			_ = typeType.Field(i).Tag
+	for typeName, typeValue := range typeInfoMap {
+		for _, field := range structs.Fields(typeValue) {
+			originName := strings.Split(field.Tag("json"), ",")[0]
+			if originName == "" || originName == "-" {
+				continue
+			}
+
+			s := fmt.Sprintf("%s.%v: %T", typeName, originName, field.Value())
+			s = strings.Replace(s, "service.", "", -1)
+			fmt.Println(s)
 		}
-		_, _ = typeName, typeType
 	}
 }
