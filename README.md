@@ -33,15 +33,38 @@ spec:
 
 ## qingcloud-go vs [Office SDK API](https://github.com/yunify/qingcloud-sdk-go)
 
-service       | chai2010/qingcloud-go | yunify/qingcloud-sdk-go
-------------- | --------------------- | ----------------------
-Alarm         | ✓                     | ✗
-Hadoop        | ✓                     | ✗
-ResourceACL   | ✓                     | ✗
-Span          | ✓                     | ✗
-Spark         | ✓                     | ✗
-S2            | ✓                     | ✗
-Other         | ?                     | ?
+service            | chai2010/qingcloud-go | yunify/qingcloud-sdk-go
+------------------ | --------------------- | ----------------------
+Alarm              | ✓                     | ✗
+Cache              | ✓                     | ✓
+Cluster            | ✓                     | ✓
+DNSAlias           | ✓                     | ✓
+EIP                | ✓                     | ✓
+Hadoop             | ✓                     | ✗
+Image              | ✓                     | ✓
+Instance           | ✓                     | ✓
+Job                | ✓                     | ✓
+KeyPair            | ✓                     | ✓
+LoadBalancer       | ✓                     | ✓
+Misc               | ✓                     | ✗
+Mongo              | ✓                     | ✓
+Monitor            | ✓                     | ✓
+Nic                | ✓                     | ✓
+NotificationCenter | ✓                     | ✗
+RDB                | ✓                     | ✓
+ResourceACL        | ✓                     | ✗
+Router             | ✓                     | ✓
+S2                 | ✓                     | ✗
+SecurityGroup      | ✓                     | ✓
+Snapshot           | ✓                     | ✓
+Span               | ✓                     | ✗
+Spark              | ✓                     | ✗
+Subuser            | ✓                     | ✗
+Tag                | ✓                     | ✓
+UserData           | ✓                     | ✓
+Volumes            | ✓                     | ✓
+Vxnet              | ✓                     | ✓
+Zone               | ✓                     | ✓
 
 
 ## `qcli` command line interface
