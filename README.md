@@ -33,8 +33,8 @@ spec:
 
 ## qingcloud-go vs [Office SDK API](https://github.com/yunify/qingcloud-sdk-go)
 
-service            | chai2010/qingcloud-go | yunify/qingcloud-sdk-go
------------------- | --------------------- | ----------------------
+[QingCloud Service](https://docs.qingcloud.com/api/common/action.html)            | [chai2010/qingcloud-go](https://github.com/chai2010/qingcloud-go) | [yunify/qingcloud-sdk-go](https://github.com/yunify/qingcloud-sdk-go)
+:----------------- | :-------------------- | :---------------------
 Alarm              | ✓                     | ✗
 Cache              | ✓                     | ✓
 Cluster            | ✓                     | ✓
