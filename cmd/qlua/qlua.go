@@ -18,10 +18,10 @@ import (
 
 	lua_getopt "github.com/chai2010/glua-getopt"
 	lua_json "github.com/chai2010/glua-json"
+	lua_lake "github.com/chai2010/glua-lake"
 	lua_lfs "github.com/chai2010/glua-lfs"
 	lua_strings "github.com/chai2010/glua-strings"
 	lua_inspect "github.com/chai2010/qingcloud-go/pkg/gopher-lua/inspect"
-	lua_lake "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lake"
 	lua_lustache "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lustache"
 	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
 )
