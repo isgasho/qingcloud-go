@@ -1,4 +1,4 @@
-<p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/docs/images/logo-01-600x130.png" alt="QingCloud"></a></p>
+<p align="center"><a href="http://qingcloud.com" target="_blank"><img src="https://raw.githubusercontent.com/chai2010/qingcloud-go/master/docs/images/logo-2018-01-490x130.png" alt="QingCloud"></a></p>
 
 # QingCloud Non Official SDK for Go/[GopherLua](https://github.com/yuin/gopher-lua)
 
