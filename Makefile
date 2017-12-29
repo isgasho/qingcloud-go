@@ -15,20 +15,6 @@ build-docker: Dockerfile
 run-docker:
 	docker run --rm -it -v `pwd`:/root -w /root chai2010/qingcloud-go qcli
 
-init-vendor:
-	govendor init
-	govendor add +external
-	@echo "ok"
-
-update-vendor:
-	govendor update +external
-	govendor list
-	@echo "ok"
-
-remove-unused-vendor:
-	govendor remove +u
-	@echo "ok"
-
 tools:
 	go get go get github.com/golang/protobuf/protoc-gen-go
 	go get github.com/devnev/godoc2ghmd
