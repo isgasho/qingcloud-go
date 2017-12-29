@@ -1,0 +1,217 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "3E6y4W80xCcaRjk0ADlTOwroBC0=",
+			"path": "github.com/BixData/gluasocket",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "d5mbToRdni+u1p66NnNvmomLkMY=",
+			"path": "github.com/BixData/gluasocket/ltn12",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "ADe8fpcxXNvzt+G06Cz/G194FK4=",
+			"path": "github.com/BixData/gluasocket/mime",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "Jk/ZG1QiMaLMIFvlBfgBrfZp3WM=",
+			"path": "github.com/BixData/gluasocket/mimecore",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "J+4wltgUYYwu8nohsY042O0fs9M=",
+			"path": "github.com/BixData/gluasocket/socket",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "D2ZcBheBkq+0xu3CvY5rmmmWepo=",
+			"path": "github.com/BixData/gluasocket/socketcore",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "NT/3lM5UgZAhwSn8xX4aWpN/WDI=",
+			"path": "github.com/BixData/gluasocket/socketexcept",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "t80qytu64+o1dhupjBJQMr/1jb4=",
+			"path": "github.com/BixData/gluasocket/socketftp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "fIiP3P94v2LEADBBVzqvunX29h0=",
+			"path": "github.com/BixData/gluasocket/socketheaders",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "Uou5UfuSRw5cDXsArWkqiD/8dVI=",
+			"path": "github.com/BixData/gluasocket/sockethttp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "GyHd4wfVe9lrovYj6cb+3OFLltY=",
+			"path": "github.com/BixData/gluasocket/socketsmtp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "ltz9mVgP/e7VW0QKFraWVoatufU=",
+			"path": "github.com/BixData/gluasocket/sockettp",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "E54isT8/OIh8PdrTHjaIauW96XU=",
+			"path": "github.com/BixData/gluasocket/socketurl",
+			"revision": "ef2a07b24282676a2c4e0173bfa9a67f427db820",
+			"revisionTime": "2017-12-15T00:52:38Z"
+		},
+		{
+			"checksumSHA1": "43JR2plBjkeo8t4d+7gE6Lu7XJE=",
+			"path": "github.com/chai2010/glua-getopt",
+			"revision": "6a0e5c7703c8a461dc2c0005eab5cf6051442b9d",
+			"revisionTime": "2017-12-29T08:49:52Z"
+		},
+		{
+			"checksumSHA1": "I5OY5Yx9Qlf9G5dtORcutes37aw=",
+			"path": "github.com/chai2010/glua-helper",
+			"revision": "0e9a290dbcdf74127d14d94f19289cb2c4524e51",
+			"revisionTime": "2017-12-28T06:47:44Z"
+		},
+		{
+			"checksumSHA1": "1gs4j4/I/9tCzmlQ7RqXO46LkFM=",
+			"path": "github.com/chai2010/glua-json",
+			"revision": "fa58bcfceb36a71a450d6ded32b81f2b77629d6b",
+			"revisionTime": "2017-12-29T08:25:32Z"
+		},
+		{
+			"checksumSHA1": "XshaWP40+typlwE7XMOgjHZVY7Y=",
+			"path": "github.com/chai2010/glua-lake",
+			"revision": "27864a3fdcf1420e3d7b6e464b027f367b8f888a",
+			"revisionTime": "2017-12-29T09:00:32Z"
+		},
+		{
+			"checksumSHA1": "SlMnNtAgeYA8bew+OahGkn9Ldgo=",
+			"path": "github.com/chai2010/glua-lfs",
+			"revision": "2e66e0f5ad6d56ae22ec88f131db0503b29ff8a5",
+			"revisionTime": "2017-12-29T08:22:32Z"
+		},
+		{
+			"checksumSHA1": "PYKgAsETeQZdBHKJ9GtdB1qJzbk=",
+			"path": "github.com/chai2010/glua-strings",
+			"revision": "5ebbb51f4133ebc9695d29b48c7e67fa8d22225a",
+			"revisionTime": "2017-12-28T05:07:05Z"
+		},
+		{
+			"checksumSHA1": "a6NifIaomYe/FKneLi6f1OZawyQ=",
+			"path": "github.com/cjoudrey/gluahttp",
+			"revision": "b4bfe0c50fea948dcbf3966e120996d6607bbd89",
+			"revisionTime": "2016-10-27T10:20:59Z"
+		},
+		{
+			"checksumSHA1": "ClLRczPcRAAKdvrnEAeje/qrBw8=",
+			"path": "github.com/cjoudrey/gluaurl",
+			"revision": "31cbb9bef199454415879f2e6d609d1136d60cad",
+			"revisionTime": "2016-10-28T22:26:11Z"
+		},
+		{
+			"checksumSHA1": "t/sQ9OAykIvWiNL6sL994a2uEYo=",
+			"path": "github.com/golang/protobuf/descriptor",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "URkBh8mU7cUyCnePKDsPKzGreps=",
+			"path": "github.com/golang/protobuf/jsonpb",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "yqF125xVSkmfLpIVGrLlfE05IUk=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "Z1gJ3PKzwBpOoPnTSEM5yd0zHYA=",
+			"path": "github.com/golang/protobuf/protoc-gen-go/descriptor",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "hWnfY+wjIbEjO9ckwUjNk6Iw/Ks=",
+			"path": "github.com/golang/protobuf/protoc-gen-go/generator",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "8RePrdBuPdr7dY5w45FSQkTA2+0=",
+			"path": "github.com/golang/protobuf/protoc-gen-go/plugin",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "Z4RIWIXH05QItZqVbmbONO9mWig=",
+			"path": "github.com/golang/protobuf/ptypes/any",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "Z5Cpi8mr3kfpZ/CdmudThTWQ0Mo=",
+			"path": "github.com/golang/protobuf/ptypes/struct",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "+nsb2jDuP/5l2DO78dtU/jYB3G8=",
+			"path": "github.com/golang/protobuf/ptypes/timestamp",
+			"revision": "748d386b5c1ea99658fd69fe9f03991ce86a90c1",
+			"revisionTime": "2017-07-26T21:28:29Z"
+		},
+		{
+			"checksumSHA1": "9/2bmiVZTtVxrBcK+zb/VBQ2Eh0=",
+			"path": "github.com/urfave/cli",
+			"revision": "119bb6564841921ce6f1401e0f5d75317bdd9f4d",
+			"revisionTime": "2017-12-03T21:42:37Z"
+		},
+		{
+			"checksumSHA1": "IH9vgeWDGv4W36JSkXZv6+BA6yM=",
+			"path": "github.com/yuin/gopher-lua",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
+		},
+		{
+			"checksumSHA1": "yNGEI9BMDbGwabUnaHvV9ZZm/a0=",
+			"path": "github.com/yuin/gopher-lua/ast",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
+		},
+		{
+			"checksumSHA1": "jL/Xn8U1QShceAAs7GezOfjLQ6o=",
+			"path": "github.com/yuin/gopher-lua/parse",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
+		},
+		{
+			"checksumSHA1": "pOY+AESgLoqczVCXNCvmPtJyUXE=",
+			"path": "github.com/yuin/gopher-lua/pm",
+			"revision": "b641d31de2ca5bf2f50bc04ef7c54149a4aa8b1f",
+			"revisionTime": "2017-12-14T05:53:10Z"
+		}
+	],
+	"rootPath": "github.com/chai2010/qingcloud-go/cmd"
+}
