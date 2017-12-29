@@ -11,6 +11,8 @@ RUN apk add --no-cache make git protobuf
 WORKDIR /go/src/github.com/chai2010/qingcloud-go/
 COPY . .
 
+RUN go get -u -v -d $(go list -f '{{join .Imports "\n"}}{{"\n"}}{{join .TestImports "\n"}}' ./... | sort | uniq | grep -v chai2010/qingloud-go)
+
 RUN go get github.com/golang/protobuf/protoc-gen-go
 RUN go get github.com/devnev/godoc2ghmd
 
