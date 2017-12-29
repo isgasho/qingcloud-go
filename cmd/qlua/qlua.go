@@ -15,9 +15,9 @@ import (
 	lua_socket "github.com/BixData/gluasocket"
 	lua_http "github.com/cjoudrey/gluahttp"
 	lua_url "github.com/cjoudrey/gluaurl"
-	lua_json "layeh.com/gopher-json"
-	lua_lfs "layeh.com/gopher-lfs"
 
+	lua_json "github.com/chai2010/glua-json"
+	lua_lfs "github.com/chai2010/glua-lfs"
 	lua_getopt "github.com/chai2010/qingcloud-go/pkg/gopher-lua/getopt"
 	lua_inspect "github.com/chai2010/qingcloud-go/pkg/gopher-lua/inspect"
 	lua_lake "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lake"
