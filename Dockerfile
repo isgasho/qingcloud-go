@@ -14,6 +14,7 @@ COPY . .
 RUN go get github.com/golang/protobuf/protoc-gen-go
 RUN go get github.com/devnev/godoc2ghmd
 
+RUN go get ./...
 RUN make generate
 RUN go install ./cmd/...
 
