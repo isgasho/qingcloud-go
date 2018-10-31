@@ -7,7 +7,6 @@ package qingcloud
 import (
 	"fmt"
 	"log"
-	"time"
 
 	"github.com/golang/protobuf/proto"
 
@@ -16,7 +15,6 @@ import (
 	sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
 	statuspkg "github.com/chai2010/qingcloud-go/pkg/status"
 	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
-	"github.com/chai2010/qingcloud-go/pkg/wait"
 )
 
 func Example_signatureBuild() {
@@ -111,57 +109,6 @@ func Example_clientCallMethod() {
 	}
 
 	fmt.Println(output)
-}
-
-func Example_waitJob() {
-	// import pb "github.com/chai2010/qingcloud-go/pkg/api"
-	// import "github.com/chai2010/qingcloud-go/pkg/wait"
-
-	qc := pb.NewInstanceService(&pb.ServerInfo{
-		AccessKeyId:     proto.String("QYACCESSKEYIDEXAMPLE"),
-		SecretAccessKey: proto.String("SECRETACCESSKEY"),
-		Zone:            proto.String("pek3a"),
-	})
-
-	reply, err := qc.RunInstances(nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = wait.WaitJob(qc.ServerInfo, reply.GetJobId(), time.Second*5)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("job done")
-}
-
-func Example_waitInstance() {
-	// import pb "github.com/chai2010/qingcloud-go/pkg/api"
-	// import statuspkg "github.com/chai2010/qingcloud-go/pkg/status"
-	// import "github.com/chai2010/qingcloud-go/pkg/wait"
-
-	qc := pb.NewInstanceService(&pb.ServerInfo{
-		AccessKeyId:     proto.String("QYACCESSKEYIDEXAMPLE"),
-		SecretAccessKey: proto.String("SECRETACCESSKEY"),
-		Zone:            proto.String("pek3a"),
-	})
-
-	reply, err := qc.RunInstances(nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = wait.WaitInstanceStatus(
-		qc.ServerInfo, reply.GetInstances()[0],
-		statuspkg.InstanceStatus_Running,
-		time.Second*5,
-	)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("instance running")
 }
 
 func Example_status() {
