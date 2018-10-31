@@ -2,6 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
+// 青云SDK命令行工具.
 package main
 
 import (

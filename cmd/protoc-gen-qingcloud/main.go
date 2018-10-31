@@ -2,6 +2,7 @@
 // Use of this source code is governed by a Apache
 // license that can be found in the LICENSE file.
 
+// 青云SDK Protobuf接口规范插件.
 package main
 
 import (
