@@ -4,24 +4,37 @@
 
 # docker run --rm -it -v `pwd`:/root -w /root chai2010/qingcloud-go qcli
 
-FROM golang:1.9.2-alpine3.6 as builder
+FROM golang:1.11 as builder
 
-RUN apk add --no-cache make git protobuf
-
-WORKDIR /go/src/github.com/chai2010/qingcloud-go/
+WORKDIR /build-dir
 COPY . .
 
-RUN go get github.com/golang/protobuf/protoc-gen-go
-RUN go get github.com/devnev/godoc2ghmd
+ENV GO111MODULE=on
+ENV CGO_ENABLED=0
+ENV GOOS=linux
+ENV GOBIN=/build-dir
 
-RUN go get ./...
-RUN make generate
-RUN go install ./cmd/...
+RUN echo module qingcloud_sdk > /build-dir/go.mod
+RUN git describe --tags --always > /build-dir/version
+RUN git describe --exact-match 2>/dev/null || git log -1 --format="%H" > /build-dir/version
 
-FROM alpine:3.6
+RUN go get github.com/chai2010/qingcloud-go/cmd/qcli@$(cat /build-dir/version)
+RUN go get github.com/chai2010/qingcloud-go/cmd/qlua@$(cat /build-dir/version)
+
+RUN echo version: $(cat /build-dir/version)
+
+# -----------------------------------------------------------------------------
+# for image
+# -----------------------------------------------------------------------------
+
+FROM alpine:3.7
 
 COPY --from=builder /go/bin/qcli /usr/local/bin/qcli
 COPY --from=builder /go/bin/qlua /usr/local/bin/qlua
 
 ENTRYPOINT []
 CMD ["/usr/local/bin/qcli"]
+
+# -----------------------------------------------------------------------------
+# END
+# -----------------------------------------------------------------------------
