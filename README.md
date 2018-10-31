@@ -23,10 +23,6 @@
 - https://docs.qingcloud.com
 - https://godoc.org/github.com/chai2010/qingcloud-go
 
-国内镜像:
-
-- https://gitee.com/chai2010/qingcloud-go
-
 接口规范:
 
 - [api](api)
@@ -72,14 +68,9 @@ Docker 运行([配置中国区镜像](https://www.docker-cn.com/registry-mirror)
 
 - `docker run --rm -it -v $HOME:/root -w /root chai2010/qingcloud-go qcli`
 
-从Go源码安装(Go1.9+):
+从Go源码安装(Go1.11+):
 
 - `go get github.com/chai2010/qingcloud-go/cmd/qcli`
-
-或生成版本号后安装:
-
-- `go generate github.com/chai2010/qingcloud-go/pkg/version`
-- `go install  github.com/chai2010/qingcloud-go/cmd/qcli`
 
 输入 `qcli` 或 `qcli -h` 查看命令提示:
 
@@ -187,7 +178,6 @@ import (
 	"github.com/golang/protobuf/proto"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 )
 
 var (
@@ -212,9 +202,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// JSON 格式打印
-	s, _ := pbutil.EncodeJsonIndent(reply)
-	fmt.Println(s)
+	fmt.Println(reply)
 }
 ```
 
