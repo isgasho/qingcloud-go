@@ -11,7 +11,7 @@ import (
 
 	"github.com/golang/protobuf/proto"
 
-	"github.com/chai2010/qingcloud-go/pkg/pbutil"
+	"github.com/chai2010/qingcloud-go/pkg/internal/pbutil"
 )
 
 func tAssert(tb testing.TB, condition bool, a ...interface{}) {

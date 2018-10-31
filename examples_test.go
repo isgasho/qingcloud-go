@@ -13,7 +13,6 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	clientpkg "github.com/chai2010/qingcloud-go/pkg/client"
-	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 	sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
 	statuspkg "github.com/chai2010/qingcloud-go/pkg/status"
 	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
@@ -88,8 +87,7 @@ func Example_helloSDK() {
 		log.Fatal(err)
 	}
 
-	s, _ := pbutil.EncodeJsonIndent(reply)
-	fmt.Println(s)
+	fmt.Println(reply)
 }
 
 func Example_clientCallMethod() {

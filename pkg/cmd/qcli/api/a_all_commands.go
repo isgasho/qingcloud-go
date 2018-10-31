@@ -16,7 +16,7 @@ import (
 	"github.com/urfave/cli"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	pbutil "github.com/chai2010/qingcloud-go/pkg/pbutil"
+	pbutil "github.com/chai2010/qingcloud-go/pkg/internal/pbutil"
 )
 
 var (

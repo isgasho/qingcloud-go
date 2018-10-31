@@ -14,7 +14,6 @@ import (
 	"github.com/golang/protobuf/proto"
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
-	"github.com/chai2010/qingcloud-go/pkg/pbutil"
 )
 
 var (
@@ -37,6 +36,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	s, _ := pbutil.EncodeJsonIndent(reply)
-	fmt.Println(s)
+	fmt.Println(reply)
 }
