@@ -16,7 +16,7 @@ import (
 	"github.com/golang/protobuf/proto"
 
 	"github.com/chai2010/qingcloud-go/pkg/internal/pbutil"
-	"github.com/chai2010/qingcloud-go/pkg/signature"
+	"github.com/chai2010/qingcloud-go/pkg/internal/signature"
 	"github.com/chai2010/qingcloud-go/pkg/status"
 )
 

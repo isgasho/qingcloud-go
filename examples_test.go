@@ -12,64 +12,9 @@ import (
 
 	pb "github.com/chai2010/qingcloud-go/pkg/api"
 	clientpkg "github.com/chai2010/qingcloud-go/pkg/client"
-	sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
 	statuspkg "github.com/chai2010/qingcloud-go/pkg/status"
 	verpkg "github.com/chai2010/qingcloud-go/pkg/version"
 )
-
-func Example_signatureBuild() {
-	// import sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
-
-	query, signature := sigpkg.Build(
-		"QYACCESSKEYIDEXAMPLE", "SECRETACCESSKEY",
-		"GET", "/iaas/", map[string]string{},
-	)
-
-	fmt.Println(query)
-	fmt.Println(signature)
-
-	// Output:
-	// access_key_id=QYACCESSKEYIDEXAMPLE&signature_method=HmacSHA256&signature_version=1&signature=O5EhQeUqTF00g59t5Pb46QPfnPMhUOAcxTWvzlnraeE%3D
-	// O5EhQeUqTF00g59t5Pb46QPfnPMhUOAcxTWvzlnraeE%3D
-}
-
-func Example_signatureGetSignatureInfo() {
-	// import sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
-
-	s := "access_key_id=QYACCESSKEYIDEXAMPLE&signature_method=HmacSHA256&signature_version=1&signature=O5EhQeUqTF00g59t5Pb46QPfnPMhUOAcxTWvzlnraeE%3D"
-	pubKey, sigMethod, sigVersion, sig := sigpkg.GetSignatureInfo(s)
-
-	fmt.Println(pubKey)
-	fmt.Println(sigMethod)
-	fmt.Println(sigVersion)
-	fmt.Println(sig)
-
-	// Output:
-	// QYACCESSKEYIDEXAMPLE
-	// HmacSHA256
-	// 1
-	// O5EhQeUqTF00g59t5Pb46QPfnPMhUOAcxTWvzlnraeE=
-}
-
-func Example_signatureValidate() {
-	// import sigpkg "github.com/chai2010/qingcloud-go/pkg/signature"
-
-	ok := sigpkg.Validate(
-		func(pubKey string) string {
-			if pubKey != "QYACCESSKEYIDEXAMPLE" {
-				log.Fatal("invalid pubKey:", pubKey)
-			}
-			return "SECRETACCESSKEY"
-		},
-		"GET", "/iaas/",
-		"access_key_id=QYACCESSKEYIDEXAMPLE&signature_method=HmacSHA256&signature_version=1&signature=O5EhQeUqTF00g59t5Pb46QPfnPMhUOAcxTWvzlnraeE%3D",
-	)
-
-	fmt.Println(ok)
-
-	// Output:
-	// true
-}
 
 func Example_helloSDK() {
 	// import pb "github.com/chai2010/qingcloud-go/pkg/api"
