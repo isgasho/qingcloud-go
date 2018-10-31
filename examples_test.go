@@ -182,7 +182,5 @@ func Example_status() {
 func Example_version() {
 	// import verpkg "github.com/chai2010/qingcloud-go/pkg/version"
 
-	fmt.Println(verpkg.ShortVersion)
-	fmt.Println(verpkg.GitSha1Version)
-	fmt.Println(verpkg.ShortVersion)
+	fmt.Println(verpkg.GetVersionString())
 }

@@ -18,4 +18,5 @@ require (
 	github.com/golang/protobuf v1.2.0
 	github.com/urfave/cli v1.20.0
 	github.com/yuin/gopher-lua v0.0.0-20181031023651-12c4817b42c5
+	rsc.io/goversion v1.2.0
 )

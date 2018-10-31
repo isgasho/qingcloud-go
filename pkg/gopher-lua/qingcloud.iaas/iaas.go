@@ -58,14 +58,11 @@ license that can be found in the LICENSE file.
 }
 
 func initVersionTable(L *lua.LState, mod *lua.LTable) {
-	L.SetField(mod, "version", lua.LString(verpkg.ShortVersion))
+	L.SetField(mod, "version", lua.LString(verpkg.GetVersionString()))
 
 	L.SetField(mod, "version_info", func() *lua.LTable {
 		tb := L.NewTable()
-		L.SetField(tb, "version", lua.LString(verpkg.ShortVersion))
-		L.SetField(tb, "short_version", lua.LString(verpkg.ShortVersion))
-		L.SetField(tb, "git_sha1_version", lua.LString(verpkg.GitSha1Version))
-		L.SetField(tb, "build_date", lua.LString(verpkg.BuildDate))
+		L.SetField(tb, "version", lua.LString(verpkg.GetVersionString()))
 		return tb
 	}())
 }
