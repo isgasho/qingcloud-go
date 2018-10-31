@@ -23,7 +23,7 @@ func getMessageDescriptor(msg proto.Message) (fd *descriptor.FileDescriptorProto
 func BuildFileSpec(p *generator.Generator, file *generator.FileDescriptor) *spec_metadata.FileSpec {
 	return &spec_metadata.FileSpec{
 		FileName:    proto.String(file.GetName()),
-		PackageName: proto.String(file.PackageName()),
+		PackageName: proto.String(file.GetPackage()),
 	}
 }
 
