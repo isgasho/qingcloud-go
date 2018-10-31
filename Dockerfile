@@ -29,8 +29,8 @@ RUN echo version: $(cat /build-dir/version)
 
 FROM alpine:3.7
 
-COPY --from=builder /go/bin/qcli /usr/local/bin/qcli
-COPY --from=builder /go/bin/qlua /usr/local/bin/qlua
+COPY --from=builder /build-dir/qcli /usr/local/bin/qcli
+COPY --from=builder /build-dir/qlua /usr/local/bin/qlua
 
 ENTRYPOINT []
 CMD ["/usr/local/bin/qcli"]
