@@ -17,17 +17,15 @@ import (
 	"github.com/yuin/gopher-lua"
 	"github.com/yuin/gopher-lua/parse"
 
-	lua_socket "github.com/BixData/gluasocket"
-	lua_http "github.com/cjoudrey/gluahttp"
-	lua_url "github.com/cjoudrey/gluaurl"
-
-	lua_getopt "github.com/chai2010/glua-getopt"
-	lua_json "github.com/chai2010/glua-json"
-	lua_lake "github.com/chai2010/glua-lake"
-	lua_lfs "github.com/chai2010/glua-lfs"
-	lua_strings "github.com/chai2010/glua-strings"
-	lua_inspect "github.com/chai2010/qingcloud-go/pkg/gopher-lua/inspect"
-	lua_lustache "github.com/chai2010/qingcloud-go/pkg/gopher-lua/lustache"
+	lua_getopt "github.com/chai2010/luapkg-go/getopt"
+	lua_http "github.com/chai2010/luapkg-go/http"
+	lua_inspect "github.com/chai2010/luapkg-go/inspect"
+	lua_json "github.com/chai2010/luapkg-go/json"
+	lua_lake "github.com/chai2010/luapkg-go/lake"
+	lua_lfs "github.com/chai2010/luapkg-go/lfs"
+	lua_lustache "github.com/chai2010/luapkg-go/lustache"
+	lua_strings "github.com/chai2010/luapkg-go/strings"
+	lua_url "github.com/chai2010/luapkg-go/url"
 	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
 )
 
@@ -54,7 +52,6 @@ func preload(L *lua.LState) {
 
 	lua_json.Preload(L)
 	lua_lfs.Preload(L)
-	lua_socket.Preload(L)
 
 	L.PreloadModule("http", lua_http.NewHttpModule(&http.Client{}).Loader)
 	L.PreloadModule("url", lua_url.Loader)
