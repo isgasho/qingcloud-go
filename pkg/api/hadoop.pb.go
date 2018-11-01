@@ -13,18 +13,45 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type AddHadoopNodesInput struct {
-	Hadoop           *string                           `protobuf:"bytes,1,opt,name=hadoop" json:"hadoop,omitempty"`
-	NodeCount        *int32                            `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	HadoopNodeName   *string                           `protobuf:"bytes,3,opt,name=hadoop_node_name,json=hadoopNodeName" json:"hadoop_node_name,omitempty"`
-	PrivateIps       []*AddHadoopNodesInput_PrivateIps `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte                            `json:"-"`
+	Hadoop               *string                           `protobuf:"bytes,1,opt,name=hadoop" json:"hadoop,omitempty"`
+	NodeCount            *int32                            `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	HadoopNodeName       *string                           `protobuf:"bytes,3,opt,name=hadoop_node_name,json=hadoopNodeName" json:"hadoop_node_name,omitempty"`
+	PrivateIps           []*AddHadoopNodesInput_PrivateIps `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
+	XXX_unrecognized     []byte                            `json:"-"`
+	XXX_sizecache        int32                             `json:"-"`
 }
 
-func (m *AddHadoopNodesInput) Reset()                    { *m = AddHadoopNodesInput{} }
-func (m *AddHadoopNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddHadoopNodesInput) ProtoMessage()               {}
-func (*AddHadoopNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
+func (m *AddHadoopNodesInput) Reset()         { *m = AddHadoopNodesInput{} }
+func (m *AddHadoopNodesInput) String() string { return proto.CompactTextString(m) }
+func (*AddHadoopNodesInput) ProtoMessage()    {}
+func (*AddHadoopNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{0}
+}
+func (m *AddHadoopNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddHadoopNodesInput.Unmarshal(m, b)
+}
+func (m *AddHadoopNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddHadoopNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddHadoopNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddHadoopNodesInput.Merge(dst, src)
+}
+func (m *AddHadoopNodesInput) XXX_Size() int {
+	return xxx_messageInfo_AddHadoopNodesInput.Size(m)
+}
+func (m *AddHadoopNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddHadoopNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddHadoopNodesInput proto.InternalMessageInfo
 
 func (m *AddHadoopNodesInput) GetHadoop() string {
 	if m != nil && m.Hadoop != nil {
@@ -55,17 +82,36 @@ func (m *AddHadoopNodesInput) GetPrivateIps() []*AddHadoopNodesInput_PrivateIps 
 }
 
 type AddHadoopNodesInput_PrivateIps struct {
-	Role             *string `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
-	PrivateIps       *string `protobuf:"bytes,2,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Role                 *string  `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
+	PrivateIps           *string  `protobuf:"bytes,2,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AddHadoopNodesInput_PrivateIps) Reset()         { *m = AddHadoopNodesInput_PrivateIps{} }
 func (m *AddHadoopNodesInput_PrivateIps) String() string { return proto.CompactTextString(m) }
 func (*AddHadoopNodesInput_PrivateIps) ProtoMessage()    {}
 func (*AddHadoopNodesInput_PrivateIps) Descriptor() ([]byte, []int) {
-	return fileDescriptor5, []int{0, 0}
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{0, 0}
 }
+func (m *AddHadoopNodesInput_PrivateIps) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddHadoopNodesInput_PrivateIps.Unmarshal(m, b)
+}
+func (m *AddHadoopNodesInput_PrivateIps) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddHadoopNodesInput_PrivateIps.Marshal(b, m, deterministic)
+}
+func (dst *AddHadoopNodesInput_PrivateIps) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddHadoopNodesInput_PrivateIps.Merge(dst, src)
+}
+func (m *AddHadoopNodesInput_PrivateIps) XXX_Size() int {
+	return xxx_messageInfo_AddHadoopNodesInput_PrivateIps.Size(m)
+}
+func (m *AddHadoopNodesInput_PrivateIps) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddHadoopNodesInput_PrivateIps.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddHadoopNodesInput_PrivateIps proto.InternalMessageInfo
 
 func (m *AddHadoopNodesInput_PrivateIps) GetRole() string {
 	if m != nil && m.Role != nil {
@@ -82,18 +128,39 @@ func (m *AddHadoopNodesInput_PrivateIps) GetPrivateIps() string {
 }
 
 type AddHadoopNodesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	HadoopId         *string  `protobuf:"bytes,4,opt,name=hadoop_id,json=hadoopId" json:"hadoop_id,omitempty"`
-	HadoopNewNodeIds []string `protobuf:"bytes,5,rep,name=hadoop_new_node_ids,json=hadoopNewNodeIds" json:"hadoop_new_node_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	HadoopId             *string  `protobuf:"bytes,4,opt,name=hadoop_id,json=hadoopId" json:"hadoop_id,omitempty"`
+	HadoopNewNodeIds     []string `protobuf:"bytes,5,rep,name=hadoop_new_node_ids,json=hadoopNewNodeIds" json:"hadoop_new_node_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddHadoopNodesOutput) Reset()                    { *m = AddHadoopNodesOutput{} }
-func (m *AddHadoopNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddHadoopNodesOutput) ProtoMessage()               {}
-func (*AddHadoopNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{1} }
+func (m *AddHadoopNodesOutput) Reset()         { *m = AddHadoopNodesOutput{} }
+func (m *AddHadoopNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddHadoopNodesOutput) ProtoMessage()    {}
+func (*AddHadoopNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{1}
+}
+func (m *AddHadoopNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddHadoopNodesOutput.Unmarshal(m, b)
+}
+func (m *AddHadoopNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddHadoopNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddHadoopNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddHadoopNodesOutput.Merge(dst, src)
+}
+func (m *AddHadoopNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddHadoopNodesOutput.Size(m)
+}
+func (m *AddHadoopNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddHadoopNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddHadoopNodesOutput proto.InternalMessageInfo
 
 func (m *AddHadoopNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -131,15 +198,36 @@ func (m *AddHadoopNodesOutput) GetHadoopNewNodeIds() []string {
 }
 
 type DeleteHadoopNodesInput struct {
-	Hadoop           *string  `protobuf:"bytes,1,opt,name=hadoop" json:"hadoop,omitempty"`
-	HadoopNodes      []string `protobuf:"bytes,2,rep,name=hadoop_nodes,json=hadoopNodes" json:"hadoop_nodes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Hadoop               *string  `protobuf:"bytes,1,opt,name=hadoop" json:"hadoop,omitempty"`
+	HadoopNodes          []string `protobuf:"bytes,2,rep,name=hadoop_nodes,json=hadoopNodes" json:"hadoop_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteHadoopNodesInput) Reset()                    { *m = DeleteHadoopNodesInput{} }
-func (m *DeleteHadoopNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteHadoopNodesInput) ProtoMessage()               {}
-func (*DeleteHadoopNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{2} }
+func (m *DeleteHadoopNodesInput) Reset()         { *m = DeleteHadoopNodesInput{} }
+func (m *DeleteHadoopNodesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteHadoopNodesInput) ProtoMessage()    {}
+func (*DeleteHadoopNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{2}
+}
+func (m *DeleteHadoopNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteHadoopNodesInput.Unmarshal(m, b)
+}
+func (m *DeleteHadoopNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteHadoopNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteHadoopNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteHadoopNodesInput.Merge(dst, src)
+}
+func (m *DeleteHadoopNodesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteHadoopNodesInput.Size(m)
+}
+func (m *DeleteHadoopNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteHadoopNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteHadoopNodesInput proto.InternalMessageInfo
 
 func (m *DeleteHadoopNodesInput) GetHadoop() string {
 	if m != nil && m.Hadoop != nil {
@@ -156,17 +244,38 @@ func (m *DeleteHadoopNodesInput) GetHadoopNodes() []string {
 }
 
 type DeleteHadoopNodesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	HadoopId         *string `protobuf:"bytes,4,opt,name=hadoop_id,json=hadoopId" json:"hadoop_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	HadoopId             *string  `protobuf:"bytes,4,opt,name=hadoop_id,json=hadoopId" json:"hadoop_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteHadoopNodesOutput) Reset()                    { *m = DeleteHadoopNodesOutput{} }
-func (m *DeleteHadoopNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteHadoopNodesOutput) ProtoMessage()               {}
-func (*DeleteHadoopNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{3} }
+func (m *DeleteHadoopNodesOutput) Reset()         { *m = DeleteHadoopNodesOutput{} }
+func (m *DeleteHadoopNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteHadoopNodesOutput) ProtoMessage()    {}
+func (*DeleteHadoopNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{3}
+}
+func (m *DeleteHadoopNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteHadoopNodesOutput.Unmarshal(m, b)
+}
+func (m *DeleteHadoopNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteHadoopNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteHadoopNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteHadoopNodesOutput.Merge(dst, src)
+}
+func (m *DeleteHadoopNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteHadoopNodesOutput.Size(m)
+}
+func (m *DeleteHadoopNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteHadoopNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteHadoopNodesOutput proto.InternalMessageInfo
 
 func (m *DeleteHadoopNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -197,14 +306,35 @@ func (m *DeleteHadoopNodesOutput) GetHadoopId() string {
 }
 
 type StartHadoopsInput struct {
-	Hadoops          []string `protobuf:"bytes,1,rep,name=hadoops" json:"hadoops,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Hadoops              []string `protobuf:"bytes,1,rep,name=hadoops" json:"hadoops,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartHadoopsInput) Reset()                    { *m = StartHadoopsInput{} }
-func (m *StartHadoopsInput) String() string            { return proto.CompactTextString(m) }
-func (*StartHadoopsInput) ProtoMessage()               {}
-func (*StartHadoopsInput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{4} }
+func (m *StartHadoopsInput) Reset()         { *m = StartHadoopsInput{} }
+func (m *StartHadoopsInput) String() string { return proto.CompactTextString(m) }
+func (*StartHadoopsInput) ProtoMessage()    {}
+func (*StartHadoopsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{4}
+}
+func (m *StartHadoopsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartHadoopsInput.Unmarshal(m, b)
+}
+func (m *StartHadoopsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartHadoopsInput.Marshal(b, m, deterministic)
+}
+func (dst *StartHadoopsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartHadoopsInput.Merge(dst, src)
+}
+func (m *StartHadoopsInput) XXX_Size() int {
+	return xxx_messageInfo_StartHadoopsInput.Size(m)
+}
+func (m *StartHadoopsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartHadoopsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartHadoopsInput proto.InternalMessageInfo
 
 func (m *StartHadoopsInput) GetHadoops() []string {
 	if m != nil {
@@ -214,17 +344,38 @@ func (m *StartHadoopsInput) GetHadoops() []string {
 }
 
 type StartHadoopsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartHadoopsOutput) Reset()                    { *m = StartHadoopsOutput{} }
-func (m *StartHadoopsOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartHadoopsOutput) ProtoMessage()               {}
-func (*StartHadoopsOutput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{5} }
+func (m *StartHadoopsOutput) Reset()         { *m = StartHadoopsOutput{} }
+func (m *StartHadoopsOutput) String() string { return proto.CompactTextString(m) }
+func (*StartHadoopsOutput) ProtoMessage()    {}
+func (*StartHadoopsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{5}
+}
+func (m *StartHadoopsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartHadoopsOutput.Unmarshal(m, b)
+}
+func (m *StartHadoopsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartHadoopsOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartHadoopsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartHadoopsOutput.Merge(dst, src)
+}
+func (m *StartHadoopsOutput) XXX_Size() int {
+	return xxx_messageInfo_StartHadoopsOutput.Size(m)
+}
+func (m *StartHadoopsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartHadoopsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartHadoopsOutput proto.InternalMessageInfo
 
 func (m *StartHadoopsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -255,14 +406,35 @@ func (m *StartHadoopsOutput) GetJobId() string {
 }
 
 type StopHadoopsInput struct {
-	Hadoops          []string `protobuf:"bytes,1,rep,name=hadoops" json:"hadoops,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Hadoops              []string `protobuf:"bytes,1,rep,name=hadoops" json:"hadoops,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopHadoopsInput) Reset()                    { *m = StopHadoopsInput{} }
-func (m *StopHadoopsInput) String() string            { return proto.CompactTextString(m) }
-func (*StopHadoopsInput) ProtoMessage()               {}
-func (*StopHadoopsInput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{6} }
+func (m *StopHadoopsInput) Reset()         { *m = StopHadoopsInput{} }
+func (m *StopHadoopsInput) String() string { return proto.CompactTextString(m) }
+func (*StopHadoopsInput) ProtoMessage()    {}
+func (*StopHadoopsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{6}
+}
+func (m *StopHadoopsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopHadoopsInput.Unmarshal(m, b)
+}
+func (m *StopHadoopsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopHadoopsInput.Marshal(b, m, deterministic)
+}
+func (dst *StopHadoopsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopHadoopsInput.Merge(dst, src)
+}
+func (m *StopHadoopsInput) XXX_Size() int {
+	return xxx_messageInfo_StopHadoopsInput.Size(m)
+}
+func (m *StopHadoopsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopHadoopsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopHadoopsInput proto.InternalMessageInfo
 
 func (m *StopHadoopsInput) GetHadoops() []string {
 	if m != nil {
@@ -272,17 +444,38 @@ func (m *StopHadoopsInput) GetHadoops() []string {
 }
 
 type StopHadoopsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopHadoopsOutput) Reset()                    { *m = StopHadoopsOutput{} }
-func (m *StopHadoopsOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopHadoopsOutput) ProtoMessage()               {}
-func (*StopHadoopsOutput) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{7} }
+func (m *StopHadoopsOutput) Reset()         { *m = StopHadoopsOutput{} }
+func (m *StopHadoopsOutput) String() string { return proto.CompactTextString(m) }
+func (*StopHadoopsOutput) ProtoMessage()    {}
+func (*StopHadoopsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_hadoop_fc41a18d790ad465, []int{7}
+}
+func (m *StopHadoopsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopHadoopsOutput.Unmarshal(m, b)
+}
+func (m *StopHadoopsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopHadoopsOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopHadoopsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopHadoopsOutput.Merge(dst, src)
+}
+func (m *StopHadoopsOutput) XXX_Size() int {
+	return xxx_messageInfo_StopHadoopsOutput.Size(m)
+}
+func (m *StopHadoopsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopHadoopsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopHadoopsOutput proto.InternalMessageInfo
 
 func (m *StopHadoopsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -324,9 +517,9 @@ func init() {
 	proto.RegisterType((*StopHadoopsOutput)(nil), "service.StopHadoopsOutput")
 }
 
-func init() { proto.RegisterFile("hadoop.proto", fileDescriptor5) }
+func init() { proto.RegisterFile("hadoop.proto", fileDescriptor_hadoop_fc41a18d790ad465) }
 
-var fileDescriptor5 = []byte{
+var fileDescriptor_hadoop_fc41a18d790ad465 = []byte{
 	// 535 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x53, 0x4d, 0x4f, 0xdb, 0x40,
 	0x10, 0x95, 0xf3, 0x41, 0xc8, 0x84, 0x22, 0x58, 0x5a, 0x6a, 0x96, 0x22, 0x52, 0x5f, 0x9a, 0x43,

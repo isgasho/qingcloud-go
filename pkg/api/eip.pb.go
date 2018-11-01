@@ -13,22 +13,49 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeEipsInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	InstanceId       *string  `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	Status           *string  `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	InstanceId           *string  `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	Status               *string  `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeEipsInput) Reset()                    { *m = DescribeEipsInput{} }
-func (m *DescribeEipsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeEipsInput) ProtoMessage()               {}
-func (*DescribeEipsInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
+func (m *DescribeEipsInput) Reset()         { *m = DescribeEipsInput{} }
+func (m *DescribeEipsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeEipsInput) ProtoMessage()    {}
+func (*DescribeEipsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{0}
+}
+func (m *DescribeEipsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeEipsInput.Unmarshal(m, b)
+}
+func (m *DescribeEipsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeEipsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeEipsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeEipsInput.Merge(dst, src)
+}
+func (m *DescribeEipsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeEipsInput.Size(m)
+}
+func (m *DescribeEipsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeEipsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeEipsInput proto.InternalMessageInfo
 
 func (m *DescribeEipsInput) GetEips() []string {
 	if m != nil {
@@ -87,18 +114,39 @@ func (m *DescribeEipsInput) GetLimit() int32 {
 }
 
 type DescribeEipsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	EipSet           []*EIP  `protobuf:"bytes,4,rep,name=eip_set,json=eipSet" json:"eip_set,omitempty"`
-	TotalCount       *int32  `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	EipSet               []*EIP   `protobuf:"bytes,4,rep,name=eip_set,json=eipSet" json:"eip_set,omitempty"`
+	TotalCount           *int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeEipsOutput) Reset()                    { *m = DescribeEipsOutput{} }
-func (m *DescribeEipsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeEipsOutput) ProtoMessage()               {}
-func (*DescribeEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
+func (m *DescribeEipsOutput) Reset()         { *m = DescribeEipsOutput{} }
+func (m *DescribeEipsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeEipsOutput) ProtoMessage()    {}
+func (*DescribeEipsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{1}
+}
+func (m *DescribeEipsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeEipsOutput.Unmarshal(m, b)
+}
+func (m *DescribeEipsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeEipsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeEipsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeEipsOutput.Merge(dst, src)
+}
+func (m *DescribeEipsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeEipsOutput.Size(m)
+}
+func (m *DescribeEipsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeEipsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeEipsOutput proto.InternalMessageInfo
 
 func (m *DescribeEipsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -136,19 +184,40 @@ func (m *DescribeEipsOutput) GetTotalCount() int32 {
 }
 
 type AllocateEipsInput struct {
-	Bandwidth        *int32  `protobuf:"varint,1,opt,name=bandwidth" json:"bandwidth,omitempty"`
-	BillingMode      *string `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
-	EipName          *string `protobuf:"bytes,3,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
-	Count            *int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
-	NeedIcp          *int32  `protobuf:"varint,5,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
-	TargetUser       *string `protobuf:"bytes,6,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Bandwidth            *int32   `protobuf:"varint,1,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	BillingMode          *string  `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	EipName              *string  `protobuf:"bytes,3,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	Count                *int32   `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
+	NeedIcp              *int32   `protobuf:"varint,5,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
+	TargetUser           *string  `protobuf:"bytes,6,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AllocateEipsInput) Reset()                    { *m = AllocateEipsInput{} }
-func (m *AllocateEipsInput) String() string            { return proto.CompactTextString(m) }
-func (*AllocateEipsInput) ProtoMessage()               {}
-func (*AllocateEipsInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
+func (m *AllocateEipsInput) Reset()         { *m = AllocateEipsInput{} }
+func (m *AllocateEipsInput) String() string { return proto.CompactTextString(m) }
+func (*AllocateEipsInput) ProtoMessage()    {}
+func (*AllocateEipsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{2}
+}
+func (m *AllocateEipsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AllocateEipsInput.Unmarshal(m, b)
+}
+func (m *AllocateEipsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AllocateEipsInput.Marshal(b, m, deterministic)
+}
+func (dst *AllocateEipsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AllocateEipsInput.Merge(dst, src)
+}
+func (m *AllocateEipsInput) XXX_Size() int {
+	return xxx_messageInfo_AllocateEipsInput.Size(m)
+}
+func (m *AllocateEipsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AllocateEipsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AllocateEipsInput proto.InternalMessageInfo
 
 func (m *AllocateEipsInput) GetBandwidth() int32 {
 	if m != nil && m.Bandwidth != nil {
@@ -193,17 +262,38 @@ func (m *AllocateEipsInput) GetTargetUser() string {
 }
 
 type AllocateEipsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Eips             []string `protobuf:"bytes,4,rep,name=eips" json:"eips,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Eips                 []string `protobuf:"bytes,4,rep,name=eips" json:"eips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AllocateEipsOutput) Reset()                    { *m = AllocateEipsOutput{} }
-func (m *AllocateEipsOutput) String() string            { return proto.CompactTextString(m) }
-func (*AllocateEipsOutput) ProtoMessage()               {}
-func (*AllocateEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
+func (m *AllocateEipsOutput) Reset()         { *m = AllocateEipsOutput{} }
+func (m *AllocateEipsOutput) String() string { return proto.CompactTextString(m) }
+func (*AllocateEipsOutput) ProtoMessage()    {}
+func (*AllocateEipsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{3}
+}
+func (m *AllocateEipsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AllocateEipsOutput.Unmarshal(m, b)
+}
+func (m *AllocateEipsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AllocateEipsOutput.Marshal(b, m, deterministic)
+}
+func (dst *AllocateEipsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AllocateEipsOutput.Merge(dst, src)
+}
+func (m *AllocateEipsOutput) XXX_Size() int {
+	return xxx_messageInfo_AllocateEipsOutput.Size(m)
+}
+func (m *AllocateEipsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AllocateEipsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AllocateEipsOutput proto.InternalMessageInfo
 
 func (m *AllocateEipsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -234,14 +324,35 @@ func (m *AllocateEipsOutput) GetEips() []string {
 }
 
 type ReleaseEipsInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ReleaseEipsInput) Reset()                    { *m = ReleaseEipsInput{} }
-func (m *ReleaseEipsInput) String() string            { return proto.CompactTextString(m) }
-func (*ReleaseEipsInput) ProtoMessage()               {}
-func (*ReleaseEipsInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
+func (m *ReleaseEipsInput) Reset()         { *m = ReleaseEipsInput{} }
+func (m *ReleaseEipsInput) String() string { return proto.CompactTextString(m) }
+func (*ReleaseEipsInput) ProtoMessage()    {}
+func (*ReleaseEipsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{4}
+}
+func (m *ReleaseEipsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReleaseEipsInput.Unmarshal(m, b)
+}
+func (m *ReleaseEipsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReleaseEipsInput.Marshal(b, m, deterministic)
+}
+func (dst *ReleaseEipsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReleaseEipsInput.Merge(dst, src)
+}
+func (m *ReleaseEipsInput) XXX_Size() int {
+	return xxx_messageInfo_ReleaseEipsInput.Size(m)
+}
+func (m *ReleaseEipsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReleaseEipsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReleaseEipsInput proto.InternalMessageInfo
 
 func (m *ReleaseEipsInput) GetEips() []string {
 	if m != nil {
@@ -251,17 +362,38 @@ func (m *ReleaseEipsInput) GetEips() []string {
 }
 
 type ReleaseEipsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ReleaseEipsOutput) Reset()                    { *m = ReleaseEipsOutput{} }
-func (m *ReleaseEipsOutput) String() string            { return proto.CompactTextString(m) }
-func (*ReleaseEipsOutput) ProtoMessage()               {}
-func (*ReleaseEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{5} }
+func (m *ReleaseEipsOutput) Reset()         { *m = ReleaseEipsOutput{} }
+func (m *ReleaseEipsOutput) String() string { return proto.CompactTextString(m) }
+func (*ReleaseEipsOutput) ProtoMessage()    {}
+func (*ReleaseEipsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{5}
+}
+func (m *ReleaseEipsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReleaseEipsOutput.Unmarshal(m, b)
+}
+func (m *ReleaseEipsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReleaseEipsOutput.Marshal(b, m, deterministic)
+}
+func (dst *ReleaseEipsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReleaseEipsOutput.Merge(dst, src)
+}
+func (m *ReleaseEipsOutput) XXX_Size() int {
+	return xxx_messageInfo_ReleaseEipsOutput.Size(m)
+}
+func (m *ReleaseEipsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReleaseEipsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReleaseEipsOutput proto.InternalMessageInfo
 
 func (m *ReleaseEipsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -292,15 +424,36 @@ func (m *ReleaseEipsOutput) GetJobId() string {
 }
 
 type AssociateEipInput struct {
-	Eip              *string `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
-	Instance         *string `protobuf:"bytes,2,opt,name=instance" json:"instance,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Eip                  *string  `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
+	Instance             *string  `protobuf:"bytes,2,opt,name=instance" json:"instance,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AssociateEipInput) Reset()                    { *m = AssociateEipInput{} }
-func (m *AssociateEipInput) String() string            { return proto.CompactTextString(m) }
-func (*AssociateEipInput) ProtoMessage()               {}
-func (*AssociateEipInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{6} }
+func (m *AssociateEipInput) Reset()         { *m = AssociateEipInput{} }
+func (m *AssociateEipInput) String() string { return proto.CompactTextString(m) }
+func (*AssociateEipInput) ProtoMessage()    {}
+func (*AssociateEipInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{6}
+}
+func (m *AssociateEipInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateEipInput.Unmarshal(m, b)
+}
+func (m *AssociateEipInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateEipInput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateEipInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateEipInput.Merge(dst, src)
+}
+func (m *AssociateEipInput) XXX_Size() int {
+	return xxx_messageInfo_AssociateEipInput.Size(m)
+}
+func (m *AssociateEipInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateEipInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateEipInput proto.InternalMessageInfo
 
 func (m *AssociateEipInput) GetEip() string {
 	if m != nil && m.Eip != nil {
@@ -317,17 +470,38 @@ func (m *AssociateEipInput) GetInstance() string {
 }
 
 type AssociateEipOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AssociateEipOutput) Reset()                    { *m = AssociateEipOutput{} }
-func (m *AssociateEipOutput) String() string            { return proto.CompactTextString(m) }
-func (*AssociateEipOutput) ProtoMessage()               {}
-func (*AssociateEipOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{7} }
+func (m *AssociateEipOutput) Reset()         { *m = AssociateEipOutput{} }
+func (m *AssociateEipOutput) String() string { return proto.CompactTextString(m) }
+func (*AssociateEipOutput) ProtoMessage()    {}
+func (*AssociateEipOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{7}
+}
+func (m *AssociateEipOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateEipOutput.Unmarshal(m, b)
+}
+func (m *AssociateEipOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateEipOutput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateEipOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateEipOutput.Merge(dst, src)
+}
+func (m *AssociateEipOutput) XXX_Size() int {
+	return xxx_messageInfo_AssociateEipOutput.Size(m)
+}
+func (m *AssociateEipOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateEipOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateEipOutput proto.InternalMessageInfo
 
 func (m *AssociateEipOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -358,14 +532,35 @@ func (m *AssociateEipOutput) GetJobId() string {
 }
 
 type DissociateEipsInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DissociateEipsInput) Reset()                    { *m = DissociateEipsInput{} }
-func (m *DissociateEipsInput) String() string            { return proto.CompactTextString(m) }
-func (*DissociateEipsInput) ProtoMessage()               {}
-func (*DissociateEipsInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{8} }
+func (m *DissociateEipsInput) Reset()         { *m = DissociateEipsInput{} }
+func (m *DissociateEipsInput) String() string { return proto.CompactTextString(m) }
+func (*DissociateEipsInput) ProtoMessage()    {}
+func (*DissociateEipsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{8}
+}
+func (m *DissociateEipsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateEipsInput.Unmarshal(m, b)
+}
+func (m *DissociateEipsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateEipsInput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateEipsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateEipsInput.Merge(dst, src)
+}
+func (m *DissociateEipsInput) XXX_Size() int {
+	return xxx_messageInfo_DissociateEipsInput.Size(m)
+}
+func (m *DissociateEipsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateEipsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateEipsInput proto.InternalMessageInfo
 
 func (m *DissociateEipsInput) GetEips() []string {
 	if m != nil {
@@ -375,17 +570,38 @@ func (m *DissociateEipsInput) GetEips() []string {
 }
 
 type DissociateEipsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DissociateEipsOutput) Reset()                    { *m = DissociateEipsOutput{} }
-func (m *DissociateEipsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DissociateEipsOutput) ProtoMessage()               {}
-func (*DissociateEipsOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{9} }
+func (m *DissociateEipsOutput) Reset()         { *m = DissociateEipsOutput{} }
+func (m *DissociateEipsOutput) String() string { return proto.CompactTextString(m) }
+func (*DissociateEipsOutput) ProtoMessage()    {}
+func (*DissociateEipsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{9}
+}
+func (m *DissociateEipsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateEipsOutput.Unmarshal(m, b)
+}
+func (m *DissociateEipsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateEipsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateEipsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateEipsOutput.Merge(dst, src)
+}
+func (m *DissociateEipsOutput) XXX_Size() int {
+	return xxx_messageInfo_DissociateEipsOutput.Size(m)
+}
+func (m *DissociateEipsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateEipsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateEipsOutput proto.InternalMessageInfo
 
 func (m *DissociateEipsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -416,15 +632,36 @@ func (m *DissociateEipsOutput) GetJobId() string {
 }
 
 type ChangeEipsBandwidthInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	Bandwidth        *int32   `protobuf:"varint,2,opt,name=bandwidth" json:"bandwidth,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	Bandwidth            *int32   `protobuf:"varint,2,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeEipsBandwidthInput) Reset()                    { *m = ChangeEipsBandwidthInput{} }
-func (m *ChangeEipsBandwidthInput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeEipsBandwidthInput) ProtoMessage()               {}
-func (*ChangeEipsBandwidthInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{10} }
+func (m *ChangeEipsBandwidthInput) Reset()         { *m = ChangeEipsBandwidthInput{} }
+func (m *ChangeEipsBandwidthInput) String() string { return proto.CompactTextString(m) }
+func (*ChangeEipsBandwidthInput) ProtoMessage()    {}
+func (*ChangeEipsBandwidthInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{10}
+}
+func (m *ChangeEipsBandwidthInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeEipsBandwidthInput.Unmarshal(m, b)
+}
+func (m *ChangeEipsBandwidthInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeEipsBandwidthInput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeEipsBandwidthInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeEipsBandwidthInput.Merge(dst, src)
+}
+func (m *ChangeEipsBandwidthInput) XXX_Size() int {
+	return xxx_messageInfo_ChangeEipsBandwidthInput.Size(m)
+}
+func (m *ChangeEipsBandwidthInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeEipsBandwidthInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeEipsBandwidthInput proto.InternalMessageInfo
 
 func (m *ChangeEipsBandwidthInput) GetEips() []string {
 	if m != nil {
@@ -441,17 +678,38 @@ func (m *ChangeEipsBandwidthInput) GetBandwidth() int32 {
 }
 
 type ChangeEipsBandwidthOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeEipsBandwidthOutput) Reset()                    { *m = ChangeEipsBandwidthOutput{} }
-func (m *ChangeEipsBandwidthOutput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeEipsBandwidthOutput) ProtoMessage()               {}
-func (*ChangeEipsBandwidthOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{11} }
+func (m *ChangeEipsBandwidthOutput) Reset()         { *m = ChangeEipsBandwidthOutput{} }
+func (m *ChangeEipsBandwidthOutput) String() string { return proto.CompactTextString(m) }
+func (*ChangeEipsBandwidthOutput) ProtoMessage()    {}
+func (*ChangeEipsBandwidthOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{11}
+}
+func (m *ChangeEipsBandwidthOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeEipsBandwidthOutput.Unmarshal(m, b)
+}
+func (m *ChangeEipsBandwidthOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeEipsBandwidthOutput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeEipsBandwidthOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeEipsBandwidthOutput.Merge(dst, src)
+}
+func (m *ChangeEipsBandwidthOutput) XXX_Size() int {
+	return xxx_messageInfo_ChangeEipsBandwidthOutput.Size(m)
+}
+func (m *ChangeEipsBandwidthOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeEipsBandwidthOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeEipsBandwidthOutput proto.InternalMessageInfo
 
 func (m *ChangeEipsBandwidthOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -482,15 +740,36 @@ func (m *ChangeEipsBandwidthOutput) GetJobId() string {
 }
 
 type ChangeEipsBillingModeInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	BillingMode      *string  `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	BillingMode          *string  `protobuf:"bytes,2,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeEipsBillingModeInput) Reset()                    { *m = ChangeEipsBillingModeInput{} }
-func (m *ChangeEipsBillingModeInput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeEipsBillingModeInput) ProtoMessage()               {}
-func (*ChangeEipsBillingModeInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{12} }
+func (m *ChangeEipsBillingModeInput) Reset()         { *m = ChangeEipsBillingModeInput{} }
+func (m *ChangeEipsBillingModeInput) String() string { return proto.CompactTextString(m) }
+func (*ChangeEipsBillingModeInput) ProtoMessage()    {}
+func (*ChangeEipsBillingModeInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{12}
+}
+func (m *ChangeEipsBillingModeInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeEipsBillingModeInput.Unmarshal(m, b)
+}
+func (m *ChangeEipsBillingModeInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeEipsBillingModeInput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeEipsBillingModeInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeEipsBillingModeInput.Merge(dst, src)
+}
+func (m *ChangeEipsBillingModeInput) XXX_Size() int {
+	return xxx_messageInfo_ChangeEipsBillingModeInput.Size(m)
+}
+func (m *ChangeEipsBillingModeInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeEipsBillingModeInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeEipsBillingModeInput proto.InternalMessageInfo
 
 func (m *ChangeEipsBillingModeInput) GetEips() []string {
 	if m != nil {
@@ -507,17 +786,38 @@ func (m *ChangeEipsBillingModeInput) GetBillingMode() string {
 }
 
 type ChangeEipsBillingModeOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeEipsBillingModeOutput) Reset()                    { *m = ChangeEipsBillingModeOutput{} }
-func (m *ChangeEipsBillingModeOutput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeEipsBillingModeOutput) ProtoMessage()               {}
-func (*ChangeEipsBillingModeOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{13} }
+func (m *ChangeEipsBillingModeOutput) Reset()         { *m = ChangeEipsBillingModeOutput{} }
+func (m *ChangeEipsBillingModeOutput) String() string { return proto.CompactTextString(m) }
+func (*ChangeEipsBillingModeOutput) ProtoMessage()    {}
+func (*ChangeEipsBillingModeOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{13}
+}
+func (m *ChangeEipsBillingModeOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeEipsBillingModeOutput.Unmarshal(m, b)
+}
+func (m *ChangeEipsBillingModeOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeEipsBillingModeOutput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeEipsBillingModeOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeEipsBillingModeOutput.Merge(dst, src)
+}
+func (m *ChangeEipsBillingModeOutput) XXX_Size() int {
+	return xxx_messageInfo_ChangeEipsBillingModeOutput.Size(m)
+}
+func (m *ChangeEipsBillingModeOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeEipsBillingModeOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeEipsBillingModeOutput proto.InternalMessageInfo
 
 func (m *ChangeEipsBillingModeOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -548,16 +848,37 @@ func (m *ChangeEipsBillingModeOutput) GetJobId() string {
 }
 
 type ModifyEipAttributesInput struct {
-	Eip              *string `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
-	EipName          *string `protobuf:"bytes,2,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Eip                  *string  `protobuf:"bytes,1,opt,name=eip" json:"eip,omitempty"`
+	EipName              *string  `protobuf:"bytes,2,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyEipAttributesInput) Reset()                    { *m = ModifyEipAttributesInput{} }
-func (m *ModifyEipAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyEipAttributesInput) ProtoMessage()               {}
-func (*ModifyEipAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{14} }
+func (m *ModifyEipAttributesInput) Reset()         { *m = ModifyEipAttributesInput{} }
+func (m *ModifyEipAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyEipAttributesInput) ProtoMessage()    {}
+func (*ModifyEipAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{14}
+}
+func (m *ModifyEipAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyEipAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyEipAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyEipAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyEipAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyEipAttributesInput.Merge(dst, src)
+}
+func (m *ModifyEipAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyEipAttributesInput.Size(m)
+}
+func (m *ModifyEipAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyEipAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyEipAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyEipAttributesInput) GetEip() string {
 	if m != nil && m.Eip != nil {
@@ -581,16 +902,37 @@ func (m *ModifyEipAttributesInput) GetDescription() string {
 }
 
 type ModifyEipAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyEipAttributesOutput) Reset()                    { *m = ModifyEipAttributesOutput{} }
-func (m *ModifyEipAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyEipAttributesOutput) ProtoMessage()               {}
-func (*ModifyEipAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{15} }
+func (m *ModifyEipAttributesOutput) Reset()         { *m = ModifyEipAttributesOutput{} }
+func (m *ModifyEipAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyEipAttributesOutput) ProtoMessage()    {}
+func (*ModifyEipAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_eip_27e30f3fc2cdcbaf, []int{15}
+}
+func (m *ModifyEipAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyEipAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyEipAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyEipAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyEipAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyEipAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyEipAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyEipAttributesOutput.Size(m)
+}
+func (m *ModifyEipAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyEipAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyEipAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyEipAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -632,9 +974,9 @@ func init() {
 	proto.RegisterType((*ModifyEipAttributesOutput)(nil), "service.ModifyEipAttributesOutput")
 }
 
-func init() { proto.RegisterFile("eip.proto", fileDescriptor4) }
+func init() { proto.RegisterFile("eip.proto", fileDescriptor_eip_27e30f3fc2cdcbaf) }
 
-var fileDescriptor4 = []byte{
+var fileDescriptor_eip_27e30f3fc2cdcbaf = []byte{
 	// 826 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xcd, 0x6e, 0xe3, 0x36,
 	0x10, 0x86, 0x12, 0xcb, 0x8e, 0xc7, 0x41, 0xb1, 0xe1, 0xfe, 0x40, 0xd6, 0x6e, 0x51, 0xaf, 0xfa,

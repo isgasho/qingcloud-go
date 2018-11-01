@@ -7,28 +7,55 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type CreateS2ServerInput struct {
-	VxnetId          *string `protobuf:"bytes,1,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	ServiceType      *string `protobuf:"bytes,2,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	Name             *string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
-	S2ServerType     *string `protobuf:"bytes,4,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
-	PrivateIp        *string `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Description      *string `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
-	S2Class          *int32  `protobuf:"varint,7,opt,name=s2_class,json=s2Class" json:"s2_class,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	VxnetId              *string  `protobuf:"bytes,1,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	ServiceType          *string  `protobuf:"bytes,2,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	Name                 *string  `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	S2ServerType         *string  `protobuf:"bytes,4,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
+	PrivateIp            *string  `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Description          *string  `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	S2Class              *int32   `protobuf:"varint,7,opt,name=s2_class,json=s2Class" json:"s2_class,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateS2ServerInput) Reset()                    { *m = CreateS2ServerInput{} }
-func (m *CreateS2ServerInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2ServerInput) ProtoMessage()               {}
-func (*CreateS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{0} }
+func (m *CreateS2ServerInput) Reset()         { *m = CreateS2ServerInput{} }
+func (m *CreateS2ServerInput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2ServerInput) ProtoMessage()    {}
+func (*CreateS2ServerInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{0}
+}
+func (m *CreateS2ServerInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2ServerInput.Unmarshal(m, b)
+}
+func (m *CreateS2ServerInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2ServerInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2ServerInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2ServerInput.Merge(dst, src)
+}
+func (m *CreateS2ServerInput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2ServerInput.Size(m)
+}
+func (m *CreateS2ServerInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2ServerInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2ServerInput proto.InternalMessageInfo
 
 func (m *CreateS2ServerInput) GetVxnetId() string {
 	if m != nil && m.VxnetId != nil {
@@ -80,18 +107,39 @@ func (m *CreateS2ServerInput) GetS2Class() int32 {
 }
 
 type CreateS2ServerOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	S2ServerId       *string `protobuf:"bytes,5,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	S2ServerId           *string  `protobuf:"bytes,5,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateS2ServerOutput) Reset()                    { *m = CreateS2ServerOutput{} }
-func (m *CreateS2ServerOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2ServerOutput) ProtoMessage()               {}
-func (*CreateS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{1} }
+func (m *CreateS2ServerOutput) Reset()         { *m = CreateS2ServerOutput{} }
+func (m *CreateS2ServerOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2ServerOutput) ProtoMessage()    {}
+func (*CreateS2ServerOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{1}
+}
+func (m *CreateS2ServerOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2ServerOutput.Unmarshal(m, b)
+}
+func (m *CreateS2ServerOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2ServerOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2ServerOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2ServerOutput.Merge(dst, src)
+}
+func (m *CreateS2ServerOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2ServerOutput.Size(m)
+}
+func (m *CreateS2ServerOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2ServerOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2ServerOutput proto.InternalMessageInfo
 
 func (m *CreateS2ServerOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -129,21 +177,42 @@ func (m *CreateS2ServerOutput) GetS2ServerId() string {
 }
 
 type DescribeS2ServersInput struct {
-	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
-	ServiceTypes     []string `protobuf:"bytes,2,rep,name=service_types,json=serviceTypes" json:"service_types,omitempty"`
-	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Servers            []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	ServiceTypes         []string `protobuf:"bytes,2,rep,name=service_types,json=serviceTypes" json:"service_types,omitempty"`
+	Status               []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeS2ServersInput) Reset()                    { *m = DescribeS2ServersInput{} }
-func (m *DescribeS2ServersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2ServersInput) ProtoMessage()               {}
-func (*DescribeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{2} }
+func (m *DescribeS2ServersInput) Reset()         { *m = DescribeS2ServersInput{} }
+func (m *DescribeS2ServersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2ServersInput) ProtoMessage()    {}
+func (*DescribeS2ServersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{2}
+}
+func (m *DescribeS2ServersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2ServersInput.Unmarshal(m, b)
+}
+func (m *DescribeS2ServersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2ServersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2ServersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2ServersInput.Merge(dst, src)
+}
+func (m *DescribeS2ServersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2ServersInput.Size(m)
+}
+func (m *DescribeS2ServersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2ServersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2ServersInput proto.InternalMessageInfo
 
 func (m *DescribeS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -202,18 +271,39 @@ func (m *DescribeS2ServersInput) GetLimit() int32 {
 }
 
 type DescribeS2ServersOutput struct {
-	Action           *string     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2ServerSet      []*S2Server `protobuf:"bytes,4,rep,name=s2_server_set,json=s2ServerSet" json:"s2_server_set,omitempty"`
-	TotalCount       *int32      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte      `json:"-"`
+	Action               *string     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2ServerSet          []*S2Server `protobuf:"bytes,4,rep,name=s2_server_set,json=s2ServerSet" json:"s2_server_set,omitempty"`
+	TotalCount           *int32      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *DescribeS2ServersOutput) Reset()                    { *m = DescribeS2ServersOutput{} }
-func (m *DescribeS2ServersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2ServersOutput) ProtoMessage()               {}
-func (*DescribeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{3} }
+func (m *DescribeS2ServersOutput) Reset()         { *m = DescribeS2ServersOutput{} }
+func (m *DescribeS2ServersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2ServersOutput) ProtoMessage()    {}
+func (*DescribeS2ServersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{3}
+}
+func (m *DescribeS2ServersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2ServersOutput.Unmarshal(m, b)
+}
+func (m *DescribeS2ServersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2ServersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2ServersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2ServersOutput.Merge(dst, src)
+}
+func (m *DescribeS2ServersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2ServersOutput.Size(m)
+}
+func (m *DescribeS2ServersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2ServersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2ServersOutput proto.InternalMessageInfo
 
 func (m *DescribeS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -251,16 +341,37 @@ func (m *DescribeS2ServersOutput) GetTotalCount() int32 {
 }
 
 type ModifyS2ServerInput struct {
-	S2Server         *string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	Name             *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	S2Server             *string  `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	Name                 *string  `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyS2ServerInput) Reset()                    { *m = ModifyS2ServerInput{} }
-func (m *ModifyS2ServerInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyS2ServerInput) ProtoMessage()               {}
-func (*ModifyS2ServerInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{4} }
+func (m *ModifyS2ServerInput) Reset()         { *m = ModifyS2ServerInput{} }
+func (m *ModifyS2ServerInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2ServerInput) ProtoMessage()    {}
+func (*ModifyS2ServerInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{4}
+}
+func (m *ModifyS2ServerInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2ServerInput.Unmarshal(m, b)
+}
+func (m *ModifyS2ServerInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2ServerInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2ServerInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2ServerInput.Merge(dst, src)
+}
+func (m *ModifyS2ServerInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2ServerInput.Size(m)
+}
+func (m *ModifyS2ServerInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2ServerInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2ServerInput proto.InternalMessageInfo
 
 func (m *ModifyS2ServerInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -284,16 +395,37 @@ func (m *ModifyS2ServerInput) GetDescription() string {
 }
 
 type ModifyS2ServerOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyS2ServerOutput) Reset()                    { *m = ModifyS2ServerOutput{} }
-func (m *ModifyS2ServerOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyS2ServerOutput) ProtoMessage()               {}
-func (*ModifyS2ServerOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{5} }
+func (m *ModifyS2ServerOutput) Reset()         { *m = ModifyS2ServerOutput{} }
+func (m *ModifyS2ServerOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2ServerOutput) ProtoMessage()    {}
+func (*ModifyS2ServerOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{5}
+}
+func (m *ModifyS2ServerOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2ServerOutput.Unmarshal(m, b)
+}
+func (m *ModifyS2ServerOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2ServerOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2ServerOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2ServerOutput.Merge(dst, src)
+}
+func (m *ModifyS2ServerOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2ServerOutput.Size(m)
+}
+func (m *ModifyS2ServerOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2ServerOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2ServerOutput proto.InternalMessageInfo
 
 func (m *ModifyS2ServerOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -317,15 +449,36 @@ func (m *ModifyS2ServerOutput) GetMessage() string {
 }
 
 type ResizeS2ServersInput struct {
-	S2Server         *string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	S2ServerType     *int32  `protobuf:"varint,2,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	S2Server             *string  `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	S2ServerType         *int32   `protobuf:"varint,2,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeS2ServersInput) Reset()                    { *m = ResizeS2ServersInput{} }
-func (m *ResizeS2ServersInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeS2ServersInput) ProtoMessage()               {}
-func (*ResizeS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{6} }
+func (m *ResizeS2ServersInput) Reset()         { *m = ResizeS2ServersInput{} }
+func (m *ResizeS2ServersInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeS2ServersInput) ProtoMessage()    {}
+func (*ResizeS2ServersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{6}
+}
+func (m *ResizeS2ServersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeS2ServersInput.Unmarshal(m, b)
+}
+func (m *ResizeS2ServersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeS2ServersInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeS2ServersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeS2ServersInput.Merge(dst, src)
+}
+func (m *ResizeS2ServersInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeS2ServersInput.Size(m)
+}
+func (m *ResizeS2ServersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeS2ServersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeS2ServersInput proto.InternalMessageInfo
 
 func (m *ResizeS2ServersInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -342,17 +495,38 @@ func (m *ResizeS2ServersInput) GetS2ServerType() int32 {
 }
 
 type ResizeS2ServersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeS2ServersOutput) Reset()                    { *m = ResizeS2ServersOutput{} }
-func (m *ResizeS2ServersOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeS2ServersOutput) ProtoMessage()               {}
-func (*ResizeS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{7} }
+func (m *ResizeS2ServersOutput) Reset()         { *m = ResizeS2ServersOutput{} }
+func (m *ResizeS2ServersOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeS2ServersOutput) ProtoMessage()    {}
+func (*ResizeS2ServersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{7}
+}
+func (m *ResizeS2ServersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeS2ServersOutput.Unmarshal(m, b)
+}
+func (m *ResizeS2ServersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeS2ServersOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeS2ServersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeS2ServersOutput.Merge(dst, src)
+}
+func (m *ResizeS2ServersOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeS2ServersOutput.Size(m)
+}
+func (m *ResizeS2ServersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeS2ServersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeS2ServersOutput proto.InternalMessageInfo
 
 func (m *ResizeS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -383,14 +557,35 @@ func (m *ResizeS2ServersOutput) GetJobId() string {
 }
 
 type DeleteS2ServersInput struct {
-	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Servers            []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2ServersInput) Reset()                    { *m = DeleteS2ServersInput{} }
-func (m *DeleteS2ServersInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2ServersInput) ProtoMessage()               {}
-func (*DeleteS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{8} }
+func (m *DeleteS2ServersInput) Reset()         { *m = DeleteS2ServersInput{} }
+func (m *DeleteS2ServersInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2ServersInput) ProtoMessage()    {}
+func (*DeleteS2ServersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{8}
+}
+func (m *DeleteS2ServersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2ServersInput.Unmarshal(m, b)
+}
+func (m *DeleteS2ServersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2ServersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2ServersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2ServersInput.Merge(dst, src)
+}
+func (m *DeleteS2ServersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2ServersInput.Size(m)
+}
+func (m *DeleteS2ServersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2ServersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2ServersInput proto.InternalMessageInfo
 
 func (m *DeleteS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -400,17 +595,38 @@ func (m *DeleteS2ServersInput) GetS2Servers() []string {
 }
 
 type DeleteS2ServersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2ServersOutput) Reset()                    { *m = DeleteS2ServersOutput{} }
-func (m *DeleteS2ServersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2ServersOutput) ProtoMessage()               {}
-func (*DeleteS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{9} }
+func (m *DeleteS2ServersOutput) Reset()         { *m = DeleteS2ServersOutput{} }
+func (m *DeleteS2ServersOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2ServersOutput) ProtoMessage()    {}
+func (*DeleteS2ServersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{9}
+}
+func (m *DeleteS2ServersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2ServersOutput.Unmarshal(m, b)
+}
+func (m *DeleteS2ServersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2ServersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2ServersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2ServersOutput.Merge(dst, src)
+}
+func (m *DeleteS2ServersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2ServersOutput.Size(m)
+}
+func (m *DeleteS2ServersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2ServersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2ServersOutput proto.InternalMessageInfo
 
 func (m *DeleteS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -441,14 +657,35 @@ func (m *DeleteS2ServersOutput) GetJobId() string {
 }
 
 type PowerOnS2ServersInput struct {
-	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Servers            []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOnS2ServersInput) Reset()                    { *m = PowerOnS2ServersInput{} }
-func (m *PowerOnS2ServersInput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOnS2ServersInput) ProtoMessage()               {}
-func (*PowerOnS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{10} }
+func (m *PowerOnS2ServersInput) Reset()         { *m = PowerOnS2ServersInput{} }
+func (m *PowerOnS2ServersInput) String() string { return proto.CompactTextString(m) }
+func (*PowerOnS2ServersInput) ProtoMessage()    {}
+func (*PowerOnS2ServersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{10}
+}
+func (m *PowerOnS2ServersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOnS2ServersInput.Unmarshal(m, b)
+}
+func (m *PowerOnS2ServersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOnS2ServersInput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOnS2ServersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOnS2ServersInput.Merge(dst, src)
+}
+func (m *PowerOnS2ServersInput) XXX_Size() int {
+	return xxx_messageInfo_PowerOnS2ServersInput.Size(m)
+}
+func (m *PowerOnS2ServersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOnS2ServersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOnS2ServersInput proto.InternalMessageInfo
 
 func (m *PowerOnS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -458,17 +695,38 @@ func (m *PowerOnS2ServersInput) GetS2Servers() []string {
 }
 
 type PowerOnS2ServersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOnS2ServersOutput) Reset()                    { *m = PowerOnS2ServersOutput{} }
-func (m *PowerOnS2ServersOutput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOnS2ServersOutput) ProtoMessage()               {}
-func (*PowerOnS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{11} }
+func (m *PowerOnS2ServersOutput) Reset()         { *m = PowerOnS2ServersOutput{} }
+func (m *PowerOnS2ServersOutput) String() string { return proto.CompactTextString(m) }
+func (*PowerOnS2ServersOutput) ProtoMessage()    {}
+func (*PowerOnS2ServersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{11}
+}
+func (m *PowerOnS2ServersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOnS2ServersOutput.Unmarshal(m, b)
+}
+func (m *PowerOnS2ServersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOnS2ServersOutput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOnS2ServersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOnS2ServersOutput.Merge(dst, src)
+}
+func (m *PowerOnS2ServersOutput) XXX_Size() int {
+	return xxx_messageInfo_PowerOnS2ServersOutput.Size(m)
+}
+func (m *PowerOnS2ServersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOnS2ServersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOnS2ServersOutput proto.InternalMessageInfo
 
 func (m *PowerOnS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -499,14 +757,35 @@ func (m *PowerOnS2ServersOutput) GetJobId() string {
 }
 
 type PowerOffS2ServersInput struct {
-	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Servers            []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOffS2ServersInput) Reset()                    { *m = PowerOffS2ServersInput{} }
-func (m *PowerOffS2ServersInput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOffS2ServersInput) ProtoMessage()               {}
-func (*PowerOffS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{12} }
+func (m *PowerOffS2ServersInput) Reset()         { *m = PowerOffS2ServersInput{} }
+func (m *PowerOffS2ServersInput) String() string { return proto.CompactTextString(m) }
+func (*PowerOffS2ServersInput) ProtoMessage()    {}
+func (*PowerOffS2ServersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{12}
+}
+func (m *PowerOffS2ServersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOffS2ServersInput.Unmarshal(m, b)
+}
+func (m *PowerOffS2ServersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOffS2ServersInput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOffS2ServersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOffS2ServersInput.Merge(dst, src)
+}
+func (m *PowerOffS2ServersInput) XXX_Size() int {
+	return xxx_messageInfo_PowerOffS2ServersInput.Size(m)
+}
+func (m *PowerOffS2ServersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOffS2ServersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOffS2ServersInput proto.InternalMessageInfo
 
 func (m *PowerOffS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -516,17 +795,38 @@ func (m *PowerOffS2ServersInput) GetS2Servers() []string {
 }
 
 type PowerOffS2ServersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOffS2ServersOutput) Reset()                    { *m = PowerOffS2ServersOutput{} }
-func (m *PowerOffS2ServersOutput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOffS2ServersOutput) ProtoMessage()               {}
-func (*PowerOffS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{13} }
+func (m *PowerOffS2ServersOutput) Reset()         { *m = PowerOffS2ServersOutput{} }
+func (m *PowerOffS2ServersOutput) String() string { return proto.CompactTextString(m) }
+func (*PowerOffS2ServersOutput) ProtoMessage()    {}
+func (*PowerOffS2ServersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{13}
+}
+func (m *PowerOffS2ServersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOffS2ServersOutput.Unmarshal(m, b)
+}
+func (m *PowerOffS2ServersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOffS2ServersOutput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOffS2ServersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOffS2ServersOutput.Merge(dst, src)
+}
+func (m *PowerOffS2ServersOutput) XXX_Size() int {
+	return xxx_messageInfo_PowerOffS2ServersOutput.Size(m)
+}
+func (m *PowerOffS2ServersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOffS2ServersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOffS2ServersOutput proto.InternalMessageInfo
 
 func (m *PowerOffS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -557,14 +857,35 @@ func (m *PowerOffS2ServersOutput) GetJobId() string {
 }
 
 type UpdateS2ServersInput struct {
-	S2Servers        []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Servers            []string `protobuf:"bytes,1,rep,name=s2_servers,json=s2Servers" json:"s2_servers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateS2ServersInput) Reset()                    { *m = UpdateS2ServersInput{} }
-func (m *UpdateS2ServersInput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateS2ServersInput) ProtoMessage()               {}
-func (*UpdateS2ServersInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{14} }
+func (m *UpdateS2ServersInput) Reset()         { *m = UpdateS2ServersInput{} }
+func (m *UpdateS2ServersInput) String() string { return proto.CompactTextString(m) }
+func (*UpdateS2ServersInput) ProtoMessage()    {}
+func (*UpdateS2ServersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{14}
+}
+func (m *UpdateS2ServersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateS2ServersInput.Unmarshal(m, b)
+}
+func (m *UpdateS2ServersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateS2ServersInput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateS2ServersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateS2ServersInput.Merge(dst, src)
+}
+func (m *UpdateS2ServersInput) XXX_Size() int {
+	return xxx_messageInfo_UpdateS2ServersInput.Size(m)
+}
+func (m *UpdateS2ServersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateS2ServersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateS2ServersInput proto.InternalMessageInfo
 
 func (m *UpdateS2ServersInput) GetS2Servers() []string {
 	if m != nil {
@@ -574,17 +895,38 @@ func (m *UpdateS2ServersInput) GetS2Servers() []string {
 }
 
 type UpdateS2ServersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateS2ServersOutput) Reset()                    { *m = UpdateS2ServersOutput{} }
-func (m *UpdateS2ServersOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateS2ServersOutput) ProtoMessage()               {}
-func (*UpdateS2ServersOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{15} }
+func (m *UpdateS2ServersOutput) Reset()         { *m = UpdateS2ServersOutput{} }
+func (m *UpdateS2ServersOutput) String() string { return proto.CompactTextString(m) }
+func (*UpdateS2ServersOutput) ProtoMessage()    {}
+func (*UpdateS2ServersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{15}
+}
+func (m *UpdateS2ServersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateS2ServersOutput.Unmarshal(m, b)
+}
+func (m *UpdateS2ServersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateS2ServersOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateS2ServersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateS2ServersOutput.Merge(dst, src)
+}
+func (m *UpdateS2ServersOutput) XXX_Size() int {
+	return xxx_messageInfo_UpdateS2ServersOutput.Size(m)
+}
+func (m *UpdateS2ServersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateS2ServersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateS2ServersOutput proto.InternalMessageInfo
 
 func (m *UpdateS2ServersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -615,16 +957,37 @@ func (m *UpdateS2ServersOutput) GetJobId() string {
 }
 
 type ChangeS2ServerVxnetInput struct {
-	S2Server         *string `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	Vxnet            *string `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	PrivateIp        *string `protobuf:"bytes,3,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	S2Server             *string  `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	Vxnet                *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	PrivateIp            *string  `protobuf:"bytes,3,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeS2ServerVxnetInput) Reset()                    { *m = ChangeS2ServerVxnetInput{} }
-func (m *ChangeS2ServerVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeS2ServerVxnetInput) ProtoMessage()               {}
-func (*ChangeS2ServerVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{16} }
+func (m *ChangeS2ServerVxnetInput) Reset()         { *m = ChangeS2ServerVxnetInput{} }
+func (m *ChangeS2ServerVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*ChangeS2ServerVxnetInput) ProtoMessage()    {}
+func (*ChangeS2ServerVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{16}
+}
+func (m *ChangeS2ServerVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeS2ServerVxnetInput.Unmarshal(m, b)
+}
+func (m *ChangeS2ServerVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeS2ServerVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeS2ServerVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeS2ServerVxnetInput.Merge(dst, src)
+}
+func (m *ChangeS2ServerVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_ChangeS2ServerVxnetInput.Size(m)
+}
+func (m *ChangeS2ServerVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeS2ServerVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeS2ServerVxnetInput proto.InternalMessageInfo
 
 func (m *ChangeS2ServerVxnetInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -648,17 +1011,38 @@ func (m *ChangeS2ServerVxnetInput) GetPrivateIp() string {
 }
 
 type ChangeS2ServerVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeS2ServerVxnetOutput) Reset()                    { *m = ChangeS2ServerVxnetOutput{} }
-func (m *ChangeS2ServerVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeS2ServerVxnetOutput) ProtoMessage()               {}
-func (*ChangeS2ServerVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{17} }
+func (m *ChangeS2ServerVxnetOutput) Reset()         { *m = ChangeS2ServerVxnetOutput{} }
+func (m *ChangeS2ServerVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*ChangeS2ServerVxnetOutput) ProtoMessage()    {}
+func (*ChangeS2ServerVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{17}
+}
+func (m *ChangeS2ServerVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeS2ServerVxnetOutput.Unmarshal(m, b)
+}
+func (m *ChangeS2ServerVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeS2ServerVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeS2ServerVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeS2ServerVxnetOutput.Merge(dst, src)
+}
+func (m *ChangeS2ServerVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_ChangeS2ServerVxnetOutput.Size(m)
+}
+func (m *ChangeS2ServerVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeS2ServerVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeS2ServerVxnetOutput proto.InternalMessageInfo
 
 func (m *ChangeS2ServerVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -689,20 +1073,41 @@ func (m *ChangeS2ServerVxnetOutput) GetJobId() string {
 }
 
 type CreateS2SharedTargetInput struct {
-	S2Server         *string  `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
-	ExportName       *string  `protobuf:"bytes,2,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
-	TargetType       *string  `protobuf:"bytes,3,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	Description      *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	Volumes          []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
-	InitiatorNames   []string `protobuf:"bytes,6,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
-	S2Group          *string  `protobuf:"bytes,7,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Server             *string  `protobuf:"bytes,1,opt,name=s2_server,json=s2Server" json:"s2_server,omitempty"`
+	ExportName           *string  `protobuf:"bytes,2,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	TargetType           *string  `protobuf:"bytes,3,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	Description          *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	Volumes              []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
+	InitiatorNames       []string `protobuf:"bytes,6,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
+	S2Group              *string  `protobuf:"bytes,7,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateS2SharedTargetInput) Reset()                    { *m = CreateS2SharedTargetInput{} }
-func (m *CreateS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2SharedTargetInput) ProtoMessage()               {}
-func (*CreateS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{18} }
+func (m *CreateS2SharedTargetInput) Reset()         { *m = CreateS2SharedTargetInput{} }
+func (m *CreateS2SharedTargetInput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2SharedTargetInput) ProtoMessage()    {}
+func (*CreateS2SharedTargetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{18}
+}
+func (m *CreateS2SharedTargetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2SharedTargetInput.Unmarshal(m, b)
+}
+func (m *CreateS2SharedTargetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2SharedTargetInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2SharedTargetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2SharedTargetInput.Merge(dst, src)
+}
+func (m *CreateS2SharedTargetInput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2SharedTargetInput.Size(m)
+}
+func (m *CreateS2SharedTargetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2SharedTargetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2SharedTargetInput proto.InternalMessageInfo
 
 func (m *CreateS2SharedTargetInput) GetS2Server() string {
 	if m != nil && m.S2Server != nil {
@@ -754,16 +1159,37 @@ func (m *CreateS2SharedTargetInput) GetS2Group() string {
 }
 
 type CreateS2SharedTargetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateS2SharedTargetOutput) Reset()                    { *m = CreateS2SharedTargetOutput{} }
-func (m *CreateS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2SharedTargetOutput) ProtoMessage()               {}
-func (*CreateS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{19} }
+func (m *CreateS2SharedTargetOutput) Reset()         { *m = CreateS2SharedTargetOutput{} }
+func (m *CreateS2SharedTargetOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2SharedTargetOutput) ProtoMessage()    {}
+func (*CreateS2SharedTargetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{19}
+}
+func (m *CreateS2SharedTargetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2SharedTargetOutput.Unmarshal(m, b)
+}
+func (m *CreateS2SharedTargetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2SharedTargetOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2SharedTargetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2SharedTargetOutput.Merge(dst, src)
+}
+func (m *CreateS2SharedTargetOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2SharedTargetOutput.Size(m)
+}
+func (m *CreateS2SharedTargetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2SharedTargetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2SharedTargetOutput proto.InternalMessageInfo
 
 func (m *CreateS2SharedTargetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -787,21 +1213,42 @@ func (m *CreateS2SharedTargetOutput) GetMessage() string {
 }
 
 type DescribeS2SharedTargetsInput struct {
-	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
-	TargetTypes      []string `protobuf:"bytes,2,rep,name=target_types,json=targetTypes" json:"target_types,omitempty"`
-	S2ServerId       *string  `protobuf:"bytes,3,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
-	ExportName       *string  `protobuf:"bytes,4,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SharedTargets        []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	TargetTypes          []string `protobuf:"bytes,2,rep,name=target_types,json=targetTypes" json:"target_types,omitempty"`
+	S2ServerId           *string  `protobuf:"bytes,3,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	ExportName           *string  `protobuf:"bytes,4,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeS2SharedTargetsInput) Reset()                    { *m = DescribeS2SharedTargetsInput{} }
-func (m *DescribeS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2SharedTargetsInput) ProtoMessage()               {}
-func (*DescribeS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{20} }
+func (m *DescribeS2SharedTargetsInput) Reset()         { *m = DescribeS2SharedTargetsInput{} }
+func (m *DescribeS2SharedTargetsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2SharedTargetsInput) ProtoMessage()    {}
+func (*DescribeS2SharedTargetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{20}
+}
+func (m *DescribeS2SharedTargetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2SharedTargetsInput.Unmarshal(m, b)
+}
+func (m *DescribeS2SharedTargetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2SharedTargetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2SharedTargetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2SharedTargetsInput.Merge(dst, src)
+}
+func (m *DescribeS2SharedTargetsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2SharedTargetsInput.Size(m)
+}
+func (m *DescribeS2SharedTargetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2SharedTargetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2SharedTargetsInput proto.InternalMessageInfo
 
 func (m *DescribeS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -860,18 +1307,39 @@ func (m *DescribeS2SharedTargetsInput) GetLimit() int32 {
 }
 
 type DescribeS2SharedTargetsOutput struct {
-	Action            *string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode           *int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message           *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2SharedTargetSet []*S2SharedTarget `protobuf:"bytes,4,rep,name=s2_shared_target_set,json=s2SharedTargetSet" json:"s2_shared_target_set,omitempty"`
-	TotalCount        *int32            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized  []byte            `json:"-"`
+	Action               *string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2SharedTargetSet    []*S2SharedTarget `protobuf:"bytes,4,rep,name=s2_shared_target_set,json=s2SharedTargetSet" json:"s2_shared_target_set,omitempty"`
+	TotalCount           *int32            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *DescribeS2SharedTargetsOutput) Reset()                    { *m = DescribeS2SharedTargetsOutput{} }
-func (m *DescribeS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2SharedTargetsOutput) ProtoMessage()               {}
-func (*DescribeS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{21} }
+func (m *DescribeS2SharedTargetsOutput) Reset()         { *m = DescribeS2SharedTargetsOutput{} }
+func (m *DescribeS2SharedTargetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2SharedTargetsOutput) ProtoMessage()    {}
+func (*DescribeS2SharedTargetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{21}
+}
+func (m *DescribeS2SharedTargetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2SharedTargetsOutput.Unmarshal(m, b)
+}
+func (m *DescribeS2SharedTargetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2SharedTargetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2SharedTargetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2SharedTargetsOutput.Merge(dst, src)
+}
+func (m *DescribeS2SharedTargetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2SharedTargetsOutput.Size(m)
+}
+func (m *DescribeS2SharedTargetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2SharedTargetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2SharedTargetsOutput proto.InternalMessageInfo
 
 func (m *DescribeS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -909,14 +1377,35 @@ func (m *DescribeS2SharedTargetsOutput) GetTotalCount() int32 {
 }
 
 type DeleteS2SharedTargetsInput struct {
-	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SharedTargets        []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2SharedTargetsInput) Reset()                    { *m = DeleteS2SharedTargetsInput{} }
-func (m *DeleteS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2SharedTargetsInput) ProtoMessage()               {}
-func (*DeleteS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{22} }
+func (m *DeleteS2SharedTargetsInput) Reset()         { *m = DeleteS2SharedTargetsInput{} }
+func (m *DeleteS2SharedTargetsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2SharedTargetsInput) ProtoMessage()    {}
+func (*DeleteS2SharedTargetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{22}
+}
+func (m *DeleteS2SharedTargetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2SharedTargetsInput.Unmarshal(m, b)
+}
+func (m *DeleteS2SharedTargetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2SharedTargetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2SharedTargetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2SharedTargetsInput.Merge(dst, src)
+}
+func (m *DeleteS2SharedTargetsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2SharedTargetsInput.Size(m)
+}
+func (m *DeleteS2SharedTargetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2SharedTargetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2SharedTargetsInput proto.InternalMessageInfo
 
 func (m *DeleteS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -926,16 +1415,37 @@ func (m *DeleteS2SharedTargetsInput) GetSharedTargets() []string {
 }
 
 type DeleteS2SharedTargetsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2SharedTargetsOutput) Reset()                    { *m = DeleteS2SharedTargetsOutput{} }
-func (m *DeleteS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2SharedTargetsOutput) ProtoMessage()               {}
-func (*DeleteS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{23} }
+func (m *DeleteS2SharedTargetsOutput) Reset()         { *m = DeleteS2SharedTargetsOutput{} }
+func (m *DeleteS2SharedTargetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2SharedTargetsOutput) ProtoMessage()    {}
+func (*DeleteS2SharedTargetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{23}
+}
+func (m *DeleteS2SharedTargetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2SharedTargetsOutput.Unmarshal(m, b)
+}
+func (m *DeleteS2SharedTargetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2SharedTargetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2SharedTargetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2SharedTargetsOutput.Merge(dst, src)
+}
+func (m *DeleteS2SharedTargetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2SharedTargetsOutput.Size(m)
+}
+func (m *DeleteS2SharedTargetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2SharedTargetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2SharedTargetsOutput proto.InternalMessageInfo
 
 func (m *DeleteS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -959,14 +1469,35 @@ func (m *DeleteS2SharedTargetsOutput) GetMessage() string {
 }
 
 type EnableS2SharedTargetsInput struct {
-	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SharedTargets        []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *EnableS2SharedTargetsInput) Reset()                    { *m = EnableS2SharedTargetsInput{} }
-func (m *EnableS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
-func (*EnableS2SharedTargetsInput) ProtoMessage()               {}
-func (*EnableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{24} }
+func (m *EnableS2SharedTargetsInput) Reset()         { *m = EnableS2SharedTargetsInput{} }
+func (m *EnableS2SharedTargetsInput) String() string { return proto.CompactTextString(m) }
+func (*EnableS2SharedTargetsInput) ProtoMessage()    {}
+func (*EnableS2SharedTargetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{24}
+}
+func (m *EnableS2SharedTargetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EnableS2SharedTargetsInput.Unmarshal(m, b)
+}
+func (m *EnableS2SharedTargetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EnableS2SharedTargetsInput.Marshal(b, m, deterministic)
+}
+func (dst *EnableS2SharedTargetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EnableS2SharedTargetsInput.Merge(dst, src)
+}
+func (m *EnableS2SharedTargetsInput) XXX_Size() int {
+	return xxx_messageInfo_EnableS2SharedTargetsInput.Size(m)
+}
+func (m *EnableS2SharedTargetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_EnableS2SharedTargetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EnableS2SharedTargetsInput proto.InternalMessageInfo
 
 func (m *EnableS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -976,16 +1507,37 @@ func (m *EnableS2SharedTargetsInput) GetSharedTargets() []string {
 }
 
 type EnableS2SharedTargetsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *EnableS2SharedTargetsOutput) Reset()                    { *m = EnableS2SharedTargetsOutput{} }
-func (m *EnableS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*EnableS2SharedTargetsOutput) ProtoMessage()               {}
-func (*EnableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{25} }
+func (m *EnableS2SharedTargetsOutput) Reset()         { *m = EnableS2SharedTargetsOutput{} }
+func (m *EnableS2SharedTargetsOutput) String() string { return proto.CompactTextString(m) }
+func (*EnableS2SharedTargetsOutput) ProtoMessage()    {}
+func (*EnableS2SharedTargetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{25}
+}
+func (m *EnableS2SharedTargetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EnableS2SharedTargetsOutput.Unmarshal(m, b)
+}
+func (m *EnableS2SharedTargetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EnableS2SharedTargetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *EnableS2SharedTargetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EnableS2SharedTargetsOutput.Merge(dst, src)
+}
+func (m *EnableS2SharedTargetsOutput) XXX_Size() int {
+	return xxx_messageInfo_EnableS2SharedTargetsOutput.Size(m)
+}
+func (m *EnableS2SharedTargetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_EnableS2SharedTargetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EnableS2SharedTargetsOutput proto.InternalMessageInfo
 
 func (m *EnableS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1009,14 +1561,35 @@ func (m *EnableS2SharedTargetsOutput) GetMessage() string {
 }
 
 type DisableS2SharedTargetsInput struct {
-	SharedTargets    []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SharedTargets        []string `protobuf:"bytes,1,rep,name=shared_targets,json=sharedTargets" json:"shared_targets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DisableS2SharedTargetsInput) Reset()                    { *m = DisableS2SharedTargetsInput{} }
-func (m *DisableS2SharedTargetsInput) String() string            { return proto.CompactTextString(m) }
-func (*DisableS2SharedTargetsInput) ProtoMessage()               {}
-func (*DisableS2SharedTargetsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{26} }
+func (m *DisableS2SharedTargetsInput) Reset()         { *m = DisableS2SharedTargetsInput{} }
+func (m *DisableS2SharedTargetsInput) String() string { return proto.CompactTextString(m) }
+func (*DisableS2SharedTargetsInput) ProtoMessage()    {}
+func (*DisableS2SharedTargetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{26}
+}
+func (m *DisableS2SharedTargetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DisableS2SharedTargetsInput.Unmarshal(m, b)
+}
+func (m *DisableS2SharedTargetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DisableS2SharedTargetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DisableS2SharedTargetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DisableS2SharedTargetsInput.Merge(dst, src)
+}
+func (m *DisableS2SharedTargetsInput) XXX_Size() int {
+	return xxx_messageInfo_DisableS2SharedTargetsInput.Size(m)
+}
+func (m *DisableS2SharedTargetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DisableS2SharedTargetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DisableS2SharedTargetsInput proto.InternalMessageInfo
 
 func (m *DisableS2SharedTargetsInput) GetSharedTargets() []string {
 	if m != nil {
@@ -1026,16 +1599,37 @@ func (m *DisableS2SharedTargetsInput) GetSharedTargets() []string {
 }
 
 type DisableS2SharedTargetsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DisableS2SharedTargetsOutput) Reset()                    { *m = DisableS2SharedTargetsOutput{} }
-func (m *DisableS2SharedTargetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DisableS2SharedTargetsOutput) ProtoMessage()               {}
-func (*DisableS2SharedTargetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{27} }
+func (m *DisableS2SharedTargetsOutput) Reset()         { *m = DisableS2SharedTargetsOutput{} }
+func (m *DisableS2SharedTargetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DisableS2SharedTargetsOutput) ProtoMessage()    {}
+func (*DisableS2SharedTargetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{27}
+}
+func (m *DisableS2SharedTargetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DisableS2SharedTargetsOutput.Unmarshal(m, b)
+}
+func (m *DisableS2SharedTargetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DisableS2SharedTargetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DisableS2SharedTargetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DisableS2SharedTargetsOutput.Merge(dst, src)
+}
+func (m *DisableS2SharedTargetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DisableS2SharedTargetsOutput.Size(m)
+}
+func (m *DisableS2SharedTargetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DisableS2SharedTargetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DisableS2SharedTargetsOutput proto.InternalMessageInfo
 
 func (m *DisableS2SharedTargetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1059,21 +1653,40 @@ func (m *DisableS2SharedTargetsOutput) GetMessage() string {
 }
 
 type ModifyS2SharedTargetAttributesInput struct {
-	SharedTarget     *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
-	Operation        *string  `protobuf:"bytes,2,opt,name=operation" json:"operation,omitempty"`
-	InitiatorNames   []string `protobuf:"bytes,3,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
-	Parameters       []string `protobuf:"bytes,4,rep,name=parameters" json:"parameters,omitempty"`
-	S2Group          *string  `protobuf:"bytes,5,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
-	ExportName       *string  `protobuf:"bytes,6,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SharedTarget         *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
+	Operation            *string  `protobuf:"bytes,2,opt,name=operation" json:"operation,omitempty"`
+	InitiatorNames       []string `protobuf:"bytes,3,rep,name=initiator_names,json=initiatorNames" json:"initiator_names,omitempty"`
+	Parameters           []string `protobuf:"bytes,4,rep,name=parameters" json:"parameters,omitempty"`
+	S2Group              *string  `protobuf:"bytes,5,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
+	ExportName           *string  `protobuf:"bytes,6,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyS2SharedTargetAttributesInput) Reset()         { *m = ModifyS2SharedTargetAttributesInput{} }
 func (m *ModifyS2SharedTargetAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyS2SharedTargetAttributesInput) ProtoMessage()    {}
 func (*ModifyS2SharedTargetAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{28}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{28}
 }
+func (m *ModifyS2SharedTargetAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2SharedTargetAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyS2SharedTargetAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2SharedTargetAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2SharedTargetAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2SharedTargetAttributesInput.Merge(dst, src)
+}
+func (m *ModifyS2SharedTargetAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2SharedTargetAttributesInput.Size(m)
+}
+func (m *ModifyS2SharedTargetAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2SharedTargetAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2SharedTargetAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyS2SharedTargetAttributesInput) GetSharedTarget() string {
 	if m != nil && m.SharedTarget != nil {
@@ -1118,19 +1731,38 @@ func (m *ModifyS2SharedTargetAttributesInput) GetExportName() string {
 }
 
 type ModifyS2SharedTargetAttributesOutput struct {
-	Action           *string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SharedTarget     map[string]string `protobuf:"bytes,4,rep,name=shared_target,json=sharedTarget" json:"shared_target,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_unrecognized []byte            `json:"-"`
+	Action               *string           `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32            `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SharedTarget         map[string]string `protobuf:"bytes,4,rep,name=shared_target,json=sharedTarget" json:"shared_target,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *ModifyS2SharedTargetAttributesOutput) Reset()         { *m = ModifyS2SharedTargetAttributesOutput{} }
 func (m *ModifyS2SharedTargetAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyS2SharedTargetAttributesOutput) ProtoMessage()    {}
 func (*ModifyS2SharedTargetAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{29}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{29}
 }
+func (m *ModifyS2SharedTargetAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2SharedTargetAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyS2SharedTargetAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2SharedTargetAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2SharedTargetAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2SharedTargetAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyS2SharedTargetAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2SharedTargetAttributesOutput.Size(m)
+}
+func (m *ModifyS2SharedTargetAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2SharedTargetAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2SharedTargetAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyS2SharedTargetAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1161,15 +1793,36 @@ func (m *ModifyS2SharedTargetAttributesOutput) GetSharedTarget() map[string]stri
 }
 
 type AttachToS2SharedTargetInput struct {
-	SharedTarget     *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
-	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SharedTarget         *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
+	Volumes              []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachToS2SharedTargetInput) Reset()                    { *m = AttachToS2SharedTargetInput{} }
-func (m *AttachToS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
-func (*AttachToS2SharedTargetInput) ProtoMessage()               {}
-func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{30} }
+func (m *AttachToS2SharedTargetInput) Reset()         { *m = AttachToS2SharedTargetInput{} }
+func (m *AttachToS2SharedTargetInput) String() string { return proto.CompactTextString(m) }
+func (*AttachToS2SharedTargetInput) ProtoMessage()    {}
+func (*AttachToS2SharedTargetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{30}
+}
+func (m *AttachToS2SharedTargetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachToS2SharedTargetInput.Unmarshal(m, b)
+}
+func (m *AttachToS2SharedTargetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachToS2SharedTargetInput.Marshal(b, m, deterministic)
+}
+func (dst *AttachToS2SharedTargetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachToS2SharedTargetInput.Merge(dst, src)
+}
+func (m *AttachToS2SharedTargetInput) XXX_Size() int {
+	return xxx_messageInfo_AttachToS2SharedTargetInput.Size(m)
+}
+func (m *AttachToS2SharedTargetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachToS2SharedTargetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachToS2SharedTargetInput proto.InternalMessageInfo
 
 func (m *AttachToS2SharedTargetInput) GetSharedTarget() string {
 	if m != nil && m.SharedTarget != nil {
@@ -1186,16 +1839,37 @@ func (m *AttachToS2SharedTargetInput) GetVolumes() []string {
 }
 
 type AttachToS2SharedTargetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachToS2SharedTargetOutput) Reset()                    { *m = AttachToS2SharedTargetOutput{} }
-func (m *AttachToS2SharedTargetOutput) String() string            { return proto.CompactTextString(m) }
-func (*AttachToS2SharedTargetOutput) ProtoMessage()               {}
-func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{31} }
+func (m *AttachToS2SharedTargetOutput) Reset()         { *m = AttachToS2SharedTargetOutput{} }
+func (m *AttachToS2SharedTargetOutput) String() string { return proto.CompactTextString(m) }
+func (*AttachToS2SharedTargetOutput) ProtoMessage()    {}
+func (*AttachToS2SharedTargetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{31}
+}
+func (m *AttachToS2SharedTargetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachToS2SharedTargetOutput.Unmarshal(m, b)
+}
+func (m *AttachToS2SharedTargetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachToS2SharedTargetOutput.Marshal(b, m, deterministic)
+}
+func (dst *AttachToS2SharedTargetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachToS2SharedTargetOutput.Merge(dst, src)
+}
+func (m *AttachToS2SharedTargetOutput) XXX_Size() int {
+	return xxx_messageInfo_AttachToS2SharedTargetOutput.Size(m)
+}
+func (m *AttachToS2SharedTargetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachToS2SharedTargetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachToS2SharedTargetOutput proto.InternalMessageInfo
 
 func (m *AttachToS2SharedTargetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1219,15 +1893,36 @@ func (m *AttachToS2SharedTargetOutput) GetMessage() string {
 }
 
 type DetachFromS2SharedTargetInput struct {
-	SharedTarget     *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
-	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SharedTarget         *string  `protobuf:"bytes,1,opt,name=shared_target,json=sharedTarget" json:"shared_target,omitempty"`
+	Volumes              []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachFromS2SharedTargetInput) Reset()                    { *m = DetachFromS2SharedTargetInput{} }
-func (m *DetachFromS2SharedTargetInput) String() string            { return proto.CompactTextString(m) }
-func (*DetachFromS2SharedTargetInput) ProtoMessage()               {}
-func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{32} }
+func (m *DetachFromS2SharedTargetInput) Reset()         { *m = DetachFromS2SharedTargetInput{} }
+func (m *DetachFromS2SharedTargetInput) String() string { return proto.CompactTextString(m) }
+func (*DetachFromS2SharedTargetInput) ProtoMessage()    {}
+func (*DetachFromS2SharedTargetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{32}
+}
+func (m *DetachFromS2SharedTargetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachFromS2SharedTargetInput.Unmarshal(m, b)
+}
+func (m *DetachFromS2SharedTargetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachFromS2SharedTargetInput.Marshal(b, m, deterministic)
+}
+func (dst *DetachFromS2SharedTargetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachFromS2SharedTargetInput.Merge(dst, src)
+}
+func (m *DetachFromS2SharedTargetInput) XXX_Size() int {
+	return xxx_messageInfo_DetachFromS2SharedTargetInput.Size(m)
+}
+func (m *DetachFromS2SharedTargetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachFromS2SharedTargetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachFromS2SharedTargetInput proto.InternalMessageInfo
 
 func (m *DetachFromS2SharedTargetInput) GetSharedTarget() string {
 	if m != nil && m.SharedTarget != nil {
@@ -1244,18 +1939,37 @@ func (m *DetachFromS2SharedTargetInput) GetVolumes() []string {
 }
 
 type DetachFromS2SharedTargetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DetachFromS2SharedTargetOutput) Reset()         { *m = DetachFromS2SharedTargetOutput{} }
 func (m *DetachFromS2SharedTargetOutput) String() string { return proto.CompactTextString(m) }
 func (*DetachFromS2SharedTargetOutput) ProtoMessage()    {}
 func (*DetachFromS2SharedTargetOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{33}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{33}
 }
+func (m *DetachFromS2SharedTargetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachFromS2SharedTargetOutput.Unmarshal(m, b)
+}
+func (m *DetachFromS2SharedTargetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachFromS2SharedTargetOutput.Marshal(b, m, deterministic)
+}
+func (dst *DetachFromS2SharedTargetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachFromS2SharedTargetOutput.Merge(dst, src)
+}
+func (m *DetachFromS2SharedTargetOutput) XXX_Size() int {
+	return xxx_messageInfo_DetachFromS2SharedTargetOutput.Size(m)
+}
+func (m *DetachFromS2SharedTargetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachFromS2SharedTargetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachFromS2SharedTargetOutput proto.InternalMessageInfo
 
 func (m *DetachFromS2SharedTargetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1279,19 +1993,38 @@ func (m *DetachFromS2SharedTargetOutput) GetMessage() string {
 }
 
 type DescribeS2DefaultParametersInput struct {
-	ServiceType      *string `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	TargetType       *string `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	Offset           *int32  `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32  `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ServiceType          *string  `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	TargetType           *string  `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	Offset               *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeS2DefaultParametersInput) Reset()         { *m = DescribeS2DefaultParametersInput{} }
 func (m *DescribeS2DefaultParametersInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2DefaultParametersInput) ProtoMessage()    {}
 func (*DescribeS2DefaultParametersInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{34}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{34}
 }
+func (m *DescribeS2DefaultParametersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2DefaultParametersInput.Unmarshal(m, b)
+}
+func (m *DescribeS2DefaultParametersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2DefaultParametersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2DefaultParametersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2DefaultParametersInput.Merge(dst, src)
+}
+func (m *DescribeS2DefaultParametersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2DefaultParametersInput.Size(m)
+}
+func (m *DescribeS2DefaultParametersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2DefaultParametersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2DefaultParametersInput proto.InternalMessageInfo
 
 func (m *DescribeS2DefaultParametersInput) GetServiceType() string {
 	if m != nil && m.ServiceType != nil {
@@ -1327,15 +2060,34 @@ type DescribeS2DefaultParametersOutput struct {
 	Message                *string                                           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	S2DefaultParametersSet []*DescribeS2DefaultParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_default_parameters_set,json=s2DefaultParametersSet" json:"s2_default_parameters_set,omitempty"`
 	TotalCount             *int32                                            `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}                                          `json:"-"`
 	XXX_unrecognized       []byte                                            `json:"-"`
+	XXX_sizecache          int32                                             `json:"-"`
 }
 
 func (m *DescribeS2DefaultParametersOutput) Reset()         { *m = DescribeS2DefaultParametersOutput{} }
 func (m *DescribeS2DefaultParametersOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2DefaultParametersOutput) ProtoMessage()    {}
 func (*DescribeS2DefaultParametersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{35}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{35}
 }
+func (m *DescribeS2DefaultParametersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2DefaultParametersOutput.Unmarshal(m, b)
+}
+func (m *DescribeS2DefaultParametersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2DefaultParametersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2DefaultParametersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2DefaultParametersOutput.Merge(dst, src)
+}
+func (m *DescribeS2DefaultParametersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2DefaultParametersOutput.Size(m)
+}
+func (m *DescribeS2DefaultParametersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2DefaultParametersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2DefaultParametersOutput proto.InternalMessageInfo
 
 func (m *DescribeS2DefaultParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1373,12 +2125,14 @@ func (m *DescribeS2DefaultParametersOutput) GetTotalCount() int32 {
 }
 
 type DescribeS2DefaultParametersOutput_ResponseItem struct {
-	ServiceType      *string `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	TargetType       *string `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	ParamName        *string `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
-	DefaultValue     *string `protobuf:"bytes,4,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
-	Description      *string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ServiceType          *string  `protobuf:"bytes,1,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	TargetType           *string  `protobuf:"bytes,2,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	ParamName            *string  `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
+	DefaultValue         *string  `protobuf:"bytes,4,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
+	Description          *string  `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) Reset() {
@@ -1389,8 +2143,25 @@ func (m *DescribeS2DefaultParametersOutput_ResponseItem) String() string {
 }
 func (*DescribeS2DefaultParametersOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeS2DefaultParametersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{35, 0}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{35, 0}
 }
+func (m *DescribeS2DefaultParametersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2DefaultParametersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeS2DefaultParametersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2DefaultParametersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2DefaultParametersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2DefaultParametersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeS2DefaultParametersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2DefaultParametersOutput_ResponseItem.Size(m)
+}
+func (m *DescribeS2DefaultParametersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2DefaultParametersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2DefaultParametersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetServiceType() string {
 	if m != nil && m.ServiceType != nil {
@@ -1428,17 +2199,38 @@ func (m *DescribeS2DefaultParametersOutput_ResponseItem) GetDescription() string
 }
 
 type CreateS2GroupInput struct {
-	GroupType        *string  `protobuf:"bytes,1,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
-	GroupName        *string  `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
-	S2Accounts       []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	Description      *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	GroupType            *string  `protobuf:"bytes,1,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
+	GroupName            *string  `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
+	S2Accounts           []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	Description          *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateS2GroupInput) Reset()                    { *m = CreateS2GroupInput{} }
-func (m *CreateS2GroupInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2GroupInput) ProtoMessage()               {}
-func (*CreateS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{36} }
+func (m *CreateS2GroupInput) Reset()         { *m = CreateS2GroupInput{} }
+func (m *CreateS2GroupInput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2GroupInput) ProtoMessage()    {}
+func (*CreateS2GroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{36}
+}
+func (m *CreateS2GroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2GroupInput.Unmarshal(m, b)
+}
+func (m *CreateS2GroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2GroupInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2GroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2GroupInput.Merge(dst, src)
+}
+func (m *CreateS2GroupInput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2GroupInput.Size(m)
+}
+func (m *CreateS2GroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2GroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2GroupInput proto.InternalMessageInfo
 
 func (m *CreateS2GroupInput) GetGroupType() string {
 	if m != nil && m.GroupType != nil {
@@ -1469,17 +2261,38 @@ func (m *CreateS2GroupInput) GetDescription() string {
 }
 
 type CreateS2GroupOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2GroupId        *string `protobuf:"bytes,4,opt,name=s2_group_id,json=s2GroupId" json:"s2_group_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2GroupId            *string  `protobuf:"bytes,4,opt,name=s2_group_id,json=s2GroupId" json:"s2_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateS2GroupOutput) Reset()                    { *m = CreateS2GroupOutput{} }
-func (m *CreateS2GroupOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2GroupOutput) ProtoMessage()               {}
-func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{37} }
+func (m *CreateS2GroupOutput) Reset()         { *m = CreateS2GroupOutput{} }
+func (m *CreateS2GroupOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2GroupOutput) ProtoMessage()    {}
+func (*CreateS2GroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{37}
+}
+func (m *CreateS2GroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2GroupOutput.Unmarshal(m, b)
+}
+func (m *CreateS2GroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2GroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2GroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2GroupOutput.Merge(dst, src)
+}
+func (m *CreateS2GroupOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2GroupOutput.Size(m)
+}
+func (m *CreateS2GroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2GroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2GroupOutput proto.InternalMessageInfo
 
 func (m *CreateS2GroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1510,20 +2323,41 @@ func (m *CreateS2GroupOutput) GetS2GroupId() string {
 }
 
 type DescribeS2GroupsInput struct {
-	S2Groups         []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
-	GroupTypes       []string `protobuf:"bytes,2,rep,name=group_types,json=groupTypes" json:"group_types,omitempty"`
-	AccountName      *string  `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Groups             []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	GroupTypes           []string `protobuf:"bytes,2,rep,name=group_types,json=groupTypes" json:"group_types,omitempty"`
+	AccountName          *string  `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeS2GroupsInput) Reset()                    { *m = DescribeS2GroupsInput{} }
-func (m *DescribeS2GroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2GroupsInput) ProtoMessage()               {}
-func (*DescribeS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{38} }
+func (m *DescribeS2GroupsInput) Reset()         { *m = DescribeS2GroupsInput{} }
+func (m *DescribeS2GroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2GroupsInput) ProtoMessage()    {}
+func (*DescribeS2GroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{38}
+}
+func (m *DescribeS2GroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2GroupsInput.Unmarshal(m, b)
+}
+func (m *DescribeS2GroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2GroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2GroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2GroupsInput.Merge(dst, src)
+}
+func (m *DescribeS2GroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2GroupsInput.Size(m)
+}
+func (m *DescribeS2GroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2GroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2GroupsInput proto.InternalMessageInfo
 
 func (m *DescribeS2GroupsInput) GetS2Groups() []string {
 	if m != nil {
@@ -1575,18 +2409,39 @@ func (m *DescribeS2GroupsInput) GetLimit() int32 {
 }
 
 type DescribeS2GroupsOutput struct {
-	Action           *string                                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2GroupSet       []*DescribeS2GroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_group_set,json=s2GroupSet" json:"s2_group_set,omitempty"`
-	TotalCount       *int32                                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                 `json:"-"`
+	Action               *string                                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2GroupSet           []*DescribeS2GroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_group_set,json=s2GroupSet" json:"s2_group_set,omitempty"`
+	TotalCount           *int32                                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                               `json:"-"`
+	XXX_unrecognized     []byte                                 `json:"-"`
+	XXX_sizecache        int32                                  `json:"-"`
 }
 
-func (m *DescribeS2GroupsOutput) Reset()                    { *m = DescribeS2GroupsOutput{} }
-func (m *DescribeS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2GroupsOutput) ProtoMessage()               {}
-func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{39} }
+func (m *DescribeS2GroupsOutput) Reset()         { *m = DescribeS2GroupsOutput{} }
+func (m *DescribeS2GroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2GroupsOutput) ProtoMessage()    {}
+func (*DescribeS2GroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{39}
+}
+func (m *DescribeS2GroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2GroupsOutput.Unmarshal(m, b)
+}
+func (m *DescribeS2GroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2GroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2GroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2GroupsOutput.Merge(dst, src)
+}
+func (m *DescribeS2GroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2GroupsOutput.Size(m)
+}
+func (m *DescribeS2GroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2GroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2GroupsOutput proto.InternalMessageInfo
 
 func (m *DescribeS2GroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1624,21 +2479,40 @@ func (m *DescribeS2GroupsOutput) GetTotalCount() int32 {
 }
 
 type DescribeS2GroupsOutput_ResponseItem struct {
-	GroupId          *string                     `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
-	GroupType        *string                     `protobuf:"bytes,2,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
-	IsDefault        *int32                      `protobuf:"varint,3,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
-	Description      *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	GroupName        *string                     `protobuf:"bytes,5,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	GroupId              *string              `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+	GroupType            *string              `protobuf:"bytes,2,opt,name=group_type,json=groupType" json:"group_type,omitempty"`
+	IsDefault            *int32               `protobuf:"varint,3,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
+	Description          *string              `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	GroupName            *string              `protobuf:"bytes,5,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeS2GroupsOutput_ResponseItem) Reset()         { *m = DescribeS2GroupsOutput_ResponseItem{} }
 func (m *DescribeS2GroupsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2GroupsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeS2GroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{39, 0}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{39, 0}
 }
+func (m *DescribeS2GroupsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2GroupsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeS2GroupsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2GroupsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2GroupsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2GroupsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeS2GroupsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2GroupsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeS2GroupsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2GroupsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2GroupsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeS2GroupsOutput_ResponseItem) GetGroupId() string {
 	if m != nil && m.GroupId != nil {
@@ -1675,7 +2549,7 @@ func (m *DescribeS2GroupsOutput_ResponseItem) GetGroupName() string {
 	return ""
 }
 
-func (m *DescribeS2GroupsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeS2GroupsOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1683,17 +2557,38 @@ func (m *DescribeS2GroupsOutput_ResponseItem) GetCreateTime() *google_protobuf1.
 }
 
 type ModifyS2GroupInput struct {
-	S2Group          *string  `protobuf:"bytes,1,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
-	GroupName        *string  `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
-	S2Accounts       []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	Description      *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Group              *string  `protobuf:"bytes,1,opt,name=s2_group,json=s2Group" json:"s2_group,omitempty"`
+	GroupName            *string  `protobuf:"bytes,2,opt,name=group_name,json=groupName" json:"group_name,omitempty"`
+	S2Accounts           []string `protobuf:"bytes,3,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	Description          *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyS2GroupInput) Reset()                    { *m = ModifyS2GroupInput{} }
-func (m *ModifyS2GroupInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyS2GroupInput) ProtoMessage()               {}
-func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{40} }
+func (m *ModifyS2GroupInput) Reset()         { *m = ModifyS2GroupInput{} }
+func (m *ModifyS2GroupInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2GroupInput) ProtoMessage()    {}
+func (*ModifyS2GroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{40}
+}
+func (m *ModifyS2GroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2GroupInput.Unmarshal(m, b)
+}
+func (m *ModifyS2GroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2GroupInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2GroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2GroupInput.Merge(dst, src)
+}
+func (m *ModifyS2GroupInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2GroupInput.Size(m)
+}
+func (m *ModifyS2GroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2GroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2GroupInput proto.InternalMessageInfo
 
 func (m *ModifyS2GroupInput) GetS2Group() string {
 	if m != nil && m.S2Group != nil {
@@ -1724,16 +2619,37 @@ func (m *ModifyS2GroupInput) GetDescription() string {
 }
 
 type ModifyS2GroupOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyS2GroupOutput) Reset()                    { *m = ModifyS2GroupOutput{} }
-func (m *ModifyS2GroupOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyS2GroupOutput) ProtoMessage()               {}
-func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{41} }
+func (m *ModifyS2GroupOutput) Reset()         { *m = ModifyS2GroupOutput{} }
+func (m *ModifyS2GroupOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2GroupOutput) ProtoMessage()    {}
+func (*ModifyS2GroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{41}
+}
+func (m *ModifyS2GroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2GroupOutput.Unmarshal(m, b)
+}
+func (m *ModifyS2GroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2GroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2GroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2GroupOutput.Merge(dst, src)
+}
+func (m *ModifyS2GroupOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2GroupOutput.Size(m)
+}
+func (m *ModifyS2GroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2GroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2GroupOutput proto.InternalMessageInfo
 
 func (m *ModifyS2GroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1757,14 +2673,35 @@ func (m *ModifyS2GroupOutput) GetMessage() string {
 }
 
 type DeleteS2GroupsInput struct {
-	S2Groups         []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Groups             []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2GroupsInput) Reset()                    { *m = DeleteS2GroupsInput{} }
-func (m *DeleteS2GroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2GroupsInput) ProtoMessage()               {}
-func (*DeleteS2GroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{42} }
+func (m *DeleteS2GroupsInput) Reset()         { *m = DeleteS2GroupsInput{} }
+func (m *DeleteS2GroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2GroupsInput) ProtoMessage()    {}
+func (*DeleteS2GroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{42}
+}
+func (m *DeleteS2GroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2GroupsInput.Unmarshal(m, b)
+}
+func (m *DeleteS2GroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2GroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2GroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2GroupsInput.Merge(dst, src)
+}
+func (m *DeleteS2GroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2GroupsInput.Size(m)
+}
+func (m *DeleteS2GroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2GroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2GroupsInput proto.InternalMessageInfo
 
 func (m *DeleteS2GroupsInput) GetS2Groups() []string {
 	if m != nil {
@@ -1774,16 +2711,37 @@ func (m *DeleteS2GroupsInput) GetS2Groups() []string {
 }
 
 type DeleteS2GroupsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2GroupsOutput) Reset()                    { *m = DeleteS2GroupsOutput{} }
-func (m *DeleteS2GroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2GroupsOutput) ProtoMessage()               {}
-func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{43} }
+func (m *DeleteS2GroupsOutput) Reset()         { *m = DeleteS2GroupsOutput{} }
+func (m *DeleteS2GroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2GroupsOutput) ProtoMessage()    {}
+func (*DeleteS2GroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{43}
+}
+func (m *DeleteS2GroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2GroupsOutput.Unmarshal(m, b)
+}
+func (m *DeleteS2GroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2GroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2GroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2GroupsOutput.Merge(dst, src)
+}
+func (m *DeleteS2GroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2GroupsOutput.Size(m)
+}
+func (m *DeleteS2GroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2GroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2GroupsOutput proto.InternalMessageInfo
 
 func (m *DeleteS2GroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1807,21 +2765,42 @@ func (m *DeleteS2GroupsOutput) GetMessage() string {
 }
 
 type CreateS2AccountInput struct {
-	AccountType      *string                           `protobuf:"bytes,1,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
-	AccountName      *string                           `protobuf:"bytes,2,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SmbName          *string                           `protobuf:"bytes,3,opt,name=smb_name,json=smbName" json:"smb_name,omitempty"`
-	SmbPasswd        *string                           `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
-	NfsIpaddr        *string                           `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
-	S2Groups         *CreateS2AccountInput_S2GroupItem `protobuf:"bytes,6,opt,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
-	OptParameters    *string                           `protobuf:"bytes,7,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
-	Description      *string                           `protobuf:"bytes,8,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte                            `json:"-"`
+	AccountType          *string                           `protobuf:"bytes,1,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
+	AccountName          *string                           `protobuf:"bytes,2,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SmbName              *string                           `protobuf:"bytes,3,opt,name=smb_name,json=smbName" json:"smb_name,omitempty"`
+	SmbPasswd            *string                           `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
+	NfsIpaddr            *string                           `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
+	S2Groups             *CreateS2AccountInput_S2GroupItem `protobuf:"bytes,6,opt,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	OptParameters        *string                           `protobuf:"bytes,7,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
+	Description          *string                           `protobuf:"bytes,8,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
+	XXX_unrecognized     []byte                            `json:"-"`
+	XXX_sizecache        int32                             `json:"-"`
 }
 
-func (m *CreateS2AccountInput) Reset()                    { *m = CreateS2AccountInput{} }
-func (m *CreateS2AccountInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2AccountInput) ProtoMessage()               {}
-func (*CreateS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{44} }
+func (m *CreateS2AccountInput) Reset()         { *m = CreateS2AccountInput{} }
+func (m *CreateS2AccountInput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2AccountInput) ProtoMessage()    {}
+func (*CreateS2AccountInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{44}
+}
+func (m *CreateS2AccountInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2AccountInput.Unmarshal(m, b)
+}
+func (m *CreateS2AccountInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2AccountInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2AccountInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2AccountInput.Merge(dst, src)
+}
+func (m *CreateS2AccountInput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2AccountInput.Size(m)
+}
+func (m *CreateS2AccountInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2AccountInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2AccountInput proto.InternalMessageInfo
 
 func (m *CreateS2AccountInput) GetAccountType() string {
 	if m != nil && m.AccountType != nil {
@@ -1880,17 +2859,36 @@ func (m *CreateS2AccountInput) GetDescription() string {
 }
 
 type CreateS2AccountInput_S2GroupItem struct {
-	GroupId          *string `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
-	RwFlag           *string `protobuf:"bytes,2,opt,name=rw_flag,json=rwFlag" json:"rw_flag,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	GroupId              *string  `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
+	RwFlag               *string  `protobuf:"bytes,2,opt,name=rw_flag,json=rwFlag" json:"rw_flag,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateS2AccountInput_S2GroupItem) Reset()         { *m = CreateS2AccountInput_S2GroupItem{} }
 func (m *CreateS2AccountInput_S2GroupItem) String() string { return proto.CompactTextString(m) }
 func (*CreateS2AccountInput_S2GroupItem) ProtoMessage()    {}
 func (*CreateS2AccountInput_S2GroupItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{44, 0}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{44, 0}
 }
+func (m *CreateS2AccountInput_S2GroupItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2AccountInput_S2GroupItem.Unmarshal(m, b)
+}
+func (m *CreateS2AccountInput_S2GroupItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2AccountInput_S2GroupItem.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2AccountInput_S2GroupItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2AccountInput_S2GroupItem.Merge(dst, src)
+}
+func (m *CreateS2AccountInput_S2GroupItem) XXX_Size() int {
+	return xxx_messageInfo_CreateS2AccountInput_S2GroupItem.Size(m)
+}
+func (m *CreateS2AccountInput_S2GroupItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2AccountInput_S2GroupItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2AccountInput_S2GroupItem proto.InternalMessageInfo
 
 func (m *CreateS2AccountInput_S2GroupItem) GetGroupId() string {
 	if m != nil && m.GroupId != nil {
@@ -1907,17 +2905,38 @@ func (m *CreateS2AccountInput_S2GroupItem) GetRwFlag() string {
 }
 
 type CreateS2AccountOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2AccountId      *string `protobuf:"bytes,4,opt,name=s2_account_id,json=s2AccountId" json:"s2_account_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2AccountId          *string  `protobuf:"bytes,4,opt,name=s2_account_id,json=s2AccountId" json:"s2_account_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateS2AccountOutput) Reset()                    { *m = CreateS2AccountOutput{} }
-func (m *CreateS2AccountOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateS2AccountOutput) ProtoMessage()               {}
-func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{45} }
+func (m *CreateS2AccountOutput) Reset()         { *m = CreateS2AccountOutput{} }
+func (m *CreateS2AccountOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateS2AccountOutput) ProtoMessage()    {}
+func (*CreateS2AccountOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{45}
+}
+func (m *CreateS2AccountOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateS2AccountOutput.Unmarshal(m, b)
+}
+func (m *CreateS2AccountOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateS2AccountOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateS2AccountOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateS2AccountOutput.Merge(dst, src)
+}
+func (m *CreateS2AccountOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateS2AccountOutput.Size(m)
+}
+func (m *CreateS2AccountOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateS2AccountOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateS2AccountOutput proto.InternalMessageInfo
 
 func (m *CreateS2AccountOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1948,20 +2967,41 @@ func (m *CreateS2AccountOutput) GetS2AccountId() string {
 }
 
 type DescribeS2AccountsInput struct {
-	S2Accounts       []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	AccountTypes     []string `protobuf:"bytes,2,rep,name=account_types,json=accountTypes" json:"account_types,omitempty"`
-	AccountName      *string  `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Accounts           []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	AccountTypes         []string `protobuf:"bytes,2,rep,name=account_types,json=accountTypes" json:"account_types,omitempty"`
+	AccountName          *string  `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeS2AccountsInput) Reset()                    { *m = DescribeS2AccountsInput{} }
-func (m *DescribeS2AccountsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2AccountsInput) ProtoMessage()               {}
-func (*DescribeS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{46} }
+func (m *DescribeS2AccountsInput) Reset()         { *m = DescribeS2AccountsInput{} }
+func (m *DescribeS2AccountsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2AccountsInput) ProtoMessage()    {}
+func (*DescribeS2AccountsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{46}
+}
+func (m *DescribeS2AccountsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2AccountsInput.Unmarshal(m, b)
+}
+func (m *DescribeS2AccountsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2AccountsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2AccountsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2AccountsInput.Merge(dst, src)
+}
+func (m *DescribeS2AccountsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2AccountsInput.Size(m)
+}
+func (m *DescribeS2AccountsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2AccountsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2AccountsInput proto.InternalMessageInfo
 
 func (m *DescribeS2AccountsInput) GetS2Accounts() []string {
 	if m != nil {
@@ -2013,18 +3053,39 @@ func (m *DescribeS2AccountsInput) GetLimit() int32 {
 }
 
 type DescribeS2AccountsOutput struct {
-	Action           *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	S2AccountSet     []*DescribeS2AccountsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_account_set,json=s2AccountSet" json:"s2_account_set,omitempty"`
-	TotalCount       *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                   `json:"-"`
+	Action               *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	S2AccountSet         []*DescribeS2AccountsOutput_ResponseItem `protobuf:"bytes,4,rep,name=s2_account_set,json=s2AccountSet" json:"s2_account_set,omitempty"`
+	TotalCount           *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                 `json:"-"`
+	XXX_unrecognized     []byte                                   `json:"-"`
+	XXX_sizecache        int32                                    `json:"-"`
 }
 
-func (m *DescribeS2AccountsOutput) Reset()                    { *m = DescribeS2AccountsOutput{} }
-func (m *DescribeS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeS2AccountsOutput) ProtoMessage()               {}
-func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{47} }
+func (m *DescribeS2AccountsOutput) Reset()         { *m = DescribeS2AccountsOutput{} }
+func (m *DescribeS2AccountsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeS2AccountsOutput) ProtoMessage()    {}
+func (*DescribeS2AccountsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{47}
+}
+func (m *DescribeS2AccountsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2AccountsOutput.Unmarshal(m, b)
+}
+func (m *DescribeS2AccountsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2AccountsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2AccountsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2AccountsOutput.Merge(dst, src)
+}
+func (m *DescribeS2AccountsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2AccountsOutput.Size(m)
+}
+func (m *DescribeS2AccountsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2AccountsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2AccountsOutput proto.InternalMessageInfo
 
 func (m *DescribeS2AccountsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2062,22 +3123,41 @@ func (m *DescribeS2AccountsOutput) GetTotalCount() int32 {
 }
 
 type DescribeS2AccountsOutput_ResponseItem struct {
-	OptParameters    *string                     `protobuf:"bytes,1,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
-	AccountType      *string                     `protobuf:"bytes,2,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
-	AccountId        *string                     `protobuf:"bytes,3,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
-	Description      *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	AccountName      *string                     `protobuf:"bytes,5,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	NfsIpaddr        *string                     `protobuf:"bytes,6,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	OptParameters        *string              `protobuf:"bytes,1,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
+	AccountType          *string              `protobuf:"bytes,2,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
+	AccountId            *string              `protobuf:"bytes,3,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	Description          *string              `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	AccountName          *string              `protobuf:"bytes,5,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	NfsIpaddr            *string              `protobuf:"bytes,6,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeS2AccountsOutput_ResponseItem) Reset()         { *m = DescribeS2AccountsOutput_ResponseItem{} }
 func (m *DescribeS2AccountsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeS2AccountsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeS2AccountsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{47, 0}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{47, 0}
 }
+func (m *DescribeS2AccountsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeS2AccountsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeS2AccountsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeS2AccountsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeS2AccountsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeS2AccountsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeS2AccountsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeS2AccountsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeS2AccountsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeS2AccountsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeS2AccountsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeS2AccountsOutput_ResponseItem) GetOptParameters() string {
 	if m != nil && m.OptParameters != nil {
@@ -2121,7 +3201,7 @@ func (m *DescribeS2AccountsOutput_ResponseItem) GetNfsIpaddr() string {
 	return ""
 }
 
-func (m *DescribeS2AccountsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeS2AccountsOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2129,19 +3209,40 @@ func (m *DescribeS2AccountsOutput_ResponseItem) GetCreateTime() *google_protobuf
 }
 
 type ModifyS2AccountInput struct {
-	S2Account        *string `protobuf:"bytes,1,opt,name=s2_account,json=s2Account" json:"s2_account,omitempty"`
-	OptParameters    *string `protobuf:"bytes,2,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
-	AccountName      *string `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
-	SmbPasswd        *string `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
-	NfsIpaddr        *string `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
-	Description      *string `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	S2Account            *string  `protobuf:"bytes,1,opt,name=s2_account,json=s2Account" json:"s2_account,omitempty"`
+	OptParameters        *string  `protobuf:"bytes,2,opt,name=opt_parameters,json=optParameters" json:"opt_parameters,omitempty"`
+	AccountName          *string  `protobuf:"bytes,3,opt,name=account_name,json=accountName" json:"account_name,omitempty"`
+	SmbPasswd            *string  `protobuf:"bytes,4,opt,name=smb_passwd,json=smbPasswd" json:"smb_passwd,omitempty"`
+	NfsIpaddr            *string  `protobuf:"bytes,5,opt,name=nfs_ipaddr,json=nfsIpaddr" json:"nfs_ipaddr,omitempty"`
+	Description          *string  `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyS2AccountInput) Reset()                    { *m = ModifyS2AccountInput{} }
-func (m *ModifyS2AccountInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyS2AccountInput) ProtoMessage()               {}
-func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{48} }
+func (m *ModifyS2AccountInput) Reset()         { *m = ModifyS2AccountInput{} }
+func (m *ModifyS2AccountInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2AccountInput) ProtoMessage()    {}
+func (*ModifyS2AccountInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{48}
+}
+func (m *ModifyS2AccountInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2AccountInput.Unmarshal(m, b)
+}
+func (m *ModifyS2AccountInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2AccountInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2AccountInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2AccountInput.Merge(dst, src)
+}
+func (m *ModifyS2AccountInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2AccountInput.Size(m)
+}
+func (m *ModifyS2AccountInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2AccountInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2AccountInput proto.InternalMessageInfo
 
 func (m *ModifyS2AccountInput) GetS2Account() string {
 	if m != nil && m.S2Account != nil {
@@ -2186,16 +3287,37 @@ func (m *ModifyS2AccountInput) GetDescription() string {
 }
 
 type ModifyS2AccountOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyS2AccountOutput) Reset()                    { *m = ModifyS2AccountOutput{} }
-func (m *ModifyS2AccountOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyS2AccountOutput) ProtoMessage()               {}
-func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{49} }
+func (m *ModifyS2AccountOutput) Reset()         { *m = ModifyS2AccountOutput{} }
+func (m *ModifyS2AccountOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyS2AccountOutput) ProtoMessage()    {}
+func (*ModifyS2AccountOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{49}
+}
+func (m *ModifyS2AccountOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyS2AccountOutput.Unmarshal(m, b)
+}
+func (m *ModifyS2AccountOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyS2AccountOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyS2AccountOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyS2AccountOutput.Merge(dst, src)
+}
+func (m *ModifyS2AccountOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyS2AccountOutput.Size(m)
+}
+func (m *ModifyS2AccountOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyS2AccountOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyS2AccountOutput proto.InternalMessageInfo
 
 func (m *ModifyS2AccountOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2219,14 +3341,35 @@ func (m *ModifyS2AccountOutput) GetMessage() string {
 }
 
 type DeleteS2AccountsInput struct {
-	S2Accounts       []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Accounts           []string `protobuf:"bytes,1,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2AccountsInput) Reset()                    { *m = DeleteS2AccountsInput{} }
-func (m *DeleteS2AccountsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2AccountsInput) ProtoMessage()               {}
-func (*DeleteS2AccountsInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{50} }
+func (m *DeleteS2AccountsInput) Reset()         { *m = DeleteS2AccountsInput{} }
+func (m *DeleteS2AccountsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2AccountsInput) ProtoMessage()    {}
+func (*DeleteS2AccountsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{50}
+}
+func (m *DeleteS2AccountsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2AccountsInput.Unmarshal(m, b)
+}
+func (m *DeleteS2AccountsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2AccountsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2AccountsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2AccountsInput.Merge(dst, src)
+}
+func (m *DeleteS2AccountsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2AccountsInput.Size(m)
+}
+func (m *DeleteS2AccountsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2AccountsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2AccountsInput proto.InternalMessageInfo
 
 func (m *DeleteS2AccountsInput) GetS2Accounts() []string {
 	if m != nil {
@@ -2236,16 +3379,37 @@ func (m *DeleteS2AccountsInput) GetS2Accounts() []string {
 }
 
 type DeleteS2AccountsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteS2AccountsOutput) Reset()                    { *m = DeleteS2AccountsOutput{} }
-func (m *DeleteS2AccountsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteS2AccountsOutput) ProtoMessage()               {}
-func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{51} }
+func (m *DeleteS2AccountsOutput) Reset()         { *m = DeleteS2AccountsOutput{} }
+func (m *DeleteS2AccountsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteS2AccountsOutput) ProtoMessage()    {}
+func (*DeleteS2AccountsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{51}
+}
+func (m *DeleteS2AccountsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteS2AccountsOutput.Unmarshal(m, b)
+}
+func (m *DeleteS2AccountsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteS2AccountsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteS2AccountsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteS2AccountsOutput.Merge(dst, src)
+}
+func (m *DeleteS2AccountsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteS2AccountsOutput.Size(m)
+}
+func (m *DeleteS2AccountsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteS2AccountsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteS2AccountsOutput proto.InternalMessageInfo
 
 func (m *DeleteS2AccountsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2269,15 +3433,36 @@ func (m *DeleteS2AccountsOutput) GetMessage() string {
 }
 
 type AssociateS2AccountGroupInput struct {
-	S2Groups         []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
-	S2Accounts       []string `protobuf:"bytes,2,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	S2Groups             []string `protobuf:"bytes,1,rep,name=s2_groups,json=s2Groups" json:"s2_groups,omitempty"`
+	S2Accounts           []string `protobuf:"bytes,2,rep,name=s2_accounts,json=s2Accounts" json:"s2_accounts,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AssociateS2AccountGroupInput) Reset()                    { *m = AssociateS2AccountGroupInput{} }
-func (m *AssociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*AssociateS2AccountGroupInput) ProtoMessage()               {}
-func (*AssociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{52} }
+func (m *AssociateS2AccountGroupInput) Reset()         { *m = AssociateS2AccountGroupInput{} }
+func (m *AssociateS2AccountGroupInput) String() string { return proto.CompactTextString(m) }
+func (*AssociateS2AccountGroupInput) ProtoMessage()    {}
+func (*AssociateS2AccountGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{52}
+}
+func (m *AssociateS2AccountGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateS2AccountGroupInput.Unmarshal(m, b)
+}
+func (m *AssociateS2AccountGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateS2AccountGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateS2AccountGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateS2AccountGroupInput.Merge(dst, src)
+}
+func (m *AssociateS2AccountGroupInput) XXX_Size() int {
+	return xxx_messageInfo_AssociateS2AccountGroupInput.Size(m)
+}
+func (m *AssociateS2AccountGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateS2AccountGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateS2AccountGroupInput proto.InternalMessageInfo
 
 func (m *AssociateS2AccountGroupInput) GetS2Groups() []string {
 	if m != nil {
@@ -2294,16 +3479,37 @@ func (m *AssociateS2AccountGroupInput) GetS2Accounts() []string {
 }
 
 type AssociateS2AccountGroupOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AssociateS2AccountGroupOutput) Reset()                    { *m = AssociateS2AccountGroupOutput{} }
-func (m *AssociateS2AccountGroupOutput) String() string            { return proto.CompactTextString(m) }
-func (*AssociateS2AccountGroupOutput) ProtoMessage()               {}
-func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{53} }
+func (m *AssociateS2AccountGroupOutput) Reset()         { *m = AssociateS2AccountGroupOutput{} }
+func (m *AssociateS2AccountGroupOutput) String() string { return proto.CompactTextString(m) }
+func (*AssociateS2AccountGroupOutput) ProtoMessage()    {}
+func (*AssociateS2AccountGroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{53}
+}
+func (m *AssociateS2AccountGroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateS2AccountGroupOutput.Unmarshal(m, b)
+}
+func (m *AssociateS2AccountGroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateS2AccountGroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateS2AccountGroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateS2AccountGroupOutput.Merge(dst, src)
+}
+func (m *AssociateS2AccountGroupOutput) XXX_Size() int {
+	return xxx_messageInfo_AssociateS2AccountGroupOutput.Size(m)
+}
+func (m *AssociateS2AccountGroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateS2AccountGroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateS2AccountGroupOutput proto.InternalMessageInfo
 
 func (m *AssociateS2AccountGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2327,27 +3533,67 @@ func (m *AssociateS2AccountGroupOutput) GetMessage() string {
 }
 
 type DissociateS2AccountGroupInput struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DissociateS2AccountGroupInput) Reset()                    { *m = DissociateS2AccountGroupInput{} }
-func (m *DissociateS2AccountGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*DissociateS2AccountGroupInput) ProtoMessage()               {}
-func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor19, []int{54} }
+func (m *DissociateS2AccountGroupInput) Reset()         { *m = DissociateS2AccountGroupInput{} }
+func (m *DissociateS2AccountGroupInput) String() string { return proto.CompactTextString(m) }
+func (*DissociateS2AccountGroupInput) ProtoMessage()    {}
+func (*DissociateS2AccountGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_s2_30a7426a1c51db85, []int{54}
+}
+func (m *DissociateS2AccountGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateS2AccountGroupInput.Unmarshal(m, b)
+}
+func (m *DissociateS2AccountGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateS2AccountGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateS2AccountGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateS2AccountGroupInput.Merge(dst, src)
+}
+func (m *DissociateS2AccountGroupInput) XXX_Size() int {
+	return xxx_messageInfo_DissociateS2AccountGroupInput.Size(m)
+}
+func (m *DissociateS2AccountGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateS2AccountGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateS2AccountGroupInput proto.InternalMessageInfo
 
 type DissociateS2AccountGroupOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DissociateS2AccountGroupOutput) Reset()         { *m = DissociateS2AccountGroupOutput{} }
 func (m *DissociateS2AccountGroupOutput) String() string { return proto.CompactTextString(m) }
 func (*DissociateS2AccountGroupOutput) ProtoMessage()    {}
 func (*DissociateS2AccountGroupOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor19, []int{55}
+	return fileDescriptor_s2_30a7426a1c51db85, []int{55}
 }
+func (m *DissociateS2AccountGroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateS2AccountGroupOutput.Unmarshal(m, b)
+}
+func (m *DissociateS2AccountGroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateS2AccountGroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateS2AccountGroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateS2AccountGroupOutput.Merge(dst, src)
+}
+func (m *DissociateS2AccountGroupOutput) XXX_Size() int {
+	return xxx_messageInfo_DissociateS2AccountGroupOutput.Size(m)
+}
+func (m *DissociateS2AccountGroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateS2AccountGroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateS2AccountGroupOutput proto.InternalMessageInfo
 
 func (m *DissociateS2AccountGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2401,6 +3647,7 @@ func init() {
 	proto.RegisterType((*DisableS2SharedTargetsOutput)(nil), "service.DisableS2SharedTargetsOutput")
 	proto.RegisterType((*ModifyS2SharedTargetAttributesInput)(nil), "service.ModifyS2SharedTargetAttributesInput")
 	proto.RegisterType((*ModifyS2SharedTargetAttributesOutput)(nil), "service.ModifyS2SharedTargetAttributesOutput")
+	proto.RegisterMapType((map[string]string)(nil), "service.ModifyS2SharedTargetAttributesOutput.SharedTargetEntry")
 	proto.RegisterType((*AttachToS2SharedTargetInput)(nil), "service.AttachToS2SharedTargetInput")
 	proto.RegisterType((*AttachToS2SharedTargetOutput)(nil), "service.AttachToS2SharedTargetOutput")
 	proto.RegisterType((*DetachFromS2SharedTargetInput)(nil), "service.DetachFromS2SharedTargetInput")
@@ -2433,9 +3680,9 @@ func init() {
 	proto.RegisterType((*DissociateS2AccountGroupOutput)(nil), "service.DissociateS2AccountGroupOutput")
 }
 
-func init() { proto.RegisterFile("s2.proto", fileDescriptor19) }
+func init() { proto.RegisterFile("s2.proto", fileDescriptor_s2_30a7426a1c51db85) }
 
-var fileDescriptor19 = []byte{
+var fileDescriptor_s2_30a7426a1c51db85 = []byte{
 	// 2364 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x5a, 0xdd, 0x6f, 0x1b, 0x59,
 	0x15, 0xd7, 0xd8, 0x71, 0x1c, 0x1f, 0x27, 0xe9, 0x76, 0x9a, 0xb4, 0xee, 0x24, 0x4e, 0xd2, 0x49,

@@ -19,7 +19,7 @@ api: $(PROTO_API_FILES)
 	go install ../cmd/protoc-gen-qingcloud
 	protoc -I. --go_out=../pkg/api $(PROTO_API_FILES)
 	protoc -I. --qingcloud_out=plugin=go-sdk:../pkg/api $(PROTO_API_FILES)
-	protoc -I. --qingcloud_out=plugin=go-validator:../pkg/api $(PROTO_API_FILES)
+	#protoc -I. --qingcloud_out=plugin=go-validator:../pkg/api $(PROTO_API_FILES)
 	protoc -I. --qingcloud_out=plugin=go-server:../pkg/api $(PROTO_API_FILES)
 	protoc -I. --qingcloud_out=plugin=qcli:../pkg/cmd/qcli/api $(PROTO_API_FILES)
 

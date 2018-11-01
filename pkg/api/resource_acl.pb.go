@@ -7,25 +7,50 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeSharedResourceGroupsInput struct {
-	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	Owner            *string  `protobuf:"bytes,2,opt,name=owner" json:"owner,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceGroups       []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	Owner                *string  `protobuf:"bytes,2,opt,name=owner" json:"owner,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeSharedResourceGroupsInput) Reset()         { *m = DescribeSharedResourceGroupsInput{} }
 func (m *DescribeSharedResourceGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSharedResourceGroupsInput) ProtoMessage()    {}
 func (*DescribeSharedResourceGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{0}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{0}
 }
+func (m *DescribeSharedResourceGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSharedResourceGroupsInput.Unmarshal(m, b)
+}
+func (m *DescribeSharedResourceGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSharedResourceGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSharedResourceGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSharedResourceGroupsInput.Merge(dst, src)
+}
+func (m *DescribeSharedResourceGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSharedResourceGroupsInput.Size(m)
+}
+func (m *DescribeSharedResourceGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSharedResourceGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSharedResourceGroupsInput proto.InternalMessageInfo
 
 func (m *DescribeSharedResourceGroupsInput) GetResourceGroups() []string {
 	if m != nil {
@@ -47,15 +72,34 @@ type DescribeSharedResourceGroupsOutput struct {
 	Message                *string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SharedResourceGroupSet []*ResourceGroupsItem `protobuf:"bytes,4,rep,name=shared_resource_group_set,json=sharedResourceGroupSet" json:"shared_resource_group_set,omitempty"`
 	TotalCount             *int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}              `json:"-"`
 	XXX_unrecognized       []byte                `json:"-"`
+	XXX_sizecache          int32                 `json:"-"`
 }
 
 func (m *DescribeSharedResourceGroupsOutput) Reset()         { *m = DescribeSharedResourceGroupsOutput{} }
 func (m *DescribeSharedResourceGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSharedResourceGroupsOutput) ProtoMessage()    {}
 func (*DescribeSharedResourceGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{1}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{1}
 }
+func (m *DescribeSharedResourceGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSharedResourceGroupsOutput.Unmarshal(m, b)
+}
+func (m *DescribeSharedResourceGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSharedResourceGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSharedResourceGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSharedResourceGroupsOutput.Merge(dst, src)
+}
+func (m *DescribeSharedResourceGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSharedResourceGroupsOutput.Size(m)
+}
+func (m *DescribeSharedResourceGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSharedResourceGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSharedResourceGroupsOutput proto.InternalMessageInfo
 
 func (m *DescribeSharedResourceGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -93,20 +137,41 @@ func (m *DescribeSharedResourceGroupsOutput) GetTotalCount() int32 {
 }
 
 type DescribeResourceGroupsInput struct {
-	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Limit            *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey          *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse          *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceGroups       []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Limit                *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey              *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse              *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeResourceGroupsInput) Reset()                    { *m = DescribeResourceGroupsInput{} }
-func (m *DescribeResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeResourceGroupsInput) ProtoMessage()               {}
-func (*DescribeResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{2} }
+func (m *DescribeResourceGroupsInput) Reset()         { *m = DescribeResourceGroupsInput{} }
+func (m *DescribeResourceGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeResourceGroupsInput) ProtoMessage()    {}
+func (*DescribeResourceGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{2}
+}
+func (m *DescribeResourceGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeResourceGroupsInput.Unmarshal(m, b)
+}
+func (m *DescribeResourceGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeResourceGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeResourceGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeResourceGroupsInput.Merge(dst, src)
+}
+func (m *DescribeResourceGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeResourceGroupsInput.Size(m)
+}
+func (m *DescribeResourceGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeResourceGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeResourceGroupsInput proto.InternalMessageInfo
 
 func (m *DescribeResourceGroupsInput) GetResourceGroups() []string {
 	if m != nil {
@@ -163,13 +228,34 @@ type DescribeResourceGroupsOutput struct {
 	Message                *string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SharedResourceGroupSet []*ResourceGroupsItem `protobuf:"bytes,4,rep,name=shared_resource_group_set,json=sharedResourceGroupSet" json:"shared_resource_group_set,omitempty"`
 	TotalCount             *int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}              `json:"-"`
 	XXX_unrecognized       []byte                `json:"-"`
+	XXX_sizecache          int32                 `json:"-"`
 }
 
-func (m *DescribeResourceGroupsOutput) Reset()                    { *m = DescribeResourceGroupsOutput{} }
-func (m *DescribeResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeResourceGroupsOutput) ProtoMessage()               {}
-func (*DescribeResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{3} }
+func (m *DescribeResourceGroupsOutput) Reset()         { *m = DescribeResourceGroupsOutput{} }
+func (m *DescribeResourceGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeResourceGroupsOutput) ProtoMessage()    {}
+func (*DescribeResourceGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{3}
+}
+func (m *DescribeResourceGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeResourceGroupsOutput.Unmarshal(m, b)
+}
+func (m *DescribeResourceGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeResourceGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeResourceGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeResourceGroupsOutput.Merge(dst, src)
+}
+func (m *DescribeResourceGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeResourceGroupsOutput.Size(m)
+}
+func (m *DescribeResourceGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeResourceGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeResourceGroupsOutput proto.InternalMessageInfo
 
 func (m *DescribeResourceGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -207,16 +293,37 @@ func (m *DescribeResourceGroupsOutput) GetTotalCount() int32 {
 }
 
 type CreateResourceGroupsInput struct {
-	ResourceGroupName *string `protobuf:"bytes,1,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
-	Description       *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Count             *int32  `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	ResourceGroupName    *string  `protobuf:"bytes,1,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	Description          *string  `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Count                *int32   `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateResourceGroupsInput) Reset()                    { *m = CreateResourceGroupsInput{} }
-func (m *CreateResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateResourceGroupsInput) ProtoMessage()               {}
-func (*CreateResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{4} }
+func (m *CreateResourceGroupsInput) Reset()         { *m = CreateResourceGroupsInput{} }
+func (m *CreateResourceGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*CreateResourceGroupsInput) ProtoMessage()    {}
+func (*CreateResourceGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{4}
+}
+func (m *CreateResourceGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateResourceGroupsInput.Unmarshal(m, b)
+}
+func (m *CreateResourceGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateResourceGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateResourceGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateResourceGroupsInput.Merge(dst, src)
+}
+func (m *CreateResourceGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_CreateResourceGroupsInput.Size(m)
+}
+func (m *CreateResourceGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateResourceGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateResourceGroupsInput proto.InternalMessageInfo
 
 func (m *CreateResourceGroupsInput) GetResourceGroupName() string {
 	if m != nil && m.ResourceGroupName != nil {
@@ -240,17 +347,38 @@ func (m *CreateResourceGroupsInput) GetCount() int32 {
 }
 
 type CreateResourceGroupsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroupIds []string `protobuf:"bytes,4,rep,name=resource_group_ids,json=resourceGroupIds" json:"resource_group_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroupIds     []string `protobuf:"bytes,4,rep,name=resource_group_ids,json=resourceGroupIds" json:"resource_group_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateResourceGroupsOutput) Reset()                    { *m = CreateResourceGroupsOutput{} }
-func (m *CreateResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateResourceGroupsOutput) ProtoMessage()               {}
-func (*CreateResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{5} }
+func (m *CreateResourceGroupsOutput) Reset()         { *m = CreateResourceGroupsOutput{} }
+func (m *CreateResourceGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateResourceGroupsOutput) ProtoMessage()    {}
+func (*CreateResourceGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{5}
+}
+func (m *CreateResourceGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateResourceGroupsOutput.Unmarshal(m, b)
+}
+func (m *CreateResourceGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateResourceGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateResourceGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateResourceGroupsOutput.Merge(dst, src)
+}
+func (m *CreateResourceGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateResourceGroupsOutput.Size(m)
+}
+func (m *CreateResourceGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateResourceGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateResourceGroupsOutput proto.InternalMessageInfo
 
 func (m *CreateResourceGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -281,18 +409,37 @@ func (m *CreateResourceGroupsOutput) GetResourceGroupIds() []string {
 }
 
 type ModifyResourceGroupAttributesInput struct {
-	ResourceGroup     *string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	ResourceGroupName *string `protobuf:"bytes,2,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
-	Description       *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	ResourceGroup        *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	ResourceGroupName    *string  `protobuf:"bytes,2,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyResourceGroupAttributesInput) Reset()         { *m = ModifyResourceGroupAttributesInput{} }
 func (m *ModifyResourceGroupAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyResourceGroupAttributesInput) ProtoMessage()    {}
 func (*ModifyResourceGroupAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{6}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{6}
 }
+func (m *ModifyResourceGroupAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyResourceGroupAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyResourceGroupAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyResourceGroupAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyResourceGroupAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyResourceGroupAttributesInput.Merge(dst, src)
+}
+func (m *ModifyResourceGroupAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyResourceGroupAttributesInput.Size(m)
+}
+func (m *ModifyResourceGroupAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyResourceGroupAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyResourceGroupAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyResourceGroupAttributesInput) GetResourceGroup() string {
 	if m != nil && m.ResourceGroup != nil {
@@ -316,20 +463,39 @@ func (m *ModifyResourceGroupAttributesInput) GetDescription() string {
 }
 
 type ModifyResourceGroupAttributesOutput struct {
-	Action            *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode           *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message           *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroupId   *string `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	ResourceGroupName *string `protobuf:"bytes,5,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroupId      *string  `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	ResourceGroupName    *string  `protobuf:"bytes,5,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyResourceGroupAttributesOutput) Reset()         { *m = ModifyResourceGroupAttributesOutput{} }
 func (m *ModifyResourceGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyResourceGroupAttributesOutput) ProtoMessage()    {}
 func (*ModifyResourceGroupAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{7}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{7}
 }
+func (m *ModifyResourceGroupAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyResourceGroupAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyResourceGroupAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyResourceGroupAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyResourceGroupAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyResourceGroupAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyResourceGroupAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyResourceGroupAttributesOutput.Size(m)
+}
+func (m *ModifyResourceGroupAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyResourceGroupAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyResourceGroupAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyResourceGroupAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -367,14 +533,35 @@ func (m *ModifyResourceGroupAttributesOutput) GetResourceGroupName() string {
 }
 
 type DeleteResourceGroupsInput struct {
-	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceGroups       []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteResourceGroupsInput) Reset()                    { *m = DeleteResourceGroupsInput{} }
-func (m *DeleteResourceGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteResourceGroupsInput) ProtoMessage()               {}
-func (*DeleteResourceGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{8} }
+func (m *DeleteResourceGroupsInput) Reset()         { *m = DeleteResourceGroupsInput{} }
+func (m *DeleteResourceGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteResourceGroupsInput) ProtoMessage()    {}
+func (*DeleteResourceGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{8}
+}
+func (m *DeleteResourceGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteResourceGroupsInput.Unmarshal(m, b)
+}
+func (m *DeleteResourceGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteResourceGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteResourceGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteResourceGroupsInput.Merge(dst, src)
+}
+func (m *DeleteResourceGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteResourceGroupsInput.Size(m)
+}
+func (m *DeleteResourceGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteResourceGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteResourceGroupsInput proto.InternalMessageInfo
 
 func (m *DeleteResourceGroupsInput) GetResourceGroups() []string {
 	if m != nil {
@@ -384,17 +571,38 @@ func (m *DeleteResourceGroupsInput) GetResourceGroups() []string {
 }
 
 type DeleteResourceGroupsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroups   []string `protobuf:"bytes,4,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroups       []string `protobuf:"bytes,4,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteResourceGroupsOutput) Reset()                    { *m = DeleteResourceGroupsOutput{} }
-func (m *DeleteResourceGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteResourceGroupsOutput) ProtoMessage()               {}
-func (*DeleteResourceGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{9} }
+func (m *DeleteResourceGroupsOutput) Reset()         { *m = DeleteResourceGroupsOutput{} }
+func (m *DeleteResourceGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteResourceGroupsOutput) ProtoMessage()    {}
+func (*DeleteResourceGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{9}
+}
+func (m *DeleteResourceGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteResourceGroupsOutput.Unmarshal(m, b)
+}
+func (m *DeleteResourceGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteResourceGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteResourceGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteResourceGroupsOutput.Merge(dst, src)
+}
+func (m *DeleteResourceGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteResourceGroupsOutput.Size(m)
+}
+func (m *DeleteResourceGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteResourceGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteResourceGroupsOutput proto.InternalMessageInfo
 
 func (m *DeleteResourceGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -425,22 +633,41 @@ func (m *DeleteResourceGroupsOutput) GetResourceGroups() []string {
 }
 
 type DescribeResourceGroupItemsInput struct {
-	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
-	Limit            *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey          *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse          *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceGroups       []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	Resources            []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	Limit                *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey              *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse              *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeResourceGroupItemsInput) Reset()         { *m = DescribeResourceGroupItemsInput{} }
 func (m *DescribeResourceGroupItemsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceGroupItemsInput) ProtoMessage()    {}
 func (*DescribeResourceGroupItemsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{10}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{10}
 }
+func (m *DescribeResourceGroupItemsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeResourceGroupItemsInput.Unmarshal(m, b)
+}
+func (m *DescribeResourceGroupItemsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeResourceGroupItemsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeResourceGroupItemsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeResourceGroupItemsInput.Merge(dst, src)
+}
+func (m *DescribeResourceGroupItemsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeResourceGroupItemsInput.Size(m)
+}
+func (m *DescribeResourceGroupItemsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeResourceGroupItemsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeResourceGroupItemsInput proto.InternalMessageInfo
 
 func (m *DescribeResourceGroupItemsInput) GetResourceGroups() []string {
 	if m != nil {
@@ -498,15 +725,34 @@ type DescribeResourceGroupItemsOutput struct {
 	ResourceGroupItemSet []*ResourceGroupsItem `protobuf:"bytes,4,rep,name=resource_group_item_set,json=resourceGroupItemSet" json:"resource_group_item_set,omitempty"`
 	ItemSet              []string              `protobuf:"bytes,5,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
 	TotalCount           *int32                `protobuf:"varint,6,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
 	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *DescribeResourceGroupItemsOutput) Reset()         { *m = DescribeResourceGroupItemsOutput{} }
 func (m *DescribeResourceGroupItemsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceGroupItemsOutput) ProtoMessage()    {}
 func (*DescribeResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{11}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{11}
 }
+func (m *DescribeResourceGroupItemsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeResourceGroupItemsOutput.Unmarshal(m, b)
+}
+func (m *DescribeResourceGroupItemsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeResourceGroupItemsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeResourceGroupItemsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeResourceGroupItemsOutput.Merge(dst, src)
+}
+func (m *DescribeResourceGroupItemsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeResourceGroupItemsOutput.Size(m)
+}
+func (m *DescribeResourceGroupItemsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeResourceGroupItemsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeResourceGroupItemsOutput proto.InternalMessageInfo
 
 func (m *DescribeResourceGroupItemsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -551,15 +797,36 @@ func (m *DescribeResourceGroupItemsOutput) GetTotalCount() int32 {
 }
 
 type AddResourceGroupItemsInput struct {
-	ResourceGroup    *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceGroup        *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	Resources            []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddResourceGroupItemsInput) Reset()                    { *m = AddResourceGroupItemsInput{} }
-func (m *AddResourceGroupItemsInput) String() string            { return proto.CompactTextString(m) }
-func (*AddResourceGroupItemsInput) ProtoMessage()               {}
-func (*AddResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{12} }
+func (m *AddResourceGroupItemsInput) Reset()         { *m = AddResourceGroupItemsInput{} }
+func (m *AddResourceGroupItemsInput) String() string { return proto.CompactTextString(m) }
+func (*AddResourceGroupItemsInput) ProtoMessage()    {}
+func (*AddResourceGroupItemsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{12}
+}
+func (m *AddResourceGroupItemsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddResourceGroupItemsInput.Unmarshal(m, b)
+}
+func (m *AddResourceGroupItemsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddResourceGroupItemsInput.Marshal(b, m, deterministic)
+}
+func (dst *AddResourceGroupItemsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddResourceGroupItemsInput.Merge(dst, src)
+}
+func (m *AddResourceGroupItemsInput) XXX_Size() int {
+	return xxx_messageInfo_AddResourceGroupItemsInput.Size(m)
+}
+func (m *AddResourceGroupItemsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddResourceGroupItemsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddResourceGroupItemsInput proto.InternalMessageInfo
 
 func (m *AddResourceGroupItemsInput) GetResourceGroup() string {
 	if m != nil && m.ResourceGroup != nil {
@@ -576,18 +843,39 @@ func (m *AddResourceGroupItemsInput) GetResources() []string {
 }
 
 type AddResourceGroupItemsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroupId  *string  `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	ResourceIds      []string `protobuf:"bytes,5,rep,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroupId      *string  `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	ResourceIds          []string `protobuf:"bytes,5,rep,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddResourceGroupItemsOutput) Reset()                    { *m = AddResourceGroupItemsOutput{} }
-func (m *AddResourceGroupItemsOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddResourceGroupItemsOutput) ProtoMessage()               {}
-func (*AddResourceGroupItemsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{13} }
+func (m *AddResourceGroupItemsOutput) Reset()         { *m = AddResourceGroupItemsOutput{} }
+func (m *AddResourceGroupItemsOutput) String() string { return proto.CompactTextString(m) }
+func (*AddResourceGroupItemsOutput) ProtoMessage()    {}
+func (*AddResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{13}
+}
+func (m *AddResourceGroupItemsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddResourceGroupItemsOutput.Unmarshal(m, b)
+}
+func (m *AddResourceGroupItemsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddResourceGroupItemsOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddResourceGroupItemsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddResourceGroupItemsOutput.Merge(dst, src)
+}
+func (m *AddResourceGroupItemsOutput) XXX_Size() int {
+	return xxx_messageInfo_AddResourceGroupItemsOutput.Size(m)
+}
+func (m *AddResourceGroupItemsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddResourceGroupItemsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddResourceGroupItemsOutput proto.InternalMessageInfo
 
 func (m *AddResourceGroupItemsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -625,15 +913,36 @@ func (m *AddResourceGroupItemsOutput) GetResourceIds() []string {
 }
 
 type DeleteResourceGroupItemsInput struct {
-	ResourceGroup    *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceGroup        *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	Resources            []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteResourceGroupItemsInput) Reset()                    { *m = DeleteResourceGroupItemsInput{} }
-func (m *DeleteResourceGroupItemsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteResourceGroupItemsInput) ProtoMessage()               {}
-func (*DeleteResourceGroupItemsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{14} }
+func (m *DeleteResourceGroupItemsInput) Reset()         { *m = DeleteResourceGroupItemsInput{} }
+func (m *DeleteResourceGroupItemsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteResourceGroupItemsInput) ProtoMessage()    {}
+func (*DeleteResourceGroupItemsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{14}
+}
+func (m *DeleteResourceGroupItemsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteResourceGroupItemsInput.Unmarshal(m, b)
+}
+func (m *DeleteResourceGroupItemsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteResourceGroupItemsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteResourceGroupItemsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteResourceGroupItemsInput.Merge(dst, src)
+}
+func (m *DeleteResourceGroupItemsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteResourceGroupItemsInput.Size(m)
+}
+func (m *DeleteResourceGroupItemsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteResourceGroupItemsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteResourceGroupItemsInput proto.InternalMessageInfo
 
 func (m *DeleteResourceGroupItemsInput) GetResourceGroup() string {
 	if m != nil && m.ResourceGroup != nil {
@@ -650,19 +959,38 @@ func (m *DeleteResourceGroupItemsInput) GetResources() []string {
 }
 
 type DeleteResourceGroupItemsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceGroupId  *string `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceGroupId      *string  `protobuf:"bytes,4,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteResourceGroupItemsOutput) Reset()         { *m = DeleteResourceGroupItemsOutput{} }
 func (m *DeleteResourceGroupItemsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteResourceGroupItemsOutput) ProtoMessage()    {}
 func (*DeleteResourceGroupItemsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{15}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{15}
 }
+func (m *DeleteResourceGroupItemsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteResourceGroupItemsOutput.Unmarshal(m, b)
+}
+func (m *DeleteResourceGroupItemsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteResourceGroupItemsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteResourceGroupItemsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteResourceGroupItemsOutput.Merge(dst, src)
+}
+func (m *DeleteResourceGroupItemsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteResourceGroupItemsOutput.Size(m)
+}
+func (m *DeleteResourceGroupItemsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteResourceGroupItemsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteResourceGroupItemsOutput proto.InternalMessageInfo
 
 func (m *DeleteResourceGroupItemsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -693,21 +1021,42 @@ func (m *DeleteResourceGroupItemsOutput) GetResourceGroupId() string {
 }
 
 type DescribeUserGroupsInput struct {
-	UserGroups       []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	Limit            *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey          *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse          *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,8,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	UserGroups           []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	Status               []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	Limit                *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey              *string  `protobuf:"bytes,6,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse              *int32   `protobuf:"varint,7,opt,name=reverse" json:"reverse,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,8,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeUserGroupsInput) Reset()                    { *m = DescribeUserGroupsInput{} }
-func (m *DescribeUserGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeUserGroupsInput) ProtoMessage()               {}
-func (*DescribeUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{16} }
+func (m *DescribeUserGroupsInput) Reset()         { *m = DescribeUserGroupsInput{} }
+func (m *DescribeUserGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeUserGroupsInput) ProtoMessage()    {}
+func (*DescribeUserGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{16}
+}
+func (m *DescribeUserGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeUserGroupsInput.Unmarshal(m, b)
+}
+func (m *DescribeUserGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeUserGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeUserGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeUserGroupsInput.Merge(dst, src)
+}
+func (m *DescribeUserGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeUserGroupsInput.Size(m)
+}
+func (m *DescribeUserGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeUserGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeUserGroupsInput proto.InternalMessageInfo
 
 func (m *DescribeUserGroupsInput) GetUserGroups() []string {
 	if m != nil {
@@ -766,18 +1115,39 @@ func (m *DescribeUserGroupsInput) GetSearchWord() string {
 }
 
 type DescribeUserGroupsOutput struct {
-	Action           *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupSet     []*UserGroupItem `protobuf:"bytes,4,rep,name=user_group_set,json=userGroupSet" json:"user_group_set,omitempty"`
-	TotalCount       *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte           `json:"-"`
+	Action               *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupSet         []*UserGroupItem `protobuf:"bytes,4,rep,name=user_group_set,json=userGroupSet" json:"user_group_set,omitempty"`
+	TotalCount           *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
-func (m *DescribeUserGroupsOutput) Reset()                    { *m = DescribeUserGroupsOutput{} }
-func (m *DescribeUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeUserGroupsOutput) ProtoMessage()               {}
-func (*DescribeUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{17} }
+func (m *DescribeUserGroupsOutput) Reset()         { *m = DescribeUserGroupsOutput{} }
+func (m *DescribeUserGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeUserGroupsOutput) ProtoMessage()    {}
+func (*DescribeUserGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{17}
+}
+func (m *DescribeUserGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeUserGroupsOutput.Unmarshal(m, b)
+}
+func (m *DescribeUserGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeUserGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeUserGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeUserGroupsOutput.Merge(dst, src)
+}
+func (m *DescribeUserGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeUserGroupsOutput.Size(m)
+}
+func (m *DescribeUserGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeUserGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeUserGroupsOutput proto.InternalMessageInfo
 
 func (m *DescribeUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -815,16 +1185,37 @@ func (m *DescribeUserGroupsOutput) GetTotalCount() int32 {
 }
 
 type CreateUserGroupsInput struct {
-	UserGroupName    *string `protobuf:"bytes,1,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
-	Description      *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Count            *int32  `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	UserGroupName        *string  `protobuf:"bytes,1,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
+	Description          *string  `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Count                *int32   `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateUserGroupsInput) Reset()                    { *m = CreateUserGroupsInput{} }
-func (m *CreateUserGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateUserGroupsInput) ProtoMessage()               {}
-func (*CreateUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{18} }
+func (m *CreateUserGroupsInput) Reset()         { *m = CreateUserGroupsInput{} }
+func (m *CreateUserGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*CreateUserGroupsInput) ProtoMessage()    {}
+func (*CreateUserGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{18}
+}
+func (m *CreateUserGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateUserGroupsInput.Unmarshal(m, b)
+}
+func (m *CreateUserGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateUserGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateUserGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateUserGroupsInput.Merge(dst, src)
+}
+func (m *CreateUserGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_CreateUserGroupsInput.Size(m)
+}
+func (m *CreateUserGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateUserGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateUserGroupsInput proto.InternalMessageInfo
 
 func (m *CreateUserGroupsInput) GetUserGroupName() string {
 	if m != nil && m.UserGroupName != nil {
@@ -848,17 +1239,38 @@ func (m *CreateUserGroupsInput) GetCount() int32 {
 }
 
 type CreateUserGroupsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupIds     []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupIds         []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateUserGroupsOutput) Reset()                    { *m = CreateUserGroupsOutput{} }
-func (m *CreateUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateUserGroupsOutput) ProtoMessage()               {}
-func (*CreateUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{19} }
+func (m *CreateUserGroupsOutput) Reset()         { *m = CreateUserGroupsOutput{} }
+func (m *CreateUserGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateUserGroupsOutput) ProtoMessage()    {}
+func (*CreateUserGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{19}
+}
+func (m *CreateUserGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateUserGroupsOutput.Unmarshal(m, b)
+}
+func (m *CreateUserGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateUserGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateUserGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateUserGroupsOutput.Merge(dst, src)
+}
+func (m *CreateUserGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateUserGroupsOutput.Size(m)
+}
+func (m *CreateUserGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateUserGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateUserGroupsOutput proto.InternalMessageInfo
 
 func (m *CreateUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -889,19 +1301,38 @@ func (m *CreateUserGroupsOutput) GetUserGroupIds() []string {
 }
 
 type ModifyUserGroupAttributesInput struct {
-	UserGroup        *string `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	UserGroupName    *string `protobuf:"bytes,2,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Status           *string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	UserGroup            *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	UserGroupName        *string  `protobuf:"bytes,2,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Status               *string  `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyUserGroupAttributesInput) Reset()         { *m = ModifyUserGroupAttributesInput{} }
 func (m *ModifyUserGroupAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupAttributesInput) ProtoMessage()    {}
 func (*ModifyUserGroupAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{20}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{20}
 }
+func (m *ModifyUserGroupAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyUserGroupAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyUserGroupAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyUserGroupAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyUserGroupAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyUserGroupAttributesInput.Merge(dst, src)
+}
+func (m *ModifyUserGroupAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyUserGroupAttributesInput.Size(m)
+}
+func (m *ModifyUserGroupAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyUserGroupAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyUserGroupAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyUserGroupAttributesInput) GetUserGroup() string {
 	if m != nil && m.UserGroup != nil {
@@ -932,21 +1363,40 @@ func (m *ModifyUserGroupAttributesInput) GetStatus() string {
 }
 
 type ModifyUserGroupAttributesOutput struct {
-	Action           *string                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupId      *string                     `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	Status           *string                     `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Action               *string              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupId          *string              `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	Status               *string              `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *ModifyUserGroupAttributesOutput) Reset()         { *m = ModifyUserGroupAttributesOutput{} }
 func (m *ModifyUserGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupAttributesOutput) ProtoMessage()    {}
 func (*ModifyUserGroupAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{21}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{21}
 }
+func (m *ModifyUserGroupAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyUserGroupAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyUserGroupAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyUserGroupAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyUserGroupAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyUserGroupAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyUserGroupAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyUserGroupAttributesOutput.Size(m)
+}
+func (m *ModifyUserGroupAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyUserGroupAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyUserGroupAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyUserGroupAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -983,7 +1433,7 @@ func (m *ModifyUserGroupAttributesOutput) GetStatus() string {
 	return ""
 }
 
-func (m *ModifyUserGroupAttributesOutput) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *ModifyUserGroupAttributesOutput) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -991,14 +1441,35 @@ func (m *ModifyUserGroupAttributesOutput) GetStatusTime() *google_protobuf1.Time
 }
 
 type DeleteUserGroupsInput struct {
-	UserGroups       []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	UserGroups           []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteUserGroupsInput) Reset()                    { *m = DeleteUserGroupsInput{} }
-func (m *DeleteUserGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteUserGroupsInput) ProtoMessage()               {}
-func (*DeleteUserGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{22} }
+func (m *DeleteUserGroupsInput) Reset()         { *m = DeleteUserGroupsInput{} }
+func (m *DeleteUserGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteUserGroupsInput) ProtoMessage()    {}
+func (*DeleteUserGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{22}
+}
+func (m *DeleteUserGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteUserGroupsInput.Unmarshal(m, b)
+}
+func (m *DeleteUserGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteUserGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteUserGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteUserGroupsInput.Merge(dst, src)
+}
+func (m *DeleteUserGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteUserGroupsInput.Size(m)
+}
+func (m *DeleteUserGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteUserGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteUserGroupsInput proto.InternalMessageInfo
 
 func (m *DeleteUserGroupsInput) GetUserGroups() []string {
 	if m != nil {
@@ -1008,17 +1479,38 @@ func (m *DeleteUserGroupsInput) GetUserGroups() []string {
 }
 
 type DeleteUserGroupsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupIds     []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupIds         []string `protobuf:"bytes,4,rep,name=user_group_ids,json=userGroupIds" json:"user_group_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteUserGroupsOutput) Reset()                    { *m = DeleteUserGroupsOutput{} }
-func (m *DeleteUserGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteUserGroupsOutput) ProtoMessage()               {}
-func (*DeleteUserGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{23} }
+func (m *DeleteUserGroupsOutput) Reset()         { *m = DeleteUserGroupsOutput{} }
+func (m *DeleteUserGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteUserGroupsOutput) ProtoMessage()    {}
+func (*DeleteUserGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{23}
+}
+func (m *DeleteUserGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteUserGroupsOutput.Unmarshal(m, b)
+}
+func (m *DeleteUserGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteUserGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteUserGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteUserGroupsOutput.Merge(dst, src)
+}
+func (m *DeleteUserGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteUserGroupsOutput.Size(m)
+}
+func (m *DeleteUserGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteUserGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteUserGroupsOutput proto.InternalMessageInfo
 
 func (m *DeleteUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1049,22 +1541,43 @@ func (m *DeleteUserGroupsOutput) GetUserGroupIds() []string {
 }
 
 type DescribeUserGroupMembersInput struct {
-	UserGroups       []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
-	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Limit            *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Verbose          *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey          *string  `protobuf:"bytes,8,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse          *int32   `protobuf:"varint,9,opt,name=reverse" json:"reverse,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	UserGroups           []string `protobuf:"bytes,1,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	Users                []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	Status               []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Limit                *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Verbose              *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey              *string  `protobuf:"bytes,8,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse              *int32   `protobuf:"varint,9,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeUserGroupMembersInput) Reset()                    { *m = DescribeUserGroupMembersInput{} }
-func (m *DescribeUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeUserGroupMembersInput) ProtoMessage()               {}
-func (*DescribeUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{24} }
+func (m *DescribeUserGroupMembersInput) Reset()         { *m = DescribeUserGroupMembersInput{} }
+func (m *DescribeUserGroupMembersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeUserGroupMembersInput) ProtoMessage()    {}
+func (*DescribeUserGroupMembersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{24}
+}
+func (m *DescribeUserGroupMembersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeUserGroupMembersInput.Unmarshal(m, b)
+}
+func (m *DescribeUserGroupMembersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeUserGroupMembersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeUserGroupMembersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeUserGroupMembersInput.Merge(dst, src)
+}
+func (m *DescribeUserGroupMembersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeUserGroupMembersInput.Size(m)
+}
+func (m *DescribeUserGroupMembersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeUserGroupMembersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeUserGroupMembersInput proto.InternalMessageInfo
 
 func (m *DescribeUserGroupMembersInput) GetUserGroups() []string {
 	if m != nil {
@@ -1130,21 +1643,40 @@ func (m *DescribeUserGroupMembersInput) GetReverse() int32 {
 }
 
 type DescribeUserGroupMembersOutput struct {
-	Action             *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode            *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message            *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupMemberSet []*UserGroupItem `protobuf:"bytes,4,rep,name=user_group_member_set,json=userGroupMemberSet" json:"user_group_member_set,omitempty"`
-	TotalCount         *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	ItemSet            []string         `protobuf:"bytes,6,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
-	XXX_unrecognized   []byte           `json:"-"`
+	Action               *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupMemberSet   []*UserGroupItem `protobuf:"bytes,4,rep,name=user_group_member_set,json=userGroupMemberSet" json:"user_group_member_set,omitempty"`
+	TotalCount           *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	ItemSet              []string         `protobuf:"bytes,6,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
 func (m *DescribeUserGroupMembersOutput) Reset()         { *m = DescribeUserGroupMembersOutput{} }
 func (m *DescribeUserGroupMembersOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeUserGroupMembersOutput) ProtoMessage()    {}
 func (*DescribeUserGroupMembersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{25}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{25}
 }
+func (m *DescribeUserGroupMembersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeUserGroupMembersOutput.Unmarshal(m, b)
+}
+func (m *DescribeUserGroupMembersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeUserGroupMembersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeUserGroupMembersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeUserGroupMembersOutput.Merge(dst, src)
+}
+func (m *DescribeUserGroupMembersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeUserGroupMembersOutput.Size(m)
+}
+func (m *DescribeUserGroupMembersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeUserGroupMembersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeUserGroupMembersOutput proto.InternalMessageInfo
 
 func (m *DescribeUserGroupMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1189,15 +1721,36 @@ func (m *DescribeUserGroupMembersOutput) GetItemSet() []string {
 }
 
 type AddUserGroupMembersInput struct {
-	UserGroup        *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	UserGroup            *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	Users                []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddUserGroupMembersInput) Reset()                    { *m = AddUserGroupMembersInput{} }
-func (m *AddUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
-func (*AddUserGroupMembersInput) ProtoMessage()               {}
-func (*AddUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{26} }
+func (m *AddUserGroupMembersInput) Reset()         { *m = AddUserGroupMembersInput{} }
+func (m *AddUserGroupMembersInput) String() string { return proto.CompactTextString(m) }
+func (*AddUserGroupMembersInput) ProtoMessage()    {}
+func (*AddUserGroupMembersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{26}
+}
+func (m *AddUserGroupMembersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddUserGroupMembersInput.Unmarshal(m, b)
+}
+func (m *AddUserGroupMembersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddUserGroupMembersInput.Marshal(b, m, deterministic)
+}
+func (dst *AddUserGroupMembersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddUserGroupMembersInput.Merge(dst, src)
+}
+func (m *AddUserGroupMembersInput) XXX_Size() int {
+	return xxx_messageInfo_AddUserGroupMembersInput.Size(m)
+}
+func (m *AddUserGroupMembersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddUserGroupMembersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddUserGroupMembersInput proto.InternalMessageInfo
 
 func (m *AddUserGroupMembersInput) GetUserGroup() string {
 	if m != nil && m.UserGroup != nil {
@@ -1214,18 +1767,39 @@ func (m *AddUserGroupMembersInput) GetUsers() []string {
 }
 
 type AddUserGroupMembersOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupId      *string  `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	UserIds          []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupId          *string  `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	UserIds              []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddUserGroupMembersOutput) Reset()                    { *m = AddUserGroupMembersOutput{} }
-func (m *AddUserGroupMembersOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddUserGroupMembersOutput) ProtoMessage()               {}
-func (*AddUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{27} }
+func (m *AddUserGroupMembersOutput) Reset()         { *m = AddUserGroupMembersOutput{} }
+func (m *AddUserGroupMembersOutput) String() string { return proto.CompactTextString(m) }
+func (*AddUserGroupMembersOutput) ProtoMessage()    {}
+func (*AddUserGroupMembersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{27}
+}
+func (m *AddUserGroupMembersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddUserGroupMembersOutput.Unmarshal(m, b)
+}
+func (m *AddUserGroupMembersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddUserGroupMembersOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddUserGroupMembersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddUserGroupMembersOutput.Merge(dst, src)
+}
+func (m *AddUserGroupMembersOutput) XXX_Size() int {
+	return xxx_messageInfo_AddUserGroupMembersOutput.Size(m)
+}
+func (m *AddUserGroupMembersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddUserGroupMembersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddUserGroupMembersOutput proto.InternalMessageInfo
 
 func (m *AddUserGroupMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1263,19 +1837,38 @@ func (m *AddUserGroupMembersOutput) GetUserIds() []string {
 }
 
 type ModifyUserGroupMemberAttributesInput struct {
-	UserGroup        *string `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	User             *string `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
-	Remarks          *string `protobuf:"bytes,3,opt,name=remarks" json:"remarks,omitempty"`
-	Status           *string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	UserGroup            *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	User                 *string  `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
+	Remarks              *string  `protobuf:"bytes,3,opt,name=remarks" json:"remarks,omitempty"`
+	Status               *string  `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyUserGroupMemberAttributesInput) Reset()         { *m = ModifyUserGroupMemberAttributesInput{} }
 func (m *ModifyUserGroupMemberAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupMemberAttributesInput) ProtoMessage()    {}
 func (*ModifyUserGroupMemberAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{28}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{28}
 }
+func (m *ModifyUserGroupMemberAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyUserGroupMemberAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyUserGroupMemberAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyUserGroupMemberAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyUserGroupMemberAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyUserGroupMemberAttributesInput.Merge(dst, src)
+}
+func (m *ModifyUserGroupMemberAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyUserGroupMemberAttributesInput.Size(m)
+}
+func (m *ModifyUserGroupMemberAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyUserGroupMemberAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyUserGroupMemberAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyUserGroupMemberAttributesInput) GetUserGroup() string {
 	if m != nil && m.UserGroup != nil {
@@ -1306,23 +1899,42 @@ func (m *ModifyUserGroupMemberAttributesInput) GetStatus() string {
 }
 
 type ModifyUserGroupMemberAttributesOutput struct {
-	Action           *string                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Status           *string                     `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	UserId           *string                     `protobuf:"bytes,5,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	Remarks          *string                     `protobuf:"bytes,6,opt,name=remarks" json:"remarks,omitempty"`
-	UserGroupId      *string                     `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,8,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Action               *string              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Status               *string              `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	UserId               *string              `protobuf:"bytes,5,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	Remarks              *string              `protobuf:"bytes,6,opt,name=remarks" json:"remarks,omitempty"`
+	UserGroupId          *string              `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,8,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *ModifyUserGroupMemberAttributesOutput) Reset()         { *m = ModifyUserGroupMemberAttributesOutput{} }
 func (m *ModifyUserGroupMemberAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyUserGroupMemberAttributesOutput) ProtoMessage()    {}
 func (*ModifyUserGroupMemberAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{29}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{29}
 }
+func (m *ModifyUserGroupMemberAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyUserGroupMemberAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyUserGroupMemberAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyUserGroupMemberAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyUserGroupMemberAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyUserGroupMemberAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyUserGroupMemberAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyUserGroupMemberAttributesOutput.Size(m)
+}
+func (m *ModifyUserGroupMemberAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyUserGroupMemberAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyUserGroupMemberAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyUserGroupMemberAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1373,7 +1985,7 @@ func (m *ModifyUserGroupMemberAttributesOutput) GetUserGroupId() string {
 	return ""
 }
 
-func (m *ModifyUserGroupMemberAttributesOutput) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *ModifyUserGroupMemberAttributesOutput) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1381,15 +1993,36 @@ func (m *ModifyUserGroupMemberAttributesOutput) GetStatusTime() *google_protobuf
 }
 
 type DeleteUserGroupMembersInput struct {
-	UserGroup        *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	UserGroup            *string  `protobuf:"bytes,1,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	Users                []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteUserGroupMembersInput) Reset()                    { *m = DeleteUserGroupMembersInput{} }
-func (m *DeleteUserGroupMembersInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteUserGroupMembersInput) ProtoMessage()               {}
-func (*DeleteUserGroupMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{30} }
+func (m *DeleteUserGroupMembersInput) Reset()         { *m = DeleteUserGroupMembersInput{} }
+func (m *DeleteUserGroupMembersInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteUserGroupMembersInput) ProtoMessage()    {}
+func (*DeleteUserGroupMembersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{30}
+}
+func (m *DeleteUserGroupMembersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteUserGroupMembersInput.Unmarshal(m, b)
+}
+func (m *DeleteUserGroupMembersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteUserGroupMembersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteUserGroupMembersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteUserGroupMembersInput.Merge(dst, src)
+}
+func (m *DeleteUserGroupMembersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteUserGroupMembersInput.Size(m)
+}
+func (m *DeleteUserGroupMembersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteUserGroupMembersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteUserGroupMembersInput proto.InternalMessageInfo
 
 func (m *DeleteUserGroupMembersInput) GetUserGroup() string {
 	if m != nil && m.UserGroup != nil {
@@ -1406,18 +2039,39 @@ func (m *DeleteUserGroupMembersInput) GetUsers() []string {
 }
 
 type DeleteUserGroupMembersOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserGroupId      *string  `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	UserIds          []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserGroupId          *string  `protobuf:"bytes,4,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	UserIds              []string `protobuf:"bytes,5,rep,name=user_ids,json=userIds" json:"user_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteUserGroupMembersOutput) Reset()                    { *m = DeleteUserGroupMembersOutput{} }
-func (m *DeleteUserGroupMembersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteUserGroupMembersOutput) ProtoMessage()               {}
-func (*DeleteUserGroupMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{31} }
+func (m *DeleteUserGroupMembersOutput) Reset()         { *m = DeleteUserGroupMembersOutput{} }
+func (m *DeleteUserGroupMembersOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteUserGroupMembersOutput) ProtoMessage()    {}
+func (*DeleteUserGroupMembersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{31}
+}
+func (m *DeleteUserGroupMembersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteUserGroupMembersOutput.Unmarshal(m, b)
+}
+func (m *DeleteUserGroupMembersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteUserGroupMembersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteUserGroupMembersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteUserGroupMembersOutput.Merge(dst, src)
+}
+func (m *DeleteUserGroupMembersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteUserGroupMembersOutput.Size(m)
+}
+func (m *DeleteUserGroupMembersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteUserGroupMembersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteUserGroupMembersOutput proto.InternalMessageInfo
 
 func (m *DeleteUserGroupMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1455,21 +2109,42 @@ func (m *DeleteUserGroupMembersOutput) GetUserIds() []string {
 }
 
 type DescribeGroupRolesInput struct {
-	GroupRoles       []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey          *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse          *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	GroupRoles           []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	Status               []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey              *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse              *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeGroupRolesInput) Reset()                    { *m = DescribeGroupRolesInput{} }
-func (m *DescribeGroupRolesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeGroupRolesInput) ProtoMessage()               {}
-func (*DescribeGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{32} }
+func (m *DescribeGroupRolesInput) Reset()         { *m = DescribeGroupRolesInput{} }
+func (m *DescribeGroupRolesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeGroupRolesInput) ProtoMessage()    {}
+func (*DescribeGroupRolesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{32}
+}
+func (m *DescribeGroupRolesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeGroupRolesInput.Unmarshal(m, b)
+}
+func (m *DescribeGroupRolesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeGroupRolesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeGroupRolesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeGroupRolesInput.Merge(dst, src)
+}
+func (m *DescribeGroupRolesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeGroupRolesInput.Size(m)
+}
+func (m *DescribeGroupRolesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeGroupRolesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeGroupRolesInput proto.InternalMessageInfo
 
 func (m *DescribeGroupRolesInput) GetGroupRoles() []string {
 	if m != nil {
@@ -1528,18 +2203,39 @@ func (m *DescribeGroupRolesInput) GetReverse() int32 {
 }
 
 type DescribeGroupRolesOutput struct {
-	Action           *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleSet     []*GroupRoleItem `protobuf:"bytes,4,rep,name=group_role_set,json=groupRoleSet" json:"group_role_set,omitempty"`
-	TotalCount       *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte           `json:"-"`
+	Action               *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleSet         []*GroupRoleItem `protobuf:"bytes,4,rep,name=group_role_set,json=groupRoleSet" json:"group_role_set,omitempty"`
+	TotalCount           *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
-func (m *DescribeGroupRolesOutput) Reset()                    { *m = DescribeGroupRolesOutput{} }
-func (m *DescribeGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeGroupRolesOutput) ProtoMessage()               {}
-func (*DescribeGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{33} }
+func (m *DescribeGroupRolesOutput) Reset()         { *m = DescribeGroupRolesOutput{} }
+func (m *DescribeGroupRolesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeGroupRolesOutput) ProtoMessage()    {}
+func (*DescribeGroupRolesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{33}
+}
+func (m *DescribeGroupRolesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeGroupRolesOutput.Unmarshal(m, b)
+}
+func (m *DescribeGroupRolesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeGroupRolesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeGroupRolesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeGroupRolesOutput.Merge(dst, src)
+}
+func (m *DescribeGroupRolesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeGroupRolesOutput.Size(m)
+}
+func (m *DescribeGroupRolesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeGroupRolesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeGroupRolesOutput proto.InternalMessageInfo
 
 func (m *DescribeGroupRolesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1577,17 +2273,38 @@ func (m *DescribeGroupRolesOutput) GetTotalCount() int32 {
 }
 
 type CreateGroupRolesInput struct {
-	RoleType         *string `protobuf:"bytes,1,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
-	GroupRoleName    *string `protobuf:"bytes,2,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Count            *int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	RoleType             *string  `protobuf:"bytes,1,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
+	GroupRoleName        *string  `protobuf:"bytes,2,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Count                *int32   `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateGroupRolesInput) Reset()                    { *m = CreateGroupRolesInput{} }
-func (m *CreateGroupRolesInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateGroupRolesInput) ProtoMessage()               {}
-func (*CreateGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{34} }
+func (m *CreateGroupRolesInput) Reset()         { *m = CreateGroupRolesInput{} }
+func (m *CreateGroupRolesInput) String() string { return proto.CompactTextString(m) }
+func (*CreateGroupRolesInput) ProtoMessage()    {}
+func (*CreateGroupRolesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{34}
+}
+func (m *CreateGroupRolesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateGroupRolesInput.Unmarshal(m, b)
+}
+func (m *CreateGroupRolesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateGroupRolesInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateGroupRolesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateGroupRolesInput.Merge(dst, src)
+}
+func (m *CreateGroupRolesInput) XXX_Size() int {
+	return xxx_messageInfo_CreateGroupRolesInput.Size(m)
+}
+func (m *CreateGroupRolesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateGroupRolesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateGroupRolesInput proto.InternalMessageInfo
 
 func (m *CreateGroupRolesInput) GetRoleType() string {
 	if m != nil && m.RoleType != nil {
@@ -1618,17 +2335,38 @@ func (m *CreateGroupRolesInput) GetCount() int32 {
 }
 
 type CreateGroupRolesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleIds     []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleIds         []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateGroupRolesOutput) Reset()                    { *m = CreateGroupRolesOutput{} }
-func (m *CreateGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateGroupRolesOutput) ProtoMessage()               {}
-func (*CreateGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{35} }
+func (m *CreateGroupRolesOutput) Reset()         { *m = CreateGroupRolesOutput{} }
+func (m *CreateGroupRolesOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateGroupRolesOutput) ProtoMessage()    {}
+func (*CreateGroupRolesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{35}
+}
+func (m *CreateGroupRolesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateGroupRolesOutput.Unmarshal(m, b)
+}
+func (m *CreateGroupRolesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateGroupRolesOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateGroupRolesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateGroupRolesOutput.Merge(dst, src)
+}
+func (m *CreateGroupRolesOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateGroupRolesOutput.Size(m)
+}
+func (m *CreateGroupRolesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateGroupRolesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateGroupRolesOutput proto.InternalMessageInfo
 
 func (m *CreateGroupRolesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1659,20 +2397,39 @@ func (m *CreateGroupRolesOutput) GetGroupRoleIds() []string {
 }
 
 type ModifyGroupRoleAttributesInput struct {
-	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	RoleType         *string `protobuf:"bytes,2,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
-	GroupRoleName    *string `protobuf:"bytes,3,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
-	Description      *string `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	Status           *string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	GroupRole            *string  `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	RoleType             *string  `protobuf:"bytes,2,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
+	GroupRoleName        *string  `protobuf:"bytes,3,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
+	Description          *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	Status               *string  `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyGroupRoleAttributesInput) Reset()         { *m = ModifyGroupRoleAttributesInput{} }
 func (m *ModifyGroupRoleAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleAttributesInput) ProtoMessage()    {}
 func (*ModifyGroupRoleAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{36}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{36}
 }
+func (m *ModifyGroupRoleAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyGroupRoleAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyGroupRoleAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyGroupRoleAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyGroupRoleAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyGroupRoleAttributesInput.Merge(dst, src)
+}
+func (m *ModifyGroupRoleAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyGroupRoleAttributesInput.Size(m)
+}
+func (m *ModifyGroupRoleAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyGroupRoleAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyGroupRoleAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyGroupRoleAttributesInput) GetGroupRole() string {
 	if m != nil && m.GroupRole != nil {
@@ -1710,20 +2467,39 @@ func (m *ModifyGroupRoleAttributesInput) GetStatus() string {
 }
 
 type ModifyGroupRoleAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleId      *string `protobuf:"bytes,4,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	Description      *string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleId          *string  `protobuf:"bytes,4,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	Description          *string  `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyGroupRoleAttributesOutput) Reset()         { *m = ModifyGroupRoleAttributesOutput{} }
 func (m *ModifyGroupRoleAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleAttributesOutput) ProtoMessage()    {}
 func (*ModifyGroupRoleAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{37}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{37}
 }
+func (m *ModifyGroupRoleAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyGroupRoleAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyGroupRoleAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyGroupRoleAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyGroupRoleAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyGroupRoleAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyGroupRoleAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyGroupRoleAttributesOutput.Size(m)
+}
+func (m *ModifyGroupRoleAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyGroupRoleAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyGroupRoleAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyGroupRoleAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1761,14 +2537,35 @@ func (m *ModifyGroupRoleAttributesOutput) GetDescription() string {
 }
 
 type DeleteGroupRolesInput struct {
-	GroupRoles       []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	GroupRoles           []string `protobuf:"bytes,1,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteGroupRolesInput) Reset()                    { *m = DeleteGroupRolesInput{} }
-func (m *DeleteGroupRolesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteGroupRolesInput) ProtoMessage()               {}
-func (*DeleteGroupRolesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{38} }
+func (m *DeleteGroupRolesInput) Reset()         { *m = DeleteGroupRolesInput{} }
+func (m *DeleteGroupRolesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteGroupRolesInput) ProtoMessage()    {}
+func (*DeleteGroupRolesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{38}
+}
+func (m *DeleteGroupRolesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteGroupRolesInput.Unmarshal(m, b)
+}
+func (m *DeleteGroupRolesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteGroupRolesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteGroupRolesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteGroupRolesInput.Merge(dst, src)
+}
+func (m *DeleteGroupRolesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteGroupRolesInput.Size(m)
+}
+func (m *DeleteGroupRolesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteGroupRolesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteGroupRolesInput proto.InternalMessageInfo
 
 func (m *DeleteGroupRolesInput) GetGroupRoles() []string {
 	if m != nil {
@@ -1778,17 +2575,38 @@ func (m *DeleteGroupRolesInput) GetGroupRoles() []string {
 }
 
 type DeleteGroupRolesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleIds     []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleIds         []string `protobuf:"bytes,4,rep,name=group_role_ids,json=groupRoleIds" json:"group_role_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteGroupRolesOutput) Reset()                    { *m = DeleteGroupRolesOutput{} }
-func (m *DeleteGroupRolesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteGroupRolesOutput) ProtoMessage()               {}
-func (*DeleteGroupRolesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{39} }
+func (m *DeleteGroupRolesOutput) Reset()         { *m = DeleteGroupRolesOutput{} }
+func (m *DeleteGroupRolesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteGroupRolesOutput) ProtoMessage()    {}
+func (*DeleteGroupRolesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{39}
+}
+func (m *DeleteGroupRolesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteGroupRolesOutput.Unmarshal(m, b)
+}
+func (m *DeleteGroupRolesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteGroupRolesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteGroupRolesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteGroupRolesOutput.Merge(dst, src)
+}
+func (m *DeleteGroupRolesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteGroupRolesOutput.Size(m)
+}
+func (m *DeleteGroupRolesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteGroupRolesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteGroupRolesOutput proto.InternalMessageInfo
 
 func (m *DeleteGroupRolesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1819,21 +2637,42 @@ func (m *DeleteGroupRolesOutput) GetGroupRoleIds() []string {
 }
 
 type DescribeGroupRoleRulesInput struct {
-	GroupRoleRules   []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
-	GroupRoles       []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey          *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse          *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	GroupRoleRules       []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
+	GroupRoles           []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	Status               []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey              *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse              *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeGroupRoleRulesInput) Reset()                    { *m = DescribeGroupRoleRulesInput{} }
-func (m *DescribeGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeGroupRoleRulesInput) ProtoMessage()               {}
-func (*DescribeGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{40} }
+func (m *DescribeGroupRoleRulesInput) Reset()         { *m = DescribeGroupRoleRulesInput{} }
+func (m *DescribeGroupRoleRulesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeGroupRoleRulesInput) ProtoMessage()    {}
+func (*DescribeGroupRoleRulesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{40}
+}
+func (m *DescribeGroupRoleRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeGroupRoleRulesInput.Unmarshal(m, b)
+}
+func (m *DescribeGroupRoleRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeGroupRoleRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeGroupRoleRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeGroupRoleRulesInput.Merge(dst, src)
+}
+func (m *DescribeGroupRoleRulesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeGroupRoleRulesInput.Size(m)
+}
+func (m *DescribeGroupRoleRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeGroupRoleRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeGroupRoleRulesInput proto.InternalMessageInfo
 
 func (m *DescribeGroupRoleRulesInput) GetGroupRoleRules() []string {
 	if m != nil {
@@ -1892,19 +2731,40 @@ func (m *DescribeGroupRoleRulesInput) GetReverse() int32 {
 }
 
 type DescribeGroupRoleRulesOutput struct {
-	Action           *string              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleRuleSet []*GroupRoleRuleItem `protobuf:"bytes,4,rep,name=group_role_rule_set,json=groupRoleRuleSet" json:"group_role_rule_set,omitempty"`
-	ItemSet          []string             `protobuf:"bytes,5,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
-	TotalCount       *int32               `protobuf:"varint,6,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte               `json:"-"`
+	Action               *string              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleRuleSet     []*GroupRoleRuleItem `protobuf:"bytes,4,rep,name=group_role_rule_set,json=groupRoleRuleSet" json:"group_role_rule_set,omitempty"`
+	ItemSet              []string             `protobuf:"bytes,5,rep,name=item_set,json=itemSet" json:"item_set,omitempty"`
+	TotalCount           *int32               `protobuf:"varint,6,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *DescribeGroupRoleRulesOutput) Reset()                    { *m = DescribeGroupRoleRulesOutput{} }
-func (m *DescribeGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeGroupRoleRulesOutput) ProtoMessage()               {}
-func (*DescribeGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{41} }
+func (m *DescribeGroupRoleRulesOutput) Reset()         { *m = DescribeGroupRoleRulesOutput{} }
+func (m *DescribeGroupRoleRulesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeGroupRoleRulesOutput) ProtoMessage()    {}
+func (*DescribeGroupRoleRulesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{41}
+}
+func (m *DescribeGroupRoleRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeGroupRoleRulesOutput.Unmarshal(m, b)
+}
+func (m *DescribeGroupRoleRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeGroupRoleRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeGroupRoleRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeGroupRoleRulesOutput.Merge(dst, src)
+}
+func (m *DescribeGroupRoleRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeGroupRoleRulesOutput.Size(m)
+}
+func (m *DescribeGroupRoleRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeGroupRoleRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeGroupRoleRulesOutput proto.InternalMessageInfo
 
 func (m *DescribeGroupRoleRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1949,16 +2809,37 @@ func (m *DescribeGroupRoleRulesOutput) GetTotalCount() int32 {
 }
 
 type AddGroupRoleRulesInput struct {
-	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	Policy           *string `protobuf:"bytes,2,opt,name=policy" json:"policy,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	GroupRole            *string  `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	Policy               *string  `protobuf:"bytes,2,opt,name=policy" json:"policy,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddGroupRoleRulesInput) Reset()                    { *m = AddGroupRoleRulesInput{} }
-func (m *AddGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddGroupRoleRulesInput) ProtoMessage()               {}
-func (*AddGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{42} }
+func (m *AddGroupRoleRulesInput) Reset()         { *m = AddGroupRoleRulesInput{} }
+func (m *AddGroupRoleRulesInput) String() string { return proto.CompactTextString(m) }
+func (*AddGroupRoleRulesInput) ProtoMessage()    {}
+func (*AddGroupRoleRulesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{42}
+}
+func (m *AddGroupRoleRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddGroupRoleRulesInput.Unmarshal(m, b)
+}
+func (m *AddGroupRoleRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddGroupRoleRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddGroupRoleRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddGroupRoleRulesInput.Merge(dst, src)
+}
+func (m *AddGroupRoleRulesInput) XXX_Size() int {
+	return xxx_messageInfo_AddGroupRoleRulesInput.Size(m)
+}
+func (m *AddGroupRoleRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddGroupRoleRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddGroupRoleRulesInput proto.InternalMessageInfo
 
 func (m *AddGroupRoleRulesInput) GetGroupRole() string {
 	if m != nil && m.GroupRole != nil {
@@ -1982,27 +2863,48 @@ func (m *AddGroupRoleRulesInput) GetDescription() string {
 }
 
 type AddGroupRoleRulesOutput struct {
-	Action           *string                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Status           *string                     `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	Description      *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	GroupRoleId      *string                     `protobuf:"bytes,6,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	ConsoleId        *string                     `protobuf:"bytes,7,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	RootUserId       *string                     `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Principle        *string                     `protobuf:"bytes,10,opt,name=principle" json:"principle,omitempty"`
-	Policy           *string                     `protobuf:"bytes,11,opt,name=policy" json:"policy,omitempty"`
-	Owner            *string                     `protobuf:"bytes,12,opt,name=owner" json:"owner,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,13,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	GroupRoleRuleId  *string                     `protobuf:"bytes,14,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Action               *string              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Status               *string              `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	Description          *string              `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	GroupRoleId          *string              `protobuf:"bytes,6,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	ConsoleId            *string              `protobuf:"bytes,7,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	RootUserId           *string              `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Principle            *string              `protobuf:"bytes,10,opt,name=principle" json:"principle,omitempty"`
+	Policy               *string              `protobuf:"bytes,11,opt,name=policy" json:"policy,omitempty"`
+	Owner                *string              `protobuf:"bytes,12,opt,name=owner" json:"owner,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,13,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	GroupRoleRuleId      *string              `protobuf:"bytes,14,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *AddGroupRoleRulesOutput) Reset()                    { *m = AddGroupRoleRulesOutput{} }
-func (m *AddGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddGroupRoleRulesOutput) ProtoMessage()               {}
-func (*AddGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{43} }
+func (m *AddGroupRoleRulesOutput) Reset()         { *m = AddGroupRoleRulesOutput{} }
+func (m *AddGroupRoleRulesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddGroupRoleRulesOutput) ProtoMessage()    {}
+func (*AddGroupRoleRulesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{43}
+}
+func (m *AddGroupRoleRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddGroupRoleRulesOutput.Unmarshal(m, b)
+}
+func (m *AddGroupRoleRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddGroupRoleRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddGroupRoleRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddGroupRoleRulesOutput.Merge(dst, src)
+}
+func (m *AddGroupRoleRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddGroupRoleRulesOutput.Size(m)
+}
+func (m *AddGroupRoleRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddGroupRoleRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddGroupRoleRulesOutput proto.InternalMessageInfo
 
 func (m *AddGroupRoleRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2060,7 +2962,7 @@ func (m *AddGroupRoleRulesOutput) GetRootUserId() string {
 	return ""
 }
 
-func (m *AddGroupRoleRulesOutput) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *AddGroupRoleRulesOutput) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2088,7 +2990,7 @@ func (m *AddGroupRoleRulesOutput) GetOwner() string {
 	return ""
 }
 
-func (m *AddGroupRoleRulesOutput) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *AddGroupRoleRulesOutput) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -2103,18 +3005,37 @@ func (m *AddGroupRoleRulesOutput) GetGroupRoleRuleId() string {
 }
 
 type ModifyGroupRoleRuleAttributesInput struct {
-	GroupRoleRule    *string `protobuf:"bytes,1,opt,name=group_role_rule,json=groupRoleRule" json:"group_role_rule,omitempty"`
-	Description      *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Policy           *string `protobuf:"bytes,3,opt,name=policy" json:"policy,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	GroupRoleRule        *string  `protobuf:"bytes,1,opt,name=group_role_rule,json=groupRoleRule" json:"group_role_rule,omitempty"`
+	Description          *string  `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Policy               *string  `protobuf:"bytes,3,opt,name=policy" json:"policy,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyGroupRoleRuleAttributesInput) Reset()         { *m = ModifyGroupRoleRuleAttributesInput{} }
 func (m *ModifyGroupRoleRuleAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleRuleAttributesInput) ProtoMessage()    {}
 func (*ModifyGroupRoleRuleAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{44}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{44}
 }
+func (m *ModifyGroupRoleRuleAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyGroupRoleRuleAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyGroupRoleRuleAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyGroupRoleRuleAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyGroupRoleRuleAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyGroupRoleRuleAttributesInput.Merge(dst, src)
+}
+func (m *ModifyGroupRoleRuleAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyGroupRoleRuleAttributesInput.Size(m)
+}
+func (m *ModifyGroupRoleRuleAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyGroupRoleRuleAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyGroupRoleRuleAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyGroupRoleRuleAttributesInput) GetGroupRoleRule() string {
 	if m != nil && m.GroupRoleRule != nil {
@@ -2138,20 +3059,39 @@ func (m *ModifyGroupRoleRuleAttributesInput) GetPolicy() string {
 }
 
 type ModifyGroupRoleRuleAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Policy           *string `protobuf:"bytes,4,opt,name=policy" json:"policy,omitempty"`
-	GroupRoleRuleId  *string `protobuf:"bytes,5,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Policy               *string  `protobuf:"bytes,4,opt,name=policy" json:"policy,omitempty"`
+	GroupRoleRuleId      *string  `protobuf:"bytes,5,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyGroupRoleRuleAttributesOutput) Reset()         { *m = ModifyGroupRoleRuleAttributesOutput{} }
 func (m *ModifyGroupRoleRuleAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyGroupRoleRuleAttributesOutput) ProtoMessage()    {}
 func (*ModifyGroupRoleRuleAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{45}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{45}
 }
+func (m *ModifyGroupRoleRuleAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyGroupRoleRuleAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyGroupRoleRuleAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyGroupRoleRuleAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyGroupRoleRuleAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyGroupRoleRuleAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyGroupRoleRuleAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyGroupRoleRuleAttributesOutput.Size(m)
+}
+func (m *ModifyGroupRoleRuleAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyGroupRoleRuleAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyGroupRoleRuleAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyGroupRoleRuleAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2189,15 +3129,36 @@ func (m *ModifyGroupRoleRuleAttributesOutput) GetGroupRoleRuleId() string {
 }
 
 type DeleteGroupRoleRulesInput struct {
-	GroupRoleRules   []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
-	GroupRoles       []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	GroupRoleRules       []string `protobuf:"bytes,1,rep,name=group_role_rules,json=groupRoleRules" json:"group_role_rules,omitempty"`
+	GroupRoles           []string `protobuf:"bytes,2,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteGroupRoleRulesInput) Reset()                    { *m = DeleteGroupRoleRulesInput{} }
-func (m *DeleteGroupRoleRulesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteGroupRoleRulesInput) ProtoMessage()               {}
-func (*DeleteGroupRoleRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{46} }
+func (m *DeleteGroupRoleRulesInput) Reset()         { *m = DeleteGroupRoleRulesInput{} }
+func (m *DeleteGroupRoleRulesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteGroupRoleRulesInput) ProtoMessage()    {}
+func (*DeleteGroupRoleRulesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{46}
+}
+func (m *DeleteGroupRoleRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteGroupRoleRulesInput.Unmarshal(m, b)
+}
+func (m *DeleteGroupRoleRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteGroupRoleRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteGroupRoleRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteGroupRoleRulesInput.Merge(dst, src)
+}
+func (m *DeleteGroupRoleRulesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteGroupRoleRulesInput.Size(m)
+}
+func (m *DeleteGroupRoleRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteGroupRoleRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteGroupRoleRulesInput proto.InternalMessageInfo
 
 func (m *DeleteGroupRoleRulesInput) GetGroupRoleRules() []string {
 	if m != nil {
@@ -2214,17 +3175,38 @@ func (m *DeleteGroupRoleRulesInput) GetGroupRoles() []string {
 }
 
 type DeleteGroupRoleRulesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	GroupRoleRuleIds []string `protobuf:"bytes,4,rep,name=group_role_rule_ids,json=groupRoleRuleIds" json:"group_role_rule_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	GroupRoleRuleIds     []string `protobuf:"bytes,4,rep,name=group_role_rule_ids,json=groupRoleRuleIds" json:"group_role_rule_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteGroupRoleRulesOutput) Reset()                    { *m = DeleteGroupRoleRulesOutput{} }
-func (m *DeleteGroupRoleRulesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteGroupRoleRulesOutput) ProtoMessage()               {}
-func (*DeleteGroupRoleRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor17, []int{47} }
+func (m *DeleteGroupRoleRulesOutput) Reset()         { *m = DeleteGroupRoleRulesOutput{} }
+func (m *DeleteGroupRoleRulesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteGroupRoleRulesOutput) ProtoMessage()    {}
+func (*DeleteGroupRoleRulesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{47}
+}
+func (m *DeleteGroupRoleRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteGroupRoleRulesOutput.Unmarshal(m, b)
+}
+func (m *DeleteGroupRoleRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteGroupRoleRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteGroupRoleRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteGroupRoleRulesOutput.Merge(dst, src)
+}
+func (m *DeleteGroupRoleRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteGroupRoleRulesOutput.Size(m)
+}
+func (m *DeleteGroupRoleRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteGroupRoleRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteGroupRoleRulesOutput proto.InternalMessageInfo
 
 func (m *DeleteGroupRoleRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2255,16 +3237,35 @@ func (m *DeleteGroupRoleRulesOutput) GetGroupRoleRuleIds() []string {
 }
 
 type GrantResourceGroupsToUserGroupsInput struct {
-	RurSet           []*GrantResourceGroupsToUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
-	XXX_unrecognized []byte                                              `json:"-"`
+	RurSet               []*GrantResourceGroupsToUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                            `json:"-"`
+	XXX_unrecognized     []byte                                              `json:"-"`
+	XXX_sizecache        int32                                               `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput) Reset()         { *m = GrantResourceGroupsToUserGroupsInput{} }
 func (m *GrantResourceGroupsToUserGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*GrantResourceGroupsToUserGroupsInput) ProtoMessage()    {}
 func (*GrantResourceGroupsToUserGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{48}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{48}
 }
+func (m *GrantResourceGroupsToUserGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsInput.Unmarshal(m, b)
+}
+func (m *GrantResourceGroupsToUserGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *GrantResourceGroupsToUserGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsInput.Merge(dst, src)
+}
+func (m *GrantResourceGroupsToUserGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsInput.Size(m)
+}
+func (m *GrantResourceGroupsToUserGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantResourceGroupsToUserGroupsInput proto.InternalMessageInfo
 
 func (m *GrantResourceGroupsToUserGroupsInput) GetRurSet() []*GrantResourceGroupsToUserGroupsInput_RequestItem {
 	if m != nil {
@@ -2274,10 +3275,12 @@ func (m *GrantResourceGroupsToUserGroupsInput) GetRurSet() []*GrantResourceGroup
 }
 
 type GrantResourceGroupsToUserGroupsInput_RequestItem struct {
-	ResourceGroup    *string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup        *string `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	GroupRole        *string `protobuf:"bytes,3,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ResourceGroup        *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup            *string  `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	GroupRole            *string  `protobuf:"bytes,3,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) Reset() {
@@ -2288,8 +3291,25 @@ func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) String() string {
 }
 func (*GrantResourceGroupsToUserGroupsInput_RequestItem) ProtoMessage() {}
 func (*GrantResourceGroupsToUserGroupsInput_RequestItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{48, 0}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{48, 0}
 }
+func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsInput_RequestItem.Unmarshal(m, b)
+}
+func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsInput_RequestItem.Marshal(b, m, deterministic)
+}
+func (dst *GrantResourceGroupsToUserGroupsInput_RequestItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsInput_RequestItem.Merge(dst, src)
+}
+func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) XXX_Size() int {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsInput_RequestItem.Size(m)
+}
+func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsInput_RequestItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantResourceGroupsToUserGroupsInput_RequestItem proto.InternalMessageInfo
 
 func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) GetResourceGroup() string {
 	if m != nil && m.ResourceGroup != nil {
@@ -2313,19 +3333,38 @@ func (m *GrantResourceGroupsToUserGroupsInput_RequestItem) GetGroupRole() string
 }
 
 type GrantResourceGroupsToUserGroupsOutput struct {
-	Action           *string                                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RurSet           []*GrantResourceGroupsToUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
-	XXX_unrecognized []byte                                                `json:"-"`
+	Action               *string                                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RurSet               []*GrantResourceGroupsToUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                              `json:"-"`
+	XXX_unrecognized     []byte                                                `json:"-"`
+	XXX_sizecache        int32                                                 `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput) Reset()         { *m = GrantResourceGroupsToUserGroupsOutput{} }
 func (m *GrantResourceGroupsToUserGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*GrantResourceGroupsToUserGroupsOutput) ProtoMessage()    {}
 func (*GrantResourceGroupsToUserGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{49}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{49}
 }
+func (m *GrantResourceGroupsToUserGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput.Unmarshal(m, b)
+}
+func (m *GrantResourceGroupsToUserGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *GrantResourceGroupsToUserGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput.Merge(dst, src)
+}
+func (m *GrantResourceGroupsToUserGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput.Size(m)
+}
+func (m *GrantResourceGroupsToUserGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput proto.InternalMessageInfo
 
 func (m *GrantResourceGroupsToUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2356,10 +3395,12 @@ func (m *GrantResourceGroupsToUserGroupsOutput) GetRurSet() []*GrantResourceGrou
 }
 
 type GrantResourceGroupsToUserGroupsOutput_ResponseItem struct {
-	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	ResourceGroup    *string `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup        *string `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	GroupRole            *string  `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	ResourceGroup        *string  `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup            *string  `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) Reset() {
@@ -2370,8 +3411,25 @@ func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) String() string {
 }
 func (*GrantResourceGroupsToUserGroupsOutput_ResponseItem) ProtoMessage() {}
 func (*GrantResourceGroupsToUserGroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{49, 0}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{49, 0}
 }
+func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *GrantResourceGroupsToUserGroupsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput_ResponseItem.Size(m)
+}
+func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantResourceGroupsToUserGroupsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) GetGroupRole() string {
 	if m != nil && m.GroupRole != nil {
@@ -2395,11 +3453,13 @@ func (m *GrantResourceGroupsToUserGroupsOutput_ResponseItem) GetUserGroup() stri
 }
 
 type RevokeResourceGroupsFromUserGroupsInput struct {
-	RuSet            []*RevokeResourceGroupsFromUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=ru_set,json=ruSet" json:"ru_set,omitempty"`
-	ResourceGroups   []string                                               `protobuf:"bytes,2,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	UserGroups       []string                                               `protobuf:"bytes,3,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	GroupRoles       []string                                               `protobuf:"bytes,4,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	XXX_unrecognized []byte                                                 `json:"-"`
+	RuSet                []*RevokeResourceGroupsFromUserGroupsInput_RequestItem `protobuf:"bytes,1,rep,name=ru_set,json=ruSet" json:"ru_set,omitempty"`
+	ResourceGroups       []string                                               `protobuf:"bytes,2,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	UserGroups           []string                                               `protobuf:"bytes,3,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	GroupRoles           []string                                               `protobuf:"bytes,4,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                               `json:"-"`
+	XXX_unrecognized     []byte                                                 `json:"-"`
+	XXX_sizecache        int32                                                  `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput) Reset() {
@@ -2408,8 +3468,25 @@ func (m *RevokeResourceGroupsFromUserGroupsInput) Reset() {
 func (m *RevokeResourceGroupsFromUserGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*RevokeResourceGroupsFromUserGroupsInput) ProtoMessage()    {}
 func (*RevokeResourceGroupsFromUserGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{50}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{50}
 }
+func (m *RevokeResourceGroupsFromUserGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput.Unmarshal(m, b)
+}
+func (m *RevokeResourceGroupsFromUserGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeResourceGroupsFromUserGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput.Merge(dst, src)
+}
+func (m *RevokeResourceGroupsFromUserGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput.Size(m)
+}
+func (m *RevokeResourceGroupsFromUserGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput proto.InternalMessageInfo
 
 func (m *RevokeResourceGroupsFromUserGroupsInput) GetRuSet() []*RevokeResourceGroupsFromUserGroupsInput_RequestItem {
 	if m != nil {
@@ -2440,9 +3517,11 @@ func (m *RevokeResourceGroupsFromUserGroupsInput) GetGroupRoles() []string {
 }
 
 type RevokeResourceGroupsFromUserGroupsInput_RequestItem struct {
-	ResourceGroup    *string `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup        *string `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ResourceGroup        *string  `protobuf:"bytes,1,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup            *string  `protobuf:"bytes,2,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) Reset() {
@@ -2453,8 +3532,25 @@ func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) String() string {
 }
 func (*RevokeResourceGroupsFromUserGroupsInput_RequestItem) ProtoMessage() {}
 func (*RevokeResourceGroupsFromUserGroupsInput_RequestItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{50, 0}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{50, 0}
 }
+func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput_RequestItem.Unmarshal(m, b)
+}
+func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput_RequestItem.Marshal(b, m, deterministic)
+}
+func (dst *RevokeResourceGroupsFromUserGroupsInput_RequestItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput_RequestItem.Merge(dst, src)
+}
+func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) XXX_Size() int {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput_RequestItem.Size(m)
+}
+func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput_RequestItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeResourceGroupsFromUserGroupsInput_RequestItem proto.InternalMessageInfo
 
 func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) GetResourceGroup() string {
 	if m != nil && m.ResourceGroup != nil {
@@ -2471,11 +3567,13 @@ func (m *RevokeResourceGroupsFromUserGroupsInput_RequestItem) GetUserGroup() str
 }
 
 type RevokeResourceGroupsFromUserGroupsOutput struct {
-	Action           *string                                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RurSet           []*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
-	XXX_unrecognized []byte                                                   `json:"-"`
+	Action               *string                                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RurSet               []*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=rur_set,json=rurSet" json:"rur_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                                 `json:"-"`
+	XXX_unrecognized     []byte                                                   `json:"-"`
+	XXX_sizecache        int32                                                    `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput) Reset() {
@@ -2484,8 +3582,25 @@ func (m *RevokeResourceGroupsFromUserGroupsOutput) Reset() {
 func (m *RevokeResourceGroupsFromUserGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*RevokeResourceGroupsFromUserGroupsOutput) ProtoMessage()    {}
 func (*RevokeResourceGroupsFromUserGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{51}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{51}
 }
+func (m *RevokeResourceGroupsFromUserGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput.Unmarshal(m, b)
+}
+func (m *RevokeResourceGroupsFromUserGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeResourceGroupsFromUserGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput.Merge(dst, src)
+}
+func (m *RevokeResourceGroupsFromUserGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput.Size(m)
+}
+func (m *RevokeResourceGroupsFromUserGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput proto.InternalMessageInfo
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2516,10 +3631,12 @@ func (m *RevokeResourceGroupsFromUserGroupsOutput) GetRurSet() []*RevokeResource
 }
 
 type RevokeResourceGroupsFromUserGroupsOutput_ResponseItem struct {
-	GroupRole        *string `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
-	ResourceGroup    *string `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
-	UserGroup        *string `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	GroupRole            *string  `protobuf:"bytes,1,opt,name=group_role,json=groupRole" json:"group_role,omitempty"`
+	ResourceGroup        *string  `protobuf:"bytes,2,opt,name=resource_group,json=resourceGroup" json:"resource_group,omitempty"`
+	UserGroup            *string  `protobuf:"bytes,3,opt,name=user_group,json=userGroup" json:"user_group,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) Reset() {
@@ -2530,8 +3647,25 @@ func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) String() string 
 }
 func (*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) ProtoMessage() {}
 func (*RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{51, 0}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{51, 0}
 }
+func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput_ResponseItem.Size(m)
+}
+func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeResourceGroupsFromUserGroupsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) GetGroupRole() string {
 	if m != nil && m.GroupRole != nil {
@@ -2555,23 +3689,42 @@ func (m *RevokeResourceGroupsFromUserGroupsOutput_ResponseItem) GetUserGroup() s
 }
 
 type DescribeResourceUserGroupsInput struct {
-	ResourceGroups   []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
-	UserGroups       []string `protobuf:"bytes,2,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
-	GroupRoles       []string `protobuf:"bytes,3,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
-	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	SortKey          *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
-	Reverse          *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceGroups       []string `protobuf:"bytes,1,rep,name=resource_groups,json=resourceGroups" json:"resource_groups,omitempty"`
+	UserGroups           []string `protobuf:"bytes,2,rep,name=user_groups,json=userGroups" json:"user_groups,omitempty"`
+	GroupRoles           []string `protobuf:"bytes,3,rep,name=group_roles,json=groupRoles" json:"group_roles,omitempty"`
+	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	SortKey              *string  `protobuf:"bytes,7,opt,name=sort_key,json=sortKey" json:"sort_key,omitempty"`
+	Reverse              *int32   `protobuf:"varint,8,opt,name=reverse" json:"reverse,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeResourceUserGroupsInput) Reset()         { *m = DescribeResourceUserGroupsInput{} }
 func (m *DescribeResourceUserGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceUserGroupsInput) ProtoMessage()    {}
 func (*DescribeResourceUserGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{52}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{52}
 }
+func (m *DescribeResourceUserGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeResourceUserGroupsInput.Unmarshal(m, b)
+}
+func (m *DescribeResourceUserGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeResourceUserGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeResourceUserGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeResourceUserGroupsInput.Merge(dst, src)
+}
+func (m *DescribeResourceUserGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeResourceUserGroupsInput.Size(m)
+}
+func (m *DescribeResourceUserGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeResourceUserGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeResourceUserGroupsInput proto.InternalMessageInfo
 
 func (m *DescribeResourceUserGroupsInput) GetResourceGroups() []string {
 	if m != nil {
@@ -2635,15 +3788,34 @@ type DescribeResourceUserGroupsOutput struct {
 	Message              *string                                          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	ResourceUserGroupSet []*DescribeResourceUserGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=resource_user_group_set,json=resourceUserGroupSet" json:"resource_user_group_set,omitempty"`
 	TotalCount           *int32                                           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                         `json:"-"`
 	XXX_unrecognized     []byte                                           `json:"-"`
+	XXX_sizecache        int32                                            `json:"-"`
 }
 
 func (m *DescribeResourceUserGroupsOutput) Reset()         { *m = DescribeResourceUserGroupsOutput{} }
 func (m *DescribeResourceUserGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeResourceUserGroupsOutput) ProtoMessage()    {}
 func (*DescribeResourceUserGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{53}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{53}
 }
+func (m *DescribeResourceUserGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeResourceUserGroupsOutput.Unmarshal(m, b)
+}
+func (m *DescribeResourceUserGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeResourceUserGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeResourceUserGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeResourceUserGroupsOutput.Merge(dst, src)
+}
+func (m *DescribeResourceUserGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeResourceUserGroupsOutput.Size(m)
+}
+func (m *DescribeResourceUserGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeResourceUserGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeResourceUserGroupsOutput proto.InternalMessageInfo
 
 func (m *DescribeResourceUserGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2681,14 +3853,16 @@ func (m *DescribeResourceUserGroupsOutput) GetTotalCount() int32 {
 }
 
 type DescribeResourceUserGroupsOutput_ResponseItem struct {
-	ResourceGroupId  *string                     `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	GroupRoleId      *string                     `protobuf:"bytes,2,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	ConsoleId        *string                     `protobuf:"bytes,3,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	RootUserId       *string                     `protobuf:"bytes,4,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Owner            *string                     `protobuf:"bytes,6,opt,name=owner" json:"owner,omitempty"`
-	UserGroupId      *string                     `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	ResourceGroupId      *string              `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	GroupRoleId          *string              `protobuf:"bytes,2,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	ConsoleId            *string              `protobuf:"bytes,3,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	RootUserId           *string              `protobuf:"bytes,4,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Owner                *string              `protobuf:"bytes,6,opt,name=owner" json:"owner,omitempty"`
+	UserGroupId          *string              `protobuf:"bytes,7,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) Reset() {
@@ -2699,8 +3873,25 @@ func (m *DescribeResourceUserGroupsOutput_ResponseItem) String() string {
 }
 func (*DescribeResourceUserGroupsOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeResourceUserGroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor17, []int{53, 0}
+	return fileDescriptor_resource_acl_ede2d6506631d966, []int{53, 0}
 }
+func (m *DescribeResourceUserGroupsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeResourceUserGroupsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeResourceUserGroupsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeResourceUserGroupsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeResourceUserGroupsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeResourceUserGroupsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeResourceUserGroupsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeResourceUserGroupsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeResourceUserGroupsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeResourceUserGroupsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeResourceUserGroupsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetResourceGroupId() string {
 	if m != nil && m.ResourceGroupId != nil {
@@ -2730,7 +3921,7 @@ func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetRootUserId() string {
 	return ""
 }
 
-func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeResourceUserGroupsOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2813,9 +4004,9 @@ func init() {
 	proto.RegisterType((*DescribeResourceUserGroupsOutput_ResponseItem)(nil), "service.DescribeResourceUserGroupsOutput.ResponseItem")
 }
 
-func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor17) }
+func init() { proto.RegisterFile("resource_acl.proto", fileDescriptor_resource_acl_ede2d6506631d966) }
 
-var fileDescriptor17 = []byte{
+var fileDescriptor_resource_acl_ede2d6506631d966 = []byte{
 	// 2375 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x5b, 0xcd, 0x6f, 0x1c, 0x49,
 	0x15, 0x57, 0xcf, 0xa7, 0xe7, 0x8d, 0xe3, 0x24, 0x9d, 0xc4, 0x19, 0xb7, 0x93, 0x8c, 0xd3, 0x71,

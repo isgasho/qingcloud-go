@@ -7,29 +7,56 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeCachesInput struct {
-	Caches           []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
-	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	CacheType        []string `protobuf:"bytes,3,rep,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Caches               []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
+	Status               []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	CacheType            []string `protobuf:"bytes,3,rep,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeCachesInput) Reset()                    { *m = DescribeCachesInput{} }
-func (m *DescribeCachesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeCachesInput) ProtoMessage()               {}
-func (*DescribeCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
+func (m *DescribeCachesInput) Reset()         { *m = DescribeCachesInput{} }
+func (m *DescribeCachesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCachesInput) ProtoMessage()    {}
+func (*DescribeCachesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{0}
+}
+func (m *DescribeCachesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCachesInput.Unmarshal(m, b)
+}
+func (m *DescribeCachesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCachesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCachesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCachesInput.Merge(dst, src)
+}
+func (m *DescribeCachesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCachesInput.Size(m)
+}
+func (m *DescribeCachesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCachesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCachesInput proto.InternalMessageInfo
 
 func (m *DescribeCachesInput) GetCaches() []string {
 	if m != nil {
@@ -88,18 +115,39 @@ func (m *DescribeCachesInput) GetLimit() int32 {
 }
 
 type DescribeCachesOutput struct {
-	Action           *string                              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CacheSet         []*DescribeCachesOutput_ResponseItem `protobuf:"bytes,4,rep,name=cache_set,json=cacheSet" json:"cache_set,omitempty"`
-	TotalCount       *int32                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	Action               *string                              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CacheSet             []*DescribeCachesOutput_ResponseItem `protobuf:"bytes,4,rep,name=cache_set,json=cacheSet" json:"cache_set,omitempty"`
+	TotalCount           *int32                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
 }
 
-func (m *DescribeCachesOutput) Reset()                    { *m = DescribeCachesOutput{} }
-func (m *DescribeCachesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeCachesOutput) ProtoMessage()               {}
-func (*DescribeCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
+func (m *DescribeCachesOutput) Reset()         { *m = DescribeCachesOutput{} }
+func (m *DescribeCachesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCachesOutput) ProtoMessage()    {}
+func (*DescribeCachesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{1}
+}
+func (m *DescribeCachesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCachesOutput.Unmarshal(m, b)
+}
+func (m *DescribeCachesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCachesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCachesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCachesOutput.Merge(dst, src)
+}
+func (m *DescribeCachesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCachesOutput.Size(m)
+}
+func (m *DescribeCachesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCachesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCachesOutput proto.InternalMessageInfo
 
 func (m *DescribeCachesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -137,33 +185,52 @@ func (m *DescribeCachesOutput) GetTotalCount() int32 {
 }
 
 type DescribeCachesOutput_ResponseItem struct {
-	CacheId               *string                     `protobuf:"bytes,1,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheName             *string                     `protobuf:"bytes,2,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
-	CacheType             *string                     `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	CachePort             *int32                      `protobuf:"varint,4,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
-	CacheSize             *int32                      `protobuf:"varint,5,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
-	NodeCount             *int32                      `protobuf:"varint,6,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	Description           *int32                      `protobuf:"varint,7,opt,name=description" json:"description,omitempty"`
-	Nodes                 []*CacheNode                `protobuf:"bytes,8,rep,name=nodes" json:"nodes,omitempty"`
-	AutoBackupTime        *int32                      `protobuf:"varint,9,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	IsApplied             *int32                      `protobuf:"varint,10,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	Status                *string                     `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
-	TransitionStatus      *string                     `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	Vxnet                 map[string]string           `protobuf:"bytes,13,rep,name=vxnet" json:"vxnet,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,14,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime            *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SecurityGroupId       *string                     `protobuf:"bytes,16,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	CacheParameterGroupId *string                     `protobuf:"bytes,17,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-	MaxMemory             *float64                    `protobuf:"fixed64,18,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
-	XXX_unrecognized      []byte                      `json:"-"`
+	CacheId               *string              `protobuf:"bytes,1,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheName             *string              `protobuf:"bytes,2,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
+	CacheType             *string              `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CachePort             *int32               `protobuf:"varint,4,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
+	CacheSize             *int32               `protobuf:"varint,5,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
+	NodeCount             *int32               `protobuf:"varint,6,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	Description           *int32               `protobuf:"varint,7,opt,name=description" json:"description,omitempty"`
+	Nodes                 []*CacheNode         `protobuf:"bytes,8,rep,name=nodes" json:"nodes,omitempty"`
+	AutoBackupTime        *int32               `protobuf:"varint,9,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	IsApplied             *int32               `protobuf:"varint,10,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Status                *string              `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
+	TransitionStatus      *string              `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	Vxnet                 map[string]string    `protobuf:"bytes,13,rep,name=vxnet" json:"vxnet,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	CreateTime            *timestamp.Timestamp `protobuf:"bytes,14,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime            *timestamp.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SecurityGroupId       *string              `protobuf:"bytes,16,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	CacheParameterGroupId *string              `protobuf:"bytes,17,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+	MaxMemory             *float64             `protobuf:"fixed64,18,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{}             `json:"-"`
+	XXX_unrecognized      []byte               `json:"-"`
+	XXX_sizecache         int32                `json:"-"`
 }
 
 func (m *DescribeCachesOutput_ResponseItem) Reset()         { *m = DescribeCachesOutput_ResponseItem{} }
 func (m *DescribeCachesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeCachesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeCachesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{1, 0}
+	return fileDescriptor_cache_223a66a6072472c0, []int{1, 0}
 }
+func (m *DescribeCachesOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCachesOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeCachesOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCachesOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCachesOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCachesOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeCachesOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeCachesOutput_ResponseItem.Size(m)
+}
+func (m *DescribeCachesOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCachesOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCachesOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeCachesOutput_ResponseItem) GetCacheId() string {
 	if m != nil && m.CacheId != nil {
@@ -256,14 +323,14 @@ func (m *DescribeCachesOutput_ResponseItem) GetVxnet() map[string]string {
 	return nil
 }
 
-func (m *DescribeCachesOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeCachesOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeCachesOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeCachesOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -292,22 +359,43 @@ func (m *DescribeCachesOutput_ResponseItem) GetMaxMemory() float64 {
 }
 
 type CreateCacheInput struct {
-	Vxnet               *string           `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	CacheSize           *int32            `protobuf:"varint,2,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
-	CacheType           *string           `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	NodeCount           *int32            `protobuf:"varint,4,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	CacheName           *string           `protobuf:"bytes,5,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
-	CacheParameterGroup *string           `protobuf:"bytes,6,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
-	PrivateIps          []*CachePrivateIP `protobuf:"bytes,7,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	AutoBackupTime      *int32            `protobuf:"varint,8,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	CacheClass          *int32            `protobuf:"varint,9,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
-	XXX_unrecognized    []byte            `json:"-"`
+	Vxnet                *string           `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	CacheSize            *int32            `protobuf:"varint,2,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
+	CacheType            *string           `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	NodeCount            *int32            `protobuf:"varint,4,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	CacheName            *string           `protobuf:"bytes,5,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
+	CacheParameterGroup  *string           `protobuf:"bytes,6,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
+	PrivateIps           []*CachePrivateIP `protobuf:"bytes,7,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	AutoBackupTime       *int32            `protobuf:"varint,8,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	CacheClass           *int32            `protobuf:"varint,9,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *CreateCacheInput) Reset()                    { *m = CreateCacheInput{} }
-func (m *CreateCacheInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateCacheInput) ProtoMessage()               {}
-func (*CreateCacheInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
+func (m *CreateCacheInput) Reset()         { *m = CreateCacheInput{} }
+func (m *CreateCacheInput) String() string { return proto.CompactTextString(m) }
+func (*CreateCacheInput) ProtoMessage()    {}
+func (*CreateCacheInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{2}
+}
+func (m *CreateCacheInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateCacheInput.Unmarshal(m, b)
+}
+func (m *CreateCacheInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateCacheInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateCacheInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateCacheInput.Merge(dst, src)
+}
+func (m *CreateCacheInput) XXX_Size() int {
+	return xxx_messageInfo_CreateCacheInput.Size(m)
+}
+func (m *CreateCacheInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateCacheInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateCacheInput proto.InternalMessageInfo
 
 func (m *CreateCacheInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -373,18 +461,39 @@ func (m *CreateCacheInput) GetCacheClass() int32 {
 }
 
 type CreateCacheOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CacheId          *string  `protobuf:"bytes,4,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheNodes       []string `protobuf:"bytes,5,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CacheId              *string  `protobuf:"bytes,4,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheNodes           []string `protobuf:"bytes,5,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateCacheOutput) Reset()                    { *m = CreateCacheOutput{} }
-func (m *CreateCacheOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateCacheOutput) ProtoMessage()               {}
-func (*CreateCacheOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
+func (m *CreateCacheOutput) Reset()         { *m = CreateCacheOutput{} }
+func (m *CreateCacheOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateCacheOutput) ProtoMessage()    {}
+func (*CreateCacheOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{3}
+}
+func (m *CreateCacheOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateCacheOutput.Unmarshal(m, b)
+}
+func (m *CreateCacheOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateCacheOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateCacheOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateCacheOutput.Merge(dst, src)
+}
+func (m *CreateCacheOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateCacheOutput.Size(m)
+}
+func (m *CreateCacheOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateCacheOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateCacheOutput proto.InternalMessageInfo
 
 func (m *CreateCacheOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -422,14 +531,35 @@ func (m *CreateCacheOutput) GetCacheNodes() []string {
 }
 
 type StopCachesInput struct {
-	Caches           []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Caches               []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopCachesInput) Reset()                    { *m = StopCachesInput{} }
-func (m *StopCachesInput) String() string            { return proto.CompactTextString(m) }
-func (*StopCachesInput) ProtoMessage()               {}
-func (*StopCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{4} }
+func (m *StopCachesInput) Reset()         { *m = StopCachesInput{} }
+func (m *StopCachesInput) String() string { return proto.CompactTextString(m) }
+func (*StopCachesInput) ProtoMessage()    {}
+func (*StopCachesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{4}
+}
+func (m *StopCachesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopCachesInput.Unmarshal(m, b)
+}
+func (m *StopCachesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopCachesInput.Marshal(b, m, deterministic)
+}
+func (dst *StopCachesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopCachesInput.Merge(dst, src)
+}
+func (m *StopCachesInput) XXX_Size() int {
+	return xxx_messageInfo_StopCachesInput.Size(m)
+}
+func (m *StopCachesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopCachesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopCachesInput proto.InternalMessageInfo
 
 func (m *StopCachesInput) GetCaches() []string {
 	if m != nil {
@@ -439,17 +569,38 @@ func (m *StopCachesInput) GetCaches() []string {
 }
 
 type StopCachesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopCachesOutput) Reset()                    { *m = StopCachesOutput{} }
-func (m *StopCachesOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopCachesOutput) ProtoMessage()               {}
-func (*StopCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{5} }
+func (m *StopCachesOutput) Reset()         { *m = StopCachesOutput{} }
+func (m *StopCachesOutput) String() string { return proto.CompactTextString(m) }
+func (*StopCachesOutput) ProtoMessage()    {}
+func (*StopCachesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{5}
+}
+func (m *StopCachesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopCachesOutput.Unmarshal(m, b)
+}
+func (m *StopCachesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopCachesOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopCachesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopCachesOutput.Merge(dst, src)
+}
+func (m *StopCachesOutput) XXX_Size() int {
+	return xxx_messageInfo_StopCachesOutput.Size(m)
+}
+func (m *StopCachesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopCachesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopCachesOutput proto.InternalMessageInfo
 
 func (m *StopCachesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -480,14 +631,35 @@ func (m *StopCachesOutput) GetJobId() string {
 }
 
 type StartCachesInput struct {
-	Caches           []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Caches               []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartCachesInput) Reset()                    { *m = StartCachesInput{} }
-func (m *StartCachesInput) String() string            { return proto.CompactTextString(m) }
-func (*StartCachesInput) ProtoMessage()               {}
-func (*StartCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{6} }
+func (m *StartCachesInput) Reset()         { *m = StartCachesInput{} }
+func (m *StartCachesInput) String() string { return proto.CompactTextString(m) }
+func (*StartCachesInput) ProtoMessage()    {}
+func (*StartCachesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{6}
+}
+func (m *StartCachesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartCachesInput.Unmarshal(m, b)
+}
+func (m *StartCachesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartCachesInput.Marshal(b, m, deterministic)
+}
+func (dst *StartCachesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartCachesInput.Merge(dst, src)
+}
+func (m *StartCachesInput) XXX_Size() int {
+	return xxx_messageInfo_StartCachesInput.Size(m)
+}
+func (m *StartCachesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartCachesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartCachesInput proto.InternalMessageInfo
 
 func (m *StartCachesInput) GetCaches() []string {
 	if m != nil {
@@ -497,17 +669,38 @@ func (m *StartCachesInput) GetCaches() []string {
 }
 
 type StartCachesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartCachesOutput) Reset()                    { *m = StartCachesOutput{} }
-func (m *StartCachesOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartCachesOutput) ProtoMessage()               {}
-func (*StartCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{7} }
+func (m *StartCachesOutput) Reset()         { *m = StartCachesOutput{} }
+func (m *StartCachesOutput) String() string { return proto.CompactTextString(m) }
+func (*StartCachesOutput) ProtoMessage()    {}
+func (*StartCachesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{7}
+}
+func (m *StartCachesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartCachesOutput.Unmarshal(m, b)
+}
+func (m *StartCachesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartCachesOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartCachesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartCachesOutput.Merge(dst, src)
+}
+func (m *StartCachesOutput) XXX_Size() int {
+	return xxx_messageInfo_StartCachesOutput.Size(m)
+}
+func (m *StartCachesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartCachesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartCachesOutput proto.InternalMessageInfo
 
 func (m *StartCachesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -538,14 +731,35 @@ func (m *StartCachesOutput) GetJobId() string {
 }
 
 type RestartCachesInput struct {
-	Caches           []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Caches               []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartCachesInput) Reset()                    { *m = RestartCachesInput{} }
-func (m *RestartCachesInput) String() string            { return proto.CompactTextString(m) }
-func (*RestartCachesInput) ProtoMessage()               {}
-func (*RestartCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{8} }
+func (m *RestartCachesInput) Reset()         { *m = RestartCachesInput{} }
+func (m *RestartCachesInput) String() string { return proto.CompactTextString(m) }
+func (*RestartCachesInput) ProtoMessage()    {}
+func (*RestartCachesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{8}
+}
+func (m *RestartCachesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartCachesInput.Unmarshal(m, b)
+}
+func (m *RestartCachesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartCachesInput.Marshal(b, m, deterministic)
+}
+func (dst *RestartCachesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartCachesInput.Merge(dst, src)
+}
+func (m *RestartCachesInput) XXX_Size() int {
+	return xxx_messageInfo_RestartCachesInput.Size(m)
+}
+func (m *RestartCachesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartCachesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartCachesInput proto.InternalMessageInfo
 
 func (m *RestartCachesInput) GetCaches() []string {
 	if m != nil {
@@ -555,17 +769,38 @@ func (m *RestartCachesInput) GetCaches() []string {
 }
 
 type RestartCachesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartCachesOutput) Reset()                    { *m = RestartCachesOutput{} }
-func (m *RestartCachesOutput) String() string            { return proto.CompactTextString(m) }
-func (*RestartCachesOutput) ProtoMessage()               {}
-func (*RestartCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{9} }
+func (m *RestartCachesOutput) Reset()         { *m = RestartCachesOutput{} }
+func (m *RestartCachesOutput) String() string { return proto.CompactTextString(m) }
+func (*RestartCachesOutput) ProtoMessage()    {}
+func (*RestartCachesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{9}
+}
+func (m *RestartCachesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartCachesOutput.Unmarshal(m, b)
+}
+func (m *RestartCachesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartCachesOutput.Marshal(b, m, deterministic)
+}
+func (dst *RestartCachesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartCachesOutput.Merge(dst, src)
+}
+func (m *RestartCachesOutput) XXX_Size() int {
+	return xxx_messageInfo_RestartCachesOutput.Size(m)
+}
+func (m *RestartCachesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartCachesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartCachesOutput proto.InternalMessageInfo
 
 func (m *RestartCachesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -596,14 +831,35 @@ func (m *RestartCachesOutput) GetJobId() string {
 }
 
 type DeleteCachesInput struct {
-	Caches           []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Caches               []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteCachesInput) Reset()                    { *m = DeleteCachesInput{} }
-func (m *DeleteCachesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteCachesInput) ProtoMessage()               {}
-func (*DeleteCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{10} }
+func (m *DeleteCachesInput) Reset()         { *m = DeleteCachesInput{} }
+func (m *DeleteCachesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteCachesInput) ProtoMessage()    {}
+func (*DeleteCachesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{10}
+}
+func (m *DeleteCachesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteCachesInput.Unmarshal(m, b)
+}
+func (m *DeleteCachesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteCachesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteCachesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCachesInput.Merge(dst, src)
+}
+func (m *DeleteCachesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteCachesInput.Size(m)
+}
+func (m *DeleteCachesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteCachesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteCachesInput proto.InternalMessageInfo
 
 func (m *DeleteCachesInput) GetCaches() []string {
 	if m != nil {
@@ -613,17 +869,38 @@ func (m *DeleteCachesInput) GetCaches() []string {
 }
 
 type DeleteCachesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteCachesOutput) Reset()                    { *m = DeleteCachesOutput{} }
-func (m *DeleteCachesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteCachesOutput) ProtoMessage()               {}
-func (*DeleteCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{11} }
+func (m *DeleteCachesOutput) Reset()         { *m = DeleteCachesOutput{} }
+func (m *DeleteCachesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteCachesOutput) ProtoMessage()    {}
+func (*DeleteCachesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{11}
+}
+func (m *DeleteCachesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteCachesOutput.Unmarshal(m, b)
+}
+func (m *DeleteCachesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteCachesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteCachesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCachesOutput.Merge(dst, src)
+}
+func (m *DeleteCachesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteCachesOutput.Size(m)
+}
+func (m *DeleteCachesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteCachesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteCachesOutput proto.InternalMessageInfo
 
 func (m *DeleteCachesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -654,15 +931,36 @@ func (m *DeleteCachesOutput) GetJobId() string {
 }
 
 type ResizeCachesInput struct {
-	Caches           []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
-	CacheSize        *int32   `protobuf:"varint,2,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Caches               []string `protobuf:"bytes,1,rep,name=caches" json:"caches,omitempty"`
+	CacheSize            *int32   `protobuf:"varint,2,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeCachesInput) Reset()                    { *m = ResizeCachesInput{} }
-func (m *ResizeCachesInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeCachesInput) ProtoMessage()               {}
-func (*ResizeCachesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{12} }
+func (m *ResizeCachesInput) Reset()         { *m = ResizeCachesInput{} }
+func (m *ResizeCachesInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeCachesInput) ProtoMessage()    {}
+func (*ResizeCachesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{12}
+}
+func (m *ResizeCachesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeCachesInput.Unmarshal(m, b)
+}
+func (m *ResizeCachesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeCachesInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeCachesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeCachesInput.Merge(dst, src)
+}
+func (m *ResizeCachesInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeCachesInput.Size(m)
+}
+func (m *ResizeCachesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeCachesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeCachesInput proto.InternalMessageInfo
 
 func (m *ResizeCachesInput) GetCaches() []string {
 	if m != nil {
@@ -679,17 +977,38 @@ func (m *ResizeCachesInput) GetCacheSize() int32 {
 }
 
 type ResizeCachesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeCachesOutput) Reset()                    { *m = ResizeCachesOutput{} }
-func (m *ResizeCachesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeCachesOutput) ProtoMessage()               {}
-func (*ResizeCachesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{13} }
+func (m *ResizeCachesOutput) Reset()         { *m = ResizeCachesOutput{} }
+func (m *ResizeCachesOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeCachesOutput) ProtoMessage()    {}
+func (*ResizeCachesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{13}
+}
+func (m *ResizeCachesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeCachesOutput.Unmarshal(m, b)
+}
+func (m *ResizeCachesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeCachesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeCachesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeCachesOutput.Merge(dst, src)
+}
+func (m *ResizeCachesOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeCachesOutput.Size(m)
+}
+func (m *ResizeCachesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeCachesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeCachesOutput proto.InternalMessageInfo
 
 func (m *ResizeCachesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -720,15 +1039,36 @@ func (m *ResizeCachesOutput) GetJobId() string {
 }
 
 type UpdateCacheInput struct {
-	Cache            *string           `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
-	PrivateIps       []*CachePrivateIP `protobuf:"bytes,2,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte            `json:"-"`
+	Cache                *string           `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
+	PrivateIps           []*CachePrivateIP `protobuf:"bytes,2,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *UpdateCacheInput) Reset()                    { *m = UpdateCacheInput{} }
-func (m *UpdateCacheInput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateCacheInput) ProtoMessage()               {}
-func (*UpdateCacheInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{14} }
+func (m *UpdateCacheInput) Reset()         { *m = UpdateCacheInput{} }
+func (m *UpdateCacheInput) String() string { return proto.CompactTextString(m) }
+func (*UpdateCacheInput) ProtoMessage()    {}
+func (*UpdateCacheInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{14}
+}
+func (m *UpdateCacheInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateCacheInput.Unmarshal(m, b)
+}
+func (m *UpdateCacheInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateCacheInput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateCacheInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateCacheInput.Merge(dst, src)
+}
+func (m *UpdateCacheInput) XXX_Size() int {
+	return xxx_messageInfo_UpdateCacheInput.Size(m)
+}
+func (m *UpdateCacheInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateCacheInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateCacheInput proto.InternalMessageInfo
 
 func (m *UpdateCacheInput) GetCache() string {
 	if m != nil && m.Cache != nil {
@@ -745,17 +1085,38 @@ func (m *UpdateCacheInput) GetPrivateIps() []*CachePrivateIP {
 }
 
 type UpdateCacheOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateCacheOutput) Reset()                    { *m = UpdateCacheOutput{} }
-func (m *UpdateCacheOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateCacheOutput) ProtoMessage()               {}
-func (*UpdateCacheOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{15} }
+func (m *UpdateCacheOutput) Reset()         { *m = UpdateCacheOutput{} }
+func (m *UpdateCacheOutput) String() string { return proto.CompactTextString(m) }
+func (*UpdateCacheOutput) ProtoMessage()    {}
+func (*UpdateCacheOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{15}
+}
+func (m *UpdateCacheOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateCacheOutput.Unmarshal(m, b)
+}
+func (m *UpdateCacheOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateCacheOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateCacheOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateCacheOutput.Merge(dst, src)
+}
+func (m *UpdateCacheOutput) XXX_Size() int {
+	return xxx_messageInfo_UpdateCacheOutput.Size(m)
+}
+func (m *UpdateCacheOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateCacheOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateCacheOutput proto.InternalMessageInfo
 
 func (m *UpdateCacheOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -786,16 +1147,37 @@ func (m *UpdateCacheOutput) GetJobId() string {
 }
 
 type ChangeCacheVxnetInput struct {
-	Cache            *string           `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
-	Vxnet            *string           `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	PrivateIps       []*CachePrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte            `json:"-"`
+	Cache                *string           `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
+	Vxnet                *string           `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	PrivateIps           []*CachePrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *ChangeCacheVxnetInput) Reset()                    { *m = ChangeCacheVxnetInput{} }
-func (m *ChangeCacheVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeCacheVxnetInput) ProtoMessage()               {}
-func (*ChangeCacheVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{16} }
+func (m *ChangeCacheVxnetInput) Reset()         { *m = ChangeCacheVxnetInput{} }
+func (m *ChangeCacheVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*ChangeCacheVxnetInput) ProtoMessage()    {}
+func (*ChangeCacheVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{16}
+}
+func (m *ChangeCacheVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeCacheVxnetInput.Unmarshal(m, b)
+}
+func (m *ChangeCacheVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeCacheVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeCacheVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeCacheVxnetInput.Merge(dst, src)
+}
+func (m *ChangeCacheVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_ChangeCacheVxnetInput.Size(m)
+}
+func (m *ChangeCacheVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeCacheVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeCacheVxnetInput proto.InternalMessageInfo
 
 func (m *ChangeCacheVxnetInput) GetCache() string {
 	if m != nil && m.Cache != nil {
@@ -819,17 +1201,38 @@ func (m *ChangeCacheVxnetInput) GetPrivateIps() []*CachePrivateIP {
 }
 
 type ChangeCacheVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeCacheVxnetOutput) Reset()                    { *m = ChangeCacheVxnetOutput{} }
-func (m *ChangeCacheVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeCacheVxnetOutput) ProtoMessage()               {}
-func (*ChangeCacheVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{17} }
+func (m *ChangeCacheVxnetOutput) Reset()         { *m = ChangeCacheVxnetOutput{} }
+func (m *ChangeCacheVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*ChangeCacheVxnetOutput) ProtoMessage()    {}
+func (*ChangeCacheVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{17}
+}
+func (m *ChangeCacheVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeCacheVxnetOutput.Unmarshal(m, b)
+}
+func (m *ChangeCacheVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeCacheVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeCacheVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeCacheVxnetOutput.Merge(dst, src)
+}
+func (m *ChangeCacheVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_ChangeCacheVxnetOutput.Size(m)
+}
+func (m *ChangeCacheVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeCacheVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeCacheVxnetOutput proto.InternalMessageInfo
 
 func (m *ChangeCacheVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -860,17 +1263,38 @@ func (m *ChangeCacheVxnetOutput) GetJobId() string {
 }
 
 type ModifyCacheAttributesInput struct {
-	Cache            *string `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
-	CacheName        *string `protobuf:"bytes,2,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	AutoBackupTime   *int32  `protobuf:"varint,4,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Cache                *string  `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
+	CacheName            *string  `protobuf:"bytes,2,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime       *int32   `protobuf:"varint,4,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyCacheAttributesInput) Reset()                    { *m = ModifyCacheAttributesInput{} }
-func (m *ModifyCacheAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyCacheAttributesInput) ProtoMessage()               {}
-func (*ModifyCacheAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{18} }
+func (m *ModifyCacheAttributesInput) Reset()         { *m = ModifyCacheAttributesInput{} }
+func (m *ModifyCacheAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyCacheAttributesInput) ProtoMessage()    {}
+func (*ModifyCacheAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{18}
+}
+func (m *ModifyCacheAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyCacheAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyCacheAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyCacheAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyCacheAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyCacheAttributesInput.Merge(dst, src)
+}
+func (m *ModifyCacheAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyCacheAttributesInput.Size(m)
+}
+func (m *ModifyCacheAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyCacheAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyCacheAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyCacheAttributesInput) GetCache() string {
 	if m != nil && m.Cache != nil {
@@ -901,16 +1325,37 @@ func (m *ModifyCacheAttributesInput) GetAutoBackupTime() int32 {
 }
 
 type ModifyCacheAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyCacheAttributesOutput) Reset()                    { *m = ModifyCacheAttributesOutput{} }
-func (m *ModifyCacheAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyCacheAttributesOutput) ProtoMessage()               {}
-func (*ModifyCacheAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{19} }
+func (m *ModifyCacheAttributesOutput) Reset()         { *m = ModifyCacheAttributesOutput{} }
+func (m *ModifyCacheAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyCacheAttributesOutput) ProtoMessage()    {}
+func (*ModifyCacheAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{19}
+}
+func (m *ModifyCacheAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyCacheAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyCacheAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyCacheAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyCacheAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyCacheAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyCacheAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyCacheAttributesOutput.Size(m)
+}
+func (m *ModifyCacheAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyCacheAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyCacheAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyCacheAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -934,20 +1379,41 @@ func (m *ModifyCacheAttributesOutput) GetMessage() string {
 }
 
 type DescribeCacheNodesInput struct {
-	Cache            *string  `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
-	CacheNodes       []string `protobuf:"bytes,2,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
-	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Cache                *string  `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
+	CacheNodes           []string `protobuf:"bytes,2,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
+	Status               []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeCacheNodesInput) Reset()                    { *m = DescribeCacheNodesInput{} }
-func (m *DescribeCacheNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeCacheNodesInput) ProtoMessage()               {}
-func (*DescribeCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{20} }
+func (m *DescribeCacheNodesInput) Reset()         { *m = DescribeCacheNodesInput{} }
+func (m *DescribeCacheNodesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCacheNodesInput) ProtoMessage()    {}
+func (*DescribeCacheNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{20}
+}
+func (m *DescribeCacheNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheNodesInput.Unmarshal(m, b)
+}
+func (m *DescribeCacheNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheNodesInput.Merge(dst, src)
+}
+func (m *DescribeCacheNodesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheNodesInput.Size(m)
+}
+func (m *DescribeCacheNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheNodesInput proto.InternalMessageInfo
 
 func (m *DescribeCacheNodesInput) GetCache() string {
 	if m != nil && m.Cache != nil {
@@ -999,18 +1465,39 @@ func (m *DescribeCacheNodesInput) GetLimit() int32 {
 }
 
 type DescribeCacheNodesOutput struct {
-	Action           *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CacheNodeSet     []*DescribeCacheNodesOutput_ResponseItem `protobuf:"bytes,4,rep,name=cache_node_set,json=cacheNodeSet" json:"cache_node_set,omitempty"`
-	TotalCount       *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                   `json:"-"`
+	Action               *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CacheNodeSet         []*DescribeCacheNodesOutput_ResponseItem `protobuf:"bytes,4,rep,name=cache_node_set,json=cacheNodeSet" json:"cache_node_set,omitempty"`
+	TotalCount           *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                 `json:"-"`
+	XXX_unrecognized     []byte                                   `json:"-"`
+	XXX_sizecache        int32                                    `json:"-"`
 }
 
-func (m *DescribeCacheNodesOutput) Reset()                    { *m = DescribeCacheNodesOutput{} }
-func (m *DescribeCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeCacheNodesOutput) ProtoMessage()               {}
-func (*DescribeCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{21} }
+func (m *DescribeCacheNodesOutput) Reset()         { *m = DescribeCacheNodesOutput{} }
+func (m *DescribeCacheNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCacheNodesOutput) ProtoMessage()    {}
+func (*DescribeCacheNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{21}
+}
+func (m *DescribeCacheNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheNodesOutput.Unmarshal(m, b)
+}
+func (m *DescribeCacheNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheNodesOutput.Merge(dst, src)
+}
+func (m *DescribeCacheNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheNodesOutput.Size(m)
+}
+func (m *DescribeCacheNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheNodesOutput proto.InternalMessageInfo
 
 func (m *DescribeCacheNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1048,25 +1535,44 @@ func (m *DescribeCacheNodesOutput) GetTotalCount() int32 {
 }
 
 type DescribeCacheNodesOutput_ResponseItem struct {
-	CacheNodeId      *string                     `protobuf:"bytes,1,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
-	CacheId          *string                     `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheNodeName    *string                     `protobuf:"bytes,3,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
-	CacheRole        *string                     `protobuf:"bytes,4,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
-	CacheType        *string                     `protobuf:"bytes,5,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	PrivateIp        *string                     `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Status           *string                     `protobuf:"bytes,7,opt,name=status" json:"status,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,8,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CacheNodeId          *string              `protobuf:"bytes,1,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
+	CacheId              *string              `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheNodeName        *string              `protobuf:"bytes,3,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
+	CacheRole            *string              `protobuf:"bytes,4,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
+	CacheType            *string              `protobuf:"bytes,5,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	PrivateIp            *string              `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Status               *string              `protobuf:"bytes,7,opt,name=status" json:"status,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,8,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,10,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeCacheNodesOutput_ResponseItem) Reset()         { *m = DescribeCacheNodesOutput_ResponseItem{} }
 func (m *DescribeCacheNodesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeCacheNodesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeCacheNodesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{21, 0}
+	return fileDescriptor_cache_223a66a6072472c0, []int{21, 0}
 }
+func (m *DescribeCacheNodesOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheNodesOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeCacheNodesOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheNodesOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheNodesOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheNodesOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeCacheNodesOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheNodesOutput_ResponseItem.Size(m)
+}
+func (m *DescribeCacheNodesOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheNodesOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheNodesOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeCacheNodesOutput_ResponseItem) GetCacheNodeId() string {
 	if m != nil && m.CacheNodeId != nil {
@@ -1124,14 +1630,14 @@ func (m *DescribeCacheNodesOutput_ResponseItem) GetTransitionStatus() string {
 	return ""
 }
 
-func (m *DescribeCacheNodesOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeCacheNodesOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeCacheNodesOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeCacheNodesOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1139,16 +1645,37 @@ func (m *DescribeCacheNodesOutput_ResponseItem) GetStatusTime() *google_protobuf
 }
 
 type AddCacheNodesInput struct {
-	Cache            *string           `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
-	NodeCount        *int32            `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	PrivateIps       []*CachePrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte            `json:"-"`
+	Cache                *string           `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
+	NodeCount            *int32            `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	PrivateIps           []*CachePrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *AddCacheNodesInput) Reset()                    { *m = AddCacheNodesInput{} }
-func (m *AddCacheNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddCacheNodesInput) ProtoMessage()               {}
-func (*AddCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{22} }
+func (m *AddCacheNodesInput) Reset()         { *m = AddCacheNodesInput{} }
+func (m *AddCacheNodesInput) String() string { return proto.CompactTextString(m) }
+func (*AddCacheNodesInput) ProtoMessage()    {}
+func (*AddCacheNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{22}
+}
+func (m *AddCacheNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddCacheNodesInput.Unmarshal(m, b)
+}
+func (m *AddCacheNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddCacheNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddCacheNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddCacheNodesInput.Merge(dst, src)
+}
+func (m *AddCacheNodesInput) XXX_Size() int {
+	return xxx_messageInfo_AddCacheNodesInput.Size(m)
+}
+func (m *AddCacheNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddCacheNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddCacheNodesInput proto.InternalMessageInfo
 
 func (m *AddCacheNodesInput) GetCache() string {
 	if m != nil && m.Cache != nil {
@@ -1172,17 +1699,38 @@ func (m *AddCacheNodesInput) GetPrivateIps() []*CachePrivateIP {
 }
 
 type AddCacheNodesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CacheNodes       []string `protobuf:"bytes,4,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CacheNodes           []string `protobuf:"bytes,4,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddCacheNodesOutput) Reset()                    { *m = AddCacheNodesOutput{} }
-func (m *AddCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddCacheNodesOutput) ProtoMessage()               {}
-func (*AddCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{23} }
+func (m *AddCacheNodesOutput) Reset()         { *m = AddCacheNodesOutput{} }
+func (m *AddCacheNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddCacheNodesOutput) ProtoMessage()    {}
+func (*AddCacheNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{23}
+}
+func (m *AddCacheNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddCacheNodesOutput.Unmarshal(m, b)
+}
+func (m *AddCacheNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddCacheNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddCacheNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddCacheNodesOutput.Merge(dst, src)
+}
+func (m *AddCacheNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddCacheNodesOutput.Size(m)
+}
+func (m *AddCacheNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddCacheNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddCacheNodesOutput proto.InternalMessageInfo
 
 func (m *AddCacheNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1213,15 +1761,36 @@ func (m *AddCacheNodesOutput) GetCacheNodes() []string {
 }
 
 type DeleteCacheNodesInput struct {
-	Cache            *string  `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
-	CacheNodes       []string `protobuf:"bytes,2,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Cache                *string  `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
+	CacheNodes           []string `protobuf:"bytes,2,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteCacheNodesInput) Reset()                    { *m = DeleteCacheNodesInput{} }
-func (m *DeleteCacheNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteCacheNodesInput) ProtoMessage()               {}
-func (*DeleteCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{24} }
+func (m *DeleteCacheNodesInput) Reset()         { *m = DeleteCacheNodesInput{} }
+func (m *DeleteCacheNodesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteCacheNodesInput) ProtoMessage()    {}
+func (*DeleteCacheNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{24}
+}
+func (m *DeleteCacheNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteCacheNodesInput.Unmarshal(m, b)
+}
+func (m *DeleteCacheNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteCacheNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteCacheNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCacheNodesInput.Merge(dst, src)
+}
+func (m *DeleteCacheNodesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteCacheNodesInput.Size(m)
+}
+func (m *DeleteCacheNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteCacheNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteCacheNodesInput proto.InternalMessageInfo
 
 func (m *DeleteCacheNodesInput) GetCache() string {
 	if m != nil && m.Cache != nil {
@@ -1238,16 +1807,37 @@ func (m *DeleteCacheNodesInput) GetCacheNodes() []string {
 }
 
 type DeleteCacheNodesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteCacheNodesOutput) Reset()                    { *m = DeleteCacheNodesOutput{} }
-func (m *DeleteCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteCacheNodesOutput) ProtoMessage()               {}
-func (*DeleteCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{25} }
+func (m *DeleteCacheNodesOutput) Reset()         { *m = DeleteCacheNodesOutput{} }
+func (m *DeleteCacheNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteCacheNodesOutput) ProtoMessage()    {}
+func (*DeleteCacheNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{25}
+}
+func (m *DeleteCacheNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteCacheNodesOutput.Unmarshal(m, b)
+}
+func (m *DeleteCacheNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteCacheNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteCacheNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCacheNodesOutput.Merge(dst, src)
+}
+func (m *DeleteCacheNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteCacheNodesOutput.Size(m)
+}
+func (m *DeleteCacheNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteCacheNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteCacheNodesOutput proto.InternalMessageInfo
 
 func (m *DeleteCacheNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1271,15 +1861,36 @@ func (m *DeleteCacheNodesOutput) GetMessage() string {
 }
 
 type RestartCacheNodesInput struct {
-	Cache            *string  `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
-	CacheNodes       []string `protobuf:"bytes,2,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Cache                *string  `protobuf:"bytes,1,opt,name=cache" json:"cache,omitempty"`
+	CacheNodes           []string `protobuf:"bytes,2,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartCacheNodesInput) Reset()                    { *m = RestartCacheNodesInput{} }
-func (m *RestartCacheNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*RestartCacheNodesInput) ProtoMessage()               {}
-func (*RestartCacheNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{26} }
+func (m *RestartCacheNodesInput) Reset()         { *m = RestartCacheNodesInput{} }
+func (m *RestartCacheNodesInput) String() string { return proto.CompactTextString(m) }
+func (*RestartCacheNodesInput) ProtoMessage()    {}
+func (*RestartCacheNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{26}
+}
+func (m *RestartCacheNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartCacheNodesInput.Unmarshal(m, b)
+}
+func (m *RestartCacheNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartCacheNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *RestartCacheNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartCacheNodesInput.Merge(dst, src)
+}
+func (m *RestartCacheNodesInput) XXX_Size() int {
+	return xxx_messageInfo_RestartCacheNodesInput.Size(m)
+}
+func (m *RestartCacheNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartCacheNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartCacheNodesInput proto.InternalMessageInfo
 
 func (m *RestartCacheNodesInput) GetCache() string {
 	if m != nil && m.Cache != nil {
@@ -1296,17 +1907,38 @@ func (m *RestartCacheNodesInput) GetCacheNodes() []string {
 }
 
 type RestartCacheNodesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartCacheNodesOutput) Reset()                    { *m = RestartCacheNodesOutput{} }
-func (m *RestartCacheNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*RestartCacheNodesOutput) ProtoMessage()               {}
-func (*RestartCacheNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{27} }
+func (m *RestartCacheNodesOutput) Reset()         { *m = RestartCacheNodesOutput{} }
+func (m *RestartCacheNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*RestartCacheNodesOutput) ProtoMessage()    {}
+func (*RestartCacheNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{27}
+}
+func (m *RestartCacheNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartCacheNodesOutput.Unmarshal(m, b)
+}
+func (m *RestartCacheNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartCacheNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *RestartCacheNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartCacheNodesOutput.Merge(dst, src)
+}
+func (m *RestartCacheNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_RestartCacheNodesOutput.Size(m)
+}
+func (m *RestartCacheNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartCacheNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartCacheNodesOutput proto.InternalMessageInfo
 
 func (m *RestartCacheNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1337,15 +1969,36 @@ func (m *RestartCacheNodesOutput) GetJobId() string {
 }
 
 type ModifyCacheNodeAttributesInput struct {
-	CacheNode        *string `protobuf:"bytes,1,opt,name=cache_node,json=cacheNode" json:"cache_node,omitempty"`
-	CacheNodeName    *string `protobuf:"bytes,2,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	CacheNode            *string  `protobuf:"bytes,1,opt,name=cache_node,json=cacheNode" json:"cache_node,omitempty"`
+	CacheNodeName        *string  `protobuf:"bytes,2,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyCacheNodeAttributesInput) Reset()                    { *m = ModifyCacheNodeAttributesInput{} }
-func (m *ModifyCacheNodeAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyCacheNodeAttributesInput) ProtoMessage()               {}
-func (*ModifyCacheNodeAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{28} }
+func (m *ModifyCacheNodeAttributesInput) Reset()         { *m = ModifyCacheNodeAttributesInput{} }
+func (m *ModifyCacheNodeAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyCacheNodeAttributesInput) ProtoMessage()    {}
+func (*ModifyCacheNodeAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{28}
+}
+func (m *ModifyCacheNodeAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyCacheNodeAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyCacheNodeAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyCacheNodeAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyCacheNodeAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyCacheNodeAttributesInput.Merge(dst, src)
+}
+func (m *ModifyCacheNodeAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyCacheNodeAttributesInput.Size(m)
+}
+func (m *ModifyCacheNodeAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyCacheNodeAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyCacheNodeAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyCacheNodeAttributesInput) GetCacheNode() string {
 	if m != nil && m.CacheNode != nil {
@@ -1362,18 +2015,37 @@ func (m *ModifyCacheNodeAttributesInput) GetCacheNodeName() string {
 }
 
 type ModifyCacheNodeAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyCacheNodeAttributesOutput) Reset()         { *m = ModifyCacheNodeAttributesOutput{} }
 func (m *ModifyCacheNodeAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyCacheNodeAttributesOutput) ProtoMessage()    {}
 func (*ModifyCacheNodeAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{29}
+	return fileDescriptor_cache_223a66a6072472c0, []int{29}
 }
+func (m *ModifyCacheNodeAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyCacheNodeAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyCacheNodeAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyCacheNodeAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyCacheNodeAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyCacheNodeAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyCacheNodeAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyCacheNodeAttributesOutput.Size(m)
+}
+func (m *ModifyCacheNodeAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyCacheNodeAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyCacheNodeAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyCacheNodeAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1397,21 +2069,42 @@ func (m *ModifyCacheNodeAttributesOutput) GetMessage() string {
 }
 
 type CreateCacheFromSnapshotInput struct {
-	Snapshot            *string           `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
-	Vxnet               *string           `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	NodeCount           *int32            `protobuf:"varint,3,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	CacheName           *string           `protobuf:"bytes,4,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
-	CacheParameterGroup *string           `protobuf:"bytes,5,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
-	AutoBackupTime      *int32            `protobuf:"varint,6,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	PrivateIps          []*CachePrivateIP `protobuf:"bytes,7,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	CacheClass          *int32            `protobuf:"varint,8,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
-	XXX_unrecognized    []byte            `json:"-"`
+	Snapshot             *string           `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
+	Vxnet                *string           `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	NodeCount            *int32            `protobuf:"varint,3,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	CacheName            *string           `protobuf:"bytes,4,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
+	CacheParameterGroup  *string           `protobuf:"bytes,5,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
+	AutoBackupTime       *int32            `protobuf:"varint,6,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	PrivateIps           []*CachePrivateIP `protobuf:"bytes,7,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	CacheClass           *int32            `protobuf:"varint,8,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *CreateCacheFromSnapshotInput) Reset()                    { *m = CreateCacheFromSnapshotInput{} }
-func (m *CreateCacheFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateCacheFromSnapshotInput) ProtoMessage()               {}
-func (*CreateCacheFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{30} }
+func (m *CreateCacheFromSnapshotInput) Reset()         { *m = CreateCacheFromSnapshotInput{} }
+func (m *CreateCacheFromSnapshotInput) String() string { return proto.CompactTextString(m) }
+func (*CreateCacheFromSnapshotInput) ProtoMessage()    {}
+func (*CreateCacheFromSnapshotInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{30}
+}
+func (m *CreateCacheFromSnapshotInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateCacheFromSnapshotInput.Unmarshal(m, b)
+}
+func (m *CreateCacheFromSnapshotInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateCacheFromSnapshotInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateCacheFromSnapshotInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateCacheFromSnapshotInput.Merge(dst, src)
+}
+func (m *CreateCacheFromSnapshotInput) XXX_Size() int {
+	return xxx_messageInfo_CreateCacheFromSnapshotInput.Size(m)
+}
+func (m *CreateCacheFromSnapshotInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateCacheFromSnapshotInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateCacheFromSnapshotInput proto.InternalMessageInfo
 
 func (m *CreateCacheFromSnapshotInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -1470,18 +2163,39 @@ func (m *CreateCacheFromSnapshotInput) GetCacheClass() int32 {
 }
 
 type CreateCacheFromSnapshotOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CacheId          *string  `protobuf:"bytes,4,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheNodes       []string `protobuf:"bytes,5,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CacheId              *string  `protobuf:"bytes,4,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheNodes           []string `protobuf:"bytes,5,rep,name=cache_nodes,json=cacheNodes" json:"cache_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateCacheFromSnapshotOutput) Reset()                    { *m = CreateCacheFromSnapshotOutput{} }
-func (m *CreateCacheFromSnapshotOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateCacheFromSnapshotOutput) ProtoMessage()               {}
-func (*CreateCacheFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{31} }
+func (m *CreateCacheFromSnapshotOutput) Reset()         { *m = CreateCacheFromSnapshotOutput{} }
+func (m *CreateCacheFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateCacheFromSnapshotOutput) ProtoMessage()    {}
+func (*CreateCacheFromSnapshotOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{31}
+}
+func (m *CreateCacheFromSnapshotOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateCacheFromSnapshotOutput.Unmarshal(m, b)
+}
+func (m *CreateCacheFromSnapshotOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateCacheFromSnapshotOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateCacheFromSnapshotOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateCacheFromSnapshotOutput.Merge(dst, src)
+}
+func (m *CreateCacheFromSnapshotOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateCacheFromSnapshotOutput.Size(m)
+}
+func (m *CreateCacheFromSnapshotOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateCacheFromSnapshotOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateCacheFromSnapshotOutput proto.InternalMessageInfo
 
 func (m *CreateCacheFromSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1525,15 +2239,34 @@ type DescribeCacheParameterGroupsInput struct {
 	Verbose              *int32   `protobuf:"varint,4,opt,name=verbose" json:"verbose,omitempty"`
 	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
 	Limit                *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeCacheParameterGroupsInput) Reset()         { *m = DescribeCacheParameterGroupsInput{} }
 func (m *DescribeCacheParameterGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeCacheParameterGroupsInput) ProtoMessage()    {}
 func (*DescribeCacheParameterGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{32}
+	return fileDescriptor_cache_223a66a6072472c0, []int{32}
 }
+func (m *DescribeCacheParameterGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheParameterGroupsInput.Unmarshal(m, b)
+}
+func (m *DescribeCacheParameterGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheParameterGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheParameterGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheParameterGroupsInput.Merge(dst, src)
+}
+func (m *DescribeCacheParameterGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheParameterGroupsInput.Size(m)
+}
+func (m *DescribeCacheParameterGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheParameterGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheParameterGroupsInput proto.InternalMessageInfo
 
 func (m *DescribeCacheParameterGroupsInput) GetCacheParameterGroups() []string {
 	if m != nil {
@@ -1583,15 +2316,34 @@ type DescribeCacheParameterGroupsOutput struct {
 	Message                *string                                            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	CacheParameterGroupSet []*DescribeCacheParameterGroupsOutput_ResponseItem `protobuf:"bytes,4,rep,name=cache_parameter_group_set,json=cacheParameterGroupSet" json:"cache_parameter_group_set,omitempty"`
 	TotalCount             *int32                                             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}                                           `json:"-"`
 	XXX_unrecognized       []byte                                             `json:"-"`
+	XXX_sizecache          int32                                              `json:"-"`
 }
 
 func (m *DescribeCacheParameterGroupsOutput) Reset()         { *m = DescribeCacheParameterGroupsOutput{} }
 func (m *DescribeCacheParameterGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeCacheParameterGroupsOutput) ProtoMessage()    {}
 func (*DescribeCacheParameterGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{33}
+	return fileDescriptor_cache_223a66a6072472c0, []int{33}
 }
+func (m *DescribeCacheParameterGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheParameterGroupsOutput.Unmarshal(m, b)
+}
+func (m *DescribeCacheParameterGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheParameterGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheParameterGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheParameterGroupsOutput.Merge(dst, src)
+}
+func (m *DescribeCacheParameterGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheParameterGroupsOutput.Size(m)
+}
+func (m *DescribeCacheParameterGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheParameterGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheParameterGroupsOutput proto.InternalMessageInfo
 
 func (m *DescribeCacheParameterGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1629,12 +2381,14 @@ func (m *DescribeCacheParameterGroupsOutput) GetTotalCount() int32 {
 }
 
 type DescribeCacheParameterGroupsOutput_ResponseItem struct {
-	CacheParameterGroupId   *string `protobuf:"bytes,1,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-	CacheType               *string `protobuf:"bytes,2,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	CacheParameterGroupName *string `protobuf:"bytes,3,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
-	Description             *string `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	IsApplied               *int32  `protobuf:"varint,5,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	XXX_unrecognized        []byte  `json:"-"`
+	CacheParameterGroupId   *string  `protobuf:"bytes,1,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+	CacheType               *string  `protobuf:"bytes,2,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CacheParameterGroupName *string  `protobuf:"bytes,3,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
+	Description             *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	IsApplied               *int32   `protobuf:"varint,5,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
+	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
 func (m *DescribeCacheParameterGroupsOutput_ResponseItem) Reset() {
@@ -1645,8 +2399,25 @@ func (m *DescribeCacheParameterGroupsOutput_ResponseItem) String() string {
 }
 func (*DescribeCacheParameterGroupsOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeCacheParameterGroupsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{33, 0}
+	return fileDescriptor_cache_223a66a6072472c0, []int{33, 0}
 }
+func (m *DescribeCacheParameterGroupsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheParameterGroupsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeCacheParameterGroupsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheParameterGroupsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheParameterGroupsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheParameterGroupsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeCacheParameterGroupsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheParameterGroupsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeCacheParameterGroupsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheParameterGroupsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheParameterGroupsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeCacheParameterGroupsOutput_ResponseItem) GetCacheParameterGroupId() string {
 	if m != nil && m.CacheParameterGroupId != nil {
@@ -1684,15 +2455,36 @@ func (m *DescribeCacheParameterGroupsOutput_ResponseItem) GetIsApplied() int32 {
 }
 
 type CreateCacheParameterGroupInput struct {
-	CacheType               *string `protobuf:"bytes,1,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	CacheParameterGroupName *string `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
-	XXX_unrecognized        []byte  `json:"-"`
+	CacheType               *string  `protobuf:"bytes,1,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CacheParameterGroupName *string  `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
+	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
-func (m *CreateCacheParameterGroupInput) Reset()                    { *m = CreateCacheParameterGroupInput{} }
-func (m *CreateCacheParameterGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateCacheParameterGroupInput) ProtoMessage()               {}
-func (*CreateCacheParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{34} }
+func (m *CreateCacheParameterGroupInput) Reset()         { *m = CreateCacheParameterGroupInput{} }
+func (m *CreateCacheParameterGroupInput) String() string { return proto.CompactTextString(m) }
+func (*CreateCacheParameterGroupInput) ProtoMessage()    {}
+func (*CreateCacheParameterGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{34}
+}
+func (m *CreateCacheParameterGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateCacheParameterGroupInput.Unmarshal(m, b)
+}
+func (m *CreateCacheParameterGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateCacheParameterGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateCacheParameterGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateCacheParameterGroupInput.Merge(dst, src)
+}
+func (m *CreateCacheParameterGroupInput) XXX_Size() int {
+	return xxx_messageInfo_CreateCacheParameterGroupInput.Size(m)
+}
+func (m *CreateCacheParameterGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateCacheParameterGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateCacheParameterGroupInput proto.InternalMessageInfo
 
 func (m *CreateCacheParameterGroupInput) GetCacheType() string {
 	if m != nil && m.CacheType != nil {
@@ -1709,19 +2501,38 @@ func (m *CreateCacheParameterGroupInput) GetCacheParameterGroupName() string {
 }
 
 type CreateCacheParameterGroupOutput struct {
-	Action                *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode               *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message               *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CacheParameterGroupId *string `protobuf:"bytes,4,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	Action                *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode               *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message               *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CacheParameterGroupId *string  `protobuf:"bytes,4,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *CreateCacheParameterGroupOutput) Reset()         { *m = CreateCacheParameterGroupOutput{} }
 func (m *CreateCacheParameterGroupOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateCacheParameterGroupOutput) ProtoMessage()    {}
 func (*CreateCacheParameterGroupOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{35}
+	return fileDescriptor_cache_223a66a6072472c0, []int{35}
 }
+func (m *CreateCacheParameterGroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateCacheParameterGroupOutput.Unmarshal(m, b)
+}
+func (m *CreateCacheParameterGroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateCacheParameterGroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateCacheParameterGroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateCacheParameterGroupOutput.Merge(dst, src)
+}
+func (m *CreateCacheParameterGroupOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateCacheParameterGroupOutput.Size(m)
+}
+func (m *CreateCacheParameterGroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateCacheParameterGroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateCacheParameterGroupOutput proto.InternalMessageInfo
 
 func (m *CreateCacheParameterGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1752,15 +2563,36 @@ func (m *CreateCacheParameterGroupOutput) GetCacheParameterGroupId() string {
 }
 
 type ApplyCacheParameterGroupInput struct {
-	CacheParameterGroup *string  `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
-	Caches              []string `protobuf:"bytes,2,rep,name=caches" json:"caches,omitempty"`
-	XXX_unrecognized    []byte   `json:"-"`
+	CacheParameterGroup  *string  `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
+	Caches               []string `protobuf:"bytes,2,rep,name=caches" json:"caches,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplyCacheParameterGroupInput) Reset()                    { *m = ApplyCacheParameterGroupInput{} }
-func (m *ApplyCacheParameterGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*ApplyCacheParameterGroupInput) ProtoMessage()               {}
-func (*ApplyCacheParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{36} }
+func (m *ApplyCacheParameterGroupInput) Reset()         { *m = ApplyCacheParameterGroupInput{} }
+func (m *ApplyCacheParameterGroupInput) String() string { return proto.CompactTextString(m) }
+func (*ApplyCacheParameterGroupInput) ProtoMessage()    {}
+func (*ApplyCacheParameterGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{36}
+}
+func (m *ApplyCacheParameterGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplyCacheParameterGroupInput.Unmarshal(m, b)
+}
+func (m *ApplyCacheParameterGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplyCacheParameterGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *ApplyCacheParameterGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyCacheParameterGroupInput.Merge(dst, src)
+}
+func (m *ApplyCacheParameterGroupInput) XXX_Size() int {
+	return xxx_messageInfo_ApplyCacheParameterGroupInput.Size(m)
+}
+func (m *ApplyCacheParameterGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyCacheParameterGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyCacheParameterGroupInput proto.InternalMessageInfo
 
 func (m *ApplyCacheParameterGroupInput) GetCacheParameterGroup() string {
 	if m != nil && m.CacheParameterGroup != nil {
@@ -1777,17 +2609,38 @@ func (m *ApplyCacheParameterGroupInput) GetCaches() []string {
 }
 
 type ApplyCacheParameterGroupOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplyCacheParameterGroupOutput) Reset()                    { *m = ApplyCacheParameterGroupOutput{} }
-func (m *ApplyCacheParameterGroupOutput) String() string            { return proto.CompactTextString(m) }
-func (*ApplyCacheParameterGroupOutput) ProtoMessage()               {}
-func (*ApplyCacheParameterGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{37} }
+func (m *ApplyCacheParameterGroupOutput) Reset()         { *m = ApplyCacheParameterGroupOutput{} }
+func (m *ApplyCacheParameterGroupOutput) String() string { return proto.CompactTextString(m) }
+func (*ApplyCacheParameterGroupOutput) ProtoMessage()    {}
+func (*ApplyCacheParameterGroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{37}
+}
+func (m *ApplyCacheParameterGroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplyCacheParameterGroupOutput.Unmarshal(m, b)
+}
+func (m *ApplyCacheParameterGroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplyCacheParameterGroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *ApplyCacheParameterGroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyCacheParameterGroupOutput.Merge(dst, src)
+}
+func (m *ApplyCacheParameterGroupOutput) XXX_Size() int {
+	return xxx_messageInfo_ApplyCacheParameterGroupOutput.Size(m)
+}
+func (m *ApplyCacheParameterGroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyCacheParameterGroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyCacheParameterGroupOutput proto.InternalMessageInfo
 
 func (m *ApplyCacheParameterGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1819,15 +2672,34 @@ func (m *ApplyCacheParameterGroupOutput) GetJobId() string {
 
 type DeleteCacheParameterGroupsInput struct {
 	CacheParameterGroups []string `protobuf:"bytes,1,rep,name=cache_parameter_groups,json=cacheParameterGroups" json:"cache_parameter_groups,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteCacheParameterGroupsInput) Reset()         { *m = DeleteCacheParameterGroupsInput{} }
 func (m *DeleteCacheParameterGroupsInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteCacheParameterGroupsInput) ProtoMessage()    {}
 func (*DeleteCacheParameterGroupsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{38}
+	return fileDescriptor_cache_223a66a6072472c0, []int{38}
 }
+func (m *DeleteCacheParameterGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteCacheParameterGroupsInput.Unmarshal(m, b)
+}
+func (m *DeleteCacheParameterGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteCacheParameterGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteCacheParameterGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCacheParameterGroupsInput.Merge(dst, src)
+}
+func (m *DeleteCacheParameterGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteCacheParameterGroupsInput.Size(m)
+}
+func (m *DeleteCacheParameterGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteCacheParameterGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteCacheParameterGroupsInput proto.InternalMessageInfo
 
 func (m *DeleteCacheParameterGroupsInput) GetCacheParameterGroups() []string {
 	if m != nil {
@@ -1837,18 +2709,37 @@ func (m *DeleteCacheParameterGroupsInput) GetCacheParameterGroups() []string {
 }
 
 type DeleteCacheParameterGroupsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteCacheParameterGroupsOutput) Reset()         { *m = DeleteCacheParameterGroupsOutput{} }
 func (m *DeleteCacheParameterGroupsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteCacheParameterGroupsOutput) ProtoMessage()    {}
 func (*DeleteCacheParameterGroupsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{39}
+	return fileDescriptor_cache_223a66a6072472c0, []int{39}
 }
+func (m *DeleteCacheParameterGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteCacheParameterGroupsOutput.Unmarshal(m, b)
+}
+func (m *DeleteCacheParameterGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteCacheParameterGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteCacheParameterGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCacheParameterGroupsOutput.Merge(dst, src)
+}
+func (m *DeleteCacheParameterGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteCacheParameterGroupsOutput.Size(m)
+}
+func (m *DeleteCacheParameterGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteCacheParameterGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteCacheParameterGroupsOutput proto.InternalMessageInfo
 
 func (m *DeleteCacheParameterGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1872,10 +2763,12 @@ func (m *DeleteCacheParameterGroupsOutput) GetMessage() string {
 }
 
 type ModifyCacheParameterGroupAttributesInput struct {
-	CacheParameterGroup     *string `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
-	CacheParameterGroupName *string `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
-	Description             *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized        []byte  `json:"-"`
+	CacheParameterGroup     *string  `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
+	CacheParameterGroupName *string  `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
+	Description             *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
+	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
 func (m *ModifyCacheParameterGroupAttributesInput) Reset() {
@@ -1884,8 +2777,25 @@ func (m *ModifyCacheParameterGroupAttributesInput) Reset() {
 func (m *ModifyCacheParameterGroupAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyCacheParameterGroupAttributesInput) ProtoMessage()    {}
 func (*ModifyCacheParameterGroupAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{40}
+	return fileDescriptor_cache_223a66a6072472c0, []int{40}
 }
+func (m *ModifyCacheParameterGroupAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyCacheParameterGroupAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyCacheParameterGroupAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyCacheParameterGroupAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyCacheParameterGroupAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyCacheParameterGroupAttributesInput.Merge(dst, src)
+}
+func (m *ModifyCacheParameterGroupAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyCacheParameterGroupAttributesInput.Size(m)
+}
+func (m *ModifyCacheParameterGroupAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyCacheParameterGroupAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyCacheParameterGroupAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyCacheParameterGroupAttributesInput) GetCacheParameterGroup() string {
 	if m != nil && m.CacheParameterGroup != nil {
@@ -1909,10 +2819,12 @@ func (m *ModifyCacheParameterGroupAttributesInput) GetDescription() string {
 }
 
 type ModifyCacheParameterGroupAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyCacheParameterGroupAttributesOutput) Reset() {
@@ -1921,8 +2833,25 @@ func (m *ModifyCacheParameterGroupAttributesOutput) Reset() {
 func (m *ModifyCacheParameterGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyCacheParameterGroupAttributesOutput) ProtoMessage()    {}
 func (*ModifyCacheParameterGroupAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{41}
+	return fileDescriptor_cache_223a66a6072472c0, []int{41}
 }
+func (m *ModifyCacheParameterGroupAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyCacheParameterGroupAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyCacheParameterGroupAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyCacheParameterGroupAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyCacheParameterGroupAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyCacheParameterGroupAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyCacheParameterGroupAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyCacheParameterGroupAttributesOutput.Size(m)
+}
+func (m *ModifyCacheParameterGroupAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyCacheParameterGroupAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyCacheParameterGroupAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyCacheParameterGroupAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1946,14 +2875,35 @@ func (m *ModifyCacheParameterGroupAttributesOutput) GetMessage() string {
 }
 
 type DescribeCacheParametersInput struct {
-	CacheParameterGroup *string `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
-	XXX_unrecognized    []byte  `json:"-"`
+	CacheParameterGroup  *string  `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeCacheParametersInput) Reset()                    { *m = DescribeCacheParametersInput{} }
-func (m *DescribeCacheParametersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeCacheParametersInput) ProtoMessage()               {}
-func (*DescribeCacheParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{42} }
+func (m *DescribeCacheParametersInput) Reset()         { *m = DescribeCacheParametersInput{} }
+func (m *DescribeCacheParametersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCacheParametersInput) ProtoMessage()    {}
+func (*DescribeCacheParametersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{42}
+}
+func (m *DescribeCacheParametersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheParametersInput.Unmarshal(m, b)
+}
+func (m *DescribeCacheParametersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheParametersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheParametersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheParametersInput.Merge(dst, src)
+}
+func (m *DescribeCacheParametersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheParametersInput.Size(m)
+}
+func (m *DescribeCacheParametersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheParametersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheParametersInput proto.InternalMessageInfo
 
 func (m *DescribeCacheParametersInput) GetCacheParameterGroup() string {
 	if m != nil && m.CacheParameterGroup != nil {
@@ -1963,18 +2913,39 @@ func (m *DescribeCacheParametersInput) GetCacheParameterGroup() string {
 }
 
 type DescribeCacheParametersOutput struct {
-	Action            *string                                       `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode           *int32                                        `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message           *string                                       `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CacheParameterSet []*DescribeCacheParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=cache_parameter_set,json=cacheParameterSet" json:"cache_parameter_set,omitempty"`
-	TotalCount        *int32                                        `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized  []byte                                        `json:"-"`
+	Action               *string                                       `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                        `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                       `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CacheParameterSet    []*DescribeCacheParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=cache_parameter_set,json=cacheParameterSet" json:"cache_parameter_set,omitempty"`
+	TotalCount           *int32                                        `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                      `json:"-"`
+	XXX_unrecognized     []byte                                        `json:"-"`
+	XXX_sizecache        int32                                         `json:"-"`
 }
 
-func (m *DescribeCacheParametersOutput) Reset()                    { *m = DescribeCacheParametersOutput{} }
-func (m *DescribeCacheParametersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeCacheParametersOutput) ProtoMessage()               {}
-func (*DescribeCacheParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{43} }
+func (m *DescribeCacheParametersOutput) Reset()         { *m = DescribeCacheParametersOutput{} }
+func (m *DescribeCacheParametersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeCacheParametersOutput) ProtoMessage()    {}
+func (*DescribeCacheParametersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{43}
+}
+func (m *DescribeCacheParametersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheParametersOutput.Unmarshal(m, b)
+}
+func (m *DescribeCacheParametersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheParametersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheParametersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheParametersOutput.Merge(dst, src)
+}
+func (m *DescribeCacheParametersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheParametersOutput.Size(m)
+}
+func (m *DescribeCacheParametersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheParametersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheParametersOutput proto.InternalMessageInfo
 
 func (m *DescribeCacheParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2012,12 +2983,14 @@ func (m *DescribeCacheParametersOutput) GetTotalCount() int32 {
 }
 
 type DescribeCacheParametersOutput_ResponseItem struct {
-	CacheParameterType  *string `protobuf:"bytes,1,opt,name=cache_parameter_type,json=cacheParameterType" json:"cache_parameter_type,omitempty"`
-	CacheParameterName  *string `protobuf:"bytes,2,opt,name=cache_parameter_name,json=cacheParameterName" json:"cache_parameter_name,omitempty"`
-	CacheParameterValue *string `protobuf:"bytes,3,opt,name=cache_parameter_value,json=cacheParameterValue" json:"cache_parameter_value,omitempty"`
-	ValueRange          *string `protobuf:"bytes,4,opt,name=value_range,json=valueRange" json:"value_range,omitempty"`
-	IsReadonly          *int32  `protobuf:"varint,5,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	XXX_unrecognized    []byte  `json:"-"`
+	CacheParameterType   *string  `protobuf:"bytes,1,opt,name=cache_parameter_type,json=cacheParameterType" json:"cache_parameter_type,omitempty"`
+	CacheParameterName   *string  `protobuf:"bytes,2,opt,name=cache_parameter_name,json=cacheParameterName" json:"cache_parameter_name,omitempty"`
+	CacheParameterValue  *string  `protobuf:"bytes,3,opt,name=cache_parameter_value,json=cacheParameterValue" json:"cache_parameter_value,omitempty"`
+	ValueRange           *string  `protobuf:"bytes,4,opt,name=value_range,json=valueRange" json:"value_range,omitempty"`
+	IsReadonly           *int32   `protobuf:"varint,5,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeCacheParametersOutput_ResponseItem) Reset() {
@@ -2028,8 +3001,25 @@ func (m *DescribeCacheParametersOutput_ResponseItem) String() string {
 }
 func (*DescribeCacheParametersOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeCacheParametersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor1, []int{43, 0}
+	return fileDescriptor_cache_223a66a6072472c0, []int{43, 0}
 }
+func (m *DescribeCacheParametersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeCacheParametersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeCacheParametersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeCacheParametersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeCacheParametersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeCacheParametersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeCacheParametersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeCacheParametersOutput_ResponseItem.Size(m)
+}
+func (m *DescribeCacheParametersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeCacheParametersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeCacheParametersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeCacheParametersOutput_ResponseItem) GetCacheParameterType() string {
 	if m != nil && m.CacheParameterType != nil {
@@ -2067,15 +3057,36 @@ func (m *DescribeCacheParametersOutput_ResponseItem) GetIsReadonly() int32 {
 }
 
 type UpdateCacheParametersInput struct {
-	CacheParameterGroup *string           `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
-	Parameters          []*CacheParameter `protobuf:"bytes,2,rep,name=parameters" json:"parameters,omitempty"`
-	XXX_unrecognized    []byte            `json:"-"`
+	CacheParameterGroup  *string           `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
+	Parameters           []*CacheParameter `protobuf:"bytes,2,rep,name=parameters" json:"parameters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *UpdateCacheParametersInput) Reset()                    { *m = UpdateCacheParametersInput{} }
-func (m *UpdateCacheParametersInput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateCacheParametersInput) ProtoMessage()               {}
-func (*UpdateCacheParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{44} }
+func (m *UpdateCacheParametersInput) Reset()         { *m = UpdateCacheParametersInput{} }
+func (m *UpdateCacheParametersInput) String() string { return proto.CompactTextString(m) }
+func (*UpdateCacheParametersInput) ProtoMessage()    {}
+func (*UpdateCacheParametersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{44}
+}
+func (m *UpdateCacheParametersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateCacheParametersInput.Unmarshal(m, b)
+}
+func (m *UpdateCacheParametersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateCacheParametersInput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateCacheParametersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateCacheParametersInput.Merge(dst, src)
+}
+func (m *UpdateCacheParametersInput) XXX_Size() int {
+	return xxx_messageInfo_UpdateCacheParametersInput.Size(m)
+}
+func (m *UpdateCacheParametersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateCacheParametersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateCacheParametersInput proto.InternalMessageInfo
 
 func (m *UpdateCacheParametersInput) GetCacheParameterGroup() string {
 	if m != nil && m.CacheParameterGroup != nil {
@@ -2092,16 +3103,37 @@ func (m *UpdateCacheParametersInput) GetParameters() []*CacheParameter {
 }
 
 type UpdateCacheParametersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateCacheParametersOutput) Reset()                    { *m = UpdateCacheParametersOutput{} }
-func (m *UpdateCacheParametersOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateCacheParametersOutput) ProtoMessage()               {}
-func (*UpdateCacheParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{45} }
+func (m *UpdateCacheParametersOutput) Reset()         { *m = UpdateCacheParametersOutput{} }
+func (m *UpdateCacheParametersOutput) String() string { return proto.CompactTextString(m) }
+func (*UpdateCacheParametersOutput) ProtoMessage()    {}
+func (*UpdateCacheParametersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{45}
+}
+func (m *UpdateCacheParametersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateCacheParametersOutput.Unmarshal(m, b)
+}
+func (m *UpdateCacheParametersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateCacheParametersOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateCacheParametersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateCacheParametersOutput.Merge(dst, src)
+}
+func (m *UpdateCacheParametersOutput) XXX_Size() int {
+	return xxx_messageInfo_UpdateCacheParametersOutput.Size(m)
+}
+func (m *UpdateCacheParametersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateCacheParametersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateCacheParametersOutput proto.InternalMessageInfo
 
 func (m *UpdateCacheParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2125,15 +3157,36 @@ func (m *UpdateCacheParametersOutput) GetMessage() string {
 }
 
 type ResetCacheParametersInput struct {
-	CacheParameterGroup *string  `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
-	CacheParameterNames []string `protobuf:"bytes,2,rep,name=cache_parameter_names,json=cacheParameterNames" json:"cache_parameter_names,omitempty"`
-	XXX_unrecognized    []byte   `json:"-"`
+	CacheParameterGroup  *string  `protobuf:"bytes,1,opt,name=cache_parameter_group,json=cacheParameterGroup" json:"cache_parameter_group,omitempty"`
+	CacheParameterNames  []string `protobuf:"bytes,2,rep,name=cache_parameter_names,json=cacheParameterNames" json:"cache_parameter_names,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResetCacheParametersInput) Reset()                    { *m = ResetCacheParametersInput{} }
-func (m *ResetCacheParametersInput) String() string            { return proto.CompactTextString(m) }
-func (*ResetCacheParametersInput) ProtoMessage()               {}
-func (*ResetCacheParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{46} }
+func (m *ResetCacheParametersInput) Reset()         { *m = ResetCacheParametersInput{} }
+func (m *ResetCacheParametersInput) String() string { return proto.CompactTextString(m) }
+func (*ResetCacheParametersInput) ProtoMessage()    {}
+func (*ResetCacheParametersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{46}
+}
+func (m *ResetCacheParametersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResetCacheParametersInput.Unmarshal(m, b)
+}
+func (m *ResetCacheParametersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResetCacheParametersInput.Marshal(b, m, deterministic)
+}
+func (dst *ResetCacheParametersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResetCacheParametersInput.Merge(dst, src)
+}
+func (m *ResetCacheParametersInput) XXX_Size() int {
+	return xxx_messageInfo_ResetCacheParametersInput.Size(m)
+}
+func (m *ResetCacheParametersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResetCacheParametersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResetCacheParametersInput proto.InternalMessageInfo
 
 func (m *ResetCacheParametersInput) GetCacheParameterGroup() string {
 	if m != nil && m.CacheParameterGroup != nil {
@@ -2150,16 +3203,37 @@ func (m *ResetCacheParametersInput) GetCacheParameterNames() []string {
 }
 
 type ResetCacheParametersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResetCacheParametersOutput) Reset()                    { *m = ResetCacheParametersOutput{} }
-func (m *ResetCacheParametersOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResetCacheParametersOutput) ProtoMessage()               {}
-func (*ResetCacheParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{47} }
+func (m *ResetCacheParametersOutput) Reset()         { *m = ResetCacheParametersOutput{} }
+func (m *ResetCacheParametersOutput) String() string { return proto.CompactTextString(m) }
+func (*ResetCacheParametersOutput) ProtoMessage()    {}
+func (*ResetCacheParametersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cache_223a66a6072472c0, []int{47}
+}
+func (m *ResetCacheParametersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResetCacheParametersOutput.Unmarshal(m, b)
+}
+func (m *ResetCacheParametersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResetCacheParametersOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResetCacheParametersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResetCacheParametersOutput.Merge(dst, src)
+}
+func (m *ResetCacheParametersOutput) XXX_Size() int {
+	return xxx_messageInfo_ResetCacheParametersOutput.Size(m)
+}
+func (m *ResetCacheParametersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResetCacheParametersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResetCacheParametersOutput proto.InternalMessageInfo
 
 func (m *ResetCacheParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2186,6 +3260,7 @@ func init() {
 	proto.RegisterType((*DescribeCachesInput)(nil), "service.DescribeCachesInput")
 	proto.RegisterType((*DescribeCachesOutput)(nil), "service.DescribeCachesOutput")
 	proto.RegisterType((*DescribeCachesOutput_ResponseItem)(nil), "service.DescribeCachesOutput.ResponseItem")
+	proto.RegisterMapType((map[string]string)(nil), "service.DescribeCachesOutput.ResponseItem.VxnetEntry")
 	proto.RegisterType((*CreateCacheInput)(nil), "service.CreateCacheInput")
 	proto.RegisterType((*CreateCacheOutput)(nil), "service.CreateCacheOutput")
 	proto.RegisterType((*StopCachesInput)(nil), "service.StopCachesInput")
@@ -2237,9 +3312,9 @@ func init() {
 	proto.RegisterType((*ResetCacheParametersOutput)(nil), "service.ResetCacheParametersOutput")
 }
 
-func init() { proto.RegisterFile("cache.proto", fileDescriptor1) }
+func init() { proto.RegisterFile("cache.proto", fileDescriptor_cache_223a66a6072472c0) }
 
-var fileDescriptor1 = []byte{
+var fileDescriptor_cache_223a66a6072472c0 = []byte{
 	// 2233 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x59, 0xbd, 0x93, 0x1b, 0x49,
 	0x15, 0xaf, 0xd1, 0xc7, 0x7e, 0x3c, 0xad, 0xed, 0x55, 0xef, 0xd7, 0xec, 0xac, 0xd7, 0xab, 0x1b,

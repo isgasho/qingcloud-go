@@ -7,32 +7,59 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type CreateRDBInput struct {
-	Vxnet            *string                    `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	RdbEngine        *string                    `protobuf:"bytes,2,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
-	EngineVersion    *string                    `protobuf:"bytes,3,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
-	RdbUsername      *string                    `protobuf:"bytes,4,opt,name=rdb_username,json=rdbUsername" json:"rdb_username,omitempty"`
-	RdbPassword      *string                    `protobuf:"bytes,5,opt,name=rdb_password,json=rdbPassword" json:"rdb_password,omitempty"`
-	RdbType          *int32                     `protobuf:"varint,6,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
-	StorageSize      *int32                     `protobuf:"varint,7,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	RdbName          *string                    `protobuf:"bytes,8,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
-	PrivateIps       *CreateRDBInput_PrivateIps `protobuf:"bytes,9,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	Description      *string                    `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
-	AutoBackupTime   *int32                     `protobuf:"varint,11,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	XXX_unrecognized []byte                     `json:"-"`
+	Vxnet                *string                    `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	RdbEngine            *string                    `protobuf:"bytes,2,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+	EngineVersion        *string                    `protobuf:"bytes,3,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
+	RdbUsername          *string                    `protobuf:"bytes,4,opt,name=rdb_username,json=rdbUsername" json:"rdb_username,omitempty"`
+	RdbPassword          *string                    `protobuf:"bytes,5,opt,name=rdb_password,json=rdbPassword" json:"rdb_password,omitempty"`
+	RdbType              *int32                     `protobuf:"varint,6,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	StorageSize          *int32                     `protobuf:"varint,7,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	RdbName              *string                    `protobuf:"bytes,8,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	PrivateIps           *CreateRDBInput_PrivateIps `protobuf:"bytes,9,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	Description          *string                    `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime       *int32                     `protobuf:"varint,11,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
+	XXX_unrecognized     []byte                     `json:"-"`
+	XXX_sizecache        int32                      `json:"-"`
 }
 
-func (m *CreateRDBInput) Reset()                    { *m = CreateRDBInput{} }
-func (m *CreateRDBInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateRDBInput) ProtoMessage()               {}
-func (*CreateRDBInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{0} }
+func (m *CreateRDBInput) Reset()         { *m = CreateRDBInput{} }
+func (m *CreateRDBInput) String() string { return proto.CompactTextString(m) }
+func (*CreateRDBInput) ProtoMessage()    {}
+func (*CreateRDBInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{0}
+}
+func (m *CreateRDBInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRDBInput.Unmarshal(m, b)
+}
+func (m *CreateRDBInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRDBInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateRDBInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRDBInput.Merge(dst, src)
+}
+func (m *CreateRDBInput) XXX_Size() int {
+	return xxx_messageInfo_CreateRDBInput.Size(m)
+}
+func (m *CreateRDBInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRDBInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRDBInput proto.InternalMessageInfo
 
 func (m *CreateRDBInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -112,15 +139,36 @@ func (m *CreateRDBInput) GetAutoBackupTime() int32 {
 }
 
 type CreateRDBInput_PrivateIps struct {
-	Master           *string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
-	Topslave         *string `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Master               *string  `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
+	Topslave             *string  `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateRDBInput_PrivateIps) Reset()                    { *m = CreateRDBInput_PrivateIps{} }
-func (m *CreateRDBInput_PrivateIps) String() string            { return proto.CompactTextString(m) }
-func (*CreateRDBInput_PrivateIps) ProtoMessage()               {}
-func (*CreateRDBInput_PrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{0, 0} }
+func (m *CreateRDBInput_PrivateIps) Reset()         { *m = CreateRDBInput_PrivateIps{} }
+func (m *CreateRDBInput_PrivateIps) String() string { return proto.CompactTextString(m) }
+func (*CreateRDBInput_PrivateIps) ProtoMessage()    {}
+func (*CreateRDBInput_PrivateIps) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{0, 0}
+}
+func (m *CreateRDBInput_PrivateIps) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRDBInput_PrivateIps.Unmarshal(m, b)
+}
+func (m *CreateRDBInput_PrivateIps) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRDBInput_PrivateIps.Marshal(b, m, deterministic)
+}
+func (dst *CreateRDBInput_PrivateIps) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRDBInput_PrivateIps.Merge(dst, src)
+}
+func (m *CreateRDBInput_PrivateIps) XXX_Size() int {
+	return xxx_messageInfo_CreateRDBInput_PrivateIps.Size(m)
+}
+func (m *CreateRDBInput_PrivateIps) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRDBInput_PrivateIps.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRDBInput_PrivateIps proto.InternalMessageInfo
 
 func (m *CreateRDBInput_PrivateIps) GetMaster() string {
 	if m != nil && m.Master != nil {
@@ -137,17 +185,38 @@ func (m *CreateRDBInput_PrivateIps) GetTopslave() string {
 }
 
 type CreateRDBOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Rdb              *string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb                  *string  `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateRDBOutput) Reset()                    { *m = CreateRDBOutput{} }
-func (m *CreateRDBOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateRDBOutput) ProtoMessage()               {}
-func (*CreateRDBOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{1} }
+func (m *CreateRDBOutput) Reset()         { *m = CreateRDBOutput{} }
+func (m *CreateRDBOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateRDBOutput) ProtoMessage()    {}
+func (*CreateRDBOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{1}
+}
+func (m *CreateRDBOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRDBOutput.Unmarshal(m, b)
+}
+func (m *CreateRDBOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRDBOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateRDBOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRDBOutput.Merge(dst, src)
+}
+func (m *CreateRDBOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateRDBOutput.Size(m)
+}
+func (m *CreateRDBOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRDBOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRDBOutput proto.InternalMessageInfo
 
 func (m *CreateRDBOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -178,21 +247,42 @@ func (m *CreateRDBOutput) GetRdb() string {
 }
 
 type DescribeRDBsInput struct {
-	Rdbs             []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
-	RdbEngine        *string  `protobuf:"bytes,2,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
-	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	RdbName          *string  `protobuf:"bytes,4,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
-	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Rdbs                 []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	RdbEngine            *string  `protobuf:"bytes,2,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+	Status               []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	RdbName              *string  `protobuf:"bytes,4,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	Tags                 []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeRDBsInput) Reset()                    { *m = DescribeRDBsInput{} }
-func (m *DescribeRDBsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRDBsInput) ProtoMessage()               {}
-func (*DescribeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{2} }
+func (m *DescribeRDBsInput) Reset()         { *m = DescribeRDBsInput{} }
+func (m *DescribeRDBsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRDBsInput) ProtoMessage()    {}
+func (*DescribeRDBsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{2}
+}
+func (m *DescribeRDBsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRDBsInput.Unmarshal(m, b)
+}
+func (m *DescribeRDBsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRDBsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRDBsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRDBsInput.Merge(dst, src)
+}
+func (m *DescribeRDBsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRDBsInput.Size(m)
+}
+func (m *DescribeRDBsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRDBsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRDBsInput proto.InternalMessageInfo
 
 func (m *DescribeRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -251,18 +341,39 @@ func (m *DescribeRDBsInput) GetLimit() int32 {
 }
 
 type DescribeRDBsOutput struct {
-	Action           *string                            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterSet        []*DescribeRDBsOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_set,json=routerSet" json:"router_set,omitempty"`
-	TotalCount       *int32                             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                             `json:"-"`
+	Action               *string                            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterSet            []*DescribeRDBsOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_set,json=routerSet" json:"router_set,omitempty"`
+	TotalCount           *int32                             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                           `json:"-"`
+	XXX_unrecognized     []byte                             `json:"-"`
+	XXX_sizecache        int32                              `json:"-"`
 }
 
-func (m *DescribeRDBsOutput) Reset()                    { *m = DescribeRDBsOutput{} }
-func (m *DescribeRDBsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRDBsOutput) ProtoMessage()               {}
-func (*DescribeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{3} }
+func (m *DescribeRDBsOutput) Reset()         { *m = DescribeRDBsOutput{} }
+func (m *DescribeRDBsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRDBsOutput) ProtoMessage()    {}
+func (*DescribeRDBsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{3}
+}
+func (m *DescribeRDBsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRDBsOutput.Unmarshal(m, b)
+}
+func (m *DescribeRDBsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRDBsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRDBsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRDBsOutput.Merge(dst, src)
+}
+func (m *DescribeRDBsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRDBsOutput.Size(m)
+}
+func (m *DescribeRDBsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRDBsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRDBsOutput proto.InternalMessageInfo
 
 func (m *DescribeRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -300,32 +411,51 @@ func (m *DescribeRDBsOutput) GetTotalCount() int32 {
 }
 
 type DescribeRDBsOutput_ResponseItem struct {
-	RdbId               *string                                 `protobuf:"bytes,1,opt,name=rdb_id,json=rdbId" json:"rdb_id,omitempty"`
-	AutoBackupTime      *int32                                  `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	CreateTime          *google_protobuf1.Timestamp             `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	AlarmStatus         *string                                 `protobuf:"bytes,4,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	RdbName             *string                                 `protobuf:"bytes,5,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
-	MasterIp            *string                                 `protobuf:"bytes,6,opt,name=master_ip,json=masterIp" json:"master_ip,omitempty"`
-	StatusTime          *google_protobuf1.Timestamp             `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	Vxnets              *DescribeRDBsOutput_ResponseItem_Vxnets `protobuf:"bytes,8,opt,name=vxnets" json:"vxnets,omitempty"`
-	Status              *string                                 `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
-	Description         *string                                 `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
-	TransitionStatus    *string                                 `protobuf:"bytes,11,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	StorageSize         *int32                                  `protobuf:"varint,12,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	RdbType             *int32                                  `protobuf:"varint,13,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
-	AutoMinorVerUpgrade *int32                                  `protobuf:"varint,14,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
-	LastestSnapshotTime *google_protobuf1.Timestamp             `protobuf:"bytes,15,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
-	EngineVersion       *string                                 `protobuf:"bytes,16,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
-	RdbEngine           *string                                 `protobuf:"bytes,17,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
-	XXX_unrecognized    []byte                                  `json:"-"`
+	RdbId                *string                                 `protobuf:"bytes,1,opt,name=rdb_id,json=rdbId" json:"rdb_id,omitempty"`
+	AutoBackupTime       *int32                                  `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	CreateTime           *timestamp.Timestamp                    `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	AlarmStatus          *string                                 `protobuf:"bytes,4,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	RdbName              *string                                 `protobuf:"bytes,5,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	MasterIp             *string                                 `protobuf:"bytes,6,opt,name=master_ip,json=masterIp" json:"master_ip,omitempty"`
+	StatusTime           *timestamp.Timestamp                    `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Vxnets               *DescribeRDBsOutput_ResponseItem_Vxnets `protobuf:"bytes,8,opt,name=vxnets" json:"vxnets,omitempty"`
+	Status               *string                                 `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
+	Description          *string                                 `protobuf:"bytes,10,opt,name=description" json:"description,omitempty"`
+	TransitionStatus     *string                                 `protobuf:"bytes,11,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	StorageSize          *int32                                  `protobuf:"varint,12,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	RdbType              *int32                                  `protobuf:"varint,13,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	AutoMinorVerUpgrade  *int32                                  `protobuf:"varint,14,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
+	LastestSnapshotTime  *timestamp.Timestamp                    `protobuf:"bytes,15,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
+	EngineVersion        *string                                 `protobuf:"bytes,16,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
+	RdbEngine            *string                                 `protobuf:"bytes,17,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                `json:"-"`
+	XXX_unrecognized     []byte                                  `json:"-"`
+	XXX_sizecache        int32                                   `json:"-"`
 }
 
 func (m *DescribeRDBsOutput_ResponseItem) Reset()         { *m = DescribeRDBsOutput_ResponseItem{} }
 func (m *DescribeRDBsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRDBsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRDBsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{3, 0}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{3, 0}
 }
+func (m *DescribeRDBsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRDBsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeRDBsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRDBsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRDBsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRDBsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeRDBsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeRDBsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeRDBsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRDBsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRDBsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeRDBsOutput_ResponseItem) GetRdbId() string {
 	if m != nil && m.RdbId != nil {
@@ -341,7 +471,7 @@ func (m *DescribeRDBsOutput_ResponseItem) GetAutoBackupTime() int32 {
 	return 0
 }
 
-func (m *DescribeRDBsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeRDBsOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -369,7 +499,7 @@ func (m *DescribeRDBsOutput_ResponseItem) GetMasterIp() string {
 	return ""
 }
 
-func (m *DescribeRDBsOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeRDBsOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -425,7 +555,7 @@ func (m *DescribeRDBsOutput_ResponseItem) GetAutoMinorVerUpgrade() int32 {
 	return 0
 }
 
-func (m *DescribeRDBsOutput_ResponseItem) GetLastestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *DescribeRDBsOutput_ResponseItem) GetLastestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LastestSnapshotTime
 	}
@@ -447,9 +577,11 @@ func (m *DescribeRDBsOutput_ResponseItem) GetRdbEngine() string {
 }
 
 type DescribeRDBsOutput_ResponseItem_Vxnets struct {
-	VxnetName        *string `protobuf:"bytes,1,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	VxnetId          *string `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	VxnetName            *string  `protobuf:"bytes,1,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	VxnetId              *string  `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeRDBsOutput_ResponseItem_Vxnets) Reset() {
@@ -458,8 +590,25 @@ func (m *DescribeRDBsOutput_ResponseItem_Vxnets) Reset() {
 func (m *DescribeRDBsOutput_ResponseItem_Vxnets) String() string { return proto.CompactTextString(m) }
 func (*DescribeRDBsOutput_ResponseItem_Vxnets) ProtoMessage()    {}
 func (*DescribeRDBsOutput_ResponseItem_Vxnets) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{3, 0, 0}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{3, 0, 0}
 }
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRDBsOutput_ResponseItem_Vxnets.Unmarshal(m, b)
+}
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRDBsOutput_ResponseItem_Vxnets.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRDBsOutput_ResponseItem_Vxnets) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRDBsOutput_ResponseItem_Vxnets.Merge(dst, src)
+}
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) XXX_Size() int {
+	return xxx_messageInfo_DescribeRDBsOutput_ResponseItem_Vxnets.Size(m)
+}
+func (m *DescribeRDBsOutput_ResponseItem_Vxnets) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRDBsOutput_ResponseItem_Vxnets.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRDBsOutput_ResponseItem_Vxnets proto.InternalMessageInfo
 
 func (m *DescribeRDBsOutput_ResponseItem_Vxnets) GetVxnetName() string {
 	if m != nil && m.VxnetName != nil {
@@ -476,14 +625,35 @@ func (m *DescribeRDBsOutput_ResponseItem_Vxnets) GetVxnetId() string {
 }
 
 type DeleteRDBsInput struct {
-	Rdbs             []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Rdbs                 []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteRDBsInput) Reset()                    { *m = DeleteRDBsInput{} }
-func (m *DeleteRDBsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteRDBsInput) ProtoMessage()               {}
-func (*DeleteRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{4} }
+func (m *DeleteRDBsInput) Reset()         { *m = DeleteRDBsInput{} }
+func (m *DeleteRDBsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRDBsInput) ProtoMessage()    {}
+func (*DeleteRDBsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{4}
+}
+func (m *DeleteRDBsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRDBsInput.Unmarshal(m, b)
+}
+func (m *DeleteRDBsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRDBsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRDBsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRDBsInput.Merge(dst, src)
+}
+func (m *DeleteRDBsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRDBsInput.Size(m)
+}
+func (m *DeleteRDBsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRDBsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRDBsInput proto.InternalMessageInfo
 
 func (m *DeleteRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -493,17 +663,38 @@ func (m *DeleteRDBsInput) GetRdbs() []string {
 }
 
 type DeleteRDBsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteRDBsOutput) Reset()                    { *m = DeleteRDBsOutput{} }
-func (m *DeleteRDBsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteRDBsOutput) ProtoMessage()               {}
-func (*DeleteRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{5} }
+func (m *DeleteRDBsOutput) Reset()         { *m = DeleteRDBsOutput{} }
+func (m *DeleteRDBsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRDBsOutput) ProtoMessage()    {}
+func (*DeleteRDBsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{5}
+}
+func (m *DeleteRDBsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRDBsOutput.Unmarshal(m, b)
+}
+func (m *DeleteRDBsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRDBsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRDBsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRDBsOutput.Merge(dst, src)
+}
+func (m *DeleteRDBsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRDBsOutput.Size(m)
+}
+func (m *DeleteRDBsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRDBsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRDBsOutput proto.InternalMessageInfo
 
 func (m *DeleteRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -534,14 +725,35 @@ func (m *DeleteRDBsOutput) GetJobId() string {
 }
 
 type StartRDBsInput struct {
-	Rdbs             []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Rdbs                 []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartRDBsInput) Reset()                    { *m = StartRDBsInput{} }
-func (m *StartRDBsInput) String() string            { return proto.CompactTextString(m) }
-func (*StartRDBsInput) ProtoMessage()               {}
-func (*StartRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{6} }
+func (m *StartRDBsInput) Reset()         { *m = StartRDBsInput{} }
+func (m *StartRDBsInput) String() string { return proto.CompactTextString(m) }
+func (*StartRDBsInput) ProtoMessage()    {}
+func (*StartRDBsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{6}
+}
+func (m *StartRDBsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartRDBsInput.Unmarshal(m, b)
+}
+func (m *StartRDBsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartRDBsInput.Marshal(b, m, deterministic)
+}
+func (dst *StartRDBsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartRDBsInput.Merge(dst, src)
+}
+func (m *StartRDBsInput) XXX_Size() int {
+	return xxx_messageInfo_StartRDBsInput.Size(m)
+}
+func (m *StartRDBsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartRDBsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartRDBsInput proto.InternalMessageInfo
 
 func (m *StartRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -551,17 +763,38 @@ func (m *StartRDBsInput) GetRdbs() []string {
 }
 
 type StartRDBsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartRDBsOutput) Reset()                    { *m = StartRDBsOutput{} }
-func (m *StartRDBsOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartRDBsOutput) ProtoMessage()               {}
-func (*StartRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{7} }
+func (m *StartRDBsOutput) Reset()         { *m = StartRDBsOutput{} }
+func (m *StartRDBsOutput) String() string { return proto.CompactTextString(m) }
+func (*StartRDBsOutput) ProtoMessage()    {}
+func (*StartRDBsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{7}
+}
+func (m *StartRDBsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartRDBsOutput.Unmarshal(m, b)
+}
+func (m *StartRDBsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartRDBsOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartRDBsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartRDBsOutput.Merge(dst, src)
+}
+func (m *StartRDBsOutput) XXX_Size() int {
+	return xxx_messageInfo_StartRDBsOutput.Size(m)
+}
+func (m *StartRDBsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartRDBsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartRDBsOutput proto.InternalMessageInfo
 
 func (m *StartRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -592,14 +825,35 @@ func (m *StartRDBsOutput) GetJobId() string {
 }
 
 type StopRDBsInput struct {
-	Rdbs             []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Rdbs                 []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopRDBsInput) Reset()                    { *m = StopRDBsInput{} }
-func (m *StopRDBsInput) String() string            { return proto.CompactTextString(m) }
-func (*StopRDBsInput) ProtoMessage()               {}
-func (*StopRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{8} }
+func (m *StopRDBsInput) Reset()         { *m = StopRDBsInput{} }
+func (m *StopRDBsInput) String() string { return proto.CompactTextString(m) }
+func (*StopRDBsInput) ProtoMessage()    {}
+func (*StopRDBsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{8}
+}
+func (m *StopRDBsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopRDBsInput.Unmarshal(m, b)
+}
+func (m *StopRDBsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopRDBsInput.Marshal(b, m, deterministic)
+}
+func (dst *StopRDBsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopRDBsInput.Merge(dst, src)
+}
+func (m *StopRDBsInput) XXX_Size() int {
+	return xxx_messageInfo_StopRDBsInput.Size(m)
+}
+func (m *StopRDBsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopRDBsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopRDBsInput proto.InternalMessageInfo
 
 func (m *StopRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -609,17 +863,38 @@ func (m *StopRDBsInput) GetRdbs() []string {
 }
 
 type StopRDBsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopRDBsOutput) Reset()                    { *m = StopRDBsOutput{} }
-func (m *StopRDBsOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopRDBsOutput) ProtoMessage()               {}
-func (*StopRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{9} }
+func (m *StopRDBsOutput) Reset()         { *m = StopRDBsOutput{} }
+func (m *StopRDBsOutput) String() string { return proto.CompactTextString(m) }
+func (*StopRDBsOutput) ProtoMessage()    {}
+func (*StopRDBsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{9}
+}
+func (m *StopRDBsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopRDBsOutput.Unmarshal(m, b)
+}
+func (m *StopRDBsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopRDBsOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopRDBsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopRDBsOutput.Merge(dst, src)
+}
+func (m *StopRDBsOutput) XXX_Size() int {
+	return xxx_messageInfo_StopRDBsOutput.Size(m)
+}
+func (m *StopRDBsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopRDBsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopRDBsOutput proto.InternalMessageInfo
 
 func (m *StopRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -650,16 +925,37 @@ func (m *StopRDBsOutput) GetJobId() string {
 }
 
 type ResizeRDBsInput struct {
-	Rdbs             []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
-	RdbType          *int32   `protobuf:"varint,2,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
-	StorageSize      *int32   `protobuf:"varint,3,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Rdbs                 []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	RdbType              *int32   `protobuf:"varint,2,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	StorageSize          *int32   `protobuf:"varint,3,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeRDBsInput) Reset()                    { *m = ResizeRDBsInput{} }
-func (m *ResizeRDBsInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeRDBsInput) ProtoMessage()               {}
-func (*ResizeRDBsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{10} }
+func (m *ResizeRDBsInput) Reset()         { *m = ResizeRDBsInput{} }
+func (m *ResizeRDBsInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeRDBsInput) ProtoMessage()    {}
+func (*ResizeRDBsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{10}
+}
+func (m *ResizeRDBsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeRDBsInput.Unmarshal(m, b)
+}
+func (m *ResizeRDBsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeRDBsInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeRDBsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeRDBsInput.Merge(dst, src)
+}
+func (m *ResizeRDBsInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeRDBsInput.Size(m)
+}
+func (m *ResizeRDBsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeRDBsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeRDBsInput proto.InternalMessageInfo
 
 func (m *ResizeRDBsInput) GetRdbs() []string {
 	if m != nil {
@@ -683,17 +979,38 @@ func (m *ResizeRDBsInput) GetStorageSize() int32 {
 }
 
 type ResizeRDBsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeRDBsOutput) Reset()                    { *m = ResizeRDBsOutput{} }
-func (m *ResizeRDBsOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeRDBsOutput) ProtoMessage()               {}
-func (*ResizeRDBsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{11} }
+func (m *ResizeRDBsOutput) Reset()         { *m = ResizeRDBsOutput{} }
+func (m *ResizeRDBsOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeRDBsOutput) ProtoMessage()    {}
+func (*ResizeRDBsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{11}
+}
+func (m *ResizeRDBsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeRDBsOutput.Unmarshal(m, b)
+}
+func (m *ResizeRDBsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeRDBsOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeRDBsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeRDBsOutput.Merge(dst, src)
+}
+func (m *ResizeRDBsOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeRDBsOutput.Size(m)
+}
+func (m *ResizeRDBsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeRDBsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeRDBsOutput proto.InternalMessageInfo
 
 func (m *ResizeRDBsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -724,15 +1041,36 @@ func (m *ResizeRDBsOutput) GetJobId() string {
 }
 
 type RDBsLeaveVxnetInput struct {
-	Rdbs             []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
-	Vxnet            *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Rdbs                 []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	Vxnet                *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBsLeaveVxnetInput) Reset()                    { *m = RDBsLeaveVxnetInput{} }
-func (m *RDBsLeaveVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*RDBsLeaveVxnetInput) ProtoMessage()               {}
-func (*RDBsLeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{12} }
+func (m *RDBsLeaveVxnetInput) Reset()         { *m = RDBsLeaveVxnetInput{} }
+func (m *RDBsLeaveVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*RDBsLeaveVxnetInput) ProtoMessage()    {}
+func (*RDBsLeaveVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{12}
+}
+func (m *RDBsLeaveVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBsLeaveVxnetInput.Unmarshal(m, b)
+}
+func (m *RDBsLeaveVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBsLeaveVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *RDBsLeaveVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBsLeaveVxnetInput.Merge(dst, src)
+}
+func (m *RDBsLeaveVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_RDBsLeaveVxnetInput.Size(m)
+}
+func (m *RDBsLeaveVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBsLeaveVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBsLeaveVxnetInput proto.InternalMessageInfo
 
 func (m *RDBsLeaveVxnetInput) GetRdbs() []string {
 	if m != nil {
@@ -749,17 +1087,38 @@ func (m *RDBsLeaveVxnetInput) GetVxnet() string {
 }
 
 type RDBsLeaveVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBsLeaveVxnetOutput) Reset()                    { *m = RDBsLeaveVxnetOutput{} }
-func (m *RDBsLeaveVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*RDBsLeaveVxnetOutput) ProtoMessage()               {}
-func (*RDBsLeaveVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{13} }
+func (m *RDBsLeaveVxnetOutput) Reset()         { *m = RDBsLeaveVxnetOutput{} }
+func (m *RDBsLeaveVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*RDBsLeaveVxnetOutput) ProtoMessage()    {}
+func (*RDBsLeaveVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{13}
+}
+func (m *RDBsLeaveVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBsLeaveVxnetOutput.Unmarshal(m, b)
+}
+func (m *RDBsLeaveVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBsLeaveVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *RDBsLeaveVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBsLeaveVxnetOutput.Merge(dst, src)
+}
+func (m *RDBsLeaveVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_RDBsLeaveVxnetOutput.Size(m)
+}
+func (m *RDBsLeaveVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBsLeaveVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBsLeaveVxnetOutput proto.InternalMessageInfo
 
 func (m *RDBsLeaveVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -790,15 +1149,36 @@ func (m *RDBsLeaveVxnetOutput) GetJobId() string {
 }
 
 type RDBsJoinVxnetInput struct {
-	Rdbs             []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
-	Vxnet            *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Rdbs                 []string `protobuf:"bytes,1,rep,name=rdbs" json:"rdbs,omitempty"`
+	Vxnet                *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBsJoinVxnetInput) Reset()                    { *m = RDBsJoinVxnetInput{} }
-func (m *RDBsJoinVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*RDBsJoinVxnetInput) ProtoMessage()               {}
-func (*RDBsJoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{14} }
+func (m *RDBsJoinVxnetInput) Reset()         { *m = RDBsJoinVxnetInput{} }
+func (m *RDBsJoinVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*RDBsJoinVxnetInput) ProtoMessage()    {}
+func (*RDBsJoinVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{14}
+}
+func (m *RDBsJoinVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBsJoinVxnetInput.Unmarshal(m, b)
+}
+func (m *RDBsJoinVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBsJoinVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *RDBsJoinVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBsJoinVxnetInput.Merge(dst, src)
+}
+func (m *RDBsJoinVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_RDBsJoinVxnetInput.Size(m)
+}
+func (m *RDBsJoinVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBsJoinVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBsJoinVxnetInput proto.InternalMessageInfo
 
 func (m *RDBsJoinVxnetInput) GetRdbs() []string {
 	if m != nil {
@@ -815,17 +1195,38 @@ func (m *RDBsJoinVxnetInput) GetVxnet() string {
 }
 
 type RDBsJoinVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBsJoinVxnetOutput) Reset()                    { *m = RDBsJoinVxnetOutput{} }
-func (m *RDBsJoinVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*RDBsJoinVxnetOutput) ProtoMessage()               {}
-func (*RDBsJoinVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{15} }
+func (m *RDBsJoinVxnetOutput) Reset()         { *m = RDBsJoinVxnetOutput{} }
+func (m *RDBsJoinVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*RDBsJoinVxnetOutput) ProtoMessage()    {}
+func (*RDBsJoinVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{15}
+}
+func (m *RDBsJoinVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBsJoinVxnetOutput.Unmarshal(m, b)
+}
+func (m *RDBsJoinVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBsJoinVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *RDBsJoinVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBsJoinVxnetOutput.Merge(dst, src)
+}
+func (m *RDBsJoinVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_RDBsJoinVxnetOutput.Size(m)
+}
+func (m *RDBsJoinVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBsJoinVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBsJoinVxnetOutput proto.InternalMessageInfo
 
 func (m *RDBsJoinVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -856,22 +1257,43 @@ func (m *RDBsJoinVxnetOutput) GetJobId() string {
 }
 
 type CreateRDBFromSnapshotInput struct {
-	Snapshot         *string                                `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
-	Vxnet            *string                                `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	RdbType          *int32                                 `protobuf:"varint,3,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
-	RdbUsername      *string                                `protobuf:"bytes,4,opt,name=rdb_username,json=rdbUsername" json:"rdb_username,omitempty"`
-	RdbPassword      *string                                `protobuf:"bytes,5,opt,name=rdb_password,json=rdbPassword" json:"rdb_password,omitempty"`
-	RdbName          *string                                `protobuf:"bytes,6,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
-	PrivateIps       *CreateRDBFromSnapshotInput_PrivateIps `protobuf:"bytes,7,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	Description      *string                                `protobuf:"bytes,8,opt,name=description" json:"description,omitempty"`
-	AutoBackupTime   *int32                                 `protobuf:"varint,9,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	XXX_unrecognized []byte                                 `json:"-"`
+	Snapshot             *string                                `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
+	Vxnet                *string                                `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	RdbType              *int32                                 `protobuf:"varint,3,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	RdbUsername          *string                                `protobuf:"bytes,4,opt,name=rdb_username,json=rdbUsername" json:"rdb_username,omitempty"`
+	RdbPassword          *string                                `protobuf:"bytes,5,opt,name=rdb_password,json=rdbPassword" json:"rdb_password,omitempty"`
+	RdbName              *string                                `protobuf:"bytes,6,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	PrivateIps           *CreateRDBFromSnapshotInput_PrivateIps `protobuf:"bytes,7,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	Description          *string                                `protobuf:"bytes,8,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime       *int32                                 `protobuf:"varint,9,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                               `json:"-"`
+	XXX_unrecognized     []byte                                 `json:"-"`
+	XXX_sizecache        int32                                  `json:"-"`
 }
 
-func (m *CreateRDBFromSnapshotInput) Reset()                    { *m = CreateRDBFromSnapshotInput{} }
-func (m *CreateRDBFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateRDBFromSnapshotInput) ProtoMessage()               {}
-func (*CreateRDBFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{16} }
+func (m *CreateRDBFromSnapshotInput) Reset()         { *m = CreateRDBFromSnapshotInput{} }
+func (m *CreateRDBFromSnapshotInput) String() string { return proto.CompactTextString(m) }
+func (*CreateRDBFromSnapshotInput) ProtoMessage()    {}
+func (*CreateRDBFromSnapshotInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{16}
+}
+func (m *CreateRDBFromSnapshotInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRDBFromSnapshotInput.Unmarshal(m, b)
+}
+func (m *CreateRDBFromSnapshotInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRDBFromSnapshotInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateRDBFromSnapshotInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRDBFromSnapshotInput.Merge(dst, src)
+}
+func (m *CreateRDBFromSnapshotInput) XXX_Size() int {
+	return xxx_messageInfo_CreateRDBFromSnapshotInput.Size(m)
+}
+func (m *CreateRDBFromSnapshotInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRDBFromSnapshotInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRDBFromSnapshotInput proto.InternalMessageInfo
 
 func (m *CreateRDBFromSnapshotInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -937,17 +1359,36 @@ func (m *CreateRDBFromSnapshotInput) GetAutoBackupTime() int32 {
 }
 
 type CreateRDBFromSnapshotInput_PrivateIps struct {
-	Master           *string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
-	Topslave         *string `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Master               *string  `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
+	Topslave             *string  `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateRDBFromSnapshotInput_PrivateIps) Reset()         { *m = CreateRDBFromSnapshotInput_PrivateIps{} }
 func (m *CreateRDBFromSnapshotInput_PrivateIps) String() string { return proto.CompactTextString(m) }
 func (*CreateRDBFromSnapshotInput_PrivateIps) ProtoMessage()    {}
 func (*CreateRDBFromSnapshotInput_PrivateIps) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{16, 0}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{16, 0}
 }
+func (m *CreateRDBFromSnapshotInput_PrivateIps) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRDBFromSnapshotInput_PrivateIps.Unmarshal(m, b)
+}
+func (m *CreateRDBFromSnapshotInput_PrivateIps) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRDBFromSnapshotInput_PrivateIps.Marshal(b, m, deterministic)
+}
+func (dst *CreateRDBFromSnapshotInput_PrivateIps) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRDBFromSnapshotInput_PrivateIps.Merge(dst, src)
+}
+func (m *CreateRDBFromSnapshotInput_PrivateIps) XXX_Size() int {
+	return xxx_messageInfo_CreateRDBFromSnapshotInput_PrivateIps.Size(m)
+}
+func (m *CreateRDBFromSnapshotInput_PrivateIps) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRDBFromSnapshotInput_PrivateIps.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRDBFromSnapshotInput_PrivateIps proto.InternalMessageInfo
 
 func (m *CreateRDBFromSnapshotInput_PrivateIps) GetMaster() string {
 	if m != nil && m.Master != nil {
@@ -964,17 +1405,38 @@ func (m *CreateRDBFromSnapshotInput_PrivateIps) GetTopslave() string {
 }
 
 type CreateRDBFromSnapshotOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Rdb              *string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb                  *string  `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateRDBFromSnapshotOutput) Reset()                    { *m = CreateRDBFromSnapshotOutput{} }
-func (m *CreateRDBFromSnapshotOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateRDBFromSnapshotOutput) ProtoMessage()               {}
-func (*CreateRDBFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{17} }
+func (m *CreateRDBFromSnapshotOutput) Reset()         { *m = CreateRDBFromSnapshotOutput{} }
+func (m *CreateRDBFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateRDBFromSnapshotOutput) ProtoMessage()    {}
+func (*CreateRDBFromSnapshotOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{17}
+}
+func (m *CreateRDBFromSnapshotOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRDBFromSnapshotOutput.Unmarshal(m, b)
+}
+func (m *CreateRDBFromSnapshotOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRDBFromSnapshotOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateRDBFromSnapshotOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRDBFromSnapshotOutput.Merge(dst, src)
+}
+func (m *CreateRDBFromSnapshotOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateRDBFromSnapshotOutput.Size(m)
+}
+func (m *CreateRDBFromSnapshotOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRDBFromSnapshotOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRDBFromSnapshotOutput proto.InternalMessageInfo
 
 func (m *CreateRDBFromSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1005,9 +1467,11 @@ func (m *CreateRDBFromSnapshotOutput) GetRdb() string {
 }
 
 type CreateTempRDBInstanceFromSnapshotInput struct {
-	Rdb              *string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
-	Snapshot         *string `protobuf:"bytes,2,opt,name=snapshot" json:"snapshot,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Rdb                  *string  `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	Snapshot             *string  `protobuf:"bytes,2,opt,name=snapshot" json:"snapshot,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateTempRDBInstanceFromSnapshotInput) Reset() {
@@ -1016,8 +1480,25 @@ func (m *CreateTempRDBInstanceFromSnapshotInput) Reset() {
 func (m *CreateTempRDBInstanceFromSnapshotInput) String() string { return proto.CompactTextString(m) }
 func (*CreateTempRDBInstanceFromSnapshotInput) ProtoMessage()    {}
 func (*CreateTempRDBInstanceFromSnapshotInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{18}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{18}
 }
+func (m *CreateTempRDBInstanceFromSnapshotInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTempRDBInstanceFromSnapshotInput.Unmarshal(m, b)
+}
+func (m *CreateTempRDBInstanceFromSnapshotInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTempRDBInstanceFromSnapshotInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateTempRDBInstanceFromSnapshotInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTempRDBInstanceFromSnapshotInput.Merge(dst, src)
+}
+func (m *CreateTempRDBInstanceFromSnapshotInput) XXX_Size() int {
+	return xxx_messageInfo_CreateTempRDBInstanceFromSnapshotInput.Size(m)
+}
+func (m *CreateTempRDBInstanceFromSnapshotInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTempRDBInstanceFromSnapshotInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTempRDBInstanceFromSnapshotInput proto.InternalMessageInfo
 
 func (m *CreateTempRDBInstanceFromSnapshotInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1034,11 +1515,13 @@ func (m *CreateTempRDBInstanceFromSnapshotInput) GetSnapshot() string {
 }
 
 type CreateTempRDBInstanceFromSnapshotOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateTempRDBInstanceFromSnapshotOutput) Reset() {
@@ -1047,8 +1530,25 @@ func (m *CreateTempRDBInstanceFromSnapshotOutput) Reset() {
 func (m *CreateTempRDBInstanceFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateTempRDBInstanceFromSnapshotOutput) ProtoMessage()    {}
 func (*CreateTempRDBInstanceFromSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{19}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{19}
 }
+func (m *CreateTempRDBInstanceFromSnapshotOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTempRDBInstanceFromSnapshotOutput.Unmarshal(m, b)
+}
+func (m *CreateTempRDBInstanceFromSnapshotOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTempRDBInstanceFromSnapshotOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateTempRDBInstanceFromSnapshotOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTempRDBInstanceFromSnapshotOutput.Merge(dst, src)
+}
+func (m *CreateTempRDBInstanceFromSnapshotOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateTempRDBInstanceFromSnapshotOutput.Size(m)
+}
+func (m *CreateTempRDBInstanceFromSnapshotOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTempRDBInstanceFromSnapshotOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTempRDBInstanceFromSnapshotOutput proto.InternalMessageInfo
 
 func (m *CreateTempRDBInstanceFromSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1079,14 +1579,35 @@ func (m *CreateTempRDBInstanceFromSnapshotOutput) GetJobId() string {
 }
 
 type GetRDBInstanceFilesInput struct {
-	RdbInstance      *string `protobuf:"bytes,1,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	RdbInstance          *string  `protobuf:"bytes,1,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetRDBInstanceFilesInput) Reset()                    { *m = GetRDBInstanceFilesInput{} }
-func (m *GetRDBInstanceFilesInput) String() string            { return proto.CompactTextString(m) }
-func (*GetRDBInstanceFilesInput) ProtoMessage()               {}
-func (*GetRDBInstanceFilesInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{20} }
+func (m *GetRDBInstanceFilesInput) Reset()         { *m = GetRDBInstanceFilesInput{} }
+func (m *GetRDBInstanceFilesInput) String() string { return proto.CompactTextString(m) }
+func (*GetRDBInstanceFilesInput) ProtoMessage()    {}
+func (*GetRDBInstanceFilesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{20}
+}
+func (m *GetRDBInstanceFilesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetRDBInstanceFilesInput.Unmarshal(m, b)
+}
+func (m *GetRDBInstanceFilesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetRDBInstanceFilesInput.Marshal(b, m, deterministic)
+}
+func (dst *GetRDBInstanceFilesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetRDBInstanceFilesInput.Merge(dst, src)
+}
+func (m *GetRDBInstanceFilesInput) XXX_Size() int {
+	return xxx_messageInfo_GetRDBInstanceFilesInput.Size(m)
+}
+func (m *GetRDBInstanceFilesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetRDBInstanceFilesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetRDBInstanceFilesInput proto.InternalMessageInfo
 
 func (m *GetRDBInstanceFilesInput) GetRdbInstance() string {
 	if m != nil && m.RdbInstance != nil {
@@ -1096,16 +1617,37 @@ func (m *GetRDBInstanceFilesInput) GetRdbInstance() string {
 }
 
 type GetRDBInstanceFilesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetRDBInstanceFilesOutput) Reset()                    { *m = GetRDBInstanceFilesOutput{} }
-func (m *GetRDBInstanceFilesOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetRDBInstanceFilesOutput) ProtoMessage()               {}
-func (*GetRDBInstanceFilesOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{21} }
+func (m *GetRDBInstanceFilesOutput) Reset()         { *m = GetRDBInstanceFilesOutput{} }
+func (m *GetRDBInstanceFilesOutput) String() string { return proto.CompactTextString(m) }
+func (*GetRDBInstanceFilesOutput) ProtoMessage()    {}
+func (*GetRDBInstanceFilesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{21}
+}
+func (m *GetRDBInstanceFilesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetRDBInstanceFilesOutput.Unmarshal(m, b)
+}
+func (m *GetRDBInstanceFilesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetRDBInstanceFilesOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetRDBInstanceFilesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetRDBInstanceFilesOutput.Merge(dst, src)
+}
+func (m *GetRDBInstanceFilesOutput) XXX_Size() int {
+	return xxx_messageInfo_GetRDBInstanceFilesOutput.Size(m)
+}
+func (m *GetRDBInstanceFilesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetRDBInstanceFilesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetRDBInstanceFilesOutput proto.InternalMessageInfo
 
 func (m *GetRDBInstanceFilesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1129,17 +1671,36 @@ func (m *GetRDBInstanceFilesOutput) GetMessage() string {
 }
 
 type CopyRDBInstanceFilesToFTPInput struct {
-	RdbInstance      *string  `protobuf:"bytes,1,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
-	Files            []string `protobuf:"bytes,2,rep,name=files" json:"files,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	RdbInstance          *string  `protobuf:"bytes,1,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
+	Files                []string `protobuf:"bytes,2,rep,name=files" json:"files,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CopyRDBInstanceFilesToFTPInput) Reset()         { *m = CopyRDBInstanceFilesToFTPInput{} }
 func (m *CopyRDBInstanceFilesToFTPInput) String() string { return proto.CompactTextString(m) }
 func (*CopyRDBInstanceFilesToFTPInput) ProtoMessage()    {}
 func (*CopyRDBInstanceFilesToFTPInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{22}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{22}
 }
+func (m *CopyRDBInstanceFilesToFTPInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CopyRDBInstanceFilesToFTPInput.Unmarshal(m, b)
+}
+func (m *CopyRDBInstanceFilesToFTPInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CopyRDBInstanceFilesToFTPInput.Marshal(b, m, deterministic)
+}
+func (dst *CopyRDBInstanceFilesToFTPInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CopyRDBInstanceFilesToFTPInput.Merge(dst, src)
+}
+func (m *CopyRDBInstanceFilesToFTPInput) XXX_Size() int {
+	return xxx_messageInfo_CopyRDBInstanceFilesToFTPInput.Size(m)
+}
+func (m *CopyRDBInstanceFilesToFTPInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CopyRDBInstanceFilesToFTPInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CopyRDBInstanceFilesToFTPInput proto.InternalMessageInfo
 
 func (m *CopyRDBInstanceFilesToFTPInput) GetRdbInstance() string {
 	if m != nil && m.RdbInstance != nil {
@@ -1156,19 +1717,38 @@ func (m *CopyRDBInstanceFilesToFTPInput) GetFiles() []string {
 }
 
 type CopyRDBInstanceFilesToFTPOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CopyRDBInstanceFilesToFTPOutput) Reset()         { *m = CopyRDBInstanceFilesToFTPOutput{} }
 func (m *CopyRDBInstanceFilesToFTPOutput) String() string { return proto.CompactTextString(m) }
 func (*CopyRDBInstanceFilesToFTPOutput) ProtoMessage()    {}
 func (*CopyRDBInstanceFilesToFTPOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{23}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{23}
 }
+func (m *CopyRDBInstanceFilesToFTPOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CopyRDBInstanceFilesToFTPOutput.Unmarshal(m, b)
+}
+func (m *CopyRDBInstanceFilesToFTPOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CopyRDBInstanceFilesToFTPOutput.Marshal(b, m, deterministic)
+}
+func (dst *CopyRDBInstanceFilesToFTPOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CopyRDBInstanceFilesToFTPOutput.Merge(dst, src)
+}
+func (m *CopyRDBInstanceFilesToFTPOutput) XXX_Size() int {
+	return xxx_messageInfo_CopyRDBInstanceFilesToFTPOutput.Size(m)
+}
+func (m *CopyRDBInstanceFilesToFTPOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CopyRDBInstanceFilesToFTPOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CopyRDBInstanceFilesToFTPOutput proto.InternalMessageInfo
 
 func (m *CopyRDBInstanceFilesToFTPOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1199,17 +1779,38 @@ func (m *CopyRDBInstanceFilesToFTPOutput) GetJobId() string {
 }
 
 type PurgeRDBLogsInput struct {
-	Rdb              *string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
-	RdbInstance      *string `protobuf:"bytes,2,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
-	LogType          *string `protobuf:"bytes,3,opt,name=log_type,json=logType" json:"log_type,omitempty"`
-	BeforeFile       *string `protobuf:"bytes,4,opt,name=before_file,json=beforeFile" json:"before_file,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Rdb                  *string  `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	RdbInstance          *string  `protobuf:"bytes,2,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
+	LogType              *string  `protobuf:"bytes,3,opt,name=log_type,json=logType" json:"log_type,omitempty"`
+	BeforeFile           *string  `protobuf:"bytes,4,opt,name=before_file,json=beforeFile" json:"before_file,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PurgeRDBLogsInput) Reset()                    { *m = PurgeRDBLogsInput{} }
-func (m *PurgeRDBLogsInput) String() string            { return proto.CompactTextString(m) }
-func (*PurgeRDBLogsInput) ProtoMessage()               {}
-func (*PurgeRDBLogsInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{24} }
+func (m *PurgeRDBLogsInput) Reset()         { *m = PurgeRDBLogsInput{} }
+func (m *PurgeRDBLogsInput) String() string { return proto.CompactTextString(m) }
+func (*PurgeRDBLogsInput) ProtoMessage()    {}
+func (*PurgeRDBLogsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{24}
+}
+func (m *PurgeRDBLogsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PurgeRDBLogsInput.Unmarshal(m, b)
+}
+func (m *PurgeRDBLogsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PurgeRDBLogsInput.Marshal(b, m, deterministic)
+}
+func (dst *PurgeRDBLogsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PurgeRDBLogsInput.Merge(dst, src)
+}
+func (m *PurgeRDBLogsInput) XXX_Size() int {
+	return xxx_messageInfo_PurgeRDBLogsInput.Size(m)
+}
+func (m *PurgeRDBLogsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PurgeRDBLogsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PurgeRDBLogsInput proto.InternalMessageInfo
 
 func (m *PurgeRDBLogsInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1240,17 +1841,38 @@ func (m *PurgeRDBLogsInput) GetBeforeFile() string {
 }
 
 type PurgeRDBLogsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PurgeRDBLogsOutput) Reset()                    { *m = PurgeRDBLogsOutput{} }
-func (m *PurgeRDBLogsOutput) String() string            { return proto.CompactTextString(m) }
-func (*PurgeRDBLogsOutput) ProtoMessage()               {}
-func (*PurgeRDBLogsOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{25} }
+func (m *PurgeRDBLogsOutput) Reset()         { *m = PurgeRDBLogsOutput{} }
+func (m *PurgeRDBLogsOutput) String() string { return proto.CompactTextString(m) }
+func (*PurgeRDBLogsOutput) ProtoMessage()    {}
+func (*PurgeRDBLogsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{25}
+}
+func (m *PurgeRDBLogsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PurgeRDBLogsOutput.Unmarshal(m, b)
+}
+func (m *PurgeRDBLogsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PurgeRDBLogsOutput.Marshal(b, m, deterministic)
+}
+func (dst *PurgeRDBLogsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PurgeRDBLogsOutput.Merge(dst, src)
+}
+func (m *PurgeRDBLogsOutput) XXX_Size() int {
+	return xxx_messageInfo_PurgeRDBLogsOutput.Size(m)
+}
+func (m *PurgeRDBLogsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PurgeRDBLogsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PurgeRDBLogsOutput proto.InternalMessageInfo
 
 func (m *PurgeRDBLogsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1281,15 +1903,36 @@ func (m *PurgeRDBLogsOutput) GetJobId() string {
 }
 
 type CeaseRDBInstanceInput struct {
-	Rdb              *string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
-	RdbInstance      *string `protobuf:"bytes,2,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Rdb                  *string  `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	RdbInstance          *string  `protobuf:"bytes,2,opt,name=rdb_instance,json=rdbInstance" json:"rdb_instance,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CeaseRDBInstanceInput) Reset()                    { *m = CeaseRDBInstanceInput{} }
-func (m *CeaseRDBInstanceInput) String() string            { return proto.CompactTextString(m) }
-func (*CeaseRDBInstanceInput) ProtoMessage()               {}
-func (*CeaseRDBInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{26} }
+func (m *CeaseRDBInstanceInput) Reset()         { *m = CeaseRDBInstanceInput{} }
+func (m *CeaseRDBInstanceInput) String() string { return proto.CompactTextString(m) }
+func (*CeaseRDBInstanceInput) ProtoMessage()    {}
+func (*CeaseRDBInstanceInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{26}
+}
+func (m *CeaseRDBInstanceInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CeaseRDBInstanceInput.Unmarshal(m, b)
+}
+func (m *CeaseRDBInstanceInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CeaseRDBInstanceInput.Marshal(b, m, deterministic)
+}
+func (dst *CeaseRDBInstanceInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CeaseRDBInstanceInput.Merge(dst, src)
+}
+func (m *CeaseRDBInstanceInput) XXX_Size() int {
+	return xxx_messageInfo_CeaseRDBInstanceInput.Size(m)
+}
+func (m *CeaseRDBInstanceInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CeaseRDBInstanceInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CeaseRDBInstanceInput proto.InternalMessageInfo
 
 func (m *CeaseRDBInstanceInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1306,17 +1949,38 @@ func (m *CeaseRDBInstanceInput) GetRdbInstance() string {
 }
 
 type CeaseRDBInstanceOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CeaseRDBInstanceOutput) Reset()                    { *m = CeaseRDBInstanceOutput{} }
-func (m *CeaseRDBInstanceOutput) String() string            { return proto.CompactTextString(m) }
-func (*CeaseRDBInstanceOutput) ProtoMessage()               {}
-func (*CeaseRDBInstanceOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{27} }
+func (m *CeaseRDBInstanceOutput) Reset()         { *m = CeaseRDBInstanceOutput{} }
+func (m *CeaseRDBInstanceOutput) String() string { return proto.CompactTextString(m) }
+func (*CeaseRDBInstanceOutput) ProtoMessage()    {}
+func (*CeaseRDBInstanceOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{27}
+}
+func (m *CeaseRDBInstanceOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CeaseRDBInstanceOutput.Unmarshal(m, b)
+}
+func (m *CeaseRDBInstanceOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CeaseRDBInstanceOutput.Marshal(b, m, deterministic)
+}
+func (dst *CeaseRDBInstanceOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CeaseRDBInstanceOutput.Merge(dst, src)
+}
+func (m *CeaseRDBInstanceOutput) XXX_Size() int {
+	return xxx_messageInfo_CeaseRDBInstanceOutput.Size(m)
+}
+func (m *CeaseRDBInstanceOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CeaseRDBInstanceOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CeaseRDBInstanceOutput proto.InternalMessageInfo
 
 func (m *CeaseRDBInstanceOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1347,15 +2011,36 @@ func (m *CeaseRDBInstanceOutput) GetJobId() string {
 }
 
 type ModifyRDBParametersInput struct {
-	Rdb              *string                                    `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
-	Parameters       []*ModifyRDBParametersInput_ParametersItem `protobuf:"bytes,2,rep,name=parameters" json:"parameters,omitempty"`
-	XXX_unrecognized []byte                                     `json:"-"`
+	Rdb                  *string                                    `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	Parameters           []*ModifyRDBParametersInput_ParametersItem `protobuf:"bytes,2,rep,name=parameters" json:"parameters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
-func (m *ModifyRDBParametersInput) Reset()                    { *m = ModifyRDBParametersInput{} }
-func (m *ModifyRDBParametersInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyRDBParametersInput) ProtoMessage()               {}
-func (*ModifyRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{28} }
+func (m *ModifyRDBParametersInput) Reset()         { *m = ModifyRDBParametersInput{} }
+func (m *ModifyRDBParametersInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRDBParametersInput) ProtoMessage()    {}
+func (*ModifyRDBParametersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{28}
+}
+func (m *ModifyRDBParametersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRDBParametersInput.Unmarshal(m, b)
+}
+func (m *ModifyRDBParametersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRDBParametersInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRDBParametersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRDBParametersInput.Merge(dst, src)
+}
+func (m *ModifyRDBParametersInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRDBParametersInput.Size(m)
+}
+func (m *ModifyRDBParametersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRDBParametersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRDBParametersInput proto.InternalMessageInfo
 
 func (m *ModifyRDBParametersInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1372,7 +2057,9 @@ func (m *ModifyRDBParametersInput) GetParameters() []*ModifyRDBParametersInput_P
 }
 
 type ModifyRDBParametersInput_ParametersItem struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyRDBParametersInput_ParametersItem) Reset() {
@@ -1381,21 +2068,59 @@ func (m *ModifyRDBParametersInput_ParametersItem) Reset() {
 func (m *ModifyRDBParametersInput_ParametersItem) String() string { return proto.CompactTextString(m) }
 func (*ModifyRDBParametersInput_ParametersItem) ProtoMessage()    {}
 func (*ModifyRDBParametersInput_ParametersItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{28, 0}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{28, 0}
 }
+func (m *ModifyRDBParametersInput_ParametersItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRDBParametersInput_ParametersItem.Unmarshal(m, b)
+}
+func (m *ModifyRDBParametersInput_ParametersItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRDBParametersInput_ParametersItem.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRDBParametersInput_ParametersItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRDBParametersInput_ParametersItem.Merge(dst, src)
+}
+func (m *ModifyRDBParametersInput_ParametersItem) XXX_Size() int {
+	return xxx_messageInfo_ModifyRDBParametersInput_ParametersItem.Size(m)
+}
+func (m *ModifyRDBParametersInput_ParametersItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRDBParametersInput_ParametersItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRDBParametersInput_ParametersItem proto.InternalMessageInfo
 
 type ModifyRDBParametersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Rdb              *string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb                  *string  `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyRDBParametersOutput) Reset()                    { *m = ModifyRDBParametersOutput{} }
-func (m *ModifyRDBParametersOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyRDBParametersOutput) ProtoMessage()               {}
-func (*ModifyRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{29} }
+func (m *ModifyRDBParametersOutput) Reset()         { *m = ModifyRDBParametersOutput{} }
+func (m *ModifyRDBParametersOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRDBParametersOutput) ProtoMessage()    {}
+func (*ModifyRDBParametersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{29}
+}
+func (m *ModifyRDBParametersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRDBParametersOutput.Unmarshal(m, b)
+}
+func (m *ModifyRDBParametersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRDBParametersOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRDBParametersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRDBParametersOutput.Merge(dst, src)
+}
+func (m *ModifyRDBParametersOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRDBParametersOutput.Size(m)
+}
+func (m *ModifyRDBParametersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRDBParametersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRDBParametersOutput proto.InternalMessageInfo
 
 func (m *ModifyRDBParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1426,14 +2151,35 @@ func (m *ModifyRDBParametersOutput) GetRdb() string {
 }
 
 type ApplyRDBParameterGroupInput struct {
-	Rdb              *string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Rdb                  *string  `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplyRDBParameterGroupInput) Reset()                    { *m = ApplyRDBParameterGroupInput{} }
-func (m *ApplyRDBParameterGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*ApplyRDBParameterGroupInput) ProtoMessage()               {}
-func (*ApplyRDBParameterGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{30} }
+func (m *ApplyRDBParameterGroupInput) Reset()         { *m = ApplyRDBParameterGroupInput{} }
+func (m *ApplyRDBParameterGroupInput) String() string { return proto.CompactTextString(m) }
+func (*ApplyRDBParameterGroupInput) ProtoMessage()    {}
+func (*ApplyRDBParameterGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{30}
+}
+func (m *ApplyRDBParameterGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplyRDBParameterGroupInput.Unmarshal(m, b)
+}
+func (m *ApplyRDBParameterGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplyRDBParameterGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *ApplyRDBParameterGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyRDBParameterGroupInput.Merge(dst, src)
+}
+func (m *ApplyRDBParameterGroupInput) XXX_Size() int {
+	return xxx_messageInfo_ApplyRDBParameterGroupInput.Size(m)
+}
+func (m *ApplyRDBParameterGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyRDBParameterGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyRDBParameterGroupInput proto.InternalMessageInfo
 
 func (m *ApplyRDBParameterGroupInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1443,17 +2189,38 @@ func (m *ApplyRDBParameterGroupInput) GetRdb() string {
 }
 
 type ApplyRDBParameterGroupOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Rdb              *string `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Rdb                  *string  `protobuf:"bytes,4,opt,name=rdb" json:"rdb,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplyRDBParameterGroupOutput) Reset()                    { *m = ApplyRDBParameterGroupOutput{} }
-func (m *ApplyRDBParameterGroupOutput) String() string            { return proto.CompactTextString(m) }
-func (*ApplyRDBParameterGroupOutput) ProtoMessage()               {}
-func (*ApplyRDBParameterGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{31} }
+func (m *ApplyRDBParameterGroupOutput) Reset()         { *m = ApplyRDBParameterGroupOutput{} }
+func (m *ApplyRDBParameterGroupOutput) String() string { return proto.CompactTextString(m) }
+func (*ApplyRDBParameterGroupOutput) ProtoMessage()    {}
+func (*ApplyRDBParameterGroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{31}
+}
+func (m *ApplyRDBParameterGroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplyRDBParameterGroupOutput.Unmarshal(m, b)
+}
+func (m *ApplyRDBParameterGroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplyRDBParameterGroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *ApplyRDBParameterGroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyRDBParameterGroupOutput.Merge(dst, src)
+}
+func (m *ApplyRDBParameterGroupOutput) XXX_Size() int {
+	return xxx_messageInfo_ApplyRDBParameterGroupOutput.Size(m)
+}
+func (m *ApplyRDBParameterGroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyRDBParameterGroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyRDBParameterGroupOutput proto.InternalMessageInfo
 
 func (m *ApplyRDBParameterGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1484,16 +2251,37 @@ func (m *ApplyRDBParameterGroupOutput) GetRdb() string {
 }
 
 type DescribeRDBParametersInput struct {
-	Rdb              *string `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
-	Offset           *int32  `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32  `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Rdb                  *string  `protobuf:"bytes,1,opt,name=rdb" json:"rdb,omitempty"`
+	Offset               *int32   `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeRDBParametersInput) Reset()                    { *m = DescribeRDBParametersInput{} }
-func (m *DescribeRDBParametersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRDBParametersInput) ProtoMessage()               {}
-func (*DescribeRDBParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{32} }
+func (m *DescribeRDBParametersInput) Reset()         { *m = DescribeRDBParametersInput{} }
+func (m *DescribeRDBParametersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRDBParametersInput) ProtoMessage()    {}
+func (*DescribeRDBParametersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{32}
+}
+func (m *DescribeRDBParametersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRDBParametersInput.Unmarshal(m, b)
+}
+func (m *DescribeRDBParametersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRDBParametersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRDBParametersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRDBParametersInput.Merge(dst, src)
+}
+func (m *DescribeRDBParametersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRDBParametersInput.Size(m)
+}
+func (m *DescribeRDBParametersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRDBParametersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRDBParametersInput proto.InternalMessageInfo
 
 func (m *DescribeRDBParametersInput) GetRdb() string {
 	if m != nil && m.Rdb != nil {
@@ -1517,18 +2305,39 @@ func (m *DescribeRDBParametersInput) GetLimit() int32 {
 }
 
 type DescribeRDBParametersOutput struct {
-	Action           *string                                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ParameterSet     []*DescribeRDBParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=parameter_set,json=parameterSet" json:"parameter_set,omitempty"`
-	TotalCount       *int32                                      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                      `json:"-"`
+	Action               *string                                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ParameterSet         []*DescribeRDBParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=parameter_set,json=parameterSet" json:"parameter_set,omitempty"`
+	TotalCount           *int32                                      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                    `json:"-"`
+	XXX_unrecognized     []byte                                      `json:"-"`
+	XXX_sizecache        int32                                       `json:"-"`
 }
 
-func (m *DescribeRDBParametersOutput) Reset()                    { *m = DescribeRDBParametersOutput{} }
-func (m *DescribeRDBParametersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRDBParametersOutput) ProtoMessage()               {}
-func (*DescribeRDBParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor16, []int{33} }
+func (m *DescribeRDBParametersOutput) Reset()         { *m = DescribeRDBParametersOutput{} }
+func (m *DescribeRDBParametersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRDBParametersOutput) ProtoMessage()    {}
+func (*DescribeRDBParametersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{33}
+}
+func (m *DescribeRDBParametersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRDBParametersOutput.Unmarshal(m, b)
+}
+func (m *DescribeRDBParametersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRDBParametersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRDBParametersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRDBParametersOutput.Merge(dst, src)
+}
+func (m *DescribeRDBParametersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRDBParametersOutput.Size(m)
+}
+func (m *DescribeRDBParametersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRDBParametersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRDBParametersOutput proto.InternalMessageInfo
 
 func (m *DescribeRDBParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1566,17 +2375,19 @@ func (m *DescribeRDBParametersOutput) GetTotalCount() int32 {
 }
 
 type DescribeRDBParametersOutput_ResponseItem struct {
-	IsStatic         *int32  `protobuf:"varint,1,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	MinValue         *int32  `protobuf:"varint,2,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
-	Family           *string `protobuf:"bytes,3,opt,name=family" json:"family,omitempty"`
-	IsReadonly       *int32  `protobuf:"varint,4,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	VarValue         *string `protobuf:"bytes,5,opt,name=var_value,json=varValue" json:"var_value,omitempty"`
-	MaxValue         *int32  `protobuf:"varint,6,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
-	OptName          *string `protobuf:"bytes,7,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	VarType          *string `protobuf:"bytes,8,opt,name=var_type,json=varType" json:"var_type,omitempty"`
-	VarName          *string `protobuf:"bytes,9,opt,name=var_name,json=varName" json:"var_name,omitempty"`
-	SectionName      *string `protobuf:"bytes,10,opt,name=section_name,json=sectionName" json:"section_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	IsStatic             *int32   `protobuf:"varint,1,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	MinValue             *int32   `protobuf:"varint,2,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
+	Family               *string  `protobuf:"bytes,3,opt,name=family" json:"family,omitempty"`
+	IsReadonly           *int32   `protobuf:"varint,4,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	VarValue             *string  `protobuf:"bytes,5,opt,name=var_value,json=varValue" json:"var_value,omitempty"`
+	MaxValue             *int32   `protobuf:"varint,6,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
+	OptName              *string  `protobuf:"bytes,7,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	VarType              *string  `protobuf:"bytes,8,opt,name=var_type,json=varType" json:"var_type,omitempty"`
+	VarName              *string  `protobuf:"bytes,9,opt,name=var_name,json=varName" json:"var_name,omitempty"`
+	SectionName          *string  `protobuf:"bytes,10,opt,name=section_name,json=sectionName" json:"section_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeRDBParametersOutput_ResponseItem) Reset() {
@@ -1585,8 +2396,25 @@ func (m *DescribeRDBParametersOutput_ResponseItem) Reset() {
 func (m *DescribeRDBParametersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRDBParametersOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRDBParametersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor16, []int{33, 0}
+	return fileDescriptor_rdb_5e58c1065aec4328, []int{33, 0}
 }
+func (m *DescribeRDBParametersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRDBParametersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeRDBParametersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRDBParametersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRDBParametersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRDBParametersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeRDBParametersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeRDBParametersOutput_ResponseItem.Size(m)
+}
+func (m *DescribeRDBParametersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRDBParametersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRDBParametersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeRDBParametersOutput_ResponseItem) GetIsStatic() int32 {
 	if m != nil && m.IsStatic != nil {
@@ -1701,9 +2529,9 @@ func init() {
 	proto.RegisterType((*DescribeRDBParametersOutput_ResponseItem)(nil), "service.DescribeRDBParametersOutput.ResponseItem")
 }
 
-func init() { proto.RegisterFile("rdb.proto", fileDescriptor16) }
+func init() { proto.RegisterFile("rdb.proto", fileDescriptor_rdb_5e58c1065aec4328) }
 
-var fileDescriptor16 = []byte{
+var fileDescriptor_rdb_5e58c1065aec4328 = []byte{
 	// 1844 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x18, 0x4b, 0x6f, 0xe3, 0xc6,
 	0x19, 0x92, 0xac, 0xd7, 0x27, 0xbf, 0x76, 0x36, 0x76, 0x68, 0x7a, 0x13, 0x7b, 0x99, 0x6c, 0x23,

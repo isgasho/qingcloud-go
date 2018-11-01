@@ -13,21 +13,48 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type CreateLoadBalancerInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	LoadbalancerName *string  `protobuf:"bytes,2,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
-	LoadbalancerType *int32   `protobuf:"varint,3,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
-	NodeCount        *int32   `protobuf:"varint,4,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	PrivateIp        *string  `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	SecurityGroup    *string  `protobuf:"bytes,6,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	Vxnet            *string  `protobuf:"bytes,7,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	LoadbalancerName     *string  `protobuf:"bytes,2,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
+	LoadbalancerType     *int32   `protobuf:"varint,3,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
+	NodeCount            *int32   `protobuf:"varint,4,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	PrivateIp            *string  `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	SecurityGroup        *string  `protobuf:"bytes,6,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Vxnet                *string  `protobuf:"bytes,7,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateLoadBalancerInput) Reset()                    { *m = CreateLoadBalancerInput{} }
-func (m *CreateLoadBalancerInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateLoadBalancerInput) ProtoMessage()               {}
-func (*CreateLoadBalancerInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
+func (m *CreateLoadBalancerInput) Reset()         { *m = CreateLoadBalancerInput{} }
+func (m *CreateLoadBalancerInput) String() string { return proto.CompactTextString(m) }
+func (*CreateLoadBalancerInput) ProtoMessage()    {}
+func (*CreateLoadBalancerInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{0}
+}
+func (m *CreateLoadBalancerInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateLoadBalancerInput.Unmarshal(m, b)
+}
+func (m *CreateLoadBalancerInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateLoadBalancerInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateLoadBalancerInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateLoadBalancerInput.Merge(dst, src)
+}
+func (m *CreateLoadBalancerInput) XXX_Size() int {
+	return xxx_messageInfo_CreateLoadBalancerInput.Size(m)
+}
+func (m *CreateLoadBalancerInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateLoadBalancerInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateLoadBalancerInput proto.InternalMessageInfo
 
 func (m *CreateLoadBalancerInput) GetEips() []string {
 	if m != nil {
@@ -79,17 +106,38 @@ func (m *CreateLoadBalancerInput) GetVxnet() string {
 }
 
 type CreateLoadBalancerOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	LoadbalancerId   *string `protobuf:"bytes,4,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	LoadbalancerId       *string  `protobuf:"bytes,4,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateLoadBalancerOutput) Reset()                    { *m = CreateLoadBalancerOutput{} }
-func (m *CreateLoadBalancerOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateLoadBalancerOutput) ProtoMessage()               {}
-func (*CreateLoadBalancerOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{1} }
+func (m *CreateLoadBalancerOutput) Reset()         { *m = CreateLoadBalancerOutput{} }
+func (m *CreateLoadBalancerOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateLoadBalancerOutput) ProtoMessage()    {}
+func (*CreateLoadBalancerOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{1}
+}
+func (m *CreateLoadBalancerOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateLoadBalancerOutput.Unmarshal(m, b)
+}
+func (m *CreateLoadBalancerOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateLoadBalancerOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateLoadBalancerOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateLoadBalancerOutput.Merge(dst, src)
+}
+func (m *CreateLoadBalancerOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateLoadBalancerOutput.Size(m)
+}
+func (m *CreateLoadBalancerOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateLoadBalancerOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateLoadBalancerOutput proto.InternalMessageInfo
 
 func (m *CreateLoadBalancerOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -120,20 +168,41 @@ func (m *CreateLoadBalancerOutput) GetLoadbalancerId() string {
 }
 
 type DescribeLoadBalancersInput struct {
-	Limit            *int32   `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
-	Loadbalancers    []string `protobuf:"bytes,2,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
-	Offset           *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Status           []string `protobuf:"bytes,5,rep,name=status" json:"status,omitempty"`
-	Tags             []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Limit                *int32   `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	Loadbalancers        []string `protobuf:"bytes,2,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
+	Offset               *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Status               []string `protobuf:"bytes,5,rep,name=status" json:"status,omitempty"`
+	Tags                 []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeLoadBalancersInput) Reset()                    { *m = DescribeLoadBalancersInput{} }
-func (m *DescribeLoadBalancersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeLoadBalancersInput) ProtoMessage()               {}
-func (*DescribeLoadBalancersInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{2} }
+func (m *DescribeLoadBalancersInput) Reset()         { *m = DescribeLoadBalancersInput{} }
+func (m *DescribeLoadBalancersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeLoadBalancersInput) ProtoMessage()    {}
+func (*DescribeLoadBalancersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{2}
+}
+func (m *DescribeLoadBalancersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancersInput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancersInput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancersInput.Size(m)
+}
+func (m *DescribeLoadBalancersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancersInput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancersInput) GetLimit() int32 {
 	if m != nil && m.Limit != nil {
@@ -185,17 +254,38 @@ func (m *DescribeLoadBalancersInput) GetVerbose() int32 {
 }
 
 type DescribeLoadBalancersOutput struct {
-	Action           *string         `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32          `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string         `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	LoadbalancerSet  []*LoadBalancer `protobuf:"bytes,4,rep,name=loadbalancer_set,json=loadbalancerSet" json:"loadbalancer_set,omitempty"`
-	XXX_unrecognized []byte          `json:"-"`
+	Action               *string         `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32          `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string         `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	LoadbalancerSet      []*LoadBalancer `protobuf:"bytes,4,rep,name=loadbalancer_set,json=loadbalancerSet" json:"loadbalancer_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *DescribeLoadBalancersOutput) Reset()                    { *m = DescribeLoadBalancersOutput{} }
-func (m *DescribeLoadBalancersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeLoadBalancersOutput) ProtoMessage()               {}
-func (*DescribeLoadBalancersOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{3} }
+func (m *DescribeLoadBalancersOutput) Reset()         { *m = DescribeLoadBalancersOutput{} }
+func (m *DescribeLoadBalancersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeLoadBalancersOutput) ProtoMessage()    {}
+func (*DescribeLoadBalancersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{3}
+}
+func (m *DescribeLoadBalancersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancersOutput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancersOutput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancersOutput.Size(m)
+}
+func (m *DescribeLoadBalancersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancersOutput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -226,14 +316,35 @@ func (m *DescribeLoadBalancersOutput) GetLoadbalancerSet() []*LoadBalancer {
 }
 
 type DeleteLoadBalancersInput struct {
-	Loadbalancers    []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Loadbalancers        []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteLoadBalancersInput) Reset()                    { *m = DeleteLoadBalancersInput{} }
-func (m *DeleteLoadBalancersInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteLoadBalancersInput) ProtoMessage()               {}
-func (*DeleteLoadBalancersInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{4} }
+func (m *DeleteLoadBalancersInput) Reset()         { *m = DeleteLoadBalancersInput{} }
+func (m *DeleteLoadBalancersInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteLoadBalancersInput) ProtoMessage()    {}
+func (*DeleteLoadBalancersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{4}
+}
+func (m *DeleteLoadBalancersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancersInput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancersInput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancersInput.Size(m)
+}
+func (m *DeleteLoadBalancersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancersInput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancersInput) GetLoadbalancers() []string {
 	if m != nil {
@@ -243,17 +354,38 @@ func (m *DeleteLoadBalancersInput) GetLoadbalancers() []string {
 }
 
 type DeleteLoadBalancersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteLoadBalancersOutput) Reset()                    { *m = DeleteLoadBalancersOutput{} }
-func (m *DeleteLoadBalancersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteLoadBalancersOutput) ProtoMessage()               {}
-func (*DeleteLoadBalancersOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{5} }
+func (m *DeleteLoadBalancersOutput) Reset()         { *m = DeleteLoadBalancersOutput{} }
+func (m *DeleteLoadBalancersOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteLoadBalancersOutput) ProtoMessage()    {}
+func (*DeleteLoadBalancersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{5}
+}
+func (m *DeleteLoadBalancersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancersOutput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancersOutput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancersOutput.Size(m)
+}
+func (m *DeleteLoadBalancersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancersOutput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -284,22 +416,41 @@ func (m *DeleteLoadBalancersOutput) GetJobId() string {
 }
 
 type ModifyLoadBalancerAttributesInput struct {
-	Description      *string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
-	Loadbalancer     *string `protobuf:"bytes,2,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
-	LoadbalancerName *string `protobuf:"bytes,3,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
-	NodeCount        *int32  `protobuf:"varint,4,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	PrivateIp        *string `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	SecurityGroup    *string `protobuf:"bytes,6,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	HttpHeaderSize   *int32  `protobuf:"varint,7,opt,name=http_header_size,json=httpHeaderSize" json:"http_header_size,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Description          *string  `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	Loadbalancer         *string  `protobuf:"bytes,2,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
+	LoadbalancerName     *string  `protobuf:"bytes,3,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
+	NodeCount            *int32   `protobuf:"varint,4,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	PrivateIp            *string  `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	SecurityGroup        *string  `protobuf:"bytes,6,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	HttpHeaderSize       *int32   `protobuf:"varint,7,opt,name=http_header_size,json=httpHeaderSize" json:"http_header_size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerAttributesInput) Reset()         { *m = ModifyLoadBalancerAttributesInput{} }
 func (m *ModifyLoadBalancerAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyLoadBalancerAttributesInput) ProtoMessage()    {}
 func (*ModifyLoadBalancerAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{6}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{6}
 }
+func (m *ModifyLoadBalancerAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerAttributesInput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerAttributesInput.Size(m)
+}
+func (m *ModifyLoadBalancerAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerAttributesInput) GetDescription() string {
 	if m != nil && m.Description != nil {
@@ -351,18 +502,37 @@ func (m *ModifyLoadBalancerAttributesInput) GetHttpHeaderSize() int32 {
 }
 
 type ModifyLoadBalancerAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerAttributesOutput) Reset()         { *m = ModifyLoadBalancerAttributesOutput{} }
 func (m *ModifyLoadBalancerAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyLoadBalancerAttributesOutput) ProtoMessage()    {}
 func (*ModifyLoadBalancerAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{7}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{7}
 }
+func (m *ModifyLoadBalancerAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerAttributesOutput.Size(m)
+}
+func (m *ModifyLoadBalancerAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -386,14 +556,35 @@ func (m *ModifyLoadBalancerAttributesOutput) GetMessage() string {
 }
 
 type StartLoadBalancersInput struct {
-	Loadbalancers    []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Loadbalancers        []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartLoadBalancersInput) Reset()                    { *m = StartLoadBalancersInput{} }
-func (m *StartLoadBalancersInput) String() string            { return proto.CompactTextString(m) }
-func (*StartLoadBalancersInput) ProtoMessage()               {}
-func (*StartLoadBalancersInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{8} }
+func (m *StartLoadBalancersInput) Reset()         { *m = StartLoadBalancersInput{} }
+func (m *StartLoadBalancersInput) String() string { return proto.CompactTextString(m) }
+func (*StartLoadBalancersInput) ProtoMessage()    {}
+func (*StartLoadBalancersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{8}
+}
+func (m *StartLoadBalancersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartLoadBalancersInput.Unmarshal(m, b)
+}
+func (m *StartLoadBalancersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartLoadBalancersInput.Marshal(b, m, deterministic)
+}
+func (dst *StartLoadBalancersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartLoadBalancersInput.Merge(dst, src)
+}
+func (m *StartLoadBalancersInput) XXX_Size() int {
+	return xxx_messageInfo_StartLoadBalancersInput.Size(m)
+}
+func (m *StartLoadBalancersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartLoadBalancersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartLoadBalancersInput proto.InternalMessageInfo
 
 func (m *StartLoadBalancersInput) GetLoadbalancers() []string {
 	if m != nil {
@@ -403,17 +594,38 @@ func (m *StartLoadBalancersInput) GetLoadbalancers() []string {
 }
 
 type StartLoadBalancersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartLoadBalancersOutput) Reset()                    { *m = StartLoadBalancersOutput{} }
-func (m *StartLoadBalancersOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartLoadBalancersOutput) ProtoMessage()               {}
-func (*StartLoadBalancersOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{9} }
+func (m *StartLoadBalancersOutput) Reset()         { *m = StartLoadBalancersOutput{} }
+func (m *StartLoadBalancersOutput) String() string { return proto.CompactTextString(m) }
+func (*StartLoadBalancersOutput) ProtoMessage()    {}
+func (*StartLoadBalancersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{9}
+}
+func (m *StartLoadBalancersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartLoadBalancersOutput.Unmarshal(m, b)
+}
+func (m *StartLoadBalancersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartLoadBalancersOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartLoadBalancersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartLoadBalancersOutput.Merge(dst, src)
+}
+func (m *StartLoadBalancersOutput) XXX_Size() int {
+	return xxx_messageInfo_StartLoadBalancersOutput.Size(m)
+}
+func (m *StartLoadBalancersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartLoadBalancersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartLoadBalancersOutput proto.InternalMessageInfo
 
 func (m *StartLoadBalancersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -444,14 +656,35 @@ func (m *StartLoadBalancersOutput) GetJobId() string {
 }
 
 type StopLoadBalancersInput struct {
-	Loadbalancers    []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Loadbalancers        []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopLoadBalancersInput) Reset()                    { *m = StopLoadBalancersInput{} }
-func (m *StopLoadBalancersInput) String() string            { return proto.CompactTextString(m) }
-func (*StopLoadBalancersInput) ProtoMessage()               {}
-func (*StopLoadBalancersInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{10} }
+func (m *StopLoadBalancersInput) Reset()         { *m = StopLoadBalancersInput{} }
+func (m *StopLoadBalancersInput) String() string { return proto.CompactTextString(m) }
+func (*StopLoadBalancersInput) ProtoMessage()    {}
+func (*StopLoadBalancersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{10}
+}
+func (m *StopLoadBalancersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopLoadBalancersInput.Unmarshal(m, b)
+}
+func (m *StopLoadBalancersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopLoadBalancersInput.Marshal(b, m, deterministic)
+}
+func (dst *StopLoadBalancersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopLoadBalancersInput.Merge(dst, src)
+}
+func (m *StopLoadBalancersInput) XXX_Size() int {
+	return xxx_messageInfo_StopLoadBalancersInput.Size(m)
+}
+func (m *StopLoadBalancersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopLoadBalancersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopLoadBalancersInput proto.InternalMessageInfo
 
 func (m *StopLoadBalancersInput) GetLoadbalancers() []string {
 	if m != nil {
@@ -461,17 +694,38 @@ func (m *StopLoadBalancersInput) GetLoadbalancers() []string {
 }
 
 type StopLoadBalancersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopLoadBalancersOutput) Reset()                    { *m = StopLoadBalancersOutput{} }
-func (m *StopLoadBalancersOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopLoadBalancersOutput) ProtoMessage()               {}
-func (*StopLoadBalancersOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{11} }
+func (m *StopLoadBalancersOutput) Reset()         { *m = StopLoadBalancersOutput{} }
+func (m *StopLoadBalancersOutput) String() string { return proto.CompactTextString(m) }
+func (*StopLoadBalancersOutput) ProtoMessage()    {}
+func (*StopLoadBalancersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{11}
+}
+func (m *StopLoadBalancersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopLoadBalancersOutput.Unmarshal(m, b)
+}
+func (m *StopLoadBalancersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopLoadBalancersOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopLoadBalancersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopLoadBalancersOutput.Merge(dst, src)
+}
+func (m *StopLoadBalancersOutput) XXX_Size() int {
+	return xxx_messageInfo_StopLoadBalancersOutput.Size(m)
+}
+func (m *StopLoadBalancersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopLoadBalancersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopLoadBalancersOutput proto.InternalMessageInfo
 
 func (m *StopLoadBalancersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -502,14 +756,35 @@ func (m *StopLoadBalancersOutput) GetJobId() string {
 }
 
 type UpdateLoadBalancersInput struct {
-	Loadbalancers    []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Loadbalancers        []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateLoadBalancersInput) Reset()                    { *m = UpdateLoadBalancersInput{} }
-func (m *UpdateLoadBalancersInput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateLoadBalancersInput) ProtoMessage()               {}
-func (*UpdateLoadBalancersInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{12} }
+func (m *UpdateLoadBalancersInput) Reset()         { *m = UpdateLoadBalancersInput{} }
+func (m *UpdateLoadBalancersInput) String() string { return proto.CompactTextString(m) }
+func (*UpdateLoadBalancersInput) ProtoMessage()    {}
+func (*UpdateLoadBalancersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{12}
+}
+func (m *UpdateLoadBalancersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateLoadBalancersInput.Unmarshal(m, b)
+}
+func (m *UpdateLoadBalancersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateLoadBalancersInput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateLoadBalancersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateLoadBalancersInput.Merge(dst, src)
+}
+func (m *UpdateLoadBalancersInput) XXX_Size() int {
+	return xxx_messageInfo_UpdateLoadBalancersInput.Size(m)
+}
+func (m *UpdateLoadBalancersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateLoadBalancersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateLoadBalancersInput proto.InternalMessageInfo
 
 func (m *UpdateLoadBalancersInput) GetLoadbalancers() []string {
 	if m != nil {
@@ -519,17 +794,38 @@ func (m *UpdateLoadBalancersInput) GetLoadbalancers() []string {
 }
 
 type UpdateLoadBalancersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateLoadBalancersOutput) Reset()                    { *m = UpdateLoadBalancersOutput{} }
-func (m *UpdateLoadBalancersOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateLoadBalancersOutput) ProtoMessage()               {}
-func (*UpdateLoadBalancersOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{13} }
+func (m *UpdateLoadBalancersOutput) Reset()         { *m = UpdateLoadBalancersOutput{} }
+func (m *UpdateLoadBalancersOutput) String() string { return proto.CompactTextString(m) }
+func (*UpdateLoadBalancersOutput) ProtoMessage()    {}
+func (*UpdateLoadBalancersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{13}
+}
+func (m *UpdateLoadBalancersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateLoadBalancersOutput.Unmarshal(m, b)
+}
+func (m *UpdateLoadBalancersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateLoadBalancersOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateLoadBalancersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateLoadBalancersOutput.Merge(dst, src)
+}
+func (m *UpdateLoadBalancersOutput) XXX_Size() int {
+	return xxx_messageInfo_UpdateLoadBalancersOutput.Size(m)
+}
+func (m *UpdateLoadBalancersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateLoadBalancersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateLoadBalancersOutput proto.InternalMessageInfo
 
 func (m *UpdateLoadBalancersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -560,15 +856,36 @@ func (m *UpdateLoadBalancersOutput) GetJobId() string {
 }
 
 type ResizeLoadBalancersInput struct {
-	Loadbalancers    []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
-	LoadbalancerType *int32   `protobuf:"varint,2,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Loadbalancers        []string `protobuf:"bytes,1,rep,name=loadbalancers" json:"loadbalancers,omitempty"`
+	LoadbalancerType     *int32   `protobuf:"varint,2,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeLoadBalancersInput) Reset()                    { *m = ResizeLoadBalancersInput{} }
-func (m *ResizeLoadBalancersInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeLoadBalancersInput) ProtoMessage()               {}
-func (*ResizeLoadBalancersInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{14} }
+func (m *ResizeLoadBalancersInput) Reset()         { *m = ResizeLoadBalancersInput{} }
+func (m *ResizeLoadBalancersInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeLoadBalancersInput) ProtoMessage()    {}
+func (*ResizeLoadBalancersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{14}
+}
+func (m *ResizeLoadBalancersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeLoadBalancersInput.Unmarshal(m, b)
+}
+func (m *ResizeLoadBalancersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeLoadBalancersInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeLoadBalancersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeLoadBalancersInput.Merge(dst, src)
+}
+func (m *ResizeLoadBalancersInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeLoadBalancersInput.Size(m)
+}
+func (m *ResizeLoadBalancersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeLoadBalancersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeLoadBalancersInput proto.InternalMessageInfo
 
 func (m *ResizeLoadBalancersInput) GetLoadbalancers() []string {
 	if m != nil {
@@ -585,17 +902,38 @@ func (m *ResizeLoadBalancersInput) GetLoadbalancerType() int32 {
 }
 
 type ResizeLoadBalancersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeLoadBalancersOutput) Reset()                    { *m = ResizeLoadBalancersOutput{} }
-func (m *ResizeLoadBalancersOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeLoadBalancersOutput) ProtoMessage()               {}
-func (*ResizeLoadBalancersOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{15} }
+func (m *ResizeLoadBalancersOutput) Reset()         { *m = ResizeLoadBalancersOutput{} }
+func (m *ResizeLoadBalancersOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeLoadBalancersOutput) ProtoMessage()    {}
+func (*ResizeLoadBalancersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{15}
+}
+func (m *ResizeLoadBalancersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeLoadBalancersOutput.Unmarshal(m, b)
+}
+func (m *ResizeLoadBalancersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeLoadBalancersOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeLoadBalancersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeLoadBalancersOutput.Merge(dst, src)
+}
+func (m *ResizeLoadBalancersOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeLoadBalancersOutput.Size(m)
+}
+func (m *ResizeLoadBalancersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeLoadBalancersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeLoadBalancersOutput proto.InternalMessageInfo
 
 func (m *ResizeLoadBalancersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -626,17 +964,36 @@ func (m *ResizeLoadBalancersOutput) GetJobId() string {
 }
 
 type AssociateEipsToLoadBalancerInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	Loadbalancer     *string  `protobuf:"bytes,2,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	Loadbalancer         *string  `protobuf:"bytes,2,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AssociateEipsToLoadBalancerInput) Reset()         { *m = AssociateEipsToLoadBalancerInput{} }
 func (m *AssociateEipsToLoadBalancerInput) String() string { return proto.CompactTextString(m) }
 func (*AssociateEipsToLoadBalancerInput) ProtoMessage()    {}
 func (*AssociateEipsToLoadBalancerInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{16}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{16}
 }
+func (m *AssociateEipsToLoadBalancerInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateEipsToLoadBalancerInput.Unmarshal(m, b)
+}
+func (m *AssociateEipsToLoadBalancerInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateEipsToLoadBalancerInput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateEipsToLoadBalancerInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateEipsToLoadBalancerInput.Merge(dst, src)
+}
+func (m *AssociateEipsToLoadBalancerInput) XXX_Size() int {
+	return xxx_messageInfo_AssociateEipsToLoadBalancerInput.Size(m)
+}
+func (m *AssociateEipsToLoadBalancerInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateEipsToLoadBalancerInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateEipsToLoadBalancerInput proto.InternalMessageInfo
 
 func (m *AssociateEipsToLoadBalancerInput) GetEips() []string {
 	if m != nil {
@@ -653,19 +1010,38 @@ func (m *AssociateEipsToLoadBalancerInput) GetLoadbalancer() string {
 }
 
 type AssociateEipsToLoadBalancerOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AssociateEipsToLoadBalancerOutput) Reset()         { *m = AssociateEipsToLoadBalancerOutput{} }
 func (m *AssociateEipsToLoadBalancerOutput) String() string { return proto.CompactTextString(m) }
 func (*AssociateEipsToLoadBalancerOutput) ProtoMessage()    {}
 func (*AssociateEipsToLoadBalancerOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{17}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{17}
 }
+func (m *AssociateEipsToLoadBalancerOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateEipsToLoadBalancerOutput.Unmarshal(m, b)
+}
+func (m *AssociateEipsToLoadBalancerOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateEipsToLoadBalancerOutput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateEipsToLoadBalancerOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateEipsToLoadBalancerOutput.Merge(dst, src)
+}
+func (m *AssociateEipsToLoadBalancerOutput) XXX_Size() int {
+	return xxx_messageInfo_AssociateEipsToLoadBalancerOutput.Size(m)
+}
+func (m *AssociateEipsToLoadBalancerOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateEipsToLoadBalancerOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateEipsToLoadBalancerOutput proto.InternalMessageInfo
 
 func (m *AssociateEipsToLoadBalancerOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -696,17 +1072,36 @@ func (m *AssociateEipsToLoadBalancerOutput) GetJobId() string {
 }
 
 type DissociateEipsFromLoadBalancerInput struct {
-	Eips             []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
-	Loadbalancer     *string  `protobuf:"bytes,2,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Eips                 []string `protobuf:"bytes,1,rep,name=eips" json:"eips,omitempty"`
+	Loadbalancer         *string  `protobuf:"bytes,2,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DissociateEipsFromLoadBalancerInput) Reset()         { *m = DissociateEipsFromLoadBalancerInput{} }
 func (m *DissociateEipsFromLoadBalancerInput) String() string { return proto.CompactTextString(m) }
 func (*DissociateEipsFromLoadBalancerInput) ProtoMessage()    {}
 func (*DissociateEipsFromLoadBalancerInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{18}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{18}
 }
+func (m *DissociateEipsFromLoadBalancerInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateEipsFromLoadBalancerInput.Unmarshal(m, b)
+}
+func (m *DissociateEipsFromLoadBalancerInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateEipsFromLoadBalancerInput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateEipsFromLoadBalancerInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateEipsFromLoadBalancerInput.Merge(dst, src)
+}
+func (m *DissociateEipsFromLoadBalancerInput) XXX_Size() int {
+	return xxx_messageInfo_DissociateEipsFromLoadBalancerInput.Size(m)
+}
+func (m *DissociateEipsFromLoadBalancerInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateEipsFromLoadBalancerInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateEipsFromLoadBalancerInput proto.InternalMessageInfo
 
 func (m *DissociateEipsFromLoadBalancerInput) GetEips() []string {
 	if m != nil {
@@ -723,19 +1118,38 @@ func (m *DissociateEipsFromLoadBalancerInput) GetLoadbalancer() string {
 }
 
 type DissociateEipsFromLoadBalancerOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DissociateEipsFromLoadBalancerOutput) Reset()         { *m = DissociateEipsFromLoadBalancerOutput{} }
 func (m *DissociateEipsFromLoadBalancerOutput) String() string { return proto.CompactTextString(m) }
 func (*DissociateEipsFromLoadBalancerOutput) ProtoMessage()    {}
 func (*DissociateEipsFromLoadBalancerOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{19}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{19}
 }
+func (m *DissociateEipsFromLoadBalancerOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateEipsFromLoadBalancerOutput.Unmarshal(m, b)
+}
+func (m *DissociateEipsFromLoadBalancerOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateEipsFromLoadBalancerOutput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateEipsFromLoadBalancerOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateEipsFromLoadBalancerOutput.Merge(dst, src)
+}
+func (m *DissociateEipsFromLoadBalancerOutput) XXX_Size() int {
+	return xxx_messageInfo_DissociateEipsFromLoadBalancerOutput.Size(m)
+}
+func (m *DissociateEipsFromLoadBalancerOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateEipsFromLoadBalancerOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateEipsFromLoadBalancerOutput proto.InternalMessageInfo
 
 func (m *DissociateEipsFromLoadBalancerOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -766,15 +1180,36 @@ func (m *DissociateEipsFromLoadBalancerOutput) GetJobId() string {
 }
 
 type AddLoadBalancerListenersInput struct {
-	Loadbalancer     *string                 `protobuf:"bytes,1,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
-	Listeners        []*LoadBalancerListener `protobuf:"bytes,2,rep,name=listeners" json:"listeners,omitempty"`
-	XXX_unrecognized []byte                  `json:"-"`
+	Loadbalancer         *string                 `protobuf:"bytes,1,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
+	Listeners            []*LoadBalancerListener `protobuf:"bytes,2,rep,name=listeners" json:"listeners,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
 }
 
-func (m *AddLoadBalancerListenersInput) Reset()                    { *m = AddLoadBalancerListenersInput{} }
-func (m *AddLoadBalancerListenersInput) String() string            { return proto.CompactTextString(m) }
-func (*AddLoadBalancerListenersInput) ProtoMessage()               {}
-func (*AddLoadBalancerListenersInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{20} }
+func (m *AddLoadBalancerListenersInput) Reset()         { *m = AddLoadBalancerListenersInput{} }
+func (m *AddLoadBalancerListenersInput) String() string { return proto.CompactTextString(m) }
+func (*AddLoadBalancerListenersInput) ProtoMessage()    {}
+func (*AddLoadBalancerListenersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{20}
+}
+func (m *AddLoadBalancerListenersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddLoadBalancerListenersInput.Unmarshal(m, b)
+}
+func (m *AddLoadBalancerListenersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddLoadBalancerListenersInput.Marshal(b, m, deterministic)
+}
+func (dst *AddLoadBalancerListenersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddLoadBalancerListenersInput.Merge(dst, src)
+}
+func (m *AddLoadBalancerListenersInput) XXX_Size() int {
+	return xxx_messageInfo_AddLoadBalancerListenersInput.Size(m)
+}
+func (m *AddLoadBalancerListenersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddLoadBalancerListenersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddLoadBalancerListenersInput proto.InternalMessageInfo
 
 func (m *AddLoadBalancerListenersInput) GetLoadbalancer() string {
 	if m != nil && m.Loadbalancer != nil {
@@ -795,15 +1230,34 @@ type AddLoadBalancerListenersOutput struct {
 	RetCode               *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message               *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerListeners []string `protobuf:"bytes,4,rep,name=loadbalancer_listeners,json=loadbalancerListeners" json:"loadbalancer_listeners,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
 	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *AddLoadBalancerListenersOutput) Reset()         { *m = AddLoadBalancerListenersOutput{} }
 func (m *AddLoadBalancerListenersOutput) String() string { return proto.CompactTextString(m) }
 func (*AddLoadBalancerListenersOutput) ProtoMessage()    {}
 func (*AddLoadBalancerListenersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{21}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{21}
 }
+func (m *AddLoadBalancerListenersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddLoadBalancerListenersOutput.Unmarshal(m, b)
+}
+func (m *AddLoadBalancerListenersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddLoadBalancerListenersOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddLoadBalancerListenersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddLoadBalancerListenersOutput.Merge(dst, src)
+}
+func (m *AddLoadBalancerListenersOutput) XXX_Size() int {
+	return xxx_messageInfo_AddLoadBalancerListenersOutput.Size(m)
+}
+func (m *AddLoadBalancerListenersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddLoadBalancerListenersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddLoadBalancerListenersOutput proto.InternalMessageInfo
 
 func (m *AddLoadBalancerListenersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -839,15 +1293,34 @@ type DescribeLoadBalancerListenersInput struct {
 	Verbose               *int32   `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
 	Offset                *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
 	Limit                 *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
 	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *DescribeLoadBalancerListenersInput) Reset()         { *m = DescribeLoadBalancerListenersInput{} }
 func (m *DescribeLoadBalancerListenersInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerListenersInput) ProtoMessage()    {}
 func (*DescribeLoadBalancerListenersInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{22}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{22}
 }
+func (m *DescribeLoadBalancerListenersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerListenersInput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerListenersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerListenersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerListenersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerListenersInput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerListenersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerListenersInput.Size(m)
+}
+func (m *DescribeLoadBalancerListenersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerListenersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerListenersInput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerListenersInput) GetLoadbalancerListeners() []string {
 	if m != nil {
@@ -890,15 +1363,34 @@ type DescribeLoadBalancerListenersOutput struct {
 	Message                 *string                 `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerListenerSet []*LoadBalancerListener `protobuf:"bytes,4,rep,name=loadbalancer_listener_set,json=loadbalancerListenerSet" json:"loadbalancer_listener_set,omitempty"`
 	TotalCount              *int32                  `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{}                `json:"-"`
 	XXX_unrecognized        []byte                  `json:"-"`
+	XXX_sizecache           int32                   `json:"-"`
 }
 
 func (m *DescribeLoadBalancerListenersOutput) Reset()         { *m = DescribeLoadBalancerListenersOutput{} }
 func (m *DescribeLoadBalancerListenersOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerListenersOutput) ProtoMessage()    {}
 func (*DescribeLoadBalancerListenersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{23}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{23}
 }
+func (m *DescribeLoadBalancerListenersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerListenersOutput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerListenersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerListenersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerListenersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerListenersOutput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerListenersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerListenersOutput.Size(m)
+}
+func (m *DescribeLoadBalancerListenersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerListenersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerListenersOutput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerListenersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -937,15 +1429,34 @@ func (m *DescribeLoadBalancerListenersOutput) GetTotalCount() int32 {
 
 type DeleteLoadBalancerListenersInput struct {
 	LoadbalancerListeners []string `protobuf:"bytes,1,rep,name=loadbalancer_listeners,json=loadbalancerListeners" json:"loadbalancer_listeners,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
 	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerListenersInput) Reset()         { *m = DeleteLoadBalancerListenersInput{} }
 func (m *DeleteLoadBalancerListenersInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerListenersInput) ProtoMessage()    {}
 func (*DeleteLoadBalancerListenersInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{24}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{24}
 }
+func (m *DeleteLoadBalancerListenersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerListenersInput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerListenersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerListenersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerListenersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerListenersInput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerListenersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerListenersInput.Size(m)
+}
+func (m *DeleteLoadBalancerListenersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerListenersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerListenersInput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerListenersInput) GetLoadbalancerListeners() []string {
 	if m != nil {
@@ -959,15 +1470,34 @@ type DeleteLoadBalancerListenersOutput struct {
 	RetCode               *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message               *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerListeners []string `protobuf:"bytes,4,rep,name=loadbalancer_listeners,json=loadbalancerListeners" json:"loadbalancer_listeners,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
 	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerListenersOutput) Reset()         { *m = DeleteLoadBalancerListenersOutput{} }
 func (m *DeleteLoadBalancerListenersOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerListenersOutput) ProtoMessage()    {}
 func (*DeleteLoadBalancerListenersOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{25}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{25}
 }
+func (m *DeleteLoadBalancerListenersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerListenersOutput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerListenersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerListenersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerListenersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerListenersOutput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerListenersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerListenersOutput.Size(m)
+}
+func (m *DeleteLoadBalancerListenersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerListenersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerListenersOutput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerListenersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1007,7 +1537,9 @@ type ModifyLoadBalancerListenerAttributesInput struct {
 	HealthyCheckMethod       *string                                                     `protobuf:"bytes,7,opt,name=healthy_check_method,json=healthyCheckMethod" json:"healthy_check_method,omitempty"`
 	HealthyCheckOption       *string                                                     `protobuf:"bytes,8,opt,name=healthy_check_option,json=healthyCheckOption" json:"healthy_check_option,omitempty"`
 	ListenerOption           []*ModifyLoadBalancerListenerAttributesInput_ListenerOption `protobuf:"bytes,9,rep,name=listener_option,json=listenerOption" json:"listener_option,omitempty"`
+	XXX_NoUnkeyedLiteral     struct{}                                                    `json:"-"`
 	XXX_unrecognized         []byte                                                      `json:"-"`
+	XXX_sizecache            int32                                                       `json:"-"`
 }
 
 func (m *ModifyLoadBalancerListenerAttributesInput) Reset() {
@@ -1016,8 +1548,25 @@ func (m *ModifyLoadBalancerListenerAttributesInput) Reset() {
 func (m *ModifyLoadBalancerListenerAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyLoadBalancerListenerAttributesInput) ProtoMessage()    {}
 func (*ModifyLoadBalancerListenerAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{26}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{26}
 }
+func (m *ModifyLoadBalancerListenerAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerListenerAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerListenerAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerListenerAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput.Size(m)
+}
+func (m *ModifyLoadBalancerListenerAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerListenerAttributesInput) GetLoadbalancerListener() string {
 	if m != nil && m.LoadbalancerListener != nil {
@@ -1083,8 +1632,10 @@ func (m *ModifyLoadBalancerListenerAttributesInput) GetListenerOption() []*Modif
 }
 
 type ModifyLoadBalancerListenerAttributesInput_ListenerOption struct {
-	ListenerOption   *int32 `protobuf:"varint,1,opt,name=listener_option,json=listenerOption" json:"listener_option,omitempty"`
-	XXX_unrecognized []byte `json:"-"`
+	ListenerOption       *int32   `protobuf:"varint,1,opt,name=listener_option,json=listenerOption" json:"listener_option,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) Reset() {
@@ -1095,8 +1646,25 @@ func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) String() stri
 }
 func (*ModifyLoadBalancerListenerAttributesInput_ListenerOption) ProtoMessage() {}
 func (*ModifyLoadBalancerListenerAttributesInput_ListenerOption) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{26, 0}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{26, 0}
 }
+func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput_ListenerOption.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput_ListenerOption.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerListenerAttributesInput_ListenerOption) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput_ListenerOption.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput_ListenerOption.Size(m)
+}
+func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput_ListenerOption.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerListenerAttributesInput_ListenerOption proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) GetListenerOption() int32 {
 	if m != nil && m.ListenerOption != nil {
@@ -1106,10 +1674,12 @@ func (m *ModifyLoadBalancerListenerAttributesInput_ListenerOption) GetListenerOp
 }
 
 type ModifyLoadBalancerListenerAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerListenerAttributesOutput) Reset() {
@@ -1120,8 +1690,25 @@ func (m *ModifyLoadBalancerListenerAttributesOutput) String() string {
 }
 func (*ModifyLoadBalancerListenerAttributesOutput) ProtoMessage() {}
 func (*ModifyLoadBalancerListenerAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{27}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{27}
 }
+func (m *ModifyLoadBalancerListenerAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerListenerAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerListenerAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerListenerAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerListenerAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerListenerAttributesOutput.Size(m)
+}
+func (m *ModifyLoadBalancerListenerAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerListenerAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerListenerAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerListenerAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1147,13 +1734,34 @@ func (m *ModifyLoadBalancerListenerAttributesOutput) GetMessage() string {
 type AddLoadBalancerBackendsInput struct {
 	LoadbalancerListener *string                `protobuf:"bytes,1,opt,name=loadbalancer_listener,json=loadbalancerListener" json:"loadbalancer_listener,omitempty"`
 	Backends             []*LoadBalancerBackend `protobuf:"bytes,2,rep,name=backends" json:"backends,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
 	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
 }
 
-func (m *AddLoadBalancerBackendsInput) Reset()                    { *m = AddLoadBalancerBackendsInput{} }
-func (m *AddLoadBalancerBackendsInput) String() string            { return proto.CompactTextString(m) }
-func (*AddLoadBalancerBackendsInput) ProtoMessage()               {}
-func (*AddLoadBalancerBackendsInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{28} }
+func (m *AddLoadBalancerBackendsInput) Reset()         { *m = AddLoadBalancerBackendsInput{} }
+func (m *AddLoadBalancerBackendsInput) String() string { return proto.CompactTextString(m) }
+func (*AddLoadBalancerBackendsInput) ProtoMessage()    {}
+func (*AddLoadBalancerBackendsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{28}
+}
+func (m *AddLoadBalancerBackendsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddLoadBalancerBackendsInput.Unmarshal(m, b)
+}
+func (m *AddLoadBalancerBackendsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddLoadBalancerBackendsInput.Marshal(b, m, deterministic)
+}
+func (dst *AddLoadBalancerBackendsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddLoadBalancerBackendsInput.Merge(dst, src)
+}
+func (m *AddLoadBalancerBackendsInput) XXX_Size() int {
+	return xxx_messageInfo_AddLoadBalancerBackendsInput.Size(m)
+}
+func (m *AddLoadBalancerBackendsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddLoadBalancerBackendsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddLoadBalancerBackendsInput proto.InternalMessageInfo
 
 func (m *AddLoadBalancerBackendsInput) GetLoadbalancerListener() string {
 	if m != nil && m.LoadbalancerListener != nil {
@@ -1174,13 +1782,34 @@ type AddLoadBalancerBackendsOutput struct {
 	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerBackends []string `protobuf:"bytes,4,rep,name=loadbalancer_backends,json=loadbalancerBackends" json:"loadbalancer_backends,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddLoadBalancerBackendsOutput) Reset()                    { *m = AddLoadBalancerBackendsOutput{} }
-func (m *AddLoadBalancerBackendsOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddLoadBalancerBackendsOutput) ProtoMessage()               {}
-func (*AddLoadBalancerBackendsOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{29} }
+func (m *AddLoadBalancerBackendsOutput) Reset()         { *m = AddLoadBalancerBackendsOutput{} }
+func (m *AddLoadBalancerBackendsOutput) String() string { return proto.CompactTextString(m) }
+func (*AddLoadBalancerBackendsOutput) ProtoMessage()    {}
+func (*AddLoadBalancerBackendsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{29}
+}
+func (m *AddLoadBalancerBackendsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddLoadBalancerBackendsOutput.Unmarshal(m, b)
+}
+func (m *AddLoadBalancerBackendsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddLoadBalancerBackendsOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddLoadBalancerBackendsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddLoadBalancerBackendsOutput.Merge(dst, src)
+}
+func (m *AddLoadBalancerBackendsOutput) XXX_Size() int {
+	return xxx_messageInfo_AddLoadBalancerBackendsOutput.Size(m)
+}
+func (m *AddLoadBalancerBackendsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddLoadBalancerBackendsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddLoadBalancerBackendsOutput proto.InternalMessageInfo
 
 func (m *AddLoadBalancerBackendsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1217,15 +1846,34 @@ type DescribeLoadBalancerBackendsInput struct {
 	Verbose              *int32   `protobuf:"varint,4,opt,name=verbose" json:"verbose,omitempty"`
 	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
 	Limit                *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeLoadBalancerBackendsInput) Reset()         { *m = DescribeLoadBalancerBackendsInput{} }
 func (m *DescribeLoadBalancerBackendsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerBackendsInput) ProtoMessage()    {}
 func (*DescribeLoadBalancerBackendsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{30}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{30}
 }
+func (m *DescribeLoadBalancerBackendsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerBackendsInput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerBackendsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerBackendsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerBackendsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerBackendsInput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerBackendsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerBackendsInput.Size(m)
+}
+func (m *DescribeLoadBalancerBackendsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerBackendsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerBackendsInput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerBackendsInput) GetLoadbalancerBackends() []string {
 	if m != nil {
@@ -1275,15 +1923,34 @@ type DescribeLoadBalancerBackendsOutput struct {
 	Message                *string                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerBackendSet []*LoadBalancerBackend `protobuf:"bytes,4,rep,name=loadbalancer_backend_set,json=loadbalancerBackendSet" json:"loadbalancer_backend_set,omitempty"`
 	TotalCount             *int32                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}               `json:"-"`
 	XXX_unrecognized       []byte                 `json:"-"`
+	XXX_sizecache          int32                  `json:"-"`
 }
 
 func (m *DescribeLoadBalancerBackendsOutput) Reset()         { *m = DescribeLoadBalancerBackendsOutput{} }
 func (m *DescribeLoadBalancerBackendsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerBackendsOutput) ProtoMessage()    {}
 func (*DescribeLoadBalancerBackendsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{31}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{31}
 }
+func (m *DescribeLoadBalancerBackendsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerBackendsOutput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerBackendsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerBackendsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerBackendsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerBackendsOutput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerBackendsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerBackendsOutput.Size(m)
+}
+func (m *DescribeLoadBalancerBackendsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerBackendsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerBackendsOutput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerBackendsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1322,15 +1989,34 @@ func (m *DescribeLoadBalancerBackendsOutput) GetTotalCount() int32 {
 
 type DeleteLoadBalancerBackendsInput struct {
 	LoadbalancerBackends []string `protobuf:"bytes,1,rep,name=loadbalancer_backends,json=loadbalancerBackends" json:"loadbalancer_backends,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerBackendsInput) Reset()         { *m = DeleteLoadBalancerBackendsInput{} }
 func (m *DeleteLoadBalancerBackendsInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerBackendsInput) ProtoMessage()    {}
 func (*DeleteLoadBalancerBackendsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{32}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{32}
 }
+func (m *DeleteLoadBalancerBackendsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerBackendsInput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerBackendsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerBackendsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerBackendsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerBackendsInput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerBackendsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerBackendsInput.Size(m)
+}
+func (m *DeleteLoadBalancerBackendsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerBackendsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerBackendsInput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerBackendsInput) GetLoadbalancerBackends() []string {
 	if m != nil {
@@ -1344,15 +2030,34 @@ type DeleteLoadBalancerBackendsOutput struct {
 	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerBackends []string `protobuf:"bytes,4,rep,name=loadbalancer_backends,json=loadbalancerBackends" json:"loadbalancer_backends,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerBackendsOutput) Reset()         { *m = DeleteLoadBalancerBackendsOutput{} }
 func (m *DeleteLoadBalancerBackendsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerBackendsOutput) ProtoMessage()    {}
 func (*DeleteLoadBalancerBackendsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{33}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{33}
 }
+func (m *DeleteLoadBalancerBackendsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerBackendsOutput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerBackendsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerBackendsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerBackendsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerBackendsOutput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerBackendsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerBackendsOutput.Size(m)
+}
+func (m *DeleteLoadBalancerBackendsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerBackendsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerBackendsOutput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerBackendsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1383,12 +2088,14 @@ func (m *DeleteLoadBalancerBackendsOutput) GetLoadbalancerBackends() []string {
 }
 
 type ModifyLoadBalancerBackendAttributesInput struct {
-	LoadbalancerBackend  *string `protobuf:"bytes,1,opt,name=loadbalancer_backend,json=loadbalancerBackend" json:"loadbalancer_backend,omitempty"`
-	Port                 *string `protobuf:"bytes,2,opt,name=port" json:"port,omitempty"`
-	Weight               *string `protobuf:"bytes,3,opt,name=weight" json:"weight,omitempty"`
-	Disabled             *int32  `protobuf:"varint,4,opt,name=disabled" json:"disabled,omitempty"`
-	LoadbalancerPolicyId *string `protobuf:"bytes,5,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
-	XXX_unrecognized     []byte  `json:"-"`
+	LoadbalancerBackend  *string  `protobuf:"bytes,1,opt,name=loadbalancer_backend,json=loadbalancerBackend" json:"loadbalancer_backend,omitempty"`
+	Port                 *string  `protobuf:"bytes,2,opt,name=port" json:"port,omitempty"`
+	Weight               *string  `protobuf:"bytes,3,opt,name=weight" json:"weight,omitempty"`
+	Disabled             *int32   `protobuf:"varint,4,opt,name=disabled" json:"disabled,omitempty"`
+	LoadbalancerPolicyId *string  `protobuf:"bytes,5,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerBackendAttributesInput) Reset() {
@@ -1397,8 +2104,25 @@ func (m *ModifyLoadBalancerBackendAttributesInput) Reset() {
 func (m *ModifyLoadBalancerBackendAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyLoadBalancerBackendAttributesInput) ProtoMessage()    {}
 func (*ModifyLoadBalancerBackendAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{34}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{34}
 }
+func (m *ModifyLoadBalancerBackendAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerBackendAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerBackendAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerBackendAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerBackendAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerBackendAttributesInput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerBackendAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerBackendAttributesInput.Size(m)
+}
+func (m *ModifyLoadBalancerBackendAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerBackendAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerBackendAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerBackendAttributesInput) GetLoadbalancerBackend() string {
 	if m != nil && m.LoadbalancerBackend != nil {
@@ -1436,10 +2160,12 @@ func (m *ModifyLoadBalancerBackendAttributesInput) GetLoadbalancerPolicyId() str
 }
 
 type ModifyLoadBalancerBackendAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerBackendAttributesOutput) Reset() {
@@ -1448,8 +2174,25 @@ func (m *ModifyLoadBalancerBackendAttributesOutput) Reset() {
 func (m *ModifyLoadBalancerBackendAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyLoadBalancerBackendAttributesOutput) ProtoMessage()    {}
 func (*ModifyLoadBalancerBackendAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{35}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{35}
 }
+func (m *ModifyLoadBalancerBackendAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerBackendAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerBackendAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerBackendAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerBackendAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerBackendAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerBackendAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerBackendAttributesOutput.Size(m)
+}
+func (m *ModifyLoadBalancerBackendAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerBackendAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerBackendAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerBackendAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1473,14 +2216,35 @@ func (m *ModifyLoadBalancerBackendAttributesOutput) GetMessage() string {
 }
 
 type CreateLoadBalancerPolicyInput struct {
-	Operator         *string `protobuf:"bytes,1,opt,name=operator" json:"operator,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Operator             *string  `protobuf:"bytes,1,opt,name=operator" json:"operator,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateLoadBalancerPolicyInput) Reset()                    { *m = CreateLoadBalancerPolicyInput{} }
-func (m *CreateLoadBalancerPolicyInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateLoadBalancerPolicyInput) ProtoMessage()               {}
-func (*CreateLoadBalancerPolicyInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{36} }
+func (m *CreateLoadBalancerPolicyInput) Reset()         { *m = CreateLoadBalancerPolicyInput{} }
+func (m *CreateLoadBalancerPolicyInput) String() string { return proto.CompactTextString(m) }
+func (*CreateLoadBalancerPolicyInput) ProtoMessage()    {}
+func (*CreateLoadBalancerPolicyInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{36}
+}
+func (m *CreateLoadBalancerPolicyInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateLoadBalancerPolicyInput.Unmarshal(m, b)
+}
+func (m *CreateLoadBalancerPolicyInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateLoadBalancerPolicyInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateLoadBalancerPolicyInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateLoadBalancerPolicyInput.Merge(dst, src)
+}
+func (m *CreateLoadBalancerPolicyInput) XXX_Size() int {
+	return xxx_messageInfo_CreateLoadBalancerPolicyInput.Size(m)
+}
+func (m *CreateLoadBalancerPolicyInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateLoadBalancerPolicyInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateLoadBalancerPolicyInput proto.InternalMessageInfo
 
 func (m *CreateLoadBalancerPolicyInput) GetOperator() string {
 	if m != nil && m.Operator != nil {
@@ -1490,19 +2254,38 @@ func (m *CreateLoadBalancerPolicyInput) GetOperator() string {
 }
 
 type CreateLoadBalancerPolicyOutput struct {
-	Action              *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode             *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message             *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	LoadbalancerPoicyId *string `protobuf:"bytes,4,opt,name=loadbalancer_poicy_id,json=loadbalancerPoicyId" json:"loadbalancer_poicy_id,omitempty"`
-	XXX_unrecognized    []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	LoadbalancerPoicyId  *string  `protobuf:"bytes,4,opt,name=loadbalancer_poicy_id,json=loadbalancerPoicyId" json:"loadbalancer_poicy_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateLoadBalancerPolicyOutput) Reset()         { *m = CreateLoadBalancerPolicyOutput{} }
 func (m *CreateLoadBalancerPolicyOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateLoadBalancerPolicyOutput) ProtoMessage()    {}
 func (*CreateLoadBalancerPolicyOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{37}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{37}
 }
+func (m *CreateLoadBalancerPolicyOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateLoadBalancerPolicyOutput.Unmarshal(m, b)
+}
+func (m *CreateLoadBalancerPolicyOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateLoadBalancerPolicyOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateLoadBalancerPolicyOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateLoadBalancerPolicyOutput.Merge(dst, src)
+}
+func (m *CreateLoadBalancerPolicyOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateLoadBalancerPolicyOutput.Size(m)
+}
+func (m *CreateLoadBalancerPolicyOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateLoadBalancerPolicyOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateLoadBalancerPolicyOutput proto.InternalMessageInfo
 
 func (m *CreateLoadBalancerPolicyOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1537,15 +2320,34 @@ type DescribeLoadBalancerPoliciesInput struct {
 	Verbose              *int32   `protobuf:"varint,2,opt,name=verbose" json:"verbose,omitempty"`
 	Offset               *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
 	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeLoadBalancerPoliciesInput) Reset()         { *m = DescribeLoadBalancerPoliciesInput{} }
 func (m *DescribeLoadBalancerPoliciesInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerPoliciesInput) ProtoMessage()    {}
 func (*DescribeLoadBalancerPoliciesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{38}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{38}
 }
+func (m *DescribeLoadBalancerPoliciesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerPoliciesInput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerPoliciesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerPoliciesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerPoliciesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerPoliciesInput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerPoliciesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerPoliciesInput.Size(m)
+}
+func (m *DescribeLoadBalancerPoliciesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerPoliciesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerPoliciesInput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerPoliciesInput) GetLoadbalancerPolicies() []string {
 	if m != nil {
@@ -1581,15 +2383,34 @@ type DescribeLoadBalancerPoliciesOutput struct {
 	Message               *string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerPolicySet []*LoadBalancerPolicy `protobuf:"bytes,4,rep,name=loadbalancer_policy_set,json=loadbalancerPolicySet" json:"loadbalancer_policy_set,omitempty"`
 	TotalCount            *int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{}              `json:"-"`
 	XXX_unrecognized      []byte                `json:"-"`
+	XXX_sizecache         int32                 `json:"-"`
 }
 
 func (m *DescribeLoadBalancerPoliciesOutput) Reset()         { *m = DescribeLoadBalancerPoliciesOutput{} }
 func (m *DescribeLoadBalancerPoliciesOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerPoliciesOutput) ProtoMessage()    {}
 func (*DescribeLoadBalancerPoliciesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{39}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{39}
 }
+func (m *DescribeLoadBalancerPoliciesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerPoliciesOutput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerPoliciesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerPoliciesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerPoliciesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerPoliciesOutput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerPoliciesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerPoliciesOutput.Size(m)
+}
+func (m *DescribeLoadBalancerPoliciesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerPoliciesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerPoliciesOutput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerPoliciesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1627,10 +2448,12 @@ func (m *DescribeLoadBalancerPoliciesOutput) GetTotalCount() int32 {
 }
 
 type ModifyLoadBalancerPolicyAttributesInput struct {
-	LoadbalancerPolicy     *string `protobuf:"bytes,1,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
-	LoadbalancerPolicyName *string `protobuf:"bytes,2,opt,name=loadbalancer_policy_name,json=loadbalancerPolicyName" json:"loadbalancer_policy_name,omitempty"`
-	Operator               *string `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	LoadbalancerPolicy     *string  `protobuf:"bytes,1,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
+	LoadbalancerPolicyName *string  `protobuf:"bytes,2,opt,name=loadbalancer_policy_name,json=loadbalancerPolicyName" json:"loadbalancer_policy_name,omitempty"`
+	Operator               *string  `protobuf:"bytes,3,opt,name=operator" json:"operator,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerPolicyAttributesInput) Reset() {
@@ -1639,8 +2462,25 @@ func (m *ModifyLoadBalancerPolicyAttributesInput) Reset() {
 func (m *ModifyLoadBalancerPolicyAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyLoadBalancerPolicyAttributesInput) ProtoMessage()    {}
 func (*ModifyLoadBalancerPolicyAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{40}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{40}
 }
+func (m *ModifyLoadBalancerPolicyAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerPolicyAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerPolicyAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerPolicyAttributesInput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerPolicyAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyAttributesInput.Size(m)
+}
+func (m *ModifyLoadBalancerPolicyAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerPolicyAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerPolicyAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerPolicyAttributesInput) GetLoadbalancerPolicy() string {
 	if m != nil && m.LoadbalancerPolicy != nil {
@@ -1664,10 +2504,12 @@ func (m *ModifyLoadBalancerPolicyAttributesInput) GetOperator() string {
 }
 
 type ModifyLoadBalancerPolicyAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerPolicyAttributesOutput) Reset() {
@@ -1676,8 +2518,25 @@ func (m *ModifyLoadBalancerPolicyAttributesOutput) Reset() {
 func (m *ModifyLoadBalancerPolicyAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyLoadBalancerPolicyAttributesOutput) ProtoMessage()    {}
 func (*ModifyLoadBalancerPolicyAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{41}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{41}
 }
+func (m *ModifyLoadBalancerPolicyAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerPolicyAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerPolicyAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerPolicyAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerPolicyAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyAttributesOutput.Size(m)
+}
+func (m *ModifyLoadBalancerPolicyAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerPolicyAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerPolicyAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerPolicyAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1701,14 +2560,35 @@ func (m *ModifyLoadBalancerPolicyAttributesOutput) GetMessage() string {
 }
 
 type ApplyLoadBalancerPolicyInput struct {
-	LoadbalancerPolicy *string `protobuf:"bytes,1,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
-	XXX_unrecognized   []byte  `json:"-"`
+	LoadbalancerPolicy   *string  `protobuf:"bytes,1,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplyLoadBalancerPolicyInput) Reset()                    { *m = ApplyLoadBalancerPolicyInput{} }
-func (m *ApplyLoadBalancerPolicyInput) String() string            { return proto.CompactTextString(m) }
-func (*ApplyLoadBalancerPolicyInput) ProtoMessage()               {}
-func (*ApplyLoadBalancerPolicyInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{42} }
+func (m *ApplyLoadBalancerPolicyInput) Reset()         { *m = ApplyLoadBalancerPolicyInput{} }
+func (m *ApplyLoadBalancerPolicyInput) String() string { return proto.CompactTextString(m) }
+func (*ApplyLoadBalancerPolicyInput) ProtoMessage()    {}
+func (*ApplyLoadBalancerPolicyInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{42}
+}
+func (m *ApplyLoadBalancerPolicyInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplyLoadBalancerPolicyInput.Unmarshal(m, b)
+}
+func (m *ApplyLoadBalancerPolicyInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplyLoadBalancerPolicyInput.Marshal(b, m, deterministic)
+}
+func (dst *ApplyLoadBalancerPolicyInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyLoadBalancerPolicyInput.Merge(dst, src)
+}
+func (m *ApplyLoadBalancerPolicyInput) XXX_Size() int {
+	return xxx_messageInfo_ApplyLoadBalancerPolicyInput.Size(m)
+}
+func (m *ApplyLoadBalancerPolicyInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyLoadBalancerPolicyInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyLoadBalancerPolicyInput proto.InternalMessageInfo
 
 func (m *ApplyLoadBalancerPolicyInput) GetLoadbalancerPolicy() string {
 	if m != nil && m.LoadbalancerPolicy != nil {
@@ -1718,17 +2598,38 @@ func (m *ApplyLoadBalancerPolicyInput) GetLoadbalancerPolicy() string {
 }
 
 type ApplyLoadBalancerPolicyOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplyLoadBalancerPolicyOutput) Reset()                    { *m = ApplyLoadBalancerPolicyOutput{} }
-func (m *ApplyLoadBalancerPolicyOutput) String() string            { return proto.CompactTextString(m) }
-func (*ApplyLoadBalancerPolicyOutput) ProtoMessage()               {}
-func (*ApplyLoadBalancerPolicyOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{43} }
+func (m *ApplyLoadBalancerPolicyOutput) Reset()         { *m = ApplyLoadBalancerPolicyOutput{} }
+func (m *ApplyLoadBalancerPolicyOutput) String() string { return proto.CompactTextString(m) }
+func (*ApplyLoadBalancerPolicyOutput) ProtoMessage()    {}
+func (*ApplyLoadBalancerPolicyOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{43}
+}
+func (m *ApplyLoadBalancerPolicyOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplyLoadBalancerPolicyOutput.Unmarshal(m, b)
+}
+func (m *ApplyLoadBalancerPolicyOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplyLoadBalancerPolicyOutput.Marshal(b, m, deterministic)
+}
+func (dst *ApplyLoadBalancerPolicyOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplyLoadBalancerPolicyOutput.Merge(dst, src)
+}
+func (m *ApplyLoadBalancerPolicyOutput) XXX_Size() int {
+	return xxx_messageInfo_ApplyLoadBalancerPolicyOutput.Size(m)
+}
+func (m *ApplyLoadBalancerPolicyOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplyLoadBalancerPolicyOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplyLoadBalancerPolicyOutput proto.InternalMessageInfo
 
 func (m *ApplyLoadBalancerPolicyOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1760,15 +2661,34 @@ func (m *ApplyLoadBalancerPolicyOutput) GetJobId() string {
 
 type DeleteLoadBalancerPoliciesInput struct {
 	LoadbalancerPolicies []string `protobuf:"bytes,1,rep,name=loadbalancer_policies,json=loadbalancerPolicies" json:"loadbalancer_policies,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerPoliciesInput) Reset()         { *m = DeleteLoadBalancerPoliciesInput{} }
 func (m *DeleteLoadBalancerPoliciesInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerPoliciesInput) ProtoMessage()    {}
 func (*DeleteLoadBalancerPoliciesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{44}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{44}
 }
+func (m *DeleteLoadBalancerPoliciesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerPoliciesInput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerPoliciesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerPoliciesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerPoliciesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerPoliciesInput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerPoliciesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerPoliciesInput.Size(m)
+}
+func (m *DeleteLoadBalancerPoliciesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerPoliciesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerPoliciesInput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerPoliciesInput) GetLoadbalancerPolicies() []string {
 	if m != nil {
@@ -1782,15 +2702,34 @@ type DeleteLoadBalancerPoliciesOutput struct {
 	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerPolicies []string `protobuf:"bytes,4,rep,name=loadbalancer_policies,json=loadbalancerPolicies" json:"loadbalancer_policies,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerPoliciesOutput) Reset()         { *m = DeleteLoadBalancerPoliciesOutput{} }
 func (m *DeleteLoadBalancerPoliciesOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerPoliciesOutput) ProtoMessage()    {}
 func (*DeleteLoadBalancerPoliciesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{45}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{45}
 }
+func (m *DeleteLoadBalancerPoliciesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerPoliciesOutput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerPoliciesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerPoliciesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerPoliciesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerPoliciesOutput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerPoliciesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerPoliciesOutput.Size(m)
+}
+func (m *DeleteLoadBalancerPoliciesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerPoliciesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerPoliciesOutput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerPoliciesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1821,17 +2760,36 @@ func (m *DeleteLoadBalancerPoliciesOutput) GetLoadbalancerPolicies() []string {
 }
 
 type AddLoadBalancerPolicyRulesInput struct {
-	LoadbalancerPolicy *string                   `protobuf:"bytes,1,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
-	Rules              []*LoadBalancerPolicyRule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
-	XXX_unrecognized   []byte                    `json:"-"`
+	LoadbalancerPolicy   *string                   `protobuf:"bytes,1,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
+	Rules                []*LoadBalancerPolicyRule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
 }
 
 func (m *AddLoadBalancerPolicyRulesInput) Reset()         { *m = AddLoadBalancerPolicyRulesInput{} }
 func (m *AddLoadBalancerPolicyRulesInput) String() string { return proto.CompactTextString(m) }
 func (*AddLoadBalancerPolicyRulesInput) ProtoMessage()    {}
 func (*AddLoadBalancerPolicyRulesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{46}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{46}
 }
+func (m *AddLoadBalancerPolicyRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddLoadBalancerPolicyRulesInput.Unmarshal(m, b)
+}
+func (m *AddLoadBalancerPolicyRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddLoadBalancerPolicyRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddLoadBalancerPolicyRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddLoadBalancerPolicyRulesInput.Merge(dst, src)
+}
+func (m *AddLoadBalancerPolicyRulesInput) XXX_Size() int {
+	return xxx_messageInfo_AddLoadBalancerPolicyRulesInput.Size(m)
+}
+func (m *AddLoadBalancerPolicyRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddLoadBalancerPolicyRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddLoadBalancerPolicyRulesInput proto.InternalMessageInfo
 
 func (m *AddLoadBalancerPolicyRulesInput) GetLoadbalancerPolicy() string {
 	if m != nil && m.LoadbalancerPolicy != nil {
@@ -1852,15 +2810,34 @@ type AddLoadBalancerPolicyRulesOutput struct {
 	RetCode                 *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message                 *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerPolicyRules []string `protobuf:"bytes,4,rep,name=loadbalancer_policy_rules,json=loadbalancerPolicyRules" json:"loadbalancer_policy_rules,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
 	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
 func (m *AddLoadBalancerPolicyRulesOutput) Reset()         { *m = AddLoadBalancerPolicyRulesOutput{} }
 func (m *AddLoadBalancerPolicyRulesOutput) String() string { return proto.CompactTextString(m) }
 func (*AddLoadBalancerPolicyRulesOutput) ProtoMessage()    {}
 func (*AddLoadBalancerPolicyRulesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{47}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{47}
 }
+func (m *AddLoadBalancerPolicyRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddLoadBalancerPolicyRulesOutput.Unmarshal(m, b)
+}
+func (m *AddLoadBalancerPolicyRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddLoadBalancerPolicyRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddLoadBalancerPolicyRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddLoadBalancerPolicyRulesOutput.Merge(dst, src)
+}
+func (m *AddLoadBalancerPolicyRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddLoadBalancerPolicyRulesOutput.Size(m)
+}
+func (m *AddLoadBalancerPolicyRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddLoadBalancerPolicyRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddLoadBalancerPolicyRulesOutput proto.InternalMessageInfo
 
 func (m *AddLoadBalancerPolicyRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1895,15 +2872,34 @@ type DescribeLoadBalancerPolicyRulesInput struct {
 	LoadbalancerPolicy      *string  `protobuf:"bytes,2,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
 	Offset                  *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
 	Limit                   *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
 	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
 func (m *DescribeLoadBalancerPolicyRulesInput) Reset()         { *m = DescribeLoadBalancerPolicyRulesInput{} }
 func (m *DescribeLoadBalancerPolicyRulesInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerPolicyRulesInput) ProtoMessage()    {}
 func (*DescribeLoadBalancerPolicyRulesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{48}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{48}
 }
+func (m *DescribeLoadBalancerPolicyRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerPolicyRulesInput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerPolicyRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerPolicyRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerPolicyRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerPolicyRulesInput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerPolicyRulesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerPolicyRulesInput.Size(m)
+}
+func (m *DescribeLoadBalancerPolicyRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerPolicyRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerPolicyRulesInput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerPolicyRulesInput) GetLoadbalancerPolicyRules() []string {
 	if m != nil {
@@ -1939,15 +2935,34 @@ type DescribeLoadBalancerPolicyRulesOutput struct {
 	Message                   *string                   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerPolicyRuleSet []*LoadBalancerPolicyRule `protobuf:"bytes,4,rep,name=loadbalancer_policy_rule_set,json=loadbalancerPolicyRuleSet" json:"loadbalancer_policy_rule_set,omitempty"`
 	TotalCount                *int32                    `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral      struct{}                  `json:"-"`
 	XXX_unrecognized          []byte                    `json:"-"`
+	XXX_sizecache             int32                     `json:"-"`
 }
 
 func (m *DescribeLoadBalancerPolicyRulesOutput) Reset()         { *m = DescribeLoadBalancerPolicyRulesOutput{} }
 func (m *DescribeLoadBalancerPolicyRulesOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeLoadBalancerPolicyRulesOutput) ProtoMessage()    {}
 func (*DescribeLoadBalancerPolicyRulesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{49}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{49}
 }
+func (m *DescribeLoadBalancerPolicyRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeLoadBalancerPolicyRulesOutput.Unmarshal(m, b)
+}
+func (m *DescribeLoadBalancerPolicyRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeLoadBalancerPolicyRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeLoadBalancerPolicyRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeLoadBalancerPolicyRulesOutput.Merge(dst, src)
+}
+func (m *DescribeLoadBalancerPolicyRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeLoadBalancerPolicyRulesOutput.Size(m)
+}
+func (m *DescribeLoadBalancerPolicyRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeLoadBalancerPolicyRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeLoadBalancerPolicyRulesOutput proto.InternalMessageInfo
 
 func (m *DescribeLoadBalancerPolicyRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1985,10 +3000,12 @@ func (m *DescribeLoadBalancerPolicyRulesOutput) GetTotalCount() int32 {
 }
 
 type ModifyLoadBalancerPolicyRuleAttributesInput struct {
-	LoadbalancerPolicyRule     *string `protobuf:"bytes,1,opt,name=loadbalancer_policy_rule,json=loadbalancerPolicyRule" json:"loadbalancer_policy_rule,omitempty"`
-	LoadbalancerPolicyRuleName *string `protobuf:"bytes,2,opt,name=loadbalancer_policy_rule_name,json=loadbalancerPolicyRuleName" json:"loadbalancer_policy_rule_name,omitempty"`
-	Val                        *string `protobuf:"bytes,3,opt,name=val" json:"val,omitempty"`
-	XXX_unrecognized           []byte  `json:"-"`
+	LoadbalancerPolicyRule     *string  `protobuf:"bytes,1,opt,name=loadbalancer_policy_rule,json=loadbalancerPolicyRule" json:"loadbalancer_policy_rule,omitempty"`
+	LoadbalancerPolicyRuleName *string  `protobuf:"bytes,2,opt,name=loadbalancer_policy_rule_name,json=loadbalancerPolicyRuleName" json:"loadbalancer_policy_rule_name,omitempty"`
+	Val                        *string  `protobuf:"bytes,3,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral       struct{} `json:"-"`
+	XXX_unrecognized           []byte   `json:"-"`
+	XXX_sizecache              int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerPolicyRuleAttributesInput) Reset() {
@@ -1999,8 +3016,25 @@ func (m *ModifyLoadBalancerPolicyRuleAttributesInput) String() string {
 }
 func (*ModifyLoadBalancerPolicyRuleAttributesInput) ProtoMessage() {}
 func (*ModifyLoadBalancerPolicyRuleAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{50}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{50}
 }
+func (m *ModifyLoadBalancerPolicyRuleAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerPolicyRuleAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerPolicyRuleAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesInput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerPolicyRuleAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesInput.Size(m)
+}
+func (m *ModifyLoadBalancerPolicyRuleAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerPolicyRuleAttributesInput) GetLoadbalancerPolicyRule() string {
 	if m != nil && m.LoadbalancerPolicyRule != nil {
@@ -2024,10 +3058,12 @@ func (m *ModifyLoadBalancerPolicyRuleAttributesInput) GetVal() string {
 }
 
 type ModifyLoadBalancerPolicyRuleAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) Reset() {
@@ -2038,8 +3074,25 @@ func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) String() string {
 }
 func (*ModifyLoadBalancerPolicyRuleAttributesOutput) ProtoMessage() {}
 func (*ModifyLoadBalancerPolicyRuleAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{51}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{51}
 }
+func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyLoadBalancerPolicyRuleAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesOutput.Size(m)
+}
+func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyLoadBalancerPolicyRuleAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2064,15 +3117,34 @@ func (m *ModifyLoadBalancerPolicyRuleAttributesOutput) GetMessage() string {
 
 type DeleteLoadBalancerPolicyRulesInput struct {
 	LoadbalancerPolicyRules []string `protobuf:"bytes,1,rep,name=loadbalancer_policy_rules,json=loadbalancerPolicyRules" json:"loadbalancer_policy_rules,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
 	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerPolicyRulesInput) Reset()         { *m = DeleteLoadBalancerPolicyRulesInput{} }
 func (m *DeleteLoadBalancerPolicyRulesInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerPolicyRulesInput) ProtoMessage()    {}
 func (*DeleteLoadBalancerPolicyRulesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{52}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{52}
 }
+func (m *DeleteLoadBalancerPolicyRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerPolicyRulesInput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerPolicyRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerPolicyRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerPolicyRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerPolicyRulesInput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerPolicyRulesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerPolicyRulesInput.Size(m)
+}
+func (m *DeleteLoadBalancerPolicyRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerPolicyRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerPolicyRulesInput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerPolicyRulesInput) GetLoadbalancerPolicyRules() []string {
 	if m != nil {
@@ -2086,15 +3158,34 @@ type DeleteLoadBalancerPolicyRulesOutput struct {
 	RetCode                 *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message                 *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	LoadbalancerPolicyRules []string `protobuf:"bytes,4,rep,name=loadbalancer_policy_rules,json=loadbalancerPolicyRules" json:"loadbalancer_policy_rules,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
 	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
 func (m *DeleteLoadBalancerPolicyRulesOutput) Reset()         { *m = DeleteLoadBalancerPolicyRulesOutput{} }
 func (m *DeleteLoadBalancerPolicyRulesOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteLoadBalancerPolicyRulesOutput) ProtoMessage()    {}
 func (*DeleteLoadBalancerPolicyRulesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{53}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{53}
 }
+func (m *DeleteLoadBalancerPolicyRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteLoadBalancerPolicyRulesOutput.Unmarshal(m, b)
+}
+func (m *DeleteLoadBalancerPolicyRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteLoadBalancerPolicyRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteLoadBalancerPolicyRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteLoadBalancerPolicyRulesOutput.Merge(dst, src)
+}
+func (m *DeleteLoadBalancerPolicyRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteLoadBalancerPolicyRulesOutput.Size(m)
+}
+func (m *DeleteLoadBalancerPolicyRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteLoadBalancerPolicyRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteLoadBalancerPolicyRulesOutput proto.InternalMessageInfo
 
 func (m *DeleteLoadBalancerPolicyRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2125,16 +3216,37 @@ func (m *DeleteLoadBalancerPolicyRulesOutput) GetLoadbalancerPolicyRules() []str
 }
 
 type CreateServerCertificateInput struct {
-	ServerCertificateName *string `protobuf:"bytes,1,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
-	CertificateContent    *string `protobuf:"bytes,2,opt,name=certificate_content,json=certificateContent" json:"certificate_content,omitempty"`
-	PrivateKey            *string `protobuf:"bytes,3,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	ServerCertificateName *string  `protobuf:"bytes,1,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
+	CertificateContent    *string  `protobuf:"bytes,2,opt,name=certificate_content,json=certificateContent" json:"certificate_content,omitempty"`
+	PrivateKey            *string  `protobuf:"bytes,3,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
-func (m *CreateServerCertificateInput) Reset()                    { *m = CreateServerCertificateInput{} }
-func (m *CreateServerCertificateInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateServerCertificateInput) ProtoMessage()               {}
-func (*CreateServerCertificateInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{54} }
+func (m *CreateServerCertificateInput) Reset()         { *m = CreateServerCertificateInput{} }
+func (m *CreateServerCertificateInput) String() string { return proto.CompactTextString(m) }
+func (*CreateServerCertificateInput) ProtoMessage()    {}
+func (*CreateServerCertificateInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{54}
+}
+func (m *CreateServerCertificateInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateServerCertificateInput.Unmarshal(m, b)
+}
+func (m *CreateServerCertificateInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateServerCertificateInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateServerCertificateInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateServerCertificateInput.Merge(dst, src)
+}
+func (m *CreateServerCertificateInput) XXX_Size() int {
+	return xxx_messageInfo_CreateServerCertificateInput.Size(m)
+}
+func (m *CreateServerCertificateInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateServerCertificateInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateServerCertificateInput proto.InternalMessageInfo
 
 func (m *CreateServerCertificateInput) GetServerCertificateName() string {
 	if m != nil && m.ServerCertificateName != nil {
@@ -2158,17 +3270,38 @@ func (m *CreateServerCertificateInput) GetPrivateKey() string {
 }
 
 type CreateServerCertificateOutput struct {
-	Action              *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode             *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message             *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ServerCertificateId *string `protobuf:"bytes,4,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
-	XXX_unrecognized    []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ServerCertificateId  *string  `protobuf:"bytes,4,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateServerCertificateOutput) Reset()                    { *m = CreateServerCertificateOutput{} }
-func (m *CreateServerCertificateOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateServerCertificateOutput) ProtoMessage()               {}
-func (*CreateServerCertificateOutput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{55} }
+func (m *CreateServerCertificateOutput) Reset()         { *m = CreateServerCertificateOutput{} }
+func (m *CreateServerCertificateOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateServerCertificateOutput) ProtoMessage()    {}
+func (*CreateServerCertificateOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{55}
+}
+func (m *CreateServerCertificateOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateServerCertificateOutput.Unmarshal(m, b)
+}
+func (m *CreateServerCertificateOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateServerCertificateOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateServerCertificateOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateServerCertificateOutput.Merge(dst, src)
+}
+func (m *CreateServerCertificateOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateServerCertificateOutput.Size(m)
+}
+func (m *CreateServerCertificateOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateServerCertificateOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateServerCertificateOutput proto.InternalMessageInfo
 
 func (m *CreateServerCertificateOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2199,20 +3332,39 @@ func (m *CreateServerCertificateOutput) GetServerCertificateId() string {
 }
 
 type DescribeServerCertificatesInput struct {
-	ServerCertificates []string `protobuf:"bytes,1,rep,name=server_certificates,json=serverCertificates" json:"server_certificates,omitempty"`
-	SearchWord         *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose            *int32   `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
-	Offset             *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Limit              *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized   []byte   `json:"-"`
+	ServerCertificates   []string `protobuf:"bytes,1,rep,name=server_certificates,json=serverCertificates" json:"server_certificates,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose              *int32   `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeServerCertificatesInput) Reset()         { *m = DescribeServerCertificatesInput{} }
 func (m *DescribeServerCertificatesInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeServerCertificatesInput) ProtoMessage()    {}
 func (*DescribeServerCertificatesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{56}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{56}
 }
+func (m *DescribeServerCertificatesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeServerCertificatesInput.Unmarshal(m, b)
+}
+func (m *DescribeServerCertificatesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeServerCertificatesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeServerCertificatesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeServerCertificatesInput.Merge(dst, src)
+}
+func (m *DescribeServerCertificatesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeServerCertificatesInput.Size(m)
+}
+func (m *DescribeServerCertificatesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeServerCertificatesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeServerCertificatesInput proto.InternalMessageInfo
 
 func (m *DescribeServerCertificatesInput) GetServerCertificates() []string {
 	if m != nil {
@@ -2255,15 +3407,34 @@ type DescribeServerCertificatesOutput struct {
 	Message              *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	ServerCertificateSet []*ServerCertificate `protobuf:"bytes,4,rep,name=server_certificate_set,json=serverCertificateSet" json:"server_certificate_set,omitempty"`
 	TotalCount           *int32               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeServerCertificatesOutput) Reset()         { *m = DescribeServerCertificatesOutput{} }
 func (m *DescribeServerCertificatesOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeServerCertificatesOutput) ProtoMessage()    {}
 func (*DescribeServerCertificatesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{57}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{57}
 }
+func (m *DescribeServerCertificatesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeServerCertificatesOutput.Unmarshal(m, b)
+}
+func (m *DescribeServerCertificatesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeServerCertificatesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeServerCertificatesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeServerCertificatesOutput.Merge(dst, src)
+}
+func (m *DescribeServerCertificatesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeServerCertificatesOutput.Size(m)
+}
+func (m *DescribeServerCertificatesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeServerCertificatesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeServerCertificatesOutput proto.InternalMessageInfo
 
 func (m *DescribeServerCertificatesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2301,10 +3472,12 @@ func (m *DescribeServerCertificatesOutput) GetTotalCount() int32 {
 }
 
 type ModifyServerCertificateAttributesInput struct {
-	ServerCertificate     *string `protobuf:"bytes,1,opt,name=server_certificate,json=serverCertificate" json:"server_certificate,omitempty"`
-	ServerCertificateName *string `protobuf:"bytes,2,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
-	Description           *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	ServerCertificate     *string  `protobuf:"bytes,1,opt,name=server_certificate,json=serverCertificate" json:"server_certificate,omitempty"`
+	ServerCertificateName *string  `protobuf:"bytes,2,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
+	Description           *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *ModifyServerCertificateAttributesInput) Reset() {
@@ -2313,8 +3486,25 @@ func (m *ModifyServerCertificateAttributesInput) Reset() {
 func (m *ModifyServerCertificateAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyServerCertificateAttributesInput) ProtoMessage()    {}
 func (*ModifyServerCertificateAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{58}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{58}
 }
+func (m *ModifyServerCertificateAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyServerCertificateAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyServerCertificateAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyServerCertificateAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyServerCertificateAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyServerCertificateAttributesInput.Merge(dst, src)
+}
+func (m *ModifyServerCertificateAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyServerCertificateAttributesInput.Size(m)
+}
+func (m *ModifyServerCertificateAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyServerCertificateAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyServerCertificateAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyServerCertificateAttributesInput) GetServerCertificate() string {
 	if m != nil && m.ServerCertificate != nil {
@@ -2338,10 +3528,12 @@ func (m *ModifyServerCertificateAttributesInput) GetDescription() string {
 }
 
 type ModifyServerCertificateAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyServerCertificateAttributesOutput) Reset() {
@@ -2350,8 +3542,25 @@ func (m *ModifyServerCertificateAttributesOutput) Reset() {
 func (m *ModifyServerCertificateAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyServerCertificateAttributesOutput) ProtoMessage()    {}
 func (*ModifyServerCertificateAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{59}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{59}
 }
+func (m *ModifyServerCertificateAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyServerCertificateAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyServerCertificateAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyServerCertificateAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyServerCertificateAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyServerCertificateAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyServerCertificateAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyServerCertificateAttributesOutput.Size(m)
+}
+func (m *ModifyServerCertificateAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyServerCertificateAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyServerCertificateAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyServerCertificateAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2375,14 +3584,35 @@ func (m *ModifyServerCertificateAttributesOutput) GetMessage() string {
 }
 
 type DeleteServerCertificatesInput struct {
-	ServerCertificates []string `protobuf:"bytes,1,rep,name=server_certificates,json=serverCertificates" json:"server_certificates,omitempty"`
-	XXX_unrecognized   []byte   `json:"-"`
+	ServerCertificates   []string `protobuf:"bytes,1,rep,name=server_certificates,json=serverCertificates" json:"server_certificates,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteServerCertificatesInput) Reset()                    { *m = DeleteServerCertificatesInput{} }
-func (m *DeleteServerCertificatesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteServerCertificatesInput) ProtoMessage()               {}
-func (*DeleteServerCertificatesInput) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{60} }
+func (m *DeleteServerCertificatesInput) Reset()         { *m = DeleteServerCertificatesInput{} }
+func (m *DeleteServerCertificatesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteServerCertificatesInput) ProtoMessage()    {}
+func (*DeleteServerCertificatesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{60}
+}
+func (m *DeleteServerCertificatesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteServerCertificatesInput.Unmarshal(m, b)
+}
+func (m *DeleteServerCertificatesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteServerCertificatesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteServerCertificatesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteServerCertificatesInput.Merge(dst, src)
+}
+func (m *DeleteServerCertificatesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteServerCertificatesInput.Size(m)
+}
+func (m *DeleteServerCertificatesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteServerCertificatesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteServerCertificatesInput proto.InternalMessageInfo
 
 func (m *DeleteServerCertificatesInput) GetServerCertificates() []string {
 	if m != nil {
@@ -2392,19 +3622,38 @@ func (m *DeleteServerCertificatesInput) GetServerCertificates() []string {
 }
 
 type DeleteServerCertificatesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteServerCertificatesOutput) Reset()         { *m = DeleteServerCertificatesOutput{} }
 func (m *DeleteServerCertificatesOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteServerCertificatesOutput) ProtoMessage()    {}
 func (*DeleteServerCertificatesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{61}
+	return fileDescriptor_load_balancer_d7a32becf5be2f4c, []int{61}
 }
+func (m *DeleteServerCertificatesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteServerCertificatesOutput.Unmarshal(m, b)
+}
+func (m *DeleteServerCertificatesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteServerCertificatesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteServerCertificatesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteServerCertificatesOutput.Merge(dst, src)
+}
+func (m *DeleteServerCertificatesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteServerCertificatesOutput.Size(m)
+}
+func (m *DeleteServerCertificatesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteServerCertificatesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteServerCertificatesOutput proto.InternalMessageInfo
 
 func (m *DeleteServerCertificatesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -2500,9 +3749,9 @@ func init() {
 	proto.RegisterType((*DeleteServerCertificatesOutput)(nil), "service.DeleteServerCertificatesOutput")
 }
 
-func init() { proto.RegisterFile("load_balancer.proto", fileDescriptor10) }
+func init() { proto.RegisterFile("load_balancer.proto", fileDescriptor_load_balancer_d7a32becf5be2f4c) }
 
-var fileDescriptor10 = []byte{
+var fileDescriptor_load_balancer_d7a32becf5be2f4c = []byte{
 	// 2462 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x1b, 0x4b, 0x8f, 0xdc, 0x48,
 	0x59, 0x9e, 0xe9, 0x9e, 0x64, 0xbe, 0xd9, 0x64, 0x93, 0x9a, 0x97, 0xe3, 0xcc, 0x24, 0x3d, 0xce,

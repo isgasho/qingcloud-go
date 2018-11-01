@@ -7,26 +7,53 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type GetMonitorInput struct {
-	Resource         *string                     `protobuf:"bytes,1,opt,name=resource" json:"resource,omitempty"`
-	Meters           []string                    `protobuf:"bytes,2,rep,name=meters" json:"meters,omitempty"`
-	Step             *string                     `protobuf:"bytes,3,opt,name=step" json:"step,omitempty"`
-	StartTime        *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
-	EndTime          *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Resource             *string              `protobuf:"bytes,1,opt,name=resource" json:"resource,omitempty"`
+	Meters               []string             `protobuf:"bytes,2,rep,name=meters" json:"meters,omitempty"`
+	Step                 *string              `protobuf:"bytes,3,opt,name=step" json:"step,omitempty"`
+	StartTime            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
+	EndTime              *timestamp.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *GetMonitorInput) Reset()                    { *m = GetMonitorInput{} }
-func (m *GetMonitorInput) String() string            { return proto.CompactTextString(m) }
-func (*GetMonitorInput) ProtoMessage()               {}
-func (*GetMonitorInput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{0} }
+func (m *GetMonitorInput) Reset()         { *m = GetMonitorInput{} }
+func (m *GetMonitorInput) String() string { return proto.CompactTextString(m) }
+func (*GetMonitorInput) ProtoMessage()    {}
+func (*GetMonitorInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{0}
+}
+func (m *GetMonitorInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetMonitorInput.Unmarshal(m, b)
+}
+func (m *GetMonitorInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetMonitorInput.Marshal(b, m, deterministic)
+}
+func (dst *GetMonitorInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetMonitorInput.Merge(dst, src)
+}
+func (m *GetMonitorInput) XXX_Size() int {
+	return xxx_messageInfo_GetMonitorInput.Size(m)
+}
+func (m *GetMonitorInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetMonitorInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetMonitorInput proto.InternalMessageInfo
 
 func (m *GetMonitorInput) GetResource() string {
 	if m != nil && m.Resource != nil {
@@ -49,14 +76,14 @@ func (m *GetMonitorInput) GetStep() string {
 	return ""
 }
 
-func (m *GetMonitorInput) GetStartTime() *google_protobuf1.Timestamp {
+func (m *GetMonitorInput) GetStartTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StartTime
 	}
 	return nil
 }
 
-func (m *GetMonitorInput) GetEndTime() *google_protobuf1.Timestamp {
+func (m *GetMonitorInput) GetEndTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.EndTime
 	}
@@ -64,18 +91,39 @@ func (m *GetMonitorInput) GetEndTime() *google_protobuf1.Timestamp {
 }
 
 type GetMonitorOutput struct {
-	Action           *string                          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceId       *string                          `protobuf:"bytes,4,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	MeterSet         []*GetMonitorOutput_ResponseItem `protobuf:"bytes,5,rep,name=meter_set,json=meterSet" json:"meter_set,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Action               *string                          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceId           *string                          `protobuf:"bytes,4,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	MeterSet             []*GetMonitorOutput_ResponseItem `protobuf:"bytes,5,rep,name=meter_set,json=meterSet" json:"meter_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                         `json:"-"`
+	XXX_unrecognized     []byte                           `json:"-"`
+	XXX_sizecache        int32                            `json:"-"`
 }
 
-func (m *GetMonitorOutput) Reset()                    { *m = GetMonitorOutput{} }
-func (m *GetMonitorOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetMonitorOutput) ProtoMessage()               {}
-func (*GetMonitorOutput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{1} }
+func (m *GetMonitorOutput) Reset()         { *m = GetMonitorOutput{} }
+func (m *GetMonitorOutput) String() string { return proto.CompactTextString(m) }
+func (*GetMonitorOutput) ProtoMessage()    {}
+func (*GetMonitorOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{1}
+}
+func (m *GetMonitorOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetMonitorOutput.Unmarshal(m, b)
+}
+func (m *GetMonitorOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetMonitorOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetMonitorOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetMonitorOutput.Merge(dst, src)
+}
+func (m *GetMonitorOutput) XXX_Size() int {
+	return xxx_messageInfo_GetMonitorOutput.Size(m)
+}
+func (m *GetMonitorOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetMonitorOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetMonitorOutput proto.InternalMessageInfo
 
 func (m *GetMonitorOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -114,18 +162,37 @@ func (m *GetMonitorOutput) GetMeterSet() []*GetMonitorOutput_ResponseItem {
 
 type GetMonitorOutput_ResponseItem struct {
 	// data: [[1392072000,[12,12]],[15,29],[11,12]]
-	VxnetId          *string `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	MeterId          *string `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
-	Sequence         *int32  `protobuf:"varint,4,opt,name=sequence" json:"sequence,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	VxnetId              *string  `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	MeterId              *string  `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
+	Sequence             *int32   `protobuf:"varint,4,opt,name=sequence" json:"sequence,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetMonitorOutput_ResponseItem) Reset()         { *m = GetMonitorOutput_ResponseItem{} }
 func (m *GetMonitorOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*GetMonitorOutput_ResponseItem) ProtoMessage()    {}
 func (*GetMonitorOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor13, []int{1, 0}
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{1, 0}
 }
+func (m *GetMonitorOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetMonitorOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *GetMonitorOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetMonitorOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *GetMonitorOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetMonitorOutput_ResponseItem.Merge(dst, src)
+}
+func (m *GetMonitorOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_GetMonitorOutput_ResponseItem.Size(m)
+}
+func (m *GetMonitorOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetMonitorOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetMonitorOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *GetMonitorOutput_ResponseItem) GetVxnetId() string {
 	if m != nil && m.VxnetId != nil {
@@ -149,18 +216,39 @@ func (m *GetMonitorOutput_ResponseItem) GetSequence() int32 {
 }
 
 type GetLoadBalancerMonitorInput struct {
-	Resource         *string                     `protobuf:"bytes,1,opt,name=resource" json:"resource,omitempty"`
-	Meters           []string                    `protobuf:"bytes,2,rep,name=meters" json:"meters,omitempty"`
-	Step             *string                     `protobuf:"bytes,3,opt,name=step" json:"step,omitempty"`
-	StartTime        *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
-	EndTime          *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Resource             *string              `protobuf:"bytes,1,opt,name=resource" json:"resource,omitempty"`
+	Meters               []string             `protobuf:"bytes,2,rep,name=meters" json:"meters,omitempty"`
+	Step                 *string              `protobuf:"bytes,3,opt,name=step" json:"step,omitempty"`
+	StartTime            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
+	EndTime              *timestamp.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *GetLoadBalancerMonitorInput) Reset()                    { *m = GetLoadBalancerMonitorInput{} }
-func (m *GetLoadBalancerMonitorInput) String() string            { return proto.CompactTextString(m) }
-func (*GetLoadBalancerMonitorInput) ProtoMessage()               {}
-func (*GetLoadBalancerMonitorInput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{2} }
+func (m *GetLoadBalancerMonitorInput) Reset()         { *m = GetLoadBalancerMonitorInput{} }
+func (m *GetLoadBalancerMonitorInput) String() string { return proto.CompactTextString(m) }
+func (*GetLoadBalancerMonitorInput) ProtoMessage()    {}
+func (*GetLoadBalancerMonitorInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{2}
+}
+func (m *GetLoadBalancerMonitorInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetLoadBalancerMonitorInput.Unmarshal(m, b)
+}
+func (m *GetLoadBalancerMonitorInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetLoadBalancerMonitorInput.Marshal(b, m, deterministic)
+}
+func (dst *GetLoadBalancerMonitorInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetLoadBalancerMonitorInput.Merge(dst, src)
+}
+func (m *GetLoadBalancerMonitorInput) XXX_Size() int {
+	return xxx_messageInfo_GetLoadBalancerMonitorInput.Size(m)
+}
+func (m *GetLoadBalancerMonitorInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetLoadBalancerMonitorInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetLoadBalancerMonitorInput proto.InternalMessageInfo
 
 func (m *GetLoadBalancerMonitorInput) GetResource() string {
 	if m != nil && m.Resource != nil {
@@ -183,14 +271,14 @@ func (m *GetLoadBalancerMonitorInput) GetStep() string {
 	return ""
 }
 
-func (m *GetLoadBalancerMonitorInput) GetStartTime() *google_protobuf1.Timestamp {
+func (m *GetLoadBalancerMonitorInput) GetStartTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StartTime
 	}
 	return nil
 }
 
-func (m *GetLoadBalancerMonitorInput) GetEndTime() *google_protobuf1.Timestamp {
+func (m *GetLoadBalancerMonitorInput) GetEndTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.EndTime
 	}
@@ -198,18 +286,39 @@ func (m *GetLoadBalancerMonitorInput) GetEndTime() *google_protobuf1.Timestamp {
 }
 
 type GetLoadBalancerMonitorOutput struct {
-	Action           *string                                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ResourceId       *string                                      `protobuf:"bytes,4,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	MeterSet         []*GetLoadBalancerMonitorOutput_ResponseItem `protobuf:"bytes,5,rep,name=meter_set,json=meterSet" json:"meter_set,omitempty"`
-	XXX_unrecognized []byte                                       `json:"-"`
+	Action               *string                                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ResourceId           *string                                      `protobuf:"bytes,4,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	MeterSet             []*GetLoadBalancerMonitorOutput_ResponseItem `protobuf:"bytes,5,rep,name=meter_set,json=meterSet" json:"meter_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                     `json:"-"`
+	XXX_unrecognized     []byte                                       `json:"-"`
+	XXX_sizecache        int32                                        `json:"-"`
 }
 
-func (m *GetLoadBalancerMonitorOutput) Reset()                    { *m = GetLoadBalancerMonitorOutput{} }
-func (m *GetLoadBalancerMonitorOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetLoadBalancerMonitorOutput) ProtoMessage()               {}
-func (*GetLoadBalancerMonitorOutput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{3} }
+func (m *GetLoadBalancerMonitorOutput) Reset()         { *m = GetLoadBalancerMonitorOutput{} }
+func (m *GetLoadBalancerMonitorOutput) String() string { return proto.CompactTextString(m) }
+func (*GetLoadBalancerMonitorOutput) ProtoMessage()    {}
+func (*GetLoadBalancerMonitorOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{3}
+}
+func (m *GetLoadBalancerMonitorOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetLoadBalancerMonitorOutput.Unmarshal(m, b)
+}
+func (m *GetLoadBalancerMonitorOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetLoadBalancerMonitorOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetLoadBalancerMonitorOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetLoadBalancerMonitorOutput.Merge(dst, src)
+}
+func (m *GetLoadBalancerMonitorOutput) XXX_Size() int {
+	return xxx_messageInfo_GetLoadBalancerMonitorOutput.Size(m)
+}
+func (m *GetLoadBalancerMonitorOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetLoadBalancerMonitorOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetLoadBalancerMonitorOutput proto.InternalMessageInfo
 
 func (m *GetLoadBalancerMonitorOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -249,8 +358,10 @@ func (m *GetLoadBalancerMonitorOutput) GetMeterSet() []*GetLoadBalancerMonitorOu
 type GetLoadBalancerMonitorOutput_ResponseItem struct {
 	EipId *string `protobuf:"bytes,1,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
 	// data: ...
-	MeterId          *string `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	MeterId              *string  `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetLoadBalancerMonitorOutput_ResponseItem) Reset() {
@@ -259,8 +370,25 @@ func (m *GetLoadBalancerMonitorOutput_ResponseItem) Reset() {
 func (m *GetLoadBalancerMonitorOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*GetLoadBalancerMonitorOutput_ResponseItem) ProtoMessage()    {}
 func (*GetLoadBalancerMonitorOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor13, []int{3, 0}
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{3, 0}
 }
+func (m *GetLoadBalancerMonitorOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetLoadBalancerMonitorOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *GetLoadBalancerMonitorOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetLoadBalancerMonitorOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *GetLoadBalancerMonitorOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetLoadBalancerMonitorOutput_ResponseItem.Merge(dst, src)
+}
+func (m *GetLoadBalancerMonitorOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_GetLoadBalancerMonitorOutput_ResponseItem.Size(m)
+}
+func (m *GetLoadBalancerMonitorOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetLoadBalancerMonitorOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetLoadBalancerMonitorOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *GetLoadBalancerMonitorOutput_ResponseItem) GetEipId() string {
 	if m != nil && m.EipId != nil {
@@ -277,25 +405,67 @@ func (m *GetLoadBalancerMonitorOutput_ResponseItem) GetMeterId() string {
 }
 
 type GetRDBMonitorInput struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetRDBMonitorInput) Reset()                    { *m = GetRDBMonitorInput{} }
-func (m *GetRDBMonitorInput) String() string            { return proto.CompactTextString(m) }
-func (*GetRDBMonitorInput) ProtoMessage()               {}
-func (*GetRDBMonitorInput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{4} }
+func (m *GetRDBMonitorInput) Reset()         { *m = GetRDBMonitorInput{} }
+func (m *GetRDBMonitorInput) String() string { return proto.CompactTextString(m) }
+func (*GetRDBMonitorInput) ProtoMessage()    {}
+func (*GetRDBMonitorInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{4}
+}
+func (m *GetRDBMonitorInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetRDBMonitorInput.Unmarshal(m, b)
+}
+func (m *GetRDBMonitorInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetRDBMonitorInput.Marshal(b, m, deterministic)
+}
+func (dst *GetRDBMonitorInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetRDBMonitorInput.Merge(dst, src)
+}
+func (m *GetRDBMonitorInput) XXX_Size() int {
+	return xxx_messageInfo_GetRDBMonitorInput.Size(m)
+}
+func (m *GetRDBMonitorInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetRDBMonitorInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetRDBMonitorInput proto.InternalMessageInfo
 
 type GetRDBMonitorOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetRDBMonitorOutput) Reset()                    { *m = GetRDBMonitorOutput{} }
-func (m *GetRDBMonitorOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetRDBMonitorOutput) ProtoMessage()               {}
-func (*GetRDBMonitorOutput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{5} }
+func (m *GetRDBMonitorOutput) Reset()         { *m = GetRDBMonitorOutput{} }
+func (m *GetRDBMonitorOutput) String() string { return proto.CompactTextString(m) }
+func (*GetRDBMonitorOutput) ProtoMessage()    {}
+func (*GetRDBMonitorOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{5}
+}
+func (m *GetRDBMonitorOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetRDBMonitorOutput.Unmarshal(m, b)
+}
+func (m *GetRDBMonitorOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetRDBMonitorOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetRDBMonitorOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetRDBMonitorOutput.Merge(dst, src)
+}
+func (m *GetRDBMonitorOutput) XXX_Size() int {
+	return xxx_messageInfo_GetRDBMonitorOutput.Size(m)
+}
+func (m *GetRDBMonitorOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetRDBMonitorOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetRDBMonitorOutput proto.InternalMessageInfo
 
 func (m *GetRDBMonitorOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -319,25 +489,67 @@ func (m *GetRDBMonitorOutput) GetMessage() string {
 }
 
 type GetCacheMonitorInput struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetCacheMonitorInput) Reset()                    { *m = GetCacheMonitorInput{} }
-func (m *GetCacheMonitorInput) String() string            { return proto.CompactTextString(m) }
-func (*GetCacheMonitorInput) ProtoMessage()               {}
-func (*GetCacheMonitorInput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{6} }
+func (m *GetCacheMonitorInput) Reset()         { *m = GetCacheMonitorInput{} }
+func (m *GetCacheMonitorInput) String() string { return proto.CompactTextString(m) }
+func (*GetCacheMonitorInput) ProtoMessage()    {}
+func (*GetCacheMonitorInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{6}
+}
+func (m *GetCacheMonitorInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetCacheMonitorInput.Unmarshal(m, b)
+}
+func (m *GetCacheMonitorInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetCacheMonitorInput.Marshal(b, m, deterministic)
+}
+func (dst *GetCacheMonitorInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetCacheMonitorInput.Merge(dst, src)
+}
+func (m *GetCacheMonitorInput) XXX_Size() int {
+	return xxx_messageInfo_GetCacheMonitorInput.Size(m)
+}
+func (m *GetCacheMonitorInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetCacheMonitorInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetCacheMonitorInput proto.InternalMessageInfo
 
 type GetCacheMonitorOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetCacheMonitorOutput) Reset()                    { *m = GetCacheMonitorOutput{} }
-func (m *GetCacheMonitorOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetCacheMonitorOutput) ProtoMessage()               {}
-func (*GetCacheMonitorOutput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{7} }
+func (m *GetCacheMonitorOutput) Reset()         { *m = GetCacheMonitorOutput{} }
+func (m *GetCacheMonitorOutput) String() string { return proto.CompactTextString(m) }
+func (*GetCacheMonitorOutput) ProtoMessage()    {}
+func (*GetCacheMonitorOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{7}
+}
+func (m *GetCacheMonitorOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetCacheMonitorOutput.Unmarshal(m, b)
+}
+func (m *GetCacheMonitorOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetCacheMonitorOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetCacheMonitorOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetCacheMonitorOutput.Merge(dst, src)
+}
+func (m *GetCacheMonitorOutput) XXX_Size() int {
+	return xxx_messageInfo_GetCacheMonitorOutput.Size(m)
+}
+func (m *GetCacheMonitorOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetCacheMonitorOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetCacheMonitorOutput proto.InternalMessageInfo
 
 func (m *GetCacheMonitorOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -361,25 +573,67 @@ func (m *GetCacheMonitorOutput) GetMessage() string {
 }
 
 type GetZooKeeperMonitorInput struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetZooKeeperMonitorInput) Reset()                    { *m = GetZooKeeperMonitorInput{} }
-func (m *GetZooKeeperMonitorInput) String() string            { return proto.CompactTextString(m) }
-func (*GetZooKeeperMonitorInput) ProtoMessage()               {}
-func (*GetZooKeeperMonitorInput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{8} }
+func (m *GetZooKeeperMonitorInput) Reset()         { *m = GetZooKeeperMonitorInput{} }
+func (m *GetZooKeeperMonitorInput) String() string { return proto.CompactTextString(m) }
+func (*GetZooKeeperMonitorInput) ProtoMessage()    {}
+func (*GetZooKeeperMonitorInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{8}
+}
+func (m *GetZooKeeperMonitorInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetZooKeeperMonitorInput.Unmarshal(m, b)
+}
+func (m *GetZooKeeperMonitorInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetZooKeeperMonitorInput.Marshal(b, m, deterministic)
+}
+func (dst *GetZooKeeperMonitorInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetZooKeeperMonitorInput.Merge(dst, src)
+}
+func (m *GetZooKeeperMonitorInput) XXX_Size() int {
+	return xxx_messageInfo_GetZooKeeperMonitorInput.Size(m)
+}
+func (m *GetZooKeeperMonitorInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetZooKeeperMonitorInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetZooKeeperMonitorInput proto.InternalMessageInfo
 
 type GetZooKeeperMonitorOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetZooKeeperMonitorOutput) Reset()                    { *m = GetZooKeeperMonitorOutput{} }
-func (m *GetZooKeeperMonitorOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetZooKeeperMonitorOutput) ProtoMessage()               {}
-func (*GetZooKeeperMonitorOutput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{9} }
+func (m *GetZooKeeperMonitorOutput) Reset()         { *m = GetZooKeeperMonitorOutput{} }
+func (m *GetZooKeeperMonitorOutput) String() string { return proto.CompactTextString(m) }
+func (*GetZooKeeperMonitorOutput) ProtoMessage()    {}
+func (*GetZooKeeperMonitorOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{9}
+}
+func (m *GetZooKeeperMonitorOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetZooKeeperMonitorOutput.Unmarshal(m, b)
+}
+func (m *GetZooKeeperMonitorOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetZooKeeperMonitorOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetZooKeeperMonitorOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetZooKeeperMonitorOutput.Merge(dst, src)
+}
+func (m *GetZooKeeperMonitorOutput) XXX_Size() int {
+	return xxx_messageInfo_GetZooKeeperMonitorOutput.Size(m)
+}
+func (m *GetZooKeeperMonitorOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetZooKeeperMonitorOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetZooKeeperMonitorOutput proto.InternalMessageInfo
 
 func (m *GetZooKeeperMonitorOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -403,25 +657,67 @@ func (m *GetZooKeeperMonitorOutput) GetMessage() string {
 }
 
 type GetQueueMonitorInput struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetQueueMonitorInput) Reset()                    { *m = GetQueueMonitorInput{} }
-func (m *GetQueueMonitorInput) String() string            { return proto.CompactTextString(m) }
-func (*GetQueueMonitorInput) ProtoMessage()               {}
-func (*GetQueueMonitorInput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{10} }
+func (m *GetQueueMonitorInput) Reset()         { *m = GetQueueMonitorInput{} }
+func (m *GetQueueMonitorInput) String() string { return proto.CompactTextString(m) }
+func (*GetQueueMonitorInput) ProtoMessage()    {}
+func (*GetQueueMonitorInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{10}
+}
+func (m *GetQueueMonitorInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetQueueMonitorInput.Unmarshal(m, b)
+}
+func (m *GetQueueMonitorInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetQueueMonitorInput.Marshal(b, m, deterministic)
+}
+func (dst *GetQueueMonitorInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetQueueMonitorInput.Merge(dst, src)
+}
+func (m *GetQueueMonitorInput) XXX_Size() int {
+	return xxx_messageInfo_GetQueueMonitorInput.Size(m)
+}
+func (m *GetQueueMonitorInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetQueueMonitorInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetQueueMonitorInput proto.InternalMessageInfo
 
 type GetQueueMonitorOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetQueueMonitorOutput) Reset()                    { *m = GetQueueMonitorOutput{} }
-func (m *GetQueueMonitorOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetQueueMonitorOutput) ProtoMessage()               {}
-func (*GetQueueMonitorOutput) Descriptor() ([]byte, []int) { return fileDescriptor13, []int{11} }
+func (m *GetQueueMonitorOutput) Reset()         { *m = GetQueueMonitorOutput{} }
+func (m *GetQueueMonitorOutput) String() string { return proto.CompactTextString(m) }
+func (*GetQueueMonitorOutput) ProtoMessage()    {}
+func (*GetQueueMonitorOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_monitor_33a9499a8c480c79, []int{11}
+}
+func (m *GetQueueMonitorOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetQueueMonitorOutput.Unmarshal(m, b)
+}
+func (m *GetQueueMonitorOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetQueueMonitorOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetQueueMonitorOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetQueueMonitorOutput.Merge(dst, src)
+}
+func (m *GetQueueMonitorOutput) XXX_Size() int {
+	return xxx_messageInfo_GetQueueMonitorOutput.Size(m)
+}
+func (m *GetQueueMonitorOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetQueueMonitorOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetQueueMonitorOutput proto.InternalMessageInfo
 
 func (m *GetQueueMonitorOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -461,9 +757,9 @@ func init() {
 	proto.RegisterType((*GetQueueMonitorOutput)(nil), "service.GetQueueMonitorOutput")
 }
 
-func init() { proto.RegisterFile("monitor.proto", fileDescriptor13) }
+func init() { proto.RegisterFile("monitor.proto", fileDescriptor_monitor_33a9499a8c480c79) }
 
-var fileDescriptor13 = []byte{
+var fileDescriptor_monitor_33a9499a8c480c79 = []byte{
 	// 659 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x96, 0xcf, 0x6e, 0xd3, 0x4e,
 	0x10, 0xc7, 0xe5, 0xb4, 0x69, 0x9a, 0xe9, 0xaf, 0x3f, 0xd0, 0xd2, 0x46, 0xae, 0x5b, 0x68, 0xb0,

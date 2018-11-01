@@ -7,25 +7,52 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeSubUsersInput struct {
-	Users            []string `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
-	Status           *string  `protobuf:"bytes,2,opt,name=status" json:"status,omitempty"`
-	Offset           *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Users                []string `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
+	Status               *string  `protobuf:"bytes,2,opt,name=status" json:"status,omitempty"`
+	Offset               *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeSubUsersInput) Reset()                    { *m = DescribeSubUsersInput{} }
-func (m *DescribeSubUsersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSubUsersInput) ProtoMessage()               {}
-func (*DescribeSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{0} }
+func (m *DescribeSubUsersInput) Reset()         { *m = DescribeSubUsersInput{} }
+func (m *DescribeSubUsersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSubUsersInput) ProtoMessage()    {}
+func (*DescribeSubUsersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{0}
+}
+func (m *DescribeSubUsersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSubUsersInput.Unmarshal(m, b)
+}
+func (m *DescribeSubUsersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSubUsersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSubUsersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSubUsersInput.Merge(dst, src)
+}
+func (m *DescribeSubUsersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSubUsersInput.Size(m)
+}
+func (m *DescribeSubUsersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSubUsersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSubUsersInput proto.InternalMessageInfo
 
 func (m *DescribeSubUsersInput) GetUsers() []string {
 	if m != nil {
@@ -56,18 +83,39 @@ func (m *DescribeSubUsersInput) GetLimit() int32 {
 }
 
 type DescribeSubUsersOutput struct {
-	Action           *string                                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserSet          []*DescribeSubUsersOutput_ResponseItem `protobuf:"bytes,4,rep,name=user_set,json=userSet" json:"user_set,omitempty"`
-	TotalCount       *int32                                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                 `json:"-"`
+	Action               *string                                `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                 `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserSet              []*DescribeSubUsersOutput_ResponseItem `protobuf:"bytes,4,rep,name=user_set,json=userSet" json:"user_set,omitempty"`
+	TotalCount           *int32                                 `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                               `json:"-"`
+	XXX_unrecognized     []byte                                 `json:"-"`
+	XXX_sizecache        int32                                  `json:"-"`
 }
 
-func (m *DescribeSubUsersOutput) Reset()                    { *m = DescribeSubUsersOutput{} }
-func (m *DescribeSubUsersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSubUsersOutput) ProtoMessage()               {}
-func (*DescribeSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{1} }
+func (m *DescribeSubUsersOutput) Reset()         { *m = DescribeSubUsersOutput{} }
+func (m *DescribeSubUsersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSubUsersOutput) ProtoMessage()    {}
+func (*DescribeSubUsersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{1}
+}
+func (m *DescribeSubUsersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSubUsersOutput.Unmarshal(m, b)
+}
+func (m *DescribeSubUsersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSubUsersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSubUsersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSubUsersOutput.Merge(dst, src)
+}
+func (m *DescribeSubUsersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSubUsersOutput.Size(m)
+}
+func (m *DescribeSubUsersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSubUsersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSubUsersOutput proto.InternalMessageInfo
 
 func (m *DescribeSubUsersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -105,20 +153,39 @@ func (m *DescribeSubUsersOutput) GetTotalCount() int32 {
 }
 
 type DescribeSubUsersOutput_ResponseItem struct {
-	UserId           *string                     `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	UserName         *string                     `protobuf:"bytes,2,opt,name=user_name,json=userName" json:"user_name,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Email            *string                     `protobuf:"bytes,4,opt,name=email" json:"email,omitempty"`
-	Status           *string                     `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	UserId               *string              `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	UserName             *string              `protobuf:"bytes,2,opt,name=user_name,json=userName" json:"user_name,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Email                *string              `protobuf:"bytes,4,opt,name=email" json:"email,omitempty"`
+	Status               *string              `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeSubUsersOutput_ResponseItem) Reset()         { *m = DescribeSubUsersOutput_ResponseItem{} }
 func (m *DescribeSubUsersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeSubUsersOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeSubUsersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor24, []int{1, 0}
+	return fileDescriptor_subuser_aea37763028fe92c, []int{1, 0}
 }
+func (m *DescribeSubUsersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSubUsersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeSubUsersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSubUsersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSubUsersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSubUsersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeSubUsersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeSubUsersOutput_ResponseItem.Size(m)
+}
+func (m *DescribeSubUsersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSubUsersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSubUsersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeSubUsersOutput_ResponseItem) GetUserId() string {
 	if m != nil && m.UserId != nil {
@@ -134,7 +201,7 @@ func (m *DescribeSubUsersOutput_ResponseItem) GetUserName() string {
 	return ""
 }
 
-func (m *DescribeSubUsersOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeSubUsersOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -156,17 +223,38 @@ func (m *DescribeSubUsersOutput_ResponseItem) GetStatus() string {
 }
 
 type CreateSubUserInput struct {
-	Email            *string `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
-	UserName         *string `protobuf:"bytes,2,opt,name=user_name,json=userName" json:"user_name,omitempty"`
-	Passwd           *string `protobuf:"bytes,3,opt,name=passwd" json:"passwd,omitempty"`
-	NotifyEmail      *string `protobuf:"bytes,4,opt,name=notify_email,json=notifyEmail" json:"notify_email,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Email                *string  `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
+	UserName             *string  `protobuf:"bytes,2,opt,name=user_name,json=userName" json:"user_name,omitempty"`
+	Passwd               *string  `protobuf:"bytes,3,opt,name=passwd" json:"passwd,omitempty"`
+	NotifyEmail          *string  `protobuf:"bytes,4,opt,name=notify_email,json=notifyEmail" json:"notify_email,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSubUserInput) Reset()                    { *m = CreateSubUserInput{} }
-func (m *CreateSubUserInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSubUserInput) ProtoMessage()               {}
-func (*CreateSubUserInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{2} }
+func (m *CreateSubUserInput) Reset()         { *m = CreateSubUserInput{} }
+func (m *CreateSubUserInput) String() string { return proto.CompactTextString(m) }
+func (*CreateSubUserInput) ProtoMessage()    {}
+func (*CreateSubUserInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{2}
+}
+func (m *CreateSubUserInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSubUserInput.Unmarshal(m, b)
+}
+func (m *CreateSubUserInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSubUserInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSubUserInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSubUserInput.Merge(dst, src)
+}
+func (m *CreateSubUserInput) XXX_Size() int {
+	return xxx_messageInfo_CreateSubUserInput.Size(m)
+}
+func (m *CreateSubUserInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSubUserInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSubUserInput proto.InternalMessageInfo
 
 func (m *CreateSubUserInput) GetEmail() string {
 	if m != nil && m.Email != nil {
@@ -197,18 +285,39 @@ func (m *CreateSubUserInput) GetNotifyEmail() string {
 }
 
 type CreateSubUserOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Email            *string `protobuf:"bytes,4,opt,name=email" json:"email,omitempty"`
-	UserId           *string `protobuf:"bytes,5,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Email                *string  `protobuf:"bytes,4,opt,name=email" json:"email,omitempty"`
+	UserId               *string  `protobuf:"bytes,5,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSubUserOutput) Reset()                    { *m = CreateSubUserOutput{} }
-func (m *CreateSubUserOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSubUserOutput) ProtoMessage()               {}
-func (*CreateSubUserOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{3} }
+func (m *CreateSubUserOutput) Reset()         { *m = CreateSubUserOutput{} }
+func (m *CreateSubUserOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateSubUserOutput) ProtoMessage()    {}
+func (*CreateSubUserOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{3}
+}
+func (m *CreateSubUserOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSubUserOutput.Unmarshal(m, b)
+}
+func (m *CreateSubUserOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSubUserOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSubUserOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSubUserOutput.Merge(dst, src)
+}
+func (m *CreateSubUserOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateSubUserOutput.Size(m)
+}
+func (m *CreateSubUserOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSubUserOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSubUserOutput proto.InternalMessageInfo
 
 func (m *CreateSubUserOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -246,17 +355,38 @@ func (m *CreateSubUserOutput) GetUserId() string {
 }
 
 type ModifySubUserAttributesInput struct {
-	User             *string `protobuf:"bytes,1,opt,name=user" json:"user,omitempty"`
-	UserName         *string `protobuf:"bytes,2,opt,name=user_name,json=userName" json:"user_name,omitempty"`
-	Nologin          *int32  `protobuf:"varint,3,opt,name=nologin" json:"nologin,omitempty"`
-	NotifyEmail      *string `protobuf:"bytes,4,opt,name=notify_email,json=notifyEmail" json:"notify_email,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	User                 *string  `protobuf:"bytes,1,opt,name=user" json:"user,omitempty"`
+	UserName             *string  `protobuf:"bytes,2,opt,name=user_name,json=userName" json:"user_name,omitempty"`
+	Nologin              *int32   `protobuf:"varint,3,opt,name=nologin" json:"nologin,omitempty"`
+	NotifyEmail          *string  `protobuf:"bytes,4,opt,name=notify_email,json=notifyEmail" json:"notify_email,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifySubUserAttributesInput) Reset()                    { *m = ModifySubUserAttributesInput{} }
-func (m *ModifySubUserAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifySubUserAttributesInput) ProtoMessage()               {}
-func (*ModifySubUserAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{4} }
+func (m *ModifySubUserAttributesInput) Reset()         { *m = ModifySubUserAttributesInput{} }
+func (m *ModifySubUserAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifySubUserAttributesInput) ProtoMessage()    {}
+func (*ModifySubUserAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{4}
+}
+func (m *ModifySubUserAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySubUserAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifySubUserAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySubUserAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySubUserAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySubUserAttributesInput.Merge(dst, src)
+}
+func (m *ModifySubUserAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifySubUserAttributesInput.Size(m)
+}
+func (m *ModifySubUserAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySubUserAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySubUserAttributesInput proto.InternalMessageInfo
 
 func (m *ModifySubUserAttributesInput) GetUser() string {
 	if m != nil && m.User != nil {
@@ -287,17 +417,38 @@ func (m *ModifySubUserAttributesInput) GetNotifyEmail() string {
 }
 
 type ModifySubUserAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserId           *string `protobuf:"bytes,4,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserId               *string  `protobuf:"bytes,4,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifySubUserAttributesOutput) Reset()                    { *m = ModifySubUserAttributesOutput{} }
-func (m *ModifySubUserAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifySubUserAttributesOutput) ProtoMessage()               {}
-func (*ModifySubUserAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{5} }
+func (m *ModifySubUserAttributesOutput) Reset()         { *m = ModifySubUserAttributesOutput{} }
+func (m *ModifySubUserAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifySubUserAttributesOutput) ProtoMessage()    {}
+func (*ModifySubUserAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{5}
+}
+func (m *ModifySubUserAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySubUserAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifySubUserAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySubUserAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySubUserAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySubUserAttributesOutput.Merge(dst, src)
+}
+func (m *ModifySubUserAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifySubUserAttributesOutput.Size(m)
+}
+func (m *ModifySubUserAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySubUserAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySubUserAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifySubUserAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -328,14 +479,35 @@ func (m *ModifySubUserAttributesOutput) GetUserId() string {
 }
 
 type DeleteSubUsersInput struct {
-	Users            []string `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Users                []string `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSubUsersInput) Reset()                    { *m = DeleteSubUsersInput{} }
-func (m *DeleteSubUsersInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSubUsersInput) ProtoMessage()               {}
-func (*DeleteSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{6} }
+func (m *DeleteSubUsersInput) Reset()         { *m = DeleteSubUsersInput{} }
+func (m *DeleteSubUsersInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSubUsersInput) ProtoMessage()    {}
+func (*DeleteSubUsersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{6}
+}
+func (m *DeleteSubUsersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSubUsersInput.Unmarshal(m, b)
+}
+func (m *DeleteSubUsersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSubUsersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSubUsersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSubUsersInput.Merge(dst, src)
+}
+func (m *DeleteSubUsersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSubUsersInput.Size(m)
+}
+func (m *DeleteSubUsersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSubUsersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSubUsersInput proto.InternalMessageInfo
 
 func (m *DeleteSubUsersInput) GetUsers() []string {
 	if m != nil {
@@ -345,17 +517,38 @@ func (m *DeleteSubUsersInput) GetUsers() []string {
 }
 
 type DeleteSubUsersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Users            *string `protobuf:"bytes,4,opt,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Users                *string  `protobuf:"bytes,4,opt,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSubUsersOutput) Reset()                    { *m = DeleteSubUsersOutput{} }
-func (m *DeleteSubUsersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSubUsersOutput) ProtoMessage()               {}
-func (*DeleteSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{7} }
+func (m *DeleteSubUsersOutput) Reset()         { *m = DeleteSubUsersOutput{} }
+func (m *DeleteSubUsersOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSubUsersOutput) ProtoMessage()    {}
+func (*DeleteSubUsersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{7}
+}
+func (m *DeleteSubUsersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSubUsersOutput.Unmarshal(m, b)
+}
+func (m *DeleteSubUsersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSubUsersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSubUsersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSubUsersOutput.Merge(dst, src)
+}
+func (m *DeleteSubUsersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSubUsersOutput.Size(m)
+}
+func (m *DeleteSubUsersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSubUsersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSubUsersOutput proto.InternalMessageInfo
 
 func (m *DeleteSubUsersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -386,14 +579,35 @@ func (m *DeleteSubUsersOutput) GetUsers() string {
 }
 
 type RestoreSubUsersInput struct {
-	Users            []string `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Users                []string `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestoreSubUsersInput) Reset()                    { *m = RestoreSubUsersInput{} }
-func (m *RestoreSubUsersInput) String() string            { return proto.CompactTextString(m) }
-func (*RestoreSubUsersInput) ProtoMessage()               {}
-func (*RestoreSubUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{8} }
+func (m *RestoreSubUsersInput) Reset()         { *m = RestoreSubUsersInput{} }
+func (m *RestoreSubUsersInput) String() string { return proto.CompactTextString(m) }
+func (*RestoreSubUsersInput) ProtoMessage()    {}
+func (*RestoreSubUsersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{8}
+}
+func (m *RestoreSubUsersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestoreSubUsersInput.Unmarshal(m, b)
+}
+func (m *RestoreSubUsersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestoreSubUsersInput.Marshal(b, m, deterministic)
+}
+func (dst *RestoreSubUsersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestoreSubUsersInput.Merge(dst, src)
+}
+func (m *RestoreSubUsersInput) XXX_Size() int {
+	return xxx_messageInfo_RestoreSubUsersInput.Size(m)
+}
+func (m *RestoreSubUsersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestoreSubUsersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestoreSubUsersInput proto.InternalMessageInfo
 
 func (m *RestoreSubUsersInput) GetUsers() []string {
 	if m != nil {
@@ -403,17 +617,38 @@ func (m *RestoreSubUsersInput) GetUsers() []string {
 }
 
 type RestoreSubUsersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Users            *string `protobuf:"bytes,4,opt,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Users                *string  `protobuf:"bytes,4,opt,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestoreSubUsersOutput) Reset()                    { *m = RestoreSubUsersOutput{} }
-func (m *RestoreSubUsersOutput) String() string            { return proto.CompactTextString(m) }
-func (*RestoreSubUsersOutput) ProtoMessage()               {}
-func (*RestoreSubUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor24, []int{9} }
+func (m *RestoreSubUsersOutput) Reset()         { *m = RestoreSubUsersOutput{} }
+func (m *RestoreSubUsersOutput) String() string { return proto.CompactTextString(m) }
+func (*RestoreSubUsersOutput) ProtoMessage()    {}
+func (*RestoreSubUsersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_subuser_aea37763028fe92c, []int{9}
+}
+func (m *RestoreSubUsersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestoreSubUsersOutput.Unmarshal(m, b)
+}
+func (m *RestoreSubUsersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestoreSubUsersOutput.Marshal(b, m, deterministic)
+}
+func (dst *RestoreSubUsersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestoreSubUsersOutput.Merge(dst, src)
+}
+func (m *RestoreSubUsersOutput) XXX_Size() int {
+	return xxx_messageInfo_RestoreSubUsersOutput.Size(m)
+}
+func (m *RestoreSubUsersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestoreSubUsersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestoreSubUsersOutput proto.InternalMessageInfo
 
 func (m *RestoreSubUsersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -457,9 +692,9 @@ func init() {
 	proto.RegisterType((*RestoreSubUsersOutput)(nil), "service.RestoreSubUsersOutput")
 }
 
-func init() { proto.RegisterFile("subuser.proto", fileDescriptor24) }
+func init() { proto.RegisterFile("subuser.proto", fileDescriptor_subuser_aea37763028fe92c) }
 
-var fileDescriptor24 = []byte{
+var fileDescriptor_subuser_aea37763028fe92c = []byte{
 	// 695 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0x4d, 0x6f, 0xd3, 0x4a,
 	0x14, 0x95, 0x5f, 0x92, 0xa6, 0xb9, 0x69, 0xfb, 0x9e, 0xa6, 0x6d, 0xea, 0xe7, 0x7e, 0x85, 0x48,

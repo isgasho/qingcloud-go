@@ -13,24 +13,51 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type CreateSparkInput struct {
-	SparkVersion     *string            `protobuf:"bytes,1,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
-	NodeCount        *int32             `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	EnableHdfs       *int32             `protobuf:"varint,3,opt,name=enable_hdfs,json=enableHdfs" json:"enable_hdfs,omitempty"`
-	SparkType        *int32             `protobuf:"varint,4,opt,name=spark_type,json=sparkType" json:"spark_type,omitempty"`
-	StorageSize      *int32             `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	Vxnet            *string            `protobuf:"bytes,6,opt,name=vxnet" json:"vxnet,omitempty"`
-	Description      *string            `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
-	SparkName        *string            `protobuf:"bytes,8,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
-	SparkClass       *int32             `protobuf:"varint,9,opt,name=spark_class,json=sparkClass" json:"spark_class,omitempty"`
-	PrivateIps       []*SparkPrivateIps `protobuf:"bytes,10,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte             `json:"-"`
+	SparkVersion         *string            `protobuf:"bytes,1,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
+	NodeCount            *int32             `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	EnableHdfs           *int32             `protobuf:"varint,3,opt,name=enable_hdfs,json=enableHdfs" json:"enable_hdfs,omitempty"`
+	SparkType            *int32             `protobuf:"varint,4,opt,name=spark_type,json=sparkType" json:"spark_type,omitempty"`
+	StorageSize          *int32             `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	Vxnet                *string            `protobuf:"bytes,6,opt,name=vxnet" json:"vxnet,omitempty"`
+	Description          *string            `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
+	SparkName            *string            `protobuf:"bytes,8,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
+	SparkClass           *int32             `protobuf:"varint,9,opt,name=spark_class,json=sparkClass" json:"spark_class,omitempty"`
+	PrivateIps           []*SparkPrivateIps `protobuf:"bytes,10,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
-func (m *CreateSparkInput) Reset()                    { *m = CreateSparkInput{} }
-func (m *CreateSparkInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSparkInput) ProtoMessage()               {}
-func (*CreateSparkInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{0} }
+func (m *CreateSparkInput) Reset()         { *m = CreateSparkInput{} }
+func (m *CreateSparkInput) String() string { return proto.CompactTextString(m) }
+func (*CreateSparkInput) ProtoMessage()    {}
+func (*CreateSparkInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{0}
+}
+func (m *CreateSparkInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSparkInput.Unmarshal(m, b)
+}
+func (m *CreateSparkInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSparkInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSparkInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSparkInput.Merge(dst, src)
+}
+func (m *CreateSparkInput) XXX_Size() int {
+	return xxx_messageInfo_CreateSparkInput.Size(m)
+}
+func (m *CreateSparkInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSparkInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSparkInput proto.InternalMessageInfo
 
 func (m *CreateSparkInput) GetSparkVersion() string {
 	if m != nil && m.SparkVersion != nil {
@@ -103,21 +130,42 @@ func (m *CreateSparkInput) GetPrivateIps() []*SparkPrivateIps {
 }
 
 type CreateSparkOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkId          *string  `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
-	SparkName        *string  `protobuf:"bytes,5,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
-	SparkVersion     *string  `protobuf:"bytes,6,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
-	VxnetId          *string  `protobuf:"bytes,7,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	SparkNodeIds     []string `protobuf:"bytes,8,rep,name=spark_node_ids,json=sparkNodeIds" json:"spark_node_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkId              *string  `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
+	SparkName            *string  `protobuf:"bytes,5,opt,name=spark_name,json=sparkName" json:"spark_name,omitempty"`
+	SparkVersion         *string  `protobuf:"bytes,6,opt,name=spark_version,json=sparkVersion" json:"spark_version,omitempty"`
+	VxnetId              *string  `protobuf:"bytes,7,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	SparkNodeIds         []string `protobuf:"bytes,8,rep,name=spark_node_ids,json=sparkNodeIds" json:"spark_node_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSparkOutput) Reset()                    { *m = CreateSparkOutput{} }
-func (m *CreateSparkOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSparkOutput) ProtoMessage()               {}
-func (*CreateSparkOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{1} }
+func (m *CreateSparkOutput) Reset()         { *m = CreateSparkOutput{} }
+func (m *CreateSparkOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateSparkOutput) ProtoMessage()    {}
+func (*CreateSparkOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{1}
+}
+func (m *CreateSparkOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSparkOutput.Unmarshal(m, b)
+}
+func (m *CreateSparkOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSparkOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSparkOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSparkOutput.Merge(dst, src)
+}
+func (m *CreateSparkOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateSparkOutput.Size(m)
+}
+func (m *CreateSparkOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSparkOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSparkOutput proto.InternalMessageInfo
 
 func (m *CreateSparkOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -176,20 +224,41 @@ func (m *CreateSparkOutput) GetSparkNodeIds() []string {
 }
 
 type DescribeSparksInput struct {
-	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
-	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Sparks               []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	Status               []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeSparksInput) Reset()                    { *m = DescribeSparksInput{} }
-func (m *DescribeSparksInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSparksInput) ProtoMessage()               {}
-func (*DescribeSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{2} }
+func (m *DescribeSparksInput) Reset()         { *m = DescribeSparksInput{} }
+func (m *DescribeSparksInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSparksInput) ProtoMessage()    {}
+func (*DescribeSparksInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{2}
+}
+func (m *DescribeSparksInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSparksInput.Unmarshal(m, b)
+}
+func (m *DescribeSparksInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSparksInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSparksInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSparksInput.Merge(dst, src)
+}
+func (m *DescribeSparksInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSparksInput.Size(m)
+}
+func (m *DescribeSparksInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSparksInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSparksInput proto.InternalMessageInfo
 
 func (m *DescribeSparksInput) GetSparks() []string {
 	if m != nil {
@@ -241,18 +310,39 @@ func (m *DescribeSparksInput) GetLimit() int32 {
 }
 
 type DescribeSparksOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkSet         []string `protobuf:"bytes,4,rep,name=spark_set,json=sparkSet" json:"spark_set,omitempty"`
-	TotalCount       *int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkSet             []string `protobuf:"bytes,4,rep,name=spark_set,json=sparkSet" json:"spark_set,omitempty"`
+	TotalCount           *int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeSparksOutput) Reset()                    { *m = DescribeSparksOutput{} }
-func (m *DescribeSparksOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSparksOutput) ProtoMessage()               {}
-func (*DescribeSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{3} }
+func (m *DescribeSparksOutput) Reset()         { *m = DescribeSparksOutput{} }
+func (m *DescribeSparksOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSparksOutput) ProtoMessage()    {}
+func (*DescribeSparksOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{3}
+}
+func (m *DescribeSparksOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSparksOutput.Unmarshal(m, b)
+}
+func (m *DescribeSparksOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSparksOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSparksOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSparksOutput.Merge(dst, src)
+}
+func (m *DescribeSparksOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSparksOutput.Size(m)
+}
+func (m *DescribeSparksOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSparksOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSparksOutput proto.InternalMessageInfo
 
 func (m *DescribeSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -290,17 +380,38 @@ func (m *DescribeSparksOutput) GetTotalCount() int32 {
 }
 
 type AddSparkNodesInput struct {
-	Spark            *string            `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
-	NodeCount        *int32             `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	SparkNodeName    *string            `protobuf:"bytes,3,opt,name=spark_node_name,json=sparkNodeName" json:"spark_node_name,omitempty"`
-	PrivateIps       []*SparkPrivateIps `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte             `json:"-"`
+	Spark                *string            `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
+	NodeCount            *int32             `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	SparkNodeName        *string            `protobuf:"bytes,3,opt,name=spark_node_name,json=sparkNodeName" json:"spark_node_name,omitempty"`
+	PrivateIps           []*SparkPrivateIps `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
-func (m *AddSparkNodesInput) Reset()                    { *m = AddSparkNodesInput{} }
-func (m *AddSparkNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddSparkNodesInput) ProtoMessage()               {}
-func (*AddSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{4} }
+func (m *AddSparkNodesInput) Reset()         { *m = AddSparkNodesInput{} }
+func (m *AddSparkNodesInput) String() string { return proto.CompactTextString(m) }
+func (*AddSparkNodesInput) ProtoMessage()    {}
+func (*AddSparkNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{4}
+}
+func (m *AddSparkNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddSparkNodesInput.Unmarshal(m, b)
+}
+func (m *AddSparkNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddSparkNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddSparkNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddSparkNodesInput.Merge(dst, src)
+}
+func (m *AddSparkNodesInput) XXX_Size() int {
+	return xxx_messageInfo_AddSparkNodesInput.Size(m)
+}
+func (m *AddSparkNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddSparkNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddSparkNodesInput proto.InternalMessageInfo
 
 func (m *AddSparkNodesInput) GetSpark() string {
 	if m != nil && m.Spark != nil {
@@ -331,18 +442,39 @@ func (m *AddSparkNodesInput) GetPrivateIps() []*SparkPrivateIps {
 }
 
 type AddSparkNodesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkId          *string  `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
-	SparkNewNodeIds  []string `protobuf:"bytes,5,rep,name=spark_new_node_ids,json=sparkNewNodeIds" json:"spark_new_node_ids,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkId              *string  `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
+	SparkNewNodeIds      []string `protobuf:"bytes,5,rep,name=spark_new_node_ids,json=sparkNewNodeIds" json:"spark_new_node_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddSparkNodesOutput) Reset()                    { *m = AddSparkNodesOutput{} }
-func (m *AddSparkNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddSparkNodesOutput) ProtoMessage()               {}
-func (*AddSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{5} }
+func (m *AddSparkNodesOutput) Reset()         { *m = AddSparkNodesOutput{} }
+func (m *AddSparkNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddSparkNodesOutput) ProtoMessage()    {}
+func (*AddSparkNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{5}
+}
+func (m *AddSparkNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddSparkNodesOutput.Unmarshal(m, b)
+}
+func (m *AddSparkNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddSparkNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddSparkNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddSparkNodesOutput.Merge(dst, src)
+}
+func (m *AddSparkNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddSparkNodesOutput.Size(m)
+}
+func (m *AddSparkNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddSparkNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddSparkNodesOutput proto.InternalMessageInfo
 
 func (m *AddSparkNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -380,15 +512,36 @@ func (m *AddSparkNodesOutput) GetSparkNewNodeIds() []string {
 }
 
 type DeleteSparkNodesInput struct {
-	Spark            *string  `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
-	SparkNodes       []string `protobuf:"bytes,2,rep,name=spark_nodes,json=sparkNodes" json:"spark_nodes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Spark                *string  `protobuf:"bytes,1,opt,name=spark" json:"spark,omitempty"`
+	SparkNodes           []string `protobuf:"bytes,2,rep,name=spark_nodes,json=sparkNodes" json:"spark_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSparkNodesInput) Reset()                    { *m = DeleteSparkNodesInput{} }
-func (m *DeleteSparkNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSparkNodesInput) ProtoMessage()               {}
-func (*DeleteSparkNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{6} }
+func (m *DeleteSparkNodesInput) Reset()         { *m = DeleteSparkNodesInput{} }
+func (m *DeleteSparkNodesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSparkNodesInput) ProtoMessage()    {}
+func (*DeleteSparkNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{6}
+}
+func (m *DeleteSparkNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSparkNodesInput.Unmarshal(m, b)
+}
+func (m *DeleteSparkNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSparkNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSparkNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSparkNodesInput.Merge(dst, src)
+}
+func (m *DeleteSparkNodesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSparkNodesInput.Size(m)
+}
+func (m *DeleteSparkNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSparkNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSparkNodesInput proto.InternalMessageInfo
 
 func (m *DeleteSparkNodesInput) GetSpark() string {
 	if m != nil && m.Spark != nil {
@@ -405,17 +558,38 @@ func (m *DeleteSparkNodesInput) GetSparkNodes() []string {
 }
 
 type DeleteSparkNodesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkId          *string `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkId              *string  `protobuf:"bytes,4,opt,name=spark_id,json=sparkId" json:"spark_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSparkNodesOutput) Reset()                    { *m = DeleteSparkNodesOutput{} }
-func (m *DeleteSparkNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSparkNodesOutput) ProtoMessage()               {}
-func (*DeleteSparkNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{7} }
+func (m *DeleteSparkNodesOutput) Reset()         { *m = DeleteSparkNodesOutput{} }
+func (m *DeleteSparkNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSparkNodesOutput) ProtoMessage()    {}
+func (*DeleteSparkNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{7}
+}
+func (m *DeleteSparkNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSparkNodesOutput.Unmarshal(m, b)
+}
+func (m *DeleteSparkNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSparkNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSparkNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSparkNodesOutput.Merge(dst, src)
+}
+func (m *DeleteSparkNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSparkNodesOutput.Size(m)
+}
+func (m *DeleteSparkNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSparkNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSparkNodesOutput proto.InternalMessageInfo
 
 func (m *DeleteSparkNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -446,14 +620,35 @@ func (m *DeleteSparkNodesOutput) GetSparkId() string {
 }
 
 type StartSparksInput struct {
-	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Sparks               []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartSparksInput) Reset()                    { *m = StartSparksInput{} }
-func (m *StartSparksInput) String() string            { return proto.CompactTextString(m) }
-func (*StartSparksInput) ProtoMessage()               {}
-func (*StartSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{8} }
+func (m *StartSparksInput) Reset()         { *m = StartSparksInput{} }
+func (m *StartSparksInput) String() string { return proto.CompactTextString(m) }
+func (*StartSparksInput) ProtoMessage()    {}
+func (*StartSparksInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{8}
+}
+func (m *StartSparksInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartSparksInput.Unmarshal(m, b)
+}
+func (m *StartSparksInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartSparksInput.Marshal(b, m, deterministic)
+}
+func (dst *StartSparksInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartSparksInput.Merge(dst, src)
+}
+func (m *StartSparksInput) XXX_Size() int {
+	return xxx_messageInfo_StartSparksInput.Size(m)
+}
+func (m *StartSparksInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartSparksInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartSparksInput proto.InternalMessageInfo
 
 func (m *StartSparksInput) GetSparks() []string {
 	if m != nil {
@@ -463,17 +658,38 @@ func (m *StartSparksInput) GetSparks() []string {
 }
 
 type StartSparksOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartSparksOutput) Reset()                    { *m = StartSparksOutput{} }
-func (m *StartSparksOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartSparksOutput) ProtoMessage()               {}
-func (*StartSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{9} }
+func (m *StartSparksOutput) Reset()         { *m = StartSparksOutput{} }
+func (m *StartSparksOutput) String() string { return proto.CompactTextString(m) }
+func (*StartSparksOutput) ProtoMessage()    {}
+func (*StartSparksOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{9}
+}
+func (m *StartSparksOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartSparksOutput.Unmarshal(m, b)
+}
+func (m *StartSparksOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartSparksOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartSparksOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartSparksOutput.Merge(dst, src)
+}
+func (m *StartSparksOutput) XXX_Size() int {
+	return xxx_messageInfo_StartSparksOutput.Size(m)
+}
+func (m *StartSparksOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartSparksOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartSparksOutput proto.InternalMessageInfo
 
 func (m *StartSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -504,14 +720,35 @@ func (m *StartSparksOutput) GetJobId() string {
 }
 
 type StopSparksInput struct {
-	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Sparks               []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopSparksInput) Reset()                    { *m = StopSparksInput{} }
-func (m *StopSparksInput) String() string            { return proto.CompactTextString(m) }
-func (*StopSparksInput) ProtoMessage()               {}
-func (*StopSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{10} }
+func (m *StopSparksInput) Reset()         { *m = StopSparksInput{} }
+func (m *StopSparksInput) String() string { return proto.CompactTextString(m) }
+func (*StopSparksInput) ProtoMessage()    {}
+func (*StopSparksInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{10}
+}
+func (m *StopSparksInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopSparksInput.Unmarshal(m, b)
+}
+func (m *StopSparksInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopSparksInput.Marshal(b, m, deterministic)
+}
+func (dst *StopSparksInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopSparksInput.Merge(dst, src)
+}
+func (m *StopSparksInput) XXX_Size() int {
+	return xxx_messageInfo_StopSparksInput.Size(m)
+}
+func (m *StopSparksInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopSparksInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopSparksInput proto.InternalMessageInfo
 
 func (m *StopSparksInput) GetSparks() []string {
 	if m != nil {
@@ -521,17 +758,38 @@ func (m *StopSparksInput) GetSparks() []string {
 }
 
 type StopSparksOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopSparksOutput) Reset()                    { *m = StopSparksOutput{} }
-func (m *StopSparksOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopSparksOutput) ProtoMessage()               {}
-func (*StopSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{11} }
+func (m *StopSparksOutput) Reset()         { *m = StopSparksOutput{} }
+func (m *StopSparksOutput) String() string { return proto.CompactTextString(m) }
+func (*StopSparksOutput) ProtoMessage()    {}
+func (*StopSparksOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{11}
+}
+func (m *StopSparksOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopSparksOutput.Unmarshal(m, b)
+}
+func (m *StopSparksOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopSparksOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopSparksOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopSparksOutput.Merge(dst, src)
+}
+func (m *StopSparksOutput) XXX_Size() int {
+	return xxx_messageInfo_StopSparksOutput.Size(m)
+}
+func (m *StopSparksOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopSparksOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopSparksOutput proto.InternalMessageInfo
 
 func (m *StopSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -562,14 +820,35 @@ func (m *StopSparksOutput) GetJobId() string {
 }
 
 type DeleteSparksInput struct {
-	Sparks           []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Sparks               []string `protobuf:"bytes,1,rep,name=sparks" json:"sparks,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSparksInput) Reset()                    { *m = DeleteSparksInput{} }
-func (m *DeleteSparksInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSparksInput) ProtoMessage()               {}
-func (*DeleteSparksInput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{12} }
+func (m *DeleteSparksInput) Reset()         { *m = DeleteSparksInput{} }
+func (m *DeleteSparksInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSparksInput) ProtoMessage()    {}
+func (*DeleteSparksInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{12}
+}
+func (m *DeleteSparksInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSparksInput.Unmarshal(m, b)
+}
+func (m *DeleteSparksInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSparksInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSparksInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSparksInput.Merge(dst, src)
+}
+func (m *DeleteSparksInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSparksInput.Size(m)
+}
+func (m *DeleteSparksInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSparksInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSparksInput proto.InternalMessageInfo
 
 func (m *DeleteSparksInput) GetSparks() []string {
 	if m != nil {
@@ -579,18 +858,39 @@ func (m *DeleteSparksInput) GetSparks() []string {
 }
 
 type DeleteSparksOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SparkIds         []string `protobuf:"bytes,4,rep,name=spark_ids,json=sparkIds" json:"spark_ids,omitempty"`
-	JobId            *string  `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SparkIds             []string `protobuf:"bytes,4,rep,name=spark_ids,json=sparkIds" json:"spark_ids,omitempty"`
+	JobId                *string  `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSparksOutput) Reset()                    { *m = DeleteSparksOutput{} }
-func (m *DeleteSparksOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSparksOutput) ProtoMessage()               {}
-func (*DeleteSparksOutput) Descriptor() ([]byte, []int) { return fileDescriptor23, []int{13} }
+func (m *DeleteSparksOutput) Reset()         { *m = DeleteSparksOutput{} }
+func (m *DeleteSparksOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSparksOutput) ProtoMessage()    {}
+func (*DeleteSparksOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_spark_aa790e75cbcaf5ce, []int{13}
+}
+func (m *DeleteSparksOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSparksOutput.Unmarshal(m, b)
+}
+func (m *DeleteSparksOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSparksOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSparksOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSparksOutput.Merge(dst, src)
+}
+func (m *DeleteSparksOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSparksOutput.Size(m)
+}
+func (m *DeleteSparksOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSparksOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSparksOutput proto.InternalMessageInfo
 
 func (m *DeleteSparksOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -644,9 +944,9 @@ func init() {
 	proto.RegisterType((*DeleteSparksOutput)(nil), "service.DeleteSparksOutput")
 }
 
-func init() { proto.RegisterFile("spark.proto", fileDescriptor23) }
+func init() { proto.RegisterFile("spark.proto", fileDescriptor_spark_aa790e75cbcaf5ce) }
 
-var fileDescriptor23 = []byte{
+var fileDescriptor_spark_aa790e75cbcaf5ce = []byte{
 	// 906 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xcd, 0x6e, 0x23, 0x45,
 	0x10, 0xd6, 0x24, 0x1e, 0x3b, 0xae, 0x49, 0x76, 0x93, 0xde, 0x6c, 0x34, 0x99, 0xec, 0xb2, 0x66,

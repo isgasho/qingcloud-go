@@ -7,26 +7,53 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeDNSAliasesInput struct {
-	DnsAliases       []string `protobuf:"bytes,1,rep,name=dns_aliases,json=dnsAliases" json:"dns_aliases,omitempty"`
-	ResourceId       *string  `protobuf:"bytes,2,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	DnsAliases           []string `protobuf:"bytes,1,rep,name=dns_aliases,json=dnsAliases" json:"dns_aliases,omitempty"`
+	ResourceId           *string  `protobuf:"bytes,2,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeDNSAliasesInput) Reset()                    { *m = DescribeDNSAliasesInput{} }
-func (m *DescribeDNSAliasesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeDNSAliasesInput) ProtoMessage()               {}
-func (*DescribeDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
+func (m *DescribeDNSAliasesInput) Reset()         { *m = DescribeDNSAliasesInput{} }
+func (m *DescribeDNSAliasesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeDNSAliasesInput) ProtoMessage()    {}
+func (*DescribeDNSAliasesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{0}
+}
+func (m *DescribeDNSAliasesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeDNSAliasesInput.Unmarshal(m, b)
+}
+func (m *DescribeDNSAliasesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeDNSAliasesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeDNSAliasesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeDNSAliasesInput.Merge(dst, src)
+}
+func (m *DescribeDNSAliasesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeDNSAliasesInput.Size(m)
+}
+func (m *DescribeDNSAliasesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeDNSAliasesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeDNSAliasesInput proto.InternalMessageInfo
 
 func (m *DescribeDNSAliasesInput) GetDnsAliases() []string {
 	if m != nil {
@@ -64,18 +91,39 @@ func (m *DescribeDNSAliasesInput) GetLimit() int32 {
 }
 
 type DescribeDNSAliasesOutput struct {
-	Action           *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	DnsAliasSet      []*DescribeDNSAliasesOutput_ResponseItem `protobuf:"bytes,4,rep,name=dns_alias_set,json=dnsAliasSet" json:"dns_alias_set,omitempty"`
-	TotalCount       *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                   `json:"-"`
+	Action               *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	DnsAliasSet          []*DescribeDNSAliasesOutput_ResponseItem `protobuf:"bytes,4,rep,name=dns_alias_set,json=dnsAliasSet" json:"dns_alias_set,omitempty"`
+	TotalCount           *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                 `json:"-"`
+	XXX_unrecognized     []byte                                   `json:"-"`
+	XXX_sizecache        int32                                    `json:"-"`
 }
 
-func (m *DescribeDNSAliasesOutput) Reset()                    { *m = DescribeDNSAliasesOutput{} }
-func (m *DescribeDNSAliasesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeDNSAliasesOutput) ProtoMessage()               {}
-func (*DescribeDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
+func (m *DescribeDNSAliasesOutput) Reset()         { *m = DescribeDNSAliasesOutput{} }
+func (m *DescribeDNSAliasesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeDNSAliasesOutput) ProtoMessage()    {}
+func (*DescribeDNSAliasesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{1}
+}
+func (m *DescribeDNSAliasesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeDNSAliasesOutput.Unmarshal(m, b)
+}
+func (m *DescribeDNSAliasesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeDNSAliasesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeDNSAliasesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeDNSAliasesOutput.Merge(dst, src)
+}
+func (m *DescribeDNSAliasesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeDNSAliasesOutput.Size(m)
+}
+func (m *DescribeDNSAliasesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeDNSAliasesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeDNSAliasesOutput proto.InternalMessageInfo
 
 func (m *DescribeDNSAliasesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -113,20 +161,39 @@ func (m *DescribeDNSAliasesOutput) GetTotalCount() int32 {
 }
 
 type DescribeDNSAliasesOutput_ResponseItem struct {
-	Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	DnsAliasId       *string                     `protobuf:"bytes,2,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
-	ResourceId       *string                     `protobuf:"bytes,3,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	DnsAliasName     *string                     `protobuf:"bytes,4,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Status               *string              `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	DnsAliasId           *string              `protobuf:"bytes,2,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
+	ResourceId           *string              `protobuf:"bytes,3,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	DnsAliasName         *string              `protobuf:"bytes,4,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeDNSAliasesOutput_ResponseItem) Reset()         { *m = DescribeDNSAliasesOutput_ResponseItem{} }
 func (m *DescribeDNSAliasesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeDNSAliasesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeDNSAliasesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor3, []int{1, 0}
+	return fileDescriptor_dns_687cee33ca4295fe, []int{1, 0}
 }
+func (m *DescribeDNSAliasesOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeDNSAliasesOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeDNSAliasesOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeDNSAliasesOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeDNSAliasesOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeDNSAliasesOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeDNSAliasesOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeDNSAliasesOutput_ResponseItem.Size(m)
+}
+func (m *DescribeDNSAliasesOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeDNSAliasesOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeDNSAliasesOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeDNSAliasesOutput_ResponseItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -156,7 +223,7 @@ func (m *DescribeDNSAliasesOutput_ResponseItem) GetDnsAliasName() string {
 	return ""
 }
 
-func (m *DescribeDNSAliasesOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeDNSAliasesOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -164,16 +231,37 @@ func (m *DescribeDNSAliasesOutput_ResponseItem) GetCreateTime() *google_protobuf
 }
 
 type AssociateDNSAliasInput struct {
-	Prefix           *string `protobuf:"bytes,1,opt,name=prefix" json:"prefix,omitempty"`
-	Resource         *string `protobuf:"bytes,2,opt,name=resource" json:"resource,omitempty"`
-	DnsAliasName     *string `protobuf:"bytes,3,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Prefix               *string  `protobuf:"bytes,1,opt,name=prefix" json:"prefix,omitempty"`
+	Resource             *string  `protobuf:"bytes,2,opt,name=resource" json:"resource,omitempty"`
+	DnsAliasName         *string  `protobuf:"bytes,3,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AssociateDNSAliasInput) Reset()                    { *m = AssociateDNSAliasInput{} }
-func (m *AssociateDNSAliasInput) String() string            { return proto.CompactTextString(m) }
-func (*AssociateDNSAliasInput) ProtoMessage()               {}
-func (*AssociateDNSAliasInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
+func (m *AssociateDNSAliasInput) Reset()         { *m = AssociateDNSAliasInput{} }
+func (m *AssociateDNSAliasInput) String() string { return proto.CompactTextString(m) }
+func (*AssociateDNSAliasInput) ProtoMessage()    {}
+func (*AssociateDNSAliasInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{2}
+}
+func (m *AssociateDNSAliasInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateDNSAliasInput.Unmarshal(m, b)
+}
+func (m *AssociateDNSAliasInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateDNSAliasInput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateDNSAliasInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateDNSAliasInput.Merge(dst, src)
+}
+func (m *AssociateDNSAliasInput) XXX_Size() int {
+	return xxx_messageInfo_AssociateDNSAliasInput.Size(m)
+}
+func (m *AssociateDNSAliasInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateDNSAliasInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateDNSAliasInput proto.InternalMessageInfo
 
 func (m *AssociateDNSAliasInput) GetPrefix() string {
 	if m != nil && m.Prefix != nil {
@@ -197,19 +285,40 @@ func (m *AssociateDNSAliasInput) GetDnsAliasName() string {
 }
 
 type AssociateDNSAliasOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	DnsAliasId       *string `protobuf:"bytes,4,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
-	DomainName       *string `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
-	JobId            *string `protobuf:"bytes,6,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	DnsAliasId           *string  `protobuf:"bytes,4,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
+	DomainName           *string  `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
+	JobId                *string  `protobuf:"bytes,6,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AssociateDNSAliasOutput) Reset()                    { *m = AssociateDNSAliasOutput{} }
-func (m *AssociateDNSAliasOutput) String() string            { return proto.CompactTextString(m) }
-func (*AssociateDNSAliasOutput) ProtoMessage()               {}
-func (*AssociateDNSAliasOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
+func (m *AssociateDNSAliasOutput) Reset()         { *m = AssociateDNSAliasOutput{} }
+func (m *AssociateDNSAliasOutput) String() string { return proto.CompactTextString(m) }
+func (*AssociateDNSAliasOutput) ProtoMessage()    {}
+func (*AssociateDNSAliasOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{3}
+}
+func (m *AssociateDNSAliasOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AssociateDNSAliasOutput.Unmarshal(m, b)
+}
+func (m *AssociateDNSAliasOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AssociateDNSAliasOutput.Marshal(b, m, deterministic)
+}
+func (dst *AssociateDNSAliasOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AssociateDNSAliasOutput.Merge(dst, src)
+}
+func (m *AssociateDNSAliasOutput) XXX_Size() int {
+	return xxx_messageInfo_AssociateDNSAliasOutput.Size(m)
+}
+func (m *AssociateDNSAliasOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AssociateDNSAliasOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AssociateDNSAliasOutput proto.InternalMessageInfo
 
 func (m *AssociateDNSAliasOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -254,14 +363,35 @@ func (m *AssociateDNSAliasOutput) GetJobId() string {
 }
 
 type DissociateDNSAliasesInput struct {
-	DnsAliases       []string `protobuf:"bytes,1,rep,name=dns_aliases,json=dnsAliases" json:"dns_aliases,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	DnsAliases           []string `protobuf:"bytes,1,rep,name=dns_aliases,json=dnsAliases" json:"dns_aliases,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DissociateDNSAliasesInput) Reset()                    { *m = DissociateDNSAliasesInput{} }
-func (m *DissociateDNSAliasesInput) String() string            { return proto.CompactTextString(m) }
-func (*DissociateDNSAliasesInput) ProtoMessage()               {}
-func (*DissociateDNSAliasesInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{4} }
+func (m *DissociateDNSAliasesInput) Reset()         { *m = DissociateDNSAliasesInput{} }
+func (m *DissociateDNSAliasesInput) String() string { return proto.CompactTextString(m) }
+func (*DissociateDNSAliasesInput) ProtoMessage()    {}
+func (*DissociateDNSAliasesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{4}
+}
+func (m *DissociateDNSAliasesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateDNSAliasesInput.Unmarshal(m, b)
+}
+func (m *DissociateDNSAliasesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateDNSAliasesInput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateDNSAliasesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateDNSAliasesInput.Merge(dst, src)
+}
+func (m *DissociateDNSAliasesInput) XXX_Size() int {
+	return xxx_messageInfo_DissociateDNSAliasesInput.Size(m)
+}
+func (m *DissociateDNSAliasesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateDNSAliasesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateDNSAliasesInput proto.InternalMessageInfo
 
 func (m *DissociateDNSAliasesInput) GetDnsAliases() []string {
 	if m != nil {
@@ -271,17 +401,38 @@ func (m *DissociateDNSAliasesInput) GetDnsAliases() []string {
 }
 
 type DissociateDNSAliasesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DissociateDNSAliasesOutput) Reset()                    { *m = DissociateDNSAliasesOutput{} }
-func (m *DissociateDNSAliasesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DissociateDNSAliasesOutput) ProtoMessage()               {}
-func (*DissociateDNSAliasesOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{5} }
+func (m *DissociateDNSAliasesOutput) Reset()         { *m = DissociateDNSAliasesOutput{} }
+func (m *DissociateDNSAliasesOutput) String() string { return proto.CompactTextString(m) }
+func (*DissociateDNSAliasesOutput) ProtoMessage()    {}
+func (*DissociateDNSAliasesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{5}
+}
+func (m *DissociateDNSAliasesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DissociateDNSAliasesOutput.Unmarshal(m, b)
+}
+func (m *DissociateDNSAliasesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DissociateDNSAliasesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DissociateDNSAliasesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DissociateDNSAliasesOutput.Merge(dst, src)
+}
+func (m *DissociateDNSAliasesOutput) XXX_Size() int {
+	return xxx_messageInfo_DissociateDNSAliasesOutput.Size(m)
+}
+func (m *DissociateDNSAliasesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DissociateDNSAliasesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DissociateDNSAliasesOutput proto.InternalMessageInfo
 
 func (m *DissociateDNSAliasesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -312,27 +463,69 @@ func (m *DissociateDNSAliasesOutput) GetJobId() string {
 }
 
 type GetDNSLabelInput struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetDNSLabelInput) Reset()                    { *m = GetDNSLabelInput{} }
-func (m *GetDNSLabelInput) String() string            { return proto.CompactTextString(m) }
-func (*GetDNSLabelInput) ProtoMessage()               {}
-func (*GetDNSLabelInput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{6} }
+func (m *GetDNSLabelInput) Reset()         { *m = GetDNSLabelInput{} }
+func (m *GetDNSLabelInput) String() string { return proto.CompactTextString(m) }
+func (*GetDNSLabelInput) ProtoMessage()    {}
+func (*GetDNSLabelInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{6}
+}
+func (m *GetDNSLabelInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDNSLabelInput.Unmarshal(m, b)
+}
+func (m *GetDNSLabelInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDNSLabelInput.Marshal(b, m, deterministic)
+}
+func (dst *GetDNSLabelInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDNSLabelInput.Merge(dst, src)
+}
+func (m *GetDNSLabelInput) XXX_Size() int {
+	return xxx_messageInfo_GetDNSLabelInput.Size(m)
+}
+func (m *GetDNSLabelInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDNSLabelInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDNSLabelInput proto.InternalMessageInfo
 
 type GetDNSLabelOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	DnsLabel         *string `protobuf:"bytes,4,opt,name=dns_label,json=dnsLabel" json:"dns_label,omitempty"`
-	DomainName       *string `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	DnsLabel             *string  `protobuf:"bytes,4,opt,name=dns_label,json=dnsLabel" json:"dns_label,omitempty"`
+	DomainName           *string  `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetDNSLabelOutput) Reset()                    { *m = GetDNSLabelOutput{} }
-func (m *GetDNSLabelOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetDNSLabelOutput) ProtoMessage()               {}
-func (*GetDNSLabelOutput) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{7} }
+func (m *GetDNSLabelOutput) Reset()         { *m = GetDNSLabelOutput{} }
+func (m *GetDNSLabelOutput) String() string { return proto.CompactTextString(m) }
+func (*GetDNSLabelOutput) ProtoMessage()    {}
+func (*GetDNSLabelOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_dns_687cee33ca4295fe, []int{7}
+}
+func (m *GetDNSLabelOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDNSLabelOutput.Unmarshal(m, b)
+}
+func (m *GetDNSLabelOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDNSLabelOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetDNSLabelOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDNSLabelOutput.Merge(dst, src)
+}
+func (m *GetDNSLabelOutput) XXX_Size() int {
+	return xxx_messageInfo_GetDNSLabelOutput.Size(m)
+}
+func (m *GetDNSLabelOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDNSLabelOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDNSLabelOutput proto.InternalMessageInfo
 
 func (m *GetDNSLabelOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -381,9 +574,9 @@ func init() {
 	proto.RegisterType((*GetDNSLabelOutput)(nil), "service.GetDNSLabelOutput")
 }
 
-func init() { proto.RegisterFile("dns.proto", fileDescriptor3) }
+func init() { proto.RegisterFile("dns.proto", fileDescriptor_dns_687cee33ca4295fe) }
 
-var fileDescriptor3 = []byte{
+var fileDescriptor_dns_687cee33ca4295fe = []byte{
 	// 679 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xcd, 0x6e, 0xd3, 0x40,
 	0x10, 0x96, 0x71, 0x93, 0xb6, 0x93, 0xf2, 0xd3, 0x55, 0x49, 0x5d, 0x73, 0x68, 0x30, 0x1c, 0x7a,

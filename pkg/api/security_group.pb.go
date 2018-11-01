@@ -13,20 +13,47 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeSecurityGroupsInput struct {
-	SecurityGroups   []string `protobuf:"bytes,1,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,3,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,4,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SecurityGroups       []string `protobuf:"bytes,1,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,3,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,4,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeSecurityGroupsInput) Reset()                    { *m = DescribeSecurityGroupsInput{} }
-func (m *DescribeSecurityGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSecurityGroupsInput) ProtoMessage()               {}
-func (*DescribeSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{0} }
+func (m *DescribeSecurityGroupsInput) Reset()         { *m = DescribeSecurityGroupsInput{} }
+func (m *DescribeSecurityGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupsInput) ProtoMessage()    {}
+func (*DescribeSecurityGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{0}
+}
+func (m *DescribeSecurityGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupsInput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupsInput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupsInput.Size(m)
+}
+func (m *DescribeSecurityGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupsInput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupsInput) GetSecurityGroups() []string {
 	if m != nil {
@@ -71,18 +98,39 @@ func (m *DescribeSecurityGroupsInput) GetLimit() int32 {
 }
 
 type DescribeSecurityGroupsOutput struct {
-	Action           *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupSet []*SecurityGroup `protobuf:"bytes,4,rep,name=security_group_set,json=securityGroupSet" json:"security_group_set,omitempty"`
-	TotalCount       *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte           `json:"-"`
+	Action               *string          `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32           `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string          `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupSet     []*SecurityGroup `protobuf:"bytes,4,rep,name=security_group_set,json=securityGroupSet" json:"security_group_set,omitempty"`
+	TotalCount           *int32           `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
-func (m *DescribeSecurityGroupsOutput) Reset()                    { *m = DescribeSecurityGroupsOutput{} }
-func (m *DescribeSecurityGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSecurityGroupsOutput) ProtoMessage()               {}
-func (*DescribeSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{1} }
+func (m *DescribeSecurityGroupsOutput) Reset()         { *m = DescribeSecurityGroupsOutput{} }
+func (m *DescribeSecurityGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSecurityGroupsOutput) ProtoMessage()    {}
+func (*DescribeSecurityGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{1}
+}
+func (m *DescribeSecurityGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupsOutput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupsOutput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupsOutput.Size(m)
+}
+func (m *DescribeSecurityGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupsOutput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -120,14 +168,35 @@ func (m *DescribeSecurityGroupsOutput) GetTotalCount() int32 {
 }
 
 type CreateSecurityGroupInput struct {
-	SecurityGroupName *string `protobuf:"bytes,1,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	SecurityGroupName    *string  `protobuf:"bytes,1,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSecurityGroupInput) Reset()                    { *m = CreateSecurityGroupInput{} }
-func (m *CreateSecurityGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSecurityGroupInput) ProtoMessage()               {}
-func (*CreateSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{2} }
+func (m *CreateSecurityGroupInput) Reset()         { *m = CreateSecurityGroupInput{} }
+func (m *CreateSecurityGroupInput) String() string { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupInput) ProtoMessage()    {}
+func (*CreateSecurityGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{2}
+}
+func (m *CreateSecurityGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSecurityGroupInput.Unmarshal(m, b)
+}
+func (m *CreateSecurityGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSecurityGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSecurityGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSecurityGroupInput.Merge(dst, src)
+}
+func (m *CreateSecurityGroupInput) XXX_Size() int {
+	return xxx_messageInfo_CreateSecurityGroupInput.Size(m)
+}
+func (m *CreateSecurityGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSecurityGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSecurityGroupInput proto.InternalMessageInfo
 
 func (m *CreateSecurityGroupInput) GetSecurityGroupName() string {
 	if m != nil && m.SecurityGroupName != nil {
@@ -137,17 +206,38 @@ func (m *CreateSecurityGroupInput) GetSecurityGroupName() string {
 }
 
 type CreateSecurityGroupOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupId  *string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId      *string  `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSecurityGroupOutput) Reset()                    { *m = CreateSecurityGroupOutput{} }
-func (m *CreateSecurityGroupOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSecurityGroupOutput) ProtoMessage()               {}
-func (*CreateSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{3} }
+func (m *CreateSecurityGroupOutput) Reset()         { *m = CreateSecurityGroupOutput{} }
+func (m *CreateSecurityGroupOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupOutput) ProtoMessage()    {}
+func (*CreateSecurityGroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{3}
+}
+func (m *CreateSecurityGroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSecurityGroupOutput.Unmarshal(m, b)
+}
+func (m *CreateSecurityGroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSecurityGroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSecurityGroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSecurityGroupOutput.Merge(dst, src)
+}
+func (m *CreateSecurityGroupOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateSecurityGroupOutput.Size(m)
+}
+func (m *CreateSecurityGroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSecurityGroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSecurityGroupOutput proto.InternalMessageInfo
 
 func (m *CreateSecurityGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -178,14 +268,35 @@ func (m *CreateSecurityGroupOutput) GetSecurityGroupId() string {
 }
 
 type DeleteSecurityGroupsInput struct {
-	SecurityGroups   []string `protobuf:"bytes,1,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SecurityGroups       []string `protobuf:"bytes,1,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSecurityGroupsInput) Reset()                    { *m = DeleteSecurityGroupsInput{} }
-func (m *DeleteSecurityGroupsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSecurityGroupsInput) ProtoMessage()               {}
-func (*DeleteSecurityGroupsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{4} }
+func (m *DeleteSecurityGroupsInput) Reset()         { *m = DeleteSecurityGroupsInput{} }
+func (m *DeleteSecurityGroupsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupsInput) ProtoMessage()    {}
+func (*DeleteSecurityGroupsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{4}
+}
+func (m *DeleteSecurityGroupsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupsInput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupsInput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupsInput.Size(m)
+}
+func (m *DeleteSecurityGroupsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupsInput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupsInput) GetSecurityGroups() []string {
 	if m != nil {
@@ -195,17 +306,38 @@ func (m *DeleteSecurityGroupsInput) GetSecurityGroups() []string {
 }
 
 type DeleteSecurityGroupsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroups   []string `protobuf:"bytes,4,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroups       []string `protobuf:"bytes,4,rep,name=security_groups,json=securityGroups" json:"security_groups,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSecurityGroupsOutput) Reset()                    { *m = DeleteSecurityGroupsOutput{} }
-func (m *DeleteSecurityGroupsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSecurityGroupsOutput) ProtoMessage()               {}
-func (*DeleteSecurityGroupsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{5} }
+func (m *DeleteSecurityGroupsOutput) Reset()         { *m = DeleteSecurityGroupsOutput{} }
+func (m *DeleteSecurityGroupsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupsOutput) ProtoMessage()    {}
+func (*DeleteSecurityGroupsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{5}
+}
+func (m *DeleteSecurityGroupsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupsOutput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupsOutput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupsOutput.Size(m)
+}
+func (m *DeleteSecurityGroupsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupsOutput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -236,15 +368,36 @@ func (m *DeleteSecurityGroupsOutput) GetSecurityGroups() []string {
 }
 
 type ApplySecurityGroupInput struct {
-	SecurityGroup    *string  `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	Instances        []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	SecurityGroup        *string  `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Instances            []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplySecurityGroupInput) Reset()                    { *m = ApplySecurityGroupInput{} }
-func (m *ApplySecurityGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*ApplySecurityGroupInput) ProtoMessage()               {}
-func (*ApplySecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{6} }
+func (m *ApplySecurityGroupInput) Reset()         { *m = ApplySecurityGroupInput{} }
+func (m *ApplySecurityGroupInput) String() string { return proto.CompactTextString(m) }
+func (*ApplySecurityGroupInput) ProtoMessage()    {}
+func (*ApplySecurityGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{6}
+}
+func (m *ApplySecurityGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplySecurityGroupInput.Unmarshal(m, b)
+}
+func (m *ApplySecurityGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplySecurityGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *ApplySecurityGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplySecurityGroupInput.Merge(dst, src)
+}
+func (m *ApplySecurityGroupInput) XXX_Size() int {
+	return xxx_messageInfo_ApplySecurityGroupInput.Size(m)
+}
+func (m *ApplySecurityGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplySecurityGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplySecurityGroupInput proto.InternalMessageInfo
 
 func (m *ApplySecurityGroupInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -261,17 +414,38 @@ func (m *ApplySecurityGroupInput) GetInstances() []string {
 }
 
 type ApplySecurityGroupOutpu struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplySecurityGroupOutpu) Reset()                    { *m = ApplySecurityGroupOutpu{} }
-func (m *ApplySecurityGroupOutpu) String() string            { return proto.CompactTextString(m) }
-func (*ApplySecurityGroupOutpu) ProtoMessage()               {}
-func (*ApplySecurityGroupOutpu) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{7} }
+func (m *ApplySecurityGroupOutpu) Reset()         { *m = ApplySecurityGroupOutpu{} }
+func (m *ApplySecurityGroupOutpu) String() string { return proto.CompactTextString(m) }
+func (*ApplySecurityGroupOutpu) ProtoMessage()    {}
+func (*ApplySecurityGroupOutpu) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{7}
+}
+func (m *ApplySecurityGroupOutpu) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplySecurityGroupOutpu.Unmarshal(m, b)
+}
+func (m *ApplySecurityGroupOutpu) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplySecurityGroupOutpu.Marshal(b, m, deterministic)
+}
+func (dst *ApplySecurityGroupOutpu) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplySecurityGroupOutpu.Merge(dst, src)
+}
+func (m *ApplySecurityGroupOutpu) XXX_Size() int {
+	return xxx_messageInfo_ApplySecurityGroupOutpu.Size(m)
+}
+func (m *ApplySecurityGroupOutpu) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplySecurityGroupOutpu.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplySecurityGroupOutpu proto.InternalMessageInfo
 
 func (m *ApplySecurityGroupOutpu) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -302,18 +476,37 @@ func (m *ApplySecurityGroupOutpu) GetJobId() string {
 }
 
 type ModifySecurityGroupAttributesInput struct {
-	SecurityGroup     *string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	SecurityGroupName *string `protobuf:"bytes,2,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
-	Description       *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	SecurityGroup        *string  `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	SecurityGroupName    *string  `protobuf:"bytes,2,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifySecurityGroupAttributesInput) Reset()         { *m = ModifySecurityGroupAttributesInput{} }
 func (m *ModifySecurityGroupAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupAttributesInput) ProtoMessage()    {}
 func (*ModifySecurityGroupAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{8}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{8}
 }
+func (m *ModifySecurityGroupAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySecurityGroupAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifySecurityGroupAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySecurityGroupAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySecurityGroupAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySecurityGroupAttributesInput.Merge(dst, src)
+}
+func (m *ModifySecurityGroupAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifySecurityGroupAttributesInput.Size(m)
+}
+func (m *ModifySecurityGroupAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySecurityGroupAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySecurityGroupAttributesInput proto.InternalMessageInfo
 
 func (m *ModifySecurityGroupAttributesInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -337,19 +530,38 @@ func (m *ModifySecurityGroupAttributesInput) GetDescription() string {
 }
 
 type ModifySecurityGroupAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupId  *string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId      *string  `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifySecurityGroupAttributesOutput) Reset()         { *m = ModifySecurityGroupAttributesOutput{} }
 func (m *ModifySecurityGroupAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupAttributesOutput) ProtoMessage()    {}
 func (*ModifySecurityGroupAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{9}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{9}
 }
+func (m *ModifySecurityGroupAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySecurityGroupAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifySecurityGroupAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySecurityGroupAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySecurityGroupAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySecurityGroupAttributesOutput.Merge(dst, src)
+}
+func (m *ModifySecurityGroupAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifySecurityGroupAttributesOutput.Size(m)
+}
+func (m *ModifySecurityGroupAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySecurityGroupAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySecurityGroupAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifySecurityGroupAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -380,20 +592,39 @@ func (m *ModifySecurityGroupAttributesOutput) GetSecurityGroupId() string {
 }
 
 type DescribeSecurityGroupRulesInput struct {
-	SecurityGroup      *string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	SecurityGroupRules *string `protobuf:"bytes,2,opt,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
-	Direction          *int32  `protobuf:"varint,3,opt,name=direction" json:"direction,omitempty"`
-	Offset             *int32  `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Limit              *int32  `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized   []byte  `json:"-"`
+	SecurityGroup        *string  `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	SecurityGroupRules   *string  `protobuf:"bytes,2,opt,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
+	Direction            *int32   `protobuf:"varint,3,opt,name=direction" json:"direction,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeSecurityGroupRulesInput) Reset()         { *m = DescribeSecurityGroupRulesInput{} }
 func (m *DescribeSecurityGroupRulesInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupRulesInput) ProtoMessage()    {}
 func (*DescribeSecurityGroupRulesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{10}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{10}
 }
+func (m *DescribeSecurityGroupRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupRulesInput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupRulesInput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupRulesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupRulesInput.Size(m)
+}
+func (m *DescribeSecurityGroupRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupRulesInput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupRulesInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -436,15 +667,34 @@ type DescribeSecurityGroupRulesOutput struct {
 	Message              *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SecurityGroupRuleSet []*SecurityGroupRule `protobuf:"bytes,4,rep,name=security_group_rule_set,json=securityGroupRuleSet" json:"security_group_rule_set,omitempty"`
 	TotalCount           *int32               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeSecurityGroupRulesOutput) Reset()         { *m = DescribeSecurityGroupRulesOutput{} }
 func (m *DescribeSecurityGroupRulesOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupRulesOutput) ProtoMessage()    {}
 func (*DescribeSecurityGroupRulesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{11}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{11}
 }
+func (m *DescribeSecurityGroupRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupRulesOutput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupRulesOutput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupRulesOutput.Size(m)
+}
+func (m *DescribeSecurityGroupRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupRulesOutput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -482,15 +732,36 @@ func (m *DescribeSecurityGroupRulesOutput) GetTotalCount() int32 {
 }
 
 type AddSecurityGroupRulesInput struct {
-	SecurityGroup    *string              `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	Rules            []*SecurityGroupRule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
-	XXX_unrecognized []byte               `json:"-"`
+	SecurityGroup        *string              `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Rules                []*SecurityGroupRule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *AddSecurityGroupRulesInput) Reset()                    { *m = AddSecurityGroupRulesInput{} }
-func (m *AddSecurityGroupRulesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddSecurityGroupRulesInput) ProtoMessage()               {}
-func (*AddSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{12} }
+func (m *AddSecurityGroupRulesInput) Reset()         { *m = AddSecurityGroupRulesInput{} }
+func (m *AddSecurityGroupRulesInput) String() string { return proto.CompactTextString(m) }
+func (*AddSecurityGroupRulesInput) ProtoMessage()    {}
+func (*AddSecurityGroupRulesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{12}
+}
+func (m *AddSecurityGroupRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddSecurityGroupRulesInput.Unmarshal(m, b)
+}
+func (m *AddSecurityGroupRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddSecurityGroupRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddSecurityGroupRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddSecurityGroupRulesInput.Merge(dst, src)
+}
+func (m *AddSecurityGroupRulesInput) XXX_Size() int {
+	return xxx_messageInfo_AddSecurityGroupRulesInput.Size(m)
+}
+func (m *AddSecurityGroupRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddSecurityGroupRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddSecurityGroupRulesInput proto.InternalMessageInfo
 
 func (m *AddSecurityGroupRulesInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -507,17 +778,38 @@ func (m *AddSecurityGroupRulesInput) GetRules() []*SecurityGroupRule {
 }
 
 type AddSecurityGroupRulesOutput struct {
-	Action             *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode            *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message            *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupRules []string `protobuf:"bytes,4,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
-	XXX_unrecognized   []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupRules   []string `protobuf:"bytes,4,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddSecurityGroupRulesOutput) Reset()                    { *m = AddSecurityGroupRulesOutput{} }
-func (m *AddSecurityGroupRulesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddSecurityGroupRulesOutput) ProtoMessage()               {}
-func (*AddSecurityGroupRulesOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{13} }
+func (m *AddSecurityGroupRulesOutput) Reset()         { *m = AddSecurityGroupRulesOutput{} }
+func (m *AddSecurityGroupRulesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddSecurityGroupRulesOutput) ProtoMessage()    {}
+func (*AddSecurityGroupRulesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{13}
+}
+func (m *AddSecurityGroupRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddSecurityGroupRulesOutput.Unmarshal(m, b)
+}
+func (m *AddSecurityGroupRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddSecurityGroupRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddSecurityGroupRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddSecurityGroupRulesOutput.Merge(dst, src)
+}
+func (m *AddSecurityGroupRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddSecurityGroupRulesOutput.Size(m)
+}
+func (m *AddSecurityGroupRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddSecurityGroupRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddSecurityGroupRulesOutput proto.InternalMessageInfo
 
 func (m *AddSecurityGroupRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -548,14 +840,35 @@ func (m *AddSecurityGroupRulesOutput) GetSecurityGroupRules() []string {
 }
 
 type DeleteSecurityGroupRulesInput struct {
-	SecurityGroupRules []string `protobuf:"bytes,1,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
-	XXX_unrecognized   []byte   `json:"-"`
+	SecurityGroupRules   []string `protobuf:"bytes,1,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSecurityGroupRulesInput) Reset()                    { *m = DeleteSecurityGroupRulesInput{} }
-func (m *DeleteSecurityGroupRulesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSecurityGroupRulesInput) ProtoMessage()               {}
-func (*DeleteSecurityGroupRulesInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{14} }
+func (m *DeleteSecurityGroupRulesInput) Reset()         { *m = DeleteSecurityGroupRulesInput{} }
+func (m *DeleteSecurityGroupRulesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSecurityGroupRulesInput) ProtoMessage()    {}
+func (*DeleteSecurityGroupRulesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{14}
+}
+func (m *DeleteSecurityGroupRulesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupRulesInput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupRulesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupRulesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupRulesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupRulesInput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupRulesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupRulesInput.Size(m)
+}
+func (m *DeleteSecurityGroupRulesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupRulesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupRulesInput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupRulesInput) GetSecurityGroupRules() []string {
 	if m != nil {
@@ -565,19 +878,38 @@ func (m *DeleteSecurityGroupRulesInput) GetSecurityGroupRules() []string {
 }
 
 type DeleteSecurityGroupRulesOutput struct {
-	Action             *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode            *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message            *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupRules []string `protobuf:"bytes,4,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
-	XXX_unrecognized   []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupRules   []string `protobuf:"bytes,4,rep,name=security_group_rules,json=securityGroupRules" json:"security_group_rules,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteSecurityGroupRulesOutput) Reset()         { *m = DeleteSecurityGroupRulesOutput{} }
 func (m *DeleteSecurityGroupRulesOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupRulesOutput) ProtoMessage()    {}
 func (*DeleteSecurityGroupRulesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{15}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{15}
 }
+func (m *DeleteSecurityGroupRulesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupRulesOutput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupRulesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupRulesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupRulesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupRulesOutput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupRulesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupRulesOutput.Size(m)
+}
+func (m *DeleteSecurityGroupRulesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupRulesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupRulesOutput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupRulesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -608,16 +940,18 @@ func (m *DeleteSecurityGroupRulesOutput) GetSecurityGroupRules() []string {
 }
 
 type ModifySecurityGroupRuleAttributesInput struct {
-	SecurityGroupRule     *string `protobuf:"bytes,1,opt,name=security_group_rule,json=securityGroupRule" json:"security_group_rule,omitempty"`
-	SecurityGroupRuleName *string `protobuf:"bytes,2,opt,name=security_group_rule_name,json=securityGroupRuleName" json:"security_group_rule_name,omitempty"`
-	Priority              *int32  `protobuf:"varint,3,opt,name=priority" json:"priority,omitempty"`
-	RuleAction            *string `protobuf:"bytes,4,opt,name=rule_action,json=ruleAction" json:"rule_action,omitempty"`
-	Direction             *int32  `protobuf:"varint,5,opt,name=direction" json:"direction,omitempty"`
-	Protocol              *string `protobuf:"bytes,6,opt,name=protocol" json:"protocol,omitempty"`
-	Val1                  *string `protobuf:"bytes,7,opt,name=val1" json:"val1,omitempty"`
-	Val2                  *string `protobuf:"bytes,8,opt,name=val2" json:"val2,omitempty"`
-	Val3                  *string `protobuf:"bytes,9,opt,name=val3" json:"val3,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	SecurityGroupRule     *string  `protobuf:"bytes,1,opt,name=security_group_rule,json=securityGroupRule" json:"security_group_rule,omitempty"`
+	SecurityGroupRuleName *string  `protobuf:"bytes,2,opt,name=security_group_rule_name,json=securityGroupRuleName" json:"security_group_rule_name,omitempty"`
+	Priority              *int32   `protobuf:"varint,3,opt,name=priority" json:"priority,omitempty"`
+	RuleAction            *string  `protobuf:"bytes,4,opt,name=rule_action,json=ruleAction" json:"rule_action,omitempty"`
+	Direction             *int32   `protobuf:"varint,5,opt,name=direction" json:"direction,omitempty"`
+	Protocol              *string  `protobuf:"bytes,6,opt,name=protocol" json:"protocol,omitempty"`
+	Val1                  *string  `protobuf:"bytes,7,opt,name=val1" json:"val1,omitempty"`
+	Val2                  *string  `protobuf:"bytes,8,opt,name=val2" json:"val2,omitempty"`
+	Val3                  *string  `protobuf:"bytes,9,opt,name=val3" json:"val3,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *ModifySecurityGroupRuleAttributesInput) Reset() {
@@ -626,8 +960,25 @@ func (m *ModifySecurityGroupRuleAttributesInput) Reset() {
 func (m *ModifySecurityGroupRuleAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupRuleAttributesInput) ProtoMessage()    {}
 func (*ModifySecurityGroupRuleAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{16}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{16}
 }
+func (m *ModifySecurityGroupRuleAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySecurityGroupRuleAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifySecurityGroupRuleAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySecurityGroupRuleAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySecurityGroupRuleAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySecurityGroupRuleAttributesInput.Merge(dst, src)
+}
+func (m *ModifySecurityGroupRuleAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifySecurityGroupRuleAttributesInput.Size(m)
+}
+func (m *ModifySecurityGroupRuleAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySecurityGroupRuleAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySecurityGroupRuleAttributesInput proto.InternalMessageInfo
 
 func (m *ModifySecurityGroupRuleAttributesInput) GetSecurityGroupRule() string {
 	if m != nil && m.SecurityGroupRule != nil {
@@ -693,11 +1044,13 @@ func (m *ModifySecurityGroupRuleAttributesInput) GetVal3() string {
 }
 
 type ModifySecurityGroupRuleAttributesOutput struct {
-	Action              *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode             *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message             *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupRuleId *string `protobuf:"bytes,4,opt,name=security_group_rule_id,json=securityGroupRuleId" json:"security_group_rule_id,omitempty"`
-	XXX_unrecognized    []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupRuleId  *string  `protobuf:"bytes,4,opt,name=security_group_rule_id,json=securityGroupRuleId" json:"security_group_rule_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifySecurityGroupRuleAttributesOutput) Reset() {
@@ -706,8 +1059,25 @@ func (m *ModifySecurityGroupRuleAttributesOutput) Reset() {
 func (m *ModifySecurityGroupRuleAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupRuleAttributesOutput) ProtoMessage()    {}
 func (*ModifySecurityGroupRuleAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{17}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{17}
 }
+func (m *ModifySecurityGroupRuleAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySecurityGroupRuleAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifySecurityGroupRuleAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySecurityGroupRuleAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySecurityGroupRuleAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySecurityGroupRuleAttributesOutput.Merge(dst, src)
+}
+func (m *ModifySecurityGroupRuleAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifySecurityGroupRuleAttributesOutput.Size(m)
+}
+func (m *ModifySecurityGroupRuleAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySecurityGroupRuleAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySecurityGroupRuleAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifySecurityGroupRuleAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -738,17 +1108,36 @@ func (m *ModifySecurityGroupRuleAttributesOutput) GetSecurityGroupRuleId() strin
 }
 
 type CreateSecurityGroupSnapshotInput struct {
-	SecurityGroup    *string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	Name             *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	SecurityGroup        *string  `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Name                 *string  `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateSecurityGroupSnapshotInput) Reset()         { *m = CreateSecurityGroupSnapshotInput{} }
 func (m *CreateSecurityGroupSnapshotInput) String() string { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupSnapshotInput) ProtoMessage()    {}
 func (*CreateSecurityGroupSnapshotInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{18}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{18}
 }
+func (m *CreateSecurityGroupSnapshotInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSecurityGroupSnapshotInput.Unmarshal(m, b)
+}
+func (m *CreateSecurityGroupSnapshotInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSecurityGroupSnapshotInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSecurityGroupSnapshotInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSecurityGroupSnapshotInput.Merge(dst, src)
+}
+func (m *CreateSecurityGroupSnapshotInput) XXX_Size() int {
+	return xxx_messageInfo_CreateSecurityGroupSnapshotInput.Size(m)
+}
+func (m *CreateSecurityGroupSnapshotInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSecurityGroupSnapshotInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSecurityGroupSnapshotInput proto.InternalMessageInfo
 
 func (m *CreateSecurityGroupSnapshotInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -765,20 +1154,39 @@ func (m *CreateSecurityGroupSnapshotInput) GetName() string {
 }
 
 type CreateSecurityGroupSnapshotOutput struct {
-	Action                  *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode                 *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message                 *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupSnapshotId *string `protobuf:"bytes,4,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
-	SecurityGroupId         *string `protobuf:"bytes,5,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	XXX_unrecognized        []byte  `json:"-"`
+	Action                  *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                 *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                 *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupSnapshotId *string  `protobuf:"bytes,4,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
+	SecurityGroupId         *string  `protobuf:"bytes,5,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
+	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
 func (m *CreateSecurityGroupSnapshotOutput) Reset()         { *m = CreateSecurityGroupSnapshotOutput{} }
 func (m *CreateSecurityGroupSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupSnapshotOutput) ProtoMessage()    {}
 func (*CreateSecurityGroupSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{19}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{19}
 }
+func (m *CreateSecurityGroupSnapshotOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSecurityGroupSnapshotOutput.Unmarshal(m, b)
+}
+func (m *CreateSecurityGroupSnapshotOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSecurityGroupSnapshotOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSecurityGroupSnapshotOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSecurityGroupSnapshotOutput.Merge(dst, src)
+}
+func (m *CreateSecurityGroupSnapshotOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateSecurityGroupSnapshotOutput.Size(m)
+}
+func (m *CreateSecurityGroupSnapshotOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSecurityGroupSnapshotOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSecurityGroupSnapshotOutput proto.InternalMessageInfo
 
 func (m *CreateSecurityGroupSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -820,15 +1228,34 @@ type DescribeSecurityGroupSnapshotsInput struct {
 	SecurityGroupSnapshots []string `protobuf:"bytes,2,rep,name=security_group_snapshots,json=securityGroupSnapshots" json:"security_group_snapshots,omitempty"`
 	Offset                 *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
 	Limit                  *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
 	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *DescribeSecurityGroupSnapshotsInput) Reset()         { *m = DescribeSecurityGroupSnapshotsInput{} }
 func (m *DescribeSecurityGroupSnapshotsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupSnapshotsInput) ProtoMessage()    {}
 func (*DescribeSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{20}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{20}
 }
+func (m *DescribeSecurityGroupSnapshotsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsInput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupSnapshotsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupSnapshotsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupSnapshotsInput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupSnapshotsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsInput.Size(m)
+}
+func (m *DescribeSecurityGroupSnapshotsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupSnapshotsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupSnapshotsInput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupSnapshotsInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -864,15 +1291,34 @@ type DescribeSecurityGroupSnapshotsOutput struct {
 	Message                  *string                                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SecurityGroupSnapshotSet []*DescribeSecurityGroupSnapshotsOutput_ResponseItem `protobuf:"bytes,4,rep,name=security_group_snapshot_set,json=securityGroupSnapshotSet" json:"security_group_snapshot_set,omitempty"`
 	TotalCount               *int32                                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral     struct{}                                             `json:"-"`
 	XXX_unrecognized         []byte                                               `json:"-"`
+	XXX_sizecache            int32                                                `json:"-"`
 }
 
 func (m *DescribeSecurityGroupSnapshotsOutput) Reset()         { *m = DescribeSecurityGroupSnapshotsOutput{} }
 func (m *DescribeSecurityGroupSnapshotsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupSnapshotsOutput) ProtoMessage()    {}
 func (*DescribeSecurityGroupSnapshotsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{21}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{21}
 }
+func (m *DescribeSecurityGroupSnapshotsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupSnapshotsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupSnapshotsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupSnapshotsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput.Size(m)
+}
+func (m *DescribeSecurityGroupSnapshotsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -913,7 +1359,9 @@ type DescribeSecurityGroupSnapshotsOutput_ResponseItem struct {
 	GroupId                 *string              `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
 	SecurityGroupSnapshotId *string              `protobuf:"bytes,2,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
 	Rules                   []*SecurityGroupRule `protobuf:"bytes,3,rep,name=rules" json:"rules,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{}             `json:"-"`
 	XXX_unrecognized        []byte               `json:"-"`
+	XXX_sizecache           int32                `json:"-"`
 }
 
 func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) Reset() {
@@ -924,8 +1372,25 @@ func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) String() string {
 }
 func (*DescribeSecurityGroupSnapshotsOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeSecurityGroupSnapshotsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{21, 0}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{21, 0}
 }
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupSnapshotsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupSnapshotsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) GetGroupId() string {
 	if m != nil && m.GroupId != nil {
@@ -950,15 +1415,34 @@ func (m *DescribeSecurityGroupSnapshotsOutput_ResponseItem) GetRules() []*Securi
 
 type DeleteSecurityGroupSnapshotsInput struct {
 	SecurityGroupSnapshots []string `protobuf:"bytes,1,rep,name=security_group_snapshots,json=securityGroupSnapshots" json:"security_group_snapshots,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
 	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *DeleteSecurityGroupSnapshotsInput) Reset()         { *m = DeleteSecurityGroupSnapshotsInput{} }
 func (m *DeleteSecurityGroupSnapshotsInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupSnapshotsInput) ProtoMessage()    {}
 func (*DeleteSecurityGroupSnapshotsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{22}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{22}
 }
+func (m *DeleteSecurityGroupSnapshotsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupSnapshotsInput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupSnapshotsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupSnapshotsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupSnapshotsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupSnapshotsInput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupSnapshotsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupSnapshotsInput.Size(m)
+}
+func (m *DeleteSecurityGroupSnapshotsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupSnapshotsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupSnapshotsInput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupSnapshotsInput) GetSecurityGroupSnapshots() []string {
 	if m != nil {
@@ -972,15 +1456,34 @@ type DeleteSecurityGroupSnapshotsOutput struct {
 	RetCode                *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
 	Message                *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SecurityGroupSnapshots []string `protobuf:"bytes,4,rep,name=security_group_snapshots,json=securityGroupSnapshots" json:"security_group_snapshots,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
 	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *DeleteSecurityGroupSnapshotsOutput) Reset()         { *m = DeleteSecurityGroupSnapshotsOutput{} }
 func (m *DeleteSecurityGroupSnapshotsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupSnapshotsOutput) ProtoMessage()    {}
 func (*DeleteSecurityGroupSnapshotsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{23}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{23}
 }
+func (m *DeleteSecurityGroupSnapshotsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupSnapshotsOutput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupSnapshotsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupSnapshotsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupSnapshotsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupSnapshotsOutput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupSnapshotsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupSnapshotsOutput.Size(m)
+}
+func (m *DeleteSecurityGroupSnapshotsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupSnapshotsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupSnapshotsOutput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1011,15 +1514,36 @@ func (m *DeleteSecurityGroupSnapshotsOutput) GetSecurityGroupSnapshots() []strin
 }
 
 type RollbackSecurityGroupInput struct {
-	SecurityGroup         *string `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	SecurityGroupSnapshot *string `protobuf:"bytes,2,opt,name=security_group_snapshot,json=securityGroupSnapshot" json:"security_group_snapshot,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	SecurityGroup         *string  `protobuf:"bytes,1,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	SecurityGroupSnapshot *string  `protobuf:"bytes,2,opt,name=security_group_snapshot,json=securityGroupSnapshot" json:"security_group_snapshot,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
-func (m *RollbackSecurityGroupInput) Reset()                    { *m = RollbackSecurityGroupInput{} }
-func (m *RollbackSecurityGroupInput) String() string            { return proto.CompactTextString(m) }
-func (*RollbackSecurityGroupInput) ProtoMessage()               {}
-func (*RollbackSecurityGroupInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{24} }
+func (m *RollbackSecurityGroupInput) Reset()         { *m = RollbackSecurityGroupInput{} }
+func (m *RollbackSecurityGroupInput) String() string { return proto.CompactTextString(m) }
+func (*RollbackSecurityGroupInput) ProtoMessage()    {}
+func (*RollbackSecurityGroupInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{24}
+}
+func (m *RollbackSecurityGroupInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RollbackSecurityGroupInput.Unmarshal(m, b)
+}
+func (m *RollbackSecurityGroupInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RollbackSecurityGroupInput.Marshal(b, m, deterministic)
+}
+func (dst *RollbackSecurityGroupInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RollbackSecurityGroupInput.Merge(dst, src)
+}
+func (m *RollbackSecurityGroupInput) XXX_Size() int {
+	return xxx_messageInfo_RollbackSecurityGroupInput.Size(m)
+}
+func (m *RollbackSecurityGroupInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RollbackSecurityGroupInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RollbackSecurityGroupInput proto.InternalMessageInfo
 
 func (m *RollbackSecurityGroupInput) GetSecurityGroup() string {
 	if m != nil && m.SecurityGroup != nil {
@@ -1036,18 +1560,39 @@ func (m *RollbackSecurityGroupInput) GetSecurityGroupSnapshot() string {
 }
 
 type RollbackSecurityGroupOutput struct {
-	Action                  *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode                 *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message                 *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupId         *string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	SecurityGroupSnapshotId *string `protobuf:"bytes,5,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
-	XXX_unrecognized        []byte  `json:"-"`
+	Action                  *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode                 *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message                 *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId         *string  `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	SecurityGroupSnapshotId *string  `protobuf:"bytes,5,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
+	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
-func (m *RollbackSecurityGroupOutput) Reset()                    { *m = RollbackSecurityGroupOutput{} }
-func (m *RollbackSecurityGroupOutput) String() string            { return proto.CompactTextString(m) }
-func (*RollbackSecurityGroupOutput) ProtoMessage()               {}
-func (*RollbackSecurityGroupOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{25} }
+func (m *RollbackSecurityGroupOutput) Reset()         { *m = RollbackSecurityGroupOutput{} }
+func (m *RollbackSecurityGroupOutput) String() string { return proto.CompactTextString(m) }
+func (*RollbackSecurityGroupOutput) ProtoMessage()    {}
+func (*RollbackSecurityGroupOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{25}
+}
+func (m *RollbackSecurityGroupOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RollbackSecurityGroupOutput.Unmarshal(m, b)
+}
+func (m *RollbackSecurityGroupOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RollbackSecurityGroupOutput.Marshal(b, m, deterministic)
+}
+func (dst *RollbackSecurityGroupOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RollbackSecurityGroupOutput.Merge(dst, src)
+}
+func (m *RollbackSecurityGroupOutput) XXX_Size() int {
+	return xxx_messageInfo_RollbackSecurityGroupOutput.Size(m)
+}
+func (m *RollbackSecurityGroupOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RollbackSecurityGroupOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RollbackSecurityGroupOutput proto.InternalMessageInfo
 
 func (m *RollbackSecurityGroupOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1092,15 +1637,34 @@ type DescribeSecurityGroupIPSetsInput struct {
 	Verbose                *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
 	Offset                 *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
 	Limit                  *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
 	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *DescribeSecurityGroupIPSetsInput) Reset()         { *m = DescribeSecurityGroupIPSetsInput{} }
 func (m *DescribeSecurityGroupIPSetsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupIPSetsInput) ProtoMessage()    {}
 func (*DescribeSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{26}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{26}
 }
+func (m *DescribeSecurityGroupIPSetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupIPSetsInput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupIPSetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupIPSetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupIPSetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupIPSetsInput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupIPSetsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupIPSetsInput.Size(m)
+}
+func (m *DescribeSecurityGroupIPSetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupIPSetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupIPSetsInput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupIPSetsInput) GetSecurityGroupIpsets() []string {
 	if m != nil {
@@ -1157,15 +1721,34 @@ type DescribeSecurityGroupIPSetsOutput struct {
 	Message               *string               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	SecurityGroupIpsetSet []*SecurityGroupIPSet `protobuf:"bytes,4,rep,name=security_group_ipset_set,json=securityGroupIpsetSet" json:"security_group_ipset_set,omitempty"`
 	TotalCount            *int32                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{}              `json:"-"`
 	XXX_unrecognized      []byte                `json:"-"`
+	XXX_sizecache         int32                 `json:"-"`
 }
 
 func (m *DescribeSecurityGroupIPSetsOutput) Reset()         { *m = DescribeSecurityGroupIPSetsOutput{} }
 func (m *DescribeSecurityGroupIPSetsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeSecurityGroupIPSetsOutput) ProtoMessage()    {}
 func (*DescribeSecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{27}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{27}
 }
+func (m *DescribeSecurityGroupIPSetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSecurityGroupIPSetsOutput.Unmarshal(m, b)
+}
+func (m *DescribeSecurityGroupIPSetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSecurityGroupIPSetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSecurityGroupIPSetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSecurityGroupIPSetsOutput.Merge(dst, src)
+}
+func (m *DescribeSecurityGroupIPSetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSecurityGroupIPSetsOutput.Size(m)
+}
+func (m *DescribeSecurityGroupIPSetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSecurityGroupIPSetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSecurityGroupIPSetsOutput proto.InternalMessageInfo
 
 func (m *DescribeSecurityGroupIPSetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1203,16 +1786,37 @@ func (m *DescribeSecurityGroupIPSetsOutput) GetTotalCount() int32 {
 }
 
 type CreateSecurityGroupIPSetInput struct {
-	SecurityGroupIpsetName *string `protobuf:"bytes,1,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
-	IpsetType              *int32  `protobuf:"varint,2,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
-	Val                    *string `protobuf:"bytes,3,opt,name=val" json:"val,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	SecurityGroupIpsetName *string  `protobuf:"bytes,1,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
+	IpsetType              *int32   `protobuf:"varint,2,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
+	Val                    *string  `protobuf:"bytes,3,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
-func (m *CreateSecurityGroupIPSetInput) Reset()                    { *m = CreateSecurityGroupIPSetInput{} }
-func (m *CreateSecurityGroupIPSetInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSecurityGroupIPSetInput) ProtoMessage()               {}
-func (*CreateSecurityGroupIPSetInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{28} }
+func (m *CreateSecurityGroupIPSetInput) Reset()         { *m = CreateSecurityGroupIPSetInput{} }
+func (m *CreateSecurityGroupIPSetInput) String() string { return proto.CompactTextString(m) }
+func (*CreateSecurityGroupIPSetInput) ProtoMessage()    {}
+func (*CreateSecurityGroupIPSetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{28}
+}
+func (m *CreateSecurityGroupIPSetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSecurityGroupIPSetInput.Unmarshal(m, b)
+}
+func (m *CreateSecurityGroupIPSetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSecurityGroupIPSetInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSecurityGroupIPSetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSecurityGroupIPSetInput.Merge(dst, src)
+}
+func (m *CreateSecurityGroupIPSetInput) XXX_Size() int {
+	return xxx_messageInfo_CreateSecurityGroupIPSetInput.Size(m)
+}
+func (m *CreateSecurityGroupIPSetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSecurityGroupIPSetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSecurityGroupIPSetInput proto.InternalMessageInfo
 
 func (m *CreateSecurityGroupIPSetInput) GetSecurityGroupIpsetName() string {
 	if m != nil && m.SecurityGroupIpsetName != nil {
@@ -1236,19 +1840,38 @@ func (m *CreateSecurityGroupIPSetInput) GetVal() string {
 }
 
 type CreateSecurityGroupIPSetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupId  *string `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupId      *string  `protobuf:"bytes,4,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateSecurityGroupIPSetOutput) Reset()         { *m = CreateSecurityGroupIPSetOutput{} }
 func (m *CreateSecurityGroupIPSetOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateSecurityGroupIPSetOutput) ProtoMessage()    {}
 func (*CreateSecurityGroupIPSetOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{29}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{29}
 }
+func (m *CreateSecurityGroupIPSetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSecurityGroupIPSetOutput.Unmarshal(m, b)
+}
+func (m *CreateSecurityGroupIPSetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSecurityGroupIPSetOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSecurityGroupIPSetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSecurityGroupIPSetOutput.Merge(dst, src)
+}
+func (m *CreateSecurityGroupIPSetOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateSecurityGroupIPSetOutput.Size(m)
+}
+func (m *CreateSecurityGroupIPSetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSecurityGroupIPSetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSecurityGroupIPSetOutput proto.InternalMessageInfo
 
 func (m *CreateSecurityGroupIPSetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1279,16 +1902,35 @@ func (m *CreateSecurityGroupIPSetOutput) GetSecurityGroupId() string {
 }
 
 type DeleteSecurityGroupIPSetsInput struct {
-	SecurityGroupIpsets []string `protobuf:"bytes,1,rep,name=security_group_ipsets,json=securityGroupIpsets" json:"security_group_ipsets,omitempty"`
-	XXX_unrecognized    []byte   `json:"-"`
+	SecurityGroupIpsets  []string `protobuf:"bytes,1,rep,name=security_group_ipsets,json=securityGroupIpsets" json:"security_group_ipsets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteSecurityGroupIPSetsInput) Reset()         { *m = DeleteSecurityGroupIPSetsInput{} }
 func (m *DeleteSecurityGroupIPSetsInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupIPSetsInput) ProtoMessage()    {}
 func (*DeleteSecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{30}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{30}
 }
+func (m *DeleteSecurityGroupIPSetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupIPSetsInput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupIPSetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupIPSetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupIPSetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupIPSetsInput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupIPSetsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupIPSetsInput.Size(m)
+}
+func (m *DeleteSecurityGroupIPSetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupIPSetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupIPSetsInput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupIPSetsInput) GetSecurityGroupIpsets() []string {
 	if m != nil {
@@ -1298,19 +1940,38 @@ func (m *DeleteSecurityGroupIPSetsInput) GetSecurityGroupIpsets() []string {
 }
 
 type DeleteSecurityGroupIPSetsOutput struct {
-	Action              *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode             *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message             *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupIpsets []string `protobuf:"bytes,4,rep,name=security_group_ipsets,json=securityGroupIpsets" json:"security_group_ipsets,omitempty"`
-	XXX_unrecognized    []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupIpsets  []string `protobuf:"bytes,4,rep,name=security_group_ipsets,json=securityGroupIpsets" json:"security_group_ipsets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteSecurityGroupIPSetsOutput) Reset()         { *m = DeleteSecurityGroupIPSetsOutput{} }
 func (m *DeleteSecurityGroupIPSetsOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteSecurityGroupIPSetsOutput) ProtoMessage()    {}
 func (*DeleteSecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{31}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{31}
 }
+func (m *DeleteSecurityGroupIPSetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSecurityGroupIPSetsOutput.Unmarshal(m, b)
+}
+func (m *DeleteSecurityGroupIPSetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSecurityGroupIPSetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSecurityGroupIPSetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSecurityGroupIPSetsOutput.Merge(dst, src)
+}
+func (m *DeleteSecurityGroupIPSetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSecurityGroupIPSetsOutput.Size(m)
+}
+func (m *DeleteSecurityGroupIPSetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSecurityGroupIPSetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSecurityGroupIPSetsOutput proto.InternalMessageInfo
 
 func (m *DeleteSecurityGroupIPSetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1341,11 +2002,13 @@ func (m *DeleteSecurityGroupIPSetsOutput) GetSecurityGroupIpsets() []string {
 }
 
 type ModifySecurityGroupIPSetAttributesInput struct {
-	SecurityGroupIpset     *string `protobuf:"bytes,1,opt,name=security_group_ipset,json=securityGroupIpset" json:"security_group_ipset,omitempty"`
-	SecurityGroupIpsetName *string `protobuf:"bytes,2,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
-	Description            *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Val                    *string `protobuf:"bytes,4,opt,name=val" json:"val,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	SecurityGroupIpset     *string  `protobuf:"bytes,1,opt,name=security_group_ipset,json=securityGroupIpset" json:"security_group_ipset,omitempty"`
+	SecurityGroupIpsetName *string  `protobuf:"bytes,2,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
+	Description            *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Val                    *string  `protobuf:"bytes,4,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *ModifySecurityGroupIPSetAttributesInput) Reset() {
@@ -1354,8 +2017,25 @@ func (m *ModifySecurityGroupIPSetAttributesInput) Reset() {
 func (m *ModifySecurityGroupIPSetAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupIPSetAttributesInput) ProtoMessage()    {}
 func (*ModifySecurityGroupIPSetAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{32}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{32}
 }
+func (m *ModifySecurityGroupIPSetAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySecurityGroupIPSetAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifySecurityGroupIPSetAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySecurityGroupIPSetAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySecurityGroupIPSetAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySecurityGroupIPSetAttributesInput.Merge(dst, src)
+}
+func (m *ModifySecurityGroupIPSetAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifySecurityGroupIPSetAttributesInput.Size(m)
+}
+func (m *ModifySecurityGroupIPSetAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySecurityGroupIPSetAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySecurityGroupIPSetAttributesInput proto.InternalMessageInfo
 
 func (m *ModifySecurityGroupIPSetAttributesInput) GetSecurityGroupIpset() string {
 	if m != nil && m.SecurityGroupIpset != nil {
@@ -1386,11 +2066,13 @@ func (m *ModifySecurityGroupIPSetAttributesInput) GetVal() string {
 }
 
 type ModifySecurityGroupIPSetAttributesOutput struct {
-	Action               *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode              *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message              *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SecurityGroupIpsetId *string `protobuf:"bytes,4,opt,name=security_group_ipset_id,json=securityGroupIpsetId" json:"security_group_ipset_id,omitempty"`
-	XXX_unrecognized     []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SecurityGroupIpsetId *string  `protobuf:"bytes,4,opt,name=security_group_ipset_id,json=securityGroupIpsetId" json:"security_group_ipset_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifySecurityGroupIPSetAttributesOutput) Reset() {
@@ -1399,8 +2081,25 @@ func (m *ModifySecurityGroupIPSetAttributesOutput) Reset() {
 func (m *ModifySecurityGroupIPSetAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifySecurityGroupIPSetAttributesOutput) ProtoMessage()    {}
 func (*ModifySecurityGroupIPSetAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor20, []int{33}
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{33}
 }
+func (m *ModifySecurityGroupIPSetAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySecurityGroupIPSetAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifySecurityGroupIPSetAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySecurityGroupIPSetAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySecurityGroupIPSetAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySecurityGroupIPSetAttributesOutput.Merge(dst, src)
+}
+func (m *ModifySecurityGroupIPSetAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifySecurityGroupIPSetAttributesOutput.Size(m)
+}
+func (m *ModifySecurityGroupIPSetAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySecurityGroupIPSetAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySecurityGroupIPSetAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifySecurityGroupIPSetAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1431,15 +2130,36 @@ func (m *ModifySecurityGroupIPSetAttributesOutput) GetSecurityGroupIpsetId() str
 }
 
 type CopySecurityGroupIPSetsInput struct {
-	Ipsets           []string `protobuf:"bytes,1,rep,name=ipsets" json:"ipsets,omitempty"`
-	DestZones        []string `protobuf:"bytes,2,rep,name=dest_zones,json=destZones" json:"dest_zones,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Ipsets               []string `protobuf:"bytes,1,rep,name=ipsets" json:"ipsets,omitempty"`
+	DestZones            []string `protobuf:"bytes,2,rep,name=dest_zones,json=destZones" json:"dest_zones,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CopySecurityGroupIPSetsInput) Reset()                    { *m = CopySecurityGroupIPSetsInput{} }
-func (m *CopySecurityGroupIPSetsInput) String() string            { return proto.CompactTextString(m) }
-func (*CopySecurityGroupIPSetsInput) ProtoMessage()               {}
-func (*CopySecurityGroupIPSetsInput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{34} }
+func (m *CopySecurityGroupIPSetsInput) Reset()         { *m = CopySecurityGroupIPSetsInput{} }
+func (m *CopySecurityGroupIPSetsInput) String() string { return proto.CompactTextString(m) }
+func (*CopySecurityGroupIPSetsInput) ProtoMessage()    {}
+func (*CopySecurityGroupIPSetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{34}
+}
+func (m *CopySecurityGroupIPSetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CopySecurityGroupIPSetsInput.Unmarshal(m, b)
+}
+func (m *CopySecurityGroupIPSetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CopySecurityGroupIPSetsInput.Marshal(b, m, deterministic)
+}
+func (dst *CopySecurityGroupIPSetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CopySecurityGroupIPSetsInput.Merge(dst, src)
+}
+func (m *CopySecurityGroupIPSetsInput) XXX_Size() int {
+	return xxx_messageInfo_CopySecurityGroupIPSetsInput.Size(m)
+}
+func (m *CopySecurityGroupIPSetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CopySecurityGroupIPSetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CopySecurityGroupIPSetsInput proto.InternalMessageInfo
 
 func (m *CopySecurityGroupIPSetsInput) GetIpsets() []string {
 	if m != nil {
@@ -1456,16 +2176,37 @@ func (m *CopySecurityGroupIPSetsInput) GetDestZones() []string {
 }
 
 type CopySecurityGroupIPSetsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CopySecurityGroupIPSetsOutput) Reset()                    { *m = CopySecurityGroupIPSetsOutput{} }
-func (m *CopySecurityGroupIPSetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*CopySecurityGroupIPSetsOutput) ProtoMessage()               {}
-func (*CopySecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor20, []int{35} }
+func (m *CopySecurityGroupIPSetsOutput) Reset()         { *m = CopySecurityGroupIPSetsOutput{} }
+func (m *CopySecurityGroupIPSetsOutput) String() string { return proto.CompactTextString(m) }
+func (*CopySecurityGroupIPSetsOutput) ProtoMessage()    {}
+func (*CopySecurityGroupIPSetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_security_group_944e10d4ca08a0a6, []int{35}
+}
+func (m *CopySecurityGroupIPSetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CopySecurityGroupIPSetsOutput.Unmarshal(m, b)
+}
+func (m *CopySecurityGroupIPSetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CopySecurityGroupIPSetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *CopySecurityGroupIPSetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CopySecurityGroupIPSetsOutput.Merge(dst, src)
+}
+func (m *CopySecurityGroupIPSetsOutput) XXX_Size() int {
+	return xxx_messageInfo_CopySecurityGroupIPSetsOutput.Size(m)
+}
+func (m *CopySecurityGroupIPSetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CopySecurityGroupIPSetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CopySecurityGroupIPSetsOutput proto.InternalMessageInfo
 
 func (m *CopySecurityGroupIPSetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1528,9 +2269,11 @@ func init() {
 	proto.RegisterType((*CopySecurityGroupIPSetsOutput)(nil), "service.CopySecurityGroupIPSetsOutput")
 }
 
-func init() { proto.RegisterFile("security_group.proto", fileDescriptor20) }
+func init() {
+	proto.RegisterFile("security_group.proto", fileDescriptor_security_group_944e10d4ca08a0a6)
+}
 
-var fileDescriptor20 = []byte{
+var fileDescriptor_security_group_944e10d4ca08a0a6 = []byte{
 	// 1635 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x59, 0xcb, 0x8f, 0x1b, 0x45,
 	0x13, 0xd7, 0xac, 0xed, 0x7d, 0xd4, 0x7e, 0x5f, 0x1e, 0x9d, 0x5d, 0xef, 0xec, 0xec, 0x6e, 0xe2,

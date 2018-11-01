@@ -13,16 +13,43 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeZonesInput struct {
-	Zones            []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
-	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Zones                []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
+	Status               []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeZonesInput) Reset()                    { *m = DescribeZonesInput{} }
-func (m *DescribeZonesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeZonesInput) ProtoMessage()               {}
-func (*DescribeZonesInput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{0} }
+func (m *DescribeZonesInput) Reset()         { *m = DescribeZonesInput{} }
+func (m *DescribeZonesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeZonesInput) ProtoMessage()    {}
+func (*DescribeZonesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_zone_7ebdf3203bee2639, []int{0}
+}
+func (m *DescribeZonesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeZonesInput.Unmarshal(m, b)
+}
+func (m *DescribeZonesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeZonesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeZonesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeZonesInput.Merge(dst, src)
+}
+func (m *DescribeZonesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeZonesInput.Size(m)
+}
+func (m *DescribeZonesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeZonesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeZonesInput proto.InternalMessageInfo
 
 func (m *DescribeZonesInput) GetZones() []string {
 	if m != nil {
@@ -39,18 +66,39 @@ func (m *DescribeZonesInput) GetStatus() []string {
 }
 
 type DescribeZonesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ZoneSet          []*Zone `protobuf:"bytes,4,rep,name=zone_set,json=zoneSet" json:"zone_set,omitempty"`
-	TotalCount       *int32  `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ZoneSet              []*Zone  `protobuf:"bytes,4,rep,name=zone_set,json=zoneSet" json:"zone_set,omitempty"`
+	TotalCount           *int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeZonesOutput) Reset()                    { *m = DescribeZonesOutput{} }
-func (m *DescribeZonesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeZonesOutput) ProtoMessage()               {}
-func (*DescribeZonesOutput) Descriptor() ([]byte, []int) { return fileDescriptor30, []int{1} }
+func (m *DescribeZonesOutput) Reset()         { *m = DescribeZonesOutput{} }
+func (m *DescribeZonesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeZonesOutput) ProtoMessage()    {}
+func (*DescribeZonesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_zone_7ebdf3203bee2639, []int{1}
+}
+func (m *DescribeZonesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeZonesOutput.Unmarshal(m, b)
+}
+func (m *DescribeZonesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeZonesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeZonesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeZonesOutput.Merge(dst, src)
+}
+func (m *DescribeZonesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeZonesOutput.Size(m)
+}
+func (m *DescribeZonesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeZonesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeZonesOutput proto.InternalMessageInfo
 
 func (m *DescribeZonesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -92,9 +140,9 @@ func init() {
 	proto.RegisterType((*DescribeZonesOutput)(nil), "service.DescribeZonesOutput")
 }
 
-func init() { proto.RegisterFile("zone.proto", fileDescriptor30) }
+func init() { proto.RegisterFile("zone.proto", fileDescriptor_zone_7ebdf3203bee2639) }
 
-var fileDescriptor30 = []byte{
+var fileDescriptor_zone_7ebdf3203bee2639 = []byte{
 	// 318 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0xc1, 0x4a, 0xc3, 0x40,
 	0x10, 0x86, 0x49, 0x6b, 0x9b, 0x3a, 0xa1, 0x97, 0x55, 0xca, 0x1a, 0x05, 0x43, 0x4f, 0x39, 0x25,

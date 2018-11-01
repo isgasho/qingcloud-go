@@ -6,27 +6,54 @@ package service
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import google_protobuf2 "github.com/golang/protobuf/ptypes/any"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 import _ "github.com/golang/protobuf/protoc-gen-go/descriptor"
+import any "github.com/golang/protobuf/ptypes/any"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type ServerInfo struct {
-	ApiServer        *string `protobuf:"bytes,1,opt,name=api_server,json=apiServer,def=https://api.qingcloud.com/iaas/" json:"api_server,omitempty"`
-	AccessKeyId      *string `protobuf:"bytes,2,opt,name=access_key_id,json=accessKeyId" json:"access_key_id,omitempty"`
-	SecretAccessKey  *string `protobuf:"bytes,3,opt,name=secret_access_key,json=secretAccessKey" json:"secret_access_key,omitempty"`
-	Zone             *string `protobuf:"bytes,4,opt,name=zone,def=pek3a" json:"zone,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ApiServer            *string  `protobuf:"bytes,1,opt,name=api_server,json=apiServer,def=https://api.qingcloud.com/iaas/" json:"api_server,omitempty"`
+	AccessKeyId          *string  `protobuf:"bytes,2,opt,name=access_key_id,json=accessKeyId" json:"access_key_id,omitempty"`
+	SecretAccessKey      *string  `protobuf:"bytes,3,opt,name=secret_access_key,json=secretAccessKey" json:"secret_access_key,omitempty"`
+	Zone                 *string  `protobuf:"bytes,4,opt,name=zone,def=pek3a" json:"zone,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ServerInfo) Reset()                    { *m = ServerInfo{} }
-func (m *ServerInfo) String() string            { return proto.CompactTextString(m) }
-func (*ServerInfo) ProtoMessage()               {}
-func (*ServerInfo) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{0} }
+func (m *ServerInfo) Reset()         { *m = ServerInfo{} }
+func (m *ServerInfo) String() string { return proto.CompactTextString(m) }
+func (*ServerInfo) ProtoMessage()    {}
+func (*ServerInfo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{0}
+}
+func (m *ServerInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ServerInfo.Unmarshal(m, b)
+}
+func (m *ServerInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ServerInfo.Marshal(b, m, deterministic)
+}
+func (dst *ServerInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ServerInfo.Merge(dst, src)
+}
+func (m *ServerInfo) XXX_Size() int {
+	return xxx_messageInfo_ServerInfo.Size(m)
+}
+func (m *ServerInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_ServerInfo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ServerInfo proto.InternalMessageInfo
 
 const Default_ServerInfo_ApiServer string = "https://api.qingcloud.com/iaas/"
 const Default_ServerInfo_Zone string = "pek3a"
@@ -60,37 +87,58 @@ func (m *ServerInfo) GetZone() string {
 }
 
 type Cache struct {
-	AutoBackupTime        *int32                      `protobuf:"varint,1,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	CacheClass            *int32                      `protobuf:"varint,2,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
-	CacheId               *string                     `protobuf:"bytes,3,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheName             *string                     `protobuf:"bytes,4,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
-	CacheParameterGroupId *string                     `protobuf:"bytes,5,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-	CachePort             *int32                      `protobuf:"varint,6,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
-	CacheSize             *int32                      `protobuf:"varint,7,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
-	CacheType             *string                     `protobuf:"bytes,8,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	CacheVersion          *string                     `protobuf:"bytes,9,opt,name=cache_version,json=cacheVersion" json:"cache_version,omitempty"`
-	CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description           *string                     `protobuf:"bytes,11,opt,name=description" json:"description,omitempty"`
-	IsApplied             *int32                      `protobuf:"varint,12,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	MasterCount           *int32                      `protobuf:"varint,13,opt,name=master_count,json=masterCount" json:"master_count,omitempty"`
-	MaxMemory             *int32                      `protobuf:"varint,14,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
-	NodeCount             *int32                      `protobuf:"varint,15,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	Nodes                 []*CacheNode                `protobuf:"bytes,16,rep,name=nodes" json:"nodes,omitempty"`
-	ReplicateCount        *int32                      `protobuf:"varint,17,opt,name=replicate_count,json=replicateCount" json:"replicate_count,omitempty"`
-	SecurityGroupId       *string                     `protobuf:"bytes,18,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Status                *string                     `protobuf:"bytes,19,opt,name=status" json:"status,omitempty"`
-	StatusTime            *google_protobuf1.Timestamp `protobuf:"bytes,20,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode               *int32                      `protobuf:"varint,21,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	Tags                  []*Tag                      `protobuf:"bytes,22,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus      *string                     `protobuf:"bytes,23,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	Vxnet                 *VxNet                      `protobuf:"bytes,24,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized      []byte                      `json:"-"`
+	AutoBackupTime        *int32               `protobuf:"varint,1,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	CacheClass            *int32               `protobuf:"varint,2,opt,name=cache_class,json=cacheClass" json:"cache_class,omitempty"`
+	CacheId               *string              `protobuf:"bytes,3,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheName             *string              `protobuf:"bytes,4,opt,name=cache_name,json=cacheName" json:"cache_name,omitempty"`
+	CacheParameterGroupId *string              `protobuf:"bytes,5,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+	CachePort             *int32               `protobuf:"varint,6,opt,name=cache_port,json=cachePort" json:"cache_port,omitempty"`
+	CacheSize             *int32               `protobuf:"varint,7,opt,name=cache_size,json=cacheSize" json:"cache_size,omitempty"`
+	CacheType             *string              `protobuf:"bytes,8,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CacheVersion          *string              `protobuf:"bytes,9,opt,name=cache_version,json=cacheVersion" json:"cache_version,omitempty"`
+	CreateTime            *timestamp.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description           *string              `protobuf:"bytes,11,opt,name=description" json:"description,omitempty"`
+	IsApplied             *int32               `protobuf:"varint,12,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	MasterCount           *int32               `protobuf:"varint,13,opt,name=master_count,json=masterCount" json:"master_count,omitempty"`
+	MaxMemory             *int32               `protobuf:"varint,14,opt,name=max_memory,json=maxMemory" json:"max_memory,omitempty"`
+	NodeCount             *int32               `protobuf:"varint,15,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	Nodes                 []*CacheNode         `protobuf:"bytes,16,rep,name=nodes" json:"nodes,omitempty"`
+	ReplicateCount        *int32               `protobuf:"varint,17,opt,name=replicate_count,json=replicateCount" json:"replicate_count,omitempty"`
+	SecurityGroupId       *string              `protobuf:"bytes,18,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Status                *string              `protobuf:"bytes,19,opt,name=status" json:"status,omitempty"`
+	StatusTime            *timestamp.Timestamp `protobuf:"bytes,20,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode               *int32               `protobuf:"varint,21,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	Tags                  []*Tag               `protobuf:"bytes,22,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus      *string              `protobuf:"bytes,23,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	Vxnet                 *VxNet               `protobuf:"bytes,24,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{}             `json:"-"`
+	XXX_unrecognized      []byte               `json:"-"`
+	XXX_sizecache         int32                `json:"-"`
 }
 
-func (m *Cache) Reset()                    { *m = Cache{} }
-func (m *Cache) String() string            { return proto.CompactTextString(m) }
-func (*Cache) ProtoMessage()               {}
-func (*Cache) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{1} }
+func (m *Cache) Reset()         { *m = Cache{} }
+func (m *Cache) String() string { return proto.CompactTextString(m) }
+func (*Cache) ProtoMessage()    {}
+func (*Cache) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{1}
+}
+func (m *Cache) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Cache.Unmarshal(m, b)
+}
+func (m *Cache) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Cache.Marshal(b, m, deterministic)
+}
+func (dst *Cache) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Cache.Merge(dst, src)
+}
+func (m *Cache) XXX_Size() int {
+	return xxx_messageInfo_Cache.Size(m)
+}
+func (m *Cache) XXX_DiscardUnknown() {
+	xxx_messageInfo_Cache.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Cache proto.InternalMessageInfo
 
 func (m *Cache) GetAutoBackupTime() int32 {
 	if m != nil && m.AutoBackupTime != nil {
@@ -155,7 +203,7 @@ func (m *Cache) GetCacheVersion() string {
 	return ""
 }
 
-func (m *Cache) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *Cache) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -225,7 +273,7 @@ func (m *Cache) GetStatus() string {
 	return ""
 }
 
-func (m *Cache) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Cache) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -261,25 +309,46 @@ func (m *Cache) GetVxnet() *VxNet {
 }
 
 type CacheNode struct {
-	AlarmStatus      *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	CacheId          *string                     `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
-	CacheNodeId      *string                     `protobuf:"bytes,3,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
-	CacheNodeName    *string                     `protobuf:"bytes,4,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
-	CacheRole        *string                     `protobuf:"bytes,5,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
-	CacheType        *string                     `protobuf:"bytes,6,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	PrivateIp        *string                     `protobuf:"bytes,8,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Slaveof          *string                     `protobuf:"bytes,9,opt,name=slaveof" json:"slaveof,omitempty"`
-	Status           *string                     `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	AlarmStatus          *string              `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	CacheId              *string              `protobuf:"bytes,2,opt,name=cache_id,json=cacheId" json:"cache_id,omitempty"`
+	CacheNodeId          *string              `protobuf:"bytes,3,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
+	CacheNodeName        *string              `protobuf:"bytes,4,opt,name=cache_node_name,json=cacheNodeName" json:"cache_node_name,omitempty"`
+	CacheRole            *string              `protobuf:"bytes,5,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
+	CacheType            *string              `protobuf:"bytes,6,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	PrivateIp            *string              `protobuf:"bytes,8,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Slaveof              *string              `protobuf:"bytes,9,opt,name=slaveof" json:"slaveof,omitempty"`
+	Status               *string              `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *CacheNode) Reset()                    { *m = CacheNode{} }
-func (m *CacheNode) String() string            { return proto.CompactTextString(m) }
-func (*CacheNode) ProtoMessage()               {}
-func (*CacheNode) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{2} }
+func (m *CacheNode) Reset()         { *m = CacheNode{} }
+func (m *CacheNode) String() string { return proto.CompactTextString(m) }
+func (*CacheNode) ProtoMessage()    {}
+func (*CacheNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{2}
+}
+func (m *CacheNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CacheNode.Unmarshal(m, b)
+}
+func (m *CacheNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CacheNode.Marshal(b, m, deterministic)
+}
+func (dst *CacheNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CacheNode.Merge(dst, src)
+}
+func (m *CacheNode) XXX_Size() int {
+	return xxx_messageInfo_CacheNode.Size(m)
+}
+func (m *CacheNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_CacheNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CacheNode proto.InternalMessageInfo
 
 func (m *CacheNode) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -323,7 +392,7 @@ func (m *CacheNode) GetCacheType() string {
 	return ""
 }
 
-func (m *CacheNode) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *CacheNode) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -351,7 +420,7 @@ func (m *CacheNode) GetStatus() string {
 	return ""
 }
 
-func (m *CacheNode) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *CacheNode) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -366,23 +435,44 @@ func (m *CacheNode) GetTransitionStatus() string {
 }
 
 type CacheParameter struct {
-	CacheParameterName  *string `protobuf:"bytes,1,opt,name=cache_parameter_name,json=cacheParameterName" json:"cache_parameter_name,omitempty"`
-	CacheParameterType  *string `protobuf:"bytes,2,opt,name=cache_parameter_type,json=cacheParameterType" json:"cache_parameter_type,omitempty"`
-	CacheParameterValue *string `protobuf:"bytes,3,opt,name=cache_parameter_value,json=cacheParameterValue" json:"cache_parameter_value,omitempty"`
-	CacheType           *string `protobuf:"bytes,4,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	IsReadonly          *int32  `protobuf:"varint,5,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	IsStatic            *int32  `protobuf:"varint,6,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	OptName             *string `protobuf:"bytes,7,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	ParameterType       *string `protobuf:"bytes,8,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
-	ResourceVersion     *string `protobuf:"bytes,9,opt,name=resource_version,json=resourceVersion" json:"resource_version,omitempty"`
-	ValueRange          *string `protobuf:"bytes,10,opt,name=value_range,json=valueRange" json:"value_range,omitempty"`
-	XXX_unrecognized    []byte  `json:"-"`
+	CacheParameterName   *string  `protobuf:"bytes,1,opt,name=cache_parameter_name,json=cacheParameterName" json:"cache_parameter_name,omitempty"`
+	CacheParameterType   *string  `protobuf:"bytes,2,opt,name=cache_parameter_type,json=cacheParameterType" json:"cache_parameter_type,omitempty"`
+	CacheParameterValue  *string  `protobuf:"bytes,3,opt,name=cache_parameter_value,json=cacheParameterValue" json:"cache_parameter_value,omitempty"`
+	CacheType            *string  `protobuf:"bytes,4,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	IsReadonly           *int32   `protobuf:"varint,5,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	IsStatic             *int32   `protobuf:"varint,6,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	OptName              *string  `protobuf:"bytes,7,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	ParameterType        *string  `protobuf:"bytes,8,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
+	ResourceVersion      *string  `protobuf:"bytes,9,opt,name=resource_version,json=resourceVersion" json:"resource_version,omitempty"`
+	ValueRange           *string  `protobuf:"bytes,10,opt,name=value_range,json=valueRange" json:"value_range,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CacheParameter) Reset()                    { *m = CacheParameter{} }
-func (m *CacheParameter) String() string            { return proto.CompactTextString(m) }
-func (*CacheParameter) ProtoMessage()               {}
-func (*CacheParameter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{3} }
+func (m *CacheParameter) Reset()         { *m = CacheParameter{} }
+func (m *CacheParameter) String() string { return proto.CompactTextString(m) }
+func (*CacheParameter) ProtoMessage()    {}
+func (*CacheParameter) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{3}
+}
+func (m *CacheParameter) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CacheParameter.Unmarshal(m, b)
+}
+func (m *CacheParameter) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CacheParameter.Marshal(b, m, deterministic)
+}
+func (dst *CacheParameter) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CacheParameter.Merge(dst, src)
+}
+func (m *CacheParameter) XXX_Size() int {
+	return xxx_messageInfo_CacheParameter.Size(m)
+}
+func (m *CacheParameter) XXX_DiscardUnknown() {
+	xxx_messageInfo_CacheParameter.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CacheParameter proto.InternalMessageInfo
 
 func (m *CacheParameter) GetCacheParameterName() string {
 	if m != nil && m.CacheParameterName != nil {
@@ -455,21 +545,42 @@ func (m *CacheParameter) GetValueRange() string {
 }
 
 type CacheParameterGroup struct {
-	CacheParameterGroupId   *string                     `protobuf:"bytes,1,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
-	CacheParameterGroupName *string                     `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
-	CacheType               *string                     `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
-	CreateTime              *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description             *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	IsApplied               *int32                      `protobuf:"varint,6,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	IsDefault               *int32                      `protobuf:"varint,7,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
-	Resources               []*Resource                 `protobuf:"bytes,8,rep,name=resources" json:"resources,omitempty"`
-	XXX_unrecognized        []byte                      `json:"-"`
+	CacheParameterGroupId   *string              `protobuf:"bytes,1,opt,name=cache_parameter_group_id,json=cacheParameterGroupId" json:"cache_parameter_group_id,omitempty"`
+	CacheParameterGroupName *string              `protobuf:"bytes,2,opt,name=cache_parameter_group_name,json=cacheParameterGroupName" json:"cache_parameter_group_name,omitempty"`
+	CacheType               *string              `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
+	CreateTime              *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description             *string              `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	IsApplied               *int32               `protobuf:"varint,6,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	IsDefault               *int32               `protobuf:"varint,7,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
+	Resources               []*Resource          `protobuf:"bytes,8,rep,name=resources" json:"resources,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{}             `json:"-"`
+	XXX_unrecognized        []byte               `json:"-"`
+	XXX_sizecache           int32                `json:"-"`
 }
 
-func (m *CacheParameterGroup) Reset()                    { *m = CacheParameterGroup{} }
-func (m *CacheParameterGroup) String() string            { return proto.CompactTextString(m) }
-func (*CacheParameterGroup) ProtoMessage()               {}
-func (*CacheParameterGroup) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{4} }
+func (m *CacheParameterGroup) Reset()         { *m = CacheParameterGroup{} }
+func (m *CacheParameterGroup) String() string { return proto.CompactTextString(m) }
+func (*CacheParameterGroup) ProtoMessage()    {}
+func (*CacheParameterGroup) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{4}
+}
+func (m *CacheParameterGroup) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CacheParameterGroup.Unmarshal(m, b)
+}
+func (m *CacheParameterGroup) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CacheParameterGroup.Marshal(b, m, deterministic)
+}
+func (dst *CacheParameterGroup) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CacheParameterGroup.Merge(dst, src)
+}
+func (m *CacheParameterGroup) XXX_Size() int {
+	return xxx_messageInfo_CacheParameterGroup.Size(m)
+}
+func (m *CacheParameterGroup) XXX_DiscardUnknown() {
+	xxx_messageInfo_CacheParameterGroup.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CacheParameterGroup proto.InternalMessageInfo
 
 func (m *CacheParameterGroup) GetCacheParameterGroupId() string {
 	if m != nil && m.CacheParameterGroupId != nil {
@@ -492,7 +603,7 @@ func (m *CacheParameterGroup) GetCacheType() string {
 	return ""
 }
 
-func (m *CacheParameterGroup) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *CacheParameterGroup) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -528,16 +639,37 @@ func (m *CacheParameterGroup) GetResources() []*Resource {
 }
 
 type CachePrivateIP struct {
-	CacheNodeId      *string `protobuf:"bytes,1,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
-	CacheRole        *string `protobuf:"bytes,2,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
-	PrivateIps       *string `protobuf:"bytes,3,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	CacheNodeId          *string  `protobuf:"bytes,1,opt,name=cache_node_id,json=cacheNodeId" json:"cache_node_id,omitempty"`
+	CacheRole            *string  `protobuf:"bytes,2,opt,name=cache_role,json=cacheRole" json:"cache_role,omitempty"`
+	PrivateIps           *string  `protobuf:"bytes,3,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CachePrivateIP) Reset()                    { *m = CachePrivateIP{} }
-func (m *CachePrivateIP) String() string            { return proto.CompactTextString(m) }
-func (*CachePrivateIP) ProtoMessage()               {}
-func (*CachePrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{5} }
+func (m *CachePrivateIP) Reset()         { *m = CachePrivateIP{} }
+func (m *CachePrivateIP) String() string { return proto.CompactTextString(m) }
+func (*CachePrivateIP) ProtoMessage()    {}
+func (*CachePrivateIP) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{5}
+}
+func (m *CachePrivateIP) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CachePrivateIP.Unmarshal(m, b)
+}
+func (m *CachePrivateIP) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CachePrivateIP.Marshal(b, m, deterministic)
+}
+func (dst *CachePrivateIP) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CachePrivateIP.Merge(dst, src)
+}
+func (m *CachePrivateIP) XXX_Size() int {
+	return xxx_messageInfo_CachePrivateIP.Size(m)
+}
+func (m *CachePrivateIP) XXX_DiscardUnknown() {
+	xxx_messageInfo_CachePrivateIP.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CachePrivateIP proto.InternalMessageInfo
 
 func (m *CachePrivateIP) GetCacheNodeId() string {
 	if m != nil && m.CacheNodeId != nil {
@@ -561,60 +693,81 @@ func (m *CachePrivateIP) GetPrivateIps() string {
 }
 
 type Cluster struct {
-	AdvancedActions            *google_protobuf2.Any       `protobuf:"bytes,1,opt,name=advanced_actions,json=advancedActions" json:"advanced_actions,omitempty"`
-	AppId                      *string                     `protobuf:"bytes,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	AppInfo                    *google_protobuf2.Any       `protobuf:"bytes,3,opt,name=app_info,json=appInfo" json:"app_info,omitempty"`
-	AppVersion                 *string                     `protobuf:"bytes,4,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	AppVersionInfo             *google_protobuf2.Any       `protobuf:"bytes,5,opt,name=app_version_info,json=appVersionInfo" json:"app_version_info,omitempty"`
-	AutoBackupTime             *int32                      `protobuf:"varint,6,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	Backup                     *google_protobuf2.Any       `protobuf:"bytes,7,opt,name=backup" json:"backup,omitempty"`
-	BackupPolicy               *string                     `protobuf:"bytes,8,opt,name=backup_policy,json=backupPolicy" json:"backup_policy,omitempty"`
-	BackupService              *google_protobuf2.Any       `protobuf:"bytes,9,opt,name=backup_service,json=backupService" json:"backup_service,omitempty"`
-	CfgmgmtId                  *string                     `protobuf:"bytes,10,opt,name=cfgmgmt_id,json=cfgmgmtId" json:"cfgmgmt_id,omitempty"`
-	ClusterId                  *string                     `protobuf:"bytes,11,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
-	ClusterType                *int32                      `protobuf:"varint,12,opt,name=cluster_type,json=clusterType" json:"cluster_type,omitempty"`
-	ConsoleId                  *string                     `protobuf:"bytes,13,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	Controller                 *string                     `protobuf:"bytes,14,opt,name=controller" json:"controller,omitempty"`
-	CreateTime                 *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	CustomService              *google_protobuf2.Any       `protobuf:"bytes,16,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
-	Debug                      *int32                      `protobuf:"varint,17,opt,name=debug" json:"debug,omitempty"`
-	Description                *string                     `protobuf:"bytes,18,opt,name=description" json:"description,omitempty"`
-	DisplayTabs                *google_protobuf2.Any       `protobuf:"bytes,19,opt,name=display_tabs,json=displayTabs" json:"display_tabs,omitempty"`
-	Endpoints                  *google_protobuf2.Any       `protobuf:"bytes,20,opt,name=endpoints" json:"endpoints,omitempty"`
-	GlobalUuid                 *string                     `protobuf:"bytes,21,opt,name=global_uuid,json=globalUuid" json:"global_uuid,omitempty"`
-	HealthCheckEnablement      map[string]bool             `protobuf:"bytes,22,rep,name=health_check_enablement,json=healthCheckEnablement" json:"health_check_enablement,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
-	IncrementalBackupSupported *bool                       `protobuf:"varint,23,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
-	LastestSnapshotTime        *google_protobuf1.Timestamp `protobuf:"bytes,24,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
-	Links                      map[string]string           `protobuf:"bytes,25,rep,name=links" json:"links,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	MetadataRootAccess         *int32                      `protobuf:"varint,26,opt,name=metadata_root_access,json=metadataRootAccess" json:"metadata_root_access,omitempty"`
-	Name                       *string                     `protobuf:"bytes,27,opt,name=name" json:"name,omitempty"`
-	NodeCount                  *int32                      `protobuf:"varint,28,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	Nodes                      []*ClusterNode              `protobuf:"bytes,29,rep,name=nodes" json:"nodes,omitempty"`
-	Owner                      *string                     `protobuf:"bytes,30,opt,name=owner" json:"owner,omitempty"`
-	PartnerAccess              *bool                       `protobuf:"varint,31,opt,name=partner_access,json=partnerAccess" json:"partner_access,omitempty"`
-	RestoreService             *google_protobuf2.Any       `protobuf:"bytes,32,opt,name=restore_service,json=restoreService" json:"restore_service,omitempty"`
-	ReuseHyper                 *int32                      `protobuf:"varint,33,opt,name=reuse_hyper,json=reuseHyper" json:"reuse_hyper,omitempty"`
-	RoleCount                  map[string]int32            `protobuf:"bytes,34,rep,name=role_count,json=roleCount" json:"role_count,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
-	Roles                      []string                    `protobuf:"bytes,35,rep,name=roles" json:"roles,omitempty"`
-	RootUserId                 *string                     `protobuf:"bytes,36,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	SecurityGroupId            *string                     `protobuf:"bytes,37,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Status                     *string                     `protobuf:"bytes,38,opt,name=status" json:"status,omitempty"`
-	StatusTime                 *google_protobuf1.Timestamp `protobuf:"bytes,39,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode                    *int32                      `protobuf:"varint,40,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	TransitionStatus           *string                     `protobuf:"bytes,41,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	UpgradePolicy              []string                    `protobuf:"bytes,42,rep,name=upgrade_policy,json=upgradePolicy" json:"upgrade_policy,omitempty"`
-	UpgradeStatus              *string                     `protobuf:"bytes,43,opt,name=upgrade_status,json=upgradeStatus" json:"upgrade_status,omitempty"`
-	UpgradeTime                *google_protobuf1.Timestamp `protobuf:"bytes,44,opt,name=upgrade_time,json=upgradeTime" json:"upgrade_time,omitempty"`
-	Vxnet                      *VxNet                      `protobuf:"bytes,45,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized           []byte                      `json:"-"`
+	AdvancedActions            *any.Any             `protobuf:"bytes,1,opt,name=advanced_actions,json=advancedActions" json:"advanced_actions,omitempty"`
+	AppId                      *string              `protobuf:"bytes,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppInfo                    *any.Any             `protobuf:"bytes,3,opt,name=app_info,json=appInfo" json:"app_info,omitempty"`
+	AppVersion                 *string              `protobuf:"bytes,4,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	AppVersionInfo             *any.Any             `protobuf:"bytes,5,opt,name=app_version_info,json=appVersionInfo" json:"app_version_info,omitempty"`
+	AutoBackupTime             *int32               `protobuf:"varint,6,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	Backup                     *any.Any             `protobuf:"bytes,7,opt,name=backup" json:"backup,omitempty"`
+	BackupPolicy               *string              `protobuf:"bytes,8,opt,name=backup_policy,json=backupPolicy" json:"backup_policy,omitempty"`
+	BackupService              *any.Any             `protobuf:"bytes,9,opt,name=backup_service,json=backupService" json:"backup_service,omitempty"`
+	CfgmgmtId                  *string              `protobuf:"bytes,10,opt,name=cfgmgmt_id,json=cfgmgmtId" json:"cfgmgmt_id,omitempty"`
+	ClusterId                  *string              `protobuf:"bytes,11,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
+	ClusterType                *int32               `protobuf:"varint,12,opt,name=cluster_type,json=clusterType" json:"cluster_type,omitempty"`
+	ConsoleId                  *string              `protobuf:"bytes,13,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	Controller                 *string              `protobuf:"bytes,14,opt,name=controller" json:"controller,omitempty"`
+	CreateTime                 *timestamp.Timestamp `protobuf:"bytes,15,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	CustomService              *any.Any             `protobuf:"bytes,16,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
+	Debug                      *int32               `protobuf:"varint,17,opt,name=debug" json:"debug,omitempty"`
+	Description                *string              `protobuf:"bytes,18,opt,name=description" json:"description,omitempty"`
+	DisplayTabs                *any.Any             `protobuf:"bytes,19,opt,name=display_tabs,json=displayTabs" json:"display_tabs,omitempty"`
+	Endpoints                  *any.Any             `protobuf:"bytes,20,opt,name=endpoints" json:"endpoints,omitempty"`
+	GlobalUuid                 *string              `protobuf:"bytes,21,opt,name=global_uuid,json=globalUuid" json:"global_uuid,omitempty"`
+	HealthCheckEnablement      map[string]bool      `protobuf:"bytes,22,rep,name=health_check_enablement,json=healthCheckEnablement" json:"health_check_enablement,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+	IncrementalBackupSupported *bool                `protobuf:"varint,23,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
+	LastestSnapshotTime        *timestamp.Timestamp `protobuf:"bytes,24,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
+	Links                      map[string]string    `protobuf:"bytes,25,rep,name=links" json:"links,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	MetadataRootAccess         *int32               `protobuf:"varint,26,opt,name=metadata_root_access,json=metadataRootAccess" json:"metadata_root_access,omitempty"`
+	Name                       *string              `protobuf:"bytes,27,opt,name=name" json:"name,omitempty"`
+	NodeCount                  *int32               `protobuf:"varint,28,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	Nodes                      []*ClusterNode       `protobuf:"bytes,29,rep,name=nodes" json:"nodes,omitempty"`
+	Owner                      *string              `protobuf:"bytes,30,opt,name=owner" json:"owner,omitempty"`
+	PartnerAccess              *bool                `protobuf:"varint,31,opt,name=partner_access,json=partnerAccess" json:"partner_access,omitempty"`
+	RestoreService             *any.Any             `protobuf:"bytes,32,opt,name=restore_service,json=restoreService" json:"restore_service,omitempty"`
+	ReuseHyper                 *int32               `protobuf:"varint,33,opt,name=reuse_hyper,json=reuseHyper" json:"reuse_hyper,omitempty"`
+	RoleCount                  map[string]int32     `protobuf:"bytes,34,rep,name=role_count,json=roleCount" json:"role_count,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+	Roles                      []string             `protobuf:"bytes,35,rep,name=roles" json:"roles,omitempty"`
+	RootUserId                 *string              `protobuf:"bytes,36,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	SecurityGroupId            *string              `protobuf:"bytes,37,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Status                     *string              `protobuf:"bytes,38,opt,name=status" json:"status,omitempty"`
+	StatusTime                 *timestamp.Timestamp `protobuf:"bytes,39,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode                    *int32               `protobuf:"varint,40,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	TransitionStatus           *string              `protobuf:"bytes,41,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	UpgradePolicy              []string             `protobuf:"bytes,42,rep,name=upgrade_policy,json=upgradePolicy" json:"upgrade_policy,omitempty"`
+	UpgradeStatus              *string              `protobuf:"bytes,43,opt,name=upgrade_status,json=upgradeStatus" json:"upgrade_status,omitempty"`
+	UpgradeTime                *timestamp.Timestamp `protobuf:"bytes,44,opt,name=upgrade_time,json=upgradeTime" json:"upgrade_time,omitempty"`
+	Vxnet                      *VxNet               `protobuf:"bytes,45,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral       struct{}             `json:"-"`
+	XXX_unrecognized           []byte               `json:"-"`
+	XXX_sizecache              int32                `json:"-"`
 }
 
-func (m *Cluster) Reset()                    { *m = Cluster{} }
-func (m *Cluster) String() string            { return proto.CompactTextString(m) }
-func (*Cluster) ProtoMessage()               {}
-func (*Cluster) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{6} }
+func (m *Cluster) Reset()         { *m = Cluster{} }
+func (m *Cluster) String() string { return proto.CompactTextString(m) }
+func (*Cluster) ProtoMessage()    {}
+func (*Cluster) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{6}
+}
+func (m *Cluster) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Cluster.Unmarshal(m, b)
+}
+func (m *Cluster) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Cluster.Marshal(b, m, deterministic)
+}
+func (dst *Cluster) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Cluster.Merge(dst, src)
+}
+func (m *Cluster) XXX_Size() int {
+	return xxx_messageInfo_Cluster.Size(m)
+}
+func (m *Cluster) XXX_DiscardUnknown() {
+	xxx_messageInfo_Cluster.DiscardUnknown(m)
+}
 
-func (m *Cluster) GetAdvancedActions() *google_protobuf2.Any {
+var xxx_messageInfo_Cluster proto.InternalMessageInfo
+
+func (m *Cluster) GetAdvancedActions() *any.Any {
 	if m != nil {
 		return m.AdvancedActions
 	}
@@ -628,7 +781,7 @@ func (m *Cluster) GetAppId() string {
 	return ""
 }
 
-func (m *Cluster) GetAppInfo() *google_protobuf2.Any {
+func (m *Cluster) GetAppInfo() *any.Any {
 	if m != nil {
 		return m.AppInfo
 	}
@@ -642,7 +795,7 @@ func (m *Cluster) GetAppVersion() string {
 	return ""
 }
 
-func (m *Cluster) GetAppVersionInfo() *google_protobuf2.Any {
+func (m *Cluster) GetAppVersionInfo() *any.Any {
 	if m != nil {
 		return m.AppVersionInfo
 	}
@@ -656,7 +809,7 @@ func (m *Cluster) GetAutoBackupTime() int32 {
 	return 0
 }
 
-func (m *Cluster) GetBackup() *google_protobuf2.Any {
+func (m *Cluster) GetBackup() *any.Any {
 	if m != nil {
 		return m.Backup
 	}
@@ -670,7 +823,7 @@ func (m *Cluster) GetBackupPolicy() string {
 	return ""
 }
 
-func (m *Cluster) GetBackupService() *google_protobuf2.Any {
+func (m *Cluster) GetBackupService() *any.Any {
 	if m != nil {
 		return m.BackupService
 	}
@@ -712,14 +865,14 @@ func (m *Cluster) GetController() string {
 	return ""
 }
 
-func (m *Cluster) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *Cluster) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *Cluster) GetCustomService() *google_protobuf2.Any {
+func (m *Cluster) GetCustomService() *any.Any {
 	if m != nil {
 		return m.CustomService
 	}
@@ -740,14 +893,14 @@ func (m *Cluster) GetDescription() string {
 	return ""
 }
 
-func (m *Cluster) GetDisplayTabs() *google_protobuf2.Any {
+func (m *Cluster) GetDisplayTabs() *any.Any {
 	if m != nil {
 		return m.DisplayTabs
 	}
 	return nil
 }
 
-func (m *Cluster) GetEndpoints() *google_protobuf2.Any {
+func (m *Cluster) GetEndpoints() *any.Any {
 	if m != nil {
 		return m.Endpoints
 	}
@@ -775,7 +928,7 @@ func (m *Cluster) GetIncrementalBackupSupported() bool {
 	return false
 }
 
-func (m *Cluster) GetLastestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *Cluster) GetLastestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LastestSnapshotTime
 	}
@@ -831,7 +984,7 @@ func (m *Cluster) GetPartnerAccess() bool {
 	return false
 }
 
-func (m *Cluster) GetRestoreService() *google_protobuf2.Any {
+func (m *Cluster) GetRestoreService() *any.Any {
 	if m != nil {
 		return m.RestoreService
 	}
@@ -880,7 +1033,7 @@ func (m *Cluster) GetStatus() string {
 	return ""
 }
 
-func (m *Cluster) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Cluster) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -915,7 +1068,7 @@ func (m *Cluster) GetUpgradeStatus() string {
 	return ""
 }
 
-func (m *Cluster) GetUpgradeTime() *google_protobuf1.Timestamp {
+func (m *Cluster) GetUpgradeTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.UpgradeTime
 	}
@@ -930,23 +1083,44 @@ func (m *Cluster) GetVxnet() *VxNet {
 }
 
 type Tag struct {
-	Color             *string                     `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
-	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description       *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Owner             *string                     `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
-	ResourceCount     *int32                      `protobuf:"varint,5,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
-	ResourceTagPairs  []*ResourceTagPair          `protobuf:"bytes,6,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
-	ResourceTypeCount []*ResourceTypeCount        `protobuf:"bytes,7,rep,name=resource_type_count,json=resourceTypeCount" json:"resource_type_count,omitempty"`
-	TagId             *string                     `protobuf:"bytes,8,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
-	TagKey            *string                     `protobuf:"bytes,9,opt,name=tag_key,json=tagKey" json:"tag_key,omitempty"`
-	TagName           *string                     `protobuf:"bytes,10,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
-	XXX_unrecognized  []byte                      `json:"-"`
+	Color                *string              `protobuf:"bytes,1,opt,name=color" json:"color,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Owner                *string              `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
+	ResourceCount        *int32               `protobuf:"varint,5,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
+	ResourceTagPairs     []*ResourceTagPair   `protobuf:"bytes,6,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
+	ResourceTypeCount    []*ResourceTypeCount `protobuf:"bytes,7,rep,name=resource_type_count,json=resourceTypeCount" json:"resource_type_count,omitempty"`
+	TagId                *string              `protobuf:"bytes,8,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	TagKey               *string              `protobuf:"bytes,9,opt,name=tag_key,json=tagKey" json:"tag_key,omitempty"`
+	TagName              *string              `protobuf:"bytes,10,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Tag) Reset()                    { *m = Tag{} }
-func (m *Tag) String() string            { return proto.CompactTextString(m) }
-func (*Tag) ProtoMessage()               {}
-func (*Tag) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{7} }
+func (m *Tag) Reset()         { *m = Tag{} }
+func (m *Tag) String() string { return proto.CompactTextString(m) }
+func (*Tag) ProtoMessage()    {}
+func (*Tag) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{7}
+}
+func (m *Tag) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Tag.Unmarshal(m, b)
+}
+func (m *Tag) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Tag.Marshal(b, m, deterministic)
+}
+func (dst *Tag) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Tag.Merge(dst, src)
+}
+func (m *Tag) XXX_Size() int {
+	return xxx_messageInfo_Tag.Size(m)
+}
+func (m *Tag) XXX_DiscardUnknown() {
+	xxx_messageInfo_Tag.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Tag proto.InternalMessageInfo
 
 func (m *Tag) GetColor() string {
 	if m != nil && m.Color != nil {
@@ -955,7 +1129,7 @@ func (m *Tag) GetColor() string {
 	return ""
 }
 
-func (m *Tag) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *Tag) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1019,18 +1193,39 @@ func (m *Tag) GetTagName() string {
 }
 
 type ResourceTagPair struct {
-	ResourceId       *string                     `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	ResourceType     *string                     `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	Status           *string                     `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	TagId            *string                     `protobuf:"bytes,5,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	ResourceId           *string              `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceType         *string              `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	Status               *string              `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	TagId                *string              `protobuf:"bytes,5,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *ResourceTagPair) Reset()                    { *m = ResourceTagPair{} }
-func (m *ResourceTagPair) String() string            { return proto.CompactTextString(m) }
-func (*ResourceTagPair) ProtoMessage()               {}
-func (*ResourceTagPair) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{8} }
+func (m *ResourceTagPair) Reset()         { *m = ResourceTagPair{} }
+func (m *ResourceTagPair) String() string { return proto.CompactTextString(m) }
+func (*ResourceTagPair) ProtoMessage()    {}
+func (*ResourceTagPair) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{8}
+}
+func (m *ResourceTagPair) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResourceTagPair.Unmarshal(m, b)
+}
+func (m *ResourceTagPair) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResourceTagPair.Marshal(b, m, deterministic)
+}
+func (dst *ResourceTagPair) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResourceTagPair.Merge(dst, src)
+}
+func (m *ResourceTagPair) XXX_Size() int {
+	return xxx_messageInfo_ResourceTagPair.Size(m)
+}
+func (m *ResourceTagPair) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResourceTagPair.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResourceTagPair proto.InternalMessageInfo
 
 func (m *ResourceTagPair) GetResourceId() string {
 	if m != nil && m.ResourceId != nil {
@@ -1053,7 +1248,7 @@ func (m *ResourceTagPair) GetStatus() string {
 	return ""
 }
 
-func (m *ResourceTagPair) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *ResourceTagPair) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1068,15 +1263,36 @@ func (m *ResourceTagPair) GetTagId() string {
 }
 
 type ResourceTypeCount struct {
-	Count            *int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
-	ResourceType     *string `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Count                *int32   `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
+	ResourceType         *string  `protobuf:"bytes,2,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResourceTypeCount) Reset()                    { *m = ResourceTypeCount{} }
-func (m *ResourceTypeCount) String() string            { return proto.CompactTextString(m) }
-func (*ResourceTypeCount) ProtoMessage()               {}
-func (*ResourceTypeCount) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{9} }
+func (m *ResourceTypeCount) Reset()         { *m = ResourceTypeCount{} }
+func (m *ResourceTypeCount) String() string { return proto.CompactTextString(m) }
+func (*ResourceTypeCount) ProtoMessage()    {}
+func (*ResourceTypeCount) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{9}
+}
+func (m *ResourceTypeCount) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResourceTypeCount.Unmarshal(m, b)
+}
+func (m *ResourceTypeCount) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResourceTypeCount.Marshal(b, m, deterministic)
+}
+func (dst *ResourceTypeCount) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResourceTypeCount.Merge(dst, src)
+}
+func (m *ResourceTypeCount) XXX_Size() int {
+	return xxx_messageInfo_ResourceTypeCount.Size(m)
+}
+func (m *ResourceTypeCount) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResourceTypeCount.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResourceTypeCount proto.InternalMessageInfo
 
 func (m *ResourceTypeCount) GetCount() int32 {
 	if m != nil && m.Count != nil {
@@ -1093,31 +1309,52 @@ func (m *ResourceTypeCount) GetResourceType() string {
 }
 
 type EIP struct {
-	AlarmStatus      *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	AssociateMode    *int32                      `protobuf:"varint,2,opt,name=associate_mode,json=associateMode" json:"associate_mode,omitempty"`
-	Bandwidth        *int32                      `protobuf:"varint,3,opt,name=bandwidth" json:"bandwidth,omitempty"`
-	BillingMode      *string                     `protobuf:"bytes,4,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
-	EipAddr          *string                     `protobuf:"bytes,7,opt,name=eip_addr,json=eipAddr" json:"eip_addr,omitempty"`
-	EipGroup         *string                     `protobuf:"bytes,8,opt,name=eip_group,json=eipGroup" json:"eip_group,omitempty"`
-	EipId            *string                     `protobuf:"bytes,9,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
-	EipName          *string                     `protobuf:"bytes,10,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
-	IcpCodes         *string                     `protobuf:"bytes,11,opt,name=icp_codes,json=icpCodes" json:"icp_codes,omitempty"`
-	NeedIcp          *int32                      `protobuf:"varint,12,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
-	Resource         *Resource                   `protobuf:"bytes,13,opt,name=resource" json:"resource,omitempty"`
-	Status           *string                     `protobuf:"bytes,14,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode          *int32                      `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	Tags             []*Tag                      `protobuf:"bytes,17,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	AlarmStatus          *string              `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	AssociateMode        *int32               `protobuf:"varint,2,opt,name=associate_mode,json=associateMode" json:"associate_mode,omitempty"`
+	Bandwidth            *int32               `protobuf:"varint,3,opt,name=bandwidth" json:"bandwidth,omitempty"`
+	BillingMode          *string              `protobuf:"bytes,4,opt,name=billing_mode,json=billingMode" json:"billing_mode,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	EipAddr              *string              `protobuf:"bytes,7,opt,name=eip_addr,json=eipAddr" json:"eip_addr,omitempty"`
+	EipGroup             *string              `protobuf:"bytes,8,opt,name=eip_group,json=eipGroup" json:"eip_group,omitempty"`
+	EipId                *string              `protobuf:"bytes,9,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
+	EipName              *string              `protobuf:"bytes,10,opt,name=eip_name,json=eipName" json:"eip_name,omitempty"`
+	IcpCodes             *string              `protobuf:"bytes,11,opt,name=icp_codes,json=icpCodes" json:"icp_codes,omitempty"`
+	NeedIcp              *int32               `protobuf:"varint,12,opt,name=need_icp,json=needIcp" json:"need_icp,omitempty"`
+	Resource             *Resource            `protobuf:"bytes,13,opt,name=resource" json:"resource,omitempty"`
+	Status               *string              `protobuf:"bytes,14,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode              *int32               `protobuf:"varint,16,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,17,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *EIP) Reset()                    { *m = EIP{} }
-func (m *EIP) String() string            { return proto.CompactTextString(m) }
-func (*EIP) ProtoMessage()               {}
-func (*EIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{10} }
+func (m *EIP) Reset()         { *m = EIP{} }
+func (m *EIP) String() string { return proto.CompactTextString(m) }
+func (*EIP) ProtoMessage()    {}
+func (*EIP) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{10}
+}
+func (m *EIP) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EIP.Unmarshal(m, b)
+}
+func (m *EIP) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EIP.Marshal(b, m, deterministic)
+}
+func (dst *EIP) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EIP.Merge(dst, src)
+}
+func (m *EIP) XXX_Size() int {
+	return xxx_messageInfo_EIP.Size(m)
+}
+func (m *EIP) XXX_DiscardUnknown() {
+	xxx_messageInfo_EIP.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EIP proto.InternalMessageInfo
 
 func (m *EIP) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -1147,7 +1384,7 @@ func (m *EIP) GetBillingMode() string {
 	return ""
 }
 
-func (m *EIP) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *EIP) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1217,7 +1454,7 @@ func (m *EIP) GetStatus() string {
 	return ""
 }
 
-func (m *EIP) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *EIP) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1246,16 +1483,37 @@ func (m *EIP) GetTransitionStatus() string {
 }
 
 type Resource struct {
-	ResourceId       *string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	ResourceName     *string `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
-	ResourceType     *string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ResourceId           *string  `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceName         *string  `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
+	ResourceType         *string  `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Resource) Reset()                    { *m = Resource{} }
-func (m *Resource) String() string            { return proto.CompactTextString(m) }
-func (*Resource) ProtoMessage()               {}
-func (*Resource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{11} }
+func (m *Resource) Reset()         { *m = Resource{} }
+func (m *Resource) String() string { return proto.CompactTextString(m) }
+func (*Resource) ProtoMessage()    {}
+func (*Resource) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{11}
+}
+func (m *Resource) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Resource.Unmarshal(m, b)
+}
+func (m *Resource) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Resource.Marshal(b, m, deterministic)
+}
+func (dst *Resource) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Resource.Merge(dst, src)
+}
+func (m *Resource) XXX_Size() int {
+	return xxx_messageInfo_Resource.Size(m)
+}
+func (m *Resource) XXX_DiscardUnknown() {
+	xxx_messageInfo_Resource.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Resource proto.InternalMessageInfo
 
 func (m *Resource) GetResourceId() string {
 	if m != nil && m.ResourceId != nil {
@@ -1279,22 +1537,43 @@ func (m *Resource) GetResourceType() string {
 }
 
 type Job struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	JobAction        *string                     `protobuf:"bytes,2,opt,name=job_action,json=jobAction" json:"job_action,omitempty"`
-	JobId            *string                     `protobuf:"bytes,3,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	Owner            *string                     `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
-	ResourceIds      *string                     `protobuf:"bytes,5,opt,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
-	Status           *string                     `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	JobAction            *string              `protobuf:"bytes,2,opt,name=job_action,json=jobAction" json:"job_action,omitempty"`
+	JobId                *string              `protobuf:"bytes,3,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Owner                *string              `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
+	ResourceIds          *string              `protobuf:"bytes,5,opt,name=resource_ids,json=resourceIds" json:"resource_ids,omitempty"`
+	Status               *string              `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Job) Reset()                    { *m = Job{} }
-func (m *Job) String() string            { return proto.CompactTextString(m) }
-func (*Job) ProtoMessage()               {}
-func (*Job) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{12} }
+func (m *Job) Reset()         { *m = Job{} }
+func (m *Job) String() string { return proto.CompactTextString(m) }
+func (*Job) ProtoMessage()    {}
+func (*Job) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{12}
+}
+func (m *Job) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Job.Unmarshal(m, b)
+}
+func (m *Job) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Job.Marshal(b, m, deterministic)
+}
+func (dst *Job) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Job.Merge(dst, src)
+}
+func (m *Job) XXX_Size() int {
+	return xxx_messageInfo_Job.Size(m)
+}
+func (m *Job) XXX_DiscardUnknown() {
+	xxx_messageInfo_Job.DiscardUnknown(m)
+}
 
-func (m *Job) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_Job proto.InternalMessageInfo
+
+func (m *Job) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1336,7 +1615,7 @@ func (m *Job) GetStatus() string {
 	return ""
 }
 
-func (m *Job) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Job) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1344,32 +1623,53 @@ func (m *Job) GetStatusTime() *google_protobuf1.Timestamp {
 }
 
 type Volume struct {
-	CreateTime         *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description        *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	Device             *string                     `protobuf:"bytes,3,opt,name=device" json:"device,omitempty"`
-	Instance           *Instance                   `protobuf:"bytes,4,opt,name=instance" json:"instance,omitempty"`
-	Instances          []*Instance                 `protobuf:"bytes,5,rep,name=instances" json:"instances,omitempty"`
-	LatestSnapshotTime *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	Owner              *string                     `protobuf:"bytes,7,opt,name=owner" json:"owner,omitempty"`
-	PlaceGroupId       *string                     `protobuf:"bytes,8,opt,name=place_group_id,json=placeGroupId" json:"place_group_id,omitempty"`
-	Size               *int32                      `protobuf:"varint,9,opt,name=size" json:"size,omitempty"`
-	Status             *string                     `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
-	StatusTime         *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode            *int32                      `protobuf:"varint,12,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	Tags               []*Tag                      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus   *string                     `protobuf:"bytes,14,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VolumeId           *string                     `protobuf:"bytes,15,opt,name=volume_id,json=volumeId" json:"volume_id,omitempty"`
-	VolumeName         *string                     `protobuf:"bytes,16,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
-	VolumeType         *int32                      `protobuf:"varint,17,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
-	XXX_unrecognized   []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Device               *string              `protobuf:"bytes,3,opt,name=device" json:"device,omitempty"`
+	Instance             *Instance            `protobuf:"bytes,4,opt,name=instance" json:"instance,omitempty"`
+	Instances            []*Instance          `protobuf:"bytes,5,rep,name=instances" json:"instances,omitempty"`
+	LatestSnapshotTime   *timestamp.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
+	Owner                *string              `protobuf:"bytes,7,opt,name=owner" json:"owner,omitempty"`
+	PlaceGroupId         *string              `protobuf:"bytes,8,opt,name=place_group_id,json=placeGroupId" json:"place_group_id,omitempty"`
+	Size                 *int32               `protobuf:"varint,9,opt,name=size" json:"size,omitempty"`
+	Status               *string              `protobuf:"bytes,10,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode              *int32               `protobuf:"varint,12,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,14,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VolumeId             *string              `protobuf:"bytes,15,opt,name=volume_id,json=volumeId" json:"volume_id,omitempty"`
+	VolumeName           *string              `protobuf:"bytes,16,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	VolumeType           *int32               `protobuf:"varint,17,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Volume) Reset()                    { *m = Volume{} }
-func (m *Volume) String() string            { return proto.CompactTextString(m) }
-func (*Volume) ProtoMessage()               {}
-func (*Volume) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{13} }
+func (m *Volume) Reset()         { *m = Volume{} }
+func (m *Volume) String() string { return proto.CompactTextString(m) }
+func (*Volume) ProtoMessage()    {}
+func (*Volume) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{13}
+}
+func (m *Volume) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Volume.Unmarshal(m, b)
+}
+func (m *Volume) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Volume.Marshal(b, m, deterministic)
+}
+func (dst *Volume) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Volume.Merge(dst, src)
+}
+func (m *Volume) XXX_Size() int {
+	return xxx_messageInfo_Volume.Size(m)
+}
+func (m *Volume) XXX_DiscardUnknown() {
+	xxx_messageInfo_Volume.DiscardUnknown(m)
+}
 
-func (m *Volume) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_Volume proto.InternalMessageInfo
+
+func (m *Volume) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1404,7 +1704,7 @@ func (m *Volume) GetInstances() []*Instance {
 	return nil
 }
 
-func (m *Volume) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *Volume) GetLatestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LatestSnapshotTime
 	}
@@ -1439,7 +1739,7 @@ func (m *Volume) GetStatus() string {
 	return ""
 }
 
-func (m *Volume) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Volume) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1489,35 +1789,56 @@ func (m *Volume) GetVolumeType() int32 {
 }
 
 type NIC struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	InstanceId       *string                     `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	NicId            *string                     `protobuf:"bytes,3,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
-	NicName          *string                     `protobuf:"bytes,4,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
-	Owner            *string                     `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
-	PrivateIp        *string                     `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Role             *int32                      `protobuf:"varint,7,opt,name=role" json:"role,omitempty"`
-	RootUserId       *string                     `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	SecurityGroup    *string                     `protobuf:"bytes,9,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	Sequence         *int32                      `protobuf:"varint,10,opt,name=sequence" json:"sequence,omitempty"`
-	Status           *string                     `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	Tags             []*Tag                      `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
-	VxnetId          *string                     `protobuf:"bytes,14,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	Eip              *EIP                        `protobuf:"bytes,15,opt,name=eip" json:"eip,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,16,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	Controller       *string                     `protobuf:"bytes,17,opt,name=controller" json:"controller,omitempty"`
-	VxnetType        *int32                      `protobuf:"varint,18,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	ConsoleId        *string                     `protobuf:"bytes,19,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	ResourceId       *string                     `protobuf:"bytes,20,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	InstanceId           *string              `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	NicId                *string              `protobuf:"bytes,3,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
+	NicName              *string              `protobuf:"bytes,4,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
+	Owner                *string              `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
+	PrivateIp            *string              `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Role                 *int32               `protobuf:"varint,7,opt,name=role" json:"role,omitempty"`
+	RootUserId           *string              `protobuf:"bytes,8,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	SecurityGroup        *string              `protobuf:"bytes,9,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	Sequence             *int32               `protobuf:"varint,10,opt,name=sequence" json:"sequence,omitempty"`
+	Status               *string              `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,13,rep,name=tags" json:"tags,omitempty"`
+	VxnetId              *string              `protobuf:"bytes,14,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	Eip                  *EIP                 `protobuf:"bytes,15,opt,name=eip" json:"eip,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,16,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	Controller           *string              `protobuf:"bytes,17,opt,name=controller" json:"controller,omitempty"`
+	VxnetType            *int32               `protobuf:"varint,18,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	ConsoleId            *string              `protobuf:"bytes,19,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	ResourceId           *string              `protobuf:"bytes,20,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *NIC) Reset()                    { *m = NIC{} }
-func (m *NIC) String() string            { return proto.CompactTextString(m) }
-func (*NIC) ProtoMessage()               {}
-func (*NIC) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{14} }
+func (m *NIC) Reset()         { *m = NIC{} }
+func (m *NIC) String() string { return proto.CompactTextString(m) }
+func (*NIC) ProtoMessage()    {}
+func (*NIC) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{14}
+}
+func (m *NIC) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_NIC.Unmarshal(m, b)
+}
+func (m *NIC) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_NIC.Marshal(b, m, deterministic)
+}
+func (dst *NIC) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NIC.Merge(dst, src)
+}
+func (m *NIC) XXX_Size() int {
+	return xxx_messageInfo_NIC.Size(m)
+}
+func (m *NIC) XXX_DiscardUnknown() {
+	xxx_messageInfo_NIC.DiscardUnknown(m)
+}
 
-func (m *NIC) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_NIC proto.InternalMessageInfo
+
+func (m *NIC) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1594,7 +1915,7 @@ func (m *NIC) GetStatus() string {
 	return ""
 }
 
-func (m *NIC) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *NIC) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1658,20 +1979,41 @@ func (m *NIC) GetResourceId() string {
 }
 
 type KeyPair struct {
-	Description      *string  `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
-	EncryptMethod    *string  `protobuf:"bytes,2,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
-	InstanceIds      []string `protobuf:"bytes,3,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
-	KeypairId        *string  `protobuf:"bytes,4,opt,name=keypair_id,json=keypairId" json:"keypair_id,omitempty"`
-	KeypairName      *string  `protobuf:"bytes,5,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
-	PubKey           *string  `protobuf:"bytes,6,opt,name=pub_key,json=pubKey" json:"pub_key,omitempty"`
-	Tags             []*Tag   `protobuf:"bytes,7,rep,name=tags" json:"tags,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Description          *string  `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	EncryptMethod        *string  `protobuf:"bytes,2,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
+	InstanceIds          []string `protobuf:"bytes,3,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
+	KeypairId            *string  `protobuf:"bytes,4,opt,name=keypair_id,json=keypairId" json:"keypair_id,omitempty"`
+	KeypairName          *string  `protobuf:"bytes,5,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
+	PubKey               *string  `protobuf:"bytes,6,opt,name=pub_key,json=pubKey" json:"pub_key,omitempty"`
+	Tags                 []*Tag   `protobuf:"bytes,7,rep,name=tags" json:"tags,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *KeyPair) Reset()                    { *m = KeyPair{} }
-func (m *KeyPair) String() string            { return proto.CompactTextString(m) }
-func (*KeyPair) ProtoMessage()               {}
-func (*KeyPair) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{15} }
+func (m *KeyPair) Reset()         { *m = KeyPair{} }
+func (m *KeyPair) String() string { return proto.CompactTextString(m) }
+func (*KeyPair) ProtoMessage()    {}
+func (*KeyPair) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{15}
+}
+func (m *KeyPair) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_KeyPair.Unmarshal(m, b)
+}
+func (m *KeyPair) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_KeyPair.Marshal(b, m, deterministic)
+}
+func (dst *KeyPair) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_KeyPair.Merge(dst, src)
+}
+func (m *KeyPair) XXX_Size() int {
+	return xxx_messageInfo_KeyPair.Size(m)
+}
+func (m *KeyPair) XXX_DiscardUnknown() {
+	xxx_messageInfo_KeyPair.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_KeyPair proto.InternalMessageInfo
 
 func (m *KeyPair) GetDescription() string {
 	if m != nil && m.Description != nil {
@@ -1723,24 +2065,45 @@ func (m *KeyPair) GetTags() []*Tag {
 }
 
 type VxNet struct {
-	AvailableIpCount *int32                      `protobuf:"varint,1,opt,name=available_ip_count,json=availableIpCount" json:"available_ip_count,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	InstanceIds      []string                    `protobuf:"bytes,4,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
-	Owner            *string                     `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
-	Router           *Router                     `protobuf:"bytes,6,opt,name=router" json:"router,omitempty"`
-	Tags             []*Tag                      `protobuf:"bytes,7,rep,name=tags" json:"tags,omitempty"`
-	VpcRouterId      *string                     `protobuf:"bytes,8,opt,name=vpc_router_id,json=vpcRouterId" json:"vpc_router_id,omitempty"`
-	VxnetId          *string                     `protobuf:"bytes,9,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	VxnetName        *string                     `protobuf:"bytes,10,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	VxnetType        *int32                      `protobuf:"varint,11,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	AvailableIpCount     *int32               `protobuf:"varint,1,opt,name=available_ip_count,json=availableIpCount" json:"available_ip_count,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	InstanceIds          []string             `protobuf:"bytes,4,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
+	Owner                *string              `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
+	Router               *Router              `protobuf:"bytes,6,opt,name=router" json:"router,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,7,rep,name=tags" json:"tags,omitempty"`
+	VpcRouterId          *string              `protobuf:"bytes,8,opt,name=vpc_router_id,json=vpcRouterId" json:"vpc_router_id,omitempty"`
+	VxnetId              *string              `protobuf:"bytes,9,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	VxnetName            *string              `protobuf:"bytes,10,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	VxnetType            *int32               `protobuf:"varint,11,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *VxNet) Reset()                    { *m = VxNet{} }
-func (m *VxNet) String() string            { return proto.CompactTextString(m) }
-func (*VxNet) ProtoMessage()               {}
-func (*VxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{16} }
+func (m *VxNet) Reset()         { *m = VxNet{} }
+func (m *VxNet) String() string { return proto.CompactTextString(m) }
+func (*VxNet) ProtoMessage()    {}
+func (*VxNet) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{16}
+}
+func (m *VxNet) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VxNet.Unmarshal(m, b)
+}
+func (m *VxNet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VxNet.Marshal(b, m, deterministic)
+}
+func (dst *VxNet) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VxNet.Merge(dst, src)
+}
+func (m *VxNet) XXX_Size() int {
+	return xxx_messageInfo_VxNet.Size(m)
+}
+func (m *VxNet) XXX_DiscardUnknown() {
+	xxx_messageInfo_VxNet.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VxNet proto.InternalMessageInfo
 
 func (m *VxNet) GetAvailableIpCount() int32 {
 	if m != nil && m.AvailableIpCount != nil {
@@ -1749,7 +2112,7 @@ func (m *VxNet) GetAvailableIpCount() int32 {
 	return 0
 }
 
-func (m *VxNet) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *VxNet) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1820,34 +2183,55 @@ func (m *VxNet) GetVxnetType() int32 {
 }
 
 type Router struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	DynIpEnd         *string                     `protobuf:"bytes,3,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
-	DynIpStart       *string                     `protobuf:"bytes,4,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
-	Eip              *EIP                        `protobuf:"bytes,5,opt,name=eip" json:"eip,omitempty"`
-	IpNetwork        *string                     `protobuf:"bytes,6,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
-	IsApplied        *int32                      `protobuf:"varint,7,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	ManagerIp        *string                     `protobuf:"bytes,8,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
-	Mode             *int32                      `protobuf:"varint,9,opt,name=mode" json:"mode,omitempty"`
-	PrivateIp        *string                     `protobuf:"bytes,10,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	RouterId         *string                     `protobuf:"bytes,11,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	RouterName       *string                     `protobuf:"bytes,12,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
-	RouterType       *int32                      `protobuf:"varint,13,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
-	SecurityGroupId  *string                     `protobuf:"bytes,14,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Status           *string                     `protobuf:"bytes,15,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,16,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	Tags             []*Tag                      `protobuf:"bytes,17,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	Vxnets           []*VxNet                    `protobuf:"bytes,19,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	DynIpEnd             *string              `protobuf:"bytes,3,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	DynIpStart           *string              `protobuf:"bytes,4,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	Eip                  *EIP                 `protobuf:"bytes,5,opt,name=eip" json:"eip,omitempty"`
+	IpNetwork            *string              `protobuf:"bytes,6,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	IsApplied            *int32               `protobuf:"varint,7,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	ManagerIp            *string              `protobuf:"bytes,8,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	Mode                 *int32               `protobuf:"varint,9,opt,name=mode" json:"mode,omitempty"`
+	PrivateIp            *string              `protobuf:"bytes,10,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	RouterId             *string              `protobuf:"bytes,11,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterName           *string              `protobuf:"bytes,12,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	RouterType           *int32               `protobuf:"varint,13,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
+	SecurityGroupId      *string              `protobuf:"bytes,14,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Status               *string              `protobuf:"bytes,15,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,16,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,17,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,18,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	Vxnets               []*VxNet             `protobuf:"bytes,19,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Router) Reset()                    { *m = Router{} }
-func (m *Router) String() string            { return proto.CompactTextString(m) }
-func (*Router) ProtoMessage()               {}
-func (*Router) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{17} }
+func (m *Router) Reset()         { *m = Router{} }
+func (m *Router) String() string { return proto.CompactTextString(m) }
+func (*Router) ProtoMessage()    {}
+func (*Router) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{17}
+}
+func (m *Router) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Router.Unmarshal(m, b)
+}
+func (m *Router) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Router.Marshal(b, m, deterministic)
+}
+func (dst *Router) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Router.Merge(dst, src)
+}
+func (m *Router) XXX_Size() int {
+	return xxx_messageInfo_Router.Size(m)
+}
+func (m *Router) XXX_DiscardUnknown() {
+	xxx_messageInfo_Router.DiscardUnknown(m)
+}
 
-func (m *Router) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_Router proto.InternalMessageInfo
+
+func (m *Router) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1952,7 +2336,7 @@ func (m *Router) GetStatus() string {
 	return ""
 }
 
-func (m *Router) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Router) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -1981,11 +2365,11 @@ func (m *Router) GetVxnets() []*VxNet {
 }
 
 type Instance struct {
-	AlarmStatus *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	CpuTopology *string                     `protobuf:"bytes,2,opt,name=cpu_topology,json=cpuTopology" json:"cpu_topology,omitempty"`
-	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	Device      *string                     `protobuf:"bytes,5,opt,name=device" json:"device,omitempty"`
+	AlarmStatus *string              `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	CpuTopology *string              `protobuf:"bytes,2,opt,name=cpu_topology,json=cpuTopology" json:"cpu_topology,omitempty"`
+	CreateTime  *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description *string              `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	Device      *string              `protobuf:"bytes,5,opt,name=device" json:"device,omitempty"`
 	// DHCPOptions      *DHCPOption    `json:"dhcp_options" name:"dhcp_options"`
 	// DNSAliases       []*DNSAlias    `json:"dns_aliases" name:"dns_aliases"`
 	Eip *EIP `protobuf:"bytes,8,opt,name=eip" json:"eip,omitempty"`
@@ -2002,22 +2386,43 @@ type Instance struct {
 	MemoryCurrent    *int32   `protobuf:"varint,19,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
 	PrivateIp        *string  `protobuf:"bytes,20,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
 	// SecurityGroup    *SecurityGroup `json:"security_group" name:"security_group"`
-	Status           *string                     `protobuf:"bytes,22,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,23,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode          *int32                      `protobuf:"varint,24,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	Tags             []*Tag                      `protobuf:"bytes,25,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VcpusCurrent     *int32                      `protobuf:"varint,27,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
-	VolumeIds        []string                    `protobuf:"bytes,28,rep,name=volume_ids,json=volumeIds" json:"volume_ids,omitempty"`
-	Volumes          []*Volume                   `protobuf:"bytes,29,rep,name=volumes" json:"volumes,omitempty"`
-	Vxnets           []*InstanceVxNet            `protobuf:"bytes,30,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Status               *string              `protobuf:"bytes,22,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,23,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode              *int32               `protobuf:"varint,24,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,25,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VcpusCurrent         *int32               `protobuf:"varint,27,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
+	VolumeIds            []string             `protobuf:"bytes,28,rep,name=volume_ids,json=volumeIds" json:"volume_ids,omitempty"`
+	Volumes              []*Volume            `protobuf:"bytes,29,rep,name=volumes" json:"volumes,omitempty"`
+	Vxnets               []*InstanceVxNet     `protobuf:"bytes,30,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Instance) Reset()                    { *m = Instance{} }
-func (m *Instance) String() string            { return proto.CompactTextString(m) }
-func (*Instance) ProtoMessage()               {}
-func (*Instance) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{18} }
+func (m *Instance) Reset()         { *m = Instance{} }
+func (m *Instance) String() string { return proto.CompactTextString(m) }
+func (*Instance) ProtoMessage()    {}
+func (*Instance) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{18}
+}
+func (m *Instance) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Instance.Unmarshal(m, b)
+}
+func (m *Instance) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Instance.Marshal(b, m, deterministic)
+}
+func (dst *Instance) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Instance.Merge(dst, src)
+}
+func (m *Instance) XXX_Size() int {
+	return xxx_messageInfo_Instance.Size(m)
+}
+func (m *Instance) XXX_DiscardUnknown() {
+	xxx_messageInfo_Instance.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Instance proto.InternalMessageInfo
 
 func (m *Instance) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -2033,7 +2438,7 @@ func (m *Instance) GetCpuTopology() string {
 	return ""
 }
 
-func (m *Instance) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *Instance) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2145,7 +2550,7 @@ func (m *Instance) GetStatus() string {
 	return ""
 }
 
-func (m *Instance) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Instance) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -2202,19 +2607,40 @@ func (m *Instance) GetVxnets() []*InstanceVxNet {
 }
 
 type InstanceVxNet struct {
-	NicId            *string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
-	PrivateIp        *string `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	Role             *int32  `protobuf:"varint,3,opt,name=role" json:"role,omitempty"`
-	VxnetId          *string `protobuf:"bytes,4,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	VxnetName        *string `protobuf:"bytes,5,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	VxnetType        *int32  `protobuf:"varint,6,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	NicId                *string  `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
+	PrivateIp            *string  `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	Role                 *int32   `protobuf:"varint,3,opt,name=role" json:"role,omitempty"`
+	VxnetId              *string  `protobuf:"bytes,4,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	VxnetName            *string  `protobuf:"bytes,5,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	VxnetType            *int32   `protobuf:"varint,6,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *InstanceVxNet) Reset()                    { *m = InstanceVxNet{} }
-func (m *InstanceVxNet) String() string            { return proto.CompactTextString(m) }
-func (*InstanceVxNet) ProtoMessage()               {}
-func (*InstanceVxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{19} }
+func (m *InstanceVxNet) Reset()         { *m = InstanceVxNet{} }
+func (m *InstanceVxNet) String() string { return proto.CompactTextString(m) }
+func (*InstanceVxNet) ProtoMessage()    {}
+func (*InstanceVxNet) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{19}
+}
+func (m *InstanceVxNet) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InstanceVxNet.Unmarshal(m, b)
+}
+func (m *InstanceVxNet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InstanceVxNet.Marshal(b, m, deterministic)
+}
+func (dst *InstanceVxNet) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InstanceVxNet.Merge(dst, src)
+}
+func (m *InstanceVxNet) XXX_Size() int {
+	return xxx_messageInfo_InstanceVxNet.Size(m)
+}
+func (m *InstanceVxNet) XXX_DiscardUnknown() {
+	xxx_messageInfo_InstanceVxNet.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InstanceVxNet proto.InternalMessageInfo
 
 func (m *InstanceVxNet) GetNicId() string {
 	if m != nil && m.NicId != nil {
@@ -2259,41 +2685,62 @@ func (m *InstanceVxNet) GetVxnetType() int32 {
 }
 
 type Image struct {
-	AppBillingId     *string                     `protobuf:"bytes,1,opt,name=app_billing_id,json=appBillingId" json:"app_billing_id,omitempty"`
-	Architecture     *string                     `protobuf:"bytes,2,opt,name=architecture" json:"architecture,omitempty"`
-	BillingId        *string                     `protobuf:"bytes,3,opt,name=billing_id,json=billingId" json:"billing_id,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	DefaultPasswd    *string                     `protobuf:"bytes,5,opt,name=default_passwd,json=defaultPasswd" json:"default_passwd,omitempty"`
-	DefaultUser      *string                     `protobuf:"bytes,6,opt,name=default_user,json=defaultUser" json:"default_user,omitempty"`
-	Description      *string                     `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
-	FResetpwd        *int32                      `protobuf:"varint,8,opt,name=f_resetpwd,json=fResetpwd" json:"f_resetpwd,omitempty"`
-	Feature          *int32                      `protobuf:"varint,9,opt,name=feature" json:"feature,omitempty"`
-	Features         *int32                      `protobuf:"varint,10,opt,name=features" json:"features,omitempty"`
-	Hypervisor       *string                     `protobuf:"bytes,11,opt,name=hypervisor" json:"hypervisor,omitempty"`
-	ImageId          *string                     `protobuf:"bytes,12,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	ImageName        *string                     `protobuf:"bytes,13,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	InstanceIds      []string                    `protobuf:"bytes,14,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
-	OsFamily         *string                     `protobuf:"bytes,15,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Owner            *string                     `protobuf:"bytes,16,opt,name=owner" json:"owner,omitempty"`
-	Platform         *string                     `protobuf:"bytes,17,opt,name=platform" json:"platform,omitempty"`
-	ProcessorType    *string                     `protobuf:"bytes,18,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
-	Provider         *string                     `protobuf:"bytes,19,opt,name=provider" json:"provider,omitempty"`
-	RecommendedType  *string                     `protobuf:"bytes,20,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
-	RootId           *string                     `protobuf:"bytes,21,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
-	Size             *int32                      `protobuf:"varint,22,opt,name=size" json:"size,omitempty"`
-	Status           *string                     `protobuf:"bytes,23,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,24,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode          *int32                      `protobuf:"varint,25,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	UiType           *string                     `protobuf:"bytes,27,opt,name=ui_type,json=uiType" json:"ui_type,omitempty"`
-	Visibility       *string                     `protobuf:"bytes,28,opt,name=visibility" json:"visibility,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	AppBillingId         *string              `protobuf:"bytes,1,opt,name=app_billing_id,json=appBillingId" json:"app_billing_id,omitempty"`
+	Architecture         *string              `protobuf:"bytes,2,opt,name=architecture" json:"architecture,omitempty"`
+	BillingId            *string              `protobuf:"bytes,3,opt,name=billing_id,json=billingId" json:"billing_id,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	DefaultPasswd        *string              `protobuf:"bytes,5,opt,name=default_passwd,json=defaultPasswd" json:"default_passwd,omitempty"`
+	DefaultUser          *string              `protobuf:"bytes,6,opt,name=default_user,json=defaultUser" json:"default_user,omitempty"`
+	Description          *string              `protobuf:"bytes,7,opt,name=description" json:"description,omitempty"`
+	FResetpwd            *int32               `protobuf:"varint,8,opt,name=f_resetpwd,json=fResetpwd" json:"f_resetpwd,omitempty"`
+	Feature              *int32               `protobuf:"varint,9,opt,name=feature" json:"feature,omitempty"`
+	Features             *int32               `protobuf:"varint,10,opt,name=features" json:"features,omitempty"`
+	Hypervisor           *string              `protobuf:"bytes,11,opt,name=hypervisor" json:"hypervisor,omitempty"`
+	ImageId              *string              `protobuf:"bytes,12,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	ImageName            *string              `protobuf:"bytes,13,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	InstanceIds          []string             `protobuf:"bytes,14,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
+	OsFamily             *string              `protobuf:"bytes,15,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Owner                *string              `protobuf:"bytes,16,opt,name=owner" json:"owner,omitempty"`
+	Platform             *string              `protobuf:"bytes,17,opt,name=platform" json:"platform,omitempty"`
+	ProcessorType        *string              `protobuf:"bytes,18,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
+	Provider             *string              `protobuf:"bytes,19,opt,name=provider" json:"provider,omitempty"`
+	RecommendedType      *string              `protobuf:"bytes,20,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
+	RootId               *string              `protobuf:"bytes,21,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
+	Size                 *int32               `protobuf:"varint,22,opt,name=size" json:"size,omitempty"`
+	Status               *string              `protobuf:"bytes,23,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,24,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode              *int32               `protobuf:"varint,25,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,26,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	UiType               *string              `protobuf:"bytes,27,opt,name=ui_type,json=uiType" json:"ui_type,omitempty"`
+	Visibility           *string              `protobuf:"bytes,28,opt,name=visibility" json:"visibility,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Image) Reset()                    { *m = Image{} }
-func (m *Image) String() string            { return proto.CompactTextString(m) }
-func (*Image) ProtoMessage()               {}
-func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{20} }
+func (m *Image) Reset()         { *m = Image{} }
+func (m *Image) String() string { return proto.CompactTextString(m) }
+func (*Image) ProtoMessage()    {}
+func (*Image) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{20}
+}
+func (m *Image) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Image.Unmarshal(m, b)
+}
+func (m *Image) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Image.Marshal(b, m, deterministic)
+}
+func (dst *Image) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Image.Merge(dst, src)
+}
+func (m *Image) XXX_Size() int {
+	return xxx_messageInfo_Image.Size(m)
+}
+func (m *Image) XXX_DiscardUnknown() {
+	xxx_messageInfo_Image.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Image proto.InternalMessageInfo
 
 func (m *Image) GetAppBillingId() string {
 	if m != nil && m.AppBillingId != nil {
@@ -2316,7 +2763,7 @@ func (m *Image) GetBillingId() string {
 	return ""
 }
 
-func (m *Image) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *Image) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2456,7 +2903,7 @@ func (m *Image) GetStatus() string {
 	return ""
 }
 
-func (m *Image) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Image) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -2492,18 +2939,39 @@ func (m *Image) GetVisibility() string {
 }
 
 type ImageUser struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	ImageId          *string                     `protobuf:"bytes,2,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	User             *string                     `protobuf:"bytes,3,opt,name=user" json:"user,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	ImageId              *string              `protobuf:"bytes,2,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	User                 *string              `protobuf:"bytes,3,opt,name=user" json:"user,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *ImageUser) Reset()                    { *m = ImageUser{} }
-func (m *ImageUser) String() string            { return proto.CompactTextString(m) }
-func (*ImageUser) ProtoMessage()               {}
-func (*ImageUser) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{21} }
+func (m *ImageUser) Reset()         { *m = ImageUser{} }
+func (m *ImageUser) String() string { return proto.CompactTextString(m) }
+func (*ImageUser) ProtoMessage()    {}
+func (*ImageUser) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{21}
+}
+func (m *ImageUser) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ImageUser.Unmarshal(m, b)
+}
+func (m *ImageUser) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ImageUser.Marshal(b, m, deterministic)
+}
+func (dst *ImageUser) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ImageUser.Merge(dst, src)
+}
+func (m *ImageUser) XXX_Size() int {
+	return xxx_messageInfo_ImageUser.Size(m)
+}
+func (m *ImageUser) XXX_DiscardUnknown() {
+	xxx_messageInfo_ImageUser.DiscardUnknown(m)
+}
 
-func (m *ImageUser) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_ImageUser proto.InternalMessageInfo
+
+func (m *ImageUser) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2525,29 +2993,50 @@ func (m *ImageUser) GetUser() string {
 }
 
 type Mongo struct {
-	AlarmStatus         *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	AutoBackupTime      *int32                      `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	AutoMinorVerUpgrade *int32                      `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
-	CreateTime          *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description         *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	LatestSnapshotTime  *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	MongoId             *string                     `protobuf:"bytes,7,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
-	MongoName           *string                     `protobuf:"bytes,8,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
-	MongoType           *int32                      `protobuf:"varint,9,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
-	MongoVersion        *string                     `protobuf:"bytes,10,opt,name=mongo_version,json=mongoVersion" json:"mongo_version,omitempty"`
-	Status              *string                     `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
-	StatusTime          *google_protobuf1.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	StorageSize         *int32                      `protobuf:"varint,13,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	Tags                []*Tag                      `protobuf:"bytes,14,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus    *string                     `protobuf:"bytes,15,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	Vxnet               *VxNet                      `protobuf:"bytes,16,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized    []byte                      `json:"-"`
+	AlarmStatus          *string              `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	AutoBackupTime       *int32               `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	AutoMinorVerUpgrade  *int32               `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	LatestSnapshotTime   *timestamp.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
+	MongoId              *string              `protobuf:"bytes,7,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
+	MongoName            *string              `protobuf:"bytes,8,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
+	MongoType            *int32               `protobuf:"varint,9,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
+	MongoVersion         *string              `protobuf:"bytes,10,opt,name=mongo_version,json=mongoVersion" json:"mongo_version,omitempty"`
+	Status               *string              `protobuf:"bytes,11,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,12,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StorageSize          *int32               `protobuf:"varint,13,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,14,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,15,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	Vxnet                *VxNet               `protobuf:"bytes,16,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Mongo) Reset()                    { *m = Mongo{} }
-func (m *Mongo) String() string            { return proto.CompactTextString(m) }
-func (*Mongo) ProtoMessage()               {}
-func (*Mongo) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{22} }
+func (m *Mongo) Reset()         { *m = Mongo{} }
+func (m *Mongo) String() string { return proto.CompactTextString(m) }
+func (*Mongo) ProtoMessage()    {}
+func (*Mongo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{22}
+}
+func (m *Mongo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Mongo.Unmarshal(m, b)
+}
+func (m *Mongo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Mongo.Marshal(b, m, deterministic)
+}
+func (dst *Mongo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Mongo.Merge(dst, src)
+}
+func (m *Mongo) XXX_Size() int {
+	return xxx_messageInfo_Mongo.Size(m)
+}
+func (m *Mongo) XXX_DiscardUnknown() {
+	xxx_messageInfo_Mongo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Mongo proto.InternalMessageInfo
 
 func (m *Mongo) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -2570,7 +3059,7 @@ func (m *Mongo) GetAutoMinorVerUpgrade() int32 {
 	return 0
 }
 
-func (m *Mongo) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *Mongo) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2584,7 +3073,7 @@ func (m *Mongo) GetDescription() string {
 	return ""
 }
 
-func (m *Mongo) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *Mongo) GetLatestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LatestSnapshotTime
 	}
@@ -2626,7 +3115,7 @@ func (m *Mongo) GetStatus() string {
 	return ""
 }
 
-func (m *Mongo) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Mongo) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -2662,19 +3151,40 @@ func (m *Mongo) GetVxnet() *VxNet {
 }
 
 type MongoNode struct {
-	Ip               *string `protobuf:"bytes,1,opt,name=ip" json:"ip,omitempty"`
-	MongoId          *string `protobuf:"bytes,2,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
-	MongoNodeId      *string `protobuf:"bytes,3,opt,name=mongo_node_id,json=mongoNodeId" json:"mongo_node_id,omitempty"`
-	Primary          *int32  `protobuf:"varint,4,opt,name=primary" json:"primary,omitempty"`
-	Status           *string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	VxnetId          *string `protobuf:"bytes,6,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Ip                   *string  `protobuf:"bytes,1,opt,name=ip" json:"ip,omitempty"`
+	MongoId              *string  `protobuf:"bytes,2,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
+	MongoNodeId          *string  `protobuf:"bytes,3,opt,name=mongo_node_id,json=mongoNodeId" json:"mongo_node_id,omitempty"`
+	Primary              *int32   `protobuf:"varint,4,opt,name=primary" json:"primary,omitempty"`
+	Status               *string  `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	VxnetId              *string  `protobuf:"bytes,6,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *MongoNode) Reset()                    { *m = MongoNode{} }
-func (m *MongoNode) String() string            { return proto.CompactTextString(m) }
-func (*MongoNode) ProtoMessage()               {}
-func (*MongoNode) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{23} }
+func (m *MongoNode) Reset()         { *m = MongoNode{} }
+func (m *MongoNode) String() string { return proto.CompactTextString(m) }
+func (*MongoNode) ProtoMessage()    {}
+func (*MongoNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{23}
+}
+func (m *MongoNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MongoNode.Unmarshal(m, b)
+}
+func (m *MongoNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MongoNode.Marshal(b, m, deterministic)
+}
+func (dst *MongoNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MongoNode.Merge(dst, src)
+}
+func (m *MongoNode) XXX_Size() int {
+	return xxx_messageInfo_MongoNode.Size(m)
+}
+func (m *MongoNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_MongoNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MongoNode proto.InternalMessageInfo
 
 func (m *MongoNode) GetIp() string {
 	if m != nil && m.Ip != nil {
@@ -2719,30 +3229,51 @@ func (m *MongoNode) GetVxnetId() string {
 }
 
 type LoadBalancer struct {
-	Cluster          []*EIP                      `protobuf:"bytes,1,rep,name=cluster" json:"cluster,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	IsApplied        *int32                      `protobuf:"varint,4,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	Listeners        []*LoadBalancerListener     `protobuf:"bytes,5,rep,name=listeners" json:"listeners,omitempty"`
-	LoadbalancerId   *string                     `protobuf:"bytes,6,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
-	LoadbalancerName *string                     `protobuf:"bytes,7,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
-	LoadbalancerType *int32                      `protobuf:"varint,8,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
-	NodeCount        *int32                      `protobuf:"varint,9,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	PrivateIps       []string                    `protobuf:"bytes,10,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	SecurityGroupId  *string                     `protobuf:"bytes,11,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Status           *string                     `protobuf:"bytes,12,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,13,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	Tags             []*Tag                      `protobuf:"bytes,14,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,15,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VxnetId          *string                     `protobuf:"bytes,16,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	Eips             []*EIP                      `protobuf:"bytes,17,rep,name=eips" json:"eips,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Cluster              []*EIP                  `protobuf:"bytes,1,rep,name=cluster" json:"cluster,omitempty"`
+	CreateTime           *timestamp.Timestamp    `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string                 `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	IsApplied            *int32                  `protobuf:"varint,4,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Listeners            []*LoadBalancerListener `protobuf:"bytes,5,rep,name=listeners" json:"listeners,omitempty"`
+	LoadbalancerId       *string                 `protobuf:"bytes,6,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
+	LoadbalancerName     *string                 `protobuf:"bytes,7,opt,name=loadbalancer_name,json=loadbalancerName" json:"loadbalancer_name,omitempty"`
+	LoadbalancerType     *int32                  `protobuf:"varint,8,opt,name=loadbalancer_type,json=loadbalancerType" json:"loadbalancer_type,omitempty"`
+	NodeCount            *int32                  `protobuf:"varint,9,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	PrivateIps           []string                `protobuf:"bytes,10,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	SecurityGroupId      *string                 `protobuf:"bytes,11,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Status               *string                 `protobuf:"bytes,12,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp    `protobuf:"bytes,13,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Tags                 []*Tag                  `protobuf:"bytes,14,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus     *string                 `protobuf:"bytes,15,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VxnetId              *string                 `protobuf:"bytes,16,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	Eips                 []*EIP                  `protobuf:"bytes,17,rep,name=eips" json:"eips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
 }
 
-func (m *LoadBalancer) Reset()                    { *m = LoadBalancer{} }
-func (m *LoadBalancer) String() string            { return proto.CompactTextString(m) }
-func (*LoadBalancer) ProtoMessage()               {}
-func (*LoadBalancer) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{24} }
+func (m *LoadBalancer) Reset()         { *m = LoadBalancer{} }
+func (m *LoadBalancer) String() string { return proto.CompactTextString(m) }
+func (*LoadBalancer) ProtoMessage()    {}
+func (*LoadBalancer) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{24}
+}
+func (m *LoadBalancer) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LoadBalancer.Unmarshal(m, b)
+}
+func (m *LoadBalancer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LoadBalancer.Marshal(b, m, deterministic)
+}
+func (dst *LoadBalancer) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LoadBalancer.Merge(dst, src)
+}
+func (m *LoadBalancer) XXX_Size() int {
+	return xxx_messageInfo_LoadBalancer.Size(m)
+}
+func (m *LoadBalancer) XXX_DiscardUnknown() {
+	xxx_messageInfo_LoadBalancer.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LoadBalancer proto.InternalMessageInfo
 
 func (m *LoadBalancer) GetCluster() []*EIP {
 	if m != nil {
@@ -2751,7 +3282,7 @@ func (m *LoadBalancer) GetCluster() []*EIP {
 	return nil
 }
 
-func (m *LoadBalancer) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *LoadBalancer) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2828,7 +3359,7 @@ func (m *LoadBalancer) GetStatus() string {
 	return ""
 }
 
-func (m *LoadBalancer) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *LoadBalancer) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -2864,28 +3395,49 @@ func (m *LoadBalancer) GetEips() []*EIP {
 }
 
 type LoadBalancerListener struct {
-	BackendProtocol          *string                     `protobuf:"bytes,1,opt,name=backend_protocol,json=backendProtocol" json:"backend_protocol,omitempty"`
-	Backends                 []*LoadBalancerBackend      `protobuf:"bytes,2,rep,name=backends" json:"backends,omitempty"`
-	BalanceMode              *string                     `protobuf:"bytes,3,opt,name=balance_mode,json=balanceMode" json:"balance_mode,omitempty"`
-	CreateTime               *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Forwardfor               *int32                      `protobuf:"varint,5,opt,name=forwardfor" json:"forwardfor,omitempty"`
-	HealthyCheckMethod       *string                     `protobuf:"bytes,6,opt,name=healthy_check_method,json=healthyCheckMethod" json:"healthy_check_method,omitempty"`
-	HealthyCheckOption       *string                     `protobuf:"bytes,7,opt,name=healthy_check_option,json=healthyCheckOption" json:"healthy_check_option,omitempty"`
-	ListenerOption           *int32                      `protobuf:"varint,8,opt,name=listener_option,json=listenerOption" json:"listener_option,omitempty"`
-	ListenerPort             *int32                      `protobuf:"varint,9,opt,name=listener_port,json=listenerPort" json:"listener_port,omitempty"`
-	ListenerProtocol         *string                     `protobuf:"bytes,10,opt,name=listener_protocol,json=listenerProtocol" json:"listener_protocol,omitempty"`
-	LoadbalancerId           *string                     `protobuf:"bytes,11,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
-	LoadbalancerListenerId   *string                     `protobuf:"bytes,12,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
-	LoadbalancerListenerName *string                     `protobuf:"bytes,13,opt,name=loadbalancer_listener_name,json=loadbalancerListenerName" json:"loadbalancer_listener_name,omitempty"`
-	ServerCertificateId      *string                     `protobuf:"bytes,14,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
-	SessionSticky            *string                     `protobuf:"bytes,15,opt,name=session_sticky,json=sessionSticky" json:"session_sticky,omitempty"`
-	XXX_unrecognized         []byte                      `json:"-"`
+	BackendProtocol          *string                `protobuf:"bytes,1,opt,name=backend_protocol,json=backendProtocol" json:"backend_protocol,omitempty"`
+	Backends                 []*LoadBalancerBackend `protobuf:"bytes,2,rep,name=backends" json:"backends,omitempty"`
+	BalanceMode              *string                `protobuf:"bytes,3,opt,name=balance_mode,json=balanceMode" json:"balance_mode,omitempty"`
+	CreateTime               *timestamp.Timestamp   `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Forwardfor               *int32                 `protobuf:"varint,5,opt,name=forwardfor" json:"forwardfor,omitempty"`
+	HealthyCheckMethod       *string                `protobuf:"bytes,6,opt,name=healthy_check_method,json=healthyCheckMethod" json:"healthy_check_method,omitempty"`
+	HealthyCheckOption       *string                `protobuf:"bytes,7,opt,name=healthy_check_option,json=healthyCheckOption" json:"healthy_check_option,omitempty"`
+	ListenerOption           *int32                 `protobuf:"varint,8,opt,name=listener_option,json=listenerOption" json:"listener_option,omitempty"`
+	ListenerPort             *int32                 `protobuf:"varint,9,opt,name=listener_port,json=listenerPort" json:"listener_port,omitempty"`
+	ListenerProtocol         *string                `protobuf:"bytes,10,opt,name=listener_protocol,json=listenerProtocol" json:"listener_protocol,omitempty"`
+	LoadbalancerId           *string                `protobuf:"bytes,11,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
+	LoadbalancerListenerId   *string                `protobuf:"bytes,12,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
+	LoadbalancerListenerName *string                `protobuf:"bytes,13,opt,name=loadbalancer_listener_name,json=loadbalancerListenerName" json:"loadbalancer_listener_name,omitempty"`
+	ServerCertificateId      *string                `protobuf:"bytes,14,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
+	SessionSticky            *string                `protobuf:"bytes,15,opt,name=session_sticky,json=sessionSticky" json:"session_sticky,omitempty"`
+	XXX_NoUnkeyedLiteral     struct{}               `json:"-"`
+	XXX_unrecognized         []byte                 `json:"-"`
+	XXX_sizecache            int32                  `json:"-"`
 }
 
-func (m *LoadBalancerListener) Reset()                    { *m = LoadBalancerListener{} }
-func (m *LoadBalancerListener) String() string            { return proto.CompactTextString(m) }
-func (*LoadBalancerListener) ProtoMessage()               {}
-func (*LoadBalancerListener) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{25} }
+func (m *LoadBalancerListener) Reset()         { *m = LoadBalancerListener{} }
+func (m *LoadBalancerListener) String() string { return proto.CompactTextString(m) }
+func (*LoadBalancerListener) ProtoMessage()    {}
+func (*LoadBalancerListener) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{25}
+}
+func (m *LoadBalancerListener) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LoadBalancerListener.Unmarshal(m, b)
+}
+func (m *LoadBalancerListener) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LoadBalancerListener.Marshal(b, m, deterministic)
+}
+func (dst *LoadBalancerListener) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LoadBalancerListener.Merge(dst, src)
+}
+func (m *LoadBalancerListener) XXX_Size() int {
+	return xxx_messageInfo_LoadBalancerListener.Size(m)
+}
+func (m *LoadBalancerListener) XXX_DiscardUnknown() {
+	xxx_messageInfo_LoadBalancerListener.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LoadBalancerListener proto.InternalMessageInfo
 
 func (m *LoadBalancerListener) GetBackendProtocol() string {
 	if m != nil && m.BackendProtocol != nil {
@@ -2908,7 +3460,7 @@ func (m *LoadBalancerListener) GetBalanceMode() string {
 	return ""
 }
 
-func (m *LoadBalancerListener) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *LoadBalancerListener) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -2993,25 +3545,46 @@ func (m *LoadBalancerListener) GetSessionSticky() string {
 }
 
 type LoadBalancerBackend struct {
-	CreateTime              *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	LoadbalancerBackendId   *string                     `protobuf:"bytes,2,opt,name=loadbalancer_backend_id,json=loadbalancerBackendId" json:"loadbalancer_backend_id,omitempty"`
-	LoadbalancerBackendName *string                     `protobuf:"bytes,3,opt,name=loadbalancer_backend_name,json=loadbalancerBackendName" json:"loadbalancer_backend_name,omitempty"`
-	LoadbalancerId          *string                     `protobuf:"bytes,4,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
-	LoadbalancerListenerId  *string                     `protobuf:"bytes,5,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
-	LoadbalancerPolicyId    *string                     `protobuf:"bytes,6,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
-	Port                    *int32                      `protobuf:"varint,7,opt,name=port" json:"port,omitempty"`
-	ResourceId              *string                     `protobuf:"bytes,8,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	Status                  *string                     `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
-	Weight                  *int32                      `protobuf:"varint,10,opt,name=weight" json:"weight,omitempty"`
-	XXX_unrecognized        []byte                      `json:"-"`
+	CreateTime              *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	LoadbalancerBackendId   *string              `protobuf:"bytes,2,opt,name=loadbalancer_backend_id,json=loadbalancerBackendId" json:"loadbalancer_backend_id,omitempty"`
+	LoadbalancerBackendName *string              `protobuf:"bytes,3,opt,name=loadbalancer_backend_name,json=loadbalancerBackendName" json:"loadbalancer_backend_name,omitempty"`
+	LoadbalancerId          *string              `protobuf:"bytes,4,opt,name=loadbalancer_id,json=loadbalancerId" json:"loadbalancer_id,omitempty"`
+	LoadbalancerListenerId  *string              `protobuf:"bytes,5,opt,name=loadbalancer_listener_id,json=loadbalancerListenerId" json:"loadbalancer_listener_id,omitempty"`
+	LoadbalancerPolicyId    *string              `protobuf:"bytes,6,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
+	Port                    *int32               `protobuf:"varint,7,opt,name=port" json:"port,omitempty"`
+	ResourceId              *string              `protobuf:"bytes,8,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	Status                  *string              `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
+	Weight                  *int32               `protobuf:"varint,10,opt,name=weight" json:"weight,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{}             `json:"-"`
+	XXX_unrecognized        []byte               `json:"-"`
+	XXX_sizecache           int32                `json:"-"`
 }
 
-func (m *LoadBalancerBackend) Reset()                    { *m = LoadBalancerBackend{} }
-func (m *LoadBalancerBackend) String() string            { return proto.CompactTextString(m) }
-func (*LoadBalancerBackend) ProtoMessage()               {}
-func (*LoadBalancerBackend) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{26} }
+func (m *LoadBalancerBackend) Reset()         { *m = LoadBalancerBackend{} }
+func (m *LoadBalancerBackend) String() string { return proto.CompactTextString(m) }
+func (*LoadBalancerBackend) ProtoMessage()    {}
+func (*LoadBalancerBackend) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{26}
+}
+func (m *LoadBalancerBackend) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LoadBalancerBackend.Unmarshal(m, b)
+}
+func (m *LoadBalancerBackend) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LoadBalancerBackend.Marshal(b, m, deterministic)
+}
+func (dst *LoadBalancerBackend) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LoadBalancerBackend.Merge(dst, src)
+}
+func (m *LoadBalancerBackend) XXX_Size() int {
+	return xxx_messageInfo_LoadBalancerBackend.Size(m)
+}
+func (m *LoadBalancerBackend) XXX_DiscardUnknown() {
+	xxx_messageInfo_LoadBalancerBackend.DiscardUnknown(m)
+}
 
-func (m *LoadBalancerBackend) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_LoadBalancerBackend proto.InternalMessageInfo
+
+func (m *LoadBalancerBackend) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -3082,15 +3655,36 @@ func (m *LoadBalancerBackend) GetWeight() int32 {
 }
 
 type SparkPrivateIps struct {
-	Role             *string `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
-	PrivateIps       *string `protobuf:"bytes,2,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Role                 *string  `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
+	PrivateIps           *string  `protobuf:"bytes,2,opt,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SparkPrivateIps) Reset()                    { *m = SparkPrivateIps{} }
-func (m *SparkPrivateIps) String() string            { return proto.CompactTextString(m) }
-func (*SparkPrivateIps) ProtoMessage()               {}
-func (*SparkPrivateIps) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{27} }
+func (m *SparkPrivateIps) Reset()         { *m = SparkPrivateIps{} }
+func (m *SparkPrivateIps) String() string { return proto.CompactTextString(m) }
+func (*SparkPrivateIps) ProtoMessage()    {}
+func (*SparkPrivateIps) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{27}
+}
+func (m *SparkPrivateIps) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SparkPrivateIps.Unmarshal(m, b)
+}
+func (m *SparkPrivateIps) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SparkPrivateIps.Marshal(b, m, deterministic)
+}
+func (dst *SparkPrivateIps) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SparkPrivateIps.Merge(dst, src)
+}
+func (m *SparkPrivateIps) XXX_Size() int {
+	return xxx_messageInfo_SparkPrivateIps.Size(m)
+}
+func (m *SparkPrivateIps) XXX_DiscardUnknown() {
+	xxx_messageInfo_SparkPrivateIps.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SparkPrivateIps proto.InternalMessageInfo
 
 func (m *SparkPrivateIps) GetRole() string {
 	if m != nil && m.Role != nil {
@@ -3107,15 +3701,36 @@ func (m *SparkPrivateIps) GetPrivateIps() string {
 }
 
 type Data struct {
-	Data             *string `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
-	EipId            *string `protobuf:"bytes,2,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Data                 *string  `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	EipId                *string  `protobuf:"bytes,2,opt,name=eip_id,json=eipId" json:"eip_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Data) Reset()                    { *m = Data{} }
-func (m *Data) String() string            { return proto.CompactTextString(m) }
-func (*Data) ProtoMessage()               {}
-func (*Data) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{28} }
+func (m *Data) Reset()         { *m = Data{} }
+func (m *Data) String() string { return proto.CompactTextString(m) }
+func (*Data) ProtoMessage()    {}
+func (*Data) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{28}
+}
+func (m *Data) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Data.Unmarshal(m, b)
+}
+func (m *Data) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Data.Marshal(b, m, deterministic)
+}
+func (dst *Data) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Data.Merge(dst, src)
+}
+func (m *Data) XXX_Size() int {
+	return xxx_messageInfo_Data.Size(m)
+}
+func (m *Data) XXX_DiscardUnknown() {
+	xxx_messageInfo_Data.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Data proto.InternalMessageInfo
 
 func (m *Data) GetData() string {
 	if m != nil && m.Data != nil {
@@ -3132,15 +3747,36 @@ func (m *Data) GetEipId() string {
 }
 
 type DHCPOption struct {
-	RouterStaticId   *string `protobuf:"bytes,1,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
-	Val2             *string `protobuf:"bytes,2,opt,name=val2" json:"val2,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	RouterStaticId       *string  `protobuf:"bytes,1,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
+	Val2                 *string  `protobuf:"bytes,2,opt,name=val2" json:"val2,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DHCPOption) Reset()                    { *m = DHCPOption{} }
-func (m *DHCPOption) String() string            { return proto.CompactTextString(m) }
-func (*DHCPOption) ProtoMessage()               {}
-func (*DHCPOption) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{29} }
+func (m *DHCPOption) Reset()         { *m = DHCPOption{} }
+func (m *DHCPOption) String() string { return proto.CompactTextString(m) }
+func (*DHCPOption) ProtoMessage()    {}
+func (*DHCPOption) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{29}
+}
+func (m *DHCPOption) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DHCPOption.Unmarshal(m, b)
+}
+func (m *DHCPOption) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DHCPOption.Marshal(b, m, deterministic)
+}
+func (dst *DHCPOption) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DHCPOption.Merge(dst, src)
+}
+func (m *DHCPOption) XXX_Size() int {
+	return xxx_messageInfo_DHCPOption.Size(m)
+}
+func (m *DHCPOption) XXX_DiscardUnknown() {
+	xxx_messageInfo_DHCPOption.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DHCPOption proto.InternalMessageInfo
 
 func (m *DHCPOption) GetRouterStaticId() string {
 	if m != nil && m.RouterStaticId != nil {
@@ -3157,22 +3793,43 @@ func (m *DHCPOption) GetVal2() string {
 }
 
 type DNSAlias struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	DnsAliasId       *string                     `protobuf:"bytes,3,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
-	DnsAliasName     *string                     `protobuf:"bytes,4,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
-	DomainName       *string                     `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
-	ResourceId       *string                     `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	Status           *string                     `protobuf:"bytes,7,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	DnsAliasId           *string              `protobuf:"bytes,3,opt,name=dns_alias_id,json=dnsAliasId" json:"dns_alias_id,omitempty"`
+	DnsAliasName         *string              `protobuf:"bytes,4,opt,name=dns_alias_name,json=dnsAliasName" json:"dns_alias_name,omitempty"`
+	DomainName           *string              `protobuf:"bytes,5,opt,name=domain_name,json=domainName" json:"domain_name,omitempty"`
+	ResourceId           *string              `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	Status               *string              `protobuf:"bytes,7,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *DNSAlias) Reset()                    { *m = DNSAlias{} }
-func (m *DNSAlias) String() string            { return proto.CompactTextString(m) }
-func (*DNSAlias) ProtoMessage()               {}
-func (*DNSAlias) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{30} }
+func (m *DNSAlias) Reset()         { *m = DNSAlias{} }
+func (m *DNSAlias) String() string { return proto.CompactTextString(m) }
+func (*DNSAlias) ProtoMessage()    {}
+func (*DNSAlias) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{30}
+}
+func (m *DNSAlias) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DNSAlias.Unmarshal(m, b)
+}
+func (m *DNSAlias) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DNSAlias.Marshal(b, m, deterministic)
+}
+func (dst *DNSAlias) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DNSAlias.Merge(dst, src)
+}
+func (m *DNSAlias) XXX_Size() int {
+	return xxx_messageInfo_DNSAlias.Size(m)
+}
+func (m *DNSAlias) XXX_DiscardUnknown() {
+	xxx_messageInfo_DNSAlias.DiscardUnknown(m)
+}
 
-func (m *DNSAlias) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_DNSAlias proto.InternalMessageInfo
+
+func (m *DNSAlias) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -3222,15 +3879,36 @@ func (m *DNSAlias) GetStatus() string {
 }
 
 type EIPGroup struct {
-	EipGroupId       *string `protobuf:"bytes,1,opt,name=eip_group_id,json=eipGroupId" json:"eip_group_id,omitempty"`
-	EipGroupName     *string `protobuf:"bytes,2,opt,name=eip_group_name,json=eipGroupName" json:"eip_group_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	EipGroupId           *string  `protobuf:"bytes,1,opt,name=eip_group_id,json=eipGroupId" json:"eip_group_id,omitempty"`
+	EipGroupName         *string  `protobuf:"bytes,2,opt,name=eip_group_name,json=eipGroupName" json:"eip_group_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *EIPGroup) Reset()                    { *m = EIPGroup{} }
-func (m *EIPGroup) String() string            { return proto.CompactTextString(m) }
-func (*EIPGroup) ProtoMessage()               {}
-func (*EIPGroup) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{31} }
+func (m *EIPGroup) Reset()         { *m = EIPGroup{} }
+func (m *EIPGroup) String() string { return proto.CompactTextString(m) }
+func (*EIPGroup) ProtoMessage()    {}
+func (*EIPGroup) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{31}
+}
+func (m *EIPGroup) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EIPGroup.Unmarshal(m, b)
+}
+func (m *EIPGroup) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EIPGroup.Marshal(b, m, deterministic)
+}
+func (dst *EIPGroup) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EIPGroup.Merge(dst, src)
+}
+func (m *EIPGroup) XXX_Size() int {
+	return xxx_messageInfo_EIPGroup.Size(m)
+}
+func (m *EIPGroup) XXX_DiscardUnknown() {
+	xxx_messageInfo_EIPGroup.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EIPGroup proto.InternalMessageInfo
 
 func (m *EIPGroup) GetEipGroupId() string {
 	if m != nil && m.EipGroupId != nil {
@@ -3247,16 +3925,37 @@ func (m *EIPGroup) GetEipGroupName() string {
 }
 
 type EIPResource struct {
-	ResourceId       *string `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	ResourceName     *string `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
-	ResourceType     *string `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ResourceId           *string  `protobuf:"bytes,1,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	ResourceName         *string  `protobuf:"bytes,2,opt,name=resource_name,json=resourceName" json:"resource_name,omitempty"`
+	ResourceType         *string  `protobuf:"bytes,3,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *EIPResource) Reset()                    { *m = EIPResource{} }
-func (m *EIPResource) String() string            { return proto.CompactTextString(m) }
-func (*EIPResource) ProtoMessage()               {}
-func (*EIPResource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{32} }
+func (m *EIPResource) Reset()         { *m = EIPResource{} }
+func (m *EIPResource) String() string { return proto.CompactTextString(m) }
+func (*EIPResource) ProtoMessage()    {}
+func (*EIPResource) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{32}
+}
+func (m *EIPResource) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EIPResource.Unmarshal(m, b)
+}
+func (m *EIPResource) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EIPResource.Marshal(b, m, deterministic)
+}
+func (dst *EIPResource) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EIPResource.Merge(dst, src)
+}
+func (m *EIPResource) XXX_Size() int {
+	return xxx_messageInfo_EIPResource.Size(m)
+}
+func (m *EIPResource) XXX_DiscardUnknown() {
+	xxx_messageInfo_EIPResource.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EIPResource proto.InternalMessageInfo
 
 func (m *EIPResource) GetResourceId() string {
 	if m != nil && m.ResourceId != nil {
@@ -3280,25 +3979,46 @@ func (m *EIPResource) GetResourceType() string {
 }
 
 type Extra struct {
-	BlockBus         *string `protobuf:"bytes,1,opt,name=block_bus,json=blockBus" json:"block_bus,omitempty"`
-	BootDev          *string `protobuf:"bytes,2,opt,name=boot_dev,json=bootDev" json:"boot_dev,omitempty"`
-	CpuMax           *int32  `protobuf:"varint,3,opt,name=cpu_max,json=cpuMax" json:"cpu_max,omitempty"`
-	CpuModel         *string `protobuf:"bytes,4,opt,name=cpu_model,json=cpuModel" json:"cpu_model,omitempty"`
-	Features         *int32  `protobuf:"varint,5,opt,name=features" json:"features,omitempty"`
-	Hypervisor       *string `protobuf:"bytes,6,opt,name=hypervisor" json:"hypervisor,omitempty"`
-	MemMax           *int32  `protobuf:"varint,7,opt,name=mem_max,json=memMax" json:"mem_max,omitempty"`
-	NicMqueue        *int32  `protobuf:"varint,8,opt,name=nic_mqueue,json=nicMqueue" json:"nic_mqueue,omitempty"`
-	NoLimit          *int32  `protobuf:"varint,9,opt,name=no_limit,json=noLimit" json:"no_limit,omitempty"`
-	NoRestrict       *int32  `protobuf:"varint,10,opt,name=no_restrict,json=noRestrict" json:"no_restrict,omitempty"`
-	OsDiskSize       *int32  `protobuf:"varint,11,opt,name=os_disk_size,json=osDiskSize" json:"os_disk_size,omitempty"`
-	Usb              *int32  `protobuf:"varint,12,opt,name=usb" json:"usb,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	BlockBus             *string  `protobuf:"bytes,1,opt,name=block_bus,json=blockBus" json:"block_bus,omitempty"`
+	BootDev              *string  `protobuf:"bytes,2,opt,name=boot_dev,json=bootDev" json:"boot_dev,omitempty"`
+	CpuMax               *int32   `protobuf:"varint,3,opt,name=cpu_max,json=cpuMax" json:"cpu_max,omitempty"`
+	CpuModel             *string  `protobuf:"bytes,4,opt,name=cpu_model,json=cpuModel" json:"cpu_model,omitempty"`
+	Features             *int32   `protobuf:"varint,5,opt,name=features" json:"features,omitempty"`
+	Hypervisor           *string  `protobuf:"bytes,6,opt,name=hypervisor" json:"hypervisor,omitempty"`
+	MemMax               *int32   `protobuf:"varint,7,opt,name=mem_max,json=memMax" json:"mem_max,omitempty"`
+	NicMqueue            *int32   `protobuf:"varint,8,opt,name=nic_mqueue,json=nicMqueue" json:"nic_mqueue,omitempty"`
+	NoLimit              *int32   `protobuf:"varint,9,opt,name=no_limit,json=noLimit" json:"no_limit,omitempty"`
+	NoRestrict           *int32   `protobuf:"varint,10,opt,name=no_restrict,json=noRestrict" json:"no_restrict,omitempty"`
+	OsDiskSize           *int32   `protobuf:"varint,11,opt,name=os_disk_size,json=osDiskSize" json:"os_disk_size,omitempty"`
+	Usb                  *int32   `protobuf:"varint,12,opt,name=usb" json:"usb,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Extra) Reset()                    { *m = Extra{} }
-func (m *Extra) String() string            { return proto.CompactTextString(m) }
-func (*Extra) ProtoMessage()               {}
-func (*Extra) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{33} }
+func (m *Extra) Reset()         { *m = Extra{} }
+func (m *Extra) String() string { return proto.CompactTextString(m) }
+func (*Extra) ProtoMessage()    {}
+func (*Extra) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{33}
+}
+func (m *Extra) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Extra.Unmarshal(m, b)
+}
+func (m *Extra) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Extra.Marshal(b, m, deterministic)
+}
+func (dst *Extra) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Extra.Merge(dst, src)
+}
+func (m *Extra) XXX_Size() int {
+	return xxx_messageInfo_Extra.Size(m)
+}
+func (m *Extra) XXX_DiscardUnknown() {
+	xxx_messageInfo_Extra.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Extra proto.InternalMessageInfo
 
 func (m *Extra) GetBlockBus() string {
 	if m != nil && m.BlockBus != nil {
@@ -3385,16 +4105,37 @@ func (m *Extra) GetUsb() int32 {
 }
 
 type File struct {
-	File             *string                     `protobuf:"bytes,1,opt,name=file" json:"file,omitempty"`
-	LastModify       *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=last_modify,json=lastModify" json:"last_modify,omitempty"`
-	Size             *int32                      `protobuf:"varint,3,opt,name=size" json:"size,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	File                 *string              `protobuf:"bytes,1,opt,name=file" json:"file,omitempty"`
+	LastModify           *timestamp.Timestamp `protobuf:"bytes,2,opt,name=last_modify,json=lastModify" json:"last_modify,omitempty"`
+	Size                 *int32               `protobuf:"varint,3,opt,name=size" json:"size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *File) Reset()                    { *m = File{} }
-func (m *File) String() string            { return proto.CompactTextString(m) }
-func (*File) ProtoMessage()               {}
-func (*File) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{34} }
+func (m *File) Reset()         { *m = File{} }
+func (m *File) String() string { return proto.CompactTextString(m) }
+func (*File) ProtoMessage()    {}
+func (*File) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{34}
+}
+func (m *File) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_File.Unmarshal(m, b)
+}
+func (m *File) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_File.Marshal(b, m, deterministic)
+}
+func (dst *File) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_File.Merge(dst, src)
+}
+func (m *File) XXX_Size() int {
+	return xxx_messageInfo_File.Size(m)
+}
+func (m *File) XXX_DiscardUnknown() {
+	xxx_messageInfo_File.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_File proto.InternalMessageInfo
 
 func (m *File) GetFile() string {
 	if m != nil && m.File != nil {
@@ -3403,7 +4144,7 @@ func (m *File) GetFile() string {
 	return ""
 }
 
-func (m *File) GetLastModify() *google_protobuf1.Timestamp {
+func (m *File) GetLastModify() *timestamp.Timestamp {
 	if m != nil {
 		return m.LastModify
 	}
@@ -3418,20 +4159,41 @@ func (m *File) GetSize() int32 {
 }
 
 type InstanceType struct {
-	Description      *string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
-	InstanceTypeId   *string `protobuf:"bytes,2,opt,name=instance_type_id,json=instanceTypeId" json:"instance_type_id,omitempty"`
-	InstanceTypeName *string `protobuf:"bytes,3,opt,name=instance_type_name,json=instanceTypeName" json:"instance_type_name,omitempty"`
-	MemoryCurrent    *int32  `protobuf:"varint,4,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
-	Status           *string `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	VcpusCurrent     *int32  `protobuf:"varint,6,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
-	ZoneId           *string `protobuf:"bytes,7,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Description          *string  `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	InstanceTypeId       *string  `protobuf:"bytes,2,opt,name=instance_type_id,json=instanceTypeId" json:"instance_type_id,omitempty"`
+	InstanceTypeName     *string  `protobuf:"bytes,3,opt,name=instance_type_name,json=instanceTypeName" json:"instance_type_name,omitempty"`
+	MemoryCurrent        *int32   `protobuf:"varint,4,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
+	Status               *string  `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	VcpusCurrent         *int32   `protobuf:"varint,6,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
+	ZoneId               *string  `protobuf:"bytes,7,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *InstanceType) Reset()                    { *m = InstanceType{} }
-func (m *InstanceType) String() string            { return proto.CompactTextString(m) }
-func (*InstanceType) ProtoMessage()               {}
-func (*InstanceType) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{35} }
+func (m *InstanceType) Reset()         { *m = InstanceType{} }
+func (m *InstanceType) String() string { return proto.CompactTextString(m) }
+func (*InstanceType) ProtoMessage()    {}
+func (*InstanceType) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{35}
+}
+func (m *InstanceType) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InstanceType.Unmarshal(m, b)
+}
+func (m *InstanceType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InstanceType.Marshal(b, m, deterministic)
+}
+func (dst *InstanceType) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InstanceType.Merge(dst, src)
+}
+func (m *InstanceType) XXX_Size() int {
+	return xxx_messageInfo_InstanceType.Size(m)
+}
+func (m *InstanceType) XXX_DiscardUnknown() {
+	xxx_messageInfo_InstanceType.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InstanceType proto.InternalMessageInfo
 
 func (m *InstanceType) GetDescription() string {
 	if m != nil && m.Description != nil {
@@ -3483,20 +4245,41 @@ func (m *InstanceType) GetZoneId() string {
 }
 
 type LoadBalancerPolicy struct {
-	CreateTime             *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	IsApplied              *int32                      `protobuf:"varint,2,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	LoadbalancerIds        []string                    `protobuf:"bytes,3,rep,name=loadbalancer_ids,json=loadbalancerIds" json:"loadbalancer_ids,omitempty"`
-	LoadbalancerPolicyId   *string                     `protobuf:"bytes,4,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
-	LoadbalancerPolicyName *string                     `protobuf:"bytes,5,opt,name=loadbalancer_policy_name,json=loadbalancerPolicyName" json:"loadbalancer_policy_name,omitempty"`
-	XXX_unrecognized       []byte                      `json:"-"`
+	CreateTime             *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	IsApplied              *int32               `protobuf:"varint,2,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	LoadbalancerIds        []string             `protobuf:"bytes,3,rep,name=loadbalancer_ids,json=loadbalancerIds" json:"loadbalancer_ids,omitempty"`
+	LoadbalancerPolicyId   *string              `protobuf:"bytes,4,opt,name=loadbalancer_policy_id,json=loadbalancerPolicyId" json:"loadbalancer_policy_id,omitempty"`
+	LoadbalancerPolicyName *string              `protobuf:"bytes,5,opt,name=loadbalancer_policy_name,json=loadbalancerPolicyName" json:"loadbalancer_policy_name,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}             `json:"-"`
+	XXX_unrecognized       []byte               `json:"-"`
+	XXX_sizecache          int32                `json:"-"`
 }
 
-func (m *LoadBalancerPolicy) Reset()                    { *m = LoadBalancerPolicy{} }
-func (m *LoadBalancerPolicy) String() string            { return proto.CompactTextString(m) }
-func (*LoadBalancerPolicy) ProtoMessage()               {}
-func (*LoadBalancerPolicy) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{36} }
+func (m *LoadBalancerPolicy) Reset()         { *m = LoadBalancerPolicy{} }
+func (m *LoadBalancerPolicy) String() string { return proto.CompactTextString(m) }
+func (*LoadBalancerPolicy) ProtoMessage()    {}
+func (*LoadBalancerPolicy) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{36}
+}
+func (m *LoadBalancerPolicy) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LoadBalancerPolicy.Unmarshal(m, b)
+}
+func (m *LoadBalancerPolicy) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LoadBalancerPolicy.Marshal(b, m, deterministic)
+}
+func (dst *LoadBalancerPolicy) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LoadBalancerPolicy.Merge(dst, src)
+}
+func (m *LoadBalancerPolicy) XXX_Size() int {
+	return xxx_messageInfo_LoadBalancerPolicy.Size(m)
+}
+func (m *LoadBalancerPolicy) XXX_DiscardUnknown() {
+	xxx_messageInfo_LoadBalancerPolicy.DiscardUnknown(m)
+}
 
-func (m *LoadBalancerPolicy) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_LoadBalancerPolicy proto.InternalMessageInfo
+
+func (m *LoadBalancerPolicy) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -3532,17 +4315,38 @@ func (m *LoadBalancerPolicy) GetLoadbalancerPolicyName() string {
 }
 
 type LoadBalancerPolicyRule struct {
-	LoadbalancerPolicyRuleId   *string `protobuf:"bytes,1,opt,name=loadbalancer_policy_rule_id,json=loadbalancerPolicyRuleId" json:"loadbalancer_policy_rule_id,omitempty"`
-	LoadbalancerPolicyRuleName *string `protobuf:"bytes,2,opt,name=loadbalancer_policy_rule_name,json=loadbalancerPolicyRuleName" json:"loadbalancer_policy_rule_name,omitempty"`
-	RuleType                   *string `protobuf:"bytes,3,opt,name=rule_type,json=ruleType" json:"rule_type,omitempty"`
-	Val                        *string `protobuf:"bytes,4,opt,name=val" json:"val,omitempty"`
-	XXX_unrecognized           []byte  `json:"-"`
+	LoadbalancerPolicyRuleId   *string  `protobuf:"bytes,1,opt,name=loadbalancer_policy_rule_id,json=loadbalancerPolicyRuleId" json:"loadbalancer_policy_rule_id,omitempty"`
+	LoadbalancerPolicyRuleName *string  `protobuf:"bytes,2,opt,name=loadbalancer_policy_rule_name,json=loadbalancerPolicyRuleName" json:"loadbalancer_policy_rule_name,omitempty"`
+	RuleType                   *string  `protobuf:"bytes,3,opt,name=rule_type,json=ruleType" json:"rule_type,omitempty"`
+	Val                        *string  `protobuf:"bytes,4,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral       struct{} `json:"-"`
+	XXX_unrecognized           []byte   `json:"-"`
+	XXX_sizecache              int32    `json:"-"`
 }
 
-func (m *LoadBalancerPolicyRule) Reset()                    { *m = LoadBalancerPolicyRule{} }
-func (m *LoadBalancerPolicyRule) String() string            { return proto.CompactTextString(m) }
-func (*LoadBalancerPolicyRule) ProtoMessage()               {}
-func (*LoadBalancerPolicyRule) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{37} }
+func (m *LoadBalancerPolicyRule) Reset()         { *m = LoadBalancerPolicyRule{} }
+func (m *LoadBalancerPolicyRule) String() string { return proto.CompactTextString(m) }
+func (*LoadBalancerPolicyRule) ProtoMessage()    {}
+func (*LoadBalancerPolicyRule) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{37}
+}
+func (m *LoadBalancerPolicyRule) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LoadBalancerPolicyRule.Unmarshal(m, b)
+}
+func (m *LoadBalancerPolicyRule) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LoadBalancerPolicyRule.Marshal(b, m, deterministic)
+}
+func (dst *LoadBalancerPolicyRule) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LoadBalancerPolicyRule.Merge(dst, src)
+}
+func (m *LoadBalancerPolicyRule) XXX_Size() int {
+	return xxx_messageInfo_LoadBalancerPolicyRule.Size(m)
+}
+func (m *LoadBalancerPolicyRule) XXX_DiscardUnknown() {
+	xxx_messageInfo_LoadBalancerPolicyRule.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LoadBalancerPolicyRule proto.InternalMessageInfo
 
 func (m *LoadBalancerPolicyRule) GetLoadbalancerPolicyRuleId() string {
 	if m != nil && m.LoadbalancerPolicyRuleId != nil {
@@ -3575,16 +4379,37 @@ func (m *LoadBalancerPolicyRule) GetVal() string {
 type Meter struct {
 	// Data     interface{}   `json:"data" name:"data"`
 	// DataSet  []interface{} `json:"data_set" name:"data_set"`
-	MeterId          *string `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
-	Sequence         *int32  `protobuf:"varint,4,opt,name=sequence" json:"sequence,omitempty"`
-	VxnetId          *string `protobuf:"bytes,5,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	MeterId              *string  `protobuf:"bytes,3,opt,name=meter_id,json=meterId" json:"meter_id,omitempty"`
+	Sequence             *int32   `protobuf:"varint,4,opt,name=sequence" json:"sequence,omitempty"`
+	VxnetId              *string  `protobuf:"bytes,5,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Meter) Reset()                    { *m = Meter{} }
-func (m *Meter) String() string            { return proto.CompactTextString(m) }
-func (*Meter) ProtoMessage()               {}
-func (*Meter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{38} }
+func (m *Meter) Reset()         { *m = Meter{} }
+func (m *Meter) String() string { return proto.CompactTextString(m) }
+func (*Meter) ProtoMessage()    {}
+func (*Meter) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{38}
+}
+func (m *Meter) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Meter.Unmarshal(m, b)
+}
+func (m *Meter) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Meter.Marshal(b, m, deterministic)
+}
+func (dst *Meter) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Meter.Merge(dst, src)
+}
+func (m *Meter) XXX_Size() int {
+	return xxx_messageInfo_Meter.Size(m)
+}
+func (m *Meter) XXX_DiscardUnknown() {
+	xxx_messageInfo_Meter.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Meter proto.InternalMessageInfo
 
 func (m *Meter) GetMeterId() string {
 	if m != nil && m.MeterId != nil {
@@ -3608,20 +4433,41 @@ func (m *Meter) GetVxnetId() string {
 }
 
 type MongoParameter struct {
-	IsReadonly       *int32  `protobuf:"varint,1,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	IsStatic         *int32  `protobuf:"varint,2,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	OptName          *string `protobuf:"bytes,3,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	ParameterName    *string `protobuf:"bytes,4,opt,name=parameter_name,json=parameterName" json:"parameter_name,omitempty"`
-	ParameterType    *string `protobuf:"bytes,5,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
-	ParameterValue   *string `protobuf:"bytes,6,opt,name=parameter_value,json=parameterValue" json:"parameter_value,omitempty"`
-	ResourceType     *string `protobuf:"bytes,7,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	IsReadonly           *int32   `protobuf:"varint,1,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	IsStatic             *int32   `protobuf:"varint,2,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	OptName              *string  `protobuf:"bytes,3,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	ParameterName        *string  `protobuf:"bytes,4,opt,name=parameter_name,json=parameterName" json:"parameter_name,omitempty"`
+	ParameterType        *string  `protobuf:"bytes,5,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
+	ParameterValue       *string  `protobuf:"bytes,6,opt,name=parameter_value,json=parameterValue" json:"parameter_value,omitempty"`
+	ResourceType         *string  `protobuf:"bytes,7,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *MongoParameter) Reset()                    { *m = MongoParameter{} }
-func (m *MongoParameter) String() string            { return proto.CompactTextString(m) }
-func (*MongoParameter) ProtoMessage()               {}
-func (*MongoParameter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{39} }
+func (m *MongoParameter) Reset()         { *m = MongoParameter{} }
+func (m *MongoParameter) String() string { return proto.CompactTextString(m) }
+func (*MongoParameter) ProtoMessage()    {}
+func (*MongoParameter) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{39}
+}
+func (m *MongoParameter) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MongoParameter.Unmarshal(m, b)
+}
+func (m *MongoParameter) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MongoParameter.Marshal(b, m, deterministic)
+}
+func (dst *MongoParameter) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MongoParameter.Merge(dst, src)
+}
+func (m *MongoParameter) XXX_Size() int {
+	return xxx_messageInfo_MongoParameter.Size(m)
+}
+func (m *MongoParameter) XXX_DiscardUnknown() {
+	xxx_messageInfo_MongoParameter.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MongoParameter proto.InternalMessageInfo
 
 func (m *MongoParameter) GetIsReadonly() int32 {
 	if m != nil && m.IsReadonly != nil {
@@ -3673,15 +4519,36 @@ func (m *MongoParameter) GetResourceType() string {
 }
 
 type MongoPrivateIP struct {
-	Priority0        *string `protobuf:"bytes,1,opt,name=priority0" json:"priority0,omitempty"`
-	Replica          *string `protobuf:"bytes,2,opt,name=replica" json:"replica,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Priority0            *string  `protobuf:"bytes,1,opt,name=priority0" json:"priority0,omitempty"`
+	Replica              *string  `protobuf:"bytes,2,opt,name=replica" json:"replica,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *MongoPrivateIP) Reset()                    { *m = MongoPrivateIP{} }
-func (m *MongoPrivateIP) String() string            { return proto.CompactTextString(m) }
-func (*MongoPrivateIP) ProtoMessage()               {}
-func (*MongoPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{40} }
+func (m *MongoPrivateIP) Reset()         { *m = MongoPrivateIP{} }
+func (m *MongoPrivateIP) String() string { return proto.CompactTextString(m) }
+func (*MongoPrivateIP) ProtoMessage()    {}
+func (*MongoPrivateIP) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{40}
+}
+func (m *MongoPrivateIP) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MongoPrivateIP.Unmarshal(m, b)
+}
+func (m *MongoPrivateIP) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MongoPrivateIP.Marshal(b, m, deterministic)
+}
+func (dst *MongoPrivateIP) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MongoPrivateIP.Merge(dst, src)
+}
+func (m *MongoPrivateIP) XXX_Size() int {
+	return xxx_messageInfo_MongoPrivateIP.Size(m)
+}
+func (m *MongoPrivateIP) XXX_DiscardUnknown() {
+	xxx_messageInfo_MongoPrivateIP.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MongoPrivateIP proto.InternalMessageInfo
 
 func (m *MongoPrivateIP) GetPriority0() string {
 	if m != nil && m.Priority0 != nil {
@@ -3698,15 +4565,36 @@ func (m *MongoPrivateIP) GetReplica() string {
 }
 
 type NICIP struct {
-	NicId            *string `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
-	PrivateIp        *string `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	NicId                *string  `protobuf:"bytes,1,opt,name=nic_id,json=nicId" json:"nic_id,omitempty"`
+	PrivateIp            *string  `protobuf:"bytes,2,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *NICIP) Reset()                    { *m = NICIP{} }
-func (m *NICIP) String() string            { return proto.CompactTextString(m) }
-func (*NICIP) ProtoMessage()               {}
-func (*NICIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{41} }
+func (m *NICIP) Reset()         { *m = NICIP{} }
+func (m *NICIP) String() string { return proto.CompactTextString(m) }
+func (*NICIP) ProtoMessage()    {}
+func (*NICIP) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{41}
+}
+func (m *NICIP) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_NICIP.Unmarshal(m, b)
+}
+func (m *NICIP) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_NICIP.Marshal(b, m, deterministic)
+}
+func (dst *NICIP) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NICIP.Merge(dst, src)
+}
+func (m *NICIP) XXX_Size() int {
+	return xxx_messageInfo_NICIP.Size(m)
+}
+func (m *NICIP) XXX_DiscardUnknown() {
+	xxx_messageInfo_NICIP.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_NICIP proto.InternalMessageInfo
 
 func (m *NICIP) GetNicId() string {
 	if m != nil && m.NicId != nil {
@@ -3723,30 +4611,51 @@ func (m *NICIP) GetPrivateIp() string {
 }
 
 type RDB struct {
-	AlarmStatus         *string                     `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
-	AutoBackupTime      *int32                      `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	AutoMinorVerUpgrade *int32                      `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
-	CreateTime          *string                     `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description         *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	EngineVersion       *string                     `protobuf:"bytes,6,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
-	LatestSnapshotTime  *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	MasterIp            *string                     `protobuf:"bytes,8,opt,name=master_ip,json=masterIp" json:"master_ip,omitempty"`
-	RdbEngine           *string                     `protobuf:"bytes,9,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
-	RdbId               *string                     `protobuf:"bytes,10,opt,name=rdb_id,json=rdbId" json:"rdb_id,omitempty"`
-	RdbName             *string                     `protobuf:"bytes,11,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
-	RdbType             *int32                      `protobuf:"varint,12,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
-	Status              *string                     `protobuf:"bytes,13,opt,name=status" json:"status,omitempty"`
-	StatusTime          *string                     `protobuf:"bytes,14,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	StorageSize         *int32                      `protobuf:"varint,15,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	Tags                []*Tag                      `protobuf:"bytes,16,rep,name=tags" json:"tags,omitempty"`
-	Vxnet               *VxNet                      `protobuf:"bytes,17,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized    []byte                      `json:"-"`
+	AlarmStatus          *string              `protobuf:"bytes,1,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
+	AutoBackupTime       *int32               `protobuf:"varint,2,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	AutoMinorVerUpgrade  *int32               `protobuf:"varint,3,opt,name=auto_minor_ver_upgrade,json=autoMinorVerUpgrade" json:"auto_minor_ver_upgrade,omitempty"`
+	CreateTime           *string              `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	EngineVersion        *string              `protobuf:"bytes,6,opt,name=engine_version,json=engineVersion" json:"engine_version,omitempty"`
+	LatestSnapshotTime   *timestamp.Timestamp `protobuf:"bytes,7,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
+	MasterIp             *string              `protobuf:"bytes,8,opt,name=master_ip,json=masterIp" json:"master_ip,omitempty"`
+	RdbEngine            *string              `protobuf:"bytes,9,opt,name=rdb_engine,json=rdbEngine" json:"rdb_engine,omitempty"`
+	RdbId                *string              `protobuf:"bytes,10,opt,name=rdb_id,json=rdbId" json:"rdb_id,omitempty"`
+	RdbName              *string              `protobuf:"bytes,11,opt,name=rdb_name,json=rdbName" json:"rdb_name,omitempty"`
+	RdbType              *int32               `protobuf:"varint,12,opt,name=rdb_type,json=rdbType" json:"rdb_type,omitempty"`
+	Status               *string              `protobuf:"bytes,13,opt,name=status" json:"status,omitempty"`
+	StatusTime           *string              `protobuf:"bytes,14,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	StorageSize          *int32               `protobuf:"varint,15,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,16,rep,name=tags" json:"tags,omitempty"`
+	Vxnet                *VxNet               `protobuf:"bytes,17,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *RDB) Reset()                    { *m = RDB{} }
-func (m *RDB) String() string            { return proto.CompactTextString(m) }
-func (*RDB) ProtoMessage()               {}
-func (*RDB) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{42} }
+func (m *RDB) Reset()         { *m = RDB{} }
+func (m *RDB) String() string { return proto.CompactTextString(m) }
+func (*RDB) ProtoMessage()    {}
+func (*RDB) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{42}
+}
+func (m *RDB) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDB.Unmarshal(m, b)
+}
+func (m *RDB) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDB.Marshal(b, m, deterministic)
+}
+func (dst *RDB) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDB.Merge(dst, src)
+}
+func (m *RDB) XXX_Size() int {
+	return xxx_messageInfo_RDB.Size(m)
+}
+func (m *RDB) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDB.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDB proto.InternalMessageInfo
 
 func (m *RDB) GetAlarmStatus() string {
 	if m != nil && m.AlarmStatus != nil {
@@ -3790,7 +4699,7 @@ func (m *RDB) GetEngineVersion() string {
 	return ""
 }
 
-func (m *RDB) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *RDB) GetLatestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LatestSnapshotTime
 	}
@@ -3868,16 +4777,37 @@ func (m *RDB) GetVxnet() *VxNet {
 }
 
 type RDBFile struct {
-	BinaryLog        []*File `protobuf:"bytes,1,rep,name=binary_log,json=binaryLog" json:"binary_log,omitempty"`
-	ErrorLog         []*File `protobuf:"bytes,2,rep,name=error_log,json=errorLog" json:"error_log,omitempty"`
-	SlowLog          []*File `protobuf:"bytes,3,rep,name=slow_log,json=slowLog" json:"slow_log,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	BinaryLog            []*File  `protobuf:"bytes,1,rep,name=binary_log,json=binaryLog" json:"binary_log,omitempty"`
+	ErrorLog             []*File  `protobuf:"bytes,2,rep,name=error_log,json=errorLog" json:"error_log,omitempty"`
+	SlowLog              []*File  `protobuf:"bytes,3,rep,name=slow_log,json=slowLog" json:"slow_log,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBFile) Reset()                    { *m = RDBFile{} }
-func (m *RDBFile) String() string            { return proto.CompactTextString(m) }
-func (*RDBFile) ProtoMessage()               {}
-func (*RDBFile) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{43} }
+func (m *RDBFile) Reset()         { *m = RDBFile{} }
+func (m *RDBFile) String() string { return proto.CompactTextString(m) }
+func (*RDBFile) ProtoMessage()    {}
+func (*RDBFile) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{43}
+}
+func (m *RDBFile) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBFile.Unmarshal(m, b)
+}
+func (m *RDBFile) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBFile.Marshal(b, m, deterministic)
+}
+func (dst *RDBFile) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBFile.Merge(dst, src)
+}
+func (m *RDBFile) XXX_Size() int {
+	return xxx_messageInfo_RDBFile.Size(m)
+}
+func (m *RDBFile) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBFile.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBFile proto.InternalMessageInfo
 
 func (m *RDBFile) GetBinaryLog() []*File {
 	if m != nil {
@@ -3901,23 +4831,44 @@ func (m *RDBFile) GetSlowLog() []*File {
 }
 
 type RDBParameter struct {
-	Family           *string `protobuf:"bytes,1,opt,name=family" json:"family,omitempty"`
-	IsReadonly       *int32  `protobuf:"varint,2,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	IsStatic         *int32  `protobuf:"varint,3,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	MaxValue         *int32  `protobuf:"varint,4,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
-	MinValue         *int32  `protobuf:"varint,5,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
-	OptName          *string `protobuf:"bytes,6,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	SectionName      *string `protobuf:"bytes,7,opt,name=section_name,json=sectionName" json:"section_name,omitempty"`
-	VarName          *string `protobuf:"bytes,8,opt,name=var_name,json=varName" json:"var_name,omitempty"`
-	VarType          *string `protobuf:"bytes,9,opt,name=var_type,json=varType" json:"var_type,omitempty"`
-	VarValue         *string `protobuf:"bytes,10,opt,name=var_value,json=varValue" json:"var_value,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Family               *string  `protobuf:"bytes,1,opt,name=family" json:"family,omitempty"`
+	IsReadonly           *int32   `protobuf:"varint,2,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	IsStatic             *int32   `protobuf:"varint,3,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	MaxValue             *int32   `protobuf:"varint,4,opt,name=max_value,json=maxValue" json:"max_value,omitempty"`
+	MinValue             *int32   `protobuf:"varint,5,opt,name=min_value,json=minValue" json:"min_value,omitempty"`
+	OptName              *string  `protobuf:"bytes,6,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	SectionName          *string  `protobuf:"bytes,7,opt,name=section_name,json=sectionName" json:"section_name,omitempty"`
+	VarName              *string  `protobuf:"bytes,8,opt,name=var_name,json=varName" json:"var_name,omitempty"`
+	VarType              *string  `protobuf:"bytes,9,opt,name=var_type,json=varType" json:"var_type,omitempty"`
+	VarValue             *string  `protobuf:"bytes,10,opt,name=var_value,json=varValue" json:"var_value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBParameter) Reset()                    { *m = RDBParameter{} }
-func (m *RDBParameter) String() string            { return proto.CompactTextString(m) }
-func (*RDBParameter) ProtoMessage()               {}
-func (*RDBParameter) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{44} }
+func (m *RDBParameter) Reset()         { *m = RDBParameter{} }
+func (m *RDBParameter) String() string { return proto.CompactTextString(m) }
+func (*RDBParameter) ProtoMessage()    {}
+func (*RDBParameter) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{44}
+}
+func (m *RDBParameter) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBParameter.Unmarshal(m, b)
+}
+func (m *RDBParameter) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBParameter.Marshal(b, m, deterministic)
+}
+func (dst *RDBParameter) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBParameter.Merge(dst, src)
+}
+func (m *RDBParameter) XXX_Size() int {
+	return xxx_messageInfo_RDBParameter.Size(m)
+}
+func (m *RDBParameter) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBParameter.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBParameter proto.InternalMessageInfo
 
 func (m *RDBParameter) GetFamily() string {
 	if m != nil && m.Family != nil {
@@ -4029,29 +4980,50 @@ type RDBParameters struct {
 	RelayLog                  *string `protobuf:"bytes,36,opt,name=relay_log,json=relayLog" json:"relay_log,omitempty"`
 	RelayLogIndex             *string `protobuf:"bytes,37,opt,name=relay_log_index,json=relayLogIndex" json:"relay_log_index,omitempty"`
 	// SkipSlaveStart            *int    `json:"skip-slave-start" name:"skip-slave-start"`
-	SkipNameResolve  *int32  `protobuf:"varint,39,opt,name=skip_name_resolve,json=skipNameResolve" json:"skip_name_resolve,omitempty"`
-	SlaveExecMode    *string `protobuf:"bytes,40,opt,name=slave_exec_mode,json=slaveExecMode" json:"slave_exec_mode,omitempty"`
-	SlaveNetTimeout  *int32  `protobuf:"varint,41,opt,name=slave_net_timeout,json=slaveNetTimeout" json:"slave_net_timeout,omitempty"`
-	SlowQueryLog     *int32  `protobuf:"varint,42,opt,name=slow_query_log,json=slowQueryLog" json:"slow_query_log,omitempty"`
-	SlowQueryLogFile *string `protobuf:"bytes,43,opt,name=slow_query_log_file,json=slowQueryLogFile" json:"slow_query_log_file,omitempty"`
-	SqlMode          *string `protobuf:"bytes,44,opt,name=sql_mode,json=sqlMode" json:"sql_mode,omitempty"`
-	SyncBinlog       *int32  `protobuf:"varint,45,opt,name=sync_binlog,json=syncBinlog" json:"sync_binlog,omitempty"`
-	SyncMasterInfo   *int32  `protobuf:"varint,46,opt,name=sync_master_info,json=syncMasterInfo" json:"sync_master_info,omitempty"`
-	SyncRelayLog     *int32  `protobuf:"varint,47,opt,name=sync_relay_log,json=syncRelayLog" json:"sync_relay_log,omitempty"`
-	SyncRelayLogInfo *int32  `protobuf:"varint,48,opt,name=sync_relay_log_info,json=syncRelayLogInfo" json:"sync_relay_log_info,omitempty"`
-	TableOpenCache   *int32  `protobuf:"varint,49,opt,name=table_open_cache,json=tableOpenCache" json:"table_open_cache,omitempty"`
-	ThreadCacheSize  *int32  `protobuf:"varint,50,opt,name=thread_cache_size,json=threadCacheSize" json:"thread_cache_size,omitempty"`
-	TmpTableSize     *string `protobuf:"bytes,51,opt,name=tmp_table_size,json=tmpTableSize" json:"tmp_table_size,omitempty"`
-	Tmpdir           *string `protobuf:"bytes,52,opt,name=tmpdir" json:"tmpdir,omitempty"`
-	User             *string `protobuf:"bytes,53,opt,name=user" json:"user,omitempty"`
-	WaitTimeout      *int32  `protobuf:"varint,54,opt,name=wait_timeout,json=waitTimeout" json:"wait_timeout,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	SkipNameResolve      *int32   `protobuf:"varint,39,opt,name=skip_name_resolve,json=skipNameResolve" json:"skip_name_resolve,omitempty"`
+	SlaveExecMode        *string  `protobuf:"bytes,40,opt,name=slave_exec_mode,json=slaveExecMode" json:"slave_exec_mode,omitempty"`
+	SlaveNetTimeout      *int32   `protobuf:"varint,41,opt,name=slave_net_timeout,json=slaveNetTimeout" json:"slave_net_timeout,omitempty"`
+	SlowQueryLog         *int32   `protobuf:"varint,42,opt,name=slow_query_log,json=slowQueryLog" json:"slow_query_log,omitempty"`
+	SlowQueryLogFile     *string  `protobuf:"bytes,43,opt,name=slow_query_log_file,json=slowQueryLogFile" json:"slow_query_log_file,omitempty"`
+	SqlMode              *string  `protobuf:"bytes,44,opt,name=sql_mode,json=sqlMode" json:"sql_mode,omitempty"`
+	SyncBinlog           *int32   `protobuf:"varint,45,opt,name=sync_binlog,json=syncBinlog" json:"sync_binlog,omitempty"`
+	SyncMasterInfo       *int32   `protobuf:"varint,46,opt,name=sync_master_info,json=syncMasterInfo" json:"sync_master_info,omitempty"`
+	SyncRelayLog         *int32   `protobuf:"varint,47,opt,name=sync_relay_log,json=syncRelayLog" json:"sync_relay_log,omitempty"`
+	SyncRelayLogInfo     *int32   `protobuf:"varint,48,opt,name=sync_relay_log_info,json=syncRelayLogInfo" json:"sync_relay_log_info,omitempty"`
+	TableOpenCache       *int32   `protobuf:"varint,49,opt,name=table_open_cache,json=tableOpenCache" json:"table_open_cache,omitempty"`
+	ThreadCacheSize      *int32   `protobuf:"varint,50,opt,name=thread_cache_size,json=threadCacheSize" json:"thread_cache_size,omitempty"`
+	TmpTableSize         *string  `protobuf:"bytes,51,opt,name=tmp_table_size,json=tmpTableSize" json:"tmp_table_size,omitempty"`
+	Tmpdir               *string  `protobuf:"bytes,52,opt,name=tmpdir" json:"tmpdir,omitempty"`
+	User                 *string  `protobuf:"bytes,53,opt,name=user" json:"user,omitempty"`
+	WaitTimeout          *int32   `protobuf:"varint,54,opt,name=wait_timeout,json=waitTimeout" json:"wait_timeout,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBParameters) Reset()                    { *m = RDBParameters{} }
-func (m *RDBParameters) String() string            { return proto.CompactTextString(m) }
-func (*RDBParameters) ProtoMessage()               {}
-func (*RDBParameters) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{45} }
+func (m *RDBParameters) Reset()         { *m = RDBParameters{} }
+func (m *RDBParameters) String() string { return proto.CompactTextString(m) }
+func (*RDBParameters) ProtoMessage()    {}
+func (*RDBParameters) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{45}
+}
+func (m *RDBParameters) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBParameters.Unmarshal(m, b)
+}
+func (m *RDBParameters) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBParameters.Marshal(b, m, deterministic)
+}
+func (dst *RDBParameters) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBParameters.Merge(dst, src)
+}
+func (m *RDBParameters) XXX_Size() int {
+	return xxx_messageInfo_RDBParameters.Size(m)
+}
+func (m *RDBParameters) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBParameters.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBParameters proto.InternalMessageInfo
 
 func (m *RDBParameters) GetBindAddress() string {
 	if m != nil && m.BindAddress != nil {
@@ -4425,15 +5397,36 @@ func (m *RDBParameters) GetWaitTimeout() int32 {
 }
 
 type RDBPrivateIP struct {
-	Master           *string `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
-	Topslave         *string `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Master               *string  `protobuf:"bytes,1,opt,name=master" json:"master,omitempty"`
+	Topslave             *string  `protobuf:"bytes,2,opt,name=topslave" json:"topslave,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RDBPrivateIP) Reset()                    { *m = RDBPrivateIP{} }
-func (m *RDBPrivateIP) String() string            { return proto.CompactTextString(m) }
-func (*RDBPrivateIP) ProtoMessage()               {}
-func (*RDBPrivateIP) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{46} }
+func (m *RDBPrivateIP) Reset()         { *m = RDBPrivateIP{} }
+func (m *RDBPrivateIP) String() string { return proto.CompactTextString(m) }
+func (*RDBPrivateIP) ProtoMessage()    {}
+func (*RDBPrivateIP) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{46}
+}
+func (m *RDBPrivateIP) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RDBPrivateIP.Unmarshal(m, b)
+}
+func (m *RDBPrivateIP) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RDBPrivateIP.Marshal(b, m, deterministic)
+}
+func (dst *RDBPrivateIP) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RDBPrivateIP.Merge(dst, src)
+}
+func (m *RDBPrivateIP) XXX_Size() int {
+	return xxx_messageInfo_RDBPrivateIP.Size(m)
+}
+func (m *RDBPrivateIP) XXX_DiscardUnknown() {
+	xxx_messageInfo_RDBPrivateIP.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RDBPrivateIP proto.InternalMessageInfo
 
 func (m *RDBPrivateIP) GetMaster() string {
 	if m != nil && m.Master != nil {
@@ -4450,27 +5443,48 @@ func (m *RDBPrivateIP) GetTopslave() string {
 }
 
 type RouterStatic struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	RouterId         *string                     `protobuf:"bytes,2,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	RouterStaticId   *string                     `protobuf:"bytes,3,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
-	RouterStaticName *string                     `protobuf:"bytes,4,opt,name=router_static_name,json=routerStaticName" json:"router_static_name,omitempty"`
-	StaticType       *int32                      `protobuf:"varint,5,opt,name=static_type,json=staticType" json:"static_type,omitempty"`
-	Val1             *string                     `protobuf:"bytes,6,opt,name=val1" json:"val1,omitempty"`
-	Val2             *string                     `protobuf:"bytes,7,opt,name=val2" json:"val2,omitempty"`
-	Val3             *string                     `protobuf:"bytes,8,opt,name=val3" json:"val3,omitempty"`
-	Val4             *string                     `protobuf:"bytes,9,opt,name=val4" json:"val4,omitempty"`
-	Val5             *string                     `protobuf:"bytes,10,opt,name=val5" json:"val5,omitempty"`
-	Val6             *string                     `protobuf:"bytes,11,opt,name=val6" json:"val6,omitempty"`
-	VxnetId          *string                     `protobuf:"bytes,12,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	RouterId             *string              `protobuf:"bytes,2,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterStaticId       *string              `protobuf:"bytes,3,opt,name=router_static_id,json=routerStaticId" json:"router_static_id,omitempty"`
+	RouterStaticName     *string              `protobuf:"bytes,4,opt,name=router_static_name,json=routerStaticName" json:"router_static_name,omitempty"`
+	StaticType           *int32               `protobuf:"varint,5,opt,name=static_type,json=staticType" json:"static_type,omitempty"`
+	Val1                 *string              `protobuf:"bytes,6,opt,name=val1" json:"val1,omitempty"`
+	Val2                 *string              `protobuf:"bytes,7,opt,name=val2" json:"val2,omitempty"`
+	Val3                 *string              `protobuf:"bytes,8,opt,name=val3" json:"val3,omitempty"`
+	Val4                 *string              `protobuf:"bytes,9,opt,name=val4" json:"val4,omitempty"`
+	Val5                 *string              `protobuf:"bytes,10,opt,name=val5" json:"val5,omitempty"`
+	Val6                 *string              `protobuf:"bytes,11,opt,name=val6" json:"val6,omitempty"`
+	VxnetId              *string              `protobuf:"bytes,12,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *RouterStatic) Reset()                    { *m = RouterStatic{} }
-func (m *RouterStatic) String() string            { return proto.CompactTextString(m) }
-func (*RouterStatic) ProtoMessage()               {}
-func (*RouterStatic) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{47} }
+func (m *RouterStatic) Reset()         { *m = RouterStatic{} }
+func (m *RouterStatic) String() string { return proto.CompactTextString(m) }
+func (*RouterStatic) ProtoMessage()    {}
+func (*RouterStatic) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{47}
+}
+func (m *RouterStatic) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RouterStatic.Unmarshal(m, b)
+}
+func (m *RouterStatic) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RouterStatic.Marshal(b, m, deterministic)
+}
+func (dst *RouterStatic) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RouterStatic.Merge(dst, src)
+}
+func (m *RouterStatic) XXX_Size() int {
+	return xxx_messageInfo_RouterStatic.Size(m)
+}
+func (m *RouterStatic) XXX_DiscardUnknown() {
+	xxx_messageInfo_RouterStatic.DiscardUnknown(m)
+}
 
-func (m *RouterStatic) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_RouterStatic proto.InternalMessageInfo
+
+func (m *RouterStatic) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -4555,18 +5569,39 @@ func (m *RouterStatic) GetVxnetId() string {
 }
 
 type RouterStaticEntry struct {
-	RouterId              *string `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	RouterStaticEntryId   *string `protobuf:"bytes,2,opt,name=router_static_entry_id,json=routerStaticEntryId" json:"router_static_entry_id,omitempty"`
-	RouterStaticEntryName *string `protobuf:"bytes,3,opt,name=router_static_entry_name,json=routerStaticEntryName" json:"router_static_entry_name,omitempty"`
-	Val1                  *string `protobuf:"bytes,4,opt,name=val1" json:"val1,omitempty"`
-	Val2                  *string `protobuf:"bytes,5,opt,name=val2" json:"val2,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	RouterId              *string  `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterStaticEntryId   *string  `protobuf:"bytes,2,opt,name=router_static_entry_id,json=routerStaticEntryId" json:"router_static_entry_id,omitempty"`
+	RouterStaticEntryName *string  `protobuf:"bytes,3,opt,name=router_static_entry_name,json=routerStaticEntryName" json:"router_static_entry_name,omitempty"`
+	Val1                  *string  `protobuf:"bytes,4,opt,name=val1" json:"val1,omitempty"`
+	Val2                  *string  `protobuf:"bytes,5,opt,name=val2" json:"val2,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
-func (m *RouterStaticEntry) Reset()                    { *m = RouterStaticEntry{} }
-func (m *RouterStaticEntry) String() string            { return proto.CompactTextString(m) }
-func (*RouterStaticEntry) ProtoMessage()               {}
-func (*RouterStaticEntry) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{48} }
+func (m *RouterStaticEntry) Reset()         { *m = RouterStaticEntry{} }
+func (m *RouterStaticEntry) String() string { return proto.CompactTextString(m) }
+func (*RouterStaticEntry) ProtoMessage()    {}
+func (*RouterStaticEntry) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{48}
+}
+func (m *RouterStaticEntry) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RouterStaticEntry.Unmarshal(m, b)
+}
+func (m *RouterStaticEntry) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RouterStaticEntry.Marshal(b, m, deterministic)
+}
+func (dst *RouterStaticEntry) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RouterStaticEntry.Merge(dst, src)
+}
+func (m *RouterStaticEntry) XXX_Size() int {
+	return xxx_messageInfo_RouterStaticEntry.Size(m)
+}
+func (m *RouterStaticEntry) XXX_DiscardUnknown() {
+	xxx_messageInfo_RouterStaticEntry.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RouterStaticEntry proto.InternalMessageInfo
 
 func (m *RouterStaticEntry) GetRouterId() string {
 	if m != nil && m.RouterId != nil {
@@ -4604,23 +5639,44 @@ func (m *RouterStaticEntry) GetVal2() string {
 }
 
 type RouterVxNet struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	DynIpEnd         *string                     `protobuf:"bytes,2,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
-	DynIpStart       *string                     `protobuf:"bytes,3,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
-	Features         *int32                      `protobuf:"varint,4,opt,name=features" json:"features,omitempty"`
-	IpNetwork        *string                     `protobuf:"bytes,5,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
-	ManagerIp        *string                     `protobuf:"bytes,6,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
-	RouterId         *string                     `protobuf:"bytes,7,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	VxnetId          *string                     `protobuf:"bytes,8,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	DynIpEnd             *string              `protobuf:"bytes,2,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	DynIpStart           *string              `protobuf:"bytes,3,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	Features             *int32               `protobuf:"varint,4,opt,name=features" json:"features,omitempty"`
+	IpNetwork            *string              `protobuf:"bytes,5,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	ManagerIp            *string              `protobuf:"bytes,6,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	RouterId             *string              `protobuf:"bytes,7,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	VxnetId              *string              `protobuf:"bytes,8,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *RouterVxNet) Reset()                    { *m = RouterVxNet{} }
-func (m *RouterVxNet) String() string            { return proto.CompactTextString(m) }
-func (*RouterVxNet) ProtoMessage()               {}
-func (*RouterVxNet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{49} }
+func (m *RouterVxNet) Reset()         { *m = RouterVxNet{} }
+func (m *RouterVxNet) String() string { return proto.CompactTextString(m) }
+func (*RouterVxNet) ProtoMessage()    {}
+func (*RouterVxNet) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{49}
+}
+func (m *RouterVxNet) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RouterVxNet.Unmarshal(m, b)
+}
+func (m *RouterVxNet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RouterVxNet.Marshal(b, m, deterministic)
+}
+func (dst *RouterVxNet) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RouterVxNet.Merge(dst, src)
+}
+func (m *RouterVxNet) XXX_Size() int {
+	return xxx_messageInfo_RouterVxNet.Size(m)
+}
+func (m *RouterVxNet) XXX_DiscardUnknown() {
+	xxx_messageInfo_RouterVxNet.DiscardUnknown(m)
+}
 
-func (m *RouterVxNet) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_RouterVxNet proto.InternalMessageInfo
+
+func (m *RouterVxNet) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -4677,18 +5733,39 @@ func (m *RouterVxNet) GetVxnetId() string {
 }
 
 type S2DefaultParameters struct {
-	DefaultValue     *string `protobuf:"bytes,1,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
-	Description      *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	ParamName        *string `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
-	ServiceType      *string `protobuf:"bytes,4,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	TargetType       *string `protobuf:"bytes,5,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	DefaultValue         *string  `protobuf:"bytes,1,opt,name=default_value,json=defaultValue" json:"default_value,omitempty"`
+	Description          *string  `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	ParamName            *string  `protobuf:"bytes,3,opt,name=param_name,json=paramName" json:"param_name,omitempty"`
+	ServiceType          *string  `protobuf:"bytes,4,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	TargetType           *string  `protobuf:"bytes,5,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *S2DefaultParameters) Reset()                    { *m = S2DefaultParameters{} }
-func (m *S2DefaultParameters) String() string            { return proto.CompactTextString(m) }
-func (*S2DefaultParameters) ProtoMessage()               {}
-func (*S2DefaultParameters) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{50} }
+func (m *S2DefaultParameters) Reset()         { *m = S2DefaultParameters{} }
+func (m *S2DefaultParameters) String() string { return proto.CompactTextString(m) }
+func (*S2DefaultParameters) ProtoMessage()    {}
+func (*S2DefaultParameters) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{50}
+}
+func (m *S2DefaultParameters) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_S2DefaultParameters.Unmarshal(m, b)
+}
+func (m *S2DefaultParameters) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_S2DefaultParameters.Marshal(b, m, deterministic)
+}
+func (dst *S2DefaultParameters) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_S2DefaultParameters.Merge(dst, src)
+}
+func (m *S2DefaultParameters) XXX_Size() int {
+	return xxx_messageInfo_S2DefaultParameters.Size(m)
+}
+func (m *S2DefaultParameters) XXX_DiscardUnknown() {
+	xxx_messageInfo_S2DefaultParameters.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_S2DefaultParameters proto.InternalMessageInfo
 
 func (m *S2DefaultParameters) GetDefaultValue() string {
 	if m != nil && m.DefaultValue != nil {
@@ -4726,28 +5803,49 @@ func (m *S2DefaultParameters) GetTargetType() string {
 }
 
 type S2Server struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	IsApplied        *int32                      `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	Name             *string                     `protobuf:"bytes,4,opt,name=name" json:"name,omitempty"`
-	PrivateIp        *string                     `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	S2ServerId       *string                     `protobuf:"bytes,6,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
-	S2ServerType     *int32                      `protobuf:"varint,7,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
-	ServiceType      *string                     `protobuf:"bytes,8,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
-	Status           *string                     `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	Tags             []*Tag                      `protobuf:"bytes,11,rep,name=tags" json:"tags,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	Vxnet            *VxNet                      `protobuf:"bytes,13,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	IsApplied            *int32               `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Name                 *string              `protobuf:"bytes,4,opt,name=name" json:"name,omitempty"`
+	PrivateIp            *string              `protobuf:"bytes,5,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	S2ServerId           *string              `protobuf:"bytes,6,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	S2ServerType         *int32               `protobuf:"varint,7,opt,name=s2_server_type,json=s2ServerType" json:"s2_server_type,omitempty"`
+	ServiceType          *string              `protobuf:"bytes,8,opt,name=service_type,json=serviceType" json:"service_type,omitempty"`
+	Status               *string              `protobuf:"bytes,9,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,10,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,11,rep,name=tags" json:"tags,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,12,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	Vxnet                *VxNet               `protobuf:"bytes,13,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *S2Server) Reset()                    { *m = S2Server{} }
-func (m *S2Server) String() string            { return proto.CompactTextString(m) }
-func (*S2Server) ProtoMessage()               {}
-func (*S2Server) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{51} }
+func (m *S2Server) Reset()         { *m = S2Server{} }
+func (m *S2Server) String() string { return proto.CompactTextString(m) }
+func (*S2Server) ProtoMessage()    {}
+func (*S2Server) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{51}
+}
+func (m *S2Server) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_S2Server.Unmarshal(m, b)
+}
+func (m *S2Server) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_S2Server.Marshal(b, m, deterministic)
+}
+func (dst *S2Server) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_S2Server.Merge(dst, src)
+}
+func (m *S2Server) XXX_Size() int {
+	return xxx_messageInfo_S2Server.Size(m)
+}
+func (m *S2Server) XXX_DiscardUnknown() {
+	xxx_messageInfo_S2Server.DiscardUnknown(m)
+}
 
-func (m *S2Server) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_S2Server proto.InternalMessageInfo
+
+func (m *S2Server) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -4810,7 +5908,7 @@ func (m *S2Server) GetStatus() string {
 	return ""
 }
 
-func (m *S2Server) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *S2Server) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -4839,24 +5937,45 @@ func (m *S2Server) GetVxnet() *VxNet {
 }
 
 type S2SharedTarget struct {
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	ExportName       *string                     `protobuf:"bytes,3,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
-	S2ServerId       *string                     `protobuf:"bytes,4,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
-	S2SharedTargetId *string                     `protobuf:"bytes,5,opt,name=s2_shared_target_id,json=s2SharedTargetId" json:"s2_shared_target_id,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	TargetType       *string                     `protobuf:"bytes,7,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
-	S2Group          map[string]string           `protobuf:"bytes,8,rep,name=s2_group,json=s2Group" json:"s2_group,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Volumes          []string                    `protobuf:"bytes,9,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	ExportName           *string              `protobuf:"bytes,3,opt,name=export_name,json=exportName" json:"export_name,omitempty"`
+	S2ServerId           *string              `protobuf:"bytes,4,opt,name=s2_server_id,json=s2ServerId" json:"s2_server_id,omitempty"`
+	S2SharedTargetId     *string              `protobuf:"bytes,5,opt,name=s2_shared_target_id,json=s2SharedTargetId" json:"s2_shared_target_id,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	TargetType           *string              `protobuf:"bytes,7,opt,name=target_type,json=targetType" json:"target_type,omitempty"`
+	S2Group              map[string]string    `protobuf:"bytes,8,rep,name=s2_group,json=s2Group" json:"s2_group,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Volumes              []string             `protobuf:"bytes,9,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *S2SharedTarget) Reset()                    { *m = S2SharedTarget{} }
-func (m *S2SharedTarget) String() string            { return proto.CompactTextString(m) }
-func (*S2SharedTarget) ProtoMessage()               {}
-func (*S2SharedTarget) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{52} }
+func (m *S2SharedTarget) Reset()         { *m = S2SharedTarget{} }
+func (m *S2SharedTarget) String() string { return proto.CompactTextString(m) }
+func (*S2SharedTarget) ProtoMessage()    {}
+func (*S2SharedTarget) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{52}
+}
+func (m *S2SharedTarget) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_S2SharedTarget.Unmarshal(m, b)
+}
+func (m *S2SharedTarget) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_S2SharedTarget.Marshal(b, m, deterministic)
+}
+func (dst *S2SharedTarget) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_S2SharedTarget.Merge(dst, src)
+}
+func (m *S2SharedTarget) XXX_Size() int {
+	return xxx_messageInfo_S2SharedTarget.Size(m)
+}
+func (m *S2SharedTarget) XXX_DiscardUnknown() {
+	xxx_messageInfo_S2SharedTarget.DiscardUnknown(m)
+}
 
-func (m *S2SharedTarget) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_S2SharedTarget proto.InternalMessageInfo
+
+func (m *S2SharedTarget) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -4891,7 +6010,7 @@ func (m *S2SharedTarget) GetS2SharedTargetId() string {
 	return ""
 }
 
-func (m *S2SharedTarget) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *S2SharedTarget) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -4920,23 +6039,44 @@ func (m *S2SharedTarget) GetVolumes() []string {
 }
 
 type SecurityGroup struct {
-	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description       *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	IsApplied         *int32                      `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	IsDefault         *int32                      `protobuf:"varint,4,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
-	Resources         []*Resource                 `protobuf:"bytes,5,rep,name=resources" json:"resources,omitempty"`
-	SecurityGroupId   *string                     `protobuf:"bytes,6,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	SecurityGroupName *string                     `protobuf:"bytes,7,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
-	Tags              []*Tag                      `protobuf:"bytes,8,rep,name=tags" json:"tags,omitempty"`
-	XXX_unrecognized  []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	IsApplied            *int32               `protobuf:"varint,3,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	IsDefault            *int32               `protobuf:"varint,4,opt,name=is_default,json=isDefault" json:"is_default,omitempty"`
+	Resources            []*Resource          `protobuf:"bytes,5,rep,name=resources" json:"resources,omitempty"`
+	SecurityGroupId      *string              `protobuf:"bytes,6,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	SecurityGroupName    *string              `protobuf:"bytes,7,opt,name=security_group_name,json=securityGroupName" json:"security_group_name,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,8,rep,name=tags" json:"tags,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *SecurityGroup) Reset()                    { *m = SecurityGroup{} }
-func (m *SecurityGroup) String() string            { return proto.CompactTextString(m) }
-func (*SecurityGroup) ProtoMessage()               {}
-func (*SecurityGroup) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{53} }
+func (m *SecurityGroup) Reset()         { *m = SecurityGroup{} }
+func (m *SecurityGroup) String() string { return proto.CompactTextString(m) }
+func (*SecurityGroup) ProtoMessage()    {}
+func (*SecurityGroup) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{53}
+}
+func (m *SecurityGroup) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SecurityGroup.Unmarshal(m, b)
+}
+func (m *SecurityGroup) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SecurityGroup.Marshal(b, m, deterministic)
+}
+func (dst *SecurityGroup) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SecurityGroup.Merge(dst, src)
+}
+func (m *SecurityGroup) XXX_Size() int {
+	return xxx_messageInfo_SecurityGroup.Size(m)
+}
+func (m *SecurityGroup) XXX_DiscardUnknown() {
+	xxx_messageInfo_SecurityGroup.DiscardUnknown(m)
+}
 
-func (m *SecurityGroup) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_SecurityGroup proto.InternalMessageInfo
+
+func (m *SecurityGroup) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -4993,21 +6133,42 @@ func (m *SecurityGroup) GetTags() []*Tag {
 }
 
 type SecurityGroupIPSet struct {
-	CreateTime             *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description            *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	IpsetType              *int32                      `protobuf:"varint,3,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
-	SecurityGroupIpsetId   *string                     `protobuf:"bytes,4,opt,name=security_group_ipset_id,json=securityGroupIpsetId" json:"security_group_ipset_id,omitempty"`
-	SecurityGroupIpsetName *string                     `protobuf:"bytes,5,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
-	Val                    *string                     `protobuf:"bytes,6,opt,name=val" json:"val,omitempty"`
-	XXX_unrecognized       []byte                      `json:"-"`
+	CreateTime             *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description            *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	IpsetType              *int32               `protobuf:"varint,3,opt,name=ipset_type,json=ipsetType" json:"ipset_type,omitempty"`
+	SecurityGroupIpsetId   *string              `protobuf:"bytes,4,opt,name=security_group_ipset_id,json=securityGroupIpsetId" json:"security_group_ipset_id,omitempty"`
+	SecurityGroupIpsetName *string              `protobuf:"bytes,5,opt,name=security_group_ipset_name,json=securityGroupIpsetName" json:"security_group_ipset_name,omitempty"`
+	Val                    *string              `protobuf:"bytes,6,opt,name=val" json:"val,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}             `json:"-"`
+	XXX_unrecognized       []byte               `json:"-"`
+	XXX_sizecache          int32                `json:"-"`
 }
 
-func (m *SecurityGroupIPSet) Reset()                    { *m = SecurityGroupIPSet{} }
-func (m *SecurityGroupIPSet) String() string            { return proto.CompactTextString(m) }
-func (*SecurityGroupIPSet) ProtoMessage()               {}
-func (*SecurityGroupIPSet) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{54} }
+func (m *SecurityGroupIPSet) Reset()         { *m = SecurityGroupIPSet{} }
+func (m *SecurityGroupIPSet) String() string { return proto.CompactTextString(m) }
+func (*SecurityGroupIPSet) ProtoMessage()    {}
+func (*SecurityGroupIPSet) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{54}
+}
+func (m *SecurityGroupIPSet) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SecurityGroupIPSet.Unmarshal(m, b)
+}
+func (m *SecurityGroupIPSet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SecurityGroupIPSet.Marshal(b, m, deterministic)
+}
+func (dst *SecurityGroupIPSet) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SecurityGroupIPSet.Merge(dst, src)
+}
+func (m *SecurityGroupIPSet) XXX_Size() int {
+	return xxx_messageInfo_SecurityGroupIPSet.Size(m)
+}
+func (m *SecurityGroupIPSet) XXX_DiscardUnknown() {
+	xxx_messageInfo_SecurityGroupIPSet.DiscardUnknown(m)
+}
 
-func (m *SecurityGroupIPSet) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_SecurityGroupIPSet proto.InternalMessageInfo
+
+func (m *SecurityGroupIPSet) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -5050,23 +6211,44 @@ func (m *SecurityGroupIPSet) GetVal() string {
 }
 
 type SecurityGroupRule struct {
-	Action                *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	Direction             *int32  `protobuf:"varint,2,opt,name=direction" json:"direction,omitempty"`
-	Priority              *int32  `protobuf:"varint,3,opt,name=priority" json:"priority,omitempty"`
-	Protocol              *string `protobuf:"bytes,4,opt,name=protocol" json:"protocol,omitempty"`
-	SecurityGroupId       *string `protobuf:"bytes,5,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	SecurityGroupRuleId   *string `protobuf:"bytes,6,opt,name=security_group_rule_id,json=securityGroupRuleId" json:"security_group_rule_id,omitempty"`
-	SecurityGroupRuleName *string `protobuf:"bytes,7,opt,name=security_group_rule_name,json=securityGroupRuleName" json:"security_group_rule_name,omitempty"`
-	Val1                  *string `protobuf:"bytes,8,opt,name=val1" json:"val1,omitempty"`
-	Val2                  *string `protobuf:"bytes,9,opt,name=val2" json:"val2,omitempty"`
-	Val3                  *string `protobuf:"bytes,10,opt,name=val3" json:"val3,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	Action                *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	Direction             *int32   `protobuf:"varint,2,opt,name=direction" json:"direction,omitempty"`
+	Priority              *int32   `protobuf:"varint,3,opt,name=priority" json:"priority,omitempty"`
+	Protocol              *string  `protobuf:"bytes,4,opt,name=protocol" json:"protocol,omitempty"`
+	SecurityGroupId       *string  `protobuf:"bytes,5,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	SecurityGroupRuleId   *string  `protobuf:"bytes,6,opt,name=security_group_rule_id,json=securityGroupRuleId" json:"security_group_rule_id,omitempty"`
+	SecurityGroupRuleName *string  `protobuf:"bytes,7,opt,name=security_group_rule_name,json=securityGroupRuleName" json:"security_group_rule_name,omitempty"`
+	Val1                  *string  `protobuf:"bytes,8,opt,name=val1" json:"val1,omitempty"`
+	Val2                  *string  `protobuf:"bytes,9,opt,name=val2" json:"val2,omitempty"`
+	Val3                  *string  `protobuf:"bytes,10,opt,name=val3" json:"val3,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
-func (m *SecurityGroupRule) Reset()                    { *m = SecurityGroupRule{} }
-func (m *SecurityGroupRule) String() string            { return proto.CompactTextString(m) }
-func (*SecurityGroupRule) ProtoMessage()               {}
-func (*SecurityGroupRule) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{55} }
+func (m *SecurityGroupRule) Reset()         { *m = SecurityGroupRule{} }
+func (m *SecurityGroupRule) String() string { return proto.CompactTextString(m) }
+func (*SecurityGroupRule) ProtoMessage()    {}
+func (*SecurityGroupRule) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{55}
+}
+func (m *SecurityGroupRule) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SecurityGroupRule.Unmarshal(m, b)
+}
+func (m *SecurityGroupRule) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SecurityGroupRule.Marshal(b, m, deterministic)
+}
+func (dst *SecurityGroupRule) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SecurityGroupRule.Merge(dst, src)
+}
+func (m *SecurityGroupRule) XXX_Size() int {
+	return xxx_messageInfo_SecurityGroupRule.Size(m)
+}
+func (m *SecurityGroupRule) XXX_DiscardUnknown() {
+	xxx_messageInfo_SecurityGroupRule.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SecurityGroupRule proto.InternalMessageInfo
 
 func (m *SecurityGroupRule) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -5142,13 +6324,34 @@ type SecurityGroupSnapshot struct {
 	GroupId                 *string              `protobuf:"bytes,1,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
 	Rules                   []*SecurityGroupRule `protobuf:"bytes,2,rep,name=rules" json:"rules,omitempty"`
 	SecurityGroupSnapshotId *string              `protobuf:"bytes,3,opt,name=security_group_snapshot_id,json=securityGroupSnapshotId" json:"security_group_snapshot_id,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{}             `json:"-"`
 	XXX_unrecognized        []byte               `json:"-"`
+	XXX_sizecache           int32                `json:"-"`
 }
 
-func (m *SecurityGroupSnapshot) Reset()                    { *m = SecurityGroupSnapshot{} }
-func (m *SecurityGroupSnapshot) String() string            { return proto.CompactTextString(m) }
-func (*SecurityGroupSnapshot) ProtoMessage()               {}
-func (*SecurityGroupSnapshot) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{56} }
+func (m *SecurityGroupSnapshot) Reset()         { *m = SecurityGroupSnapshot{} }
+func (m *SecurityGroupSnapshot) String() string { return proto.CompactTextString(m) }
+func (*SecurityGroupSnapshot) ProtoMessage()    {}
+func (*SecurityGroupSnapshot) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{56}
+}
+func (m *SecurityGroupSnapshot) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SecurityGroupSnapshot.Unmarshal(m, b)
+}
+func (m *SecurityGroupSnapshot) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SecurityGroupSnapshot.Marshal(b, m, deterministic)
+}
+func (dst *SecurityGroupSnapshot) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SecurityGroupSnapshot.Merge(dst, src)
+}
+func (m *SecurityGroupSnapshot) XXX_Size() int {
+	return xxx_messageInfo_SecurityGroupSnapshot.Size(m)
+}
+func (m *SecurityGroupSnapshot) XXX_DiscardUnknown() {
+	xxx_messageInfo_SecurityGroupSnapshot.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SecurityGroupSnapshot proto.InternalMessageInfo
 
 func (m *SecurityGroupSnapshot) GetGroupId() string {
 	if m != nil && m.GroupId != nil {
@@ -5172,21 +6375,42 @@ func (m *SecurityGroupSnapshot) GetSecurityGroupSnapshotId() string {
 }
 
 type ServerCertificate struct {
-	CreateTime            *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description           *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	CertificateContent    *string                     `protobuf:"bytes,3,opt,name=certificate_content,json=certificateContent" json:"certificate_content,omitempty"`
-	PrivateKey            *string                     `protobuf:"bytes,4,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
-	ServerCertificateId   *string                     `protobuf:"bytes,5,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
-	ServerCertificateName *string                     `protobuf:"bytes,6,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
-	XXX_unrecognized      []byte                      `json:"-"`
+	CreateTime            *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description           *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	CertificateContent    *string              `protobuf:"bytes,3,opt,name=certificate_content,json=certificateContent" json:"certificate_content,omitempty"`
+	PrivateKey            *string              `protobuf:"bytes,4,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
+	ServerCertificateId   *string              `protobuf:"bytes,5,opt,name=server_certificate_id,json=serverCertificateId" json:"server_certificate_id,omitempty"`
+	ServerCertificateName *string              `protobuf:"bytes,6,opt,name=server_certificate_name,json=serverCertificateName" json:"server_certificate_name,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{}             `json:"-"`
+	XXX_unrecognized      []byte               `json:"-"`
+	XXX_sizecache         int32                `json:"-"`
 }
 
-func (m *ServerCertificate) Reset()                    { *m = ServerCertificate{} }
-func (m *ServerCertificate) String() string            { return proto.CompactTextString(m) }
-func (*ServerCertificate) ProtoMessage()               {}
-func (*ServerCertificate) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{57} }
+func (m *ServerCertificate) Reset()         { *m = ServerCertificate{} }
+func (m *ServerCertificate) String() string { return proto.CompactTextString(m) }
+func (*ServerCertificate) ProtoMessage()    {}
+func (*ServerCertificate) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{57}
+}
+func (m *ServerCertificate) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ServerCertificate.Unmarshal(m, b)
+}
+func (m *ServerCertificate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ServerCertificate.Marshal(b, m, deterministic)
+}
+func (dst *ServerCertificate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ServerCertificate.Merge(dst, src)
+}
+func (m *ServerCertificate) XXX_Size() int {
+	return xxx_messageInfo_ServerCertificate.Size(m)
+}
+func (m *ServerCertificate) XXX_DiscardUnknown() {
+	xxx_messageInfo_ServerCertificate.DiscardUnknown(m)
+}
 
-func (m *ServerCertificate) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_ServerCertificate proto.InternalMessageInfo
+
+func (m *ServerCertificate) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -5229,40 +6453,61 @@ func (m *ServerCertificate) GetServerCertificateName() string {
 }
 
 type Snapshot struct {
-	CreateTime         *google_protobuf1.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description        *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	HeadChain          *string                     `protobuf:"bytes,3,opt,name=head_chain,json=headChain" json:"head_chain,omitempty"`
-	IsHead             *int32                      `protobuf:"varint,4,opt,name=is_head,json=isHead" json:"is_head,omitempty"`
-	IsTaken            *int32                      `protobuf:"varint,5,opt,name=is_taken,json=isTaken" json:"is_taken,omitempty"`
-	LatestSnapshotTime *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	ParentId           *string                     `protobuf:"bytes,7,opt,name=parent_id,json=parentId" json:"parent_id,omitempty"`
-	Provider           *string                     `protobuf:"bytes,8,opt,name=provider" json:"provider,omitempty"`
-	Resource           *Resource                   `protobuf:"bytes,9,opt,name=resource" json:"resource,omitempty"`
-	RootId             *string                     `protobuf:"bytes,10,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
-	Size               *int32                      `protobuf:"varint,11,opt,name=size" json:"size,omitempty"`
-	SnapshotId         *string                     `protobuf:"bytes,12,opt,name=snapshot_id,json=snapshotId" json:"snapshot_id,omitempty"`
-	SnapshotName       *string                     `protobuf:"bytes,13,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
-	SnapshotResource   *SnapshotResource           `protobuf:"bytes,14,opt,name=snapshot_resource,json=snapshotResource" json:"snapshot_resource,omitempty"`
-	SnapshotTime       *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=snapshot_time,json=snapshotTime" json:"snapshot_time,omitempty"`
-	SnapshotType       *string                     `protobuf:"bytes,16,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
-	Status             *string                     `protobuf:"bytes,17,opt,name=status" json:"status,omitempty"`
-	StatusTime         *google_protobuf1.Timestamp `protobuf:"bytes,18,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SubCode            *int32                      `protobuf:"varint,19,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
-	Tags               []*Tag                      `protobuf:"bytes,20,rep,name=tags" json:"tags,omitempty"`
-	TotalCount         *int32                      `protobuf:"varint,21,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	TotalSize          *int32                      `protobuf:"varint,22,opt,name=total_size,json=totalSize" json:"total_size,omitempty"`
-	TransitionStatus   *string                     `protobuf:"bytes,23,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	VirtualSize        *int32                      `protobuf:"varint,24,opt,name=virtual_size,json=virtualSize" json:"virtual_size,omitempty"`
-	Visibility         *string                     `protobuf:"bytes,25,opt,name=visibility" json:"visibility,omitempty"`
-	XXX_unrecognized   []byte                      `json:"-"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	HeadChain            *string              `protobuf:"bytes,3,opt,name=head_chain,json=headChain" json:"head_chain,omitempty"`
+	IsHead               *int32               `protobuf:"varint,4,opt,name=is_head,json=isHead" json:"is_head,omitempty"`
+	IsTaken              *int32               `protobuf:"varint,5,opt,name=is_taken,json=isTaken" json:"is_taken,omitempty"`
+	LatestSnapshotTime   *timestamp.Timestamp `protobuf:"bytes,6,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
+	ParentId             *string              `protobuf:"bytes,7,opt,name=parent_id,json=parentId" json:"parent_id,omitempty"`
+	Provider             *string              `protobuf:"bytes,8,opt,name=provider" json:"provider,omitempty"`
+	Resource             *Resource            `protobuf:"bytes,9,opt,name=resource" json:"resource,omitempty"`
+	RootId               *string              `protobuf:"bytes,10,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
+	Size                 *int32               `protobuf:"varint,11,opt,name=size" json:"size,omitempty"`
+	SnapshotId           *string              `protobuf:"bytes,12,opt,name=snapshot_id,json=snapshotId" json:"snapshot_id,omitempty"`
+	SnapshotName         *string              `protobuf:"bytes,13,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
+	SnapshotResource     *SnapshotResource    `protobuf:"bytes,14,opt,name=snapshot_resource,json=snapshotResource" json:"snapshot_resource,omitempty"`
+	SnapshotTime         *timestamp.Timestamp `protobuf:"bytes,15,opt,name=snapshot_time,json=snapshotTime" json:"snapshot_time,omitempty"`
+	SnapshotType         *string              `protobuf:"bytes,16,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
+	Status               *string              `protobuf:"bytes,17,opt,name=status" json:"status,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,18,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SubCode              *int32               `protobuf:"varint,19,opt,name=sub_code,json=subCode" json:"sub_code,omitempty"`
+	Tags                 []*Tag               `protobuf:"bytes,20,rep,name=tags" json:"tags,omitempty"`
+	TotalCount           *int32               `protobuf:"varint,21,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	TotalSize            *int32               `protobuf:"varint,22,opt,name=total_size,json=totalSize" json:"total_size,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,23,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	VirtualSize          *int32               `protobuf:"varint,24,opt,name=virtual_size,json=virtualSize" json:"virtual_size,omitempty"`
+	Visibility           *string              `protobuf:"bytes,25,opt,name=visibility" json:"visibility,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *Snapshot) Reset()                    { *m = Snapshot{} }
-func (m *Snapshot) String() string            { return proto.CompactTextString(m) }
-func (*Snapshot) ProtoMessage()               {}
-func (*Snapshot) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{58} }
+func (m *Snapshot) Reset()         { *m = Snapshot{} }
+func (m *Snapshot) String() string { return proto.CompactTextString(m) }
+func (*Snapshot) ProtoMessage()    {}
+func (*Snapshot) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{58}
+}
+func (m *Snapshot) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Snapshot.Unmarshal(m, b)
+}
+func (m *Snapshot) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Snapshot.Marshal(b, m, deterministic)
+}
+func (dst *Snapshot) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Snapshot.Merge(dst, src)
+}
+func (m *Snapshot) XXX_Size() int {
+	return xxx_messageInfo_Snapshot.Size(m)
+}
+func (m *Snapshot) XXX_DiscardUnknown() {
+	xxx_messageInfo_Snapshot.DiscardUnknown(m)
+}
 
-func (m *Snapshot) GetCreateTime() *google_protobuf1.Timestamp {
+var xxx_messageInfo_Snapshot proto.InternalMessageInfo
+
+func (m *Snapshot) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -5297,7 +6542,7 @@ func (m *Snapshot) GetIsTaken() int32 {
 	return 0
 }
 
-func (m *Snapshot) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *Snapshot) GetLatestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LatestSnapshotTime
 	}
@@ -5360,7 +6605,7 @@ func (m *Snapshot) GetSnapshotResource() *SnapshotResource {
 	return nil
 }
 
-func (m *Snapshot) GetSnapshotTime() *google_protobuf1.Timestamp {
+func (m *Snapshot) GetSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.SnapshotTime
 	}
@@ -5381,7 +6626,7 @@ func (m *Snapshot) GetStatus() string {
 	return ""
 }
 
-func (m *Snapshot) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *Snapshot) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -5438,15 +6683,36 @@ func (m *Snapshot) GetVisibility() string {
 }
 
 type SnapshotResource struct {
-	OsFamily         *string `protobuf:"bytes,1,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Platform         *string `protobuf:"bytes,2,opt,name=platform" json:"platform,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	OsFamily             *string  `protobuf:"bytes,1,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Platform             *string  `protobuf:"bytes,2,opt,name=platform" json:"platform,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SnapshotResource) Reset()                    { *m = SnapshotResource{} }
-func (m *SnapshotResource) String() string            { return proto.CompactTextString(m) }
-func (*SnapshotResource) ProtoMessage()               {}
-func (*SnapshotResource) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{59} }
+func (m *SnapshotResource) Reset()         { *m = SnapshotResource{} }
+func (m *SnapshotResource) String() string { return proto.CompactTextString(m) }
+func (*SnapshotResource) ProtoMessage()    {}
+func (*SnapshotResource) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{59}
+}
+func (m *SnapshotResource) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SnapshotResource.Unmarshal(m, b)
+}
+func (m *SnapshotResource) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SnapshotResource.Marshal(b, m, deterministic)
+}
+func (dst *SnapshotResource) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SnapshotResource.Merge(dst, src)
+}
+func (m *SnapshotResource) XXX_Size() int {
+	return xxx_messageInfo_SnapshotResource.Size(m)
+}
+func (m *SnapshotResource) XXX_DiscardUnknown() {
+	xxx_messageInfo_SnapshotResource.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SnapshotResource proto.InternalMessageInfo
 
 func (m *SnapshotResource) GetOsFamily() string {
 	if m != nil && m.OsFamily != nil {
@@ -5463,15 +6729,36 @@ func (m *SnapshotResource) GetPlatform() string {
 }
 
 type User struct {
-	Email            *string `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
-	UserId           *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Email                *string  `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
+	UserId               *string  `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *User) Reset()                    { *m = User{} }
-func (m *User) String() string            { return proto.CompactTextString(m) }
-func (*User) ProtoMessage()               {}
-func (*User) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{60} }
+func (m *User) Reset()         { *m = User{} }
+func (m *User) String() string { return proto.CompactTextString(m) }
+func (*User) ProtoMessage()    {}
+func (*User) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{60}
+}
+func (m *User) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_User.Unmarshal(m, b)
+}
+func (m *User) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_User.Marshal(b, m, deterministic)
+}
+func (dst *User) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_User.Merge(dst, src)
+}
+func (m *User) XXX_Size() int {
+	return xxx_messageInfo_User.Size(m)
+}
+func (m *User) XXX_DiscardUnknown() {
+	xxx_messageInfo_User.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_User proto.InternalMessageInfo
 
 func (m *User) GetEmail() string {
 	if m != nil && m.Email != nil {
@@ -5488,15 +6775,36 @@ func (m *User) GetUserId() string {
 }
 
 type Zone struct {
-	Status           *string `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	ZoneId           *string `protobuf:"bytes,2,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Status               *string  `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	ZoneId               *string  `protobuf:"bytes,2,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Zone) Reset()                    { *m = Zone{} }
-func (m *Zone) String() string            { return proto.CompactTextString(m) }
-func (*Zone) ProtoMessage()               {}
-func (*Zone) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{61} }
+func (m *Zone) Reset()         { *m = Zone{} }
+func (m *Zone) String() string { return proto.CompactTextString(m) }
+func (*Zone) ProtoMessage()    {}
+func (*Zone) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{61}
+}
+func (m *Zone) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Zone.Unmarshal(m, b)
+}
+func (m *Zone) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Zone.Marshal(b, m, deterministic)
+}
+func (dst *Zone) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Zone.Merge(dst, src)
+}
+func (m *Zone) XXX_Size() int {
+	return xxx_messageInfo_Zone.Size(m)
+}
+func (m *Zone) XXX_DiscardUnknown() {
+	xxx_messageInfo_Zone.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Zone proto.InternalMessageInfo
 
 func (m *Zone) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -5520,32 +6828,32 @@ type ClusterNode struct {
 	CustomService *string `protobuf:"bytes,5,opt,name=custom_service,json=customService" json:"custom_service,omitempty"`
 	AppId         *string `protobuf:"bytes,6,opt,name=app_id,json=appId" json:"app_id,omitempty"`
 	// "advanced_actions":null,
-	ConsoleId   *string                     `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
-	StopService *string                     `protobuf:"bytes,9,opt,name=stop_service,json=stopService" json:"stop_service,omitempty"`
-	UserAccess  *int32                      `protobuf:"varint,10,opt,name=user_access,json=userAccess" json:"user_access,omitempty"`
-	CreateTime  *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	ClusterId   *string                     `protobuf:"bytes,12,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
-	PrivateIp   *string                     `protobuf:"bytes,13,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	ConsoleId   *string              `protobuf:"bytes,8,opt,name=console_id,json=consoleId" json:"console_id,omitempty"`
+	StopService *string              `protobuf:"bytes,9,opt,name=stop_service,json=stopService" json:"stop_service,omitempty"`
+	UserAccess  *int32               `protobuf:"varint,10,opt,name=user_access,json=userAccess" json:"user_access,omitempty"`
+	CreateTime  *timestamp.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	ClusterId   *string              `protobuf:"bytes,12,opt,name=cluster_id,json=clusterId" json:"cluster_id,omitempty"`
+	PrivateIp   *string              `protobuf:"bytes,13,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
 	// "upgrade_service":null,
 	Owner                      *string `protobuf:"bytes,15,opt,name=owner" json:"owner,omitempty"`
 	AlarmStatus                *string `protobuf:"bytes,16,opt,name=alarm_status,json=alarmStatus" json:"alarm_status,omitempty"`
 	IncrementalBackupSupported *int32  `protobuf:"varint,17,opt,name=incremental_backup_supported,json=incrementalBackupSupported" json:"incremental_backup_supported,omitempty"`
 	// "restore_service":null,
-	ServerId         *int32                      `protobuf:"varint,19,opt,name=server_id,json=serverId" json:"server_id,omitempty"`
-	Monitor          *string                     `protobuf:"bytes,20,opt,name=monitor" json:"monitor,omitempty"`
-	HealthStatus     *string                     `protobuf:"bytes,21,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
-	IsBackup         *int32                      `protobuf:"varint,22,opt,name=is_backup,json=isBackup" json:"is_backup,omitempty"`
-	RootUserId       *string                     `protobuf:"bytes,23,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
-	Role             *string                     `protobuf:"bytes,24,opt,name=role" json:"role,omitempty"`
-	Memory           *int32                      `protobuf:"varint,25,opt,name=memory" json:"memory,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,26,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	RestartService   *string                     `protobuf:"bytes,27,opt,name=restart_service,json=restartService" json:"restart_service,omitempty"`
-	AppVersion       *string                     `protobuf:"bytes,28,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	Status           *string                     `protobuf:"bytes,29,opt,name=status" json:"status,omitempty"`
-	GlobalServerId   *int32                      `protobuf:"varint,30,opt,name=global_server_id,json=globalServerId" json:"global_server_id,omitempty"`
-	ScaleInService   *string                     `protobuf:"bytes,31,opt,name=scale_in_service,json=scaleInService" json:"scale_in_service,omitempty"`
-	AutoBackup       *int32                      `protobuf:"varint,32,opt,name=auto_backup,json=autoBackup" json:"auto_backup,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,33,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	ServerId         *int32               `protobuf:"varint,19,opt,name=server_id,json=serverId" json:"server_id,omitempty"`
+	Monitor          *string              `protobuf:"bytes,20,opt,name=monitor" json:"monitor,omitempty"`
+	HealthStatus     *string              `protobuf:"bytes,21,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
+	IsBackup         *int32               `protobuf:"varint,22,opt,name=is_backup,json=isBackup" json:"is_backup,omitempty"`
+	RootUserId       *string              `protobuf:"bytes,23,opt,name=root_user_id,json=rootUserId" json:"root_user_id,omitempty"`
+	Role             *string              `protobuf:"bytes,24,opt,name=role" json:"role,omitempty"`
+	Memory           *int32               `protobuf:"varint,25,opt,name=memory" json:"memory,omitempty"`
+	StatusTime       *timestamp.Timestamp `protobuf:"bytes,26,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	RestartService   *string              `protobuf:"bytes,27,opt,name=restart_service,json=restartService" json:"restart_service,omitempty"`
+	AppVersion       *string              `protobuf:"bytes,28,opt,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	Status           *string              `protobuf:"bytes,29,opt,name=status" json:"status,omitempty"`
+	GlobalServerId   *int32               `protobuf:"varint,30,opt,name=global_server_id,json=globalServerId" json:"global_server_id,omitempty"`
+	ScaleInService   *string              `protobuf:"bytes,31,opt,name=scale_in_service,json=scaleInService" json:"scale_in_service,omitempty"`
+	AutoBackup       *int32               `protobuf:"varint,32,opt,name=auto_backup,json=autoBackup" json:"auto_backup,omitempty"`
+	TransitionStatus *string              `protobuf:"bytes,33,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
 	// "custom_metadata":null,
 	StorageSize *int32 `protobuf:"varint,35,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
 	// "server_id_upper_bound":null,
@@ -5571,14 +6879,35 @@ type ClusterNode struct {
 	// "pub_key":null,
 	GroupId *int32 `protobuf:"varint,56,opt,name=group_id,json=groupId" json:"group_id,omitempty"`
 	// "backup_service":null,
-	Cpu              *int32 `protobuf:"varint,58,opt,name=cpu" json:"cpu,omitempty"`
-	XXX_unrecognized []byte `json:"-"`
+	Cpu                  *int32   `protobuf:"varint,58,opt,name=cpu" json:"cpu,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ClusterNode) Reset()                    { *m = ClusterNode{} }
-func (m *ClusterNode) String() string            { return proto.CompactTextString(m) }
-func (*ClusterNode) ProtoMessage()               {}
-func (*ClusterNode) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{62} }
+func (m *ClusterNode) Reset()         { *m = ClusterNode{} }
+func (m *ClusterNode) String() string { return proto.CompactTextString(m) }
+func (*ClusterNode) ProtoMessage()    {}
+func (*ClusterNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{62}
+}
+func (m *ClusterNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ClusterNode.Unmarshal(m, b)
+}
+func (m *ClusterNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ClusterNode.Marshal(b, m, deterministic)
+}
+func (dst *ClusterNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ClusterNode.Merge(dst, src)
+}
+func (m *ClusterNode) XXX_Size() int {
+	return xxx_messageInfo_ClusterNode.Size(m)
+}
+func (m *ClusterNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_ClusterNode.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ClusterNode proto.InternalMessageInfo
 
 func (m *ClusterNode) GetVerticalScalingPolicy() string {
 	if m != nil && m.VerticalScalingPolicy != nil {
@@ -5629,7 +6958,7 @@ func (m *ClusterNode) GetUserAccess() int32 {
 	return 0
 }
 
-func (m *ClusterNode) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *ClusterNode) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -5720,7 +7049,7 @@ func (m *ClusterNode) GetMemory() int32 {
 	return 0
 }
 
-func (m *ClusterNode) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *ClusterNode) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -5903,19 +7232,40 @@ func (m *ClusterNode) GetCpu() int32 {
 }
 
 type ResourceGroupsItem struct {
-	ResourceGroupId   *string                     `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
-	CreateTime        *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description       *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	ResourceGroupName *string                     `protobuf:"bytes,4,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
-	ResourceType      *string                     `protobuf:"bytes,5,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	ResourceId        *string                     `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	XXX_unrecognized  []byte                      `json:"-"`
+	ResourceGroupId      *string              `protobuf:"bytes,1,opt,name=resource_group_id,json=resourceGroupId" json:"resource_group_id,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	ResourceGroupName    *string              `protobuf:"bytes,4,opt,name=resource_group_name,json=resourceGroupName" json:"resource_group_name,omitempty"`
+	ResourceType         *string              `protobuf:"bytes,5,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	ResourceId           *string              `protobuf:"bytes,6,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *ResourceGroupsItem) Reset()                    { *m = ResourceGroupsItem{} }
-func (m *ResourceGroupsItem) String() string            { return proto.CompactTextString(m) }
-func (*ResourceGroupsItem) ProtoMessage()               {}
-func (*ResourceGroupsItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{63} }
+func (m *ResourceGroupsItem) Reset()         { *m = ResourceGroupsItem{} }
+func (m *ResourceGroupsItem) String() string { return proto.CompactTextString(m) }
+func (*ResourceGroupsItem) ProtoMessage()    {}
+func (*ResourceGroupsItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{63}
+}
+func (m *ResourceGroupsItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResourceGroupsItem.Unmarshal(m, b)
+}
+func (m *ResourceGroupsItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResourceGroupsItem.Marshal(b, m, deterministic)
+}
+func (dst *ResourceGroupsItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResourceGroupsItem.Merge(dst, src)
+}
+func (m *ResourceGroupsItem) XXX_Size() int {
+	return xxx_messageInfo_ResourceGroupsItem.Size(m)
+}
+func (m *ResourceGroupsItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResourceGroupsItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResourceGroupsItem proto.InternalMessageInfo
 
 func (m *ResourceGroupsItem) GetResourceGroupId() string {
 	if m != nil && m.ResourceGroupId != nil {
@@ -5924,7 +7274,7 @@ func (m *ResourceGroupsItem) GetResourceGroupId() string {
 	return ""
 }
 
-func (m *ResourceGroupsItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *ResourceGroupsItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -5960,21 +7310,42 @@ func (m *ResourceGroupsItem) GetResourceId() string {
 }
 
 type UserGroupItem struct {
-	Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	UserGroupName    *string                     `protobuf:"bytes,3,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	UserGroupId      *string                     `protobuf:"bytes,6,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
-	UserId           *string                     `protobuf:"bytes,7,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	Remarks          *string                     `protobuf:"bytes,8,opt,name=remarks" json:"remarks,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Status               *string              `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	UserGroupName        *string              `protobuf:"bytes,3,opt,name=user_group_name,json=userGroupName" json:"user_group_name,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,5,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	UserGroupId          *string              `protobuf:"bytes,6,opt,name=user_group_id,json=userGroupId" json:"user_group_id,omitempty"`
+	UserId               *string              `protobuf:"bytes,7,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	Remarks              *string              `protobuf:"bytes,8,opt,name=remarks" json:"remarks,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *UserGroupItem) Reset()                    { *m = UserGroupItem{} }
-func (m *UserGroupItem) String() string            { return proto.CompactTextString(m) }
-func (*UserGroupItem) ProtoMessage()               {}
-func (*UserGroupItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{64} }
+func (m *UserGroupItem) Reset()         { *m = UserGroupItem{} }
+func (m *UserGroupItem) String() string { return proto.CompactTextString(m) }
+func (*UserGroupItem) ProtoMessage()    {}
+func (*UserGroupItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{64}
+}
+func (m *UserGroupItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UserGroupItem.Unmarshal(m, b)
+}
+func (m *UserGroupItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UserGroupItem.Marshal(b, m, deterministic)
+}
+func (dst *UserGroupItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UserGroupItem.Merge(dst, src)
+}
+func (m *UserGroupItem) XXX_Size() int {
+	return xxx_messageInfo_UserGroupItem.Size(m)
+}
+func (m *UserGroupItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_UserGroupItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UserGroupItem proto.InternalMessageInfo
 
 func (m *UserGroupItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -5997,14 +7368,14 @@ func (m *UserGroupItem) GetUserGroupName() string {
 	return ""
 }
 
-func (m *UserGroupItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *UserGroupItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *UserGroupItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *UserGroupItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -6033,20 +7404,41 @@ func (m *UserGroupItem) GetRemarks() string {
 }
 
 type GroupRoleItem struct {
-	Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	GroupRoleId      *string                     `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	GroupRoleName    *string                     `protobuf:"bytes,5,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	RoleType         *string                     `protobuf:"bytes,7,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Status               *string              `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	GroupRoleId          *string              `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	GroupRoleName        *string              `protobuf:"bytes,5,opt,name=group_role_name,json=groupRoleName" json:"group_role_name,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,6,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	RoleType             *string              `protobuf:"bytes,7,opt,name=role_type,json=roleType" json:"role_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *GroupRoleItem) Reset()                    { *m = GroupRoleItem{} }
-func (m *GroupRoleItem) String() string            { return proto.CompactTextString(m) }
-func (*GroupRoleItem) ProtoMessage()               {}
-func (*GroupRoleItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{65} }
+func (m *GroupRoleItem) Reset()         { *m = GroupRoleItem{} }
+func (m *GroupRoleItem) String() string { return proto.CompactTextString(m) }
+func (*GroupRoleItem) ProtoMessage()    {}
+func (*GroupRoleItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{65}
+}
+func (m *GroupRoleItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GroupRoleItem.Unmarshal(m, b)
+}
+func (m *GroupRoleItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GroupRoleItem.Marshal(b, m, deterministic)
+}
+func (dst *GroupRoleItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GroupRoleItem.Merge(dst, src)
+}
+func (m *GroupRoleItem) XXX_Size() int {
+	return xxx_messageInfo_GroupRoleItem.Size(m)
+}
+func (m *GroupRoleItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_GroupRoleItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GroupRoleItem proto.InternalMessageInfo
 
 func (m *GroupRoleItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -6069,7 +7461,7 @@ func (m *GroupRoleItem) GetGroupRoleId() string {
 	return ""
 }
 
-func (m *GroupRoleItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *GroupRoleItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -6083,7 +7475,7 @@ func (m *GroupRoleItem) GetGroupRoleName() string {
 	return ""
 }
 
-func (m *GroupRoleItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *GroupRoleItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -6098,21 +7490,42 @@ func (m *GroupRoleItem) GetRoleType() string {
 }
 
 type GroupRoleRuleItem struct {
-	Status           *string                     `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	Description      *string                     `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	GroupRoleId      *string                     `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Principle        *string                     `protobuf:"bytes,5,opt,name=principle" json:"principle,omitempty"`
-	Policy           *string                     `protobuf:"bytes,6,opt,name=policy" json:"policy,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	GroupRoleRuleId  *string                     `protobuf:"bytes,8,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	Status               *string              `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	Description          *string              `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	GroupRoleId          *string              `protobuf:"bytes,3,opt,name=group_role_id,json=groupRoleId" json:"group_role_id,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Principle            *string              `protobuf:"bytes,5,opt,name=principle" json:"principle,omitempty"`
+	Policy               *string              `protobuf:"bytes,6,opt,name=policy" json:"policy,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,7,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	GroupRoleRuleId      *string              `protobuf:"bytes,8,opt,name=group_role_rule_id,json=groupRoleRuleId" json:"group_role_rule_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *GroupRoleRuleItem) Reset()                    { *m = GroupRoleRuleItem{} }
-func (m *GroupRoleRuleItem) String() string            { return proto.CompactTextString(m) }
-func (*GroupRoleRuleItem) ProtoMessage()               {}
-func (*GroupRoleRuleItem) Descriptor() ([]byte, []int) { return fileDescriptor26, []int{66} }
+func (m *GroupRoleRuleItem) Reset()         { *m = GroupRoleRuleItem{} }
+func (m *GroupRoleRuleItem) String() string { return proto.CompactTextString(m) }
+func (*GroupRoleRuleItem) ProtoMessage()    {}
+func (*GroupRoleRuleItem) Descriptor() ([]byte, []int) {
+	return fileDescriptor_types_7055f966a90e46f7, []int{66}
+}
+func (m *GroupRoleRuleItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GroupRoleRuleItem.Unmarshal(m, b)
+}
+func (m *GroupRoleRuleItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GroupRoleRuleItem.Marshal(b, m, deterministic)
+}
+func (dst *GroupRoleRuleItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GroupRoleRuleItem.Merge(dst, src)
+}
+func (m *GroupRoleRuleItem) XXX_Size() int {
+	return xxx_messageInfo_GroupRoleRuleItem.Size(m)
+}
+func (m *GroupRoleRuleItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_GroupRoleRuleItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GroupRoleRuleItem proto.InternalMessageInfo
 
 func (m *GroupRoleRuleItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -6135,7 +7548,7 @@ func (m *GroupRoleRuleItem) GetGroupRoleId() string {
 	return ""
 }
 
-func (m *GroupRoleRuleItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *GroupRoleRuleItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -6156,7 +7569,7 @@ func (m *GroupRoleRuleItem) GetPolicy() string {
 	return ""
 }
 
-func (m *GroupRoleRuleItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *GroupRoleRuleItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -6178,6 +7591,9 @@ func init() {
 	proto.RegisterType((*CacheParameterGroup)(nil), "service.CacheParameterGroup")
 	proto.RegisterType((*CachePrivateIP)(nil), "service.CachePrivateIP")
 	proto.RegisterType((*Cluster)(nil), "service.Cluster")
+	proto.RegisterMapType((map[string]bool)(nil), "service.Cluster.HealthCheckEnablementEntry")
+	proto.RegisterMapType((map[string]string)(nil), "service.Cluster.LinksEntry")
+	proto.RegisterMapType((map[string]int32)(nil), "service.Cluster.RoleCountEntry")
 	proto.RegisterType((*Tag)(nil), "service.Tag")
 	proto.RegisterType((*ResourceTagPair)(nil), "service.ResourceTagPair")
 	proto.RegisterType((*ResourceTypeCount)(nil), "service.ResourceTypeCount")
@@ -6224,6 +7640,7 @@ func init() {
 	proto.RegisterType((*S2DefaultParameters)(nil), "service.S2DefaultParameters")
 	proto.RegisterType((*S2Server)(nil), "service.S2Server")
 	proto.RegisterType((*S2SharedTarget)(nil), "service.S2SharedTarget")
+	proto.RegisterMapType((map[string]string)(nil), "service.S2SharedTarget.S2GroupEntry")
 	proto.RegisterType((*SecurityGroup)(nil), "service.SecurityGroup")
 	proto.RegisterType((*SecurityGroupIPSet)(nil), "service.SecurityGroupIPSet")
 	proto.RegisterType((*SecurityGroupRule)(nil), "service.SecurityGroupRule")
@@ -6240,9 +7657,9 @@ func init() {
 	proto.RegisterType((*GroupRoleRuleItem)(nil), "service.GroupRoleRuleItem")
 }
 
-func init() { proto.RegisterFile("types.proto", fileDescriptor26) }
+func init() { proto.RegisterFile("types.proto", fileDescriptor_types_7055f966a90e46f7) }
 
-var fileDescriptor26 = []byte{
+var fileDescriptor_types_7055f966a90e46f7 = []byte{
 	// 7966 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x7d, 0x4d, 0x6f, 0x1c, 0xc9,
 	0x92, 0x18, 0xd8, 0xcd, 0xfe, 0x8a, 0xfe, 0x60, 0xb3, 0x48, 0x91, 0x4d, 0x4a, 0x1a, 0x49, 0x3d,

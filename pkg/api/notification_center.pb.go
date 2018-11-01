@@ -7,19 +7,27 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeNotificationCenterUserPostsInput struct {
-	PostType         []string `protobuf:"bytes,1,rep,name=post_type,json=postType" json:"post_type,omitempty"`
-	Status           []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
-	Offset           *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	PostType             []string `protobuf:"bytes,1,rep,name=post_type,json=postType" json:"post_type,omitempty"`
+	Status               []string `protobuf:"bytes,2,rep,name=status" json:"status,omitempty"`
+	Offset               *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeNotificationCenterUserPostsInput) Reset() {
@@ -28,8 +36,25 @@ func (m *DescribeNotificationCenterUserPostsInput) Reset() {
 func (m *DescribeNotificationCenterUserPostsInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeNotificationCenterUserPostsInput) ProtoMessage()    {}
 func (*DescribeNotificationCenterUserPostsInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor15, []int{0}
+	return fileDescriptor_notification_center_fefafa267579fef7, []int{0}
 }
+func (m *DescribeNotificationCenterUserPostsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsInput.Unmarshal(m, b)
+}
+func (m *DescribeNotificationCenterUserPostsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeNotificationCenterUserPostsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeNotificationCenterUserPostsInput.Merge(dst, src)
+}
+func (m *DescribeNotificationCenterUserPostsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsInput.Size(m)
+}
+func (m *DescribeNotificationCenterUserPostsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeNotificationCenterUserPostsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeNotificationCenterUserPostsInput proto.InternalMessageInfo
 
 func (m *DescribeNotificationCenterUserPostsInput) GetPostType() []string {
 	if m != nil {
@@ -65,7 +90,9 @@ type DescribeNotificationCenterUserPostsOutput struct {
 	Message                   *string                                                   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	NotificationCenterPostSet []*DescribeNotificationCenterUserPostsOutput_ResponseItem `protobuf:"bytes,4,rep,name=notification_center_post_set,json=notificationCenterPostSet" json:"notification_center_post_set,omitempty"`
 	TotalCount                *int32                                                    `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral      struct{}                                                  `json:"-"`
 	XXX_unrecognized          []byte                                                    `json:"-"`
+	XXX_sizecache             int32                                                     `json:"-"`
 }
 
 func (m *DescribeNotificationCenterUserPostsOutput) Reset() {
@@ -74,8 +101,25 @@ func (m *DescribeNotificationCenterUserPostsOutput) Reset() {
 func (m *DescribeNotificationCenterUserPostsOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeNotificationCenterUserPostsOutput) ProtoMessage()    {}
 func (*DescribeNotificationCenterUserPostsOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor15, []int{1}
+	return fileDescriptor_notification_center_fefafa267579fef7, []int{1}
 }
+func (m *DescribeNotificationCenterUserPostsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsOutput.Unmarshal(m, b)
+}
+func (m *DescribeNotificationCenterUserPostsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeNotificationCenterUserPostsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeNotificationCenterUserPostsOutput.Merge(dst, src)
+}
+func (m *DescribeNotificationCenterUserPostsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsOutput.Size(m)
+}
+func (m *DescribeNotificationCenterUserPostsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeNotificationCenterUserPostsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeNotificationCenterUserPostsOutput proto.InternalMessageInfo
 
 func (m *DescribeNotificationCenterUserPostsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -113,13 +157,15 @@ func (m *DescribeNotificationCenterUserPostsOutput) GetTotalCount() int32 {
 }
 
 type DescribeNotificationCenterUserPostsOutput_ResponseItem struct {
-	NotificationCenterPostId *string                     `protobuf:"bytes,1,opt,name=notification_center_post_id,json=notificationCenterPostId" json:"notification_center_post_id,omitempty"`
-	Status                   *string                     `protobuf:"bytes,2,opt,name=status" json:"status,omitempty"`
-	LatestSnapshotTime       *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
-	PostType                 *string                     `protobuf:"bytes,4,opt,name=post_type,json=postType" json:"post_type,omitempty"`
-	Title                    *string                     `protobuf:"bytes,5,opt,name=title" json:"title,omitempty"`
-	Content                  *string                     `protobuf:"bytes,6,opt,name=content" json:"content,omitempty"`
-	XXX_unrecognized         []byte                      `json:"-"`
+	NotificationCenterPostId *string              `protobuf:"bytes,1,opt,name=notification_center_post_id,json=notificationCenterPostId" json:"notification_center_post_id,omitempty"`
+	Status                   *string              `protobuf:"bytes,2,opt,name=status" json:"status,omitempty"`
+	LatestSnapshotTime       *timestamp.Timestamp `protobuf:"bytes,3,opt,name=latest_snapshot_time,json=latestSnapshotTime" json:"latest_snapshot_time,omitempty"`
+	PostType                 *string              `protobuf:"bytes,4,opt,name=post_type,json=postType" json:"post_type,omitempty"`
+	Title                    *string              `protobuf:"bytes,5,opt,name=title" json:"title,omitempty"`
+	Content                  *string              `protobuf:"bytes,6,opt,name=content" json:"content,omitempty"`
+	XXX_NoUnkeyedLiteral     struct{}             `json:"-"`
+	XXX_unrecognized         []byte               `json:"-"`
+	XXX_sizecache            int32                `json:"-"`
 }
 
 func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) Reset() {
@@ -130,8 +176,25 @@ func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) String() string
 }
 func (*DescribeNotificationCenterUserPostsOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeNotificationCenterUserPostsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor15, []int{1, 0}
+	return fileDescriptor_notification_center_fefafa267579fef7, []int{1, 0}
 }
+func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeNotificationCenterUserPostsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeNotificationCenterUserPostsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeNotificationCenterUserPostsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeNotificationCenterUserPostsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeNotificationCenterUserPostsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) GetNotificationCenterPostId() string {
 	if m != nil && m.NotificationCenterPostId != nil {
@@ -147,7 +210,7 @@ func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) GetStatus() str
 	return ""
 }
 
-func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) GetLatestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *DescribeNotificationCenterUserPostsOutput_ResponseItem) GetLatestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LatestSnapshotTime
 	}
@@ -181,9 +244,11 @@ func init() {
 	proto.RegisterType((*DescribeNotificationCenterUserPostsOutput_ResponseItem)(nil), "service.DescribeNotificationCenterUserPostsOutput.ResponseItem")
 }
 
-func init() { proto.RegisterFile("notification_center.proto", fileDescriptor15) }
+func init() {
+	proto.RegisterFile("notification_center.proto", fileDescriptor_notification_center_fefafa267579fef7)
+}
 
-var fileDescriptor15 = []byte{
+var fileDescriptor_notification_center_fefafa267579fef7 = []byte{
 	// 498 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x52, 0x4d, 0x6b, 0x1b, 0x31,
 	0x10, 0x65, 0xfd, 0x19, 0xcb, 0x3d, 0x09, 0x13, 0xe4, 0x4d, 0x21, 0x26, 0xbd, 0xb8, 0x97, 0x5d,

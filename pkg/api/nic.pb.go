@@ -13,18 +13,45 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type CreateNicsInput struct {
-	Vxnet            *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	NicName          *string  `protobuf:"bytes,2,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
-	Count            *int32   `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
-	PrivateIps       []string `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Vxnet                *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	NicName              *string  `protobuf:"bytes,2,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
+	Count                *int32   `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	PrivateIps           []string `protobuf:"bytes,4,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateNicsInput) Reset()                    { *m = CreateNicsInput{} }
-func (m *CreateNicsInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateNicsInput) ProtoMessage()               {}
-func (*CreateNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{0} }
+func (m *CreateNicsInput) Reset()         { *m = CreateNicsInput{} }
+func (m *CreateNicsInput) String() string { return proto.CompactTextString(m) }
+func (*CreateNicsInput) ProtoMessage()    {}
+func (*CreateNicsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{0}
+}
+func (m *CreateNicsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNicsInput.Unmarshal(m, b)
+}
+func (m *CreateNicsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNicsInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateNicsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNicsInput.Merge(dst, src)
+}
+func (m *CreateNicsInput) XXX_Size() int {
+	return xxx_messageInfo_CreateNicsInput.Size(m)
+}
+func (m *CreateNicsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNicsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateNicsInput proto.InternalMessageInfo
 
 func (m *CreateNicsInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -55,17 +82,38 @@ func (m *CreateNicsInput) GetPrivateIps() []string {
 }
 
 type CreateNicsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Nics             []*NICIP `protobuf:"bytes,4,rep,name=nics" json:"nics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Nics                 []*NICIP `protobuf:"bytes,4,rep,name=nics" json:"nics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateNicsOutput) Reset()                    { *m = CreateNicsOutput{} }
-func (m *CreateNicsOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateNicsOutput) ProtoMessage()               {}
-func (*CreateNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{1} }
+func (m *CreateNicsOutput) Reset()         { *m = CreateNicsOutput{} }
+func (m *CreateNicsOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateNicsOutput) ProtoMessage()    {}
+func (*CreateNicsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{1}
+}
+func (m *CreateNicsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNicsOutput.Unmarshal(m, b)
+}
+func (m *CreateNicsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNicsOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateNicsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNicsOutput.Merge(dst, src)
+}
+func (m *CreateNicsOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateNicsOutput.Size(m)
+}
+func (m *CreateNicsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNicsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateNicsOutput proto.InternalMessageInfo
 
 func (m *CreateNicsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -96,21 +144,42 @@ func (m *CreateNicsOutput) GetNics() []*NICIP {
 }
 
 type DescribeNicsInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	Limit            *int32   `protobuf:"varint,2,opt,name=limit" json:"limit,omitempty"`
-	NicName          *string  `protobuf:"bytes,3,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
-	Nics             []string `protobuf:"bytes,4,rep,name=nics" json:"nics,omitempty"`
-	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Status           *string  `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
-	VxnetType        *int32   `protobuf:"varint,7,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	Vxnets           []string `protobuf:"bytes,8,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	Limit                *int32   `protobuf:"varint,2,opt,name=limit" json:"limit,omitempty"`
+	NicName              *string  `protobuf:"bytes,3,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
+	Nics                 []string `protobuf:"bytes,4,rep,name=nics" json:"nics,omitempty"`
+	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Status               *string  `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
+	VxnetType            *int32   `protobuf:"varint,7,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	Vxnets               []string `protobuf:"bytes,8,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeNicsInput) Reset()                    { *m = DescribeNicsInput{} }
-func (m *DescribeNicsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeNicsInput) ProtoMessage()               {}
-func (*DescribeNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{2} }
+func (m *DescribeNicsInput) Reset()         { *m = DescribeNicsInput{} }
+func (m *DescribeNicsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeNicsInput) ProtoMessage()    {}
+func (*DescribeNicsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{2}
+}
+func (m *DescribeNicsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeNicsInput.Unmarshal(m, b)
+}
+func (m *DescribeNicsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeNicsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeNicsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeNicsInput.Merge(dst, src)
+}
+func (m *DescribeNicsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeNicsInput.Size(m)
+}
+func (m *DescribeNicsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeNicsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeNicsInput proto.InternalMessageInfo
 
 func (m *DescribeNicsInput) GetInstances() []string {
 	if m != nil {
@@ -169,18 +238,39 @@ func (m *DescribeNicsInput) GetVxnets() []string {
 }
 
 type DescribeNicsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	NicSet           []*NIC  `protobuf:"bytes,4,rep,name=nic_set,json=nicSet" json:"nic_set,omitempty"`
-	TotalCount       *int32  `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	NicSet               []*NIC   `protobuf:"bytes,4,rep,name=nic_set,json=nicSet" json:"nic_set,omitempty"`
+	TotalCount           *int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeNicsOutput) Reset()                    { *m = DescribeNicsOutput{} }
-func (m *DescribeNicsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeNicsOutput) ProtoMessage()               {}
-func (*DescribeNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{3} }
+func (m *DescribeNicsOutput) Reset()         { *m = DescribeNicsOutput{} }
+func (m *DescribeNicsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeNicsOutput) ProtoMessage()    {}
+func (*DescribeNicsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{3}
+}
+func (m *DescribeNicsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeNicsOutput.Unmarshal(m, b)
+}
+func (m *DescribeNicsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeNicsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeNicsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeNicsOutput.Merge(dst, src)
+}
+func (m *DescribeNicsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeNicsOutput.Size(m)
+}
+func (m *DescribeNicsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeNicsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeNicsOutput proto.InternalMessageInfo
 
 func (m *DescribeNicsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -218,15 +308,36 @@ func (m *DescribeNicsOutput) GetTotalCount() int32 {
 }
 
 type AttachNicsInput struct {
-	Nics             []string `protobuf:"bytes,1,rep,name=nics" json:"nics,omitempty"`
-	Instance         *string  `protobuf:"bytes,2,opt,name=instance" json:"instance,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Nics                 []string `protobuf:"bytes,1,rep,name=nics" json:"nics,omitempty"`
+	Instance             *string  `protobuf:"bytes,2,opt,name=instance" json:"instance,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachNicsInput) Reset()                    { *m = AttachNicsInput{} }
-func (m *AttachNicsInput) String() string            { return proto.CompactTextString(m) }
-func (*AttachNicsInput) ProtoMessage()               {}
-func (*AttachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{4} }
+func (m *AttachNicsInput) Reset()         { *m = AttachNicsInput{} }
+func (m *AttachNicsInput) String() string { return proto.CompactTextString(m) }
+func (*AttachNicsInput) ProtoMessage()    {}
+func (*AttachNicsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{4}
+}
+func (m *AttachNicsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachNicsInput.Unmarshal(m, b)
+}
+func (m *AttachNicsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachNicsInput.Marshal(b, m, deterministic)
+}
+func (dst *AttachNicsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachNicsInput.Merge(dst, src)
+}
+func (m *AttachNicsInput) XXX_Size() int {
+	return xxx_messageInfo_AttachNicsInput.Size(m)
+}
+func (m *AttachNicsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachNicsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachNicsInput proto.InternalMessageInfo
 
 func (m *AttachNicsInput) GetNics() []string {
 	if m != nil {
@@ -243,17 +354,38 @@ func (m *AttachNicsInput) GetInstance() string {
 }
 
 type AttachNicsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachNicsOutput) Reset()                    { *m = AttachNicsOutput{} }
-func (m *AttachNicsOutput) String() string            { return proto.CompactTextString(m) }
-func (*AttachNicsOutput) ProtoMessage()               {}
-func (*AttachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{5} }
+func (m *AttachNicsOutput) Reset()         { *m = AttachNicsOutput{} }
+func (m *AttachNicsOutput) String() string { return proto.CompactTextString(m) }
+func (*AttachNicsOutput) ProtoMessage()    {}
+func (*AttachNicsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{5}
+}
+func (m *AttachNicsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachNicsOutput.Unmarshal(m, b)
+}
+func (m *AttachNicsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachNicsOutput.Marshal(b, m, deterministic)
+}
+func (dst *AttachNicsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachNicsOutput.Merge(dst, src)
+}
+func (m *AttachNicsOutput) XXX_Size() int {
+	return xxx_messageInfo_AttachNicsOutput.Size(m)
+}
+func (m *AttachNicsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachNicsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachNicsOutput proto.InternalMessageInfo
 
 func (m *AttachNicsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -284,14 +416,35 @@ func (m *AttachNicsOutput) GetJobId() string {
 }
 
 type DetachNicsInput struct {
-	Nics             []string `protobuf:"bytes,1,rep,name=nics" json:"nics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Nics                 []string `protobuf:"bytes,1,rep,name=nics" json:"nics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachNicsInput) Reset()                    { *m = DetachNicsInput{} }
-func (m *DetachNicsInput) String() string            { return proto.CompactTextString(m) }
-func (*DetachNicsInput) ProtoMessage()               {}
-func (*DetachNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{6} }
+func (m *DetachNicsInput) Reset()         { *m = DetachNicsInput{} }
+func (m *DetachNicsInput) String() string { return proto.CompactTextString(m) }
+func (*DetachNicsInput) ProtoMessage()    {}
+func (*DetachNicsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{6}
+}
+func (m *DetachNicsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachNicsInput.Unmarshal(m, b)
+}
+func (m *DetachNicsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachNicsInput.Marshal(b, m, deterministic)
+}
+func (dst *DetachNicsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachNicsInput.Merge(dst, src)
+}
+func (m *DetachNicsInput) XXX_Size() int {
+	return xxx_messageInfo_DetachNicsInput.Size(m)
+}
+func (m *DetachNicsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachNicsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachNicsInput proto.InternalMessageInfo
 
 func (m *DetachNicsInput) GetNics() []string {
 	if m != nil {
@@ -301,17 +454,38 @@ func (m *DetachNicsInput) GetNics() []string {
 }
 
 type DetachNicsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachNicsOutput) Reset()                    { *m = DetachNicsOutput{} }
-func (m *DetachNicsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DetachNicsOutput) ProtoMessage()               {}
-func (*DetachNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{7} }
+func (m *DetachNicsOutput) Reset()         { *m = DetachNicsOutput{} }
+func (m *DetachNicsOutput) String() string { return proto.CompactTextString(m) }
+func (*DetachNicsOutput) ProtoMessage()    {}
+func (*DetachNicsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{7}
+}
+func (m *DetachNicsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachNicsOutput.Unmarshal(m, b)
+}
+func (m *DetachNicsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachNicsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DetachNicsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachNicsOutput.Merge(dst, src)
+}
+func (m *DetachNicsOutput) XXX_Size() int {
+	return xxx_messageInfo_DetachNicsOutput.Size(m)
+}
+func (m *DetachNicsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachNicsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachNicsOutput proto.InternalMessageInfo
 
 func (m *DetachNicsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -342,16 +516,37 @@ func (m *DetachNicsOutput) GetJobId() string {
 }
 
 type ModifyNicAttributesInput struct {
-	Nic              *string `protobuf:"bytes,1,opt,name=nic" json:"nic,omitempty"`
-	NicName          *string `protobuf:"bytes,2,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
-	PrivateIp        *string `protobuf:"bytes,3,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Nic                  *string  `protobuf:"bytes,1,opt,name=nic" json:"nic,omitempty"`
+	NicName              *string  `protobuf:"bytes,2,opt,name=nic_name,json=nicName" json:"nic_name,omitempty"`
+	PrivateIp            *string  `protobuf:"bytes,3,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyNicAttributesInput) Reset()                    { *m = ModifyNicAttributesInput{} }
-func (m *ModifyNicAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyNicAttributesInput) ProtoMessage()               {}
-func (*ModifyNicAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{8} }
+func (m *ModifyNicAttributesInput) Reset()         { *m = ModifyNicAttributesInput{} }
+func (m *ModifyNicAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyNicAttributesInput) ProtoMessage()    {}
+func (*ModifyNicAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{8}
+}
+func (m *ModifyNicAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyNicAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyNicAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyNicAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyNicAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyNicAttributesInput.Merge(dst, src)
+}
+func (m *ModifyNicAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyNicAttributesInput.Size(m)
+}
+func (m *ModifyNicAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyNicAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyNicAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyNicAttributesInput) GetNic() string {
 	if m != nil && m.Nic != nil {
@@ -375,16 +570,37 @@ func (m *ModifyNicAttributesInput) GetPrivateIp() string {
 }
 
 type ModifyNicAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyNicAttributesOutput) Reset()                    { *m = ModifyNicAttributesOutput{} }
-func (m *ModifyNicAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyNicAttributesOutput) ProtoMessage()               {}
-func (*ModifyNicAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{9} }
+func (m *ModifyNicAttributesOutput) Reset()         { *m = ModifyNicAttributesOutput{} }
+func (m *ModifyNicAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyNicAttributesOutput) ProtoMessage()    {}
+func (*ModifyNicAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{9}
+}
+func (m *ModifyNicAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyNicAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyNicAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyNicAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyNicAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyNicAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyNicAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyNicAttributesOutput.Size(m)
+}
+func (m *ModifyNicAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyNicAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyNicAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyNicAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -408,14 +624,35 @@ func (m *ModifyNicAttributesOutput) GetMessage() string {
 }
 
 type DeleteNicsInput struct {
-	Nics             []string `protobuf:"bytes,1,rep,name=nics" json:"nics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Nics                 []string `protobuf:"bytes,1,rep,name=nics" json:"nics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteNicsInput) Reset()                    { *m = DeleteNicsInput{} }
-func (m *DeleteNicsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteNicsInput) ProtoMessage()               {}
-func (*DeleteNicsInput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{10} }
+func (m *DeleteNicsInput) Reset()         { *m = DeleteNicsInput{} }
+func (m *DeleteNicsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteNicsInput) ProtoMessage()    {}
+func (*DeleteNicsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{10}
+}
+func (m *DeleteNicsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteNicsInput.Unmarshal(m, b)
+}
+func (m *DeleteNicsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteNicsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteNicsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteNicsInput.Merge(dst, src)
+}
+func (m *DeleteNicsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteNicsInput.Size(m)
+}
+func (m *DeleteNicsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteNicsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteNicsInput proto.InternalMessageInfo
 
 func (m *DeleteNicsInput) GetNics() []string {
 	if m != nil {
@@ -425,16 +662,37 @@ func (m *DeleteNicsInput) GetNics() []string {
 }
 
 type DeleteNicsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteNicsOutput) Reset()                    { *m = DeleteNicsOutput{} }
-func (m *DeleteNicsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteNicsOutput) ProtoMessage()               {}
-func (*DeleteNicsOutput) Descriptor() ([]byte, []int) { return fileDescriptor14, []int{11} }
+func (m *DeleteNicsOutput) Reset()         { *m = DeleteNicsOutput{} }
+func (m *DeleteNicsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteNicsOutput) ProtoMessage()    {}
+func (*DeleteNicsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_nic_c508102ef86e4d6a, []int{11}
+}
+func (m *DeleteNicsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteNicsOutput.Unmarshal(m, b)
+}
+func (m *DeleteNicsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteNicsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteNicsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteNicsOutput.Merge(dst, src)
+}
+func (m *DeleteNicsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteNicsOutput.Size(m)
+}
+func (m *DeleteNicsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteNicsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteNicsOutput proto.InternalMessageInfo
 
 func (m *DeleteNicsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -472,9 +730,9 @@ func init() {
 	proto.RegisterType((*DeleteNicsOutput)(nil), "service.DeleteNicsOutput")
 }
 
-func init() { proto.RegisterFile("nic.proto", fileDescriptor14) }
+func init() { proto.RegisterFile("nic.proto", fileDescriptor_nic_c508102ef86e4d6a) }
 
-var fileDescriptor14 = []byte{
+var fileDescriptor_nic_c508102ef86e4d6a = []byte{
 	// 671 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x54, 0xcd, 0x6e, 0xd3, 0x4c,
 	0x14, 0x95, 0xbf, 0x34, 0x49, 0x7d, 0x5b, 0x7d, 0x2d, 0xe6, 0x47, 0x53, 0x43, 0x45, 0xb1, 0x54,

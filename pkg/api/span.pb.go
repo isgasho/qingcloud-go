@@ -7,26 +7,53 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type CreateSpanInput struct {
-	SpanName         *string `protobuf:"bytes,1,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
-	Flag             *int32  `protobuf:"varint,2,opt,name=flag" json:"flag,omitempty"`
-	IpAddr           *string `protobuf:"bytes,3,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
-	TunnelType       *string `protobuf:"bytes,4,opt,name=tunnel_type,json=tunnelType" json:"tunnel_type,omitempty"`
-	TunnelKey        *int32  `protobuf:"varint,5,opt,name=tunnel_key,json=tunnelKey" json:"tunnel_key,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	SpanName             *string  `protobuf:"bytes,1,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
+	Flag                 *int32   `protobuf:"varint,2,opt,name=flag" json:"flag,omitempty"`
+	IpAddr               *string  `protobuf:"bytes,3,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
+	TunnelType           *string  `protobuf:"bytes,4,opt,name=tunnel_type,json=tunnelType" json:"tunnel_type,omitempty"`
+	TunnelKey            *int32   `protobuf:"varint,5,opt,name=tunnel_key,json=tunnelKey" json:"tunnel_key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSpanInput) Reset()                    { *m = CreateSpanInput{} }
-func (m *CreateSpanInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSpanInput) ProtoMessage()               {}
-func (*CreateSpanInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{0} }
+func (m *CreateSpanInput) Reset()         { *m = CreateSpanInput{} }
+func (m *CreateSpanInput) String() string { return proto.CompactTextString(m) }
+func (*CreateSpanInput) ProtoMessage()    {}
+func (*CreateSpanInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{0}
+}
+func (m *CreateSpanInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSpanInput.Unmarshal(m, b)
+}
+func (m *CreateSpanInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSpanInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSpanInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSpanInput.Merge(dst, src)
+}
+func (m *CreateSpanInput) XXX_Size() int {
+	return xxx_messageInfo_CreateSpanInput.Size(m)
+}
+func (m *CreateSpanInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSpanInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSpanInput proto.InternalMessageInfo
 
 func (m *CreateSpanInput) GetSpanName() string {
 	if m != nil && m.SpanName != nil {
@@ -64,17 +91,38 @@ func (m *CreateSpanInput) GetTunnelKey() int32 {
 }
 
 type CreateSpanOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SpanId           *string `protobuf:"bytes,4,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SpanId               *string  `protobuf:"bytes,4,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSpanOutput) Reset()                    { *m = CreateSpanOutput{} }
-func (m *CreateSpanOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSpanOutput) ProtoMessage()               {}
-func (*CreateSpanOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{1} }
+func (m *CreateSpanOutput) Reset()         { *m = CreateSpanOutput{} }
+func (m *CreateSpanOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateSpanOutput) ProtoMessage()    {}
+func (*CreateSpanOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{1}
+}
+func (m *CreateSpanOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSpanOutput.Unmarshal(m, b)
+}
+func (m *CreateSpanOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSpanOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSpanOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSpanOutput.Merge(dst, src)
+}
+func (m *CreateSpanOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateSpanOutput.Size(m)
+}
+func (m *CreateSpanOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSpanOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSpanOutput proto.InternalMessageInfo
 
 func (m *CreateSpanOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -105,19 +153,40 @@ func (m *CreateSpanOutput) GetSpanId() string {
 }
 
 type DescribeSpansInput struct {
-	Spans            []string `protobuf:"bytes,1,rep,name=spans" json:"spans,omitempty"`
-	SpanName         *string  `protobuf:"bytes,2,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
-	IpAddr           *string  `protobuf:"bytes,3,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
-	Tags             []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
-	Offset           *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Spans                []string `protobuf:"bytes,1,rep,name=spans" json:"spans,omitempty"`
+	SpanName             *string  `protobuf:"bytes,2,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
+	IpAddr               *string  `protobuf:"bytes,3,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
+	Tags                 []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
+	Offset               *int32   `protobuf:"varint,5,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeSpansInput) Reset()                    { *m = DescribeSpansInput{} }
-func (m *DescribeSpansInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSpansInput) ProtoMessage()               {}
-func (*DescribeSpansInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{2} }
+func (m *DescribeSpansInput) Reset()         { *m = DescribeSpansInput{} }
+func (m *DescribeSpansInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSpansInput) ProtoMessage()    {}
+func (*DescribeSpansInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{2}
+}
+func (m *DescribeSpansInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSpansInput.Unmarshal(m, b)
+}
+func (m *DescribeSpansInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSpansInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSpansInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSpansInput.Merge(dst, src)
+}
+func (m *DescribeSpansInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSpansInput.Size(m)
+}
+func (m *DescribeSpansInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSpansInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSpansInput proto.InternalMessageInfo
 
 func (m *DescribeSpansInput) GetSpans() []string {
 	if m != nil {
@@ -162,18 +231,39 @@ func (m *DescribeSpansInput) GetLimit() int32 {
 }
 
 type DescribeSpansOutput struct {
-	Action           *string                             `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                              `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                             `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SpanSet          []*DescribeSpansOutput_ResponseItem `protobuf:"bytes,4,rep,name=span_set,json=spanSet" json:"span_set,omitempty"`
-	TotalCount       *int32                              `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                              `json:"-"`
+	Action               *string                             `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                              `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                             `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SpanSet              []*DescribeSpansOutput_ResponseItem `protobuf:"bytes,4,rep,name=span_set,json=spanSet" json:"span_set,omitempty"`
+	TotalCount           *int32                              `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
 }
 
-func (m *DescribeSpansOutput) Reset()                    { *m = DescribeSpansOutput{} }
-func (m *DescribeSpansOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSpansOutput) ProtoMessage()               {}
-func (*DescribeSpansOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{3} }
+func (m *DescribeSpansOutput) Reset()         { *m = DescribeSpansOutput{} }
+func (m *DescribeSpansOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSpansOutput) ProtoMessage()    {}
+func (*DescribeSpansOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{3}
+}
+func (m *DescribeSpansOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSpansOutput.Unmarshal(m, b)
+}
+func (m *DescribeSpansOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSpansOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSpansOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSpansOutput.Merge(dst, src)
+}
+func (m *DescribeSpansOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSpansOutput.Size(m)
+}
+func (m *DescribeSpansOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSpansOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSpansOutput proto.InternalMessageInfo
 
 func (m *DescribeSpansOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -211,26 +301,45 @@ func (m *DescribeSpansOutput) GetTotalCount() int32 {
 }
 
 type DescribeSpansOutput_ResponseItem struct {
-	IsApplied        *int32                                         `protobuf:"varint,1,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	SpanName         *string                                        `protobuf:"bytes,2,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
-	IpAddr           *string                                        `protobuf:"bytes,3,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
-	TunnelType       *string                                        `protobuf:"bytes,4,opt,name=tunnel_type,json=tunnelType" json:"tunnel_type,omitempty"`
-	Tags             []string                                       `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Flag             *int32                                         `protobuf:"varint,6,opt,name=flag" json:"flag,omitempty"`
-	TunnelKey        *int32                                         `protobuf:"varint,7,opt,name=tunnel_key,json=tunnelKey" json:"tunnel_key,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp                    `protobuf:"bytes,8,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp                    `protobuf:"bytes,9,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SpanId           *string                                        `protobuf:"bytes,10,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
-	Members          []*DescribeSpansOutput_ResponseItem_MemberItem `protobuf:"bytes,11,rep,name=members" json:"members,omitempty"`
-	XXX_unrecognized []byte                                         `json:"-"`
+	IsApplied            *int32                                         `protobuf:"varint,1,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	SpanName             *string                                        `protobuf:"bytes,2,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
+	IpAddr               *string                                        `protobuf:"bytes,3,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
+	TunnelType           *string                                        `protobuf:"bytes,4,opt,name=tunnel_type,json=tunnelType" json:"tunnel_type,omitempty"`
+	Tags                 []string                                       `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Flag                 *int32                                         `protobuf:"varint,6,opt,name=flag" json:"flag,omitempty"`
+	TunnelKey            *int32                                         `protobuf:"varint,7,opt,name=tunnel_key,json=tunnelKey" json:"tunnel_key,omitempty"`
+	CreateTime           *timestamp.Timestamp                           `protobuf:"bytes,8,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp                           `protobuf:"bytes,9,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SpanId               *string                                        `protobuf:"bytes,10,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
+	Members              []*DescribeSpansOutput_ResponseItem_MemberItem `protobuf:"bytes,11,rep,name=members" json:"members,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                       `json:"-"`
+	XXX_unrecognized     []byte                                         `json:"-"`
+	XXX_sizecache        int32                                          `json:"-"`
 }
 
 func (m *DescribeSpansOutput_ResponseItem) Reset()         { *m = DescribeSpansOutput_ResponseItem{} }
 func (m *DescribeSpansOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeSpansOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeSpansOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor22, []int{3, 0}
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{3, 0}
 }
+func (m *DescribeSpansOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSpansOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeSpansOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSpansOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSpansOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSpansOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeSpansOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeSpansOutput_ResponseItem.Size(m)
+}
+func (m *DescribeSpansOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSpansOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSpansOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeSpansOutput_ResponseItem) GetIsApplied() int32 {
 	if m != nil && m.IsApplied != nil {
@@ -281,14 +390,14 @@ func (m *DescribeSpansOutput_ResponseItem) GetTunnelKey() int32 {
 	return 0
 }
 
-func (m *DescribeSpansOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeSpansOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeSpansOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeSpansOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -310,12 +419,14 @@ func (m *DescribeSpansOutput_ResponseItem) GetMembers() []*DescribeSpansOutput_R
 }
 
 type DescribeSpansOutput_ResponseItem_MemberItem struct {
-	SpanId           *string                     `protobuf:"bytes,1,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
-	ResourceId       *string                     `protobuf:"bytes,2,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	Status           *string                     `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,5,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	SpanId               *string              `protobuf:"bytes,1,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
+	ResourceId           *string              `protobuf:"bytes,2,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	Status               *string              `protobuf:"bytes,3,opt,name=status" json:"status,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,5,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeSpansOutput_ResponseItem_MemberItem) Reset() {
@@ -326,8 +437,25 @@ func (m *DescribeSpansOutput_ResponseItem_MemberItem) String() string {
 }
 func (*DescribeSpansOutput_ResponseItem_MemberItem) ProtoMessage() {}
 func (*DescribeSpansOutput_ResponseItem_MemberItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor22, []int{3, 0, 0}
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{3, 0, 0}
 }
+func (m *DescribeSpansOutput_ResponseItem_MemberItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSpansOutput_ResponseItem_MemberItem.Unmarshal(m, b)
+}
+func (m *DescribeSpansOutput_ResponseItem_MemberItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSpansOutput_ResponseItem_MemberItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSpansOutput_ResponseItem_MemberItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSpansOutput_ResponseItem_MemberItem.Merge(dst, src)
+}
+func (m *DescribeSpansOutput_ResponseItem_MemberItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeSpansOutput_ResponseItem_MemberItem.Size(m)
+}
+func (m *DescribeSpansOutput_ResponseItem_MemberItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSpansOutput_ResponseItem_MemberItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSpansOutput_ResponseItem_MemberItem proto.InternalMessageInfo
 
 func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetSpanId() string {
 	if m != nil && m.SpanId != nil {
@@ -350,14 +478,14 @@ func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetStatus() string {
 	return ""
 }
 
-func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -365,14 +493,35 @@ func (m *DescribeSpansOutput_ResponseItem_MemberItem) GetStatusTime() *google_pr
 }
 
 type DeleteSpansInput struct {
-	Spans            []string `protobuf:"bytes,1,rep,name=spans" json:"spans,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Spans                []string `protobuf:"bytes,1,rep,name=spans" json:"spans,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSpansInput) Reset()                    { *m = DeleteSpansInput{} }
-func (m *DeleteSpansInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSpansInput) ProtoMessage()               {}
-func (*DeleteSpansInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{4} }
+func (m *DeleteSpansInput) Reset()         { *m = DeleteSpansInput{} }
+func (m *DeleteSpansInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSpansInput) ProtoMessage()    {}
+func (*DeleteSpansInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{4}
+}
+func (m *DeleteSpansInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSpansInput.Unmarshal(m, b)
+}
+func (m *DeleteSpansInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSpansInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSpansInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSpansInput.Merge(dst, src)
+}
+func (m *DeleteSpansInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSpansInput.Size(m)
+}
+func (m *DeleteSpansInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSpansInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSpansInput proto.InternalMessageInfo
 
 func (m *DeleteSpansInput) GetSpans() []string {
 	if m != nil {
@@ -382,16 +531,37 @@ func (m *DeleteSpansInput) GetSpans() []string {
 }
 
 type DeleteSpansOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSpansOutput) Reset()                    { *m = DeleteSpansOutput{} }
-func (m *DeleteSpansOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSpansOutput) ProtoMessage()               {}
-func (*DeleteSpansOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{5} }
+func (m *DeleteSpansOutput) Reset()         { *m = DeleteSpansOutput{} }
+func (m *DeleteSpansOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSpansOutput) ProtoMessage()    {}
+func (*DeleteSpansOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{5}
+}
+func (m *DeleteSpansOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSpansOutput.Unmarshal(m, b)
+}
+func (m *DeleteSpansOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSpansOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSpansOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSpansOutput.Merge(dst, src)
+}
+func (m *DeleteSpansOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSpansOutput.Size(m)
+}
+func (m *DeleteSpansOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSpansOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSpansOutput proto.InternalMessageInfo
 
 func (m *DeleteSpansOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -415,15 +585,36 @@ func (m *DeleteSpansOutput) GetMessage() string {
 }
 
 type AddSpanMembersInput struct {
-	Span             *string  `protobuf:"bytes,1,opt,name=span" json:"span,omitempty"`
-	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Span                 *string  `protobuf:"bytes,1,opt,name=span" json:"span,omitempty"`
+	Resources            []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddSpanMembersInput) Reset()                    { *m = AddSpanMembersInput{} }
-func (m *AddSpanMembersInput) String() string            { return proto.CompactTextString(m) }
-func (*AddSpanMembersInput) ProtoMessage()               {}
-func (*AddSpanMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{6} }
+func (m *AddSpanMembersInput) Reset()         { *m = AddSpanMembersInput{} }
+func (m *AddSpanMembersInput) String() string { return proto.CompactTextString(m) }
+func (*AddSpanMembersInput) ProtoMessage()    {}
+func (*AddSpanMembersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{6}
+}
+func (m *AddSpanMembersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddSpanMembersInput.Unmarshal(m, b)
+}
+func (m *AddSpanMembersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddSpanMembersInput.Marshal(b, m, deterministic)
+}
+func (dst *AddSpanMembersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddSpanMembersInput.Merge(dst, src)
+}
+func (m *AddSpanMembersInput) XXX_Size() int {
+	return xxx_messageInfo_AddSpanMembersInput.Size(m)
+}
+func (m *AddSpanMembersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddSpanMembersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddSpanMembersInput proto.InternalMessageInfo
 
 func (m *AddSpanMembersInput) GetSpan() string {
 	if m != nil && m.Span != nil {
@@ -440,17 +631,38 @@ func (m *AddSpanMembersInput) GetResources() []string {
 }
 
 type AddSpanMembersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddSpanMembersOutput) Reset()                    { *m = AddSpanMembersOutput{} }
-func (m *AddSpanMembersOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddSpanMembersOutput) ProtoMessage()               {}
-func (*AddSpanMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{7} }
+func (m *AddSpanMembersOutput) Reset()         { *m = AddSpanMembersOutput{} }
+func (m *AddSpanMembersOutput) String() string { return proto.CompactTextString(m) }
+func (*AddSpanMembersOutput) ProtoMessage()    {}
+func (*AddSpanMembersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{7}
+}
+func (m *AddSpanMembersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddSpanMembersOutput.Unmarshal(m, b)
+}
+func (m *AddSpanMembersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddSpanMembersOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddSpanMembersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddSpanMembersOutput.Merge(dst, src)
+}
+func (m *AddSpanMembersOutput) XXX_Size() int {
+	return xxx_messageInfo_AddSpanMembersOutput.Size(m)
+}
+func (m *AddSpanMembersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddSpanMembersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddSpanMembersOutput proto.InternalMessageInfo
 
 func (m *AddSpanMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -481,15 +693,36 @@ func (m *AddSpanMembersOutput) GetJobId() string {
 }
 
 type RemoveSpanMembersInput struct {
-	Span             *string  `protobuf:"bytes,1,opt,name=span" json:"span,omitempty"`
-	Resources        []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Span                 *string  `protobuf:"bytes,1,opt,name=span" json:"span,omitempty"`
+	Resources            []string `protobuf:"bytes,2,rep,name=resources" json:"resources,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RemoveSpanMembersInput) Reset()                    { *m = RemoveSpanMembersInput{} }
-func (m *RemoveSpanMembersInput) String() string            { return proto.CompactTextString(m) }
-func (*RemoveSpanMembersInput) ProtoMessage()               {}
-func (*RemoveSpanMembersInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{8} }
+func (m *RemoveSpanMembersInput) Reset()         { *m = RemoveSpanMembersInput{} }
+func (m *RemoveSpanMembersInput) String() string { return proto.CompactTextString(m) }
+func (*RemoveSpanMembersInput) ProtoMessage()    {}
+func (*RemoveSpanMembersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{8}
+}
+func (m *RemoveSpanMembersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveSpanMembersInput.Unmarshal(m, b)
+}
+func (m *RemoveSpanMembersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveSpanMembersInput.Marshal(b, m, deterministic)
+}
+func (dst *RemoveSpanMembersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveSpanMembersInput.Merge(dst, src)
+}
+func (m *RemoveSpanMembersInput) XXX_Size() int {
+	return xxx_messageInfo_RemoveSpanMembersInput.Size(m)
+}
+func (m *RemoveSpanMembersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveSpanMembersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveSpanMembersInput proto.InternalMessageInfo
 
 func (m *RemoveSpanMembersInput) GetSpan() string {
 	if m != nil && m.Span != nil {
@@ -506,17 +739,38 @@ func (m *RemoveSpanMembersInput) GetResources() []string {
 }
 
 type RemoveSpanMembersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RemoveSpanMembersOutput) Reset()                    { *m = RemoveSpanMembersOutput{} }
-func (m *RemoveSpanMembersOutput) String() string            { return proto.CompactTextString(m) }
-func (*RemoveSpanMembersOutput) ProtoMessage()               {}
-func (*RemoveSpanMembersOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{9} }
+func (m *RemoveSpanMembersOutput) Reset()         { *m = RemoveSpanMembersOutput{} }
+func (m *RemoveSpanMembersOutput) String() string { return proto.CompactTextString(m) }
+func (*RemoveSpanMembersOutput) ProtoMessage()    {}
+func (*RemoveSpanMembersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{9}
+}
+func (m *RemoveSpanMembersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveSpanMembersOutput.Unmarshal(m, b)
+}
+func (m *RemoveSpanMembersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveSpanMembersOutput.Marshal(b, m, deterministic)
+}
+func (dst *RemoveSpanMembersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveSpanMembersOutput.Merge(dst, src)
+}
+func (m *RemoveSpanMembersOutput) XXX_Size() int {
+	return xxx_messageInfo_RemoveSpanMembersOutput.Size(m)
+}
+func (m *RemoveSpanMembersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveSpanMembersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveSpanMembersOutput proto.InternalMessageInfo
 
 func (m *RemoveSpanMembersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -547,19 +801,40 @@ func (m *RemoveSpanMembersOutput) GetJobId() string {
 }
 
 type ModifySpanAttributesInput struct {
-	SpanId           *string `protobuf:"bytes,1,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
-	SpanName         *string `protobuf:"bytes,2,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
-	Flag             *int32  `protobuf:"varint,3,opt,name=flag" json:"flag,omitempty"`
-	IpAddr           *string `protobuf:"bytes,4,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
-	TunnelType       *string `protobuf:"bytes,5,opt,name=tunnel_type,json=tunnelType" json:"tunnel_type,omitempty"`
-	TunnelKey        *int32  `protobuf:"varint,6,opt,name=tunnel_key,json=tunnelKey" json:"tunnel_key,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	SpanId               *string  `protobuf:"bytes,1,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
+	SpanName             *string  `protobuf:"bytes,2,opt,name=span_name,json=spanName" json:"span_name,omitempty"`
+	Flag                 *int32   `protobuf:"varint,3,opt,name=flag" json:"flag,omitempty"`
+	IpAddr               *string  `protobuf:"bytes,4,opt,name=ip_addr,json=ipAddr" json:"ip_addr,omitempty"`
+	TunnelType           *string  `protobuf:"bytes,5,opt,name=tunnel_type,json=tunnelType" json:"tunnel_type,omitempty"`
+	TunnelKey            *int32   `protobuf:"varint,6,opt,name=tunnel_key,json=tunnelKey" json:"tunnel_key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifySpanAttributesInput) Reset()                    { *m = ModifySpanAttributesInput{} }
-func (m *ModifySpanAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifySpanAttributesInput) ProtoMessage()               {}
-func (*ModifySpanAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{10} }
+func (m *ModifySpanAttributesInput) Reset()         { *m = ModifySpanAttributesInput{} }
+func (m *ModifySpanAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifySpanAttributesInput) ProtoMessage()    {}
+func (*ModifySpanAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{10}
+}
+func (m *ModifySpanAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySpanAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifySpanAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySpanAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySpanAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySpanAttributesInput.Merge(dst, src)
+}
+func (m *ModifySpanAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifySpanAttributesInput.Size(m)
+}
+func (m *ModifySpanAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySpanAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySpanAttributesInput proto.InternalMessageInfo
 
 func (m *ModifySpanAttributesInput) GetSpanId() string {
 	if m != nil && m.SpanId != nil {
@@ -604,16 +879,37 @@ func (m *ModifySpanAttributesInput) GetTunnelKey() int32 {
 }
 
 type ModifySpanAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifySpanAttributesOutput) Reset()                    { *m = ModifySpanAttributesOutput{} }
-func (m *ModifySpanAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifySpanAttributesOutput) ProtoMessage()               {}
-func (*ModifySpanAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{11} }
+func (m *ModifySpanAttributesOutput) Reset()         { *m = ModifySpanAttributesOutput{} }
+func (m *ModifySpanAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifySpanAttributesOutput) ProtoMessage()    {}
+func (*ModifySpanAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{11}
+}
+func (m *ModifySpanAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySpanAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifySpanAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySpanAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySpanAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySpanAttributesOutput.Merge(dst, src)
+}
+func (m *ModifySpanAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifySpanAttributesOutput.Size(m)
+}
+func (m *ModifySpanAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySpanAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySpanAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifySpanAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -637,14 +933,35 @@ func (m *ModifySpanAttributesOutput) GetMessage() string {
 }
 
 type UpdateSpanInput struct {
-	Span             *string `protobuf:"bytes,1,opt,name=span" json:"span,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Span                 *string  `protobuf:"bytes,1,opt,name=span" json:"span,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateSpanInput) Reset()                    { *m = UpdateSpanInput{} }
-func (m *UpdateSpanInput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateSpanInput) ProtoMessage()               {}
-func (*UpdateSpanInput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{12} }
+func (m *UpdateSpanInput) Reset()         { *m = UpdateSpanInput{} }
+func (m *UpdateSpanInput) String() string { return proto.CompactTextString(m) }
+func (*UpdateSpanInput) ProtoMessage()    {}
+func (*UpdateSpanInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{12}
+}
+func (m *UpdateSpanInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateSpanInput.Unmarshal(m, b)
+}
+func (m *UpdateSpanInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateSpanInput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateSpanInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateSpanInput.Merge(dst, src)
+}
+func (m *UpdateSpanInput) XXX_Size() int {
+	return xxx_messageInfo_UpdateSpanInput.Size(m)
+}
+func (m *UpdateSpanInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateSpanInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateSpanInput proto.InternalMessageInfo
 
 func (m *UpdateSpanInput) GetSpan() string {
 	if m != nil && m.Span != nil {
@@ -654,17 +971,38 @@ func (m *UpdateSpanInput) GetSpan() string {
 }
 
 type UpdateSpanOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateSpanOutput) Reset()                    { *m = UpdateSpanOutput{} }
-func (m *UpdateSpanOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateSpanOutput) ProtoMessage()               {}
-func (*UpdateSpanOutput) Descriptor() ([]byte, []int) { return fileDescriptor22, []int{13} }
+func (m *UpdateSpanOutput) Reset()         { *m = UpdateSpanOutput{} }
+func (m *UpdateSpanOutput) String() string { return proto.CompactTextString(m) }
+func (*UpdateSpanOutput) ProtoMessage()    {}
+func (*UpdateSpanOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_span_7cb9c8e5e9e5d158, []int{13}
+}
+func (m *UpdateSpanOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateSpanOutput.Unmarshal(m, b)
+}
+func (m *UpdateSpanOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateSpanOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateSpanOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateSpanOutput.Merge(dst, src)
+}
+func (m *UpdateSpanOutput) XXX_Size() int {
+	return xxx_messageInfo_UpdateSpanOutput.Size(m)
+}
+func (m *UpdateSpanOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateSpanOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateSpanOutput proto.InternalMessageInfo
 
 func (m *UpdateSpanOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -713,9 +1051,9 @@ func init() {
 	proto.RegisterType((*UpdateSpanOutput)(nil), "service.UpdateSpanOutput")
 }
 
-func init() { proto.RegisterFile("span.proto", fileDescriptor22) }
+func init() { proto.RegisterFile("span.proto", fileDescriptor_span_7cb9c8e5e9e5d158) }
 
-var fileDescriptor22 = []byte{
+var fileDescriptor_span_7cb9c8e5e9e5d158 = []byte{
 	// 915 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xcd, 0x6e, 0x23, 0x45,
 	0x10, 0xd6, 0x24, 0xb6, 0x13, 0x97, 0x81, 0xcd, 0xf6, 0x86, 0xdd, 0xc9, 0xec, 0xae, 0x62, 0x0d,

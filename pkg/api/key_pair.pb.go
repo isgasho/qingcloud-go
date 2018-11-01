@@ -13,23 +13,50 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeKeyPairsInput struct {
-	Keypairs         []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
-	InstanceId       *string  `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	Owner            *string  `protobuf:"bytes,3,opt,name=owner" json:"owner,omitempty"`
-	EncryptMethod    *string  `protobuf:"bytes,4,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,8,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,9,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Keypairs             []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
+	InstanceId           *string  `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	Owner                *string  `protobuf:"bytes,3,opt,name=owner" json:"owner,omitempty"`
+	EncryptMethod        *string  `protobuf:"bytes,4,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,8,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,9,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeKeyPairsInput) Reset()                    { *m = DescribeKeyPairsInput{} }
-func (m *DescribeKeyPairsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeKeyPairsInput) ProtoMessage()               {}
-func (*DescribeKeyPairsInput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
+func (m *DescribeKeyPairsInput) Reset()         { *m = DescribeKeyPairsInput{} }
+func (m *DescribeKeyPairsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeKeyPairsInput) ProtoMessage()    {}
+func (*DescribeKeyPairsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{0}
+}
+func (m *DescribeKeyPairsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeKeyPairsInput.Unmarshal(m, b)
+}
+func (m *DescribeKeyPairsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeKeyPairsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeKeyPairsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeKeyPairsInput.Merge(dst, src)
+}
+func (m *DescribeKeyPairsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeKeyPairsInput.Size(m)
+}
+func (m *DescribeKeyPairsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeKeyPairsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeKeyPairsInput proto.InternalMessageInfo
 
 func (m *DescribeKeyPairsInput) GetKeypairs() []string {
 	if m != nil {
@@ -95,18 +122,39 @@ func (m *DescribeKeyPairsInput) GetLimit() int32 {
 }
 
 type DescribeKeyPairsOutput struct {
-	Action           *string    `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32     `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	KeypairSet       []*KeyPair `protobuf:"bytes,4,rep,name=keypair_set,json=keypairSet" json:"keypair_set,omitempty"`
-	TotalCount       *int32     `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte     `json:"-"`
+	Action               *string    `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32     `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	KeypairSet           []*KeyPair `protobuf:"bytes,4,rep,name=keypair_set,json=keypairSet" json:"keypair_set,omitempty"`
+	TotalCount           *int32     `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *DescribeKeyPairsOutput) Reset()                    { *m = DescribeKeyPairsOutput{} }
-func (m *DescribeKeyPairsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeKeyPairsOutput) ProtoMessage()               {}
-func (*DescribeKeyPairsOutput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{1} }
+func (m *DescribeKeyPairsOutput) Reset()         { *m = DescribeKeyPairsOutput{} }
+func (m *DescribeKeyPairsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeKeyPairsOutput) ProtoMessage()    {}
+func (*DescribeKeyPairsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{1}
+}
+func (m *DescribeKeyPairsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeKeyPairsOutput.Unmarshal(m, b)
+}
+func (m *DescribeKeyPairsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeKeyPairsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeKeyPairsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeKeyPairsOutput.Merge(dst, src)
+}
+func (m *DescribeKeyPairsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeKeyPairsOutput.Size(m)
+}
+func (m *DescribeKeyPairsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeKeyPairsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeKeyPairsOutput proto.InternalMessageInfo
 
 func (m *DescribeKeyPairsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -144,17 +192,38 @@ func (m *DescribeKeyPairsOutput) GetTotalCount() int32 {
 }
 
 type CreateKeyPairInput struct {
-	KeypairName      *string `protobuf:"bytes,1,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
-	Mode             *string `protobuf:"bytes,2,opt,name=mode" json:"mode,omitempty"`
-	EncryptMethod    *string `protobuf:"bytes,3,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
-	PublicKey        *string `protobuf:"bytes,4,opt,name=public_key,json=publicKey" json:"public_key,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	KeypairName          *string  `protobuf:"bytes,1,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
+	Mode                 *string  `protobuf:"bytes,2,opt,name=mode" json:"mode,omitempty"`
+	EncryptMethod        *string  `protobuf:"bytes,3,opt,name=encrypt_method,json=encryptMethod" json:"encrypt_method,omitempty"`
+	PublicKey            *string  `protobuf:"bytes,4,opt,name=public_key,json=publicKey" json:"public_key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateKeyPairInput) Reset()                    { *m = CreateKeyPairInput{} }
-func (m *CreateKeyPairInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateKeyPairInput) ProtoMessage()               {}
-func (*CreateKeyPairInput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2} }
+func (m *CreateKeyPairInput) Reset()         { *m = CreateKeyPairInput{} }
+func (m *CreateKeyPairInput) String() string { return proto.CompactTextString(m) }
+func (*CreateKeyPairInput) ProtoMessage()    {}
+func (*CreateKeyPairInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{2}
+}
+func (m *CreateKeyPairInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateKeyPairInput.Unmarshal(m, b)
+}
+func (m *CreateKeyPairInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateKeyPairInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateKeyPairInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateKeyPairInput.Merge(dst, src)
+}
+func (m *CreateKeyPairInput) XXX_Size() int {
+	return xxx_messageInfo_CreateKeyPairInput.Size(m)
+}
+func (m *CreateKeyPairInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateKeyPairInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateKeyPairInput proto.InternalMessageInfo
 
 func (m *CreateKeyPairInput) GetKeypairName() string {
 	if m != nil && m.KeypairName != nil {
@@ -185,18 +254,39 @@ func (m *CreateKeyPairInput) GetPublicKey() string {
 }
 
 type CreateKeyPairOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	PrivateKey       *string `protobuf:"bytes,4,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
-	KeypairId        *string `protobuf:"bytes,5,opt,name=keypair_id,json=keypairId" json:"keypair_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	PrivateKey           *string  `protobuf:"bytes,4,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
+	KeypairId            *string  `protobuf:"bytes,5,opt,name=keypair_id,json=keypairId" json:"keypair_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateKeyPairOutput) Reset()                    { *m = CreateKeyPairOutput{} }
-func (m *CreateKeyPairOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateKeyPairOutput) ProtoMessage()               {}
-func (*CreateKeyPairOutput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{3} }
+func (m *CreateKeyPairOutput) Reset()         { *m = CreateKeyPairOutput{} }
+func (m *CreateKeyPairOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateKeyPairOutput) ProtoMessage()    {}
+func (*CreateKeyPairOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{3}
+}
+func (m *CreateKeyPairOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateKeyPairOutput.Unmarshal(m, b)
+}
+func (m *CreateKeyPairOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateKeyPairOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateKeyPairOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateKeyPairOutput.Merge(dst, src)
+}
+func (m *CreateKeyPairOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateKeyPairOutput.Size(m)
+}
+func (m *CreateKeyPairOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateKeyPairOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateKeyPairOutput proto.InternalMessageInfo
 
 func (m *CreateKeyPairOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -234,14 +324,35 @@ func (m *CreateKeyPairOutput) GetKeypairId() string {
 }
 
 type DeleteKeyPairsInput struct {
-	Keypairs         []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Keypairs             []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteKeyPairsInput) Reset()                    { *m = DeleteKeyPairsInput{} }
-func (m *DeleteKeyPairsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteKeyPairsInput) ProtoMessage()               {}
-func (*DeleteKeyPairsInput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{4} }
+func (m *DeleteKeyPairsInput) Reset()         { *m = DeleteKeyPairsInput{} }
+func (m *DeleteKeyPairsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteKeyPairsInput) ProtoMessage()    {}
+func (*DeleteKeyPairsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{4}
+}
+func (m *DeleteKeyPairsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteKeyPairsInput.Unmarshal(m, b)
+}
+func (m *DeleteKeyPairsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteKeyPairsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteKeyPairsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteKeyPairsInput.Merge(dst, src)
+}
+func (m *DeleteKeyPairsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteKeyPairsInput.Size(m)
+}
+func (m *DeleteKeyPairsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteKeyPairsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteKeyPairsInput proto.InternalMessageInfo
 
 func (m *DeleteKeyPairsInput) GetKeypairs() []string {
 	if m != nil {
@@ -251,17 +362,38 @@ func (m *DeleteKeyPairsInput) GetKeypairs() []string {
 }
 
 type DeleteKeyPairsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Keypairs         []string `protobuf:"bytes,4,rep,name=keypairs" json:"keypairs,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Keypairs             []string `protobuf:"bytes,4,rep,name=keypairs" json:"keypairs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteKeyPairsOutput) Reset()                    { *m = DeleteKeyPairsOutput{} }
-func (m *DeleteKeyPairsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteKeyPairsOutput) ProtoMessage()               {}
-func (*DeleteKeyPairsOutput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{5} }
+func (m *DeleteKeyPairsOutput) Reset()         { *m = DeleteKeyPairsOutput{} }
+func (m *DeleteKeyPairsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteKeyPairsOutput) ProtoMessage()    {}
+func (*DeleteKeyPairsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{5}
+}
+func (m *DeleteKeyPairsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteKeyPairsOutput.Unmarshal(m, b)
+}
+func (m *DeleteKeyPairsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteKeyPairsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteKeyPairsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteKeyPairsOutput.Merge(dst, src)
+}
+func (m *DeleteKeyPairsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteKeyPairsOutput.Size(m)
+}
+func (m *DeleteKeyPairsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteKeyPairsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteKeyPairsOutput proto.InternalMessageInfo
 
 func (m *DeleteKeyPairsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -292,15 +424,36 @@ func (m *DeleteKeyPairsOutput) GetKeypairs() []string {
 }
 
 type AttachKeyPairsInput struct {
-	Keypairs         []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
-	Instances        []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Keypairs             []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
+	Instances            []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachKeyPairsInput) Reset()                    { *m = AttachKeyPairsInput{} }
-func (m *AttachKeyPairsInput) String() string            { return proto.CompactTextString(m) }
-func (*AttachKeyPairsInput) ProtoMessage()               {}
-func (*AttachKeyPairsInput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{6} }
+func (m *AttachKeyPairsInput) Reset()         { *m = AttachKeyPairsInput{} }
+func (m *AttachKeyPairsInput) String() string { return proto.CompactTextString(m) }
+func (*AttachKeyPairsInput) ProtoMessage()    {}
+func (*AttachKeyPairsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{6}
+}
+func (m *AttachKeyPairsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachKeyPairsInput.Unmarshal(m, b)
+}
+func (m *AttachKeyPairsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachKeyPairsInput.Marshal(b, m, deterministic)
+}
+func (dst *AttachKeyPairsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachKeyPairsInput.Merge(dst, src)
+}
+func (m *AttachKeyPairsInput) XXX_Size() int {
+	return xxx_messageInfo_AttachKeyPairsInput.Size(m)
+}
+func (m *AttachKeyPairsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachKeyPairsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachKeyPairsInput proto.InternalMessageInfo
 
 func (m *AttachKeyPairsInput) GetKeypairs() []string {
 	if m != nil {
@@ -317,17 +470,38 @@ func (m *AttachKeyPairsInput) GetInstances() []string {
 }
 
 type AttachKeyPairsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachKeyPairsOutput) Reset()                    { *m = AttachKeyPairsOutput{} }
-func (m *AttachKeyPairsOutput) String() string            { return proto.CompactTextString(m) }
-func (*AttachKeyPairsOutput) ProtoMessage()               {}
-func (*AttachKeyPairsOutput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{7} }
+func (m *AttachKeyPairsOutput) Reset()         { *m = AttachKeyPairsOutput{} }
+func (m *AttachKeyPairsOutput) String() string { return proto.CompactTextString(m) }
+func (*AttachKeyPairsOutput) ProtoMessage()    {}
+func (*AttachKeyPairsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{7}
+}
+func (m *AttachKeyPairsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachKeyPairsOutput.Unmarshal(m, b)
+}
+func (m *AttachKeyPairsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachKeyPairsOutput.Marshal(b, m, deterministic)
+}
+func (dst *AttachKeyPairsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachKeyPairsOutput.Merge(dst, src)
+}
+func (m *AttachKeyPairsOutput) XXX_Size() int {
+	return xxx_messageInfo_AttachKeyPairsOutput.Size(m)
+}
+func (m *AttachKeyPairsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachKeyPairsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachKeyPairsOutput proto.InternalMessageInfo
 
 func (m *AttachKeyPairsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -358,15 +532,36 @@ func (m *AttachKeyPairsOutput) GetJobId() string {
 }
 
 type DetachKeyPairsInput struct {
-	Keypairs         []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
-	Instances        []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Keypairs             []string `protobuf:"bytes,1,rep,name=keypairs" json:"keypairs,omitempty"`
+	Instances            []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachKeyPairsInput) Reset()                    { *m = DetachKeyPairsInput{} }
-func (m *DetachKeyPairsInput) String() string            { return proto.CompactTextString(m) }
-func (*DetachKeyPairsInput) ProtoMessage()               {}
-func (*DetachKeyPairsInput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{8} }
+func (m *DetachKeyPairsInput) Reset()         { *m = DetachKeyPairsInput{} }
+func (m *DetachKeyPairsInput) String() string { return proto.CompactTextString(m) }
+func (*DetachKeyPairsInput) ProtoMessage()    {}
+func (*DetachKeyPairsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{8}
+}
+func (m *DetachKeyPairsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachKeyPairsInput.Unmarshal(m, b)
+}
+func (m *DetachKeyPairsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachKeyPairsInput.Marshal(b, m, deterministic)
+}
+func (dst *DetachKeyPairsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachKeyPairsInput.Merge(dst, src)
+}
+func (m *DetachKeyPairsInput) XXX_Size() int {
+	return xxx_messageInfo_DetachKeyPairsInput.Size(m)
+}
+func (m *DetachKeyPairsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachKeyPairsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachKeyPairsInput proto.InternalMessageInfo
 
 func (m *DetachKeyPairsInput) GetKeypairs() []string {
 	if m != nil {
@@ -383,17 +578,38 @@ func (m *DetachKeyPairsInput) GetInstances() []string {
 }
 
 type DetachKeyPairsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachKeyPairsOutput) Reset()                    { *m = DetachKeyPairsOutput{} }
-func (m *DetachKeyPairsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DetachKeyPairsOutput) ProtoMessage()               {}
-func (*DetachKeyPairsOutput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{9} }
+func (m *DetachKeyPairsOutput) Reset()         { *m = DetachKeyPairsOutput{} }
+func (m *DetachKeyPairsOutput) String() string { return proto.CompactTextString(m) }
+func (*DetachKeyPairsOutput) ProtoMessage()    {}
+func (*DetachKeyPairsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{9}
+}
+func (m *DetachKeyPairsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachKeyPairsOutput.Unmarshal(m, b)
+}
+func (m *DetachKeyPairsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachKeyPairsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DetachKeyPairsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachKeyPairsOutput.Merge(dst, src)
+}
+func (m *DetachKeyPairsOutput) XXX_Size() int {
+	return xxx_messageInfo_DetachKeyPairsOutput.Size(m)
+}
+func (m *DetachKeyPairsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachKeyPairsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachKeyPairsOutput proto.InternalMessageInfo
 
 func (m *DetachKeyPairsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -424,16 +640,37 @@ func (m *DetachKeyPairsOutput) GetJobId() string {
 }
 
 type ModifyKeyPairAttributesInput struct {
-	Keypair          *string `protobuf:"bytes,1,opt,name=keypair" json:"keypair,omitempty"`
-	KeypairName      *string `protobuf:"bytes,2,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Keypair              *string  `protobuf:"bytes,1,opt,name=keypair" json:"keypair,omitempty"`
+	KeypairName          *string  `protobuf:"bytes,2,opt,name=keypair_name,json=keypairName" json:"keypair_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyKeyPairAttributesInput) Reset()                    { *m = ModifyKeyPairAttributesInput{} }
-func (m *ModifyKeyPairAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyKeyPairAttributesInput) ProtoMessage()               {}
-func (*ModifyKeyPairAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{10} }
+func (m *ModifyKeyPairAttributesInput) Reset()         { *m = ModifyKeyPairAttributesInput{} }
+func (m *ModifyKeyPairAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyKeyPairAttributesInput) ProtoMessage()    {}
+func (*ModifyKeyPairAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{10}
+}
+func (m *ModifyKeyPairAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyKeyPairAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyKeyPairAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyKeyPairAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyKeyPairAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyKeyPairAttributesInput.Merge(dst, src)
+}
+func (m *ModifyKeyPairAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyKeyPairAttributesInput.Size(m)
+}
+func (m *ModifyKeyPairAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyKeyPairAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyKeyPairAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyKeyPairAttributesInput) GetKeypair() string {
 	if m != nil && m.Keypair != nil {
@@ -457,16 +694,37 @@ func (m *ModifyKeyPairAttributesInput) GetDescription() string {
 }
 
 type ModifyKeyPairAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyKeyPairAttributesOutput) Reset()                    { *m = ModifyKeyPairAttributesOutput{} }
-func (m *ModifyKeyPairAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyKeyPairAttributesOutput) ProtoMessage()               {}
-func (*ModifyKeyPairAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{11} }
+func (m *ModifyKeyPairAttributesOutput) Reset()         { *m = ModifyKeyPairAttributesOutput{} }
+func (m *ModifyKeyPairAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyKeyPairAttributesOutput) ProtoMessage()    {}
+func (*ModifyKeyPairAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_key_pair_4eab0625f19e1acd, []int{11}
+}
+func (m *ModifyKeyPairAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyKeyPairAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyKeyPairAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyKeyPairAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyKeyPairAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyKeyPairAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyKeyPairAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyKeyPairAttributesOutput.Size(m)
+}
+func (m *ModifyKeyPairAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyKeyPairAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyKeyPairAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyKeyPairAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -504,9 +762,9 @@ func init() {
 	proto.RegisterType((*ModifyKeyPairAttributesOutput)(nil), "service.ModifyKeyPairAttributesOutput")
 }
 
-func init() { proto.RegisterFile("key_pair.proto", fileDescriptor9) }
+func init() { proto.RegisterFile("key_pair.proto", fileDescriptor_key_pair_4eab0625f19e1acd) }
 
-var fileDescriptor9 = []byte{
+var fileDescriptor_key_pair_4eab0625f19e1acd = []byte{
 	// 749 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xcd, 0x6e, 0xdb, 0x46,
 	0x10, 0x86, 0xfe, 0xad, 0x51, 0x2d, 0x18, 0xeb, 0x9f, 0xb2, 0xac, 0x5c, 0xab, 0x04, 0x5c, 0xe8,

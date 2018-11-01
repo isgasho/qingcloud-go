@@ -7,28 +7,55 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeVxnetsInput struct {
-	Vxnets           []string `protobuf:"bytes,1,rep,name=vxnets" json:"vxnets,omitempty"`
-	VxnetType        *int32   `protobuf:"varint,2,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Vxnets               []string `protobuf:"bytes,1,rep,name=vxnets" json:"vxnets,omitempty"`
+	VxnetType            *int32   `protobuf:"varint,2,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeVxnetsInput) Reset()                    { *m = DescribeVxnetsInput{} }
-func (m *DescribeVxnetsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeVxnetsInput) ProtoMessage()               {}
-func (*DescribeVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{0} }
+func (m *DescribeVxnetsInput) Reset()         { *m = DescribeVxnetsInput{} }
+func (m *DescribeVxnetsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeVxnetsInput) ProtoMessage()    {}
+func (*DescribeVxnetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{0}
+}
+func (m *DescribeVxnetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVxnetsInput.Unmarshal(m, b)
+}
+func (m *DescribeVxnetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVxnetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVxnetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVxnetsInput.Merge(dst, src)
+}
+func (m *DescribeVxnetsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeVxnetsInput.Size(m)
+}
+func (m *DescribeVxnetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVxnetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVxnetsInput proto.InternalMessageInfo
 
 func (m *DescribeVxnetsInput) GetVxnets() []string {
 	if m != nil {
@@ -80,18 +107,39 @@ func (m *DescribeVxnetsInput) GetLimit() int32 {
 }
 
 type DescribeVxnetsOutput struct {
-	Action           *string                              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	VxnetSet         []*DescribeVxnetsOutput_ResponseItem `protobuf:"bytes,4,rep,name=vxnet_set,json=vxnetSet" json:"vxnet_set,omitempty"`
-	TotalCount       *int32                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	Action               *string                              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	VxnetSet             []*DescribeVxnetsOutput_ResponseItem `protobuf:"bytes,4,rep,name=vxnet_set,json=vxnetSet" json:"vxnet_set,omitempty"`
+	TotalCount           *int32                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
 }
 
-func (m *DescribeVxnetsOutput) Reset()                    { *m = DescribeVxnetsOutput{} }
-func (m *DescribeVxnetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeVxnetsOutput) ProtoMessage()               {}
-func (*DescribeVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{1} }
+func (m *DescribeVxnetsOutput) Reset()         { *m = DescribeVxnetsOutput{} }
+func (m *DescribeVxnetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeVxnetsOutput) ProtoMessage()    {}
+func (*DescribeVxnetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{1}
+}
+func (m *DescribeVxnetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVxnetsOutput.Unmarshal(m, b)
+}
+func (m *DescribeVxnetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVxnetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVxnetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVxnetsOutput.Merge(dst, src)
+}
+func (m *DescribeVxnetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeVxnetsOutput.Size(m)
+}
+func (m *DescribeVxnetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVxnetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVxnetsOutput proto.InternalMessageInfo
 
 func (m *DescribeVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -129,22 +177,41 @@ func (m *DescribeVxnetsOutput) GetTotalCount() int32 {
 }
 
 type DescribeVxnetsOutput_ResponseItem struct {
-	VxnetType        *int32                      `protobuf:"varint,1,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	VxnetId          *string                     `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	VxnetName        *string                     `protobuf:"bytes,3,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	Description      *string                     `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	InstanceIds      []string                    `protobuf:"bytes,6,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
-	Router           *Router                     `protobuf:"bytes,7,opt,name=router" json:"router,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	VxnetType            *int32               `protobuf:"varint,1,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	VxnetId              *string              `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	VxnetName            *string              `protobuf:"bytes,3,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	Description          *string              `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	InstanceIds          []string             `protobuf:"bytes,6,rep,name=instance_ids,json=instanceIds" json:"instance_ids,omitempty"`
+	Router               *Router              `protobuf:"bytes,7,opt,name=router" json:"router,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeVxnetsOutput_ResponseItem) Reset()         { *m = DescribeVxnetsOutput_ResponseItem{} }
 func (m *DescribeVxnetsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeVxnetsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeVxnetsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor29, []int{1, 0}
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{1, 0}
 }
+func (m *DescribeVxnetsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVxnetsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeVxnetsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVxnetsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVxnetsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVxnetsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeVxnetsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeVxnetsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeVxnetsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVxnetsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVxnetsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeVxnetsOutput_ResponseItem) GetVxnetType() int32 {
 	if m != nil && m.VxnetType != nil {
@@ -167,7 +234,7 @@ func (m *DescribeVxnetsOutput_ResponseItem) GetVxnetName() string {
 	return ""
 }
 
-func (m *DescribeVxnetsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeVxnetsOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -196,17 +263,38 @@ func (m *DescribeVxnetsOutput_ResponseItem) GetRouter() *Router {
 }
 
 type CreateVxnetsInput struct {
-	VxnetName        *string `protobuf:"bytes,1,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	VxnetType        *int32  `protobuf:"varint,2,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
-	Count            *int32  `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
-	TargetUser       *string `protobuf:"bytes,4,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	VxnetName            *string  `protobuf:"bytes,1,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	VxnetType            *int32   `protobuf:"varint,2,opt,name=vxnet_type,json=vxnetType" json:"vxnet_type,omitempty"`
+	Count                *int32   `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	TargetUser           *string  `protobuf:"bytes,4,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateVxnetsInput) Reset()                    { *m = CreateVxnetsInput{} }
-func (m *CreateVxnetsInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateVxnetsInput) ProtoMessage()               {}
-func (*CreateVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{2} }
+func (m *CreateVxnetsInput) Reset()         { *m = CreateVxnetsInput{} }
+func (m *CreateVxnetsInput) String() string { return proto.CompactTextString(m) }
+func (*CreateVxnetsInput) ProtoMessage()    {}
+func (*CreateVxnetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{2}
+}
+func (m *CreateVxnetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateVxnetsInput.Unmarshal(m, b)
+}
+func (m *CreateVxnetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateVxnetsInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateVxnetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateVxnetsInput.Merge(dst, src)
+}
+func (m *CreateVxnetsInput) XXX_Size() int {
+	return xxx_messageInfo_CreateVxnetsInput.Size(m)
+}
+func (m *CreateVxnetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateVxnetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateVxnetsInput proto.InternalMessageInfo
 
 func (m *CreateVxnetsInput) GetVxnetName() string {
 	if m != nil && m.VxnetName != nil {
@@ -237,17 +325,38 @@ func (m *CreateVxnetsInput) GetTargetUser() string {
 }
 
 type CreateVxnetsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Vxnets           []string `protobuf:"bytes,4,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Vxnets               []string `protobuf:"bytes,4,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateVxnetsOutput) Reset()                    { *m = CreateVxnetsOutput{} }
-func (m *CreateVxnetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateVxnetsOutput) ProtoMessage()               {}
-func (*CreateVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{3} }
+func (m *CreateVxnetsOutput) Reset()         { *m = CreateVxnetsOutput{} }
+func (m *CreateVxnetsOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateVxnetsOutput) ProtoMessage()    {}
+func (*CreateVxnetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{3}
+}
+func (m *CreateVxnetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateVxnetsOutput.Unmarshal(m, b)
+}
+func (m *CreateVxnetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateVxnetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateVxnetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateVxnetsOutput.Merge(dst, src)
+}
+func (m *CreateVxnetsOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateVxnetsOutput.Size(m)
+}
+func (m *CreateVxnetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateVxnetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateVxnetsOutput proto.InternalMessageInfo
 
 func (m *CreateVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -278,14 +387,35 @@ func (m *CreateVxnetsOutput) GetVxnets() []string {
 }
 
 type DeleteVxnetsInput struct {
-	Vxnets           []string `protobuf:"bytes,1,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Vxnets               []string `protobuf:"bytes,1,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteVxnetsInput) Reset()                    { *m = DeleteVxnetsInput{} }
-func (m *DeleteVxnetsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteVxnetsInput) ProtoMessage()               {}
-func (*DeleteVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{4} }
+func (m *DeleteVxnetsInput) Reset()         { *m = DeleteVxnetsInput{} }
+func (m *DeleteVxnetsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteVxnetsInput) ProtoMessage()    {}
+func (*DeleteVxnetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{4}
+}
+func (m *DeleteVxnetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteVxnetsInput.Unmarshal(m, b)
+}
+func (m *DeleteVxnetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteVxnetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteVxnetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteVxnetsInput.Merge(dst, src)
+}
+func (m *DeleteVxnetsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteVxnetsInput.Size(m)
+}
+func (m *DeleteVxnetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteVxnetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteVxnetsInput proto.InternalMessageInfo
 
 func (m *DeleteVxnetsInput) GetVxnets() []string {
 	if m != nil {
@@ -295,17 +425,38 @@ func (m *DeleteVxnetsInput) GetVxnets() []string {
 }
 
 type DeleteVxnetsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Vxnets           []string `protobuf:"bytes,4,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Vxnets               []string `protobuf:"bytes,4,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteVxnetsOutput) Reset()                    { *m = DeleteVxnetsOutput{} }
-func (m *DeleteVxnetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteVxnetsOutput) ProtoMessage()               {}
-func (*DeleteVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{5} }
+func (m *DeleteVxnetsOutput) Reset()         { *m = DeleteVxnetsOutput{} }
+func (m *DeleteVxnetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteVxnetsOutput) ProtoMessage()    {}
+func (*DeleteVxnetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{5}
+}
+func (m *DeleteVxnetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteVxnetsOutput.Unmarshal(m, b)
+}
+func (m *DeleteVxnetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteVxnetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteVxnetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteVxnetsOutput.Merge(dst, src)
+}
+func (m *DeleteVxnetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteVxnetsOutput.Size(m)
+}
+func (m *DeleteVxnetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteVxnetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteVxnetsOutput proto.InternalMessageInfo
 
 func (m *DeleteVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -336,15 +487,36 @@ func (m *DeleteVxnetsOutput) GetVxnets() []string {
 }
 
 type JoinVxnetInput struct {
-	Vxnet            *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	Instances        []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Vxnet                *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	Instances            []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *JoinVxnetInput) Reset()                    { *m = JoinVxnetInput{} }
-func (m *JoinVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*JoinVxnetInput) ProtoMessage()               {}
-func (*JoinVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{6} }
+func (m *JoinVxnetInput) Reset()         { *m = JoinVxnetInput{} }
+func (m *JoinVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*JoinVxnetInput) ProtoMessage()    {}
+func (*JoinVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{6}
+}
+func (m *JoinVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JoinVxnetInput.Unmarshal(m, b)
+}
+func (m *JoinVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JoinVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *JoinVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JoinVxnetInput.Merge(dst, src)
+}
+func (m *JoinVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_JoinVxnetInput.Size(m)
+}
+func (m *JoinVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_JoinVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_JoinVxnetInput proto.InternalMessageInfo
 
 func (m *JoinVxnetInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -361,17 +533,38 @@ func (m *JoinVxnetInput) GetInstances() []string {
 }
 
 type JoinVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *JoinVxnetOutput) Reset()                    { *m = JoinVxnetOutput{} }
-func (m *JoinVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*JoinVxnetOutput) ProtoMessage()               {}
-func (*JoinVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{7} }
+func (m *JoinVxnetOutput) Reset()         { *m = JoinVxnetOutput{} }
+func (m *JoinVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*JoinVxnetOutput) ProtoMessage()    {}
+func (*JoinVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{7}
+}
+func (m *JoinVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JoinVxnetOutput.Unmarshal(m, b)
+}
+func (m *JoinVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JoinVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *JoinVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JoinVxnetOutput.Merge(dst, src)
+}
+func (m *JoinVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_JoinVxnetOutput.Size(m)
+}
+func (m *JoinVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_JoinVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_JoinVxnetOutput proto.InternalMessageInfo
 
 func (m *JoinVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -402,15 +595,36 @@ func (m *JoinVxnetOutput) GetJobId() string {
 }
 
 type LeaveVxnetInput struct {
-	Vxnet            *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	Instances        []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Vxnet                *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	Instances            []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *LeaveVxnetInput) Reset()                    { *m = LeaveVxnetInput{} }
-func (m *LeaveVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*LeaveVxnetInput) ProtoMessage()               {}
-func (*LeaveVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{8} }
+func (m *LeaveVxnetInput) Reset()         { *m = LeaveVxnetInput{} }
+func (m *LeaveVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*LeaveVxnetInput) ProtoMessage()    {}
+func (*LeaveVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{8}
+}
+func (m *LeaveVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LeaveVxnetInput.Unmarshal(m, b)
+}
+func (m *LeaveVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LeaveVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *LeaveVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LeaveVxnetInput.Merge(dst, src)
+}
+func (m *LeaveVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_LeaveVxnetInput.Size(m)
+}
+func (m *LeaveVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_LeaveVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LeaveVxnetInput proto.InternalMessageInfo
 
 func (m *LeaveVxnetInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -427,17 +641,38 @@ func (m *LeaveVxnetInput) GetInstances() []string {
 }
 
 type LeaveVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *LeaveVxnetOutput) Reset()                    { *m = LeaveVxnetOutput{} }
-func (m *LeaveVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*LeaveVxnetOutput) ProtoMessage()               {}
-func (*LeaveVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{9} }
+func (m *LeaveVxnetOutput) Reset()         { *m = LeaveVxnetOutput{} }
+func (m *LeaveVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*LeaveVxnetOutput) ProtoMessage()    {}
+func (*LeaveVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{9}
+}
+func (m *LeaveVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LeaveVxnetOutput.Unmarshal(m, b)
+}
+func (m *LeaveVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LeaveVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *LeaveVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LeaveVxnetOutput.Merge(dst, src)
+}
+func (m *LeaveVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_LeaveVxnetOutput.Size(m)
+}
+func (m *LeaveVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_LeaveVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LeaveVxnetOutput proto.InternalMessageInfo
 
 func (m *LeaveVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -468,16 +703,37 @@ func (m *LeaveVxnetOutput) GetJobId() string {
 }
 
 type ModifyVxnetAttributesInput struct {
-	Vxnet            *string `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	VxnetName        *string `protobuf:"bytes,2,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Vxnet                *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	VxnetName            *string  `protobuf:"bytes,2,opt,name=vxnet_name,json=vxnetName" json:"vxnet_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyVxnetAttributesInput) Reset()                    { *m = ModifyVxnetAttributesInput{} }
-func (m *ModifyVxnetAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyVxnetAttributesInput) ProtoMessage()               {}
-func (*ModifyVxnetAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{10} }
+func (m *ModifyVxnetAttributesInput) Reset()         { *m = ModifyVxnetAttributesInput{} }
+func (m *ModifyVxnetAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyVxnetAttributesInput) ProtoMessage()    {}
+func (*ModifyVxnetAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{10}
+}
+func (m *ModifyVxnetAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyVxnetAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyVxnetAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyVxnetAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyVxnetAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyVxnetAttributesInput.Merge(dst, src)
+}
+func (m *ModifyVxnetAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyVxnetAttributesInput.Size(m)
+}
+func (m *ModifyVxnetAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyVxnetAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyVxnetAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyVxnetAttributesInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -501,16 +757,37 @@ func (m *ModifyVxnetAttributesInput) GetDescription() string {
 }
 
 type ModifyVxnetAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyVxnetAttributesOutput) Reset()                    { *m = ModifyVxnetAttributesOutput{} }
-func (m *ModifyVxnetAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyVxnetAttributesOutput) ProtoMessage()               {}
-func (*ModifyVxnetAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{11} }
+func (m *ModifyVxnetAttributesOutput) Reset()         { *m = ModifyVxnetAttributesOutput{} }
+func (m *ModifyVxnetAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyVxnetAttributesOutput) ProtoMessage()    {}
+func (*ModifyVxnetAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{11}
+}
+func (m *ModifyVxnetAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyVxnetAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyVxnetAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyVxnetAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyVxnetAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyVxnetAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyVxnetAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyVxnetAttributesOutput.Size(m)
+}
+func (m *ModifyVxnetAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyVxnetAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyVxnetAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyVxnetAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -534,20 +811,41 @@ func (m *ModifyVxnetAttributesOutput) GetMessage() string {
 }
 
 type DescribeVxnetInstancesInput struct {
-	Vxnet            *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	Instances        []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
-	InstanceType     *string  `protobuf:"bytes,3,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
-	Status           *string  `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	Image            *string  `protobuf:"bytes,5,opt,name=image" json:"image,omitempty"`
-	Offset           *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Vxnet                *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	Instances            []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
+	InstanceType         *string  `protobuf:"bytes,3,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
+	Status               *string  `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
+	Image                *string  `protobuf:"bytes,5,opt,name=image" json:"image,omitempty"`
+	Offset               *int32   `protobuf:"varint,6,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,7,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeVxnetInstancesInput) Reset()                    { *m = DescribeVxnetInstancesInput{} }
-func (m *DescribeVxnetInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeVxnetInstancesInput) ProtoMessage()               {}
-func (*DescribeVxnetInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{12} }
+func (m *DescribeVxnetInstancesInput) Reset()         { *m = DescribeVxnetInstancesInput{} }
+func (m *DescribeVxnetInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeVxnetInstancesInput) ProtoMessage()    {}
+func (*DescribeVxnetInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{12}
+}
+func (m *DescribeVxnetInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVxnetInstancesInput.Unmarshal(m, b)
+}
+func (m *DescribeVxnetInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVxnetInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVxnetInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVxnetInstancesInput.Merge(dst, src)
+}
+func (m *DescribeVxnetInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeVxnetInstancesInput.Size(m)
+}
+func (m *DescribeVxnetInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVxnetInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVxnetInstancesInput proto.InternalMessageInfo
 
 func (m *DescribeVxnetInstancesInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -599,18 +897,39 @@ func (m *DescribeVxnetInstancesInput) GetLimit() int32 {
 }
 
 type DescribeVxnetInstancesOutput struct {
-	Action           *string                                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	InstanceSet      []*DescribeVxnetInstancesOutput_ResponseItem `protobuf:"bytes,4,rep,name=instance_set,json=instanceSet" json:"instance_set,omitempty"`
-	TotalCount       *int32                                       `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                       `json:"-"`
+	Action               *string                                      `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                       `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                      `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	InstanceSet          []*DescribeVxnetInstancesOutput_ResponseItem `protobuf:"bytes,4,rep,name=instance_set,json=instanceSet" json:"instance_set,omitempty"`
+	TotalCount           *int32                                       `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                     `json:"-"`
+	XXX_unrecognized     []byte                                       `json:"-"`
+	XXX_sizecache        int32                                        `json:"-"`
 }
 
-func (m *DescribeVxnetInstancesOutput) Reset()                    { *m = DescribeVxnetInstancesOutput{} }
-func (m *DescribeVxnetInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeVxnetInstancesOutput) ProtoMessage()               {}
-func (*DescribeVxnetInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor29, []int{13} }
+func (m *DescribeVxnetInstancesOutput) Reset()         { *m = DescribeVxnetInstancesOutput{} }
+func (m *DescribeVxnetInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeVxnetInstancesOutput) ProtoMessage()    {}
+func (*DescribeVxnetInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{13}
+}
+func (m *DescribeVxnetInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVxnetInstancesOutput.Unmarshal(m, b)
+}
+func (m *DescribeVxnetInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVxnetInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVxnetInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVxnetInstancesOutput.Merge(dst, src)
+}
+func (m *DescribeVxnetInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeVxnetInstancesOutput.Size(m)
+}
+func (m *DescribeVxnetInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVxnetInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVxnetInstancesOutput proto.InternalMessageInfo
 
 func (m *DescribeVxnetInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -648,21 +967,23 @@ func (m *DescribeVxnetInstancesOutput) GetTotalCount() int32 {
 }
 
 type DescribeVxnetInstancesOutput_ResponseItem struct {
-	VxnetId          *string                     `protobuf:"bytes,1,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	InstanceId       *string                     `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	InstanceName     *string                     `protobuf:"bytes,3,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
-	Description      *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	InstanceType     *string                     `protobuf:"bytes,5,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
-	VcpusCurrent     *int32                      `protobuf:"varint,6,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
-	MemoryCurrent    *int32                      `protobuf:"varint,7,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
-	Status           *string                     `protobuf:"bytes,8,opt,name=status" json:"status,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,9,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	ImageId          *string                     `protobuf:"bytes,12,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	DhcpOptions      map[string]string           `protobuf:"bytes,13,rep,name=dhcp_options,json=dhcpOptions" json:"dhcp_options,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	PrivateIp        *string                     `protobuf:"bytes,14,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	VxnetId              *string              `protobuf:"bytes,1,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	InstanceId           *string              `protobuf:"bytes,2,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	InstanceName         *string              `protobuf:"bytes,3,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
+	Description          *string              `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	InstanceType         *string              `protobuf:"bytes,5,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
+	VcpusCurrent         *int32               `protobuf:"varint,6,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
+	MemoryCurrent        *int32               `protobuf:"varint,7,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
+	Status               *string              `protobuf:"bytes,8,opt,name=status" json:"status,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,9,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	ImageId              *string              `protobuf:"bytes,12,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	DhcpOptions          map[string]string    `protobuf:"bytes,13,rep,name=dhcp_options,json=dhcpOptions" json:"dhcp_options,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	PrivateIp            *string              `protobuf:"bytes,14,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeVxnetInstancesOutput_ResponseItem) Reset() {
@@ -671,8 +992,25 @@ func (m *DescribeVxnetInstancesOutput_ResponseItem) Reset() {
 func (m *DescribeVxnetInstancesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeVxnetInstancesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeVxnetInstancesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor29, []int{13, 0}
+	return fileDescriptor_vxnet_593e62f689f88f14, []int{13, 0}
 }
+func (m *DescribeVxnetInstancesOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVxnetInstancesOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeVxnetInstancesOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVxnetInstancesOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVxnetInstancesOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVxnetInstancesOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeVxnetInstancesOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeVxnetInstancesOutput_ResponseItem.Size(m)
+}
+func (m *DescribeVxnetInstancesOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVxnetInstancesOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVxnetInstancesOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeVxnetInstancesOutput_ResponseItem) GetVxnetId() string {
 	if m != nil && m.VxnetId != nil {
@@ -737,14 +1075,14 @@ func (m *DescribeVxnetInstancesOutput_ResponseItem) GetTransitionStatus() string
 	return ""
 }
 
-func (m *DescribeVxnetInstancesOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeVxnetInstancesOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeVxnetInstancesOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeVxnetInstancesOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -789,11 +1127,12 @@ func init() {
 	proto.RegisterType((*DescribeVxnetInstancesInput)(nil), "service.DescribeVxnetInstancesInput")
 	proto.RegisterType((*DescribeVxnetInstancesOutput)(nil), "service.DescribeVxnetInstancesOutput")
 	proto.RegisterType((*DescribeVxnetInstancesOutput_ResponseItem)(nil), "service.DescribeVxnetInstancesOutput.ResponseItem")
+	proto.RegisterMapType((map[string]string)(nil), "service.DescribeVxnetInstancesOutput.ResponseItem.DhcpOptionsEntry")
 }
 
-func init() { proto.RegisterFile("vxnet.proto", fileDescriptor29) }
+func init() { proto.RegisterFile("vxnet.proto", fileDescriptor_vxnet_593e62f689f88f14) }
 
-var fileDescriptor29 = []byte{
+var fileDescriptor_vxnet_593e62f689f88f14 = []byte{
 	// 1123 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xdb, 0x6e, 0xdb, 0x46,
 	0x13, 0x06, 0xad, 0x93, 0x35, 0x94, 0x1d, 0x7b, 0x7f, 0xc7, 0x3f, 0x4d, 0x3b, 0xb0, 0x2b, 0x27,

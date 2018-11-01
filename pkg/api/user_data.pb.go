@@ -13,16 +13,43 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type UploadUserDataAttachmentInput struct {
-	AttachmentName    *string `protobuf:"bytes,1,opt,name=attachment_name,json=attachmentName" json:"attachment_name,omitempty"`
-	AttachmentContent []byte  `protobuf:"bytes,2,req,name=attachment_content,json=attachmentContent" json:"attachment_content,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	AttachmentName       *string  `protobuf:"bytes,1,opt,name=attachment_name,json=attachmentName" json:"attachment_name,omitempty"`
+	AttachmentContent    []byte   `protobuf:"bytes,2,req,name=attachment_content,json=attachmentContent" json:"attachment_content,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UploadUserDataAttachmentInput) Reset()                    { *m = UploadUserDataAttachmentInput{} }
-func (m *UploadUserDataAttachmentInput) String() string            { return proto.CompactTextString(m) }
-func (*UploadUserDataAttachmentInput) ProtoMessage()               {}
-func (*UploadUserDataAttachmentInput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{0} }
+func (m *UploadUserDataAttachmentInput) Reset()         { *m = UploadUserDataAttachmentInput{} }
+func (m *UploadUserDataAttachmentInput) String() string { return proto.CompactTextString(m) }
+func (*UploadUserDataAttachmentInput) ProtoMessage()    {}
+func (*UploadUserDataAttachmentInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_data_4ca1c307b19388f3, []int{0}
+}
+func (m *UploadUserDataAttachmentInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UploadUserDataAttachmentInput.Unmarshal(m, b)
+}
+func (m *UploadUserDataAttachmentInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UploadUserDataAttachmentInput.Marshal(b, m, deterministic)
+}
+func (dst *UploadUserDataAttachmentInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UploadUserDataAttachmentInput.Merge(dst, src)
+}
+func (m *UploadUserDataAttachmentInput) XXX_Size() int {
+	return xxx_messageInfo_UploadUserDataAttachmentInput.Size(m)
+}
+func (m *UploadUserDataAttachmentInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UploadUserDataAttachmentInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UploadUserDataAttachmentInput proto.InternalMessageInfo
 
 func (m *UploadUserDataAttachmentInput) GetAttachmentName() string {
 	if m != nil && m.AttachmentName != nil {
@@ -39,17 +66,38 @@ func (m *UploadUserDataAttachmentInput) GetAttachmentContent() []byte {
 }
 
 type UploadUserDataAttachmentOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	AttachmentId     *string `protobuf:"bytes,4,opt,name=attachment_id,json=attachmentId" json:"attachment_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	AttachmentId         *string  `protobuf:"bytes,4,opt,name=attachment_id,json=attachmentId" json:"attachment_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UploadUserDataAttachmentOutput) Reset()                    { *m = UploadUserDataAttachmentOutput{} }
-func (m *UploadUserDataAttachmentOutput) String() string            { return proto.CompactTextString(m) }
-func (*UploadUserDataAttachmentOutput) ProtoMessage()               {}
-func (*UploadUserDataAttachmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor27, []int{1} }
+func (m *UploadUserDataAttachmentOutput) Reset()         { *m = UploadUserDataAttachmentOutput{} }
+func (m *UploadUserDataAttachmentOutput) String() string { return proto.CompactTextString(m) }
+func (*UploadUserDataAttachmentOutput) ProtoMessage()    {}
+func (*UploadUserDataAttachmentOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_user_data_4ca1c307b19388f3, []int{1}
+}
+func (m *UploadUserDataAttachmentOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UploadUserDataAttachmentOutput.Unmarshal(m, b)
+}
+func (m *UploadUserDataAttachmentOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UploadUserDataAttachmentOutput.Marshal(b, m, deterministic)
+}
+func (dst *UploadUserDataAttachmentOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UploadUserDataAttachmentOutput.Merge(dst, src)
+}
+func (m *UploadUserDataAttachmentOutput) XXX_Size() int {
+	return xxx_messageInfo_UploadUserDataAttachmentOutput.Size(m)
+}
+func (m *UploadUserDataAttachmentOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UploadUserDataAttachmentOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UploadUserDataAttachmentOutput proto.InternalMessageInfo
 
 func (m *UploadUserDataAttachmentOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -84,9 +132,9 @@ func init() {
 	proto.RegisterType((*UploadUserDataAttachmentOutput)(nil), "service.UploadUserDataAttachmentOutput")
 }
 
-func init() { proto.RegisterFile("user_data.proto", fileDescriptor27) }
+func init() { proto.RegisterFile("user_data.proto", fileDescriptor_user_data_4ca1c307b19388f3) }
 
-var fileDescriptor27 = []byte{
+var fileDescriptor_user_data_4ca1c307b19388f3 = []byte{
 	// 323 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x51, 0xcd, 0x4e, 0xf2, 0x40,
 	0x14, 0x4d, 0xf9, 0xf8, 0x40, 0xaf, 0x28, 0x71, 0x16, 0x66, 0x6c, 0xa2, 0x21, 0x98, 0x08, 0x1b,

@@ -13,25 +13,52 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeInstancesInput struct {
-	ImageId          []string `protobuf:"bytes,1,rep,name=image_id,json=imageId" json:"image_id,omitempty"`
-	InstanceClass    *int32   `protobuf:"varint,2,opt,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
-	InstanceType     []string `protobuf:"bytes,3,rep,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
-	Instances        []string `protobuf:"bytes,4,rep,name=instances" json:"instances,omitempty"`
-	IsClusterNode    *int32   `protobuf:"varint,5,opt,name=is_cluster_node,json=isClusterNode" json:"is_cluster_node,omitempty"`
-	Limit            *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,8,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Status           []string `protobuf:"bytes,9,rep,name=status" json:"status,omitempty"`
-	Tags             []string `protobuf:"bytes,10,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,11,opt,name=verbose" json:"verbose,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ImageId              []string `protobuf:"bytes,1,rep,name=image_id,json=imageId" json:"image_id,omitempty"`
+	InstanceClass        *int32   `protobuf:"varint,2,opt,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
+	InstanceType         []string `protobuf:"bytes,3,rep,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
+	Instances            []string `protobuf:"bytes,4,rep,name=instances" json:"instances,omitempty"`
+	IsClusterNode        *int32   `protobuf:"varint,5,opt,name=is_cluster_node,json=isClusterNode" json:"is_cluster_node,omitempty"`
+	Limit                *int32   `protobuf:"varint,6,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,8,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Status               []string `protobuf:"bytes,9,rep,name=status" json:"status,omitempty"`
+	Tags                 []string `protobuf:"bytes,10,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,11,opt,name=verbose" json:"verbose,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeInstancesInput) Reset()                    { *m = DescribeInstancesInput{} }
-func (m *DescribeInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeInstancesInput) ProtoMessage()               {}
-func (*DescribeInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (m *DescribeInstancesInput) Reset()         { *m = DescribeInstancesInput{} }
+func (m *DescribeInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeInstancesInput) ProtoMessage()    {}
+func (*DescribeInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{0}
+}
+func (m *DescribeInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeInstancesInput.Unmarshal(m, b)
+}
+func (m *DescribeInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeInstancesInput.Merge(dst, src)
+}
+func (m *DescribeInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeInstancesInput.Size(m)
+}
+func (m *DescribeInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeInstancesInput proto.InternalMessageInfo
 
 func (m *DescribeInstancesInput) GetImageId() []string {
 	if m != nil {
@@ -111,18 +138,39 @@ func (m *DescribeInstancesInput) GetVerbose() int32 {
 }
 
 type DescribeInstancesOutput struct {
-	Action           *string     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	InstanceSet      []*Instance `protobuf:"bytes,4,rep,name=instance_set,json=instanceSet" json:"instance_set,omitempty"`
-	TotalCount       *int32      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte      `json:"-"`
+	Action               *string     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	InstanceSet          []*Instance `protobuf:"bytes,4,rep,name=instance_set,json=instanceSet" json:"instance_set,omitempty"`
+	TotalCount           *int32      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *DescribeInstancesOutput) Reset()                    { *m = DescribeInstancesOutput{} }
-func (m *DescribeInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeInstancesOutput) ProtoMessage()               {}
-func (*DescribeInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
+func (m *DescribeInstancesOutput) Reset()         { *m = DescribeInstancesOutput{} }
+func (m *DescribeInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeInstancesOutput) ProtoMessage()    {}
+func (*DescribeInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{1}
+}
+func (m *DescribeInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeInstancesOutput.Unmarshal(m, b)
+}
+func (m *DescribeInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeInstancesOutput.Merge(dst, src)
+}
+func (m *DescribeInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeInstancesOutput.Size(m)
+}
+func (m *DescribeInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeInstancesOutput proto.InternalMessageInfo
 
 func (m *DescribeInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -160,35 +208,56 @@ func (m *DescribeInstancesOutput) GetTotalCount() int32 {
 }
 
 type RunInstancesInput struct {
-	BillingId        *string  `protobuf:"bytes,1,opt,name=billing_id,json=billingId" json:"billing_id,omitempty"`
-	Count            *int32   `protobuf:"varint,2,opt,name=count" json:"count,omitempty"`
-	Cpu              *int32   `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
-	Hostname         *string  `protobuf:"bytes,4,opt,name=hostname" json:"hostname,omitempty"`
-	ImageId          *string  `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	InstanceClass    *int32   `protobuf:"varint,6,opt,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
-	InstanceName     *string  `protobuf:"bytes,7,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
-	InstanceType     *string  `protobuf:"bytes,8,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
-	LoginKeypair     *string  `protobuf:"bytes,9,opt,name=login_keypair,json=loginKeypair" json:"login_keypair,omitempty"`
-	LoginMode        *string  `protobuf:"bytes,10,opt,name=login_mode,json=loginMode" json:"login_mode,omitempty"`
-	LoginPasswd      *string  `protobuf:"bytes,11,opt,name=login_passwd,json=loginPasswd" json:"login_passwd,omitempty"`
-	Memory           *int32   `protobuf:"varint,12,opt,name=memory" json:"memory,omitempty"`
-	NeedNewsid       *int32   `protobuf:"varint,13,opt,name=need_newsid,json=needNewsid" json:"need_newsid,omitempty"`
-	NeedUserdata     *int32   `protobuf:"varint,14,opt,name=need_userdata,json=needUserdata" json:"need_userdata,omitempty"`
-	SecurityGroup    *string  `protobuf:"bytes,15,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	UiType           *string  `protobuf:"bytes,16,opt,name=ui_type,json=uiType" json:"ui_type,omitempty"`
-	UserdataFile     *string  `protobuf:"bytes,17,opt,name=userdata_file,json=userdataFile" json:"userdata_file,omitempty"`
-	UserdataPath     *string  `protobuf:"bytes,18,opt,name=userdata_path,json=userdataPath" json:"userdata_path,omitempty"`
-	UserdataType     *string  `protobuf:"bytes,19,opt,name=userdata_type,json=userdataType" json:"userdata_type,omitempty"`
-	UserdataValue    *string  `protobuf:"bytes,20,opt,name=userdata_value,json=userdataValue" json:"userdata_value,omitempty"`
-	Volumes          []string `protobuf:"bytes,21,rep,name=volumes" json:"volumes,omitempty"`
-	Vxnets           []string `protobuf:"bytes,22,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	BillingId            *string  `protobuf:"bytes,1,opt,name=billing_id,json=billingId" json:"billing_id,omitempty"`
+	Count                *int32   `protobuf:"varint,2,opt,name=count" json:"count,omitempty"`
+	Cpu                  *int32   `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
+	Hostname             *string  `protobuf:"bytes,4,opt,name=hostname" json:"hostname,omitempty"`
+	ImageId              *string  `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	InstanceClass        *int32   `protobuf:"varint,6,opt,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
+	InstanceName         *string  `protobuf:"bytes,7,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
+	InstanceType         *string  `protobuf:"bytes,8,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
+	LoginKeypair         *string  `protobuf:"bytes,9,opt,name=login_keypair,json=loginKeypair" json:"login_keypair,omitempty"`
+	LoginMode            *string  `protobuf:"bytes,10,opt,name=login_mode,json=loginMode" json:"login_mode,omitempty"`
+	LoginPasswd          *string  `protobuf:"bytes,11,opt,name=login_passwd,json=loginPasswd" json:"login_passwd,omitempty"`
+	Memory               *int32   `protobuf:"varint,12,opt,name=memory" json:"memory,omitempty"`
+	NeedNewsid           *int32   `protobuf:"varint,13,opt,name=need_newsid,json=needNewsid" json:"need_newsid,omitempty"`
+	NeedUserdata         *int32   `protobuf:"varint,14,opt,name=need_userdata,json=needUserdata" json:"need_userdata,omitempty"`
+	SecurityGroup        *string  `protobuf:"bytes,15,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	UiType               *string  `protobuf:"bytes,16,opt,name=ui_type,json=uiType" json:"ui_type,omitempty"`
+	UserdataFile         *string  `protobuf:"bytes,17,opt,name=userdata_file,json=userdataFile" json:"userdata_file,omitempty"`
+	UserdataPath         *string  `protobuf:"bytes,18,opt,name=userdata_path,json=userdataPath" json:"userdata_path,omitempty"`
+	UserdataType         *string  `protobuf:"bytes,19,opt,name=userdata_type,json=userdataType" json:"userdata_type,omitempty"`
+	UserdataValue        *string  `protobuf:"bytes,20,opt,name=userdata_value,json=userdataValue" json:"userdata_value,omitempty"`
+	Volumes              []string `protobuf:"bytes,21,rep,name=volumes" json:"volumes,omitempty"`
+	Vxnets               []string `protobuf:"bytes,22,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RunInstancesInput) Reset()                    { *m = RunInstancesInput{} }
-func (m *RunInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*RunInstancesInput) ProtoMessage()               {}
-func (*RunInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
+func (m *RunInstancesInput) Reset()         { *m = RunInstancesInput{} }
+func (m *RunInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*RunInstancesInput) ProtoMessage()    {}
+func (*RunInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{2}
+}
+func (m *RunInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RunInstancesInput.Unmarshal(m, b)
+}
+func (m *RunInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RunInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *RunInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RunInstancesInput.Merge(dst, src)
+}
+func (m *RunInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_RunInstancesInput.Size(m)
+}
+func (m *RunInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RunInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RunInstancesInput proto.InternalMessageInfo
 
 func (m *RunInstancesInput) GetBillingId() string {
 	if m != nil && m.BillingId != nil {
@@ -345,18 +414,39 @@ func (m *RunInstancesInput) GetVxnets() []string {
 }
 
 type RunInstancesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Instances        []string `protobuf:"bytes,4,rep,name=instances" json:"instances,omitempty"`
-	JobId            *string  `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Instances            []string `protobuf:"bytes,4,rep,name=instances" json:"instances,omitempty"`
+	JobId                *string  `protobuf:"bytes,5,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RunInstancesOutput) Reset()                    { *m = RunInstancesOutput{} }
-func (m *RunInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*RunInstancesOutput) ProtoMessage()               {}
-func (*RunInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{3} }
+func (m *RunInstancesOutput) Reset()         { *m = RunInstancesOutput{} }
+func (m *RunInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*RunInstancesOutput) ProtoMessage()    {}
+func (*RunInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{3}
+}
+func (m *RunInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RunInstancesOutput.Unmarshal(m, b)
+}
+func (m *RunInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RunInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *RunInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RunInstancesOutput.Merge(dst, src)
+}
+func (m *RunInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_RunInstancesOutput.Size(m)
+}
+func (m *RunInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RunInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RunInstancesOutput proto.InternalMessageInfo
 
 func (m *RunInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -394,14 +484,35 @@ func (m *RunInstancesOutput) GetJobId() string {
 }
 
 type TerminateInstancesInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *TerminateInstancesInput) Reset()                    { *m = TerminateInstancesInput{} }
-func (m *TerminateInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*TerminateInstancesInput) ProtoMessage()               {}
-func (*TerminateInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{4} }
+func (m *TerminateInstancesInput) Reset()         { *m = TerminateInstancesInput{} }
+func (m *TerminateInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*TerminateInstancesInput) ProtoMessage()    {}
+func (*TerminateInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{4}
+}
+func (m *TerminateInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TerminateInstancesInput.Unmarshal(m, b)
+}
+func (m *TerminateInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TerminateInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *TerminateInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TerminateInstancesInput.Merge(dst, src)
+}
+func (m *TerminateInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_TerminateInstancesInput.Size(m)
+}
+func (m *TerminateInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_TerminateInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TerminateInstancesInput proto.InternalMessageInfo
 
 func (m *TerminateInstancesInput) GetInstances() []string {
 	if m != nil {
@@ -411,17 +522,38 @@ func (m *TerminateInstancesInput) GetInstances() []string {
 }
 
 type TerminateInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *TerminateInstancesOutput) Reset()                    { *m = TerminateInstancesOutput{} }
-func (m *TerminateInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*TerminateInstancesOutput) ProtoMessage()               {}
-func (*TerminateInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{5} }
+func (m *TerminateInstancesOutput) Reset()         { *m = TerminateInstancesOutput{} }
+func (m *TerminateInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*TerminateInstancesOutput) ProtoMessage()    {}
+func (*TerminateInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{5}
+}
+func (m *TerminateInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TerminateInstancesOutput.Unmarshal(m, b)
+}
+func (m *TerminateInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TerminateInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *TerminateInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TerminateInstancesOutput.Merge(dst, src)
+}
+func (m *TerminateInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_TerminateInstancesOutput.Size(m)
+}
+func (m *TerminateInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_TerminateInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TerminateInstancesOutput proto.InternalMessageInfo
 
 func (m *TerminateInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -452,14 +584,35 @@ func (m *TerminateInstancesOutput) GetJobId() string {
 }
 
 type StartInstancesInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartInstancesInput) Reset()                    { *m = StartInstancesInput{} }
-func (m *StartInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*StartInstancesInput) ProtoMessage()               {}
-func (*StartInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{6} }
+func (m *StartInstancesInput) Reset()         { *m = StartInstancesInput{} }
+func (m *StartInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*StartInstancesInput) ProtoMessage()    {}
+func (*StartInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{6}
+}
+func (m *StartInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartInstancesInput.Unmarshal(m, b)
+}
+func (m *StartInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *StartInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartInstancesInput.Merge(dst, src)
+}
+func (m *StartInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_StartInstancesInput.Size(m)
+}
+func (m *StartInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartInstancesInput proto.InternalMessageInfo
 
 func (m *StartInstancesInput) GetInstances() []string {
 	if m != nil {
@@ -469,17 +622,38 @@ func (m *StartInstancesInput) GetInstances() []string {
 }
 
 type StartInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartInstancesOutput) Reset()                    { *m = StartInstancesOutput{} }
-func (m *StartInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartInstancesOutput) ProtoMessage()               {}
-func (*StartInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{7} }
+func (m *StartInstancesOutput) Reset()         { *m = StartInstancesOutput{} }
+func (m *StartInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*StartInstancesOutput) ProtoMessage()    {}
+func (*StartInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{7}
+}
+func (m *StartInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartInstancesOutput.Unmarshal(m, b)
+}
+func (m *StartInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartInstancesOutput.Merge(dst, src)
+}
+func (m *StartInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_StartInstancesOutput.Size(m)
+}
+func (m *StartInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartInstancesOutput proto.InternalMessageInfo
 
 func (m *StartInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -510,15 +684,36 @@ func (m *StartInstancesOutput) GetJobId() string {
 }
 
 type StopInstancesInput struct {
-	Force            *int32   `protobuf:"varint,1,opt,name=force" json:"force,omitempty"`
-	Instances        []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Force                *int32   `protobuf:"varint,1,opt,name=force" json:"force,omitempty"`
+	Instances            []string `protobuf:"bytes,2,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopInstancesInput) Reset()                    { *m = StopInstancesInput{} }
-func (m *StopInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*StopInstancesInput) ProtoMessage()               {}
-func (*StopInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{8} }
+func (m *StopInstancesInput) Reset()         { *m = StopInstancesInput{} }
+func (m *StopInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*StopInstancesInput) ProtoMessage()    {}
+func (*StopInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{8}
+}
+func (m *StopInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopInstancesInput.Unmarshal(m, b)
+}
+func (m *StopInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *StopInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopInstancesInput.Merge(dst, src)
+}
+func (m *StopInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_StopInstancesInput.Size(m)
+}
+func (m *StopInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopInstancesInput proto.InternalMessageInfo
 
 func (m *StopInstancesInput) GetForce() int32 {
 	if m != nil && m.Force != nil {
@@ -535,17 +730,38 @@ func (m *StopInstancesInput) GetInstances() []string {
 }
 
 type StopInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopInstancesOutput) Reset()                    { *m = StopInstancesOutput{} }
-func (m *StopInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopInstancesOutput) ProtoMessage()               {}
-func (*StopInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{9} }
+func (m *StopInstancesOutput) Reset()         { *m = StopInstancesOutput{} }
+func (m *StopInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*StopInstancesOutput) ProtoMessage()    {}
+func (*StopInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{9}
+}
+func (m *StopInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopInstancesOutput.Unmarshal(m, b)
+}
+func (m *StopInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopInstancesOutput.Merge(dst, src)
+}
+func (m *StopInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_StopInstancesOutput.Size(m)
+}
+func (m *StopInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopInstancesOutput proto.InternalMessageInfo
 
 func (m *StopInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -576,14 +792,35 @@ func (m *StopInstancesOutput) GetJobId() string {
 }
 
 type RestartInstancesInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartInstancesInput) Reset()                    { *m = RestartInstancesInput{} }
-func (m *RestartInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*RestartInstancesInput) ProtoMessage()               {}
-func (*RestartInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{10} }
+func (m *RestartInstancesInput) Reset()         { *m = RestartInstancesInput{} }
+func (m *RestartInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*RestartInstancesInput) ProtoMessage()    {}
+func (*RestartInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{10}
+}
+func (m *RestartInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartInstancesInput.Unmarshal(m, b)
+}
+func (m *RestartInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *RestartInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartInstancesInput.Merge(dst, src)
+}
+func (m *RestartInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_RestartInstancesInput.Size(m)
+}
+func (m *RestartInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartInstancesInput proto.InternalMessageInfo
 
 func (m *RestartInstancesInput) GetInstances() []string {
 	if m != nil {
@@ -593,17 +830,38 @@ func (m *RestartInstancesInput) GetInstances() []string {
 }
 
 type RestartInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartInstancesOutput) Reset()                    { *m = RestartInstancesOutput{} }
-func (m *RestartInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*RestartInstancesOutput) ProtoMessage()               {}
-func (*RestartInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{11} }
+func (m *RestartInstancesOutput) Reset()         { *m = RestartInstancesOutput{} }
+func (m *RestartInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*RestartInstancesOutput) ProtoMessage()    {}
+func (*RestartInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{11}
+}
+func (m *RestartInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartInstancesOutput.Unmarshal(m, b)
+}
+func (m *RestartInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *RestartInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartInstancesOutput.Merge(dst, src)
+}
+func (m *RestartInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_RestartInstancesOutput.Size(m)
+}
+func (m *RestartInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartInstancesOutput proto.InternalMessageInfo
 
 func (m *RestartInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -634,18 +892,39 @@ func (m *RestartInstancesOutput) GetJobId() string {
 }
 
 type ResetInstancesInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	LoginMode        *string  `protobuf:"bytes,2,opt,name=login_mode,json=loginMode" json:"login_mode,omitempty"`
-	LoginKeypair     *string  `protobuf:"bytes,3,opt,name=login_keypair,json=loginKeypair" json:"login_keypair,omitempty"`
-	LoginPasswd      *string  `protobuf:"bytes,4,opt,name=login_passwd,json=loginPasswd" json:"login_passwd,omitempty"`
-	NeedNewsid       *int32   `protobuf:"varint,5,opt,name=need_newsid,json=needNewsid" json:"need_newsid,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	LoginMode            *string  `protobuf:"bytes,2,opt,name=login_mode,json=loginMode" json:"login_mode,omitempty"`
+	LoginKeypair         *string  `protobuf:"bytes,3,opt,name=login_keypair,json=loginKeypair" json:"login_keypair,omitempty"`
+	LoginPasswd          *string  `protobuf:"bytes,4,opt,name=login_passwd,json=loginPasswd" json:"login_passwd,omitempty"`
+	NeedNewsid           *int32   `protobuf:"varint,5,opt,name=need_newsid,json=needNewsid" json:"need_newsid,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResetInstancesInput) Reset()                    { *m = ResetInstancesInput{} }
-func (m *ResetInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*ResetInstancesInput) ProtoMessage()               {}
-func (*ResetInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{12} }
+func (m *ResetInstancesInput) Reset()         { *m = ResetInstancesInput{} }
+func (m *ResetInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*ResetInstancesInput) ProtoMessage()    {}
+func (*ResetInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{12}
+}
+func (m *ResetInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResetInstancesInput.Unmarshal(m, b)
+}
+func (m *ResetInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResetInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *ResetInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResetInstancesInput.Merge(dst, src)
+}
+func (m *ResetInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_ResetInstancesInput.Size(m)
+}
+func (m *ResetInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResetInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResetInstancesInput proto.InternalMessageInfo
 
 func (m *ResetInstancesInput) GetInstances() []string {
 	if m != nil {
@@ -683,17 +962,38 @@ func (m *ResetInstancesInput) GetNeedNewsid() int32 {
 }
 
 type ResetInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResetInstancesOutput) Reset()                    { *m = ResetInstancesOutput{} }
-func (m *ResetInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResetInstancesOutput) ProtoMessage()               {}
-func (*ResetInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{13} }
+func (m *ResetInstancesOutput) Reset()         { *m = ResetInstancesOutput{} }
+func (m *ResetInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*ResetInstancesOutput) ProtoMessage()    {}
+func (*ResetInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{13}
+}
+func (m *ResetInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResetInstancesOutput.Unmarshal(m, b)
+}
+func (m *ResetInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResetInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResetInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResetInstancesOutput.Merge(dst, src)
+}
+func (m *ResetInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_ResetInstancesOutput.Size(m)
+}
+func (m *ResetInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResetInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResetInstancesOutput proto.InternalMessageInfo
 
 func (m *ResetInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -724,17 +1024,38 @@ func (m *ResetInstancesOutput) GetJobId() string {
 }
 
 type ResizeInstancesInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	InstanceType     *string  `protobuf:"bytes,2,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
-	Cpu              *int32   `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
-	Memory           *int32   `protobuf:"varint,4,opt,name=memory" json:"memory,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	InstanceType         *string  `protobuf:"bytes,2,opt,name=instance_type,json=instanceType" json:"instance_type,omitempty"`
+	Cpu                  *int32   `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
+	Memory               *int32   `protobuf:"varint,4,opt,name=memory" json:"memory,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeInstancesInput) Reset()                    { *m = ResizeInstancesInput{} }
-func (m *ResizeInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeInstancesInput) ProtoMessage()               {}
-func (*ResizeInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{14} }
+func (m *ResizeInstancesInput) Reset()         { *m = ResizeInstancesInput{} }
+func (m *ResizeInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeInstancesInput) ProtoMessage()    {}
+func (*ResizeInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{14}
+}
+func (m *ResizeInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeInstancesInput.Unmarshal(m, b)
+}
+func (m *ResizeInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeInstancesInput.Merge(dst, src)
+}
+func (m *ResizeInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeInstancesInput.Size(m)
+}
+func (m *ResizeInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeInstancesInput proto.InternalMessageInfo
 
 func (m *ResizeInstancesInput) GetInstances() []string {
 	if m != nil {
@@ -765,17 +1086,38 @@ func (m *ResizeInstancesInput) GetMemory() int32 {
 }
 
 type ResizeInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeInstancesOutput) Reset()                    { *m = ResizeInstancesOutput{} }
-func (m *ResizeInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeInstancesOutput) ProtoMessage()               {}
-func (*ResizeInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{15} }
+func (m *ResizeInstancesOutput) Reset()         { *m = ResizeInstancesOutput{} }
+func (m *ResizeInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeInstancesOutput) ProtoMessage()    {}
+func (*ResizeInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{15}
+}
+func (m *ResizeInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeInstancesOutput.Unmarshal(m, b)
+}
+func (m *ResizeInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeInstancesOutput.Merge(dst, src)
+}
+func (m *ResizeInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeInstancesOutput.Size(m)
+}
+func (m *ResizeInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeInstancesOutput proto.InternalMessageInfo
 
 func (m *ResizeInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -806,17 +1148,38 @@ func (m *ResizeInstancesOutput) GetJobId() string {
 }
 
 type ModifyInstanceAttributesInput struct {
-	Instance         *string `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
-	InstanceName     *string `protobuf:"bytes,2,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	NicMqueue        *int32  `protobuf:"varint,4,opt,name=nic_mqueue,json=nicMqueue" json:"nic_mqueue,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Instance             *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	InstanceName         *string  `protobuf:"bytes,2,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	NicMqueue            *int32   `protobuf:"varint,4,opt,name=nic_mqueue,json=nicMqueue" json:"nic_mqueue,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyInstanceAttributesInput) Reset()                    { *m = ModifyInstanceAttributesInput{} }
-func (m *ModifyInstanceAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyInstanceAttributesInput) ProtoMessage()               {}
-func (*ModifyInstanceAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{16} }
+func (m *ModifyInstanceAttributesInput) Reset()         { *m = ModifyInstanceAttributesInput{} }
+func (m *ModifyInstanceAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyInstanceAttributesInput) ProtoMessage()    {}
+func (*ModifyInstanceAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{16}
+}
+func (m *ModifyInstanceAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyInstanceAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyInstanceAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyInstanceAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyInstanceAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyInstanceAttributesInput.Merge(dst, src)
+}
+func (m *ModifyInstanceAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyInstanceAttributesInput.Size(m)
+}
+func (m *ModifyInstanceAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyInstanceAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyInstanceAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyInstanceAttributesInput) GetInstance() string {
 	if m != nil && m.Instance != nil {
@@ -847,16 +1210,37 @@ func (m *ModifyInstanceAttributesInput) GetNicMqueue() int32 {
 }
 
 type ModifyInstanceAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyInstanceAttributesOutput) Reset()                    { *m = ModifyInstanceAttributesOutput{} }
-func (m *ModifyInstanceAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyInstanceAttributesOutput) ProtoMessage()               {}
-func (*ModifyInstanceAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{17} }
+func (m *ModifyInstanceAttributesOutput) Reset()         { *m = ModifyInstanceAttributesOutput{} }
+func (m *ModifyInstanceAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyInstanceAttributesOutput) ProtoMessage()    {}
+func (*ModifyInstanceAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{17}
+}
+func (m *ModifyInstanceAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyInstanceAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyInstanceAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyInstanceAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyInstanceAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyInstanceAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyInstanceAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyInstanceAttributesOutput.Size(m)
+}
+func (m *ModifyInstanceAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyInstanceAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyInstanceAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyInstanceAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -880,16 +1264,37 @@ func (m *ModifyInstanceAttributesOutput) GetMessage() string {
 }
 
 type DescribeInstanceTypesInput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	Zone             *string  `protobuf:"bytes,2,opt,name=zone" json:"zone,omitempty"`
-	InstanceTypes    []string `protobuf:"bytes,3,rep,name=instance_types,json=instanceTypes" json:"instance_types,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	Zone                 *string  `protobuf:"bytes,2,opt,name=zone" json:"zone,omitempty"`
+	InstanceTypes        []string `protobuf:"bytes,3,rep,name=instance_types,json=instanceTypes" json:"instance_types,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeInstanceTypesInput) Reset()                    { *m = DescribeInstanceTypesInput{} }
-func (m *DescribeInstanceTypesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeInstanceTypesInput) ProtoMessage()               {}
-func (*DescribeInstanceTypesInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{18} }
+func (m *DescribeInstanceTypesInput) Reset()         { *m = DescribeInstanceTypesInput{} }
+func (m *DescribeInstanceTypesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeInstanceTypesInput) ProtoMessage()    {}
+func (*DescribeInstanceTypesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{18}
+}
+func (m *DescribeInstanceTypesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeInstanceTypesInput.Unmarshal(m, b)
+}
+func (m *DescribeInstanceTypesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeInstanceTypesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeInstanceTypesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeInstanceTypesInput.Merge(dst, src)
+}
+func (m *DescribeInstanceTypesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeInstanceTypesInput.Size(m)
+}
+func (m *DescribeInstanceTypesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeInstanceTypesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeInstanceTypesInput proto.InternalMessageInfo
 
 func (m *DescribeInstanceTypesInput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -913,18 +1318,39 @@ func (m *DescribeInstanceTypesInput) GetInstanceTypes() []string {
 }
 
 type DescribeInstanceTypesOutput struct {
-	Action           *string                                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	InstanceTypeSet  []*DescribeInstanceTypesOutput_ResponseItem `protobuf:"bytes,4,rep,name=instance_type_set,json=instanceTypeSet" json:"instance_type_set,omitempty"`
-	TotalCount       *int32                                      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                      `json:"-"`
+	Action               *string                                     `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                      `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                     `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	InstanceTypeSet      []*DescribeInstanceTypesOutput_ResponseItem `protobuf:"bytes,4,rep,name=instance_type_set,json=instanceTypeSet" json:"instance_type_set,omitempty"`
+	TotalCount           *int32                                      `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                    `json:"-"`
+	XXX_unrecognized     []byte                                      `json:"-"`
+	XXX_sizecache        int32                                       `json:"-"`
 }
 
-func (m *DescribeInstanceTypesOutput) Reset()                    { *m = DescribeInstanceTypesOutput{} }
-func (m *DescribeInstanceTypesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeInstanceTypesOutput) ProtoMessage()               {}
-func (*DescribeInstanceTypesOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{19} }
+func (m *DescribeInstanceTypesOutput) Reset()         { *m = DescribeInstanceTypesOutput{} }
+func (m *DescribeInstanceTypesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeInstanceTypesOutput) ProtoMessage()    {}
+func (*DescribeInstanceTypesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{19}
+}
+func (m *DescribeInstanceTypesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeInstanceTypesOutput.Unmarshal(m, b)
+}
+func (m *DescribeInstanceTypesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeInstanceTypesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeInstanceTypesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeInstanceTypesOutput.Merge(dst, src)
+}
+func (m *DescribeInstanceTypesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeInstanceTypesOutput.Size(m)
+}
+func (m *DescribeInstanceTypesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeInstanceTypesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeInstanceTypesOutput proto.InternalMessageInfo
 
 func (m *DescribeInstanceTypesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -962,13 +1388,15 @@ func (m *DescribeInstanceTypesOutput) GetTotalCount() int32 {
 }
 
 type DescribeInstanceTypesOutput_ResponseItem struct {
-	InstanceTypeId   *string `protobuf:"bytes,1,opt,name=instance_type_id,json=instanceTypeId" json:"instance_type_id,omitempty"`
-	InstanceTypeName *string `protobuf:"bytes,2,opt,name=instance_type_name,json=instanceTypeName" json:"instance_type_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	VcpusCurrent     *int32  `protobuf:"varint,4,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
-	MemoryCurrent    *int32  `protobuf:"varint,5,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
-	Status           *string `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	InstanceTypeId       *string  `protobuf:"bytes,1,opt,name=instance_type_id,json=instanceTypeId" json:"instance_type_id,omitempty"`
+	InstanceTypeName     *string  `protobuf:"bytes,2,opt,name=instance_type_name,json=instanceTypeName" json:"instance_type_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	VcpusCurrent         *int32   `protobuf:"varint,4,opt,name=vcpus_current,json=vcpusCurrent" json:"vcpus_current,omitempty"`
+	MemoryCurrent        *int32   `protobuf:"varint,5,opt,name=memory_current,json=memoryCurrent" json:"memory_current,omitempty"`
+	Status               *string  `protobuf:"bytes,6,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeInstanceTypesOutput_ResponseItem) Reset() {
@@ -977,8 +1405,25 @@ func (m *DescribeInstanceTypesOutput_ResponseItem) Reset() {
 func (m *DescribeInstanceTypesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeInstanceTypesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeInstanceTypesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor7, []int{19, 0}
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{19, 0}
 }
+func (m *DescribeInstanceTypesOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeInstanceTypesOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeInstanceTypesOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeInstanceTypesOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeInstanceTypesOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeInstanceTypesOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeInstanceTypesOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeInstanceTypesOutput_ResponseItem.Size(m)
+}
+func (m *DescribeInstanceTypesOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeInstanceTypesOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeInstanceTypesOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeInstanceTypesOutput_ResponseItem) GetInstanceTypeId() string {
 	if m != nil && m.InstanceTypeId != nil {
@@ -1023,14 +1468,35 @@ func (m *DescribeInstanceTypesOutput_ResponseItem) GetStatus() string {
 }
 
 type CreateBrokersInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateBrokersInput) Reset()                    { *m = CreateBrokersInput{} }
-func (m *CreateBrokersInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateBrokersInput) ProtoMessage()               {}
-func (*CreateBrokersInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{20} }
+func (m *CreateBrokersInput) Reset()         { *m = CreateBrokersInput{} }
+func (m *CreateBrokersInput) String() string { return proto.CompactTextString(m) }
+func (*CreateBrokersInput) ProtoMessage()    {}
+func (*CreateBrokersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{20}
+}
+func (m *CreateBrokersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateBrokersInput.Unmarshal(m, b)
+}
+func (m *CreateBrokersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateBrokersInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateBrokersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateBrokersInput.Merge(dst, src)
+}
+func (m *CreateBrokersInput) XXX_Size() int {
+	return xxx_messageInfo_CreateBrokersInput.Size(m)
+}
+func (m *CreateBrokersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateBrokersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateBrokersInput proto.InternalMessageInfo
 
 func (m *CreateBrokersInput) GetInstances() []string {
 	if m != nil {
@@ -1040,17 +1506,38 @@ func (m *CreateBrokersInput) GetInstances() []string {
 }
 
 type CreateBrokersOutput struct {
-	Action           *string                             `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                              `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                             `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Brokers          []*CreateBrokersOutput_ResponseItem `protobuf:"bytes,4,rep,name=brokers" json:"brokers,omitempty"`
-	XXX_unrecognized []byte                              `json:"-"`
+	Action               *string                             `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                              `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                             `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Brokers              []*CreateBrokersOutput_ResponseItem `protobuf:"bytes,4,rep,name=brokers" json:"brokers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
 }
 
-func (m *CreateBrokersOutput) Reset()                    { *m = CreateBrokersOutput{} }
-func (m *CreateBrokersOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateBrokersOutput) ProtoMessage()               {}
-func (*CreateBrokersOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{21} }
+func (m *CreateBrokersOutput) Reset()         { *m = CreateBrokersOutput{} }
+func (m *CreateBrokersOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateBrokersOutput) ProtoMessage()    {}
+func (*CreateBrokersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{21}
+}
+func (m *CreateBrokersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateBrokersOutput.Unmarshal(m, b)
+}
+func (m *CreateBrokersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateBrokersOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateBrokersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateBrokersOutput.Merge(dst, src)
+}
+func (m *CreateBrokersOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateBrokersOutput.Size(m)
+}
+func (m *CreateBrokersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateBrokersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateBrokersOutput proto.InternalMessageInfo
 
 func (m *CreateBrokersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1081,18 +1568,37 @@ func (m *CreateBrokersOutput) GetBrokers() []*CreateBrokersOutput_ResponseItem {
 }
 
 type CreateBrokersOutput_ResponseItem struct {
-	InstanceId       *string `protobuf:"bytes,1,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
-	BrokerHost       *string `protobuf:"bytes,2,opt,name=broker_host,json=brokerHost" json:"broker_host,omitempty"`
-	BrokerPort       *int32  `protobuf:"varint,3,opt,name=broker_port,json=brokerPort" json:"broker_port,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	InstanceId           *string  `protobuf:"bytes,1,opt,name=instance_id,json=instanceId" json:"instance_id,omitempty"`
+	BrokerHost           *string  `protobuf:"bytes,2,opt,name=broker_host,json=brokerHost" json:"broker_host,omitempty"`
+	BrokerPort           *int32   `protobuf:"varint,3,opt,name=broker_port,json=brokerPort" json:"broker_port,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateBrokersOutput_ResponseItem) Reset()         { *m = CreateBrokersOutput_ResponseItem{} }
 func (m *CreateBrokersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*CreateBrokersOutput_ResponseItem) ProtoMessage()    {}
 func (*CreateBrokersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor7, []int{21, 0}
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{21, 0}
 }
+func (m *CreateBrokersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateBrokersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *CreateBrokersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateBrokersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *CreateBrokersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateBrokersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *CreateBrokersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_CreateBrokersOutput_ResponseItem.Size(m)
+}
+func (m *CreateBrokersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateBrokersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateBrokersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *CreateBrokersOutput_ResponseItem) GetInstanceId() string {
 	if m != nil && m.InstanceId != nil {
@@ -1116,14 +1622,35 @@ func (m *CreateBrokersOutput_ResponseItem) GetBrokerPort() int32 {
 }
 
 type DeleteBrokersInput struct {
-	Instances        []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instances            []string `protobuf:"bytes,1,rep,name=instances" json:"instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteBrokersInput) Reset()                    { *m = DeleteBrokersInput{} }
-func (m *DeleteBrokersInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteBrokersInput) ProtoMessage()               {}
-func (*DeleteBrokersInput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{22} }
+func (m *DeleteBrokersInput) Reset()         { *m = DeleteBrokersInput{} }
+func (m *DeleteBrokersInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteBrokersInput) ProtoMessage()    {}
+func (*DeleteBrokersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{22}
+}
+func (m *DeleteBrokersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteBrokersInput.Unmarshal(m, b)
+}
+func (m *DeleteBrokersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteBrokersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteBrokersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteBrokersInput.Merge(dst, src)
+}
+func (m *DeleteBrokersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteBrokersInput.Size(m)
+}
+func (m *DeleteBrokersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteBrokersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteBrokersInput proto.InternalMessageInfo
 
 func (m *DeleteBrokersInput) GetInstances() []string {
 	if m != nil {
@@ -1133,17 +1660,38 @@ func (m *DeleteBrokersInput) GetInstances() []string {
 }
 
 type DeleteBrokersOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Brokers          []string `protobuf:"bytes,4,rep,name=brokers" json:"brokers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Brokers              []string `protobuf:"bytes,4,rep,name=brokers" json:"brokers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteBrokersOutput) Reset()                    { *m = DeleteBrokersOutput{} }
-func (m *DeleteBrokersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteBrokersOutput) ProtoMessage()               {}
-func (*DeleteBrokersOutput) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{23} }
+func (m *DeleteBrokersOutput) Reset()         { *m = DeleteBrokersOutput{} }
+func (m *DeleteBrokersOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteBrokersOutput) ProtoMessage()    {}
+func (*DeleteBrokersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_instances_dea44d64d1c169b1, []int{23}
+}
+func (m *DeleteBrokersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteBrokersOutput.Unmarshal(m, b)
+}
+func (m *DeleteBrokersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteBrokersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteBrokersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteBrokersOutput.Merge(dst, src)
+}
+func (m *DeleteBrokersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteBrokersOutput.Size(m)
+}
+func (m *DeleteBrokersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteBrokersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteBrokersOutput proto.InternalMessageInfo
 
 func (m *DeleteBrokersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1202,9 +1750,9 @@ func init() {
 	proto.RegisterType((*DeleteBrokersOutput)(nil), "service.DeleteBrokersOutput")
 }
 
-func init() { proto.RegisterFile("instances.proto", fileDescriptor7) }
+func init() { proto.RegisterFile("instances.proto", fileDescriptor_instances_dea44d64d1c169b1) }
 
-var fileDescriptor7 = []byte{
+var fileDescriptor_instances_dea44d64d1c169b1 = []byte{
 	// 1468 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x57, 0x4b, 0x73, 0xdc, 0xc4,
 	0x16, 0xae, 0xb1, 0x3d, 0x1e, 0xcf, 0x19, 0x8f, 0x1f, 0xed, 0x47, 0xfa, 0x2a, 0x0f, 0x3b, 0xe3,

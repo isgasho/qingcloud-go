@@ -13,19 +13,46 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeJobsInput struct {
-	Jobs             []string `protobuf:"bytes,1,rep,name=jobs" json:"jobs,omitempty"`
-	Limit            *int32   `protobuf:"varint,2,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
-	Status           []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
-	Verbose          *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Jobs                 []string `protobuf:"bytes,1,rep,name=jobs" json:"jobs,omitempty"`
+	Limit                *int32   `protobuf:"varint,2,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Status               []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
+	Verbose              *int32   `protobuf:"varint,5,opt,name=verbose" json:"verbose,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeJobsInput) Reset()                    { *m = DescribeJobsInput{} }
-func (m *DescribeJobsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeJobsInput) ProtoMessage()               {}
-func (*DescribeJobsInput) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
+func (m *DescribeJobsInput) Reset()         { *m = DescribeJobsInput{} }
+func (m *DescribeJobsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeJobsInput) ProtoMessage()    {}
+func (*DescribeJobsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_job_fb0f6ade7b4bc644, []int{0}
+}
+func (m *DescribeJobsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeJobsInput.Unmarshal(m, b)
+}
+func (m *DescribeJobsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeJobsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeJobsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeJobsInput.Merge(dst, src)
+}
+func (m *DescribeJobsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeJobsInput.Size(m)
+}
+func (m *DescribeJobsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeJobsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeJobsInput proto.InternalMessageInfo
 
 func (m *DescribeJobsInput) GetJobs() []string {
 	if m != nil {
@@ -63,18 +90,39 @@ func (m *DescribeJobsInput) GetVerbose() int32 {
 }
 
 type DescribeJobsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobSet           []*Job  `protobuf:"bytes,4,rep,name=job_set,json=jobSet" json:"job_set,omitempty"`
-	TotalCount       *int32  `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobSet               []*Job   `protobuf:"bytes,4,rep,name=job_set,json=jobSet" json:"job_set,omitempty"`
+	TotalCount           *int32   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeJobsOutput) Reset()                    { *m = DescribeJobsOutput{} }
-func (m *DescribeJobsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeJobsOutput) ProtoMessage()               {}
-func (*DescribeJobsOutput) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
+func (m *DescribeJobsOutput) Reset()         { *m = DescribeJobsOutput{} }
+func (m *DescribeJobsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeJobsOutput) ProtoMessage()    {}
+func (*DescribeJobsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_job_fb0f6ade7b4bc644, []int{1}
+}
+func (m *DescribeJobsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeJobsOutput.Unmarshal(m, b)
+}
+func (m *DescribeJobsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeJobsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeJobsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeJobsOutput.Merge(dst, src)
+}
+func (m *DescribeJobsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeJobsOutput.Size(m)
+}
+func (m *DescribeJobsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeJobsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeJobsOutput proto.InternalMessageInfo
 
 func (m *DescribeJobsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -116,9 +164,9 @@ func init() {
 	proto.RegisterType((*DescribeJobsOutput)(nil), "service.DescribeJobsOutput")
 }
 
-func init() { proto.RegisterFile("job.proto", fileDescriptor8) }
+func init() { proto.RegisterFile("job.proto", fileDescriptor_job_fb0f6ade7b4bc644) }
 
-var fileDescriptor8 = []byte{
+var fileDescriptor_job_fb0f6ade7b4bc644 = []byte{
 	// 351 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0xcf, 0xea, 0xd3, 0x40,
 	0x10, 0xc7, 0x89, 0xfd, 0x13, 0x3b, 0xed, 0xc5, 0x45, 0xca, 0x1a, 0x0f, 0x96, 0x82, 0xd0, 0x8b,

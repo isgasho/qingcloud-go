@@ -7,30 +7,57 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeSnapshotsInput struct {
-	Snapshots        []string `protobuf:"bytes,1,rep,name=snapshots" json:"snapshots,omitempty"`
-	ResourceId       *string  `protobuf:"bytes,2,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
-	SnapshotType     *int32   `protobuf:"varint,3,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
-	Status           []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,8,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,9,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Snapshots            []string `protobuf:"bytes,1,rep,name=snapshots" json:"snapshots,omitempty"`
+	ResourceId           *string  `protobuf:"bytes,2,opt,name=resource_id,json=resourceId" json:"resource_id,omitempty"`
+	SnapshotType         *int32   `protobuf:"varint,3,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
+	Status               []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,5,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,8,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,9,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeSnapshotsInput) Reset()                    { *m = DescribeSnapshotsInput{} }
-func (m *DescribeSnapshotsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSnapshotsInput) ProtoMessage()               {}
-func (*DescribeSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{0} }
+func (m *DescribeSnapshotsInput) Reset()         { *m = DescribeSnapshotsInput{} }
+func (m *DescribeSnapshotsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSnapshotsInput) ProtoMessage()    {}
+func (*DescribeSnapshotsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{0}
+}
+func (m *DescribeSnapshotsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSnapshotsInput.Unmarshal(m, b)
+}
+func (m *DescribeSnapshotsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSnapshotsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSnapshotsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSnapshotsInput.Merge(dst, src)
+}
+func (m *DescribeSnapshotsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSnapshotsInput.Size(m)
+}
+func (m *DescribeSnapshotsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSnapshotsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSnapshotsInput proto.InternalMessageInfo
 
 func (m *DescribeSnapshotsInput) GetSnapshots() []string {
 	if m != nil {
@@ -96,17 +123,38 @@ func (m *DescribeSnapshotsInput) GetLimit() int32 {
 }
 
 type DescribeSnapshotsOutput struct {
-	Action           *string                                 `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                 `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	SnapshotSet      []*DescribeSnapshotsOutput_ResponseItem `protobuf:"bytes,4,rep,name=snapshot_set,json=snapshotSet" json:"snapshot_set,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	Action               *string                                 `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                 `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	SnapshotSet          []*DescribeSnapshotsOutput_ResponseItem `protobuf:"bytes,4,rep,name=snapshot_set,json=snapshotSet" json:"snapshot_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                `json:"-"`
+	XXX_unrecognized     []byte                                  `json:"-"`
+	XXX_sizecache        int32                                   `json:"-"`
 }
 
-func (m *DescribeSnapshotsOutput) Reset()                    { *m = DescribeSnapshotsOutput{} }
-func (m *DescribeSnapshotsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeSnapshotsOutput) ProtoMessage()               {}
-func (*DescribeSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{1} }
+func (m *DescribeSnapshotsOutput) Reset()         { *m = DescribeSnapshotsOutput{} }
+func (m *DescribeSnapshotsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeSnapshotsOutput) ProtoMessage()    {}
+func (*DescribeSnapshotsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{1}
+}
+func (m *DescribeSnapshotsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSnapshotsOutput.Unmarshal(m, b)
+}
+func (m *DescribeSnapshotsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSnapshotsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSnapshotsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSnapshotsOutput.Merge(dst, src)
+}
+func (m *DescribeSnapshotsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeSnapshotsOutput.Size(m)
+}
+func (m *DescribeSnapshotsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSnapshotsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSnapshotsOutput proto.InternalMessageInfo
 
 func (m *DescribeSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -137,32 +185,51 @@ func (m *DescribeSnapshotsOutput) GetSnapshotSet() []*DescribeSnapshotsOutput_Re
 }
 
 type DescribeSnapshotsOutput_ResponseItem struct {
-	SnapshotId          *string                     `protobuf:"bytes,1,opt,name=snapshot_id,json=snapshotId" json:"snapshot_id,omitempty"`
-	SnapshotName        *string                     `protobuf:"bytes,2,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
-	Description         *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	SnapshotType        *string                     `protobuf:"bytes,4,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
-	Status              *string                     `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
-	TransitionStatus    *string                     `protobuf:"bytes,6,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	CreateTime          *google_protobuf1.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime          *google_protobuf1.Timestamp `protobuf:"bytes,8,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SnapshotTime        *google_protobuf1.Timestamp `protobuf:"bytes,9,opt,name=snapshot_time,json=snapshotTime" json:"snapshot_time,omitempty"`
-	IsTaken             *int32                      `protobuf:"varint,10,opt,name=is_taken,json=isTaken" json:"is_taken,omitempty"`
-	IsHead              *int32                      `protobuf:"varint,11,opt,name=is_head,json=isHead" json:"is_head,omitempty"`
-	RootId              *string                     `protobuf:"bytes,12,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
-	ParentId            *string                     `protobuf:"bytes,13,opt,name=parent_id,json=parentId" json:"parent_id,omitempty"`
-	Size                *int32                      `protobuf:"varint,14,opt,name=size" json:"size,omitempty"`
-	TotalSize           *int32                      `protobuf:"varint,15,opt,name=total_size,json=totalSize" json:"total_size,omitempty"`
-	TotalCount          *int32                      `protobuf:"varint,16,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	LastestSnapshotTime *google_protobuf1.Timestamp `protobuf:"bytes,17,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
-	XXX_unrecognized    []byte                      `json:"-"`
+	SnapshotId           *string              `protobuf:"bytes,1,opt,name=snapshot_id,json=snapshotId" json:"snapshot_id,omitempty"`
+	SnapshotName         *string              `protobuf:"bytes,2,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
+	Description          *string              `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	SnapshotType         *string              `protobuf:"bytes,4,opt,name=snapshot_type,json=snapshotType" json:"snapshot_type,omitempty"`
+	Status               *string              `protobuf:"bytes,5,opt,name=status" json:"status,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,6,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,8,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SnapshotTime         *timestamp.Timestamp `protobuf:"bytes,9,opt,name=snapshot_time,json=snapshotTime" json:"snapshot_time,omitempty"`
+	IsTaken              *int32               `protobuf:"varint,10,opt,name=is_taken,json=isTaken" json:"is_taken,omitempty"`
+	IsHead               *int32               `protobuf:"varint,11,opt,name=is_head,json=isHead" json:"is_head,omitempty"`
+	RootId               *string              `protobuf:"bytes,12,opt,name=root_id,json=rootId" json:"root_id,omitempty"`
+	ParentId             *string              `protobuf:"bytes,13,opt,name=parent_id,json=parentId" json:"parent_id,omitempty"`
+	Size                 *int32               `protobuf:"varint,14,opt,name=size" json:"size,omitempty"`
+	TotalSize            *int32               `protobuf:"varint,15,opt,name=total_size,json=totalSize" json:"total_size,omitempty"`
+	TotalCount           *int32               `protobuf:"varint,16,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	LastestSnapshotTime  *timestamp.Timestamp `protobuf:"bytes,17,opt,name=lastest_snapshot_time,json=lastestSnapshotTime" json:"lastest_snapshot_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeSnapshotsOutput_ResponseItem) Reset()         { *m = DescribeSnapshotsOutput_ResponseItem{} }
 func (m *DescribeSnapshotsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeSnapshotsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeSnapshotsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{1, 0}
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{1, 0}
 }
+func (m *DescribeSnapshotsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeSnapshotsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeSnapshotsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeSnapshotsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeSnapshotsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeSnapshotsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeSnapshotsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeSnapshotsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeSnapshotsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeSnapshotsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeSnapshotsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeSnapshotsOutput_ResponseItem) GetSnapshotId() string {
 	if m != nil && m.SnapshotId != nil {
@@ -206,21 +273,21 @@ func (m *DescribeSnapshotsOutput_ResponseItem) GetTransitionStatus() string {
 	return ""
 }
 
-func (m *DescribeSnapshotsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeSnapshotsOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeSnapshotsOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeSnapshotsOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
 	return nil
 }
 
-func (m *DescribeSnapshotsOutput_ResponseItem) GetSnapshotTime() *google_protobuf1.Timestamp {
+func (m *DescribeSnapshotsOutput_ResponseItem) GetSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.SnapshotTime
 	}
@@ -276,7 +343,7 @@ func (m *DescribeSnapshotsOutput_ResponseItem) GetTotalCount() int32 {
 	return 0
 }
 
-func (m *DescribeSnapshotsOutput_ResponseItem) GetLastestSnapshotTime() *google_protobuf1.Timestamp {
+func (m *DescribeSnapshotsOutput_ResponseItem) GetLastestSnapshotTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.LastestSnapshotTime
 	}
@@ -284,16 +351,37 @@ func (m *DescribeSnapshotsOutput_ResponseItem) GetLastestSnapshotTime() *google_
 }
 
 type CreateSnapshotsInput struct {
-	Resources        []string `protobuf:"bytes,1,rep,name=resources" json:"resources,omitempty"`
-	SnapshotName     *string  `protobuf:"bytes,2,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
-	IsFull           *int32   `protobuf:"varint,3,opt,name=is_full,json=isFull" json:"is_full,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Resources            []string `protobuf:"bytes,1,rep,name=resources" json:"resources,omitempty"`
+	SnapshotName         *string  `protobuf:"bytes,2,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
+	IsFull               *int32   `protobuf:"varint,3,opt,name=is_full,json=isFull" json:"is_full,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSnapshotsInput) Reset()                    { *m = CreateSnapshotsInput{} }
-func (m *CreateSnapshotsInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSnapshotsInput) ProtoMessage()               {}
-func (*CreateSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{2} }
+func (m *CreateSnapshotsInput) Reset()         { *m = CreateSnapshotsInput{} }
+func (m *CreateSnapshotsInput) String() string { return proto.CompactTextString(m) }
+func (*CreateSnapshotsInput) ProtoMessage()    {}
+func (*CreateSnapshotsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{2}
+}
+func (m *CreateSnapshotsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSnapshotsInput.Unmarshal(m, b)
+}
+func (m *CreateSnapshotsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSnapshotsInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSnapshotsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSnapshotsInput.Merge(dst, src)
+}
+func (m *CreateSnapshotsInput) XXX_Size() int {
+	return xxx_messageInfo_CreateSnapshotsInput.Size(m)
+}
+func (m *CreateSnapshotsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSnapshotsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSnapshotsInput proto.InternalMessageInfo
 
 func (m *CreateSnapshotsInput) GetResources() []string {
 	if m != nil {
@@ -317,18 +405,39 @@ func (m *CreateSnapshotsInput) GetIsFull() int32 {
 }
 
 type CreateSnapshotsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	Snapshots        []string `protobuf:"bytes,5,rep,name=snapshots" json:"snapshots,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Snapshots            []string `protobuf:"bytes,5,rep,name=snapshots" json:"snapshots,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateSnapshotsOutput) Reset()                    { *m = CreateSnapshotsOutput{} }
-func (m *CreateSnapshotsOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateSnapshotsOutput) ProtoMessage()               {}
-func (*CreateSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{3} }
+func (m *CreateSnapshotsOutput) Reset()         { *m = CreateSnapshotsOutput{} }
+func (m *CreateSnapshotsOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateSnapshotsOutput) ProtoMessage()    {}
+func (*CreateSnapshotsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{3}
+}
+func (m *CreateSnapshotsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateSnapshotsOutput.Unmarshal(m, b)
+}
+func (m *CreateSnapshotsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateSnapshotsOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateSnapshotsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateSnapshotsOutput.Merge(dst, src)
+}
+func (m *CreateSnapshotsOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateSnapshotsOutput.Size(m)
+}
+func (m *CreateSnapshotsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateSnapshotsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateSnapshotsOutput proto.InternalMessageInfo
 
 func (m *CreateSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -366,14 +475,35 @@ func (m *CreateSnapshotsOutput) GetSnapshots() []string {
 }
 
 type DeleteSnapshotsInput struct {
-	Snapshots        []string `protobuf:"bytes,1,rep,name=snapshots" json:"snapshots,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Snapshots            []string `protobuf:"bytes,1,rep,name=snapshots" json:"snapshots,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSnapshotsInput) Reset()                    { *m = DeleteSnapshotsInput{} }
-func (m *DeleteSnapshotsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSnapshotsInput) ProtoMessage()               {}
-func (*DeleteSnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{4} }
+func (m *DeleteSnapshotsInput) Reset()         { *m = DeleteSnapshotsInput{} }
+func (m *DeleteSnapshotsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSnapshotsInput) ProtoMessage()    {}
+func (*DeleteSnapshotsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{4}
+}
+func (m *DeleteSnapshotsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSnapshotsInput.Unmarshal(m, b)
+}
+func (m *DeleteSnapshotsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSnapshotsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSnapshotsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSnapshotsInput.Merge(dst, src)
+}
+func (m *DeleteSnapshotsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSnapshotsInput.Size(m)
+}
+func (m *DeleteSnapshotsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSnapshotsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSnapshotsInput proto.InternalMessageInfo
 
 func (m *DeleteSnapshotsInput) GetSnapshots() []string {
 	if m != nil {
@@ -383,17 +513,38 @@ func (m *DeleteSnapshotsInput) GetSnapshots() []string {
 }
 
 type DeleteSnapshotsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteSnapshotsOutput) Reset()                    { *m = DeleteSnapshotsOutput{} }
-func (m *DeleteSnapshotsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteSnapshotsOutput) ProtoMessage()               {}
-func (*DeleteSnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{5} }
+func (m *DeleteSnapshotsOutput) Reset()         { *m = DeleteSnapshotsOutput{} }
+func (m *DeleteSnapshotsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteSnapshotsOutput) ProtoMessage()    {}
+func (*DeleteSnapshotsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{5}
+}
+func (m *DeleteSnapshotsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteSnapshotsOutput.Unmarshal(m, b)
+}
+func (m *DeleteSnapshotsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteSnapshotsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteSnapshotsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteSnapshotsOutput.Merge(dst, src)
+}
+func (m *DeleteSnapshotsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteSnapshotsOutput.Size(m)
+}
+func (m *DeleteSnapshotsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteSnapshotsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteSnapshotsOutput proto.InternalMessageInfo
 
 func (m *DeleteSnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -424,14 +575,35 @@ func (m *DeleteSnapshotsOutput) GetJobId() string {
 }
 
 type ApplySnapshotsInput struct {
-	Snapshots        []string `protobuf:"bytes,1,rep,name=snapshots" json:"snapshots,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Snapshots            []string `protobuf:"bytes,1,rep,name=snapshots" json:"snapshots,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplySnapshotsInput) Reset()                    { *m = ApplySnapshotsInput{} }
-func (m *ApplySnapshotsInput) String() string            { return proto.CompactTextString(m) }
-func (*ApplySnapshotsInput) ProtoMessage()               {}
-func (*ApplySnapshotsInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{6} }
+func (m *ApplySnapshotsInput) Reset()         { *m = ApplySnapshotsInput{} }
+func (m *ApplySnapshotsInput) String() string { return proto.CompactTextString(m) }
+func (*ApplySnapshotsInput) ProtoMessage()    {}
+func (*ApplySnapshotsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{6}
+}
+func (m *ApplySnapshotsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplySnapshotsInput.Unmarshal(m, b)
+}
+func (m *ApplySnapshotsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplySnapshotsInput.Marshal(b, m, deterministic)
+}
+func (dst *ApplySnapshotsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplySnapshotsInput.Merge(dst, src)
+}
+func (m *ApplySnapshotsInput) XXX_Size() int {
+	return xxx_messageInfo_ApplySnapshotsInput.Size(m)
+}
+func (m *ApplySnapshotsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplySnapshotsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplySnapshotsInput proto.InternalMessageInfo
 
 func (m *ApplySnapshotsInput) GetSnapshots() []string {
 	if m != nil {
@@ -441,17 +613,38 @@ func (m *ApplySnapshotsInput) GetSnapshots() []string {
 }
 
 type ApplySnapshotsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ApplySnapshotsOutput) Reset()                    { *m = ApplySnapshotsOutput{} }
-func (m *ApplySnapshotsOutput) String() string            { return proto.CompactTextString(m) }
-func (*ApplySnapshotsOutput) ProtoMessage()               {}
-func (*ApplySnapshotsOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{7} }
+func (m *ApplySnapshotsOutput) Reset()         { *m = ApplySnapshotsOutput{} }
+func (m *ApplySnapshotsOutput) String() string { return proto.CompactTextString(m) }
+func (*ApplySnapshotsOutput) ProtoMessage()    {}
+func (*ApplySnapshotsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{7}
+}
+func (m *ApplySnapshotsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ApplySnapshotsOutput.Unmarshal(m, b)
+}
+func (m *ApplySnapshotsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ApplySnapshotsOutput.Marshal(b, m, deterministic)
+}
+func (dst *ApplySnapshotsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ApplySnapshotsOutput.Merge(dst, src)
+}
+func (m *ApplySnapshotsOutput) XXX_Size() int {
+	return xxx_messageInfo_ApplySnapshotsOutput.Size(m)
+}
+func (m *ApplySnapshotsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ApplySnapshotsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ApplySnapshotsOutput proto.InternalMessageInfo
 
 func (m *ApplySnapshotsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -482,16 +675,37 @@ func (m *ApplySnapshotsOutput) GetJobId() string {
 }
 
 type ModifySnapshotAttributesInput struct {
-	Snapshot         *string `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
-	SnapshotName     *string `protobuf:"bytes,2,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Snapshot             *string  `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
+	SnapshotName         *string  `protobuf:"bytes,2,opt,name=snapshot_name,json=snapshotName" json:"snapshot_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifySnapshotAttributesInput) Reset()                    { *m = ModifySnapshotAttributesInput{} }
-func (m *ModifySnapshotAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifySnapshotAttributesInput) ProtoMessage()               {}
-func (*ModifySnapshotAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{8} }
+func (m *ModifySnapshotAttributesInput) Reset()         { *m = ModifySnapshotAttributesInput{} }
+func (m *ModifySnapshotAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifySnapshotAttributesInput) ProtoMessage()    {}
+func (*ModifySnapshotAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{8}
+}
+func (m *ModifySnapshotAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySnapshotAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifySnapshotAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySnapshotAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySnapshotAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySnapshotAttributesInput.Merge(dst, src)
+}
+func (m *ModifySnapshotAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifySnapshotAttributesInput.Size(m)
+}
+func (m *ModifySnapshotAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySnapshotAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySnapshotAttributesInput proto.InternalMessageInfo
 
 func (m *ModifySnapshotAttributesInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -515,16 +729,37 @@ func (m *ModifySnapshotAttributesInput) GetDescription() string {
 }
 
 type ModifySnapshotAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifySnapshotAttributesOutput) Reset()                    { *m = ModifySnapshotAttributesOutput{} }
-func (m *ModifySnapshotAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifySnapshotAttributesOutput) ProtoMessage()               {}
-func (*ModifySnapshotAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{9} }
+func (m *ModifySnapshotAttributesOutput) Reset()         { *m = ModifySnapshotAttributesOutput{} }
+func (m *ModifySnapshotAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifySnapshotAttributesOutput) ProtoMessage()    {}
+func (*ModifySnapshotAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{9}
+}
+func (m *ModifySnapshotAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifySnapshotAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifySnapshotAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifySnapshotAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifySnapshotAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifySnapshotAttributesOutput.Merge(dst, src)
+}
+func (m *ModifySnapshotAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifySnapshotAttributesOutput.Size(m)
+}
+func (m *ModifySnapshotAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifySnapshotAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifySnapshotAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifySnapshotAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -548,17 +783,36 @@ func (m *ModifySnapshotAttributesOutput) GetMessage() string {
 }
 
 type CaptureInstanceFromSnapshotInput struct {
-	Snapshot         *string `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
-	ImageName        *string `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Snapshot             *string  `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
+	ImageName            *string  `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CaptureInstanceFromSnapshotInput) Reset()         { *m = CaptureInstanceFromSnapshotInput{} }
 func (m *CaptureInstanceFromSnapshotInput) String() string { return proto.CompactTextString(m) }
 func (*CaptureInstanceFromSnapshotInput) ProtoMessage()    {}
 func (*CaptureInstanceFromSnapshotInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{10}
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{10}
 }
+func (m *CaptureInstanceFromSnapshotInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CaptureInstanceFromSnapshotInput.Unmarshal(m, b)
+}
+func (m *CaptureInstanceFromSnapshotInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CaptureInstanceFromSnapshotInput.Marshal(b, m, deterministic)
+}
+func (dst *CaptureInstanceFromSnapshotInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CaptureInstanceFromSnapshotInput.Merge(dst, src)
+}
+func (m *CaptureInstanceFromSnapshotInput) XXX_Size() int {
+	return xxx_messageInfo_CaptureInstanceFromSnapshotInput.Size(m)
+}
+func (m *CaptureInstanceFromSnapshotInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CaptureInstanceFromSnapshotInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CaptureInstanceFromSnapshotInput proto.InternalMessageInfo
 
 func (m *CaptureInstanceFromSnapshotInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -575,20 +829,39 @@ func (m *CaptureInstanceFromSnapshotInput) GetImageName() string {
 }
 
 type CaptureInstanceFromSnapshotOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	ImageId          *string `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	ImageId              *string  `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CaptureInstanceFromSnapshotOutput) Reset()         { *m = CaptureInstanceFromSnapshotOutput{} }
 func (m *CaptureInstanceFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CaptureInstanceFromSnapshotOutput) ProtoMessage()    {}
 func (*CaptureInstanceFromSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{11}
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{11}
 }
+func (m *CaptureInstanceFromSnapshotOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CaptureInstanceFromSnapshotOutput.Unmarshal(m, b)
+}
+func (m *CaptureInstanceFromSnapshotOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CaptureInstanceFromSnapshotOutput.Marshal(b, m, deterministic)
+}
+func (dst *CaptureInstanceFromSnapshotOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CaptureInstanceFromSnapshotOutput.Merge(dst, src)
+}
+func (m *CaptureInstanceFromSnapshotOutput) XXX_Size() int {
+	return xxx_messageInfo_CaptureInstanceFromSnapshotOutput.Size(m)
+}
+func (m *CaptureInstanceFromSnapshotOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CaptureInstanceFromSnapshotOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CaptureInstanceFromSnapshotOutput proto.InternalMessageInfo
 
 func (m *CaptureInstanceFromSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -626,15 +899,36 @@ func (m *CaptureInstanceFromSnapshotOutput) GetImageId() string {
 }
 
 type CreateVolumeFromSnapshotInput struct {
-	Snapshot         *string `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
-	VolumeName       *string `protobuf:"bytes,2,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Snapshot             *string  `protobuf:"bytes,1,opt,name=snapshot" json:"snapshot,omitempty"`
+	VolumeName           *string  `protobuf:"bytes,2,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateVolumeFromSnapshotInput) Reset()                    { *m = CreateVolumeFromSnapshotInput{} }
-func (m *CreateVolumeFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateVolumeFromSnapshotInput) ProtoMessage()               {}
-func (*CreateVolumeFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor21, []int{12} }
+func (m *CreateVolumeFromSnapshotInput) Reset()         { *m = CreateVolumeFromSnapshotInput{} }
+func (m *CreateVolumeFromSnapshotInput) String() string { return proto.CompactTextString(m) }
+func (*CreateVolumeFromSnapshotInput) ProtoMessage()    {}
+func (*CreateVolumeFromSnapshotInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{12}
+}
+func (m *CreateVolumeFromSnapshotInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateVolumeFromSnapshotInput.Unmarshal(m, b)
+}
+func (m *CreateVolumeFromSnapshotInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateVolumeFromSnapshotInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateVolumeFromSnapshotInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateVolumeFromSnapshotInput.Merge(dst, src)
+}
+func (m *CreateVolumeFromSnapshotInput) XXX_Size() int {
+	return xxx_messageInfo_CreateVolumeFromSnapshotInput.Size(m)
+}
+func (m *CreateVolumeFromSnapshotInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateVolumeFromSnapshotInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateVolumeFromSnapshotInput proto.InternalMessageInfo
 
 func (m *CreateVolumeFromSnapshotInput) GetSnapshot() string {
 	if m != nil && m.Snapshot != nil {
@@ -651,20 +945,39 @@ func (m *CreateVolumeFromSnapshotInput) GetVolumeName() string {
 }
 
 type CreateVolumeFromSnapshotOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	VolumeId         *string `protobuf:"bytes,5,opt,name=volume_id,json=volumeId" json:"volume_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	VolumeId             *string  `protobuf:"bytes,5,opt,name=volume_id,json=volumeId" json:"volume_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateVolumeFromSnapshotOutput) Reset()         { *m = CreateVolumeFromSnapshotOutput{} }
 func (m *CreateVolumeFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
 func (*CreateVolumeFromSnapshotOutput) ProtoMessage()    {}
 func (*CreateVolumeFromSnapshotOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor21, []int{13}
+	return fileDescriptor_snapshot_d6d1c4d3da0b7855, []int{13}
 }
+func (m *CreateVolumeFromSnapshotOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateVolumeFromSnapshotOutput.Unmarshal(m, b)
+}
+func (m *CreateVolumeFromSnapshotOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateVolumeFromSnapshotOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateVolumeFromSnapshotOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateVolumeFromSnapshotOutput.Merge(dst, src)
+}
+func (m *CreateVolumeFromSnapshotOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateVolumeFromSnapshotOutput.Size(m)
+}
+func (m *CreateVolumeFromSnapshotOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateVolumeFromSnapshotOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateVolumeFromSnapshotOutput proto.InternalMessageInfo
 
 func (m *CreateVolumeFromSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -719,9 +1032,9 @@ func init() {
 	proto.RegisterType((*CreateVolumeFromSnapshotOutput)(nil), "service.CreateVolumeFromSnapshotOutput")
 }
 
-func init() { proto.RegisterFile("snapshot.proto", fileDescriptor21) }
+func init() { proto.RegisterFile("snapshot.proto", fileDescriptor_snapshot_d6d1c4d3da0b7855) }
 
-var fileDescriptor21 = []byte{
+var fileDescriptor_snapshot_d6d1c4d3da0b7855 = []byte{
 	// 1029 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0x4f, 0x6f, 0xdc, 0x44,
 	0x14, 0xd7, 0xb6, 0xd9, 0x7f, 0x6f, 0xd3, 0xa4, 0x99, 0x26, 0xa9, 0xeb, 0x74, 0x93, 0xc5, 0x48,

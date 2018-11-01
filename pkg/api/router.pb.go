@@ -7,29 +7,56 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeRoutersInput struct {
-	Routers          []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
-	Vxnet            *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	Status           []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Routers              []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
+	Vxnet                *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	Status               []string `protobuf:"bytes,3,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,4,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Tags                 []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,7,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,8,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeRoutersInput) Reset()                    { *m = DescribeRoutersInput{} }
-func (m *DescribeRoutersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRoutersInput) ProtoMessage()               {}
-func (*DescribeRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{0} }
+func (m *DescribeRoutersInput) Reset()         { *m = DescribeRoutersInput{} }
+func (m *DescribeRoutersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRoutersInput) ProtoMessage()    {}
+func (*DescribeRoutersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{0}
+}
+func (m *DescribeRoutersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRoutersInput.Unmarshal(m, b)
+}
+func (m *DescribeRoutersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRoutersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRoutersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRoutersInput.Merge(dst, src)
+}
+func (m *DescribeRoutersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRoutersInput.Size(m)
+}
+func (m *DescribeRoutersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRoutersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRoutersInput proto.InternalMessageInfo
 
 func (m *DescribeRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -88,18 +115,39 @@ func (m *DescribeRoutersInput) GetLimit() int32 {
 }
 
 type DescribeRoutersOutput struct {
-	Action           *string                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterSet        []*DescribeRoutersOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_set,json=routerSet" json:"router_set,omitempty"`
-	TotalCount       *int32                                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                `json:"-"`
+	Action               *string                               `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                               `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterSet            []*DescribeRoutersOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_set,json=routerSet" json:"router_set,omitempty"`
+	TotalCount           *int32                                `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                              `json:"-"`
+	XXX_unrecognized     []byte                                `json:"-"`
+	XXX_sizecache        int32                                 `json:"-"`
 }
 
-func (m *DescribeRoutersOutput) Reset()                    { *m = DescribeRoutersOutput{} }
-func (m *DescribeRoutersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRoutersOutput) ProtoMessage()               {}
-func (*DescribeRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{1} }
+func (m *DescribeRoutersOutput) Reset()         { *m = DescribeRoutersOutput{} }
+func (m *DescribeRoutersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRoutersOutput) ProtoMessage()    {}
+func (*DescribeRoutersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{1}
+}
+func (m *DescribeRoutersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRoutersOutput.Unmarshal(m, b)
+}
+func (m *DescribeRoutersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRoutersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRoutersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRoutersOutput.Merge(dst, src)
+}
+func (m *DescribeRoutersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRoutersOutput.Size(m)
+}
+func (m *DescribeRoutersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRoutersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRoutersOutput proto.InternalMessageInfo
 
 func (m *DescribeRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -137,28 +185,47 @@ func (m *DescribeRoutersOutput) GetTotalCount() int32 {
 }
 
 type DescribeRoutersOutput_ResponseItem struct {
-	RouterId         *string                     `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	RouterName       *string                     `protobuf:"bytes,2,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
-	Description      *string                     `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	RouterType       *int32                      `protobuf:"varint,5,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
-	PrivateIp        *string                     `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
-	IsApplied        *int32                      `protobuf:"varint,7,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
-	Status           *string                     `protobuf:"bytes,8,opt,name=status" json:"status,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,9,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	SecurityGroupId  *string                     `protobuf:"bytes,12,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
-	Eip              *EIP                        `protobuf:"bytes,13,opt,name=eip" json:"eip,omitempty"`
-	Vxnets           []string                    `protobuf:"bytes,14,rep,name=vxnets" json:"vxnets,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	RouterId             *string              `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	RouterName           *string              `protobuf:"bytes,2,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	Description          *string              `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	RouterType           *int32               `protobuf:"varint,5,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
+	PrivateIp            *string              `protobuf:"bytes,6,opt,name=private_ip,json=privateIp" json:"private_ip,omitempty"`
+	IsApplied            *int32               `protobuf:"varint,7,opt,name=is_applied,json=isApplied" json:"is_applied,omitempty"`
+	Status               *string              `protobuf:"bytes,8,opt,name=status" json:"status,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,9,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,11,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	SecurityGroupId      *string              `protobuf:"bytes,12,opt,name=security_group_id,json=securityGroupId" json:"security_group_id,omitempty"`
+	Eip                  *EIP                 `protobuf:"bytes,13,opt,name=eip" json:"eip,omitempty"`
+	Vxnets               []string             `protobuf:"bytes,14,rep,name=vxnets" json:"vxnets,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeRoutersOutput_ResponseItem) Reset()         { *m = DescribeRoutersOutput_ResponseItem{} }
 func (m *DescribeRoutersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRoutersOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRoutersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{1, 0}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{1, 0}
 }
+func (m *DescribeRoutersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRoutersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeRoutersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRoutersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRoutersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRoutersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeRoutersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeRoutersOutput_ResponseItem.Size(m)
+}
+func (m *DescribeRoutersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRoutersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRoutersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeRoutersOutput_ResponseItem) GetRouterId() string {
 	if m != nil && m.RouterId != nil {
@@ -216,14 +283,14 @@ func (m *DescribeRoutersOutput_ResponseItem) GetTransitionStatus() string {
 	return ""
 }
 
-func (m *DescribeRoutersOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeRoutersOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeRoutersOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeRoutersOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -252,19 +319,40 @@ func (m *DescribeRoutersOutput_ResponseItem) GetVxnets() []string {
 }
 
 type CreateRoutersInput struct {
-	RouterName       *string `protobuf:"bytes,1,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
-	RouterType       *int32  `protobuf:"varint,2,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
-	VpcNetwork       *string `protobuf:"bytes,3,opt,name=vpc_network,json=vpcNetwork" json:"vpc_network,omitempty"`
-	Count            *int32  `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
-	SecurityGroup    *string `protobuf:"bytes,5,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	TargetUser       *string `protobuf:"bytes,6,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	RouterName           *string  `protobuf:"bytes,1,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	RouterType           *int32   `protobuf:"varint,2,opt,name=router_type,json=routerType" json:"router_type,omitempty"`
+	VpcNetwork           *string  `protobuf:"bytes,3,opt,name=vpc_network,json=vpcNetwork" json:"vpc_network,omitempty"`
+	Count                *int32   `protobuf:"varint,4,opt,name=count" json:"count,omitempty"`
+	SecurityGroup        *string  `protobuf:"bytes,5,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	TargetUser           *string  `protobuf:"bytes,6,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateRoutersInput) Reset()                    { *m = CreateRoutersInput{} }
-func (m *CreateRoutersInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateRoutersInput) ProtoMessage()               {}
-func (*CreateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{2} }
+func (m *CreateRoutersInput) Reset()         { *m = CreateRoutersInput{} }
+func (m *CreateRoutersInput) String() string { return proto.CompactTextString(m) }
+func (*CreateRoutersInput) ProtoMessage()    {}
+func (*CreateRoutersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{2}
+}
+func (m *CreateRoutersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRoutersInput.Unmarshal(m, b)
+}
+func (m *CreateRoutersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRoutersInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateRoutersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRoutersInput.Merge(dst, src)
+}
+func (m *CreateRoutersInput) XXX_Size() int {
+	return xxx_messageInfo_CreateRoutersInput.Size(m)
+}
+func (m *CreateRoutersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRoutersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRoutersInput proto.InternalMessageInfo
 
 func (m *CreateRoutersInput) GetRouterName() string {
 	if m != nil && m.RouterName != nil {
@@ -309,18 +397,39 @@ func (m *CreateRoutersInput) GetTargetUser() string {
 }
 
 type CreateRoutersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	Routers          *string `protobuf:"bytes,5,opt,name=routers" json:"routers,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Routers              *string  `protobuf:"bytes,5,opt,name=routers" json:"routers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateRoutersOutput) Reset()                    { *m = CreateRoutersOutput{} }
-func (m *CreateRoutersOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateRoutersOutput) ProtoMessage()               {}
-func (*CreateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{3} }
+func (m *CreateRoutersOutput) Reset()         { *m = CreateRoutersOutput{} }
+func (m *CreateRoutersOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateRoutersOutput) ProtoMessage()    {}
+func (*CreateRoutersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{3}
+}
+func (m *CreateRoutersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateRoutersOutput.Unmarshal(m, b)
+}
+func (m *CreateRoutersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateRoutersOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateRoutersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateRoutersOutput.Merge(dst, src)
+}
+func (m *CreateRoutersOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateRoutersOutput.Size(m)
+}
+func (m *CreateRoutersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateRoutersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateRoutersOutput proto.InternalMessageInfo
 
 func (m *CreateRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -358,14 +467,35 @@ func (m *CreateRoutersOutput) GetRouters() string {
 }
 
 type DeleteRoutersInput struct {
-	Routers          []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Routers              []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteRoutersInput) Reset()                    { *m = DeleteRoutersInput{} }
-func (m *DeleteRoutersInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteRoutersInput) ProtoMessage()               {}
-func (*DeleteRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{4} }
+func (m *DeleteRoutersInput) Reset()         { *m = DeleteRoutersInput{} }
+func (m *DeleteRoutersInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRoutersInput) ProtoMessage()    {}
+func (*DeleteRoutersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{4}
+}
+func (m *DeleteRoutersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRoutersInput.Unmarshal(m, b)
+}
+func (m *DeleteRoutersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRoutersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRoutersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRoutersInput.Merge(dst, src)
+}
+func (m *DeleteRoutersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRoutersInput.Size(m)
+}
+func (m *DeleteRoutersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRoutersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRoutersInput proto.InternalMessageInfo
 
 func (m *DeleteRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -375,17 +505,38 @@ func (m *DeleteRoutersInput) GetRouters() []string {
 }
 
 type DeleteRoutersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteRoutersOutput) Reset()                    { *m = DeleteRoutersOutput{} }
-func (m *DeleteRoutersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteRoutersOutput) ProtoMessage()               {}
-func (*DeleteRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{5} }
+func (m *DeleteRoutersOutput) Reset()         { *m = DeleteRoutersOutput{} }
+func (m *DeleteRoutersOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRoutersOutput) ProtoMessage()    {}
+func (*DeleteRoutersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{5}
+}
+func (m *DeleteRoutersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRoutersOutput.Unmarshal(m, b)
+}
+func (m *DeleteRoutersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRoutersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRoutersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRoutersOutput.Merge(dst, src)
+}
+func (m *DeleteRoutersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRoutersOutput.Size(m)
+}
+func (m *DeleteRoutersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRoutersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRoutersOutput proto.InternalMessageInfo
 
 func (m *DeleteRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -416,14 +567,35 @@ func (m *DeleteRoutersOutput) GetJobId() string {
 }
 
 type UpdateRoutersInput struct {
-	Routers          []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Routers              []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateRoutersInput) Reset()                    { *m = UpdateRoutersInput{} }
-func (m *UpdateRoutersInput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateRoutersInput) ProtoMessage()               {}
-func (*UpdateRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{6} }
+func (m *UpdateRoutersInput) Reset()         { *m = UpdateRoutersInput{} }
+func (m *UpdateRoutersInput) String() string { return proto.CompactTextString(m) }
+func (*UpdateRoutersInput) ProtoMessage()    {}
+func (*UpdateRoutersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{6}
+}
+func (m *UpdateRoutersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateRoutersInput.Unmarshal(m, b)
+}
+func (m *UpdateRoutersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateRoutersInput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateRoutersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateRoutersInput.Merge(dst, src)
+}
+func (m *UpdateRoutersInput) XXX_Size() int {
+	return xxx_messageInfo_UpdateRoutersInput.Size(m)
+}
+func (m *UpdateRoutersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateRoutersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateRoutersInput proto.InternalMessageInfo
 
 func (m *UpdateRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -433,17 +605,38 @@ func (m *UpdateRoutersInput) GetRouters() []string {
 }
 
 type UpdateRoutersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateRoutersOutput) Reset()                    { *m = UpdateRoutersOutput{} }
-func (m *UpdateRoutersOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateRoutersOutput) ProtoMessage()               {}
-func (*UpdateRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{7} }
+func (m *UpdateRoutersOutput) Reset()         { *m = UpdateRoutersOutput{} }
+func (m *UpdateRoutersOutput) String() string { return proto.CompactTextString(m) }
+func (*UpdateRoutersOutput) ProtoMessage()    {}
+func (*UpdateRoutersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{7}
+}
+func (m *UpdateRoutersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateRoutersOutput.Unmarshal(m, b)
+}
+func (m *UpdateRoutersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateRoutersOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateRoutersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateRoutersOutput.Merge(dst, src)
+}
+func (m *UpdateRoutersOutput) XXX_Size() int {
+	return xxx_messageInfo_UpdateRoutersOutput.Size(m)
+}
+func (m *UpdateRoutersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateRoutersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateRoutersOutput proto.InternalMessageInfo
 
 func (m *UpdateRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -474,14 +667,35 @@ func (m *UpdateRoutersOutput) GetJobId() string {
 }
 
 type PowerOffRoutersInput struct {
-	Routers          []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Routers              []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOffRoutersInput) Reset()                    { *m = PowerOffRoutersInput{} }
-func (m *PowerOffRoutersInput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOffRoutersInput) ProtoMessage()               {}
-func (*PowerOffRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{8} }
+func (m *PowerOffRoutersInput) Reset()         { *m = PowerOffRoutersInput{} }
+func (m *PowerOffRoutersInput) String() string { return proto.CompactTextString(m) }
+func (*PowerOffRoutersInput) ProtoMessage()    {}
+func (*PowerOffRoutersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{8}
+}
+func (m *PowerOffRoutersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOffRoutersInput.Unmarshal(m, b)
+}
+func (m *PowerOffRoutersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOffRoutersInput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOffRoutersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOffRoutersInput.Merge(dst, src)
+}
+func (m *PowerOffRoutersInput) XXX_Size() int {
+	return xxx_messageInfo_PowerOffRoutersInput.Size(m)
+}
+func (m *PowerOffRoutersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOffRoutersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOffRoutersInput proto.InternalMessageInfo
 
 func (m *PowerOffRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -491,17 +705,38 @@ func (m *PowerOffRoutersInput) GetRouters() []string {
 }
 
 type PowerOffRoutersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOffRoutersOutput) Reset()                    { *m = PowerOffRoutersOutput{} }
-func (m *PowerOffRoutersOutput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOffRoutersOutput) ProtoMessage()               {}
-func (*PowerOffRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{9} }
+func (m *PowerOffRoutersOutput) Reset()         { *m = PowerOffRoutersOutput{} }
+func (m *PowerOffRoutersOutput) String() string { return proto.CompactTextString(m) }
+func (*PowerOffRoutersOutput) ProtoMessage()    {}
+func (*PowerOffRoutersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{9}
+}
+func (m *PowerOffRoutersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOffRoutersOutput.Unmarshal(m, b)
+}
+func (m *PowerOffRoutersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOffRoutersOutput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOffRoutersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOffRoutersOutput.Merge(dst, src)
+}
+func (m *PowerOffRoutersOutput) XXX_Size() int {
+	return xxx_messageInfo_PowerOffRoutersOutput.Size(m)
+}
+func (m *PowerOffRoutersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOffRoutersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOffRoutersOutput proto.InternalMessageInfo
 
 func (m *PowerOffRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -532,14 +767,35 @@ func (m *PowerOffRoutersOutput) GetJobId() string {
 }
 
 type PowerOnRoutersInput struct {
-	Routers          []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Routers              []string `protobuf:"bytes,1,rep,name=routers" json:"routers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOnRoutersInput) Reset()                    { *m = PowerOnRoutersInput{} }
-func (m *PowerOnRoutersInput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOnRoutersInput) ProtoMessage()               {}
-func (*PowerOnRoutersInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{10} }
+func (m *PowerOnRoutersInput) Reset()         { *m = PowerOnRoutersInput{} }
+func (m *PowerOnRoutersInput) String() string { return proto.CompactTextString(m) }
+func (*PowerOnRoutersInput) ProtoMessage()    {}
+func (*PowerOnRoutersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{10}
+}
+func (m *PowerOnRoutersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOnRoutersInput.Unmarshal(m, b)
+}
+func (m *PowerOnRoutersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOnRoutersInput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOnRoutersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOnRoutersInput.Merge(dst, src)
+}
+func (m *PowerOnRoutersInput) XXX_Size() int {
+	return xxx_messageInfo_PowerOnRoutersInput.Size(m)
+}
+func (m *PowerOnRoutersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOnRoutersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOnRoutersInput proto.InternalMessageInfo
 
 func (m *PowerOnRoutersInput) GetRouters() []string {
 	if m != nil {
@@ -549,17 +805,38 @@ func (m *PowerOnRoutersInput) GetRouters() []string {
 }
 
 type PowerOnRoutersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *PowerOnRoutersOutput) Reset()                    { *m = PowerOnRoutersOutput{} }
-func (m *PowerOnRoutersOutput) String() string            { return proto.CompactTextString(m) }
-func (*PowerOnRoutersOutput) ProtoMessage()               {}
-func (*PowerOnRoutersOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{11} }
+func (m *PowerOnRoutersOutput) Reset()         { *m = PowerOnRoutersOutput{} }
+func (m *PowerOnRoutersOutput) String() string { return proto.CompactTextString(m) }
+func (*PowerOnRoutersOutput) ProtoMessage()    {}
+func (*PowerOnRoutersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{11}
+}
+func (m *PowerOnRoutersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PowerOnRoutersOutput.Unmarshal(m, b)
+}
+func (m *PowerOnRoutersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PowerOnRoutersOutput.Marshal(b, m, deterministic)
+}
+func (dst *PowerOnRoutersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PowerOnRoutersOutput.Merge(dst, src)
+}
+func (m *PowerOnRoutersOutput) XXX_Size() int {
+	return xxx_messageInfo_PowerOnRoutersOutput.Size(m)
+}
+func (m *PowerOnRoutersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_PowerOnRoutersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PowerOnRoutersOutput proto.InternalMessageInfo
 
 func (m *PowerOnRoutersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -590,20 +867,41 @@ func (m *PowerOnRoutersOutput) GetJobId() string {
 }
 
 type JoinRouterInput struct {
-	Vxnet            *string `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	Router           *string `protobuf:"bytes,2,opt,name=router" json:"router,omitempty"`
-	IpNetwork        *string `protobuf:"bytes,3,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
-	Features         *int32  `protobuf:"varint,4,opt,name=features" json:"features,omitempty"`
-	ManagerIp        *string `protobuf:"bytes,5,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
-	DynIpStart       *string `protobuf:"bytes,6,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
-	DynIpEnd         *string `protobuf:"bytes,7,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Vxnet                *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	Router               *string  `protobuf:"bytes,2,opt,name=router" json:"router,omitempty"`
+	IpNetwork            *string  `protobuf:"bytes,3,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	Features             *int32   `protobuf:"varint,4,opt,name=features" json:"features,omitempty"`
+	ManagerIp            *string  `protobuf:"bytes,5,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	DynIpStart           *string  `protobuf:"bytes,6,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	DynIpEnd             *string  `protobuf:"bytes,7,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *JoinRouterInput) Reset()                    { *m = JoinRouterInput{} }
-func (m *JoinRouterInput) String() string            { return proto.CompactTextString(m) }
-func (*JoinRouterInput) ProtoMessage()               {}
-func (*JoinRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{12} }
+func (m *JoinRouterInput) Reset()         { *m = JoinRouterInput{} }
+func (m *JoinRouterInput) String() string { return proto.CompactTextString(m) }
+func (*JoinRouterInput) ProtoMessage()    {}
+func (*JoinRouterInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{12}
+}
+func (m *JoinRouterInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JoinRouterInput.Unmarshal(m, b)
+}
+func (m *JoinRouterInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JoinRouterInput.Marshal(b, m, deterministic)
+}
+func (dst *JoinRouterInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JoinRouterInput.Merge(dst, src)
+}
+func (m *JoinRouterInput) XXX_Size() int {
+	return xxx_messageInfo_JoinRouterInput.Size(m)
+}
+func (m *JoinRouterInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_JoinRouterInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_JoinRouterInput proto.InternalMessageInfo
 
 func (m *JoinRouterInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -655,17 +953,38 @@ func (m *JoinRouterInput) GetDynIpEnd() string {
 }
 
 type JoinRouterOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *JoinRouterOutput) Reset()                    { *m = JoinRouterOutput{} }
-func (m *JoinRouterOutput) String() string            { return proto.CompactTextString(m) }
-func (*JoinRouterOutput) ProtoMessage()               {}
-func (*JoinRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{13} }
+func (m *JoinRouterOutput) Reset()         { *m = JoinRouterOutput{} }
+func (m *JoinRouterOutput) String() string { return proto.CompactTextString(m) }
+func (*JoinRouterOutput) ProtoMessage()    {}
+func (*JoinRouterOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{13}
+}
+func (m *JoinRouterOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JoinRouterOutput.Unmarshal(m, b)
+}
+func (m *JoinRouterOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JoinRouterOutput.Marshal(b, m, deterministic)
+}
+func (dst *JoinRouterOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JoinRouterOutput.Merge(dst, src)
+}
+func (m *JoinRouterOutput) XXX_Size() int {
+	return xxx_messageInfo_JoinRouterOutput.Size(m)
+}
+func (m *JoinRouterOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_JoinRouterOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_JoinRouterOutput proto.InternalMessageInfo
 
 func (m *JoinRouterOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -696,15 +1015,36 @@ func (m *JoinRouterOutput) GetJobId() string {
 }
 
 type LeaveRouterInput struct {
-	Vxnets           []string `protobuf:"bytes,1,rep,name=vxnets" json:"vxnets,omitempty"`
-	Router           *string  `protobuf:"bytes,2,opt,name=router" json:"router,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Vxnets               []string `protobuf:"bytes,1,rep,name=vxnets" json:"vxnets,omitempty"`
+	Router               *string  `protobuf:"bytes,2,opt,name=router" json:"router,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *LeaveRouterInput) Reset()                    { *m = LeaveRouterInput{} }
-func (m *LeaveRouterInput) String() string            { return proto.CompactTextString(m) }
-func (*LeaveRouterInput) ProtoMessage()               {}
-func (*LeaveRouterInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{14} }
+func (m *LeaveRouterInput) Reset()         { *m = LeaveRouterInput{} }
+func (m *LeaveRouterInput) String() string { return proto.CompactTextString(m) }
+func (*LeaveRouterInput) ProtoMessage()    {}
+func (*LeaveRouterInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{14}
+}
+func (m *LeaveRouterInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LeaveRouterInput.Unmarshal(m, b)
+}
+func (m *LeaveRouterInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LeaveRouterInput.Marshal(b, m, deterministic)
+}
+func (dst *LeaveRouterInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LeaveRouterInput.Merge(dst, src)
+}
+func (m *LeaveRouterInput) XXX_Size() int {
+	return xxx_messageInfo_LeaveRouterInput.Size(m)
+}
+func (m *LeaveRouterInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_LeaveRouterInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LeaveRouterInput proto.InternalMessageInfo
 
 func (m *LeaveRouterInput) GetVxnets() []string {
 	if m != nil {
@@ -721,17 +1061,38 @@ func (m *LeaveRouterInput) GetRouter() string {
 }
 
 type LeaveRouterOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *LeaveRouterOutput) Reset()                    { *m = LeaveRouterOutput{} }
-func (m *LeaveRouterOutput) String() string            { return proto.CompactTextString(m) }
-func (*LeaveRouterOutput) ProtoMessage()               {}
-func (*LeaveRouterOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{15} }
+func (m *LeaveRouterOutput) Reset()         { *m = LeaveRouterOutput{} }
+func (m *LeaveRouterOutput) String() string { return proto.CompactTextString(m) }
+func (*LeaveRouterOutput) ProtoMessage()    {}
+func (*LeaveRouterOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{15}
+}
+func (m *LeaveRouterOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LeaveRouterOutput.Unmarshal(m, b)
+}
+func (m *LeaveRouterOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LeaveRouterOutput.Marshal(b, m, deterministic)
+}
+func (dst *LeaveRouterOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LeaveRouterOutput.Merge(dst, src)
+}
+func (m *LeaveRouterOutput) XXX_Size() int {
+	return xxx_messageInfo_LeaveRouterOutput.Size(m)
+}
+func (m *LeaveRouterOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_LeaveRouterOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LeaveRouterOutput proto.InternalMessageInfo
 
 func (m *LeaveRouterOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -762,22 +1123,43 @@ func (m *LeaveRouterOutput) GetJobId() string {
 }
 
 type ModifyRouterAttributesInput struct {
-	Router           *string `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
-	Eip              *string `protobuf:"bytes,2,opt,name=eip" json:"eip,omitempty"`
-	SecurityGroup    *string `protobuf:"bytes,3,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
-	RouterName       *string `protobuf:"bytes,4,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
-	Description      *string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
-	Features         *int32  `protobuf:"varint,6,opt,name=features" json:"features,omitempty"`
-	Vxnet            *string `protobuf:"bytes,7,opt,name=vxnet" json:"vxnet,omitempty"`
-	DynIpStart       *string `protobuf:"bytes,8,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
-	DynIpEnd         *string `protobuf:"bytes,9,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Router               *string  `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
+	Eip                  *string  `protobuf:"bytes,2,opt,name=eip" json:"eip,omitempty"`
+	SecurityGroup        *string  `protobuf:"bytes,3,opt,name=security_group,json=securityGroup" json:"security_group,omitempty"`
+	RouterName           *string  `protobuf:"bytes,4,opt,name=router_name,json=routerName" json:"router_name,omitempty"`
+	Description          *string  `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
+	Features             *int32   `protobuf:"varint,6,opt,name=features" json:"features,omitempty"`
+	Vxnet                *string  `protobuf:"bytes,7,opt,name=vxnet" json:"vxnet,omitempty"`
+	DynIpStart           *string  `protobuf:"bytes,8,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	DynIpEnd             *string  `protobuf:"bytes,9,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyRouterAttributesInput) Reset()                    { *m = ModifyRouterAttributesInput{} }
-func (m *ModifyRouterAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyRouterAttributesInput) ProtoMessage()               {}
-func (*ModifyRouterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{16} }
+func (m *ModifyRouterAttributesInput) Reset()         { *m = ModifyRouterAttributesInput{} }
+func (m *ModifyRouterAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRouterAttributesInput) ProtoMessage()    {}
+func (*ModifyRouterAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{16}
+}
+func (m *ModifyRouterAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRouterAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyRouterAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRouterAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRouterAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRouterAttributesInput.Merge(dst, src)
+}
+func (m *ModifyRouterAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRouterAttributesInput.Size(m)
+}
+func (m *ModifyRouterAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRouterAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRouterAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyRouterAttributesInput) GetRouter() string {
 	if m != nil && m.Router != nil {
@@ -843,16 +1225,37 @@ func (m *ModifyRouterAttributesInput) GetDynIpEnd() string {
 }
 
 type ModifyRouterAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyRouterAttributesOutput) Reset()                    { *m = ModifyRouterAttributesOutput{} }
-func (m *ModifyRouterAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyRouterAttributesOutput) ProtoMessage()               {}
-func (*ModifyRouterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{17} }
+func (m *ModifyRouterAttributesOutput) Reset()         { *m = ModifyRouterAttributesOutput{} }
+func (m *ModifyRouterAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyRouterAttributesOutput) ProtoMessage()    {}
+func (*ModifyRouterAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{17}
+}
+func (m *ModifyRouterAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRouterAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyRouterAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRouterAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRouterAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRouterAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyRouterAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRouterAttributesOutput.Size(m)
+}
+func (m *ModifyRouterAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRouterAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRouterAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyRouterAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -876,14 +1279,35 @@ func (m *ModifyRouterAttributesOutput) GetMessage() string {
 }
 
 type DescribeRouterStaticsInput struct {
-	RouterStatics    []string `protobuf:"bytes,1,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	RouterStatics        []string `protobuf:"bytes,1,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeRouterStaticsInput) Reset()                    { *m = DescribeRouterStaticsInput{} }
-func (m *DescribeRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRouterStaticsInput) ProtoMessage()               {}
-func (*DescribeRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{18} }
+func (m *DescribeRouterStaticsInput) Reset()         { *m = DescribeRouterStaticsInput{} }
+func (m *DescribeRouterStaticsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRouterStaticsInput) ProtoMessage()    {}
+func (*DescribeRouterStaticsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{18}
+}
+func (m *DescribeRouterStaticsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRouterStaticsInput.Unmarshal(m, b)
+}
+func (m *DescribeRouterStaticsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRouterStaticsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRouterStaticsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRouterStaticsInput.Merge(dst, src)
+}
+func (m *DescribeRouterStaticsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRouterStaticsInput.Size(m)
+}
+func (m *DescribeRouterStaticsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRouterStaticsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRouterStaticsInput proto.InternalMessageInfo
 
 func (m *DescribeRouterStaticsInput) GetRouterStatics() []string {
 	if m != nil {
@@ -893,17 +1317,38 @@ func (m *DescribeRouterStaticsInput) GetRouterStatics() []string {
 }
 
 type DescribeRouterStaticsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterStatics    []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatics        []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeRouterStaticsOutput) Reset()                    { *m = DescribeRouterStaticsOutput{} }
-func (m *DescribeRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRouterStaticsOutput) ProtoMessage()               {}
-func (*DescribeRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{19} }
+func (m *DescribeRouterStaticsOutput) Reset()         { *m = DescribeRouterStaticsOutput{} }
+func (m *DescribeRouterStaticsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRouterStaticsOutput) ProtoMessage()    {}
+func (*DescribeRouterStaticsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{19}
+}
+func (m *DescribeRouterStaticsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRouterStaticsOutput.Unmarshal(m, b)
+}
+func (m *DescribeRouterStaticsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRouterStaticsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRouterStaticsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRouterStaticsOutput.Merge(dst, src)
+}
+func (m *DescribeRouterStaticsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRouterStaticsOutput.Size(m)
+}
+func (m *DescribeRouterStaticsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRouterStaticsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRouterStaticsOutput proto.InternalMessageInfo
 
 func (m *DescribeRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -934,16 +1379,37 @@ func (m *DescribeRouterStaticsOutput) GetRouterStatics() []string {
 }
 
 type AddRouterStaticsInput struct {
-	Router           *string         `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
-	Statics          []*RouterStatic `protobuf:"bytes,2,rep,name=statics" json:"statics,omitempty"`
-	Vxnet            *string         `protobuf:"bytes,3,opt,name=vxnet" json:"vxnet,omitempty"`
-	XXX_unrecognized []byte          `json:"-"`
+	Router               *string         `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
+	Statics              []*RouterStatic `protobuf:"bytes,2,rep,name=statics" json:"statics,omitempty"`
+	Vxnet                *string         `protobuf:"bytes,3,opt,name=vxnet" json:"vxnet,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *AddRouterStaticsInput) Reset()                    { *m = AddRouterStaticsInput{} }
-func (m *AddRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
-func (*AddRouterStaticsInput) ProtoMessage()               {}
-func (*AddRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{20} }
+func (m *AddRouterStaticsInput) Reset()         { *m = AddRouterStaticsInput{} }
+func (m *AddRouterStaticsInput) String() string { return proto.CompactTextString(m) }
+func (*AddRouterStaticsInput) ProtoMessage()    {}
+func (*AddRouterStaticsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{20}
+}
+func (m *AddRouterStaticsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddRouterStaticsInput.Unmarshal(m, b)
+}
+func (m *AddRouterStaticsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddRouterStaticsInput.Marshal(b, m, deterministic)
+}
+func (dst *AddRouterStaticsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddRouterStaticsInput.Merge(dst, src)
+}
+func (m *AddRouterStaticsInput) XXX_Size() int {
+	return xxx_messageInfo_AddRouterStaticsInput.Size(m)
+}
+func (m *AddRouterStaticsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddRouterStaticsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddRouterStaticsInput proto.InternalMessageInfo
 
 func (m *AddRouterStaticsInput) GetRouter() string {
 	if m != nil && m.Router != nil {
@@ -967,17 +1433,38 @@ func (m *AddRouterStaticsInput) GetVxnet() string {
 }
 
 type AddRouterStaticsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterStatics    []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatics        []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddRouterStaticsOutput) Reset()                    { *m = AddRouterStaticsOutput{} }
-func (m *AddRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddRouterStaticsOutput) ProtoMessage()               {}
-func (*AddRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{21} }
+func (m *AddRouterStaticsOutput) Reset()         { *m = AddRouterStaticsOutput{} }
+func (m *AddRouterStaticsOutput) String() string { return proto.CompactTextString(m) }
+func (*AddRouterStaticsOutput) ProtoMessage()    {}
+func (*AddRouterStaticsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{21}
+}
+func (m *AddRouterStaticsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddRouterStaticsOutput.Unmarshal(m, b)
+}
+func (m *AddRouterStaticsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddRouterStaticsOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddRouterStaticsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddRouterStaticsOutput.Merge(dst, src)
+}
+func (m *AddRouterStaticsOutput) XXX_Size() int {
+	return xxx_messageInfo_AddRouterStaticsOutput.Size(m)
+}
+func (m *AddRouterStaticsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddRouterStaticsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddRouterStaticsOutput proto.InternalMessageInfo
 
 func (m *AddRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1008,23 +1495,42 @@ func (m *AddRouterStaticsOutput) GetRouterStatics() []string {
 }
 
 type ModifyRouterStaticAttributesInput struct {
-	RouterStatic     *string `protobuf:"bytes,1,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
-	RouterStaticName *string `protobuf:"bytes,2,opt,name=router_static_name,json=routerStaticName" json:"router_static_name,omitempty"`
-	Val1             *string `protobuf:"bytes,3,opt,name=val1" json:"val1,omitempty"`
-	Val2             *string `protobuf:"bytes,4,opt,name=val2" json:"val2,omitempty"`
-	Val3             *string `protobuf:"bytes,5,opt,name=val3" json:"val3,omitempty"`
-	Val4             *string `protobuf:"bytes,6,opt,name=val4" json:"val4,omitempty"`
-	Val5             *string `protobuf:"bytes,7,opt,name=val5" json:"val5,omitempty"`
-	Val6             *string `protobuf:"bytes,8,opt,name=val6" json:"val6,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	RouterStatic         *string  `protobuf:"bytes,1,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
+	RouterStaticName     *string  `protobuf:"bytes,2,opt,name=router_static_name,json=routerStaticName" json:"router_static_name,omitempty"`
+	Val1                 *string  `protobuf:"bytes,3,opt,name=val1" json:"val1,omitempty"`
+	Val2                 *string  `protobuf:"bytes,4,opt,name=val2" json:"val2,omitempty"`
+	Val3                 *string  `protobuf:"bytes,5,opt,name=val3" json:"val3,omitempty"`
+	Val4                 *string  `protobuf:"bytes,6,opt,name=val4" json:"val4,omitempty"`
+	Val5                 *string  `protobuf:"bytes,7,opt,name=val5" json:"val5,omitempty"`
+	Val6                 *string  `protobuf:"bytes,8,opt,name=val6" json:"val6,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyRouterStaticAttributesInput) Reset()         { *m = ModifyRouterStaticAttributesInput{} }
 func (m *ModifyRouterStaticAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticAttributesInput) ProtoMessage()    {}
 func (*ModifyRouterStaticAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{22}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{22}
 }
+func (m *ModifyRouterStaticAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRouterStaticAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyRouterStaticAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRouterStaticAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRouterStaticAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRouterStaticAttributesInput.Merge(dst, src)
+}
+func (m *ModifyRouterStaticAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRouterStaticAttributesInput.Size(m)
+}
+func (m *ModifyRouterStaticAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRouterStaticAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRouterStaticAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyRouterStaticAttributesInput) GetRouterStatic() string {
 	if m != nil && m.RouterStatic != nil {
@@ -1083,19 +1589,38 @@ func (m *ModifyRouterStaticAttributesInput) GetVal6() string {
 }
 
 type ModifyRouterStaticAttributesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterStatic     []string `protobuf:"bytes,4,rep,name=router_static,json=routerStatic" json:"router_static,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatic         []string `protobuf:"bytes,4,rep,name=router_static,json=routerStatic" json:"router_static,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyRouterStaticAttributesOutput) Reset()         { *m = ModifyRouterStaticAttributesOutput{} }
 func (m *ModifyRouterStaticAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticAttributesOutput) ProtoMessage()    {}
 func (*ModifyRouterStaticAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{23}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{23}
 }
+func (m *ModifyRouterStaticAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRouterStaticAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyRouterStaticAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRouterStaticAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRouterStaticAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRouterStaticAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyRouterStaticAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRouterStaticAttributesOutput.Size(m)
+}
+func (m *ModifyRouterStaticAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRouterStaticAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRouterStaticAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyRouterStaticAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1126,14 +1651,35 @@ func (m *ModifyRouterStaticAttributesOutput) GetRouterStatic() []string {
 }
 
 type DeleteRouterStaticsInput struct {
-	RouterStatics    []string `protobuf:"bytes,1,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	RouterStatics        []string `protobuf:"bytes,1,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteRouterStaticsInput) Reset()                    { *m = DeleteRouterStaticsInput{} }
-func (m *DeleteRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteRouterStaticsInput) ProtoMessage()               {}
-func (*DeleteRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{24} }
+func (m *DeleteRouterStaticsInput) Reset()         { *m = DeleteRouterStaticsInput{} }
+func (m *DeleteRouterStaticsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRouterStaticsInput) ProtoMessage()    {}
+func (*DeleteRouterStaticsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{24}
+}
+func (m *DeleteRouterStaticsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRouterStaticsInput.Unmarshal(m, b)
+}
+func (m *DeleteRouterStaticsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRouterStaticsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRouterStaticsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRouterStaticsInput.Merge(dst, src)
+}
+func (m *DeleteRouterStaticsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRouterStaticsInput.Size(m)
+}
+func (m *DeleteRouterStaticsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRouterStaticsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRouterStaticsInput proto.InternalMessageInfo
 
 func (m *DeleteRouterStaticsInput) GetRouterStatics() []string {
 	if m != nil {
@@ -1143,17 +1689,38 @@ func (m *DeleteRouterStaticsInput) GetRouterStatics() []string {
 }
 
 type DeleteRouterStaticsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterStatics    []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStatics        []string `protobuf:"bytes,4,rep,name=router_statics,json=routerStatics" json:"router_statics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteRouterStaticsOutput) Reset()                    { *m = DeleteRouterStaticsOutput{} }
-func (m *DeleteRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteRouterStaticsOutput) ProtoMessage()               {}
-func (*DeleteRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{25} }
+func (m *DeleteRouterStaticsOutput) Reset()         { *m = DeleteRouterStaticsOutput{} }
+func (m *DeleteRouterStaticsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteRouterStaticsOutput) ProtoMessage()    {}
+func (*DeleteRouterStaticsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{25}
+}
+func (m *DeleteRouterStaticsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRouterStaticsOutput.Unmarshal(m, b)
+}
+func (m *DeleteRouterStaticsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRouterStaticsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRouterStaticsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRouterStaticsOutput.Merge(dst, src)
+}
+func (m *DeleteRouterStaticsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRouterStaticsOutput.Size(m)
+}
+func (m *DeleteRouterStaticsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRouterStaticsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRouterStaticsOutput proto.InternalMessageInfo
 
 func (m *DeleteRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1184,25 +1751,67 @@ func (m *DeleteRouterStaticsOutput) GetRouterStatics() []string {
 }
 
 type CopyRouterStaticsInput struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CopyRouterStaticsInput) Reset()                    { *m = CopyRouterStaticsInput{} }
-func (m *CopyRouterStaticsInput) String() string            { return proto.CompactTextString(m) }
-func (*CopyRouterStaticsInput) ProtoMessage()               {}
-func (*CopyRouterStaticsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{26} }
+func (m *CopyRouterStaticsInput) Reset()         { *m = CopyRouterStaticsInput{} }
+func (m *CopyRouterStaticsInput) String() string { return proto.CompactTextString(m) }
+func (*CopyRouterStaticsInput) ProtoMessage()    {}
+func (*CopyRouterStaticsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{26}
+}
+func (m *CopyRouterStaticsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CopyRouterStaticsInput.Unmarshal(m, b)
+}
+func (m *CopyRouterStaticsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CopyRouterStaticsInput.Marshal(b, m, deterministic)
+}
+func (dst *CopyRouterStaticsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CopyRouterStaticsInput.Merge(dst, src)
+}
+func (m *CopyRouterStaticsInput) XXX_Size() int {
+	return xxx_messageInfo_CopyRouterStaticsInput.Size(m)
+}
+func (m *CopyRouterStaticsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CopyRouterStaticsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CopyRouterStaticsInput proto.InternalMessageInfo
 
 type CopyRouterStaticsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CopyRouterStaticsOutput) Reset()                    { *m = CopyRouterStaticsOutput{} }
-func (m *CopyRouterStaticsOutput) String() string            { return proto.CompactTextString(m) }
-func (*CopyRouterStaticsOutput) ProtoMessage()               {}
-func (*CopyRouterStaticsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{27} }
+func (m *CopyRouterStaticsOutput) Reset()         { *m = CopyRouterStaticsOutput{} }
+func (m *CopyRouterStaticsOutput) String() string { return proto.CompactTextString(m) }
+func (*CopyRouterStaticsOutput) ProtoMessage()    {}
+func (*CopyRouterStaticsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{27}
+}
+func (m *CopyRouterStaticsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CopyRouterStaticsOutput.Unmarshal(m, b)
+}
+func (m *CopyRouterStaticsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CopyRouterStaticsOutput.Marshal(b, m, deterministic)
+}
+func (dst *CopyRouterStaticsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CopyRouterStaticsOutput.Merge(dst, src)
+}
+func (m *CopyRouterStaticsOutput) XXX_Size() int {
+	return xxx_messageInfo_CopyRouterStaticsOutput.Size(m)
+}
+func (m *CopyRouterStaticsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CopyRouterStaticsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CopyRouterStaticsOutput proto.InternalMessageInfo
 
 func (m *CopyRouterStaticsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1226,18 +1835,39 @@ func (m *CopyRouterStaticsOutput) GetMessage() string {
 }
 
 type DescribeRouterVxnetsInput struct {
-	Router           *string `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
-	Vxnet            *string `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	Verbose          *int32  `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32  `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32  `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Router               *string  `protobuf:"bytes,1,opt,name=router" json:"router,omitempty"`
+	Vxnet                *string  `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	Verbose              *int32   `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeRouterVxnetsInput) Reset()                    { *m = DescribeRouterVxnetsInput{} }
-func (m *DescribeRouterVxnetsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRouterVxnetsInput) ProtoMessage()               {}
-func (*DescribeRouterVxnetsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{28} }
+func (m *DescribeRouterVxnetsInput) Reset()         { *m = DescribeRouterVxnetsInput{} }
+func (m *DescribeRouterVxnetsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRouterVxnetsInput) ProtoMessage()    {}
+func (*DescribeRouterVxnetsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{28}
+}
+func (m *DescribeRouterVxnetsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRouterVxnetsInput.Unmarshal(m, b)
+}
+func (m *DescribeRouterVxnetsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRouterVxnetsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRouterVxnetsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRouterVxnetsInput.Merge(dst, src)
+}
+func (m *DescribeRouterVxnetsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRouterVxnetsInput.Size(m)
+}
+func (m *DescribeRouterVxnetsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRouterVxnetsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRouterVxnetsInput proto.InternalMessageInfo
 
 func (m *DescribeRouterVxnetsInput) GetRouter() string {
 	if m != nil && m.Router != nil {
@@ -1275,18 +1905,39 @@ func (m *DescribeRouterVxnetsInput) GetLimit() int32 {
 }
 
 type DescribeRouterVxnetsOutput struct {
-	Action           *string                                    `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                     `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterVxnetSet   []*DescribeRouterVxnetsOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_vxnet_set,json=routerVxnetSet" json:"router_vxnet_set,omitempty"`
-	TotalCount       *int32                                     `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                     `json:"-"`
+	Action               *string                                    `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                     `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterVxnetSet       []*DescribeRouterVxnetsOutput_ResponseItem `protobuf:"bytes,4,rep,name=router_vxnet_set,json=routerVxnetSet" json:"router_vxnet_set,omitempty"`
+	TotalCount           *int32                                     `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
-func (m *DescribeRouterVxnetsOutput) Reset()                    { *m = DescribeRouterVxnetsOutput{} }
-func (m *DescribeRouterVxnetsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeRouterVxnetsOutput) ProtoMessage()               {}
-func (*DescribeRouterVxnetsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{29} }
+func (m *DescribeRouterVxnetsOutput) Reset()         { *m = DescribeRouterVxnetsOutput{} }
+func (m *DescribeRouterVxnetsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeRouterVxnetsOutput) ProtoMessage()    {}
+func (*DescribeRouterVxnetsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{29}
+}
+func (m *DescribeRouterVxnetsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRouterVxnetsOutput.Unmarshal(m, b)
+}
+func (m *DescribeRouterVxnetsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRouterVxnetsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRouterVxnetsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRouterVxnetsOutput.Merge(dst, src)
+}
+func (m *DescribeRouterVxnetsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRouterVxnetsOutput.Size(m)
+}
+func (m *DescribeRouterVxnetsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRouterVxnetsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRouterVxnetsOutput proto.InternalMessageInfo
 
 func (m *DescribeRouterVxnetsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1324,15 +1975,17 @@ func (m *DescribeRouterVxnetsOutput) GetTotalCount() int32 {
 }
 
 type DescribeRouterVxnetsOutput_ResponseItem struct {
-	RouterId         *string                     `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	VxnetId          *string                     `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	ManagerIp        *string                     `protobuf:"bytes,3,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
-	IpNetwork        *string                     `protobuf:"bytes,4,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
-	DynIpStart       *string                     `protobuf:"bytes,5,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
-	DynIpEnd         *string                     `protobuf:"bytes,6,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
-	Features         *int32                      `protobuf:"varint,7,opt,name=features" json:"features,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,8,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	RouterId             *string              `protobuf:"bytes,1,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	VxnetId              *string              `protobuf:"bytes,2,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	ManagerIp            *string              `protobuf:"bytes,3,opt,name=manager_ip,json=managerIp" json:"manager_ip,omitempty"`
+	IpNetwork            *string              `protobuf:"bytes,4,opt,name=ip_network,json=ipNetwork" json:"ip_network,omitempty"`
+	DynIpStart           *string              `protobuf:"bytes,5,opt,name=dyn_ip_start,json=dynIpStart" json:"dyn_ip_start,omitempty"`
+	DynIpEnd             *string              `protobuf:"bytes,6,opt,name=dyn_ip_end,json=dynIpEnd" json:"dyn_ip_end,omitempty"`
+	Features             *int32               `protobuf:"varint,7,opt,name=features" json:"features,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,8,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeRouterVxnetsOutput_ResponseItem) Reset() {
@@ -1341,8 +1994,25 @@ func (m *DescribeRouterVxnetsOutput_ResponseItem) Reset() {
 func (m *DescribeRouterVxnetsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeRouterVxnetsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeRouterVxnetsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{29, 0}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{29, 0}
 }
+func (m *DescribeRouterVxnetsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRouterVxnetsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeRouterVxnetsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRouterVxnetsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRouterVxnetsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRouterVxnetsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeRouterVxnetsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeRouterVxnetsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeRouterVxnetsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRouterVxnetsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRouterVxnetsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeRouterVxnetsOutput_ResponseItem) GetRouterId() string {
 	if m != nil && m.RouterId != nil {
@@ -1393,7 +2063,7 @@ func (m *DescribeRouterVxnetsOutput_ResponseItem) GetFeatures() int32 {
 	return 0
 }
 
-func (m *DescribeRouterVxnetsOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeRouterVxnetsOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -1401,15 +2071,36 @@ func (m *DescribeRouterVxnetsOutput_ResponseItem) GetCreateTime() *google_protob
 }
 
 type AddRouterStaticEntriesInput struct {
-	RouterStatic     *string                                    `protobuf:"bytes,1,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
-	Entries          []*AddRouterStaticEntriesInput_EntriesItem `protobuf:"bytes,2,rep,name=entries" json:"entries,omitempty"`
-	XXX_unrecognized []byte                                     `json:"-"`
+	RouterStatic         *string                                    `protobuf:"bytes,1,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
+	Entries              []*AddRouterStaticEntriesInput_EntriesItem `protobuf:"bytes,2,rep,name=entries" json:"entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
-func (m *AddRouterStaticEntriesInput) Reset()                    { *m = AddRouterStaticEntriesInput{} }
-func (m *AddRouterStaticEntriesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddRouterStaticEntriesInput) ProtoMessage()               {}
-func (*AddRouterStaticEntriesInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{30} }
+func (m *AddRouterStaticEntriesInput) Reset()         { *m = AddRouterStaticEntriesInput{} }
+func (m *AddRouterStaticEntriesInput) String() string { return proto.CompactTextString(m) }
+func (*AddRouterStaticEntriesInput) ProtoMessage()    {}
+func (*AddRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{30}
+}
+func (m *AddRouterStaticEntriesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddRouterStaticEntriesInput.Unmarshal(m, b)
+}
+func (m *AddRouterStaticEntriesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddRouterStaticEntriesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddRouterStaticEntriesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddRouterStaticEntriesInput.Merge(dst, src)
+}
+func (m *AddRouterStaticEntriesInput) XXX_Size() int {
+	return xxx_messageInfo_AddRouterStaticEntriesInput.Size(m)
+}
+func (m *AddRouterStaticEntriesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddRouterStaticEntriesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddRouterStaticEntriesInput proto.InternalMessageInfo
 
 func (m *AddRouterStaticEntriesInput) GetRouterStatic() string {
 	if m != nil && m.RouterStatic != nil {
@@ -1426,9 +2117,11 @@ func (m *AddRouterStaticEntriesInput) GetEntries() []*AddRouterStaticEntriesInpu
 }
 
 type AddRouterStaticEntriesInput_EntriesItem struct {
-	Val1             *string `protobuf:"bytes,1,opt,name=val1" json:"val1,omitempty"`
-	Val2             *string `protobuf:"bytes,2,opt,name=val2" json:"val2,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Val1                 *string  `protobuf:"bytes,1,opt,name=val1" json:"val1,omitempty"`
+	Val2                 *string  `protobuf:"bytes,2,opt,name=val2" json:"val2,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AddRouterStaticEntriesInput_EntriesItem) Reset() {
@@ -1437,8 +2130,25 @@ func (m *AddRouterStaticEntriesInput_EntriesItem) Reset() {
 func (m *AddRouterStaticEntriesInput_EntriesItem) String() string { return proto.CompactTextString(m) }
 func (*AddRouterStaticEntriesInput_EntriesItem) ProtoMessage()    {}
 func (*AddRouterStaticEntriesInput_EntriesItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{30, 0}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{30, 0}
 }
+func (m *AddRouterStaticEntriesInput_EntriesItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddRouterStaticEntriesInput_EntriesItem.Unmarshal(m, b)
+}
+func (m *AddRouterStaticEntriesInput_EntriesItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddRouterStaticEntriesInput_EntriesItem.Marshal(b, m, deterministic)
+}
+func (dst *AddRouterStaticEntriesInput_EntriesItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddRouterStaticEntriesInput_EntriesItem.Merge(dst, src)
+}
+func (m *AddRouterStaticEntriesInput_EntriesItem) XXX_Size() int {
+	return xxx_messageInfo_AddRouterStaticEntriesInput_EntriesItem.Size(m)
+}
+func (m *AddRouterStaticEntriesInput_EntriesItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddRouterStaticEntriesInput_EntriesItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddRouterStaticEntriesInput_EntriesItem proto.InternalMessageInfo
 
 func (m *AddRouterStaticEntriesInput_EntriesItem) GetVal1() string {
 	if m != nil && m.Val1 != nil {
@@ -1455,17 +2165,38 @@ func (m *AddRouterStaticEntriesInput_EntriesItem) GetVal2() string {
 }
 
 type AddRouterStaticEntriesOutput struct {
-	Action              *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode             *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message             *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterStaticEntries []string `protobuf:"bytes,4,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
-	XXX_unrecognized    []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStaticEntries  []string `protobuf:"bytes,4,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddRouterStaticEntriesOutput) Reset()                    { *m = AddRouterStaticEntriesOutput{} }
-func (m *AddRouterStaticEntriesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddRouterStaticEntriesOutput) ProtoMessage()               {}
-func (*AddRouterStaticEntriesOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{31} }
+func (m *AddRouterStaticEntriesOutput) Reset()         { *m = AddRouterStaticEntriesOutput{} }
+func (m *AddRouterStaticEntriesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddRouterStaticEntriesOutput) ProtoMessage()    {}
+func (*AddRouterStaticEntriesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{31}
+}
+func (m *AddRouterStaticEntriesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddRouterStaticEntriesOutput.Unmarshal(m, b)
+}
+func (m *AddRouterStaticEntriesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddRouterStaticEntriesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddRouterStaticEntriesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddRouterStaticEntriesOutput.Merge(dst, src)
+}
+func (m *AddRouterStaticEntriesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddRouterStaticEntriesOutput.Size(m)
+}
+func (m *AddRouterStaticEntriesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddRouterStaticEntriesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddRouterStaticEntriesOutput proto.InternalMessageInfo
 
 func (m *AddRouterStaticEntriesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1496,16 +2227,35 @@ func (m *AddRouterStaticEntriesOutput) GetRouterStaticEntries() []string {
 }
 
 type DeleteRouterStaticEntriesInput struct {
-	RouterStaticEntries []string `protobuf:"bytes,1,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
-	XXX_unrecognized    []byte   `json:"-"`
+	RouterStaticEntries  []string `protobuf:"bytes,1,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteRouterStaticEntriesInput) Reset()         { *m = DeleteRouterStaticEntriesInput{} }
 func (m *DeleteRouterStaticEntriesInput) String() string { return proto.CompactTextString(m) }
 func (*DeleteRouterStaticEntriesInput) ProtoMessage()    {}
 func (*DeleteRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{32}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{32}
 }
+func (m *DeleteRouterStaticEntriesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRouterStaticEntriesInput.Unmarshal(m, b)
+}
+func (m *DeleteRouterStaticEntriesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRouterStaticEntriesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRouterStaticEntriesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRouterStaticEntriesInput.Merge(dst, src)
+}
+func (m *DeleteRouterStaticEntriesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRouterStaticEntriesInput.Size(m)
+}
+func (m *DeleteRouterStaticEntriesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRouterStaticEntriesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRouterStaticEntriesInput proto.InternalMessageInfo
 
 func (m *DeleteRouterStaticEntriesInput) GetRouterStaticEntries() []string {
 	if m != nil {
@@ -1515,19 +2265,38 @@ func (m *DeleteRouterStaticEntriesInput) GetRouterStaticEntries() []string {
 }
 
 type DeleteRouterStaticEntriesOutput struct {
-	Action              *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode             *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message             *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterStaticEntries []string `protobuf:"bytes,4,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
-	XXX_unrecognized    []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStaticEntries  []string `protobuf:"bytes,4,rep,name=router_static_entries,json=routerStaticEntries" json:"router_static_entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DeleteRouterStaticEntriesOutput) Reset()         { *m = DeleteRouterStaticEntriesOutput{} }
 func (m *DeleteRouterStaticEntriesOutput) String() string { return proto.CompactTextString(m) }
 func (*DeleteRouterStaticEntriesOutput) ProtoMessage()    {}
 func (*DeleteRouterStaticEntriesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{33}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{33}
 }
+func (m *DeleteRouterStaticEntriesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteRouterStaticEntriesOutput.Unmarshal(m, b)
+}
+func (m *DeleteRouterStaticEntriesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteRouterStaticEntriesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteRouterStaticEntriesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteRouterStaticEntriesOutput.Merge(dst, src)
+}
+func (m *DeleteRouterStaticEntriesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteRouterStaticEntriesOutput.Size(m)
+}
+func (m *DeleteRouterStaticEntriesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteRouterStaticEntriesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteRouterStaticEntriesOutput proto.InternalMessageInfo
 
 func (m *DeleteRouterStaticEntriesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1558,11 +2327,13 @@ func (m *DeleteRouterStaticEntriesOutput) GetRouterStaticEntries() []string {
 }
 
 type ModifyRouterStaticEntryAttributesInput struct {
-	RouterStaticEntry     *string `protobuf:"bytes,1,opt,name=router_static_entry,json=routerStaticEntry" json:"router_static_entry,omitempty"`
-	RouterStaticEntryName *string `protobuf:"bytes,2,opt,name=router_static_entry_name,json=routerStaticEntryName" json:"router_static_entry_name,omitempty"`
-	Val1                  *string `protobuf:"bytes,3,opt,name=val1" json:"val1,omitempty"`
-	Val2                  *string `protobuf:"bytes,4,opt,name=val2" json:"val2,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	RouterStaticEntry     *string  `protobuf:"bytes,1,opt,name=router_static_entry,json=routerStaticEntry" json:"router_static_entry,omitempty"`
+	RouterStaticEntryName *string  `protobuf:"bytes,2,opt,name=router_static_entry_name,json=routerStaticEntryName" json:"router_static_entry_name,omitempty"`
+	Val1                  *string  `protobuf:"bytes,3,opt,name=val1" json:"val1,omitempty"`
+	Val2                  *string  `protobuf:"bytes,4,opt,name=val2" json:"val2,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *ModifyRouterStaticEntryAttributesInput) Reset() {
@@ -1571,8 +2342,25 @@ func (m *ModifyRouterStaticEntryAttributesInput) Reset() {
 func (m *ModifyRouterStaticEntryAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticEntryAttributesInput) ProtoMessage()    {}
 func (*ModifyRouterStaticEntryAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{34}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{34}
 }
+func (m *ModifyRouterStaticEntryAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRouterStaticEntryAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyRouterStaticEntryAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRouterStaticEntryAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRouterStaticEntryAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRouterStaticEntryAttributesInput.Merge(dst, src)
+}
+func (m *ModifyRouterStaticEntryAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRouterStaticEntryAttributesInput.Size(m)
+}
+func (m *ModifyRouterStaticEntryAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRouterStaticEntryAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRouterStaticEntryAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyRouterStaticEntryAttributesInput) GetRouterStaticEntry() string {
 	if m != nil && m.RouterStaticEntry != nil {
@@ -1603,11 +2391,13 @@ func (m *ModifyRouterStaticEntryAttributesInput) GetVal2() string {
 }
 
 type ModifyRouterStaticEntryAttributesOutput struct {
-	Action            *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode           *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message           *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	RouterStaticEntry *string `protobuf:"bytes,4,opt,name=router_static_entry,json=routerStaticEntry" json:"router_static_entry,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	RouterStaticEntry    *string  `protobuf:"bytes,4,opt,name=router_static_entry,json=routerStaticEntry" json:"router_static_entry,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyRouterStaticEntryAttributesOutput) Reset() {
@@ -1616,8 +2406,25 @@ func (m *ModifyRouterStaticEntryAttributesOutput) Reset() {
 func (m *ModifyRouterStaticEntryAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyRouterStaticEntryAttributesOutput) ProtoMessage()    {}
 func (*ModifyRouterStaticEntryAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{35}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{35}
 }
+func (m *ModifyRouterStaticEntryAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyRouterStaticEntryAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyRouterStaticEntryAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyRouterStaticEntryAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyRouterStaticEntryAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyRouterStaticEntryAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyRouterStaticEntryAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyRouterStaticEntryAttributesOutput.Size(m)
+}
+func (m *ModifyRouterStaticEntryAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyRouterStaticEntryAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyRouterStaticEntryAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyRouterStaticEntryAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1648,19 +2455,38 @@ func (m *ModifyRouterStaticEntryAttributesOutput) GetRouterStaticEntry() string 
 }
 
 type DescribeRouterStaticEntriesInput struct {
-	RouterStaticEntryId *string `protobuf:"bytes,1,opt,name=router_static_entry_id,json=routerStaticEntryId" json:"router_static_entry_id,omitempty"`
-	RouterStatic        *string `protobuf:"bytes,2,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
-	Offset              *int32  `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
-	Limit               *int32  `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized    []byte  `json:"-"`
+	RouterStaticEntryId  *string  `protobuf:"bytes,1,opt,name=router_static_entry_id,json=routerStaticEntryId" json:"router_static_entry_id,omitempty"`
+	RouterStatic         *string  `protobuf:"bytes,2,opt,name=router_static,json=routerStatic" json:"router_static,omitempty"`
+	Offset               *int32   `protobuf:"varint,3,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,4,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeRouterStaticEntriesInput) Reset()         { *m = DescribeRouterStaticEntriesInput{} }
 func (m *DescribeRouterStaticEntriesInput) String() string { return proto.CompactTextString(m) }
 func (*DescribeRouterStaticEntriesInput) ProtoMessage()    {}
 func (*DescribeRouterStaticEntriesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{36}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{36}
 }
+func (m *DescribeRouterStaticEntriesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRouterStaticEntriesInput.Unmarshal(m, b)
+}
+func (m *DescribeRouterStaticEntriesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRouterStaticEntriesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRouterStaticEntriesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRouterStaticEntriesInput.Merge(dst, src)
+}
+func (m *DescribeRouterStaticEntriesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRouterStaticEntriesInput.Size(m)
+}
+func (m *DescribeRouterStaticEntriesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRouterStaticEntriesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRouterStaticEntriesInput proto.InternalMessageInfo
 
 func (m *DescribeRouterStaticEntriesInput) GetRouterStaticEntryId() string {
 	if m != nil && m.RouterStaticEntryId != nil {
@@ -1696,15 +2522,34 @@ type DescribeRouterStaticEntriesOutput struct {
 	Message              *string              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	RouterStaticEntrySet []*RouterStaticEntry `protobuf:"bytes,4,rep,name=router_static_entry_set,json=routerStaticEntrySet" json:"router_static_entry_set,omitempty"`
 	TotalCount           *int32               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeRouterStaticEntriesOutput) Reset()         { *m = DescribeRouterStaticEntriesOutput{} }
 func (m *DescribeRouterStaticEntriesOutput) String() string { return proto.CompactTextString(m) }
 func (*DescribeRouterStaticEntriesOutput) ProtoMessage()    {}
 func (*DescribeRouterStaticEntriesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor18, []int{37}
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{37}
 }
+func (m *DescribeRouterStaticEntriesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeRouterStaticEntriesOutput.Unmarshal(m, b)
+}
+func (m *DescribeRouterStaticEntriesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeRouterStaticEntriesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeRouterStaticEntriesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeRouterStaticEntriesOutput.Merge(dst, src)
+}
+func (m *DescribeRouterStaticEntriesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeRouterStaticEntriesOutput.Size(m)
+}
+func (m *DescribeRouterStaticEntriesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeRouterStaticEntriesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeRouterStaticEntriesOutput proto.InternalMessageInfo
 
 func (m *DescribeRouterStaticEntriesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1742,15 +2587,36 @@ func (m *DescribeRouterStaticEntriesOutput) GetTotalCount() int32 {
 }
 
 type GetVPNCertsInput struct {
-	Router           *string `protobuf:"bytes,1,req,name=router" json:"router,omitempty"`
-	Platform         *string `protobuf:"bytes,2,opt,name=platform" json:"platform,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Router               *string  `protobuf:"bytes,1,req,name=router" json:"router,omitempty"`
+	Platform             *string  `protobuf:"bytes,2,opt,name=platform" json:"platform,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetVPNCertsInput) Reset()                    { *m = GetVPNCertsInput{} }
-func (m *GetVPNCertsInput) String() string            { return proto.CompactTextString(m) }
-func (*GetVPNCertsInput) ProtoMessage()               {}
-func (*GetVPNCertsInput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{38} }
+func (m *GetVPNCertsInput) Reset()         { *m = GetVPNCertsInput{} }
+func (m *GetVPNCertsInput) String() string { return proto.CompactTextString(m) }
+func (*GetVPNCertsInput) ProtoMessage()    {}
+func (*GetVPNCertsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{38}
+}
+func (m *GetVPNCertsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetVPNCertsInput.Unmarshal(m, b)
+}
+func (m *GetVPNCertsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetVPNCertsInput.Marshal(b, m, deterministic)
+}
+func (dst *GetVPNCertsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetVPNCertsInput.Merge(dst, src)
+}
+func (m *GetVPNCertsInput) XXX_Size() int {
+	return xxx_messageInfo_GetVPNCertsInput.Size(m)
+}
+func (m *GetVPNCertsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetVPNCertsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetVPNCertsInput proto.InternalMessageInfo
 
 func (m *GetVPNCertsInput) GetRouter() string {
 	if m != nil && m.Router != nil {
@@ -1767,24 +2633,45 @@ func (m *GetVPNCertsInput) GetPlatform() string {
 }
 
 type GetVPNCertsOutput struct {
-	Action            *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode           *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message           *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	CaCert            *string `protobuf:"bytes,4,opt,name=ca_cert,json=caCert" json:"ca_cert,omitempty"`
-	ClientCrt         *string `protobuf:"bytes,5,opt,name=client_crt,json=clientCrt" json:"client_crt,omitempty"`
-	ClientKey         *string `protobuf:"bytes,6,opt,name=client_key,json=clientKey" json:"client_key,omitempty"`
-	RouterId          *string `protobuf:"bytes,7,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
-	StaticKey         *string `protobuf:"bytes,8,opt,name=static_key,json=staticKey" json:"static_key,omitempty"`
-	LinuxConfSample   *string `protobuf:"bytes,9,opt,name=linux_conf_sample,json=linuxConfSample" json:"linux_conf_sample,omitempty"`
-	MacConfSample     *string `protobuf:"bytes,10,opt,name=mac_conf_sample,json=macConfSample" json:"mac_conf_sample,omitempty"`
-	WindowsConfSample *string `protobuf:"bytes,11,opt,name=windows_conf_sample,json=windowsConfSample" json:"windows_conf_sample,omitempty"`
-	XXX_unrecognized  []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	CaCert               *string  `protobuf:"bytes,4,opt,name=ca_cert,json=caCert" json:"ca_cert,omitempty"`
+	ClientCrt            *string  `protobuf:"bytes,5,opt,name=client_crt,json=clientCrt" json:"client_crt,omitempty"`
+	ClientKey            *string  `protobuf:"bytes,6,opt,name=client_key,json=clientKey" json:"client_key,omitempty"`
+	RouterId             *string  `protobuf:"bytes,7,opt,name=router_id,json=routerId" json:"router_id,omitempty"`
+	StaticKey            *string  `protobuf:"bytes,8,opt,name=static_key,json=staticKey" json:"static_key,omitempty"`
+	LinuxConfSample      *string  `protobuf:"bytes,9,opt,name=linux_conf_sample,json=linuxConfSample" json:"linux_conf_sample,omitempty"`
+	MacConfSample        *string  `protobuf:"bytes,10,opt,name=mac_conf_sample,json=macConfSample" json:"mac_conf_sample,omitempty"`
+	WindowsConfSample    *string  `protobuf:"bytes,11,opt,name=windows_conf_sample,json=windowsConfSample" json:"windows_conf_sample,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetVPNCertsOutput) Reset()                    { *m = GetVPNCertsOutput{} }
-func (m *GetVPNCertsOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetVPNCertsOutput) ProtoMessage()               {}
-func (*GetVPNCertsOutput) Descriptor() ([]byte, []int) { return fileDescriptor18, []int{39} }
+func (m *GetVPNCertsOutput) Reset()         { *m = GetVPNCertsOutput{} }
+func (m *GetVPNCertsOutput) String() string { return proto.CompactTextString(m) }
+func (*GetVPNCertsOutput) ProtoMessage()    {}
+func (*GetVPNCertsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_router_fa1d5fb6d76ec389, []int{39}
+}
+func (m *GetVPNCertsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetVPNCertsOutput.Unmarshal(m, b)
+}
+func (m *GetVPNCertsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetVPNCertsOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetVPNCertsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetVPNCertsOutput.Merge(dst, src)
+}
+func (m *GetVPNCertsOutput) XXX_Size() int {
+	return xxx_messageInfo_GetVPNCertsOutput.Size(m)
+}
+func (m *GetVPNCertsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetVPNCertsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetVPNCertsOutput proto.InternalMessageInfo
 
 func (m *GetVPNCertsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1909,9 +2796,9 @@ func init() {
 	proto.RegisterType((*GetVPNCertsOutput)(nil), "service.GetVPNCertsOutput")
 }
 
-func init() { proto.RegisterFile("router.proto", fileDescriptor18) }
+func init() { proto.RegisterFile("router.proto", fileDescriptor_router_fa1d5fb6d76ec389) }
 
-var fileDescriptor18 = []byte{
+var fileDescriptor_router_fa1d5fb6d76ec389 = []byte{
 	// 2067 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x19, 0x4d, 0x6f, 0x23, 0x49,
 	0x55, 0xed, 0x8f, 0xd8, 0x7e, 0xce, 0x67, 0x65, 0x92, 0xe9, 0xe9, 0x64, 0x26, 0x9e, 0x9e, 0x9d,

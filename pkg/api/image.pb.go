@@ -7,31 +7,58 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/chai2010/qingcloud-go/pkg/api/spec_metadata"
-import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeImagesInput struct {
-	Images           []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
-	ProcessorType    *string  `protobuf:"bytes,2,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
-	OsFamily         *string  `protobuf:"bytes,3,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Visibility       *string  `protobuf:"bytes,4,opt,name=visibility" json:"visibility,omitempty"`
-	Provider         *string  `protobuf:"bytes,5,opt,name=provider" json:"provider,omitempty"`
-	Status           []string `protobuf:"bytes,6,rep,name=status" json:"status,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,7,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose          *int32   `protobuf:"varint,8,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,9,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,10,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Images               []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
+	ProcessorType        *string  `protobuf:"bytes,2,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
+	OsFamily             *string  `protobuf:"bytes,3,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Visibility           *string  `protobuf:"bytes,4,opt,name=visibility" json:"visibility,omitempty"`
+	Provider             *string  `protobuf:"bytes,5,opt,name=provider" json:"provider,omitempty"`
+	Status               []string `protobuf:"bytes,6,rep,name=status" json:"status,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,7,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose              *int32   `protobuf:"varint,8,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,9,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,10,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeImagesInput) Reset()                    { *m = DescribeImagesInput{} }
-func (m *DescribeImagesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeImagesInput) ProtoMessage()               {}
-func (*DescribeImagesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
+func (m *DescribeImagesInput) Reset()         { *m = DescribeImagesInput{} }
+func (m *DescribeImagesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeImagesInput) ProtoMessage()    {}
+func (*DescribeImagesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{0}
+}
+func (m *DescribeImagesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeImagesInput.Unmarshal(m, b)
+}
+func (m *DescribeImagesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeImagesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeImagesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeImagesInput.Merge(dst, src)
+}
+func (m *DescribeImagesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeImagesInput.Size(m)
+}
+func (m *DescribeImagesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeImagesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeImagesInput proto.InternalMessageInfo
 
 func (m *DescribeImagesInput) GetImages() []string {
 	if m != nil {
@@ -104,18 +131,39 @@ func (m *DescribeImagesInput) GetLimit() int32 {
 }
 
 type DescribeImagesOutput struct {
-	Action           *string                              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ImageSet         []*DescribeImagesOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_set,json=imageSet" json:"image_set,omitempty"`
-	TotalCount       *int32                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	Action               *string                              `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                               `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                              `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ImageSet             []*DescribeImagesOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_set,json=imageSet" json:"image_set,omitempty"`
+	TotalCount           *int32                               `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
 }
 
-func (m *DescribeImagesOutput) Reset()                    { *m = DescribeImagesOutput{} }
-func (m *DescribeImagesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeImagesOutput) ProtoMessage()               {}
-func (*DescribeImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{1} }
+func (m *DescribeImagesOutput) Reset()         { *m = DescribeImagesOutput{} }
+func (m *DescribeImagesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeImagesOutput) ProtoMessage()    {}
+func (*DescribeImagesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{1}
+}
+func (m *DescribeImagesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeImagesOutput.Unmarshal(m, b)
+}
+func (m *DescribeImagesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeImagesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeImagesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeImagesOutput.Merge(dst, src)
+}
+func (m *DescribeImagesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeImagesOutput.Size(m)
+}
+func (m *DescribeImagesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeImagesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeImagesOutput proto.InternalMessageInfo
 
 func (m *DescribeImagesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -153,30 +201,49 @@ func (m *DescribeImagesOutput) GetTotalCount() int32 {
 }
 
 type DescribeImagesOutput_ResponseItem struct {
-	ImageId          *string                     `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	ImageName        *string                     `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	Description      *string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	Size             *int32                      `protobuf:"varint,4,opt,name=size" json:"size,omitempty"`
-	ProcessorType    *string                     `protobuf:"bytes,5,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
-	Platform         *string                     `protobuf:"bytes,6,opt,name=platform" json:"platform,omitempty"`
-	OsFamily         *string                     `protobuf:"bytes,7,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
-	Visibility       *string                     `protobuf:"bytes,8,opt,name=visibility" json:"visibility,omitempty"`
-	Provider         *string                     `protobuf:"bytes,9,opt,name=provider" json:"provider,omitempty"`
-	Owner            *string                     `protobuf:"bytes,10,opt,name=owner" json:"owner,omitempty"`
-	RecommendedType  *string                     `protobuf:"bytes,11,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
-	Status           *string                     `protobuf:"bytes,12,opt,name=status" json:"status,omitempty"`
-	TransitionStatus *string                     `protobuf:"bytes,13,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,14,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	StatusTime       *google_protobuf1.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	ImageId              *string              `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	ImageName            *string              `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	Description          *string              `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	Size                 *int32               `protobuf:"varint,4,opt,name=size" json:"size,omitempty"`
+	ProcessorType        *string              `protobuf:"bytes,5,opt,name=processor_type,json=processorType" json:"processor_type,omitempty"`
+	Platform             *string              `protobuf:"bytes,6,opt,name=platform" json:"platform,omitempty"`
+	OsFamily             *string              `protobuf:"bytes,7,opt,name=os_family,json=osFamily" json:"os_family,omitempty"`
+	Visibility           *string              `protobuf:"bytes,8,opt,name=visibility" json:"visibility,omitempty"`
+	Provider             *string              `protobuf:"bytes,9,opt,name=provider" json:"provider,omitempty"`
+	Owner                *string              `protobuf:"bytes,10,opt,name=owner" json:"owner,omitempty"`
+	RecommendedType      *string              `protobuf:"bytes,11,opt,name=recommended_type,json=recommendedType" json:"recommended_type,omitempty"`
+	Status               *string              `protobuf:"bytes,12,opt,name=status" json:"status,omitempty"`
+	TransitionStatus     *string              `protobuf:"bytes,13,opt,name=transition_status,json=transitionStatus" json:"transition_status,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,14,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	StatusTime           *timestamp.Timestamp `protobuf:"bytes,15,opt,name=status_time,json=statusTime" json:"status_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeImagesOutput_ResponseItem) Reset()         { *m = DescribeImagesOutput_ResponseItem{} }
 func (m *DescribeImagesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeImagesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeImagesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor6, []int{1, 0}
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{1, 0}
 }
+func (m *DescribeImagesOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeImagesOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeImagesOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeImagesOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeImagesOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeImagesOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeImagesOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeImagesOutput_ResponseItem.Size(m)
+}
+func (m *DescribeImagesOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeImagesOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeImagesOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeImagesOutput_ResponseItem) GetImageId() string {
 	if m != nil && m.ImageId != nil {
@@ -269,14 +336,14 @@ func (m *DescribeImagesOutput_ResponseItem) GetTransitionStatus() string {
 	return ""
 }
 
-func (m *DescribeImagesOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeImagesOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
 	return nil
 }
 
-func (m *DescribeImagesOutput_ResponseItem) GetStatusTime() *google_protobuf1.Timestamp {
+func (m *DescribeImagesOutput_ResponseItem) GetStatusTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.StatusTime
 	}
@@ -284,16 +351,37 @@ func (m *DescribeImagesOutput_ResponseItem) GetStatusTime() *google_protobuf1.Ti
 }
 
 type CaptureInstanceInput struct {
-	Instance         *string `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
-	ImageName        *string `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	TargetUser       *string `protobuf:"bytes,3,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Instance             *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	ImageName            *string  `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	TargetUser           *string  `protobuf:"bytes,3,opt,name=target_user,json=targetUser" json:"target_user,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CaptureInstanceInput) Reset()                    { *m = CaptureInstanceInput{} }
-func (m *CaptureInstanceInput) String() string            { return proto.CompactTextString(m) }
-func (*CaptureInstanceInput) ProtoMessage()               {}
-func (*CaptureInstanceInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{2} }
+func (m *CaptureInstanceInput) Reset()         { *m = CaptureInstanceInput{} }
+func (m *CaptureInstanceInput) String() string { return proto.CompactTextString(m) }
+func (*CaptureInstanceInput) ProtoMessage()    {}
+func (*CaptureInstanceInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{2}
+}
+func (m *CaptureInstanceInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CaptureInstanceInput.Unmarshal(m, b)
+}
+func (m *CaptureInstanceInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CaptureInstanceInput.Marshal(b, m, deterministic)
+}
+func (dst *CaptureInstanceInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CaptureInstanceInput.Merge(dst, src)
+}
+func (m *CaptureInstanceInput) XXX_Size() int {
+	return xxx_messageInfo_CaptureInstanceInput.Size(m)
+}
+func (m *CaptureInstanceInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CaptureInstanceInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CaptureInstanceInput proto.InternalMessageInfo
 
 func (m *CaptureInstanceInput) GetInstance() string {
 	if m != nil && m.Instance != nil {
@@ -317,18 +405,39 @@ func (m *CaptureInstanceInput) GetTargetUser() string {
 }
 
 type CaptureInstanceOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	ImageId          *string `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	ImageId              *string  `protobuf:"bytes,5,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CaptureInstanceOutput) Reset()                    { *m = CaptureInstanceOutput{} }
-func (m *CaptureInstanceOutput) String() string            { return proto.CompactTextString(m) }
-func (*CaptureInstanceOutput) ProtoMessage()               {}
-func (*CaptureInstanceOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{3} }
+func (m *CaptureInstanceOutput) Reset()         { *m = CaptureInstanceOutput{} }
+func (m *CaptureInstanceOutput) String() string { return proto.CompactTextString(m) }
+func (*CaptureInstanceOutput) ProtoMessage()    {}
+func (*CaptureInstanceOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{3}
+}
+func (m *CaptureInstanceOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CaptureInstanceOutput.Unmarshal(m, b)
+}
+func (m *CaptureInstanceOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CaptureInstanceOutput.Marshal(b, m, deterministic)
+}
+func (dst *CaptureInstanceOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CaptureInstanceOutput.Merge(dst, src)
+}
+func (m *CaptureInstanceOutput) XXX_Size() int {
+	return xxx_messageInfo_CaptureInstanceOutput.Size(m)
+}
+func (m *CaptureInstanceOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CaptureInstanceOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CaptureInstanceOutput proto.InternalMessageInfo
 
 func (m *CaptureInstanceOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -366,14 +475,35 @@ func (m *CaptureInstanceOutput) GetImageId() string {
 }
 
 type DeleteImagesInput struct {
-	Images           []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Images               []string `protobuf:"bytes,1,rep,name=images" json:"images,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteImagesInput) Reset()                    { *m = DeleteImagesInput{} }
-func (m *DeleteImagesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteImagesInput) ProtoMessage()               {}
-func (*DeleteImagesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{4} }
+func (m *DeleteImagesInput) Reset()         { *m = DeleteImagesInput{} }
+func (m *DeleteImagesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteImagesInput) ProtoMessage()    {}
+func (*DeleteImagesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{4}
+}
+func (m *DeleteImagesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteImagesInput.Unmarshal(m, b)
+}
+func (m *DeleteImagesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteImagesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteImagesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteImagesInput.Merge(dst, src)
+}
+func (m *DeleteImagesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteImagesInput.Size(m)
+}
+func (m *DeleteImagesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteImagesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteImagesInput proto.InternalMessageInfo
 
 func (m *DeleteImagesInput) GetImages() []string {
 	if m != nil {
@@ -383,17 +513,38 @@ func (m *DeleteImagesInput) GetImages() []string {
 }
 
 type DeleteImagesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteImagesOutput) Reset()                    { *m = DeleteImagesOutput{} }
-func (m *DeleteImagesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteImagesOutput) ProtoMessage()               {}
-func (*DeleteImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{5} }
+func (m *DeleteImagesOutput) Reset()         { *m = DeleteImagesOutput{} }
+func (m *DeleteImagesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteImagesOutput) ProtoMessage()    {}
+func (*DeleteImagesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{5}
+}
+func (m *DeleteImagesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteImagesOutput.Unmarshal(m, b)
+}
+func (m *DeleteImagesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteImagesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteImagesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteImagesOutput.Merge(dst, src)
+}
+func (m *DeleteImagesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteImagesOutput.Size(m)
+}
+func (m *DeleteImagesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteImagesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteImagesOutput proto.InternalMessageInfo
 
 func (m *DeleteImagesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -424,16 +575,37 @@ func (m *DeleteImagesOutput) GetJobId() string {
 }
 
 type ModifyImageAttributesInput struct {
-	Image            *string `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	ImageName        *string `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Image                *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	ImageName            *string  `protobuf:"bytes,2,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyImageAttributesInput) Reset()                    { *m = ModifyImageAttributesInput{} }
-func (m *ModifyImageAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyImageAttributesInput) ProtoMessage()               {}
-func (*ModifyImageAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{6} }
+func (m *ModifyImageAttributesInput) Reset()         { *m = ModifyImageAttributesInput{} }
+func (m *ModifyImageAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyImageAttributesInput) ProtoMessage()    {}
+func (*ModifyImageAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{6}
+}
+func (m *ModifyImageAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyImageAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyImageAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyImageAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyImageAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyImageAttributesInput.Merge(dst, src)
+}
+func (m *ModifyImageAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyImageAttributesInput.Size(m)
+}
+func (m *ModifyImageAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyImageAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyImageAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyImageAttributesInput) GetImage() string {
 	if m != nil && m.Image != nil {
@@ -457,16 +629,37 @@ func (m *ModifyImageAttributesInput) GetDescription() string {
 }
 
 type ModifyImageAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyImageAttributesOutput) Reset()                    { *m = ModifyImageAttributesOutput{} }
-func (m *ModifyImageAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyImageAttributesOutput) ProtoMessage()               {}
-func (*ModifyImageAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{7} }
+func (m *ModifyImageAttributesOutput) Reset()         { *m = ModifyImageAttributesOutput{} }
+func (m *ModifyImageAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyImageAttributesOutput) ProtoMessage()    {}
+func (*ModifyImageAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{7}
+}
+func (m *ModifyImageAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyImageAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyImageAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyImageAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyImageAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyImageAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyImageAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyImageAttributesOutput.Size(m)
+}
+func (m *ModifyImageAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyImageAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyImageAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyImageAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -490,15 +683,36 @@ func (m *ModifyImageAttributesOutput) GetMessage() string {
 }
 
 type GrantImageToUsersInput struct {
-	Image            *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Image                *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	Users                []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GrantImageToUsersInput) Reset()                    { *m = GrantImageToUsersInput{} }
-func (m *GrantImageToUsersInput) String() string            { return proto.CompactTextString(m) }
-func (*GrantImageToUsersInput) ProtoMessage()               {}
-func (*GrantImageToUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{8} }
+func (m *GrantImageToUsersInput) Reset()         { *m = GrantImageToUsersInput{} }
+func (m *GrantImageToUsersInput) String() string { return proto.CompactTextString(m) }
+func (*GrantImageToUsersInput) ProtoMessage()    {}
+func (*GrantImageToUsersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{8}
+}
+func (m *GrantImageToUsersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantImageToUsersInput.Unmarshal(m, b)
+}
+func (m *GrantImageToUsersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantImageToUsersInput.Marshal(b, m, deterministic)
+}
+func (dst *GrantImageToUsersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantImageToUsersInput.Merge(dst, src)
+}
+func (m *GrantImageToUsersInput) XXX_Size() int {
+	return xxx_messageInfo_GrantImageToUsersInput.Size(m)
+}
+func (m *GrantImageToUsersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantImageToUsersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantImageToUsersInput proto.InternalMessageInfo
 
 func (m *GrantImageToUsersInput) GetImage() string {
 	if m != nil && m.Image != nil {
@@ -515,16 +729,37 @@ func (m *GrantImageToUsersInput) GetUsers() []string {
 }
 
 type GrantImageToUsersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GrantImageToUsersOutput) Reset()                    { *m = GrantImageToUsersOutput{} }
-func (m *GrantImageToUsersOutput) String() string            { return proto.CompactTextString(m) }
-func (*GrantImageToUsersOutput) ProtoMessage()               {}
-func (*GrantImageToUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{9} }
+func (m *GrantImageToUsersOutput) Reset()         { *m = GrantImageToUsersOutput{} }
+func (m *GrantImageToUsersOutput) String() string { return proto.CompactTextString(m) }
+func (*GrantImageToUsersOutput) ProtoMessage()    {}
+func (*GrantImageToUsersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{9}
+}
+func (m *GrantImageToUsersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantImageToUsersOutput.Unmarshal(m, b)
+}
+func (m *GrantImageToUsersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantImageToUsersOutput.Marshal(b, m, deterministic)
+}
+func (dst *GrantImageToUsersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantImageToUsersOutput.Merge(dst, src)
+}
+func (m *GrantImageToUsersOutput) XXX_Size() int {
+	return xxx_messageInfo_GrantImageToUsersOutput.Size(m)
+}
+func (m *GrantImageToUsersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantImageToUsersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantImageToUsersOutput proto.InternalMessageInfo
 
 func (m *GrantImageToUsersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -548,15 +783,36 @@ func (m *GrantImageToUsersOutput) GetMessage() string {
 }
 
 type RevokeImageFromUsersInput struct {
-	Image            *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	Users            []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Image                *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	Users                []string `protobuf:"bytes,2,rep,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RevokeImageFromUsersInput) Reset()                    { *m = RevokeImageFromUsersInput{} }
-func (m *RevokeImageFromUsersInput) String() string            { return proto.CompactTextString(m) }
-func (*RevokeImageFromUsersInput) ProtoMessage()               {}
-func (*RevokeImageFromUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{10} }
+func (m *RevokeImageFromUsersInput) Reset()         { *m = RevokeImageFromUsersInput{} }
+func (m *RevokeImageFromUsersInput) String() string { return proto.CompactTextString(m) }
+func (*RevokeImageFromUsersInput) ProtoMessage()    {}
+func (*RevokeImageFromUsersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{10}
+}
+func (m *RevokeImageFromUsersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeImageFromUsersInput.Unmarshal(m, b)
+}
+func (m *RevokeImageFromUsersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeImageFromUsersInput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeImageFromUsersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeImageFromUsersInput.Merge(dst, src)
+}
+func (m *RevokeImageFromUsersInput) XXX_Size() int {
+	return xxx_messageInfo_RevokeImageFromUsersInput.Size(m)
+}
+func (m *RevokeImageFromUsersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeImageFromUsersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeImageFromUsersInput proto.InternalMessageInfo
 
 func (m *RevokeImageFromUsersInput) GetImage() string {
 	if m != nil && m.Image != nil {
@@ -573,16 +829,37 @@ func (m *RevokeImageFromUsersInput) GetUsers() []string {
 }
 
 type RevokeImageFromUsersOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RevokeImageFromUsersOutput) Reset()                    { *m = RevokeImageFromUsersOutput{} }
-func (m *RevokeImageFromUsersOutput) String() string            { return proto.CompactTextString(m) }
-func (*RevokeImageFromUsersOutput) ProtoMessage()               {}
-func (*RevokeImageFromUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{11} }
+func (m *RevokeImageFromUsersOutput) Reset()         { *m = RevokeImageFromUsersOutput{} }
+func (m *RevokeImageFromUsersOutput) String() string { return proto.CompactTextString(m) }
+func (*RevokeImageFromUsersOutput) ProtoMessage()    {}
+func (*RevokeImageFromUsersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{11}
+}
+func (m *RevokeImageFromUsersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeImageFromUsersOutput.Unmarshal(m, b)
+}
+func (m *RevokeImageFromUsersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeImageFromUsersOutput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeImageFromUsersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeImageFromUsersOutput.Merge(dst, src)
+}
+func (m *RevokeImageFromUsersOutput) XXX_Size() int {
+	return xxx_messageInfo_RevokeImageFromUsersOutput.Size(m)
+}
+func (m *RevokeImageFromUsersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeImageFromUsersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeImageFromUsersOutput proto.InternalMessageInfo
 
 func (m *RevokeImageFromUsersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -606,16 +883,37 @@ func (m *RevokeImageFromUsersOutput) GetMessage() string {
 }
 
 type DescribeImageUsersInput struct {
-	ImageId          *string `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	Offset           *int32  `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32  `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ImageId              *string  `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	Offset               *int32   `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeImageUsersInput) Reset()                    { *m = DescribeImageUsersInput{} }
-func (m *DescribeImageUsersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeImageUsersInput) ProtoMessage()               {}
-func (*DescribeImageUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{12} }
+func (m *DescribeImageUsersInput) Reset()         { *m = DescribeImageUsersInput{} }
+func (m *DescribeImageUsersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeImageUsersInput) ProtoMessage()    {}
+func (*DescribeImageUsersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{12}
+}
+func (m *DescribeImageUsersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeImageUsersInput.Unmarshal(m, b)
+}
+func (m *DescribeImageUsersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeImageUsersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeImageUsersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeImageUsersInput.Merge(dst, src)
+}
+func (m *DescribeImageUsersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeImageUsersInput.Size(m)
+}
+func (m *DescribeImageUsersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeImageUsersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeImageUsersInput proto.InternalMessageInfo
 
 func (m *DescribeImageUsersInput) GetImageId() string {
 	if m != nil && m.ImageId != nil {
@@ -639,18 +937,39 @@ func (m *DescribeImageUsersInput) GetLimit() int32 {
 }
 
 type DescribeImageUsersOutput struct {
-	Action           *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ImageUserSet     []*DescribeImageUsersOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_user_set,json=imageUserSet" json:"image_user_set,omitempty"`
-	TotalCount       *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                   `json:"-"`
+	Action               *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ImageUserSet         []*DescribeImageUsersOutput_ResponseItem `protobuf:"bytes,4,rep,name=image_user_set,json=imageUserSet" json:"image_user_set,omitempty"`
+	TotalCount           *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                 `json:"-"`
+	XXX_unrecognized     []byte                                   `json:"-"`
+	XXX_sizecache        int32                                    `json:"-"`
 }
 
-func (m *DescribeImageUsersOutput) Reset()                    { *m = DescribeImageUsersOutput{} }
-func (m *DescribeImageUsersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeImageUsersOutput) ProtoMessage()               {}
-func (*DescribeImageUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{13} }
+func (m *DescribeImageUsersOutput) Reset()         { *m = DescribeImageUsersOutput{} }
+func (m *DescribeImageUsersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeImageUsersOutput) ProtoMessage()    {}
+func (*DescribeImageUsersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{13}
+}
+func (m *DescribeImageUsersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeImageUsersOutput.Unmarshal(m, b)
+}
+func (m *DescribeImageUsersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeImageUsersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeImageUsersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeImageUsersOutput.Merge(dst, src)
+}
+func (m *DescribeImageUsersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeImageUsersOutput.Size(m)
+}
+func (m *DescribeImageUsersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeImageUsersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeImageUsersOutput proto.InternalMessageInfo
 
 func (m *DescribeImageUsersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -688,18 +1007,37 @@ func (m *DescribeImageUsersOutput) GetTotalCount() int32 {
 }
 
 type DescribeImageUsersOutput_ResponseItem struct {
-	ImageId          *string                     `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
-	User             *User                       `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
-	CreateTime       *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
-	XXX_unrecognized []byte                      `json:"-"`
+	ImageId              *string              `protobuf:"bytes,1,opt,name=image_id,json=imageId" json:"image_id,omitempty"`
+	User                 *User                `protobuf:"bytes,2,opt,name=user" json:"user,omitempty"`
+	CreateTime           *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime" json:"create_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *DescribeImageUsersOutput_ResponseItem) Reset()         { *m = DescribeImageUsersOutput_ResponseItem{} }
 func (m *DescribeImageUsersOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeImageUsersOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeImageUsersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor6, []int{13, 0}
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{13, 0}
 }
+func (m *DescribeImageUsersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeImageUsersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeImageUsersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeImageUsersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeImageUsersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeImageUsersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeImageUsersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeImageUsersOutput_ResponseItem.Size(m)
+}
+func (m *DescribeImageUsersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeImageUsersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeImageUsersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeImageUsersOutput_ResponseItem) GetImageId() string {
 	if m != nil && m.ImageId != nil {
@@ -715,7 +1053,7 @@ func (m *DescribeImageUsersOutput_ResponseItem) GetUser() *User {
 	return nil
 }
 
-func (m *DescribeImageUsersOutput_ResponseItem) GetCreateTime() *google_protobuf1.Timestamp {
+func (m *DescribeImageUsersOutput_ResponseItem) GetCreateTime() *timestamp.Timestamp {
 	if m != nil {
 		return m.CreateTime
 	}
@@ -723,16 +1061,37 @@ func (m *DescribeImageUsersOutput_ResponseItem) GetCreateTime() *google_protobuf
 }
 
 type CloneImagesInput struct {
-	Image            *string `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
-	Count            *int32  `protobuf:"varint,2,opt,name=count" json:"count,omitempty"`
-	ImageName        *string `protobuf:"bytes,3,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Image                *string  `protobuf:"bytes,1,opt,name=image" json:"image,omitempty"`
+	Count                *int32   `protobuf:"varint,2,opt,name=count" json:"count,omitempty"`
+	ImageName            *string  `protobuf:"bytes,3,opt,name=image_name,json=imageName" json:"image_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CloneImagesInput) Reset()                    { *m = CloneImagesInput{} }
-func (m *CloneImagesInput) String() string            { return proto.CompactTextString(m) }
-func (*CloneImagesInput) ProtoMessage()               {}
-func (*CloneImagesInput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{14} }
+func (m *CloneImagesInput) Reset()         { *m = CloneImagesInput{} }
+func (m *CloneImagesInput) String() string { return proto.CompactTextString(m) }
+func (*CloneImagesInput) ProtoMessage()    {}
+func (*CloneImagesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{14}
+}
+func (m *CloneImagesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CloneImagesInput.Unmarshal(m, b)
+}
+func (m *CloneImagesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CloneImagesInput.Marshal(b, m, deterministic)
+}
+func (dst *CloneImagesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CloneImagesInput.Merge(dst, src)
+}
+func (m *CloneImagesInput) XXX_Size() int {
+	return xxx_messageInfo_CloneImagesInput.Size(m)
+}
+func (m *CloneImagesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CloneImagesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CloneImagesInput proto.InternalMessageInfo
 
 func (m *CloneImagesInput) GetImage() string {
 	if m != nil && m.Image != nil {
@@ -756,16 +1115,37 @@ func (m *CloneImagesInput) GetImageName() string {
 }
 
 type CloneImagesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CloneImagesOutput) Reset()                    { *m = CloneImagesOutput{} }
-func (m *CloneImagesOutput) String() string            { return proto.CompactTextString(m) }
-func (*CloneImagesOutput) ProtoMessage()               {}
-func (*CloneImagesOutput) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{15} }
+func (m *CloneImagesOutput) Reset()         { *m = CloneImagesOutput{} }
+func (m *CloneImagesOutput) String() string { return proto.CompactTextString(m) }
+func (*CloneImagesOutput) ProtoMessage()    {}
+func (*CloneImagesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_image_e0f7466fe297ae4f, []int{15}
+}
+func (m *CloneImagesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CloneImagesOutput.Unmarshal(m, b)
+}
+func (m *CloneImagesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CloneImagesOutput.Marshal(b, m, deterministic)
+}
+func (dst *CloneImagesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CloneImagesOutput.Merge(dst, src)
+}
+func (m *CloneImagesOutput) XXX_Size() int {
+	return xxx_messageInfo_CloneImagesOutput.Size(m)
+}
+func (m *CloneImagesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CloneImagesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CloneImagesOutput proto.InternalMessageInfo
 
 func (m *CloneImagesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -809,9 +1189,9 @@ func init() {
 	proto.RegisterType((*CloneImagesOutput)(nil), "service.CloneImagesOutput")
 }
 
-func init() { proto.RegisterFile("image.proto", fileDescriptor6) }
+func init() { proto.RegisterFile("image.proto", fileDescriptor_image_e0f7466fe297ae4f) }
 
-var fileDescriptor6 = []byte{
+var fileDescriptor_image_e0f7466fe297ae4f = []byte{
 	// 1092 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0x5f, 0x6f, 0xe3, 0x44,
 	0x10, 0x57, 0x92, 0xba, 0x49, 0x26, 0xfd, 0xbb, 0xa4, 0x77, 0xae, 0xcb, 0x5d, 0x73, 0x3e, 0x90,

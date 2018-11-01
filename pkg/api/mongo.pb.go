@@ -13,17 +13,44 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeMongoNodesInput struct {
-	Mongo            *string `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
-	Offset           *int32  `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32  `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Mongo                *string  `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
+	Offset               *int32   `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeMongoNodesInput) Reset()                    { *m = DescribeMongoNodesInput{} }
-func (m *DescribeMongoNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeMongoNodesInput) ProtoMessage()               {}
-func (*DescribeMongoNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{0} }
+func (m *DescribeMongoNodesInput) Reset()         { *m = DescribeMongoNodesInput{} }
+func (m *DescribeMongoNodesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeMongoNodesInput) ProtoMessage()    {}
+func (*DescribeMongoNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{0}
+}
+func (m *DescribeMongoNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongoNodesInput.Unmarshal(m, b)
+}
+func (m *DescribeMongoNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongoNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongoNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongoNodesInput.Merge(dst, src)
+}
+func (m *DescribeMongoNodesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongoNodesInput.Size(m)
+}
+func (m *DescribeMongoNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongoNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongoNodesInput proto.InternalMessageInfo
 
 func (m *DescribeMongoNodesInput) GetMongo() string {
 	if m != nil && m.Mongo != nil {
@@ -47,18 +74,39 @@ func (m *DescribeMongoNodesInput) GetLimit() int32 {
 }
 
 type DescribeMongoNodesOutput struct {
-	Action           *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	MongoNodeSet     []*DescribeMongoNodesOutput_ResponseItem `protobuf:"bytes,4,rep,name=mongo_node_set,json=mongoNodeSet" json:"mongo_node_set,omitempty"`
-	TotalCount       *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                   `json:"-"`
+	Action               *string                                  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	MongoNodeSet         []*DescribeMongoNodesOutput_ResponseItem `protobuf:"bytes,4,rep,name=mongo_node_set,json=mongoNodeSet" json:"mongo_node_set,omitempty"`
+	TotalCount           *int32                                   `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                 `json:"-"`
+	XXX_unrecognized     []byte                                   `json:"-"`
+	XXX_sizecache        int32                                    `json:"-"`
 }
 
-func (m *DescribeMongoNodesOutput) Reset()                    { *m = DescribeMongoNodesOutput{} }
-func (m *DescribeMongoNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeMongoNodesOutput) ProtoMessage()               {}
-func (*DescribeMongoNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{1} }
+func (m *DescribeMongoNodesOutput) Reset()         { *m = DescribeMongoNodesOutput{} }
+func (m *DescribeMongoNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeMongoNodesOutput) ProtoMessage()    {}
+func (*DescribeMongoNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{1}
+}
+func (m *DescribeMongoNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongoNodesOutput.Unmarshal(m, b)
+}
+func (m *DescribeMongoNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongoNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongoNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongoNodesOutput.Merge(dst, src)
+}
+func (m *DescribeMongoNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongoNodesOutput.Size(m)
+}
+func (m *DescribeMongoNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongoNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongoNodesOutput proto.InternalMessageInfo
 
 func (m *DescribeMongoNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -96,21 +144,40 @@ func (m *DescribeMongoNodesOutput) GetTotalCount() int32 {
 }
 
 type DescribeMongoNodesOutput_ResponseItem struct {
-	Status           *string `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
-	MongoId          *string `protobuf:"bytes,2,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
-	VxnetId          *string `protobuf:"bytes,3,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
-	Ip               *string `protobuf:"bytes,4,opt,name=ip" json:"ip,omitempty"`
-	Primary          *int32  `protobuf:"varint,5,opt,name=primary" json:"primary,omitempty"`
-	MongoNodeId      *string `protobuf:"bytes,6,opt,name=mongo_node_id,json=mongoNodeId" json:"mongo_node_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Status               *string  `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+	MongoId              *string  `protobuf:"bytes,2,opt,name=mongo_id,json=mongoId" json:"mongo_id,omitempty"`
+	VxnetId              *string  `protobuf:"bytes,3,opt,name=vxnet_id,json=vxnetId" json:"vxnet_id,omitempty"`
+	Ip                   *string  `protobuf:"bytes,4,opt,name=ip" json:"ip,omitempty"`
+	Primary              *int32   `protobuf:"varint,5,opt,name=primary" json:"primary,omitempty"`
+	MongoNodeId          *string  `protobuf:"bytes,6,opt,name=mongo_node_id,json=mongoNodeId" json:"mongo_node_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeMongoNodesOutput_ResponseItem) Reset()         { *m = DescribeMongoNodesOutput_ResponseItem{} }
 func (m *DescribeMongoNodesOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeMongoNodesOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeMongoNodesOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor12, []int{1, 0}
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{1, 0}
 }
+func (m *DescribeMongoNodesOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongoNodesOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeMongoNodesOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongoNodesOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongoNodesOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongoNodesOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeMongoNodesOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongoNodesOutput_ResponseItem.Size(m)
+}
+func (m *DescribeMongoNodesOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongoNodesOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongoNodesOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeMongoNodesOutput_ResponseItem) GetStatus() string {
 	if m != nil && m.Status != nil {
@@ -155,16 +222,37 @@ func (m *DescribeMongoNodesOutput_ResponseItem) GetMongoNodeId() string {
 }
 
 type DescribeMongoParametersInput struct {
-	Mongo            *string `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
-	Offset           *int32  `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32  `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Mongo                *string  `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
+	Offset               *int32   `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,3,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeMongoParametersInput) Reset()                    { *m = DescribeMongoParametersInput{} }
-func (m *DescribeMongoParametersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeMongoParametersInput) ProtoMessage()               {}
-func (*DescribeMongoParametersInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{2} }
+func (m *DescribeMongoParametersInput) Reset()         { *m = DescribeMongoParametersInput{} }
+func (m *DescribeMongoParametersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeMongoParametersInput) ProtoMessage()    {}
+func (*DescribeMongoParametersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{2}
+}
+func (m *DescribeMongoParametersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongoParametersInput.Unmarshal(m, b)
+}
+func (m *DescribeMongoParametersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongoParametersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongoParametersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongoParametersInput.Merge(dst, src)
+}
+func (m *DescribeMongoParametersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongoParametersInput.Size(m)
+}
+func (m *DescribeMongoParametersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongoParametersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongoParametersInput proto.InternalMessageInfo
 
 func (m *DescribeMongoParametersInput) GetMongo() string {
 	if m != nil && m.Mongo != nil {
@@ -188,18 +276,39 @@ func (m *DescribeMongoParametersInput) GetLimit() int32 {
 }
 
 type DescribeMongoParametersOutput struct {
-	Action           *string                                       `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                                        `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                                       `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	ParameterSet     []*DescribeMongoParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=parameter_set,json=parameterSet" json:"parameter_set,omitempty"`
-	TotalCount       *int32                                        `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                                        `json:"-"`
+	Action               *string                                       `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                                        `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                                       `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	ParameterSet         []*DescribeMongoParametersOutput_ResponseItem `protobuf:"bytes,4,rep,name=parameter_set,json=parameterSet" json:"parameter_set,omitempty"`
+	TotalCount           *int32                                        `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                      `json:"-"`
+	XXX_unrecognized     []byte                                        `json:"-"`
+	XXX_sizecache        int32                                         `json:"-"`
 }
 
-func (m *DescribeMongoParametersOutput) Reset()                    { *m = DescribeMongoParametersOutput{} }
-func (m *DescribeMongoParametersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeMongoParametersOutput) ProtoMessage()               {}
-func (*DescribeMongoParametersOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{3} }
+func (m *DescribeMongoParametersOutput) Reset()         { *m = DescribeMongoParametersOutput{} }
+func (m *DescribeMongoParametersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeMongoParametersOutput) ProtoMessage()    {}
+func (*DescribeMongoParametersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{3}
+}
+func (m *DescribeMongoParametersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongoParametersOutput.Unmarshal(m, b)
+}
+func (m *DescribeMongoParametersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongoParametersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongoParametersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongoParametersOutput.Merge(dst, src)
+}
+func (m *DescribeMongoParametersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongoParametersOutput.Size(m)
+}
+func (m *DescribeMongoParametersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongoParametersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongoParametersOutput proto.InternalMessageInfo
 
 func (m *DescribeMongoParametersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -237,14 +346,16 @@ func (m *DescribeMongoParametersOutput) GetTotalCount() int32 {
 }
 
 type DescribeMongoParametersOutput_ResponseItem struct {
-	IsStatic         *int32  `protobuf:"varint,1,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
-	ParameterValue   *string `protobuf:"bytes,2,opt,name=parameter_value,json=parameterValue" json:"parameter_value,omitempty"`
-	ParameterType    *string `protobuf:"bytes,3,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
-	IsReadonly       *int32  `protobuf:"varint,4,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
-	OptName          *string `protobuf:"bytes,5,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
-	ParameterName    *string `protobuf:"bytes,6,opt,name=parameter_name,json=parameterName" json:"parameter_name,omitempty"`
-	ResourceType     *string `protobuf:"bytes,7,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	IsStatic             *int32   `protobuf:"varint,1,opt,name=is_static,json=isStatic" json:"is_static,omitempty"`
+	ParameterValue       *string  `protobuf:"bytes,2,opt,name=parameter_value,json=parameterValue" json:"parameter_value,omitempty"`
+	ParameterType        *string  `protobuf:"bytes,3,opt,name=parameter_type,json=parameterType" json:"parameter_type,omitempty"`
+	IsReadonly           *int32   `protobuf:"varint,4,opt,name=is_readonly,json=isReadonly" json:"is_readonly,omitempty"`
+	OptName              *string  `protobuf:"bytes,5,opt,name=opt_name,json=optName" json:"opt_name,omitempty"`
+	ParameterName        *string  `protobuf:"bytes,6,opt,name=parameter_name,json=parameterName" json:"parameter_name,omitempty"`
+	ResourceType         *string  `protobuf:"bytes,7,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeMongoParametersOutput_ResponseItem) Reset() {
@@ -255,8 +366,25 @@ func (m *DescribeMongoParametersOutput_ResponseItem) String() string {
 }
 func (*DescribeMongoParametersOutput_ResponseItem) ProtoMessage() {}
 func (*DescribeMongoParametersOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor12, []int{3, 0}
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{3, 0}
 }
+func (m *DescribeMongoParametersOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongoParametersOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeMongoParametersOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongoParametersOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongoParametersOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongoParametersOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeMongoParametersOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongoParametersOutput_ResponseItem.Size(m)
+}
+func (m *DescribeMongoParametersOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongoParametersOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongoParametersOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeMongoParametersOutput_ResponseItem) GetIsStatic() int32 {
 	if m != nil && m.IsStatic != nil {
@@ -308,16 +436,37 @@ func (m *DescribeMongoParametersOutput_ResponseItem) GetResourceType() string {
 }
 
 type ResizeMongosInput struct {
-	Mongos           []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
-	MongoType        *int32   `protobuf:"varint,2,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
-	StorageSize      *int32   `protobuf:"varint,3,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Mongos               []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
+	MongoType            *int32   `protobuf:"varint,2,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
+	StorageSize          *int32   `protobuf:"varint,3,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeMongosInput) Reset()                    { *m = ResizeMongosInput{} }
-func (m *ResizeMongosInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeMongosInput) ProtoMessage()               {}
-func (*ResizeMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{4} }
+func (m *ResizeMongosInput) Reset()         { *m = ResizeMongosInput{} }
+func (m *ResizeMongosInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeMongosInput) ProtoMessage()    {}
+func (*ResizeMongosInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{4}
+}
+func (m *ResizeMongosInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeMongosInput.Unmarshal(m, b)
+}
+func (m *ResizeMongosInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeMongosInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeMongosInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeMongosInput.Merge(dst, src)
+}
+func (m *ResizeMongosInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeMongosInput.Size(m)
+}
+func (m *ResizeMongosInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeMongosInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeMongosInput proto.InternalMessageInfo
 
 func (m *ResizeMongosInput) GetMongos() []string {
 	if m != nil {
@@ -341,17 +490,38 @@ func (m *ResizeMongosInput) GetStorageSize() int32 {
 }
 
 type ResizeMongosOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeMongosOutput) Reset()                    { *m = ResizeMongosOutput{} }
-func (m *ResizeMongosOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeMongosOutput) ProtoMessage()               {}
-func (*ResizeMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{5} }
+func (m *ResizeMongosOutput) Reset()         { *m = ResizeMongosOutput{} }
+func (m *ResizeMongosOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeMongosOutput) ProtoMessage()    {}
+func (*ResizeMongosOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{5}
+}
+func (m *ResizeMongosOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeMongosOutput.Unmarshal(m, b)
+}
+func (m *ResizeMongosOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeMongosOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeMongosOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeMongosOutput.Merge(dst, src)
+}
+func (m *ResizeMongosOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeMongosOutput.Size(m)
+}
+func (m *ResizeMongosOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeMongosOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeMongosOutput proto.InternalMessageInfo
 
 func (m *ResizeMongosOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -382,21 +552,42 @@ func (m *ResizeMongosOutput) GetJobId() string {
 }
 
 type CreateMongoInput struct {
-	Vxnet            *string           `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	MongoVersion     *string           `protobuf:"bytes,2,opt,name=mongo_version,json=mongoVersion" json:"mongo_version,omitempty"`
-	MongoType        *int32            `protobuf:"varint,3,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
-	StorageSize      *int32            `protobuf:"varint,4,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	MongoName        *string           `protobuf:"bytes,5,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
-	Description      *string           `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
-	AutoBackupTime   *int32            `protobuf:"varint,7,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	PrivateIps       map[string]string `protobuf:"bytes,8,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_unrecognized []byte            `json:"-"`
+	Vxnet                *string           `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	MongoVersion         *string           `protobuf:"bytes,2,opt,name=mongo_version,json=mongoVersion" json:"mongo_version,omitempty"`
+	MongoType            *int32            `protobuf:"varint,3,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
+	StorageSize          *int32            `protobuf:"varint,4,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	MongoName            *string           `protobuf:"bytes,5,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
+	Description          *string           `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime       *int32            `protobuf:"varint,7,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	PrivateIps           map[string]string `protobuf:"bytes,8,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *CreateMongoInput) Reset()                    { *m = CreateMongoInput{} }
-func (m *CreateMongoInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateMongoInput) ProtoMessage()               {}
-func (*CreateMongoInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{6} }
+func (m *CreateMongoInput) Reset()         { *m = CreateMongoInput{} }
+func (m *CreateMongoInput) String() string { return proto.CompactTextString(m) }
+func (*CreateMongoInput) ProtoMessage()    {}
+func (*CreateMongoInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{6}
+}
+func (m *CreateMongoInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateMongoInput.Unmarshal(m, b)
+}
+func (m *CreateMongoInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateMongoInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateMongoInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateMongoInput.Merge(dst, src)
+}
+func (m *CreateMongoInput) XXX_Size() int {
+	return xxx_messageInfo_CreateMongoInput.Size(m)
+}
+func (m *CreateMongoInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateMongoInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateMongoInput proto.InternalMessageInfo
 
 func (m *CreateMongoInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -455,17 +646,38 @@ func (m *CreateMongoInput) GetPrivateIps() map[string]string {
 }
 
 type CreateMongoOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Mongo            *string `protobuf:"bytes,4,opt,name=mongo" json:"mongo,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Mongo                *string  `protobuf:"bytes,4,opt,name=mongo" json:"mongo,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateMongoOutput) Reset()                    { *m = CreateMongoOutput{} }
-func (m *CreateMongoOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateMongoOutput) ProtoMessage()               {}
-func (*CreateMongoOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{7} }
+func (m *CreateMongoOutput) Reset()         { *m = CreateMongoOutput{} }
+func (m *CreateMongoOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateMongoOutput) ProtoMessage()    {}
+func (*CreateMongoOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{7}
+}
+func (m *CreateMongoOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateMongoOutput.Unmarshal(m, b)
+}
+func (m *CreateMongoOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateMongoOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateMongoOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateMongoOutput.Merge(dst, src)
+}
+func (m *CreateMongoOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateMongoOutput.Size(m)
+}
+func (m *CreateMongoOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateMongoOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateMongoOutput proto.InternalMessageInfo
 
 func (m *CreateMongoOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -496,14 +708,35 @@ func (m *CreateMongoOutput) GetMongo() string {
 }
 
 type StopMongosInput struct {
-	Mongos           []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Mongos               []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopMongosInput) Reset()                    { *m = StopMongosInput{} }
-func (m *StopMongosInput) String() string            { return proto.CompactTextString(m) }
-func (*StopMongosInput) ProtoMessage()               {}
-func (*StopMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{8} }
+func (m *StopMongosInput) Reset()         { *m = StopMongosInput{} }
+func (m *StopMongosInput) String() string { return proto.CompactTextString(m) }
+func (*StopMongosInput) ProtoMessage()    {}
+func (*StopMongosInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{8}
+}
+func (m *StopMongosInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopMongosInput.Unmarshal(m, b)
+}
+func (m *StopMongosInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopMongosInput.Marshal(b, m, deterministic)
+}
+func (dst *StopMongosInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopMongosInput.Merge(dst, src)
+}
+func (m *StopMongosInput) XXX_Size() int {
+	return xxx_messageInfo_StopMongosInput.Size(m)
+}
+func (m *StopMongosInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopMongosInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopMongosInput proto.InternalMessageInfo
 
 func (m *StopMongosInput) GetMongos() []string {
 	if m != nil {
@@ -513,17 +746,38 @@ func (m *StopMongosInput) GetMongos() []string {
 }
 
 type StopMongosOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopMongosOutput) Reset()                    { *m = StopMongosOutput{} }
-func (m *StopMongosOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopMongosOutput) ProtoMessage()               {}
-func (*StopMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{9} }
+func (m *StopMongosOutput) Reset()         { *m = StopMongosOutput{} }
+func (m *StopMongosOutput) String() string { return proto.CompactTextString(m) }
+func (*StopMongosOutput) ProtoMessage()    {}
+func (*StopMongosOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{9}
+}
+func (m *StopMongosOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopMongosOutput.Unmarshal(m, b)
+}
+func (m *StopMongosOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopMongosOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopMongosOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopMongosOutput.Merge(dst, src)
+}
+func (m *StopMongosOutput) XXX_Size() int {
+	return xxx_messageInfo_StopMongosOutput.Size(m)
+}
+func (m *StopMongosOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopMongosOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopMongosOutput proto.InternalMessageInfo
 
 func (m *StopMongosOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -554,14 +808,35 @@ func (m *StopMongosOutput) GetJobId() string {
 }
 
 type StartMongosInput struct {
-	Mongos           []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Mongos               []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartMongosInput) Reset()                    { *m = StartMongosInput{} }
-func (m *StartMongosInput) String() string            { return proto.CompactTextString(m) }
-func (*StartMongosInput) ProtoMessage()               {}
-func (*StartMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{10} }
+func (m *StartMongosInput) Reset()         { *m = StartMongosInput{} }
+func (m *StartMongosInput) String() string { return proto.CompactTextString(m) }
+func (*StartMongosInput) ProtoMessage()    {}
+func (*StartMongosInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{10}
+}
+func (m *StartMongosInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartMongosInput.Unmarshal(m, b)
+}
+func (m *StartMongosInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartMongosInput.Marshal(b, m, deterministic)
+}
+func (dst *StartMongosInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartMongosInput.Merge(dst, src)
+}
+func (m *StartMongosInput) XXX_Size() int {
+	return xxx_messageInfo_StartMongosInput.Size(m)
+}
+func (m *StartMongosInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartMongosInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartMongosInput proto.InternalMessageInfo
 
 func (m *StartMongosInput) GetMongos() []string {
 	if m != nil {
@@ -571,17 +846,38 @@ func (m *StartMongosInput) GetMongos() []string {
 }
 
 type StartMongosOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartMongosOutput) Reset()                    { *m = StartMongosOutput{} }
-func (m *StartMongosOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartMongosOutput) ProtoMessage()               {}
-func (*StartMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{11} }
+func (m *StartMongosOutput) Reset()         { *m = StartMongosOutput{} }
+func (m *StartMongosOutput) String() string { return proto.CompactTextString(m) }
+func (*StartMongosOutput) ProtoMessage()    {}
+func (*StartMongosOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{11}
+}
+func (m *StartMongosOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartMongosOutput.Unmarshal(m, b)
+}
+func (m *StartMongosOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartMongosOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartMongosOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartMongosOutput.Merge(dst, src)
+}
+func (m *StartMongosOutput) XXX_Size() int {
+	return xxx_messageInfo_StartMongosOutput.Size(m)
+}
+func (m *StartMongosOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartMongosOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartMongosOutput proto.InternalMessageInfo
 
 func (m *StartMongosOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -612,20 +908,41 @@ func (m *StartMongosOutput) GetJobId() string {
 }
 
 type DescribeMongosInput struct {
-	Limit            *int32   `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
-	MongoName        *string  `protobuf:"bytes,2,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
-	Mongos           []string `protobuf:"bytes,3,rep,name=mongos" json:"mongos,omitempty"`
-	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Status           []string `protobuf:"bytes,5,rep,name=status" json:"status,omitempty"`
-	Tags             []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Limit                *int32   `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	MongoName            *string  `protobuf:"bytes,2,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
+	Mongos               []string `protobuf:"bytes,3,rep,name=mongos" json:"mongos,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Status               []string `protobuf:"bytes,5,rep,name=status" json:"status,omitempty"`
+	Tags                 []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,7,opt,name=verbose" json:"verbose,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeMongosInput) Reset()                    { *m = DescribeMongosInput{} }
-func (m *DescribeMongosInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeMongosInput) ProtoMessage()               {}
-func (*DescribeMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{12} }
+func (m *DescribeMongosInput) Reset()         { *m = DescribeMongosInput{} }
+func (m *DescribeMongosInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeMongosInput) ProtoMessage()    {}
+func (*DescribeMongosInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{12}
+}
+func (m *DescribeMongosInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongosInput.Unmarshal(m, b)
+}
+func (m *DescribeMongosInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongosInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongosInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongosInput.Merge(dst, src)
+}
+func (m *DescribeMongosInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongosInput.Size(m)
+}
+func (m *DescribeMongosInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongosInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongosInput proto.InternalMessageInfo
 
 func (m *DescribeMongosInput) GetLimit() int32 {
 	if m != nil && m.Limit != nil {
@@ -677,18 +994,39 @@ func (m *DescribeMongosInput) GetVerbose() int32 {
 }
 
 type DescribeMongosOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TotalCount       *int32   `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	MongoSet         []*Mongo `protobuf:"bytes,5,rep,name=mongo_set,json=mongoSet" json:"mongo_set,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount           *int32   `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	MongoSet             []*Mongo `protobuf:"bytes,5,rep,name=mongo_set,json=mongoSet" json:"mongo_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeMongosOutput) Reset()                    { *m = DescribeMongosOutput{} }
-func (m *DescribeMongosOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeMongosOutput) ProtoMessage()               {}
-func (*DescribeMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{13} }
+func (m *DescribeMongosOutput) Reset()         { *m = DescribeMongosOutput{} }
+func (m *DescribeMongosOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeMongosOutput) ProtoMessage()    {}
+func (*DescribeMongosOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{13}
+}
+func (m *DescribeMongosOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeMongosOutput.Unmarshal(m, b)
+}
+func (m *DescribeMongosOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeMongosOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeMongosOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeMongosOutput.Merge(dst, src)
+}
+func (m *DescribeMongosOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeMongosOutput.Size(m)
+}
+func (m *DescribeMongosOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeMongosOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeMongosOutput proto.InternalMessageInfo
 
 func (m *DescribeMongosOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -726,14 +1064,35 @@ func (m *DescribeMongosOutput) GetMongoSet() []*Mongo {
 }
 
 type DeleteMongosInput struct {
-	Mongos           []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Mongos               []string `protobuf:"bytes,1,rep,name=mongos" json:"mongos,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteMongosInput) Reset()                    { *m = DeleteMongosInput{} }
-func (m *DeleteMongosInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteMongosInput) ProtoMessage()               {}
-func (*DeleteMongosInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{14} }
+func (m *DeleteMongosInput) Reset()         { *m = DeleteMongosInput{} }
+func (m *DeleteMongosInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteMongosInput) ProtoMessage()    {}
+func (*DeleteMongosInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{14}
+}
+func (m *DeleteMongosInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteMongosInput.Unmarshal(m, b)
+}
+func (m *DeleteMongosInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteMongosInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteMongosInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteMongosInput.Merge(dst, src)
+}
+func (m *DeleteMongosInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteMongosInput.Size(m)
+}
+func (m *DeleteMongosInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteMongosInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteMongosInput proto.InternalMessageInfo
 
 func (m *DeleteMongosInput) GetMongos() []string {
 	if m != nil {
@@ -743,17 +1102,38 @@ func (m *DeleteMongosInput) GetMongos() []string {
 }
 
 type DeleteMongosOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteMongosOutput) Reset()                    { *m = DeleteMongosOutput{} }
-func (m *DeleteMongosOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteMongosOutput) ProtoMessage()               {}
-func (*DeleteMongosOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{15} }
+func (m *DeleteMongosOutput) Reset()         { *m = DeleteMongosOutput{} }
+func (m *DeleteMongosOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteMongosOutput) ProtoMessage()    {}
+func (*DeleteMongosOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{15}
+}
+func (m *DeleteMongosOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteMongosOutput.Unmarshal(m, b)
+}
+func (m *DeleteMongosOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteMongosOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteMongosOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteMongosOutput.Merge(dst, src)
+}
+func (m *DeleteMongosOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteMongosOutput.Size(m)
+}
+func (m *DeleteMongosOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteMongosOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteMongosOutput proto.InternalMessageInfo
 
 func (m *DeleteMongosOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -784,18 +1164,39 @@ func (m *DeleteMongosOutput) GetJobId() string {
 }
 
 type CreateMongoFromSnapshotInput struct {
-	Vxnet            *string `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
-	MongoType        *int32  `protobuf:"varint,2,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
-	MongoName        *string `protobuf:"bytes,3,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
-	Description      *string `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	AutoBackupTime   *int32  `protobuf:"varint,5,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Vxnet                *string  `protobuf:"bytes,1,opt,name=vxnet" json:"vxnet,omitempty"`
+	MongoType            *int32   `protobuf:"varint,2,opt,name=mongo_type,json=mongoType" json:"mongo_type,omitempty"`
+	MongoName            *string  `protobuf:"bytes,3,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
+	Description          *string  `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime       *int32   `protobuf:"varint,5,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateMongoFromSnapshotInput) Reset()                    { *m = CreateMongoFromSnapshotInput{} }
-func (m *CreateMongoFromSnapshotInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateMongoFromSnapshotInput) ProtoMessage()               {}
-func (*CreateMongoFromSnapshotInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{16} }
+func (m *CreateMongoFromSnapshotInput) Reset()         { *m = CreateMongoFromSnapshotInput{} }
+func (m *CreateMongoFromSnapshotInput) String() string { return proto.CompactTextString(m) }
+func (*CreateMongoFromSnapshotInput) ProtoMessage()    {}
+func (*CreateMongoFromSnapshotInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{16}
+}
+func (m *CreateMongoFromSnapshotInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateMongoFromSnapshotInput.Unmarshal(m, b)
+}
+func (m *CreateMongoFromSnapshotInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateMongoFromSnapshotInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateMongoFromSnapshotInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateMongoFromSnapshotInput.Merge(dst, src)
+}
+func (m *CreateMongoFromSnapshotInput) XXX_Size() int {
+	return xxx_messageInfo_CreateMongoFromSnapshotInput.Size(m)
+}
+func (m *CreateMongoFromSnapshotInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateMongoFromSnapshotInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateMongoFromSnapshotInput proto.InternalMessageInfo
 
 func (m *CreateMongoFromSnapshotInput) GetVxnet() string {
 	if m != nil && m.Vxnet != nil {
@@ -833,17 +1234,38 @@ func (m *CreateMongoFromSnapshotInput) GetAutoBackupTime() int32 {
 }
 
 type CreateMongoFromSnapshotOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Mongo            *string `protobuf:"bytes,4,opt,name=mongo" json:"mongo,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Mongo                *string  `protobuf:"bytes,4,opt,name=mongo" json:"mongo,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateMongoFromSnapshotOutput) Reset()                    { *m = CreateMongoFromSnapshotOutput{} }
-func (m *CreateMongoFromSnapshotOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateMongoFromSnapshotOutput) ProtoMessage()               {}
-func (*CreateMongoFromSnapshotOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{17} }
+func (m *CreateMongoFromSnapshotOutput) Reset()         { *m = CreateMongoFromSnapshotOutput{} }
+func (m *CreateMongoFromSnapshotOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateMongoFromSnapshotOutput) ProtoMessage()    {}
+func (*CreateMongoFromSnapshotOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{17}
+}
+func (m *CreateMongoFromSnapshotOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateMongoFromSnapshotOutput.Unmarshal(m, b)
+}
+func (m *CreateMongoFromSnapshotOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateMongoFromSnapshotOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateMongoFromSnapshotOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateMongoFromSnapshotOutput.Merge(dst, src)
+}
+func (m *CreateMongoFromSnapshotOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateMongoFromSnapshotOutput.Size(m)
+}
+func (m *CreateMongoFromSnapshotOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateMongoFromSnapshotOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateMongoFromSnapshotOutput proto.InternalMessageInfo
 
 func (m *CreateMongoFromSnapshotOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -874,16 +1296,37 @@ func (m *CreateMongoFromSnapshotOutput) GetMongo() string {
 }
 
 type ChangeMongoVxnetInput struct {
-	Mongo            *string           `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
-	Vxnet            *string           `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
-	PrivateIps       []*MongoPrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte            `json:"-"`
+	Mongo                *string           `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
+	Vxnet                *string           `protobuf:"bytes,2,opt,name=vxnet" json:"vxnet,omitempty"`
+	PrivateIps           []*MongoPrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *ChangeMongoVxnetInput) Reset()                    { *m = ChangeMongoVxnetInput{} }
-func (m *ChangeMongoVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeMongoVxnetInput) ProtoMessage()               {}
-func (*ChangeMongoVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{18} }
+func (m *ChangeMongoVxnetInput) Reset()         { *m = ChangeMongoVxnetInput{} }
+func (m *ChangeMongoVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*ChangeMongoVxnetInput) ProtoMessage()    {}
+func (*ChangeMongoVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{18}
+}
+func (m *ChangeMongoVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeMongoVxnetInput.Unmarshal(m, b)
+}
+func (m *ChangeMongoVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeMongoVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeMongoVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeMongoVxnetInput.Merge(dst, src)
+}
+func (m *ChangeMongoVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_ChangeMongoVxnetInput.Size(m)
+}
+func (m *ChangeMongoVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeMongoVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeMongoVxnetInput proto.InternalMessageInfo
 
 func (m *ChangeMongoVxnetInput) GetMongo() string {
 	if m != nil && m.Mongo != nil {
@@ -907,17 +1350,38 @@ func (m *ChangeMongoVxnetInput) GetPrivateIps() []*MongoPrivateIP {
 }
 
 type ChangeMongoVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeMongoVxnetOutput) Reset()                    { *m = ChangeMongoVxnetOutput{} }
-func (m *ChangeMongoVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeMongoVxnetOutput) ProtoMessage()               {}
-func (*ChangeMongoVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{19} }
+func (m *ChangeMongoVxnetOutput) Reset()         { *m = ChangeMongoVxnetOutput{} }
+func (m *ChangeMongoVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*ChangeMongoVxnetOutput) ProtoMessage()    {}
+func (*ChangeMongoVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{19}
+}
+func (m *ChangeMongoVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeMongoVxnetOutput.Unmarshal(m, b)
+}
+func (m *ChangeMongoVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeMongoVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeMongoVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeMongoVxnetOutput.Merge(dst, src)
+}
+func (m *ChangeMongoVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_ChangeMongoVxnetOutput.Size(m)
+}
+func (m *ChangeMongoVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeMongoVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeMongoVxnetOutput proto.InternalMessageInfo
 
 func (m *ChangeMongoVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -948,16 +1412,37 @@ func (m *ChangeMongoVxnetOutput) GetJobId() string {
 }
 
 type AddMongoInstancesInput struct {
-	Mongo            *string           `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
-	NodeCount        *int32            `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	PrivateIps       []*MongoPrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte            `json:"-"`
+	Mongo                *string           `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
+	NodeCount            *int32            `protobuf:"varint,2,opt,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	PrivateIps           []*MongoPrivateIP `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *AddMongoInstancesInput) Reset()                    { *m = AddMongoInstancesInput{} }
-func (m *AddMongoInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddMongoInstancesInput) ProtoMessage()               {}
-func (*AddMongoInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{20} }
+func (m *AddMongoInstancesInput) Reset()         { *m = AddMongoInstancesInput{} }
+func (m *AddMongoInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*AddMongoInstancesInput) ProtoMessage()    {}
+func (*AddMongoInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{20}
+}
+func (m *AddMongoInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddMongoInstancesInput.Unmarshal(m, b)
+}
+func (m *AddMongoInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddMongoInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddMongoInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddMongoInstancesInput.Merge(dst, src)
+}
+func (m *AddMongoInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_AddMongoInstancesInput.Size(m)
+}
+func (m *AddMongoInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddMongoInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddMongoInstancesInput proto.InternalMessageInfo
 
 func (m *AddMongoInstancesInput) GetMongo() string {
 	if m != nil && m.Mongo != nil {
@@ -981,17 +1466,38 @@ func (m *AddMongoInstancesInput) GetPrivateIps() []*MongoPrivateIP {
 }
 
 type AddMongoInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddMongoInstancesOutput) Reset()                    { *m = AddMongoInstancesOutput{} }
-func (m *AddMongoInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddMongoInstancesOutput) ProtoMessage()               {}
-func (*AddMongoInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{21} }
+func (m *AddMongoInstancesOutput) Reset()         { *m = AddMongoInstancesOutput{} }
+func (m *AddMongoInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddMongoInstancesOutput) ProtoMessage()    {}
+func (*AddMongoInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{21}
+}
+func (m *AddMongoInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddMongoInstancesOutput.Unmarshal(m, b)
+}
+func (m *AddMongoInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddMongoInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddMongoInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddMongoInstancesOutput.Merge(dst, src)
+}
+func (m *AddMongoInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddMongoInstancesOutput.Size(m)
+}
+func (m *AddMongoInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddMongoInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddMongoInstancesOutput proto.InternalMessageInfo
 
 func (m *AddMongoInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1022,15 +1528,36 @@ func (m *AddMongoInstancesOutput) GetJobId() string {
 }
 
 type RemoveMongoInstancesInput struct {
-	Mongo            *string  `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
-	MongoInstances   []string `protobuf:"bytes,2,rep,name=mongo_instances,json=mongoInstances" json:"mongo_instances,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Mongo                *string  `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
+	MongoInstances       []string `protobuf:"bytes,2,rep,name=mongo_instances,json=mongoInstances" json:"mongo_instances,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RemoveMongoInstancesInput) Reset()                    { *m = RemoveMongoInstancesInput{} }
-func (m *RemoveMongoInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*RemoveMongoInstancesInput) ProtoMessage()               {}
-func (*RemoveMongoInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{22} }
+func (m *RemoveMongoInstancesInput) Reset()         { *m = RemoveMongoInstancesInput{} }
+func (m *RemoveMongoInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*RemoveMongoInstancesInput) ProtoMessage()    {}
+func (*RemoveMongoInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{22}
+}
+func (m *RemoveMongoInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveMongoInstancesInput.Unmarshal(m, b)
+}
+func (m *RemoveMongoInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveMongoInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *RemoveMongoInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveMongoInstancesInput.Merge(dst, src)
+}
+func (m *RemoveMongoInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_RemoveMongoInstancesInput.Size(m)
+}
+func (m *RemoveMongoInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveMongoInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveMongoInstancesInput proto.InternalMessageInfo
 
 func (m *RemoveMongoInstancesInput) GetMongo() string {
 	if m != nil && m.Mongo != nil {
@@ -1047,17 +1574,38 @@ func (m *RemoveMongoInstancesInput) GetMongoInstances() []string {
 }
 
 type RemoveMongoInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RemoveMongoInstancesOutput) Reset()                    { *m = RemoveMongoInstancesOutput{} }
-func (m *RemoveMongoInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*RemoveMongoInstancesOutput) ProtoMessage()               {}
-func (*RemoveMongoInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{23} }
+func (m *RemoveMongoInstancesOutput) Reset()         { *m = RemoveMongoInstancesOutput{} }
+func (m *RemoveMongoInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*RemoveMongoInstancesOutput) ProtoMessage()    {}
+func (*RemoveMongoInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{23}
+}
+func (m *RemoveMongoInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveMongoInstancesOutput.Unmarshal(m, b)
+}
+func (m *RemoveMongoInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveMongoInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *RemoveMongoInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveMongoInstancesOutput.Merge(dst, src)
+}
+func (m *RemoveMongoInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_RemoveMongoInstancesOutput.Size(m)
+}
+func (m *RemoveMongoInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveMongoInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveMongoInstancesOutput proto.InternalMessageInfo
 
 func (m *RemoveMongoInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1088,17 +1636,38 @@ func (m *RemoveMongoInstancesOutput) GetJobId() string {
 }
 
 type ModifyMongoAttributesInput struct {
-	Mongo            *string `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
-	MongoName        *string `protobuf:"bytes,2,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	AutoBackupTime   *int32  `protobuf:"varint,4,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Mongo                *string  `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
+	MongoName            *string  `protobuf:"bytes,2,opt,name=mongo_name,json=mongoName" json:"mongo_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	AutoBackupTime       *int32   `protobuf:"varint,4,opt,name=auto_backup_time,json=autoBackupTime" json:"auto_backup_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyMongoAttributesInput) Reset()                    { *m = ModifyMongoAttributesInput{} }
-func (m *ModifyMongoAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyMongoAttributesInput) ProtoMessage()               {}
-func (*ModifyMongoAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{24} }
+func (m *ModifyMongoAttributesInput) Reset()         { *m = ModifyMongoAttributesInput{} }
+func (m *ModifyMongoAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyMongoAttributesInput) ProtoMessage()    {}
+func (*ModifyMongoAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{24}
+}
+func (m *ModifyMongoAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyMongoAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyMongoAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyMongoAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyMongoAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyMongoAttributesInput.Merge(dst, src)
+}
+func (m *ModifyMongoAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyMongoAttributesInput.Size(m)
+}
+func (m *ModifyMongoAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyMongoAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyMongoAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyMongoAttributesInput) GetMongo() string {
 	if m != nil && m.Mongo != nil {
@@ -1129,17 +1698,38 @@ func (m *ModifyMongoAttributesInput) GetAutoBackupTime() int32 {
 }
 
 type ModifyMongoAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyMongoAttributesOutput) Reset()                    { *m = ModifyMongoAttributesOutput{} }
-func (m *ModifyMongoAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyMongoAttributesOutput) ProtoMessage()               {}
-func (*ModifyMongoAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{25} }
+func (m *ModifyMongoAttributesOutput) Reset()         { *m = ModifyMongoAttributesOutput{} }
+func (m *ModifyMongoAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyMongoAttributesOutput) ProtoMessage()    {}
+func (*ModifyMongoAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{25}
+}
+func (m *ModifyMongoAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyMongoAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyMongoAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyMongoAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyMongoAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyMongoAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyMongoAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyMongoAttributesOutput.Size(m)
+}
+func (m *ModifyMongoAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyMongoAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyMongoAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyMongoAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1170,14 +1760,35 @@ func (m *ModifyMongoAttributesOutput) GetJobId() string {
 }
 
 type ModifyMongoInstancesInput struct {
-	Mongo            *string `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Mongo                *string  `protobuf:"bytes,1,opt,name=mongo" json:"mongo,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyMongoInstancesInput) Reset()                    { *m = ModifyMongoInstancesInput{} }
-func (m *ModifyMongoInstancesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyMongoInstancesInput) ProtoMessage()               {}
-func (*ModifyMongoInstancesInput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{26} }
+func (m *ModifyMongoInstancesInput) Reset()         { *m = ModifyMongoInstancesInput{} }
+func (m *ModifyMongoInstancesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyMongoInstancesInput) ProtoMessage()    {}
+func (*ModifyMongoInstancesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{26}
+}
+func (m *ModifyMongoInstancesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyMongoInstancesInput.Unmarshal(m, b)
+}
+func (m *ModifyMongoInstancesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyMongoInstancesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyMongoInstancesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyMongoInstancesInput.Merge(dst, src)
+}
+func (m *ModifyMongoInstancesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyMongoInstancesInput.Size(m)
+}
+func (m *ModifyMongoInstancesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyMongoInstancesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyMongoInstancesInput proto.InternalMessageInfo
 
 func (m *ModifyMongoInstancesInput) GetMongo() string {
 	if m != nil && m.Mongo != nil {
@@ -1187,17 +1798,38 @@ func (m *ModifyMongoInstancesInput) GetMongo() string {
 }
 
 type ModifyMongoInstancesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyMongoInstancesOutput) Reset()                    { *m = ModifyMongoInstancesOutput{} }
-func (m *ModifyMongoInstancesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyMongoInstancesOutput) ProtoMessage()               {}
-func (*ModifyMongoInstancesOutput) Descriptor() ([]byte, []int) { return fileDescriptor12, []int{27} }
+func (m *ModifyMongoInstancesOutput) Reset()         { *m = ModifyMongoInstancesOutput{} }
+func (m *ModifyMongoInstancesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyMongoInstancesOutput) ProtoMessage()    {}
+func (*ModifyMongoInstancesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_mongo_442b0f9b376ed0fa, []int{27}
+}
+func (m *ModifyMongoInstancesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyMongoInstancesOutput.Unmarshal(m, b)
+}
+func (m *ModifyMongoInstancesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyMongoInstancesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyMongoInstancesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyMongoInstancesOutput.Merge(dst, src)
+}
+func (m *ModifyMongoInstancesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyMongoInstancesOutput.Size(m)
+}
+func (m *ModifyMongoInstancesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyMongoInstancesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyMongoInstancesOutput proto.InternalMessageInfo
 
 func (m *ModifyMongoInstancesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1237,6 +1869,7 @@ func init() {
 	proto.RegisterType((*ResizeMongosInput)(nil), "service.ResizeMongosInput")
 	proto.RegisterType((*ResizeMongosOutput)(nil), "service.ResizeMongosOutput")
 	proto.RegisterType((*CreateMongoInput)(nil), "service.CreateMongoInput")
+	proto.RegisterMapType((map[string]string)(nil), "service.CreateMongoInput.PrivateIpsEntry")
 	proto.RegisterType((*CreateMongoOutput)(nil), "service.CreateMongoOutput")
 	proto.RegisterType((*StopMongosInput)(nil), "service.StopMongosInput")
 	proto.RegisterType((*StopMongosOutput)(nil), "service.StopMongosOutput")
@@ -1260,9 +1893,9 @@ func init() {
 	proto.RegisterType((*ModifyMongoInstancesOutput)(nil), "service.ModifyMongoInstancesOutput")
 }
 
-func init() { proto.RegisterFile("mongo.proto", fileDescriptor12) }
+func init() { proto.RegisterFile("mongo.proto", fileDescriptor_mongo_442b0f9b376ed0fa) }
 
-var fileDescriptor12 = []byte{
+var fileDescriptor_mongo_442b0f9b376ed0fa = []byte{
 	// 1420 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x18, 0x4b, 0x6f, 0x1b, 0x45,
 	0x58, 0xeb, 0x47, 0xd2, 0x7c, 0x4e, 0xf3, 0x18, 0xda, 0x64, 0xb3, 0x6d, 0x68, 0xba, 0xa1, 0x34,

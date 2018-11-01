@@ -13,19 +13,46 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeTagsInput struct {
-	Tags             []string `protobuf:"bytes,1,rep,name=tags" json:"tags,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Verbose          *int32   `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
-	Offset           *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
-	Limit            *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Tags                 []string `protobuf:"bytes,1,rep,name=tags" json:"tags,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,2,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Verbose              *int32   `protobuf:"varint,3,opt,name=verbose" json:"verbose,omitempty"`
+	Offset               *int32   `protobuf:"varint,4,opt,name=offset" json:"offset,omitempty"`
+	Limit                *int32   `protobuf:"varint,5,opt,name=limit" json:"limit,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeTagsInput) Reset()                    { *m = DescribeTagsInput{} }
-func (m *DescribeTagsInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeTagsInput) ProtoMessage()               {}
-func (*DescribeTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{0} }
+func (m *DescribeTagsInput) Reset()         { *m = DescribeTagsInput{} }
+func (m *DescribeTagsInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeTagsInput) ProtoMessage()    {}
+func (*DescribeTagsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{0}
+}
+func (m *DescribeTagsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeTagsInput.Unmarshal(m, b)
+}
+func (m *DescribeTagsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeTagsInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeTagsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeTagsInput.Merge(dst, src)
+}
+func (m *DescribeTagsInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeTagsInput.Size(m)
+}
+func (m *DescribeTagsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeTagsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeTagsInput proto.InternalMessageInfo
 
 func (m *DescribeTagsInput) GetTags() []string {
 	if m != nil {
@@ -63,18 +90,39 @@ func (m *DescribeTagsInput) GetLimit() int32 {
 }
 
 type DescribeTagsOutput struct {
-	Action           *string                            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TagSet           []*DescribeTagsOutput_ResponseItem `protobuf:"bytes,4,rep,name=tag_set,json=tagSet" json:"tag_set,omitempty"`
-	TotalCount       *int32                             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	XXX_unrecognized []byte                             `json:"-"`
+	Action               *string                            `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                             `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                            `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TagSet               []*DescribeTagsOutput_ResponseItem `protobuf:"bytes,4,rep,name=tag_set,json=tagSet" json:"tag_set,omitempty"`
+	TotalCount           *int32                             `protobuf:"varint,5,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                           `json:"-"`
+	XXX_unrecognized     []byte                             `json:"-"`
+	XXX_sizecache        int32                              `json:"-"`
 }
 
-func (m *DescribeTagsOutput) Reset()                    { *m = DescribeTagsOutput{} }
-func (m *DescribeTagsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeTagsOutput) ProtoMessage()               {}
-func (*DescribeTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{1} }
+func (m *DescribeTagsOutput) Reset()         { *m = DescribeTagsOutput{} }
+func (m *DescribeTagsOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeTagsOutput) ProtoMessage()    {}
+func (*DescribeTagsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{1}
+}
+func (m *DescribeTagsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeTagsOutput.Unmarshal(m, b)
+}
+func (m *DescribeTagsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeTagsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeTagsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeTagsOutput.Merge(dst, src)
+}
+func (m *DescribeTagsOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeTagsOutput.Size(m)
+}
+func (m *DescribeTagsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeTagsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeTagsOutput proto.InternalMessageInfo
 
 func (m *DescribeTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -112,21 +160,40 @@ func (m *DescribeTagsOutput) GetTotalCount() int32 {
 }
 
 type DescribeTagsOutput_ResponseItem struct {
-	TagId             *string  `protobuf:"bytes,1,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
-	TagName           *string  `protobuf:"bytes,2,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
-	Description       *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	ResourceCount     *int32   `protobuf:"varint,4,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
-	ResourceTypeCount *int32   `protobuf:"varint,5,opt,name=resource_type_count,json=resourceTypeCount" json:"resource_type_count,omitempty"`
-	ResourceTagPairs  []string `protobuf:"bytes,6,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
-	XXX_unrecognized  []byte   `json:"-"`
+	TagId                *string  `protobuf:"bytes,1,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	TagName              *string  `protobuf:"bytes,2,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	ResourceCount        *int32   `protobuf:"varint,4,opt,name=resource_count,json=resourceCount" json:"resource_count,omitempty"`
+	ResourceTypeCount    *int32   `protobuf:"varint,5,opt,name=resource_type_count,json=resourceTypeCount" json:"resource_type_count,omitempty"`
+	ResourceTagPairs     []string `protobuf:"bytes,6,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DescribeTagsOutput_ResponseItem) Reset()         { *m = DescribeTagsOutput_ResponseItem{} }
 func (m *DescribeTagsOutput_ResponseItem) String() string { return proto.CompactTextString(m) }
 func (*DescribeTagsOutput_ResponseItem) ProtoMessage()    {}
 func (*DescribeTagsOutput_ResponseItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor25, []int{1, 0}
+	return fileDescriptor_tag_62468e539314a708, []int{1, 0}
 }
+func (m *DescribeTagsOutput_ResponseItem) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeTagsOutput_ResponseItem.Unmarshal(m, b)
+}
+func (m *DescribeTagsOutput_ResponseItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeTagsOutput_ResponseItem.Marshal(b, m, deterministic)
+}
+func (dst *DescribeTagsOutput_ResponseItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeTagsOutput_ResponseItem.Merge(dst, src)
+}
+func (m *DescribeTagsOutput_ResponseItem) XXX_Size() int {
+	return xxx_messageInfo_DescribeTagsOutput_ResponseItem.Size(m)
+}
+func (m *DescribeTagsOutput_ResponseItem) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeTagsOutput_ResponseItem.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeTagsOutput_ResponseItem proto.InternalMessageInfo
 
 func (m *DescribeTagsOutput_ResponseItem) GetTagId() string {
 	if m != nil && m.TagId != nil {
@@ -171,14 +238,35 @@ func (m *DescribeTagsOutput_ResponseItem) GetResourceTagPairs() []string {
 }
 
 type CreateTagInput struct {
-	TagName          *string `protobuf:"bytes,1,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	TagName              *string  `protobuf:"bytes,1,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateTagInput) Reset()                    { *m = CreateTagInput{} }
-func (m *CreateTagInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateTagInput) ProtoMessage()               {}
-func (*CreateTagInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{2} }
+func (m *CreateTagInput) Reset()         { *m = CreateTagInput{} }
+func (m *CreateTagInput) String() string { return proto.CompactTextString(m) }
+func (*CreateTagInput) ProtoMessage()    {}
+func (*CreateTagInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{2}
+}
+func (m *CreateTagInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTagInput.Unmarshal(m, b)
+}
+func (m *CreateTagInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTagInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateTagInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTagInput.Merge(dst, src)
+}
+func (m *CreateTagInput) XXX_Size() int {
+	return xxx_messageInfo_CreateTagInput.Size(m)
+}
+func (m *CreateTagInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTagInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTagInput proto.InternalMessageInfo
 
 func (m *CreateTagInput) GetTagName() string {
 	if m != nil && m.TagName != nil {
@@ -188,17 +276,38 @@ func (m *CreateTagInput) GetTagName() string {
 }
 
 type CreateTagOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TagId            *string `protobuf:"bytes,4,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TagId                *string  `protobuf:"bytes,4,opt,name=tag_id,json=tagId" json:"tag_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateTagOutput) Reset()                    { *m = CreateTagOutput{} }
-func (m *CreateTagOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateTagOutput) ProtoMessage()               {}
-func (*CreateTagOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{3} }
+func (m *CreateTagOutput) Reset()         { *m = CreateTagOutput{} }
+func (m *CreateTagOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateTagOutput) ProtoMessage()    {}
+func (*CreateTagOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{3}
+}
+func (m *CreateTagOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTagOutput.Unmarshal(m, b)
+}
+func (m *CreateTagOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTagOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateTagOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTagOutput.Merge(dst, src)
+}
+func (m *CreateTagOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateTagOutput.Size(m)
+}
+func (m *CreateTagOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTagOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTagOutput proto.InternalMessageInfo
 
 func (m *CreateTagOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -229,14 +338,35 @@ func (m *CreateTagOutput) GetTagId() string {
 }
 
 type DeleteTagsInput struct {
-	Tags             []string `protobuf:"bytes,1,rep,name=tags" json:"tags,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Tags                 []string `protobuf:"bytes,1,rep,name=tags" json:"tags,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteTagsInput) Reset()                    { *m = DeleteTagsInput{} }
-func (m *DeleteTagsInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteTagsInput) ProtoMessage()               {}
-func (*DeleteTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{4} }
+func (m *DeleteTagsInput) Reset()         { *m = DeleteTagsInput{} }
+func (m *DeleteTagsInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteTagsInput) ProtoMessage()    {}
+func (*DeleteTagsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{4}
+}
+func (m *DeleteTagsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteTagsInput.Unmarshal(m, b)
+}
+func (m *DeleteTagsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteTagsInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteTagsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteTagsInput.Merge(dst, src)
+}
+func (m *DeleteTagsInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteTagsInput.Size(m)
+}
+func (m *DeleteTagsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteTagsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteTagsInput proto.InternalMessageInfo
 
 func (m *DeleteTagsInput) GetTags() []string {
 	if m != nil {
@@ -246,17 +376,38 @@ func (m *DeleteTagsInput) GetTags() []string {
 }
 
 type DeleteTagsOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	Tags             []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	Tags                 []string `protobuf:"bytes,4,rep,name=tags" json:"tags,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteTagsOutput) Reset()                    { *m = DeleteTagsOutput{} }
-func (m *DeleteTagsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteTagsOutput) ProtoMessage()               {}
-func (*DeleteTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{5} }
+func (m *DeleteTagsOutput) Reset()         { *m = DeleteTagsOutput{} }
+func (m *DeleteTagsOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteTagsOutput) ProtoMessage()    {}
+func (*DeleteTagsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{5}
+}
+func (m *DeleteTagsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteTagsOutput.Unmarshal(m, b)
+}
+func (m *DeleteTagsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteTagsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteTagsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteTagsOutput.Merge(dst, src)
+}
+func (m *DeleteTagsOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteTagsOutput.Size(m)
+}
+func (m *DeleteTagsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteTagsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteTagsOutput proto.InternalMessageInfo
 
 func (m *DeleteTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -287,16 +438,37 @@ func (m *DeleteTagsOutput) GetTags() []string {
 }
 
 type ModifyTagAttributesInput struct {
-	Tag              *string `protobuf:"bytes,1,opt,name=tag" json:"tag,omitempty"`
-	TagName          *string `protobuf:"bytes,2,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Tag                  *string  `protobuf:"bytes,1,opt,name=tag" json:"tag,omitempty"`
+	TagName              *string  `protobuf:"bytes,2,opt,name=tag_name,json=tagName" json:"tag_name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyTagAttributesInput) Reset()                    { *m = ModifyTagAttributesInput{} }
-func (m *ModifyTagAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyTagAttributesInput) ProtoMessage()               {}
-func (*ModifyTagAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{6} }
+func (m *ModifyTagAttributesInput) Reset()         { *m = ModifyTagAttributesInput{} }
+func (m *ModifyTagAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyTagAttributesInput) ProtoMessage()    {}
+func (*ModifyTagAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{6}
+}
+func (m *ModifyTagAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyTagAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyTagAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyTagAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyTagAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyTagAttributesInput.Merge(dst, src)
+}
+func (m *ModifyTagAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyTagAttributesInput.Size(m)
+}
+func (m *ModifyTagAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyTagAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyTagAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyTagAttributesInput) GetTag() string {
 	if m != nil && m.Tag != nil {
@@ -320,16 +492,37 @@ func (m *ModifyTagAttributesInput) GetDescription() string {
 }
 
 type ModifyTagAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyTagAttributesOutput) Reset()                    { *m = ModifyTagAttributesOutput{} }
-func (m *ModifyTagAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyTagAttributesOutput) ProtoMessage()               {}
-func (*ModifyTagAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{7} }
+func (m *ModifyTagAttributesOutput) Reset()         { *m = ModifyTagAttributesOutput{} }
+func (m *ModifyTagAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyTagAttributesOutput) ProtoMessage()    {}
+func (*ModifyTagAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{7}
+}
+func (m *ModifyTagAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyTagAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyTagAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyTagAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyTagAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyTagAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyTagAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyTagAttributesOutput.Size(m)
+}
+func (m *ModifyTagAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyTagAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyTagAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyTagAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -353,14 +546,35 @@ func (m *ModifyTagAttributesOutput) GetMessage() string {
 }
 
 type AttachTagsInput struct {
-	ResourceTagPairs []*ResourceTagPair `protobuf:"bytes,1,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
-	XXX_unrecognized []byte             `json:"-"`
+	ResourceTagPairs     []*ResourceTagPair `protobuf:"bytes,1,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
-func (m *AttachTagsInput) Reset()                    { *m = AttachTagsInput{} }
-func (m *AttachTagsInput) String() string            { return proto.CompactTextString(m) }
-func (*AttachTagsInput) ProtoMessage()               {}
-func (*AttachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{8} }
+func (m *AttachTagsInput) Reset()         { *m = AttachTagsInput{} }
+func (m *AttachTagsInput) String() string { return proto.CompactTextString(m) }
+func (*AttachTagsInput) ProtoMessage()    {}
+func (*AttachTagsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{8}
+}
+func (m *AttachTagsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachTagsInput.Unmarshal(m, b)
+}
+func (m *AttachTagsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachTagsInput.Marshal(b, m, deterministic)
+}
+func (dst *AttachTagsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachTagsInput.Merge(dst, src)
+}
+func (m *AttachTagsInput) XXX_Size() int {
+	return xxx_messageInfo_AttachTagsInput.Size(m)
+}
+func (m *AttachTagsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachTagsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachTagsInput proto.InternalMessageInfo
 
 func (m *AttachTagsInput) GetResourceTagPairs() []*ResourceTagPair {
 	if m != nil {
@@ -370,16 +584,37 @@ func (m *AttachTagsInput) GetResourceTagPairs() []*ResourceTagPair {
 }
 
 type AttachTagsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachTagsOutput) Reset()                    { *m = AttachTagsOutput{} }
-func (m *AttachTagsOutput) String() string            { return proto.CompactTextString(m) }
-func (*AttachTagsOutput) ProtoMessage()               {}
-func (*AttachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{9} }
+func (m *AttachTagsOutput) Reset()         { *m = AttachTagsOutput{} }
+func (m *AttachTagsOutput) String() string { return proto.CompactTextString(m) }
+func (*AttachTagsOutput) ProtoMessage()    {}
+func (*AttachTagsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{9}
+}
+func (m *AttachTagsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachTagsOutput.Unmarshal(m, b)
+}
+func (m *AttachTagsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachTagsOutput.Marshal(b, m, deterministic)
+}
+func (dst *AttachTagsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachTagsOutput.Merge(dst, src)
+}
+func (m *AttachTagsOutput) XXX_Size() int {
+	return xxx_messageInfo_AttachTagsOutput.Size(m)
+}
+func (m *AttachTagsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachTagsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachTagsOutput proto.InternalMessageInfo
 
 func (m *AttachTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -403,14 +638,35 @@ func (m *AttachTagsOutput) GetMessage() string {
 }
 
 type DetachTagsInput struct {
-	ResourceTagPairs []*ResourceTagPair `protobuf:"bytes,1,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
-	XXX_unrecognized []byte             `json:"-"`
+	ResourceTagPairs     []*ResourceTagPair `protobuf:"bytes,1,rep,name=resource_tag_pairs,json=resourceTagPairs" json:"resource_tag_pairs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
-func (m *DetachTagsInput) Reset()                    { *m = DetachTagsInput{} }
-func (m *DetachTagsInput) String() string            { return proto.CompactTextString(m) }
-func (*DetachTagsInput) ProtoMessage()               {}
-func (*DetachTagsInput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{10} }
+func (m *DetachTagsInput) Reset()         { *m = DetachTagsInput{} }
+func (m *DetachTagsInput) String() string { return proto.CompactTextString(m) }
+func (*DetachTagsInput) ProtoMessage()    {}
+func (*DetachTagsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{10}
+}
+func (m *DetachTagsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachTagsInput.Unmarshal(m, b)
+}
+func (m *DetachTagsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachTagsInput.Marshal(b, m, deterministic)
+}
+func (dst *DetachTagsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachTagsInput.Merge(dst, src)
+}
+func (m *DetachTagsInput) XXX_Size() int {
+	return xxx_messageInfo_DetachTagsInput.Size(m)
+}
+func (m *DetachTagsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachTagsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachTagsInput proto.InternalMessageInfo
 
 func (m *DetachTagsInput) GetResourceTagPairs() []*ResourceTagPair {
 	if m != nil {
@@ -420,16 +676,37 @@ func (m *DetachTagsInput) GetResourceTagPairs() []*ResourceTagPair {
 }
 
 type DetachTagsOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachTagsOutput) Reset()                    { *m = DetachTagsOutput{} }
-func (m *DetachTagsOutput) String() string            { return proto.CompactTextString(m) }
-func (*DetachTagsOutput) ProtoMessage()               {}
-func (*DetachTagsOutput) Descriptor() ([]byte, []int) { return fileDescriptor25, []int{11} }
+func (m *DetachTagsOutput) Reset()         { *m = DetachTagsOutput{} }
+func (m *DetachTagsOutput) String() string { return proto.CompactTextString(m) }
+func (*DetachTagsOutput) ProtoMessage()    {}
+func (*DetachTagsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_tag_62468e539314a708, []int{11}
+}
+func (m *DetachTagsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachTagsOutput.Unmarshal(m, b)
+}
+func (m *DetachTagsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachTagsOutput.Marshal(b, m, deterministic)
+}
+func (dst *DetachTagsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachTagsOutput.Merge(dst, src)
+}
+func (m *DetachTagsOutput) XXX_Size() int {
+	return xxx_messageInfo_DetachTagsOutput.Size(m)
+}
+func (m *DetachTagsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachTagsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachTagsOutput proto.InternalMessageInfo
 
 func (m *DetachTagsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -468,9 +745,9 @@ func init() {
 	proto.RegisterType((*DetachTagsOutput)(nil), "service.DetachTagsOutput")
 }
 
-func init() { proto.RegisterFile("tag.proto", fileDescriptor25) }
+func init() { proto.RegisterFile("tag.proto", fileDescriptor_tag_62468e539314a708) }
 
-var fileDescriptor25 = []byte{
+var fileDescriptor_tag_62468e539314a708 = []byte{
 	// 686 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0x4d, 0x6f, 0xd3, 0x4c,
 	0x10, 0x96, 0xdf, 0x7c, 0xbd, 0x99, 0xf4, 0x6d, 0xd3, 0xed, 0x4b, 0x71, 0xcd, 0x81, 0x60, 0xa9,

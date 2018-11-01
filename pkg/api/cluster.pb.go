@@ -13,6 +13,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 //
 // CreateCluster
 //
@@ -50,17 +56,38 @@ var _ = math.Inf
 // }
 // }
 type CreateClusterInput_Conf struct {
-	AppId            *string                       `protobuf:"bytes,1,req,name=app_id,json=appId" json:"app_id,omitempty"`
-	AppVersion       *string                       `protobuf:"bytes,2,req,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	Vxnet            *string                       `protobuf:"bytes,3,req,name=vxnet" json:"vxnet,omitempty"`
-	Node             *CreateClusterInput_Conf_Node `protobuf:"bytes,4,req,name=node" json:"node,omitempty"`
-	XXX_unrecognized []byte                        `json:"-"`
+	AppId                *string                       `protobuf:"bytes,1,req,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppVersion           *string                       `protobuf:"bytes,2,req,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	Vxnet                *string                       `protobuf:"bytes,3,req,name=vxnet" json:"vxnet,omitempty"`
+	Node                 *CreateClusterInput_Conf_Node `protobuf:"bytes,4,req,name=node" json:"node,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
 }
 
-func (m *CreateClusterInput_Conf) Reset()                    { *m = CreateClusterInput_Conf{} }
-func (m *CreateClusterInput_Conf) String() string            { return proto.CompactTextString(m) }
-func (*CreateClusterInput_Conf) ProtoMessage()               {}
-func (*CreateClusterInput_Conf) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+func (m *CreateClusterInput_Conf) Reset()         { *m = CreateClusterInput_Conf{} }
+func (m *CreateClusterInput_Conf) String() string { return proto.CompactTextString(m) }
+func (*CreateClusterInput_Conf) ProtoMessage()    {}
+func (*CreateClusterInput_Conf) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{0}
+}
+func (m *CreateClusterInput_Conf) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterInput_Conf.Unmarshal(m, b)
+}
+func (m *CreateClusterInput_Conf) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterInput_Conf.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterInput_Conf) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterInput_Conf.Merge(dst, src)
+}
+func (m *CreateClusterInput_Conf) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterInput_Conf.Size(m)
+}
+func (m *CreateClusterInput_Conf) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterInput_Conf.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterInput_Conf proto.InternalMessageInfo
 
 func (m *CreateClusterInput_Conf) GetAppId() string {
 	if m != nil && m.AppId != nil {
@@ -91,21 +118,42 @@ func (m *CreateClusterInput_Conf) GetNode() *CreateClusterInput_Conf_Node {
 }
 
 type CreateClusterInput_Conf_Node struct {
-	Container          *CreateClusterInput_Conf_Container `protobuf:"bytes,1,req,name=container" json:"container,omitempty"`
-	InstanceClass      *int32                             `protobuf:"varint,2,req,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
-	Count              *int32                             `protobuf:"varint,3,req,name=count" json:"count,omitempty"`
-	Cpu                *int32                             `protobuf:"varint,4,req,name=cpu" json:"cpu,omitempty"`
-	Memory             *int32                             `protobuf:"varint,5,req,name=memory" json:"memory,omitempty"`
-	Volume             *CreateClusterInput_Conf_Volume    `protobuf:"bytes,6,opt,name=volume" json:"volume,omitempty"`
-	ServerIdUpperBound *int32                             `protobuf:"varint,7,opt,name=server_id_upper_bound,json=serverIdUpperBound" json:"server_id_upper_bound,omitempty"`
-	Service            *CreateClusterInput_Conf_Service   `protobuf:"bytes,8,req,name=service" json:"service,omitempty"`
-	XXX_unrecognized   []byte                             `json:"-"`
+	Container            *CreateClusterInput_Conf_Container `protobuf:"bytes,1,req,name=container" json:"container,omitempty"`
+	InstanceClass        *int32                             `protobuf:"varint,2,req,name=instance_class,json=instanceClass" json:"instance_class,omitempty"`
+	Count                *int32                             `protobuf:"varint,3,req,name=count" json:"count,omitempty"`
+	Cpu                  *int32                             `protobuf:"varint,4,req,name=cpu" json:"cpu,omitempty"`
+	Memory               *int32                             `protobuf:"varint,5,req,name=memory" json:"memory,omitempty"`
+	Volume               *CreateClusterInput_Conf_Volume    `protobuf:"bytes,6,opt,name=volume" json:"volume,omitempty"`
+	ServerIdUpperBound   *int32                             `protobuf:"varint,7,opt,name=server_id_upper_bound,json=serverIdUpperBound" json:"server_id_upper_bound,omitempty"`
+	Service              *CreateClusterInput_Conf_Service   `protobuf:"bytes,8,req,name=service" json:"service,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                           `json:"-"`
+	XXX_unrecognized     []byte                             `json:"-"`
+	XXX_sizecache        int32                              `json:"-"`
 }
 
-func (m *CreateClusterInput_Conf_Node) Reset()                    { *m = CreateClusterInput_Conf_Node{} }
-func (m *CreateClusterInput_Conf_Node) String() string            { return proto.CompactTextString(m) }
-func (*CreateClusterInput_Conf_Node) ProtoMessage()               {}
-func (*CreateClusterInput_Conf_Node) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0, 0} }
+func (m *CreateClusterInput_Conf_Node) Reset()         { *m = CreateClusterInput_Conf_Node{} }
+func (m *CreateClusterInput_Conf_Node) String() string { return proto.CompactTextString(m) }
+func (*CreateClusterInput_Conf_Node) ProtoMessage()    {}
+func (*CreateClusterInput_Conf_Node) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{0, 0}
+}
+func (m *CreateClusterInput_Conf_Node) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterInput_Conf_Node.Unmarshal(m, b)
+}
+func (m *CreateClusterInput_Conf_Node) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterInput_Conf_Node.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterInput_Conf_Node) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterInput_Conf_Node.Merge(dst, src)
+}
+func (m *CreateClusterInput_Conf_Node) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterInput_Conf_Node.Size(m)
+}
+func (m *CreateClusterInput_Conf_Node) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterInput_Conf_Node.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterInput_Conf_Node proto.InternalMessageInfo
 
 func (m *CreateClusterInput_Conf_Node) GetContainer() *CreateClusterInput_Conf_Container {
 	if m != nil {
@@ -164,18 +212,37 @@ func (m *CreateClusterInput_Conf_Node) GetService() *CreateClusterInput_Conf_Ser
 }
 
 type CreateClusterInput_Conf_Container struct {
-	Type             *string `protobuf:"bytes,1,req,name=type" json:"type,omitempty"`
-	Image            *string `protobuf:"bytes,2,req,name=image" json:"image,omitempty"`
-	Zone             *string `protobuf:"bytes,3,opt,name=zone" json:"zone,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Type                 *string  `protobuf:"bytes,1,req,name=type" json:"type,omitempty"`
+	Image                *string  `protobuf:"bytes,2,req,name=image" json:"image,omitempty"`
+	Zone                 *string  `protobuf:"bytes,3,opt,name=zone" json:"zone,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Container) Reset()         { *m = CreateClusterInput_Conf_Container{} }
 func (m *CreateClusterInput_Conf_Container) String() string { return proto.CompactTextString(m) }
 func (*CreateClusterInput_Conf_Container) ProtoMessage()    {}
 func (*CreateClusterInput_Conf_Container) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{0, 1}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{0, 1}
 }
+func (m *CreateClusterInput_Conf_Container) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterInput_Conf_Container.Unmarshal(m, b)
+}
+func (m *CreateClusterInput_Conf_Container) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterInput_Conf_Container.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterInput_Conf_Container) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterInput_Conf_Container.Merge(dst, src)
+}
+func (m *CreateClusterInput_Conf_Container) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterInput_Conf_Container.Size(m)
+}
+func (m *CreateClusterInput_Conf_Container) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterInput_Conf_Container.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterInput_Conf_Container proto.InternalMessageInfo
 
 func (m *CreateClusterInput_Conf_Container) GetType() string {
 	if m != nil && m.Type != nil {
@@ -199,19 +266,38 @@ func (m *CreateClusterInput_Conf_Container) GetZone() string {
 }
 
 type CreateClusterInput_Conf_Volume struct {
-	Size             *int32  `protobuf:"varint,1,req,name=size" json:"size,omitempty"`
-	MountPoint       *string `protobuf:"bytes,2,req,name=mount_point,json=mountPoint" json:"mount_point,omitempty"`
-	Filesystem       *string `protobuf:"bytes,3,req,name=filesystem" json:"filesystem,omitempty"`
-	Class            *int32  `protobuf:"varint,4,req,name=class" json:"class,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Size                 *int32   `protobuf:"varint,1,req,name=size" json:"size,omitempty"`
+	MountPoint           *string  `protobuf:"bytes,2,req,name=mount_point,json=mountPoint" json:"mount_point,omitempty"`
+	Filesystem           *string  `protobuf:"bytes,3,req,name=filesystem" json:"filesystem,omitempty"`
+	Class                *int32   `protobuf:"varint,4,req,name=class" json:"class,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Volume) Reset()         { *m = CreateClusterInput_Conf_Volume{} }
 func (m *CreateClusterInput_Conf_Volume) String() string { return proto.CompactTextString(m) }
 func (*CreateClusterInput_Conf_Volume) ProtoMessage()    {}
 func (*CreateClusterInput_Conf_Volume) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{0, 2}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{0, 2}
 }
+func (m *CreateClusterInput_Conf_Volume) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterInput_Conf_Volume.Unmarshal(m, b)
+}
+func (m *CreateClusterInput_Conf_Volume) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterInput_Conf_Volume.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterInput_Conf_Volume) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterInput_Conf_Volume.Merge(dst, src)
+}
+func (m *CreateClusterInput_Conf_Volume) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterInput_Conf_Volume.Size(m)
+}
+func (m *CreateClusterInput_Conf_Volume) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterInput_Conf_Volume.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterInput_Conf_Volume proto.InternalMessageInfo
 
 func (m *CreateClusterInput_Conf_Volume) GetSize() int32 {
 	if m != nil && m.Size != nil {
@@ -242,17 +328,36 @@ func (m *CreateClusterInput_Conf_Volume) GetClass() int32 {
 }
 
 type CreateClusterInput_Conf_Service struct {
-	Start            *CreateClusterInput_Conf_Command `protobuf:"bytes,1,req,name=start" json:"start,omitempty"`
-	Stop             *CreateClusterInput_Conf_Command `protobuf:"bytes,2,req,name=stop" json:"stop,omitempty"`
-	XXX_unrecognized []byte                           `json:"-"`
+	Start                *CreateClusterInput_Conf_Command `protobuf:"bytes,1,req,name=start" json:"start,omitempty"`
+	Stop                 *CreateClusterInput_Conf_Command `protobuf:"bytes,2,req,name=stop" json:"stop,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                         `json:"-"`
+	XXX_unrecognized     []byte                           `json:"-"`
+	XXX_sizecache        int32                            `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Service) Reset()         { *m = CreateClusterInput_Conf_Service{} }
 func (m *CreateClusterInput_Conf_Service) String() string { return proto.CompactTextString(m) }
 func (*CreateClusterInput_Conf_Service) ProtoMessage()    {}
 func (*CreateClusterInput_Conf_Service) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{0, 3}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{0, 3}
 }
+func (m *CreateClusterInput_Conf_Service) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterInput_Conf_Service.Unmarshal(m, b)
+}
+func (m *CreateClusterInput_Conf_Service) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterInput_Conf_Service.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterInput_Conf_Service) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterInput_Conf_Service.Merge(dst, src)
+}
+func (m *CreateClusterInput_Conf_Service) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterInput_Conf_Service.Size(m)
+}
+func (m *CreateClusterInput_Conf_Service) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterInput_Conf_Service.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterInput_Conf_Service proto.InternalMessageInfo
 
 func (m *CreateClusterInput_Conf_Service) GetStart() *CreateClusterInput_Conf_Command {
 	if m != nil {
@@ -269,16 +374,35 @@ func (m *CreateClusterInput_Conf_Service) GetStop() *CreateClusterInput_Conf_Com
 }
 
 type CreateClusterInput_Conf_Command struct {
-	Cmd              *string `protobuf:"bytes,1,req,name=cmd" json:"cmd,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Cmd                  *string  `protobuf:"bytes,1,req,name=cmd" json:"cmd,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateClusterInput_Conf_Command) Reset()         { *m = CreateClusterInput_Conf_Command{} }
 func (m *CreateClusterInput_Conf_Command) String() string { return proto.CompactTextString(m) }
 func (*CreateClusterInput_Conf_Command) ProtoMessage()    {}
 func (*CreateClusterInput_Conf_Command) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{0, 4}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{0, 4}
 }
+func (m *CreateClusterInput_Conf_Command) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterInput_Conf_Command.Unmarshal(m, b)
+}
+func (m *CreateClusterInput_Conf_Command) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterInput_Conf_Command.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterInput_Conf_Command) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterInput_Conf_Command.Merge(dst, src)
+}
+func (m *CreateClusterInput_Conf_Command) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterInput_Conf_Command.Size(m)
+}
+func (m *CreateClusterInput_Conf_Command) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterInput_Conf_Command.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterInput_Conf_Command proto.InternalMessageInfo
 
 func (m *CreateClusterInput_Conf_Command) GetCmd() string {
 	if m != nil && m.Cmd != nil {
@@ -288,14 +412,35 @@ func (m *CreateClusterInput_Conf_Command) GetCmd() string {
 }
 
 type CreateClusterInput struct {
-	Conf             *string `protobuf:"bytes,1,req,name=conf" json:"conf,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Conf                 *string  `protobuf:"bytes,1,req,name=conf" json:"conf,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateClusterInput) Reset()                    { *m = CreateClusterInput{} }
-func (m *CreateClusterInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateClusterInput) ProtoMessage()               {}
-func (*CreateClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
+func (m *CreateClusterInput) Reset()         { *m = CreateClusterInput{} }
+func (m *CreateClusterInput) String() string { return proto.CompactTextString(m) }
+func (*CreateClusterInput) ProtoMessage()    {}
+func (*CreateClusterInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{1}
+}
+func (m *CreateClusterInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterInput.Unmarshal(m, b)
+}
+func (m *CreateClusterInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterInput.Merge(dst, src)
+}
+func (m *CreateClusterInput) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterInput.Size(m)
+}
+func (m *CreateClusterInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterInput proto.InternalMessageInfo
 
 func (m *CreateClusterInput) GetConf() string {
 	if m != nil && m.Conf != nil {
@@ -305,16 +450,37 @@ func (m *CreateClusterInput) GetConf() string {
 }
 
 type CreateClusterOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateClusterOutput) Reset()                    { *m = CreateClusterOutput{} }
-func (m *CreateClusterOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateClusterOutput) ProtoMessage()               {}
-func (*CreateClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
+func (m *CreateClusterOutput) Reset()         { *m = CreateClusterOutput{} }
+func (m *CreateClusterOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateClusterOutput) ProtoMessage()    {}
+func (*CreateClusterOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{2}
+}
+func (m *CreateClusterOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateClusterOutput.Unmarshal(m, b)
+}
+func (m *CreateClusterOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateClusterOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateClusterOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateClusterOutput.Merge(dst, src)
+}
+func (m *CreateClusterOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateClusterOutput.Size(m)
+}
+func (m *CreateClusterOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateClusterOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateClusterOutput proto.InternalMessageInfo
 
 func (m *CreateClusterOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -338,19 +504,40 @@ func (m *CreateClusterOutput) GetMessage() string {
 }
 
 type DescribeClustersInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	Scope            *string  `protobuf:"bytes,2,req,name=scope" json:"scope,omitempty"`
-	Role             *string  `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
-	AppId            []string `protobuf:"bytes,4,rep,name=app_id,json=appId" json:"app_id,omitempty"`
-	AppVersion       []string `protobuf:"bytes,5,rep,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	Users            []string `protobuf:"bytes,6,rep,name=users" json:"users,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Scope                *string  `protobuf:"bytes,2,req,name=scope" json:"scope,omitempty"`
+	Role                 *string  `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
+	AppId                []string `protobuf:"bytes,4,rep,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppVersion           []string `protobuf:"bytes,5,rep,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	Users                []string `protobuf:"bytes,6,rep,name=users" json:"users,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeClustersInput) Reset()                    { *m = DescribeClustersInput{} }
-func (m *DescribeClustersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeClustersInput) ProtoMessage()               {}
-func (*DescribeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
+func (m *DescribeClustersInput) Reset()         { *m = DescribeClustersInput{} }
+func (m *DescribeClustersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeClustersInput) ProtoMessage()    {}
+func (*DescribeClustersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{3}
+}
+func (m *DescribeClustersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeClustersInput.Unmarshal(m, b)
+}
+func (m *DescribeClustersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeClustersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeClustersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeClustersInput.Merge(dst, src)
+}
+func (m *DescribeClustersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeClustersInput.Size(m)
+}
+func (m *DescribeClustersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeClustersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeClustersInput proto.InternalMessageInfo
 
 func (m *DescribeClustersInput) GetClusters() []string {
 	if m != nil {
@@ -395,18 +582,39 @@ func (m *DescribeClustersInput) GetUsers() []string {
 }
 
 type DescribeClustersOutput struct {
-	Action           *string    `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32     `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TotalCount       *int32     `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	ClusterSet       []*Cluster `protobuf:"bytes,5,rep,name=cluster_set,json=clusterSet" json:"cluster_set,omitempty"`
-	XXX_unrecognized []byte     `json:"-"`
+	Action               *string    `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32     `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string    `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount           *int32     `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	ClusterSet           []*Cluster `protobuf:"bytes,5,rep,name=cluster_set,json=clusterSet" json:"cluster_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *DescribeClustersOutput) Reset()                    { *m = DescribeClustersOutput{} }
-func (m *DescribeClustersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeClustersOutput) ProtoMessage()               {}
-func (*DescribeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
+func (m *DescribeClustersOutput) Reset()         { *m = DescribeClustersOutput{} }
+func (m *DescribeClustersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeClustersOutput) ProtoMessage()    {}
+func (*DescribeClustersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{4}
+}
+func (m *DescribeClustersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeClustersOutput.Unmarshal(m, b)
+}
+func (m *DescribeClustersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeClustersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeClustersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeClustersOutput.Merge(dst, src)
+}
+func (m *DescribeClustersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeClustersOutput.Size(m)
+}
+func (m *DescribeClustersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeClustersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeClustersOutput proto.InternalMessageInfo
 
 func (m *DescribeClustersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -444,16 +652,37 @@ func (m *DescribeClustersOutput) GetClusterSet() []*Cluster {
 }
 
 type DescribeClusterNodesInput struct {
-	Cluster          *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	ClusterNodes     []string `protobuf:"bytes,2,rep,name=cluster_nodes,json=clusterNodes" json:"cluster_nodes,omitempty"`
-	Role             *string  `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Cluster              *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	ClusterNodes         []string `protobuf:"bytes,2,rep,name=cluster_nodes,json=clusterNodes" json:"cluster_nodes,omitempty"`
+	Role                 *string  `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeClusterNodesInput) Reset()                    { *m = DescribeClusterNodesInput{} }
-func (m *DescribeClusterNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeClusterNodesInput) ProtoMessage()               {}
-func (*DescribeClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
+func (m *DescribeClusterNodesInput) Reset()         { *m = DescribeClusterNodesInput{} }
+func (m *DescribeClusterNodesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeClusterNodesInput) ProtoMessage()    {}
+func (*DescribeClusterNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{5}
+}
+func (m *DescribeClusterNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeClusterNodesInput.Unmarshal(m, b)
+}
+func (m *DescribeClusterNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeClusterNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeClusterNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeClusterNodesInput.Merge(dst, src)
+}
+func (m *DescribeClusterNodesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeClusterNodesInput.Size(m)
+}
+func (m *DescribeClusterNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeClusterNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeClusterNodesInput proto.InternalMessageInfo
 
 func (m *DescribeClusterNodesInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -477,18 +706,39 @@ func (m *DescribeClusterNodesInput) GetRole() string {
 }
 
 type DescribeClusterNodesOutput struct {
-	Action           *string        `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32         `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string        `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TotalCount       *int32         `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	NodeSet          []*ClusterNode `protobuf:"bytes,5,rep,name=node_set,json=nodeSet" json:"node_set,omitempty"`
-	XXX_unrecognized []byte         `json:"-"`
+	Action               *string        `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32         `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string        `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount           *int32         `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	NodeSet              []*ClusterNode `protobuf:"bytes,5,rep,name=node_set,json=nodeSet" json:"node_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
 }
 
-func (m *DescribeClusterNodesOutput) Reset()                    { *m = DescribeClusterNodesOutput{} }
-func (m *DescribeClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeClusterNodesOutput) ProtoMessage()               {}
-func (*DescribeClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
+func (m *DescribeClusterNodesOutput) Reset()         { *m = DescribeClusterNodesOutput{} }
+func (m *DescribeClusterNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeClusterNodesOutput) ProtoMessage()    {}
+func (*DescribeClusterNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{6}
+}
+func (m *DescribeClusterNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeClusterNodesOutput.Unmarshal(m, b)
+}
+func (m *DescribeClusterNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeClusterNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeClusterNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeClusterNodesOutput.Merge(dst, src)
+}
+func (m *DescribeClusterNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeClusterNodesOutput.Size(m)
+}
+func (m *DescribeClusterNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeClusterNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeClusterNodesOutput proto.InternalMessageInfo
 
 func (m *DescribeClusterNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -526,15 +776,36 @@ func (m *DescribeClusterNodesOutput) GetNodeSet() []*ClusterNode {
 }
 
 type StopClustersInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	Force            *int32   `protobuf:"varint,2,opt,name=force" json:"force,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	Force                *int32   `protobuf:"varint,2,opt,name=force" json:"force,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StopClustersInput) Reset()                    { *m = StopClustersInput{} }
-func (m *StopClustersInput) String() string            { return proto.CompactTextString(m) }
-func (*StopClustersInput) ProtoMessage()               {}
-func (*StopClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
+func (m *StopClustersInput) Reset()         { *m = StopClustersInput{} }
+func (m *StopClustersInput) String() string { return proto.CompactTextString(m) }
+func (*StopClustersInput) ProtoMessage()    {}
+func (*StopClustersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{7}
+}
+func (m *StopClustersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopClustersInput.Unmarshal(m, b)
+}
+func (m *StopClustersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopClustersInput.Marshal(b, m, deterministic)
+}
+func (dst *StopClustersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopClustersInput.Merge(dst, src)
+}
+func (m *StopClustersInput) XXX_Size() int {
+	return xxx_messageInfo_StopClustersInput.Size(m)
+}
+func (m *StopClustersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopClustersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopClustersInput proto.InternalMessageInfo
 
 func (m *StopClustersInput) GetClusters() []string {
 	if m != nil {
@@ -551,17 +822,38 @@ func (m *StopClustersInput) GetForce() int32 {
 }
 
 type StopClustersOutput struct {
-	Action           *string           `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32            `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobIds           map[string]string `protobuf:"bytes,4,rep,name=job_ids,json=jobIds" json:"job_ids,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_unrecognized []byte            `json:"-"`
+	Action               *string           `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32            `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobIds               map[string]string `protobuf:"bytes,4,rep,name=job_ids,json=jobIds" json:"job_ids,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *StopClustersOutput) Reset()                    { *m = StopClustersOutput{} }
-func (m *StopClustersOutput) String() string            { return proto.CompactTextString(m) }
-func (*StopClustersOutput) ProtoMessage()               {}
-func (*StopClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
+func (m *StopClustersOutput) Reset()         { *m = StopClustersOutput{} }
+func (m *StopClustersOutput) String() string { return proto.CompactTextString(m) }
+func (*StopClustersOutput) ProtoMessage()    {}
+func (*StopClustersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{8}
+}
+func (m *StopClustersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopClustersOutput.Unmarshal(m, b)
+}
+func (m *StopClustersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopClustersOutput.Marshal(b, m, deterministic)
+}
+func (dst *StopClustersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopClustersOutput.Merge(dst, src)
+}
+func (m *StopClustersOutput) XXX_Size() int {
+	return xxx_messageInfo_StopClustersOutput.Size(m)
+}
+func (m *StopClustersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopClustersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopClustersOutput proto.InternalMessageInfo
 
 func (m *StopClustersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -592,14 +884,35 @@ func (m *StopClustersOutput) GetJobIds() map[string]string {
 }
 
 type StartClustersInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StartClustersInput) Reset()                    { *m = StartClustersInput{} }
-func (m *StartClustersInput) String() string            { return proto.CompactTextString(m) }
-func (*StartClustersInput) ProtoMessage()               {}
-func (*StartClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
+func (m *StartClustersInput) Reset()         { *m = StartClustersInput{} }
+func (m *StartClustersInput) String() string { return proto.CompactTextString(m) }
+func (*StartClustersInput) ProtoMessage()    {}
+func (*StartClustersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{9}
+}
+func (m *StartClustersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartClustersInput.Unmarshal(m, b)
+}
+func (m *StartClustersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartClustersInput.Marshal(b, m, deterministic)
+}
+func (dst *StartClustersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartClustersInput.Merge(dst, src)
+}
+func (m *StartClustersInput) XXX_Size() int {
+	return xxx_messageInfo_StartClustersInput.Size(m)
+}
+func (m *StartClustersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartClustersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartClustersInput proto.InternalMessageInfo
 
 func (m *StartClustersInput) GetClusters() []string {
 	if m != nil {
@@ -609,17 +922,38 @@ func (m *StartClustersInput) GetClusters() []string {
 }
 
 type StartClustersOutput struct {
-	Action           *string           `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32            `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobIds           map[string]string `protobuf:"bytes,4,rep,name=job_ids,json=jobIds" json:"job_ids,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_unrecognized []byte            `json:"-"`
+	Action               *string           `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32            `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string           `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobIds               map[string]string `protobuf:"bytes,4,rep,name=job_ids,json=jobIds" json:"job_ids,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *StartClustersOutput) Reset()                    { *m = StartClustersOutput{} }
-func (m *StartClustersOutput) String() string            { return proto.CompactTextString(m) }
-func (*StartClustersOutput) ProtoMessage()               {}
-func (*StartClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
+func (m *StartClustersOutput) Reset()         { *m = StartClustersOutput{} }
+func (m *StartClustersOutput) String() string { return proto.CompactTextString(m) }
+func (*StartClustersOutput) ProtoMessage()    {}
+func (*StartClustersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{10}
+}
+func (m *StartClustersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StartClustersOutput.Unmarshal(m, b)
+}
+func (m *StartClustersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StartClustersOutput.Marshal(b, m, deterministic)
+}
+func (dst *StartClustersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StartClustersOutput.Merge(dst, src)
+}
+func (m *StartClustersOutput) XXX_Size() int {
+	return xxx_messageInfo_StartClustersOutput.Size(m)
+}
+func (m *StartClustersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_StartClustersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StartClustersOutput proto.InternalMessageInfo
 
 func (m *StartClustersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -650,14 +984,35 @@ func (m *StartClustersOutput) GetJobIds() map[string]string {
 }
 
 type DeleteClustersInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteClustersInput) Reset()                    { *m = DeleteClustersInput{} }
-func (m *DeleteClustersInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteClustersInput) ProtoMessage()               {}
-func (*DeleteClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
+func (m *DeleteClustersInput) Reset()         { *m = DeleteClustersInput{} }
+func (m *DeleteClustersInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteClustersInput) ProtoMessage()    {}
+func (*DeleteClustersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{11}
+}
+func (m *DeleteClustersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteClustersInput.Unmarshal(m, b)
+}
+func (m *DeleteClustersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteClustersInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteClustersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteClustersInput.Merge(dst, src)
+}
+func (m *DeleteClustersInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteClustersInput.Size(m)
+}
+func (m *DeleteClustersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteClustersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteClustersInput proto.InternalMessageInfo
 
 func (m *DeleteClustersInput) GetClusters() []string {
 	if m != nil {
@@ -667,16 +1022,37 @@ func (m *DeleteClustersInput) GetClusters() []string {
 }
 
 type DeleteClustersOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteClustersOutput) Reset()                    { *m = DeleteClustersOutput{} }
-func (m *DeleteClustersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteClustersOutput) ProtoMessage()               {}
-func (*DeleteClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
+func (m *DeleteClustersOutput) Reset()         { *m = DeleteClustersOutput{} }
+func (m *DeleteClustersOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteClustersOutput) ProtoMessage()    {}
+func (*DeleteClustersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{12}
+}
+func (m *DeleteClustersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteClustersOutput.Unmarshal(m, b)
+}
+func (m *DeleteClustersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteClustersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteClustersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteClustersOutput.Merge(dst, src)
+}
+func (m *DeleteClustersOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteClustersOutput.Size(m)
+}
+func (m *DeleteClustersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteClustersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteClustersOutput proto.InternalMessageInfo
 
 func (m *DeleteClustersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -700,14 +1076,35 @@ func (m *DeleteClustersOutput) GetMessage() string {
 }
 
 type LeaseInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *LeaseInput) Reset()                    { *m = LeaseInput{} }
-func (m *LeaseInput) String() string            { return proto.CompactTextString(m) }
-func (*LeaseInput) ProtoMessage()               {}
-func (*LeaseInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
+func (m *LeaseInput) Reset()         { *m = LeaseInput{} }
+func (m *LeaseInput) String() string { return proto.CompactTextString(m) }
+func (*LeaseInput) ProtoMessage()    {}
+func (*LeaseInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{13}
+}
+func (m *LeaseInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LeaseInput.Unmarshal(m, b)
+}
+func (m *LeaseInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LeaseInput.Marshal(b, m, deterministic)
+}
+func (dst *LeaseInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LeaseInput.Merge(dst, src)
+}
+func (m *LeaseInput) XXX_Size() int {
+	return xxx_messageInfo_LeaseInput.Size(m)
+}
+func (m *LeaseInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_LeaseInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LeaseInput proto.InternalMessageInfo
 
 func (m *LeaseInput) GetClusters() []string {
 	if m != nil {
@@ -717,16 +1114,37 @@ func (m *LeaseInput) GetClusters() []string {
 }
 
 type LeaseOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *LeaseOutput) Reset()                    { *m = LeaseOutput{} }
-func (m *LeaseOutput) String() string            { return proto.CompactTextString(m) }
-func (*LeaseOutput) ProtoMessage()               {}
-func (*LeaseOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{14} }
+func (m *LeaseOutput) Reset()         { *m = LeaseOutput{} }
+func (m *LeaseOutput) String() string { return proto.CompactTextString(m) }
+func (*LeaseOutput) ProtoMessage()    {}
+func (*LeaseOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{14}
+}
+func (m *LeaseOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LeaseOutput.Unmarshal(m, b)
+}
+func (m *LeaseOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LeaseOutput.Marshal(b, m, deterministic)
+}
+func (dst *LeaseOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LeaseOutput.Merge(dst, src)
+}
+func (m *LeaseOutput) XXX_Size() int {
+	return xxx_messageInfo_LeaseOutput.Size(m)
+}
+func (m *LeaseOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_LeaseOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LeaseOutput proto.InternalMessageInfo
 
 func (m *LeaseOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -750,18 +1168,39 @@ func (m *LeaseOutput) GetMessage() string {
 }
 
 type AddClusterNodesInput struct {
-	Cluster          *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	NodeCount        *int32   `protobuf:"varint,2,req,name=node_count,json=nodeCount" json:"node_count,omitempty"`
-	NodeRole         *string  `protobuf:"bytes,3,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
-	NodeName         *string  `protobuf:"bytes,4,opt,name=node_name,json=nodeName" json:"node_name,omitempty"`
-	PrivateIps       []string `protobuf:"bytes,5,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Cluster              *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	NodeCount            *int32   `protobuf:"varint,2,req,name=node_count,json=nodeCount" json:"node_count,omitempty"`
+	NodeRole             *string  `protobuf:"bytes,3,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
+	NodeName             *string  `protobuf:"bytes,4,opt,name=node_name,json=nodeName" json:"node_name,omitempty"`
+	PrivateIps           []string `protobuf:"bytes,5,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddClusterNodesInput) Reset()                    { *m = AddClusterNodesInput{} }
-func (m *AddClusterNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*AddClusterNodesInput) ProtoMessage()               {}
-func (*AddClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{15} }
+func (m *AddClusterNodesInput) Reset()         { *m = AddClusterNodesInput{} }
+func (m *AddClusterNodesInput) String() string { return proto.CompactTextString(m) }
+func (*AddClusterNodesInput) ProtoMessage()    {}
+func (*AddClusterNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{15}
+}
+func (m *AddClusterNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddClusterNodesInput.Unmarshal(m, b)
+}
+func (m *AddClusterNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddClusterNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *AddClusterNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddClusterNodesInput.Merge(dst, src)
+}
+func (m *AddClusterNodesInput) XXX_Size() int {
+	return xxx_messageInfo_AddClusterNodesInput.Size(m)
+}
+func (m *AddClusterNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddClusterNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddClusterNodesInput proto.InternalMessageInfo
 
 func (m *AddClusterNodesInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -799,16 +1238,37 @@ func (m *AddClusterNodesInput) GetPrivateIps() []string {
 }
 
 type AddClusterNodesOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AddClusterNodesOutput) Reset()                    { *m = AddClusterNodesOutput{} }
-func (m *AddClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AddClusterNodesOutput) ProtoMessage()               {}
-func (*AddClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{16} }
+func (m *AddClusterNodesOutput) Reset()         { *m = AddClusterNodesOutput{} }
+func (m *AddClusterNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*AddClusterNodesOutput) ProtoMessage()    {}
+func (*AddClusterNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{16}
+}
+func (m *AddClusterNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddClusterNodesOutput.Unmarshal(m, b)
+}
+func (m *AddClusterNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddClusterNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AddClusterNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddClusterNodesOutput.Merge(dst, src)
+}
+func (m *AddClusterNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_AddClusterNodesOutput.Size(m)
+}
+func (m *AddClusterNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddClusterNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddClusterNodesOutput proto.InternalMessageInfo
 
 func (m *AddClusterNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -832,16 +1292,37 @@ func (m *AddClusterNodesOutput) GetMessage() string {
 }
 
 type DeleteClusterNodesInput struct {
-	Cluster          *string  `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
-	Nodes            []string `protobuf:"bytes,2,rep,name=nodes" json:"nodes,omitempty"`
-	Force            *int32   `protobuf:"varint,3,opt,name=force" json:"force,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Cluster              *string  `protobuf:"bytes,1,opt,name=cluster" json:"cluster,omitempty"`
+	Nodes                []string `protobuf:"bytes,2,rep,name=nodes" json:"nodes,omitempty"`
+	Force                *int32   `protobuf:"varint,3,opt,name=force" json:"force,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteClusterNodesInput) Reset()                    { *m = DeleteClusterNodesInput{} }
-func (m *DeleteClusterNodesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteClusterNodesInput) ProtoMessage()               {}
-func (*DeleteClusterNodesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{17} }
+func (m *DeleteClusterNodesInput) Reset()         { *m = DeleteClusterNodesInput{} }
+func (m *DeleteClusterNodesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteClusterNodesInput) ProtoMessage()    {}
+func (*DeleteClusterNodesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{17}
+}
+func (m *DeleteClusterNodesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteClusterNodesInput.Unmarshal(m, b)
+}
+func (m *DeleteClusterNodesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteClusterNodesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteClusterNodesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteClusterNodesInput.Merge(dst, src)
+}
+func (m *DeleteClusterNodesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteClusterNodesInput.Size(m)
+}
+func (m *DeleteClusterNodesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteClusterNodesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteClusterNodesInput proto.InternalMessageInfo
 
 func (m *DeleteClusterNodesInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -865,16 +1346,37 @@ func (m *DeleteClusterNodesInput) GetForce() int32 {
 }
 
 type DeleteClusterNodesOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteClusterNodesOutput) Reset()                    { *m = DeleteClusterNodesOutput{} }
-func (m *DeleteClusterNodesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteClusterNodesOutput) ProtoMessage()               {}
-func (*DeleteClusterNodesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{18} }
+func (m *DeleteClusterNodesOutput) Reset()         { *m = DeleteClusterNodesOutput{} }
+func (m *DeleteClusterNodesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteClusterNodesOutput) ProtoMessage()    {}
+func (*DeleteClusterNodesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{18}
+}
+func (m *DeleteClusterNodesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteClusterNodesOutput.Unmarshal(m, b)
+}
+func (m *DeleteClusterNodesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteClusterNodesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteClusterNodesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteClusterNodesOutput.Merge(dst, src)
+}
+func (m *DeleteClusterNodesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteClusterNodesOutput.Size(m)
+}
+func (m *DeleteClusterNodesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteClusterNodesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteClusterNodesOutput proto.InternalMessageInfo
 
 func (m *DeleteClusterNodesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -898,18 +1400,39 @@ func (m *DeleteClusterNodesOutput) GetMessage() string {
 }
 
 type ResizeClusterInput struct {
-	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	NodeRole         *string `protobuf:"bytes,2,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
-	Cpu              *int32  `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
-	Memory           *int32  `protobuf:"varint,4,opt,name=memory" json:"memory,omitempty"`
-	StorageSize      *int32  `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Cluster              *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	NodeRole             *string  `protobuf:"bytes,2,opt,name=node_role,json=nodeRole" json:"node_role,omitempty"`
+	Cpu                  *int32   `protobuf:"varint,3,opt,name=cpu" json:"cpu,omitempty"`
+	Memory               *int32   `protobuf:"varint,4,opt,name=memory" json:"memory,omitempty"`
+	StorageSize          *int32   `protobuf:"varint,5,opt,name=storage_size,json=storageSize" json:"storage_size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeClusterInput) Reset()                    { *m = ResizeClusterInput{} }
-func (m *ResizeClusterInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeClusterInput) ProtoMessage()               {}
-func (*ResizeClusterInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{19} }
+func (m *ResizeClusterInput) Reset()         { *m = ResizeClusterInput{} }
+func (m *ResizeClusterInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeClusterInput) ProtoMessage()    {}
+func (*ResizeClusterInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{19}
+}
+func (m *ResizeClusterInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeClusterInput.Unmarshal(m, b)
+}
+func (m *ResizeClusterInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeClusterInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeClusterInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeClusterInput.Merge(dst, src)
+}
+func (m *ResizeClusterInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeClusterInput.Size(m)
+}
+func (m *ResizeClusterInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeClusterInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeClusterInput proto.InternalMessageInfo
 
 func (m *ResizeClusterInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -947,16 +1470,37 @@ func (m *ResizeClusterInput) GetStorageSize() int32 {
 }
 
 type ResizeClusterOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeClusterOutput) Reset()                    { *m = ResizeClusterOutput{} }
-func (m *ResizeClusterOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeClusterOutput) ProtoMessage()               {}
-func (*ResizeClusterOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{20} }
+func (m *ResizeClusterOutput) Reset()         { *m = ResizeClusterOutput{} }
+func (m *ResizeClusterOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeClusterOutput) ProtoMessage()    {}
+func (*ResizeClusterOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{20}
+}
+func (m *ResizeClusterOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeClusterOutput.Unmarshal(m, b)
+}
+func (m *ResizeClusterOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeClusterOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeClusterOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeClusterOutput.Merge(dst, src)
+}
+func (m *ResizeClusterOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeClusterOutput.Size(m)
+}
+func (m *ResizeClusterOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeClusterOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeClusterOutput proto.InternalMessageInfo
 
 func (m *ResizeClusterOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -980,17 +1524,38 @@ func (m *ResizeClusterOutput) GetMessage() string {
 }
 
 type ChangeClusterVxnetInput struct {
-	Cluster          *string           `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	Vxnet            *string           `protobuf:"bytes,2,req,name=vxnet" json:"vxnet,omitempty"`
-	PrivateIps       map[string]string `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Roles            []string          `protobuf:"bytes,4,rep,name=roles" json:"roles,omitempty"`
-	XXX_unrecognized []byte            `json:"-"`
+	Cluster              *string           `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Vxnet                *string           `protobuf:"bytes,2,req,name=vxnet" json:"vxnet,omitempty"`
+	PrivateIps           map[string]string `protobuf:"bytes,3,rep,name=private_ips,json=privateIps" json:"private_ips,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Roles                []string          `protobuf:"bytes,4,rep,name=roles" json:"roles,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *ChangeClusterVxnetInput) Reset()                    { *m = ChangeClusterVxnetInput{} }
-func (m *ChangeClusterVxnetInput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeClusterVxnetInput) ProtoMessage()               {}
-func (*ChangeClusterVxnetInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{21} }
+func (m *ChangeClusterVxnetInput) Reset()         { *m = ChangeClusterVxnetInput{} }
+func (m *ChangeClusterVxnetInput) String() string { return proto.CompactTextString(m) }
+func (*ChangeClusterVxnetInput) ProtoMessage()    {}
+func (*ChangeClusterVxnetInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{21}
+}
+func (m *ChangeClusterVxnetInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeClusterVxnetInput.Unmarshal(m, b)
+}
+func (m *ChangeClusterVxnetInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeClusterVxnetInput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeClusterVxnetInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeClusterVxnetInput.Merge(dst, src)
+}
+func (m *ChangeClusterVxnetInput) XXX_Size() int {
+	return xxx_messageInfo_ChangeClusterVxnetInput.Size(m)
+}
+func (m *ChangeClusterVxnetInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeClusterVxnetInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeClusterVxnetInput proto.InternalMessageInfo
 
 func (m *ChangeClusterVxnetInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -1021,16 +1586,37 @@ func (m *ChangeClusterVxnetInput) GetRoles() []string {
 }
 
 type ChangeClusterVxnetOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ChangeClusterVxnetOutput) Reset()                    { *m = ChangeClusterVxnetOutput{} }
-func (m *ChangeClusterVxnetOutput) String() string            { return proto.CompactTextString(m) }
-func (*ChangeClusterVxnetOutput) ProtoMessage()               {}
-func (*ChangeClusterVxnetOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{22} }
+func (m *ChangeClusterVxnetOutput) Reset()         { *m = ChangeClusterVxnetOutput{} }
+func (m *ChangeClusterVxnetOutput) String() string { return proto.CompactTextString(m) }
+func (*ChangeClusterVxnetOutput) ProtoMessage()    {}
+func (*ChangeClusterVxnetOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{22}
+}
+func (m *ChangeClusterVxnetOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChangeClusterVxnetOutput.Unmarshal(m, b)
+}
+func (m *ChangeClusterVxnetOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChangeClusterVxnetOutput.Marshal(b, m, deterministic)
+}
+func (dst *ChangeClusterVxnetOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChangeClusterVxnetOutput.Merge(dst, src)
+}
+func (m *ChangeClusterVxnetOutput) XXX_Size() int {
+	return xxx_messageInfo_ChangeClusterVxnetOutput.Size(m)
+}
+func (m *ChangeClusterVxnetOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChangeClusterVxnetOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChangeClusterVxnetOutput proto.InternalMessageInfo
 
 func (m *ChangeClusterVxnetOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1054,14 +1640,35 @@ func (m *ChangeClusterVxnetOutput) GetMessage() string {
 }
 
 type SuspendClustersInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SuspendClustersInput) Reset()                    { *m = SuspendClustersInput{} }
-func (m *SuspendClustersInput) String() string            { return proto.CompactTextString(m) }
-func (*SuspendClustersInput) ProtoMessage()               {}
-func (*SuspendClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{23} }
+func (m *SuspendClustersInput) Reset()         { *m = SuspendClustersInput{} }
+func (m *SuspendClustersInput) String() string { return proto.CompactTextString(m) }
+func (*SuspendClustersInput) ProtoMessage()    {}
+func (*SuspendClustersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{23}
+}
+func (m *SuspendClustersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SuspendClustersInput.Unmarshal(m, b)
+}
+func (m *SuspendClustersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SuspendClustersInput.Marshal(b, m, deterministic)
+}
+func (dst *SuspendClustersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SuspendClustersInput.Merge(dst, src)
+}
+func (m *SuspendClustersInput) XXX_Size() int {
+	return xxx_messageInfo_SuspendClustersInput.Size(m)
+}
+func (m *SuspendClustersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_SuspendClustersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SuspendClustersInput proto.InternalMessageInfo
 
 func (m *SuspendClustersInput) GetClusters() []string {
 	if m != nil {
@@ -1071,16 +1678,37 @@ func (m *SuspendClustersInput) GetClusters() []string {
 }
 
 type SuspendClustersOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SuspendClustersOutput) Reset()                    { *m = SuspendClustersOutput{} }
-func (m *SuspendClustersOutput) String() string            { return proto.CompactTextString(m) }
-func (*SuspendClustersOutput) ProtoMessage()               {}
-func (*SuspendClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{24} }
+func (m *SuspendClustersOutput) Reset()         { *m = SuspendClustersOutput{} }
+func (m *SuspendClustersOutput) String() string { return proto.CompactTextString(m) }
+func (*SuspendClustersOutput) ProtoMessage()    {}
+func (*SuspendClustersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{24}
+}
+func (m *SuspendClustersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SuspendClustersOutput.Unmarshal(m, b)
+}
+func (m *SuspendClustersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SuspendClustersOutput.Marshal(b, m, deterministic)
+}
+func (dst *SuspendClustersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SuspendClustersOutput.Merge(dst, src)
+}
+func (m *SuspendClustersOutput) XXX_Size() int {
+	return xxx_messageInfo_SuspendClustersOutput.Size(m)
+}
+func (m *SuspendClustersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_SuspendClustersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SuspendClustersOutput proto.InternalMessageInfo
 
 func (m *SuspendClustersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1104,16 +1732,37 @@ func (m *SuspendClustersOutput) GetMessage() string {
 }
 
 type UpdateClusterEnvironmentInput struct {
-	Cluster          *string           `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	Roles            []string          `protobuf:"bytes,2,rep,name=roles" json:"roles,omitempty"`
-	Env              map[string]string `protobuf:"bytes,3,rep,name=env" json:"env,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_unrecognized []byte            `json:"-"`
+	Cluster              *string           `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Roles                []string          `protobuf:"bytes,2,rep,name=roles" json:"roles,omitempty"`
+	Env                  map[string]string `protobuf:"bytes,3,rep,name=env" json:"env,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *UpdateClusterEnvironmentInput) Reset()                    { *m = UpdateClusterEnvironmentInput{} }
-func (m *UpdateClusterEnvironmentInput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateClusterEnvironmentInput) ProtoMessage()               {}
-func (*UpdateClusterEnvironmentInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{25} }
+func (m *UpdateClusterEnvironmentInput) Reset()         { *m = UpdateClusterEnvironmentInput{} }
+func (m *UpdateClusterEnvironmentInput) String() string { return proto.CompactTextString(m) }
+func (*UpdateClusterEnvironmentInput) ProtoMessage()    {}
+func (*UpdateClusterEnvironmentInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{25}
+}
+func (m *UpdateClusterEnvironmentInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateClusterEnvironmentInput.Unmarshal(m, b)
+}
+func (m *UpdateClusterEnvironmentInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateClusterEnvironmentInput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateClusterEnvironmentInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateClusterEnvironmentInput.Merge(dst, src)
+}
+func (m *UpdateClusterEnvironmentInput) XXX_Size() int {
+	return xxx_messageInfo_UpdateClusterEnvironmentInput.Size(m)
+}
+func (m *UpdateClusterEnvironmentInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateClusterEnvironmentInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateClusterEnvironmentInput proto.InternalMessageInfo
 
 func (m *UpdateClusterEnvironmentInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -1137,16 +1786,37 @@ func (m *UpdateClusterEnvironmentInput) GetEnv() map[string]string {
 }
 
 type UpdateClusterEnvironmentOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpdateClusterEnvironmentOutput) Reset()                    { *m = UpdateClusterEnvironmentOutput{} }
-func (m *UpdateClusterEnvironmentOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpdateClusterEnvironmentOutput) ProtoMessage()               {}
-func (*UpdateClusterEnvironmentOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{26} }
+func (m *UpdateClusterEnvironmentOutput) Reset()         { *m = UpdateClusterEnvironmentOutput{} }
+func (m *UpdateClusterEnvironmentOutput) String() string { return proto.CompactTextString(m) }
+func (*UpdateClusterEnvironmentOutput) ProtoMessage()    {}
+func (*UpdateClusterEnvironmentOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{26}
+}
+func (m *UpdateClusterEnvironmentOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpdateClusterEnvironmentOutput.Unmarshal(m, b)
+}
+func (m *UpdateClusterEnvironmentOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpdateClusterEnvironmentOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpdateClusterEnvironmentOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateClusterEnvironmentOutput.Merge(dst, src)
+}
+func (m *UpdateClusterEnvironmentOutput) XXX_Size() int {
+	return xxx_messageInfo_UpdateClusterEnvironmentOutput.Size(m)
+}
+func (m *UpdateClusterEnvironmentOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpdateClusterEnvironmentOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpdateClusterEnvironmentOutput proto.InternalMessageInfo
 
 func (m *UpdateClusterEnvironmentOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1170,16 +1840,37 @@ func (m *UpdateClusterEnvironmentOutput) GetMessage() string {
 }
 
 type ModifyClusterAttributesInput struct {
-	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	Name             *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Description      *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Cluster              *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Name                 *string  `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Description          *string  `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyClusterAttributesInput) Reset()                    { *m = ModifyClusterAttributesInput{} }
-func (m *ModifyClusterAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyClusterAttributesInput) ProtoMessage()               {}
-func (*ModifyClusterAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{27} }
+func (m *ModifyClusterAttributesInput) Reset()         { *m = ModifyClusterAttributesInput{} }
+func (m *ModifyClusterAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyClusterAttributesInput) ProtoMessage()    {}
+func (*ModifyClusterAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{27}
+}
+func (m *ModifyClusterAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyClusterAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyClusterAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyClusterAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyClusterAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyClusterAttributesInput.Merge(dst, src)
+}
+func (m *ModifyClusterAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyClusterAttributesInput.Size(m)
+}
+func (m *ModifyClusterAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyClusterAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyClusterAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyClusterAttributesInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -1203,16 +1894,37 @@ func (m *ModifyClusterAttributesInput) GetDescription() string {
 }
 
 type ModifyClusterAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyClusterAttributesOutput) Reset()                    { *m = ModifyClusterAttributesOutput{} }
-func (m *ModifyClusterAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyClusterAttributesOutput) ProtoMessage()               {}
-func (*ModifyClusterAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{28} }
+func (m *ModifyClusterAttributesOutput) Reset()         { *m = ModifyClusterAttributesOutput{} }
+func (m *ModifyClusterAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyClusterAttributesOutput) ProtoMessage()    {}
+func (*ModifyClusterAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{28}
+}
+func (m *ModifyClusterAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyClusterAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyClusterAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyClusterAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyClusterAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyClusterAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyClusterAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyClusterAttributesOutput.Size(m)
+}
+func (m *ModifyClusterAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyClusterAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyClusterAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyClusterAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1236,18 +1948,37 @@ func (m *ModifyClusterAttributesOutput) GetMessage() string {
 }
 
 type ModifyClusterNodeAttributesInput struct {
-	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	ClusterNode      *string `protobuf:"bytes,2,req,name=cluster_node,json=clusterNode" json:"cluster_node,omitempty"`
-	Name             *string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Cluster              *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	ClusterNode          *string  `protobuf:"bytes,2,req,name=cluster_node,json=clusterNode" json:"cluster_node,omitempty"`
+	Name                 *string  `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyClusterNodeAttributesInput) Reset()         { *m = ModifyClusterNodeAttributesInput{} }
 func (m *ModifyClusterNodeAttributesInput) String() string { return proto.CompactTextString(m) }
 func (*ModifyClusterNodeAttributesInput) ProtoMessage()    {}
 func (*ModifyClusterNodeAttributesInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{29}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{29}
 }
+func (m *ModifyClusterNodeAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyClusterNodeAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyClusterNodeAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyClusterNodeAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyClusterNodeAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyClusterNodeAttributesInput.Merge(dst, src)
+}
+func (m *ModifyClusterNodeAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyClusterNodeAttributesInput.Size(m)
+}
+func (m *ModifyClusterNodeAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyClusterNodeAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyClusterNodeAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyClusterNodeAttributesInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -1271,18 +2002,37 @@ func (m *ModifyClusterNodeAttributesInput) GetName() string {
 }
 
 type ModifyClusterNodeAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ModifyClusterNodeAttributesOutput) Reset()         { *m = ModifyClusterNodeAttributesOutput{} }
 func (m *ModifyClusterNodeAttributesOutput) String() string { return proto.CompactTextString(m) }
 func (*ModifyClusterNodeAttributesOutput) ProtoMessage()    {}
 func (*ModifyClusterNodeAttributesOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{30}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{30}
 }
+func (m *ModifyClusterNodeAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyClusterNodeAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyClusterNodeAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyClusterNodeAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyClusterNodeAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyClusterNodeAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyClusterNodeAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyClusterNodeAttributesOutput.Size(m)
+}
+func (m *ModifyClusterNodeAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyClusterNodeAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyClusterNodeAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyClusterNodeAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1306,14 +2056,35 @@ func (m *ModifyClusterNodeAttributesOutput) GetMessage() string {
 }
 
 type GetClustersStatsInput struct {
-	Zones            []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Zones                []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetClustersStatsInput) Reset()                    { *m = GetClustersStatsInput{} }
-func (m *GetClustersStatsInput) String() string            { return proto.CompactTextString(m) }
-func (*GetClustersStatsInput) ProtoMessage()               {}
-func (*GetClustersStatsInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{31} }
+func (m *GetClustersStatsInput) Reset()         { *m = GetClustersStatsInput{} }
+func (m *GetClustersStatsInput) String() string { return proto.CompactTextString(m) }
+func (*GetClustersStatsInput) ProtoMessage()    {}
+func (*GetClustersStatsInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{31}
+}
+func (m *GetClustersStatsInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetClustersStatsInput.Unmarshal(m, b)
+}
+func (m *GetClustersStatsInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetClustersStatsInput.Marshal(b, m, deterministic)
+}
+func (dst *GetClustersStatsInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetClustersStatsInput.Merge(dst, src)
+}
+func (m *GetClustersStatsInput) XXX_Size() int {
+	return xxx_messageInfo_GetClustersStatsInput.Size(m)
+}
+func (m *GetClustersStatsInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetClustersStatsInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetClustersStatsInput proto.InternalMessageInfo
 
 func (m *GetClustersStatsInput) GetZones() []string {
 	if m != nil {
@@ -1323,16 +2094,37 @@ func (m *GetClustersStatsInput) GetZones() []string {
 }
 
 type GetClustersStatsOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetClustersStatsOutput) Reset()                    { *m = GetClustersStatsOutput{} }
-func (m *GetClustersStatsOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetClustersStatsOutput) ProtoMessage()               {}
-func (*GetClustersStatsOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{32} }
+func (m *GetClustersStatsOutput) Reset()         { *m = GetClustersStatsOutput{} }
+func (m *GetClustersStatsOutput) String() string { return proto.CompactTextString(m) }
+func (*GetClustersStatsOutput) ProtoMessage()    {}
+func (*GetClustersStatsOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{32}
+}
+func (m *GetClustersStatsOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetClustersStatsOutput.Unmarshal(m, b)
+}
+func (m *GetClustersStatsOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetClustersStatsOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetClustersStatsOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetClustersStatsOutput.Merge(dst, src)
+}
+func (m *GetClustersStatsOutput) XXX_Size() int {
+	return xxx_messageInfo_GetClustersStatsOutput.Size(m)
+}
+func (m *GetClustersStatsOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetClustersStatsOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetClustersStatsOutput proto.InternalMessageInfo
 
 func (m *GetClustersStatsOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1356,18 +2148,39 @@ func (m *GetClustersStatsOutput) GetMessage() string {
 }
 
 type DescribeClusterUsersInput struct {
-	Zones            []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
-	Apps             []string `protobuf:"bytes,2,rep,name=apps" json:"apps,omitempty"`
-	AppVersions      []string `protobuf:"bytes,3,rep,name=app_versions,json=appVersions" json:"app_versions,omitempty"`
-	Users            []string `protobuf:"bytes,4,rep,name=users" json:"users,omitempty"`
-	ClusterStatus    []string `protobuf:"bytes,5,rep,name=cluster_status,json=clusterStatus" json:"cluster_status,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Zones                []string `protobuf:"bytes,1,rep,name=zones" json:"zones,omitempty"`
+	Apps                 []string `protobuf:"bytes,2,rep,name=apps" json:"apps,omitempty"`
+	AppVersions          []string `protobuf:"bytes,3,rep,name=app_versions,json=appVersions" json:"app_versions,omitempty"`
+	Users                []string `protobuf:"bytes,4,rep,name=users" json:"users,omitempty"`
+	ClusterStatus        []string `protobuf:"bytes,5,rep,name=cluster_status,json=clusterStatus" json:"cluster_status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeClusterUsersInput) Reset()                    { *m = DescribeClusterUsersInput{} }
-func (m *DescribeClusterUsersInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeClusterUsersInput) ProtoMessage()               {}
-func (*DescribeClusterUsersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{33} }
+func (m *DescribeClusterUsersInput) Reset()         { *m = DescribeClusterUsersInput{} }
+func (m *DescribeClusterUsersInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeClusterUsersInput) ProtoMessage()    {}
+func (*DescribeClusterUsersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{33}
+}
+func (m *DescribeClusterUsersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeClusterUsersInput.Unmarshal(m, b)
+}
+func (m *DescribeClusterUsersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeClusterUsersInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeClusterUsersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeClusterUsersInput.Merge(dst, src)
+}
+func (m *DescribeClusterUsersInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeClusterUsersInput.Size(m)
+}
+func (m *DescribeClusterUsersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeClusterUsersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeClusterUsersInput proto.InternalMessageInfo
 
 func (m *DescribeClusterUsersInput) GetZones() []string {
 	if m != nil {
@@ -1405,16 +2218,37 @@ func (m *DescribeClusterUsersInput) GetClusterStatus() []string {
 }
 
 type DescribeClusterUsersOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeClusterUsersOutput) Reset()                    { *m = DescribeClusterUsersOutput{} }
-func (m *DescribeClusterUsersOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeClusterUsersOutput) ProtoMessage()               {}
-func (*DescribeClusterUsersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{34} }
+func (m *DescribeClusterUsersOutput) Reset()         { *m = DescribeClusterUsersOutput{} }
+func (m *DescribeClusterUsersOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeClusterUsersOutput) ProtoMessage()    {}
+func (*DescribeClusterUsersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{34}
+}
+func (m *DescribeClusterUsersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeClusterUsersOutput.Unmarshal(m, b)
+}
+func (m *DescribeClusterUsersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeClusterUsersOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeClusterUsersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeClusterUsersOutput.Merge(dst, src)
+}
+func (m *DescribeClusterUsersOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeClusterUsersOutput.Size(m)
+}
+func (m *DescribeClusterUsersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeClusterUsersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeClusterUsersOutput proto.InternalMessageInfo
 
 func (m *DescribeClusterUsersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1438,15 +2272,36 @@ func (m *DescribeClusterUsersOutput) GetMessage() string {
 }
 
 type RestartClusterServiceInput struct {
-	Cluster          *string `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
-	Role             *string `protobuf:"bytes,2,opt,name=role" json:"role,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Cluster              *string  `protobuf:"bytes,1,req,name=cluster" json:"cluster,omitempty"`
+	Role                 *string  `protobuf:"bytes,2,opt,name=role" json:"role,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartClusterServiceInput) Reset()                    { *m = RestartClusterServiceInput{} }
-func (m *RestartClusterServiceInput) String() string            { return proto.CompactTextString(m) }
-func (*RestartClusterServiceInput) ProtoMessage()               {}
-func (*RestartClusterServiceInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{35} }
+func (m *RestartClusterServiceInput) Reset()         { *m = RestartClusterServiceInput{} }
+func (m *RestartClusterServiceInput) String() string { return proto.CompactTextString(m) }
+func (*RestartClusterServiceInput) ProtoMessage()    {}
+func (*RestartClusterServiceInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{35}
+}
+func (m *RestartClusterServiceInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartClusterServiceInput.Unmarshal(m, b)
+}
+func (m *RestartClusterServiceInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartClusterServiceInput.Marshal(b, m, deterministic)
+}
+func (dst *RestartClusterServiceInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartClusterServiceInput.Merge(dst, src)
+}
+func (m *RestartClusterServiceInput) XXX_Size() int {
+	return xxx_messageInfo_RestartClusterServiceInput.Size(m)
+}
+func (m *RestartClusterServiceInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartClusterServiceInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartClusterServiceInput proto.InternalMessageInfo
 
 func (m *RestartClusterServiceInput) GetCluster() string {
 	if m != nil && m.Cluster != nil {
@@ -1463,16 +2318,37 @@ func (m *RestartClusterServiceInput) GetRole() string {
 }
 
 type RestartClusterServiceOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RestartClusterServiceOutput) Reset()                    { *m = RestartClusterServiceOutput{} }
-func (m *RestartClusterServiceOutput) String() string            { return proto.CompactTextString(m) }
-func (*RestartClusterServiceOutput) ProtoMessage()               {}
-func (*RestartClusterServiceOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{36} }
+func (m *RestartClusterServiceOutput) Reset()         { *m = RestartClusterServiceOutput{} }
+func (m *RestartClusterServiceOutput) String() string { return proto.CompactTextString(m) }
+func (*RestartClusterServiceOutput) ProtoMessage()    {}
+func (*RestartClusterServiceOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{36}
+}
+func (m *RestartClusterServiceOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RestartClusterServiceOutput.Unmarshal(m, b)
+}
+func (m *RestartClusterServiceOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RestartClusterServiceOutput.Marshal(b, m, deterministic)
+}
+func (dst *RestartClusterServiceOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RestartClusterServiceOutput.Merge(dst, src)
+}
+func (m *RestartClusterServiceOutput) XXX_Size() int {
+	return xxx_messageInfo_RestartClusterServiceOutput.Size(m)
+}
+func (m *RestartClusterServiceOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RestartClusterServiceOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RestartClusterServiceOutput proto.InternalMessageInfo
 
 func (m *RestartClusterServiceOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1496,15 +2372,36 @@ func (m *RestartClusterServiceOutput) GetMessage() string {
 }
 
 type UpgradeClustersInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	AppVersion       *string  `protobuf:"bytes,2,req,name=app_version,json=appVersion" json:"app_version,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	AppVersion           *string  `protobuf:"bytes,2,req,name=app_version,json=appVersion" json:"app_version,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpgradeClustersInput) Reset()                    { *m = UpgradeClustersInput{} }
-func (m *UpgradeClustersInput) String() string            { return proto.CompactTextString(m) }
-func (*UpgradeClustersInput) ProtoMessage()               {}
-func (*UpgradeClustersInput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{37} }
+func (m *UpgradeClustersInput) Reset()         { *m = UpgradeClustersInput{} }
+func (m *UpgradeClustersInput) String() string { return proto.CompactTextString(m) }
+func (*UpgradeClustersInput) ProtoMessage()    {}
+func (*UpgradeClustersInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{37}
+}
+func (m *UpgradeClustersInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpgradeClustersInput.Unmarshal(m, b)
+}
+func (m *UpgradeClustersInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpgradeClustersInput.Marshal(b, m, deterministic)
+}
+func (dst *UpgradeClustersInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpgradeClustersInput.Merge(dst, src)
+}
+func (m *UpgradeClustersInput) XXX_Size() int {
+	return xxx_messageInfo_UpgradeClustersInput.Size(m)
+}
+func (m *UpgradeClustersInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpgradeClustersInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpgradeClustersInput proto.InternalMessageInfo
 
 func (m *UpgradeClustersInput) GetClusters() []string {
 	if m != nil {
@@ -1521,16 +2418,37 @@ func (m *UpgradeClustersInput) GetAppVersion() string {
 }
 
 type UpgradeClustersOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *UpgradeClustersOutput) Reset()                    { *m = UpgradeClustersOutput{} }
-func (m *UpgradeClustersOutput) String() string            { return proto.CompactTextString(m) }
-func (*UpgradeClustersOutput) ProtoMessage()               {}
-func (*UpgradeClustersOutput) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{38} }
+func (m *UpgradeClustersOutput) Reset()         { *m = UpgradeClustersOutput{} }
+func (m *UpgradeClustersOutput) String() string { return proto.CompactTextString(m) }
+func (*UpgradeClustersOutput) ProtoMessage()    {}
+func (*UpgradeClustersOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{38}
+}
+func (m *UpgradeClustersOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UpgradeClustersOutput.Unmarshal(m, b)
+}
+func (m *UpgradeClustersOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UpgradeClustersOutput.Marshal(b, m, deterministic)
+}
+func (dst *UpgradeClustersOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpgradeClustersOutput.Merge(dst, src)
+}
+func (m *UpgradeClustersOutput) XXX_Size() int {
+	return xxx_messageInfo_UpgradeClustersOutput.Size(m)
+}
+func (m *UpgradeClustersOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_UpgradeClustersOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UpgradeClustersOutput proto.InternalMessageInfo
 
 func (m *UpgradeClustersOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1554,8 +2472,10 @@ func (m *UpgradeClustersOutput) GetMessage() string {
 }
 
 type AuthorizeClustersBrokerToDeveloperInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperInput) Reset() {
@@ -1564,8 +2484,25 @@ func (m *AuthorizeClustersBrokerToDeveloperInput) Reset() {
 func (m *AuthorizeClustersBrokerToDeveloperInput) String() string { return proto.CompactTextString(m) }
 func (*AuthorizeClustersBrokerToDeveloperInput) ProtoMessage()    {}
 func (*AuthorizeClustersBrokerToDeveloperInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{39}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{39}
 }
+func (m *AuthorizeClustersBrokerToDeveloperInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AuthorizeClustersBrokerToDeveloperInput.Unmarshal(m, b)
+}
+func (m *AuthorizeClustersBrokerToDeveloperInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AuthorizeClustersBrokerToDeveloperInput.Marshal(b, m, deterministic)
+}
+func (dst *AuthorizeClustersBrokerToDeveloperInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AuthorizeClustersBrokerToDeveloperInput.Merge(dst, src)
+}
+func (m *AuthorizeClustersBrokerToDeveloperInput) XXX_Size() int {
+	return xxx_messageInfo_AuthorizeClustersBrokerToDeveloperInput.Size(m)
+}
+func (m *AuthorizeClustersBrokerToDeveloperInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AuthorizeClustersBrokerToDeveloperInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AuthorizeClustersBrokerToDeveloperInput proto.InternalMessageInfo
 
 func (m *AuthorizeClustersBrokerToDeveloperInput) GetClusters() []string {
 	if m != nil {
@@ -1575,10 +2512,12 @@ func (m *AuthorizeClustersBrokerToDeveloperInput) GetClusters() []string {
 }
 
 type AuthorizeClustersBrokerToDeveloperOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AuthorizeClustersBrokerToDeveloperOutput) Reset() {
@@ -1587,8 +2526,25 @@ func (m *AuthorizeClustersBrokerToDeveloperOutput) Reset() {
 func (m *AuthorizeClustersBrokerToDeveloperOutput) String() string { return proto.CompactTextString(m) }
 func (*AuthorizeClustersBrokerToDeveloperOutput) ProtoMessage()    {}
 func (*AuthorizeClustersBrokerToDeveloperOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{40}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{40}
 }
+func (m *AuthorizeClustersBrokerToDeveloperOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AuthorizeClustersBrokerToDeveloperOutput.Unmarshal(m, b)
+}
+func (m *AuthorizeClustersBrokerToDeveloperOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AuthorizeClustersBrokerToDeveloperOutput.Marshal(b, m, deterministic)
+}
+func (dst *AuthorizeClustersBrokerToDeveloperOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AuthorizeClustersBrokerToDeveloperOutput.Merge(dst, src)
+}
+func (m *AuthorizeClustersBrokerToDeveloperOutput) XXX_Size() int {
+	return xxx_messageInfo_AuthorizeClustersBrokerToDeveloperOutput.Size(m)
+}
+func (m *AuthorizeClustersBrokerToDeveloperOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AuthorizeClustersBrokerToDeveloperOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AuthorizeClustersBrokerToDeveloperOutput proto.InternalMessageInfo
 
 func (m *AuthorizeClustersBrokerToDeveloperOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1612,8 +2568,10 @@ func (m *AuthorizeClustersBrokerToDeveloperOutput) GetMessage() string {
 }
 
 type RevokeClustersBrokerFromDeveloperInput struct {
-	Clusters         []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Clusters             []string `protobuf:"bytes,1,rep,name=clusters" json:"clusters,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *RevokeClustersBrokerFromDeveloperInput) Reset() {
@@ -1622,8 +2580,25 @@ func (m *RevokeClustersBrokerFromDeveloperInput) Reset() {
 func (m *RevokeClustersBrokerFromDeveloperInput) String() string { return proto.CompactTextString(m) }
 func (*RevokeClustersBrokerFromDeveloperInput) ProtoMessage()    {}
 func (*RevokeClustersBrokerFromDeveloperInput) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{41}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{41}
 }
+func (m *RevokeClustersBrokerFromDeveloperInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeClustersBrokerFromDeveloperInput.Unmarshal(m, b)
+}
+func (m *RevokeClustersBrokerFromDeveloperInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeClustersBrokerFromDeveloperInput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeClustersBrokerFromDeveloperInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeClustersBrokerFromDeveloperInput.Merge(dst, src)
+}
+func (m *RevokeClustersBrokerFromDeveloperInput) XXX_Size() int {
+	return xxx_messageInfo_RevokeClustersBrokerFromDeveloperInput.Size(m)
+}
+func (m *RevokeClustersBrokerFromDeveloperInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeClustersBrokerFromDeveloperInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeClustersBrokerFromDeveloperInput proto.InternalMessageInfo
 
 func (m *RevokeClustersBrokerFromDeveloperInput) GetClusters() []string {
 	if m != nil {
@@ -1633,10 +2608,12 @@ func (m *RevokeClustersBrokerFromDeveloperInput) GetClusters() []string {
 }
 
 type RevokeClustersBrokerFromDeveloperOutput struct {
-	Action           *string `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,req,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,req,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *RevokeClustersBrokerFromDeveloperOutput) Reset() {
@@ -1645,8 +2622,25 @@ func (m *RevokeClustersBrokerFromDeveloperOutput) Reset() {
 func (m *RevokeClustersBrokerFromDeveloperOutput) String() string { return proto.CompactTextString(m) }
 func (*RevokeClustersBrokerFromDeveloperOutput) ProtoMessage()    {}
 func (*RevokeClustersBrokerFromDeveloperOutput) Descriptor() ([]byte, []int) {
-	return fileDescriptor2, []int{42}
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{42}
 }
+func (m *RevokeClustersBrokerFromDeveloperOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeClustersBrokerFromDeveloperOutput.Unmarshal(m, b)
+}
+func (m *RevokeClustersBrokerFromDeveloperOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeClustersBrokerFromDeveloperOutput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeClustersBrokerFromDeveloperOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeClustersBrokerFromDeveloperOutput.Merge(dst, src)
+}
+func (m *RevokeClustersBrokerFromDeveloperOutput) XXX_Size() int {
+	return xxx_messageInfo_RevokeClustersBrokerFromDeveloperOutput.Size(m)
+}
+func (m *RevokeClustersBrokerFromDeveloperOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeClustersBrokerFromDeveloperOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeClustersBrokerFromDeveloperOutput proto.InternalMessageInfo
 
 func (m *RevokeClustersBrokerFromDeveloperOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -1670,24 +2664,45 @@ func (m *RevokeClustersBrokerFromDeveloperOutput) GetMessage() string {
 }
 
 type ClusterProperty struct {
-	Key              *string            `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
-	Type             *string            `protobuf:"bytes,2,opt,name=type" json:"type,omitempty"`
-	Label            *string            `protobuf:"bytes,3,opt,name=label" json:"label,omitempty"`
-	Description      *string            `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
-	Default          *string            `protobuf:"bytes,5,opt,name=default" json:"default,omitempty"`
-	Min              *int32             `protobuf:"varint,6,opt,name=min" json:"min,omitempty"`
-	Max              *int32             `protobuf:"varint,7,opt,name=max" json:"max,omitempty"`
-	Step             *int32             `protobuf:"varint,8,opt,name=step" json:"step,omitempty"`
-	Range            []string           `protobuf:"bytes,9,rep,name=range" json:"range,omitempty"`
-	Required         *bool              `protobuf:"varint,10,opt,name=required" json:"required,omitempty"`
-	Properties       []*ClusterProperty `protobuf:"bytes,11,rep,name=properties" json:"properties,omitempty"`
-	XXX_unrecognized []byte             `json:"-"`
+	Key                  *string            `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
+	Type                 *string            `protobuf:"bytes,2,opt,name=type" json:"type,omitempty"`
+	Label                *string            `protobuf:"bytes,3,opt,name=label" json:"label,omitempty"`
+	Description          *string            `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
+	Default              *string            `protobuf:"bytes,5,opt,name=default" json:"default,omitempty"`
+	Min                  *int32             `protobuf:"varint,6,opt,name=min" json:"min,omitempty"`
+	Max                  *int32             `protobuf:"varint,7,opt,name=max" json:"max,omitempty"`
+	Step                 *int32             `protobuf:"varint,8,opt,name=step" json:"step,omitempty"`
+	Range                []string           `protobuf:"bytes,9,rep,name=range" json:"range,omitempty"`
+	Required             *bool              `protobuf:"varint,10,opt,name=required" json:"required,omitempty"`
+	Properties           []*ClusterProperty `protobuf:"bytes,11,rep,name=properties" json:"properties,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
-func (m *ClusterProperty) Reset()                    { *m = ClusterProperty{} }
-func (m *ClusterProperty) String() string            { return proto.CompactTextString(m) }
-func (*ClusterProperty) ProtoMessage()               {}
-func (*ClusterProperty) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{43} }
+func (m *ClusterProperty) Reset()         { *m = ClusterProperty{} }
+func (m *ClusterProperty) String() string { return proto.CompactTextString(m) }
+func (*ClusterProperty) ProtoMessage()    {}
+func (*ClusterProperty) Descriptor() ([]byte, []int) {
+	return fileDescriptor_cluster_c2db9e987bd81b02, []int{43}
+}
+func (m *ClusterProperty) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ClusterProperty.Unmarshal(m, b)
+}
+func (m *ClusterProperty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ClusterProperty.Marshal(b, m, deterministic)
+}
+func (dst *ClusterProperty) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ClusterProperty.Merge(dst, src)
+}
+func (m *ClusterProperty) XXX_Size() int {
+	return xxx_messageInfo_ClusterProperty.Size(m)
+}
+func (m *ClusterProperty) XXX_DiscardUnknown() {
+	xxx_messageInfo_ClusterProperty.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ClusterProperty proto.InternalMessageInfo
 
 func (m *ClusterProperty) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -1781,8 +2796,10 @@ func init() {
 	proto.RegisterType((*DescribeClusterNodesOutput)(nil), "service.DescribeClusterNodesOutput")
 	proto.RegisterType((*StopClustersInput)(nil), "service.StopClustersInput")
 	proto.RegisterType((*StopClustersOutput)(nil), "service.StopClustersOutput")
+	proto.RegisterMapType((map[string]string)(nil), "service.StopClustersOutput.JobIdsEntry")
 	proto.RegisterType((*StartClustersInput)(nil), "service.StartClustersInput")
 	proto.RegisterType((*StartClustersOutput)(nil), "service.StartClustersOutput")
+	proto.RegisterMapType((map[string]string)(nil), "service.StartClustersOutput.JobIdsEntry")
 	proto.RegisterType((*DeleteClustersInput)(nil), "service.DeleteClustersInput")
 	proto.RegisterType((*DeleteClustersOutput)(nil), "service.DeleteClustersOutput")
 	proto.RegisterType((*LeaseInput)(nil), "service.leaseInput")
@@ -1794,10 +2811,12 @@ func init() {
 	proto.RegisterType((*ResizeClusterInput)(nil), "service.ResizeClusterInput")
 	proto.RegisterType((*ResizeClusterOutput)(nil), "service.ResizeClusterOutput")
 	proto.RegisterType((*ChangeClusterVxnetInput)(nil), "service.ChangeClusterVxnetInput")
+	proto.RegisterMapType((map[string]string)(nil), "service.ChangeClusterVxnetInput.PrivateIpsEntry")
 	proto.RegisterType((*ChangeClusterVxnetOutput)(nil), "service.ChangeClusterVxnetOutput")
 	proto.RegisterType((*SuspendClustersInput)(nil), "service.SuspendClustersInput")
 	proto.RegisterType((*SuspendClustersOutput)(nil), "service.SuspendClustersOutput")
 	proto.RegisterType((*UpdateClusterEnvironmentInput)(nil), "service.UpdateClusterEnvironmentInput")
+	proto.RegisterMapType((map[string]string)(nil), "service.UpdateClusterEnvironmentInput.EnvEntry")
 	proto.RegisterType((*UpdateClusterEnvironmentOutput)(nil), "service.UpdateClusterEnvironmentOutput")
 	proto.RegisterType((*ModifyClusterAttributesInput)(nil), "service.ModifyClusterAttributesInput")
 	proto.RegisterType((*ModifyClusterAttributesOutput)(nil), "service.ModifyClusterAttributesOutput")
@@ -1818,9 +2837,9 @@ func init() {
 	proto.RegisterType((*ClusterProperty)(nil), "service.ClusterProperty")
 }
 
-func init() { proto.RegisterFile("cluster.proto", fileDescriptor2) }
+func init() { proto.RegisterFile("cluster.proto", fileDescriptor_cluster_c2db9e987bd81b02) }
 
-var fileDescriptor2 = []byte{
+var fileDescriptor_cluster_c2db9e987bd81b02 = []byte{
 	// 2072 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x59, 0xdd, 0x6e, 0xdb, 0xc8,
 	0x15, 0x06, 0x6d, 0xc9, 0xb2, 0x8f, 0xf2, 0xd7, 0xb1, 0x9c, 0x70, 0xe9, 0x24, 0x2b, 0x33, 0x4d,

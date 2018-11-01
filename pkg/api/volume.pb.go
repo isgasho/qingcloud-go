@@ -13,22 +13,49 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type DescribeVolumesInput struct {
-	Limit            *int32   `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
-	Offset           *int32   `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
-	SearchWord       *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
-	Status           []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
-	Tags             []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
-	Verbose          *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
-	VolumeType       *int32   `protobuf:"varint,7,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
-	Volumes          []string `protobuf:"bytes,8,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Limit                *int32   `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	Offset               *int32   `protobuf:"varint,2,opt,name=offset" json:"offset,omitempty"`
+	SearchWord           *string  `protobuf:"bytes,3,opt,name=search_word,json=searchWord" json:"search_word,omitempty"`
+	Status               []string `protobuf:"bytes,4,rep,name=status" json:"status,omitempty"`
+	Tags                 []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	Verbose              *int32   `protobuf:"varint,6,opt,name=verbose" json:"verbose,omitempty"`
+	VolumeType           *int32   `protobuf:"varint,7,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	Volumes              []string `protobuf:"bytes,8,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DescribeVolumesInput) Reset()                    { *m = DescribeVolumesInput{} }
-func (m *DescribeVolumesInput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeVolumesInput) ProtoMessage()               {}
-func (*DescribeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{0} }
+func (m *DescribeVolumesInput) Reset()         { *m = DescribeVolumesInput{} }
+func (m *DescribeVolumesInput) String() string { return proto.CompactTextString(m) }
+func (*DescribeVolumesInput) ProtoMessage()    {}
+func (*DescribeVolumesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{0}
+}
+func (m *DescribeVolumesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVolumesInput.Unmarshal(m, b)
+}
+func (m *DescribeVolumesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVolumesInput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVolumesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVolumesInput.Merge(dst, src)
+}
+func (m *DescribeVolumesInput) XXX_Size() int {
+	return xxx_messageInfo_DescribeVolumesInput.Size(m)
+}
+func (m *DescribeVolumesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVolumesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVolumesInput proto.InternalMessageInfo
 
 func (m *DescribeVolumesInput) GetLimit() int32 {
 	if m != nil && m.Limit != nil {
@@ -87,18 +114,39 @@ func (m *DescribeVolumesInput) GetVolumes() []string {
 }
 
 type DescribeVolumesOutput struct {
-	Action           *string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	TotalCount       *int32    `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	VolumeSet        []*Volume `protobuf:"bytes,6,rep,name=volume_set,json=volumeSet" json:"volume_set,omitempty"`
-	XXX_unrecognized []byte    `json:"-"`
+	Action               *string   `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32    `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string   `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	TotalCount           *int32    `protobuf:"varint,4,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	VolumeSet            []*Volume `protobuf:"bytes,6,rep,name=volume_set,json=volumeSet" json:"volume_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
-func (m *DescribeVolumesOutput) Reset()                    { *m = DescribeVolumesOutput{} }
-func (m *DescribeVolumesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DescribeVolumesOutput) ProtoMessage()               {}
-func (*DescribeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{1} }
+func (m *DescribeVolumesOutput) Reset()         { *m = DescribeVolumesOutput{} }
+func (m *DescribeVolumesOutput) String() string { return proto.CompactTextString(m) }
+func (*DescribeVolumesOutput) ProtoMessage()    {}
+func (*DescribeVolumesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{1}
+}
+func (m *DescribeVolumesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DescribeVolumesOutput.Unmarshal(m, b)
+}
+func (m *DescribeVolumesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DescribeVolumesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DescribeVolumesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DescribeVolumesOutput.Merge(dst, src)
+}
+func (m *DescribeVolumesOutput) XXX_Size() int {
+	return xxx_messageInfo_DescribeVolumesOutput.Size(m)
+}
+func (m *DescribeVolumesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DescribeVolumesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DescribeVolumesOutput proto.InternalMessageInfo
 
 func (m *DescribeVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -136,17 +184,38 @@ func (m *DescribeVolumesOutput) GetVolumeSet() []*Volume {
 }
 
 type CreateVolumesInput struct {
-	Count            *int32  `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
-	Size             *int32  `protobuf:"varint,2,opt,name=size" json:"size,omitempty"`
-	VolumeName       *string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
-	VolumeType       *int32  `protobuf:"varint,4,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Count                *int32   `protobuf:"varint,1,opt,name=count" json:"count,omitempty"`
+	Size                 *int32   `protobuf:"varint,2,opt,name=size" json:"size,omitempty"`
+	VolumeName           *string  `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	VolumeType           *int32   `protobuf:"varint,4,opt,name=volume_type,json=volumeType" json:"volume_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateVolumesInput) Reset()                    { *m = CreateVolumesInput{} }
-func (m *CreateVolumesInput) String() string            { return proto.CompactTextString(m) }
-func (*CreateVolumesInput) ProtoMessage()               {}
-func (*CreateVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{2} }
+func (m *CreateVolumesInput) Reset()         { *m = CreateVolumesInput{} }
+func (m *CreateVolumesInput) String() string { return proto.CompactTextString(m) }
+func (*CreateVolumesInput) ProtoMessage()    {}
+func (*CreateVolumesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{2}
+}
+func (m *CreateVolumesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateVolumesInput.Unmarshal(m, b)
+}
+func (m *CreateVolumesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateVolumesInput.Marshal(b, m, deterministic)
+}
+func (dst *CreateVolumesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateVolumesInput.Merge(dst, src)
+}
+func (m *CreateVolumesInput) XXX_Size() int {
+	return xxx_messageInfo_CreateVolumesInput.Size(m)
+}
+func (m *CreateVolumesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateVolumesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateVolumesInput proto.InternalMessageInfo
 
 func (m *CreateVolumesInput) GetCount() int32 {
 	if m != nil && m.Count != nil {
@@ -177,18 +246,39 @@ func (m *CreateVolumesInput) GetVolumeType() int32 {
 }
 
 type CreateVolumesOutput struct {
-	Action           *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	Volumes          []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	Volumes              []string `protobuf:"bytes,5,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CreateVolumesOutput) Reset()                    { *m = CreateVolumesOutput{} }
-func (m *CreateVolumesOutput) String() string            { return proto.CompactTextString(m) }
-func (*CreateVolumesOutput) ProtoMessage()               {}
-func (*CreateVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{3} }
+func (m *CreateVolumesOutput) Reset()         { *m = CreateVolumesOutput{} }
+func (m *CreateVolumesOutput) String() string { return proto.CompactTextString(m) }
+func (*CreateVolumesOutput) ProtoMessage()    {}
+func (*CreateVolumesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{3}
+}
+func (m *CreateVolumesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateVolumesOutput.Unmarshal(m, b)
+}
+func (m *CreateVolumesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateVolumesOutput.Marshal(b, m, deterministic)
+}
+func (dst *CreateVolumesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateVolumesOutput.Merge(dst, src)
+}
+func (m *CreateVolumesOutput) XXX_Size() int {
+	return xxx_messageInfo_CreateVolumesOutput.Size(m)
+}
+func (m *CreateVolumesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateVolumesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateVolumesOutput proto.InternalMessageInfo
 
 func (m *CreateVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -226,14 +316,35 @@ func (m *CreateVolumesOutput) GetVolumes() []string {
 }
 
 type DeleteVolumesInput struct {
-	Volumes          []string `protobuf:"bytes,1,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Volumes              []string `protobuf:"bytes,1,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteVolumesInput) Reset()                    { *m = DeleteVolumesInput{} }
-func (m *DeleteVolumesInput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteVolumesInput) ProtoMessage()               {}
-func (*DeleteVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{4} }
+func (m *DeleteVolumesInput) Reset()         { *m = DeleteVolumesInput{} }
+func (m *DeleteVolumesInput) String() string { return proto.CompactTextString(m) }
+func (*DeleteVolumesInput) ProtoMessage()    {}
+func (*DeleteVolumesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{4}
+}
+func (m *DeleteVolumesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteVolumesInput.Unmarshal(m, b)
+}
+func (m *DeleteVolumesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteVolumesInput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteVolumesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteVolumesInput.Merge(dst, src)
+}
+func (m *DeleteVolumesInput) XXX_Size() int {
+	return xxx_messageInfo_DeleteVolumesInput.Size(m)
+}
+func (m *DeleteVolumesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteVolumesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteVolumesInput proto.InternalMessageInfo
 
 func (m *DeleteVolumesInput) GetVolumes() []string {
 	if m != nil {
@@ -243,17 +354,38 @@ func (m *DeleteVolumesInput) GetVolumes() []string {
 }
 
 type DeleteVolumesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DeleteVolumesOutput) Reset()                    { *m = DeleteVolumesOutput{} }
-func (m *DeleteVolumesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DeleteVolumesOutput) ProtoMessage()               {}
-func (*DeleteVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{5} }
+func (m *DeleteVolumesOutput) Reset()         { *m = DeleteVolumesOutput{} }
+func (m *DeleteVolumesOutput) String() string { return proto.CompactTextString(m) }
+func (*DeleteVolumesOutput) ProtoMessage()    {}
+func (*DeleteVolumesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{5}
+}
+func (m *DeleteVolumesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteVolumesOutput.Unmarshal(m, b)
+}
+func (m *DeleteVolumesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteVolumesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DeleteVolumesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteVolumesOutput.Merge(dst, src)
+}
+func (m *DeleteVolumesOutput) XXX_Size() int {
+	return xxx_messageInfo_DeleteVolumesOutput.Size(m)
+}
+func (m *DeleteVolumesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteVolumesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteVolumesOutput proto.InternalMessageInfo
 
 func (m *DeleteVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -284,15 +416,36 @@ func (m *DeleteVolumesOutput) GetJobId() string {
 }
 
 type AttachVolumesInput struct {
-	Instance         *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
-	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instance             *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	Volumes              []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachVolumesInput) Reset()                    { *m = AttachVolumesInput{} }
-func (m *AttachVolumesInput) String() string            { return proto.CompactTextString(m) }
-func (*AttachVolumesInput) ProtoMessage()               {}
-func (*AttachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{6} }
+func (m *AttachVolumesInput) Reset()         { *m = AttachVolumesInput{} }
+func (m *AttachVolumesInput) String() string { return proto.CompactTextString(m) }
+func (*AttachVolumesInput) ProtoMessage()    {}
+func (*AttachVolumesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{6}
+}
+func (m *AttachVolumesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachVolumesInput.Unmarshal(m, b)
+}
+func (m *AttachVolumesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachVolumesInput.Marshal(b, m, deterministic)
+}
+func (dst *AttachVolumesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachVolumesInput.Merge(dst, src)
+}
+func (m *AttachVolumesInput) XXX_Size() int {
+	return xxx_messageInfo_AttachVolumesInput.Size(m)
+}
+func (m *AttachVolumesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachVolumesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachVolumesInput proto.InternalMessageInfo
 
 func (m *AttachVolumesInput) GetInstance() string {
 	if m != nil && m.Instance != nil {
@@ -309,17 +462,38 @@ func (m *AttachVolumesInput) GetVolumes() []string {
 }
 
 type AttachVolumesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *AttachVolumesOutput) Reset()                    { *m = AttachVolumesOutput{} }
-func (m *AttachVolumesOutput) String() string            { return proto.CompactTextString(m) }
-func (*AttachVolumesOutput) ProtoMessage()               {}
-func (*AttachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{7} }
+func (m *AttachVolumesOutput) Reset()         { *m = AttachVolumesOutput{} }
+func (m *AttachVolumesOutput) String() string { return proto.CompactTextString(m) }
+func (*AttachVolumesOutput) ProtoMessage()    {}
+func (*AttachVolumesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{7}
+}
+func (m *AttachVolumesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AttachVolumesOutput.Unmarshal(m, b)
+}
+func (m *AttachVolumesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AttachVolumesOutput.Marshal(b, m, deterministic)
+}
+func (dst *AttachVolumesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AttachVolumesOutput.Merge(dst, src)
+}
+func (m *AttachVolumesOutput) XXX_Size() int {
+	return xxx_messageInfo_AttachVolumesOutput.Size(m)
+}
+func (m *AttachVolumesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_AttachVolumesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AttachVolumesOutput proto.InternalMessageInfo
 
 func (m *AttachVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -350,15 +524,36 @@ func (m *AttachVolumesOutput) GetJobId() string {
 }
 
 type DetachVolumesInput struct {
-	Instance         *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
-	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Instance             *string  `protobuf:"bytes,1,opt,name=instance" json:"instance,omitempty"`
+	Volumes              []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachVolumesInput) Reset()                    { *m = DetachVolumesInput{} }
-func (m *DetachVolumesInput) String() string            { return proto.CompactTextString(m) }
-func (*DetachVolumesInput) ProtoMessage()               {}
-func (*DetachVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{8} }
+func (m *DetachVolumesInput) Reset()         { *m = DetachVolumesInput{} }
+func (m *DetachVolumesInput) String() string { return proto.CompactTextString(m) }
+func (*DetachVolumesInput) ProtoMessage()    {}
+func (*DetachVolumesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{8}
+}
+func (m *DetachVolumesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachVolumesInput.Unmarshal(m, b)
+}
+func (m *DetachVolumesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachVolumesInput.Marshal(b, m, deterministic)
+}
+func (dst *DetachVolumesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachVolumesInput.Merge(dst, src)
+}
+func (m *DetachVolumesInput) XXX_Size() int {
+	return xxx_messageInfo_DetachVolumesInput.Size(m)
+}
+func (m *DetachVolumesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachVolumesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachVolumesInput proto.InternalMessageInfo
 
 func (m *DetachVolumesInput) GetInstance() string {
 	if m != nil && m.Instance != nil {
@@ -375,17 +570,38 @@ func (m *DetachVolumesInput) GetVolumes() []string {
 }
 
 type DetachVolumesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DetachVolumesOutput) Reset()                    { *m = DetachVolumesOutput{} }
-func (m *DetachVolumesOutput) String() string            { return proto.CompactTextString(m) }
-func (*DetachVolumesOutput) ProtoMessage()               {}
-func (*DetachVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{9} }
+func (m *DetachVolumesOutput) Reset()         { *m = DetachVolumesOutput{} }
+func (m *DetachVolumesOutput) String() string { return proto.CompactTextString(m) }
+func (*DetachVolumesOutput) ProtoMessage()    {}
+func (*DetachVolumesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{9}
+}
+func (m *DetachVolumesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DetachVolumesOutput.Unmarshal(m, b)
+}
+func (m *DetachVolumesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DetachVolumesOutput.Marshal(b, m, deterministic)
+}
+func (dst *DetachVolumesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DetachVolumesOutput.Merge(dst, src)
+}
+func (m *DetachVolumesOutput) XXX_Size() int {
+	return xxx_messageInfo_DetachVolumesOutput.Size(m)
+}
+func (m *DetachVolumesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_DetachVolumesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DetachVolumesOutput proto.InternalMessageInfo
 
 func (m *DetachVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -416,15 +632,36 @@ func (m *DetachVolumesOutput) GetJobId() string {
 }
 
 type ResizeVolumesInput struct {
-	Size             *int32   `protobuf:"varint,1,opt,name=size" json:"size,omitempty"`
-	Volumes          []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	Size                 *int32   `protobuf:"varint,1,opt,name=size" json:"size,omitempty"`
+	Volumes              []string `protobuf:"bytes,2,rep,name=volumes" json:"volumes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeVolumesInput) Reset()                    { *m = ResizeVolumesInput{} }
-func (m *ResizeVolumesInput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeVolumesInput) ProtoMessage()               {}
-func (*ResizeVolumesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{10} }
+func (m *ResizeVolumesInput) Reset()         { *m = ResizeVolumesInput{} }
+func (m *ResizeVolumesInput) String() string { return proto.CompactTextString(m) }
+func (*ResizeVolumesInput) ProtoMessage()    {}
+func (*ResizeVolumesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{10}
+}
+func (m *ResizeVolumesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeVolumesInput.Unmarshal(m, b)
+}
+func (m *ResizeVolumesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeVolumesInput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeVolumesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeVolumesInput.Merge(dst, src)
+}
+func (m *ResizeVolumesInput) XXX_Size() int {
+	return xxx_messageInfo_ResizeVolumesInput.Size(m)
+}
+func (m *ResizeVolumesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeVolumesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeVolumesInput proto.InternalMessageInfo
 
 func (m *ResizeVolumesInput) GetSize() int32 {
 	if m != nil && m.Size != nil {
@@ -441,17 +678,38 @@ func (m *ResizeVolumesInput) GetVolumes() []string {
 }
 
 type ResizeVolumesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	JobId            *string `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	JobId                *string  `protobuf:"bytes,4,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ResizeVolumesOutput) Reset()                    { *m = ResizeVolumesOutput{} }
-func (m *ResizeVolumesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ResizeVolumesOutput) ProtoMessage()               {}
-func (*ResizeVolumesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{11} }
+func (m *ResizeVolumesOutput) Reset()         { *m = ResizeVolumesOutput{} }
+func (m *ResizeVolumesOutput) String() string { return proto.CompactTextString(m) }
+func (*ResizeVolumesOutput) ProtoMessage()    {}
+func (*ResizeVolumesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{11}
+}
+func (m *ResizeVolumesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ResizeVolumesOutput.Unmarshal(m, b)
+}
+func (m *ResizeVolumesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ResizeVolumesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ResizeVolumesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ResizeVolumesOutput.Merge(dst, src)
+}
+func (m *ResizeVolumesOutput) XXX_Size() int {
+	return xxx_messageInfo_ResizeVolumesOutput.Size(m)
+}
+func (m *ResizeVolumesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ResizeVolumesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ResizeVolumesOutput proto.InternalMessageInfo
 
 func (m *ResizeVolumesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -482,16 +740,37 @@ func (m *ResizeVolumesOutput) GetJobId() string {
 }
 
 type ModifyVolumeAttributesInput struct {
-	Description      *string `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
-	Volume           *string `protobuf:"bytes,2,opt,name=volume" json:"volume,omitempty"`
-	VolumeName       *string `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Description          *string  `protobuf:"bytes,1,opt,name=description" json:"description,omitempty"`
+	Volume               *string  `protobuf:"bytes,2,opt,name=volume" json:"volume,omitempty"`
+	VolumeName           *string  `protobuf:"bytes,3,opt,name=volume_name,json=volumeName" json:"volume_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyVolumeAttributesInput) Reset()                    { *m = ModifyVolumeAttributesInput{} }
-func (m *ModifyVolumeAttributesInput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyVolumeAttributesInput) ProtoMessage()               {}
-func (*ModifyVolumeAttributesInput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{12} }
+func (m *ModifyVolumeAttributesInput) Reset()         { *m = ModifyVolumeAttributesInput{} }
+func (m *ModifyVolumeAttributesInput) String() string { return proto.CompactTextString(m) }
+func (*ModifyVolumeAttributesInput) ProtoMessage()    {}
+func (*ModifyVolumeAttributesInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{12}
+}
+func (m *ModifyVolumeAttributesInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyVolumeAttributesInput.Unmarshal(m, b)
+}
+func (m *ModifyVolumeAttributesInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyVolumeAttributesInput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyVolumeAttributesInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyVolumeAttributesInput.Merge(dst, src)
+}
+func (m *ModifyVolumeAttributesInput) XXX_Size() int {
+	return xxx_messageInfo_ModifyVolumeAttributesInput.Size(m)
+}
+func (m *ModifyVolumeAttributesInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyVolumeAttributesInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyVolumeAttributesInput proto.InternalMessageInfo
 
 func (m *ModifyVolumeAttributesInput) GetDescription() string {
 	if m != nil && m.Description != nil {
@@ -515,16 +794,37 @@ func (m *ModifyVolumeAttributesInput) GetVolumeName() string {
 }
 
 type ModifyVolumeAttributesOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ModifyVolumeAttributesOutput) Reset()                    { *m = ModifyVolumeAttributesOutput{} }
-func (m *ModifyVolumeAttributesOutput) String() string            { return proto.CompactTextString(m) }
-func (*ModifyVolumeAttributesOutput) ProtoMessage()               {}
-func (*ModifyVolumeAttributesOutput) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{13} }
+func (m *ModifyVolumeAttributesOutput) Reset()         { *m = ModifyVolumeAttributesOutput{} }
+func (m *ModifyVolumeAttributesOutput) String() string { return proto.CompactTextString(m) }
+func (*ModifyVolumeAttributesOutput) ProtoMessage()    {}
+func (*ModifyVolumeAttributesOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_volume_acafed73130920bf, []int{13}
+}
+func (m *ModifyVolumeAttributesOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ModifyVolumeAttributesOutput.Unmarshal(m, b)
+}
+func (m *ModifyVolumeAttributesOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ModifyVolumeAttributesOutput.Marshal(b, m, deterministic)
+}
+func (dst *ModifyVolumeAttributesOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ModifyVolumeAttributesOutput.Merge(dst, src)
+}
+func (m *ModifyVolumeAttributesOutput) XXX_Size() int {
+	return xxx_messageInfo_ModifyVolumeAttributesOutput.Size(m)
+}
+func (m *ModifyVolumeAttributesOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_ModifyVolumeAttributesOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ModifyVolumeAttributesOutput proto.InternalMessageInfo
 
 func (m *ModifyVolumeAttributesOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -564,9 +864,9 @@ func init() {
 	proto.RegisterType((*ModifyVolumeAttributesOutput)(nil), "service.ModifyVolumeAttributesOutput")
 }
 
-func init() { proto.RegisterFile("volume.proto", fileDescriptor28) }
+func init() { proto.RegisterFile("volume.proto", fileDescriptor_volume_acafed73130920bf) }
 
-var fileDescriptor28 = []byte{
+var fileDescriptor_volume_acafed73130920bf = []byte{
 	// 695 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0x4d, 0x6f, 0xd3, 0x4c,
 	0x10, 0x96, 0xdb, 0x7c, 0x34, 0x93, 0xb7, 0x6f, 0xa5, 0xed, 0x87, 0x8c, 0x5b, 0x20, 0x8a, 0x40,

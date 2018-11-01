@@ -13,41 +13,68 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type GrantQuotaIndepInput struct {
-	User               *string `protobuf:"bytes,1,opt,name=user" json:"user,omitempty"`
-	Zone               *string `protobuf:"bytes,2,opt,name=zone" json:"zone,omitempty"`
-	Instance           *int32  `protobuf:"varint,3,opt,name=instance" json:"instance,omitempty"`
-	Cpu                *int32  `protobuf:"varint,4,opt,name=cpu" json:"cpu,omitempty"`
-	Memory             *int32  `protobuf:"varint,5,opt,name=memory" json:"memory,omitempty"`
-	HpInstance         *int32  `protobuf:"varint,6,opt,name=hp_instance,json=hpInstance" json:"hp_instance,omitempty"`
-	HpCpu              *int32  `protobuf:"varint,7,opt,name=hp_cpu,json=hpCpu" json:"hp_cpu,omitempty"`
-	HpMemory           *int32  `protobuf:"varint,8,opt,name=hp_memory,json=hpMemory" json:"hp_memory,omitempty"`
-	Volume             *int32  `protobuf:"varint,9,opt,name=volume" json:"volume,omitempty"`
-	VolumeSize         *int32  `protobuf:"varint,10,opt,name=volume_size,json=volumeSize" json:"volume_size,omitempty"`
-	HcVolume           *int32  `protobuf:"varint,11,opt,name=hc_volume,json=hcVolume" json:"hc_volume,omitempty"`
-	HcVolumeSize       *int32  `protobuf:"varint,12,opt,name=hc_volume_size,json=hcVolumeSize" json:"hc_volume_size,omitempty"`
-	HppVolume          *int32  `protobuf:"varint,13,opt,name=hpp_volume,json=hppVolume" json:"hpp_volume,omitempty"`
-	HppVolumeSize      *int32  `protobuf:"varint,14,opt,name=hpp_volume_size,json=hppVolumeSize" json:"hpp_volume_size,omitempty"`
-	Image              *int32  `protobuf:"varint,15,opt,name=image" json:"image,omitempty"`
-	Loadbalancer       *int32  `protobuf:"varint,16,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
-	LoadbalancerPolicy *int32  `protobuf:"varint,17,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
-	Vxnet              *int32  `protobuf:"varint,18,opt,name=vxnet" json:"vxnet,omitempty"`
-	Router             *int32  `protobuf:"varint,19,opt,name=router" json:"router,omitempty"`
-	Eip                *int32  `protobuf:"varint,20,opt,name=eip" json:"eip,omitempty"`
-	EipBandwidth       *int32  `protobuf:"varint,21,opt,name=eip_bandwidth,json=eipBandwidth" json:"eip_bandwidth,omitempty"`
-	Rdb                *int32  `protobuf:"varint,22,opt,name=rdb" json:"rdb,omitempty"`
-	HppRdb             *int32  `protobuf:"varint,23,opt,name=hpp_rdb,json=hppRdb" json:"hpp_rdb,omitempty"`
-	Cache              *int32  `protobuf:"varint,24,opt,name=cache" json:"cache,omitempty"`
-	HpCache            *int32  `protobuf:"varint,25,opt,name=hp_cache,json=hpCache" json:"hp_cache,omitempty"`
-	Mongo              *int32  `protobuf:"varint,26,opt,name=mongo" json:"mongo,omitempty"`
-	HpMongo            *int32  `protobuf:"varint,27,opt,name=hp_mongo,json=hpMongo" json:"hp_mongo,omitempty"`
-	XXX_unrecognized   []byte  `json:"-"`
+	User                 *string  `protobuf:"bytes,1,opt,name=user" json:"user,omitempty"`
+	Zone                 *string  `protobuf:"bytes,2,opt,name=zone" json:"zone,omitempty"`
+	Instance             *int32   `protobuf:"varint,3,opt,name=instance" json:"instance,omitempty"`
+	Cpu                  *int32   `protobuf:"varint,4,opt,name=cpu" json:"cpu,omitempty"`
+	Memory               *int32   `protobuf:"varint,5,opt,name=memory" json:"memory,omitempty"`
+	HpInstance           *int32   `protobuf:"varint,6,opt,name=hp_instance,json=hpInstance" json:"hp_instance,omitempty"`
+	HpCpu                *int32   `protobuf:"varint,7,opt,name=hp_cpu,json=hpCpu" json:"hp_cpu,omitempty"`
+	HpMemory             *int32   `protobuf:"varint,8,opt,name=hp_memory,json=hpMemory" json:"hp_memory,omitempty"`
+	Volume               *int32   `protobuf:"varint,9,opt,name=volume" json:"volume,omitempty"`
+	VolumeSize           *int32   `protobuf:"varint,10,opt,name=volume_size,json=volumeSize" json:"volume_size,omitempty"`
+	HcVolume             *int32   `protobuf:"varint,11,opt,name=hc_volume,json=hcVolume" json:"hc_volume,omitempty"`
+	HcVolumeSize         *int32   `protobuf:"varint,12,opt,name=hc_volume_size,json=hcVolumeSize" json:"hc_volume_size,omitempty"`
+	HppVolume            *int32   `protobuf:"varint,13,opt,name=hpp_volume,json=hppVolume" json:"hpp_volume,omitempty"`
+	HppVolumeSize        *int32   `protobuf:"varint,14,opt,name=hpp_volume_size,json=hppVolumeSize" json:"hpp_volume_size,omitempty"`
+	Image                *int32   `protobuf:"varint,15,opt,name=image" json:"image,omitempty"`
+	Loadbalancer         *int32   `protobuf:"varint,16,opt,name=loadbalancer" json:"loadbalancer,omitempty"`
+	LoadbalancerPolicy   *int32   `protobuf:"varint,17,opt,name=loadbalancer_policy,json=loadbalancerPolicy" json:"loadbalancer_policy,omitempty"`
+	Vxnet                *int32   `protobuf:"varint,18,opt,name=vxnet" json:"vxnet,omitempty"`
+	Router               *int32   `protobuf:"varint,19,opt,name=router" json:"router,omitempty"`
+	Eip                  *int32   `protobuf:"varint,20,opt,name=eip" json:"eip,omitempty"`
+	EipBandwidth         *int32   `protobuf:"varint,21,opt,name=eip_bandwidth,json=eipBandwidth" json:"eip_bandwidth,omitempty"`
+	Rdb                  *int32   `protobuf:"varint,22,opt,name=rdb" json:"rdb,omitempty"`
+	HppRdb               *int32   `protobuf:"varint,23,opt,name=hpp_rdb,json=hppRdb" json:"hpp_rdb,omitempty"`
+	Cache                *int32   `protobuf:"varint,24,opt,name=cache" json:"cache,omitempty"`
+	HpCache              *int32   `protobuf:"varint,25,opt,name=hp_cache,json=hpCache" json:"hp_cache,omitempty"`
+	Mongo                *int32   `protobuf:"varint,26,opt,name=mongo" json:"mongo,omitempty"`
+	HpMongo              *int32   `protobuf:"varint,27,opt,name=hp_mongo,json=hpMongo" json:"hp_mongo,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GrantQuotaIndepInput) Reset()                    { *m = GrantQuotaIndepInput{} }
-func (m *GrantQuotaIndepInput) String() string            { return proto.CompactTextString(m) }
-func (*GrantQuotaIndepInput) ProtoMessage()               {}
-func (*GrantQuotaIndepInput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{0} }
+func (m *GrantQuotaIndepInput) Reset()         { *m = GrantQuotaIndepInput{} }
+func (m *GrantQuotaIndepInput) String() string { return proto.CompactTextString(m) }
+func (*GrantQuotaIndepInput) ProtoMessage()    {}
+func (*GrantQuotaIndepInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_misc_cb9c2b6271548290, []int{0}
+}
+func (m *GrantQuotaIndepInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantQuotaIndepInput.Unmarshal(m, b)
+}
+func (m *GrantQuotaIndepInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantQuotaIndepInput.Marshal(b, m, deterministic)
+}
+func (dst *GrantQuotaIndepInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantQuotaIndepInput.Merge(dst, src)
+}
+func (m *GrantQuotaIndepInput) XXX_Size() int {
+	return xxx_messageInfo_GrantQuotaIndepInput.Size(m)
+}
+func (m *GrantQuotaIndepInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantQuotaIndepInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantQuotaIndepInput proto.InternalMessageInfo
 
 func (m *GrantQuotaIndepInput) GetUser() string {
 	if m != nil && m.User != nil {
@@ -239,18 +266,39 @@ func (m *GrantQuotaIndepInput) GetHpMongo() int32 {
 }
 
 type GrantQuotaIndepOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	UserId           *string `protobuf:"bytes,4,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	ZoneId           *string `protobuf:"bytes,5,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	UserId               *string  `protobuf:"bytes,4,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	ZoneId               *string  `protobuf:"bytes,5,opt,name=zone_id,json=zoneId" json:"zone_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GrantQuotaIndepOutput) Reset()                    { *m = GrantQuotaIndepOutput{} }
-func (m *GrantQuotaIndepOutput) String() string            { return proto.CompactTextString(m) }
-func (*GrantQuotaIndepOutput) ProtoMessage()               {}
-func (*GrantQuotaIndepOutput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{1} }
+func (m *GrantQuotaIndepOutput) Reset()         { *m = GrantQuotaIndepOutput{} }
+func (m *GrantQuotaIndepOutput) String() string { return proto.CompactTextString(m) }
+func (*GrantQuotaIndepOutput) ProtoMessage()    {}
+func (*GrantQuotaIndepOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_misc_cb9c2b6271548290, []int{1}
+}
+func (m *GrantQuotaIndepOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GrantQuotaIndepOutput.Unmarshal(m, b)
+}
+func (m *GrantQuotaIndepOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GrantQuotaIndepOutput.Marshal(b, m, deterministic)
+}
+func (dst *GrantQuotaIndepOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GrantQuotaIndepOutput.Merge(dst, src)
+}
+func (m *GrantQuotaIndepOutput) XXX_Size() int {
+	return xxx_messageInfo_GrantQuotaIndepOutput.Size(m)
+}
+func (m *GrantQuotaIndepOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GrantQuotaIndepOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GrantQuotaIndepOutput proto.InternalMessageInfo
 
 func (m *GrantQuotaIndepOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -288,15 +336,36 @@ func (m *GrantQuotaIndepOutput) GetZoneId() string {
 }
 
 type RevokeQuotaIndepInput struct {
-	User             *string `protobuf:"bytes,1,opt,name=user" json:"user,omitempty"`
-	Zone             *string `protobuf:"bytes,2,opt,name=zone" json:"zone,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	User                 *string  `protobuf:"bytes,1,opt,name=user" json:"user,omitempty"`
+	Zone                 *string  `protobuf:"bytes,2,opt,name=zone" json:"zone,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RevokeQuotaIndepInput) Reset()                    { *m = RevokeQuotaIndepInput{} }
-func (m *RevokeQuotaIndepInput) String() string            { return proto.CompactTextString(m) }
-func (*RevokeQuotaIndepInput) ProtoMessage()               {}
-func (*RevokeQuotaIndepInput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{2} }
+func (m *RevokeQuotaIndepInput) Reset()         { *m = RevokeQuotaIndepInput{} }
+func (m *RevokeQuotaIndepInput) String() string { return proto.CompactTextString(m) }
+func (*RevokeQuotaIndepInput) ProtoMessage()    {}
+func (*RevokeQuotaIndepInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_misc_cb9c2b6271548290, []int{2}
+}
+func (m *RevokeQuotaIndepInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeQuotaIndepInput.Unmarshal(m, b)
+}
+func (m *RevokeQuotaIndepInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeQuotaIndepInput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeQuotaIndepInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeQuotaIndepInput.Merge(dst, src)
+}
+func (m *RevokeQuotaIndepInput) XXX_Size() int {
+	return xxx_messageInfo_RevokeQuotaIndepInput.Size(m)
+}
+func (m *RevokeQuotaIndepInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeQuotaIndepInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeQuotaIndepInput proto.InternalMessageInfo
 
 func (m *RevokeQuotaIndepInput) GetUser() string {
 	if m != nil && m.User != nil {
@@ -313,16 +382,37 @@ func (m *RevokeQuotaIndepInput) GetZone() string {
 }
 
 type RevokeQuotaIndepOutput struct {
-	Action           *string `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32  `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	Action               *string  `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32   `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string  `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RevokeQuotaIndepOutput) Reset()                    { *m = RevokeQuotaIndepOutput{} }
-func (m *RevokeQuotaIndepOutput) String() string            { return proto.CompactTextString(m) }
-func (*RevokeQuotaIndepOutput) ProtoMessage()               {}
-func (*RevokeQuotaIndepOutput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{3} }
+func (m *RevokeQuotaIndepOutput) Reset()         { *m = RevokeQuotaIndepOutput{} }
+func (m *RevokeQuotaIndepOutput) String() string { return proto.CompactTextString(m) }
+func (*RevokeQuotaIndepOutput) ProtoMessage()    {}
+func (*RevokeQuotaIndepOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_misc_cb9c2b6271548290, []int{3}
+}
+func (m *RevokeQuotaIndepOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RevokeQuotaIndepOutput.Unmarshal(m, b)
+}
+func (m *RevokeQuotaIndepOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RevokeQuotaIndepOutput.Marshal(b, m, deterministic)
+}
+func (dst *RevokeQuotaIndepOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RevokeQuotaIndepOutput.Merge(dst, src)
+}
+func (m *RevokeQuotaIndepOutput) XXX_Size() int {
+	return xxx_messageInfo_RevokeQuotaIndepOutput.Size(m)
+}
+func (m *RevokeQuotaIndepOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_RevokeQuotaIndepOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RevokeQuotaIndepOutput proto.InternalMessageInfo
 
 func (m *RevokeQuotaIndepOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -346,14 +436,35 @@ func (m *RevokeQuotaIndepOutput) GetMessage() string {
 }
 
 type GetQuotaLeftInput struct {
-	ResourceTypes    []string `protobuf:"bytes,1,rep,name=resource_types,json=resourceTypes" json:"resource_types,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	ResourceTypes        []string `protobuf:"bytes,1,rep,name=resource_types,json=resourceTypes" json:"resource_types,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetQuotaLeftInput) Reset()                    { *m = GetQuotaLeftInput{} }
-func (m *GetQuotaLeftInput) String() string            { return proto.CompactTextString(m) }
-func (*GetQuotaLeftInput) ProtoMessage()               {}
-func (*GetQuotaLeftInput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{4} }
+func (m *GetQuotaLeftInput) Reset()         { *m = GetQuotaLeftInput{} }
+func (m *GetQuotaLeftInput) String() string { return proto.CompactTextString(m) }
+func (*GetQuotaLeftInput) ProtoMessage()    {}
+func (*GetQuotaLeftInput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_misc_cb9c2b6271548290, []int{4}
+}
+func (m *GetQuotaLeftInput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetQuotaLeftInput.Unmarshal(m, b)
+}
+func (m *GetQuotaLeftInput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetQuotaLeftInput.Marshal(b, m, deterministic)
+}
+func (dst *GetQuotaLeftInput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetQuotaLeftInput.Merge(dst, src)
+}
+func (m *GetQuotaLeftInput) XXX_Size() int {
+	return xxx_messageInfo_GetQuotaLeftInput.Size(m)
+}
+func (m *GetQuotaLeftInput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetQuotaLeftInput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetQuotaLeftInput proto.InternalMessageInfo
 
 func (m *GetQuotaLeftInput) GetResourceTypes() []string {
 	if m != nil {
@@ -363,17 +474,38 @@ func (m *GetQuotaLeftInput) GetResourceTypes() []string {
 }
 
 type GetQuotaLeftOutput struct {
-	Action           *string                         `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
-	RetCode          *int32                          `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
-	Message          *string                         `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
-	QuotaLeftSet     []*GetQuotaLeftOutput_QuotaLeft `protobuf:"bytes,4,rep,name=quota_left_set,json=quotaLeftSet" json:"quota_left_set,omitempty"`
-	XXX_unrecognized []byte                          `json:"-"`
+	Action               *string                         `protobuf:"bytes,1,opt,name=action" json:"action,omitempty"`
+	RetCode              *int32                          `protobuf:"varint,2,opt,name=ret_code,json=retCode" json:"ret_code,omitempty"`
+	Message              *string                         `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	QuotaLeftSet         []*GetQuotaLeftOutput_QuotaLeft `protobuf:"bytes,4,rep,name=quota_left_set,json=quotaLeftSet" json:"quota_left_set,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                        `json:"-"`
+	XXX_unrecognized     []byte                          `json:"-"`
+	XXX_sizecache        int32                           `json:"-"`
 }
 
-func (m *GetQuotaLeftOutput) Reset()                    { *m = GetQuotaLeftOutput{} }
-func (m *GetQuotaLeftOutput) String() string            { return proto.CompactTextString(m) }
-func (*GetQuotaLeftOutput) ProtoMessage()               {}
-func (*GetQuotaLeftOutput) Descriptor() ([]byte, []int) { return fileDescriptor11, []int{5} }
+func (m *GetQuotaLeftOutput) Reset()         { *m = GetQuotaLeftOutput{} }
+func (m *GetQuotaLeftOutput) String() string { return proto.CompactTextString(m) }
+func (*GetQuotaLeftOutput) ProtoMessage()    {}
+func (*GetQuotaLeftOutput) Descriptor() ([]byte, []int) {
+	return fileDescriptor_misc_cb9c2b6271548290, []int{5}
+}
+func (m *GetQuotaLeftOutput) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetQuotaLeftOutput.Unmarshal(m, b)
+}
+func (m *GetQuotaLeftOutput) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetQuotaLeftOutput.Marshal(b, m, deterministic)
+}
+func (dst *GetQuotaLeftOutput) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetQuotaLeftOutput.Merge(dst, src)
+}
+func (m *GetQuotaLeftOutput) XXX_Size() int {
+	return xxx_messageInfo_GetQuotaLeftOutput.Size(m)
+}
+func (m *GetQuotaLeftOutput) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetQuotaLeftOutput.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetQuotaLeftOutput proto.InternalMessageInfo
 
 func (m *GetQuotaLeftOutput) GetAction() string {
 	if m != nil && m.Action != nil {
@@ -404,17 +536,36 @@ func (m *GetQuotaLeftOutput) GetQuotaLeftSet() []*GetQuotaLeftOutput_QuotaLeft {
 }
 
 type GetQuotaLeftOutput_QuotaLeft struct {
-	ResourceType     *string `protobuf:"bytes,1,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
-	Left             *int32  `protobuf:"varint,2,opt,name=left" json:"left,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ResourceType         *string  `protobuf:"bytes,1,opt,name=resource_type,json=resourceType" json:"resource_type,omitempty"`
+	Left                 *int32   `protobuf:"varint,2,opt,name=left" json:"left,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *GetQuotaLeftOutput_QuotaLeft) Reset()         { *m = GetQuotaLeftOutput_QuotaLeft{} }
 func (m *GetQuotaLeftOutput_QuotaLeft) String() string { return proto.CompactTextString(m) }
 func (*GetQuotaLeftOutput_QuotaLeft) ProtoMessage()    {}
 func (*GetQuotaLeftOutput_QuotaLeft) Descriptor() ([]byte, []int) {
-	return fileDescriptor11, []int{5, 0}
+	return fileDescriptor_misc_cb9c2b6271548290, []int{5, 0}
 }
+func (m *GetQuotaLeftOutput_QuotaLeft) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetQuotaLeftOutput_QuotaLeft.Unmarshal(m, b)
+}
+func (m *GetQuotaLeftOutput_QuotaLeft) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetQuotaLeftOutput_QuotaLeft.Marshal(b, m, deterministic)
+}
+func (dst *GetQuotaLeftOutput_QuotaLeft) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetQuotaLeftOutput_QuotaLeft.Merge(dst, src)
+}
+func (m *GetQuotaLeftOutput_QuotaLeft) XXX_Size() int {
+	return xxx_messageInfo_GetQuotaLeftOutput_QuotaLeft.Size(m)
+}
+func (m *GetQuotaLeftOutput_QuotaLeft) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetQuotaLeftOutput_QuotaLeft.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetQuotaLeftOutput_QuotaLeft proto.InternalMessageInfo
 
 func (m *GetQuotaLeftOutput_QuotaLeft) GetResourceType() string {
 	if m != nil && m.ResourceType != nil {
@@ -440,9 +591,9 @@ func init() {
 	proto.RegisterType((*GetQuotaLeftOutput_QuotaLeft)(nil), "service.GetQuotaLeftOutput.QuotaLeft")
 }
 
-func init() { proto.RegisterFile("misc.proto", fileDescriptor11) }
+func init() { proto.RegisterFile("misc.proto", fileDescriptor_misc_cb9c2b6271548290) }
 
-var fileDescriptor11 = []byte{
+var fileDescriptor_misc_cb9c2b6271548290 = []byte{
 	// 777 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x55, 0xcd, 0x6e, 0xdb, 0x46,
 	0x10, 0x86, 0x22, 0x53, 0xb2, 0xc6, 0xf2, 0x4f, 0x36, 0xb6, 0xb2, 0xa1, 0x91, 0xc6, 0x50, 0x9b,
