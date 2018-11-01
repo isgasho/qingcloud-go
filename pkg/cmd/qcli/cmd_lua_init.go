@@ -21,7 +21,7 @@ import (
 	lua_lustache "github.com/chai2010/luapkg-go/lustache"
 	lua_strings "github.com/chai2010/luapkg-go/strings"
 	lua_url "github.com/chai2010/luapkg-go/url"
-	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
+	lua_qc_iaas "github.com/chai2010/qingcloud-go/pkg/luapkg/qingcloud.iaas"
 )
 
 func init() {

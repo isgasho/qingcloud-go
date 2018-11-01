@@ -9,7 +9,7 @@ package main
 import (
 	"github.com/yuin/gopher-lua"
 
-	qc_iaas "github.com/chai2010/qingcloud-go/pkg/gopher-lua/qingcloud.iaas"
+	qc_iaas "github.com/chai2010/qingcloud-go/pkg/luapkg/qingcloud.iaas"
 )
 
 func main() {
